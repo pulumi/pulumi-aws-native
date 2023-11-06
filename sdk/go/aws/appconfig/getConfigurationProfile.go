@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::AppConfig::ConfigurationProfile
+// An example resource schema demonstrating some basic constructs and validation rules.
 func LookupConfigurationProfile(ctx *pulumi.Context, args *LookupConfigurationProfileArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConfigurationProfileResult
@@ -24,17 +24,29 @@ func LookupConfigurationProfile(ctx *pulumi.Context, args *LookupConfigurationPr
 }
 
 type LookupConfigurationProfileArgs struct {
-	Id string `pulumi:"id"`
+	// The application ID.
+	ApplicationId string `pulumi:"applicationId"`
+	// The configuration profile ID
+	ConfigurationProfileId string `pulumi:"configurationProfileId"`
 }
 
 type LookupConfigurationProfileResult struct {
-	Description      *string                          `pulumi:"description"`
-	Id               *string                          `pulumi:"id"`
-	KmsKeyIdentifier *string                          `pulumi:"kmsKeyIdentifier"`
-	Name             *string                          `pulumi:"name"`
-	RetrievalRoleArn *string                          `pulumi:"retrievalRoleArn"`
-	Tags             []ConfigurationProfileTags       `pulumi:"tags"`
-	Validators       []ConfigurationProfileValidators `pulumi:"validators"`
+	// The configuration profile ID
+	ConfigurationProfileId *string `pulumi:"configurationProfileId"`
+	// A description of the configuration profile.
+	Description *string `pulumi:"description"`
+	// The Amazon Resource Name of the AWS Key Management Service key to encrypt new configuration data versions in the AWS AppConfig hosted configuration store. This attribute is only used for hosted configuration types. To encrypt data managed in other configuration stores, see the documentation for how to specify an AWS KMS key for that particular service.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
+	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
+	// A name for the configuration profile.
+	Name *string `pulumi:"name"`
+	// The ARN of an IAM role with permission to access the configuration at the specified LocationUri.
+	RetrievalRoleArn *string `pulumi:"retrievalRoleArn"`
+	// Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+	Tags []ConfigurationProfileTags `pulumi:"tags"`
+	// A list of methods for validating the configuration.
+	Validators []ConfigurationProfileValidators `pulumi:"validators"`
 }
 
 func LookupConfigurationProfileOutput(ctx *pulumi.Context, args LookupConfigurationProfileOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationProfileResultOutput {
@@ -51,7 +63,10 @@ func LookupConfigurationProfileOutput(ctx *pulumi.Context, args LookupConfigurat
 }
 
 type LookupConfigurationProfileOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The application ID.
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+	// The configuration profile ID
+	ConfigurationProfileId pulumi.StringInput `pulumi:"configurationProfileId"`
 }
 
 func (LookupConfigurationProfileOutputArgs) ElementType() reflect.Type {
@@ -78,30 +93,42 @@ func (o LookupConfigurationProfileResultOutput) ToOutput(ctx context.Context) pu
 	}
 }
 
+// The configuration profile ID
+func (o LookupConfigurationProfileResultOutput) ConfigurationProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationProfileResult) *string { return v.ConfigurationProfileId }).(pulumi.StringPtrOutput)
+}
+
+// A description of the configuration profile.
 func (o LookupConfigurationProfileResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationProfileResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupConfigurationProfileResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupConfigurationProfileResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+// The Amazon Resource Name of the AWS Key Management Service key to encrypt new configuration data versions in the AWS AppConfig hosted configuration store. This attribute is only used for hosted configuration types. To encrypt data managed in other configuration stores, see the documentation for how to specify an AWS KMS key for that particular service.
+func (o LookupConfigurationProfileResultOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupConfigurationProfileResult) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
+// The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
 func (o LookupConfigurationProfileResultOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationProfileResult) *string { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// A name for the configuration profile.
 func (o LookupConfigurationProfileResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationProfileResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of an IAM role with permission to access the configuration at the specified LocationUri.
 func (o LookupConfigurationProfileResultOutput) RetrievalRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigurationProfileResult) *string { return v.RetrievalRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 func (o LookupConfigurationProfileResultOutput) Tags() ConfigurationProfileTagsArrayOutput {
 	return o.ApplyT(func(v LookupConfigurationProfileResult) []ConfigurationProfileTags { return v.Tags }).(ConfigurationProfileTagsArrayOutput)
 }
 
+// A list of methods for validating the configuration.
 func (o LookupConfigurationProfileResultOutput) Validators() ConfigurationProfileValidatorsArrayOutput {
 	return o.ApplyT(func(v LookupConfigurationProfileResult) []ConfigurationProfileValidators { return v.Validators }).(ConfigurationProfileValidatorsArrayOutput)
 }

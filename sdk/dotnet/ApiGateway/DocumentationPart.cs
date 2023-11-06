@@ -15,9 +15,6 @@ namespace Pulumi.AwsNative.ApiGateway
     [AwsNativeResourceType("aws-native:apigateway:DocumentationPart")]
     public partial class DocumentationPart : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The identifier of the documentation Part.
-        /// </summary>
         [Output("documentationPartId")]
         public Output<string> DocumentationPartId { get; private set; } = null!;
 

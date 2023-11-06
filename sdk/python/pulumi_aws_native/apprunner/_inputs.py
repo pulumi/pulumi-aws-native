@@ -749,14 +749,18 @@ class ServiceKeyValuePairArgs:
 class ServiceNetworkConfigurationArgs:
     def __init__(__self__, *,
                  egress_configuration: Optional[pulumi.Input['ServiceEgressConfigurationArgs']] = None,
-                 ingress_configuration: Optional[pulumi.Input['ServiceIngressConfigurationArgs']] = None):
+                 ingress_configuration: Optional[pulumi.Input['ServiceIngressConfigurationArgs']] = None,
+                 ip_address_type: Optional[pulumi.Input['ServiceNetworkConfigurationIpAddressType']] = None):
         """
         Network configuration
+        :param pulumi.Input['ServiceNetworkConfigurationIpAddressType'] ip_address_type: App Runner service endpoint IP address type
         """
         if egress_configuration is not None:
             pulumi.set(__self__, "egress_configuration", egress_configuration)
         if ingress_configuration is not None:
             pulumi.set(__self__, "ingress_configuration", ingress_configuration)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
 
     @property
     @pulumi.getter(name="egressConfiguration")
@@ -775,6 +779,18 @@ class ServiceNetworkConfigurationArgs:
     @ingress_configuration.setter
     def ingress_configuration(self, value: Optional[pulumi.Input['ServiceIngressConfigurationArgs']]):
         pulumi.set(self, "ingress_configuration", value)
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationIpAddressType']]:
+        """
+        App Runner service endpoint IP address type
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationIpAddressType']]):
+        pulumi.set(self, "ip_address_type", value)
 
 
 @pulumi.input_type

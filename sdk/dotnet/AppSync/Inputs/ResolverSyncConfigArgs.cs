@@ -12,15 +12,9 @@ namespace Pulumi.AwsNative.AppSync.Inputs
 
     public sealed class ResolverSyncConfigArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Conflict Detection strategy to use.
-        /// </summary>
         [Input("conflictDetection", required: true)]
         public Input<string> ConflictDetection { get; set; } = null!;
 
-        /// <summary>
-        /// The Conflict Resolution strategy to perform in the event of a conflict.
-        /// </summary>
         [Input("conflictHandler")]
         public Input<string>? ConflictHandler { get; set; }
 

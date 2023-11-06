@@ -24,15 +24,13 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 }
 
 type LookupAccountArgs struct {
-	// Primary identifier which is manually generated.
 	Id string `pulumi:"id"`
 }
 
 type LookupAccountResult struct {
 	// The ARN of an Amazon CloudWatch role for the current Account.
 	CloudWatchRoleArn *string `pulumi:"cloudWatchRoleArn"`
-	// Primary identifier which is manually generated.
-	Id *string `pulumi:"id"`
+	Id                *string `pulumi:"id"`
 }
 
 func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts ...pulumi.InvokeOption) LookupAccountResultOutput {
@@ -49,7 +47,6 @@ func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts
 }
 
 type LookupAccountOutputArgs struct {
-	// Primary identifier which is manually generated.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -82,7 +79,6 @@ func (o LookupAccountResultOutput) CloudWatchRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAccountResult) *string { return v.CloudWatchRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Primary identifier which is manually generated.
 func (o LookupAccountResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAccountResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

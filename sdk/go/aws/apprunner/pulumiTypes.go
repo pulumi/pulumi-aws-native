@@ -2775,6 +2775,8 @@ func (o ServiceKeyValuePairArrayOutput) Index(i pulumi.IntInput) ServiceKeyValue
 type ServiceNetworkConfiguration struct {
 	EgressConfiguration  *ServiceEgressConfiguration  `pulumi:"egressConfiguration"`
 	IngressConfiguration *ServiceIngressConfiguration `pulumi:"ingressConfiguration"`
+	// App Runner service endpoint IP address type
+	IpAddressType *ServiceNetworkConfigurationIpAddressType `pulumi:"ipAddressType"`
 }
 
 // ServiceNetworkConfigurationInput is an input type that accepts ServiceNetworkConfigurationArgs and ServiceNetworkConfigurationOutput values.
@@ -2792,6 +2794,8 @@ type ServiceNetworkConfigurationInput interface {
 type ServiceNetworkConfigurationArgs struct {
 	EgressConfiguration  ServiceEgressConfigurationPtrInput  `pulumi:"egressConfiguration"`
 	IngressConfiguration ServiceIngressConfigurationPtrInput `pulumi:"ingressConfiguration"`
+	// App Runner service endpoint IP address type
+	IpAddressType ServiceNetworkConfigurationIpAddressTypePtrInput `pulumi:"ipAddressType"`
 }
 
 func (ServiceNetworkConfigurationArgs) ElementType() reflect.Type {
@@ -2898,6 +2902,11 @@ func (o ServiceNetworkConfigurationOutput) IngressConfiguration() ServiceIngress
 	return o.ApplyT(func(v ServiceNetworkConfiguration) *ServiceIngressConfiguration { return v.IngressConfiguration }).(ServiceIngressConfigurationPtrOutput)
 }
 
+// App Runner service endpoint IP address type
+func (o ServiceNetworkConfigurationOutput) IpAddressType() ServiceNetworkConfigurationIpAddressTypePtrOutput {
+	return o.ApplyT(func(v ServiceNetworkConfiguration) *ServiceNetworkConfigurationIpAddressType { return v.IpAddressType }).(ServiceNetworkConfigurationIpAddressTypePtrOutput)
+}
+
 type ServiceNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceNetworkConfigurationPtrOutput) ElementType() reflect.Type {
@@ -2944,6 +2953,16 @@ func (o ServiceNetworkConfigurationPtrOutput) IngressConfiguration() ServiceIngr
 		}
 		return v.IngressConfiguration
 	}).(ServiceIngressConfigurationPtrOutput)
+}
+
+// App Runner service endpoint IP address type
+func (o ServiceNetworkConfigurationPtrOutput) IpAddressType() ServiceNetworkConfigurationIpAddressTypePtrOutput {
+	return o.ApplyT(func(v *ServiceNetworkConfiguration) *ServiceNetworkConfigurationIpAddressType {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddressType
+	}).(ServiceNetworkConfigurationIpAddressTypePtrOutput)
 }
 
 // Service observability configuration

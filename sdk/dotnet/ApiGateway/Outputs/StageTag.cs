@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Outputs
 {
 
-    /// <summary>
-    /// Identify and categorize resources.
-    /// </summary>
     [OutputType]
     public sealed class StageTag
     {

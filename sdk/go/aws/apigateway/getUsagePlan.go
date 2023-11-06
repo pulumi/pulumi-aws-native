@@ -26,7 +26,6 @@ func LookupUsagePlan(ctx *pulumi.Context, args *LookupUsagePlanArgs, opts ...pul
 }
 
 type LookupUsagePlanArgs struct {
-	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 }
 
@@ -35,8 +34,7 @@ type LookupUsagePlanResult struct {
 	ApiStages []UsagePlanApiStage `pulumi:"apiStages"`
 	// The description of a usage plan.
 	Description *string `pulumi:"description"`
-	// The provider-assigned unique ID for this managed resource.
-	Id *string `pulumi:"id"`
+	Id          *string `pulumi:"id"`
 	// The target maximum number of permitted requests per a given unit time interval.
 	Quota *UsagePlanQuotaSettings `pulumi:"quota"`
 	// The collection of tags. Each tag element is associated with a given resource.
@@ -61,7 +59,6 @@ func LookupUsagePlanOutput(ctx *pulumi.Context, args LookupUsagePlanOutputArgs, 
 }
 
 type LookupUsagePlanOutputArgs struct {
-	// The provider-assigned unique ID for this managed resource.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -99,7 +96,6 @@ func (o LookupUsagePlanResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUsagePlanResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The provider-assigned unique ID for this managed resource.
 func (o LookupUsagePlanResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUsagePlanResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

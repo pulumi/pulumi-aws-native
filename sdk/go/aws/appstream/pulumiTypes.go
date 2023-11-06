@@ -3409,8 +3409,9 @@ func (o StackTagArrayOutput) Index(i pulumi.IntInput) StackTagOutput {
 }
 
 type StackUserSetting struct {
-	Action     string `pulumi:"action"`
-	Permission string `pulumi:"permission"`
+	Action        string `pulumi:"action"`
+	MaximumLength *int   `pulumi:"maximumLength"`
+	Permission    string `pulumi:"permission"`
 }
 
 // StackUserSettingInput is an input type that accepts StackUserSettingArgs and StackUserSettingOutput values.
@@ -3425,8 +3426,9 @@ type StackUserSettingInput interface {
 }
 
 type StackUserSettingArgs struct {
-	Action     pulumi.StringInput `pulumi:"action"`
-	Permission pulumi.StringInput `pulumi:"permission"`
+	Action        pulumi.StringInput `pulumi:"action"`
+	MaximumLength pulumi.IntPtrInput `pulumi:"maximumLength"`
+	Permission    pulumi.StringInput `pulumi:"permission"`
 }
 
 func (StackUserSettingArgs) ElementType() reflect.Type {
@@ -3500,6 +3502,10 @@ func (o StackUserSettingOutput) ToOutput(ctx context.Context) pulumix.Output[Sta
 
 func (o StackUserSettingOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v StackUserSetting) string { return v.Action }).(pulumi.StringOutput)
+}
+
+func (o StackUserSettingOutput) MaximumLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StackUserSetting) *int { return v.MaximumLength }).(pulumi.IntPtrOutput)
 }
 
 func (o StackUserSettingOutput) Permission() pulumi.StringOutput {

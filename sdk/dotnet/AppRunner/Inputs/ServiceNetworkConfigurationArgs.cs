@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
         [Input("ingressConfiguration")]
         public Input<Inputs.ServiceIngressConfigurationArgs>? IngressConfiguration { get; set; }
 
+        /// <summary>
+        /// App Runner service endpoint IP address type
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<Pulumi.AwsNative.AppRunner.ServiceNetworkConfigurationIpAddressType>? IpAddressType { get; set; }
+
         public ServiceNetworkConfigurationArgs()
         {
         }

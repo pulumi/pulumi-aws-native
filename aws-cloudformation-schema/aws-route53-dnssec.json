@@ -12,7 +12,9 @@
   "createOnlyProperties" : [ "/properties/HostedZoneId" ],
   "required" : [ "HostedZoneId" ],
   "primaryIdentifier" : [ "/properties/HostedZoneId" ],
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "route53:GetDNSSEC", "route53:EnableHostedZoneDNSSEC", "kms:DescribeKey", "kms:GetPublicKey", "kms:Sign", "kms:CreateGrant" ]

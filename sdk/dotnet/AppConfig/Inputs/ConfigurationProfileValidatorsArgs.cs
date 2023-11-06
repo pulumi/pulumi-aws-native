@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppConfig.Inputs
 {
 
+    /// <summary>
+    /// A list of methods for validating the configuration.
+    /// </summary>
     public sealed class ConfigurationProfileValidatorsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Either the JSON Schema content or the Amazon Resource Name (ARN) of an Lambda function.
+        /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
 
+        /// <summary>
+        /// AWS AppConfig supports validators of type JSON_SCHEMA and LAMBDA.
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

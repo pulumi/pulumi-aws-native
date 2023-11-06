@@ -201,6 +201,37 @@ namespace Pulumi.AwsNative.AppRunner
     }
 
     /// <summary>
+    /// App Runner service endpoint IP address type
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceNetworkConfigurationIpAddressType : IEquatable<ServiceNetworkConfigurationIpAddressType>
+    {
+        private readonly string _value;
+
+        private ServiceNetworkConfigurationIpAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceNetworkConfigurationIpAddressType Ipv4 { get; } = new ServiceNetworkConfigurationIpAddressType("IPV4");
+        public static ServiceNetworkConfigurationIpAddressType DualStack { get; } = new ServiceNetworkConfigurationIpAddressType("DUAL_STACK");
+
+        public static bool operator ==(ServiceNetworkConfigurationIpAddressType left, ServiceNetworkConfigurationIpAddressType right) => left.Equals(right);
+        public static bool operator !=(ServiceNetworkConfigurationIpAddressType left, ServiceNetworkConfigurationIpAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceNetworkConfigurationIpAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceNetworkConfigurationIpAddressType other && Equals(other);
+        public bool Equals(ServiceNetworkConfigurationIpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Source Code Version Type
     /// </summary>
     [EnumType]

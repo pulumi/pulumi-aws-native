@@ -164,9 +164,6 @@ class DocumentationPart(pulumi.CustomResource):
     @property
     @pulumi.getter(name="documentationPartId")
     def documentation_part_id(self) -> pulumi.Output[str]:
-        """
-        The identifier of the documentation Part.
-        """
         return pulumi.get(self, "documentation_part_id")
 
     @property

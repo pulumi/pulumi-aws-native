@@ -177,9 +177,6 @@ class Resource(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[str]:
-        """
-        A unique primary identifier for a Resource
-        """
         return pulumi.get(self, "resource_id")
 
     @property

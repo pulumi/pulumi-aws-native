@@ -1046,9 +1046,6 @@ export namespace apigateway {
         throttlingRateLimit?: number;
     }
 
-    /**
-     * Identify and categorize resources.
-     */
     export interface StageTag {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:.
@@ -1302,13 +1299,31 @@ export namespace appconfig {
         value: string;
     }
 
+    /**
+     * Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+     */
     export interface ConfigurationProfileTags {
+        /**
+         * The key-value string map. The tag key can be up to 128 characters and must not start with aws:.
+         */
         key?: string;
+        /**
+         * The tag value can be up to 256 characters.
+         */
         value?: string;
     }
 
+    /**
+     * A list of methods for validating the configuration.
+     */
     export interface ConfigurationProfileValidators {
+        /**
+         * Either the JSON Schema content or the Amazon Resource Name (ARN) of an Lambda function.
+         */
         content?: string;
+        /**
+         * AWS AppConfig supports validators of type JSON_SCHEMA and LAMBDA.
+         */
         type?: string;
     }
 
@@ -3783,6 +3798,10 @@ export namespace apprunner {
     export interface ServiceNetworkConfiguration {
         egressConfiguration?: outputs.apprunner.ServiceEgressConfiguration;
         ingressConfiguration?: outputs.apprunner.ServiceIngressConfiguration;
+        /**
+         * App Runner service endpoint IP address type
+         */
+        ipAddressType?: enums.apprunner.ServiceNetworkConfigurationIpAddressType;
     }
 
     /**
@@ -3997,6 +4016,7 @@ export namespace appstream {
 
     export interface StackUserSetting {
         action: string;
+        maximumLength?: number;
         permission: string;
     }
 
@@ -4147,52 +4167,25 @@ export namespace appsync {
     }
 
     export interface ResolverAppSyncRuntime {
-        /**
-         * The name of the runtime to use.
-         */
         name: string;
-        /**
-         * The version of the runtime to use.
-         */
         runtimeVersion: string;
     }
 
     export interface ResolverCachingConfig {
-        /**
-         * The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
-         */
         cachingKeys?: string[];
-        /**
-         * The TTL in seconds for a resolver that has caching activated. Valid values are 1-36.00 seconds.
-         */
         ttl: number;
     }
 
-    /**
-     * The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
-     */
     export interface ResolverLambdaConflictHandlerConfig {
-        /**
-         * The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
-         */
         lambdaConflictHandlerArn?: string;
     }
 
     export interface ResolverPipelineConfig {
-        /**
-         * A list of Function objects.
-         */
         functions?: string[];
     }
 
     export interface ResolverSyncConfig {
-        /**
-         * The Conflict Detection strategy to use.
-         */
         conflictDetection: string;
-        /**
-         * The Conflict Resolution strategy to perform in the event of a conflict.
-         */
         conflictHandler?: string;
         lambdaConflictHandlerConfig?: outputs.appsync.ResolverLambdaConflictHandlerConfig;
     }
@@ -4571,7 +4564,7 @@ export namespace autoscaling {
 
     export interface AutoScalingGroupNotificationConfiguration {
         notificationTypes?: string[];
-        topicArn: string[];
+        topicArn: string;
     }
 
     export interface AutoScalingGroupTagProperty {
@@ -6848,13 +6841,13 @@ export namespace codebuild {
 
     export interface ProjectEnvironment {
         certificate?: string;
-        computeType: string;
+        computeType?: string;
         environmentVariables?: outputs.codebuild.ProjectEnvironmentVariable[];
         image: string;
         imagePullCredentialsType?: string;
         privilegedMode?: boolean;
         registryCredential?: outputs.codebuild.ProjectRegistryCredential;
-        type: string;
+        type?: string;
     }
 
     export interface ProjectEnvironmentVariable {
@@ -11427,6 +11420,7 @@ export namespace dlm {
         interval?: number;
         intervalUnit?: string;
         location?: string;
+        scripts?: outputs.dlm.LifecyclePolicyScript[];
         times?: string[];
     }
 
@@ -11526,6 +11520,15 @@ export namespace dlm {
         shareRules?: outputs.dlm.LifecyclePolicyShareRule[];
         tagsToAdd?: outputs.dlm.LifecyclePolicyTag[];
         variableTags?: outputs.dlm.LifecyclePolicyTag[];
+    }
+
+    export interface LifecyclePolicyScript {
+        executeOperationOnScriptFailure?: boolean;
+        executionHandler?: string;
+        executionHandlerService?: string;
+        executionTimeout?: number;
+        maximumRetryCount?: number;
+        stages?: string[];
     }
 
     export interface LifecyclePolicyShareRule {
@@ -47237,6 +47240,7 @@ export namespace s3 {
         advancedDataProtectionMetrics?: outputs.s3.StorageLensAdvancedDataProtectionMetrics;
         bucketLevel: outputs.s3.StorageLensBucketLevel;
         detailedStatusCodesMetrics?: outputs.s3.StorageLensDetailedStatusCodesMetrics;
+        storageLensGroupLevel?: outputs.s3.StorageLensGroupLevel;
     }
 
     /**
@@ -47347,6 +47351,21 @@ export namespace s3 {
      * Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
      */
     export interface StorageLensEncryption {
+    }
+
+    /**
+     * Specifies the details of Amazon S3 Storage Lens Group configuration.
+     */
+    export interface StorageLensGroupLevel {
+        storageLensGroupSelectionCriteria?: outputs.s3.StorageLensGroupSelectionCriteria;
+    }
+
+    /**
+     * Selection criteria for Storage Lens Group level metrics
+     */
+    export interface StorageLensGroupSelectionCriteria {
+        exclude?: string[];
+        include?: string[];
     }
 
     /**

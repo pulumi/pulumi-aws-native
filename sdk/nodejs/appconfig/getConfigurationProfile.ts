@@ -8,36 +8,76 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::AppConfig::ConfigurationProfile
+ * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getConfigurationProfile(args: GetConfigurationProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appconfig:getConfigurationProfile", {
-        "id": args.id,
+        "applicationId": args.applicationId,
+        "configurationProfileId": args.configurationProfileId,
     }, opts);
 }
 
 export interface GetConfigurationProfileArgs {
-    id: string;
+    /**
+     * The application ID.
+     */
+    applicationId: string;
+    /**
+     * The configuration profile ID
+     */
+    configurationProfileId: string;
 }
 
 export interface GetConfigurationProfileResult {
+    /**
+     * The configuration profile ID
+     */
+    readonly configurationProfileId?: string;
+    /**
+     * A description of the configuration profile.
+     */
     readonly description?: string;
-    readonly id?: string;
+    /**
+     * The Amazon Resource Name of the AWS Key Management Service key to encrypt new configuration data versions in the AWS AppConfig hosted configuration store. This attribute is only used for hosted configuration types. To encrypt data managed in other configuration stores, see the documentation for how to specify an AWS KMS key for that particular service.
+     */
+    readonly kmsKeyArn?: string;
+    /**
+     * The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
+     */
     readonly kmsKeyIdentifier?: string;
+    /**
+     * A name for the configuration profile.
+     */
     readonly name?: string;
+    /**
+     * The ARN of an IAM role with permission to access the configuration at the specified LocationUri.
+     */
     readonly retrievalRoleArn?: string;
+    /**
+     * Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+     */
     readonly tags?: outputs.appconfig.ConfigurationProfileTags[];
+    /**
+     * A list of methods for validating the configuration.
+     */
     readonly validators?: outputs.appconfig.ConfigurationProfileValidators[];
 }
 /**
- * Resource Type definition for AWS::AppConfig::ConfigurationProfile
+ * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export function getConfigurationProfileOutput(args: GetConfigurationProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationProfile(a, opts))
 }
 
 export interface GetConfigurationProfileOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The application ID.
+     */
+    applicationId: pulumi.Input<string>;
+    /**
+     * The configuration profile ID
+     */
+    configurationProfileId: pulumi.Input<string>;
 }

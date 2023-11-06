@@ -1116,6 +1116,189 @@ func (in *serviceImageRepositoryImageRepositoryTypePtr) ToOutput(ctx context.Con
 	}
 }
 
+// App Runner service endpoint IP address type
+type ServiceNetworkConfigurationIpAddressType string
+
+const (
+	ServiceNetworkConfigurationIpAddressTypeIpv4      = ServiceNetworkConfigurationIpAddressType("IPV4")
+	ServiceNetworkConfigurationIpAddressTypeDualStack = ServiceNetworkConfigurationIpAddressType("DUAL_STACK")
+)
+
+func (ServiceNetworkConfigurationIpAddressType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNetworkConfigurationIpAddressType)(nil)).Elem()
+}
+
+func (e ServiceNetworkConfigurationIpAddressType) ToServiceNetworkConfigurationIpAddressTypeOutput() ServiceNetworkConfigurationIpAddressTypeOutput {
+	return pulumi.ToOutput(e).(ServiceNetworkConfigurationIpAddressTypeOutput)
+}
+
+func (e ServiceNetworkConfigurationIpAddressType) ToServiceNetworkConfigurationIpAddressTypeOutputWithContext(ctx context.Context) ServiceNetworkConfigurationIpAddressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceNetworkConfigurationIpAddressTypeOutput)
+}
+
+func (e ServiceNetworkConfigurationIpAddressType) ToServiceNetworkConfigurationIpAddressTypePtrOutput() ServiceNetworkConfigurationIpAddressTypePtrOutput {
+	return e.ToServiceNetworkConfigurationIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (e ServiceNetworkConfigurationIpAddressType) ToServiceNetworkConfigurationIpAddressTypePtrOutputWithContext(ctx context.Context) ServiceNetworkConfigurationIpAddressTypePtrOutput {
+	return ServiceNetworkConfigurationIpAddressType(e).ToServiceNetworkConfigurationIpAddressTypeOutputWithContext(ctx).ToServiceNetworkConfigurationIpAddressTypePtrOutputWithContext(ctx)
+}
+
+func (e ServiceNetworkConfigurationIpAddressType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceNetworkConfigurationIpAddressType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceNetworkConfigurationIpAddressType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceNetworkConfigurationIpAddressType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServiceNetworkConfigurationIpAddressTypeOutput struct{ *pulumi.OutputState }
+
+func (ServiceNetworkConfigurationIpAddressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNetworkConfigurationIpAddressType)(nil)).Elem()
+}
+
+func (o ServiceNetworkConfigurationIpAddressTypeOutput) ToServiceNetworkConfigurationIpAddressTypeOutput() ServiceNetworkConfigurationIpAddressTypeOutput {
+	return o
+}
+
+func (o ServiceNetworkConfigurationIpAddressTypeOutput) ToServiceNetworkConfigurationIpAddressTypeOutputWithContext(ctx context.Context) ServiceNetworkConfigurationIpAddressTypeOutput {
+	return o
+}
+
+func (o ServiceNetworkConfigurationIpAddressTypeOutput) ToServiceNetworkConfigurationIpAddressTypePtrOutput() ServiceNetworkConfigurationIpAddressTypePtrOutput {
+	return o.ToServiceNetworkConfigurationIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceNetworkConfigurationIpAddressTypeOutput) ToServiceNetworkConfigurationIpAddressTypePtrOutputWithContext(ctx context.Context) ServiceNetworkConfigurationIpAddressTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceNetworkConfigurationIpAddressType) *ServiceNetworkConfigurationIpAddressType {
+		return &v
+	}).(ServiceNetworkConfigurationIpAddressTypePtrOutput)
+}
+
+func (o ServiceNetworkConfigurationIpAddressTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceNetworkConfigurationIpAddressType] {
+	return pulumix.Output[ServiceNetworkConfigurationIpAddressType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServiceNetworkConfigurationIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceNetworkConfigurationIpAddressTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceNetworkConfigurationIpAddressType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceNetworkConfigurationIpAddressTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceNetworkConfigurationIpAddressTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceNetworkConfigurationIpAddressType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceNetworkConfigurationIpAddressTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceNetworkConfigurationIpAddressTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNetworkConfigurationIpAddressType)(nil)).Elem()
+}
+
+func (o ServiceNetworkConfigurationIpAddressTypePtrOutput) ToServiceNetworkConfigurationIpAddressTypePtrOutput() ServiceNetworkConfigurationIpAddressTypePtrOutput {
+	return o
+}
+
+func (o ServiceNetworkConfigurationIpAddressTypePtrOutput) ToServiceNetworkConfigurationIpAddressTypePtrOutputWithContext(ctx context.Context) ServiceNetworkConfigurationIpAddressTypePtrOutput {
+	return o
+}
+
+func (o ServiceNetworkConfigurationIpAddressTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkConfigurationIpAddressType] {
+	return pulumix.Output[*ServiceNetworkConfigurationIpAddressType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServiceNetworkConfigurationIpAddressTypePtrOutput) Elem() ServiceNetworkConfigurationIpAddressTypeOutput {
+	return o.ApplyT(func(v *ServiceNetworkConfigurationIpAddressType) ServiceNetworkConfigurationIpAddressType {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceNetworkConfigurationIpAddressType
+		return ret
+	}).(ServiceNetworkConfigurationIpAddressTypeOutput)
+}
+
+func (o ServiceNetworkConfigurationIpAddressTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceNetworkConfigurationIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceNetworkConfigurationIpAddressType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceNetworkConfigurationIpAddressTypeInput is an input type that accepts ServiceNetworkConfigurationIpAddressTypeArgs and ServiceNetworkConfigurationIpAddressTypeOutput values.
+// You can construct a concrete instance of `ServiceNetworkConfigurationIpAddressTypeInput` via:
+//
+//	ServiceNetworkConfigurationIpAddressTypeArgs{...}
+type ServiceNetworkConfigurationIpAddressTypeInput interface {
+	pulumi.Input
+
+	ToServiceNetworkConfigurationIpAddressTypeOutput() ServiceNetworkConfigurationIpAddressTypeOutput
+	ToServiceNetworkConfigurationIpAddressTypeOutputWithContext(context.Context) ServiceNetworkConfigurationIpAddressTypeOutput
+}
+
+var serviceNetworkConfigurationIpAddressTypePtrType = reflect.TypeOf((**ServiceNetworkConfigurationIpAddressType)(nil)).Elem()
+
+type ServiceNetworkConfigurationIpAddressTypePtrInput interface {
+	pulumi.Input
+
+	ToServiceNetworkConfigurationIpAddressTypePtrOutput() ServiceNetworkConfigurationIpAddressTypePtrOutput
+	ToServiceNetworkConfigurationIpAddressTypePtrOutputWithContext(context.Context) ServiceNetworkConfigurationIpAddressTypePtrOutput
+}
+
+type serviceNetworkConfigurationIpAddressTypePtr string
+
+func ServiceNetworkConfigurationIpAddressTypePtr(v string) ServiceNetworkConfigurationIpAddressTypePtrInput {
+	return (*serviceNetworkConfigurationIpAddressTypePtr)(&v)
+}
+
+func (*serviceNetworkConfigurationIpAddressTypePtr) ElementType() reflect.Type {
+	return serviceNetworkConfigurationIpAddressTypePtrType
+}
+
+func (in *serviceNetworkConfigurationIpAddressTypePtr) ToServiceNetworkConfigurationIpAddressTypePtrOutput() ServiceNetworkConfigurationIpAddressTypePtrOutput {
+	return pulumi.ToOutput(in).(ServiceNetworkConfigurationIpAddressTypePtrOutput)
+}
+
+func (in *serviceNetworkConfigurationIpAddressTypePtr) ToServiceNetworkConfigurationIpAddressTypePtrOutputWithContext(ctx context.Context) ServiceNetworkConfigurationIpAddressTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceNetworkConfigurationIpAddressTypePtrOutput)
+}
+
+func (in *serviceNetworkConfigurationIpAddressTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkConfigurationIpAddressType] {
+	return pulumix.Output[*ServiceNetworkConfigurationIpAddressType]{
+		OutputState: in.ToServiceNetworkConfigurationIpAddressTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Source Code Version Type
 type ServiceSourceCodeVersionType string
 
@@ -1420,6 +1603,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHealthCheckConfigurationProtocolPtrInput)(nil)).Elem(), ServiceHealthCheckConfigurationProtocol("TCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceImageRepositoryImageRepositoryTypeInput)(nil)).Elem(), ServiceImageRepositoryImageRepositoryType("ECR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceImageRepositoryImageRepositoryTypePtrInput)(nil)).Elem(), ServiceImageRepositoryImageRepositoryType("ECR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkConfigurationIpAddressTypeInput)(nil)).Elem(), ServiceNetworkConfigurationIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkConfigurationIpAddressTypePtrInput)(nil)).Elem(), ServiceNetworkConfigurationIpAddressType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceCodeVersionTypeInput)(nil)).Elem(), ServiceSourceCodeVersionType("BRANCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceCodeVersionTypePtrInput)(nil)).Elem(), ServiceSourceCodeVersionType("BRANCH"))
 	pulumi.RegisterOutputType(ObservabilityConfigurationTraceConfigurationVendorOutput{})
@@ -1434,6 +1619,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceHealthCheckConfigurationProtocolPtrOutput{})
 	pulumi.RegisterOutputType(ServiceImageRepositoryImageRepositoryTypeOutput{})
 	pulumi.RegisterOutputType(ServiceImageRepositoryImageRepositoryTypePtrOutput{})
+	pulumi.RegisterOutputType(ServiceNetworkConfigurationIpAddressTypeOutput{})
+	pulumi.RegisterOutputType(ServiceNetworkConfigurationIpAddressTypePtrOutput{})
 	pulumi.RegisterOutputType(ServiceSourceCodeVersionTypeOutput{})
 	pulumi.RegisterOutputType(ServiceSourceCodeVersionTypePtrOutput{})
 	pulumi.RegisterOutputType(VpcIngressConnectionStatusOutput{})

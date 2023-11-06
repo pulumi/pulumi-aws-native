@@ -24,14 +24,12 @@ func LookupDocumentationPart(ctx *pulumi.Context, args *LookupDocumentationPartA
 }
 
 type LookupDocumentationPartArgs struct {
-	// The identifier of the documentation Part.
 	DocumentationPartId string `pulumi:"documentationPartId"`
 	// The string identifier of the associated RestApi.
 	RestApiId string `pulumi:"restApiId"`
 }
 
 type LookupDocumentationPartResult struct {
-	// The identifier of the documentation Part.
 	DocumentationPartId *string `pulumi:"documentationPartId"`
 	// The new documentation content map of the targeted API entity. Enclosed key-value pairs are API-specific, but only OpenAPI-compliant key-value pairs can be exported and, hence, published.
 	Properties *string `pulumi:"properties"`
@@ -51,7 +49,6 @@ func LookupDocumentationPartOutput(ctx *pulumi.Context, args LookupDocumentation
 }
 
 type LookupDocumentationPartOutputArgs struct {
-	// The identifier of the documentation Part.
 	DocumentationPartId pulumi.StringInput `pulumi:"documentationPartId"`
 	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
@@ -81,7 +78,6 @@ func (o LookupDocumentationPartResultOutput) ToOutput(ctx context.Context) pulum
 	}
 }
 
-// The identifier of the documentation Part.
 func (o LookupDocumentationPartResultOutput) DocumentationPartId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDocumentationPartResult) *string { return v.DocumentationPartId }).(pulumi.StringPtrOutput)
 }

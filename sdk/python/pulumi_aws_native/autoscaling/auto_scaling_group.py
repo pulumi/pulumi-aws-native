@@ -37,6 +37,7 @@ class AutoScalingGroupArgs:
                  metrics_collection: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupMetricsCollectionArgs']]]] = None,
                  mixed_instances_policy: Optional[pulumi.Input['AutoScalingGroupMixedInstancesPolicyArgs']] = None,
                  new_instances_protected_from_scale_in: Optional[pulumi.Input[bool]] = None,
+                 notification_configuration: Optional[pulumi.Input['AutoScalingGroupNotificationConfigurationArgs']] = None,
                  notification_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupNotificationConfigurationArgs']]]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
                  service_linked_role_arn: Optional[pulumi.Input[str]] = None,
@@ -87,6 +88,8 @@ class AutoScalingGroupArgs:
             pulumi.set(__self__, "mixed_instances_policy", mixed_instances_policy)
         if new_instances_protected_from_scale_in is not None:
             pulumi.set(__self__, "new_instances_protected_from_scale_in", new_instances_protected_from_scale_in)
+        if notification_configuration is not None:
+            pulumi.set(__self__, "notification_configuration", notification_configuration)
         if notification_configurations is not None:
             pulumi.set(__self__, "notification_configurations", notification_configurations)
         if placement_group is not None:
@@ -292,6 +295,15 @@ class AutoScalingGroupArgs:
         pulumi.set(self, "new_instances_protected_from_scale_in", value)
 
     @property
+    @pulumi.getter(name="notificationConfiguration")
+    def notification_configuration(self) -> Optional[pulumi.Input['AutoScalingGroupNotificationConfigurationArgs']]:
+        return pulumi.get(self, "notification_configuration")
+
+    @notification_configuration.setter
+    def notification_configuration(self, value: Optional[pulumi.Input['AutoScalingGroupNotificationConfigurationArgs']]):
+        pulumi.set(self, "notification_configuration", value)
+
+    @property
     @pulumi.getter(name="notificationConfigurations")
     def notification_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupNotificationConfigurationArgs']]]]:
         return pulumi.get(self, "notification_configurations")
@@ -381,6 +393,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                  min_size: Optional[pulumi.Input[str]] = None,
                  mixed_instances_policy: Optional[pulumi.Input[pulumi.InputType['AutoScalingGroupMixedInstancesPolicyArgs']]] = None,
                  new_instances_protected_from_scale_in: Optional[pulumi.Input[bool]] = None,
+                 notification_configuration: Optional[pulumi.Input[pulumi.InputType['AutoScalingGroupNotificationConfigurationArgs']]] = None,
                  notification_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoScalingGroupNotificationConfigurationArgs']]]]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
                  service_linked_role_arn: Optional[pulumi.Input[str]] = None,
@@ -440,6 +453,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                  min_size: Optional[pulumi.Input[str]] = None,
                  mixed_instances_policy: Optional[pulumi.Input[pulumi.InputType['AutoScalingGroupMixedInstancesPolicyArgs']]] = None,
                  new_instances_protected_from_scale_in: Optional[pulumi.Input[bool]] = None,
+                 notification_configuration: Optional[pulumi.Input[pulumi.InputType['AutoScalingGroupNotificationConfigurationArgs']]] = None,
                  notification_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutoScalingGroupNotificationConfigurationArgs']]]]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
                  service_linked_role_arn: Optional[pulumi.Input[str]] = None,
@@ -481,6 +495,7 @@ class AutoScalingGroup(pulumi.CustomResource):
             __props__.__dict__["min_size"] = min_size
             __props__.__dict__["mixed_instances_policy"] = mixed_instances_policy
             __props__.__dict__["new_instances_protected_from_scale_in"] = new_instances_protected_from_scale_in
+            __props__.__dict__["notification_configuration"] = notification_configuration
             __props__.__dict__["notification_configurations"] = notification_configurations
             __props__.__dict__["placement_group"] = placement_group
             __props__.__dict__["service_linked_role_arn"] = service_linked_role_arn
@@ -533,6 +548,7 @@ class AutoScalingGroup(pulumi.CustomResource):
         __props__.__dict__["min_size"] = None
         __props__.__dict__["mixed_instances_policy"] = None
         __props__.__dict__["new_instances_protected_from_scale_in"] = None
+        __props__.__dict__["notification_configuration"] = None
         __props__.__dict__["notification_configurations"] = None
         __props__.__dict__["placement_group"] = None
         __props__.__dict__["service_linked_role_arn"] = None
@@ -646,6 +662,11 @@ class AutoScalingGroup(pulumi.CustomResource):
     @pulumi.getter(name="newInstancesProtectedFromScaleIn")
     def new_instances_protected_from_scale_in(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "new_instances_protected_from_scale_in")
+
+    @property
+    @pulumi.getter(name="notificationConfiguration")
+    def notification_configuration(self) -> pulumi.Output[Optional['outputs.AutoScalingGroupNotificationConfiguration']]:
+        return pulumi.get(self, "notification_configuration")
 
     @property
     @pulumi.getter(name="notificationConfigurations")

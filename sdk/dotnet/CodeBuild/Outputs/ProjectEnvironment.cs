@@ -14,19 +14,19 @@ namespace Pulumi.AwsNative.CodeBuild.Outputs
     public sealed class ProjectEnvironment
     {
         public readonly string? Certificate;
-        public readonly string ComputeType;
+        public readonly string? ComputeType;
         public readonly ImmutableArray<Outputs.ProjectEnvironmentVariable> EnvironmentVariables;
         public readonly string Image;
         public readonly string? ImagePullCredentialsType;
         public readonly bool? PrivilegedMode;
         public readonly Outputs.ProjectRegistryCredential? RegistryCredential;
-        public readonly string Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private ProjectEnvironment(
             string? certificate,
 
-            string computeType,
+            string? computeType,
 
             ImmutableArray<Outputs.ProjectEnvironmentVariable> environmentVariables,
 
@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.CodeBuild.Outputs
 
             Outputs.ProjectRegistryCredential? registryCredential,
 
-            string type)
+            string? type)
         {
             Certificate = certificate;
             ComputeType = computeType;

@@ -13,21 +13,32 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::AppConfig::ConfigurationProfile
-//
-// Deprecated: ConfigurationProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// An example resource schema demonstrating some basic constructs and validation rules.
 type ConfigurationProfile struct {
 	pulumi.CustomResourceState
 
-	ApplicationId    pulumi.StringOutput                       `pulumi:"applicationId"`
-	Description      pulumi.StringPtrOutput                    `pulumi:"description"`
-	KmsKeyIdentifier pulumi.StringPtrOutput                    `pulumi:"kmsKeyIdentifier"`
-	LocationUri      pulumi.StringOutput                       `pulumi:"locationUri"`
-	Name             pulumi.StringOutput                       `pulumi:"name"`
-	RetrievalRoleArn pulumi.StringPtrOutput                    `pulumi:"retrievalRoleArn"`
-	Tags             ConfigurationProfileTagsArrayOutput       `pulumi:"tags"`
-	Type             pulumi.StringPtrOutput                    `pulumi:"type"`
-	Validators       ConfigurationProfileValidatorsArrayOutput `pulumi:"validators"`
+	// The application ID.
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	// The configuration profile ID
+	ConfigurationProfileId pulumi.StringOutput `pulumi:"configurationProfileId"`
+	// A description of the configuration profile.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The Amazon Resource Name of the AWS Key Management Service key to encrypt new configuration data versions in the AWS AppConfig hosted configuration store. This attribute is only used for hosted configuration types. To encrypt data managed in other configuration stores, see the documentation for how to specify an AWS KMS key for that particular service.
+	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
+	// The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
+	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
+	// A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object.
+	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
+	// A name for the configuration profile.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The ARN of an IAM role with permission to access the configuration at the specified LocationUri.
+	RetrievalRoleArn pulumi.StringPtrOutput `pulumi:"retrievalRoleArn"`
+	// Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+	Tags ConfigurationProfileTagsArrayOutput `pulumi:"tags"`
+	// The type of configurations contained in the profile. When calling this API, enter one of the following values for Type: AWS.AppConfig.FeatureFlags, AWS.Freeform
+	Type pulumi.StringPtrOutput `pulumi:"type"`
+	// A list of methods for validating the configuration.
+	Validators ConfigurationProfileValidatorsArrayOutput `pulumi:"validators"`
 }
 
 // NewConfigurationProfile registers a new resource with the given unique name, arguments, and options.
@@ -82,28 +93,46 @@ func (ConfigurationProfileState) ElementType() reflect.Type {
 }
 
 type configurationProfileArgs struct {
-	ApplicationId    string                           `pulumi:"applicationId"`
-	Description      *string                          `pulumi:"description"`
-	KmsKeyIdentifier *string                          `pulumi:"kmsKeyIdentifier"`
-	LocationUri      string                           `pulumi:"locationUri"`
-	Name             *string                          `pulumi:"name"`
-	RetrievalRoleArn *string                          `pulumi:"retrievalRoleArn"`
-	Tags             []ConfigurationProfileTags       `pulumi:"tags"`
-	Type             *string                          `pulumi:"type"`
-	Validators       []ConfigurationProfileValidators `pulumi:"validators"`
+	// The application ID.
+	ApplicationId string `pulumi:"applicationId"`
+	// A description of the configuration profile.
+	Description *string `pulumi:"description"`
+	// The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
+	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
+	// A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object.
+	LocationUri string `pulumi:"locationUri"`
+	// A name for the configuration profile.
+	Name *string `pulumi:"name"`
+	// The ARN of an IAM role with permission to access the configuration at the specified LocationUri.
+	RetrievalRoleArn *string `pulumi:"retrievalRoleArn"`
+	// Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+	Tags []ConfigurationProfileTags `pulumi:"tags"`
+	// The type of configurations contained in the profile. When calling this API, enter one of the following values for Type: AWS.AppConfig.FeatureFlags, AWS.Freeform
+	Type *string `pulumi:"type"`
+	// A list of methods for validating the configuration.
+	Validators []ConfigurationProfileValidators `pulumi:"validators"`
 }
 
 // The set of arguments for constructing a ConfigurationProfile resource.
 type ConfigurationProfileArgs struct {
-	ApplicationId    pulumi.StringInput
-	Description      pulumi.StringPtrInput
+	// The application ID.
+	ApplicationId pulumi.StringInput
+	// A description of the configuration profile.
+	Description pulumi.StringPtrInput
+	// The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
 	KmsKeyIdentifier pulumi.StringPtrInput
-	LocationUri      pulumi.StringInput
-	Name             pulumi.StringPtrInput
+	// A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object.
+	LocationUri pulumi.StringInput
+	// A name for the configuration profile.
+	Name pulumi.StringPtrInput
+	// The ARN of an IAM role with permission to access the configuration at the specified LocationUri.
 	RetrievalRoleArn pulumi.StringPtrInput
-	Tags             ConfigurationProfileTagsArrayInput
-	Type             pulumi.StringPtrInput
-	Validators       ConfigurationProfileValidatorsArrayInput
+	// Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+	Tags ConfigurationProfileTagsArrayInput
+	// The type of configurations contained in the profile. When calling this API, enter one of the following values for Type: AWS.AppConfig.FeatureFlags, AWS.Freeform
+	Type pulumi.StringPtrInput
+	// A list of methods for validating the configuration.
+	Validators ConfigurationProfileValidatorsArrayInput
 }
 
 func (ConfigurationProfileArgs) ElementType() reflect.Type {
@@ -155,38 +184,57 @@ func (o ConfigurationProfileOutput) ToOutput(ctx context.Context) pulumix.Output
 	}
 }
 
+// The application ID.
 func (o ConfigurationProfileOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
+// The configuration profile ID
+func (o ConfigurationProfileOutput) ConfigurationProfileId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringOutput { return v.ConfigurationProfileId }).(pulumi.StringOutput)
+}
+
+// A description of the configuration profile.
 func (o ConfigurationProfileOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name of the AWS Key Management Service key to encrypt new configuration data versions in the AWS AppConfig hosted configuration store. This attribute is only used for hosted configuration types. To encrypt data managed in other configuration stores, see the documentation for how to specify an AWS KMS key for that particular service.
+func (o ConfigurationProfileOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
+}
+
+// The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
 func (o ConfigurationProfileOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object.
 func (o ConfigurationProfileOutput) LocationUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringOutput { return v.LocationUri }).(pulumi.StringOutput)
 }
 
+// A name for the configuration profile.
 func (o ConfigurationProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The ARN of an IAM role with permission to access the configuration at the specified LocationUri.
 func (o ConfigurationProfileOutput) RetrievalRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringPtrOutput { return v.RetrievalRoleArn }).(pulumi.StringPtrOutput)
 }
 
+// Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 func (o ConfigurationProfileOutput) Tags() ConfigurationProfileTagsArrayOutput {
 	return o.ApplyT(func(v *ConfigurationProfile) ConfigurationProfileTagsArrayOutput { return v.Tags }).(ConfigurationProfileTagsArrayOutput)
 }
 
+// The type of configurations contained in the profile. When calling this API, enter one of the following values for Type: AWS.AppConfig.FeatureFlags, AWS.Freeform
 func (o ConfigurationProfileOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
+// A list of methods for validating the configuration.
 func (o ConfigurationProfileOutput) Validators() ConfigurationProfileValidatorsArrayOutput {
 	return o.ApplyT(func(v *ConfigurationProfile) ConfigurationProfileValidatorsArrayOutput { return v.Validators }).(ConfigurationProfileValidatorsArrayOutput)
 }

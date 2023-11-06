@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
 
-        [Input("computeType", required: true)]
-        public Input<string> ComputeType { get; set; } = null!;
+        [Input("computeType")]
+        public Input<string>? ComputeType { get; set; }
 
         [Input("environmentVariables")]
         private InputList<Inputs.ProjectEnvironmentVariableArgs>? _environmentVariables;
@@ -38,8 +38,8 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         [Input("registryCredential")]
         public Input<Inputs.ProjectRegistryCredentialArgs>? RegistryCredential { get; set; }
 
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public ProjectEnvironmentArgs()
         {

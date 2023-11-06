@@ -37,9 +37,6 @@ class GetAccountResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
-        """
-        Primary identifier which is manually generated.
-        """
         return pulumi.get(self, "id")
 
 
@@ -57,9 +54,6 @@ def get_account(id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     The ``AWS::ApiGateway::Account`` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one ``AWS::ApiGateway::Account`` resource per region per account.
-
-
-    :param str id: Primary identifier which is manually generated.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -76,8 +70,5 @@ def get_account_output(id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     The ``AWS::ApiGateway::Account`` resource specifies the IAM role that Amazon API Gateway uses to write API logs to Amazon CloudWatch Logs. To avoid overwriting other roles, you should only have one ``AWS::ApiGateway::Account`` resource per region per account.
-
-
-    :param str id: Primary identifier which is manually generated.
     """
     ...

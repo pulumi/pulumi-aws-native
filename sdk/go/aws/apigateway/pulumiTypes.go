@@ -4311,7 +4311,6 @@ func (o StageMethodSettingArrayOutput) Index(i pulumi.IntInput) StageMethodSetti
 	}).(StageMethodSettingOutput)
 }
 
-// Identify and categorize resources.
 type StageTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:.
 	Key string `pulumi:"key"`
@@ -4330,7 +4329,6 @@ type StageTagInput interface {
 	ToStageTagOutputWithContext(context.Context) StageTagOutput
 }
 
-// Identify and categorize resources.
 type StageTagArgs struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:.
 	Key pulumi.StringInput `pulumi:"key"`
@@ -4387,7 +4385,6 @@ func (i StageTagArray) ToOutput(ctx context.Context) pulumix.Output[[]StageTag] 
 	}
 }
 
-// Identify and categorize resources.
 type StageTagOutput struct{ *pulumi.OutputState }
 
 func (StageTagOutput) ElementType() reflect.Type {

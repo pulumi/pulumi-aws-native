@@ -815,9 +815,12 @@ class StackTagArgs:
 class StackUserSettingArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
-                 permission: pulumi.Input[str]):
+                 permission: pulumi.Input[str],
+                 maximum_length: Optional[pulumi.Input[int]] = None):
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "permission", permission)
+        if maximum_length is not None:
+            pulumi.set(__self__, "maximum_length", maximum_length)
 
     @property
     @pulumi.getter
@@ -836,5 +839,14 @@ class StackUserSettingArgs:
     @permission.setter
     def permission(self, value: pulumi.Input[str]):
         pulumi.set(self, "permission", value)
+
+    @property
+    @pulumi.getter(name="maximumLength")
+    def maximum_length(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "maximum_length")
+
+    @maximum_length.setter
+    def maximum_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_length", value)
 
 

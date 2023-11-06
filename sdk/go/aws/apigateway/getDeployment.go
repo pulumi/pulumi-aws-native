@@ -24,14 +24,12 @@ func LookupDeployment(ctx *pulumi.Context, args *LookupDeploymentArgs, opts ...p
 }
 
 type LookupDeploymentArgs struct {
-	// Primary Id for this resource
 	DeploymentId string `pulumi:"deploymentId"`
 	// The string identifier of the associated RestApi.
 	RestApiId string `pulumi:"restApiId"`
 }
 
 type LookupDeploymentResult struct {
-	// Primary Id for this resource
 	DeploymentId *string `pulumi:"deploymentId"`
 	// The description for the Deployment resource to create.
 	Description *string `pulumi:"description"`
@@ -51,7 +49,6 @@ func LookupDeploymentOutput(ctx *pulumi.Context, args LookupDeploymentOutputArgs
 }
 
 type LookupDeploymentOutputArgs struct {
-	// Primary Id for this resource
 	DeploymentId pulumi.StringInput `pulumi:"deploymentId"`
 	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
@@ -81,7 +78,6 @@ func (o LookupDeploymentResultOutput) ToOutput(ctx context.Context) pulumix.Outp
 	}
 }
 
-// Primary Id for this resource
 func (o LookupDeploymentResultOutput) DeploymentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) *string { return v.DeploymentId }).(pulumi.StringPtrOutput)
 }

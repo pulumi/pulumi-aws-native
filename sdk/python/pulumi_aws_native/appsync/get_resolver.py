@@ -19,16 +19,22 @@ __all__ = [
 
 @pulumi.output_type
 class GetResolverResult:
-    def __init__(__self__, caching_config=None, code=None, data_source_name=None, kind=None, max_batch_size=None, pipeline_config=None, request_mapping_template=None, resolver_arn=None, response_mapping_template=None, runtime=None, sync_config=None):
+    def __init__(__self__, caching_config=None, code=None, code_s3_location=None, data_source_name=None, id=None, kind=None, max_batch_size=None, pipeline_config=None, request_mapping_template=None, request_mapping_template_s3_location=None, resolver_arn=None, response_mapping_template=None, response_mapping_template_s3_location=None, runtime=None, sync_config=None):
         if caching_config and not isinstance(caching_config, dict):
             raise TypeError("Expected argument 'caching_config' to be a dict")
         pulumi.set(__self__, "caching_config", caching_config)
         if code and not isinstance(code, str):
             raise TypeError("Expected argument 'code' to be a str")
         pulumi.set(__self__, "code", code)
+        if code_s3_location and not isinstance(code_s3_location, str):
+            raise TypeError("Expected argument 'code_s3_location' to be a str")
+        pulumi.set(__self__, "code_s3_location", code_s3_location)
         if data_source_name and not isinstance(data_source_name, str):
             raise TypeError("Expected argument 'data_source_name' to be a str")
         pulumi.set(__self__, "data_source_name", data_source_name)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -41,12 +47,18 @@ class GetResolverResult:
         if request_mapping_template and not isinstance(request_mapping_template, str):
             raise TypeError("Expected argument 'request_mapping_template' to be a str")
         pulumi.set(__self__, "request_mapping_template", request_mapping_template)
+        if request_mapping_template_s3_location and not isinstance(request_mapping_template_s3_location, str):
+            raise TypeError("Expected argument 'request_mapping_template_s3_location' to be a str")
+        pulumi.set(__self__, "request_mapping_template_s3_location", request_mapping_template_s3_location)
         if resolver_arn and not isinstance(resolver_arn, str):
             raise TypeError("Expected argument 'resolver_arn' to be a str")
         pulumi.set(__self__, "resolver_arn", resolver_arn)
         if response_mapping_template and not isinstance(response_mapping_template, str):
             raise TypeError("Expected argument 'response_mapping_template' to be a str")
         pulumi.set(__self__, "response_mapping_template", response_mapping_template)
+        if response_mapping_template_s3_location and not isinstance(response_mapping_template_s3_location, str):
+            raise TypeError("Expected argument 'response_mapping_template_s3_location' to be a str")
+        pulumi.set(__self__, "response_mapping_template_s3_location", response_mapping_template_s3_location)
         if runtime and not isinstance(runtime, dict):
             raise TypeError("Expected argument 'runtime' to be a dict")
         pulumi.set(__self__, "runtime", runtime)
@@ -57,89 +69,76 @@ class GetResolverResult:
     @property
     @pulumi.getter(name="cachingConfig")
     def caching_config(self) -> Optional['outputs.ResolverCachingConfig']:
-        """
-        The caching configuration for the resolver.
-        """
         return pulumi.get(self, "caching_config")
 
     @property
     @pulumi.getter
     def code(self) -> Optional[str]:
-        """
-        The resolver code that contains the request and response functions. When code is used, the runtime is required.
-        """
         return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter(name="codeS3Location")
+    def code_s3_location(self) -> Optional[str]:
+        return pulumi.get(self, "code_s3_location")
 
     @property
     @pulumi.getter(name="dataSourceName")
     def data_source_name(self) -> Optional[str]:
-        """
-        The resolver data source name.
-        """
         return pulumi.get(self, "data_source_name")
 
     @property
     @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
     def kind(self) -> Optional[str]:
-        """
-        The resolver type.
-        """
         return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter(name="maxBatchSize")
     def max_batch_size(self) -> Optional[int]:
-        """
-        The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
-        """
         return pulumi.get(self, "max_batch_size")
 
     @property
     @pulumi.getter(name="pipelineConfig")
     def pipeline_config(self) -> Optional['outputs.ResolverPipelineConfig']:
-        """
-        Functions linked with the pipeline resolver.
-        """
         return pulumi.get(self, "pipeline_config")
 
     @property
     @pulumi.getter(name="requestMappingTemplate")
     def request_mapping_template(self) -> Optional[str]:
-        """
-        Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
-        """
         return pulumi.get(self, "request_mapping_template")
+
+    @property
+    @pulumi.getter(name="requestMappingTemplateS3Location")
+    def request_mapping_template_s3_location(self) -> Optional[str]:
+        return pulumi.get(self, "request_mapping_template_s3_location")
 
     @property
     @pulumi.getter(name="resolverArn")
     def resolver_arn(self) -> Optional[str]:
-        """
-        The Amazon Resource Name (ARN) for the resolver.
-        """
         return pulumi.get(self, "resolver_arn")
 
     @property
     @pulumi.getter(name="responseMappingTemplate")
     def response_mapping_template(self) -> Optional[str]:
-        """
-        The response mapping template.
-        """
         return pulumi.get(self, "response_mapping_template")
+
+    @property
+    @pulumi.getter(name="responseMappingTemplateS3Location")
+    def response_mapping_template_s3_location(self) -> Optional[str]:
+        return pulumi.get(self, "response_mapping_template_s3_location")
 
     @property
     @pulumi.getter
     def runtime(self) -> Optional['outputs.ResolverAppSyncRuntime']:
-        """
-        Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
-        """
         return pulumi.get(self, "runtime")
 
     @property
     @pulumi.getter(name="syncConfig")
     def sync_config(self) -> Optional['outputs.ResolverSyncConfig']:
-        """
-        The SyncConfig for a resolver attached to a versioned data source.
-        """
         return pulumi.get(self, "sync_config")
 
 
@@ -151,51 +150,53 @@ class AwaitableGetResolverResult(GetResolverResult):
         return GetResolverResult(
             caching_config=self.caching_config,
             code=self.code,
+            code_s3_location=self.code_s3_location,
             data_source_name=self.data_source_name,
+            id=self.id,
             kind=self.kind,
             max_batch_size=self.max_batch_size,
             pipeline_config=self.pipeline_config,
             request_mapping_template=self.request_mapping_template,
+            request_mapping_template_s3_location=self.request_mapping_template_s3_location,
             resolver_arn=self.resolver_arn,
             response_mapping_template=self.response_mapping_template,
+            response_mapping_template_s3_location=self.response_mapping_template_s3_location,
             runtime=self.runtime,
             sync_config=self.sync_config)
 
 
-def get_resolver(resolver_arn: Optional[str] = None,
+def get_resolver(id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverResult:
     """
     Resource Type definition for AWS::AppSync::Resolver
-
-
-    :param str resolver_arn: The Amazon Resource Name (ARN) for the resolver.
     """
     __args__ = dict()
-    __args__['resolverArn'] = resolver_arn
+    __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:appsync:getResolver', __args__, opts=opts, typ=GetResolverResult).value
 
     return AwaitableGetResolverResult(
         caching_config=pulumi.get(__ret__, 'caching_config'),
         code=pulumi.get(__ret__, 'code'),
+        code_s3_location=pulumi.get(__ret__, 'code_s3_location'),
         data_source_name=pulumi.get(__ret__, 'data_source_name'),
+        id=pulumi.get(__ret__, 'id'),
         kind=pulumi.get(__ret__, 'kind'),
         max_batch_size=pulumi.get(__ret__, 'max_batch_size'),
         pipeline_config=pulumi.get(__ret__, 'pipeline_config'),
         request_mapping_template=pulumi.get(__ret__, 'request_mapping_template'),
+        request_mapping_template_s3_location=pulumi.get(__ret__, 'request_mapping_template_s3_location'),
         resolver_arn=pulumi.get(__ret__, 'resolver_arn'),
         response_mapping_template=pulumi.get(__ret__, 'response_mapping_template'),
+        response_mapping_template_s3_location=pulumi.get(__ret__, 'response_mapping_template_s3_location'),
         runtime=pulumi.get(__ret__, 'runtime'),
         sync_config=pulumi.get(__ret__, 'sync_config'))
 
 
 @_utilities.lift_output_func(get_resolver)
-def get_resolver_output(resolver_arn: Optional[pulumi.Input[str]] = None,
+def get_resolver_output(id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverResult]:
     """
     Resource Type definition for AWS::AppSync::Resolver
-
-
-    :param str resolver_arn: The Amazon Resource Name (ARN) for the resolver.
     """
     ...

@@ -24,6 +24,14 @@ namespace Pulumi.AwsNative.Dlm.Inputs
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("scripts")]
+        private InputList<Inputs.LifecyclePolicyScriptArgs>? _scripts;
+        public InputList<Inputs.LifecyclePolicyScriptArgs> Scripts
+        {
+            get => _scripts ?? (_scripts = new InputList<Inputs.LifecyclePolicyScriptArgs>());
+            set => _scripts = value;
+        }
+
         [Input("times")]
         private InputList<string>? _times;
         public InputList<string> Times

@@ -20,9 +20,6 @@ export function getUsagePlan(args: GetUsagePlanArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetUsagePlanArgs {
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
     id: string;
 }
 
@@ -35,9 +32,6 @@ export interface GetUsagePlanResult {
      * The description of a usage plan.
      */
     readonly description?: string;
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
     readonly id?: string;
     /**
      * The target maximum number of permitted requests per a given unit time interval.
@@ -65,8 +59,5 @@ export function getUsagePlanOutput(args: GetUsagePlanOutputArgs, opts?: pulumi.I
 }
 
 export interface GetUsagePlanOutputArgs {
-    /**
-     * The provider-assigned unique ID for this managed resource.
-     */
     id: pulumi.Input<string>;
 }

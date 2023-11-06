@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.AppStream.Inputs
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
+        [Input("maximumLength")]
+        public Input<int>? MaximumLength { get; set; }
+
         [Input("permission", required: true)]
         public Input<string> Permission { get; set; } = null!;
 

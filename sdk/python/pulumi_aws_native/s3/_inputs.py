@@ -84,6 +84,8 @@ __all__ = [
     'StorageLensDataExportArgs',
     'StorageLensDetailedStatusCodesMetricsArgs',
     'StorageLensEncryptionArgs',
+    'StorageLensGroupLevelArgs',
+    'StorageLensGroupSelectionCriteriaArgs',
     'StorageLensPrefixLevelStorageMetricsArgs',
     'StorageLensPrefixLevelArgs',
     'StorageLensS3BucketDestinationArgs',
@@ -2833,7 +2835,8 @@ class StorageLensAccountLevelArgs:
                  activity_metrics: Optional[pulumi.Input['StorageLensActivityMetricsArgs']] = None,
                  advanced_cost_optimization_metrics: Optional[pulumi.Input['StorageLensAdvancedCostOptimizationMetricsArgs']] = None,
                  advanced_data_protection_metrics: Optional[pulumi.Input['StorageLensAdvancedDataProtectionMetricsArgs']] = None,
-                 detailed_status_codes_metrics: Optional[pulumi.Input['StorageLensDetailedStatusCodesMetricsArgs']] = None):
+                 detailed_status_codes_metrics: Optional[pulumi.Input['StorageLensDetailedStatusCodesMetricsArgs']] = None,
+                 storage_lens_group_level: Optional[pulumi.Input['StorageLensGroupLevelArgs']] = None):
         """
         Account-level metrics configurations.
         """
@@ -2846,6 +2849,8 @@ class StorageLensAccountLevelArgs:
             pulumi.set(__self__, "advanced_data_protection_metrics", advanced_data_protection_metrics)
         if detailed_status_codes_metrics is not None:
             pulumi.set(__self__, "detailed_status_codes_metrics", detailed_status_codes_metrics)
+        if storage_lens_group_level is not None:
+            pulumi.set(__self__, "storage_lens_group_level", storage_lens_group_level)
 
     @property
     @pulumi.getter(name="bucketLevel")
@@ -2891,6 +2896,15 @@ class StorageLensAccountLevelArgs:
     @detailed_status_codes_metrics.setter
     def detailed_status_codes_metrics(self, value: Optional[pulumi.Input['StorageLensDetailedStatusCodesMetricsArgs']]):
         pulumi.set(self, "detailed_status_codes_metrics", value)
+
+    @property
+    @pulumi.getter(name="storageLensGroupLevel")
+    def storage_lens_group_level(self) -> Optional[pulumi.Input['StorageLensGroupLevelArgs']]:
+        return pulumi.get(self, "storage_lens_group_level")
+
+    @storage_lens_group_level.setter
+    def storage_lens_group_level(self, value: Optional[pulumi.Input['StorageLensGroupLevelArgs']]):
+        pulumi.set(self, "storage_lens_group_level", value)
 
 
 @pulumi.input_type
@@ -3279,6 +3293,58 @@ class StorageLensEncryptionArgs:
         Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
         """
         pass
+
+
+@pulumi.input_type
+class StorageLensGroupLevelArgs:
+    def __init__(__self__, *,
+                 storage_lens_group_selection_criteria: Optional[pulumi.Input['StorageLensGroupSelectionCriteriaArgs']] = None):
+        """
+        Specifies the details of Amazon S3 Storage Lens Group configuration.
+        """
+        if storage_lens_group_selection_criteria is not None:
+            pulumi.set(__self__, "storage_lens_group_selection_criteria", storage_lens_group_selection_criteria)
+
+    @property
+    @pulumi.getter(name="storageLensGroupSelectionCriteria")
+    def storage_lens_group_selection_criteria(self) -> Optional[pulumi.Input['StorageLensGroupSelectionCriteriaArgs']]:
+        return pulumi.get(self, "storage_lens_group_selection_criteria")
+
+    @storage_lens_group_selection_criteria.setter
+    def storage_lens_group_selection_criteria(self, value: Optional[pulumi.Input['StorageLensGroupSelectionCriteriaArgs']]):
+        pulumi.set(self, "storage_lens_group_selection_criteria", value)
+
+
+@pulumi.input_type
+class StorageLensGroupSelectionCriteriaArgs:
+    def __init__(__self__, *,
+                 exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Selection criteria for Storage Lens Group level metrics
+        """
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "exclude")
+
+    @exclude.setter
+    def exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclude", value)
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "include")
+
+    @include.setter
+    def include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "include", value)
 
 
 @pulumi.input_type

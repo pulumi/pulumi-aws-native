@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::AppConfig::ConfigurationProfile
- *
- * @deprecated ConfigurationProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * An example resource schema demonstrating some basic constructs and validation rules.
  */
 export class ConfigurationProfile extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class ConfigurationProfile extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ConfigurationProfile {
-        pulumi.log.warn("ConfigurationProfile is deprecated: ConfigurationProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new ConfigurationProfile(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,14 +37,49 @@ export class ConfigurationProfile extends pulumi.CustomResource {
         return obj['__pulumiType'] === ConfigurationProfile.__pulumiType;
     }
 
+    /**
+     * The application ID.
+     */
     public readonly applicationId!: pulumi.Output<string>;
+    /**
+     * The configuration profile ID
+     */
+    public /*out*/ readonly configurationProfileId!: pulumi.Output<string>;
+    /**
+     * A description of the configuration profile.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name of the AWS Key Management Service key to encrypt new configuration data versions in the AWS AppConfig hosted configuration store. This attribute is only used for hosted configuration types. To encrypt data managed in other configuration stores, see the documentation for how to specify an AWS KMS key for that particular service.
+     */
+    public /*out*/ readonly kmsKeyArn!: pulumi.Output<string>;
+    /**
+     * The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
+     */
     public readonly kmsKeyIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object.
+     */
     public readonly locationUri!: pulumi.Output<string>;
+    /**
+     * A name for the configuration profile.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The ARN of an IAM role with permission to access the configuration at the specified LocationUri.
+     */
     public readonly retrievalRoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+     */
     public readonly tags!: pulumi.Output<outputs.appconfig.ConfigurationProfileTags[] | undefined>;
+    /**
+     * The type of configurations contained in the profile. When calling this API, enter one of the following values for Type: AWS.AppConfig.FeatureFlags, AWS.Freeform
+     */
     public readonly type!: pulumi.Output<string | undefined>;
+    /**
+     * A list of methods for validating the configuration.
+     */
     public readonly validators!: pulumi.Output<outputs.appconfig.ConfigurationProfileValidators[] | undefined>;
 
     /**
@@ -57,9 +89,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated ConfigurationProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ConfigurationProfileArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ConfigurationProfile is deprecated: ConfigurationProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -78,9 +108,13 @@ export class ConfigurationProfile extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["validators"] = args ? args.validators : undefined;
+            resourceInputs["configurationProfileId"] = undefined /*out*/;
+            resourceInputs["kmsKeyArn"] = undefined /*out*/;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["configurationProfileId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["kmsKeyIdentifier"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -100,13 +134,40 @@ export class ConfigurationProfile extends pulumi.CustomResource {
  * The set of arguments for constructing a ConfigurationProfile resource.
  */
 export interface ConfigurationProfileArgs {
+    /**
+     * The application ID.
+     */
     applicationId: pulumi.Input<string>;
+    /**
+     * A description of the configuration profile.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
+     */
     kmsKeyIdentifier?: pulumi.Input<string>;
+    /**
+     * A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object.
+     */
     locationUri: pulumi.Input<string>;
+    /**
+     * A name for the configuration profile.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The ARN of an IAM role with permission to access the configuration at the specified LocationUri.
+     */
     retrievalRoleArn?: pulumi.Input<string>;
+    /**
+     * Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.appconfig.ConfigurationProfileTagsArgs>[]>;
+    /**
+     * The type of configurations contained in the profile. When calling this API, enter one of the following values for Type: AWS.AppConfig.FeatureFlags, AWS.Freeform
+     */
     type?: pulumi.Input<string>;
+    /**
+     * A list of methods for validating the configuration.
+     */
     validators?: pulumi.Input<pulumi.Input<inputs.appconfig.ConfigurationProfileValidatorsArgs>[]>;
 }

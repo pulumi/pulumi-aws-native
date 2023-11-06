@@ -211,9 +211,6 @@ class Deployment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="deploymentId")
     def deployment_id(self) -> pulumi.Output[str]:
-        """
-        Primary Id for this resource
-        """
         return pulumi.get(self, "deployment_id")
 
     @property

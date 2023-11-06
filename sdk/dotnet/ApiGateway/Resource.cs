@@ -27,9 +27,6 @@ namespace Pulumi.AwsNative.ApiGateway
         [Output("pathPart")]
         public Output<string> PathPart { get; private set; } = null!;
 
-        /// <summary>
-        /// A unique primary identifier for a Resource
-        /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
 

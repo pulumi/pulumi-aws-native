@@ -58,6 +58,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
     public readonly minSize!: pulumi.Output<string>;
     public readonly mixedInstancesPolicy!: pulumi.Output<outputs.autoscaling.AutoScalingGroupMixedInstancesPolicy | undefined>;
     public readonly newInstancesProtectedFromScaleIn!: pulumi.Output<boolean | undefined>;
+    public readonly notificationConfiguration!: pulumi.Output<outputs.autoscaling.AutoScalingGroupNotificationConfiguration | undefined>;
     public readonly notificationConfigurations!: pulumi.Output<outputs.autoscaling.AutoScalingGroupNotificationConfiguration[] | undefined>;
     public readonly placementGroup!: pulumi.Output<string | undefined>;
     public readonly serviceLinkedRoleArn!: pulumi.Output<string | undefined>;
@@ -104,6 +105,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             resourceInputs["minSize"] = args ? args.minSize : undefined;
             resourceInputs["mixedInstancesPolicy"] = args ? args.mixedInstancesPolicy : undefined;
             resourceInputs["newInstancesProtectedFromScaleIn"] = args ? args.newInstancesProtectedFromScaleIn : undefined;
+            resourceInputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
             resourceInputs["notificationConfigurations"] = args ? args.notificationConfigurations : undefined;
             resourceInputs["placementGroup"] = args ? args.placementGroup : undefined;
             resourceInputs["serviceLinkedRoleArn"] = args ? args.serviceLinkedRoleArn : undefined;
@@ -133,6 +135,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             resourceInputs["minSize"] = undefined /*out*/;
             resourceInputs["mixedInstancesPolicy"] = undefined /*out*/;
             resourceInputs["newInstancesProtectedFromScaleIn"] = undefined /*out*/;
+            resourceInputs["notificationConfiguration"] = undefined /*out*/;
             resourceInputs["notificationConfigurations"] = undefined /*out*/;
             resourceInputs["placementGroup"] = undefined /*out*/;
             resourceInputs["serviceLinkedRoleArn"] = undefined /*out*/;
@@ -173,6 +176,7 @@ export interface AutoScalingGroupArgs {
     minSize: pulumi.Input<string>;
     mixedInstancesPolicy?: pulumi.Input<inputs.autoscaling.AutoScalingGroupMixedInstancesPolicyArgs>;
     newInstancesProtectedFromScaleIn?: pulumi.Input<boolean>;
+    notificationConfiguration?: pulumi.Input<inputs.autoscaling.AutoScalingGroupNotificationConfigurationArgs>;
     notificationConfigurations?: pulumi.Input<pulumi.Input<inputs.autoscaling.AutoScalingGroupNotificationConfigurationArgs>[]>;
     placementGroup?: pulumi.Input<string>;
     serviceLinkedRoleArn?: pulumi.Input<string>;

@@ -20,8 +20,7 @@ type Resource struct {
 	// The parent resource's identifier.
 	ParentId pulumi.StringOutput `pulumi:"parentId"`
 	// The last path segment for this resource.
-	PathPart pulumi.StringOutput `pulumi:"pathPart"`
-	// A unique primary identifier for a Resource
+	PathPart   pulumi.StringOutput `pulumi:"pathPart"`
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringOutput `pulumi:"restApiId"`
@@ -159,7 +158,6 @@ func (o ResourceOutput) PathPart() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.PathPart }).(pulumi.StringOutput)
 }
 
-// A unique primary identifier for a Resource
 func (o ResourceOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Resource) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }

@@ -3762,9 +3762,7 @@ func (o GraphQlApiUserPoolConfigPtrOutput) UserPoolId() pulumi.StringPtrOutput {
 }
 
 type ResolverAppSyncRuntime struct {
-	// The name of the runtime to use.
-	Name string `pulumi:"name"`
-	// The version of the runtime to use.
+	Name           string `pulumi:"name"`
 	RuntimeVersion string `pulumi:"runtimeVersion"`
 }
 
@@ -3780,9 +3778,7 @@ type ResolverAppSyncRuntimeInput interface {
 }
 
 type ResolverAppSyncRuntimeArgs struct {
-	// The name of the runtime to use.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The version of the runtime to use.
+	Name           pulumi.StringInput `pulumi:"name"`
 	RuntimeVersion pulumi.StringInput `pulumi:"runtimeVersion"`
 }
 
@@ -3881,12 +3877,10 @@ func (o ResolverAppSyncRuntimeOutput) ToOutput(ctx context.Context) pulumix.Outp
 	}
 }
 
-// The name of the runtime to use.
 func (o ResolverAppSyncRuntimeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResolverAppSyncRuntime) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The version of the runtime to use.
 func (o ResolverAppSyncRuntimeOutput) RuntimeVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v ResolverAppSyncRuntime) string { return v.RuntimeVersion }).(pulumi.StringOutput)
 }
@@ -3921,7 +3915,6 @@ func (o ResolverAppSyncRuntimePtrOutput) Elem() ResolverAppSyncRuntimeOutput {
 	}).(ResolverAppSyncRuntimeOutput)
 }
 
-// The name of the runtime to use.
 func (o ResolverAppSyncRuntimePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverAppSyncRuntime) *string {
 		if v == nil {
@@ -3931,7 +3924,6 @@ func (o ResolverAppSyncRuntimePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the runtime to use.
 func (o ResolverAppSyncRuntimePtrOutput) RuntimeVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverAppSyncRuntime) *string {
 		if v == nil {
@@ -3942,10 +3934,8 @@ func (o ResolverAppSyncRuntimePtrOutput) RuntimeVersion() pulumi.StringPtrOutput
 }
 
 type ResolverCachingConfig struct {
-	// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
 	CachingKeys []string `pulumi:"cachingKeys"`
-	// The TTL in seconds for a resolver that has caching activated. Valid values are 1-36.00 seconds.
-	Ttl float64 `pulumi:"ttl"`
+	Ttl         float64  `pulumi:"ttl"`
 }
 
 // ResolverCachingConfigInput is an input type that accepts ResolverCachingConfigArgs and ResolverCachingConfigOutput values.
@@ -3960,10 +3950,8 @@ type ResolverCachingConfigInput interface {
 }
 
 type ResolverCachingConfigArgs struct {
-	// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
 	CachingKeys pulumi.StringArrayInput `pulumi:"cachingKeys"`
-	// The TTL in seconds for a resolver that has caching activated. Valid values are 1-36.00 seconds.
-	Ttl pulumi.Float64Input `pulumi:"ttl"`
+	Ttl         pulumi.Float64Input     `pulumi:"ttl"`
 }
 
 func (ResolverCachingConfigArgs) ElementType() reflect.Type {
@@ -4061,12 +4049,10 @@ func (o ResolverCachingConfigOutput) ToOutput(ctx context.Context) pulumix.Outpu
 	}
 }
 
-// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
 func (o ResolverCachingConfigOutput) CachingKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResolverCachingConfig) []string { return v.CachingKeys }).(pulumi.StringArrayOutput)
 }
 
-// The TTL in seconds for a resolver that has caching activated. Valid values are 1-36.00 seconds.
 func (o ResolverCachingConfigOutput) Ttl() pulumi.Float64Output {
 	return o.ApplyT(func(v ResolverCachingConfig) float64 { return v.Ttl }).(pulumi.Float64Output)
 }
@@ -4101,7 +4087,6 @@ func (o ResolverCachingConfigPtrOutput) Elem() ResolverCachingConfigOutput {
 	}).(ResolverCachingConfigOutput)
 }
 
-// The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
 func (o ResolverCachingConfigPtrOutput) CachingKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverCachingConfig) []string {
 		if v == nil {
@@ -4111,7 +4096,6 @@ func (o ResolverCachingConfigPtrOutput) CachingKeys() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// The TTL in seconds for a resolver that has caching activated. Valid values are 1-36.00 seconds.
 func (o ResolverCachingConfigPtrOutput) Ttl() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ResolverCachingConfig) *float64 {
 		if v == nil {
@@ -4121,9 +4105,7 @@ func (o ResolverCachingConfigPtrOutput) Ttl() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
 type ResolverLambdaConflictHandlerConfig struct {
-	// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
 	LambdaConflictHandlerArn *string `pulumi:"lambdaConflictHandlerArn"`
 }
 
@@ -4138,9 +4120,7 @@ type ResolverLambdaConflictHandlerConfigInput interface {
 	ToResolverLambdaConflictHandlerConfigOutputWithContext(context.Context) ResolverLambdaConflictHandlerConfigOutput
 }
 
-// The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
 type ResolverLambdaConflictHandlerConfigArgs struct {
-	// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
 	LambdaConflictHandlerArn pulumi.StringPtrInput `pulumi:"lambdaConflictHandlerArn"`
 }
 
@@ -4209,7 +4189,6 @@ func (i *resolverLambdaConflictHandlerConfigPtrType) ToOutput(ctx context.Contex
 	}
 }
 
-// The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
 type ResolverLambdaConflictHandlerConfigOutput struct{ *pulumi.OutputState }
 
 func (ResolverLambdaConflictHandlerConfigOutput) ElementType() reflect.Type {
@@ -4240,7 +4219,6 @@ func (o ResolverLambdaConflictHandlerConfigOutput) ToOutput(ctx context.Context)
 	}
 }
 
-// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
 func (o ResolverLambdaConflictHandlerConfigOutput) LambdaConflictHandlerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResolverLambdaConflictHandlerConfig) *string { return v.LambdaConflictHandlerArn }).(pulumi.StringPtrOutput)
 }
@@ -4275,7 +4253,6 @@ func (o ResolverLambdaConflictHandlerConfigPtrOutput) Elem() ResolverLambdaConfl
 	}).(ResolverLambdaConflictHandlerConfigOutput)
 }
 
-// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
 func (o ResolverLambdaConflictHandlerConfigPtrOutput) LambdaConflictHandlerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverLambdaConflictHandlerConfig) *string {
 		if v == nil {
@@ -4286,7 +4263,6 @@ func (o ResolverLambdaConflictHandlerConfigPtrOutput) LambdaConflictHandlerArn()
 }
 
 type ResolverPipelineConfig struct {
-	// A list of Function objects.
 	Functions []string `pulumi:"functions"`
 }
 
@@ -4302,7 +4278,6 @@ type ResolverPipelineConfigInput interface {
 }
 
 type ResolverPipelineConfigArgs struct {
-	// A list of Function objects.
 	Functions pulumi.StringArrayInput `pulumi:"functions"`
 }
 
@@ -4401,7 +4376,6 @@ func (o ResolverPipelineConfigOutput) ToOutput(ctx context.Context) pulumix.Outp
 	}
 }
 
-// A list of Function objects.
 func (o ResolverPipelineConfigOutput) Functions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResolverPipelineConfig) []string { return v.Functions }).(pulumi.StringArrayOutput)
 }
@@ -4436,7 +4410,6 @@ func (o ResolverPipelineConfigPtrOutput) Elem() ResolverPipelineConfigOutput {
 	}).(ResolverPipelineConfigOutput)
 }
 
-// A list of Function objects.
 func (o ResolverPipelineConfigPtrOutput) Functions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResolverPipelineConfig) []string {
 		if v == nil {
@@ -4447,9 +4420,7 @@ func (o ResolverPipelineConfigPtrOutput) Functions() pulumi.StringArrayOutput {
 }
 
 type ResolverSyncConfig struct {
-	// The Conflict Detection strategy to use.
-	ConflictDetection string `pulumi:"conflictDetection"`
-	// The Conflict Resolution strategy to perform in the event of a conflict.
+	ConflictDetection           string                               `pulumi:"conflictDetection"`
 	ConflictHandler             *string                              `pulumi:"conflictHandler"`
 	LambdaConflictHandlerConfig *ResolverLambdaConflictHandlerConfig `pulumi:"lambdaConflictHandlerConfig"`
 }
@@ -4466,9 +4437,7 @@ type ResolverSyncConfigInput interface {
 }
 
 type ResolverSyncConfigArgs struct {
-	// The Conflict Detection strategy to use.
-	ConflictDetection pulumi.StringInput `pulumi:"conflictDetection"`
-	// The Conflict Resolution strategy to perform in the event of a conflict.
+	ConflictDetection           pulumi.StringInput                          `pulumi:"conflictDetection"`
 	ConflictHandler             pulumi.StringPtrInput                       `pulumi:"conflictHandler"`
 	LambdaConflictHandlerConfig ResolverLambdaConflictHandlerConfigPtrInput `pulumi:"lambdaConflictHandlerConfig"`
 }
@@ -4568,12 +4537,10 @@ func (o ResolverSyncConfigOutput) ToOutput(ctx context.Context) pulumix.Output[R
 	}
 }
 
-// The Conflict Detection strategy to use.
 func (o ResolverSyncConfigOutput) ConflictDetection() pulumi.StringOutput {
 	return o.ApplyT(func(v ResolverSyncConfig) string { return v.ConflictDetection }).(pulumi.StringOutput)
 }
 
-// The Conflict Resolution strategy to perform in the event of a conflict.
 func (o ResolverSyncConfigOutput) ConflictHandler() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResolverSyncConfig) *string { return v.ConflictHandler }).(pulumi.StringPtrOutput)
 }
@@ -4612,7 +4579,6 @@ func (o ResolverSyncConfigPtrOutput) Elem() ResolverSyncConfigOutput {
 	}).(ResolverSyncConfigOutput)
 }
 
-// The Conflict Detection strategy to use.
 func (o ResolverSyncConfigPtrOutput) ConflictDetection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverSyncConfig) *string {
 		if v == nil {
@@ -4622,7 +4588,6 @@ func (o ResolverSyncConfigPtrOutput) ConflictDetection() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Conflict Resolution strategy to perform in the event of a conflict.
 func (o ResolverSyncConfigPtrOutput) ConflictHandler() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverSyncConfig) *string {
 		if v == nil {

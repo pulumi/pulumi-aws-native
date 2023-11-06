@@ -42,9 +42,6 @@ export class Resource extends pulumi.CustomResource {
      * The last path segment for this resource.
      */
     public readonly pathPart!: pulumi.Output<string>;
-    /**
-     * A unique primary identifier for a Resource
-     */
     public /*out*/ readonly resourceId!: pulumi.Output<string>;
     /**
      * The string identifier of the associated RestApi.

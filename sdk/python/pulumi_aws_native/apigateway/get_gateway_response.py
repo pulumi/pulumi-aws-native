@@ -35,9 +35,6 @@ class GetGatewayResponseResult:
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
-        """
-        A Cloudformation auto generated ID.
-        """
         return pulumi.get(self, "id")
 
     @property
@@ -81,9 +78,6 @@ def get_gateway_response(id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayResponseResult:
     """
     The ``AWS::ApiGateway::GatewayResponse`` resource creates a gateway response for your API. For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide*.
-
-
-    :param str id: A Cloudformation auto generated ID.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -102,8 +96,5 @@ def get_gateway_response_output(id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResponseResult]:
     """
     The ``AWS::ApiGateway::GatewayResponse`` resource creates a gateway response for your API. For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide*.
-
-
-    :param str id: A Cloudformation auto generated ID.
     """
     ...

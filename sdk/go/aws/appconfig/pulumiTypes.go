@@ -147,8 +147,11 @@ func (o ApplicationTagsArrayOutput) Index(i pulumi.IntInput) ApplicationTagsOutp
 	}).(ApplicationTagsOutput)
 }
 
+// Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 type ConfigurationProfileTags struct {
-	Key   *string `pulumi:"key"`
+	// The key-value string map. The tag key can be up to 128 characters and must not start with aws:.
+	Key *string `pulumi:"key"`
+	// The tag value can be up to 256 characters.
 	Value *string `pulumi:"value"`
 }
 
@@ -163,8 +166,11 @@ type ConfigurationProfileTagsInput interface {
 	ToConfigurationProfileTagsOutputWithContext(context.Context) ConfigurationProfileTagsOutput
 }
 
+// Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 type ConfigurationProfileTagsArgs struct {
-	Key   pulumi.StringPtrInput `pulumi:"key"`
+	// The key-value string map. The tag key can be up to 128 characters and must not start with aws:.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The tag value can be up to 256 characters.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -217,6 +223,7 @@ func (i ConfigurationProfileTagsArray) ToOutput(ctx context.Context) pulumix.Out
 	}
 }
 
+// Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 type ConfigurationProfileTagsOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileTagsOutput) ElementType() reflect.Type {
@@ -237,10 +244,12 @@ func (o ConfigurationProfileTagsOutput) ToOutput(ctx context.Context) pulumix.Ou
 	}
 }
 
+// The key-value string map. The tag key can be up to 128 characters and must not start with aws:.
 func (o ConfigurationProfileTagsOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileTags) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
+// The tag value can be up to 256 characters.
 func (o ConfigurationProfileTagsOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileTags) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -271,9 +280,12 @@ func (o ConfigurationProfileTagsArrayOutput) Index(i pulumi.IntInput) Configurat
 	}).(ConfigurationProfileTagsOutput)
 }
 
+// A list of methods for validating the configuration.
 type ConfigurationProfileValidators struct {
+	// Either the JSON Schema content or the Amazon Resource Name (ARN) of an Lambda function.
 	Content *string `pulumi:"content"`
-	Type    *string `pulumi:"type"`
+	// AWS AppConfig supports validators of type JSON_SCHEMA and LAMBDA.
+	Type *string `pulumi:"type"`
 }
 
 // ConfigurationProfileValidatorsInput is an input type that accepts ConfigurationProfileValidatorsArgs and ConfigurationProfileValidatorsOutput values.
@@ -287,9 +299,12 @@ type ConfigurationProfileValidatorsInput interface {
 	ToConfigurationProfileValidatorsOutputWithContext(context.Context) ConfigurationProfileValidatorsOutput
 }
 
+// A list of methods for validating the configuration.
 type ConfigurationProfileValidatorsArgs struct {
+	// Either the JSON Schema content or the Amazon Resource Name (ARN) of an Lambda function.
 	Content pulumi.StringPtrInput `pulumi:"content"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
+	// AWS AppConfig supports validators of type JSON_SCHEMA and LAMBDA.
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (ConfigurationProfileValidatorsArgs) ElementType() reflect.Type {
@@ -341,6 +356,7 @@ func (i ConfigurationProfileValidatorsArray) ToOutput(ctx context.Context) pulum
 	}
 }
 
+// A list of methods for validating the configuration.
 type ConfigurationProfileValidatorsOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileValidatorsOutput) ElementType() reflect.Type {
@@ -361,10 +377,12 @@ func (o ConfigurationProfileValidatorsOutput) ToOutput(ctx context.Context) pulu
 	}
 }
 
+// Either the JSON Schema content or the Amazon Resource Name (ARN) of an Lambda function.
 func (o ConfigurationProfileValidatorsOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileValidators) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
+// AWS AppConfig supports validators of type JSON_SCHEMA and LAMBDA.
 func (o ConfigurationProfileValidatorsOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileValidators) *string { return v.Type }).(pulumi.StringPtrOutput)
 }

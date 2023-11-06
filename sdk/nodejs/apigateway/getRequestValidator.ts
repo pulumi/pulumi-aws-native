@@ -17,9 +17,6 @@ export function getRequestValidator(args: GetRequestValidatorArgs, opts?: pulumi
 }
 
 export interface GetRequestValidatorArgs {
-    /**
-     * ID of the request validator.
-     */
     requestValidatorId: string;
     /**
      * The string identifier of the associated RestApi.
@@ -28,9 +25,6 @@ export interface GetRequestValidatorArgs {
 }
 
 export interface GetRequestValidatorResult {
-    /**
-     * ID of the request validator.
-     */
     readonly requestValidatorId?: string;
     /**
      * A Boolean flag to indicate whether to validate a request body according to the configured Model schema.
@@ -49,9 +43,6 @@ export function getRequestValidatorOutput(args: GetRequestValidatorOutputArgs, o
 }
 
 export interface GetRequestValidatorOutputArgs {
-    /**
-     * ID of the request validator.
-     */
     requestValidatorId: pulumi.Input<string>;
     /**
      * The string identifier of the associated RestApi.

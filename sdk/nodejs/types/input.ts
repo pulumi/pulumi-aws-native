@@ -1744,9 +1744,6 @@ export namespace apigateway {
         throttlingRateLimit?: pulumi.Input<number>;
     }
 
-    /**
-     * Identify and categorize resources.
-     */
     export interface StageTagArgs {
         /**
          * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:.
@@ -1998,13 +1995,31 @@ export namespace appconfig {
         value: pulumi.Input<string>;
     }
 
+    /**
+     * Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+     */
     export interface ConfigurationProfileTagsArgs {
+        /**
+         * The key-value string map. The tag key can be up to 128 characters and must not start with aws:.
+         */
         key?: pulumi.Input<string>;
+        /**
+         * The tag value can be up to 256 characters.
+         */
         value?: pulumi.Input<string>;
     }
 
+    /**
+     * A list of methods for validating the configuration.
+     */
     export interface ConfigurationProfileValidatorsArgs {
+        /**
+         * Either the JSON Schema content or the Amazon Resource Name (ARN) of an Lambda function.
+         */
         content?: pulumi.Input<string>;
+        /**
+         * AWS AppConfig supports validators of type JSON_SCHEMA and LAMBDA.
+         */
         type?: pulumi.Input<string>;
     }
 
@@ -4473,6 +4488,10 @@ export namespace apprunner {
     export interface ServiceNetworkConfigurationArgs {
         egressConfiguration?: pulumi.Input<inputs.apprunner.ServiceEgressConfigurationArgs>;
         ingressConfiguration?: pulumi.Input<inputs.apprunner.ServiceIngressConfigurationArgs>;
+        /**
+         * App Runner service endpoint IP address type
+         */
+        ipAddressType?: pulumi.Input<enums.apprunner.ServiceNetworkConfigurationIpAddressType>;
     }
 
     /**
@@ -4686,6 +4705,7 @@ export namespace appstream {
 
     export interface StackUserSettingArgs {
         action: pulumi.Input<string>;
+        maximumLength?: pulumi.Input<number>;
         permission: pulumi.Input<string>;
     }
 }
@@ -4835,52 +4855,25 @@ export namespace appsync {
     }
 
     export interface ResolverAppSyncRuntimeArgs {
-        /**
-         * The name of the runtime to use.
-         */
         name: pulumi.Input<string>;
-        /**
-         * The version of the runtime to use.
-         */
         runtimeVersion: pulumi.Input<string>;
     }
 
     export interface ResolverCachingConfigArgs {
-        /**
-         * The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
-         */
         cachingKeys?: pulumi.Input<pulumi.Input<string>[]>;
-        /**
-         * The TTL in seconds for a resolver that has caching activated. Valid values are 1-36.00 seconds.
-         */
         ttl: pulumi.Input<number>;
     }
 
-    /**
-     * The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
-     */
     export interface ResolverLambdaConflictHandlerConfigArgs {
-        /**
-         * The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
-         */
         lambdaConflictHandlerArn?: pulumi.Input<string>;
     }
 
     export interface ResolverPipelineConfigArgs {
-        /**
-         * A list of Function objects.
-         */
         functions?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ResolverSyncConfigArgs {
-        /**
-         * The Conflict Detection strategy to use.
-         */
         conflictDetection: pulumi.Input<string>;
-        /**
-         * The Conflict Resolution strategy to perform in the event of a conflict.
-         */
         conflictHandler?: pulumi.Input<string>;
         lambdaConflictHandlerConfig?: pulumi.Input<inputs.appsync.ResolverLambdaConflictHandlerConfigArgs>;
     }
@@ -5254,7 +5247,7 @@ export namespace autoscaling {
 
     export interface AutoScalingGroupNotificationConfigurationArgs {
         notificationTypes?: pulumi.Input<pulumi.Input<string>[]>;
-        topicArn: pulumi.Input<pulumi.Input<string>[]>;
+        topicArn: pulumi.Input<string>;
     }
 
     export interface AutoScalingGroupTagPropertyArgs {
@@ -7503,13 +7496,13 @@ export namespace codebuild {
 
     export interface ProjectEnvironmentArgs {
         certificate?: pulumi.Input<string>;
-        computeType: pulumi.Input<string>;
+        computeType?: pulumi.Input<string>;
         environmentVariables?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectEnvironmentVariableArgs>[]>;
         image: pulumi.Input<string>;
         imagePullCredentialsType?: pulumi.Input<string>;
         privilegedMode?: pulumi.Input<boolean>;
         registryCredential?: pulumi.Input<inputs.codebuild.ProjectRegistryCredentialArgs>;
-        type: pulumi.Input<string>;
+        type?: pulumi.Input<string>;
     }
 
     export interface ProjectEnvironmentVariableArgs {
@@ -11325,6 +11318,7 @@ export namespace dlm {
         interval?: pulumi.Input<number>;
         intervalUnit?: pulumi.Input<string>;
         location?: pulumi.Input<string>;
+        scripts?: pulumi.Input<pulumi.Input<inputs.dlm.LifecyclePolicyScriptArgs>[]>;
         times?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -11424,6 +11418,15 @@ export namespace dlm {
         shareRules?: pulumi.Input<pulumi.Input<inputs.dlm.LifecyclePolicyShareRuleArgs>[]>;
         tagsToAdd?: pulumi.Input<pulumi.Input<inputs.dlm.LifecyclePolicyTagArgs>[]>;
         variableTags?: pulumi.Input<pulumi.Input<inputs.dlm.LifecyclePolicyTagArgs>[]>;
+    }
+
+    export interface LifecyclePolicyScriptArgs {
+        executeOperationOnScriptFailure?: pulumi.Input<boolean>;
+        executionHandler?: pulumi.Input<string>;
+        executionHandlerService?: pulumi.Input<string>;
+        executionTimeout?: pulumi.Input<number>;
+        maximumRetryCount?: pulumi.Input<number>;
+        stages?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface LifecyclePolicyShareRuleArgs {
@@ -46445,6 +46448,7 @@ export namespace s3 {
         advancedDataProtectionMetrics?: pulumi.Input<inputs.s3.StorageLensAdvancedDataProtectionMetricsArgs>;
         bucketLevel: pulumi.Input<inputs.s3.StorageLensBucketLevelArgs>;
         detailedStatusCodesMetrics?: pulumi.Input<inputs.s3.StorageLensDetailedStatusCodesMetricsArgs>;
+        storageLensGroupLevel?: pulumi.Input<inputs.s3.StorageLensGroupLevelArgs>;
     }
 
     /**
@@ -46555,6 +46559,21 @@ export namespace s3 {
      * Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
      */
     export interface StorageLensEncryptionArgs {
+    }
+
+    /**
+     * Specifies the details of Amazon S3 Storage Lens Group configuration.
+     */
+    export interface StorageLensGroupLevelArgs {
+        storageLensGroupSelectionCriteria?: pulumi.Input<inputs.s3.StorageLensGroupSelectionCriteriaArgs>;
+    }
+
+    /**
+     * Selection criteria for Storage Lens Group level metrics
+     */
+    export interface StorageLensGroupSelectionCriteriaArgs {
+        exclude?: pulumi.Input<pulumi.Input<string>[]>;
+        include?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**

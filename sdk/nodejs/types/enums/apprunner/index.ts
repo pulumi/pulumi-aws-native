@@ -69,6 +69,16 @@ export const ServiceImageRepositoryImageRepositoryType = {
  */
 export type ServiceImageRepositoryImageRepositoryType = (typeof ServiceImageRepositoryImageRepositoryType)[keyof typeof ServiceImageRepositoryImageRepositoryType];
 
+export const ServiceNetworkConfigurationIpAddressType = {
+    Ipv4: "IPV4",
+    DualStack: "DUAL_STACK",
+} as const;
+
+/**
+ * App Runner service endpoint IP address type
+ */
+export type ServiceNetworkConfigurationIpAddressType = (typeof ServiceNetworkConfigurationIpAddressType)[keyof typeof ServiceNetworkConfigurationIpAddressType];
+
 export const ServiceSourceCodeVersionType = {
     Branch: "BRANCH",
 } as const;

@@ -14,15 +14,19 @@ namespace Pulumi.AwsNative.AppStream.Outputs
     public sealed class StackUserSetting
     {
         public readonly string Action;
+        public readonly int? MaximumLength;
         public readonly string Permission;
 
         [OutputConstructor]
         private StackUserSetting(
             string action,
 
+            int? maximumLength,
+
             string permission)
         {
             Action = action;
+            MaximumLength = maximumLength;
             Permission = permission;
         }
     }

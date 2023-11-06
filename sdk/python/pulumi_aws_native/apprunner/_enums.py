@@ -11,6 +11,7 @@ __all__ = [
     'ServiceEgressConfigurationEgressType',
     'ServiceHealthCheckConfigurationProtocol',
     'ServiceImageRepositoryImageRepositoryType',
+    'ServiceNetworkConfigurationIpAddressType',
     'ServiceSourceCodeVersionType',
     'VpcIngressConnectionStatus',
 ]
@@ -69,6 +70,14 @@ class ServiceImageRepositoryImageRepositoryType(str, Enum):
     """
     ECR = "ECR"
     ECR_PUBLIC = "ECR_PUBLIC"
+
+
+class ServiceNetworkConfigurationIpAddressType(str, Enum):
+    """
+    App Runner service endpoint IP address type
+    """
+    IPV4 = "IPV4"
+    DUAL_STACK = "DUAL_STACK"
 
 
 class ServiceSourceCodeVersionType(str, Enum):

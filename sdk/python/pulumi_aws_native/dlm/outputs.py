@@ -29,6 +29,7 @@ __all__ = [
     'LifecyclePolicyRetainRule',
     'LifecyclePolicyRetentionArchiveTier',
     'LifecyclePolicySchedule',
+    'LifecyclePolicyScript',
     'LifecyclePolicyShareRule',
     'LifecyclePolicyTag',
 ]
@@ -153,6 +154,7 @@ class LifecyclePolicyCreateRule(dict):
                  interval: Optional[int] = None,
                  interval_unit: Optional[str] = None,
                  location: Optional[str] = None,
+                 scripts: Optional[Sequence['outputs.LifecyclePolicyScript']] = None,
                  times: Optional[Sequence[str]] = None):
         if cron_expression is not None:
             pulumi.set(__self__, "cron_expression", cron_expression)
@@ -162,6 +164,8 @@ class LifecyclePolicyCreateRule(dict):
             pulumi.set(__self__, "interval_unit", interval_unit)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if scripts is not None:
+            pulumi.set(__self__, "scripts", scripts)
         if times is not None:
             pulumi.set(__self__, "times", times)
 
@@ -184,6 +188,11 @@ class LifecyclePolicyCreateRule(dict):
     @pulumi.getter
     def location(self) -> Optional[str]:
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def scripts(self) -> Optional[Sequence['outputs.LifecyclePolicyScript']]:
+        return pulumi.get(self, "scripts")
 
     @property
     @pulumi.getter
@@ -963,6 +972,84 @@ class LifecyclePolicySchedule(dict):
     @pulumi.getter(name="variableTags")
     def variable_tags(self) -> Optional[Sequence['outputs.LifecyclePolicyTag']]:
         return pulumi.get(self, "variable_tags")
+
+
+@pulumi.output_type
+class LifecyclePolicyScript(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "executeOperationOnScriptFailure":
+            suggest = "execute_operation_on_script_failure"
+        elif key == "executionHandler":
+            suggest = "execution_handler"
+        elif key == "executionHandlerService":
+            suggest = "execution_handler_service"
+        elif key == "executionTimeout":
+            suggest = "execution_timeout"
+        elif key == "maximumRetryCount":
+            suggest = "maximum_retry_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LifecyclePolicyScript. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LifecyclePolicyScript.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LifecyclePolicyScript.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 execute_operation_on_script_failure: Optional[bool] = None,
+                 execution_handler: Optional[str] = None,
+                 execution_handler_service: Optional[str] = None,
+                 execution_timeout: Optional[int] = None,
+                 maximum_retry_count: Optional[int] = None,
+                 stages: Optional[Sequence[str]] = None):
+        if execute_operation_on_script_failure is not None:
+            pulumi.set(__self__, "execute_operation_on_script_failure", execute_operation_on_script_failure)
+        if execution_handler is not None:
+            pulumi.set(__self__, "execution_handler", execution_handler)
+        if execution_handler_service is not None:
+            pulumi.set(__self__, "execution_handler_service", execution_handler_service)
+        if execution_timeout is not None:
+            pulumi.set(__self__, "execution_timeout", execution_timeout)
+        if maximum_retry_count is not None:
+            pulumi.set(__self__, "maximum_retry_count", maximum_retry_count)
+        if stages is not None:
+            pulumi.set(__self__, "stages", stages)
+
+    @property
+    @pulumi.getter(name="executeOperationOnScriptFailure")
+    def execute_operation_on_script_failure(self) -> Optional[bool]:
+        return pulumi.get(self, "execute_operation_on_script_failure")
+
+    @property
+    @pulumi.getter(name="executionHandler")
+    def execution_handler(self) -> Optional[str]:
+        return pulumi.get(self, "execution_handler")
+
+    @property
+    @pulumi.getter(name="executionHandlerService")
+    def execution_handler_service(self) -> Optional[str]:
+        return pulumi.get(self, "execution_handler_service")
+
+    @property
+    @pulumi.getter(name="executionTimeout")
+    def execution_timeout(self) -> Optional[int]:
+        return pulumi.get(self, "execution_timeout")
+
+    @property
+    @pulumi.getter(name="maximumRetryCount")
+    def maximum_retry_count(self) -> Optional[int]:
+        return pulumi.get(self, "maximum_retry_count")
+
+    @property
+    @pulumi.getter
+    def stages(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "stages")
 
 
 @pulumi.output_type

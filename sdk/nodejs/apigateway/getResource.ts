@@ -17,9 +17,6 @@ export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions):
 }
 
 export interface GetResourceArgs {
-    /**
-     * A unique primary identifier for a Resource
-     */
     resourceId: string;
     /**
      * The string identifier of the associated RestApi.
@@ -28,9 +25,6 @@ export interface GetResourceArgs {
 }
 
 export interface GetResourceResult {
-    /**
-     * A unique primary identifier for a Resource
-     */
     readonly resourceId?: string;
 }
 /**
@@ -41,9 +35,6 @@ export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetResourceOutputArgs {
-    /**
-     * A unique primary identifier for a Resource
-     */
     resourceId: pulumi.Input<string>;
     /**
      * The string identifier of the associated RestApi.

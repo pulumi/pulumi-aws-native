@@ -11,9 +11,6 @@ __all__ = [
 
 
 class DetectorCfnFeatureConfigurationName(str, Enum):
-    FLOW_LOGS = "FLOW_LOGS"
-    CLOUD_TRAIL = "CLOUD_TRAIL"
-    DNS_LOGS = "DNS_LOGS"
     S3_DATA_EVENTS = "S3_DATA_EVENTS"
     EKS_AUDIT_LOGS = "EKS_AUDIT_LOGS"
     EBS_MALWARE_PROTECTION = "EBS_MALWARE_PROTECTION"

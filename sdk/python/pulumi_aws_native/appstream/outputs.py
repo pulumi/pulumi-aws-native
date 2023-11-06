@@ -968,11 +968,31 @@ class StackTag(dict):
 
 @pulumi.output_type
 class StackUserSetting(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumLength":
+            suggest = "maximum_length"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StackUserSetting. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StackUserSetting.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StackUserSetting.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  action: str,
-                 permission: str):
+                 permission: str,
+                 maximum_length: Optional[int] = None):
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "permission", permission)
+        if maximum_length is not None:
+            pulumi.set(__self__, "maximum_length", maximum_length)
 
     @property
     @pulumi.getter
@@ -983,5 +1003,10 @@ class StackUserSetting(dict):
     @pulumi.getter
     def permission(self) -> str:
         return pulumi.get(self, "permission")
+
+    @property
+    @pulumi.getter(name="maximumLength")
+    def maximum_length(self) -> Optional[int]:
+        return pulumi.get(self, "maximum_length")
 
 

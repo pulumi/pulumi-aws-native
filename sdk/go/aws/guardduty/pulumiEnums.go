@@ -14,9 +14,6 @@ import (
 type DetectorCfnFeatureConfigurationName string
 
 const (
-	DetectorCfnFeatureConfigurationNameFlowLogs             = DetectorCfnFeatureConfigurationName("FLOW_LOGS")
-	DetectorCfnFeatureConfigurationNameCloudTrail           = DetectorCfnFeatureConfigurationName("CLOUD_TRAIL")
-	DetectorCfnFeatureConfigurationNameDnsLogs              = DetectorCfnFeatureConfigurationName("DNS_LOGS")
 	DetectorCfnFeatureConfigurationNameS3DataEvents         = DetectorCfnFeatureConfigurationName("S3_DATA_EVENTS")
 	DetectorCfnFeatureConfigurationNameEksAuditLogs         = DetectorCfnFeatureConfigurationName("EKS_AUDIT_LOGS")
 	DetectorCfnFeatureConfigurationNameEbsMalwareProtection = DetectorCfnFeatureConfigurationName("EBS_MALWARE_PROTECTION")
@@ -383,8 +380,8 @@ func (in *detectorCfnFeatureConfigurationStatusPtr) ToOutput(ctx context.Context
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfnFeatureConfigurationNameInput)(nil)).Elem(), DetectorCfnFeatureConfigurationName("FLOW_LOGS"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfnFeatureConfigurationNamePtrInput)(nil)).Elem(), DetectorCfnFeatureConfigurationName("FLOW_LOGS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfnFeatureConfigurationNameInput)(nil)).Elem(), DetectorCfnFeatureConfigurationName("S3_DATA_EVENTS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfnFeatureConfigurationNamePtrInput)(nil)).Elem(), DetectorCfnFeatureConfigurationName("S3_DATA_EVENTS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfnFeatureConfigurationStatusInput)(nil)).Elem(), DetectorCfnFeatureConfigurationStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfnFeatureConfigurationStatusPtrInput)(nil)).Elem(), DetectorCfnFeatureConfigurationStatus("ENABLED"))
 	pulumi.RegisterOutputType(DetectorCfnFeatureConfigurationNameOutput{})

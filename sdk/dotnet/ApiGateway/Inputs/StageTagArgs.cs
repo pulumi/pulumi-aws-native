@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApiGateway.Inputs
 {
 
-    /// <summary>
-    /// Identify and categorize resources.
-    /// </summary>
     public sealed class StageTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

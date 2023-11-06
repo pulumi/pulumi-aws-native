@@ -24,14 +24,12 @@ func LookupResource(ctx *pulumi.Context, args *LookupResourceArgs, opts ...pulum
 }
 
 type LookupResourceArgs struct {
-	// A unique primary identifier for a Resource
 	ResourceId string `pulumi:"resourceId"`
 	// The string identifier of the associated RestApi.
 	RestApiId string `pulumi:"restApiId"`
 }
 
 type LookupResourceResult struct {
-	// A unique primary identifier for a Resource
 	ResourceId *string `pulumi:"resourceId"`
 }
 
@@ -49,7 +47,6 @@ func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, op
 }
 
 type LookupResourceOutputArgs struct {
-	// A unique primary identifier for a Resource
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
 	// The string identifier of the associated RestApi.
 	RestApiId pulumi.StringInput `pulumi:"restApiId"`
@@ -79,7 +76,6 @@ func (o LookupResourceResultOutput) ToOutput(ctx context.Context) pulumix.Output
 	}
 }
 
-// A unique primary identifier for a Resource
 func (o LookupResourceResultOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResourceResult) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }

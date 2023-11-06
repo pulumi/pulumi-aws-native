@@ -10372,6 +10372,7 @@ type StorageLensAccountLevel struct {
 	AdvancedDataProtectionMetrics   *StorageLensAdvancedDataProtectionMetrics   `pulumi:"advancedDataProtectionMetrics"`
 	BucketLevel                     StorageLensBucketLevel                      `pulumi:"bucketLevel"`
 	DetailedStatusCodesMetrics      *StorageLensDetailedStatusCodesMetrics      `pulumi:"detailedStatusCodesMetrics"`
+	StorageLensGroupLevel           *StorageLensGroupLevel                      `pulumi:"storageLensGroupLevel"`
 }
 
 // StorageLensAccountLevelInput is an input type that accepts StorageLensAccountLevelArgs and StorageLensAccountLevelOutput values.
@@ -10392,6 +10393,7 @@ type StorageLensAccountLevelArgs struct {
 	AdvancedDataProtectionMetrics   StorageLensAdvancedDataProtectionMetricsPtrInput   `pulumi:"advancedDataProtectionMetrics"`
 	BucketLevel                     StorageLensBucketLevelInput                        `pulumi:"bucketLevel"`
 	DetailedStatusCodesMetrics      StorageLensDetailedStatusCodesMetricsPtrInput      `pulumi:"detailedStatusCodesMetrics"`
+	StorageLensGroupLevel           StorageLensGroupLevelPtrInput                      `pulumi:"storageLensGroupLevel"`
 }
 
 func (StorageLensAccountLevelArgs) ElementType() reflect.Type {
@@ -10457,6 +10459,10 @@ func (o StorageLensAccountLevelOutput) DetailedStatusCodesMetrics() StorageLensD
 	return o.ApplyT(func(v StorageLensAccountLevel) *StorageLensDetailedStatusCodesMetrics {
 		return v.DetailedStatusCodesMetrics
 	}).(StorageLensDetailedStatusCodesMetricsPtrOutput)
+}
+
+func (o StorageLensAccountLevelOutput) StorageLensGroupLevel() StorageLensGroupLevelPtrOutput {
+	return o.ApplyT(func(v StorageLensAccountLevel) *StorageLensGroupLevel { return v.StorageLensGroupLevel }).(StorageLensGroupLevelPtrOutput)
 }
 
 // Enables activity metrics.
@@ -12140,6 +12146,343 @@ func (o StorageLensEncryptionPtrOutput) Elem() StorageLensEncryptionOutput {
 	}).(StorageLensEncryptionOutput)
 }
 
+// Specifies the details of Amazon S3 Storage Lens Group configuration.
+type StorageLensGroupLevel struct {
+	StorageLensGroupSelectionCriteria *StorageLensGroupSelectionCriteria `pulumi:"storageLensGroupSelectionCriteria"`
+}
+
+// StorageLensGroupLevelInput is an input type that accepts StorageLensGroupLevelArgs and StorageLensGroupLevelOutput values.
+// You can construct a concrete instance of `StorageLensGroupLevelInput` via:
+//
+//	StorageLensGroupLevelArgs{...}
+type StorageLensGroupLevelInput interface {
+	pulumi.Input
+
+	ToStorageLensGroupLevelOutput() StorageLensGroupLevelOutput
+	ToStorageLensGroupLevelOutputWithContext(context.Context) StorageLensGroupLevelOutput
+}
+
+// Specifies the details of Amazon S3 Storage Lens Group configuration.
+type StorageLensGroupLevelArgs struct {
+	StorageLensGroupSelectionCriteria StorageLensGroupSelectionCriteriaPtrInput `pulumi:"storageLensGroupSelectionCriteria"`
+}
+
+func (StorageLensGroupLevelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensGroupLevel)(nil)).Elem()
+}
+
+func (i StorageLensGroupLevelArgs) ToStorageLensGroupLevelOutput() StorageLensGroupLevelOutput {
+	return i.ToStorageLensGroupLevelOutputWithContext(context.Background())
+}
+
+func (i StorageLensGroupLevelArgs) ToStorageLensGroupLevelOutputWithContext(ctx context.Context) StorageLensGroupLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupLevelOutput)
+}
+
+func (i StorageLensGroupLevelArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupLevel] {
+	return pulumix.Output[StorageLensGroupLevel]{
+		OutputState: i.ToStorageLensGroupLevelOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i StorageLensGroupLevelArgs) ToStorageLensGroupLevelPtrOutput() StorageLensGroupLevelPtrOutput {
+	return i.ToStorageLensGroupLevelPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensGroupLevelArgs) ToStorageLensGroupLevelPtrOutputWithContext(ctx context.Context) StorageLensGroupLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupLevelOutput).ToStorageLensGroupLevelPtrOutputWithContext(ctx)
+}
+
+// StorageLensGroupLevelPtrInput is an input type that accepts StorageLensGroupLevelArgs, StorageLensGroupLevelPtr and StorageLensGroupLevelPtrOutput values.
+// You can construct a concrete instance of `StorageLensGroupLevelPtrInput` via:
+//
+//	        StorageLensGroupLevelArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensGroupLevelPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensGroupLevelPtrOutput() StorageLensGroupLevelPtrOutput
+	ToStorageLensGroupLevelPtrOutputWithContext(context.Context) StorageLensGroupLevelPtrOutput
+}
+
+type storageLensGroupLevelPtrType StorageLensGroupLevelArgs
+
+func StorageLensGroupLevelPtr(v *StorageLensGroupLevelArgs) StorageLensGroupLevelPtrInput {
+	return (*storageLensGroupLevelPtrType)(v)
+}
+
+func (*storageLensGroupLevelPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensGroupLevel)(nil)).Elem()
+}
+
+func (i *storageLensGroupLevelPtrType) ToStorageLensGroupLevelPtrOutput() StorageLensGroupLevelPtrOutput {
+	return i.ToStorageLensGroupLevelPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensGroupLevelPtrType) ToStorageLensGroupLevelPtrOutputWithContext(ctx context.Context) StorageLensGroupLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupLevelPtrOutput)
+}
+
+func (i *storageLensGroupLevelPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupLevel] {
+	return pulumix.Output[*StorageLensGroupLevel]{
+		OutputState: i.ToStorageLensGroupLevelPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Specifies the details of Amazon S3 Storage Lens Group configuration.
+type StorageLensGroupLevelOutput struct{ *pulumi.OutputState }
+
+func (StorageLensGroupLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensGroupLevel)(nil)).Elem()
+}
+
+func (o StorageLensGroupLevelOutput) ToStorageLensGroupLevelOutput() StorageLensGroupLevelOutput {
+	return o
+}
+
+func (o StorageLensGroupLevelOutput) ToStorageLensGroupLevelOutputWithContext(ctx context.Context) StorageLensGroupLevelOutput {
+	return o
+}
+
+func (o StorageLensGroupLevelOutput) ToStorageLensGroupLevelPtrOutput() StorageLensGroupLevelPtrOutput {
+	return o.ToStorageLensGroupLevelPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensGroupLevelOutput) ToStorageLensGroupLevelPtrOutputWithContext(ctx context.Context) StorageLensGroupLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensGroupLevel) *StorageLensGroupLevel {
+		return &v
+	}).(StorageLensGroupLevelPtrOutput)
+}
+
+func (o StorageLensGroupLevelOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupLevel] {
+	return pulumix.Output[StorageLensGroupLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o StorageLensGroupLevelOutput) StorageLensGroupSelectionCriteria() StorageLensGroupSelectionCriteriaPtrOutput {
+	return o.ApplyT(func(v StorageLensGroupLevel) *StorageLensGroupSelectionCriteria {
+		return v.StorageLensGroupSelectionCriteria
+	}).(StorageLensGroupSelectionCriteriaPtrOutput)
+}
+
+type StorageLensGroupLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensGroupLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensGroupLevel)(nil)).Elem()
+}
+
+func (o StorageLensGroupLevelPtrOutput) ToStorageLensGroupLevelPtrOutput() StorageLensGroupLevelPtrOutput {
+	return o
+}
+
+func (o StorageLensGroupLevelPtrOutput) ToStorageLensGroupLevelPtrOutputWithContext(ctx context.Context) StorageLensGroupLevelPtrOutput {
+	return o
+}
+
+func (o StorageLensGroupLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupLevel] {
+	return pulumix.Output[*StorageLensGroupLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o StorageLensGroupLevelPtrOutput) Elem() StorageLensGroupLevelOutput {
+	return o.ApplyT(func(v *StorageLensGroupLevel) StorageLensGroupLevel {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensGroupLevel
+		return ret
+	}).(StorageLensGroupLevelOutput)
+}
+
+func (o StorageLensGroupLevelPtrOutput) StorageLensGroupSelectionCriteria() StorageLensGroupSelectionCriteriaPtrOutput {
+	return o.ApplyT(func(v *StorageLensGroupLevel) *StorageLensGroupSelectionCriteria {
+		if v == nil {
+			return nil
+		}
+		return v.StorageLensGroupSelectionCriteria
+	}).(StorageLensGroupSelectionCriteriaPtrOutput)
+}
+
+// Selection criteria for Storage Lens Group level metrics
+type StorageLensGroupSelectionCriteria struct {
+	Exclude []string `pulumi:"exclude"`
+	Include []string `pulumi:"include"`
+}
+
+// StorageLensGroupSelectionCriteriaInput is an input type that accepts StorageLensGroupSelectionCriteriaArgs and StorageLensGroupSelectionCriteriaOutput values.
+// You can construct a concrete instance of `StorageLensGroupSelectionCriteriaInput` via:
+//
+//	StorageLensGroupSelectionCriteriaArgs{...}
+type StorageLensGroupSelectionCriteriaInput interface {
+	pulumi.Input
+
+	ToStorageLensGroupSelectionCriteriaOutput() StorageLensGroupSelectionCriteriaOutput
+	ToStorageLensGroupSelectionCriteriaOutputWithContext(context.Context) StorageLensGroupSelectionCriteriaOutput
+}
+
+// Selection criteria for Storage Lens Group level metrics
+type StorageLensGroupSelectionCriteriaArgs struct {
+	Exclude pulumi.StringArrayInput `pulumi:"exclude"`
+	Include pulumi.StringArrayInput `pulumi:"include"`
+}
+
+func (StorageLensGroupSelectionCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensGroupSelectionCriteria)(nil)).Elem()
+}
+
+func (i StorageLensGroupSelectionCriteriaArgs) ToStorageLensGroupSelectionCriteriaOutput() StorageLensGroupSelectionCriteriaOutput {
+	return i.ToStorageLensGroupSelectionCriteriaOutputWithContext(context.Background())
+}
+
+func (i StorageLensGroupSelectionCriteriaArgs) ToStorageLensGroupSelectionCriteriaOutputWithContext(ctx context.Context) StorageLensGroupSelectionCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupSelectionCriteriaOutput)
+}
+
+func (i StorageLensGroupSelectionCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupSelectionCriteria] {
+	return pulumix.Output[StorageLensGroupSelectionCriteria]{
+		OutputState: i.ToStorageLensGroupSelectionCriteriaOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i StorageLensGroupSelectionCriteriaArgs) ToStorageLensGroupSelectionCriteriaPtrOutput() StorageLensGroupSelectionCriteriaPtrOutput {
+	return i.ToStorageLensGroupSelectionCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensGroupSelectionCriteriaArgs) ToStorageLensGroupSelectionCriteriaPtrOutputWithContext(ctx context.Context) StorageLensGroupSelectionCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupSelectionCriteriaOutput).ToStorageLensGroupSelectionCriteriaPtrOutputWithContext(ctx)
+}
+
+// StorageLensGroupSelectionCriteriaPtrInput is an input type that accepts StorageLensGroupSelectionCriteriaArgs, StorageLensGroupSelectionCriteriaPtr and StorageLensGroupSelectionCriteriaPtrOutput values.
+// You can construct a concrete instance of `StorageLensGroupSelectionCriteriaPtrInput` via:
+//
+//	        StorageLensGroupSelectionCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensGroupSelectionCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensGroupSelectionCriteriaPtrOutput() StorageLensGroupSelectionCriteriaPtrOutput
+	ToStorageLensGroupSelectionCriteriaPtrOutputWithContext(context.Context) StorageLensGroupSelectionCriteriaPtrOutput
+}
+
+type storageLensGroupSelectionCriteriaPtrType StorageLensGroupSelectionCriteriaArgs
+
+func StorageLensGroupSelectionCriteriaPtr(v *StorageLensGroupSelectionCriteriaArgs) StorageLensGroupSelectionCriteriaPtrInput {
+	return (*storageLensGroupSelectionCriteriaPtrType)(v)
+}
+
+func (*storageLensGroupSelectionCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensGroupSelectionCriteria)(nil)).Elem()
+}
+
+func (i *storageLensGroupSelectionCriteriaPtrType) ToStorageLensGroupSelectionCriteriaPtrOutput() StorageLensGroupSelectionCriteriaPtrOutput {
+	return i.ToStorageLensGroupSelectionCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensGroupSelectionCriteriaPtrType) ToStorageLensGroupSelectionCriteriaPtrOutputWithContext(ctx context.Context) StorageLensGroupSelectionCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupSelectionCriteriaPtrOutput)
+}
+
+func (i *storageLensGroupSelectionCriteriaPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupSelectionCriteria] {
+	return pulumix.Output[*StorageLensGroupSelectionCriteria]{
+		OutputState: i.ToStorageLensGroupSelectionCriteriaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Selection criteria for Storage Lens Group level metrics
+type StorageLensGroupSelectionCriteriaOutput struct{ *pulumi.OutputState }
+
+func (StorageLensGroupSelectionCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensGroupSelectionCriteria)(nil)).Elem()
+}
+
+func (o StorageLensGroupSelectionCriteriaOutput) ToStorageLensGroupSelectionCriteriaOutput() StorageLensGroupSelectionCriteriaOutput {
+	return o
+}
+
+func (o StorageLensGroupSelectionCriteriaOutput) ToStorageLensGroupSelectionCriteriaOutputWithContext(ctx context.Context) StorageLensGroupSelectionCriteriaOutput {
+	return o
+}
+
+func (o StorageLensGroupSelectionCriteriaOutput) ToStorageLensGroupSelectionCriteriaPtrOutput() StorageLensGroupSelectionCriteriaPtrOutput {
+	return o.ToStorageLensGroupSelectionCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensGroupSelectionCriteriaOutput) ToStorageLensGroupSelectionCriteriaPtrOutputWithContext(ctx context.Context) StorageLensGroupSelectionCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensGroupSelectionCriteria) *StorageLensGroupSelectionCriteria {
+		return &v
+	}).(StorageLensGroupSelectionCriteriaPtrOutput)
+}
+
+func (o StorageLensGroupSelectionCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupSelectionCriteria] {
+	return pulumix.Output[StorageLensGroupSelectionCriteria]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o StorageLensGroupSelectionCriteriaOutput) Exclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StorageLensGroupSelectionCriteria) []string { return v.Exclude }).(pulumi.StringArrayOutput)
+}
+
+func (o StorageLensGroupSelectionCriteriaOutput) Include() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StorageLensGroupSelectionCriteria) []string { return v.Include }).(pulumi.StringArrayOutput)
+}
+
+type StorageLensGroupSelectionCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensGroupSelectionCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensGroupSelectionCriteria)(nil)).Elem()
+}
+
+func (o StorageLensGroupSelectionCriteriaPtrOutput) ToStorageLensGroupSelectionCriteriaPtrOutput() StorageLensGroupSelectionCriteriaPtrOutput {
+	return o
+}
+
+func (o StorageLensGroupSelectionCriteriaPtrOutput) ToStorageLensGroupSelectionCriteriaPtrOutputWithContext(ctx context.Context) StorageLensGroupSelectionCriteriaPtrOutput {
+	return o
+}
+
+func (o StorageLensGroupSelectionCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupSelectionCriteria] {
+	return pulumix.Output[*StorageLensGroupSelectionCriteria]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o StorageLensGroupSelectionCriteriaPtrOutput) Elem() StorageLensGroupSelectionCriteriaOutput {
+	return o.ApplyT(func(v *StorageLensGroupSelectionCriteria) StorageLensGroupSelectionCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensGroupSelectionCriteria
+		return ret
+	}).(StorageLensGroupSelectionCriteriaOutput)
+}
+
+func (o StorageLensGroupSelectionCriteriaPtrOutput) Exclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StorageLensGroupSelectionCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Exclude
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o StorageLensGroupSelectionCriteriaPtrOutput) Include() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StorageLensGroupSelectionCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Include
+	}).(pulumi.StringArrayOutput)
+}
+
 // Prefix-level metrics configurations.
 type StorageLensPrefixLevel struct {
 	StorageMetrics StorageLensPrefixLevelStorageMetrics `pulumi:"storageMetrics"`
@@ -13203,6 +13546,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensDetailedStatusCodesMetricsPtrInput)(nil)).Elem(), StorageLensDetailedStatusCodesMetricsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensEncryptionInput)(nil)).Elem(), StorageLensEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensEncryptionPtrInput)(nil)).Elem(), StorageLensEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensGroupLevelInput)(nil)).Elem(), StorageLensGroupLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensGroupLevelPtrInput)(nil)).Elem(), StorageLensGroupLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensGroupSelectionCriteriaInput)(nil)).Elem(), StorageLensGroupSelectionCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensGroupSelectionCriteriaPtrInput)(nil)).Elem(), StorageLensGroupSelectionCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensPrefixLevelInput)(nil)).Elem(), StorageLensPrefixLevelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensPrefixLevelPtrInput)(nil)).Elem(), StorageLensPrefixLevelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensPrefixLevelStorageMetricsInput)(nil)).Elem(), StorageLensPrefixLevelStorageMetricsArgs{})
@@ -13358,6 +13705,10 @@ func init() {
 	pulumi.RegisterOutputType(StorageLensDetailedStatusCodesMetricsPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensEncryptionOutput{})
 	pulumi.RegisterOutputType(StorageLensEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensGroupLevelOutput{})
+	pulumi.RegisterOutputType(StorageLensGroupLevelPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensGroupSelectionCriteriaOutput{})
+	pulumi.RegisterOutputType(StorageLensGroupSelectionCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensPrefixLevelOutput{})
 	pulumi.RegisterOutputType(StorageLensPrefixLevelPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensPrefixLevelStorageMetricsOutput{})

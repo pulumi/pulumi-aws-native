@@ -3,9 +3,6 @@
 
 
 export const DetectorCfnFeatureConfigurationName = {
-    FlowLogs: "FLOW_LOGS",
-    CloudTrail: "CLOUD_TRAIL",
-    DnsLogs: "DNS_LOGS",
     S3DataEvents: "S3_DATA_EVENTS",
     EksAuditLogs: "EKS_AUDIT_LOGS",
     EbsMalwareProtection: "EBS_MALWARE_PROTECTION",

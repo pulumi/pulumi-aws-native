@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.AppConfig
     public static class GetConfigurationProfile
     {
         /// <summary>
-        /// Resource Type definition for AWS::AppConfig::ConfigurationProfile
+        /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
         public static Task<GetConfigurationProfileResult> InvokeAsync(GetConfigurationProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileResult>("aws-native:appconfig:getConfigurationProfile", args ?? new GetConfigurationProfileArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::AppConfig::ConfigurationProfile
+        /// An example resource schema demonstrating some basic constructs and validation rules.
         /// </summary>
         public static Output<GetConfigurationProfileResult> Invoke(GetConfigurationProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileResult>("aws-native:appconfig:getConfigurationProfile", args ?? new GetConfigurationProfileInvokeArgs(), options.WithDefaults());
@@ -27,8 +27,17 @@ namespace Pulumi.AwsNative.AppConfig
 
     public sealed class GetConfigurationProfileArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The application ID.
+        /// </summary>
+        [Input("applicationId", required: true)]
+        public string ApplicationId { get; set; } = null!;
+
+        /// <summary>
+        /// The configuration profile ID
+        /// </summary>
+        [Input("configurationProfileId", required: true)]
+        public string ConfigurationProfileId { get; set; } = null!;
 
         public GetConfigurationProfileArgs()
         {
@@ -38,8 +47,17 @@ namespace Pulumi.AwsNative.AppConfig
 
     public sealed class GetConfigurationProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The application ID.
+        /// </summary>
+        [Input("applicationId", required: true)]
+        public Input<string> ApplicationId { get; set; } = null!;
+
+        /// <summary>
+        /// The configuration profile ID
+        /// </summary>
+        [Input("configurationProfileId", required: true)]
+        public Input<string> ConfigurationProfileId { get; set; } = null!;
 
         public GetConfigurationProfileInvokeArgs()
         {
@@ -51,19 +69,46 @@ namespace Pulumi.AwsNative.AppConfig
     [OutputType]
     public sealed class GetConfigurationProfileResult
     {
+        /// <summary>
+        /// The configuration profile ID
+        /// </summary>
+        public readonly string? ConfigurationProfileId;
+        /// <summary>
+        /// A description of the configuration profile.
+        /// </summary>
         public readonly string? Description;
-        public readonly string? Id;
+        /// <summary>
+        /// The Amazon Resource Name of the AWS Key Management Service key to encrypt new configuration data versions in the AWS AppConfig hosted configuration store. This attribute is only used for hosted configuration types. To encrypt data managed in other configuration stores, see the documentation for how to specify an AWS KMS key for that particular service.
+        /// </summary>
+        public readonly string? KmsKeyArn;
+        /// <summary>
+        /// The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
+        /// </summary>
         public readonly string? KmsKeyIdentifier;
+        /// <summary>
+        /// A name for the configuration profile.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The ARN of an IAM role with permission to access the configuration at the specified LocationUri.
+        /// </summary>
         public readonly string? RetrievalRoleArn;
+        /// <summary>
+        /// Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ConfigurationProfileTags> Tags;
+        /// <summary>
+        /// A list of methods for validating the configuration.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ConfigurationProfileValidators> Validators;
 
         [OutputConstructor]
         private GetConfigurationProfileResult(
+            string? configurationProfileId,
+
             string? description,
 
-            string? id,
+            string? kmsKeyArn,
 
             string? kmsKeyIdentifier,
 
@@ -75,8 +120,9 @@ namespace Pulumi.AwsNative.AppConfig
 
             ImmutableArray<Outputs.ConfigurationProfileValidators> validators)
         {
+            ConfigurationProfileId = configurationProfileId;
             Description = description;
-            Id = id;
+            KmsKeyArn = kmsKeyArn;
             KmsKeyIdentifier = kmsKeyIdentifier;
             Name = name;
             RetrievalRoleArn = retrievalRoleArn;

@@ -27,9 +27,6 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Primary identifier which is manually generated.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -41,9 +38,6 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Primary identifier which is manually generated.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -61,9 +55,6 @@ namespace Pulumi.AwsNative.ApiGateway
         /// The ARN of an Amazon CloudWatch role for the current Account.
         /// </summary>
         public readonly string? CloudWatchRoleArn;
-        /// <summary>
-        /// Primary identifier which is manually generated.
-        /// </summary>
         public readonly string? Id;
 
         [OutputConstructor]

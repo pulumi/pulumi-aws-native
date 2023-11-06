@@ -188,9 +188,6 @@ class RequestValidator(pulumi.CustomResource):
     @property
     @pulumi.getter(name="requestValidatorId")
     def request_validator_id(self) -> pulumi.Output[str]:
-        """
-        ID of the request validator.
-        """
         return pulumi.get(self, "request_validator_id")
 
     @property

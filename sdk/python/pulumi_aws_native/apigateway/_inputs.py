@@ -1793,7 +1793,6 @@ class StageTagArgs:
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        Identify and categorize resources.
         :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:.
         :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:.
         """

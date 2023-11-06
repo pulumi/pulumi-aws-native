@@ -1827,14 +1827,10 @@ class StageMethodSetting(dict):
 
 @pulumi.output_type
 class StageTag(dict):
-    """
-    Identify and categorize resources.
-    """
     def __init__(__self__, *,
                  key: str,
                  value: str):
         """
-        Identify and categorize resources.
         :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:.
         :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:.
         """

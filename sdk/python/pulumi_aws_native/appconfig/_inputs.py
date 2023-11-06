@@ -64,6 +64,11 @@ class ConfigurationProfileTagsArgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        :param pulumi.Input[str] key: The key-value string map. The tag key can be up to 128 characters and must not start with aws:.
+        :param pulumi.Input[str] value: The tag value can be up to 256 characters.
+        """
         if key is not None:
             pulumi.set(__self__, "key", key)
         if value is not None:
@@ -72,6 +77,9 @@ class ConfigurationProfileTagsArgs:
     @property
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The key-value string map. The tag key can be up to 128 characters and must not start with aws:.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -81,6 +89,9 @@ class ConfigurationProfileTagsArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tag value can be up to 256 characters.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -93,6 +104,11 @@ class ConfigurationProfileValidatorsArgs:
     def __init__(__self__, *,
                  content: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
+        """
+        A list of methods for validating the configuration.
+        :param pulumi.Input[str] content: Either the JSON Schema content or the Amazon Resource Name (ARN) of an Lambda function.
+        :param pulumi.Input[str] type: AWS AppConfig supports validators of type JSON_SCHEMA and LAMBDA.
+        """
         if content is not None:
             pulumi.set(__self__, "content", content)
         if type is not None:
@@ -101,6 +117,9 @@ class ConfigurationProfileValidatorsArgs:
     @property
     @pulumi.getter
     def content(self) -> Optional[pulumi.Input[str]]:
+        """
+        Either the JSON Schema content or the Amazon Resource Name (ARN) of an Lambda function.
+        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -110,6 +129,9 @@ class ConfigurationProfileValidatorsArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        AWS AppConfig supports validators of type JSON_SCHEMA and LAMBDA.
+        """
         return pulumi.get(self, "type")
 
     @type.setter

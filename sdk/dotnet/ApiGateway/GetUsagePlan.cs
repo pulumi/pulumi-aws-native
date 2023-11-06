@@ -29,9 +29,6 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetUsagePlanArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -43,9 +40,6 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class GetUsagePlanInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -67,9 +61,6 @@ namespace Pulumi.AwsNative.ApiGateway
         /// The description of a usage plan.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// The provider-assigned unique ID for this managed resource.
-        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// The target maximum number of permitted requests per a given unit time interval.

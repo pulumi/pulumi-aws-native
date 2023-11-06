@@ -845,6 +845,8 @@ class ServiceNetworkConfiguration(dict):
             suggest = "egress_configuration"
         elif key == "ingressConfiguration":
             suggest = "ingress_configuration"
+        elif key == "ipAddressType":
+            suggest = "ip_address_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -859,14 +861,18 @@ class ServiceNetworkConfiguration(dict):
 
     def __init__(__self__, *,
                  egress_configuration: Optional['outputs.ServiceEgressConfiguration'] = None,
-                 ingress_configuration: Optional['outputs.ServiceIngressConfiguration'] = None):
+                 ingress_configuration: Optional['outputs.ServiceIngressConfiguration'] = None,
+                 ip_address_type: Optional['ServiceNetworkConfigurationIpAddressType'] = None):
         """
         Network configuration
+        :param 'ServiceNetworkConfigurationIpAddressType' ip_address_type: App Runner service endpoint IP address type
         """
         if egress_configuration is not None:
             pulumi.set(__self__, "egress_configuration", egress_configuration)
         if ingress_configuration is not None:
             pulumi.set(__self__, "ingress_configuration", ingress_configuration)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
 
     @property
     @pulumi.getter(name="egressConfiguration")
@@ -877,6 +883,14 @@ class ServiceNetworkConfiguration(dict):
     @pulumi.getter(name="ingressConfiguration")
     def ingress_configuration(self) -> Optional['outputs.ServiceIngressConfiguration']:
         return pulumi.get(self, "ingress_configuration")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional['ServiceNetworkConfigurationIpAddressType']:
+        """
+        App Runner service endpoint IP address type
+        """
+        return pulumi.get(self, "ip_address_type")
 
 
 @pulumi.output_type

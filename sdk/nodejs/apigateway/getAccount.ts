@@ -16,9 +16,6 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetAccountArgs {
-    /**
-     * Primary identifier which is manually generated.
-     */
     id: string;
 }
 
@@ -27,9 +24,6 @@ export interface GetAccountResult {
      * The ARN of an Amazon CloudWatch role for the current Account.
      */
     readonly cloudWatchRoleArn?: string;
-    /**
-     * Primary identifier which is manually generated.
-     */
     readonly id?: string;
 }
 /**
@@ -40,8 +34,5 @@ export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetAccountOutputArgs {
-    /**
-     * Primary identifier which is manually generated.
-     */
     id: pulumi.Input<string>;
 }

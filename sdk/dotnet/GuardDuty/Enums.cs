@@ -17,9 +17,6 @@ namespace Pulumi.AwsNative.GuardDuty
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static DetectorCfnFeatureConfigurationName FlowLogs { get; } = new DetectorCfnFeatureConfigurationName("FLOW_LOGS");
-        public static DetectorCfnFeatureConfigurationName CloudTrail { get; } = new DetectorCfnFeatureConfigurationName("CLOUD_TRAIL");
-        public static DetectorCfnFeatureConfigurationName DnsLogs { get; } = new DetectorCfnFeatureConfigurationName("DNS_LOGS");
         public static DetectorCfnFeatureConfigurationName S3DataEvents { get; } = new DetectorCfnFeatureConfigurationName("S3_DATA_EVENTS");
         public static DetectorCfnFeatureConfigurationName EksAuditLogs { get; } = new DetectorCfnFeatureConfigurationName("EKS_AUDIT_LOGS");
         public static DetectorCfnFeatureConfigurationName EbsMalwareProtection { get; } = new DetectorCfnFeatureConfigurationName("EBS_MALWARE_PROTECTION");

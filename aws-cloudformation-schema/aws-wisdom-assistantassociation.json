@@ -1,6 +1,7 @@
 {
   "typeName" : "AWS::Wisdom::AssistantAssociation",
   "description" : "Definition of AWS::Wisdom::AssistantAssociation Resource Type",
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-rpdk",
   "definitions" : {
     "AssociationData" : {
       "type" : "object",
@@ -78,13 +79,24 @@
   "replacementStrategy" : "delete_then_create",
   "handlers" : {
     "create" : {
-      "permissions" : [ "wisdom:CreateAssistantAssociation" ]
+      "permissions" : [ "wisdom:CreateAssistantAssociation", "wisdom:TagResource" ]
+    },
+    "update" : {
+      "permissions" : [ ]
     },
     "read" : {
       "permissions" : [ "wisdom:GetAssistantAssociation" ]
     },
     "list" : {
-      "permissions" : [ "wisdom:ListAssistantAssociations" ]
+      "permissions" : [ "wisdom:ListAssistantAssociations" ],
+      "handlerSchema" : {
+        "properties" : {
+          "AssistantId" : {
+            "$ref" : "resource-schema.json#/properties/AssistantId"
+          }
+        },
+        "required" : [ "AssistantId" ]
+      }
     },
     "delete" : {
       "permissions" : [ "wisdom:DeleteAssistantAssociation" ]

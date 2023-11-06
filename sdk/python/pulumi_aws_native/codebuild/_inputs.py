@@ -392,19 +392,19 @@ class ProjectEnvironmentVariableArgs:
 @pulumi.input_type
 class ProjectEnvironmentArgs:
     def __init__(__self__, *,
-                 compute_type: pulumi.Input[str],
                  image: pulumi.Input[str],
-                 type: pulumi.Input[str],
                  certificate: Optional[pulumi.Input[str]] = None,
+                 compute_type: Optional[pulumi.Input[str]] = None,
                  environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentVariableArgs']]]] = None,
                  image_pull_credentials_type: Optional[pulumi.Input[str]] = None,
                  privileged_mode: Optional[pulumi.Input[bool]] = None,
-                 registry_credential: Optional[pulumi.Input['ProjectRegistryCredentialArgs']] = None):
-        pulumi.set(__self__, "compute_type", compute_type)
+                 registry_credential: Optional[pulumi.Input['ProjectRegistryCredentialArgs']] = None,
+                 type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "image", image)
-        pulumi.set(__self__, "type", type)
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
+        if compute_type is not None:
+            pulumi.set(__self__, "compute_type", compute_type)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if image_pull_credentials_type is not None:
@@ -413,15 +413,8 @@ class ProjectEnvironmentArgs:
             pulumi.set(__self__, "privileged_mode", privileged_mode)
         if registry_credential is not None:
             pulumi.set(__self__, "registry_credential", registry_credential)
-
-    @property
-    @pulumi.getter(name="computeType")
-    def compute_type(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "compute_type")
-
-    @compute_type.setter
-    def compute_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "compute_type", value)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -434,21 +427,21 @@ class ProjectEnvironmentArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
     def certificate(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "certificate")
 
     @certificate.setter
     def certificate(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compute_type", value)
 
     @property
     @pulumi.getter(name="environmentVariables")
@@ -485,6 +478,15 @@ class ProjectEnvironmentArgs:
     @registry_credential.setter
     def registry_credential(self, value: Optional[pulumi.Input['ProjectRegistryCredentialArgs']]):
         pulumi.set(self, "registry_credential", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

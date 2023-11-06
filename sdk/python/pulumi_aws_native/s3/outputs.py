@@ -86,6 +86,8 @@ __all__ = [
     'StorageLensDataExport',
     'StorageLensDetailedStatusCodesMetrics',
     'StorageLensEncryption',
+    'StorageLensGroupLevel',
+    'StorageLensGroupSelectionCriteria',
     'StorageLensPrefixLevel',
     'StorageLensPrefixLevelStorageMetrics',
     'StorageLensS3BucketDestination',
@@ -3179,6 +3181,8 @@ class StorageLensAccountLevel(dict):
             suggest = "advanced_data_protection_metrics"
         elif key == "detailedStatusCodesMetrics":
             suggest = "detailed_status_codes_metrics"
+        elif key == "storageLensGroupLevel":
+            suggest = "storage_lens_group_level"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in StorageLensAccountLevel. Access the value via the '{suggest}' property getter instead.")
@@ -3196,7 +3200,8 @@ class StorageLensAccountLevel(dict):
                  activity_metrics: Optional['outputs.StorageLensActivityMetrics'] = None,
                  advanced_cost_optimization_metrics: Optional['outputs.StorageLensAdvancedCostOptimizationMetrics'] = None,
                  advanced_data_protection_metrics: Optional['outputs.StorageLensAdvancedDataProtectionMetrics'] = None,
-                 detailed_status_codes_metrics: Optional['outputs.StorageLensDetailedStatusCodesMetrics'] = None):
+                 detailed_status_codes_metrics: Optional['outputs.StorageLensDetailedStatusCodesMetrics'] = None,
+                 storage_lens_group_level: Optional['outputs.StorageLensGroupLevel'] = None):
         """
         Account-level metrics configurations.
         """
@@ -3209,6 +3214,8 @@ class StorageLensAccountLevel(dict):
             pulumi.set(__self__, "advanced_data_protection_metrics", advanced_data_protection_metrics)
         if detailed_status_codes_metrics is not None:
             pulumi.set(__self__, "detailed_status_codes_metrics", detailed_status_codes_metrics)
+        if storage_lens_group_level is not None:
+            pulumi.set(__self__, "storage_lens_group_level", storage_lens_group_level)
 
     @property
     @pulumi.getter(name="bucketLevel")
@@ -3234,6 +3241,11 @@ class StorageLensAccountLevel(dict):
     @pulumi.getter(name="detailedStatusCodesMetrics")
     def detailed_status_codes_metrics(self) -> Optional['outputs.StorageLensDetailedStatusCodesMetrics']:
         return pulumi.get(self, "detailed_status_codes_metrics")
+
+    @property
+    @pulumi.getter(name="storageLensGroupLevel")
+    def storage_lens_group_level(self) -> Optional['outputs.StorageLensGroupLevel']:
+        return pulumi.get(self, "storage_lens_group_level")
 
 
 @pulumi.output_type
@@ -3717,6 +3729,69 @@ class StorageLensEncryption(dict):
         Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
         """
         pass
+
+
+@pulumi.output_type
+class StorageLensGroupLevel(dict):
+    """
+    Specifies the details of Amazon S3 Storage Lens Group configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageLensGroupSelectionCriteria":
+            suggest = "storage_lens_group_selection_criteria"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensGroupLevel. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensGroupLevel.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensGroupLevel.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_lens_group_selection_criteria: Optional['outputs.StorageLensGroupSelectionCriteria'] = None):
+        """
+        Specifies the details of Amazon S3 Storage Lens Group configuration.
+        """
+        if storage_lens_group_selection_criteria is not None:
+            pulumi.set(__self__, "storage_lens_group_selection_criteria", storage_lens_group_selection_criteria)
+
+    @property
+    @pulumi.getter(name="storageLensGroupSelectionCriteria")
+    def storage_lens_group_selection_criteria(self) -> Optional['outputs.StorageLensGroupSelectionCriteria']:
+        return pulumi.get(self, "storage_lens_group_selection_criteria")
+
+
+@pulumi.output_type
+class StorageLensGroupSelectionCriteria(dict):
+    """
+    Selection criteria for Storage Lens Group level metrics
+    """
+    def __init__(__self__, *,
+                 exclude: Optional[Sequence[str]] = None,
+                 include: Optional[Sequence[str]] = None):
+        """
+        Selection criteria for Storage Lens Group level metrics
+        """
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "exclude")
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "include")
 
 
 @pulumi.output_type

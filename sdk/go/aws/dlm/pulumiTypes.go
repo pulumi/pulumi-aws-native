@@ -455,11 +455,12 @@ func (o LifecyclePolicyArchiveRulePtrOutput) RetainRule() LifecyclePolicyArchive
 }
 
 type LifecyclePolicyCreateRule struct {
-	CronExpression *string  `pulumi:"cronExpression"`
-	Interval       *int     `pulumi:"interval"`
-	IntervalUnit   *string  `pulumi:"intervalUnit"`
-	Location       *string  `pulumi:"location"`
-	Times          []string `pulumi:"times"`
+	CronExpression *string                 `pulumi:"cronExpression"`
+	Interval       *int                    `pulumi:"interval"`
+	IntervalUnit   *string                 `pulumi:"intervalUnit"`
+	Location       *string                 `pulumi:"location"`
+	Scripts        []LifecyclePolicyScript `pulumi:"scripts"`
+	Times          []string                `pulumi:"times"`
 }
 
 // LifecyclePolicyCreateRuleInput is an input type that accepts LifecyclePolicyCreateRuleArgs and LifecyclePolicyCreateRuleOutput values.
@@ -474,11 +475,12 @@ type LifecyclePolicyCreateRuleInput interface {
 }
 
 type LifecyclePolicyCreateRuleArgs struct {
-	CronExpression pulumi.StringPtrInput   `pulumi:"cronExpression"`
-	Interval       pulumi.IntPtrInput      `pulumi:"interval"`
-	IntervalUnit   pulumi.StringPtrInput   `pulumi:"intervalUnit"`
-	Location       pulumi.StringPtrInput   `pulumi:"location"`
-	Times          pulumi.StringArrayInput `pulumi:"times"`
+	CronExpression pulumi.StringPtrInput           `pulumi:"cronExpression"`
+	Interval       pulumi.IntPtrInput              `pulumi:"interval"`
+	IntervalUnit   pulumi.StringPtrInput           `pulumi:"intervalUnit"`
+	Location       pulumi.StringPtrInput           `pulumi:"location"`
+	Scripts        LifecyclePolicyScriptArrayInput `pulumi:"scripts"`
+	Times          pulumi.StringArrayInput         `pulumi:"times"`
 }
 
 func (LifecyclePolicyCreateRuleArgs) ElementType() reflect.Type {
@@ -592,6 +594,10 @@ func (o LifecyclePolicyCreateRuleOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyCreateRule) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
+func (o LifecyclePolicyCreateRuleOutput) Scripts() LifecyclePolicyScriptArrayOutput {
+	return o.ApplyT(func(v LifecyclePolicyCreateRule) []LifecyclePolicyScript { return v.Scripts }).(LifecyclePolicyScriptArrayOutput)
+}
+
 func (o LifecyclePolicyCreateRuleOutput) Times() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LifecyclePolicyCreateRule) []string { return v.Times }).(pulumi.StringArrayOutput)
 }
@@ -660,6 +666,15 @@ func (o LifecyclePolicyCreateRulePtrOutput) Location() pulumi.StringPtrOutput {
 		}
 		return v.Location
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o LifecyclePolicyCreateRulePtrOutput) Scripts() LifecyclePolicyScriptArrayOutput {
+	return o.ApplyT(func(v *LifecyclePolicyCreateRule) []LifecyclePolicyScript {
+		if v == nil {
+			return nil
+		}
+		return v.Scripts
+	}).(LifecyclePolicyScriptArrayOutput)
 }
 
 func (o LifecyclePolicyCreateRulePtrOutput) Times() pulumi.StringArrayOutput {
@@ -3123,6 +3138,154 @@ func (o LifecyclePolicyScheduleArrayOutput) Index(i pulumi.IntInput) LifecyclePo
 	}).(LifecyclePolicyScheduleOutput)
 }
 
+type LifecyclePolicyScript struct {
+	ExecuteOperationOnScriptFailure *bool    `pulumi:"executeOperationOnScriptFailure"`
+	ExecutionHandler                *string  `pulumi:"executionHandler"`
+	ExecutionHandlerService         *string  `pulumi:"executionHandlerService"`
+	ExecutionTimeout                *int     `pulumi:"executionTimeout"`
+	MaximumRetryCount               *int     `pulumi:"maximumRetryCount"`
+	Stages                          []string `pulumi:"stages"`
+}
+
+// LifecyclePolicyScriptInput is an input type that accepts LifecyclePolicyScriptArgs and LifecyclePolicyScriptOutput values.
+// You can construct a concrete instance of `LifecyclePolicyScriptInput` via:
+//
+//	LifecyclePolicyScriptArgs{...}
+type LifecyclePolicyScriptInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyScriptOutput() LifecyclePolicyScriptOutput
+	ToLifecyclePolicyScriptOutputWithContext(context.Context) LifecyclePolicyScriptOutput
+}
+
+type LifecyclePolicyScriptArgs struct {
+	ExecuteOperationOnScriptFailure pulumi.BoolPtrInput     `pulumi:"executeOperationOnScriptFailure"`
+	ExecutionHandler                pulumi.StringPtrInput   `pulumi:"executionHandler"`
+	ExecutionHandlerService         pulumi.StringPtrInput   `pulumi:"executionHandlerService"`
+	ExecutionTimeout                pulumi.IntPtrInput      `pulumi:"executionTimeout"`
+	MaximumRetryCount               pulumi.IntPtrInput      `pulumi:"maximumRetryCount"`
+	Stages                          pulumi.StringArrayInput `pulumi:"stages"`
+}
+
+func (LifecyclePolicyScriptArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyScript)(nil)).Elem()
+}
+
+func (i LifecyclePolicyScriptArgs) ToLifecyclePolicyScriptOutput() LifecyclePolicyScriptOutput {
+	return i.ToLifecyclePolicyScriptOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyScriptArgs) ToLifecyclePolicyScriptOutputWithContext(ctx context.Context) LifecyclePolicyScriptOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyScriptOutput)
+}
+
+func (i LifecyclePolicyScriptArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyScript] {
+	return pulumix.Output[LifecyclePolicyScript]{
+		OutputState: i.ToLifecyclePolicyScriptOutputWithContext(ctx).OutputState,
+	}
+}
+
+// LifecyclePolicyScriptArrayInput is an input type that accepts LifecyclePolicyScriptArray and LifecyclePolicyScriptArrayOutput values.
+// You can construct a concrete instance of `LifecyclePolicyScriptArrayInput` via:
+//
+//	LifecyclePolicyScriptArray{ LifecyclePolicyScriptArgs{...} }
+type LifecyclePolicyScriptArrayInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyScriptArrayOutput() LifecyclePolicyScriptArrayOutput
+	ToLifecyclePolicyScriptArrayOutputWithContext(context.Context) LifecyclePolicyScriptArrayOutput
+}
+
+type LifecyclePolicyScriptArray []LifecyclePolicyScriptInput
+
+func (LifecyclePolicyScriptArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LifecyclePolicyScript)(nil)).Elem()
+}
+
+func (i LifecyclePolicyScriptArray) ToLifecyclePolicyScriptArrayOutput() LifecyclePolicyScriptArrayOutput {
+	return i.ToLifecyclePolicyScriptArrayOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyScriptArray) ToLifecyclePolicyScriptArrayOutputWithContext(ctx context.Context) LifecyclePolicyScriptArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyScriptArrayOutput)
+}
+
+func (i LifecyclePolicyScriptArray) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicyScript] {
+	return pulumix.Output[[]LifecyclePolicyScript]{
+		OutputState: i.ToLifecyclePolicyScriptArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type LifecyclePolicyScriptOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyScriptOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyScript)(nil)).Elem()
+}
+
+func (o LifecyclePolicyScriptOutput) ToLifecyclePolicyScriptOutput() LifecyclePolicyScriptOutput {
+	return o
+}
+
+func (o LifecyclePolicyScriptOutput) ToLifecyclePolicyScriptOutputWithContext(ctx context.Context) LifecyclePolicyScriptOutput {
+	return o
+}
+
+func (o LifecyclePolicyScriptOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyScript] {
+	return pulumix.Output[LifecyclePolicyScript]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LifecyclePolicyScriptOutput) ExecuteOperationOnScriptFailure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyScript) *bool { return v.ExecuteOperationOnScriptFailure }).(pulumi.BoolPtrOutput)
+}
+
+func (o LifecyclePolicyScriptOutput) ExecutionHandler() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyScript) *string { return v.ExecutionHandler }).(pulumi.StringPtrOutput)
+}
+
+func (o LifecyclePolicyScriptOutput) ExecutionHandlerService() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyScript) *string { return v.ExecutionHandlerService }).(pulumi.StringPtrOutput)
+}
+
+func (o LifecyclePolicyScriptOutput) ExecutionTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyScript) *int { return v.ExecutionTimeout }).(pulumi.IntPtrOutput)
+}
+
+func (o LifecyclePolicyScriptOutput) MaximumRetryCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyScript) *int { return v.MaximumRetryCount }).(pulumi.IntPtrOutput)
+}
+
+func (o LifecyclePolicyScriptOutput) Stages() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LifecyclePolicyScript) []string { return v.Stages }).(pulumi.StringArrayOutput)
+}
+
+type LifecyclePolicyScriptArrayOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyScriptArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LifecyclePolicyScript)(nil)).Elem()
+}
+
+func (o LifecyclePolicyScriptArrayOutput) ToLifecyclePolicyScriptArrayOutput() LifecyclePolicyScriptArrayOutput {
+	return o
+}
+
+func (o LifecyclePolicyScriptArrayOutput) ToLifecyclePolicyScriptArrayOutputWithContext(ctx context.Context) LifecyclePolicyScriptArrayOutput {
+	return o
+}
+
+func (o LifecyclePolicyScriptArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicyScript] {
+	return pulumix.Output[[]LifecyclePolicyScript]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LifecyclePolicyScriptArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyScriptOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LifecyclePolicyScript {
+		return vs[0].([]LifecyclePolicyScript)[vs[1].(int)]
+	}).(LifecyclePolicyScriptOutput)
+}
+
 type LifecyclePolicyShareRule struct {
 	TargetAccounts      []string `pulumi:"targetAccounts"`
 	UnshareInterval     *int     `pulumi:"unshareInterval"`
@@ -3413,6 +3576,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyRetentionArchiveTierPtrInput)(nil)).Elem(), LifecyclePolicyRetentionArchiveTierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyScheduleInput)(nil)).Elem(), LifecyclePolicyScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyScheduleArrayInput)(nil)).Elem(), LifecyclePolicyScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyScriptInput)(nil)).Elem(), LifecyclePolicyScriptArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyScriptArrayInput)(nil)).Elem(), LifecyclePolicyScriptArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyShareRuleInput)(nil)).Elem(), LifecyclePolicyShareRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyShareRuleArrayInput)(nil)).Elem(), LifecyclePolicyShareRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyTagInput)(nil)).Elem(), LifecyclePolicyTagArgs{})
@@ -3452,6 +3617,8 @@ func init() {
 	pulumi.RegisterOutputType(LifecyclePolicyRetentionArchiveTierPtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyScheduleOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyScheduleArrayOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyScriptOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyScriptArrayOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyShareRuleOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyShareRuleArrayOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyTagOutput{})

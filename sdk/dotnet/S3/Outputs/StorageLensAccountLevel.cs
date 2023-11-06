@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.S3.Outputs
         public readonly Outputs.StorageLensAdvancedDataProtectionMetrics? AdvancedDataProtectionMetrics;
         public readonly Outputs.StorageLensBucketLevel BucketLevel;
         public readonly Outputs.StorageLensDetailedStatusCodesMetrics? DetailedStatusCodesMetrics;
+        public readonly Outputs.StorageLensGroupLevel? StorageLensGroupLevel;
 
         [OutputConstructor]
         private StorageLensAccountLevel(
@@ -32,13 +33,16 @@ namespace Pulumi.AwsNative.S3.Outputs
 
             Outputs.StorageLensBucketLevel bucketLevel,
 
-            Outputs.StorageLensDetailedStatusCodesMetrics? detailedStatusCodesMetrics)
+            Outputs.StorageLensDetailedStatusCodesMetrics? detailedStatusCodesMetrics,
+
+            Outputs.StorageLensGroupLevel? storageLensGroupLevel)
         {
             ActivityMetrics = activityMetrics;
             AdvancedCostOptimizationMetrics = advancedCostOptimizationMetrics;
             AdvancedDataProtectionMetrics = advancedDataProtectionMetrics;
             BucketLevel = bucketLevel;
             DetailedStatusCodesMetrics = detailedStatusCodesMetrics;
+            StorageLensGroupLevel = storageLensGroupLevel;
         }
     }
 }

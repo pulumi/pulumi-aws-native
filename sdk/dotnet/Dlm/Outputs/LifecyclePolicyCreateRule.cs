@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.Dlm.Outputs
         public readonly int? Interval;
         public readonly string? IntervalUnit;
         public readonly string? Location;
+        public readonly ImmutableArray<Outputs.LifecyclePolicyScript> Scripts;
         public readonly ImmutableArray<string> Times;
 
         [OutputConstructor]
@@ -29,12 +30,15 @@ namespace Pulumi.AwsNative.Dlm.Outputs
 
             string? location,
 
+            ImmutableArray<Outputs.LifecyclePolicyScript> scripts,
+
             ImmutableArray<string> times)
         {
             CronExpression = cronExpression;
             Interval = interval;
             IntervalUnit = intervalUnit;
             Location = location;
+            Scripts = scripts;
             Times = times;
         }
     }

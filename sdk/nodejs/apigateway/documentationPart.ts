@@ -37,9 +37,6 @@ export class DocumentationPart extends pulumi.CustomResource {
         return obj['__pulumiType'] === DocumentationPart.__pulumiType;
     }
 
-    /**
-     * The identifier of the documentation Part.
-     */
     public /*out*/ readonly documentationPartId!: pulumi.Output<string>;
     /**
      * The location of the targeted API entity of the to-be-created documentation part.

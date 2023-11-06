@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppConfig.Outputs
 {
 
+    /// <summary>
+    /// Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+    /// </summary>
     [OutputType]
     public sealed class ConfigurationProfileTags
     {
+        /// <summary>
+        /// The key-value string map. The tag key can be up to 128 characters and must not start with aws:.
+        /// </summary>
         public readonly string? Key;
+        /// <summary>
+        /// The tag value can be up to 256 characters.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

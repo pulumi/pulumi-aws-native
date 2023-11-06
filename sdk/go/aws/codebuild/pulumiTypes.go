@@ -1228,13 +1228,13 @@ func (o ProjectCloudWatchLogsConfigPtrOutput) StreamName() pulumi.StringPtrOutpu
 
 type ProjectEnvironment struct {
 	Certificate              *string                      `pulumi:"certificate"`
-	ComputeType              string                       `pulumi:"computeType"`
+	ComputeType              *string                      `pulumi:"computeType"`
 	EnvironmentVariables     []ProjectEnvironmentVariable `pulumi:"environmentVariables"`
 	Image                    string                       `pulumi:"image"`
 	ImagePullCredentialsType *string                      `pulumi:"imagePullCredentialsType"`
 	PrivilegedMode           *bool                        `pulumi:"privilegedMode"`
 	RegistryCredential       *ProjectRegistryCredential   `pulumi:"registryCredential"`
-	Type                     string                       `pulumi:"type"`
+	Type                     *string                      `pulumi:"type"`
 }
 
 // ProjectEnvironmentInput is an input type that accepts ProjectEnvironmentArgs and ProjectEnvironmentOutput values.
@@ -1250,13 +1250,13 @@ type ProjectEnvironmentInput interface {
 
 type ProjectEnvironmentArgs struct {
 	Certificate              pulumi.StringPtrInput                `pulumi:"certificate"`
-	ComputeType              pulumi.StringInput                   `pulumi:"computeType"`
+	ComputeType              pulumi.StringPtrInput                `pulumi:"computeType"`
 	EnvironmentVariables     ProjectEnvironmentVariableArrayInput `pulumi:"environmentVariables"`
 	Image                    pulumi.StringInput                   `pulumi:"image"`
 	ImagePullCredentialsType pulumi.StringPtrInput                `pulumi:"imagePullCredentialsType"`
 	PrivilegedMode           pulumi.BoolPtrInput                  `pulumi:"privilegedMode"`
 	RegistryCredential       ProjectRegistryCredentialPtrInput    `pulumi:"registryCredential"`
-	Type                     pulumi.StringInput                   `pulumi:"type"`
+	Type                     pulumi.StringPtrInput                `pulumi:"type"`
 }
 
 func (ProjectEnvironmentArgs) ElementType() reflect.Type {
@@ -1301,8 +1301,8 @@ func (o ProjectEnvironmentOutput) Certificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProjectEnvironment) *string { return v.Certificate }).(pulumi.StringPtrOutput)
 }
 
-func (o ProjectEnvironmentOutput) ComputeType() pulumi.StringOutput {
-	return o.ApplyT(func(v ProjectEnvironment) string { return v.ComputeType }).(pulumi.StringOutput)
+func (o ProjectEnvironmentOutput) ComputeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectEnvironment) *string { return v.ComputeType }).(pulumi.StringPtrOutput)
 }
 
 func (o ProjectEnvironmentOutput) EnvironmentVariables() ProjectEnvironmentVariableArrayOutput {
@@ -1325,8 +1325,8 @@ func (o ProjectEnvironmentOutput) RegistryCredential() ProjectRegistryCredential
 	return o.ApplyT(func(v ProjectEnvironment) *ProjectRegistryCredential { return v.RegistryCredential }).(ProjectRegistryCredentialPtrOutput)
 }
 
-func (o ProjectEnvironmentOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ProjectEnvironment) string { return v.Type }).(pulumi.StringOutput)
+func (o ProjectEnvironmentOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProjectEnvironment) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type ProjectEnvironmentPtrOutput struct{ *pulumi.OutputState }
@@ -1373,7 +1373,7 @@ func (o ProjectEnvironmentPtrOutput) ComputeType() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.ComputeType
+		return v.ComputeType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1427,7 +1427,7 @@ func (o ProjectEnvironmentPtrOutput) Type() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Type
+		return v.Type
 	}).(pulumi.StringPtrOutput)
 }
 

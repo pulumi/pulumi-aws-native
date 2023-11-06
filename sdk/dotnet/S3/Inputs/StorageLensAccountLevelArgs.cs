@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.S3.Inputs
         [Input("detailedStatusCodesMetrics")]
         public Input<Inputs.StorageLensDetailedStatusCodesMetricsArgs>? DetailedStatusCodesMetrics { get; set; }
 
+        [Input("storageLensGroupLevel")]
+        public Input<Inputs.StorageLensGroupLevelArgs>? StorageLensGroupLevel { get; set; }
+
         public StorageLensAccountLevelArgs()
         {
         }

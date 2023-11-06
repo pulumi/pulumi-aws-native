@@ -384,19 +384,19 @@ class ProjectEnvironment(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 compute_type: str,
                  image: str,
-                 type: str,
                  certificate: Optional[str] = None,
+                 compute_type: Optional[str] = None,
                  environment_variables: Optional[Sequence['outputs.ProjectEnvironmentVariable']] = None,
                  image_pull_credentials_type: Optional[str] = None,
                  privileged_mode: Optional[bool] = None,
-                 registry_credential: Optional['outputs.ProjectRegistryCredential'] = None):
-        pulumi.set(__self__, "compute_type", compute_type)
+                 registry_credential: Optional['outputs.ProjectRegistryCredential'] = None,
+                 type: Optional[str] = None):
         pulumi.set(__self__, "image", image)
-        pulumi.set(__self__, "type", type)
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
+        if compute_type is not None:
+            pulumi.set(__self__, "compute_type", compute_type)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if image_pull_credentials_type is not None:
@@ -405,11 +405,8 @@ class ProjectEnvironment(dict):
             pulumi.set(__self__, "privileged_mode", privileged_mode)
         if registry_credential is not None:
             pulumi.set(__self__, "registry_credential", registry_credential)
-
-    @property
-    @pulumi.getter(name="computeType")
-    def compute_type(self) -> str:
-        return pulumi.get(self, "compute_type")
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -418,13 +415,13 @@ class ProjectEnvironment(dict):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
     def certificate(self) -> Optional[str]:
         return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> Optional[str]:
+        return pulumi.get(self, "compute_type")
 
     @property
     @pulumi.getter(name="environmentVariables")
@@ -445,6 +442,11 @@ class ProjectEnvironment(dict):
     @pulumi.getter(name="registryCredential")
     def registry_credential(self) -> Optional['outputs.ProjectRegistryCredential']:
         return pulumi.get(self, "registry_credential")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

@@ -358,7 +358,7 @@
           "type" : "string"
         }
       },
-      "required" : [ "Type", "Image", "ComputeType" ]
+      "required" : [ "Image" ]
     },
     "EnvironmentVariable" : {
       "type" : "object",

@@ -10,36 +10,74 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppConfig
 {
     /// <summary>
-    /// Resource Type definition for AWS::AppConfig::ConfigurationProfile
+    /// An example resource schema demonstrating some basic constructs and validation rules.
     /// </summary>
-    [Obsolete(@"ConfigurationProfile is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:appconfig:ConfigurationProfile")]
     public partial class ConfigurationProfile : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The application ID.
+        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration profile ID
+        /// </summary>
+        [Output("configurationProfileId")]
+        public Output<string> ConfigurationProfileId { get; private set; } = null!;
+
+        /// <summary>
+        /// A description of the configuration profile.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name of the AWS Key Management Service key to encrypt new configuration data versions in the AWS AppConfig hosted configuration store. This attribute is only used for hosted configuration types. To encrypt data managed in other configuration stores, see the documentation for how to specify an AWS KMS key for that particular service.
+        /// </summary>
+        [Output("kmsKeyArn")]
+        public Output<string> KmsKeyArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
+        /// </summary>
         [Output("kmsKeyIdentifier")]
         public Output<string?> KmsKeyIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object.
+        /// </summary>
         [Output("locationUri")]
         public Output<string> LocationUri { get; private set; } = null!;
 
+        /// <summary>
+        /// A name for the configuration profile.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of an IAM role with permission to access the configuration at the specified LocationUri.
+        /// </summary>
         [Output("retrievalRoleArn")]
         public Output<string?> RetrievalRoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.ConfigurationProfileTags>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of configurations contained in the profile. When calling this API, enter one of the following values for Type: AWS.AppConfig.FeatureFlags, AWS.Freeform
+        /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of methods for validating the configuration.
+        /// </summary>
         [Output("validators")]
         public Output<ImmutableArray<Outputs.ConfigurationProfileValidators>> Validators { get; private set; } = null!;
 
@@ -94,37 +132,66 @@ namespace Pulumi.AwsNative.AppConfig
 
     public sealed class ConfigurationProfileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The application ID.
+        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// A description of the configuration profile.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
+        /// </summary>
         [Input("kmsKeyIdentifier")]
         public Input<string>? KmsKeyIdentifier { get; set; }
 
+        /// <summary>
+        /// A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object.
+        /// </summary>
         [Input("locationUri", required: true)]
         public Input<string> LocationUri { get; set; } = null!;
 
+        /// <summary>
+        /// A name for the configuration profile.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ARN of an IAM role with permission to access the configuration at the specified LocationUri.
+        /// </summary>
         [Input("retrievalRoleArn")]
         public Input<string>? RetrievalRoleArn { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.ConfigurationProfileTagsArgs>? _tags;
+
+        /// <summary>
+        /// Metadata to assign to the configuration profile. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+        /// </summary>
         public InputList<Inputs.ConfigurationProfileTagsArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.ConfigurationProfileTagsArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The type of configurations contained in the profile. When calling this API, enter one of the following values for Type: AWS.AppConfig.FeatureFlags, AWS.Freeform
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
         [Input("validators")]
         private InputList<Inputs.ConfigurationProfileValidatorsArgs>? _validators;
+
+        /// <summary>
+        /// A list of methods for validating the configuration.
+        /// </summary>
         public InputList<Inputs.ConfigurationProfileValidatorsArgs> Validators
         {
             get => _validators ?? (_validators = new InputList<Inputs.ConfigurationProfileValidatorsArgs>());

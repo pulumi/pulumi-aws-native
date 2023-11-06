@@ -18,15 +18,22 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
     {
         public readonly Outputs.ServiceEgressConfiguration? EgressConfiguration;
         public readonly Outputs.ServiceIngressConfiguration? IngressConfiguration;
+        /// <summary>
+        /// App Runner service endpoint IP address type
+        /// </summary>
+        public readonly Pulumi.AwsNative.AppRunner.ServiceNetworkConfigurationIpAddressType? IpAddressType;
 
         [OutputConstructor]
         private ServiceNetworkConfiguration(
             Outputs.ServiceEgressConfiguration? egressConfiguration,
 
-            Outputs.ServiceIngressConfiguration? ingressConfiguration)
+            Outputs.ServiceIngressConfiguration? ingressConfiguration,
+
+            Pulumi.AwsNative.AppRunner.ServiceNetworkConfigurationIpAddressType? ipAddressType)
         {
             EgressConfiguration = egressConfiguration;
             IngressConfiguration = ingressConfiguration;
+            IpAddressType = ipAddressType;
         }
     }
 }

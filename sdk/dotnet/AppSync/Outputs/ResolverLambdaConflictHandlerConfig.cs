@@ -10,15 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AppSync.Outputs
 {
 
-    /// <summary>
-    /// The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
-    /// </summary>
     [OutputType]
     public sealed class ResolverLambdaConflictHandlerConfig
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
-        /// </summary>
         public readonly string? LambdaConflictHandlerArn;
 
         [OutputConstructor]
