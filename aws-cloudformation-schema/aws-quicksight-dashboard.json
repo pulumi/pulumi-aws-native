@@ -5390,6 +5390,20 @@
       },
       "additionalProperties" : false
     },
+    "LinkSharingConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "Permissions" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ResourcePermission"
+          },
+          "maxItems" : 64,
+          "minItems" : 1
+        }
+      },
+      "additionalProperties" : false
+    },
     "ListControlDisplayOptions" : {
       "type" : "object",
       "properties" : {
@@ -10154,6 +10168,9 @@
       "type" : "string",
       "format" : "date-time"
     },
+    "LinkSharingConfiguration" : {
+      "$ref" : "#/definitions/LinkSharingConfiguration"
+    },
     "Name" : {
       "type" : "string",
       "maxLength" : 2048,
@@ -10198,7 +10215,7 @@
   },
   "required" : [ "AwsAccountId", "DashboardId", "Name" ],
   "readOnlyProperties" : [ "/properties/DashboardError", "/properties/Arn", "/properties/CreatedTime", "/properties/LastPublishedTime", "/properties/LastUpdatedTime", "/properties/Version" ],
-  "writeOnlyProperties" : [ "/properties/DashboardPublishOptions", "/properties/Definition", "/properties/Parameters", "/properties/SourceEntity", "/properties/ThemeArn", "/properties/VersionDescription", "/properties/CreatedTime", "/properties/LastUpdatedTime", "/properties/ValidationStrategy" ],
+  "writeOnlyProperties" : [ "/properties/DashboardPublishOptions", "/properties/Definition", "/properties/LinkSharingConfiguration", "/properties/Parameters", "/properties/SourceEntity", "/properties/ThemeArn", "/properties/VersionDescription", "/properties/CreatedTime", "/properties/LastUpdatedTime", "/properties/ValidationStrategy" ],
   "createOnlyProperties" : [ "/properties/AwsAccountId", "/properties/DashboardId" ],
   "primaryIdentifier" : [ "/properties/AwsAccountId", "/properties/DashboardId" ],
   "handlers" : {
