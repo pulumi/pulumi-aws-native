@@ -51,7 +51,7 @@ jobs:
       with:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
-      uses: pulumi/action-install-pulumi-cli@v2
+      uses: pulumi/actions@v4
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
