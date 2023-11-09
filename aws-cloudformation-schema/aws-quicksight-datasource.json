@@ -257,12 +257,18 @@
         },
         "DatabricksParameters" : {
           "$ref" : "#/definitions/DatabricksParameters"
+        },
+        "StarburstParameters" : {
+          "$ref" : "#/definitions/StarburstParameters"
+        },
+        "TrinoParameters" : {
+          "$ref" : "#/definitions/TrinoParameters"
         }
       }
     },
     "DataSourceType" : {
       "type" : "string",
-      "enum" : [ "ADOBE_ANALYTICS", "AMAZON_ELASTICSEARCH", "AMAZON_OPENSEARCH", "ATHENA", "AURORA", "AURORA_POSTGRESQL", "AWS_IOT_ANALYTICS", "DATABRICKS", "GITHUB", "JIRA", "MARIADB", "MYSQL", "ORACLE", "POSTGRESQL", "PRESTO", "REDSHIFT", "S3", "SALESFORCE", "SERVICENOW", "SNOWFLAKE", "SPARK", "SQLSERVER", "TERADATA", "TWITTER", "TIMESTREAM" ]
+      "enum" : [ "ADOBE_ANALYTICS", "AMAZON_ELASTICSEARCH", "AMAZON_OPENSEARCH", "ATHENA", "AURORA", "AURORA_POSTGRESQL", "AWS_IOT_ANALYTICS", "DATABRICKS", "GITHUB", "JIRA", "MARIADB", "MYSQL", "ORACLE", "POSTGRESQL", "PRESTO", "REDSHIFT", "S3", "SALESFORCE", "SERVICENOW", "SNOWFLAKE", "SPARK", "SQLSERVER", "TERADATA", "TWITTER", "TIMESTREAM", "STARBURST", "TRINO" ]
     },
     "ManifestFileLocation" : {
       "type" : "object",
@@ -463,7 +469,7 @@
           "items" : {
             "type" : "string"
           },
-          "maxItems" : 16,
+          "maxItems" : 20,
           "minItems" : 1,
           "description" : "<p>The IAM action to grant or revoke permissions on.</p>"
         },
@@ -520,6 +526,63 @@
         }
       },
       "required" : [ "Database", "Host", "Warehouse" ]
+    },
+    "StarburstParameters" : {
+      "type" : "object",
+      "description" : "<p>Starburst parameters.</p>",
+      "properties" : {
+        "Host" : {
+          "type" : "string",
+          "maxLength" : 256,
+          "minLength" : 1,
+          "description" : "<p>Host.</p>"
+        },
+        "Port" : {
+          "type" : "number",
+          "maximum" : 65535,
+          "minimum" : 1,
+          "description" : "<p>Port.</p>"
+        },
+        "Catalog" : {
+          "type" : "string",
+          "maxLength" : 128,
+          "minLength" : 0,
+          "description" : "<p>Catalog.</p>"
+        },
+        "ProductType" : {
+          "$ref" : "#/definitions/StarburstProductType"
+        }
+      },
+      "required" : [ "Host", "Port", "Catalog" ]
+    },
+    "StarburstProductType" : {
+      "type" : "string",
+      "enum" : [ "GALAXY", "ENTERPRISE" ]
+    },
+    "TrinoParameters" : {
+      "type" : "object",
+      "description" : "<p>Trino parameters.</p>",
+      "properties" : {
+        "Host" : {
+          "type" : "string",
+          "maxLength" : 256,
+          "minLength" : 1,
+          "description" : "<p>Host.</p>"
+        },
+        "Port" : {
+          "type" : "number",
+          "maximum" : 65535,
+          "minimum" : 1,
+          "description" : "<p>Port.</p>"
+        },
+        "Catalog" : {
+          "type" : "string",
+          "maxLength" : 128,
+          "minLength" : 0,
+          "description" : "<p>Catalog.</p>"
+        }
+      },
+      "required" : [ "Host", "Port", "Catalog" ]
     },
     "SparkParameters" : {
       "type" : "object",

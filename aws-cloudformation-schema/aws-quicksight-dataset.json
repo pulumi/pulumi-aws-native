@@ -792,7 +792,7 @@
           "items" : {
             "type" : "string"
           },
-          "maxItems" : 16,
+          "maxItems" : 20,
           "minItems" : 1,
           "description" : "<p>The IAM action to grant or revoke permissions on.</p>"
         },

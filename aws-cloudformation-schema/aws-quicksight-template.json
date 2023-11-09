@@ -126,6 +126,18 @@
       "type" : "string",
       "enum" : [ "SMALL", "MEDIUM", "LARGE" ]
     },
+    "AssetOptions" : {
+      "type" : "object",
+      "properties" : {
+        "Timezone" : {
+          "type" : "string"
+        },
+        "WeekStart" : {
+          "$ref" : "#/definitions/DayOfTheWeek"
+        }
+      },
+      "additionalProperties" : false
+    },
     "AttributeAggregationFunction" : {
       "type" : "object",
       "properties" : {
@@ -2187,6 +2199,10 @@
         }
       },
       "additionalProperties" : false
+    },
+    "DayOfTheWeek" : {
+      "type" : "string",
+      "enum" : [ "SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY" ]
     },
     "DecimalDefaultValues" : {
       "type" : "object",
@@ -8719,6 +8735,9 @@
           },
           "maxItems" : 20,
           "minItems" : 0
+        },
+        "Options" : {
+          "$ref" : "#/definitions/AssetOptions"
         }
       },
       "additionalProperties" : false
@@ -8776,6 +8795,9 @@
         },
         "AnalysisDefaults" : {
           "$ref" : "#/definitions/AnalysisDefaults"
+        },
+        "Options" : {
+          "$ref" : "#/definitions/AssetOptions"
         }
       },
       "required" : [ "DataSetConfigurations" ],
