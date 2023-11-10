@@ -74,13 +74,13 @@
   "primaryIdentifier" : [ "/properties/RouteTableId", "/properties/CidrBlock" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ec2:CreateRoute", "ec2:DescribeRouteTables" ]
+      "permissions" : [ "ec2:CreateRoute", "ec2:DescribeRouteTables", "ec2:DescribeNetworkInterfaces" ]
     },
     "read" : {
       "permissions" : [ "ec2:DescribeRouteTables" ]
     },
     "update" : {
-      "permissions" : [ "ec2:ReplaceRoute", "ec2:DescribeRouteTables" ]
+      "permissions" : [ "ec2:ReplaceRoute", "ec2:DescribeRouteTables", "ec2:DescribeNetworkInterfaces" ]
     },
     "delete" : {
       "permissions" : [ "ec2:DeleteRoute", "ec2:DescribeRouteTables" ]
