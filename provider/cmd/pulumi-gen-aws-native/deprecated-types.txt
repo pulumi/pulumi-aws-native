@@ -1,9 +1,8 @@
-AWS::AppSync::Resolver
 AWS::Cognito::IdentityPool
-AWS::EC2::SubnetNetworkAclAssociation
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
 AWS::Lambda::EventInvokeConfig
+AWS::S3::Bucket
 AWS::SNS::TopicPolicy
 AWSQS::EKS::Cluster
 AWSQS::Kubernetes::Get

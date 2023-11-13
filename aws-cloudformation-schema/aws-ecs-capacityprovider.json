@@ -79,7 +79,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "autoscaling:CreateOrUpdateTags", "ecs:CreateCapacityProvider", "ecs:DescribeCapacityProviders" ]
+      "permissions" : [ "autoscaling:CreateOrUpdateTags", "ecs:CreateCapacityProvider", "ecs:DescribeCapacityProviders", "ecs:TagResource" ]
     },
     "delete" : {
       "permissions" : [ "ecs:DescribeCapacityProviders", "ecs:DeleteCapacityProvider" ]

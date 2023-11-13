@@ -153,6 +153,12 @@
     }
   },
   "required" : [ "Cluster", "Service", "TaskDefinition" ],
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "createOnlyProperties" : [ "/properties/Cluster", "/properties/ExternalId", "/properties/LaunchType", "/properties/LoadBalancers", "/properties/NetworkConfiguration", "/properties/PlatformVersion", "/properties/Service", "/properties/ServiceRegistries", "/properties/TaskDefinition" ],
   "readOnlyProperties" : [ "/properties/Id" ],
   "primaryIdentifier" : [ "/properties/Cluster", "/properties/Service", "/properties/Id" ],
