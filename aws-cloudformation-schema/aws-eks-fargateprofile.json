@@ -102,6 +102,13 @@
       }
     }
   },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
+  },
   "additionalProperties" : false,
   "required" : [ "ClusterName", "PodExecutionRoleArn", "Selectors" ],
   "createOnlyProperties" : [ "/properties/ClusterName", "/properties/FargateProfileName", "/properties/PodExecutionRoleArn", "/properties/Subnets", "/properties/Selectors" ],

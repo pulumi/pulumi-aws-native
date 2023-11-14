@@ -67,6 +67,7 @@ AWS::AppSync::FunctionConfiguration
 AWS::AppSync::Resolver
 AWS::AppSync::SourceApiAssociation
 AWS::ApplicationAutoScaling::ScalableTarget
+AWS::ApplicationAutoScaling::ScalingPolicy
 AWS::ApplicationInsights::Application
 AWS::Athena::CapacityReservation
 AWS::Athena::DataCatalog
@@ -265,6 +266,7 @@ AWS::EC2::PlacementGroup
 AWS::EC2::PrefixList
 AWS::EC2::Route
 AWS::EC2::RouteTable
+AWS::EC2::SecurityGroupEgress
 AWS::EC2::SpotFleet
 AWS::EC2::Subnet
 AWS::EC2::SubnetCidrBlock
@@ -557,6 +559,8 @@ AWS::MediaConnect::FlowOutput
 AWS::MediaConnect::FlowSource
 AWS::MediaConnect::FlowVpcInterface
 AWS::MediaConnect::Gateway
+AWS::MediaLive::Multiplex
+AWS::MediaLive::Multiplexprogram
 AWS::MediaPackage::Asset
 AWS::MediaPackage::Channel
 AWS::MediaPackage::OriginEndpoint
@@ -723,6 +727,7 @@ AWS::S3::BucketPolicy
 AWS::S3::MultiRegionAccessPoint
 AWS::S3::MultiRegionAccessPointPolicy
 AWS::S3::StorageLens
+AWS::S3::StorageLensGroup
 AWS::S3ObjectLambda::AccessPoint
 AWS::S3ObjectLambda::AccessPointPolicy
 AWS::S3Outposts::AccessPoint
