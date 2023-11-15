@@ -264,11 +264,15 @@
       "type" : "string"
     },
     "ResourceAction" : {
-      "description" : "The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster APIs",
+      "description" : "The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster, failover-primary-compute APIs",
       "type" : "string"
     },
     "RotateEncryptionKey" : {
       "description" : "A boolean indicating if we want to rotate Encryption Keys.",
+      "type" : "boolean"
+    },
+    "MultiAZ" : {
+      "description" : "A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.",
       "type" : "boolean"
     }
   },
@@ -277,7 +281,7 @@
   "primaryIdentifier" : [ "/properties/ClusterIdentifier" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/DeferMaintenanceIdentifier", "/properties/Endpoint/Port", "/properties/Endpoint/Address" ],
   "createOnlyProperties" : [ "/properties/ClusterIdentifier", "/properties/OwnerAccount", "/properties/SnapshotIdentifier", "/properties/DBName", "/properties/SnapshotClusterIdentifier", "/properties/ClusterSubnetGroupName", "/properties/MasterUsername" ],
-  "writeOnlyProperties" : [ "/properties/MasterUserPassword", "/properties/Classic" ],
+  "writeOnlyProperties" : [ "/properties/MasterUserPassword", "/properties/Classic", "/properties/SnapshotIdentifier" ],
   "tagging" : {
     "taggable" : true
   },
@@ -290,7 +294,7 @@
       "permissions" : [ "redshift:DescribeClusters", "redshift:DescribeLoggingStatus", "redshift:DescribeSnapshotCopyGrant", "redshift:DescribeClusterDbRevisions", "redshift:DescribeTags" ]
     },
     "update" : {
-      "permissions" : [ "redshift:DescribeClusters", "redshift:ModifyCluster", "redshift:ModifyClusterIamRoles", "redshift:EnableLogging", "redshift:CreateTags", "redshift:DeleteTags", "redshift:DescribeTags", "redshift:DisableLogging", "redshift:RebootCluster", "redshift:EnableSnapshotCopy", "redshift:DisableSnapshotCopy", "redshift:ModifySnapshotCopyRetentionPeriod", "redshift:ModifyAquaConfiguration", "redshift:ResizeCluster", "redshift:ModifyClusterMaintenance", "redshift:DescribeClusterDbRevisions", "redshift:ModifyClusterDbRevisions", "redshift:PauseCluster", "redshift:ResumeCluster", "redshift:RotateEncryptionKey" ],
+      "permissions" : [ "redshift:DescribeClusters", "redshift:ModifyCluster", "redshift:ModifyClusterIamRoles", "redshift:EnableLogging", "redshift:CreateTags", "redshift:DeleteTags", "redshift:DescribeTags", "redshift:DisableLogging", "redshift:RebootCluster", "redshift:EnableSnapshotCopy", "redshift:DisableSnapshotCopy", "redshift:ModifySnapshotCopyRetentionPeriod", "redshift:ModifyAquaConfiguration", "redshift:ResizeCluster", "redshift:ModifyClusterMaintenance", "redshift:DescribeClusterDbRevisions", "redshift:ModifyClusterDbRevisions", "redshift:PauseCluster", "redshift:ResumeCluster", "redshift:RotateEncryptionKey", "redshift:FailoverPrimaryCompute" ],
       "timeoutInMinutes" : 2160
     },
     "delete" : {

@@ -252,7 +252,12 @@
   "primaryIdentifier" : [ "/properties/ListenerArn" ],
   "readOnlyProperties" : [ "/properties/ListenerArn" ],
   "writeOnlyProperties" : [ "/properties/DefaultActions/*/AuthenticateOidcConfig/ClientSecret" ],
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "elasticloadbalancing:CreateListener", "elasticloadbalancing:DescribeListeners", "cognito-idp:DescribeUserPoolClient" ]
