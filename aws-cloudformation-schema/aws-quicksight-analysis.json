@@ -103,6 +103,9 @@
         },
         "AnalysisDefaults" : {
           "$ref" : "#/definitions/AnalysisDefaults"
+        },
+        "Options" : {
+          "$ref" : "#/definitions/AssetOptions"
         }
       },
       "required" : [ "DataSetIdentifierDeclarations" ],
@@ -234,6 +237,18 @@
     "ArcThicknessOptions" : {
       "type" : "string",
       "enum" : [ "SMALL", "MEDIUM", "LARGE" ]
+    },
+    "AssetOptions" : {
+      "type" : "object",
+      "properties" : {
+        "Timezone" : {
+          "type" : "string"
+        },
+        "WeekStart" : {
+          "$ref" : "#/definitions/DayOfTheWeek"
+        }
+      },
+      "additionalProperties" : false
     },
     "AttributeAggregationFunction" : {
       "type" : "object",
@@ -2253,6 +2268,10 @@
         }
       },
       "additionalProperties" : false
+    },
+    "DayOfTheWeek" : {
+      "type" : "string",
+      "enum" : [ "SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY" ]
     },
     "DecimalDefaultValues" : {
       "type" : "object",

@@ -6,17 +6,21 @@
       "type" : "object",
       "properties" : {
         "Name" : {
-          "type" : "string"
+          "type" : "string",
+          "maxLength" : 1011,
+          "minLength" : 1
         }
       },
       "required" : [ "Name" ],
       "additionalProperties" : false
     },
-    "Filters" : {
+    "SearchFilter" : {
       "type" : "object",
       "properties" : {
         "FilterString" : {
-          "type" : "string"
+          "type" : "string",
+          "maxLength" : 2048,
+          "minLength" : 0
         }
       },
       "required" : [ "FilterString" ],
@@ -33,15 +37,17 @@
     }
   },
   "properties" : {
+    "Filters" : {
+      "$ref" : "#/definitions/SearchFilter"
+    },
     "IncludedProperties" : {
       "type" : "array",
       "items" : {
         "$ref" : "#/definitions/IncludedProperty"
-      },
-      "insertionOrder" : false
+      }
     },
-    "Filters" : {
-      "$ref" : "#/definitions/Filters"
+    "Scope" : {
+      "type" : "string"
     },
     "Tags" : {
       "$ref" : "#/definitions/TagMap"
@@ -56,7 +62,7 @@
   },
   "required" : [ "ViewName" ],
   "readOnlyProperties" : [ "/properties/ViewArn" ],
-  "createOnlyProperties" : [ "/properties/ViewName" ],
+  "createOnlyProperties" : [ "/properties/Scope", "/properties/ViewName" ],
   "primaryIdentifier" : [ "/properties/ViewArn" ],
   "handlers" : {
     "create" : {

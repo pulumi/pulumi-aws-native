@@ -46,6 +46,9 @@
         },
         "NewColumnType" : {
           "$ref" : "#/definitions/ColumnDataType"
+        },
+        "SubType" : {
+          "$ref" : "#/definitions/ColumnSubDataType"
         }
       },
       "required" : [ "ColumnName", "NewColumnType" ],
@@ -54,6 +57,10 @@
     "ColumnDataType" : {
       "type" : "string",
       "enum" : [ "STRING", "INTEGER", "DECIMAL", "DATETIME" ]
+    },
+    "ColumnSubDataType" : {
+      "type" : "string",
+      "enum" : [ "FIXED", "FLOAT" ]
     },
     "ColumnDescription" : {
       "type" : "object",
@@ -456,6 +463,9 @@
         "Type" : {
           "$ref" : "#/definitions/InputColumnDataType"
         },
+        "SubType" : {
+          "$ref" : "#/definitions/ColumnSubDataType"
+        },
         "Name" : {
           "type" : "string",
           "maxLength" : 128,
@@ -645,6 +655,9 @@
         "Type" : {
           "$ref" : "#/definitions/ColumnDataType"
         },
+        "SubType" : {
+          "$ref" : "#/definitions/ColumnSubDataType"
+        },
         "Description" : {
           "type" : "string",
           "maxLength" : 500,
@@ -792,7 +805,7 @@
           "items" : {
             "type" : "string"
           },
-          "maxItems" : 16,
+          "maxItems" : 20,
           "minItems" : 1,
           "description" : "<p>The IAM action to grant or revoke permissions on.</p>"
         },

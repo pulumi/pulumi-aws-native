@@ -1,27 +1,61 @@
 {
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "tagProperty" : "/properties/FileSystemTags",
+    "cloudFormationSystemTags" : false
+  },
   "typeName" : "AWS::EFS::FileSystem",
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/FileSystemId" ],
   "description" : "Resource Type definition for AWS::EFS::FileSystem",
+  "createOnlyProperties" : [ "/properties/AvailabilityZoneName", "/properties/Encrypted", "/properties/KmsKeyId", "/properties/PerformanceMode" ],
+  "primaryIdentifier" : [ "/properties/FileSystemId" ],
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
-  "definitions" : {
-    "Arn" : {
-      "type" : "string"
+  "propertyTransform" : {
+    "/properties/KmsKeyId" : "\"arn:aws[-a-z]*:kms:[a-z0-9-]+:[0-9]{12}:key/[a-zA-Z0-9-]+\""
+  },
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "elasticfilesystem:DescribeBackupPolicy", "elasticfilesystem:DescribeFileSystemPolicy", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DescribeLifecycleConfiguration", "elasticfilesystem:DescribeReplicationConfigurations" ]
     },
-    "ElasticFileSystemTag" : {
-      "type" : "object",
+    "create" : {
+      "permissions" : [ "elasticfilesystem:CreateFileSystem", "elasticfilesystem:DescribeReplicationConfigurations", "elasticfilesystem:TagResource", "elasticfilesystem:CreateReplicationConfiguration", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:PutBackupPolicy", "elasticfilesystem:PutFileSystemPolicy", "elasticfilesystem:PutLifecycleConfiguration", "kms:DescribeKey", "kms:GenerateDataKeyWithoutPlaintext", "kms:CreateGrant" ]
+    },
+    "update" : {
+      "permissions" : [ "elasticfilesystem:CreateReplicationConfiguration", "elasticfilesystem:DeleteFileSystemPolicy", "elasticfilesystem:DescribeBackupPolicy", "elasticfilesystem:DescribeFileSystemPolicy", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DescribeLifecycleConfiguration", "elasticfilesystem:DescribeReplicationConfigurations", "elasticfilesystem:DeleteTags", "elasticfilesystem:DeleteReplicationConfiguration", "elasticfilesystem:ListTagsForResource", "elasticfilesystem:PutBackupPolicy", "elasticfilesystem:PutFileSystemPolicy", "elasticfilesystem:PutLifecycleConfiguration", "elasticfilesystem:TagResource", "elasticfilesystem:UntagResource", "elasticfilesystem:UpdateFileSystem", "kms:DescribeKey", "kms:GenerateDataKeyWithoutPlaintext", "kms:CreateGrant" ]
+    },
+    "list" : {
+      "permissions" : [ "elasticfilesystem:DescribeBackupPolicy", "elasticfilesystem:DescribeFileSystemPolicy", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DescribeLifecycleConfiguration", "elasticfilesystem:DescribeReplicationConfigurations" ]
+    },
+    "delete" : {
+      "permissions" : [ "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DeleteFileSystem", "elasticfilesystem:DeleteReplicationConfiguration", "elasticfilesystem:DescribeReplicationConfigurations" ]
+    }
+  },
+  "writeOnlyProperties" : [ "/properties/BypassPolicyLockoutSafetyCheck", "/properties/ReplicationConfiguration/Destinations/0/AvailabilityZoneName", "/properties/ReplicationConfiguration/Destinations/0/KmsKeyId" ],
+  "additionalProperties" : false,
+  "definitions" : {
+    "ReplicationDestination" : {
       "additionalProperties" : false,
+      "type" : "object",
       "properties" : {
-        "Key" : {
+        "KmsKeyId" : {
           "type" : "string"
         },
-        "Value" : {
+        "AvailabilityZoneName" : {
+          "type" : "string"
+        },
+        "FileSystemId" : {
+          "type" : "string"
+        },
+        "Region" : {
           "type" : "string"
         }
-      },
-      "required" : [ "Value", "Key" ]
+      }
     },
     "LifecyclePolicy" : {
-      "type" : "object",
       "additionalProperties" : false,
+      "type" : "object",
       "properties" : {
         "TransitionToIA" : {
           "type" : "string"
@@ -31,133 +65,99 @@
         }
       }
     },
-    "BackupPolicy" : {
-      "type" : "object",
+    "Arn" : {
+      "type" : "string"
+    },
+    "ElasticFileSystemTag" : {
       "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Value" : {
+          "type" : "string"
+        },
+        "Key" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Value", "Key" ]
+    },
+    "ReplicationConfiguration" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Destinations" : {
+          "minItems" : 1,
+          "maxItems" : 1,
+          "uniqueItems" : true,
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ReplicationDestination"
+          }
+        }
+      }
+    },
+    "BackupPolicy" : {
+      "additionalProperties" : false,
+      "type" : "object",
       "properties" : {
         "Status" : {
           "type" : "string"
         }
       },
       "required" : [ "Status" ]
-    },
-    "ReplicationDestination" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "FileSystemId" : {
-          "type" : "string"
-        },
-        "Region" : {
-          "type" : "string"
-        },
-        "AvailabilityZoneName" : {
-          "type" : "string"
-        },
-        "KmsKeyId" : {
-          "type" : "string"
-        }
-      }
-    },
-    "ReplicationConfiguration" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Destinations" : {
-          "type" : "array",
-          "uniqueItems" : true,
-          "minItems" : 1,
-          "maxItems" : 1,
-          "items" : {
-            "$ref" : "#/definitions/ReplicationDestination"
-          }
-        }
-      }
     }
   },
   "properties" : {
+    "KmsKeyId" : {
+      "type" : "string"
+    },
+    "PerformanceMode" : {
+      "type" : "string"
+    },
+    "Encrypted" : {
+      "type" : "boolean"
+    },
+    "BypassPolicyLockoutSafetyCheck" : {
+      "description" : "Whether to bypass the FileSystemPolicy lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request to be locked out from making future PutFileSystemPolicy requests on the file system. Set BypassPolicyLockoutSafetyCheck to True only when you intend to prevent the principal that is making the request from making a subsequent PutFileSystemPolicy request on the file system. Defaults to false",
+      "type" : "boolean"
+    },
+    "LifecyclePolicies" : {
+      "uniqueItems" : true,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/LifecyclePolicy"
+      }
+    },
+    "ThroughputMode" : {
+      "type" : "string"
+    },
+    "FileSystemTags" : {
+      "uniqueItems" : true,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/ElasticFileSystemTag"
+      }
+    },
+    "ProvisionedThroughputInMibps" : {
+      "type" : "number"
+    },
+    "FileSystemPolicy" : {
+      "type" : "object"
+    },
+    "AvailabilityZoneName" : {
+      "type" : "string"
+    },
     "FileSystemId" : {
       "type" : "string"
     },
     "Arn" : {
       "$ref" : "#/definitions/Arn"
     },
-    "Encrypted" : {
-      "type" : "boolean"
-    },
-    "FileSystemTags" : {
-      "type" : "array",
-      "uniqueItems" : true,
-      "items" : {
-        "$ref" : "#/definitions/ElasticFileSystemTag"
-      }
-    },
-    "KmsKeyId" : {
-      "type" : "string"
-    },
-    "LifecyclePolicies" : {
-      "type" : "array",
-      "uniqueItems" : true,
-      "items" : {
-        "$ref" : "#/definitions/LifecyclePolicy"
-      }
-    },
-    "PerformanceMode" : {
-      "type" : "string"
-    },
-    "ProvisionedThroughputInMibps" : {
-      "type" : "number"
-    },
-    "ThroughputMode" : {
-      "type" : "string"
-    },
-    "FileSystemPolicy" : {
-      "type" : "object"
-    },
-    "BypassPolicyLockoutSafetyCheck" : {
-      "description" : "Whether to bypass the FileSystemPolicy lockout safety check. The policy lockout safety check determines whether the policy in the request will prevent the principal making the request to be locked out from making future PutFileSystemPolicy requests on the file system. Set BypassPolicyLockoutSafetyCheck to True only when you intend to prevent the principal that is making the request from making a subsequent PutFileSystemPolicy request on the file system. Defaults to false",
-      "type" : "boolean"
+    "ReplicationConfiguration" : {
+      "$ref" : "#/definitions/ReplicationConfiguration"
     },
     "BackupPolicy" : {
       "$ref" : "#/definitions/BackupPolicy"
-    },
-    "AvailabilityZoneName" : {
-      "type" : "string"
-    },
-    "ReplicationConfiguration" : {
-      "$ref" : "#/definitions/ReplicationConfiguration"
-    }
-  },
-  "additionalProperties" : false,
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/FileSystemId" ],
-  "primaryIdentifier" : [ "/properties/FileSystemId" ],
-  "writeOnlyProperties" : [ "/properties/BypassPolicyLockoutSafetyCheck", "/properties/ReplicationConfiguration/Destinations/0/AvailabilityZoneName", "/properties/ReplicationConfiguration/Destinations/0/KmsKeyId" ],
-  "createOnlyProperties" : [ "/properties/AvailabilityZoneName", "/properties/Encrypted", "/properties/KmsKeyId", "/properties/PerformanceMode" ],
-  "propertyTransform" : {
-    "/properties/KmsKeyId" : "\"arn:aws[-a-z]*:kms:[a-z0-9-]+:[0-9]{12}:key/[a-zA-Z0-9-]+\""
-  },
-  "tagging" : {
-    "taggable" : true,
-    "tagOnCreate" : true,
-    "tagUpdatable" : true,
-    "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/FileSystemTags"
-  },
-  "handlers" : {
-    "create" : {
-      "permissions" : [ "elasticfilesystem:CreateFileSystem", "elasticfilesystem:DescribeReplicationConfigurations", "elasticfilesystem:TagResource", "elasticfilesystem:CreateReplicationConfiguration", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:PutBackupPolicy", "elasticfilesystem:PutFileSystemPolicy", "elasticfilesystem:PutLifecycleConfiguration", "kms:DescribeKey", "kms:GenerateDataKeyWithoutPlaintext", "kms:CreateGrant" ]
-    },
-    "read" : {
-      "permissions" : [ "elasticfilesystem:DescribeBackupPolicy", "elasticfilesystem:DescribeFileSystemPolicy", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DescribeLifecycleConfiguration", "elasticfilesystem:DescribeReplicationConfigurations" ]
-    },
-    "update" : {
-      "permissions" : [ "elasticfilesystem:CreateReplicationConfiguration", "elasticfilesystem:DeleteFileSystemPolicy", "elasticfilesystem:DescribeBackupPolicy", "elasticfilesystem:DescribeFileSystemPolicy", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DescribeLifecycleConfiguration", "elasticfilesystem:DescribeReplicationConfigurations", "elasticfilesystem:DeleteTags", "elasticfilesystem:DeleteReplicationConfiguration", "elasticfilesystem:ListTagsForResource", "elasticfilesystem:PutBackupPolicy", "elasticfilesystem:PutFileSystemPolicy", "elasticfilesystem:PutLifecycleConfiguration", "elasticfilesystem:TagResource", "elasticfilesystem:UntagResource", "elasticfilesystem:UpdateFileSystem", "kms:DescribeKey", "kms:GenerateDataKeyWithoutPlaintext", "kms:CreateGrant" ]
-    },
-    "delete" : {
-      "permissions" : [ "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DeleteFileSystem", "elasticfilesystem:DeleteReplicationConfiguration", "elasticfilesystem:DescribeReplicationConfigurations" ]
-    },
-    "list" : {
-      "permissions" : [ "elasticfilesystem:DescribeBackupPolicy", "elasticfilesystem:DescribeFileSystemPolicy", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DescribeLifecycleConfiguration", "elasticfilesystem:DescribeReplicationConfigurations" ]
     }
   }
 }
