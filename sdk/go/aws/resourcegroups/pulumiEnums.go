@@ -78,12 +78,6 @@ func (o GroupResourceQueryTypeOutput) ToGroupResourceQueryTypePtrOutputWithConte
 	}).(GroupResourceQueryTypePtrOutput)
 }
 
-func (o GroupResourceQueryTypeOutput) ToOutput(ctx context.Context) pulumix.Output[GroupResourceQueryType] {
-	return pulumix.Output[GroupResourceQueryType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GroupResourceQueryTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o GroupResourceQueryTypePtrOutput) ToGroupResourceQueryTypePtrOutput() Gro
 
 func (o GroupResourceQueryTypePtrOutput) ToGroupResourceQueryTypePtrOutputWithContext(ctx context.Context) GroupResourceQueryTypePtrOutput {
 	return o
-}
-
-func (o GroupResourceQueryTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupResourceQueryType] {
-	return pulumix.Output[*GroupResourceQueryType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupResourceQueryTypePtrOutput) Elem() GroupResourceQueryTypeOutput {

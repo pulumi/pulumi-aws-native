@@ -82,12 +82,6 @@ func (o DetectorCfnFeatureConfigurationNameOutput) ToDetectorCfnFeatureConfigura
 	}).(DetectorCfnFeatureConfigurationNamePtrOutput)
 }
 
-func (o DetectorCfnFeatureConfigurationNameOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorCfnFeatureConfigurationName] {
-	return pulumix.Output[DetectorCfnFeatureConfigurationName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorCfnFeatureConfigurationNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -121,12 +115,6 @@ func (o DetectorCfnFeatureConfigurationNamePtrOutput) ToDetectorCfnFeatureConfig
 
 func (o DetectorCfnFeatureConfigurationNamePtrOutput) ToDetectorCfnFeatureConfigurationNamePtrOutputWithContext(ctx context.Context) DetectorCfnFeatureConfigurationNamePtrOutput {
 	return o
-}
-
-func (o DetectorCfnFeatureConfigurationNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorCfnFeatureConfigurationName] {
-	return pulumix.Output[*DetectorCfnFeatureConfigurationName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DetectorCfnFeatureConfigurationNamePtrOutput) Elem() DetectorCfnFeatureConfigurationNameOutput {
@@ -264,12 +252,6 @@ func (o DetectorCfnFeatureConfigurationStatusOutput) ToDetectorCfnFeatureConfigu
 	}).(DetectorCfnFeatureConfigurationStatusPtrOutput)
 }
 
-func (o DetectorCfnFeatureConfigurationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorCfnFeatureConfigurationStatus] {
-	return pulumix.Output[DetectorCfnFeatureConfigurationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorCfnFeatureConfigurationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -303,12 +285,6 @@ func (o DetectorCfnFeatureConfigurationStatusPtrOutput) ToDetectorCfnFeatureConf
 
 func (o DetectorCfnFeatureConfigurationStatusPtrOutput) ToDetectorCfnFeatureConfigurationStatusPtrOutputWithContext(ctx context.Context) DetectorCfnFeatureConfigurationStatusPtrOutput {
 	return o
-}
-
-func (o DetectorCfnFeatureConfigurationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorCfnFeatureConfigurationStatus] {
-	return pulumix.Output[*DetectorCfnFeatureConfigurationStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DetectorCfnFeatureConfigurationStatusPtrOutput) Elem() DetectorCfnFeatureConfigurationStatusOutput {

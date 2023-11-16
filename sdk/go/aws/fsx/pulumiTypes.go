@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -45,12 +44,6 @@ func (i DataRepositoryAssociationAutoExportPolicyArgs) ToDataRepositoryAssociati
 
 func (i DataRepositoryAssociationAutoExportPolicyArgs) ToDataRepositoryAssociationAutoExportPolicyOutputWithContext(ctx context.Context) DataRepositoryAssociationAutoExportPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationAutoExportPolicyOutput)
-}
-
-func (i DataRepositoryAssociationAutoExportPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[DataRepositoryAssociationAutoExportPolicy] {
-	return pulumix.Output[DataRepositoryAssociationAutoExportPolicy]{
-		OutputState: i.ToDataRepositoryAssociationAutoExportPolicyOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i DataRepositoryAssociationAutoExportPolicyArgs) ToDataRepositoryAssociationAutoExportPolicyPtrOutput() DataRepositoryAssociationAutoExportPolicyPtrOutput {
@@ -94,12 +87,6 @@ func (i *dataRepositoryAssociationAutoExportPolicyPtrType) ToDataRepositoryAssoc
 	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationAutoExportPolicyPtrOutput)
 }
 
-func (i *dataRepositoryAssociationAutoExportPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataRepositoryAssociationAutoExportPolicy] {
-	return pulumix.Output[*DataRepositoryAssociationAutoExportPolicy]{
-		OutputState: i.ToDataRepositoryAssociationAutoExportPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies the type of updated objects (new, changed, deleted) that will be automatically exported from your file system to the linked S3 bucket.
 type DataRepositoryAssociationAutoExportPolicyOutput struct{ *pulumi.OutputState }
 
@@ -125,12 +112,6 @@ func (o DataRepositoryAssociationAutoExportPolicyOutput) ToDataRepositoryAssocia
 	}).(DataRepositoryAssociationAutoExportPolicyPtrOutput)
 }
 
-func (o DataRepositoryAssociationAutoExportPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[DataRepositoryAssociationAutoExportPolicy] {
-	return pulumix.Output[DataRepositoryAssociationAutoExportPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataRepositoryAssociationAutoExportPolicyOutput) Events() DataRepositoryAssociationEventTypeArrayOutput {
 	return o.ApplyT(func(v DataRepositoryAssociationAutoExportPolicy) []DataRepositoryAssociationEventType {
 		return v.Events
@@ -149,12 +130,6 @@ func (o DataRepositoryAssociationAutoExportPolicyPtrOutput) ToDataRepositoryAsso
 
 func (o DataRepositoryAssociationAutoExportPolicyPtrOutput) ToDataRepositoryAssociationAutoExportPolicyPtrOutputWithContext(ctx context.Context) DataRepositoryAssociationAutoExportPolicyPtrOutput {
 	return o
-}
-
-func (o DataRepositoryAssociationAutoExportPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataRepositoryAssociationAutoExportPolicy] {
-	return pulumix.Output[*DataRepositoryAssociationAutoExportPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataRepositoryAssociationAutoExportPolicyPtrOutput) Elem() DataRepositoryAssociationAutoExportPolicyOutput {
@@ -209,12 +184,6 @@ func (i DataRepositoryAssociationAutoImportPolicyArgs) ToDataRepositoryAssociati
 	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationAutoImportPolicyOutput)
 }
 
-func (i DataRepositoryAssociationAutoImportPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[DataRepositoryAssociationAutoImportPolicy] {
-	return pulumix.Output[DataRepositoryAssociationAutoImportPolicy]{
-		OutputState: i.ToDataRepositoryAssociationAutoImportPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataRepositoryAssociationAutoImportPolicyArgs) ToDataRepositoryAssociationAutoImportPolicyPtrOutput() DataRepositoryAssociationAutoImportPolicyPtrOutput {
 	return i.ToDataRepositoryAssociationAutoImportPolicyPtrOutputWithContext(context.Background())
 }
@@ -256,12 +225,6 @@ func (i *dataRepositoryAssociationAutoImportPolicyPtrType) ToDataRepositoryAssoc
 	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationAutoImportPolicyPtrOutput)
 }
 
-func (i *dataRepositoryAssociationAutoImportPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataRepositoryAssociationAutoImportPolicy] {
-	return pulumix.Output[*DataRepositoryAssociationAutoImportPolicy]{
-		OutputState: i.ToDataRepositoryAssociationAutoImportPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies the type of updated objects (new, changed, deleted) that will be automatically imported from the linked S3 bucket to your file system.
 type DataRepositoryAssociationAutoImportPolicyOutput struct{ *pulumi.OutputState }
 
@@ -287,12 +250,6 @@ func (o DataRepositoryAssociationAutoImportPolicyOutput) ToDataRepositoryAssocia
 	}).(DataRepositoryAssociationAutoImportPolicyPtrOutput)
 }
 
-func (o DataRepositoryAssociationAutoImportPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[DataRepositoryAssociationAutoImportPolicy] {
-	return pulumix.Output[DataRepositoryAssociationAutoImportPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataRepositoryAssociationAutoImportPolicyOutput) Events() DataRepositoryAssociationEventTypeArrayOutput {
 	return o.ApplyT(func(v DataRepositoryAssociationAutoImportPolicy) []DataRepositoryAssociationEventType {
 		return v.Events
@@ -311,12 +268,6 @@ func (o DataRepositoryAssociationAutoImportPolicyPtrOutput) ToDataRepositoryAsso
 
 func (o DataRepositoryAssociationAutoImportPolicyPtrOutput) ToDataRepositoryAssociationAutoImportPolicyPtrOutputWithContext(ctx context.Context) DataRepositoryAssociationAutoImportPolicyPtrOutput {
 	return o
-}
-
-func (o DataRepositoryAssociationAutoImportPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataRepositoryAssociationAutoImportPolicy] {
-	return pulumix.Output[*DataRepositoryAssociationAutoImportPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataRepositoryAssociationAutoImportPolicyPtrOutput) Elem() DataRepositoryAssociationAutoImportPolicyOutput {
@@ -373,12 +324,6 @@ func (i DataRepositoryAssociationS3Args) ToDataRepositoryAssociationS3OutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationS3Output)
 }
 
-func (i DataRepositoryAssociationS3Args) ToOutput(ctx context.Context) pulumix.Output[DataRepositoryAssociationS3] {
-	return pulumix.Output[DataRepositoryAssociationS3]{
-		OutputState: i.ToDataRepositoryAssociationS3OutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataRepositoryAssociationS3Args) ToDataRepositoryAssociationS3PtrOutput() DataRepositoryAssociationS3PtrOutput {
 	return i.ToDataRepositoryAssociationS3PtrOutputWithContext(context.Background())
 }
@@ -420,12 +365,6 @@ func (i *dataRepositoryAssociationS3PtrType) ToDataRepositoryAssociationS3PtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationS3PtrOutput)
 }
 
-func (i *dataRepositoryAssociationS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*DataRepositoryAssociationS3] {
-	return pulumix.Output[*DataRepositoryAssociationS3]{
-		OutputState: i.ToDataRepositoryAssociationS3PtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 type DataRepositoryAssociationS3Output struct{ *pulumi.OutputState }
 
@@ -449,12 +388,6 @@ func (o DataRepositoryAssociationS3Output) ToDataRepositoryAssociationS3PtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataRepositoryAssociationS3) *DataRepositoryAssociationS3 {
 		return &v
 	}).(DataRepositoryAssociationS3PtrOutput)
-}
-
-func (o DataRepositoryAssociationS3Output) ToOutput(ctx context.Context) pulumix.Output[DataRepositoryAssociationS3] {
-	return pulumix.Output[DataRepositoryAssociationS3]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataRepositoryAssociationS3Output) AutoExportPolicy() DataRepositoryAssociationAutoExportPolicyPtrOutput {
@@ -481,12 +414,6 @@ func (o DataRepositoryAssociationS3PtrOutput) ToDataRepositoryAssociationS3PtrOu
 
 func (o DataRepositoryAssociationS3PtrOutput) ToDataRepositoryAssociationS3PtrOutputWithContext(ctx context.Context) DataRepositoryAssociationS3PtrOutput {
 	return o
-}
-
-func (o DataRepositoryAssociationS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataRepositoryAssociationS3] {
-	return pulumix.Output[*DataRepositoryAssociationS3]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataRepositoryAssociationS3PtrOutput) Elem() DataRepositoryAssociationS3Output {
@@ -556,12 +483,6 @@ func (i DataRepositoryAssociationTagArgs) ToDataRepositoryAssociationTagOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationTagOutput)
 }
 
-func (i DataRepositoryAssociationTagArgs) ToOutput(ctx context.Context) pulumix.Output[DataRepositoryAssociationTag] {
-	return pulumix.Output[DataRepositoryAssociationTag]{
-		OutputState: i.ToDataRepositoryAssociationTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataRepositoryAssociationTagArrayInput is an input type that accepts DataRepositoryAssociationTagArray and DataRepositoryAssociationTagArrayOutput values.
 // You can construct a concrete instance of `DataRepositoryAssociationTagArrayInput` via:
 //
@@ -587,12 +508,6 @@ func (i DataRepositoryAssociationTagArray) ToDataRepositoryAssociationTagArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationTagArrayOutput)
 }
 
-func (i DataRepositoryAssociationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DataRepositoryAssociationTag] {
-	return pulumix.Output[[]DataRepositoryAssociationTag]{
-		OutputState: i.ToDataRepositoryAssociationTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type DataRepositoryAssociationTagOutput struct{ *pulumi.OutputState }
 
@@ -606,12 +521,6 @@ func (o DataRepositoryAssociationTagOutput) ToDataRepositoryAssociationTagOutput
 
 func (o DataRepositoryAssociationTagOutput) ToDataRepositoryAssociationTagOutputWithContext(ctx context.Context) DataRepositoryAssociationTagOutput {
 	return o
-}
-
-func (o DataRepositoryAssociationTagOutput) ToOutput(ctx context.Context) pulumix.Output[DataRepositoryAssociationTag] {
-	return pulumix.Output[DataRepositoryAssociationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -636,12 +545,6 @@ func (o DataRepositoryAssociationTagArrayOutput) ToDataRepositoryAssociationTagA
 
 func (o DataRepositoryAssociationTagArrayOutput) ToDataRepositoryAssociationTagArrayOutputWithContext(ctx context.Context) DataRepositoryAssociationTagArrayOutput {
 	return o
-}
-
-func (o DataRepositoryAssociationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataRepositoryAssociationTag] {
-	return pulumix.Output[[]DataRepositoryAssociationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataRepositoryAssociationTagArrayOutput) Index(i pulumi.IntInput) DataRepositoryAssociationTagOutput {
@@ -685,12 +588,6 @@ func (i FileSystemAuditLogConfigurationArgs) ToFileSystemAuditLogConfigurationOu
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemAuditLogConfigurationOutput)
 }
 
-func (i FileSystemAuditLogConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemAuditLogConfiguration] {
-	return pulumix.Output[FileSystemAuditLogConfiguration]{
-		OutputState: i.ToFileSystemAuditLogConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FileSystemAuditLogConfigurationArgs) ToFileSystemAuditLogConfigurationPtrOutput() FileSystemAuditLogConfigurationPtrOutput {
 	return i.ToFileSystemAuditLogConfigurationPtrOutputWithContext(context.Background())
 }
@@ -732,12 +629,6 @@ func (i *fileSystemAuditLogConfigurationPtrType) ToFileSystemAuditLogConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemAuditLogConfigurationPtrOutput)
 }
 
-func (i *fileSystemAuditLogConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FileSystemAuditLogConfiguration] {
-	return pulumix.Output[*FileSystemAuditLogConfiguration]{
-		OutputState: i.ToFileSystemAuditLogConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileSystemAuditLogConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FileSystemAuditLogConfigurationOutput) ElementType() reflect.Type {
@@ -760,12 +651,6 @@ func (o FileSystemAuditLogConfigurationOutput) ToFileSystemAuditLogConfiguration
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemAuditLogConfiguration) *FileSystemAuditLogConfiguration {
 		return &v
 	}).(FileSystemAuditLogConfigurationPtrOutput)
-}
-
-func (o FileSystemAuditLogConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemAuditLogConfiguration] {
-	return pulumix.Output[FileSystemAuditLogConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemAuditLogConfigurationOutput) AuditLogDestination() pulumi.StringPtrOutput {
@@ -792,12 +677,6 @@ func (o FileSystemAuditLogConfigurationPtrOutput) ToFileSystemAuditLogConfigurat
 
 func (o FileSystemAuditLogConfigurationPtrOutput) ToFileSystemAuditLogConfigurationPtrOutputWithContext(ctx context.Context) FileSystemAuditLogConfigurationPtrOutput {
 	return o
-}
-
-func (o FileSystemAuditLogConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FileSystemAuditLogConfiguration] {
-	return pulumix.Output[*FileSystemAuditLogConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemAuditLogConfigurationPtrOutput) Elem() FileSystemAuditLogConfigurationOutput {
@@ -870,12 +749,6 @@ func (i FileSystemClientConfigurationsArgs) ToFileSystemClientConfigurationsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemClientConfigurationsOutput)
 }
 
-func (i FileSystemClientConfigurationsArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemClientConfigurations] {
-	return pulumix.Output[FileSystemClientConfigurations]{
-		OutputState: i.ToFileSystemClientConfigurationsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FileSystemClientConfigurationsArrayInput is an input type that accepts FileSystemClientConfigurationsArray and FileSystemClientConfigurationsArrayOutput values.
 // You can construct a concrete instance of `FileSystemClientConfigurationsArrayInput` via:
 //
@@ -901,12 +774,6 @@ func (i FileSystemClientConfigurationsArray) ToFileSystemClientConfigurationsArr
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemClientConfigurationsArrayOutput)
 }
 
-func (i FileSystemClientConfigurationsArray) ToOutput(ctx context.Context) pulumix.Output[[]FileSystemClientConfigurations] {
-	return pulumix.Output[[]FileSystemClientConfigurations]{
-		OutputState: i.ToFileSystemClientConfigurationsArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileSystemClientConfigurationsOutput struct{ *pulumi.OutputState }
 
 func (FileSystemClientConfigurationsOutput) ElementType() reflect.Type {
@@ -919,12 +786,6 @@ func (o FileSystemClientConfigurationsOutput) ToFileSystemClientConfigurationsOu
 
 func (o FileSystemClientConfigurationsOutput) ToFileSystemClientConfigurationsOutputWithContext(ctx context.Context) FileSystemClientConfigurationsOutput {
 	return o
-}
-
-func (o FileSystemClientConfigurationsOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemClientConfigurations] {
-	return pulumix.Output[FileSystemClientConfigurations]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemClientConfigurationsOutput) Clients() pulumi.StringPtrOutput {
@@ -947,12 +808,6 @@ func (o FileSystemClientConfigurationsArrayOutput) ToFileSystemClientConfigurati
 
 func (o FileSystemClientConfigurationsArrayOutput) ToFileSystemClientConfigurationsArrayOutputWithContext(ctx context.Context) FileSystemClientConfigurationsArrayOutput {
 	return o
-}
-
-func (o FileSystemClientConfigurationsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FileSystemClientConfigurations] {
-	return pulumix.Output[[]FileSystemClientConfigurations]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemClientConfigurationsArrayOutput) Index(i pulumi.IntInput) FileSystemClientConfigurationsOutput {
@@ -992,12 +847,6 @@ func (i FileSystemDiskIopsConfigurationArgs) ToFileSystemDiskIopsConfigurationOu
 
 func (i FileSystemDiskIopsConfigurationArgs) ToFileSystemDiskIopsConfigurationOutputWithContext(ctx context.Context) FileSystemDiskIopsConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemDiskIopsConfigurationOutput)
-}
-
-func (i FileSystemDiskIopsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemDiskIopsConfiguration] {
-	return pulumix.Output[FileSystemDiskIopsConfiguration]{
-		OutputState: i.ToFileSystemDiskIopsConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i FileSystemDiskIopsConfigurationArgs) ToFileSystemDiskIopsConfigurationPtrOutput() FileSystemDiskIopsConfigurationPtrOutput {
@@ -1041,12 +890,6 @@ func (i *fileSystemDiskIopsConfigurationPtrType) ToFileSystemDiskIopsConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemDiskIopsConfigurationPtrOutput)
 }
 
-func (i *fileSystemDiskIopsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FileSystemDiskIopsConfiguration] {
-	return pulumix.Output[*FileSystemDiskIopsConfiguration]{
-		OutputState: i.ToFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileSystemDiskIopsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FileSystemDiskIopsConfigurationOutput) ElementType() reflect.Type {
@@ -1071,12 +914,6 @@ func (o FileSystemDiskIopsConfigurationOutput) ToFileSystemDiskIopsConfiguration
 	}).(FileSystemDiskIopsConfigurationPtrOutput)
 }
 
-func (o FileSystemDiskIopsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemDiskIopsConfiguration] {
-	return pulumix.Output[FileSystemDiskIopsConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FileSystemDiskIopsConfigurationOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileSystemDiskIopsConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
@@ -1097,12 +934,6 @@ func (o FileSystemDiskIopsConfigurationPtrOutput) ToFileSystemDiskIopsConfigurat
 
 func (o FileSystemDiskIopsConfigurationPtrOutput) ToFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx context.Context) FileSystemDiskIopsConfigurationPtrOutput {
 	return o
-}
-
-func (o FileSystemDiskIopsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FileSystemDiskIopsConfiguration] {
-	return pulumix.Output[*FileSystemDiskIopsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemDiskIopsConfigurationPtrOutput) Elem() FileSystemDiskIopsConfigurationOutput {
@@ -1186,12 +1017,6 @@ func (i FileSystemLustreConfigurationArgs) ToFileSystemLustreConfigurationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemLustreConfigurationOutput)
 }
 
-func (i FileSystemLustreConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemLustreConfiguration] {
-	return pulumix.Output[FileSystemLustreConfiguration]{
-		OutputState: i.ToFileSystemLustreConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FileSystemLustreConfigurationArgs) ToFileSystemLustreConfigurationPtrOutput() FileSystemLustreConfigurationPtrOutput {
 	return i.ToFileSystemLustreConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1233,12 +1058,6 @@ func (i *fileSystemLustreConfigurationPtrType) ToFileSystemLustreConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemLustreConfigurationPtrOutput)
 }
 
-func (i *fileSystemLustreConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FileSystemLustreConfiguration] {
-	return pulumix.Output[*FileSystemLustreConfiguration]{
-		OutputState: i.ToFileSystemLustreConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileSystemLustreConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FileSystemLustreConfigurationOutput) ElementType() reflect.Type {
@@ -1261,12 +1080,6 @@ func (o FileSystemLustreConfigurationOutput) ToFileSystemLustreConfigurationPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemLustreConfiguration) *FileSystemLustreConfiguration {
 		return &v
 	}).(FileSystemLustreConfigurationPtrOutput)
-}
-
-func (o FileSystemLustreConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemLustreConfiguration] {
-	return pulumix.Output[FileSystemLustreConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemLustreConfigurationOutput) AutoImportPolicy() pulumi.StringPtrOutput {
@@ -1329,12 +1142,6 @@ func (o FileSystemLustreConfigurationPtrOutput) ToFileSystemLustreConfigurationP
 
 func (o FileSystemLustreConfigurationPtrOutput) ToFileSystemLustreConfigurationPtrOutputWithContext(ctx context.Context) FileSystemLustreConfigurationPtrOutput {
 	return o
-}
-
-func (o FileSystemLustreConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FileSystemLustreConfiguration] {
-	return pulumix.Output[*FileSystemLustreConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemLustreConfigurationPtrOutput) Elem() FileSystemLustreConfigurationOutput {
@@ -1486,12 +1293,6 @@ func (i FileSystemNfsExportsArgs) ToFileSystemNfsExportsOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemNfsExportsOutput)
 }
 
-func (i FileSystemNfsExportsArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemNfsExports] {
-	return pulumix.Output[FileSystemNfsExports]{
-		OutputState: i.ToFileSystemNfsExportsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FileSystemNfsExportsArrayInput is an input type that accepts FileSystemNfsExportsArray and FileSystemNfsExportsArrayOutput values.
 // You can construct a concrete instance of `FileSystemNfsExportsArrayInput` via:
 //
@@ -1517,12 +1318,6 @@ func (i FileSystemNfsExportsArray) ToFileSystemNfsExportsArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemNfsExportsArrayOutput)
 }
 
-func (i FileSystemNfsExportsArray) ToOutput(ctx context.Context) pulumix.Output[[]FileSystemNfsExports] {
-	return pulumix.Output[[]FileSystemNfsExports]{
-		OutputState: i.ToFileSystemNfsExportsArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileSystemNfsExportsOutput struct{ *pulumi.OutputState }
 
 func (FileSystemNfsExportsOutput) ElementType() reflect.Type {
@@ -1535,12 +1330,6 @@ func (o FileSystemNfsExportsOutput) ToFileSystemNfsExportsOutput() FileSystemNfs
 
 func (o FileSystemNfsExportsOutput) ToFileSystemNfsExportsOutputWithContext(ctx context.Context) FileSystemNfsExportsOutput {
 	return o
-}
-
-func (o FileSystemNfsExportsOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemNfsExports] {
-	return pulumix.Output[FileSystemNfsExports]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemNfsExportsOutput) ClientConfigurations() FileSystemClientConfigurationsArrayOutput {
@@ -1559,12 +1348,6 @@ func (o FileSystemNfsExportsArrayOutput) ToFileSystemNfsExportsArrayOutput() Fil
 
 func (o FileSystemNfsExportsArrayOutput) ToFileSystemNfsExportsArrayOutputWithContext(ctx context.Context) FileSystemNfsExportsArrayOutput {
 	return o
-}
-
-func (o FileSystemNfsExportsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FileSystemNfsExports] {
-	return pulumix.Output[[]FileSystemNfsExports]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemNfsExportsArrayOutput) Index(i pulumi.IntInput) FileSystemNfsExportsOutput {
@@ -1622,12 +1405,6 @@ func (i FileSystemOntapConfigurationArgs) ToFileSystemOntapConfigurationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemOntapConfigurationOutput)
 }
 
-func (i FileSystemOntapConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemOntapConfiguration] {
-	return pulumix.Output[FileSystemOntapConfiguration]{
-		OutputState: i.ToFileSystemOntapConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FileSystemOntapConfigurationArgs) ToFileSystemOntapConfigurationPtrOutput() FileSystemOntapConfigurationPtrOutput {
 	return i.ToFileSystemOntapConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1669,12 +1446,6 @@ func (i *fileSystemOntapConfigurationPtrType) ToFileSystemOntapConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemOntapConfigurationPtrOutput)
 }
 
-func (i *fileSystemOntapConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FileSystemOntapConfiguration] {
-	return pulumix.Output[*FileSystemOntapConfiguration]{
-		OutputState: i.ToFileSystemOntapConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileSystemOntapConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FileSystemOntapConfigurationOutput) ElementType() reflect.Type {
@@ -1697,12 +1468,6 @@ func (o FileSystemOntapConfigurationOutput) ToFileSystemOntapConfigurationPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemOntapConfiguration) *FileSystemOntapConfiguration {
 		return &v
 	}).(FileSystemOntapConfigurationPtrOutput)
-}
-
-func (o FileSystemOntapConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemOntapConfiguration] {
-	return pulumix.Output[FileSystemOntapConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemOntapConfigurationOutput) AutomaticBackupRetentionDays() pulumi.IntPtrOutput {
@@ -1757,12 +1522,6 @@ func (o FileSystemOntapConfigurationPtrOutput) ToFileSystemOntapConfigurationPtr
 
 func (o FileSystemOntapConfigurationPtrOutput) ToFileSystemOntapConfigurationPtrOutputWithContext(ctx context.Context) FileSystemOntapConfigurationPtrOutput {
 	return o
-}
-
-func (o FileSystemOntapConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FileSystemOntapConfiguration] {
-	return pulumix.Output[*FileSystemOntapConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemOntapConfigurationPtrOutput) Elem() FileSystemOntapConfigurationOutput {
@@ -1920,12 +1679,6 @@ func (i FileSystemOpenZfsConfigurationArgs) ToFileSystemOpenZfsConfigurationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemOpenZfsConfigurationOutput)
 }
 
-func (i FileSystemOpenZfsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemOpenZfsConfiguration] {
-	return pulumix.Output[FileSystemOpenZfsConfiguration]{
-		OutputState: i.ToFileSystemOpenZfsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FileSystemOpenZfsConfigurationArgs) ToFileSystemOpenZfsConfigurationPtrOutput() FileSystemOpenZfsConfigurationPtrOutput {
 	return i.ToFileSystemOpenZfsConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1967,12 +1720,6 @@ func (i *fileSystemOpenZfsConfigurationPtrType) ToFileSystemOpenZfsConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemOpenZfsConfigurationPtrOutput)
 }
 
-func (i *fileSystemOpenZfsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FileSystemOpenZfsConfiguration] {
-	return pulumix.Output[*FileSystemOpenZfsConfiguration]{
-		OutputState: i.ToFileSystemOpenZfsConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileSystemOpenZfsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FileSystemOpenZfsConfigurationOutput) ElementType() reflect.Type {
@@ -1995,12 +1742,6 @@ func (o FileSystemOpenZfsConfigurationOutput) ToFileSystemOpenZfsConfigurationPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemOpenZfsConfiguration) *FileSystemOpenZfsConfiguration {
 		return &v
 	}).(FileSystemOpenZfsConfigurationPtrOutput)
-}
-
-func (o FileSystemOpenZfsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemOpenZfsConfiguration] {
-	return pulumix.Output[FileSystemOpenZfsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemOpenZfsConfigurationOutput) AutomaticBackupRetentionDays() pulumi.IntPtrOutput {
@@ -2071,12 +1812,6 @@ func (o FileSystemOpenZfsConfigurationPtrOutput) ToFileSystemOpenZfsConfiguratio
 
 func (o FileSystemOpenZfsConfigurationPtrOutput) ToFileSystemOpenZfsConfigurationPtrOutputWithContext(ctx context.Context) FileSystemOpenZfsConfigurationPtrOutput {
 	return o
-}
-
-func (o FileSystemOpenZfsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FileSystemOpenZfsConfiguration] {
-	return pulumix.Output[*FileSystemOpenZfsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemOpenZfsConfigurationPtrOutput) Elem() FileSystemOpenZfsConfigurationOutput {
@@ -2247,12 +1982,6 @@ func (i FileSystemRootVolumeConfigurationArgs) ToFileSystemRootVolumeConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemRootVolumeConfigurationOutput)
 }
 
-func (i FileSystemRootVolumeConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemRootVolumeConfiguration] {
-	return pulumix.Output[FileSystemRootVolumeConfiguration]{
-		OutputState: i.ToFileSystemRootVolumeConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FileSystemRootVolumeConfigurationArgs) ToFileSystemRootVolumeConfigurationPtrOutput() FileSystemRootVolumeConfigurationPtrOutput {
 	return i.ToFileSystemRootVolumeConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2294,12 +2023,6 @@ func (i *fileSystemRootVolumeConfigurationPtrType) ToFileSystemRootVolumeConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemRootVolumeConfigurationPtrOutput)
 }
 
-func (i *fileSystemRootVolumeConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FileSystemRootVolumeConfiguration] {
-	return pulumix.Output[*FileSystemRootVolumeConfiguration]{
-		OutputState: i.ToFileSystemRootVolumeConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileSystemRootVolumeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FileSystemRootVolumeConfigurationOutput) ElementType() reflect.Type {
@@ -2322,12 +2045,6 @@ func (o FileSystemRootVolumeConfigurationOutput) ToFileSystemRootVolumeConfigura
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemRootVolumeConfiguration) *FileSystemRootVolumeConfiguration {
 		return &v
 	}).(FileSystemRootVolumeConfigurationPtrOutput)
-}
-
-func (o FileSystemRootVolumeConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemRootVolumeConfiguration] {
-	return pulumix.Output[FileSystemRootVolumeConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemRootVolumeConfigurationOutput) CopyTagsToSnapshots() pulumi.BoolPtrOutput {
@@ -2366,12 +2083,6 @@ func (o FileSystemRootVolumeConfigurationPtrOutput) ToFileSystemRootVolumeConfig
 
 func (o FileSystemRootVolumeConfigurationPtrOutput) ToFileSystemRootVolumeConfigurationPtrOutputWithContext(ctx context.Context) FileSystemRootVolumeConfigurationPtrOutput {
 	return o
-}
-
-func (o FileSystemRootVolumeConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FileSystemRootVolumeConfiguration] {
-	return pulumix.Output[*FileSystemRootVolumeConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemRootVolumeConfigurationPtrOutput) Elem() FileSystemRootVolumeConfigurationOutput {
@@ -2479,12 +2190,6 @@ func (i FileSystemSelfManagedActiveDirectoryConfigurationArgs) ToFileSystemSelfM
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemSelfManagedActiveDirectoryConfigurationOutput)
 }
 
-func (i FileSystemSelfManagedActiveDirectoryConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemSelfManagedActiveDirectoryConfiguration] {
-	return pulumix.Output[FileSystemSelfManagedActiveDirectoryConfiguration]{
-		OutputState: i.ToFileSystemSelfManagedActiveDirectoryConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FileSystemSelfManagedActiveDirectoryConfigurationArgs) ToFileSystemSelfManagedActiveDirectoryConfigurationPtrOutput() FileSystemSelfManagedActiveDirectoryConfigurationPtrOutput {
 	return i.ToFileSystemSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2526,12 +2231,6 @@ func (i *fileSystemSelfManagedActiveDirectoryConfigurationPtrType) ToFileSystemS
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemSelfManagedActiveDirectoryConfigurationPtrOutput)
 }
 
-func (i *fileSystemSelfManagedActiveDirectoryConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FileSystemSelfManagedActiveDirectoryConfiguration] {
-	return pulumix.Output[*FileSystemSelfManagedActiveDirectoryConfiguration]{
-		OutputState: i.ToFileSystemSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileSystemSelfManagedActiveDirectoryConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FileSystemSelfManagedActiveDirectoryConfigurationOutput) ElementType() reflect.Type {
@@ -2554,12 +2253,6 @@ func (o FileSystemSelfManagedActiveDirectoryConfigurationOutput) ToFileSystemSel
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemSelfManagedActiveDirectoryConfiguration) *FileSystemSelfManagedActiveDirectoryConfiguration {
 		return &v
 	}).(FileSystemSelfManagedActiveDirectoryConfigurationPtrOutput)
-}
-
-func (o FileSystemSelfManagedActiveDirectoryConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemSelfManagedActiveDirectoryConfiguration] {
-	return pulumix.Output[FileSystemSelfManagedActiveDirectoryConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemSelfManagedActiveDirectoryConfigurationOutput) DnsIps() pulumi.StringArrayOutput {
@@ -2602,12 +2295,6 @@ func (o FileSystemSelfManagedActiveDirectoryConfigurationPtrOutput) ToFileSystem
 
 func (o FileSystemSelfManagedActiveDirectoryConfigurationPtrOutput) ToFileSystemSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) FileSystemSelfManagedActiveDirectoryConfigurationPtrOutput {
 	return o
-}
-
-func (o FileSystemSelfManagedActiveDirectoryConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FileSystemSelfManagedActiveDirectoryConfiguration] {
-	return pulumix.Output[*FileSystemSelfManagedActiveDirectoryConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemSelfManagedActiveDirectoryConfigurationPtrOutput) Elem() FileSystemSelfManagedActiveDirectoryConfigurationOutput {
@@ -2707,12 +2394,6 @@ func (i FileSystemTagArgs) ToFileSystemTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemTagOutput)
 }
 
-func (i FileSystemTagArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemTag] {
-	return pulumix.Output[FileSystemTag]{
-		OutputState: i.ToFileSystemTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FileSystemTagArrayInput is an input type that accepts FileSystemTagArray and FileSystemTagArrayOutput values.
 // You can construct a concrete instance of `FileSystemTagArrayInput` via:
 //
@@ -2738,12 +2419,6 @@ func (i FileSystemTagArray) ToFileSystemTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemTagArrayOutput)
 }
 
-func (i FileSystemTagArray) ToOutput(ctx context.Context) pulumix.Output[[]FileSystemTag] {
-	return pulumix.Output[[]FileSystemTag]{
-		OutputState: i.ToFileSystemTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileSystemTagOutput struct{ *pulumi.OutputState }
 
 func (FileSystemTagOutput) ElementType() reflect.Type {
@@ -2756,12 +2431,6 @@ func (o FileSystemTagOutput) ToFileSystemTagOutput() FileSystemTagOutput {
 
 func (o FileSystemTagOutput) ToFileSystemTagOutputWithContext(ctx context.Context) FileSystemTagOutput {
 	return o
-}
-
-func (o FileSystemTagOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemTag] {
-	return pulumix.Output[FileSystemTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemTagOutput) Key() pulumi.StringOutput {
@@ -2784,12 +2453,6 @@ func (o FileSystemTagArrayOutput) ToFileSystemTagArrayOutput() FileSystemTagArra
 
 func (o FileSystemTagArrayOutput) ToFileSystemTagArrayOutputWithContext(ctx context.Context) FileSystemTagArrayOutput {
 	return o
-}
-
-func (o FileSystemTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FileSystemTag] {
-	return pulumix.Output[[]FileSystemTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemTagArrayOutput) Index(i pulumi.IntInput) FileSystemTagOutput {
@@ -2833,12 +2496,6 @@ func (i FileSystemUserAndGroupQuotasArgs) ToFileSystemUserAndGroupQuotasOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemUserAndGroupQuotasOutput)
 }
 
-func (i FileSystemUserAndGroupQuotasArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemUserAndGroupQuotas] {
-	return pulumix.Output[FileSystemUserAndGroupQuotas]{
-		OutputState: i.ToFileSystemUserAndGroupQuotasOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FileSystemUserAndGroupQuotasArrayInput is an input type that accepts FileSystemUserAndGroupQuotasArray and FileSystemUserAndGroupQuotasArrayOutput values.
 // You can construct a concrete instance of `FileSystemUserAndGroupQuotasArrayInput` via:
 //
@@ -2864,12 +2521,6 @@ func (i FileSystemUserAndGroupQuotasArray) ToFileSystemUserAndGroupQuotasArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemUserAndGroupQuotasArrayOutput)
 }
 
-func (i FileSystemUserAndGroupQuotasArray) ToOutput(ctx context.Context) pulumix.Output[[]FileSystemUserAndGroupQuotas] {
-	return pulumix.Output[[]FileSystemUserAndGroupQuotas]{
-		OutputState: i.ToFileSystemUserAndGroupQuotasArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileSystemUserAndGroupQuotasOutput struct{ *pulumi.OutputState }
 
 func (FileSystemUserAndGroupQuotasOutput) ElementType() reflect.Type {
@@ -2882,12 +2533,6 @@ func (o FileSystemUserAndGroupQuotasOutput) ToFileSystemUserAndGroupQuotasOutput
 
 func (o FileSystemUserAndGroupQuotasOutput) ToFileSystemUserAndGroupQuotasOutputWithContext(ctx context.Context) FileSystemUserAndGroupQuotasOutput {
 	return o
-}
-
-func (o FileSystemUserAndGroupQuotasOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemUserAndGroupQuotas] {
-	return pulumix.Output[FileSystemUserAndGroupQuotas]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemUserAndGroupQuotasOutput) Id() pulumi.IntPtrOutput {
@@ -2914,12 +2559,6 @@ func (o FileSystemUserAndGroupQuotasArrayOutput) ToFileSystemUserAndGroupQuotasA
 
 func (o FileSystemUserAndGroupQuotasArrayOutput) ToFileSystemUserAndGroupQuotasArrayOutputWithContext(ctx context.Context) FileSystemUserAndGroupQuotasArrayOutput {
 	return o
-}
-
-func (o FileSystemUserAndGroupQuotasArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FileSystemUserAndGroupQuotas] {
-	return pulumix.Output[[]FileSystemUserAndGroupQuotas]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemUserAndGroupQuotasArrayOutput) Index(i pulumi.IntInput) FileSystemUserAndGroupQuotasOutput {
@@ -2981,12 +2620,6 @@ func (i FileSystemWindowsConfigurationArgs) ToFileSystemWindowsConfigurationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemWindowsConfigurationOutput)
 }
 
-func (i FileSystemWindowsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemWindowsConfiguration] {
-	return pulumix.Output[FileSystemWindowsConfiguration]{
-		OutputState: i.ToFileSystemWindowsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FileSystemWindowsConfigurationArgs) ToFileSystemWindowsConfigurationPtrOutput() FileSystemWindowsConfigurationPtrOutput {
 	return i.ToFileSystemWindowsConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3028,12 +2661,6 @@ func (i *fileSystemWindowsConfigurationPtrType) ToFileSystemWindowsConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemWindowsConfigurationPtrOutput)
 }
 
-func (i *fileSystemWindowsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FileSystemWindowsConfiguration] {
-	return pulumix.Output[*FileSystemWindowsConfiguration]{
-		OutputState: i.ToFileSystemWindowsConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileSystemWindowsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FileSystemWindowsConfigurationOutput) ElementType() reflect.Type {
@@ -3056,12 +2683,6 @@ func (o FileSystemWindowsConfigurationOutput) ToFileSystemWindowsConfigurationPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemWindowsConfiguration) *FileSystemWindowsConfiguration {
 		return &v
 	}).(FileSystemWindowsConfigurationPtrOutput)
-}
-
-func (o FileSystemWindowsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemWindowsConfiguration] {
-	return pulumix.Output[FileSystemWindowsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemWindowsConfigurationOutput) ActiveDirectoryId() pulumi.StringPtrOutput {
@@ -3130,12 +2751,6 @@ func (o FileSystemWindowsConfigurationPtrOutput) ToFileSystemWindowsConfiguratio
 
 func (o FileSystemWindowsConfigurationPtrOutput) ToFileSystemWindowsConfigurationPtrOutputWithContext(ctx context.Context) FileSystemWindowsConfigurationPtrOutput {
 	return o
-}
-
-func (o FileSystemWindowsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FileSystemWindowsConfiguration] {
-	return pulumix.Output[*FileSystemWindowsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemWindowsConfigurationPtrOutput) Elem() FileSystemWindowsConfigurationOutput {
@@ -3289,12 +2904,6 @@ func (i SnapshotTagArgs) ToSnapshotTagOutputWithContext(ctx context.Context) Sna
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotTagOutput)
 }
 
-func (i SnapshotTagArgs) ToOutput(ctx context.Context) pulumix.Output[SnapshotTag] {
-	return pulumix.Output[SnapshotTag]{
-		OutputState: i.ToSnapshotTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SnapshotTagArrayInput is an input type that accepts SnapshotTagArray and SnapshotTagArrayOutput values.
 // You can construct a concrete instance of `SnapshotTagArrayInput` via:
 //
@@ -3320,12 +2929,6 @@ func (i SnapshotTagArray) ToSnapshotTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotTagArrayOutput)
 }
 
-func (i SnapshotTagArray) ToOutput(ctx context.Context) pulumix.Output[[]SnapshotTag] {
-	return pulumix.Output[[]SnapshotTag]{
-		OutputState: i.ToSnapshotTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SnapshotTagOutput struct{ *pulumi.OutputState }
 
 func (SnapshotTagOutput) ElementType() reflect.Type {
@@ -3338,12 +2941,6 @@ func (o SnapshotTagOutput) ToSnapshotTagOutput() SnapshotTagOutput {
 
 func (o SnapshotTagOutput) ToSnapshotTagOutputWithContext(ctx context.Context) SnapshotTagOutput {
 	return o
-}
-
-func (o SnapshotTagOutput) ToOutput(ctx context.Context) pulumix.Output[SnapshotTag] {
-	return pulumix.Output[SnapshotTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SnapshotTagOutput) Key() pulumi.StringOutput {
@@ -3366,12 +2963,6 @@ func (o SnapshotTagArrayOutput) ToSnapshotTagArrayOutput() SnapshotTagArrayOutpu
 
 func (o SnapshotTagArrayOutput) ToSnapshotTagArrayOutputWithContext(ctx context.Context) SnapshotTagArrayOutput {
 	return o
-}
-
-func (o SnapshotTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SnapshotTag] {
-	return pulumix.Output[[]SnapshotTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SnapshotTagArrayOutput) Index(i pulumi.IntInput) SnapshotTagOutput {
@@ -3411,12 +3002,6 @@ func (i StorageVirtualMachineActiveDirectoryConfigurationArgs) ToStorageVirtualM
 
 func (i StorageVirtualMachineActiveDirectoryConfigurationArgs) ToStorageVirtualMachineActiveDirectoryConfigurationOutputWithContext(ctx context.Context) StorageVirtualMachineActiveDirectoryConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachineActiveDirectoryConfigurationOutput)
-}
-
-func (i StorageVirtualMachineActiveDirectoryConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[StorageVirtualMachineActiveDirectoryConfiguration] {
-	return pulumix.Output[StorageVirtualMachineActiveDirectoryConfiguration]{
-		OutputState: i.ToStorageVirtualMachineActiveDirectoryConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i StorageVirtualMachineActiveDirectoryConfigurationArgs) ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutput() StorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
@@ -3460,12 +3045,6 @@ func (i *storageVirtualMachineActiveDirectoryConfigurationPtrType) ToStorageVirt
 	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachineActiveDirectoryConfigurationPtrOutput)
 }
 
-func (i *storageVirtualMachineActiveDirectoryConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageVirtualMachineActiveDirectoryConfiguration] {
-	return pulumix.Output[*StorageVirtualMachineActiveDirectoryConfiguration]{
-		OutputState: i.ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageVirtualMachineActiveDirectoryConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StorageVirtualMachineActiveDirectoryConfigurationOutput) ElementType() reflect.Type {
@@ -3490,12 +3069,6 @@ func (o StorageVirtualMachineActiveDirectoryConfigurationOutput) ToStorageVirtua
 	}).(StorageVirtualMachineActiveDirectoryConfigurationPtrOutput)
 }
 
-func (o StorageVirtualMachineActiveDirectoryConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[StorageVirtualMachineActiveDirectoryConfiguration] {
-	return pulumix.Output[StorageVirtualMachineActiveDirectoryConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StorageVirtualMachineActiveDirectoryConfigurationOutput) NetBiosName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StorageVirtualMachineActiveDirectoryConfiguration) *string { return v.NetBiosName }).(pulumi.StringPtrOutput)
 }
@@ -3518,12 +3091,6 @@ func (o StorageVirtualMachineActiveDirectoryConfigurationPtrOutput) ToStorageVir
 
 func (o StorageVirtualMachineActiveDirectoryConfigurationPtrOutput) ToStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) StorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
 	return o
-}
-
-func (o StorageVirtualMachineActiveDirectoryConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageVirtualMachineActiveDirectoryConfiguration] {
-	return pulumix.Output[*StorageVirtualMachineActiveDirectoryConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageVirtualMachineActiveDirectoryConfigurationPtrOutput) Elem() StorageVirtualMachineActiveDirectoryConfigurationOutput {
@@ -3595,12 +3162,6 @@ func (i StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs) ToStor
 	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput)
 }
 
-func (i StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[StorageVirtualMachineSelfManagedActiveDirectoryConfiguration] {
-	return pulumix.Output[StorageVirtualMachineSelfManagedActiveDirectoryConfiguration]{
-		OutputState: i.ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput {
 	return i.ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3642,12 +3203,6 @@ func (i *storageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrType) To
 	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput)
 }
 
-func (i *storageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageVirtualMachineSelfManagedActiveDirectoryConfiguration] {
-	return pulumix.Output[*StorageVirtualMachineSelfManagedActiveDirectoryConfiguration]{
-		OutputState: i.ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) ElementType() reflect.Type {
@@ -3670,12 +3225,6 @@ func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) ToSt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageVirtualMachineSelfManagedActiveDirectoryConfiguration) *StorageVirtualMachineSelfManagedActiveDirectoryConfiguration {
 		return &v
 	}).(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput)
-}
-
-func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[StorageVirtualMachineSelfManagedActiveDirectoryConfiguration] {
-	return pulumix.Output[StorageVirtualMachineSelfManagedActiveDirectoryConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput) DnsIps() pulumi.StringArrayOutput {
@@ -3718,12 +3267,6 @@ func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) T
 
 func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) ToStorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput {
 	return o
-}
-
-func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageVirtualMachineSelfManagedActiveDirectoryConfiguration] {
-	return pulumix.Output[*StorageVirtualMachineSelfManagedActiveDirectoryConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput) Elem() StorageVirtualMachineSelfManagedActiveDirectoryConfigurationOutput {
@@ -3823,12 +3366,6 @@ func (i StorageVirtualMachineTagArgs) ToStorageVirtualMachineTagOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachineTagOutput)
 }
 
-func (i StorageVirtualMachineTagArgs) ToOutput(ctx context.Context) pulumix.Output[StorageVirtualMachineTag] {
-	return pulumix.Output[StorageVirtualMachineTag]{
-		OutputState: i.ToStorageVirtualMachineTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StorageVirtualMachineTagArrayInput is an input type that accepts StorageVirtualMachineTagArray and StorageVirtualMachineTagArrayOutput values.
 // You can construct a concrete instance of `StorageVirtualMachineTagArrayInput` via:
 //
@@ -3854,12 +3391,6 @@ func (i StorageVirtualMachineTagArray) ToStorageVirtualMachineTagArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachineTagArrayOutput)
 }
 
-func (i StorageVirtualMachineTagArray) ToOutput(ctx context.Context) pulumix.Output[[]StorageVirtualMachineTag] {
-	return pulumix.Output[[]StorageVirtualMachineTag]{
-		OutputState: i.ToStorageVirtualMachineTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageVirtualMachineTagOutput struct{ *pulumi.OutputState }
 
 func (StorageVirtualMachineTagOutput) ElementType() reflect.Type {
@@ -3872,12 +3403,6 @@ func (o StorageVirtualMachineTagOutput) ToStorageVirtualMachineTagOutput() Stora
 
 func (o StorageVirtualMachineTagOutput) ToStorageVirtualMachineTagOutputWithContext(ctx context.Context) StorageVirtualMachineTagOutput {
 	return o
-}
-
-func (o StorageVirtualMachineTagOutput) ToOutput(ctx context.Context) pulumix.Output[StorageVirtualMachineTag] {
-	return pulumix.Output[StorageVirtualMachineTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageVirtualMachineTagOutput) Key() pulumi.StringOutput {
@@ -3900,12 +3425,6 @@ func (o StorageVirtualMachineTagArrayOutput) ToStorageVirtualMachineTagArrayOutp
 
 func (o StorageVirtualMachineTagArrayOutput) ToStorageVirtualMachineTagArrayOutputWithContext(ctx context.Context) StorageVirtualMachineTagArrayOutput {
 	return o
-}
-
-func (o StorageVirtualMachineTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StorageVirtualMachineTag] {
-	return pulumix.Output[[]StorageVirtualMachineTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageVirtualMachineTagArrayOutput) Index(i pulumi.IntInput) StorageVirtualMachineTagOutput {
@@ -3945,12 +3464,6 @@ func (i VolumeAutocommitPeriodArgs) ToVolumeAutocommitPeriodOutput() VolumeAutoc
 
 func (i VolumeAutocommitPeriodArgs) ToVolumeAutocommitPeriodOutputWithContext(ctx context.Context) VolumeAutocommitPeriodOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeAutocommitPeriodOutput)
-}
-
-func (i VolumeAutocommitPeriodArgs) ToOutput(ctx context.Context) pulumix.Output[VolumeAutocommitPeriod] {
-	return pulumix.Output[VolumeAutocommitPeriod]{
-		OutputState: i.ToVolumeAutocommitPeriodOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i VolumeAutocommitPeriodArgs) ToVolumeAutocommitPeriodPtrOutput() VolumeAutocommitPeriodPtrOutput {
@@ -3994,12 +3507,6 @@ func (i *volumeAutocommitPeriodPtrType) ToVolumeAutocommitPeriodPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeAutocommitPeriodPtrOutput)
 }
 
-func (i *volumeAutocommitPeriodPtrType) ToOutput(ctx context.Context) pulumix.Output[*VolumeAutocommitPeriod] {
-	return pulumix.Output[*VolumeAutocommitPeriod]{
-		OutputState: i.ToVolumeAutocommitPeriodPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VolumeAutocommitPeriodOutput struct{ *pulumi.OutputState }
 
 func (VolumeAutocommitPeriodOutput) ElementType() reflect.Type {
@@ -4024,12 +3531,6 @@ func (o VolumeAutocommitPeriodOutput) ToVolumeAutocommitPeriodPtrOutputWithConte
 	}).(VolumeAutocommitPeriodPtrOutput)
 }
 
-func (o VolumeAutocommitPeriodOutput) ToOutput(ctx context.Context) pulumix.Output[VolumeAutocommitPeriod] {
-	return pulumix.Output[VolumeAutocommitPeriod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VolumeAutocommitPeriodOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeAutocommitPeriod) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4050,12 +3551,6 @@ func (o VolumeAutocommitPeriodPtrOutput) ToVolumeAutocommitPeriodPtrOutput() Vol
 
 func (o VolumeAutocommitPeriodPtrOutput) ToVolumeAutocommitPeriodPtrOutputWithContext(ctx context.Context) VolumeAutocommitPeriodPtrOutput {
 	return o
-}
-
-func (o VolumeAutocommitPeriodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VolumeAutocommitPeriod] {
-	return pulumix.Output[*VolumeAutocommitPeriod]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeAutocommitPeriodPtrOutput) Elem() VolumeAutocommitPeriodOutput {
@@ -4119,12 +3614,6 @@ func (i VolumeClientConfigurationsArgs) ToVolumeClientConfigurationsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeClientConfigurationsOutput)
 }
 
-func (i VolumeClientConfigurationsArgs) ToOutput(ctx context.Context) pulumix.Output[VolumeClientConfigurations] {
-	return pulumix.Output[VolumeClientConfigurations]{
-		OutputState: i.ToVolumeClientConfigurationsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VolumeClientConfigurationsArrayInput is an input type that accepts VolumeClientConfigurationsArray and VolumeClientConfigurationsArrayOutput values.
 // You can construct a concrete instance of `VolumeClientConfigurationsArrayInput` via:
 //
@@ -4150,12 +3639,6 @@ func (i VolumeClientConfigurationsArray) ToVolumeClientConfigurationsArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeClientConfigurationsArrayOutput)
 }
 
-func (i VolumeClientConfigurationsArray) ToOutput(ctx context.Context) pulumix.Output[[]VolumeClientConfigurations] {
-	return pulumix.Output[[]VolumeClientConfigurations]{
-		OutputState: i.ToVolumeClientConfigurationsArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VolumeClientConfigurationsOutput struct{ *pulumi.OutputState }
 
 func (VolumeClientConfigurationsOutput) ElementType() reflect.Type {
@@ -4168,12 +3651,6 @@ func (o VolumeClientConfigurationsOutput) ToVolumeClientConfigurationsOutput() V
 
 func (o VolumeClientConfigurationsOutput) ToVolumeClientConfigurationsOutputWithContext(ctx context.Context) VolumeClientConfigurationsOutput {
 	return o
-}
-
-func (o VolumeClientConfigurationsOutput) ToOutput(ctx context.Context) pulumix.Output[VolumeClientConfigurations] {
-	return pulumix.Output[VolumeClientConfigurations]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeClientConfigurationsOutput) Clients() pulumi.StringOutput {
@@ -4196,12 +3673,6 @@ func (o VolumeClientConfigurationsArrayOutput) ToVolumeClientConfigurationsArray
 
 func (o VolumeClientConfigurationsArrayOutput) ToVolumeClientConfigurationsArrayOutputWithContext(ctx context.Context) VolumeClientConfigurationsArrayOutput {
 	return o
-}
-
-func (o VolumeClientConfigurationsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VolumeClientConfigurations] {
-	return pulumix.Output[[]VolumeClientConfigurations]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeClientConfigurationsArrayOutput) Index(i pulumi.IntInput) VolumeClientConfigurationsOutput {
@@ -4241,12 +3712,6 @@ func (i VolumeNfsExportsArgs) ToVolumeNfsExportsOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeNfsExportsOutput)
 }
 
-func (i VolumeNfsExportsArgs) ToOutput(ctx context.Context) pulumix.Output[VolumeNfsExports] {
-	return pulumix.Output[VolumeNfsExports]{
-		OutputState: i.ToVolumeNfsExportsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VolumeNfsExportsArrayInput is an input type that accepts VolumeNfsExportsArray and VolumeNfsExportsArrayOutput values.
 // You can construct a concrete instance of `VolumeNfsExportsArrayInput` via:
 //
@@ -4272,12 +3737,6 @@ func (i VolumeNfsExportsArray) ToVolumeNfsExportsArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeNfsExportsArrayOutput)
 }
 
-func (i VolumeNfsExportsArray) ToOutput(ctx context.Context) pulumix.Output[[]VolumeNfsExports] {
-	return pulumix.Output[[]VolumeNfsExports]{
-		OutputState: i.ToVolumeNfsExportsArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VolumeNfsExportsOutput struct{ *pulumi.OutputState }
 
 func (VolumeNfsExportsOutput) ElementType() reflect.Type {
@@ -4290,12 +3749,6 @@ func (o VolumeNfsExportsOutput) ToVolumeNfsExportsOutput() VolumeNfsExportsOutpu
 
 func (o VolumeNfsExportsOutput) ToVolumeNfsExportsOutputWithContext(ctx context.Context) VolumeNfsExportsOutput {
 	return o
-}
-
-func (o VolumeNfsExportsOutput) ToOutput(ctx context.Context) pulumix.Output[VolumeNfsExports] {
-	return pulumix.Output[VolumeNfsExports]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeNfsExportsOutput) ClientConfigurations() VolumeClientConfigurationsArrayOutput {
@@ -4314,12 +3767,6 @@ func (o VolumeNfsExportsArrayOutput) ToVolumeNfsExportsArrayOutput() VolumeNfsEx
 
 func (o VolumeNfsExportsArrayOutput) ToVolumeNfsExportsArrayOutputWithContext(ctx context.Context) VolumeNfsExportsArrayOutput {
 	return o
-}
-
-func (o VolumeNfsExportsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VolumeNfsExports] {
-	return pulumix.Output[[]VolumeNfsExports]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeNfsExportsArrayOutput) Index(i pulumi.IntInput) VolumeNfsExportsOutput {
@@ -4377,12 +3824,6 @@ func (i VolumeOntapConfigurationArgs) ToVolumeOntapConfigurationOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeOntapConfigurationOutput)
 }
 
-func (i VolumeOntapConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[VolumeOntapConfiguration] {
-	return pulumix.Output[VolumeOntapConfiguration]{
-		OutputState: i.ToVolumeOntapConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VolumeOntapConfigurationArgs) ToVolumeOntapConfigurationPtrOutput() VolumeOntapConfigurationPtrOutput {
 	return i.ToVolumeOntapConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4424,12 +3865,6 @@ func (i *volumeOntapConfigurationPtrType) ToVolumeOntapConfigurationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeOntapConfigurationPtrOutput)
 }
 
-func (i *volumeOntapConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*VolumeOntapConfiguration] {
-	return pulumix.Output[*VolumeOntapConfiguration]{
-		OutputState: i.ToVolumeOntapConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VolumeOntapConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VolumeOntapConfigurationOutput) ElementType() reflect.Type {
@@ -4452,12 +3887,6 @@ func (o VolumeOntapConfigurationOutput) ToVolumeOntapConfigurationPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeOntapConfiguration) *VolumeOntapConfiguration {
 		return &v
 	}).(VolumeOntapConfigurationPtrOutput)
-}
-
-func (o VolumeOntapConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[VolumeOntapConfiguration] {
-	return pulumix.Output[VolumeOntapConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeOntapConfigurationOutput) CopyTagsToBackups() pulumi.StringPtrOutput {
@@ -4512,12 +3941,6 @@ func (o VolumeOntapConfigurationPtrOutput) ToVolumeOntapConfigurationPtrOutput()
 
 func (o VolumeOntapConfigurationPtrOutput) ToVolumeOntapConfigurationPtrOutputWithContext(ctx context.Context) VolumeOntapConfigurationPtrOutput {
 	return o
-}
-
-func (o VolumeOntapConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VolumeOntapConfiguration] {
-	return pulumix.Output[*VolumeOntapConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeOntapConfigurationPtrOutput) Elem() VolumeOntapConfigurationOutput {
@@ -4671,12 +4094,6 @@ func (i VolumeOpenZfsConfigurationArgs) ToVolumeOpenZfsConfigurationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeOpenZfsConfigurationOutput)
 }
 
-func (i VolumeOpenZfsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[VolumeOpenZfsConfiguration] {
-	return pulumix.Output[VolumeOpenZfsConfiguration]{
-		OutputState: i.ToVolumeOpenZfsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VolumeOpenZfsConfigurationArgs) ToVolumeOpenZfsConfigurationPtrOutput() VolumeOpenZfsConfigurationPtrOutput {
 	return i.ToVolumeOpenZfsConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4718,12 +4135,6 @@ func (i *volumeOpenZfsConfigurationPtrType) ToVolumeOpenZfsConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeOpenZfsConfigurationPtrOutput)
 }
 
-func (i *volumeOpenZfsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*VolumeOpenZfsConfiguration] {
-	return pulumix.Output[*VolumeOpenZfsConfiguration]{
-		OutputState: i.ToVolumeOpenZfsConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VolumeOpenZfsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VolumeOpenZfsConfigurationOutput) ElementType() reflect.Type {
@@ -4746,12 +4157,6 @@ func (o VolumeOpenZfsConfigurationOutput) ToVolumeOpenZfsConfigurationPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeOpenZfsConfiguration) *VolumeOpenZfsConfiguration {
 		return &v
 	}).(VolumeOpenZfsConfigurationPtrOutput)
-}
-
-func (o VolumeOpenZfsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[VolumeOpenZfsConfiguration] {
-	return pulumix.Output[VolumeOpenZfsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeOpenZfsConfigurationOutput) CopyTagsToSnapshots() pulumi.BoolPtrOutput {
@@ -4810,12 +4215,6 @@ func (o VolumeOpenZfsConfigurationPtrOutput) ToVolumeOpenZfsConfigurationPtrOutp
 
 func (o VolumeOpenZfsConfigurationPtrOutput) ToVolumeOpenZfsConfigurationPtrOutputWithContext(ctx context.Context) VolumeOpenZfsConfigurationPtrOutput {
 	return o
-}
-
-func (o VolumeOpenZfsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VolumeOpenZfsConfiguration] {
-	return pulumix.Output[*VolumeOpenZfsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeOpenZfsConfigurationPtrOutput) Elem() VolumeOpenZfsConfigurationOutput {
@@ -4960,12 +4359,6 @@ func (i VolumeOriginSnapshotArgs) ToVolumeOriginSnapshotOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeOriginSnapshotOutput)
 }
 
-func (i VolumeOriginSnapshotArgs) ToOutput(ctx context.Context) pulumix.Output[VolumeOriginSnapshot] {
-	return pulumix.Output[VolumeOriginSnapshot]{
-		OutputState: i.ToVolumeOriginSnapshotOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VolumeOriginSnapshotArgs) ToVolumeOriginSnapshotPtrOutput() VolumeOriginSnapshotPtrOutput {
 	return i.ToVolumeOriginSnapshotPtrOutputWithContext(context.Background())
 }
@@ -5007,12 +4400,6 @@ func (i *volumeOriginSnapshotPtrType) ToVolumeOriginSnapshotPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeOriginSnapshotPtrOutput)
 }
 
-func (i *volumeOriginSnapshotPtrType) ToOutput(ctx context.Context) pulumix.Output[*VolumeOriginSnapshot] {
-	return pulumix.Output[*VolumeOriginSnapshot]{
-		OutputState: i.ToVolumeOriginSnapshotPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VolumeOriginSnapshotOutput struct{ *pulumi.OutputState }
 
 func (VolumeOriginSnapshotOutput) ElementType() reflect.Type {
@@ -5037,12 +4424,6 @@ func (o VolumeOriginSnapshotOutput) ToVolumeOriginSnapshotPtrOutputWithContext(c
 	}).(VolumeOriginSnapshotPtrOutput)
 }
 
-func (o VolumeOriginSnapshotOutput) ToOutput(ctx context.Context) pulumix.Output[VolumeOriginSnapshot] {
-	return pulumix.Output[VolumeOriginSnapshot]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VolumeOriginSnapshotOutput) CopyStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeOriginSnapshot) string { return v.CopyStrategy }).(pulumi.StringOutput)
 }
@@ -5063,12 +4444,6 @@ func (o VolumeOriginSnapshotPtrOutput) ToVolumeOriginSnapshotPtrOutput() VolumeO
 
 func (o VolumeOriginSnapshotPtrOutput) ToVolumeOriginSnapshotPtrOutputWithContext(ctx context.Context) VolumeOriginSnapshotPtrOutput {
 	return o
-}
-
-func (o VolumeOriginSnapshotPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VolumeOriginSnapshot] {
-	return pulumix.Output[*VolumeOriginSnapshot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeOriginSnapshotPtrOutput) Elem() VolumeOriginSnapshotOutput {
@@ -5132,12 +4507,6 @@ func (i VolumeRetentionPeriodArgs) ToVolumeRetentionPeriodOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeRetentionPeriodOutput)
 }
 
-func (i VolumeRetentionPeriodArgs) ToOutput(ctx context.Context) pulumix.Output[VolumeRetentionPeriod] {
-	return pulumix.Output[VolumeRetentionPeriod]{
-		OutputState: i.ToVolumeRetentionPeriodOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VolumeRetentionPeriodArgs) ToVolumeRetentionPeriodPtrOutput() VolumeRetentionPeriodPtrOutput {
 	return i.ToVolumeRetentionPeriodPtrOutputWithContext(context.Background())
 }
@@ -5179,12 +4548,6 @@ func (i *volumeRetentionPeriodPtrType) ToVolumeRetentionPeriodPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeRetentionPeriodPtrOutput)
 }
 
-func (i *volumeRetentionPeriodPtrType) ToOutput(ctx context.Context) pulumix.Output[*VolumeRetentionPeriod] {
-	return pulumix.Output[*VolumeRetentionPeriod]{
-		OutputState: i.ToVolumeRetentionPeriodPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VolumeRetentionPeriodOutput struct{ *pulumi.OutputState }
 
 func (VolumeRetentionPeriodOutput) ElementType() reflect.Type {
@@ -5209,12 +4572,6 @@ func (o VolumeRetentionPeriodOutput) ToVolumeRetentionPeriodPtrOutputWithContext
 	}).(VolumeRetentionPeriodPtrOutput)
 }
 
-func (o VolumeRetentionPeriodOutput) ToOutput(ctx context.Context) pulumix.Output[VolumeRetentionPeriod] {
-	return pulumix.Output[VolumeRetentionPeriod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VolumeRetentionPeriodOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v VolumeRetentionPeriod) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -5235,12 +4592,6 @@ func (o VolumeRetentionPeriodPtrOutput) ToVolumeRetentionPeriodPtrOutput() Volum
 
 func (o VolumeRetentionPeriodPtrOutput) ToVolumeRetentionPeriodPtrOutputWithContext(ctx context.Context) VolumeRetentionPeriodPtrOutput {
 	return o
-}
-
-func (o VolumeRetentionPeriodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VolumeRetentionPeriod] {
-	return pulumix.Output[*VolumeRetentionPeriod]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeRetentionPeriodPtrOutput) Elem() VolumeRetentionPeriodOutput {
@@ -5312,12 +4663,6 @@ func (i VolumeSnaplockConfigurationArgs) ToVolumeSnaplockConfigurationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnaplockConfigurationOutput)
 }
 
-func (i VolumeSnaplockConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[VolumeSnaplockConfiguration] {
-	return pulumix.Output[VolumeSnaplockConfiguration]{
-		OutputState: i.ToVolumeSnaplockConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VolumeSnaplockConfigurationArgs) ToVolumeSnaplockConfigurationPtrOutput() VolumeSnaplockConfigurationPtrOutput {
 	return i.ToVolumeSnaplockConfigurationPtrOutputWithContext(context.Background())
 }
@@ -5359,12 +4704,6 @@ func (i *volumeSnaplockConfigurationPtrType) ToVolumeSnaplockConfigurationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnaplockConfigurationPtrOutput)
 }
 
-func (i *volumeSnaplockConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*VolumeSnaplockConfiguration] {
-	return pulumix.Output[*VolumeSnaplockConfiguration]{
-		OutputState: i.ToVolumeSnaplockConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VolumeSnaplockConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VolumeSnaplockConfigurationOutput) ElementType() reflect.Type {
@@ -5387,12 +4726,6 @@ func (o VolumeSnaplockConfigurationOutput) ToVolumeSnaplockConfigurationPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeSnaplockConfiguration) *VolumeSnaplockConfiguration {
 		return &v
 	}).(VolumeSnaplockConfigurationPtrOutput)
-}
-
-func (o VolumeSnaplockConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[VolumeSnaplockConfiguration] {
-	return pulumix.Output[VolumeSnaplockConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeSnaplockConfigurationOutput) AuditLogVolume() pulumi.StringPtrOutput {
@@ -5431,12 +4764,6 @@ func (o VolumeSnaplockConfigurationPtrOutput) ToVolumeSnaplockConfigurationPtrOu
 
 func (o VolumeSnaplockConfigurationPtrOutput) ToVolumeSnaplockConfigurationPtrOutputWithContext(ctx context.Context) VolumeSnaplockConfigurationPtrOutput {
 	return o
-}
-
-func (o VolumeSnaplockConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VolumeSnaplockConfiguration] {
-	return pulumix.Output[*VolumeSnaplockConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeSnaplockConfigurationPtrOutput) Elem() VolumeSnaplockConfigurationOutput {
@@ -5538,12 +4865,6 @@ func (i VolumeSnaplockRetentionPeriodArgs) ToVolumeSnaplockRetentionPeriodOutput
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnaplockRetentionPeriodOutput)
 }
 
-func (i VolumeSnaplockRetentionPeriodArgs) ToOutput(ctx context.Context) pulumix.Output[VolumeSnaplockRetentionPeriod] {
-	return pulumix.Output[VolumeSnaplockRetentionPeriod]{
-		OutputState: i.ToVolumeSnaplockRetentionPeriodOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VolumeSnaplockRetentionPeriodArgs) ToVolumeSnaplockRetentionPeriodPtrOutput() VolumeSnaplockRetentionPeriodPtrOutput {
 	return i.ToVolumeSnaplockRetentionPeriodPtrOutputWithContext(context.Background())
 }
@@ -5585,12 +4906,6 @@ func (i *volumeSnaplockRetentionPeriodPtrType) ToVolumeSnaplockRetentionPeriodPt
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnaplockRetentionPeriodPtrOutput)
 }
 
-func (i *volumeSnaplockRetentionPeriodPtrType) ToOutput(ctx context.Context) pulumix.Output[*VolumeSnaplockRetentionPeriod] {
-	return pulumix.Output[*VolumeSnaplockRetentionPeriod]{
-		OutputState: i.ToVolumeSnaplockRetentionPeriodPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VolumeSnaplockRetentionPeriodOutput struct{ *pulumi.OutputState }
 
 func (VolumeSnaplockRetentionPeriodOutput) ElementType() reflect.Type {
@@ -5613,12 +4928,6 @@ func (o VolumeSnaplockRetentionPeriodOutput) ToVolumeSnaplockRetentionPeriodPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeSnaplockRetentionPeriod) *VolumeSnaplockRetentionPeriod {
 		return &v
 	}).(VolumeSnaplockRetentionPeriodPtrOutput)
-}
-
-func (o VolumeSnaplockRetentionPeriodOutput) ToOutput(ctx context.Context) pulumix.Output[VolumeSnaplockRetentionPeriod] {
-	return pulumix.Output[VolumeSnaplockRetentionPeriod]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeSnaplockRetentionPeriodOutput) DefaultRetention() VolumeRetentionPeriodOutput {
@@ -5645,12 +4954,6 @@ func (o VolumeSnaplockRetentionPeriodPtrOutput) ToVolumeSnaplockRetentionPeriodP
 
 func (o VolumeSnaplockRetentionPeriodPtrOutput) ToVolumeSnaplockRetentionPeriodPtrOutputWithContext(ctx context.Context) VolumeSnaplockRetentionPeriodPtrOutput {
 	return o
-}
-
-func (o VolumeSnaplockRetentionPeriodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VolumeSnaplockRetentionPeriod] {
-	return pulumix.Output[*VolumeSnaplockRetentionPeriod]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeSnaplockRetentionPeriodPtrOutput) Elem() VolumeSnaplockRetentionPeriodOutput {
@@ -5723,12 +5026,6 @@ func (i VolumeTagArgs) ToVolumeTagOutputWithContext(ctx context.Context) VolumeT
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeTagOutput)
 }
 
-func (i VolumeTagArgs) ToOutput(ctx context.Context) pulumix.Output[VolumeTag] {
-	return pulumix.Output[VolumeTag]{
-		OutputState: i.ToVolumeTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VolumeTagArrayInput is an input type that accepts VolumeTagArray and VolumeTagArrayOutput values.
 // You can construct a concrete instance of `VolumeTagArrayInput` via:
 //
@@ -5754,12 +5051,6 @@ func (i VolumeTagArray) ToVolumeTagArrayOutputWithContext(ctx context.Context) V
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeTagArrayOutput)
 }
 
-func (i VolumeTagArray) ToOutput(ctx context.Context) pulumix.Output[[]VolumeTag] {
-	return pulumix.Output[[]VolumeTag]{
-		OutputState: i.ToVolumeTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VolumeTagOutput struct{ *pulumi.OutputState }
 
 func (VolumeTagOutput) ElementType() reflect.Type {
@@ -5772,12 +5063,6 @@ func (o VolumeTagOutput) ToVolumeTagOutput() VolumeTagOutput {
 
 func (o VolumeTagOutput) ToVolumeTagOutputWithContext(ctx context.Context) VolumeTagOutput {
 	return o
-}
-
-func (o VolumeTagOutput) ToOutput(ctx context.Context) pulumix.Output[VolumeTag] {
-	return pulumix.Output[VolumeTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeTagOutput) Key() pulumi.StringOutput {
@@ -5800,12 +5085,6 @@ func (o VolumeTagArrayOutput) ToVolumeTagArrayOutput() VolumeTagArrayOutput {
 
 func (o VolumeTagArrayOutput) ToVolumeTagArrayOutputWithContext(ctx context.Context) VolumeTagArrayOutput {
 	return o
-}
-
-func (o VolumeTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VolumeTag] {
-	return pulumix.Output[[]VolumeTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeTagArrayOutput) Index(i pulumi.IntInput) VolumeTagOutput {
@@ -5845,12 +5124,6 @@ func (i VolumeTieringPolicyArgs) ToVolumeTieringPolicyOutput() VolumeTieringPoli
 
 func (i VolumeTieringPolicyArgs) ToVolumeTieringPolicyOutputWithContext(ctx context.Context) VolumeTieringPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeTieringPolicyOutput)
-}
-
-func (i VolumeTieringPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[VolumeTieringPolicy] {
-	return pulumix.Output[VolumeTieringPolicy]{
-		OutputState: i.ToVolumeTieringPolicyOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i VolumeTieringPolicyArgs) ToVolumeTieringPolicyPtrOutput() VolumeTieringPolicyPtrOutput {
@@ -5894,12 +5167,6 @@ func (i *volumeTieringPolicyPtrType) ToVolumeTieringPolicyPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeTieringPolicyPtrOutput)
 }
 
-func (i *volumeTieringPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*VolumeTieringPolicy] {
-	return pulumix.Output[*VolumeTieringPolicy]{
-		OutputState: i.ToVolumeTieringPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VolumeTieringPolicyOutput struct{ *pulumi.OutputState }
 
 func (VolumeTieringPolicyOutput) ElementType() reflect.Type {
@@ -5924,12 +5191,6 @@ func (o VolumeTieringPolicyOutput) ToVolumeTieringPolicyPtrOutputWithContext(ctx
 	}).(VolumeTieringPolicyPtrOutput)
 }
 
-func (o VolumeTieringPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[VolumeTieringPolicy] {
-	return pulumix.Output[VolumeTieringPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VolumeTieringPolicyOutput) CoolingPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VolumeTieringPolicy) *int { return v.CoolingPeriod }).(pulumi.IntPtrOutput)
 }
@@ -5950,12 +5211,6 @@ func (o VolumeTieringPolicyPtrOutput) ToVolumeTieringPolicyPtrOutput() VolumeTie
 
 func (o VolumeTieringPolicyPtrOutput) ToVolumeTieringPolicyPtrOutputWithContext(ctx context.Context) VolumeTieringPolicyPtrOutput {
 	return o
-}
-
-func (o VolumeTieringPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VolumeTieringPolicy] {
-	return pulumix.Output[*VolumeTieringPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeTieringPolicyPtrOutput) Elem() VolumeTieringPolicyOutput {
@@ -6021,12 +5276,6 @@ func (i VolumeUserAndGroupQuotasArgs) ToVolumeUserAndGroupQuotasOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeUserAndGroupQuotasOutput)
 }
 
-func (i VolumeUserAndGroupQuotasArgs) ToOutput(ctx context.Context) pulumix.Output[VolumeUserAndGroupQuotas] {
-	return pulumix.Output[VolumeUserAndGroupQuotas]{
-		OutputState: i.ToVolumeUserAndGroupQuotasOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VolumeUserAndGroupQuotasArrayInput is an input type that accepts VolumeUserAndGroupQuotasArray and VolumeUserAndGroupQuotasArrayOutput values.
 // You can construct a concrete instance of `VolumeUserAndGroupQuotasArrayInput` via:
 //
@@ -6052,12 +5301,6 @@ func (i VolumeUserAndGroupQuotasArray) ToVolumeUserAndGroupQuotasArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeUserAndGroupQuotasArrayOutput)
 }
 
-func (i VolumeUserAndGroupQuotasArray) ToOutput(ctx context.Context) pulumix.Output[[]VolumeUserAndGroupQuotas] {
-	return pulumix.Output[[]VolumeUserAndGroupQuotas]{
-		OutputState: i.ToVolumeUserAndGroupQuotasArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VolumeUserAndGroupQuotasOutput struct{ *pulumi.OutputState }
 
 func (VolumeUserAndGroupQuotasOutput) ElementType() reflect.Type {
@@ -6070,12 +5313,6 @@ func (o VolumeUserAndGroupQuotasOutput) ToVolumeUserAndGroupQuotasOutput() Volum
 
 func (o VolumeUserAndGroupQuotasOutput) ToVolumeUserAndGroupQuotasOutputWithContext(ctx context.Context) VolumeUserAndGroupQuotasOutput {
 	return o
-}
-
-func (o VolumeUserAndGroupQuotasOutput) ToOutput(ctx context.Context) pulumix.Output[VolumeUserAndGroupQuotas] {
-	return pulumix.Output[VolumeUserAndGroupQuotas]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeUserAndGroupQuotasOutput) Id() pulumi.IntOutput {
@@ -6102,12 +5339,6 @@ func (o VolumeUserAndGroupQuotasArrayOutput) ToVolumeUserAndGroupQuotasArrayOutp
 
 func (o VolumeUserAndGroupQuotasArrayOutput) ToVolumeUserAndGroupQuotasArrayOutputWithContext(ctx context.Context) VolumeUserAndGroupQuotasArrayOutput {
 	return o
-}
-
-func (o VolumeUserAndGroupQuotasArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VolumeUserAndGroupQuotas] {
-	return pulumix.Output[[]VolumeUserAndGroupQuotas]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeUserAndGroupQuotasArrayOutput) Index(i pulumi.IntInput) VolumeUserAndGroupQuotasOutput {

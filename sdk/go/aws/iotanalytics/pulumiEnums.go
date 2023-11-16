@@ -78,12 +78,6 @@ func (o DatasetResourceConfigurationComputeTypeOutput) ToDatasetResourceConfigur
 	}).(DatasetResourceConfigurationComputeTypePtrOutput)
 }
 
-func (o DatasetResourceConfigurationComputeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetResourceConfigurationComputeType] {
-	return pulumix.Output[DatasetResourceConfigurationComputeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetResourceConfigurationComputeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o DatasetResourceConfigurationComputeTypePtrOutput) ToDatasetResourceConfi
 
 func (o DatasetResourceConfigurationComputeTypePtrOutput) ToDatasetResourceConfigurationComputeTypePtrOutputWithContext(ctx context.Context) DatasetResourceConfigurationComputeTypePtrOutput {
 	return o
-}
-
-func (o DatasetResourceConfigurationComputeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetResourceConfigurationComputeType] {
-	return pulumix.Output[*DatasetResourceConfigurationComputeType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatasetResourceConfigurationComputeTypePtrOutput) Elem() DatasetResourceConfigurationComputeTypeOutput {

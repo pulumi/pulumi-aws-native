@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Greengrass::FunctionDefinition
@@ -68,12 +67,6 @@ func (o LookupFunctionDefinitionResultOutput) ToLookupFunctionDefinitionResultOu
 
 func (o LookupFunctionDefinitionResultOutput) ToLookupFunctionDefinitionResultOutputWithContext(ctx context.Context) LookupFunctionDefinitionResultOutput {
 	return o
-}
-
-func (o LookupFunctionDefinitionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFunctionDefinitionResult] {
-	return pulumix.Output[LookupFunctionDefinitionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupFunctionDefinitionResultOutput) Arn() pulumi.StringPtrOutput {

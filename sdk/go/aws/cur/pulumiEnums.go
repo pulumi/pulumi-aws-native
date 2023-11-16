@@ -80,12 +80,6 @@ func (o ReportDefinitionAdditionalArtifactsItemOutput) ToReportDefinitionAdditio
 	}).(ReportDefinitionAdditionalArtifactsItemPtrOutput)
 }
 
-func (o ReportDefinitionAdditionalArtifactsItemOutput) ToOutput(ctx context.Context) pulumix.Output[ReportDefinitionAdditionalArtifactsItem] {
-	return pulumix.Output[ReportDefinitionAdditionalArtifactsItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReportDefinitionAdditionalArtifactsItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o ReportDefinitionAdditionalArtifactsItemPtrOutput) ToReportDefinitionAddi
 
 func (o ReportDefinitionAdditionalArtifactsItemPtrOutput) ToReportDefinitionAdditionalArtifactsItemPtrOutputWithContext(ctx context.Context) ReportDefinitionAdditionalArtifactsItemPtrOutput {
 	return o
-}
-
-func (o ReportDefinitionAdditionalArtifactsItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReportDefinitionAdditionalArtifactsItem] {
-	return pulumix.Output[*ReportDefinitionAdditionalArtifactsItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReportDefinitionAdditionalArtifactsItemPtrOutput) Elem() ReportDefinitionAdditionalArtifactsItemOutput {
@@ -220,12 +208,6 @@ func (i ReportDefinitionAdditionalArtifactsItemArray) ToReportDefinitionAddition
 	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionAdditionalArtifactsItemArrayOutput)
 }
 
-func (i ReportDefinitionAdditionalArtifactsItemArray) ToOutput(ctx context.Context) pulumix.Output[[]ReportDefinitionAdditionalArtifactsItem] {
-	return pulumix.Output[[]ReportDefinitionAdditionalArtifactsItem]{
-		OutputState: i.ToReportDefinitionAdditionalArtifactsItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReportDefinitionAdditionalArtifactsItemArrayOutput struct{ *pulumi.OutputState }
 
 func (ReportDefinitionAdditionalArtifactsItemArrayOutput) ElementType() reflect.Type {
@@ -238,12 +220,6 @@ func (o ReportDefinitionAdditionalArtifactsItemArrayOutput) ToReportDefinitionAd
 
 func (o ReportDefinitionAdditionalArtifactsItemArrayOutput) ToReportDefinitionAdditionalArtifactsItemArrayOutputWithContext(ctx context.Context) ReportDefinitionAdditionalArtifactsItemArrayOutput {
 	return o
-}
-
-func (o ReportDefinitionAdditionalArtifactsItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReportDefinitionAdditionalArtifactsItem] {
-	return pulumix.Output[[]ReportDefinitionAdditionalArtifactsItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReportDefinitionAdditionalArtifactsItemArrayOutput) Index(i pulumi.IntInput) ReportDefinitionAdditionalArtifactsItemOutput {
@@ -319,12 +295,6 @@ func (o ReportDefinitionAdditionalSchemaElementsItemOutput) ToReportDefinitionAd
 	}).(ReportDefinitionAdditionalSchemaElementsItemPtrOutput)
 }
 
-func (o ReportDefinitionAdditionalSchemaElementsItemOutput) ToOutput(ctx context.Context) pulumix.Output[ReportDefinitionAdditionalSchemaElementsItem] {
-	return pulumix.Output[ReportDefinitionAdditionalSchemaElementsItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReportDefinitionAdditionalSchemaElementsItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -358,12 +328,6 @@ func (o ReportDefinitionAdditionalSchemaElementsItemPtrOutput) ToReportDefinitio
 
 func (o ReportDefinitionAdditionalSchemaElementsItemPtrOutput) ToReportDefinitionAdditionalSchemaElementsItemPtrOutputWithContext(ctx context.Context) ReportDefinitionAdditionalSchemaElementsItemPtrOutput {
 	return o
-}
-
-func (o ReportDefinitionAdditionalSchemaElementsItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReportDefinitionAdditionalSchemaElementsItem] {
-	return pulumix.Output[*ReportDefinitionAdditionalSchemaElementsItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReportDefinitionAdditionalSchemaElementsItemPtrOutput) Elem() ReportDefinitionAdditionalSchemaElementsItemOutput {
@@ -459,12 +423,6 @@ func (i ReportDefinitionAdditionalSchemaElementsItemArray) ToReportDefinitionAdd
 	return pulumi.ToOutputWithContext(ctx, i).(ReportDefinitionAdditionalSchemaElementsItemArrayOutput)
 }
 
-func (i ReportDefinitionAdditionalSchemaElementsItemArray) ToOutput(ctx context.Context) pulumix.Output[[]ReportDefinitionAdditionalSchemaElementsItem] {
-	return pulumix.Output[[]ReportDefinitionAdditionalSchemaElementsItem]{
-		OutputState: i.ToReportDefinitionAdditionalSchemaElementsItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReportDefinitionAdditionalSchemaElementsItemArrayOutput struct{ *pulumi.OutputState }
 
 func (ReportDefinitionAdditionalSchemaElementsItemArrayOutput) ElementType() reflect.Type {
@@ -477,12 +435,6 @@ func (o ReportDefinitionAdditionalSchemaElementsItemArrayOutput) ToReportDefinit
 
 func (o ReportDefinitionAdditionalSchemaElementsItemArrayOutput) ToReportDefinitionAdditionalSchemaElementsItemArrayOutputWithContext(ctx context.Context) ReportDefinitionAdditionalSchemaElementsItemArrayOutput {
 	return o
-}
-
-func (o ReportDefinitionAdditionalSchemaElementsItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReportDefinitionAdditionalSchemaElementsItem] {
-	return pulumix.Output[[]ReportDefinitionAdditionalSchemaElementsItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReportDefinitionAdditionalSchemaElementsItemArrayOutput) Index(i pulumi.IntInput) ReportDefinitionAdditionalSchemaElementsItemOutput {
@@ -560,12 +512,6 @@ func (o ReportDefinitionCompressionOutput) ToReportDefinitionCompressionPtrOutpu
 	}).(ReportDefinitionCompressionPtrOutput)
 }
 
-func (o ReportDefinitionCompressionOutput) ToOutput(ctx context.Context) pulumix.Output[ReportDefinitionCompression] {
-	return pulumix.Output[ReportDefinitionCompression]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReportDefinitionCompressionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -599,12 +545,6 @@ func (o ReportDefinitionCompressionPtrOutput) ToReportDefinitionCompressionPtrOu
 
 func (o ReportDefinitionCompressionPtrOutput) ToReportDefinitionCompressionPtrOutputWithContext(ctx context.Context) ReportDefinitionCompressionPtrOutput {
 	return o
-}
-
-func (o ReportDefinitionCompressionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReportDefinitionCompression] {
-	return pulumix.Output[*ReportDefinitionCompression]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReportDefinitionCompressionPtrOutput) Elem() ReportDefinitionCompressionOutput {
@@ -743,12 +683,6 @@ func (o ReportDefinitionFormatOutput) ToReportDefinitionFormatPtrOutputWithConte
 	}).(ReportDefinitionFormatPtrOutput)
 }
 
-func (o ReportDefinitionFormatOutput) ToOutput(ctx context.Context) pulumix.Output[ReportDefinitionFormat] {
-	return pulumix.Output[ReportDefinitionFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReportDefinitionFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -782,12 +716,6 @@ func (o ReportDefinitionFormatPtrOutput) ToReportDefinitionFormatPtrOutput() Rep
 
 func (o ReportDefinitionFormatPtrOutput) ToReportDefinitionFormatPtrOutputWithContext(ctx context.Context) ReportDefinitionFormatPtrOutput {
 	return o
-}
-
-func (o ReportDefinitionFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReportDefinitionFormat] {
-	return pulumix.Output[*ReportDefinitionFormat]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReportDefinitionFormatPtrOutput) Elem() ReportDefinitionFormatOutput {
@@ -926,12 +854,6 @@ func (o ReportDefinitionReportVersioningOutput) ToReportDefinitionReportVersioni
 	}).(ReportDefinitionReportVersioningPtrOutput)
 }
 
-func (o ReportDefinitionReportVersioningOutput) ToOutput(ctx context.Context) pulumix.Output[ReportDefinitionReportVersioning] {
-	return pulumix.Output[ReportDefinitionReportVersioning]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReportDefinitionReportVersioningOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -965,12 +887,6 @@ func (o ReportDefinitionReportVersioningPtrOutput) ToReportDefinitionReportVersi
 
 func (o ReportDefinitionReportVersioningPtrOutput) ToReportDefinitionReportVersioningPtrOutputWithContext(ctx context.Context) ReportDefinitionReportVersioningPtrOutput {
 	return o
-}
-
-func (o ReportDefinitionReportVersioningPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReportDefinitionReportVersioning] {
-	return pulumix.Output[*ReportDefinitionReportVersioning]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReportDefinitionReportVersioningPtrOutput) Elem() ReportDefinitionReportVersioningOutput {
@@ -1110,12 +1026,6 @@ func (o ReportDefinitionTimeUnitOutput) ToReportDefinitionTimeUnitPtrOutputWithC
 	}).(ReportDefinitionTimeUnitPtrOutput)
 }
 
-func (o ReportDefinitionTimeUnitOutput) ToOutput(ctx context.Context) pulumix.Output[ReportDefinitionTimeUnit] {
-	return pulumix.Output[ReportDefinitionTimeUnit]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReportDefinitionTimeUnitOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1149,12 +1059,6 @@ func (o ReportDefinitionTimeUnitPtrOutput) ToReportDefinitionTimeUnitPtrOutput()
 
 func (o ReportDefinitionTimeUnitPtrOutput) ToReportDefinitionTimeUnitPtrOutputWithContext(ctx context.Context) ReportDefinitionTimeUnitPtrOutput {
 	return o
-}
-
-func (o ReportDefinitionTimeUnitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReportDefinitionTimeUnit] {
-	return pulumix.Output[*ReportDefinitionTimeUnit]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReportDefinitionTimeUnitPtrOutput) Elem() ReportDefinitionTimeUnitOutput {

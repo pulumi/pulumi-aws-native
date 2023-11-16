@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::WAFRegional::WebACLAssociation
@@ -64,12 +63,6 @@ func (o LookupWebAclAssociationResultOutput) ToLookupWebAclAssociationResultOutp
 
 func (o LookupWebAclAssociationResultOutput) ToLookupWebAclAssociationResultOutputWithContext(ctx context.Context) LookupWebAclAssociationResultOutput {
 	return o
-}
-
-func (o LookupWebAclAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupWebAclAssociationResult] {
-	return pulumix.Output[LookupWebAclAssociationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupWebAclAssociationResultOutput) Id() pulumi.StringPtrOutput {

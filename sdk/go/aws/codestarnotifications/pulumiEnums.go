@@ -78,12 +78,6 @@ func (o NotificationRuleDetailTypeOutput) ToNotificationRuleDetailTypePtrOutputW
 	}).(NotificationRuleDetailTypePtrOutput)
 }
 
-func (o NotificationRuleDetailTypeOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationRuleDetailType] {
-	return pulumix.Output[NotificationRuleDetailType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NotificationRuleDetailTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o NotificationRuleDetailTypePtrOutput) ToNotificationRuleDetailTypePtrOutp
 
 func (o NotificationRuleDetailTypePtrOutput) ToNotificationRuleDetailTypePtrOutputWithContext(ctx context.Context) NotificationRuleDetailTypePtrOutput {
 	return o
-}
-
-func (o NotificationRuleDetailTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NotificationRuleDetailType] {
-	return pulumix.Output[*NotificationRuleDetailType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationRuleDetailTypePtrOutput) Elem() NotificationRuleDetailTypeOutput {
@@ -260,12 +248,6 @@ func (o NotificationRuleStatusOutput) ToNotificationRuleStatusPtrOutputWithConte
 	}).(NotificationRuleStatusPtrOutput)
 }
 
-func (o NotificationRuleStatusOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationRuleStatus] {
-	return pulumix.Output[NotificationRuleStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NotificationRuleStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -299,12 +281,6 @@ func (o NotificationRuleStatusPtrOutput) ToNotificationRuleStatusPtrOutput() Not
 
 func (o NotificationRuleStatusPtrOutput) ToNotificationRuleStatusPtrOutputWithContext(ctx context.Context) NotificationRuleStatusPtrOutput {
 	return o
-}
-
-func (o NotificationRuleStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NotificationRuleStatus] {
-	return pulumix.Output[*NotificationRuleStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationRuleStatusPtrOutput) Elem() NotificationRuleStatusOutput {

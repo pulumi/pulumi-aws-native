@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::FSx::StorageVirtualMachine
@@ -120,12 +119,6 @@ func (i *StorageVirtualMachine) ToStorageVirtualMachineOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(StorageVirtualMachineOutput)
 }
 
-func (i *StorageVirtualMachine) ToOutput(ctx context.Context) pulumix.Output[*StorageVirtualMachine] {
-	return pulumix.Output[*StorageVirtualMachine]{
-		OutputState: i.ToStorageVirtualMachineOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageVirtualMachineOutput struct{ *pulumi.OutputState }
 
 func (StorageVirtualMachineOutput) ElementType() reflect.Type {
@@ -138,12 +131,6 @@ func (o StorageVirtualMachineOutput) ToStorageVirtualMachineOutput() StorageVirt
 
 func (o StorageVirtualMachineOutput) ToStorageVirtualMachineOutputWithContext(ctx context.Context) StorageVirtualMachineOutput {
 	return o
-}
-
-func (o StorageVirtualMachineOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageVirtualMachine] {
-	return pulumix.Output[*StorageVirtualMachine]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageVirtualMachineOutput) ActiveDirectoryConfiguration() StorageVirtualMachineActiveDirectoryConfigurationPtrOutput {

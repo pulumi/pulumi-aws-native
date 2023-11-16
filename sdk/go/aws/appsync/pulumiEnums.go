@@ -79,12 +79,6 @@ func (o SourceApiAssociationConfigMergeTypeOutput) ToSourceApiAssociationConfigM
 	}).(SourceApiAssociationConfigMergeTypePtrOutput)
 }
 
-func (o SourceApiAssociationConfigMergeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SourceApiAssociationConfigMergeType] {
-	return pulumix.Output[SourceApiAssociationConfigMergeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SourceApiAssociationConfigMergeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o SourceApiAssociationConfigMergeTypePtrOutput) ToSourceApiAssociationConf
 
 func (o SourceApiAssociationConfigMergeTypePtrOutput) ToSourceApiAssociationConfigMergeTypePtrOutputWithContext(ctx context.Context) SourceApiAssociationConfigMergeTypePtrOutput {
 	return o
-}
-
-func (o SourceApiAssociationConfigMergeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SourceApiAssociationConfigMergeType] {
-	return pulumix.Output[*SourceApiAssociationConfigMergeType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SourceApiAssociationConfigMergeTypePtrOutput) Elem() SourceApiAssociationConfigMergeTypeOutput {
@@ -232,12 +220,6 @@ func (o SourceApiAssociationStatusOutput) ToSourceApiAssociationStatusPtrOutputW
 	}).(SourceApiAssociationStatusPtrOutput)
 }
 
-func (o SourceApiAssociationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[SourceApiAssociationStatus] {
-	return pulumix.Output[SourceApiAssociationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SourceApiAssociationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -271,12 +253,6 @@ func (o SourceApiAssociationStatusPtrOutput) ToSourceApiAssociationStatusPtrOutp
 
 func (o SourceApiAssociationStatusPtrOutput) ToSourceApiAssociationStatusPtrOutputWithContext(ctx context.Context) SourceApiAssociationStatusPtrOutput {
 	return o
-}
-
-func (o SourceApiAssociationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SourceApiAssociationStatus] {
-	return pulumix.Output[*SourceApiAssociationStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SourceApiAssociationStatusPtrOutput) Elem() SourceApiAssociationStatusOutput {

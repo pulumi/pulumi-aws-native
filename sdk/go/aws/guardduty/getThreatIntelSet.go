@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::GuardDuty::ThreatIntelSet
@@ -68,12 +67,6 @@ func (o LookupThreatIntelSetResultOutput) ToLookupThreatIntelSetResultOutput() L
 
 func (o LookupThreatIntelSetResultOutput) ToLookupThreatIntelSetResultOutputWithContext(ctx context.Context) LookupThreatIntelSetResultOutput {
 	return o
-}
-
-func (o LookupThreatIntelSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupThreatIntelSetResult] {
-	return pulumix.Output[LookupThreatIntelSetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupThreatIntelSetResultOutput) Activate() pulumi.BoolPtrOutput {

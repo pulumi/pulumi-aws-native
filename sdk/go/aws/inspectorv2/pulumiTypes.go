@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -105,12 +104,6 @@ func (i FilterCriteriaArgs) ToFilterCriteriaOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(FilterCriteriaOutput)
 }
 
-func (i FilterCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[FilterCriteria] {
-	return pulumix.Output[FilterCriteria]{
-		OutputState: i.ToFilterCriteriaOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FilterCriteriaOutput struct{ *pulumi.OutputState }
 
 func (FilterCriteriaOutput) ElementType() reflect.Type {
@@ -123,12 +116,6 @@ func (o FilterCriteriaOutput) ToFilterCriteriaOutput() FilterCriteriaOutput {
 
 func (o FilterCriteriaOutput) ToFilterCriteriaOutputWithContext(ctx context.Context) FilterCriteriaOutput {
 	return o
-}
-
-func (o FilterCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[FilterCriteria] {
-	return pulumix.Output[FilterCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterCriteriaOutput) AwsAccountId() FilterStringFilterArrayOutput {
@@ -267,12 +254,6 @@ func (o FilterCriteriaPtrOutput) ToFilterCriteriaPtrOutput() FilterCriteriaPtrOu
 
 func (o FilterCriteriaPtrOutput) ToFilterCriteriaPtrOutputWithContext(ctx context.Context) FilterCriteriaPtrOutput {
 	return o
-}
-
-func (o FilterCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FilterCriteria] {
-	return pulumix.Output[*FilterCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterCriteriaPtrOutput) Elem() FilterCriteriaOutput {
@@ -597,12 +578,6 @@ func (i FilterDateFilterArgs) ToFilterDateFilterOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(FilterDateFilterOutput)
 }
 
-func (i FilterDateFilterArgs) ToOutput(ctx context.Context) pulumix.Output[FilterDateFilter] {
-	return pulumix.Output[FilterDateFilter]{
-		OutputState: i.ToFilterDateFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FilterDateFilterArrayInput is an input type that accepts FilterDateFilterArray and FilterDateFilterArrayOutput values.
 // You can construct a concrete instance of `FilterDateFilterArrayInput` via:
 //
@@ -628,12 +603,6 @@ func (i FilterDateFilterArray) ToFilterDateFilterArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(FilterDateFilterArrayOutput)
 }
 
-func (i FilterDateFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]FilterDateFilter] {
-	return pulumix.Output[[]FilterDateFilter]{
-		OutputState: i.ToFilterDateFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FilterDateFilterOutput struct{ *pulumi.OutputState }
 
 func (FilterDateFilterOutput) ElementType() reflect.Type {
@@ -646,12 +615,6 @@ func (o FilterDateFilterOutput) ToFilterDateFilterOutput() FilterDateFilterOutpu
 
 func (o FilterDateFilterOutput) ToFilterDateFilterOutputWithContext(ctx context.Context) FilterDateFilterOutput {
 	return o
-}
-
-func (o FilterDateFilterOutput) ToOutput(ctx context.Context) pulumix.Output[FilterDateFilter] {
-	return pulumix.Output[FilterDateFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterDateFilterOutput) EndInclusive() pulumi.IntPtrOutput {
@@ -674,12 +637,6 @@ func (o FilterDateFilterArrayOutput) ToFilterDateFilterArrayOutput() FilterDateF
 
 func (o FilterDateFilterArrayOutput) ToFilterDateFilterArrayOutputWithContext(ctx context.Context) FilterDateFilterArrayOutput {
 	return o
-}
-
-func (o FilterDateFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FilterDateFilter] {
-	return pulumix.Output[[]FilterDateFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterDateFilterArrayOutput) Index(i pulumi.IntInput) FilterDateFilterOutput {
@@ -723,12 +680,6 @@ func (i FilterMapFilterArgs) ToFilterMapFilterOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(FilterMapFilterOutput)
 }
 
-func (i FilterMapFilterArgs) ToOutput(ctx context.Context) pulumix.Output[FilterMapFilter] {
-	return pulumix.Output[FilterMapFilter]{
-		OutputState: i.ToFilterMapFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FilterMapFilterArrayInput is an input type that accepts FilterMapFilterArray and FilterMapFilterArrayOutput values.
 // You can construct a concrete instance of `FilterMapFilterArrayInput` via:
 //
@@ -754,12 +705,6 @@ func (i FilterMapFilterArray) ToFilterMapFilterArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(FilterMapFilterArrayOutput)
 }
 
-func (i FilterMapFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]FilterMapFilter] {
-	return pulumix.Output[[]FilterMapFilter]{
-		OutputState: i.ToFilterMapFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FilterMapFilterOutput struct{ *pulumi.OutputState }
 
 func (FilterMapFilterOutput) ElementType() reflect.Type {
@@ -772,12 +717,6 @@ func (o FilterMapFilterOutput) ToFilterMapFilterOutput() FilterMapFilterOutput {
 
 func (o FilterMapFilterOutput) ToFilterMapFilterOutputWithContext(ctx context.Context) FilterMapFilterOutput {
 	return o
-}
-
-func (o FilterMapFilterOutput) ToOutput(ctx context.Context) pulumix.Output[FilterMapFilter] {
-	return pulumix.Output[FilterMapFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterMapFilterOutput) Comparison() FilterMapComparisonOutput {
@@ -804,12 +743,6 @@ func (o FilterMapFilterArrayOutput) ToFilterMapFilterArrayOutput() FilterMapFilt
 
 func (o FilterMapFilterArrayOutput) ToFilterMapFilterArrayOutputWithContext(ctx context.Context) FilterMapFilterArrayOutput {
 	return o
-}
-
-func (o FilterMapFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FilterMapFilter] {
-	return pulumix.Output[[]FilterMapFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterMapFilterArrayOutput) Index(i pulumi.IntInput) FilterMapFilterOutput {
@@ -849,12 +782,6 @@ func (i FilterNumberFilterArgs) ToFilterNumberFilterOutput() FilterNumberFilterO
 
 func (i FilterNumberFilterArgs) ToFilterNumberFilterOutputWithContext(ctx context.Context) FilterNumberFilterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FilterNumberFilterOutput)
-}
-
-func (i FilterNumberFilterArgs) ToOutput(ctx context.Context) pulumix.Output[FilterNumberFilter] {
-	return pulumix.Output[FilterNumberFilter]{
-		OutputState: i.ToFilterNumberFilterOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i FilterNumberFilterArgs) ToFilterNumberFilterPtrOutput() FilterNumberFilterPtrOutput {
@@ -898,12 +825,6 @@ func (i *filterNumberFilterPtrType) ToFilterNumberFilterPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(FilterNumberFilterPtrOutput)
 }
 
-func (i *filterNumberFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*FilterNumberFilter] {
-	return pulumix.Output[*FilterNumberFilter]{
-		OutputState: i.ToFilterNumberFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FilterNumberFilterArrayInput is an input type that accepts FilterNumberFilterArray and FilterNumberFilterArrayOutput values.
 // You can construct a concrete instance of `FilterNumberFilterArrayInput` via:
 //
@@ -927,12 +848,6 @@ func (i FilterNumberFilterArray) ToFilterNumberFilterArrayOutput() FilterNumberF
 
 func (i FilterNumberFilterArray) ToFilterNumberFilterArrayOutputWithContext(ctx context.Context) FilterNumberFilterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FilterNumberFilterArrayOutput)
-}
-
-func (i FilterNumberFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]FilterNumberFilter] {
-	return pulumix.Output[[]FilterNumberFilter]{
-		OutputState: i.ToFilterNumberFilterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 type FilterNumberFilterOutput struct{ *pulumi.OutputState }
@@ -959,12 +874,6 @@ func (o FilterNumberFilterOutput) ToFilterNumberFilterPtrOutputWithContext(ctx c
 	}).(FilterNumberFilterPtrOutput)
 }
 
-func (o FilterNumberFilterOutput) ToOutput(ctx context.Context) pulumix.Output[FilterNumberFilter] {
-	return pulumix.Output[FilterNumberFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FilterNumberFilterOutput) LowerInclusive() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FilterNumberFilter) *float64 { return v.LowerInclusive }).(pulumi.Float64PtrOutput)
 }
@@ -985,12 +894,6 @@ func (o FilterNumberFilterPtrOutput) ToFilterNumberFilterPtrOutput() FilterNumbe
 
 func (o FilterNumberFilterPtrOutput) ToFilterNumberFilterPtrOutputWithContext(ctx context.Context) FilterNumberFilterPtrOutput {
 	return o
-}
-
-func (o FilterNumberFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FilterNumberFilter] {
-	return pulumix.Output[*FilterNumberFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterNumberFilterPtrOutput) Elem() FilterNumberFilterOutput {
@@ -1033,12 +936,6 @@ func (o FilterNumberFilterArrayOutput) ToFilterNumberFilterArrayOutput() FilterN
 
 func (o FilterNumberFilterArrayOutput) ToFilterNumberFilterArrayOutputWithContext(ctx context.Context) FilterNumberFilterArrayOutput {
 	return o
-}
-
-func (o FilterNumberFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FilterNumberFilter] {
-	return pulumix.Output[[]FilterNumberFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterNumberFilterArrayOutput) Index(i pulumi.IntInput) FilterNumberFilterOutput {
@@ -1088,12 +985,6 @@ func (i FilterPackageFilterArgs) ToFilterPackageFilterOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(FilterPackageFilterOutput)
 }
 
-func (i FilterPackageFilterArgs) ToOutput(ctx context.Context) pulumix.Output[FilterPackageFilter] {
-	return pulumix.Output[FilterPackageFilter]{
-		OutputState: i.ToFilterPackageFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FilterPackageFilterArrayInput is an input type that accepts FilterPackageFilterArray and FilterPackageFilterArrayOutput values.
 // You can construct a concrete instance of `FilterPackageFilterArrayInput` via:
 //
@@ -1119,12 +1010,6 @@ func (i FilterPackageFilterArray) ToFilterPackageFilterArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(FilterPackageFilterArrayOutput)
 }
 
-func (i FilterPackageFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]FilterPackageFilter] {
-	return pulumix.Output[[]FilterPackageFilter]{
-		OutputState: i.ToFilterPackageFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FilterPackageFilterOutput struct{ *pulumi.OutputState }
 
 func (FilterPackageFilterOutput) ElementType() reflect.Type {
@@ -1137,12 +1022,6 @@ func (o FilterPackageFilterOutput) ToFilterPackageFilterOutput() FilterPackageFi
 
 func (o FilterPackageFilterOutput) ToFilterPackageFilterOutputWithContext(ctx context.Context) FilterPackageFilterOutput {
 	return o
-}
-
-func (o FilterPackageFilterOutput) ToOutput(ctx context.Context) pulumix.Output[FilterPackageFilter] {
-	return pulumix.Output[FilterPackageFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterPackageFilterOutput) Architecture() FilterStringFilterPtrOutput {
@@ -1181,12 +1060,6 @@ func (o FilterPackageFilterArrayOutput) ToFilterPackageFilterArrayOutput() Filte
 
 func (o FilterPackageFilterArrayOutput) ToFilterPackageFilterArrayOutputWithContext(ctx context.Context) FilterPackageFilterArrayOutput {
 	return o
-}
-
-func (o FilterPackageFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FilterPackageFilter] {
-	return pulumix.Output[[]FilterPackageFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterPackageFilterArrayOutput) Index(i pulumi.IntInput) FilterPackageFilterOutput {
@@ -1228,12 +1101,6 @@ func (i FilterPortRangeFilterArgs) ToFilterPortRangeFilterOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(FilterPortRangeFilterOutput)
 }
 
-func (i FilterPortRangeFilterArgs) ToOutput(ctx context.Context) pulumix.Output[FilterPortRangeFilter] {
-	return pulumix.Output[FilterPortRangeFilter]{
-		OutputState: i.ToFilterPortRangeFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FilterPortRangeFilterArrayInput is an input type that accepts FilterPortRangeFilterArray and FilterPortRangeFilterArrayOutput values.
 // You can construct a concrete instance of `FilterPortRangeFilterArrayInput` via:
 //
@@ -1259,12 +1126,6 @@ func (i FilterPortRangeFilterArray) ToFilterPortRangeFilterArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(FilterPortRangeFilterArrayOutput)
 }
 
-func (i FilterPortRangeFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]FilterPortRangeFilter] {
-	return pulumix.Output[[]FilterPortRangeFilter]{
-		OutputState: i.ToFilterPortRangeFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FilterPortRangeFilterOutput struct{ *pulumi.OutputState }
 
 func (FilterPortRangeFilterOutput) ElementType() reflect.Type {
@@ -1277,12 +1138,6 @@ func (o FilterPortRangeFilterOutput) ToFilterPortRangeFilterOutput() FilterPortR
 
 func (o FilterPortRangeFilterOutput) ToFilterPortRangeFilterOutputWithContext(ctx context.Context) FilterPortRangeFilterOutput {
 	return o
-}
-
-func (o FilterPortRangeFilterOutput) ToOutput(ctx context.Context) pulumix.Output[FilterPortRangeFilter] {
-	return pulumix.Output[FilterPortRangeFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterPortRangeFilterOutput) BeginInclusive() pulumi.IntPtrOutput {
@@ -1305,12 +1160,6 @@ func (o FilterPortRangeFilterArrayOutput) ToFilterPortRangeFilterArrayOutput() F
 
 func (o FilterPortRangeFilterArrayOutput) ToFilterPortRangeFilterArrayOutputWithContext(ctx context.Context) FilterPortRangeFilterArrayOutput {
 	return o
-}
-
-func (o FilterPortRangeFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FilterPortRangeFilter] {
-	return pulumix.Output[[]FilterPortRangeFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterPortRangeFilterArrayOutput) Index(i pulumi.IntInput) FilterPortRangeFilterOutput {
@@ -1350,12 +1199,6 @@ func (i FilterStringFilterArgs) ToFilterStringFilterOutput() FilterStringFilterO
 
 func (i FilterStringFilterArgs) ToFilterStringFilterOutputWithContext(ctx context.Context) FilterStringFilterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FilterStringFilterOutput)
-}
-
-func (i FilterStringFilterArgs) ToOutput(ctx context.Context) pulumix.Output[FilterStringFilter] {
-	return pulumix.Output[FilterStringFilter]{
-		OutputState: i.ToFilterStringFilterOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i FilterStringFilterArgs) ToFilterStringFilterPtrOutput() FilterStringFilterPtrOutput {
@@ -1399,12 +1242,6 @@ func (i *filterStringFilterPtrType) ToFilterStringFilterPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(FilterStringFilterPtrOutput)
 }
 
-func (i *filterStringFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*FilterStringFilter] {
-	return pulumix.Output[*FilterStringFilter]{
-		OutputState: i.ToFilterStringFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FilterStringFilterArrayInput is an input type that accepts FilterStringFilterArray and FilterStringFilterArrayOutput values.
 // You can construct a concrete instance of `FilterStringFilterArrayInput` via:
 //
@@ -1428,12 +1265,6 @@ func (i FilterStringFilterArray) ToFilterStringFilterArrayOutput() FilterStringF
 
 func (i FilterStringFilterArray) ToFilterStringFilterArrayOutputWithContext(ctx context.Context) FilterStringFilterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FilterStringFilterArrayOutput)
-}
-
-func (i FilterStringFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]FilterStringFilter] {
-	return pulumix.Output[[]FilterStringFilter]{
-		OutputState: i.ToFilterStringFilterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 type FilterStringFilterOutput struct{ *pulumi.OutputState }
@@ -1460,12 +1291,6 @@ func (o FilterStringFilterOutput) ToFilterStringFilterPtrOutputWithContext(ctx c
 	}).(FilterStringFilterPtrOutput)
 }
 
-func (o FilterStringFilterOutput) ToOutput(ctx context.Context) pulumix.Output[FilterStringFilter] {
-	return pulumix.Output[FilterStringFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FilterStringFilterOutput) Comparison() FilterStringComparisonOutput {
 	return o.ApplyT(func(v FilterStringFilter) FilterStringComparison { return v.Comparison }).(FilterStringComparisonOutput)
 }
@@ -1486,12 +1311,6 @@ func (o FilterStringFilterPtrOutput) ToFilterStringFilterPtrOutput() FilterStrin
 
 func (o FilterStringFilterPtrOutput) ToFilterStringFilterPtrOutputWithContext(ctx context.Context) FilterStringFilterPtrOutput {
 	return o
-}
-
-func (o FilterStringFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FilterStringFilter] {
-	return pulumix.Output[*FilterStringFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterStringFilterPtrOutput) Elem() FilterStringFilterOutput {
@@ -1534,12 +1353,6 @@ func (o FilterStringFilterArrayOutput) ToFilterStringFilterArrayOutput() FilterS
 
 func (o FilterStringFilterArrayOutput) ToFilterStringFilterArrayOutputWithContext(ctx context.Context) FilterStringFilterArrayOutput {
 	return o
-}
-
-func (o FilterStringFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FilterStringFilter] {
-	return pulumix.Output[[]FilterStringFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FilterStringFilterArrayOutput) Index(i pulumi.IntInput) FilterStringFilterOutput {

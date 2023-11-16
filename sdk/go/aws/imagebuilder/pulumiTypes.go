@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i ContainerRecipeComponentConfigurationArgs) ToContainerRecipeComponentCon
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeComponentConfigurationOutput)
 }
 
-func (i ContainerRecipeComponentConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeComponentConfiguration] {
-	return pulumix.Output[ContainerRecipeComponentConfiguration]{
-		OutputState: i.ToContainerRecipeComponentConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContainerRecipeComponentConfigurationArrayInput is an input type that accepts ContainerRecipeComponentConfigurationArray and ContainerRecipeComponentConfigurationArrayOutput values.
 // You can construct a concrete instance of `ContainerRecipeComponentConfigurationArrayInput` via:
 //
@@ -84,12 +77,6 @@ func (i ContainerRecipeComponentConfigurationArray) ToContainerRecipeComponentCo
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeComponentConfigurationArrayOutput)
 }
 
-func (i ContainerRecipeComponentConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]ContainerRecipeComponentConfiguration] {
-	return pulumix.Output[[]ContainerRecipeComponentConfiguration]{
-		OutputState: i.ToContainerRecipeComponentConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Configuration details of the component.
 type ContainerRecipeComponentConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -103,12 +90,6 @@ func (o ContainerRecipeComponentConfigurationOutput) ToContainerRecipeComponentC
 
 func (o ContainerRecipeComponentConfigurationOutput) ToContainerRecipeComponentConfigurationOutputWithContext(ctx context.Context) ContainerRecipeComponentConfigurationOutput {
 	return o
-}
-
-func (o ContainerRecipeComponentConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeComponentConfiguration] {
-	return pulumix.Output[ContainerRecipeComponentConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the component.
@@ -133,12 +114,6 @@ func (o ContainerRecipeComponentConfigurationArrayOutput) ToContainerRecipeCompo
 
 func (o ContainerRecipeComponentConfigurationArrayOutput) ToContainerRecipeComponentConfigurationArrayOutputWithContext(ctx context.Context) ContainerRecipeComponentConfigurationArrayOutput {
 	return o
-}
-
-func (o ContainerRecipeComponentConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContainerRecipeComponentConfiguration] {
-	return pulumix.Output[[]ContainerRecipeComponentConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerRecipeComponentConfigurationArrayOutput) Index(i pulumi.IntInput) ContainerRecipeComponentConfigurationOutput {
@@ -186,12 +161,6 @@ func (i ContainerRecipeComponentParameterArgs) ToContainerRecipeComponentParamet
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeComponentParameterOutput)
 }
 
-func (i ContainerRecipeComponentParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeComponentParameter] {
-	return pulumix.Output[ContainerRecipeComponentParameter]{
-		OutputState: i.ToContainerRecipeComponentParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContainerRecipeComponentParameterArrayInput is an input type that accepts ContainerRecipeComponentParameterArray and ContainerRecipeComponentParameterArrayOutput values.
 // You can construct a concrete instance of `ContainerRecipeComponentParameterArrayInput` via:
 //
@@ -217,12 +186,6 @@ func (i ContainerRecipeComponentParameterArray) ToContainerRecipeComponentParame
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeComponentParameterArrayOutput)
 }
 
-func (i ContainerRecipeComponentParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ContainerRecipeComponentParameter] {
-	return pulumix.Output[[]ContainerRecipeComponentParameter]{
-		OutputState: i.ToContainerRecipeComponentParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Contains a key/value pair that sets the named component parameter.
 type ContainerRecipeComponentParameterOutput struct{ *pulumi.OutputState }
 
@@ -236,12 +199,6 @@ func (o ContainerRecipeComponentParameterOutput) ToContainerRecipeComponentParam
 
 func (o ContainerRecipeComponentParameterOutput) ToContainerRecipeComponentParameterOutputWithContext(ctx context.Context) ContainerRecipeComponentParameterOutput {
 	return o
-}
-
-func (o ContainerRecipeComponentParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeComponentParameter] {
-	return pulumix.Output[ContainerRecipeComponentParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the component parameter to set.
@@ -266,12 +223,6 @@ func (o ContainerRecipeComponentParameterArrayOutput) ToContainerRecipeComponent
 
 func (o ContainerRecipeComponentParameterArrayOutput) ToContainerRecipeComponentParameterArrayOutputWithContext(ctx context.Context) ContainerRecipeComponentParameterArrayOutput {
 	return o
-}
-
-func (o ContainerRecipeComponentParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContainerRecipeComponentParameter] {
-	return pulumix.Output[[]ContainerRecipeComponentParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerRecipeComponentParameterArrayOutput) Index(i pulumi.IntInput) ContainerRecipeComponentParameterOutput {
@@ -343,12 +294,6 @@ func (i ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs) ToContainerRecip
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput)
 }
 
-func (i ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeEbsInstanceBlockDeviceSpecification] {
-	return pulumix.Output[ContainerRecipeEbsInstanceBlockDeviceSpecification]{
-		OutputState: i.ToContainerRecipeEbsInstanceBlockDeviceSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ContainerRecipeEbsInstanceBlockDeviceSpecificationArgs) ToContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput() ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput {
 	return i.ToContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutputWithContext(context.Background())
 }
@@ -390,12 +335,6 @@ func (i *containerRecipeEbsInstanceBlockDeviceSpecificationPtrType) ToContainerR
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput)
 }
 
-func (i *containerRecipeEbsInstanceBlockDeviceSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipeEbsInstanceBlockDeviceSpecification] {
-	return pulumix.Output[*ContainerRecipeEbsInstanceBlockDeviceSpecification]{
-		OutputState: i.ToContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Amazon EBS-specific block device mapping specifications.
 type ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput struct{ *pulumi.OutputState }
 
@@ -419,12 +358,6 @@ func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) ToContainerRec
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerRecipeEbsInstanceBlockDeviceSpecification) *ContainerRecipeEbsInstanceBlockDeviceSpecification {
 		return &v
 	}).(ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput)
-}
-
-func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeEbsInstanceBlockDeviceSpecification] {
-	return pulumix.Output[ContainerRecipeEbsInstanceBlockDeviceSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Use to configure delete on termination of the associated device.
@@ -481,12 +414,6 @@ func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) ToContainer
 
 func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) ToContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutputWithContext(ctx context.Context) ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput {
 	return o
-}
-
-func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipeEbsInstanceBlockDeviceSpecification] {
-	return pulumix.Output[*ContainerRecipeEbsInstanceBlockDeviceSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) Elem() ContainerRecipeEbsInstanceBlockDeviceSpecificationOutput {
@@ -626,12 +553,6 @@ func (i ContainerRecipeInstanceBlockDeviceMappingArgs) ToContainerRecipeInstance
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceBlockDeviceMappingOutput)
 }
 
-func (i ContainerRecipeInstanceBlockDeviceMappingArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeInstanceBlockDeviceMapping] {
-	return pulumix.Output[ContainerRecipeInstanceBlockDeviceMapping]{
-		OutputState: i.ToContainerRecipeInstanceBlockDeviceMappingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContainerRecipeInstanceBlockDeviceMappingArrayInput is an input type that accepts ContainerRecipeInstanceBlockDeviceMappingArray and ContainerRecipeInstanceBlockDeviceMappingArrayOutput values.
 // You can construct a concrete instance of `ContainerRecipeInstanceBlockDeviceMappingArrayInput` via:
 //
@@ -657,12 +578,6 @@ func (i ContainerRecipeInstanceBlockDeviceMappingArray) ToContainerRecipeInstanc
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceBlockDeviceMappingArrayOutput)
 }
 
-func (i ContainerRecipeInstanceBlockDeviceMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]ContainerRecipeInstanceBlockDeviceMapping] {
-	return pulumix.Output[[]ContainerRecipeInstanceBlockDeviceMapping]{
-		OutputState: i.ToContainerRecipeInstanceBlockDeviceMappingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Defines block device mappings for the instance used to configure your image.
 type ContainerRecipeInstanceBlockDeviceMappingOutput struct{ *pulumi.OutputState }
 
@@ -676,12 +591,6 @@ func (o ContainerRecipeInstanceBlockDeviceMappingOutput) ToContainerRecipeInstan
 
 func (o ContainerRecipeInstanceBlockDeviceMappingOutput) ToContainerRecipeInstanceBlockDeviceMappingOutputWithContext(ctx context.Context) ContainerRecipeInstanceBlockDeviceMappingOutput {
 	return o
-}
-
-func (o ContainerRecipeInstanceBlockDeviceMappingOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeInstanceBlockDeviceMapping] {
-	return pulumix.Output[ContainerRecipeInstanceBlockDeviceMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The device to which these mappings apply.
@@ -718,12 +627,6 @@ func (o ContainerRecipeInstanceBlockDeviceMappingArrayOutput) ToContainerRecipeI
 
 func (o ContainerRecipeInstanceBlockDeviceMappingArrayOutput) ToContainerRecipeInstanceBlockDeviceMappingArrayOutputWithContext(ctx context.Context) ContainerRecipeInstanceBlockDeviceMappingArrayOutput {
 	return o
-}
-
-func (o ContainerRecipeInstanceBlockDeviceMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContainerRecipeInstanceBlockDeviceMapping] {
-	return pulumix.Output[[]ContainerRecipeInstanceBlockDeviceMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerRecipeInstanceBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) ContainerRecipeInstanceBlockDeviceMappingOutput {
@@ -771,12 +674,6 @@ func (i ContainerRecipeInstanceConfigurationArgs) ToContainerRecipeInstanceConfi
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceConfigurationOutput)
 }
 
-func (i ContainerRecipeInstanceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeInstanceConfiguration] {
-	return pulumix.Output[ContainerRecipeInstanceConfiguration]{
-		OutputState: i.ToContainerRecipeInstanceConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ContainerRecipeInstanceConfigurationArgs) ToContainerRecipeInstanceConfigurationPtrOutput() ContainerRecipeInstanceConfigurationPtrOutput {
 	return i.ToContainerRecipeInstanceConfigurationPtrOutputWithContext(context.Background())
 }
@@ -818,12 +715,6 @@ func (i *containerRecipeInstanceConfigurationPtrType) ToContainerRecipeInstanceC
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeInstanceConfigurationPtrOutput)
 }
 
-func (i *containerRecipeInstanceConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipeInstanceConfiguration] {
-	return pulumix.Output[*ContainerRecipeInstanceConfiguration]{
-		OutputState: i.ToContainerRecipeInstanceConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A group of options that can be used to configure an instance for building and testing container images.
 type ContainerRecipeInstanceConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -847,12 +738,6 @@ func (o ContainerRecipeInstanceConfigurationOutput) ToContainerRecipeInstanceCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerRecipeInstanceConfiguration) *ContainerRecipeInstanceConfiguration {
 		return &v
 	}).(ContainerRecipeInstanceConfigurationPtrOutput)
-}
-
-func (o ContainerRecipeInstanceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeInstanceConfiguration] {
-	return pulumix.Output[ContainerRecipeInstanceConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Defines the block devices to attach for building an instance from this Image Builder AMI.
@@ -879,12 +764,6 @@ func (o ContainerRecipeInstanceConfigurationPtrOutput) ToContainerRecipeInstance
 
 func (o ContainerRecipeInstanceConfigurationPtrOutput) ToContainerRecipeInstanceConfigurationPtrOutputWithContext(ctx context.Context) ContainerRecipeInstanceConfigurationPtrOutput {
 	return o
-}
-
-func (o ContainerRecipeInstanceConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipeInstanceConfiguration] {
-	return pulumix.Output[*ContainerRecipeInstanceConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerRecipeInstanceConfigurationPtrOutput) Elem() ContainerRecipeInstanceConfigurationOutput {
@@ -956,12 +835,6 @@ func (i ContainerRecipeTargetContainerRepositoryArgs) ToContainerRecipeTargetCon
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeTargetContainerRepositoryOutput)
 }
 
-func (i ContainerRecipeTargetContainerRepositoryArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeTargetContainerRepository] {
-	return pulumix.Output[ContainerRecipeTargetContainerRepository]{
-		OutputState: i.ToContainerRecipeTargetContainerRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ContainerRecipeTargetContainerRepositoryArgs) ToContainerRecipeTargetContainerRepositoryPtrOutput() ContainerRecipeTargetContainerRepositoryPtrOutput {
 	return i.ToContainerRecipeTargetContainerRepositoryPtrOutputWithContext(context.Background())
 }
@@ -1003,12 +876,6 @@ func (i *containerRecipeTargetContainerRepositoryPtrType) ToContainerRecipeTarge
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerRecipeTargetContainerRepositoryPtrOutput)
 }
 
-func (i *containerRecipeTargetContainerRepositoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipeTargetContainerRepository] {
-	return pulumix.Output[*ContainerRecipeTargetContainerRepository]{
-		OutputState: i.ToContainerRecipeTargetContainerRepositoryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The container repository where the output container image is stored.
 type ContainerRecipeTargetContainerRepositoryOutput struct{ *pulumi.OutputState }
 
@@ -1032,12 +899,6 @@ func (o ContainerRecipeTargetContainerRepositoryOutput) ToContainerRecipeTargetC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerRecipeTargetContainerRepository) *ContainerRecipeTargetContainerRepository {
 		return &v
 	}).(ContainerRecipeTargetContainerRepositoryPtrOutput)
-}
-
-func (o ContainerRecipeTargetContainerRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeTargetContainerRepository] {
-	return pulumix.Output[ContainerRecipeTargetContainerRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
@@ -1064,12 +925,6 @@ func (o ContainerRecipeTargetContainerRepositoryPtrOutput) ToContainerRecipeTarg
 
 func (o ContainerRecipeTargetContainerRepositoryPtrOutput) ToContainerRecipeTargetContainerRepositoryPtrOutputWithContext(ctx context.Context) ContainerRecipeTargetContainerRepositoryPtrOutput {
 	return o
-}
-
-func (o ContainerRecipeTargetContainerRepositoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipeTargetContainerRepository] {
-	return pulumix.Output[*ContainerRecipeTargetContainerRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerRecipeTargetContainerRepositoryPtrOutput) Elem() ContainerRecipeTargetContainerRepositoryOutput {
@@ -1155,12 +1010,6 @@ func (i DistributionConfigurationAmiDistributionConfigurationArgs) ToDistributio
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationAmiDistributionConfigurationOutput)
 }
 
-func (i DistributionConfigurationAmiDistributionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationAmiDistributionConfiguration] {
-	return pulumix.Output[DistributionConfigurationAmiDistributionConfiguration]{
-		OutputState: i.ToDistributionConfigurationAmiDistributionConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DistributionConfigurationAmiDistributionConfigurationArgs) ToDistributionConfigurationAmiDistributionConfigurationPtrOutput() DistributionConfigurationAmiDistributionConfigurationPtrOutput {
 	return i.ToDistributionConfigurationAmiDistributionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1202,12 +1051,6 @@ func (i *distributionConfigurationAmiDistributionConfigurationPtrType) ToDistrib
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationAmiDistributionConfigurationPtrOutput)
 }
 
-func (i *distributionConfigurationAmiDistributionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationAmiDistributionConfiguration] {
-	return pulumix.Output[*DistributionConfigurationAmiDistributionConfiguration]{
-		OutputState: i.ToDistributionConfigurationAmiDistributionConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The specific AMI settings (for example, launch permissions, AMI tags).
 type DistributionConfigurationAmiDistributionConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1231,12 +1074,6 @@ func (o DistributionConfigurationAmiDistributionConfigurationOutput) ToDistribut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationAmiDistributionConfiguration) *DistributionConfigurationAmiDistributionConfiguration {
 		return &v
 	}).(DistributionConfigurationAmiDistributionConfigurationPtrOutput)
-}
-
-func (o DistributionConfigurationAmiDistributionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationAmiDistributionConfiguration] {
-	return pulumix.Output[DistributionConfigurationAmiDistributionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The tags to apply to AMIs distributed to this Region.
@@ -1282,12 +1119,6 @@ func (o DistributionConfigurationAmiDistributionConfigurationPtrOutput) ToDistri
 
 func (o DistributionConfigurationAmiDistributionConfigurationPtrOutput) ToDistributionConfigurationAmiDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationAmiDistributionConfigurationPtrOutput {
 	return o
-}
-
-func (o DistributionConfigurationAmiDistributionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationAmiDistributionConfiguration] {
-	return pulumix.Output[*DistributionConfigurationAmiDistributionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DistributionConfigurationAmiDistributionConfigurationPtrOutput) Elem() DistributionConfigurationAmiDistributionConfigurationOutput {
@@ -1402,12 +1233,6 @@ func (i DistributionConfigurationContainerDistributionConfigurationArgs) ToDistr
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationContainerDistributionConfigurationOutput)
 }
 
-func (i DistributionConfigurationContainerDistributionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationContainerDistributionConfiguration] {
-	return pulumix.Output[DistributionConfigurationContainerDistributionConfiguration]{
-		OutputState: i.ToDistributionConfigurationContainerDistributionConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DistributionConfigurationContainerDistributionConfigurationArgs) ToDistributionConfigurationContainerDistributionConfigurationPtrOutput() DistributionConfigurationContainerDistributionConfigurationPtrOutput {
 	return i.ToDistributionConfigurationContainerDistributionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1449,12 +1274,6 @@ func (i *distributionConfigurationContainerDistributionConfigurationPtrType) ToD
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationContainerDistributionConfigurationPtrOutput)
 }
 
-func (i *distributionConfigurationContainerDistributionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationContainerDistributionConfiguration] {
-	return pulumix.Output[*DistributionConfigurationContainerDistributionConfiguration]{
-		OutputState: i.ToDistributionConfigurationContainerDistributionConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Container distribution settings for encryption, licensing, and sharing in a specific Region.
 type DistributionConfigurationContainerDistributionConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1478,12 +1297,6 @@ func (o DistributionConfigurationContainerDistributionConfigurationOutput) ToDis
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationContainerDistributionConfiguration) *DistributionConfigurationContainerDistributionConfiguration {
 		return &v
 	}).(DistributionConfigurationContainerDistributionConfigurationPtrOutput)
-}
-
-func (o DistributionConfigurationContainerDistributionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationContainerDistributionConfiguration] {
-	return pulumix.Output[DistributionConfigurationContainerDistributionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Tags that are attached to the container distribution configuration.
@@ -1515,12 +1328,6 @@ func (o DistributionConfigurationContainerDistributionConfigurationPtrOutput) To
 
 func (o DistributionConfigurationContainerDistributionConfigurationPtrOutput) ToDistributionConfigurationContainerDistributionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationContainerDistributionConfigurationPtrOutput {
 	return o
-}
-
-func (o DistributionConfigurationContainerDistributionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationContainerDistributionConfiguration] {
-	return pulumix.Output[*DistributionConfigurationContainerDistributionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DistributionConfigurationContainerDistributionConfigurationPtrOutput) Elem() DistributionConfigurationContainerDistributionConfigurationOutput {
@@ -1614,12 +1421,6 @@ func (i DistributionConfigurationDistributionArgs) ToDistributionConfigurationDi
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionOutput)
 }
 
-func (i DistributionConfigurationDistributionArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationDistribution] {
-	return pulumix.Output[DistributionConfigurationDistribution]{
-		OutputState: i.ToDistributionConfigurationDistributionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DistributionConfigurationDistributionArrayInput is an input type that accepts DistributionConfigurationDistributionArray and DistributionConfigurationDistributionArrayOutput values.
 // You can construct a concrete instance of `DistributionConfigurationDistributionArrayInput` via:
 //
@@ -1645,12 +1446,6 @@ func (i DistributionConfigurationDistributionArray) ToDistributionConfigurationD
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionArrayOutput)
 }
 
-func (i DistributionConfigurationDistributionArray) ToOutput(ctx context.Context) pulumix.Output[[]DistributionConfigurationDistribution] {
-	return pulumix.Output[[]DistributionConfigurationDistribution]{
-		OutputState: i.ToDistributionConfigurationDistributionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The distributions of the distribution configuration.
 type DistributionConfigurationDistributionOutput struct{ *pulumi.OutputState }
 
@@ -1664,12 +1459,6 @@ func (o DistributionConfigurationDistributionOutput) ToDistributionConfiguration
 
 func (o DistributionConfigurationDistributionOutput) ToDistributionConfigurationDistributionOutputWithContext(ctx context.Context) DistributionConfigurationDistributionOutput {
 	return o
-}
-
-func (o DistributionConfigurationDistributionOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationDistribution] {
-	return pulumix.Output[DistributionConfigurationDistribution]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DistributionConfigurationDistributionOutput) AmiDistributionConfiguration() DistributionConfigurationAmiDistributionConfigurationPtrOutput {
@@ -1720,12 +1509,6 @@ func (o DistributionConfigurationDistributionArrayOutput) ToDistributionConfigur
 
 func (o DistributionConfigurationDistributionArrayOutput) ToDistributionConfigurationDistributionArrayOutputWithContext(ctx context.Context) DistributionConfigurationDistributionArrayOutput {
 	return o
-}
-
-func (o DistributionConfigurationDistributionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DistributionConfigurationDistribution] {
-	return pulumix.Output[[]DistributionConfigurationDistribution]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DistributionConfigurationDistributionArrayOutput) Index(i pulumi.IntInput) DistributionConfigurationDistributionOutput {
@@ -1785,12 +1568,6 @@ func (i DistributionConfigurationFastLaunchConfigurationArgs) ToDistributionConf
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationFastLaunchConfigurationOutput)
 }
 
-func (i DistributionConfigurationFastLaunchConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationFastLaunchConfiguration] {
-	return pulumix.Output[DistributionConfigurationFastLaunchConfiguration]{
-		OutputState: i.ToDistributionConfigurationFastLaunchConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DistributionConfigurationFastLaunchConfigurationArrayInput is an input type that accepts DistributionConfigurationFastLaunchConfigurationArray and DistributionConfigurationFastLaunchConfigurationArrayOutput values.
 // You can construct a concrete instance of `DistributionConfigurationFastLaunchConfigurationArrayInput` via:
 //
@@ -1816,12 +1593,6 @@ func (i DistributionConfigurationFastLaunchConfigurationArray) ToDistributionCon
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationFastLaunchConfigurationArrayOutput)
 }
 
-func (i DistributionConfigurationFastLaunchConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]DistributionConfigurationFastLaunchConfiguration] {
-	return pulumix.Output[[]DistributionConfigurationFastLaunchConfiguration]{
-		OutputState: i.ToDistributionConfigurationFastLaunchConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The Windows faster-launching configuration to use for AMI distribution.
 type DistributionConfigurationFastLaunchConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1835,12 +1606,6 @@ func (o DistributionConfigurationFastLaunchConfigurationOutput) ToDistributionCo
 
 func (o DistributionConfigurationFastLaunchConfigurationOutput) ToDistributionConfigurationFastLaunchConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationFastLaunchConfigurationOutput {
 	return o
-}
-
-func (o DistributionConfigurationFastLaunchConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationFastLaunchConfiguration] {
-	return pulumix.Output[DistributionConfigurationFastLaunchConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The owner account ID for the fast-launch enabled Windows AMI.
@@ -1884,12 +1649,6 @@ func (o DistributionConfigurationFastLaunchConfigurationArrayOutput) ToDistribut
 
 func (o DistributionConfigurationFastLaunchConfigurationArrayOutput) ToDistributionConfigurationFastLaunchConfigurationArrayOutputWithContext(ctx context.Context) DistributionConfigurationFastLaunchConfigurationArrayOutput {
 	return o
-}
-
-func (o DistributionConfigurationFastLaunchConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DistributionConfigurationFastLaunchConfiguration] {
-	return pulumix.Output[[]DistributionConfigurationFastLaunchConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DistributionConfigurationFastLaunchConfigurationArrayOutput) Index(i pulumi.IntInput) DistributionConfigurationFastLaunchConfigurationOutput {
@@ -1941,12 +1700,6 @@ func (i DistributionConfigurationFastLaunchLaunchTemplateSpecificationArgs) ToDi
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationFastLaunchLaunchTemplateSpecificationOutput)
 }
 
-func (i DistributionConfigurationFastLaunchLaunchTemplateSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationFastLaunchLaunchTemplateSpecification] {
-	return pulumix.Output[DistributionConfigurationFastLaunchLaunchTemplateSpecification]{
-		OutputState: i.ToDistributionConfigurationFastLaunchLaunchTemplateSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DistributionConfigurationFastLaunchLaunchTemplateSpecificationArgs) ToDistributionConfigurationFastLaunchLaunchTemplateSpecificationPtrOutput() DistributionConfigurationFastLaunchLaunchTemplateSpecificationPtrOutput {
 	return i.ToDistributionConfigurationFastLaunchLaunchTemplateSpecificationPtrOutputWithContext(context.Background())
 }
@@ -1988,12 +1741,6 @@ func (i *distributionConfigurationFastLaunchLaunchTemplateSpecificationPtrType) 
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationFastLaunchLaunchTemplateSpecificationPtrOutput)
 }
 
-func (i *distributionConfigurationFastLaunchLaunchTemplateSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationFastLaunchLaunchTemplateSpecification] {
-	return pulumix.Output[*DistributionConfigurationFastLaunchLaunchTemplateSpecification]{
-		OutputState: i.ToDistributionConfigurationFastLaunchLaunchTemplateSpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
 type DistributionConfigurationFastLaunchLaunchTemplateSpecificationOutput struct{ *pulumi.OutputState }
 
@@ -2017,12 +1764,6 @@ func (o DistributionConfigurationFastLaunchLaunchTemplateSpecificationOutput) To
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationFastLaunchLaunchTemplateSpecification) *DistributionConfigurationFastLaunchLaunchTemplateSpecification {
 		return &v
 	}).(DistributionConfigurationFastLaunchLaunchTemplateSpecificationPtrOutput)
-}
-
-func (o DistributionConfigurationFastLaunchLaunchTemplateSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationFastLaunchLaunchTemplateSpecification] {
-	return pulumix.Output[DistributionConfigurationFastLaunchLaunchTemplateSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the launch template to use for faster launching for a Windows AMI.
@@ -2058,12 +1799,6 @@ func (o DistributionConfigurationFastLaunchLaunchTemplateSpecificationPtrOutput)
 
 func (o DistributionConfigurationFastLaunchLaunchTemplateSpecificationPtrOutput) ToDistributionConfigurationFastLaunchLaunchTemplateSpecificationPtrOutputWithContext(ctx context.Context) DistributionConfigurationFastLaunchLaunchTemplateSpecificationPtrOutput {
 	return o
-}
-
-func (o DistributionConfigurationFastLaunchLaunchTemplateSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationFastLaunchLaunchTemplateSpecification] {
-	return pulumix.Output[*DistributionConfigurationFastLaunchLaunchTemplateSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DistributionConfigurationFastLaunchLaunchTemplateSpecificationPtrOutput) Elem() DistributionConfigurationFastLaunchLaunchTemplateSpecificationOutput {
@@ -2141,12 +1876,6 @@ func (i DistributionConfigurationFastLaunchSnapshotConfigurationArgs) ToDistribu
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationFastLaunchSnapshotConfigurationOutput)
 }
 
-func (i DistributionConfigurationFastLaunchSnapshotConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationFastLaunchSnapshotConfiguration] {
-	return pulumix.Output[DistributionConfigurationFastLaunchSnapshotConfiguration]{
-		OutputState: i.ToDistributionConfigurationFastLaunchSnapshotConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DistributionConfigurationFastLaunchSnapshotConfigurationArgs) ToDistributionConfigurationFastLaunchSnapshotConfigurationPtrOutput() DistributionConfigurationFastLaunchSnapshotConfigurationPtrOutput {
 	return i.ToDistributionConfigurationFastLaunchSnapshotConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2188,12 +1917,6 @@ func (i *distributionConfigurationFastLaunchSnapshotConfigurationPtrType) ToDist
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationFastLaunchSnapshotConfigurationPtrOutput)
 }
 
-func (i *distributionConfigurationFastLaunchSnapshotConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationFastLaunchSnapshotConfiguration] {
-	return pulumix.Output[*DistributionConfigurationFastLaunchSnapshotConfiguration]{
-		OutputState: i.ToDistributionConfigurationFastLaunchSnapshotConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Configuration settings for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
 type DistributionConfigurationFastLaunchSnapshotConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -2219,12 +1942,6 @@ func (o DistributionConfigurationFastLaunchSnapshotConfigurationOutput) ToDistri
 	}).(DistributionConfigurationFastLaunchSnapshotConfigurationPtrOutput)
 }
 
-func (o DistributionConfigurationFastLaunchSnapshotConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationFastLaunchSnapshotConfiguration] {
-	return pulumix.Output[DistributionConfigurationFastLaunchSnapshotConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
 func (o DistributionConfigurationFastLaunchSnapshotConfigurationOutput) TargetResourceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DistributionConfigurationFastLaunchSnapshotConfiguration) *int { return v.TargetResourceCount }).(pulumi.IntPtrOutput)
@@ -2242,12 +1959,6 @@ func (o DistributionConfigurationFastLaunchSnapshotConfigurationPtrOutput) ToDis
 
 func (o DistributionConfigurationFastLaunchSnapshotConfigurationPtrOutput) ToDistributionConfigurationFastLaunchSnapshotConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationFastLaunchSnapshotConfigurationPtrOutput {
 	return o
-}
-
-func (o DistributionConfigurationFastLaunchSnapshotConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationFastLaunchSnapshotConfiguration] {
-	return pulumix.Output[*DistributionConfigurationFastLaunchSnapshotConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DistributionConfigurationFastLaunchSnapshotConfigurationPtrOutput) Elem() DistributionConfigurationFastLaunchSnapshotConfigurationOutput {
@@ -2317,12 +2028,6 @@ func (i DistributionConfigurationLaunchPermissionConfigurationArgs) ToDistributi
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationLaunchPermissionConfigurationOutput)
 }
 
-func (i DistributionConfigurationLaunchPermissionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationLaunchPermissionConfiguration] {
-	return pulumix.Output[DistributionConfigurationLaunchPermissionConfiguration]{
-		OutputState: i.ToDistributionConfigurationLaunchPermissionConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DistributionConfigurationLaunchPermissionConfigurationArgs) ToDistributionConfigurationLaunchPermissionConfigurationPtrOutput() DistributionConfigurationLaunchPermissionConfigurationPtrOutput {
 	return i.ToDistributionConfigurationLaunchPermissionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2364,12 +2069,6 @@ func (i *distributionConfigurationLaunchPermissionConfigurationPtrType) ToDistri
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationLaunchPermissionConfigurationPtrOutput)
 }
 
-func (i *distributionConfigurationLaunchPermissionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationLaunchPermissionConfiguration] {
-	return pulumix.Output[*DistributionConfigurationLaunchPermissionConfiguration]{
-		OutputState: i.ToDistributionConfigurationLaunchPermissionConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Launch permissions can be used to configure which AWS accounts can use the AMI to launch instances.
 type DistributionConfigurationLaunchPermissionConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -2393,12 +2092,6 @@ func (o DistributionConfigurationLaunchPermissionConfigurationOutput) ToDistribu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationLaunchPermissionConfiguration) *DistributionConfigurationLaunchPermissionConfiguration {
 		return &v
 	}).(DistributionConfigurationLaunchPermissionConfigurationPtrOutput)
-}
-
-func (o DistributionConfigurationLaunchPermissionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationLaunchPermissionConfiguration] {
-	return pulumix.Output[DistributionConfigurationLaunchPermissionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN for an Amazon Web Services Organization that you want to share your AMI with.
@@ -2435,12 +2128,6 @@ func (o DistributionConfigurationLaunchPermissionConfigurationPtrOutput) ToDistr
 
 func (o DistributionConfigurationLaunchPermissionConfigurationPtrOutput) ToDistributionConfigurationLaunchPermissionConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationLaunchPermissionConfigurationPtrOutput {
 	return o
-}
-
-func (o DistributionConfigurationLaunchPermissionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationLaunchPermissionConfiguration] {
-	return pulumix.Output[*DistributionConfigurationLaunchPermissionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DistributionConfigurationLaunchPermissionConfigurationPtrOutput) Elem() DistributionConfigurationLaunchPermissionConfigurationOutput {
@@ -2536,12 +2223,6 @@ func (i DistributionConfigurationLaunchTemplateConfigurationArgs) ToDistribution
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationLaunchTemplateConfigurationOutput)
 }
 
-func (i DistributionConfigurationLaunchTemplateConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationLaunchTemplateConfiguration] {
-	return pulumix.Output[DistributionConfigurationLaunchTemplateConfiguration]{
-		OutputState: i.ToDistributionConfigurationLaunchTemplateConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DistributionConfigurationLaunchTemplateConfigurationArrayInput is an input type that accepts DistributionConfigurationLaunchTemplateConfigurationArray and DistributionConfigurationLaunchTemplateConfigurationArrayOutput values.
 // You can construct a concrete instance of `DistributionConfigurationLaunchTemplateConfigurationArrayInput` via:
 //
@@ -2567,12 +2248,6 @@ func (i DistributionConfigurationLaunchTemplateConfigurationArray) ToDistributio
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationLaunchTemplateConfigurationArrayOutput)
 }
 
-func (i DistributionConfigurationLaunchTemplateConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]DistributionConfigurationLaunchTemplateConfiguration] {
-	return pulumix.Output[[]DistributionConfigurationLaunchTemplateConfiguration]{
-		OutputState: i.ToDistributionConfigurationLaunchTemplateConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // launchTemplateConfiguration settings that apply to image distribution.
 type DistributionConfigurationLaunchTemplateConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -2586,12 +2261,6 @@ func (o DistributionConfigurationLaunchTemplateConfigurationOutput) ToDistributi
 
 func (o DistributionConfigurationLaunchTemplateConfigurationOutput) ToDistributionConfigurationLaunchTemplateConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationLaunchTemplateConfigurationOutput {
 	return o
-}
-
-func (o DistributionConfigurationLaunchTemplateConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationLaunchTemplateConfiguration] {
-	return pulumix.Output[DistributionConfigurationLaunchTemplateConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The account ID that this configuration applies to.
@@ -2621,12 +2290,6 @@ func (o DistributionConfigurationLaunchTemplateConfigurationArrayOutput) ToDistr
 
 func (o DistributionConfigurationLaunchTemplateConfigurationArrayOutput) ToDistributionConfigurationLaunchTemplateConfigurationArrayOutputWithContext(ctx context.Context) DistributionConfigurationLaunchTemplateConfigurationArrayOutput {
 	return o
-}
-
-func (o DistributionConfigurationLaunchTemplateConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DistributionConfigurationLaunchTemplateConfiguration] {
-	return pulumix.Output[[]DistributionConfigurationLaunchTemplateConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DistributionConfigurationLaunchTemplateConfigurationArrayOutput) Index(i pulumi.IntInput) DistributionConfigurationLaunchTemplateConfigurationOutput {
@@ -2674,12 +2337,6 @@ func (i DistributionConfigurationTargetContainerRepositoryArgs) ToDistributionCo
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationTargetContainerRepositoryOutput)
 }
 
-func (i DistributionConfigurationTargetContainerRepositoryArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationTargetContainerRepository] {
-	return pulumix.Output[DistributionConfigurationTargetContainerRepository]{
-		OutputState: i.ToDistributionConfigurationTargetContainerRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DistributionConfigurationTargetContainerRepositoryArgs) ToDistributionConfigurationTargetContainerRepositoryPtrOutput() DistributionConfigurationTargetContainerRepositoryPtrOutput {
 	return i.ToDistributionConfigurationTargetContainerRepositoryPtrOutputWithContext(context.Background())
 }
@@ -2721,12 +2378,6 @@ func (i *distributionConfigurationTargetContainerRepositoryPtrType) ToDistributi
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationTargetContainerRepositoryPtrOutput)
 }
 
-func (i *distributionConfigurationTargetContainerRepositoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationTargetContainerRepository] {
-	return pulumix.Output[*DistributionConfigurationTargetContainerRepository]{
-		OutputState: i.ToDistributionConfigurationTargetContainerRepositoryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The destination repository for the container image.
 type DistributionConfigurationTargetContainerRepositoryOutput struct{ *pulumi.OutputState }
 
@@ -2750,12 +2401,6 @@ func (o DistributionConfigurationTargetContainerRepositoryOutput) ToDistribution
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationTargetContainerRepository) *DistributionConfigurationTargetContainerRepository {
 		return &v
 	}).(DistributionConfigurationTargetContainerRepositoryPtrOutput)
-}
-
-func (o DistributionConfigurationTargetContainerRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationTargetContainerRepository] {
-	return pulumix.Output[DistributionConfigurationTargetContainerRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The repository name of target container repository.
@@ -2782,12 +2427,6 @@ func (o DistributionConfigurationTargetContainerRepositoryPtrOutput) ToDistribut
 
 func (o DistributionConfigurationTargetContainerRepositoryPtrOutput) ToDistributionConfigurationTargetContainerRepositoryPtrOutputWithContext(ctx context.Context) DistributionConfigurationTargetContainerRepositoryPtrOutput {
 	return o
-}
-
-func (o DistributionConfigurationTargetContainerRepositoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationTargetContainerRepository] {
-	return pulumix.Output[*DistributionConfigurationTargetContainerRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DistributionConfigurationTargetContainerRepositoryPtrOutput) Elem() DistributionConfigurationTargetContainerRepositoryOutput {
@@ -2859,12 +2498,6 @@ func (i ImageEcrConfigurationArgs) ToImageEcrConfigurationOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ImageEcrConfigurationOutput)
 }
 
-func (i ImageEcrConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ImageEcrConfiguration] {
-	return pulumix.Output[ImageEcrConfiguration]{
-		OutputState: i.ToImageEcrConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ImageEcrConfigurationArgs) ToImageEcrConfigurationPtrOutput() ImageEcrConfigurationPtrOutput {
 	return i.ToImageEcrConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2906,12 +2539,6 @@ func (i *imageEcrConfigurationPtrType) ToImageEcrConfigurationPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ImageEcrConfigurationPtrOutput)
 }
 
-func (i *imageEcrConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ImageEcrConfiguration] {
-	return pulumix.Output[*ImageEcrConfiguration]{
-		OutputState: i.ToImageEcrConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Settings for Image Builder to configure the ECR repository and output container images that are scanned.
 type ImageEcrConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -2937,12 +2564,6 @@ func (o ImageEcrConfigurationOutput) ToImageEcrConfigurationPtrOutputWithContext
 	}).(ImageEcrConfigurationPtrOutput)
 }
 
-func (o ImageEcrConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ImageEcrConfiguration] {
-	return pulumix.Output[ImageEcrConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
 func (o ImageEcrConfigurationOutput) ContainerTags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ImageEcrConfiguration) []string { return v.ContainerTags }).(pulumi.StringArrayOutput)
@@ -2965,12 +2586,6 @@ func (o ImageEcrConfigurationPtrOutput) ToImageEcrConfigurationPtrOutput() Image
 
 func (o ImageEcrConfigurationPtrOutput) ToImageEcrConfigurationPtrOutputWithContext(ctx context.Context) ImageEcrConfigurationPtrOutput {
 	return o
-}
-
-func (o ImageEcrConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageEcrConfiguration] {
-	return pulumix.Output[*ImageEcrConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ImageEcrConfigurationPtrOutput) Elem() ImageEcrConfigurationOutput {
@@ -3042,12 +2657,6 @@ func (i ImagePipelineEcrConfigurationArgs) ToImagePipelineEcrConfigurationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineEcrConfigurationOutput)
 }
 
-func (i ImagePipelineEcrConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineEcrConfiguration] {
-	return pulumix.Output[ImagePipelineEcrConfiguration]{
-		OutputState: i.ToImagePipelineEcrConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ImagePipelineEcrConfigurationArgs) ToImagePipelineEcrConfigurationPtrOutput() ImagePipelineEcrConfigurationPtrOutput {
 	return i.ToImagePipelineEcrConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3089,12 +2698,6 @@ func (i *imagePipelineEcrConfigurationPtrType) ToImagePipelineEcrConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineEcrConfigurationPtrOutput)
 }
 
-func (i *imagePipelineEcrConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineEcrConfiguration] {
-	return pulumix.Output[*ImagePipelineEcrConfiguration]{
-		OutputState: i.ToImagePipelineEcrConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Settings for Image Builder to configure the ECR repository and output container images that are scanned.
 type ImagePipelineEcrConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -3120,12 +2723,6 @@ func (o ImagePipelineEcrConfigurationOutput) ToImagePipelineEcrConfigurationPtrO
 	}).(ImagePipelineEcrConfigurationPtrOutput)
 }
 
-func (o ImagePipelineEcrConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineEcrConfiguration] {
-	return pulumix.Output[ImagePipelineEcrConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.
 func (o ImagePipelineEcrConfigurationOutput) ContainerTags() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ImagePipelineEcrConfiguration) []string { return v.ContainerTags }).(pulumi.StringArrayOutput)
@@ -3148,12 +2745,6 @@ func (o ImagePipelineEcrConfigurationPtrOutput) ToImagePipelineEcrConfigurationP
 
 func (o ImagePipelineEcrConfigurationPtrOutput) ToImagePipelineEcrConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineEcrConfigurationPtrOutput {
 	return o
-}
-
-func (o ImagePipelineEcrConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineEcrConfiguration] {
-	return pulumix.Output[*ImagePipelineEcrConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ImagePipelineEcrConfigurationPtrOutput) Elem() ImagePipelineEcrConfigurationOutput {
@@ -3225,12 +2816,6 @@ func (i ImagePipelineImageScanningConfigurationArgs) ToImagePipelineImageScannin
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageScanningConfigurationOutput)
 }
 
-func (i ImagePipelineImageScanningConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineImageScanningConfiguration] {
-	return pulumix.Output[ImagePipelineImageScanningConfiguration]{
-		OutputState: i.ToImagePipelineImageScanningConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ImagePipelineImageScanningConfigurationArgs) ToImagePipelineImageScanningConfigurationPtrOutput() ImagePipelineImageScanningConfigurationPtrOutput {
 	return i.ToImagePipelineImageScanningConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3272,12 +2857,6 @@ func (i *imagePipelineImageScanningConfigurationPtrType) ToImagePipelineImageSca
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageScanningConfigurationPtrOutput)
 }
 
-func (i *imagePipelineImageScanningConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineImageScanningConfiguration] {
-	return pulumix.Output[*ImagePipelineImageScanningConfiguration]{
-		OutputState: i.ToImagePipelineImageScanningConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Determines if tests should run after building the image. Image Builder defaults to enable tests to run following the image build, before image distribution.
 type ImagePipelineImageScanningConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -3301,12 +2880,6 @@ func (o ImagePipelineImageScanningConfigurationOutput) ToImagePipelineImageScann
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImagePipelineImageScanningConfiguration) *ImagePipelineImageScanningConfiguration {
 		return &v
 	}).(ImagePipelineImageScanningConfigurationPtrOutput)
-}
-
-func (o ImagePipelineImageScanningConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineImageScanningConfiguration] {
-	return pulumix.Output[ImagePipelineImageScanningConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Contains ECR settings for vulnerability scans.
@@ -3333,12 +2906,6 @@ func (o ImagePipelineImageScanningConfigurationPtrOutput) ToImagePipelineImageSc
 
 func (o ImagePipelineImageScanningConfigurationPtrOutput) ToImagePipelineImageScanningConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageScanningConfigurationPtrOutput {
 	return o
-}
-
-func (o ImagePipelineImageScanningConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineImageScanningConfiguration] {
-	return pulumix.Output[*ImagePipelineImageScanningConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ImagePipelineImageScanningConfigurationPtrOutput) Elem() ImagePipelineImageScanningConfigurationOutput {
@@ -3410,12 +2977,6 @@ func (i ImagePipelineImageTestsConfigurationArgs) ToImagePipelineImageTestsConfi
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageTestsConfigurationOutput)
 }
 
-func (i ImagePipelineImageTestsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineImageTestsConfiguration] {
-	return pulumix.Output[ImagePipelineImageTestsConfiguration]{
-		OutputState: i.ToImagePipelineImageTestsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ImagePipelineImageTestsConfigurationArgs) ToImagePipelineImageTestsConfigurationPtrOutput() ImagePipelineImageTestsConfigurationPtrOutput {
 	return i.ToImagePipelineImageTestsConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3457,12 +3018,6 @@ func (i *imagePipelineImageTestsConfigurationPtrType) ToImagePipelineImageTestsC
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineImageTestsConfigurationPtrOutput)
 }
 
-func (i *imagePipelineImageTestsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineImageTestsConfiguration] {
-	return pulumix.Output[*ImagePipelineImageTestsConfiguration]{
-		OutputState: i.ToImagePipelineImageTestsConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Image tests configuration.
 type ImagePipelineImageTestsConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -3488,12 +3043,6 @@ func (o ImagePipelineImageTestsConfigurationOutput) ToImagePipelineImageTestsCon
 	}).(ImagePipelineImageTestsConfigurationPtrOutput)
 }
 
-func (o ImagePipelineImageTestsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineImageTestsConfiguration] {
-	return pulumix.Output[ImagePipelineImageTestsConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Defines if tests should be executed when building this image.
 func (o ImagePipelineImageTestsConfigurationOutput) ImageTestsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ImagePipelineImageTestsConfiguration) *bool { return v.ImageTestsEnabled }).(pulumi.BoolPtrOutput)
@@ -3516,12 +3065,6 @@ func (o ImagePipelineImageTestsConfigurationPtrOutput) ToImagePipelineImageTests
 
 func (o ImagePipelineImageTestsConfigurationPtrOutput) ToImagePipelineImageTestsConfigurationPtrOutputWithContext(ctx context.Context) ImagePipelineImageTestsConfigurationPtrOutput {
 	return o
-}
-
-func (o ImagePipelineImageTestsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineImageTestsConfiguration] {
-	return pulumix.Output[*ImagePipelineImageTestsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ImagePipelineImageTestsConfigurationPtrOutput) Elem() ImagePipelineImageTestsConfigurationOutput {
@@ -3593,12 +3136,6 @@ func (i ImagePipelineScheduleArgs) ToImagePipelineScheduleOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineScheduleOutput)
 }
 
-func (i ImagePipelineScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineSchedule] {
-	return pulumix.Output[ImagePipelineSchedule]{
-		OutputState: i.ToImagePipelineScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ImagePipelineScheduleArgs) ToImagePipelineSchedulePtrOutput() ImagePipelineSchedulePtrOutput {
 	return i.ToImagePipelineSchedulePtrOutputWithContext(context.Background())
 }
@@ -3640,12 +3177,6 @@ func (i *imagePipelineSchedulePtrType) ToImagePipelineSchedulePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineSchedulePtrOutput)
 }
 
-func (i *imagePipelineSchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineSchedule] {
-	return pulumix.Output[*ImagePipelineSchedule]{
-		OutputState: i.ToImagePipelineSchedulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The schedule of the image pipeline.
 type ImagePipelineScheduleOutput struct{ *pulumi.OutputState }
 
@@ -3669,12 +3200,6 @@ func (o ImagePipelineScheduleOutput) ToImagePipelineSchedulePtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImagePipelineSchedule) *ImagePipelineSchedule {
 		return &v
 	}).(ImagePipelineSchedulePtrOutput)
-}
-
-func (o ImagePipelineScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineSchedule] {
-	return pulumix.Output[ImagePipelineSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The condition configures when the pipeline should trigger a new image build.
@@ -3701,12 +3226,6 @@ func (o ImagePipelineSchedulePtrOutput) ToImagePipelineSchedulePtrOutput() Image
 
 func (o ImagePipelineSchedulePtrOutput) ToImagePipelineSchedulePtrOutputWithContext(ctx context.Context) ImagePipelineSchedulePtrOutput {
 	return o
-}
-
-func (o ImagePipelineSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineSchedule] {
-	return pulumix.Output[*ImagePipelineSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ImagePipelineSchedulePtrOutput) Elem() ImagePipelineScheduleOutput {
@@ -3778,12 +3297,6 @@ func (i ImageRecipeAdditionalInstanceConfigurationArgs) ToImageRecipeAdditionalI
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeAdditionalInstanceConfigurationOutput)
 }
 
-func (i ImageRecipeAdditionalInstanceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeAdditionalInstanceConfiguration] {
-	return pulumix.Output[ImageRecipeAdditionalInstanceConfiguration]{
-		OutputState: i.ToImageRecipeAdditionalInstanceConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ImageRecipeAdditionalInstanceConfigurationArgs) ToImageRecipeAdditionalInstanceConfigurationPtrOutput() ImageRecipeAdditionalInstanceConfigurationPtrOutput {
 	return i.ToImageRecipeAdditionalInstanceConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3825,12 +3338,6 @@ func (i *imageRecipeAdditionalInstanceConfigurationPtrType) ToImageRecipeAdditio
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeAdditionalInstanceConfigurationPtrOutput)
 }
 
-func (i *imageRecipeAdditionalInstanceConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ImageRecipeAdditionalInstanceConfiguration] {
-	return pulumix.Output[*ImageRecipeAdditionalInstanceConfiguration]{
-		OutputState: i.ToImageRecipeAdditionalInstanceConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specify additional settings and launch scripts for your build instances.
 type ImageRecipeAdditionalInstanceConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -3854,12 +3361,6 @@ func (o ImageRecipeAdditionalInstanceConfigurationOutput) ToImageRecipeAdditiona
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageRecipeAdditionalInstanceConfiguration) *ImageRecipeAdditionalInstanceConfiguration {
 		return &v
 	}).(ImageRecipeAdditionalInstanceConfigurationPtrOutput)
-}
-
-func (o ImageRecipeAdditionalInstanceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeAdditionalInstanceConfiguration] {
-	return pulumix.Output[ImageRecipeAdditionalInstanceConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Contains settings for the SSM agent on your build instance.
@@ -3886,12 +3387,6 @@ func (o ImageRecipeAdditionalInstanceConfigurationPtrOutput) ToImageRecipeAdditi
 
 func (o ImageRecipeAdditionalInstanceConfigurationPtrOutput) ToImageRecipeAdditionalInstanceConfigurationPtrOutputWithContext(ctx context.Context) ImageRecipeAdditionalInstanceConfigurationPtrOutput {
 	return o
-}
-
-func (o ImageRecipeAdditionalInstanceConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageRecipeAdditionalInstanceConfiguration] {
-	return pulumix.Output[*ImageRecipeAdditionalInstanceConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ImageRecipeAdditionalInstanceConfigurationPtrOutput) Elem() ImageRecipeAdditionalInstanceConfigurationOutput {
@@ -3963,12 +3458,6 @@ func (i ImageRecipeComponentConfigurationArgs) ToImageRecipeComponentConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeComponentConfigurationOutput)
 }
 
-func (i ImageRecipeComponentConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeComponentConfiguration] {
-	return pulumix.Output[ImageRecipeComponentConfiguration]{
-		OutputState: i.ToImageRecipeComponentConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ImageRecipeComponentConfigurationArrayInput is an input type that accepts ImageRecipeComponentConfigurationArray and ImageRecipeComponentConfigurationArrayOutput values.
 // You can construct a concrete instance of `ImageRecipeComponentConfigurationArrayInput` via:
 //
@@ -3994,12 +3483,6 @@ func (i ImageRecipeComponentConfigurationArray) ToImageRecipeComponentConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeComponentConfigurationArrayOutput)
 }
 
-func (i ImageRecipeComponentConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]ImageRecipeComponentConfiguration] {
-	return pulumix.Output[[]ImageRecipeComponentConfiguration]{
-		OutputState: i.ToImageRecipeComponentConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Configuration details of the component.
 type ImageRecipeComponentConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -4013,12 +3496,6 @@ func (o ImageRecipeComponentConfigurationOutput) ToImageRecipeComponentConfigura
 
 func (o ImageRecipeComponentConfigurationOutput) ToImageRecipeComponentConfigurationOutputWithContext(ctx context.Context) ImageRecipeComponentConfigurationOutput {
 	return o
-}
-
-func (o ImageRecipeComponentConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeComponentConfiguration] {
-	return pulumix.Output[ImageRecipeComponentConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the component.
@@ -4043,12 +3520,6 @@ func (o ImageRecipeComponentConfigurationArrayOutput) ToImageRecipeComponentConf
 
 func (o ImageRecipeComponentConfigurationArrayOutput) ToImageRecipeComponentConfigurationArrayOutputWithContext(ctx context.Context) ImageRecipeComponentConfigurationArrayOutput {
 	return o
-}
-
-func (o ImageRecipeComponentConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ImageRecipeComponentConfiguration] {
-	return pulumix.Output[[]ImageRecipeComponentConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ImageRecipeComponentConfigurationArrayOutput) Index(i pulumi.IntInput) ImageRecipeComponentConfigurationOutput {
@@ -4096,12 +3567,6 @@ func (i ImageRecipeComponentParameterArgs) ToImageRecipeComponentParameterOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeComponentParameterOutput)
 }
 
-func (i ImageRecipeComponentParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeComponentParameter] {
-	return pulumix.Output[ImageRecipeComponentParameter]{
-		OutputState: i.ToImageRecipeComponentParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ImageRecipeComponentParameterArrayInput is an input type that accepts ImageRecipeComponentParameterArray and ImageRecipeComponentParameterArrayOutput values.
 // You can construct a concrete instance of `ImageRecipeComponentParameterArrayInput` via:
 //
@@ -4127,12 +3592,6 @@ func (i ImageRecipeComponentParameterArray) ToImageRecipeComponentParameterArray
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeComponentParameterArrayOutput)
 }
 
-func (i ImageRecipeComponentParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ImageRecipeComponentParameter] {
-	return pulumix.Output[[]ImageRecipeComponentParameter]{
-		OutputState: i.ToImageRecipeComponentParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Contains a key/value pair that sets the named component parameter.
 type ImageRecipeComponentParameterOutput struct{ *pulumi.OutputState }
 
@@ -4146,12 +3605,6 @@ func (o ImageRecipeComponentParameterOutput) ToImageRecipeComponentParameterOutp
 
 func (o ImageRecipeComponentParameterOutput) ToImageRecipeComponentParameterOutputWithContext(ctx context.Context) ImageRecipeComponentParameterOutput {
 	return o
-}
-
-func (o ImageRecipeComponentParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeComponentParameter] {
-	return pulumix.Output[ImageRecipeComponentParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the component parameter to set.
@@ -4176,12 +3629,6 @@ func (o ImageRecipeComponentParameterArrayOutput) ToImageRecipeComponentParamete
 
 func (o ImageRecipeComponentParameterArrayOutput) ToImageRecipeComponentParameterArrayOutputWithContext(ctx context.Context) ImageRecipeComponentParameterArrayOutput {
 	return o
-}
-
-func (o ImageRecipeComponentParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ImageRecipeComponentParameter] {
-	return pulumix.Output[[]ImageRecipeComponentParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ImageRecipeComponentParameterArrayOutput) Index(i pulumi.IntInput) ImageRecipeComponentParameterOutput {
@@ -4253,12 +3700,6 @@ func (i ImageRecipeEbsInstanceBlockDeviceSpecificationArgs) ToImageRecipeEbsInst
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeEbsInstanceBlockDeviceSpecificationOutput)
 }
 
-func (i ImageRecipeEbsInstanceBlockDeviceSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeEbsInstanceBlockDeviceSpecification] {
-	return pulumix.Output[ImageRecipeEbsInstanceBlockDeviceSpecification]{
-		OutputState: i.ToImageRecipeEbsInstanceBlockDeviceSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ImageRecipeEbsInstanceBlockDeviceSpecificationArgs) ToImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput() ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput {
 	return i.ToImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutputWithContext(context.Background())
 }
@@ -4300,12 +3741,6 @@ func (i *imageRecipeEbsInstanceBlockDeviceSpecificationPtrType) ToImageRecipeEbs
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput)
 }
 
-func (i *imageRecipeEbsInstanceBlockDeviceSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ImageRecipeEbsInstanceBlockDeviceSpecification] {
-	return pulumix.Output[*ImageRecipeEbsInstanceBlockDeviceSpecification]{
-		OutputState: i.ToImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Amazon EBS-specific block device mapping specifications.
 type ImageRecipeEbsInstanceBlockDeviceSpecificationOutput struct{ *pulumi.OutputState }
 
@@ -4329,12 +3764,6 @@ func (o ImageRecipeEbsInstanceBlockDeviceSpecificationOutput) ToImageRecipeEbsIn
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageRecipeEbsInstanceBlockDeviceSpecification) *ImageRecipeEbsInstanceBlockDeviceSpecification {
 		return &v
 	}).(ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput)
-}
-
-func (o ImageRecipeEbsInstanceBlockDeviceSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeEbsInstanceBlockDeviceSpecification] {
-	return pulumix.Output[ImageRecipeEbsInstanceBlockDeviceSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Use to configure delete on termination of the associated device.
@@ -4391,12 +3820,6 @@ func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) ToImageRecipeEb
 
 func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) ToImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutputWithContext(ctx context.Context) ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput {
 	return o
-}
-
-func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageRecipeEbsInstanceBlockDeviceSpecification] {
-	return pulumix.Output[*ImageRecipeEbsInstanceBlockDeviceSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ImageRecipeEbsInstanceBlockDeviceSpecificationPtrOutput) Elem() ImageRecipeEbsInstanceBlockDeviceSpecificationOutput {
@@ -4536,12 +3959,6 @@ func (i ImageRecipeInstanceBlockDeviceMappingArgs) ToImageRecipeInstanceBlockDev
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeInstanceBlockDeviceMappingOutput)
 }
 
-func (i ImageRecipeInstanceBlockDeviceMappingArgs) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeInstanceBlockDeviceMapping] {
-	return pulumix.Output[ImageRecipeInstanceBlockDeviceMapping]{
-		OutputState: i.ToImageRecipeInstanceBlockDeviceMappingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ImageRecipeInstanceBlockDeviceMappingArrayInput is an input type that accepts ImageRecipeInstanceBlockDeviceMappingArray and ImageRecipeInstanceBlockDeviceMappingArrayOutput values.
 // You can construct a concrete instance of `ImageRecipeInstanceBlockDeviceMappingArrayInput` via:
 //
@@ -4567,12 +3984,6 @@ func (i ImageRecipeInstanceBlockDeviceMappingArray) ToImageRecipeInstanceBlockDe
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeInstanceBlockDeviceMappingArrayOutput)
 }
 
-func (i ImageRecipeInstanceBlockDeviceMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]ImageRecipeInstanceBlockDeviceMapping] {
-	return pulumix.Output[[]ImageRecipeInstanceBlockDeviceMapping]{
-		OutputState: i.ToImageRecipeInstanceBlockDeviceMappingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Defines block device mappings for the instance used to configure your image.
 type ImageRecipeInstanceBlockDeviceMappingOutput struct{ *pulumi.OutputState }
 
@@ -4586,12 +3997,6 @@ func (o ImageRecipeInstanceBlockDeviceMappingOutput) ToImageRecipeInstanceBlockD
 
 func (o ImageRecipeInstanceBlockDeviceMappingOutput) ToImageRecipeInstanceBlockDeviceMappingOutputWithContext(ctx context.Context) ImageRecipeInstanceBlockDeviceMappingOutput {
 	return o
-}
-
-func (o ImageRecipeInstanceBlockDeviceMappingOutput) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeInstanceBlockDeviceMapping] {
-	return pulumix.Output[ImageRecipeInstanceBlockDeviceMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The device to which these mappings apply.
@@ -4628,12 +4033,6 @@ func (o ImageRecipeInstanceBlockDeviceMappingArrayOutput) ToImageRecipeInstanceB
 
 func (o ImageRecipeInstanceBlockDeviceMappingArrayOutput) ToImageRecipeInstanceBlockDeviceMappingArrayOutputWithContext(ctx context.Context) ImageRecipeInstanceBlockDeviceMappingArrayOutput {
 	return o
-}
-
-func (o ImageRecipeInstanceBlockDeviceMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ImageRecipeInstanceBlockDeviceMapping] {
-	return pulumix.Output[[]ImageRecipeInstanceBlockDeviceMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ImageRecipeInstanceBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) ImageRecipeInstanceBlockDeviceMappingOutput {
@@ -4677,12 +4076,6 @@ func (i ImageRecipeSystemsManagerAgentArgs) ToImageRecipeSystemsManagerAgentOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeSystemsManagerAgentOutput)
 }
 
-func (i ImageRecipeSystemsManagerAgentArgs) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeSystemsManagerAgent] {
-	return pulumix.Output[ImageRecipeSystemsManagerAgent]{
-		OutputState: i.ToImageRecipeSystemsManagerAgentOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ImageRecipeSystemsManagerAgentArgs) ToImageRecipeSystemsManagerAgentPtrOutput() ImageRecipeSystemsManagerAgentPtrOutput {
 	return i.ToImageRecipeSystemsManagerAgentPtrOutputWithContext(context.Background())
 }
@@ -4724,12 +4117,6 @@ func (i *imageRecipeSystemsManagerAgentPtrType) ToImageRecipeSystemsManagerAgent
 	return pulumi.ToOutputWithContext(ctx, i).(ImageRecipeSystemsManagerAgentPtrOutput)
 }
 
-func (i *imageRecipeSystemsManagerAgentPtrType) ToOutput(ctx context.Context) pulumix.Output[*ImageRecipeSystemsManagerAgent] {
-	return pulumix.Output[*ImageRecipeSystemsManagerAgent]{
-		OutputState: i.ToImageRecipeSystemsManagerAgentPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Contains settings for the SSM agent on your build instance.
 type ImageRecipeSystemsManagerAgentOutput struct{ *pulumi.OutputState }
 
@@ -4755,12 +4142,6 @@ func (o ImageRecipeSystemsManagerAgentOutput) ToImageRecipeSystemsManagerAgentPt
 	}).(ImageRecipeSystemsManagerAgentPtrOutput)
 }
 
-func (o ImageRecipeSystemsManagerAgentOutput) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeSystemsManagerAgent] {
-	return pulumix.Output[ImageRecipeSystemsManagerAgent]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Controls whether the SSM agent is removed from your final build image, prior to creating the new AMI. If this is set to true, then the agent is removed from the final image. If it's set to false, then the agent is left in, so that it is included in the new AMI. The default value is false.
 func (o ImageRecipeSystemsManagerAgentOutput) UninstallAfterBuild() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ImageRecipeSystemsManagerAgent) *bool { return v.UninstallAfterBuild }).(pulumi.BoolPtrOutput)
@@ -4778,12 +4159,6 @@ func (o ImageRecipeSystemsManagerAgentPtrOutput) ToImageRecipeSystemsManagerAgen
 
 func (o ImageRecipeSystemsManagerAgentPtrOutput) ToImageRecipeSystemsManagerAgentPtrOutputWithContext(ctx context.Context) ImageRecipeSystemsManagerAgentPtrOutput {
 	return o
-}
-
-func (o ImageRecipeSystemsManagerAgentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageRecipeSystemsManagerAgent] {
-	return pulumix.Output[*ImageRecipeSystemsManagerAgent]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ImageRecipeSystemsManagerAgentPtrOutput) Elem() ImageRecipeSystemsManagerAgentOutput {
@@ -4845,12 +4220,6 @@ func (i ImageScanningConfigurationArgs) ToImageScanningConfigurationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ImageScanningConfigurationOutput)
 }
 
-func (i ImageScanningConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ImageScanningConfiguration] {
-	return pulumix.Output[ImageScanningConfiguration]{
-		OutputState: i.ToImageScanningConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ImageScanningConfigurationArgs) ToImageScanningConfigurationPtrOutput() ImageScanningConfigurationPtrOutput {
 	return i.ToImageScanningConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4892,12 +4261,6 @@ func (i *imageScanningConfigurationPtrType) ToImageScanningConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ImageScanningConfigurationPtrOutput)
 }
 
-func (i *imageScanningConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ImageScanningConfiguration] {
-	return pulumix.Output[*ImageScanningConfiguration]{
-		OutputState: i.ToImageScanningConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Contains settings for Image Builder image resource and container image scans.
 type ImageScanningConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -4923,12 +4286,6 @@ func (o ImageScanningConfigurationOutput) ToImageScanningConfigurationPtrOutputW
 	}).(ImageScanningConfigurationPtrOutput)
 }
 
-func (o ImageScanningConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ImageScanningConfiguration] {
-	return pulumix.Output[ImageScanningConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Contains ECR settings for vulnerability scans.
 func (o ImageScanningConfigurationOutput) EcrConfiguration() ImageEcrConfigurationPtrOutput {
 	return o.ApplyT(func(v ImageScanningConfiguration) *ImageEcrConfiguration { return v.EcrConfiguration }).(ImageEcrConfigurationPtrOutput)
@@ -4951,12 +4308,6 @@ func (o ImageScanningConfigurationPtrOutput) ToImageScanningConfigurationPtrOutp
 
 func (o ImageScanningConfigurationPtrOutput) ToImageScanningConfigurationPtrOutputWithContext(ctx context.Context) ImageScanningConfigurationPtrOutput {
 	return o
-}
-
-func (o ImageScanningConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageScanningConfiguration] {
-	return pulumix.Output[*ImageScanningConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ImageScanningConfigurationPtrOutput) Elem() ImageScanningConfigurationOutput {
@@ -5028,12 +4379,6 @@ func (i ImageTestsConfigurationArgs) ToImageTestsConfigurationOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ImageTestsConfigurationOutput)
 }
 
-func (i ImageTestsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ImageTestsConfiguration] {
-	return pulumix.Output[ImageTestsConfiguration]{
-		OutputState: i.ToImageTestsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ImageTestsConfigurationArgs) ToImageTestsConfigurationPtrOutput() ImageTestsConfigurationPtrOutput {
 	return i.ToImageTestsConfigurationPtrOutputWithContext(context.Background())
 }
@@ -5075,12 +4420,6 @@ func (i *imageTestsConfigurationPtrType) ToImageTestsConfigurationPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ImageTestsConfigurationPtrOutput)
 }
 
-func (i *imageTestsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ImageTestsConfiguration] {
-	return pulumix.Output[*ImageTestsConfiguration]{
-		OutputState: i.ToImageTestsConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The image tests configuration used when creating this image.
 type ImageTestsConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -5106,12 +4445,6 @@ func (o ImageTestsConfigurationOutput) ToImageTestsConfigurationPtrOutputWithCon
 	}).(ImageTestsConfigurationPtrOutput)
 }
 
-func (o ImageTestsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ImageTestsConfiguration] {
-	return pulumix.Output[ImageTestsConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // ImageTestsEnabled
 func (o ImageTestsConfigurationOutput) ImageTestsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ImageTestsConfiguration) *bool { return v.ImageTestsEnabled }).(pulumi.BoolPtrOutput)
@@ -5134,12 +4467,6 @@ func (o ImageTestsConfigurationPtrOutput) ToImageTestsConfigurationPtrOutput() I
 
 func (o ImageTestsConfigurationPtrOutput) ToImageTestsConfigurationPtrOutputWithContext(ctx context.Context) ImageTestsConfigurationPtrOutput {
 	return o
-}
-
-func (o ImageTestsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageTestsConfiguration] {
-	return pulumix.Output[*ImageTestsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ImageTestsConfigurationPtrOutput) Elem() ImageTestsConfigurationOutput {
@@ -5211,12 +4538,6 @@ func (i InfrastructureConfigurationInstanceMetadataOptionsArgs) ToInfrastructure
 	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationInstanceMetadataOptionsOutput)
 }
 
-func (i InfrastructureConfigurationInstanceMetadataOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[InfrastructureConfigurationInstanceMetadataOptions] {
-	return pulumix.Output[InfrastructureConfigurationInstanceMetadataOptions]{
-		OutputState: i.ToInfrastructureConfigurationInstanceMetadataOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InfrastructureConfigurationInstanceMetadataOptionsArgs) ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutput() InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
 	return i.ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(context.Background())
 }
@@ -5258,12 +4579,6 @@ func (i *infrastructureConfigurationInstanceMetadataOptionsPtrType) ToInfrastruc
 	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationInstanceMetadataOptionsPtrOutput)
 }
 
-func (i *infrastructureConfigurationInstanceMetadataOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*InfrastructureConfigurationInstanceMetadataOptions] {
-	return pulumix.Output[*InfrastructureConfigurationInstanceMetadataOptions]{
-		OutputState: i.ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The instance metadata option settings for the infrastructure configuration.
 type InfrastructureConfigurationInstanceMetadataOptionsOutput struct{ *pulumi.OutputState }
 
@@ -5287,12 +4602,6 @@ func (o InfrastructureConfigurationInstanceMetadataOptionsOutput) ToInfrastructu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfrastructureConfigurationInstanceMetadataOptions) *InfrastructureConfigurationInstanceMetadataOptions {
 		return &v
 	}).(InfrastructureConfigurationInstanceMetadataOptionsPtrOutput)
-}
-
-func (o InfrastructureConfigurationInstanceMetadataOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[InfrastructureConfigurationInstanceMetadataOptions] {
-	return pulumix.Output[InfrastructureConfigurationInstanceMetadataOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Limit the number of hops that an instance metadata request can traverse to reach its destination.
@@ -5319,12 +4628,6 @@ func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) ToInfrastru
 
 func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
 	return o
-}
-
-func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InfrastructureConfigurationInstanceMetadataOptions] {
-	return pulumix.Output[*InfrastructureConfigurationInstanceMetadataOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) Elem() InfrastructureConfigurationInstanceMetadataOptionsOutput {
@@ -5390,12 +4693,6 @@ func (i InfrastructureConfigurationLoggingArgs) ToInfrastructureConfigurationLog
 	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationLoggingOutput)
 }
 
-func (i InfrastructureConfigurationLoggingArgs) ToOutput(ctx context.Context) pulumix.Output[InfrastructureConfigurationLogging] {
-	return pulumix.Output[InfrastructureConfigurationLogging]{
-		OutputState: i.ToInfrastructureConfigurationLoggingOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InfrastructureConfigurationLoggingArgs) ToInfrastructureConfigurationLoggingPtrOutput() InfrastructureConfigurationLoggingPtrOutput {
 	return i.ToInfrastructureConfigurationLoggingPtrOutputWithContext(context.Background())
 }
@@ -5437,12 +4734,6 @@ func (i *infrastructureConfigurationLoggingPtrType) ToInfrastructureConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationLoggingPtrOutput)
 }
 
-func (i *infrastructureConfigurationLoggingPtrType) ToOutput(ctx context.Context) pulumix.Output[*InfrastructureConfigurationLogging] {
-	return pulumix.Output[*InfrastructureConfigurationLogging]{
-		OutputState: i.ToInfrastructureConfigurationLoggingPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The logging configuration of the infrastructure configuration.
 type InfrastructureConfigurationLoggingOutput struct{ *pulumi.OutputState }
 
@@ -5468,12 +4759,6 @@ func (o InfrastructureConfigurationLoggingOutput) ToInfrastructureConfigurationL
 	}).(InfrastructureConfigurationLoggingPtrOutput)
 }
 
-func (o InfrastructureConfigurationLoggingOutput) ToOutput(ctx context.Context) pulumix.Output[InfrastructureConfigurationLogging] {
-	return pulumix.Output[InfrastructureConfigurationLogging]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InfrastructureConfigurationLoggingOutput) S3Logs() InfrastructureConfigurationS3LogsPtrOutput {
 	return o.ApplyT(func(v InfrastructureConfigurationLogging) *InfrastructureConfigurationS3Logs { return v.S3Logs }).(InfrastructureConfigurationS3LogsPtrOutput)
 }
@@ -5490,12 +4775,6 @@ func (o InfrastructureConfigurationLoggingPtrOutput) ToInfrastructureConfigurati
 
 func (o InfrastructureConfigurationLoggingPtrOutput) ToInfrastructureConfigurationLoggingPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationLoggingPtrOutput {
 	return o
-}
-
-func (o InfrastructureConfigurationLoggingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InfrastructureConfigurationLogging] {
-	return pulumix.Output[*InfrastructureConfigurationLogging]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InfrastructureConfigurationLoggingPtrOutput) Elem() InfrastructureConfigurationLoggingOutput {
@@ -5556,12 +4835,6 @@ func (i InfrastructureConfigurationS3LogsArgs) ToInfrastructureConfigurationS3Lo
 	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationS3LogsOutput)
 }
 
-func (i InfrastructureConfigurationS3LogsArgs) ToOutput(ctx context.Context) pulumix.Output[InfrastructureConfigurationS3Logs] {
-	return pulumix.Output[InfrastructureConfigurationS3Logs]{
-		OutputState: i.ToInfrastructureConfigurationS3LogsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InfrastructureConfigurationS3LogsArgs) ToInfrastructureConfigurationS3LogsPtrOutput() InfrastructureConfigurationS3LogsPtrOutput {
 	return i.ToInfrastructureConfigurationS3LogsPtrOutputWithContext(context.Background())
 }
@@ -5603,12 +4876,6 @@ func (i *infrastructureConfigurationS3LogsPtrType) ToInfrastructureConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationS3LogsPtrOutput)
 }
 
-func (i *infrastructureConfigurationS3LogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*InfrastructureConfigurationS3Logs] {
-	return pulumix.Output[*InfrastructureConfigurationS3Logs]{
-		OutputState: i.ToInfrastructureConfigurationS3LogsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The S3 path in which to store the logs.
 type InfrastructureConfigurationS3LogsOutput struct{ *pulumi.OutputState }
 
@@ -5634,12 +4901,6 @@ func (o InfrastructureConfigurationS3LogsOutput) ToInfrastructureConfigurationS3
 	}).(InfrastructureConfigurationS3LogsPtrOutput)
 }
 
-func (o InfrastructureConfigurationS3LogsOutput) ToOutput(ctx context.Context) pulumix.Output[InfrastructureConfigurationS3Logs] {
-	return pulumix.Output[InfrastructureConfigurationS3Logs]{
-		OutputState: o.OutputState,
-	}
-}
-
 // S3BucketName
 func (o InfrastructureConfigurationS3LogsOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InfrastructureConfigurationS3Logs) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
@@ -5662,12 +4923,6 @@ func (o InfrastructureConfigurationS3LogsPtrOutput) ToInfrastructureConfiguratio
 
 func (o InfrastructureConfigurationS3LogsPtrOutput) ToInfrastructureConfigurationS3LogsPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationS3LogsPtrOutput {
 	return o
-}
-
-func (o InfrastructureConfigurationS3LogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InfrastructureConfigurationS3Logs] {
-	return pulumix.Output[*InfrastructureConfigurationS3Logs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InfrastructureConfigurationS3LogsPtrOutput) Elem() InfrastructureConfigurationS3LogsOutput {

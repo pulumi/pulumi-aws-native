@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::ECR::PublicRepository resource specifies an Amazon Elastic Container Public Registry (Amazon Public ECR) repository, where users can push and pull Docker images. For more information, see https://docs.aws.amazon.com/AmazonECR
@@ -118,12 +117,6 @@ func (i *PublicRepository) ToPublicRepositoryOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PublicRepositoryOutput)
 }
 
-func (i *PublicRepository) ToOutput(ctx context.Context) pulumix.Output[*PublicRepository] {
-	return pulumix.Output[*PublicRepository]{
-		OutputState: i.ToPublicRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PublicRepositoryOutput struct{ *pulumi.OutputState }
 
 func (PublicRepositoryOutput) ElementType() reflect.Type {
@@ -136,12 +129,6 @@ func (o PublicRepositoryOutput) ToPublicRepositoryOutput() PublicRepositoryOutpu
 
 func (o PublicRepositoryOutput) ToPublicRepositoryOutputWithContext(ctx context.Context) PublicRepositoryOutput {
 	return o
-}
-
-func (o PublicRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[*PublicRepository] {
-	return pulumix.Output[*PublicRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PublicRepositoryOutput) Arn() pulumi.StringOutput {

@@ -77,12 +77,6 @@ func (o TrustAnchorNotificationChannelOutput) ToTrustAnchorNotificationChannelPt
 	}).(TrustAnchorNotificationChannelPtrOutput)
 }
 
-func (o TrustAnchorNotificationChannelOutput) ToOutput(ctx context.Context) pulumix.Output[TrustAnchorNotificationChannel] {
-	return pulumix.Output[TrustAnchorNotificationChannel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TrustAnchorNotificationChannelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -116,12 +110,6 @@ func (o TrustAnchorNotificationChannelPtrOutput) ToTrustAnchorNotificationChanne
 
 func (o TrustAnchorNotificationChannelPtrOutput) ToTrustAnchorNotificationChannelPtrOutputWithContext(ctx context.Context) TrustAnchorNotificationChannelPtrOutput {
 	return o
-}
-
-func (o TrustAnchorNotificationChannelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TrustAnchorNotificationChannel] {
-	return pulumix.Output[*TrustAnchorNotificationChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrustAnchorNotificationChannelPtrOutput) Elem() TrustAnchorNotificationChannelOutput {
@@ -259,12 +247,6 @@ func (o TrustAnchorNotificationEventOutput) ToTrustAnchorNotificationEventPtrOut
 	}).(TrustAnchorNotificationEventPtrOutput)
 }
 
-func (o TrustAnchorNotificationEventOutput) ToOutput(ctx context.Context) pulumix.Output[TrustAnchorNotificationEvent] {
-	return pulumix.Output[TrustAnchorNotificationEvent]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TrustAnchorNotificationEventOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -298,12 +280,6 @@ func (o TrustAnchorNotificationEventPtrOutput) ToTrustAnchorNotificationEventPtr
 
 func (o TrustAnchorNotificationEventPtrOutput) ToTrustAnchorNotificationEventPtrOutputWithContext(ctx context.Context) TrustAnchorNotificationEventPtrOutput {
 	return o
-}
-
-func (o TrustAnchorNotificationEventPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TrustAnchorNotificationEvent] {
-	return pulumix.Output[*TrustAnchorNotificationEvent]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrustAnchorNotificationEventPtrOutput) Elem() TrustAnchorNotificationEventOutput {
@@ -442,12 +418,6 @@ func (o TrustAnchorTypeOutput) ToTrustAnchorTypePtrOutputWithContext(ctx context
 	}).(TrustAnchorTypePtrOutput)
 }
 
-func (o TrustAnchorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TrustAnchorType] {
-	return pulumix.Output[TrustAnchorType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TrustAnchorTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -481,12 +451,6 @@ func (o TrustAnchorTypePtrOutput) ToTrustAnchorTypePtrOutput() TrustAnchorTypePt
 
 func (o TrustAnchorTypePtrOutput) ToTrustAnchorTypePtrOutputWithContext(ctx context.Context) TrustAnchorTypePtrOutput {
 	return o
-}
-
-func (o TrustAnchorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TrustAnchorType] {
-	return pulumix.Output[*TrustAnchorType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrustAnchorTypePtrOutput) Elem() TrustAnchorTypeOutput {

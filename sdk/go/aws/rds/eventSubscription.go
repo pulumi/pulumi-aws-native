@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::RDS::EventSubscription resource allows you to receive notifications for Amazon Relational Database Service events through the Amazon Simple Notification Service (Amazon SNS). For more information, see Using Amazon RDS Event Notification in the Amazon RDS User Guide.
@@ -138,12 +137,6 @@ func (i *EventSubscription) ToEventSubscriptionOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionOutput)
 }
 
-func (i *EventSubscription) ToOutput(ctx context.Context) pulumix.Output[*EventSubscription] {
-	return pulumix.Output[*EventSubscription]{
-		OutputState: i.ToEventSubscriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionOutput) ElementType() reflect.Type {
@@ -156,12 +149,6 @@ func (o EventSubscriptionOutput) ToEventSubscriptionOutput() EventSubscriptionOu
 
 func (o EventSubscriptionOutput) ToEventSubscriptionOutputWithContext(ctx context.Context) EventSubscriptionOutput {
 	return o
-}
-
-func (o EventSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*EventSubscription] {
-	return pulumix.Output[*EventSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A Boolean value; set to true to activate the subscription, set to false to create the subscription but not active it.

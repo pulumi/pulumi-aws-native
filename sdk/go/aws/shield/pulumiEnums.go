@@ -80,12 +80,6 @@ func (o ProactiveEngagementStatusOutput) ToProactiveEngagementStatusPtrOutputWit
 	}).(ProactiveEngagementStatusPtrOutput)
 }
 
-func (o ProactiveEngagementStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ProactiveEngagementStatus] {
-	return pulumix.Output[ProactiveEngagementStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProactiveEngagementStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o ProactiveEngagementStatusPtrOutput) ToProactiveEngagementStatusPtrOutput
 
 func (o ProactiveEngagementStatusPtrOutput) ToProactiveEngagementStatusPtrOutputWithContext(ctx context.Context) ProactiveEngagementStatusPtrOutput {
 	return o
-}
-
-func (o ProactiveEngagementStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProactiveEngagementStatus] {
-	return pulumix.Output[*ProactiveEngagementStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProactiveEngagementStatusPtrOutput) Elem() ProactiveEngagementStatusOutput {
@@ -263,12 +251,6 @@ func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusOutput) To
 	}).(ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput)
 }
 
-func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ProtectionApplicationLayerAutomaticResponseConfigurationStatus] {
-	return pulumix.Output[ProtectionApplicationLayerAutomaticResponseConfigurationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -302,12 +284,6 @@ func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput)
 
 func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput) ToProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutputWithContext(ctx context.Context) ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput {
 	return o
-}
-
-func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectionApplicationLayerAutomaticResponseConfigurationStatus] {
-	return pulumix.Output[*ProtectionApplicationLayerAutomaticResponseConfigurationStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProtectionApplicationLayerAutomaticResponseConfigurationStatusPtrOutput) Elem() ProtectionApplicationLayerAutomaticResponseConfigurationStatusOutput {
@@ -450,12 +426,6 @@ func (o ProtectionGroupAggregationOutput) ToProtectionGroupAggregationPtrOutputW
 	}).(ProtectionGroupAggregationPtrOutput)
 }
 
-func (o ProtectionGroupAggregationOutput) ToOutput(ctx context.Context) pulumix.Output[ProtectionGroupAggregation] {
-	return pulumix.Output[ProtectionGroupAggregation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtectionGroupAggregationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -489,12 +459,6 @@ func (o ProtectionGroupAggregationPtrOutput) ToProtectionGroupAggregationPtrOutp
 
 func (o ProtectionGroupAggregationPtrOutput) ToProtectionGroupAggregationPtrOutputWithContext(ctx context.Context) ProtectionGroupAggregationPtrOutput {
 	return o
-}
-
-func (o ProtectionGroupAggregationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectionGroupAggregation] {
-	return pulumix.Output[*ProtectionGroupAggregation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProtectionGroupAggregationPtrOutput) Elem() ProtectionGroupAggregationOutput {
@@ -634,12 +598,6 @@ func (o ProtectionGroupPatternOutput) ToProtectionGroupPatternPtrOutputWithConte
 	}).(ProtectionGroupPatternPtrOutput)
 }
 
-func (o ProtectionGroupPatternOutput) ToOutput(ctx context.Context) pulumix.Output[ProtectionGroupPattern] {
-	return pulumix.Output[ProtectionGroupPattern]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtectionGroupPatternOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -673,12 +631,6 @@ func (o ProtectionGroupPatternPtrOutput) ToProtectionGroupPatternPtrOutput() Pro
 
 func (o ProtectionGroupPatternPtrOutput) ToProtectionGroupPatternPtrOutputWithContext(ctx context.Context) ProtectionGroupPatternPtrOutput {
 	return o
-}
-
-func (o ProtectionGroupPatternPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectionGroupPattern] {
-	return pulumix.Output[*ProtectionGroupPattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProtectionGroupPatternPtrOutput) Elem() ProtectionGroupPatternOutput {
@@ -821,12 +773,6 @@ func (o ProtectionGroupResourceTypeOutput) ToProtectionGroupResourceTypePtrOutpu
 	}).(ProtectionGroupResourceTypePtrOutput)
 }
 
-func (o ProtectionGroupResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ProtectionGroupResourceType] {
-	return pulumix.Output[ProtectionGroupResourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtectionGroupResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -860,12 +806,6 @@ func (o ProtectionGroupResourceTypePtrOutput) ToProtectionGroupResourceTypePtrOu
 
 func (o ProtectionGroupResourceTypePtrOutput) ToProtectionGroupResourceTypePtrOutputWithContext(ctx context.Context) ProtectionGroupResourceTypePtrOutput {
 	return o
-}
-
-func (o ProtectionGroupResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectionGroupResourceType] {
-	return pulumix.Output[*ProtectionGroupResourceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProtectionGroupResourceTypePtrOutput) Elem() ProtectionGroupResourceTypeOutput {

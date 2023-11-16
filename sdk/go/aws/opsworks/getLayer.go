@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::OpsWorks::Layer
@@ -81,12 +80,6 @@ func (o LookupLayerResultOutput) ToLookupLayerResultOutput() LookupLayerResultOu
 
 func (o LookupLayerResultOutput) ToLookupLayerResultOutputWithContext(ctx context.Context) LookupLayerResultOutput {
 	return o
-}
-
-func (o LookupLayerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLayerResult] {
-	return pulumix.Output[LookupLayerResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupLayerResultOutput) Attributes() pulumi.AnyOutput {

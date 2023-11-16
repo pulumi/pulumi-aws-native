@@ -83,12 +83,6 @@ func (o AlarmModelSimpleRuleComparisonOperatorOutput) ToAlarmModelSimpleRuleComp
 	}).(AlarmModelSimpleRuleComparisonOperatorPtrOutput)
 }
 
-func (o AlarmModelSimpleRuleComparisonOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmModelSimpleRuleComparisonOperator] {
-	return pulumix.Output[AlarmModelSimpleRuleComparisonOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AlarmModelSimpleRuleComparisonOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -122,12 +116,6 @@ func (o AlarmModelSimpleRuleComparisonOperatorPtrOutput) ToAlarmModelSimpleRuleC
 
 func (o AlarmModelSimpleRuleComparisonOperatorPtrOutput) ToAlarmModelSimpleRuleComparisonOperatorPtrOutputWithContext(ctx context.Context) AlarmModelSimpleRuleComparisonOperatorPtrOutput {
 	return o
-}
-
-func (o AlarmModelSimpleRuleComparisonOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmModelSimpleRuleComparisonOperator] {
-	return pulumix.Output[*AlarmModelSimpleRuleComparisonOperator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlarmModelSimpleRuleComparisonOperatorPtrOutput) Elem() AlarmModelSimpleRuleComparisonOperatorOutput {
@@ -266,12 +254,6 @@ func (o DetectorModelEvaluationMethodOutput) ToDetectorModelEvaluationMethodPtrO
 	}).(DetectorModelEvaluationMethodPtrOutput)
 }
 
-func (o DetectorModelEvaluationMethodOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorModelEvaluationMethod] {
-	return pulumix.Output[DetectorModelEvaluationMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorModelEvaluationMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -305,12 +287,6 @@ func (o DetectorModelEvaluationMethodPtrOutput) ToDetectorModelEvaluationMethodP
 
 func (o DetectorModelEvaluationMethodPtrOutput) ToDetectorModelEvaluationMethodPtrOutputWithContext(ctx context.Context) DetectorModelEvaluationMethodPtrOutput {
 	return o
-}
-
-func (o DetectorModelEvaluationMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorModelEvaluationMethod] {
-	return pulumix.Output[*DetectorModelEvaluationMethod]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DetectorModelEvaluationMethodPtrOutput) Elem() DetectorModelEvaluationMethodOutput {

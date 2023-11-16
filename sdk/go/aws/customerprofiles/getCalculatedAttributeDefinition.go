@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A calculated attribute definition for Customer Profiles
@@ -75,12 +74,6 @@ func (o LookupCalculatedAttributeDefinitionResultOutput) ToLookupCalculatedAttri
 
 func (o LookupCalculatedAttributeDefinitionResultOutput) ToLookupCalculatedAttributeDefinitionResultOutputWithContext(ctx context.Context) LookupCalculatedAttributeDefinitionResultOutput {
 	return o
-}
-
-func (o LookupCalculatedAttributeDefinitionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCalculatedAttributeDefinitionResult] {
-	return pulumix.Output[LookupCalculatedAttributeDefinitionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupCalculatedAttributeDefinitionResultOutput) AttributeDetails() CalculatedAttributeDefinitionAttributeDetailsPtrOutput {

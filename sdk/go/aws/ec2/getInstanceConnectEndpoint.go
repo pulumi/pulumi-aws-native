@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::InstanceConnectEndpoint
@@ -69,12 +68,6 @@ func (o LookupInstanceConnectEndpointResultOutput) ToLookupInstanceConnectEndpoi
 
 func (o LookupInstanceConnectEndpointResultOutput) ToLookupInstanceConnectEndpointResultOutputWithContext(ctx context.Context) LookupInstanceConnectEndpointResultOutput {
 	return o
-}
-
-func (o LookupInstanceConnectEndpointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupInstanceConnectEndpointResult] {
-	return pulumix.Output[LookupInstanceConnectEndpointResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The id of the instance connect endpoint

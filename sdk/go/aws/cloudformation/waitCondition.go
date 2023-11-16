@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFormation::WaitCondition
@@ -99,12 +98,6 @@ func (i *WaitCondition) ToWaitConditionOutputWithContext(ctx context.Context) Wa
 	return pulumi.ToOutputWithContext(ctx, i).(WaitConditionOutput)
 }
 
-func (i *WaitCondition) ToOutput(ctx context.Context) pulumix.Output[*WaitCondition] {
-	return pulumix.Output[*WaitCondition]{
-		OutputState: i.ToWaitConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WaitConditionOutput struct{ *pulumi.OutputState }
 
 func (WaitConditionOutput) ElementType() reflect.Type {
@@ -117,12 +110,6 @@ func (o WaitConditionOutput) ToWaitConditionOutput() WaitConditionOutput {
 
 func (o WaitConditionOutput) ToWaitConditionOutputWithContext(ctx context.Context) WaitConditionOutput {
 	return o
-}
-
-func (o WaitConditionOutput) ToOutput(ctx context.Context) pulumix.Output[*WaitCondition] {
-	return pulumix.Output[*WaitCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WaitConditionOutput) Count() pulumi.IntPtrOutput {

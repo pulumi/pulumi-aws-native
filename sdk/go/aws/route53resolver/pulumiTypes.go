@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i FirewallDomainListTagArgs) ToFirewallDomainListTagOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallDomainListTagOutput)
 }
 
-func (i FirewallDomainListTagArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallDomainListTag] {
-	return pulumix.Output[FirewallDomainListTag]{
-		OutputState: i.ToFirewallDomainListTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FirewallDomainListTagArrayInput is an input type that accepts FirewallDomainListTagArray and FirewallDomainListTagArrayOutput values.
 // You can construct a concrete instance of `FirewallDomainListTagArrayInput` via:
 //
@@ -84,12 +77,6 @@ func (i FirewallDomainListTagArray) ToFirewallDomainListTagArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallDomainListTagArrayOutput)
 }
 
-func (i FirewallDomainListTagArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallDomainListTag] {
-	return pulumix.Output[[]FirewallDomainListTag]{
-		OutputState: i.ToFirewallDomainListTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type FirewallDomainListTagOutput struct{ *pulumi.OutputState }
 
@@ -103,12 +90,6 @@ func (o FirewallDomainListTagOutput) ToFirewallDomainListTagOutput() FirewallDom
 
 func (o FirewallDomainListTagOutput) ToFirewallDomainListTagOutputWithContext(ctx context.Context) FirewallDomainListTagOutput {
 	return o
-}
-
-func (o FirewallDomainListTagOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallDomainListTag] {
-	return pulumix.Output[FirewallDomainListTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -133,12 +114,6 @@ func (o FirewallDomainListTagArrayOutput) ToFirewallDomainListTagArrayOutput() F
 
 func (o FirewallDomainListTagArrayOutput) ToFirewallDomainListTagArrayOutputWithContext(ctx context.Context) FirewallDomainListTagArrayOutput {
 	return o
-}
-
-func (o FirewallDomainListTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallDomainListTag] {
-	return pulumix.Output[[]FirewallDomainListTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FirewallDomainListTagArrayOutput) Index(i pulumi.IntInput) FirewallDomainListTagOutput {
@@ -186,12 +161,6 @@ func (i FirewallRuleGroupAssociationTagArgs) ToFirewallRuleGroupAssociationTagOu
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupAssociationTagOutput)
 }
 
-func (i FirewallRuleGroupAssociationTagArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallRuleGroupAssociationTag] {
-	return pulumix.Output[FirewallRuleGroupAssociationTag]{
-		OutputState: i.ToFirewallRuleGroupAssociationTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FirewallRuleGroupAssociationTagArrayInput is an input type that accepts FirewallRuleGroupAssociationTagArray and FirewallRuleGroupAssociationTagArrayOutput values.
 // You can construct a concrete instance of `FirewallRuleGroupAssociationTagArrayInput` via:
 //
@@ -217,12 +186,6 @@ func (i FirewallRuleGroupAssociationTagArray) ToFirewallRuleGroupAssociationTagA
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupAssociationTagArrayOutput)
 }
 
-func (i FirewallRuleGroupAssociationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallRuleGroupAssociationTag] {
-	return pulumix.Output[[]FirewallRuleGroupAssociationTag]{
-		OutputState: i.ToFirewallRuleGroupAssociationTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type FirewallRuleGroupAssociationTagOutput struct{ *pulumi.OutputState }
 
@@ -236,12 +199,6 @@ func (o FirewallRuleGroupAssociationTagOutput) ToFirewallRuleGroupAssociationTag
 
 func (o FirewallRuleGroupAssociationTagOutput) ToFirewallRuleGroupAssociationTagOutputWithContext(ctx context.Context) FirewallRuleGroupAssociationTagOutput {
 	return o
-}
-
-func (o FirewallRuleGroupAssociationTagOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallRuleGroupAssociationTag] {
-	return pulumix.Output[FirewallRuleGroupAssociationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -266,12 +223,6 @@ func (o FirewallRuleGroupAssociationTagArrayOutput) ToFirewallRuleGroupAssociati
 
 func (o FirewallRuleGroupAssociationTagArrayOutput) ToFirewallRuleGroupAssociationTagArrayOutputWithContext(ctx context.Context) FirewallRuleGroupAssociationTagArrayOutput {
 	return o
-}
-
-func (o FirewallRuleGroupAssociationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallRuleGroupAssociationTag] {
-	return pulumix.Output[[]FirewallRuleGroupAssociationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FirewallRuleGroupAssociationTagArrayOutput) Index(i pulumi.IntInput) FirewallRuleGroupAssociationTagOutput {
@@ -339,12 +290,6 @@ func (i FirewallRuleGroupFirewallRuleArgs) ToFirewallRuleGroupFirewallRuleOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupFirewallRuleOutput)
 }
 
-func (i FirewallRuleGroupFirewallRuleArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallRuleGroupFirewallRule] {
-	return pulumix.Output[FirewallRuleGroupFirewallRule]{
-		OutputState: i.ToFirewallRuleGroupFirewallRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FirewallRuleGroupFirewallRuleArrayInput is an input type that accepts FirewallRuleGroupFirewallRuleArray and FirewallRuleGroupFirewallRuleArrayOutput values.
 // You can construct a concrete instance of `FirewallRuleGroupFirewallRuleArrayInput` via:
 //
@@ -370,12 +315,6 @@ func (i FirewallRuleGroupFirewallRuleArray) ToFirewallRuleGroupFirewallRuleArray
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupFirewallRuleArrayOutput)
 }
 
-func (i FirewallRuleGroupFirewallRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallRuleGroupFirewallRule] {
-	return pulumix.Output[[]FirewallRuleGroupFirewallRule]{
-		OutputState: i.ToFirewallRuleGroupFirewallRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Firewall Rule associating the Rule Group to a Domain List
 type FirewallRuleGroupFirewallRuleOutput struct{ *pulumi.OutputState }
 
@@ -389,12 +328,6 @@ func (o FirewallRuleGroupFirewallRuleOutput) ToFirewallRuleGroupFirewallRuleOutp
 
 func (o FirewallRuleGroupFirewallRuleOutput) ToFirewallRuleGroupFirewallRuleOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleOutput {
 	return o
-}
-
-func (o FirewallRuleGroupFirewallRuleOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallRuleGroupFirewallRule] {
-	return pulumix.Output[FirewallRuleGroupFirewallRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Rule Action
@@ -450,12 +383,6 @@ func (o FirewallRuleGroupFirewallRuleArrayOutput) ToFirewallRuleGroupFirewallRul
 	return o
 }
 
-func (o FirewallRuleGroupFirewallRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallRuleGroupFirewallRule] {
-	return pulumix.Output[[]FirewallRuleGroupFirewallRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FirewallRuleGroupFirewallRuleArrayOutput) Index(i pulumi.IntInput) FirewallRuleGroupFirewallRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FirewallRuleGroupFirewallRule {
 		return vs[0].([]FirewallRuleGroupFirewallRule)[vs[1].(int)]
@@ -501,12 +428,6 @@ func (i FirewallRuleGroupTagArgs) ToFirewallRuleGroupTagOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupTagOutput)
 }
 
-func (i FirewallRuleGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[FirewallRuleGroupTag] {
-	return pulumix.Output[FirewallRuleGroupTag]{
-		OutputState: i.ToFirewallRuleGroupTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FirewallRuleGroupTagArrayInput is an input type that accepts FirewallRuleGroupTagArray and FirewallRuleGroupTagArrayOutput values.
 // You can construct a concrete instance of `FirewallRuleGroupTagArrayInput` via:
 //
@@ -532,12 +453,6 @@ func (i FirewallRuleGroupTagArray) ToFirewallRuleGroupTagArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleGroupTagArrayOutput)
 }
 
-func (i FirewallRuleGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]FirewallRuleGroupTag] {
-	return pulumix.Output[[]FirewallRuleGroupTag]{
-		OutputState: i.ToFirewallRuleGroupTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type FirewallRuleGroupTagOutput struct{ *pulumi.OutputState }
 
@@ -551,12 +466,6 @@ func (o FirewallRuleGroupTagOutput) ToFirewallRuleGroupTagOutput() FirewallRuleG
 
 func (o FirewallRuleGroupTagOutput) ToFirewallRuleGroupTagOutputWithContext(ctx context.Context) FirewallRuleGroupTagOutput {
 	return o
-}
-
-func (o FirewallRuleGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallRuleGroupTag] {
-	return pulumix.Output[FirewallRuleGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -581,12 +490,6 @@ func (o FirewallRuleGroupTagArrayOutput) ToFirewallRuleGroupTagArrayOutput() Fir
 
 func (o FirewallRuleGroupTagArrayOutput) ToFirewallRuleGroupTagArrayOutputWithContext(ctx context.Context) FirewallRuleGroupTagArrayOutput {
 	return o
-}
-
-func (o FirewallRuleGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FirewallRuleGroupTag] {
-	return pulumix.Output[[]FirewallRuleGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FirewallRuleGroupTagArrayOutput) Index(i pulumi.IntInput) FirewallRuleGroupTagOutput {
@@ -634,12 +537,6 @@ func (i OutpostResolverTagArgs) ToOutpostResolverTagOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(OutpostResolverTagOutput)
 }
 
-func (i OutpostResolverTagArgs) ToOutput(ctx context.Context) pulumix.Output[OutpostResolverTag] {
-	return pulumix.Output[OutpostResolverTag]{
-		OutputState: i.ToOutpostResolverTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OutpostResolverTagArrayInput is an input type that accepts OutpostResolverTagArray and OutpostResolverTagArrayOutput values.
 // You can construct a concrete instance of `OutpostResolverTagArrayInput` via:
 //
@@ -665,12 +562,6 @@ func (i OutpostResolverTagArray) ToOutpostResolverTagArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(OutpostResolverTagArrayOutput)
 }
 
-func (i OutpostResolverTagArray) ToOutput(ctx context.Context) pulumix.Output[[]OutpostResolverTag] {
-	return pulumix.Output[[]OutpostResolverTag]{
-		OutputState: i.ToOutpostResolverTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type OutpostResolverTagOutput struct{ *pulumi.OutputState }
 
@@ -684,12 +575,6 @@ func (o OutpostResolverTagOutput) ToOutpostResolverTagOutput() OutpostResolverTa
 
 func (o OutpostResolverTagOutput) ToOutpostResolverTagOutputWithContext(ctx context.Context) OutpostResolverTagOutput {
 	return o
-}
-
-func (o OutpostResolverTagOutput) ToOutput(ctx context.Context) pulumix.Output[OutpostResolverTag] {
-	return pulumix.Output[OutpostResolverTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -714,12 +599,6 @@ func (o OutpostResolverTagArrayOutput) ToOutpostResolverTagArrayOutput() Outpost
 
 func (o OutpostResolverTagArrayOutput) ToOutpostResolverTagArrayOutputWithContext(ctx context.Context) OutpostResolverTagArrayOutput {
 	return o
-}
-
-func (o OutpostResolverTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OutpostResolverTag] {
-	return pulumix.Output[[]OutpostResolverTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OutpostResolverTagArrayOutput) Index(i pulumi.IntInput) OutpostResolverTagOutput {
@@ -763,12 +642,6 @@ func (i ResolverEndpointIpAddressRequestArgs) ToResolverEndpointIpAddressRequest
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointIpAddressRequestOutput)
 }
 
-func (i ResolverEndpointIpAddressRequestArgs) ToOutput(ctx context.Context) pulumix.Output[ResolverEndpointIpAddressRequest] {
-	return pulumix.Output[ResolverEndpointIpAddressRequest]{
-		OutputState: i.ToResolverEndpointIpAddressRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResolverEndpointIpAddressRequestArrayInput is an input type that accepts ResolverEndpointIpAddressRequestArray and ResolverEndpointIpAddressRequestArrayOutput values.
 // You can construct a concrete instance of `ResolverEndpointIpAddressRequestArrayInput` via:
 //
@@ -794,12 +667,6 @@ func (i ResolverEndpointIpAddressRequestArray) ToResolverEndpointIpAddressReques
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointIpAddressRequestArrayOutput)
 }
 
-func (i ResolverEndpointIpAddressRequestArray) ToOutput(ctx context.Context) pulumix.Output[[]ResolverEndpointIpAddressRequest] {
-	return pulumix.Output[[]ResolverEndpointIpAddressRequest]{
-		OutputState: i.ToResolverEndpointIpAddressRequestArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResolverEndpointIpAddressRequestOutput struct{ *pulumi.OutputState }
 
 func (ResolverEndpointIpAddressRequestOutput) ElementType() reflect.Type {
@@ -812,12 +679,6 @@ func (o ResolverEndpointIpAddressRequestOutput) ToResolverEndpointIpAddressReque
 
 func (o ResolverEndpointIpAddressRequestOutput) ToResolverEndpointIpAddressRequestOutputWithContext(ctx context.Context) ResolverEndpointIpAddressRequestOutput {
 	return o
-}
-
-func (o ResolverEndpointIpAddressRequestOutput) ToOutput(ctx context.Context) pulumix.Output[ResolverEndpointIpAddressRequest] {
-	return pulumix.Output[ResolverEndpointIpAddressRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResolverEndpointIpAddressRequestOutput) Ip() pulumi.StringPtrOutput {
@@ -844,12 +705,6 @@ func (o ResolverEndpointIpAddressRequestArrayOutput) ToResolverEndpointIpAddress
 
 func (o ResolverEndpointIpAddressRequestArrayOutput) ToResolverEndpointIpAddressRequestArrayOutputWithContext(ctx context.Context) ResolverEndpointIpAddressRequestArrayOutput {
 	return o
-}
-
-func (o ResolverEndpointIpAddressRequestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResolverEndpointIpAddressRequest] {
-	return pulumix.Output[[]ResolverEndpointIpAddressRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResolverEndpointIpAddressRequestArrayOutput) Index(i pulumi.IntInput) ResolverEndpointIpAddressRequestOutput {
@@ -891,12 +746,6 @@ func (i ResolverEndpointTagArgs) ToResolverEndpointTagOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointTagOutput)
 }
 
-func (i ResolverEndpointTagArgs) ToOutput(ctx context.Context) pulumix.Output[ResolverEndpointTag] {
-	return pulumix.Output[ResolverEndpointTag]{
-		OutputState: i.ToResolverEndpointTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResolverEndpointTagArrayInput is an input type that accepts ResolverEndpointTagArray and ResolverEndpointTagArrayOutput values.
 // You can construct a concrete instance of `ResolverEndpointTagArrayInput` via:
 //
@@ -922,12 +771,6 @@ func (i ResolverEndpointTagArray) ToResolverEndpointTagArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverEndpointTagArrayOutput)
 }
 
-func (i ResolverEndpointTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ResolverEndpointTag] {
-	return pulumix.Output[[]ResolverEndpointTag]{
-		OutputState: i.ToResolverEndpointTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResolverEndpointTagOutput struct{ *pulumi.OutputState }
 
 func (ResolverEndpointTagOutput) ElementType() reflect.Type {
@@ -940,12 +783,6 @@ func (o ResolverEndpointTagOutput) ToResolverEndpointTagOutput() ResolverEndpoin
 
 func (o ResolverEndpointTagOutput) ToResolverEndpointTagOutputWithContext(ctx context.Context) ResolverEndpointTagOutput {
 	return o
-}
-
-func (o ResolverEndpointTagOutput) ToOutput(ctx context.Context) pulumix.Output[ResolverEndpointTag] {
-	return pulumix.Output[ResolverEndpointTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResolverEndpointTagOutput) Key() pulumi.StringOutput {
@@ -968,12 +805,6 @@ func (o ResolverEndpointTagArrayOutput) ToResolverEndpointTagArrayOutput() Resol
 
 func (o ResolverEndpointTagArrayOutput) ToResolverEndpointTagArrayOutputWithContext(ctx context.Context) ResolverEndpointTagArrayOutput {
 	return o
-}
-
-func (o ResolverEndpointTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResolverEndpointTag] {
-	return pulumix.Output[[]ResolverEndpointTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResolverEndpointTagArrayOutput) Index(i pulumi.IntInput) ResolverEndpointTagOutput {
@@ -1019,12 +850,6 @@ func (i ResolverRuleTagArgs) ToResolverRuleTagOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleTagOutput)
 }
 
-func (i ResolverRuleTagArgs) ToOutput(ctx context.Context) pulumix.Output[ResolverRuleTag] {
-	return pulumix.Output[ResolverRuleTag]{
-		OutputState: i.ToResolverRuleTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResolverRuleTagArrayInput is an input type that accepts ResolverRuleTagArray and ResolverRuleTagArrayOutput values.
 // You can construct a concrete instance of `ResolverRuleTagArrayInput` via:
 //
@@ -1050,12 +875,6 @@ func (i ResolverRuleTagArray) ToResolverRuleTagArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleTagArrayOutput)
 }
 
-func (i ResolverRuleTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ResolverRuleTag] {
-	return pulumix.Output[[]ResolverRuleTag]{
-		OutputState: i.ToResolverRuleTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResolverRuleTagOutput struct{ *pulumi.OutputState }
 
 func (ResolverRuleTagOutput) ElementType() reflect.Type {
@@ -1068,12 +887,6 @@ func (o ResolverRuleTagOutput) ToResolverRuleTagOutput() ResolverRuleTagOutput {
 
 func (o ResolverRuleTagOutput) ToResolverRuleTagOutputWithContext(ctx context.Context) ResolverRuleTagOutput {
 	return o
-}
-
-func (o ResolverRuleTagOutput) ToOutput(ctx context.Context) pulumix.Output[ResolverRuleTag] {
-	return pulumix.Output[ResolverRuleTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1098,12 +911,6 @@ func (o ResolverRuleTagArrayOutput) ToResolverRuleTagArrayOutput() ResolverRuleT
 
 func (o ResolverRuleTagArrayOutput) ToResolverRuleTagArrayOutputWithContext(ctx context.Context) ResolverRuleTagArrayOutput {
 	return o
-}
-
-func (o ResolverRuleTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResolverRuleTag] {
-	return pulumix.Output[[]ResolverRuleTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResolverRuleTagArrayOutput) Index(i pulumi.IntInput) ResolverRuleTagOutput {
@@ -1153,12 +960,6 @@ func (i ResolverRuleTargetAddressArgs) ToResolverRuleTargetAddressOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleTargetAddressOutput)
 }
 
-func (i ResolverRuleTargetAddressArgs) ToOutput(ctx context.Context) pulumix.Output[ResolverRuleTargetAddress] {
-	return pulumix.Output[ResolverRuleTargetAddress]{
-		OutputState: i.ToResolverRuleTargetAddressOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResolverRuleTargetAddressArrayInput is an input type that accepts ResolverRuleTargetAddressArray and ResolverRuleTargetAddressArrayOutput values.
 // You can construct a concrete instance of `ResolverRuleTargetAddressArrayInput` via:
 //
@@ -1184,12 +985,6 @@ func (i ResolverRuleTargetAddressArray) ToResolverRuleTargetAddressArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleTargetAddressArrayOutput)
 }
 
-func (i ResolverRuleTargetAddressArray) ToOutput(ctx context.Context) pulumix.Output[[]ResolverRuleTargetAddress] {
-	return pulumix.Output[[]ResolverRuleTargetAddress]{
-		OutputState: i.ToResolverRuleTargetAddressArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResolverRuleTargetAddressOutput struct{ *pulumi.OutputState }
 
 func (ResolverRuleTargetAddressOutput) ElementType() reflect.Type {
@@ -1202,12 +997,6 @@ func (o ResolverRuleTargetAddressOutput) ToResolverRuleTargetAddressOutput() Res
 
 func (o ResolverRuleTargetAddressOutput) ToResolverRuleTargetAddressOutputWithContext(ctx context.Context) ResolverRuleTargetAddressOutput {
 	return o
-}
-
-func (o ResolverRuleTargetAddressOutput) ToOutput(ctx context.Context) pulumix.Output[ResolverRuleTargetAddress] {
-	return pulumix.Output[ResolverRuleTargetAddress]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses.
@@ -1237,12 +1026,6 @@ func (o ResolverRuleTargetAddressArrayOutput) ToResolverRuleTargetAddressArrayOu
 
 func (o ResolverRuleTargetAddressArrayOutput) ToResolverRuleTargetAddressArrayOutputWithContext(ctx context.Context) ResolverRuleTargetAddressArrayOutput {
 	return o
-}
-
-func (o ResolverRuleTargetAddressArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResolverRuleTargetAddress] {
-	return pulumix.Output[[]ResolverRuleTargetAddress]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResolverRuleTargetAddressArrayOutput) Index(i pulumi.IntInput) ResolverRuleTargetAddressOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i ChannelGroupTagArgs) ToChannelGroupTagOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelGroupTagOutput)
 }
 
-func (i ChannelGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelGroupTag] {
-	return pulumix.Output[ChannelGroupTag]{
-		OutputState: i.ToChannelGroupTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelGroupTagArrayInput is an input type that accepts ChannelGroupTagArray and ChannelGroupTagArrayOutput values.
 // You can construct a concrete instance of `ChannelGroupTagArrayInput` via:
 //
@@ -78,12 +71,6 @@ func (i ChannelGroupTagArray) ToChannelGroupTagArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelGroupTagArrayOutput)
 }
 
-func (i ChannelGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelGroupTag] {
-	return pulumix.Output[[]ChannelGroupTag]{
-		OutputState: i.ToChannelGroupTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelGroupTagOutput struct{ *pulumi.OutputState }
 
 func (ChannelGroupTagOutput) ElementType() reflect.Type {
@@ -96,12 +83,6 @@ func (o ChannelGroupTagOutput) ToChannelGroupTagOutput() ChannelGroupTagOutput {
 
 func (o ChannelGroupTagOutput) ToChannelGroupTagOutputWithContext(ctx context.Context) ChannelGroupTagOutput {
 	return o
-}
-
-func (o ChannelGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelGroupTag] {
-	return pulumix.Output[ChannelGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelGroupTagOutput) Key() pulumi.StringPtrOutput {
@@ -124,12 +105,6 @@ func (o ChannelGroupTagArrayOutput) ToChannelGroupTagArrayOutput() ChannelGroupT
 
 func (o ChannelGroupTagArrayOutput) ToChannelGroupTagArrayOutputWithContext(ctx context.Context) ChannelGroupTagArrayOutput {
 	return o
-}
-
-func (o ChannelGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelGroupTag] {
-	return pulumix.Output[[]ChannelGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelGroupTagArrayOutput) Index(i pulumi.IntInput) ChannelGroupTagOutput {
@@ -157,12 +132,6 @@ func (o ChannelIngestEndpointOutput) ToChannelIngestEndpointOutputWithContext(ct
 	return o
 }
 
-func (o ChannelIngestEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelIngestEndpoint] {
-	return pulumix.Output[ChannelIngestEndpoint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelIngestEndpointOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelIngestEndpoint) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -183,12 +152,6 @@ func (o ChannelIngestEndpointArrayOutput) ToChannelIngestEndpointArrayOutput() C
 
 func (o ChannelIngestEndpointArrayOutput) ToChannelIngestEndpointArrayOutputWithContext(ctx context.Context) ChannelIngestEndpointArrayOutput {
 	return o
-}
-
-func (o ChannelIngestEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelIngestEndpoint] {
-	return pulumix.Output[[]ChannelIngestEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelIngestEndpointArrayOutput) Index(i pulumi.IntInput) ChannelIngestEndpointOutput {
@@ -230,12 +193,6 @@ func (i ChannelTagArgs) ToChannelTagOutputWithContext(ctx context.Context) Chann
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagOutput)
 }
 
-func (i ChannelTagArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelTag] {
-	return pulumix.Output[ChannelTag]{
-		OutputState: i.ToChannelTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelTagArrayInput is an input type that accepts ChannelTagArray and ChannelTagArrayOutput values.
 // You can construct a concrete instance of `ChannelTagArrayInput` via:
 //
@@ -261,12 +218,6 @@ func (i ChannelTagArray) ToChannelTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagArrayOutput)
 }
 
-func (i ChannelTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelTag] {
-	return pulumix.Output[[]ChannelTag]{
-		OutputState: i.ToChannelTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelTagOutput struct{ *pulumi.OutputState }
 
 func (ChannelTagOutput) ElementType() reflect.Type {
@@ -279,12 +230,6 @@ func (o ChannelTagOutput) ToChannelTagOutput() ChannelTagOutput {
 
 func (o ChannelTagOutput) ToChannelTagOutputWithContext(ctx context.Context) ChannelTagOutput {
 	return o
-}
-
-func (o ChannelTagOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelTag] {
-	return pulumix.Output[ChannelTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelTagOutput) Key() pulumi.StringPtrOutput {
@@ -307,12 +252,6 @@ func (o ChannelTagArrayOutput) ToChannelTagArrayOutput() ChannelTagArrayOutput {
 
 func (o ChannelTagArrayOutput) ToChannelTagArrayOutputWithContext(ctx context.Context) ChannelTagArrayOutput {
 	return o
-}
-
-func (o ChannelTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelTag] {
-	return pulumix.Output[[]ChannelTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelTagArrayOutput) Index(i pulumi.IntInput) ChannelTagOutput {
@@ -368,12 +307,6 @@ func (i OriginEndpointEncryptionArgs) ToOriginEndpointEncryptionOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointEncryptionOutput)
 }
 
-func (i OriginEndpointEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointEncryption] {
-	return pulumix.Output[OriginEndpointEncryption]{
-		OutputState: i.ToOriginEndpointEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OriginEndpointEncryptionArgs) ToOriginEndpointEncryptionPtrOutput() OriginEndpointEncryptionPtrOutput {
 	return i.ToOriginEndpointEncryptionPtrOutputWithContext(context.Background())
 }
@@ -415,12 +348,6 @@ func (i *originEndpointEncryptionPtrType) ToOriginEndpointEncryptionPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointEncryptionPtrOutput)
 }
 
-func (i *originEndpointEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointEncryption] {
-	return pulumix.Output[*OriginEndpointEncryption]{
-		OutputState: i.ToOriginEndpointEncryptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>The parameters for encrypting content.</p>
 type OriginEndpointEncryptionOutput struct{ *pulumi.OutputState }
 
@@ -444,12 +371,6 @@ func (o OriginEndpointEncryptionOutput) ToOriginEndpointEncryptionPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointEncryption) *OriginEndpointEncryption {
 		return &v
 	}).(OriginEndpointEncryptionPtrOutput)
-}
-
-func (o OriginEndpointEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointEncryption] {
-	return pulumix.Output[OriginEndpointEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>A 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting content. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).</p>
@@ -485,12 +406,6 @@ func (o OriginEndpointEncryptionPtrOutput) ToOriginEndpointEncryptionPtrOutput()
 
 func (o OriginEndpointEncryptionPtrOutput) ToOriginEndpointEncryptionPtrOutputWithContext(ctx context.Context) OriginEndpointEncryptionPtrOutput {
 	return o
-}
-
-func (o OriginEndpointEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointEncryption] {
-	return pulumix.Output[*OriginEndpointEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointEncryptionPtrOutput) Elem() OriginEndpointEncryptionOutput {
@@ -579,12 +494,6 @@ func (i OriginEndpointEncryptionContractConfigurationArgs) ToOriginEndpointEncry
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointEncryptionContractConfigurationOutput)
 }
 
-func (i OriginEndpointEncryptionContractConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointEncryptionContractConfiguration] {
-	return pulumix.Output[OriginEndpointEncryptionContractConfiguration]{
-		OutputState: i.ToOriginEndpointEncryptionContractConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OriginEndpointEncryptionContractConfigurationArgs) ToOriginEndpointEncryptionContractConfigurationPtrOutput() OriginEndpointEncryptionContractConfigurationPtrOutput {
 	return i.ToOriginEndpointEncryptionContractConfigurationPtrOutputWithContext(context.Background())
 }
@@ -626,12 +535,6 @@ func (i *originEndpointEncryptionContractConfigurationPtrType) ToOriginEndpointE
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointEncryptionContractConfigurationPtrOutput)
 }
 
-func (i *originEndpointEncryptionContractConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointEncryptionContractConfiguration] {
-	return pulumix.Output[*OriginEndpointEncryptionContractConfiguration]{
-		OutputState: i.ToOriginEndpointEncryptionContractConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>Configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.</p>
 type OriginEndpointEncryptionContractConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -655,12 +558,6 @@ func (o OriginEndpointEncryptionContractConfigurationOutput) ToOriginEndpointEnc
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointEncryptionContractConfiguration) *OriginEndpointEncryptionContractConfiguration {
 		return &v
 	}).(OriginEndpointEncryptionContractConfigurationPtrOutput)
-}
-
-func (o OriginEndpointEncryptionContractConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointEncryptionContractConfiguration] {
-	return pulumix.Output[OriginEndpointEncryptionContractConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointEncryptionContractConfigurationOutput) PresetSpeke20Audio() OriginEndpointPresetSpeke20AudioOutput {
@@ -687,12 +584,6 @@ func (o OriginEndpointEncryptionContractConfigurationPtrOutput) ToOriginEndpoint
 
 func (o OriginEndpointEncryptionContractConfigurationPtrOutput) ToOriginEndpointEncryptionContractConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointEncryptionContractConfigurationPtrOutput {
 	return o
-}
-
-func (o OriginEndpointEncryptionContractConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointEncryptionContractConfiguration] {
-	return pulumix.Output[*OriginEndpointEncryptionContractConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointEncryptionContractConfigurationPtrOutput) Elem() OriginEndpointEncryptionContractConfigurationOutput {
@@ -758,12 +649,6 @@ func (i OriginEndpointEncryptionMethodArgs) ToOriginEndpointEncryptionMethodOutp
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointEncryptionMethodOutput)
 }
 
-func (i OriginEndpointEncryptionMethodArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointEncryptionMethod] {
-	return pulumix.Output[OriginEndpointEncryptionMethod]{
-		OutputState: i.ToOriginEndpointEncryptionMethodOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OriginEndpointEncryptionMethodArgs) ToOriginEndpointEncryptionMethodPtrOutput() OriginEndpointEncryptionMethodPtrOutput {
 	return i.ToOriginEndpointEncryptionMethodPtrOutputWithContext(context.Background())
 }
@@ -805,12 +690,6 @@ func (i *originEndpointEncryptionMethodPtrType) ToOriginEndpointEncryptionMethod
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointEncryptionMethodPtrOutput)
 }
 
-func (i *originEndpointEncryptionMethodPtrType) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointEncryptionMethod] {
-	return pulumix.Output[*OriginEndpointEncryptionMethod]{
-		OutputState: i.ToOriginEndpointEncryptionMethodPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>The encryption type.</p>
 type OriginEndpointEncryptionMethodOutput struct{ *pulumi.OutputState }
 
@@ -836,12 +715,6 @@ func (o OriginEndpointEncryptionMethodOutput) ToOriginEndpointEncryptionMethodPt
 	}).(OriginEndpointEncryptionMethodPtrOutput)
 }
 
-func (o OriginEndpointEncryptionMethodOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointEncryptionMethod] {
-	return pulumix.Output[OriginEndpointEncryptionMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointEncryptionMethodOutput) CmafEncryptionMethod() OriginEndpointCmafEncryptionMethodPtrOutput {
 	return o.ApplyT(func(v OriginEndpointEncryptionMethod) *OriginEndpointCmafEncryptionMethod {
 		return v.CmafEncryptionMethod
@@ -864,12 +737,6 @@ func (o OriginEndpointEncryptionMethodPtrOutput) ToOriginEndpointEncryptionMetho
 
 func (o OriginEndpointEncryptionMethodPtrOutput) ToOriginEndpointEncryptionMethodPtrOutputWithContext(ctx context.Context) OriginEndpointEncryptionMethodPtrOutput {
 	return o
-}
-
-func (o OriginEndpointEncryptionMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointEncryptionMethod] {
-	return pulumix.Output[*OriginEndpointEncryptionMethod]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointEncryptionMethodPtrOutput) Elem() OriginEndpointEncryptionMethodOutput {
@@ -961,12 +828,6 @@ func (i OriginEndpointHlsManifestConfigurationArgs) ToOriginEndpointHlsManifestC
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointHlsManifestConfigurationOutput)
 }
 
-func (i OriginEndpointHlsManifestConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointHlsManifestConfiguration] {
-	return pulumix.Output[OriginEndpointHlsManifestConfiguration]{
-		OutputState: i.ToOriginEndpointHlsManifestConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OriginEndpointHlsManifestConfigurationArrayInput is an input type that accepts OriginEndpointHlsManifestConfigurationArray and OriginEndpointHlsManifestConfigurationArrayOutput values.
 // You can construct a concrete instance of `OriginEndpointHlsManifestConfigurationArrayInput` via:
 //
@@ -992,12 +853,6 @@ func (i OriginEndpointHlsManifestConfigurationArray) ToOriginEndpointHlsManifest
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointHlsManifestConfigurationArrayOutput)
 }
 
-func (i OriginEndpointHlsManifestConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointHlsManifestConfiguration] {
-	return pulumix.Output[[]OriginEndpointHlsManifestConfiguration]{
-		OutputState: i.ToOriginEndpointHlsManifestConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>Retrieve the HTTP live streaming (HLS) manifest configuration.</p>
 type OriginEndpointHlsManifestConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1011,12 +866,6 @@ func (o OriginEndpointHlsManifestConfigurationOutput) ToOriginEndpointHlsManifes
 
 func (o OriginEndpointHlsManifestConfigurationOutput) ToOriginEndpointHlsManifestConfigurationOutputWithContext(ctx context.Context) OriginEndpointHlsManifestConfigurationOutput {
 	return o
-}
-
-func (o OriginEndpointHlsManifestConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointHlsManifestConfiguration] {
-	return pulumix.Output[OriginEndpointHlsManifestConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
@@ -1065,12 +914,6 @@ func (o OriginEndpointHlsManifestConfigurationArrayOutput) ToOriginEndpointHlsMa
 
 func (o OriginEndpointHlsManifestConfigurationArrayOutput) ToOriginEndpointHlsManifestConfigurationArrayOutputWithContext(ctx context.Context) OriginEndpointHlsManifestConfigurationArrayOutput {
 	return o
-}
-
-func (o OriginEndpointHlsManifestConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointHlsManifestConfiguration] {
-	return pulumix.Output[[]OriginEndpointHlsManifestConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointHlsManifestConfigurationArrayOutput) Index(i pulumi.IntInput) OriginEndpointHlsManifestConfigurationOutput {
@@ -1140,12 +983,6 @@ func (i OriginEndpointLowLatencyHlsManifestConfigurationArgs) ToOriginEndpointLo
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointLowLatencyHlsManifestConfigurationOutput)
 }
 
-func (i OriginEndpointLowLatencyHlsManifestConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointLowLatencyHlsManifestConfiguration] {
-	return pulumix.Output[OriginEndpointLowLatencyHlsManifestConfiguration]{
-		OutputState: i.ToOriginEndpointLowLatencyHlsManifestConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OriginEndpointLowLatencyHlsManifestConfigurationArrayInput is an input type that accepts OriginEndpointLowLatencyHlsManifestConfigurationArray and OriginEndpointLowLatencyHlsManifestConfigurationArrayOutput values.
 // You can construct a concrete instance of `OriginEndpointLowLatencyHlsManifestConfigurationArrayInput` via:
 //
@@ -1171,12 +1008,6 @@ func (i OriginEndpointLowLatencyHlsManifestConfigurationArray) ToOriginEndpointL
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointLowLatencyHlsManifestConfigurationArrayOutput)
 }
 
-func (i OriginEndpointLowLatencyHlsManifestConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointLowLatencyHlsManifestConfiguration] {
-	return pulumix.Output[[]OriginEndpointLowLatencyHlsManifestConfiguration]{
-		OutputState: i.ToOriginEndpointLowLatencyHlsManifestConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>Retrieve the low-latency HTTP live streaming (HLS) manifest configuration.</p>
 type OriginEndpointLowLatencyHlsManifestConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1190,12 +1021,6 @@ func (o OriginEndpointLowLatencyHlsManifestConfigurationOutput) ToOriginEndpoint
 
 func (o OriginEndpointLowLatencyHlsManifestConfigurationOutput) ToOriginEndpointLowLatencyHlsManifestConfigurationOutputWithContext(ctx context.Context) OriginEndpointLowLatencyHlsManifestConfigurationOutput {
 	return o
-}
-
-func (o OriginEndpointLowLatencyHlsManifestConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointLowLatencyHlsManifestConfiguration] {
-	return pulumix.Output[OriginEndpointLowLatencyHlsManifestConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
@@ -1246,12 +1071,6 @@ func (o OriginEndpointLowLatencyHlsManifestConfigurationArrayOutput) ToOriginEnd
 	return o
 }
 
-func (o OriginEndpointLowLatencyHlsManifestConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointLowLatencyHlsManifestConfiguration] {
-	return pulumix.Output[[]OriginEndpointLowLatencyHlsManifestConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointLowLatencyHlsManifestConfigurationArrayOutput) Index(i pulumi.IntInput) OriginEndpointLowLatencyHlsManifestConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OriginEndpointLowLatencyHlsManifestConfiguration {
 		return vs[0].([]OriginEndpointLowLatencyHlsManifestConfiguration)[vs[1].(int)]
@@ -1291,12 +1110,6 @@ func (i OriginEndpointScteArgs) ToOriginEndpointScteOutput() OriginEndpointScteO
 
 func (i OriginEndpointScteArgs) ToOriginEndpointScteOutputWithContext(ctx context.Context) OriginEndpointScteOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointScteOutput)
-}
-
-func (i OriginEndpointScteArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointScte] {
-	return pulumix.Output[OriginEndpointScte]{
-		OutputState: i.ToOriginEndpointScteOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i OriginEndpointScteArgs) ToOriginEndpointSctePtrOutput() OriginEndpointSctePtrOutput {
@@ -1340,12 +1153,6 @@ func (i *originEndpointSctePtrType) ToOriginEndpointSctePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointSctePtrOutput)
 }
 
-func (i *originEndpointSctePtrType) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointScte] {
-	return pulumix.Output[*OriginEndpointScte]{
-		OutputState: i.ToOriginEndpointSctePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>The SCTE configuration.</p>
 type OriginEndpointScteOutput struct{ *pulumi.OutputState }
 
@@ -1371,12 +1178,6 @@ func (o OriginEndpointScteOutput) ToOriginEndpointSctePtrOutputWithContext(ctx c
 	}).(OriginEndpointSctePtrOutput)
 }
 
-func (o OriginEndpointScteOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointScte] {
-	return pulumix.Output[OriginEndpointScte]{
-		OutputState: o.OutputState,
-	}
-}
-
 // <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
 func (o OriginEndpointScteOutput) ScteFilter() OriginEndpointScteFilterArrayOutput {
 	return o.ApplyT(func(v OriginEndpointScte) []OriginEndpointScteFilter { return v.ScteFilter }).(OriginEndpointScteFilterArrayOutput)
@@ -1394,12 +1195,6 @@ func (o OriginEndpointSctePtrOutput) ToOriginEndpointSctePtrOutput() OriginEndpo
 
 func (o OriginEndpointSctePtrOutput) ToOriginEndpointSctePtrOutputWithContext(ctx context.Context) OriginEndpointSctePtrOutput {
 	return o
-}
-
-func (o OriginEndpointSctePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointScte] {
-	return pulumix.Output[*OriginEndpointScte]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointSctePtrOutput) Elem() OriginEndpointScteOutput {
@@ -1455,12 +1250,6 @@ func (i OriginEndpointScteHlsArgs) ToOriginEndpointScteHlsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointScteHlsOutput)
 }
 
-func (i OriginEndpointScteHlsArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointScteHls] {
-	return pulumix.Output[OriginEndpointScteHls]{
-		OutputState: i.ToOriginEndpointScteHlsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OriginEndpointScteHlsArgs) ToOriginEndpointScteHlsPtrOutput() OriginEndpointScteHlsPtrOutput {
 	return i.ToOriginEndpointScteHlsPtrOutputWithContext(context.Background())
 }
@@ -1502,12 +1291,6 @@ func (i *originEndpointScteHlsPtrType) ToOriginEndpointScteHlsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointScteHlsPtrOutput)
 }
 
-func (i *originEndpointScteHlsPtrType) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointScteHls] {
-	return pulumix.Output[*OriginEndpointScteHls]{
-		OutputState: i.ToOriginEndpointScteHlsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>The SCTE configuration.</p>
 type OriginEndpointScteHlsOutput struct{ *pulumi.OutputState }
 
@@ -1533,12 +1316,6 @@ func (o OriginEndpointScteHlsOutput) ToOriginEndpointScteHlsPtrOutputWithContext
 	}).(OriginEndpointScteHlsPtrOutput)
 }
 
-func (o OriginEndpointScteHlsOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointScteHls] {
-	return pulumix.Output[OriginEndpointScteHls]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointScteHlsOutput) AdMarkerHls() OriginEndpointAdMarkerHlsPtrOutput {
 	return o.ApplyT(func(v OriginEndpointScteHls) *OriginEndpointAdMarkerHls { return v.AdMarkerHls }).(OriginEndpointAdMarkerHlsPtrOutput)
 }
@@ -1555,12 +1332,6 @@ func (o OriginEndpointScteHlsPtrOutput) ToOriginEndpointScteHlsPtrOutput() Origi
 
 func (o OriginEndpointScteHlsPtrOutput) ToOriginEndpointScteHlsPtrOutputWithContext(ctx context.Context) OriginEndpointScteHlsPtrOutput {
 	return o
-}
-
-func (o OriginEndpointScteHlsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointScteHls] {
-	return pulumix.Output[*OriginEndpointScteHls]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointScteHlsPtrOutput) Elem() OriginEndpointScteHlsOutput {
@@ -1637,12 +1408,6 @@ func (i OriginEndpointSegmentArgs) ToOriginEndpointSegmentOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointSegmentOutput)
 }
 
-func (i OriginEndpointSegmentArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointSegment] {
-	return pulumix.Output[OriginEndpointSegment]{
-		OutputState: i.ToOriginEndpointSegmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OriginEndpointSegmentArgs) ToOriginEndpointSegmentPtrOutput() OriginEndpointSegmentPtrOutput {
 	return i.ToOriginEndpointSegmentPtrOutputWithContext(context.Background())
 }
@@ -1684,12 +1449,6 @@ func (i *originEndpointSegmentPtrType) ToOriginEndpointSegmentPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointSegmentPtrOutput)
 }
 
-func (i *originEndpointSegmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointSegment] {
-	return pulumix.Output[*OriginEndpointSegment]{
-		OutputState: i.ToOriginEndpointSegmentPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>The segment configuration, including the segment name, duration, and other configuration values.</p>
 type OriginEndpointSegmentOutput struct{ *pulumi.OutputState }
 
@@ -1713,12 +1472,6 @@ func (o OriginEndpointSegmentOutput) ToOriginEndpointSegmentPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointSegment) *OriginEndpointSegment {
 		return &v
 	}).(OriginEndpointSegmentPtrOutput)
-}
-
-func (o OriginEndpointSegmentOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointSegment] {
-	return pulumix.Output[OriginEndpointSegment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointSegmentOutput) Encryption() OriginEndpointEncryptionPtrOutput {
@@ -1766,12 +1519,6 @@ func (o OriginEndpointSegmentPtrOutput) ToOriginEndpointSegmentPtrOutput() Origi
 
 func (o OriginEndpointSegmentPtrOutput) ToOriginEndpointSegmentPtrOutputWithContext(ctx context.Context) OriginEndpointSegmentPtrOutput {
 	return o
-}
-
-func (o OriginEndpointSegmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointSegment] {
-	return pulumix.Output[*OriginEndpointSegment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointSegmentPtrOutput) Elem() OriginEndpointSegmentOutput {
@@ -1913,12 +1660,6 @@ func (i OriginEndpointSpekeKeyProviderArgs) ToOriginEndpointSpekeKeyProviderOutp
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointSpekeKeyProviderOutput)
 }
 
-func (i OriginEndpointSpekeKeyProviderArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointSpekeKeyProvider] {
-	return pulumix.Output[OriginEndpointSpekeKeyProvider]{
-		OutputState: i.ToOriginEndpointSpekeKeyProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OriginEndpointSpekeKeyProviderArgs) ToOriginEndpointSpekeKeyProviderPtrOutput() OriginEndpointSpekeKeyProviderPtrOutput {
 	return i.ToOriginEndpointSpekeKeyProviderPtrOutputWithContext(context.Background())
 }
@@ -1960,12 +1701,6 @@ func (i *originEndpointSpekeKeyProviderPtrType) ToOriginEndpointSpekeKeyProvider
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointSpekeKeyProviderPtrOutput)
 }
 
-func (i *originEndpointSpekeKeyProviderPtrType) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointSpekeKeyProvider] {
-	return pulumix.Output[*OriginEndpointSpekeKeyProvider]{
-		OutputState: i.ToOriginEndpointSpekeKeyProviderPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>The parameters for the SPEKE key provider.</p>
 type OriginEndpointSpekeKeyProviderOutput struct{ *pulumi.OutputState }
 
@@ -1989,12 +1724,6 @@ func (o OriginEndpointSpekeKeyProviderOutput) ToOriginEndpointSpekeKeyProviderPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointSpekeKeyProvider) *OriginEndpointSpekeKeyProvider {
 		return &v
 	}).(OriginEndpointSpekeKeyProviderPtrOutput)
-}
-
-func (o OriginEndpointSpekeKeyProviderOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointSpekeKeyProvider] {
-	return pulumix.Output[OriginEndpointSpekeKeyProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>The DRM solution provider you're using to protect your content during distribution.</p>
@@ -2044,12 +1773,6 @@ func (o OriginEndpointSpekeKeyProviderPtrOutput) ToOriginEndpointSpekeKeyProvide
 
 func (o OriginEndpointSpekeKeyProviderPtrOutput) ToOriginEndpointSpekeKeyProviderPtrOutputWithContext(ctx context.Context) OriginEndpointSpekeKeyProviderPtrOutput {
 	return o
-}
-
-func (o OriginEndpointSpekeKeyProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointSpekeKeyProvider] {
-	return pulumix.Output[*OriginEndpointSpekeKeyProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointSpekeKeyProviderPtrOutput) Elem() OriginEndpointSpekeKeyProviderOutput {
@@ -2153,12 +1876,6 @@ func (i OriginEndpointTagArgs) ToOriginEndpointTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointTagOutput)
 }
 
-func (i OriginEndpointTagArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointTag] {
-	return pulumix.Output[OriginEndpointTag]{
-		OutputState: i.ToOriginEndpointTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OriginEndpointTagArrayInput is an input type that accepts OriginEndpointTagArray and OriginEndpointTagArrayOutput values.
 // You can construct a concrete instance of `OriginEndpointTagArrayInput` via:
 //
@@ -2184,12 +1901,6 @@ func (i OriginEndpointTagArray) ToOriginEndpointTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointTagArrayOutput)
 }
 
-func (i OriginEndpointTagArray) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointTag] {
-	return pulumix.Output[[]OriginEndpointTag]{
-		OutputState: i.ToOriginEndpointTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OriginEndpointTagOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointTagOutput) ElementType() reflect.Type {
@@ -2202,12 +1913,6 @@ func (o OriginEndpointTagOutput) ToOriginEndpointTagOutput() OriginEndpointTagOu
 
 func (o OriginEndpointTagOutput) ToOriginEndpointTagOutputWithContext(ctx context.Context) OriginEndpointTagOutput {
 	return o
-}
-
-func (o OriginEndpointTagOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointTag] {
-	return pulumix.Output[OriginEndpointTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointTagOutput) Key() pulumi.StringPtrOutput {
@@ -2230,12 +1935,6 @@ func (o OriginEndpointTagArrayOutput) ToOriginEndpointTagArrayOutput() OriginEnd
 
 func (o OriginEndpointTagArrayOutput) ToOriginEndpointTagArrayOutputWithContext(ctx context.Context) OriginEndpointTagArrayOutput {
 	return o
-}
-
-func (o OriginEndpointTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointTag] {
-	return pulumix.Output[[]OriginEndpointTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointTagArrayOutput) Index(i pulumi.IntInput) OriginEndpointTagOutput {

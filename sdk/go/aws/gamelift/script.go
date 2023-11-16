@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::GameLift::Script
@@ -106,12 +105,6 @@ func (i *Script) ToScriptOutputWithContext(ctx context.Context) ScriptOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScriptOutput)
 }
 
-func (i *Script) ToOutput(ctx context.Context) pulumix.Output[*Script] {
-	return pulumix.Output[*Script]{
-		OutputState: i.ToScriptOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScriptOutput struct{ *pulumi.OutputState }
 
 func (ScriptOutput) ElementType() reflect.Type {
@@ -124,12 +117,6 @@ func (o ScriptOutput) ToScriptOutput() ScriptOutput {
 
 func (o ScriptOutput) ToScriptOutputWithContext(ctx context.Context) ScriptOutput {
 	return o
-}
-
-func (o ScriptOutput) ToOutput(ctx context.Context) pulumix.Output[*Script] {
-	return pulumix.Output[*Script]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScriptOutput) Arn() pulumi.StringOutput {

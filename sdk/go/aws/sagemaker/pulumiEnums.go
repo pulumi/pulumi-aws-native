@@ -137,12 +137,6 @@ func (o AppResourceSpecInstanceTypeOutput) ToAppResourceSpecInstanceTypePtrOutpu
 	}).(AppResourceSpecInstanceTypePtrOutput)
 }
 
-func (o AppResourceSpecInstanceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AppResourceSpecInstanceType] {
-	return pulumix.Output[AppResourceSpecInstanceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AppResourceSpecInstanceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -176,12 +170,6 @@ func (o AppResourceSpecInstanceTypePtrOutput) ToAppResourceSpecInstanceTypePtrOu
 
 func (o AppResourceSpecInstanceTypePtrOutput) ToAppResourceSpecInstanceTypePtrOutputWithContext(ctx context.Context) AppResourceSpecInstanceTypePtrOutput {
 	return o
-}
-
-func (o AppResourceSpecInstanceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppResourceSpecInstanceType] {
-	return pulumix.Output[*AppResourceSpecInstanceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppResourceSpecInstanceTypePtrOutput) Elem() AppResourceSpecInstanceTypeOutput {
@@ -323,12 +311,6 @@ func (o AppTypeOutput) ToAppTypePtrOutputWithContext(ctx context.Context) AppTyp
 	}).(AppTypePtrOutput)
 }
 
-func (o AppTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AppType] {
-	return pulumix.Output[AppType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AppTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -362,12 +344,6 @@ func (o AppTypePtrOutput) ToAppTypePtrOutput() AppTypePtrOutput {
 
 func (o AppTypePtrOutput) ToAppTypePtrOutputWithContext(ctx context.Context) AppTypePtrOutput {
 	return o
-}
-
-func (o AppTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppType] {
-	return pulumix.Output[*AppType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppTypePtrOutput) Elem() AppTypeOutput {
@@ -506,12 +482,6 @@ func (o DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput)
 	}).(DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
 }
 
-func (o DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataQualityJobDefinitionBatchTransformInputS3DataDistributionType] {
-	return pulumix.Output[DataQualityJobDefinitionBatchTransformInputS3DataDistributionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -545,12 +515,6 @@ func (o DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutp
 
 func (o DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToDataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
 	return o
-}
-
-func (o DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataQualityJobDefinitionBatchTransformInputS3DataDistributionType] {
-	return pulumix.Output[*DataQualityJobDefinitionBatchTransformInputS3DataDistributionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) Elem() DataQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
@@ -689,12 +653,6 @@ func (o DataQualityJobDefinitionBatchTransformInputS3InputModeOutput) ToDataQual
 	}).(DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput)
 }
 
-func (o DataQualityJobDefinitionBatchTransformInputS3InputModeOutput) ToOutput(ctx context.Context) pulumix.Output[DataQualityJobDefinitionBatchTransformInputS3InputMode] {
-	return pulumix.Output[DataQualityJobDefinitionBatchTransformInputS3InputMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataQualityJobDefinitionBatchTransformInputS3InputModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -728,12 +686,6 @@ func (o DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput) ToDataQ
 
 func (o DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput) ToDataQualityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput {
 	return o
-}
-
-func (o DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataQualityJobDefinitionBatchTransformInputS3InputMode] {
-	return pulumix.Output[*DataQualityJobDefinitionBatchTransformInputS3InputMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataQualityJobDefinitionBatchTransformInputS3InputModePtrOutput) Elem() DataQualityJobDefinitionBatchTransformInputS3InputModeOutput {
@@ -872,12 +824,6 @@ func (o DataQualityJobDefinitionEndpointInputS3DataDistributionTypeOutput) ToDat
 	}).(DataQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput)
 }
 
-func (o DataQualityJobDefinitionEndpointInputS3DataDistributionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataQualityJobDefinitionEndpointInputS3DataDistributionType] {
-	return pulumix.Output[DataQualityJobDefinitionEndpointInputS3DataDistributionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataQualityJobDefinitionEndpointInputS3DataDistributionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -911,12 +857,6 @@ func (o DataQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput) To
 
 func (o DataQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput) ToDataQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput {
 	return o
-}
-
-func (o DataQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataQualityJobDefinitionEndpointInputS3DataDistributionType] {
-	return pulumix.Output[*DataQualityJobDefinitionEndpointInputS3DataDistributionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput) Elem() DataQualityJobDefinitionEndpointInputS3DataDistributionTypeOutput {
@@ -1055,12 +995,6 @@ func (o DataQualityJobDefinitionEndpointInputS3InputModeOutput) ToDataQualityJob
 	}).(DataQualityJobDefinitionEndpointInputS3InputModePtrOutput)
 }
 
-func (o DataQualityJobDefinitionEndpointInputS3InputModeOutput) ToOutput(ctx context.Context) pulumix.Output[DataQualityJobDefinitionEndpointInputS3InputMode] {
-	return pulumix.Output[DataQualityJobDefinitionEndpointInputS3InputMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataQualityJobDefinitionEndpointInputS3InputModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1094,12 +1028,6 @@ func (o DataQualityJobDefinitionEndpointInputS3InputModePtrOutput) ToDataQuality
 
 func (o DataQualityJobDefinitionEndpointInputS3InputModePtrOutput) ToDataQualityJobDefinitionEndpointInputS3InputModePtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionEndpointInputS3InputModePtrOutput {
 	return o
-}
-
-func (o DataQualityJobDefinitionEndpointInputS3InputModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataQualityJobDefinitionEndpointInputS3InputMode] {
-	return pulumix.Output[*DataQualityJobDefinitionEndpointInputS3InputMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataQualityJobDefinitionEndpointInputS3InputModePtrOutput) Elem() DataQualityJobDefinitionEndpointInputS3InputModeOutput {
@@ -1238,12 +1166,6 @@ func (o DataQualityJobDefinitionS3OutputS3UploadModeOutput) ToDataQualityJobDefi
 	}).(DataQualityJobDefinitionS3OutputS3UploadModePtrOutput)
 }
 
-func (o DataQualityJobDefinitionS3OutputS3UploadModeOutput) ToOutput(ctx context.Context) pulumix.Output[DataQualityJobDefinitionS3OutputS3UploadMode] {
-	return pulumix.Output[DataQualityJobDefinitionS3OutputS3UploadMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataQualityJobDefinitionS3OutputS3UploadModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1277,12 +1199,6 @@ func (o DataQualityJobDefinitionS3OutputS3UploadModePtrOutput) ToDataQualityJobD
 
 func (o DataQualityJobDefinitionS3OutputS3UploadModePtrOutput) ToDataQualityJobDefinitionS3OutputS3UploadModePtrOutputWithContext(ctx context.Context) DataQualityJobDefinitionS3OutputS3UploadModePtrOutput {
 	return o
-}
-
-func (o DataQualityJobDefinitionS3OutputS3UploadModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataQualityJobDefinitionS3OutputS3UploadMode] {
-	return pulumix.Output[*DataQualityJobDefinitionS3OutputS3UploadMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataQualityJobDefinitionS3OutputS3UploadModePtrOutput) Elem() DataQualityJobDefinitionS3OutputS3UploadModeOutput {
@@ -1421,12 +1337,6 @@ func (o DomainAppNetworkAccessTypeOutput) ToDomainAppNetworkAccessTypePtrOutputW
 	}).(DomainAppNetworkAccessTypePtrOutput)
 }
 
-func (o DomainAppNetworkAccessTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DomainAppNetworkAccessType] {
-	return pulumix.Output[DomainAppNetworkAccessType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainAppNetworkAccessTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1460,12 +1370,6 @@ func (o DomainAppNetworkAccessTypePtrOutput) ToDomainAppNetworkAccessTypePtrOutp
 
 func (o DomainAppNetworkAccessTypePtrOutput) ToDomainAppNetworkAccessTypePtrOutputWithContext(ctx context.Context) DomainAppNetworkAccessTypePtrOutput {
 	return o
-}
-
-func (o DomainAppNetworkAccessTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainAppNetworkAccessType] {
-	return pulumix.Output[*DomainAppNetworkAccessType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainAppNetworkAccessTypePtrOutput) Elem() DomainAppNetworkAccessTypeOutput {
@@ -1604,12 +1508,6 @@ func (o DomainAppSecurityGroupManagementOutput) ToDomainAppSecurityGroupManageme
 	}).(DomainAppSecurityGroupManagementPtrOutput)
 }
 
-func (o DomainAppSecurityGroupManagementOutput) ToOutput(ctx context.Context) pulumix.Output[DomainAppSecurityGroupManagement] {
-	return pulumix.Output[DomainAppSecurityGroupManagement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainAppSecurityGroupManagementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1643,12 +1541,6 @@ func (o DomainAppSecurityGroupManagementPtrOutput) ToDomainAppSecurityGroupManag
 
 func (o DomainAppSecurityGroupManagementPtrOutput) ToDomainAppSecurityGroupManagementPtrOutputWithContext(ctx context.Context) DomainAppSecurityGroupManagementPtrOutput {
 	return o
-}
-
-func (o DomainAppSecurityGroupManagementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainAppSecurityGroupManagement] {
-	return pulumix.Output[*DomainAppSecurityGroupManagement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainAppSecurityGroupManagementPtrOutput) Elem() DomainAppSecurityGroupManagementOutput {
@@ -1787,12 +1679,6 @@ func (o DomainAuthModeOutput) ToDomainAuthModePtrOutputWithContext(ctx context.C
 	}).(DomainAuthModePtrOutput)
 }
 
-func (o DomainAuthModeOutput) ToOutput(ctx context.Context) pulumix.Output[DomainAuthMode] {
-	return pulumix.Output[DomainAuthMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainAuthModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1826,12 +1712,6 @@ func (o DomainAuthModePtrOutput) ToDomainAuthModePtrOutput() DomainAuthModePtrOu
 
 func (o DomainAuthModePtrOutput) ToDomainAuthModePtrOutputWithContext(ctx context.Context) DomainAuthModePtrOutput {
 	return o
-}
-
-func (o DomainAuthModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainAuthMode] {
-	return pulumix.Output[*DomainAuthMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainAuthModePtrOutput) Elem() DomainAuthModeOutput {
@@ -1970,12 +1850,6 @@ func (o DomainRStudioServerProAppSettingsAccessStatusOutput) ToDomainRStudioServ
 	}).(DomainRStudioServerProAppSettingsAccessStatusPtrOutput)
 }
 
-func (o DomainRStudioServerProAppSettingsAccessStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DomainRStudioServerProAppSettingsAccessStatus] {
-	return pulumix.Output[DomainRStudioServerProAppSettingsAccessStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainRStudioServerProAppSettingsAccessStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2009,12 +1883,6 @@ func (o DomainRStudioServerProAppSettingsAccessStatusPtrOutput) ToDomainRStudioS
 
 func (o DomainRStudioServerProAppSettingsAccessStatusPtrOutput) ToDomainRStudioServerProAppSettingsAccessStatusPtrOutputWithContext(ctx context.Context) DomainRStudioServerProAppSettingsAccessStatusPtrOutput {
 	return o
-}
-
-func (o DomainRStudioServerProAppSettingsAccessStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainRStudioServerProAppSettingsAccessStatus] {
-	return pulumix.Output[*DomainRStudioServerProAppSettingsAccessStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainRStudioServerProAppSettingsAccessStatusPtrOutput) Elem() DomainRStudioServerProAppSettingsAccessStatusOutput {
@@ -2153,12 +2021,6 @@ func (o DomainRStudioServerProAppSettingsUserGroupOutput) ToDomainRStudioServerP
 	}).(DomainRStudioServerProAppSettingsUserGroupPtrOutput)
 }
 
-func (o DomainRStudioServerProAppSettingsUserGroupOutput) ToOutput(ctx context.Context) pulumix.Output[DomainRStudioServerProAppSettingsUserGroup] {
-	return pulumix.Output[DomainRStudioServerProAppSettingsUserGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainRStudioServerProAppSettingsUserGroupOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2192,12 +2054,6 @@ func (o DomainRStudioServerProAppSettingsUserGroupPtrOutput) ToDomainRStudioServ
 
 func (o DomainRStudioServerProAppSettingsUserGroupPtrOutput) ToDomainRStudioServerProAppSettingsUserGroupPtrOutputWithContext(ctx context.Context) DomainRStudioServerProAppSettingsUserGroupPtrOutput {
 	return o
-}
-
-func (o DomainRStudioServerProAppSettingsUserGroupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainRStudioServerProAppSettingsUserGroup] {
-	return pulumix.Output[*DomainRStudioServerProAppSettingsUserGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainRStudioServerProAppSettingsUserGroupPtrOutput) Elem() DomainRStudioServerProAppSettingsUserGroupOutput {
@@ -2394,12 +2250,6 @@ func (o DomainResourceSpecInstanceTypeOutput) ToDomainResourceSpecInstanceTypePt
 	}).(DomainResourceSpecInstanceTypePtrOutput)
 }
 
-func (o DomainResourceSpecInstanceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DomainResourceSpecInstanceType] {
-	return pulumix.Output[DomainResourceSpecInstanceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainResourceSpecInstanceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2433,12 +2283,6 @@ func (o DomainResourceSpecInstanceTypePtrOutput) ToDomainResourceSpecInstanceTyp
 
 func (o DomainResourceSpecInstanceTypePtrOutput) ToDomainResourceSpecInstanceTypePtrOutputWithContext(ctx context.Context) DomainResourceSpecInstanceTypePtrOutput {
 	return o
-}
-
-func (o DomainResourceSpecInstanceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainResourceSpecInstanceType] {
-	return pulumix.Output[*DomainResourceSpecInstanceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainResourceSpecInstanceTypePtrOutput) Elem() DomainResourceSpecInstanceTypeOutput {
@@ -2577,12 +2421,6 @@ func (o DomainSharingSettingsNotebookOutputOptionOutput) ToDomainSharingSettings
 	}).(DomainSharingSettingsNotebookOutputOptionPtrOutput)
 }
 
-func (o DomainSharingSettingsNotebookOutputOptionOutput) ToOutput(ctx context.Context) pulumix.Output[DomainSharingSettingsNotebookOutputOption] {
-	return pulumix.Output[DomainSharingSettingsNotebookOutputOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainSharingSettingsNotebookOutputOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2616,12 +2454,6 @@ func (o DomainSharingSettingsNotebookOutputOptionPtrOutput) ToDomainSharingSetti
 
 func (o DomainSharingSettingsNotebookOutputOptionPtrOutput) ToDomainSharingSettingsNotebookOutputOptionPtrOutputWithContext(ctx context.Context) DomainSharingSettingsNotebookOutputOptionPtrOutput {
 	return o
-}
-
-func (o DomainSharingSettingsNotebookOutputOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainSharingSettingsNotebookOutputOption] {
-	return pulumix.Output[*DomainSharingSettingsNotebookOutputOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainSharingSettingsNotebookOutputOptionPtrOutput) Elem() DomainSharingSettingsNotebookOutputOptionOutput {
@@ -2760,12 +2592,6 @@ func (o FeatureGroupFeatureDefinitionFeatureTypeOutput) ToFeatureGroupFeatureDef
 	}).(FeatureGroupFeatureDefinitionFeatureTypePtrOutput)
 }
 
-func (o FeatureGroupFeatureDefinitionFeatureTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FeatureGroupFeatureDefinitionFeatureType] {
-	return pulumix.Output[FeatureGroupFeatureDefinitionFeatureType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FeatureGroupFeatureDefinitionFeatureTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2799,12 +2625,6 @@ func (o FeatureGroupFeatureDefinitionFeatureTypePtrOutput) ToFeatureGroupFeature
 
 func (o FeatureGroupFeatureDefinitionFeatureTypePtrOutput) ToFeatureGroupFeatureDefinitionFeatureTypePtrOutputWithContext(ctx context.Context) FeatureGroupFeatureDefinitionFeatureTypePtrOutput {
 	return o
-}
-
-func (o FeatureGroupFeatureDefinitionFeatureTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FeatureGroupFeatureDefinitionFeatureType] {
-	return pulumix.Output[*FeatureGroupFeatureDefinitionFeatureType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FeatureGroupFeatureDefinitionFeatureTypePtrOutput) Elem() FeatureGroupFeatureDefinitionFeatureTypeOutput {
@@ -2943,12 +2763,6 @@ func (o FeatureGroupTableFormatOutput) ToFeatureGroupTableFormatPtrOutputWithCon
 	}).(FeatureGroupTableFormatPtrOutput)
 }
 
-func (o FeatureGroupTableFormatOutput) ToOutput(ctx context.Context) pulumix.Output[FeatureGroupTableFormat] {
-	return pulumix.Output[FeatureGroupTableFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FeatureGroupTableFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2982,12 +2796,6 @@ func (o FeatureGroupTableFormatPtrOutput) ToFeatureGroupTableFormatPtrOutput() F
 
 func (o FeatureGroupTableFormatPtrOutput) ToFeatureGroupTableFormatPtrOutputWithContext(ctx context.Context) FeatureGroupTableFormatPtrOutput {
 	return o
-}
-
-func (o FeatureGroupTableFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FeatureGroupTableFormat] {
-	return pulumix.Output[*FeatureGroupTableFormat]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FeatureGroupTableFormatPtrOutput) Elem() FeatureGroupTableFormatOutput {
@@ -3127,12 +2935,6 @@ func (o ImageVersionJobTypeOutput) ToImageVersionJobTypePtrOutputWithContext(ctx
 	}).(ImageVersionJobTypePtrOutput)
 }
 
-func (o ImageVersionJobTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ImageVersionJobType] {
-	return pulumix.Output[ImageVersionJobType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ImageVersionJobTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3166,12 +2968,6 @@ func (o ImageVersionJobTypePtrOutput) ToImageVersionJobTypePtrOutput() ImageVers
 
 func (o ImageVersionJobTypePtrOutput) ToImageVersionJobTypePtrOutputWithContext(ctx context.Context) ImageVersionJobTypePtrOutput {
 	return o
-}
-
-func (o ImageVersionJobTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageVersionJobType] {
-	return pulumix.Output[*ImageVersionJobType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ImageVersionJobTypePtrOutput) Elem() ImageVersionJobTypeOutput {
@@ -3310,12 +3106,6 @@ func (o ImageVersionProcessorOutput) ToImageVersionProcessorPtrOutputWithContext
 	}).(ImageVersionProcessorPtrOutput)
 }
 
-func (o ImageVersionProcessorOutput) ToOutput(ctx context.Context) pulumix.Output[ImageVersionProcessor] {
-	return pulumix.Output[ImageVersionProcessor]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ImageVersionProcessorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3349,12 +3139,6 @@ func (o ImageVersionProcessorPtrOutput) ToImageVersionProcessorPtrOutput() Image
 
 func (o ImageVersionProcessorPtrOutput) ToImageVersionProcessorPtrOutputWithContext(ctx context.Context) ImageVersionProcessorPtrOutput {
 	return o
-}
-
-func (o ImageVersionProcessorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageVersionProcessor] {
-	return pulumix.Output[*ImageVersionProcessor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ImageVersionProcessorPtrOutput) Elem() ImageVersionProcessorOutput {
@@ -3495,12 +3279,6 @@ func (o ImageVersionVendorGuidanceOutput) ToImageVersionVendorGuidancePtrOutputW
 	}).(ImageVersionVendorGuidancePtrOutput)
 }
 
-func (o ImageVersionVendorGuidanceOutput) ToOutput(ctx context.Context) pulumix.Output[ImageVersionVendorGuidance] {
-	return pulumix.Output[ImageVersionVendorGuidance]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ImageVersionVendorGuidanceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3534,12 +3312,6 @@ func (o ImageVersionVendorGuidancePtrOutput) ToImageVersionVendorGuidancePtrOutp
 
 func (o ImageVersionVendorGuidancePtrOutput) ToImageVersionVendorGuidancePtrOutputWithContext(ctx context.Context) ImageVersionVendorGuidancePtrOutput {
 	return o
-}
-
-func (o ImageVersionVendorGuidancePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageVersionVendorGuidance] {
-	return pulumix.Output[*ImageVersionVendorGuidance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ImageVersionVendorGuidancePtrOutput) Elem() ImageVersionVendorGuidanceOutput {
@@ -3679,12 +3451,6 @@ func (o InferenceExperimentDesiredStateOutput) ToInferenceExperimentDesiredState
 	}).(InferenceExperimentDesiredStatePtrOutput)
 }
 
-func (o InferenceExperimentDesiredStateOutput) ToOutput(ctx context.Context) pulumix.Output[InferenceExperimentDesiredState] {
-	return pulumix.Output[InferenceExperimentDesiredState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InferenceExperimentDesiredStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3718,12 +3484,6 @@ func (o InferenceExperimentDesiredStatePtrOutput) ToInferenceExperimentDesiredSt
 
 func (o InferenceExperimentDesiredStatePtrOutput) ToInferenceExperimentDesiredStatePtrOutputWithContext(ctx context.Context) InferenceExperimentDesiredStatePtrOutput {
 	return o
-}
-
-func (o InferenceExperimentDesiredStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InferenceExperimentDesiredState] {
-	return pulumix.Output[*InferenceExperimentDesiredState]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InferenceExperimentDesiredStatePtrOutput) Elem() InferenceExperimentDesiredStateOutput {
@@ -3832,12 +3592,6 @@ func (o InferenceExperimentEndpointMetadataEndpointStatusOutput) ToInferenceExpe
 	}).(InferenceExperimentEndpointMetadataEndpointStatusPtrOutput)
 }
 
-func (o InferenceExperimentEndpointMetadataEndpointStatusOutput) ToOutput(ctx context.Context) pulumix.Output[InferenceExperimentEndpointMetadataEndpointStatus] {
-	return pulumix.Output[InferenceExperimentEndpointMetadataEndpointStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InferenceExperimentEndpointMetadataEndpointStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3871,12 +3625,6 @@ func (o InferenceExperimentEndpointMetadataEndpointStatusPtrOutput) ToInferenceE
 
 func (o InferenceExperimentEndpointMetadataEndpointStatusPtrOutput) ToInferenceExperimentEndpointMetadataEndpointStatusPtrOutputWithContext(ctx context.Context) InferenceExperimentEndpointMetadataEndpointStatusPtrOutput {
 	return o
-}
-
-func (o InferenceExperimentEndpointMetadataEndpointStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InferenceExperimentEndpointMetadataEndpointStatus] {
-	return pulumix.Output[*InferenceExperimentEndpointMetadataEndpointStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InferenceExperimentEndpointMetadataEndpointStatusPtrOutput) Elem() InferenceExperimentEndpointMetadataEndpointStatusOutput {
@@ -3970,12 +3718,6 @@ func (o InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput) To
 	}).(InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput)
 }
 
-func (o InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput) ToOutput(ctx context.Context) pulumix.Output[InferenceExperimentModelInfrastructureConfigInfrastructureType] {
-	return pulumix.Output[InferenceExperimentModelInfrastructureConfigInfrastructureType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4009,12 +3751,6 @@ func (o InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput)
 
 func (o InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput) ToInferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutputWithContext(ctx context.Context) InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput {
 	return o
-}
-
-func (o InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InferenceExperimentModelInfrastructureConfigInfrastructureType] {
-	return pulumix.Output[*InferenceExperimentModelInfrastructureConfigInfrastructureType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InferenceExperimentModelInfrastructureConfigInfrastructureTypePtrOutput) Elem() InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput {
@@ -4123,12 +3859,6 @@ func (o InferenceExperimentStatusOutput) ToInferenceExperimentStatusPtrOutputWit
 	}).(InferenceExperimentStatusPtrOutput)
 }
 
-func (o InferenceExperimentStatusOutput) ToOutput(ctx context.Context) pulumix.Output[InferenceExperimentStatus] {
-	return pulumix.Output[InferenceExperimentStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InferenceExperimentStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4162,12 +3892,6 @@ func (o InferenceExperimentStatusPtrOutput) ToInferenceExperimentStatusPtrOutput
 
 func (o InferenceExperimentStatusPtrOutput) ToInferenceExperimentStatusPtrOutputWithContext(ctx context.Context) InferenceExperimentStatusPtrOutput {
 	return o
-}
-
-func (o InferenceExperimentStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InferenceExperimentStatus] {
-	return pulumix.Output[*InferenceExperimentStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InferenceExperimentStatusPtrOutput) Elem() InferenceExperimentStatusOutput {
@@ -4261,12 +3985,6 @@ func (o InferenceExperimentTypeOutput) ToInferenceExperimentTypePtrOutputWithCon
 	}).(InferenceExperimentTypePtrOutput)
 }
 
-func (o InferenceExperimentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[InferenceExperimentType] {
-	return pulumix.Output[InferenceExperimentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InferenceExperimentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4300,12 +4018,6 @@ func (o InferenceExperimentTypePtrOutput) ToInferenceExperimentTypePtrOutput() I
 
 func (o InferenceExperimentTypePtrOutput) ToInferenceExperimentTypePtrOutputWithContext(ctx context.Context) InferenceExperimentTypePtrOutput {
 	return o
-}
-
-func (o InferenceExperimentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InferenceExperimentType] {
-	return pulumix.Output[*InferenceExperimentType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InferenceExperimentTypePtrOutput) Elem() InferenceExperimentTypeOutput {
@@ -4444,12 +4156,6 @@ func (o ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) T
 	}).(ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
 }
 
-func (o ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType] {
-	return pulumix.Output[ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4483,12 +4189,6 @@ func (o ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput
 
 func (o ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
 	return o
-}
-
-func (o ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType] {
-	return pulumix.Output[*ModelBiasJobDefinitionBatchTransformInputS3DataDistributionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) Elem() ModelBiasJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
@@ -4627,12 +4327,6 @@ func (o ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput) ToModelBiasJ
 	}).(ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput)
 }
 
-func (o ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput) ToOutput(ctx context.Context) pulumix.Output[ModelBiasJobDefinitionBatchTransformInputS3InputMode] {
-	return pulumix.Output[ModelBiasJobDefinitionBatchTransformInputS3InputMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4666,12 +4360,6 @@ func (o ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput) ToModelBi
 
 func (o ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput) ToModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput {
 	return o
-}
-
-func (o ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelBiasJobDefinitionBatchTransformInputS3InputMode] {
-	return pulumix.Output[*ModelBiasJobDefinitionBatchTransformInputS3InputMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelBiasJobDefinitionBatchTransformInputS3InputModePtrOutput) Elem() ModelBiasJobDefinitionBatchTransformInputS3InputModeOutput {
@@ -4810,12 +4498,6 @@ func (o ModelBiasJobDefinitionEndpointInputS3DataDistributionTypeOutput) ToModel
 	}).(ModelBiasJobDefinitionEndpointInputS3DataDistributionTypePtrOutput)
 }
 
-func (o ModelBiasJobDefinitionEndpointInputS3DataDistributionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ModelBiasJobDefinitionEndpointInputS3DataDistributionType] {
-	return pulumix.Output[ModelBiasJobDefinitionEndpointInputS3DataDistributionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelBiasJobDefinitionEndpointInputS3DataDistributionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4849,12 +4531,6 @@ func (o ModelBiasJobDefinitionEndpointInputS3DataDistributionTypePtrOutput) ToMo
 
 func (o ModelBiasJobDefinitionEndpointInputS3DataDistributionTypePtrOutput) ToModelBiasJobDefinitionEndpointInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionEndpointInputS3DataDistributionTypePtrOutput {
 	return o
-}
-
-func (o ModelBiasJobDefinitionEndpointInputS3DataDistributionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelBiasJobDefinitionEndpointInputS3DataDistributionType] {
-	return pulumix.Output[*ModelBiasJobDefinitionEndpointInputS3DataDistributionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelBiasJobDefinitionEndpointInputS3DataDistributionTypePtrOutput) Elem() ModelBiasJobDefinitionEndpointInputS3DataDistributionTypeOutput {
@@ -4993,12 +4669,6 @@ func (o ModelBiasJobDefinitionEndpointInputS3InputModeOutput) ToModelBiasJobDefi
 	}).(ModelBiasJobDefinitionEndpointInputS3InputModePtrOutput)
 }
 
-func (o ModelBiasJobDefinitionEndpointInputS3InputModeOutput) ToOutput(ctx context.Context) pulumix.Output[ModelBiasJobDefinitionEndpointInputS3InputMode] {
-	return pulumix.Output[ModelBiasJobDefinitionEndpointInputS3InputMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelBiasJobDefinitionEndpointInputS3InputModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5032,12 +4702,6 @@ func (o ModelBiasJobDefinitionEndpointInputS3InputModePtrOutput) ToModelBiasJobD
 
 func (o ModelBiasJobDefinitionEndpointInputS3InputModePtrOutput) ToModelBiasJobDefinitionEndpointInputS3InputModePtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionEndpointInputS3InputModePtrOutput {
 	return o
-}
-
-func (o ModelBiasJobDefinitionEndpointInputS3InputModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelBiasJobDefinitionEndpointInputS3InputMode] {
-	return pulumix.Output[*ModelBiasJobDefinitionEndpointInputS3InputMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelBiasJobDefinitionEndpointInputS3InputModePtrOutput) Elem() ModelBiasJobDefinitionEndpointInputS3InputModeOutput {
@@ -5176,12 +4840,6 @@ func (o ModelBiasJobDefinitionS3OutputS3UploadModeOutput) ToModelBiasJobDefiniti
 	}).(ModelBiasJobDefinitionS3OutputS3UploadModePtrOutput)
 }
 
-func (o ModelBiasJobDefinitionS3OutputS3UploadModeOutput) ToOutput(ctx context.Context) pulumix.Output[ModelBiasJobDefinitionS3OutputS3UploadMode] {
-	return pulumix.Output[ModelBiasJobDefinitionS3OutputS3UploadMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelBiasJobDefinitionS3OutputS3UploadModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5215,12 +4873,6 @@ func (o ModelBiasJobDefinitionS3OutputS3UploadModePtrOutput) ToModelBiasJobDefin
 
 func (o ModelBiasJobDefinitionS3OutputS3UploadModePtrOutput) ToModelBiasJobDefinitionS3OutputS3UploadModePtrOutputWithContext(ctx context.Context) ModelBiasJobDefinitionS3OutputS3UploadModePtrOutput {
 	return o
-}
-
-func (o ModelBiasJobDefinitionS3OutputS3UploadModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelBiasJobDefinitionS3OutputS3UploadMode] {
-	return pulumix.Output[*ModelBiasJobDefinitionS3OutputS3UploadMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelBiasJobDefinitionS3OutputS3UploadModePtrOutput) Elem() ModelBiasJobDefinitionS3OutputS3UploadModeOutput {
@@ -5378,12 +5030,6 @@ func (o ModelCardModelPackageDetailsModelApprovalStatusOutput) ToModelCardModelP
 	}).(ModelCardModelPackageDetailsModelApprovalStatusPtrOutput)
 }
 
-func (o ModelCardModelPackageDetailsModelApprovalStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ModelCardModelPackageDetailsModelApprovalStatus] {
-	return pulumix.Output[ModelCardModelPackageDetailsModelApprovalStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelCardModelPackageDetailsModelApprovalStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5417,12 +5063,6 @@ func (o ModelCardModelPackageDetailsModelApprovalStatusPtrOutput) ToModelCardMod
 
 func (o ModelCardModelPackageDetailsModelApprovalStatusPtrOutput) ToModelCardModelPackageDetailsModelApprovalStatusPtrOutputWithContext(ctx context.Context) ModelCardModelPackageDetailsModelApprovalStatusPtrOutput {
 	return o
-}
-
-func (o ModelCardModelPackageDetailsModelApprovalStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelCardModelPackageDetailsModelApprovalStatus] {
-	return pulumix.Output[*ModelCardModelPackageDetailsModelApprovalStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelCardModelPackageDetailsModelApprovalStatusPtrOutput) Elem() ModelCardModelPackageDetailsModelApprovalStatusOutput {
@@ -5564,12 +5204,6 @@ func (o ModelCardModelPackageDetailsModelPackageStatusOutput) ToModelCardModelPa
 	}).(ModelCardModelPackageDetailsModelPackageStatusPtrOutput)
 }
 
-func (o ModelCardModelPackageDetailsModelPackageStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ModelCardModelPackageDetailsModelPackageStatus] {
-	return pulumix.Output[ModelCardModelPackageDetailsModelPackageStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelCardModelPackageDetailsModelPackageStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5603,12 +5237,6 @@ func (o ModelCardModelPackageDetailsModelPackageStatusPtrOutput) ToModelCardMode
 
 func (o ModelCardModelPackageDetailsModelPackageStatusPtrOutput) ToModelCardModelPackageDetailsModelPackageStatusPtrOutputWithContext(ctx context.Context) ModelCardModelPackageDetailsModelPackageStatusPtrOutput {
 	return o
-}
-
-func (o ModelCardModelPackageDetailsModelPackageStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelCardModelPackageDetailsModelPackageStatus] {
-	return pulumix.Output[*ModelCardModelPackageDetailsModelPackageStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelCardModelPackageDetailsModelPackageStatusPtrOutput) Elem() ModelCardModelPackageDetailsModelPackageStatusOutput {
@@ -5746,12 +5374,6 @@ func (o ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput) ToModelCardO
 	}).(ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput)
 }
 
-func (o ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[ModelCardObjectiveFunctionFunctionPropertiesFunction] {
-	return pulumix.Output[ModelCardObjectiveFunctionFunctionPropertiesFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5785,12 +5407,6 @@ func (o ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput) ToModelCa
 
 func (o ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput) ToModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutputWithContext(ctx context.Context) ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput {
 	return o
-}
-
-func (o ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelCardObjectiveFunctionFunctionPropertiesFunction] {
-	return pulumix.Output[*ModelCardObjectiveFunctionFunctionPropertiesFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelCardObjectiveFunctionFunctionPropertiesFunctionPtrOutput) Elem() ModelCardObjectiveFunctionFunctionPropertiesFunctionOutput {
@@ -5898,12 +5514,6 @@ func (o ModelCardProcessingStatusOutput) ToModelCardProcessingStatusPtrOutputWit
 	}).(ModelCardProcessingStatusPtrOutput)
 }
 
-func (o ModelCardProcessingStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ModelCardProcessingStatus] {
-	return pulumix.Output[ModelCardProcessingStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelCardProcessingStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5937,12 +5547,6 @@ func (o ModelCardProcessingStatusPtrOutput) ToModelCardProcessingStatusPtrOutput
 
 func (o ModelCardProcessingStatusPtrOutput) ToModelCardProcessingStatusPtrOutputWithContext(ctx context.Context) ModelCardProcessingStatusPtrOutput {
 	return o
-}
-
-func (o ModelCardProcessingStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelCardProcessingStatus] {
-	return pulumix.Output[*ModelCardProcessingStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelCardProcessingStatusPtrOutput) Elem() ModelCardProcessingStatusOutput {
@@ -6039,12 +5643,6 @@ func (o ModelCardRiskRatingOutput) ToModelCardRiskRatingPtrOutputWithContext(ctx
 	}).(ModelCardRiskRatingPtrOutput)
 }
 
-func (o ModelCardRiskRatingOutput) ToOutput(ctx context.Context) pulumix.Output[ModelCardRiskRating] {
-	return pulumix.Output[ModelCardRiskRating]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelCardRiskRatingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6078,12 +5676,6 @@ func (o ModelCardRiskRatingPtrOutput) ToModelCardRiskRatingPtrOutput() ModelCard
 
 func (o ModelCardRiskRatingPtrOutput) ToModelCardRiskRatingPtrOutputWithContext(ctx context.Context) ModelCardRiskRatingPtrOutput {
 	return o
-}
-
-func (o ModelCardRiskRatingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelCardRiskRating] {
-	return pulumix.Output[*ModelCardRiskRating]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelCardRiskRatingPtrOutput) Elem() ModelCardRiskRatingOutput {
@@ -6232,12 +5824,6 @@ func (o ModelCardStatusOutput) ToModelCardStatusPtrOutputWithContext(ctx context
 	}).(ModelCardStatusPtrOutput)
 }
 
-func (o ModelCardStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ModelCardStatus] {
-	return pulumix.Output[ModelCardStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelCardStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6271,12 +5857,6 @@ func (o ModelCardStatusPtrOutput) ToModelCardStatusPtrOutput() ModelCardStatusPt
 
 func (o ModelCardStatusPtrOutput) ToModelCardStatusPtrOutputWithContext(ctx context.Context) ModelCardStatusPtrOutput {
 	return o
-}
-
-func (o ModelCardStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelCardStatus] {
-	return pulumix.Output[*ModelCardStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelCardStatusPtrOutput) Elem() ModelCardStatusOutput {
@@ -6415,12 +5995,6 @@ func (o ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTyp
 	}).(ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
 }
 
-func (o ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType] {
-	return pulumix.Output[ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6454,12 +6028,6 @@ func (o ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTyp
 
 func (o ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
 	return o
-}
-
-func (o ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType] {
-	return pulumix.Output[*ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) Elem() ModelExplainabilityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
@@ -6598,12 +6166,6 @@ func (o ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput) To
 	}).(ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput)
 }
 
-func (o ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput) ToOutput(ctx context.Context) pulumix.Output[ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode] {
-	return pulumix.Output[ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6637,12 +6199,6 @@ func (o ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput)
 
 func (o ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput) ToModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput {
 	return o
-}
-
-func (o ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode] {
-	return pulumix.Output[*ModelExplainabilityJobDefinitionBatchTransformInputS3InputMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelExplainabilityJobDefinitionBatchTransformInputS3InputModePtrOutput) Elem() ModelExplainabilityJobDefinitionBatchTransformInputS3InputModeOutput {
@@ -6781,12 +6337,6 @@ func (o ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypeOutpu
 	}).(ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput)
 }
 
-func (o ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType] {
-	return pulumix.Output[ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6820,12 +6370,6 @@ func (o ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypePtrOu
 
 func (o ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput) ToModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput {
 	return o
-}
-
-func (o ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType] {
-	return pulumix.Output[*ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput) Elem() ModelExplainabilityJobDefinitionEndpointInputS3DataDistributionTypeOutput {
@@ -6964,12 +6508,6 @@ func (o ModelExplainabilityJobDefinitionEndpointInputS3InputModeOutput) ToModelE
 	}).(ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrOutput)
 }
 
-func (o ModelExplainabilityJobDefinitionEndpointInputS3InputModeOutput) ToOutput(ctx context.Context) pulumix.Output[ModelExplainabilityJobDefinitionEndpointInputS3InputMode] {
-	return pulumix.Output[ModelExplainabilityJobDefinitionEndpointInputS3InputMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelExplainabilityJobDefinitionEndpointInputS3InputModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7003,12 +6541,6 @@ func (o ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrOutput) ToMod
 
 func (o ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrOutput) ToModelExplainabilityJobDefinitionEndpointInputS3InputModePtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrOutput {
 	return o
-}
-
-func (o ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelExplainabilityJobDefinitionEndpointInputS3InputMode] {
-	return pulumix.Output[*ModelExplainabilityJobDefinitionEndpointInputS3InputMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelExplainabilityJobDefinitionEndpointInputS3InputModePtrOutput) Elem() ModelExplainabilityJobDefinitionEndpointInputS3InputModeOutput {
@@ -7147,12 +6679,6 @@ func (o ModelExplainabilityJobDefinitionS3OutputS3UploadModeOutput) ToModelExpla
 	}).(ModelExplainabilityJobDefinitionS3OutputS3UploadModePtrOutput)
 }
 
-func (o ModelExplainabilityJobDefinitionS3OutputS3UploadModeOutput) ToOutput(ctx context.Context) pulumix.Output[ModelExplainabilityJobDefinitionS3OutputS3UploadMode] {
-	return pulumix.Output[ModelExplainabilityJobDefinitionS3OutputS3UploadMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelExplainabilityJobDefinitionS3OutputS3UploadModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7186,12 +6712,6 @@ func (o ModelExplainabilityJobDefinitionS3OutputS3UploadModePtrOutput) ToModelEx
 
 func (o ModelExplainabilityJobDefinitionS3OutputS3UploadModePtrOutput) ToModelExplainabilityJobDefinitionS3OutputS3UploadModePtrOutputWithContext(ctx context.Context) ModelExplainabilityJobDefinitionS3OutputS3UploadModePtrOutput {
 	return o
-}
-
-func (o ModelExplainabilityJobDefinitionS3OutputS3UploadModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelExplainabilityJobDefinitionS3OutputS3UploadMode] {
-	return pulumix.Output[*ModelExplainabilityJobDefinitionS3OutputS3UploadMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelExplainabilityJobDefinitionS3OutputS3UploadModePtrOutput) Elem() ModelExplainabilityJobDefinitionS3OutputS3UploadModeOutput {
@@ -7298,12 +6818,6 @@ func (o ModelPackageGroupStatusOutput) ToModelPackageGroupStatusPtrOutputWithCon
 	}).(ModelPackageGroupStatusPtrOutput)
 }
 
-func (o ModelPackageGroupStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ModelPackageGroupStatus] {
-	return pulumix.Output[ModelPackageGroupStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelPackageGroupStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7337,12 +6851,6 @@ func (o ModelPackageGroupStatusPtrOutput) ToModelPackageGroupStatusPtrOutput() M
 
 func (o ModelPackageGroupStatusPtrOutput) ToModelPackageGroupStatusPtrOutputWithContext(ctx context.Context) ModelPackageGroupStatusPtrOutput {
 	return o
-}
-
-func (o ModelPackageGroupStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelPackageGroupStatus] {
-	return pulumix.Output[*ModelPackageGroupStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelPackageGroupStatusPtrOutput) Elem() ModelPackageGroupStatusOutput {
@@ -7438,12 +6946,6 @@ func (o ModelPackageModelApprovalStatusOutput) ToModelPackageModelApprovalStatus
 	}).(ModelPackageModelApprovalStatusPtrOutput)
 }
 
-func (o ModelPackageModelApprovalStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ModelPackageModelApprovalStatus] {
-	return pulumix.Output[ModelPackageModelApprovalStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelPackageModelApprovalStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7477,12 +6979,6 @@ func (o ModelPackageModelApprovalStatusPtrOutput) ToModelPackageModelApprovalSta
 
 func (o ModelPackageModelApprovalStatusPtrOutput) ToModelPackageModelApprovalStatusPtrOutputWithContext(ctx context.Context) ModelPackageModelApprovalStatusPtrOutput {
 	return o
-}
-
-func (o ModelPackageModelApprovalStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelPackageModelApprovalStatus] {
-	return pulumix.Output[*ModelPackageModelApprovalStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelPackageModelApprovalStatusPtrOutput) Elem() ModelPackageModelApprovalStatusOutput {
@@ -7622,12 +7118,6 @@ func (o ModelPackageS3DataSourceS3DataTypeOutput) ToModelPackageS3DataSourceS3Da
 	}).(ModelPackageS3DataSourceS3DataTypePtrOutput)
 }
 
-func (o ModelPackageS3DataSourceS3DataTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ModelPackageS3DataSourceS3DataType] {
-	return pulumix.Output[ModelPackageS3DataSourceS3DataType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelPackageS3DataSourceS3DataTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7661,12 +7151,6 @@ func (o ModelPackageS3DataSourceS3DataTypePtrOutput) ToModelPackageS3DataSourceS
 
 func (o ModelPackageS3DataSourceS3DataTypePtrOutput) ToModelPackageS3DataSourceS3DataTypePtrOutputWithContext(ctx context.Context) ModelPackageS3DataSourceS3DataTypePtrOutput {
 	return o
-}
-
-func (o ModelPackageS3DataSourceS3DataTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelPackageS3DataSourceS3DataType] {
-	return pulumix.Output[*ModelPackageS3DataSourceS3DataType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelPackageS3DataSourceS3DataTypePtrOutput) Elem() ModelPackageS3DataSourceS3DataTypeOutput {
@@ -7805,12 +7289,6 @@ func (o ModelPackageSkipModelValidationOutput) ToModelPackageSkipModelValidation
 	}).(ModelPackageSkipModelValidationPtrOutput)
 }
 
-func (o ModelPackageSkipModelValidationOutput) ToOutput(ctx context.Context) pulumix.Output[ModelPackageSkipModelValidation] {
-	return pulumix.Output[ModelPackageSkipModelValidation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelPackageSkipModelValidationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7844,12 +7322,6 @@ func (o ModelPackageSkipModelValidationPtrOutput) ToModelPackageSkipModelValidat
 
 func (o ModelPackageSkipModelValidationPtrOutput) ToModelPackageSkipModelValidationPtrOutputWithContext(ctx context.Context) ModelPackageSkipModelValidationPtrOutput {
 	return o
-}
-
-func (o ModelPackageSkipModelValidationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelPackageSkipModelValidation] {
-	return pulumix.Output[*ModelPackageSkipModelValidation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelPackageSkipModelValidationPtrOutput) Elem() ModelPackageSkipModelValidationOutput {
@@ -7955,12 +7427,6 @@ func (o ModelPackageStatusOutput) ToModelPackageStatusPtrOutputWithContext(ctx c
 	}).(ModelPackageStatusPtrOutput)
 }
 
-func (o ModelPackageStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ModelPackageStatus] {
-	return pulumix.Output[ModelPackageStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelPackageStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7994,12 +7460,6 @@ func (o ModelPackageStatusPtrOutput) ToModelPackageStatusPtrOutput() ModelPackag
 
 func (o ModelPackageStatusPtrOutput) ToModelPackageStatusPtrOutputWithContext(ctx context.Context) ModelPackageStatusPtrOutput {
 	return o
-}
-
-func (o ModelPackageStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelPackageStatus] {
-	return pulumix.Output[*ModelPackageStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelPackageStatusPtrOutput) Elem() ModelPackageStatusOutput {
@@ -8096,12 +7556,6 @@ func (o ModelPackageStatusItemStatusOutput) ToModelPackageStatusItemStatusPtrOut
 	}).(ModelPackageStatusItemStatusPtrOutput)
 }
 
-func (o ModelPackageStatusItemStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ModelPackageStatusItemStatus] {
-	return pulumix.Output[ModelPackageStatusItemStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelPackageStatusItemStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8135,12 +7589,6 @@ func (o ModelPackageStatusItemStatusPtrOutput) ToModelPackageStatusItemStatusPtr
 
 func (o ModelPackageStatusItemStatusPtrOutput) ToModelPackageStatusItemStatusPtrOutputWithContext(ctx context.Context) ModelPackageStatusItemStatusPtrOutput {
 	return o
-}
-
-func (o ModelPackageStatusItemStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelPackageStatusItemStatus] {
-	return pulumix.Output[*ModelPackageStatusItemStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelPackageStatusItemStatusPtrOutput) Elem() ModelPackageStatusItemStatusOutput {
@@ -8279,12 +7727,6 @@ func (o ModelPackageTransformInputCompressionTypeOutput) ToModelPackageTransform
 	}).(ModelPackageTransformInputCompressionTypePtrOutput)
 }
 
-func (o ModelPackageTransformInputCompressionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ModelPackageTransformInputCompressionType] {
-	return pulumix.Output[ModelPackageTransformInputCompressionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelPackageTransformInputCompressionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8318,12 +7760,6 @@ func (o ModelPackageTransformInputCompressionTypePtrOutput) ToModelPackageTransf
 
 func (o ModelPackageTransformInputCompressionTypePtrOutput) ToModelPackageTransformInputCompressionTypePtrOutputWithContext(ctx context.Context) ModelPackageTransformInputCompressionTypePtrOutput {
 	return o
-}
-
-func (o ModelPackageTransformInputCompressionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelPackageTransformInputCompressionType] {
-	return pulumix.Output[*ModelPackageTransformInputCompressionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelPackageTransformInputCompressionTypePtrOutput) Elem() ModelPackageTransformInputCompressionTypeOutput {
@@ -8464,12 +7900,6 @@ func (o ModelPackageTransformInputSplitTypeOutput) ToModelPackageTransformInputS
 	}).(ModelPackageTransformInputSplitTypePtrOutput)
 }
 
-func (o ModelPackageTransformInputSplitTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ModelPackageTransformInputSplitType] {
-	return pulumix.Output[ModelPackageTransformInputSplitType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelPackageTransformInputSplitTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8503,12 +7933,6 @@ func (o ModelPackageTransformInputSplitTypePtrOutput) ToModelPackageTransformInp
 
 func (o ModelPackageTransformInputSplitTypePtrOutput) ToModelPackageTransformInputSplitTypePtrOutputWithContext(ctx context.Context) ModelPackageTransformInputSplitTypePtrOutput {
 	return o
-}
-
-func (o ModelPackageTransformInputSplitTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelPackageTransformInputSplitType] {
-	return pulumix.Output[*ModelPackageTransformInputSplitType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelPackageTransformInputSplitTypePtrOutput) Elem() ModelPackageTransformInputSplitTypeOutput {
@@ -8647,12 +8071,6 @@ func (o ModelPackageTransformJobDefinitionBatchStrategyOutput) ToModelPackageTra
 	}).(ModelPackageTransformJobDefinitionBatchStrategyPtrOutput)
 }
 
-func (o ModelPackageTransformJobDefinitionBatchStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[ModelPackageTransformJobDefinitionBatchStrategy] {
-	return pulumix.Output[ModelPackageTransformJobDefinitionBatchStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelPackageTransformJobDefinitionBatchStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8686,12 +8104,6 @@ func (o ModelPackageTransformJobDefinitionBatchStrategyPtrOutput) ToModelPackage
 
 func (o ModelPackageTransformJobDefinitionBatchStrategyPtrOutput) ToModelPackageTransformJobDefinitionBatchStrategyPtrOutputWithContext(ctx context.Context) ModelPackageTransformJobDefinitionBatchStrategyPtrOutput {
 	return o
-}
-
-func (o ModelPackageTransformJobDefinitionBatchStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelPackageTransformJobDefinitionBatchStrategy] {
-	return pulumix.Output[*ModelPackageTransformJobDefinitionBatchStrategy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelPackageTransformJobDefinitionBatchStrategyPtrOutput) Elem() ModelPackageTransformJobDefinitionBatchStrategyOutput {
@@ -8830,12 +8242,6 @@ func (o ModelPackageTransformOutputAssembleWithOutput) ToModelPackageTransformOu
 	}).(ModelPackageTransformOutputAssembleWithPtrOutput)
 }
 
-func (o ModelPackageTransformOutputAssembleWithOutput) ToOutput(ctx context.Context) pulumix.Output[ModelPackageTransformOutputAssembleWith] {
-	return pulumix.Output[ModelPackageTransformOutputAssembleWith]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelPackageTransformOutputAssembleWithOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8869,12 +8275,6 @@ func (o ModelPackageTransformOutputAssembleWithPtrOutput) ToModelPackageTransfor
 
 func (o ModelPackageTransformOutputAssembleWithPtrOutput) ToModelPackageTransformOutputAssembleWithPtrOutputWithContext(ctx context.Context) ModelPackageTransformOutputAssembleWithPtrOutput {
 	return o
-}
-
-func (o ModelPackageTransformOutputAssembleWithPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelPackageTransformOutputAssembleWith] {
-	return pulumix.Output[*ModelPackageTransformOutputAssembleWith]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelPackageTransformOutputAssembleWithPtrOutput) Elem() ModelPackageTransformOutputAssembleWithOutput {
@@ -9013,12 +8413,6 @@ func (o ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput
 	}).(ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput)
 }
 
-func (o ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType] {
-	return pulumix.Output[ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9052,12 +8446,6 @@ func (o ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOut
 
 func (o ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput {
 	return o
-}
-
-func (o ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType] {
-	return pulumix.Output[*ModelQualityJobDefinitionBatchTransformInputS3DataDistributionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypePtrOutput) Elem() ModelQualityJobDefinitionBatchTransformInputS3DataDistributionTypeOutput {
@@ -9196,12 +8584,6 @@ func (o ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput) ToModelQu
 	}).(ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput)
 }
 
-func (o ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput) ToOutput(ctx context.Context) pulumix.Output[ModelQualityJobDefinitionBatchTransformInputS3InputMode] {
-	return pulumix.Output[ModelQualityJobDefinitionBatchTransformInputS3InputMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9235,12 +8617,6 @@ func (o ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput) ToMode
 
 func (o ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput) ToModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput {
 	return o
-}
-
-func (o ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelQualityJobDefinitionBatchTransformInputS3InputMode] {
-	return pulumix.Output[*ModelQualityJobDefinitionBatchTransformInputS3InputMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelQualityJobDefinitionBatchTransformInputS3InputModePtrOutput) Elem() ModelQualityJobDefinitionBatchTransformInputS3InputModeOutput {
@@ -9379,12 +8755,6 @@ func (o ModelQualityJobDefinitionEndpointInputS3DataDistributionTypeOutput) ToMo
 	}).(ModelQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput)
 }
 
-func (o ModelQualityJobDefinitionEndpointInputS3DataDistributionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ModelQualityJobDefinitionEndpointInputS3DataDistributionType] {
-	return pulumix.Output[ModelQualityJobDefinitionEndpointInputS3DataDistributionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelQualityJobDefinitionEndpointInputS3DataDistributionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9418,12 +8788,6 @@ func (o ModelQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput) T
 
 func (o ModelQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput) ToModelQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput {
 	return o
-}
-
-func (o ModelQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelQualityJobDefinitionEndpointInputS3DataDistributionType] {
-	return pulumix.Output[*ModelQualityJobDefinitionEndpointInputS3DataDistributionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelQualityJobDefinitionEndpointInputS3DataDistributionTypePtrOutput) Elem() ModelQualityJobDefinitionEndpointInputS3DataDistributionTypeOutput {
@@ -9562,12 +8926,6 @@ func (o ModelQualityJobDefinitionEndpointInputS3InputModeOutput) ToModelQualityJ
 	}).(ModelQualityJobDefinitionEndpointInputS3InputModePtrOutput)
 }
 
-func (o ModelQualityJobDefinitionEndpointInputS3InputModeOutput) ToOutput(ctx context.Context) pulumix.Output[ModelQualityJobDefinitionEndpointInputS3InputMode] {
-	return pulumix.Output[ModelQualityJobDefinitionEndpointInputS3InputMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelQualityJobDefinitionEndpointInputS3InputModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9601,12 +8959,6 @@ func (o ModelQualityJobDefinitionEndpointInputS3InputModePtrOutput) ToModelQuali
 
 func (o ModelQualityJobDefinitionEndpointInputS3InputModePtrOutput) ToModelQualityJobDefinitionEndpointInputS3InputModePtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionEndpointInputS3InputModePtrOutput {
 	return o
-}
-
-func (o ModelQualityJobDefinitionEndpointInputS3InputModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelQualityJobDefinitionEndpointInputS3InputMode] {
-	return pulumix.Output[*ModelQualityJobDefinitionEndpointInputS3InputMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelQualityJobDefinitionEndpointInputS3InputModePtrOutput) Elem() ModelQualityJobDefinitionEndpointInputS3InputModeOutput {
@@ -9746,12 +9098,6 @@ func (o ModelQualityJobDefinitionProblemTypeOutput) ToModelQualityJobDefinitionP
 	}).(ModelQualityJobDefinitionProblemTypePtrOutput)
 }
 
-func (o ModelQualityJobDefinitionProblemTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ModelQualityJobDefinitionProblemType] {
-	return pulumix.Output[ModelQualityJobDefinitionProblemType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelQualityJobDefinitionProblemTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9785,12 +9131,6 @@ func (o ModelQualityJobDefinitionProblemTypePtrOutput) ToModelQualityJobDefiniti
 
 func (o ModelQualityJobDefinitionProblemTypePtrOutput) ToModelQualityJobDefinitionProblemTypePtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionProblemTypePtrOutput {
 	return o
-}
-
-func (o ModelQualityJobDefinitionProblemTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelQualityJobDefinitionProblemType] {
-	return pulumix.Output[*ModelQualityJobDefinitionProblemType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelQualityJobDefinitionProblemTypePtrOutput) Elem() ModelQualityJobDefinitionProblemTypeOutput {
@@ -9929,12 +9269,6 @@ func (o ModelQualityJobDefinitionS3OutputS3UploadModeOutput) ToModelQualityJobDe
 	}).(ModelQualityJobDefinitionS3OutputS3UploadModePtrOutput)
 }
 
-func (o ModelQualityJobDefinitionS3OutputS3UploadModeOutput) ToOutput(ctx context.Context) pulumix.Output[ModelQualityJobDefinitionS3OutputS3UploadMode] {
-	return pulumix.Output[ModelQualityJobDefinitionS3OutputS3UploadMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModelQualityJobDefinitionS3OutputS3UploadModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9968,12 +9302,6 @@ func (o ModelQualityJobDefinitionS3OutputS3UploadModePtrOutput) ToModelQualityJo
 
 func (o ModelQualityJobDefinitionS3OutputS3UploadModePtrOutput) ToModelQualityJobDefinitionS3OutputS3UploadModePtrOutputWithContext(ctx context.Context) ModelQualityJobDefinitionS3OutputS3UploadModePtrOutput {
 	return o
-}
-
-func (o ModelQualityJobDefinitionS3OutputS3UploadModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelQualityJobDefinitionS3OutputS3UploadMode] {
-	return pulumix.Output[*ModelQualityJobDefinitionS3OutputS3UploadMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModelQualityJobDefinitionS3OutputS3UploadModePtrOutput) Elem() ModelQualityJobDefinitionS3OutputS3UploadModeOutput {
@@ -10112,12 +9440,6 @@ func (o MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput) ToMon
 	}).(MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput)
 }
 
-func (o MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[MonitoringScheduleBatchTransformInputS3DataDistributionType] {
-	return pulumix.Output[MonitoringScheduleBatchTransformInputS3DataDistributionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -10151,12 +9473,6 @@ func (o MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput) To
 
 func (o MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput) ToMonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput {
 	return o
-}
-
-func (o MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitoringScheduleBatchTransformInputS3DataDistributionType] {
-	return pulumix.Output[*MonitoringScheduleBatchTransformInputS3DataDistributionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitoringScheduleBatchTransformInputS3DataDistributionTypePtrOutput) Elem() MonitoringScheduleBatchTransformInputS3DataDistributionTypeOutput {
@@ -10295,12 +9611,6 @@ func (o MonitoringScheduleBatchTransformInputS3InputModeOutput) ToMonitoringSche
 	}).(MonitoringScheduleBatchTransformInputS3InputModePtrOutput)
 }
 
-func (o MonitoringScheduleBatchTransformInputS3InputModeOutput) ToOutput(ctx context.Context) pulumix.Output[MonitoringScheduleBatchTransformInputS3InputMode] {
-	return pulumix.Output[MonitoringScheduleBatchTransformInputS3InputMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitoringScheduleBatchTransformInputS3InputModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -10334,12 +9644,6 @@ func (o MonitoringScheduleBatchTransformInputS3InputModePtrOutput) ToMonitoringS
 
 func (o MonitoringScheduleBatchTransformInputS3InputModePtrOutput) ToMonitoringScheduleBatchTransformInputS3InputModePtrOutputWithContext(ctx context.Context) MonitoringScheduleBatchTransformInputS3InputModePtrOutput {
 	return o
-}
-
-func (o MonitoringScheduleBatchTransformInputS3InputModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitoringScheduleBatchTransformInputS3InputMode] {
-	return pulumix.Output[*MonitoringScheduleBatchTransformInputS3InputMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitoringScheduleBatchTransformInputS3InputModePtrOutput) Elem() MonitoringScheduleBatchTransformInputS3InputModeOutput {
@@ -10478,12 +9782,6 @@ func (o MonitoringScheduleEndpointInputS3DataDistributionTypeOutput) ToMonitorin
 	}).(MonitoringScheduleEndpointInputS3DataDistributionTypePtrOutput)
 }
 
-func (o MonitoringScheduleEndpointInputS3DataDistributionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[MonitoringScheduleEndpointInputS3DataDistributionType] {
-	return pulumix.Output[MonitoringScheduleEndpointInputS3DataDistributionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitoringScheduleEndpointInputS3DataDistributionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -10517,12 +9815,6 @@ func (o MonitoringScheduleEndpointInputS3DataDistributionTypePtrOutput) ToMonito
 
 func (o MonitoringScheduleEndpointInputS3DataDistributionTypePtrOutput) ToMonitoringScheduleEndpointInputS3DataDistributionTypePtrOutputWithContext(ctx context.Context) MonitoringScheduleEndpointInputS3DataDistributionTypePtrOutput {
 	return o
-}
-
-func (o MonitoringScheduleEndpointInputS3DataDistributionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitoringScheduleEndpointInputS3DataDistributionType] {
-	return pulumix.Output[*MonitoringScheduleEndpointInputS3DataDistributionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitoringScheduleEndpointInputS3DataDistributionTypePtrOutput) Elem() MonitoringScheduleEndpointInputS3DataDistributionTypeOutput {
@@ -10661,12 +9953,6 @@ func (o MonitoringScheduleEndpointInputS3InputModeOutput) ToMonitoringScheduleEn
 	}).(MonitoringScheduleEndpointInputS3InputModePtrOutput)
 }
 
-func (o MonitoringScheduleEndpointInputS3InputModeOutput) ToOutput(ctx context.Context) pulumix.Output[MonitoringScheduleEndpointInputS3InputMode] {
-	return pulumix.Output[MonitoringScheduleEndpointInputS3InputMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitoringScheduleEndpointInputS3InputModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -10700,12 +9986,6 @@ func (o MonitoringScheduleEndpointInputS3InputModePtrOutput) ToMonitoringSchedul
 
 func (o MonitoringScheduleEndpointInputS3InputModePtrOutput) ToMonitoringScheduleEndpointInputS3InputModePtrOutputWithContext(ctx context.Context) MonitoringScheduleEndpointInputS3InputModePtrOutput {
 	return o
-}
-
-func (o MonitoringScheduleEndpointInputS3InputModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitoringScheduleEndpointInputS3InputMode] {
-	return pulumix.Output[*MonitoringScheduleEndpointInputS3InputMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitoringScheduleEndpointInputS3InputModePtrOutput) Elem() MonitoringScheduleEndpointInputS3InputModeOutput {
@@ -10849,12 +10129,6 @@ func (o MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusOut
 	}).(MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusPtrOutput)
 }
 
-func (o MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusOutput) ToOutput(ctx context.Context) pulumix.Output[MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus] {
-	return pulumix.Output[MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -10888,12 +10162,6 @@ func (o MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusPtr
 
 func (o MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusPtrOutput) ToMonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusPtrOutput {
 	return o
-}
-
-func (o MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus] {
-	return pulumix.Output[*MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusPtrOutput) Elem() MonitoringScheduleMonitoringExecutionSummaryMonitoringExecutionStatusOutput {
@@ -11034,12 +10302,6 @@ func (o MonitoringScheduleMonitoringTypeOutput) ToMonitoringScheduleMonitoringTy
 	}).(MonitoringScheduleMonitoringTypePtrOutput)
 }
 
-func (o MonitoringScheduleMonitoringTypeOutput) ToOutput(ctx context.Context) pulumix.Output[MonitoringScheduleMonitoringType] {
-	return pulumix.Output[MonitoringScheduleMonitoringType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitoringScheduleMonitoringTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -11073,12 +10335,6 @@ func (o MonitoringScheduleMonitoringTypePtrOutput) ToMonitoringScheduleMonitorin
 
 func (o MonitoringScheduleMonitoringTypePtrOutput) ToMonitoringScheduleMonitoringTypePtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringTypePtrOutput {
 	return o
-}
-
-func (o MonitoringScheduleMonitoringTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitoringScheduleMonitoringType] {
-	return pulumix.Output[*MonitoringScheduleMonitoringType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitoringScheduleMonitoringTypePtrOutput) Elem() MonitoringScheduleMonitoringTypeOutput {
@@ -11217,12 +10473,6 @@ func (o MonitoringScheduleS3OutputS3UploadModeOutput) ToMonitoringScheduleS3Outp
 	}).(MonitoringScheduleS3OutputS3UploadModePtrOutput)
 }
 
-func (o MonitoringScheduleS3OutputS3UploadModeOutput) ToOutput(ctx context.Context) pulumix.Output[MonitoringScheduleS3OutputS3UploadMode] {
-	return pulumix.Output[MonitoringScheduleS3OutputS3UploadMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitoringScheduleS3OutputS3UploadModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -11256,12 +10506,6 @@ func (o MonitoringScheduleS3OutputS3UploadModePtrOutput) ToMonitoringScheduleS3O
 
 func (o MonitoringScheduleS3OutputS3UploadModePtrOutput) ToMonitoringScheduleS3OutputS3UploadModePtrOutputWithContext(ctx context.Context) MonitoringScheduleS3OutputS3UploadModePtrOutput {
 	return o
-}
-
-func (o MonitoringScheduleS3OutputS3UploadModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitoringScheduleS3OutputS3UploadMode] {
-	return pulumix.Output[*MonitoringScheduleS3OutputS3UploadMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitoringScheduleS3OutputS3UploadModePtrOutput) Elem() MonitoringScheduleS3OutputS3UploadModeOutput {
@@ -11402,12 +10646,6 @@ func (o MonitoringScheduleStatusOutput) ToMonitoringScheduleStatusPtrOutputWithC
 	}).(MonitoringScheduleStatusPtrOutput)
 }
 
-func (o MonitoringScheduleStatusOutput) ToOutput(ctx context.Context) pulumix.Output[MonitoringScheduleStatus] {
-	return pulumix.Output[MonitoringScheduleStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitoringScheduleStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -11441,12 +10679,6 @@ func (o MonitoringScheduleStatusPtrOutput) ToMonitoringScheduleStatusPtrOutput()
 
 func (o MonitoringScheduleStatusPtrOutput) ToMonitoringScheduleStatusPtrOutputWithContext(ctx context.Context) MonitoringScheduleStatusPtrOutput {
 	return o
-}
-
-func (o MonitoringScheduleStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitoringScheduleStatus] {
-	return pulumix.Output[*MonitoringScheduleStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitoringScheduleStatusPtrOutput) Elem() MonitoringScheduleStatusOutput {
@@ -11554,12 +10786,6 @@ func (o ProjectStatusOutput) ToProjectStatusPtrOutputWithContext(ctx context.Con
 	}).(ProjectStatusPtrOutput)
 }
 
-func (o ProjectStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ProjectStatus] {
-	return pulumix.Output[ProjectStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProjectStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -11593,12 +10819,6 @@ func (o ProjectStatusPtrOutput) ToProjectStatusPtrOutput() ProjectStatusPtrOutpu
 
 func (o ProjectStatusPtrOutput) ToProjectStatusPtrOutputWithContext(ctx context.Context) ProjectStatusPtrOutput {
 	return o
-}
-
-func (o ProjectStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectStatus] {
-	return pulumix.Output[*ProjectStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProjectStatusPtrOutput) Elem() ProjectStatusOutput {
@@ -11751,12 +10971,6 @@ func (o SpaceResourceSpecInstanceTypeOutput) ToSpaceResourceSpecInstanceTypePtrO
 	}).(SpaceResourceSpecInstanceTypePtrOutput)
 }
 
-func (o SpaceResourceSpecInstanceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SpaceResourceSpecInstanceType] {
-	return pulumix.Output[SpaceResourceSpecInstanceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SpaceResourceSpecInstanceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -11790,12 +11004,6 @@ func (o SpaceResourceSpecInstanceTypePtrOutput) ToSpaceResourceSpecInstanceTypeP
 
 func (o SpaceResourceSpecInstanceTypePtrOutput) ToSpaceResourceSpecInstanceTypePtrOutputWithContext(ctx context.Context) SpaceResourceSpecInstanceTypePtrOutput {
 	return o
-}
-
-func (o SpaceResourceSpecInstanceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SpaceResourceSpecInstanceType] {
-	return pulumix.Output[*SpaceResourceSpecInstanceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SpaceResourceSpecInstanceTypePtrOutput) Elem() SpaceResourceSpecInstanceTypeOutput {
@@ -11934,12 +11142,6 @@ func (o UserProfileRStudioServerProAppSettingsAccessStatusOutput) ToUserProfileR
 	}).(UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput)
 }
 
-func (o UserProfileRStudioServerProAppSettingsAccessStatusOutput) ToOutput(ctx context.Context) pulumix.Output[UserProfileRStudioServerProAppSettingsAccessStatus] {
-	return pulumix.Output[UserProfileRStudioServerProAppSettingsAccessStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserProfileRStudioServerProAppSettingsAccessStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -11973,12 +11175,6 @@ func (o UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput) ToUserProfi
 
 func (o UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput) ToUserProfileRStudioServerProAppSettingsAccessStatusPtrOutputWithContext(ctx context.Context) UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput {
 	return o
-}
-
-func (o UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserProfileRStudioServerProAppSettingsAccessStatus] {
-	return pulumix.Output[*UserProfileRStudioServerProAppSettingsAccessStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserProfileRStudioServerProAppSettingsAccessStatusPtrOutput) Elem() UserProfileRStudioServerProAppSettingsAccessStatusOutput {
@@ -12117,12 +11313,6 @@ func (o UserProfileRStudioServerProAppSettingsUserGroupOutput) ToUserProfileRStu
 	}).(UserProfileRStudioServerProAppSettingsUserGroupPtrOutput)
 }
 
-func (o UserProfileRStudioServerProAppSettingsUserGroupOutput) ToOutput(ctx context.Context) pulumix.Output[UserProfileRStudioServerProAppSettingsUserGroup] {
-	return pulumix.Output[UserProfileRStudioServerProAppSettingsUserGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserProfileRStudioServerProAppSettingsUserGroupOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -12156,12 +11346,6 @@ func (o UserProfileRStudioServerProAppSettingsUserGroupPtrOutput) ToUserProfileR
 
 func (o UserProfileRStudioServerProAppSettingsUserGroupPtrOutput) ToUserProfileRStudioServerProAppSettingsUserGroupPtrOutputWithContext(ctx context.Context) UserProfileRStudioServerProAppSettingsUserGroupPtrOutput {
 	return o
-}
-
-func (o UserProfileRStudioServerProAppSettingsUserGroupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserProfileRStudioServerProAppSettingsUserGroup] {
-	return pulumix.Output[*UserProfileRStudioServerProAppSettingsUserGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserProfileRStudioServerProAppSettingsUserGroupPtrOutput) Elem() UserProfileRStudioServerProAppSettingsUserGroupOutput {
@@ -12358,12 +11542,6 @@ func (o UserProfileResourceSpecInstanceTypeOutput) ToUserProfileResourceSpecInst
 	}).(UserProfileResourceSpecInstanceTypePtrOutput)
 }
 
-func (o UserProfileResourceSpecInstanceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UserProfileResourceSpecInstanceType] {
-	return pulumix.Output[UserProfileResourceSpecInstanceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserProfileResourceSpecInstanceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -12397,12 +11575,6 @@ func (o UserProfileResourceSpecInstanceTypePtrOutput) ToUserProfileResourceSpecI
 
 func (o UserProfileResourceSpecInstanceTypePtrOutput) ToUserProfileResourceSpecInstanceTypePtrOutputWithContext(ctx context.Context) UserProfileResourceSpecInstanceTypePtrOutput {
 	return o
-}
-
-func (o UserProfileResourceSpecInstanceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserProfileResourceSpecInstanceType] {
-	return pulumix.Output[*UserProfileResourceSpecInstanceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserProfileResourceSpecInstanceTypePtrOutput) Elem() UserProfileResourceSpecInstanceTypeOutput {
@@ -12541,12 +11713,6 @@ func (o UserProfileSharingSettingsNotebookOutputOptionOutput) ToUserProfileShari
 	}).(UserProfileSharingSettingsNotebookOutputOptionPtrOutput)
 }
 
-func (o UserProfileSharingSettingsNotebookOutputOptionOutput) ToOutput(ctx context.Context) pulumix.Output[UserProfileSharingSettingsNotebookOutputOption] {
-	return pulumix.Output[UserProfileSharingSettingsNotebookOutputOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserProfileSharingSettingsNotebookOutputOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -12580,12 +11746,6 @@ func (o UserProfileSharingSettingsNotebookOutputOptionPtrOutput) ToUserProfileSh
 
 func (o UserProfileSharingSettingsNotebookOutputOptionPtrOutput) ToUserProfileSharingSettingsNotebookOutputOptionPtrOutputWithContext(ctx context.Context) UserProfileSharingSettingsNotebookOutputOptionPtrOutput {
 	return o
-}
-
-func (o UserProfileSharingSettingsNotebookOutputOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserProfileSharingSettingsNotebookOutputOption] {
-	return pulumix.Output[*UserProfileSharingSettingsNotebookOutputOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserProfileSharingSettingsNotebookOutputOptionPtrOutput) Elem() UserProfileSharingSettingsNotebookOutputOptionOutput {

@@ -78,12 +78,6 @@ func (o BucketRuleStatusOutput) ToBucketRuleStatusPtrOutputWithContext(ctx conte
 	}).(BucketRuleStatusPtrOutput)
 }
 
-func (o BucketRuleStatusOutput) ToOutput(ctx context.Context) pulumix.Output[BucketRuleStatus] {
-	return pulumix.Output[BucketRuleStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketRuleStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o BucketRuleStatusPtrOutput) ToBucketRuleStatusPtrOutput() BucketRuleStatu
 
 func (o BucketRuleStatusPtrOutput) ToBucketRuleStatusPtrOutputWithContext(ctx context.Context) BucketRuleStatusPtrOutput {
 	return o
-}
-
-func (o BucketRuleStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketRuleStatus] {
-	return pulumix.Output[*BucketRuleStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketRuleStatusPtrOutput) Elem() BucketRuleStatusOutput {
@@ -261,12 +249,6 @@ func (o EndpointAccessTypeOutput) ToEndpointAccessTypePtrOutputWithContext(ctx c
 	}).(EndpointAccessTypePtrOutput)
 }
 
-func (o EndpointAccessTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointAccessType] {
-	return pulumix.Output[EndpointAccessType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EndpointAccessTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -300,12 +282,6 @@ func (o EndpointAccessTypePtrOutput) ToEndpointAccessTypePtrOutput() EndpointAcc
 
 func (o EndpointAccessTypePtrOutput) ToEndpointAccessTypePtrOutputWithContext(ctx context.Context) EndpointAccessTypePtrOutput {
 	return o
-}
-
-func (o EndpointAccessTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointAccessType] {
-	return pulumix.Output[*EndpointAccessType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointAccessTypePtrOutput) Elem() EndpointAccessTypeOutput {
@@ -410,12 +386,6 @@ func (o EndpointStatusOutput) ToEndpointStatusPtrOutputWithContext(ctx context.C
 	}).(EndpointStatusPtrOutput)
 }
 
-func (o EndpointStatusOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointStatus] {
-	return pulumix.Output[EndpointStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EndpointStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -449,12 +419,6 @@ func (o EndpointStatusPtrOutput) ToEndpointStatusPtrOutput() EndpointStatusPtrOu
 
 func (o EndpointStatusPtrOutput) ToEndpointStatusPtrOutputWithContext(ctx context.Context) EndpointStatusPtrOutput {
 	return o
-}
-
-func (o EndpointStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointStatus] {
-	return pulumix.Output[*EndpointStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointStatusPtrOutput) Elem() EndpointStatusOutput {

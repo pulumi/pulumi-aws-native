@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Oam::Sink
@@ -111,12 +110,6 @@ func (i *Sink) ToSinkOutputWithContext(ctx context.Context) SinkOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SinkOutput)
 }
 
-func (i *Sink) ToOutput(ctx context.Context) pulumix.Output[*Sink] {
-	return pulumix.Output[*Sink]{
-		OutputState: i.ToSinkOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SinkOutput struct{ *pulumi.OutputState }
 
 func (SinkOutput) ElementType() reflect.Type {
@@ -129,12 +122,6 @@ func (o SinkOutput) ToSinkOutput() SinkOutput {
 
 func (o SinkOutput) ToSinkOutputWithContext(ctx context.Context) SinkOutput {
 	return o
-}
-
-func (o SinkOutput) ToOutput(ctx context.Context) pulumix.Output[*Sink] {
-	return pulumix.Output[*Sink]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon resource name (ARN) of the ObservabilityAccessManager Sink

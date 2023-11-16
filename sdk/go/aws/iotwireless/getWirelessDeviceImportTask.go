@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Wireless Device Import Tasks
@@ -89,12 +88,6 @@ func (o LookupWirelessDeviceImportTaskResultOutput) ToLookupWirelessDeviceImport
 
 func (o LookupWirelessDeviceImportTaskResultOutput) ToLookupWirelessDeviceImportTaskResultOutputWithContext(ctx context.Context) LookupWirelessDeviceImportTaskResultOutput {
 	return o
-}
-
-func (o LookupWirelessDeviceImportTaskResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupWirelessDeviceImportTaskResult] {
-	return pulumix.Output[LookupWirelessDeviceImportTaskResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Arn for Wireless Device Import Task, Returned upon successful start.

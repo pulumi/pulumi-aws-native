@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::GameLift::Script
@@ -69,12 +68,6 @@ func (o LookupScriptResultOutput) ToLookupScriptResultOutput() LookupScriptResul
 
 func (o LookupScriptResultOutput) ToLookupScriptResultOutputWithContext(ctx context.Context) LookupScriptResultOutput {
 	return o
-}
-
-func (o LookupScriptResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupScriptResult] {
-	return pulumix.Output[LookupScriptResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupScriptResultOutput) Arn() pulumi.StringPtrOutput {

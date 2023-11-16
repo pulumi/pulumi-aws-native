@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
@@ -106,12 +105,6 @@ func (i *InstanceProfile) ToInstanceProfileOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceProfileOutput)
 }
 
-func (i *InstanceProfile) ToOutput(ctx context.Context) pulumix.Output[*InstanceProfile] {
-	return pulumix.Output[*InstanceProfile]{
-		OutputState: i.ToInstanceProfileOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceProfileOutput struct{ *pulumi.OutputState }
 
 func (InstanceProfileOutput) ElementType() reflect.Type {
@@ -124,12 +117,6 @@ func (o InstanceProfileOutput) ToInstanceProfileOutput() InstanceProfileOutput {
 
 func (o InstanceProfileOutput) ToInstanceProfileOutputWithContext(ctx context.Context) InstanceProfileOutput {
 	return o
-}
-
-func (o InstanceProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceProfile] {
-	return pulumix.Output[*InstanceProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceProfileOutput) Arn() pulumi.StringOutput {

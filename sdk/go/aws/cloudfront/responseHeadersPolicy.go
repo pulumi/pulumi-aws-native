@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFront::ResponseHeadersPolicy
@@ -95,12 +94,6 @@ func (i *ResponseHeadersPolicy) ToResponseHeadersPolicyOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyOutput)
 }
 
-func (i *ResponseHeadersPolicy) ToOutput(ctx context.Context) pulumix.Output[*ResponseHeadersPolicy] {
-	return pulumix.Output[*ResponseHeadersPolicy]{
-		OutputState: i.ToResponseHeadersPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResponseHeadersPolicyOutput struct{ *pulumi.OutputState }
 
 func (ResponseHeadersPolicyOutput) ElementType() reflect.Type {
@@ -113,12 +106,6 @@ func (o ResponseHeadersPolicyOutput) ToResponseHeadersPolicyOutput() ResponseHea
 
 func (o ResponseHeadersPolicyOutput) ToResponseHeadersPolicyOutputWithContext(ctx context.Context) ResponseHeadersPolicyOutput {
 	return o
-}
-
-func (o ResponseHeadersPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ResponseHeadersPolicy] {
-	return pulumix.Output[*ResponseHeadersPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResponseHeadersPolicyOutput) LastModifiedTime() pulumi.StringOutput {

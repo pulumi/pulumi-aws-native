@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::RDS::DBInstance resource creates an Amazon RDS DB instance.
@@ -179,12 +178,6 @@ func (o LookupDbInstanceResultOutput) ToLookupDbInstanceResultOutput() LookupDbI
 
 func (o LookupDbInstanceResultOutput) ToLookupDbInstanceResultOutputWithContext(ctx context.Context) LookupDbInstanceResultOutput {
 	return o
-}
-
-func (o LookupDbInstanceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDbInstanceResult] {
-	return pulumix.Output[LookupDbInstanceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The amount of storage (in gigabytes) to be initially allocated for the database instance.

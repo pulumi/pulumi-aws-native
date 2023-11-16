@@ -78,12 +78,6 @@ func (o ScheduledQueryDimensionValueTypeOutput) ToScheduledQueryDimensionValueTy
 	}).(ScheduledQueryDimensionValueTypePtrOutput)
 }
 
-func (o ScheduledQueryDimensionValueTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryDimensionValueType] {
-	return pulumix.Output[ScheduledQueryDimensionValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduledQueryDimensionValueTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o ScheduledQueryDimensionValueTypePtrOutput) ToScheduledQueryDimensionValu
 
 func (o ScheduledQueryDimensionValueTypePtrOutput) ToScheduledQueryDimensionValueTypePtrOutputWithContext(ctx context.Context) ScheduledQueryDimensionValueTypePtrOutput {
 	return o
-}
-
-func (o ScheduledQueryDimensionValueTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryDimensionValueType] {
-	return pulumix.Output[*ScheduledQueryDimensionValueType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryDimensionValueTypePtrOutput) Elem() ScheduledQueryDimensionValueTypeOutput {
@@ -261,12 +249,6 @@ func (o ScheduledQueryEncryptionOptionOutput) ToScheduledQueryEncryptionOptionPt
 	}).(ScheduledQueryEncryptionOptionPtrOutput)
 }
 
-func (o ScheduledQueryEncryptionOptionOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryEncryptionOption] {
-	return pulumix.Output[ScheduledQueryEncryptionOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduledQueryEncryptionOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -300,12 +282,6 @@ func (o ScheduledQueryEncryptionOptionPtrOutput) ToScheduledQueryEncryptionOptio
 
 func (o ScheduledQueryEncryptionOptionPtrOutput) ToScheduledQueryEncryptionOptionPtrOutputWithContext(ctx context.Context) ScheduledQueryEncryptionOptionPtrOutput {
 	return o
-}
-
-func (o ScheduledQueryEncryptionOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryEncryptionOption] {
-	return pulumix.Output[*ScheduledQueryEncryptionOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryEncryptionOptionPtrOutput) Elem() ScheduledQueryEncryptionOptionOutput {
@@ -447,12 +423,6 @@ func (o ScheduledQueryMixedMeasureMappingMeasureValueTypeOutput) ToScheduledQuer
 	}).(ScheduledQueryMixedMeasureMappingMeasureValueTypePtrOutput)
 }
 
-func (o ScheduledQueryMixedMeasureMappingMeasureValueTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryMixedMeasureMappingMeasureValueType] {
-	return pulumix.Output[ScheduledQueryMixedMeasureMappingMeasureValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduledQueryMixedMeasureMappingMeasureValueTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -486,12 +456,6 @@ func (o ScheduledQueryMixedMeasureMappingMeasureValueTypePtrOutput) ToScheduledQ
 
 func (o ScheduledQueryMixedMeasureMappingMeasureValueTypePtrOutput) ToScheduledQueryMixedMeasureMappingMeasureValueTypePtrOutputWithContext(ctx context.Context) ScheduledQueryMixedMeasureMappingMeasureValueTypePtrOutput {
 	return o
-}
-
-func (o ScheduledQueryMixedMeasureMappingMeasureValueTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryMixedMeasureMappingMeasureValueType] {
-	return pulumix.Output[*ScheduledQueryMixedMeasureMappingMeasureValueType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryMixedMeasureMappingMeasureValueTypePtrOutput) Elem() ScheduledQueryMixedMeasureMappingMeasureValueTypeOutput {
@@ -633,12 +597,6 @@ func (o ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeOutput) ToSche
 	}).(ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypePtrOutput)
 }
 
-func (o ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryMultiMeasureAttributeMappingMeasureValueType] {
-	return pulumix.Output[ScheduledQueryMultiMeasureAttributeMappingMeasureValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -672,12 +630,6 @@ func (o ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypePtrOutput) ToS
 
 func (o ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypePtrOutput) ToScheduledQueryMultiMeasureAttributeMappingMeasureValueTypePtrOutputWithContext(ctx context.Context) ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypePtrOutput {
 	return o
-}
-
-func (o ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryMultiMeasureAttributeMappingMeasureValueType] {
-	return pulumix.Output[*ScheduledQueryMultiMeasureAttributeMappingMeasureValueType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypePtrOutput) Elem() ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeOutput {
@@ -816,12 +768,6 @@ func (o TablePartitionKeyEnforcementLevelOutput) ToTablePartitionKeyEnforcementL
 	}).(TablePartitionKeyEnforcementLevelPtrOutput)
 }
 
-func (o TablePartitionKeyEnforcementLevelOutput) ToOutput(ctx context.Context) pulumix.Output[TablePartitionKeyEnforcementLevel] {
-	return pulumix.Output[TablePartitionKeyEnforcementLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TablePartitionKeyEnforcementLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -855,12 +801,6 @@ func (o TablePartitionKeyEnforcementLevelPtrOutput) ToTablePartitionKeyEnforceme
 
 func (o TablePartitionKeyEnforcementLevelPtrOutput) ToTablePartitionKeyEnforcementLevelPtrOutputWithContext(ctx context.Context) TablePartitionKeyEnforcementLevelPtrOutput {
 	return o
-}
-
-func (o TablePartitionKeyEnforcementLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TablePartitionKeyEnforcementLevel] {
-	return pulumix.Output[*TablePartitionKeyEnforcementLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TablePartitionKeyEnforcementLevelPtrOutput) Elem() TablePartitionKeyEnforcementLevelOutput {
@@ -999,12 +939,6 @@ func (o TablePartitionKeyTypeOutput) ToTablePartitionKeyTypePtrOutputWithContext
 	}).(TablePartitionKeyTypePtrOutput)
 }
 
-func (o TablePartitionKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TablePartitionKeyType] {
-	return pulumix.Output[TablePartitionKeyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TablePartitionKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1038,12 +972,6 @@ func (o TablePartitionKeyTypePtrOutput) ToTablePartitionKeyTypePtrOutput() Table
 
 func (o TablePartitionKeyTypePtrOutput) ToTablePartitionKeyTypePtrOutputWithContext(ctx context.Context) TablePartitionKeyTypePtrOutput {
 	return o
-}
-
-func (o TablePartitionKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TablePartitionKeyType] {
-	return pulumix.Output[*TablePartitionKeyType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TablePartitionKeyTypePtrOutput) Elem() TablePartitionKeyTypeOutput {

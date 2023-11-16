@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::TaskTemplate.
@@ -144,12 +143,6 @@ func (i *TaskTemplate) ToTaskTemplateOutputWithContext(ctx context.Context) Task
 	return pulumi.ToOutputWithContext(ctx, i).(TaskTemplateOutput)
 }
 
-func (i *TaskTemplate) ToOutput(ctx context.Context) pulumix.Output[*TaskTemplate] {
-	return pulumix.Output[*TaskTemplate]{
-		OutputState: i.ToTaskTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TaskTemplateOutput struct{ *pulumi.OutputState }
 
 func (TaskTemplateOutput) ElementType() reflect.Type {
@@ -162,12 +155,6 @@ func (o TaskTemplateOutput) ToTaskTemplateOutput() TaskTemplateOutput {
 
 func (o TaskTemplateOutput) ToTaskTemplateOutputWithContext(ctx context.Context) TaskTemplateOutput {
 	return o
-}
-
-func (o TaskTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskTemplate] {
-	return pulumix.Output[*TaskTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The identifier (arn) of the task template.

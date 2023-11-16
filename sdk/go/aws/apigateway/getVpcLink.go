@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for AWS ApiGateway VpcLink
@@ -73,12 +72,6 @@ func (o LookupVpcLinkResultOutput) ToLookupVpcLinkResultOutput() LookupVpcLinkRe
 
 func (o LookupVpcLinkResultOutput) ToLookupVpcLinkResultOutputWithContext(ctx context.Context) LookupVpcLinkResultOutput {
 	return o
-}
-
-func (o LookupVpcLinkResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpcLinkResult] {
-	return pulumix.Output[LookupVpcLinkResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description of the VPC link.

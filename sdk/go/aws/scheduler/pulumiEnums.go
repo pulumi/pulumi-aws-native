@@ -79,12 +79,6 @@ func (o ScheduleAssignPublicIpOutput) ToScheduleAssignPublicIpPtrOutputWithConte
 	}).(ScheduleAssignPublicIpPtrOutput)
 }
 
-func (o ScheduleAssignPublicIpOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleAssignPublicIp] {
-	return pulumix.Output[ScheduleAssignPublicIp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduleAssignPublicIpOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o ScheduleAssignPublicIpPtrOutput) ToScheduleAssignPublicIpPtrOutput() Sch
 
 func (o ScheduleAssignPublicIpPtrOutput) ToScheduleAssignPublicIpPtrOutputWithContext(ctx context.Context) ScheduleAssignPublicIpPtrOutput {
 	return o
-}
-
-func (o ScheduleAssignPublicIpPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleAssignPublicIp] {
-	return pulumix.Output[*ScheduleAssignPublicIp]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleAssignPublicIpPtrOutput) Elem() ScheduleAssignPublicIpOutput {
@@ -262,12 +250,6 @@ func (o ScheduleFlexibleTimeWindowModeOutput) ToScheduleFlexibleTimeWindowModePt
 	}).(ScheduleFlexibleTimeWindowModePtrOutput)
 }
 
-func (o ScheduleFlexibleTimeWindowModeOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleFlexibleTimeWindowMode] {
-	return pulumix.Output[ScheduleFlexibleTimeWindowMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduleFlexibleTimeWindowModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +283,6 @@ func (o ScheduleFlexibleTimeWindowModePtrOutput) ToScheduleFlexibleTimeWindowMod
 
 func (o ScheduleFlexibleTimeWindowModePtrOutput) ToScheduleFlexibleTimeWindowModePtrOutputWithContext(ctx context.Context) ScheduleFlexibleTimeWindowModePtrOutput {
 	return o
-}
-
-func (o ScheduleFlexibleTimeWindowModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleFlexibleTimeWindowMode] {
-	return pulumix.Output[*ScheduleFlexibleTimeWindowMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleFlexibleTimeWindowModePtrOutput) Elem() ScheduleFlexibleTimeWindowModeOutput {
@@ -409,12 +385,6 @@ func (o ScheduleGroupStateEnumOutput) ToScheduleGroupStateEnumPtrOutputWithConte
 	}).(ScheduleGroupStateEnumPtrOutput)
 }
 
-func (o ScheduleGroupStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleGroupStateEnum] {
-	return pulumix.Output[ScheduleGroupStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduleGroupStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -448,12 +418,6 @@ func (o ScheduleGroupStateEnumPtrOutput) ToScheduleGroupStateEnumPtrOutput() Sch
 
 func (o ScheduleGroupStateEnumPtrOutput) ToScheduleGroupStateEnumPtrOutputWithContext(ctx context.Context) ScheduleGroupStateEnumPtrOutput {
 	return o
-}
-
-func (o ScheduleGroupStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleGroupStateEnum] {
-	return pulumix.Output[*ScheduleGroupStateEnum]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleGroupStateEnumPtrOutput) Elem() ScheduleGroupStateEnumOutput {
@@ -549,12 +513,6 @@ func (o ScheduleLaunchTypeOutput) ToScheduleLaunchTypePtrOutputWithContext(ctx c
 	}).(ScheduleLaunchTypePtrOutput)
 }
 
-func (o ScheduleLaunchTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleLaunchType] {
-	return pulumix.Output[ScheduleLaunchType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduleLaunchTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -588,12 +546,6 @@ func (o ScheduleLaunchTypePtrOutput) ToScheduleLaunchTypePtrOutput() ScheduleLau
 
 func (o ScheduleLaunchTypePtrOutput) ToScheduleLaunchTypePtrOutputWithContext(ctx context.Context) ScheduleLaunchTypePtrOutput {
 	return o
-}
-
-func (o ScheduleLaunchTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleLaunchType] {
-	return pulumix.Output[*ScheduleLaunchType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleLaunchTypePtrOutput) Elem() ScheduleLaunchTypeOutput {
@@ -732,12 +684,6 @@ func (o SchedulePlacementConstraintTypeOutput) ToSchedulePlacementConstraintType
 	}).(SchedulePlacementConstraintTypePtrOutput)
 }
 
-func (o SchedulePlacementConstraintTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SchedulePlacementConstraintType] {
-	return pulumix.Output[SchedulePlacementConstraintType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchedulePlacementConstraintTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -771,12 +717,6 @@ func (o SchedulePlacementConstraintTypePtrOutput) ToSchedulePlacementConstraintT
 
 func (o SchedulePlacementConstraintTypePtrOutput) ToSchedulePlacementConstraintTypePtrOutputWithContext(ctx context.Context) SchedulePlacementConstraintTypePtrOutput {
 	return o
-}
-
-func (o SchedulePlacementConstraintTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchedulePlacementConstraintType] {
-	return pulumix.Output[*SchedulePlacementConstraintType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SchedulePlacementConstraintTypePtrOutput) Elem() SchedulePlacementConstraintTypeOutput {
@@ -916,12 +856,6 @@ func (o SchedulePlacementStrategyTypeOutput) ToSchedulePlacementStrategyTypePtrO
 	}).(SchedulePlacementStrategyTypePtrOutput)
 }
 
-func (o SchedulePlacementStrategyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SchedulePlacementStrategyType] {
-	return pulumix.Output[SchedulePlacementStrategyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchedulePlacementStrategyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -955,12 +889,6 @@ func (o SchedulePlacementStrategyTypePtrOutput) ToSchedulePlacementStrategyTypeP
 
 func (o SchedulePlacementStrategyTypePtrOutput) ToSchedulePlacementStrategyTypePtrOutputWithContext(ctx context.Context) SchedulePlacementStrategyTypePtrOutput {
 	return o
-}
-
-func (o SchedulePlacementStrategyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchedulePlacementStrategyType] {
-	return pulumix.Output[*SchedulePlacementStrategyType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SchedulePlacementStrategyTypePtrOutput) Elem() SchedulePlacementStrategyTypeOutput {
@@ -1098,12 +1026,6 @@ func (o SchedulePropagateTagsOutput) ToSchedulePropagateTagsPtrOutputWithContext
 	}).(SchedulePropagateTagsPtrOutput)
 }
 
-func (o SchedulePropagateTagsOutput) ToOutput(ctx context.Context) pulumix.Output[SchedulePropagateTags] {
-	return pulumix.Output[SchedulePropagateTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchedulePropagateTagsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1137,12 +1059,6 @@ func (o SchedulePropagateTagsPtrOutput) ToSchedulePropagateTagsPtrOutput() Sched
 
 func (o SchedulePropagateTagsPtrOutput) ToSchedulePropagateTagsPtrOutputWithContext(ctx context.Context) SchedulePropagateTagsPtrOutput {
 	return o
-}
-
-func (o SchedulePropagateTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchedulePropagateTags] {
-	return pulumix.Output[*SchedulePropagateTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SchedulePropagateTagsPtrOutput) Elem() SchedulePropagateTagsOutput {
@@ -1281,12 +1197,6 @@ func (o ScheduleStateEnumOutput) ToScheduleStateEnumPtrOutputWithContext(ctx con
 	}).(ScheduleStateEnumPtrOutput)
 }
 
-func (o ScheduleStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleStateEnum] {
-	return pulumix.Output[ScheduleStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduleStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1320,12 +1230,6 @@ func (o ScheduleStateEnumPtrOutput) ToScheduleStateEnumPtrOutput() ScheduleState
 
 func (o ScheduleStateEnumPtrOutput) ToScheduleStateEnumPtrOutputWithContext(ctx context.Context) ScheduleStateEnumPtrOutput {
 	return o
-}
-
-func (o ScheduleStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleStateEnum] {
-	return pulumix.Output[*ScheduleStateEnum]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleStateEnumPtrOutput) Elem() ScheduleStateEnumOutput {

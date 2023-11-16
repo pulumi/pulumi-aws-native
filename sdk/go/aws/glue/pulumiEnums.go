@@ -85,12 +85,6 @@ func (o SchemaCompatibilityOutput) ToSchemaCompatibilityPtrOutputWithContext(ctx
 	}).(SchemaCompatibilityPtrOutput)
 }
 
-func (o SchemaCompatibilityOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaCompatibility] {
-	return pulumix.Output[SchemaCompatibility]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchemaCompatibilityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -124,12 +118,6 @@ func (o SchemaCompatibilityPtrOutput) ToSchemaCompatibilityPtrOutput() SchemaCom
 
 func (o SchemaCompatibilityPtrOutput) ToSchemaCompatibilityPtrOutputWithContext(ctx context.Context) SchemaCompatibilityPtrOutput {
 	return o
-}
-
-func (o SchemaCompatibilityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaCompatibility] {
-	return pulumix.Output[*SchemaCompatibility]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SchemaCompatibilityPtrOutput) Elem() SchemaCompatibilityOutput {
@@ -269,12 +257,6 @@ func (o SchemaDataFormatOutput) ToSchemaDataFormatPtrOutputWithContext(ctx conte
 	}).(SchemaDataFormatPtrOutput)
 }
 
-func (o SchemaDataFormatOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaDataFormat] {
-	return pulumix.Output[SchemaDataFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchemaDataFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -308,12 +290,6 @@ func (o SchemaDataFormatPtrOutput) ToSchemaDataFormatPtrOutput() SchemaDataForma
 
 func (o SchemaDataFormatPtrOutput) ToSchemaDataFormatPtrOutputWithContext(ctx context.Context) SchemaDataFormatPtrOutput {
 	return o
-}
-
-func (o SchemaDataFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaDataFormat] {
-	return pulumix.Output[*SchemaDataFormat]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SchemaDataFormatPtrOutput) Elem() SchemaDataFormatOutput {

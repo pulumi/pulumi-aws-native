@@ -79,12 +79,6 @@ func (o AgreementStatusOutput) ToAgreementStatusPtrOutputWithContext(ctx context
 	}).(AgreementStatusPtrOutput)
 }
 
-func (o AgreementStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AgreementStatus] {
-	return pulumix.Output[AgreementStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AgreementStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o AgreementStatusPtrOutput) ToAgreementStatusPtrOutput() AgreementStatusPt
 
 func (o AgreementStatusPtrOutput) ToAgreementStatusPtrOutputWithContext(ctx context.Context) AgreementStatusPtrOutput {
 	return o
-}
-
-func (o AgreementStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AgreementStatus] {
-	return pulumix.Output[*AgreementStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AgreementStatusPtrOutput) Elem() AgreementStatusOutput {
@@ -227,12 +215,6 @@ func (o CertificateStatusOutput) ToCertificateStatusPtrOutputWithContext(ctx con
 	}).(CertificateStatusPtrOutput)
 }
 
-func (o CertificateStatusOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateStatus] {
-	return pulumix.Output[CertificateStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertificateStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -266,12 +248,6 @@ func (o CertificateStatusPtrOutput) ToCertificateStatusPtrOutput() CertificateSt
 
 func (o CertificateStatusPtrOutput) ToCertificateStatusPtrOutputWithContext(ctx context.Context) CertificateStatusPtrOutput {
 	return o
-}
-
-func (o CertificateStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateStatus] {
-	return pulumix.Output[*CertificateStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateStatusPtrOutput) Elem() CertificateStatusOutput {
@@ -330,12 +306,6 @@ func (o CertificateTypeOutput) ToCertificateTypePtrOutputWithContext(ctx context
 	}).(CertificateTypePtrOutput)
 }
 
-func (o CertificateTypeOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateType] {
-	return pulumix.Output[CertificateType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertificateTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -369,12 +339,6 @@ func (o CertificateTypePtrOutput) ToCertificateTypePtrOutput() CertificateTypePt
 
 func (o CertificateTypePtrOutput) ToCertificateTypePtrOutputWithContext(ctx context.Context) CertificateTypePtrOutput {
 	return o
-}
-
-func (o CertificateTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateType] {
-	return pulumix.Output[*CertificateType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateTypePtrOutput) Elem() CertificateTypeOutput {
@@ -469,12 +433,6 @@ func (o CertificateUsageOutput) ToCertificateUsagePtrOutputWithContext(ctx conte
 	}).(CertificateUsagePtrOutput)
 }
 
-func (o CertificateUsageOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateUsage] {
-	return pulumix.Output[CertificateUsage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertificateUsageOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -508,12 +466,6 @@ func (o CertificateUsagePtrOutput) ToCertificateUsagePtrOutput() CertificateUsag
 
 func (o CertificateUsagePtrOutput) ToCertificateUsagePtrOutputWithContext(ctx context.Context) CertificateUsagePtrOutput {
 	return o
-}
-
-func (o CertificateUsagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateUsage] {
-	return pulumix.Output[*CertificateUsage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateUsagePtrOutput) Elem() CertificateUsageOutput {
@@ -652,12 +604,6 @@ func (o ConnectorAs2ConfigPropertiesCompressionOutput) ToConnectorAs2ConfigPrope
 	}).(ConnectorAs2ConfigPropertiesCompressionPtrOutput)
 }
 
-func (o ConnectorAs2ConfigPropertiesCompressionOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorAs2ConfigPropertiesCompression] {
-	return pulumix.Output[ConnectorAs2ConfigPropertiesCompression]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectorAs2ConfigPropertiesCompressionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -691,12 +637,6 @@ func (o ConnectorAs2ConfigPropertiesCompressionPtrOutput) ToConnectorAs2ConfigPr
 
 func (o ConnectorAs2ConfigPropertiesCompressionPtrOutput) ToConnectorAs2ConfigPropertiesCompressionPtrOutputWithContext(ctx context.Context) ConnectorAs2ConfigPropertiesCompressionPtrOutput {
 	return o
-}
-
-func (o ConnectorAs2ConfigPropertiesCompressionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorAs2ConfigPropertiesCompression] {
-	return pulumix.Output[*ConnectorAs2ConfigPropertiesCompression]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorAs2ConfigPropertiesCompressionPtrOutput) Elem() ConnectorAs2ConfigPropertiesCompressionOutput {
@@ -837,12 +777,6 @@ func (o ConnectorAs2ConfigPropertiesEncryptionAlgorithmOutput) ToConnectorAs2Con
 	}).(ConnectorAs2ConfigPropertiesEncryptionAlgorithmPtrOutput)
 }
 
-func (o ConnectorAs2ConfigPropertiesEncryptionAlgorithmOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorAs2ConfigPropertiesEncryptionAlgorithm] {
-	return pulumix.Output[ConnectorAs2ConfigPropertiesEncryptionAlgorithm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectorAs2ConfigPropertiesEncryptionAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -876,12 +810,6 @@ func (o ConnectorAs2ConfigPropertiesEncryptionAlgorithmPtrOutput) ToConnectorAs2
 
 func (o ConnectorAs2ConfigPropertiesEncryptionAlgorithmPtrOutput) ToConnectorAs2ConfigPropertiesEncryptionAlgorithmPtrOutputWithContext(ctx context.Context) ConnectorAs2ConfigPropertiesEncryptionAlgorithmPtrOutput {
 	return o
-}
-
-func (o ConnectorAs2ConfigPropertiesEncryptionAlgorithmPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorAs2ConfigPropertiesEncryptionAlgorithm] {
-	return pulumix.Output[*ConnectorAs2ConfigPropertiesEncryptionAlgorithm]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorAs2ConfigPropertiesEncryptionAlgorithmPtrOutput) Elem() ConnectorAs2ConfigPropertiesEncryptionAlgorithmOutput {
@@ -1020,12 +948,6 @@ func (o ConnectorAs2ConfigPropertiesMdnResponseOutput) ToConnectorAs2ConfigPrope
 	}).(ConnectorAs2ConfigPropertiesMdnResponsePtrOutput)
 }
 
-func (o ConnectorAs2ConfigPropertiesMdnResponseOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorAs2ConfigPropertiesMdnResponse] {
-	return pulumix.Output[ConnectorAs2ConfigPropertiesMdnResponse]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectorAs2ConfigPropertiesMdnResponseOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1059,12 +981,6 @@ func (o ConnectorAs2ConfigPropertiesMdnResponsePtrOutput) ToConnectorAs2ConfigPr
 
 func (o ConnectorAs2ConfigPropertiesMdnResponsePtrOutput) ToConnectorAs2ConfigPropertiesMdnResponsePtrOutputWithContext(ctx context.Context) ConnectorAs2ConfigPropertiesMdnResponsePtrOutput {
 	return o
-}
-
-func (o ConnectorAs2ConfigPropertiesMdnResponsePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorAs2ConfigPropertiesMdnResponse] {
-	return pulumix.Output[*ConnectorAs2ConfigPropertiesMdnResponse]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorAs2ConfigPropertiesMdnResponsePtrOutput) Elem() ConnectorAs2ConfigPropertiesMdnResponseOutput {
@@ -1207,12 +1123,6 @@ func (o ConnectorAs2ConfigPropertiesMdnSigningAlgorithmOutput) ToConnectorAs2Con
 	}).(ConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutput)
 }
 
-func (o ConnectorAs2ConfigPropertiesMdnSigningAlgorithmOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorAs2ConfigPropertiesMdnSigningAlgorithm] {
-	return pulumix.Output[ConnectorAs2ConfigPropertiesMdnSigningAlgorithm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectorAs2ConfigPropertiesMdnSigningAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1246,12 +1156,6 @@ func (o ConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutput) ToConnectorAs2
 
 func (o ConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutput) ToConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutputWithContext(ctx context.Context) ConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutput {
 	return o
-}
-
-func (o ConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorAs2ConfigPropertiesMdnSigningAlgorithm] {
-	return pulumix.Output[*ConnectorAs2ConfigPropertiesMdnSigningAlgorithm]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorAs2ConfigPropertiesMdnSigningAlgorithmPtrOutput) Elem() ConnectorAs2ConfigPropertiesMdnSigningAlgorithmOutput {
@@ -1393,12 +1297,6 @@ func (o ConnectorAs2ConfigPropertiesSigningAlgorithmOutput) ToConnectorAs2Config
 	}).(ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput)
 }
 
-func (o ConnectorAs2ConfigPropertiesSigningAlgorithmOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorAs2ConfigPropertiesSigningAlgorithm] {
-	return pulumix.Output[ConnectorAs2ConfigPropertiesSigningAlgorithm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectorAs2ConfigPropertiesSigningAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1432,12 +1330,6 @@ func (o ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput) ToConnectorAs2Con
 
 func (o ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput) ToConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutputWithContext(ctx context.Context) ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput {
 	return o
-}
-
-func (o ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorAs2ConfigPropertiesSigningAlgorithm] {
-	return pulumix.Output[*ConnectorAs2ConfigPropertiesSigningAlgorithm]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput) Elem() ConnectorAs2ConfigPropertiesSigningAlgorithmOutput {
@@ -1576,12 +1468,6 @@ func (o ProfileTypeOutput) ToProfileTypePtrOutputWithContext(ctx context.Context
 	}).(ProfileTypePtrOutput)
 }
 
-func (o ProfileTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ProfileType] {
-	return pulumix.Output[ProfileType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProfileTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1615,12 +1501,6 @@ func (o ProfileTypePtrOutput) ToProfileTypePtrOutput() ProfileTypePtrOutput {
 
 func (o ProfileTypePtrOutput) ToProfileTypePtrOutputWithContext(ctx context.Context) ProfileTypePtrOutput {
 	return o
-}
-
-func (o ProfileTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProfileType] {
-	return pulumix.Output[*ProfileType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProfileTypePtrOutput) Elem() ProfileTypeOutput {
@@ -1759,12 +1639,6 @@ func (o WorkflowStepCopyStepDetailsPropertiesOverwriteExistingOutput) ToWorkflow
 	}).(WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput)
 }
 
-func (o WorkflowStepCopyStepDetailsPropertiesOverwriteExistingOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepCopyStepDetailsPropertiesOverwriteExisting] {
-	return pulumix.Output[WorkflowStepCopyStepDetailsPropertiesOverwriteExisting]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkflowStepCopyStepDetailsPropertiesOverwriteExistingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1798,12 +1672,6 @@ func (o WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput) ToWorkf
 
 func (o WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput) ToWorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutputWithContext(ctx context.Context) WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput {
 	return o
-}
-
-func (o WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepCopyStepDetailsPropertiesOverwriteExisting] {
-	return pulumix.Output[*WorkflowStepCopyStepDetailsPropertiesOverwriteExisting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput) Elem() WorkflowStepCopyStepDetailsPropertiesOverwriteExistingOutput {
@@ -1942,12 +1810,6 @@ func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput) ToWorkf
 	}).(WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput)
 }
 
-func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting] {
-	return pulumix.Output[WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1981,12 +1843,6 @@ func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput) ToWo
 
 func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput) ToWorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput {
 	return o
-}
-
-func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting] {
-	return pulumix.Output[*WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingPtrOutput) Elem() WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput {
@@ -2124,12 +1980,6 @@ func (o WorkflowStepDecryptStepDetailsPropertiesTypeOutput) ToWorkflowStepDecryp
 	}).(WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput)
 }
 
-func (o WorkflowStepDecryptStepDetailsPropertiesTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepDecryptStepDetailsPropertiesType] {
-	return pulumix.Output[WorkflowStepDecryptStepDetailsPropertiesType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkflowStepDecryptStepDetailsPropertiesTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2163,12 +2013,6 @@ func (o WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput) ToWorkflowStepDec
 
 func (o WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput) ToWorkflowStepDecryptStepDetailsPropertiesTypePtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput {
 	return o
-}
-
-func (o WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepDecryptStepDetailsPropertiesType] {
-	return pulumix.Output[*WorkflowStepDecryptStepDetailsPropertiesType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowStepDecryptStepDetailsPropertiesTypePtrOutput) Elem() WorkflowStepDecryptStepDetailsPropertiesTypeOutput {
@@ -2309,12 +2153,6 @@ func (o WorkflowStepTypeOutput) ToWorkflowStepTypePtrOutputWithContext(ctx conte
 	}).(WorkflowStepTypePtrOutput)
 }
 
-func (o WorkflowStepTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepType] {
-	return pulumix.Output[WorkflowStepType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkflowStepTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2348,12 +2186,6 @@ func (o WorkflowStepTypePtrOutput) ToWorkflowStepTypePtrOutput() WorkflowStepTyp
 
 func (o WorkflowStepTypePtrOutput) ToWorkflowStepTypePtrOutputWithContext(ctx context.Context) WorkflowStepTypePtrOutput {
 	return o
-}
-
-func (o WorkflowStepTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepType] {
-	return pulumix.Output[*WorkflowStepType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowStepTypePtrOutput) Elem() WorkflowStepTypeOutput {

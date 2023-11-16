@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFront::StreamingDistribution
@@ -103,12 +102,6 @@ func (i *StreamingDistribution) ToStreamingDistributionOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingDistributionOutput)
 }
 
-func (i *StreamingDistribution) ToOutput(ctx context.Context) pulumix.Output[*StreamingDistribution] {
-	return pulumix.Output[*StreamingDistribution]{
-		OutputState: i.ToStreamingDistributionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingDistributionOutput struct{ *pulumi.OutputState }
 
 func (StreamingDistributionOutput) ElementType() reflect.Type {
@@ -121,12 +114,6 @@ func (o StreamingDistributionOutput) ToStreamingDistributionOutput() StreamingDi
 
 func (o StreamingDistributionOutput) ToStreamingDistributionOutputWithContext(ctx context.Context) StreamingDistributionOutput {
 	return o
-}
-
-func (o StreamingDistributionOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingDistribution] {
-	return pulumix.Output[*StreamingDistribution]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingDistributionOutput) DomainName() pulumi.StringOutput {

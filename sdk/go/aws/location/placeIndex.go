@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Location::PlaceIndex Resource Type
@@ -121,12 +120,6 @@ func (i *PlaceIndex) ToPlaceIndexOutputWithContext(ctx context.Context) PlaceInd
 	return pulumi.ToOutputWithContext(ctx, i).(PlaceIndexOutput)
 }
 
-func (i *PlaceIndex) ToOutput(ctx context.Context) pulumix.Output[*PlaceIndex] {
-	return pulumix.Output[*PlaceIndex]{
-		OutputState: i.ToPlaceIndexOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PlaceIndexOutput struct{ *pulumi.OutputState }
 
 func (PlaceIndexOutput) ElementType() reflect.Type {
@@ -139,12 +132,6 @@ func (o PlaceIndexOutput) ToPlaceIndexOutput() PlaceIndexOutput {
 
 func (o PlaceIndexOutput) ToPlaceIndexOutputWithContext(ctx context.Context) PlaceIndexOutput {
 	return o
-}
-
-func (o PlaceIndexOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaceIndex] {
-	return pulumix.Output[*PlaceIndex]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PlaceIndexOutput) Arn() pulumi.StringOutput {

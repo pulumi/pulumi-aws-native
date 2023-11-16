@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i AgreementTagArgs) ToAgreementTagOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(AgreementTagOutput)
 }
 
-func (i AgreementTagArgs) ToOutput(ctx context.Context) pulumix.Output[AgreementTag] {
-	return pulumix.Output[AgreementTag]{
-		OutputState: i.ToAgreementTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AgreementTagArrayInput is an input type that accepts AgreementTagArray and AgreementTagArrayOutput values.
 // You can construct a concrete instance of `AgreementTagArrayInput` via:
 //
@@ -84,12 +77,6 @@ func (i AgreementTagArray) ToAgreementTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(AgreementTagArrayOutput)
 }
 
-func (i AgreementTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AgreementTag] {
-	return pulumix.Output[[]AgreementTag]{
-		OutputState: i.ToAgreementTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Creates a key-value pair for a specific resource.
 type AgreementTagOutput struct{ *pulumi.OutputState }
 
@@ -103,12 +90,6 @@ func (o AgreementTagOutput) ToAgreementTagOutput() AgreementTagOutput {
 
 func (o AgreementTagOutput) ToAgreementTagOutputWithContext(ctx context.Context) AgreementTagOutput {
 	return o
-}
-
-func (o AgreementTagOutput) ToOutput(ctx context.Context) pulumix.Output[AgreementTag] {
-	return pulumix.Output[AgreementTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name assigned to the tag that you create.
@@ -133,12 +114,6 @@ func (o AgreementTagArrayOutput) ToAgreementTagArrayOutput() AgreementTagArrayOu
 
 func (o AgreementTagArrayOutput) ToAgreementTagArrayOutputWithContext(ctx context.Context) AgreementTagArrayOutput {
 	return o
-}
-
-func (o AgreementTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AgreementTag] {
-	return pulumix.Output[[]AgreementTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AgreementTagArrayOutput) Index(i pulumi.IntInput) AgreementTagOutput {
@@ -214,12 +189,6 @@ func (i As2ConfigPropertiesArgs) ToAs2ConfigPropertiesOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(As2ConfigPropertiesOutput)
 }
 
-func (i As2ConfigPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[As2ConfigProperties] {
-	return pulumix.Output[As2ConfigProperties]{
-		OutputState: i.ToAs2ConfigPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i As2ConfigPropertiesArgs) ToAs2ConfigPropertiesPtrOutput() As2ConfigPropertiesPtrOutput {
 	return i.ToAs2ConfigPropertiesPtrOutputWithContext(context.Background())
 }
@@ -261,12 +230,6 @@ func (i *as2ConfigPropertiesPtrType) ToAs2ConfigPropertiesPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(As2ConfigPropertiesPtrOutput)
 }
 
-func (i *as2ConfigPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*As2ConfigProperties] {
-	return pulumix.Output[*As2ConfigProperties]{
-		OutputState: i.ToAs2ConfigPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Configuration for an AS2 connector.
 type As2ConfigPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -290,12 +253,6 @@ func (o As2ConfigPropertiesOutput) ToAs2ConfigPropertiesPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v As2ConfigProperties) *As2ConfigProperties {
 		return &v
 	}).(As2ConfigPropertiesPtrOutput)
-}
-
-func (o As2ConfigPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[As2ConfigProperties] {
-	return pulumix.Output[As2ConfigProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN or name of the secret in AWS Secrets Manager which contains the credentials for Basic authentication. If empty, Basic authentication is disabled for the AS2 connector
@@ -359,12 +316,6 @@ func (o As2ConfigPropertiesPtrOutput) ToAs2ConfigPropertiesPtrOutput() As2Config
 
 func (o As2ConfigPropertiesPtrOutput) ToAs2ConfigPropertiesPtrOutputWithContext(ctx context.Context) As2ConfigPropertiesPtrOutput {
 	return o
-}
-
-func (o As2ConfigPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*As2ConfigProperties] {
-	return pulumix.Output[*As2ConfigProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o As2ConfigPropertiesPtrOutput) Elem() As2ConfigPropertiesOutput {
@@ -506,12 +457,6 @@ func (i CertificateTagArgs) ToCertificateTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateTagOutput)
 }
 
-func (i CertificateTagArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateTag] {
-	return pulumix.Output[CertificateTag]{
-		OutputState: i.ToCertificateTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificateTagArrayInput is an input type that accepts CertificateTagArray and CertificateTagArrayOutput values.
 // You can construct a concrete instance of `CertificateTagArrayInput` via:
 //
@@ -537,12 +482,6 @@ func (i CertificateTagArray) ToCertificateTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateTagArrayOutput)
 }
 
-func (i CertificateTagArray) ToOutput(ctx context.Context) pulumix.Output[[]CertificateTag] {
-	return pulumix.Output[[]CertificateTag]{
-		OutputState: i.ToCertificateTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type CertificateTagOutput struct{ *pulumi.OutputState }
 
@@ -556,12 +495,6 @@ func (o CertificateTagOutput) ToCertificateTagOutput() CertificateTagOutput {
 
 func (o CertificateTagOutput) ToCertificateTagOutputWithContext(ctx context.Context) CertificateTagOutput {
 	return o
-}
-
-func (o CertificateTagOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateTag] {
-	return pulumix.Output[CertificateTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -586,12 +519,6 @@ func (o CertificateTagArrayOutput) ToCertificateTagArrayOutput() CertificateTagA
 
 func (o CertificateTagArrayOutput) ToCertificateTagArrayOutputWithContext(ctx context.Context) CertificateTagArrayOutput {
 	return o
-}
-
-func (o CertificateTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertificateTag] {
-	return pulumix.Output[[]CertificateTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateTagArrayOutput) Index(i pulumi.IntInput) CertificateTagOutput {
@@ -639,12 +566,6 @@ func (i ConnectorTagArgs) ToConnectorTagOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorTagOutput)
 }
 
-func (i ConnectorTagArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorTag] {
-	return pulumix.Output[ConnectorTag]{
-		OutputState: i.ToConnectorTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConnectorTagArrayInput is an input type that accepts ConnectorTagArray and ConnectorTagArrayOutput values.
 // You can construct a concrete instance of `ConnectorTagArrayInput` via:
 //
@@ -670,12 +591,6 @@ func (i ConnectorTagArray) ToConnectorTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorTagArrayOutput)
 }
 
-func (i ConnectorTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ConnectorTag] {
-	return pulumix.Output[[]ConnectorTag]{
-		OutputState: i.ToConnectorTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Creates a key-value pair for a specific resource.
 type ConnectorTagOutput struct{ *pulumi.OutputState }
 
@@ -689,12 +604,6 @@ func (o ConnectorTagOutput) ToConnectorTagOutput() ConnectorTagOutput {
 
 func (o ConnectorTagOutput) ToConnectorTagOutputWithContext(ctx context.Context) ConnectorTagOutput {
 	return o
-}
-
-func (o ConnectorTagOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorTag] {
-	return pulumix.Output[ConnectorTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name assigned to the tag that you create.
@@ -719,12 +628,6 @@ func (o ConnectorTagArrayOutput) ToConnectorTagArrayOutput() ConnectorTagArrayOu
 
 func (o ConnectorTagArrayOutput) ToConnectorTagArrayOutputWithContext(ctx context.Context) ConnectorTagArrayOutput {
 	return o
-}
-
-func (o ConnectorTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConnectorTag] {
-	return pulumix.Output[[]ConnectorTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorTagArrayOutput) Index(i pulumi.IntInput) ConnectorTagOutput {
@@ -772,12 +675,6 @@ func (i ProfileTagArgs) ToProfileTagOutputWithContext(ctx context.Context) Profi
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileTagOutput)
 }
 
-func (i ProfileTagArgs) ToOutput(ctx context.Context) pulumix.Output[ProfileTag] {
-	return pulumix.Output[ProfileTag]{
-		OutputState: i.ToProfileTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProfileTagArrayInput is an input type that accepts ProfileTagArray and ProfileTagArrayOutput values.
 // You can construct a concrete instance of `ProfileTagArrayInput` via:
 //
@@ -803,12 +700,6 @@ func (i ProfileTagArray) ToProfileTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileTagArrayOutput)
 }
 
-func (i ProfileTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ProfileTag] {
-	return pulumix.Output[[]ProfileTag]{
-		OutputState: i.ToProfileTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Creates a key-value pair for a specific resource.
 type ProfileTagOutput struct{ *pulumi.OutputState }
 
@@ -822,12 +713,6 @@ func (o ProfileTagOutput) ToProfileTagOutput() ProfileTagOutput {
 
 func (o ProfileTagOutput) ToProfileTagOutputWithContext(ctx context.Context) ProfileTagOutput {
 	return o
-}
-
-func (o ProfileTagOutput) ToOutput(ctx context.Context) pulumix.Output[ProfileTag] {
-	return pulumix.Output[ProfileTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name assigned to the tag that you create.
@@ -852,12 +737,6 @@ func (o ProfileTagArrayOutput) ToProfileTagArrayOutput() ProfileTagArrayOutput {
 
 func (o ProfileTagArrayOutput) ToProfileTagArrayOutputWithContext(ctx context.Context) ProfileTagArrayOutput {
 	return o
-}
-
-func (o ProfileTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProfileTag] {
-	return pulumix.Output[[]ProfileTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProfileTagArrayOutput) Index(i pulumi.IntInput) ProfileTagOutput {
@@ -895,12 +774,6 @@ func (i ServerAs2TransportArgs) ToServerAs2TransportOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServerAs2TransportOutput)
 }
 
-func (i ServerAs2TransportArgs) ToOutput(ctx context.Context) pulumix.Output[ServerAs2Transport] {
-	return pulumix.Output[ServerAs2Transport]{
-		OutputState: i.ToServerAs2TransportOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServerAs2TransportArrayInput is an input type that accepts ServerAs2TransportArray and ServerAs2TransportArrayOutput values.
 // You can construct a concrete instance of `ServerAs2TransportArrayInput` via:
 //
@@ -926,12 +799,6 @@ func (i ServerAs2TransportArray) ToServerAs2TransportArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ServerAs2TransportArrayOutput)
 }
 
-func (i ServerAs2TransportArray) ToOutput(ctx context.Context) pulumix.Output[[]ServerAs2Transport] {
-	return pulumix.Output[[]ServerAs2Transport]{
-		OutputState: i.ToServerAs2TransportArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerAs2TransportOutput struct{ *pulumi.OutputState }
 
 func (ServerAs2TransportOutput) ElementType() reflect.Type {
@@ -946,12 +813,6 @@ func (o ServerAs2TransportOutput) ToServerAs2TransportOutputWithContext(ctx cont
 	return o
 }
 
-func (o ServerAs2TransportOutput) ToOutput(ctx context.Context) pulumix.Output[ServerAs2Transport] {
-	return pulumix.Output[ServerAs2Transport]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ServerAs2TransportArrayOutput struct{ *pulumi.OutputState }
 
 func (ServerAs2TransportArrayOutput) ElementType() reflect.Type {
@@ -964,12 +825,6 @@ func (o ServerAs2TransportArrayOutput) ToServerAs2TransportArrayOutput() ServerA
 
 func (o ServerAs2TransportArrayOutput) ToServerAs2TransportArrayOutputWithContext(ctx context.Context) ServerAs2TransportArrayOutput {
 	return o
-}
-
-func (o ServerAs2TransportArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServerAs2Transport] {
-	return pulumix.Output[[]ServerAs2Transport]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerAs2TransportArrayOutput) Index(i pulumi.IntInput) ServerAs2TransportOutput {
@@ -1017,12 +872,6 @@ func (i ServerEndpointDetailsArgs) ToServerEndpointDetailsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointDetailsOutput)
 }
 
-func (i ServerEndpointDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[ServerEndpointDetails] {
-	return pulumix.Output[ServerEndpointDetails]{
-		OutputState: i.ToServerEndpointDetailsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServerEndpointDetailsArgs) ToServerEndpointDetailsPtrOutput() ServerEndpointDetailsPtrOutput {
 	return i.ToServerEndpointDetailsPtrOutputWithContext(context.Background())
 }
@@ -1064,12 +913,6 @@ func (i *serverEndpointDetailsPtrType) ToServerEndpointDetailsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointDetailsPtrOutput)
 }
 
-func (i *serverEndpointDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerEndpointDetails] {
-	return pulumix.Output[*ServerEndpointDetails]{
-		OutputState: i.ToServerEndpointDetailsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerEndpointDetailsOutput struct{ *pulumi.OutputState }
 
 func (ServerEndpointDetailsOutput) ElementType() reflect.Type {
@@ -1092,12 +935,6 @@ func (o ServerEndpointDetailsOutput) ToServerEndpointDetailsPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerEndpointDetails) *ServerEndpointDetails {
 		return &v
 	}).(ServerEndpointDetailsPtrOutput)
-}
-
-func (o ServerEndpointDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[ServerEndpointDetails] {
-	return pulumix.Output[ServerEndpointDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerEndpointDetailsOutput) AddressAllocationIds() pulumi.StringArrayOutput {
@@ -1132,12 +969,6 @@ func (o ServerEndpointDetailsPtrOutput) ToServerEndpointDetailsPtrOutput() Serve
 
 func (o ServerEndpointDetailsPtrOutput) ToServerEndpointDetailsPtrOutputWithContext(ctx context.Context) ServerEndpointDetailsPtrOutput {
 	return o
-}
-
-func (o ServerEndpointDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerEndpointDetails] {
-	return pulumix.Output[*ServerEndpointDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerEndpointDetailsPtrOutput) Elem() ServerEndpointDetailsOutput {
@@ -1234,12 +1065,6 @@ func (i ServerIdentityProviderDetailsArgs) ToServerIdentityProviderDetailsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ServerIdentityProviderDetailsOutput)
 }
 
-func (i ServerIdentityProviderDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[ServerIdentityProviderDetails] {
-	return pulumix.Output[ServerIdentityProviderDetails]{
-		OutputState: i.ToServerIdentityProviderDetailsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServerIdentityProviderDetailsArgs) ToServerIdentityProviderDetailsPtrOutput() ServerIdentityProviderDetailsPtrOutput {
 	return i.ToServerIdentityProviderDetailsPtrOutputWithContext(context.Background())
 }
@@ -1281,12 +1106,6 @@ func (i *serverIdentityProviderDetailsPtrType) ToServerIdentityProviderDetailsPt
 	return pulumi.ToOutputWithContext(ctx, i).(ServerIdentityProviderDetailsPtrOutput)
 }
 
-func (i *serverIdentityProviderDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerIdentityProviderDetails] {
-	return pulumix.Output[*ServerIdentityProviderDetails]{
-		OutputState: i.ToServerIdentityProviderDetailsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerIdentityProviderDetailsOutput struct{ *pulumi.OutputState }
 
 func (ServerIdentityProviderDetailsOutput) ElementType() reflect.Type {
@@ -1309,12 +1128,6 @@ func (o ServerIdentityProviderDetailsOutput) ToServerIdentityProviderDetailsPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerIdentityProviderDetails) *ServerIdentityProviderDetails {
 		return &v
 	}).(ServerIdentityProviderDetailsPtrOutput)
-}
-
-func (o ServerIdentityProviderDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[ServerIdentityProviderDetails] {
-	return pulumix.Output[ServerIdentityProviderDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerIdentityProviderDetailsOutput) DirectoryId() pulumi.StringPtrOutput {
@@ -1349,12 +1162,6 @@ func (o ServerIdentityProviderDetailsPtrOutput) ToServerIdentityProviderDetailsP
 
 func (o ServerIdentityProviderDetailsPtrOutput) ToServerIdentityProviderDetailsPtrOutputWithContext(ctx context.Context) ServerIdentityProviderDetailsPtrOutput {
 	return o
-}
-
-func (o ServerIdentityProviderDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerIdentityProviderDetails] {
-	return pulumix.Output[*ServerIdentityProviderDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerIdentityProviderDetailsPtrOutput) Elem() ServerIdentityProviderDetailsOutput {
@@ -1441,12 +1248,6 @@ func (i ServerProtocolArgs) ToServerProtocolOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServerProtocolOutput)
 }
 
-func (i ServerProtocolArgs) ToOutput(ctx context.Context) pulumix.Output[ServerProtocol] {
-	return pulumix.Output[ServerProtocol]{
-		OutputState: i.ToServerProtocolOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServerProtocolArrayInput is an input type that accepts ServerProtocolArray and ServerProtocolArrayOutput values.
 // You can construct a concrete instance of `ServerProtocolArrayInput` via:
 //
@@ -1472,12 +1273,6 @@ func (i ServerProtocolArray) ToServerProtocolArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ServerProtocolArrayOutput)
 }
 
-func (i ServerProtocolArray) ToOutput(ctx context.Context) pulumix.Output[[]ServerProtocol] {
-	return pulumix.Output[[]ServerProtocol]{
-		OutputState: i.ToServerProtocolArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerProtocolOutput struct{ *pulumi.OutputState }
 
 func (ServerProtocolOutput) ElementType() reflect.Type {
@@ -1492,12 +1287,6 @@ func (o ServerProtocolOutput) ToServerProtocolOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ServerProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[ServerProtocol] {
-	return pulumix.Output[ServerProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ServerProtocolArrayOutput struct{ *pulumi.OutputState }
 
 func (ServerProtocolArrayOutput) ElementType() reflect.Type {
@@ -1510,12 +1299,6 @@ func (o ServerProtocolArrayOutput) ToServerProtocolArrayOutput() ServerProtocolA
 
 func (o ServerProtocolArrayOutput) ToServerProtocolArrayOutputWithContext(ctx context.Context) ServerProtocolArrayOutput {
 	return o
-}
-
-func (o ServerProtocolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServerProtocol] {
-	return pulumix.Output[[]ServerProtocol]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerProtocolArrayOutput) Index(i pulumi.IntInput) ServerProtocolOutput {
@@ -1561,12 +1344,6 @@ func (i ServerProtocolDetailsArgs) ToServerProtocolDetailsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ServerProtocolDetailsOutput)
 }
 
-func (i ServerProtocolDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[ServerProtocolDetails] {
-	return pulumix.Output[ServerProtocolDetails]{
-		OutputState: i.ToServerProtocolDetailsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServerProtocolDetailsArgs) ToServerProtocolDetailsPtrOutput() ServerProtocolDetailsPtrOutput {
 	return i.ToServerProtocolDetailsPtrOutputWithContext(context.Background())
 }
@@ -1608,12 +1385,6 @@ func (i *serverProtocolDetailsPtrType) ToServerProtocolDetailsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ServerProtocolDetailsPtrOutput)
 }
 
-func (i *serverProtocolDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerProtocolDetails] {
-	return pulumix.Output[*ServerProtocolDetails]{
-		OutputState: i.ToServerProtocolDetailsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerProtocolDetailsOutput struct{ *pulumi.OutputState }
 
 func (ServerProtocolDetailsOutput) ElementType() reflect.Type {
@@ -1636,12 +1407,6 @@ func (o ServerProtocolDetailsOutput) ToServerProtocolDetailsPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerProtocolDetails) *ServerProtocolDetails {
 		return &v
 	}).(ServerProtocolDetailsPtrOutput)
-}
-
-func (o ServerProtocolDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[ServerProtocolDetails] {
-	return pulumix.Output[ServerProtocolDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerProtocolDetailsOutput) As2Transports() ServerAs2TransportArrayOutput {
@@ -1672,12 +1437,6 @@ func (o ServerProtocolDetailsPtrOutput) ToServerProtocolDetailsPtrOutput() Serve
 
 func (o ServerProtocolDetailsPtrOutput) ToServerProtocolDetailsPtrOutputWithContext(ctx context.Context) ServerProtocolDetailsPtrOutput {
 	return o
-}
-
-func (o ServerProtocolDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerProtocolDetails] {
-	return pulumix.Output[*ServerProtocolDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerProtocolDetailsPtrOutput) Elem() ServerProtocolDetailsOutput {
@@ -1755,12 +1514,6 @@ func (i ServerStructuredLogDestinationArgs) ToServerStructuredLogDestinationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ServerStructuredLogDestinationOutput)
 }
 
-func (i ServerStructuredLogDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[ServerStructuredLogDestination] {
-	return pulumix.Output[ServerStructuredLogDestination]{
-		OutputState: i.ToServerStructuredLogDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServerStructuredLogDestinationArrayInput is an input type that accepts ServerStructuredLogDestinationArray and ServerStructuredLogDestinationArrayOutput values.
 // You can construct a concrete instance of `ServerStructuredLogDestinationArrayInput` via:
 //
@@ -1786,12 +1539,6 @@ func (i ServerStructuredLogDestinationArray) ToServerStructuredLogDestinationArr
 	return pulumi.ToOutputWithContext(ctx, i).(ServerStructuredLogDestinationArrayOutput)
 }
 
-func (i ServerStructuredLogDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]ServerStructuredLogDestination] {
-	return pulumix.Output[[]ServerStructuredLogDestination]{
-		OutputState: i.ToServerStructuredLogDestinationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerStructuredLogDestinationOutput struct{ *pulumi.OutputState }
 
 func (ServerStructuredLogDestinationOutput) ElementType() reflect.Type {
@@ -1806,12 +1553,6 @@ func (o ServerStructuredLogDestinationOutput) ToServerStructuredLogDestinationOu
 	return o
 }
 
-func (o ServerStructuredLogDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[ServerStructuredLogDestination] {
-	return pulumix.Output[ServerStructuredLogDestination]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ServerStructuredLogDestinationArrayOutput struct{ *pulumi.OutputState }
 
 func (ServerStructuredLogDestinationArrayOutput) ElementType() reflect.Type {
@@ -1824,12 +1565,6 @@ func (o ServerStructuredLogDestinationArrayOutput) ToServerStructuredLogDestinat
 
 func (o ServerStructuredLogDestinationArrayOutput) ToServerStructuredLogDestinationArrayOutputWithContext(ctx context.Context) ServerStructuredLogDestinationArrayOutput {
 	return o
-}
-
-func (o ServerStructuredLogDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServerStructuredLogDestination] {
-	return pulumix.Output[[]ServerStructuredLogDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerStructuredLogDestinationArrayOutput) Index(i pulumi.IntInput) ServerStructuredLogDestinationOutput {
@@ -1871,12 +1606,6 @@ func (i ServerTagArgs) ToServerTagOutputWithContext(ctx context.Context) ServerT
 	return pulumi.ToOutputWithContext(ctx, i).(ServerTagOutput)
 }
 
-func (i ServerTagArgs) ToOutput(ctx context.Context) pulumix.Output[ServerTag] {
-	return pulumix.Output[ServerTag]{
-		OutputState: i.ToServerTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServerTagArrayInput is an input type that accepts ServerTagArray and ServerTagArrayOutput values.
 // You can construct a concrete instance of `ServerTagArrayInput` via:
 //
@@ -1902,12 +1631,6 @@ func (i ServerTagArray) ToServerTagArrayOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(ServerTagArrayOutput)
 }
 
-func (i ServerTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ServerTag] {
-	return pulumix.Output[[]ServerTag]{
-		OutputState: i.ToServerTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerTagOutput struct{ *pulumi.OutputState }
 
 func (ServerTagOutput) ElementType() reflect.Type {
@@ -1920,12 +1643,6 @@ func (o ServerTagOutput) ToServerTagOutput() ServerTagOutput {
 
 func (o ServerTagOutput) ToServerTagOutputWithContext(ctx context.Context) ServerTagOutput {
 	return o
-}
-
-func (o ServerTagOutput) ToOutput(ctx context.Context) pulumix.Output[ServerTag] {
-	return pulumix.Output[ServerTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerTagOutput) Key() pulumi.StringOutput {
@@ -1948,12 +1665,6 @@ func (o ServerTagArrayOutput) ToServerTagArrayOutput() ServerTagArrayOutput {
 
 func (o ServerTagArrayOutput) ToServerTagArrayOutputWithContext(ctx context.Context) ServerTagArrayOutput {
 	return o
-}
-
-func (o ServerTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServerTag] {
-	return pulumix.Output[[]ServerTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerTagArrayOutput) Index(i pulumi.IntInput) ServerTagOutput {
@@ -1995,12 +1706,6 @@ func (i ServerWorkflowDetailArgs) ToServerWorkflowDetailOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ServerWorkflowDetailOutput)
 }
 
-func (i ServerWorkflowDetailArgs) ToOutput(ctx context.Context) pulumix.Output[ServerWorkflowDetail] {
-	return pulumix.Output[ServerWorkflowDetail]{
-		OutputState: i.ToServerWorkflowDetailOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServerWorkflowDetailArrayInput is an input type that accepts ServerWorkflowDetailArray and ServerWorkflowDetailArrayOutput values.
 // You can construct a concrete instance of `ServerWorkflowDetailArrayInput` via:
 //
@@ -2026,12 +1731,6 @@ func (i ServerWorkflowDetailArray) ToServerWorkflowDetailArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ServerWorkflowDetailArrayOutput)
 }
 
-func (i ServerWorkflowDetailArray) ToOutput(ctx context.Context) pulumix.Output[[]ServerWorkflowDetail] {
-	return pulumix.Output[[]ServerWorkflowDetail]{
-		OutputState: i.ToServerWorkflowDetailArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerWorkflowDetailOutput struct{ *pulumi.OutputState }
 
 func (ServerWorkflowDetailOutput) ElementType() reflect.Type {
@@ -2044,12 +1743,6 @@ func (o ServerWorkflowDetailOutput) ToServerWorkflowDetailOutput() ServerWorkflo
 
 func (o ServerWorkflowDetailOutput) ToServerWorkflowDetailOutputWithContext(ctx context.Context) ServerWorkflowDetailOutput {
 	return o
-}
-
-func (o ServerWorkflowDetailOutput) ToOutput(ctx context.Context) pulumix.Output[ServerWorkflowDetail] {
-	return pulumix.Output[ServerWorkflowDetail]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerWorkflowDetailOutput) ExecutionRole() pulumi.StringOutput {
@@ -2072,12 +1765,6 @@ func (o ServerWorkflowDetailArrayOutput) ToServerWorkflowDetailArrayOutput() Ser
 
 func (o ServerWorkflowDetailArrayOutput) ToServerWorkflowDetailArrayOutputWithContext(ctx context.Context) ServerWorkflowDetailArrayOutput {
 	return o
-}
-
-func (o ServerWorkflowDetailArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServerWorkflowDetail] {
-	return pulumix.Output[[]ServerWorkflowDetail]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerWorkflowDetailArrayOutput) Index(i pulumi.IntInput) ServerWorkflowDetailOutput {
@@ -2117,12 +1804,6 @@ func (i ServerWorkflowDetailsArgs) ToServerWorkflowDetailsOutput() ServerWorkflo
 
 func (i ServerWorkflowDetailsArgs) ToServerWorkflowDetailsOutputWithContext(ctx context.Context) ServerWorkflowDetailsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerWorkflowDetailsOutput)
-}
-
-func (i ServerWorkflowDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[ServerWorkflowDetails] {
-	return pulumix.Output[ServerWorkflowDetails]{
-		OutputState: i.ToServerWorkflowDetailsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ServerWorkflowDetailsArgs) ToServerWorkflowDetailsPtrOutput() ServerWorkflowDetailsPtrOutput {
@@ -2166,12 +1847,6 @@ func (i *serverWorkflowDetailsPtrType) ToServerWorkflowDetailsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ServerWorkflowDetailsPtrOutput)
 }
 
-func (i *serverWorkflowDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerWorkflowDetails] {
-	return pulumix.Output[*ServerWorkflowDetails]{
-		OutputState: i.ToServerWorkflowDetailsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerWorkflowDetailsOutput struct{ *pulumi.OutputState }
 
 func (ServerWorkflowDetailsOutput) ElementType() reflect.Type {
@@ -2196,12 +1871,6 @@ func (o ServerWorkflowDetailsOutput) ToServerWorkflowDetailsPtrOutputWithContext
 	}).(ServerWorkflowDetailsPtrOutput)
 }
 
-func (o ServerWorkflowDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[ServerWorkflowDetails] {
-	return pulumix.Output[ServerWorkflowDetails]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServerWorkflowDetailsOutput) OnPartialUpload() ServerWorkflowDetailArrayOutput {
 	return o.ApplyT(func(v ServerWorkflowDetails) []ServerWorkflowDetail { return v.OnPartialUpload }).(ServerWorkflowDetailArrayOutput)
 }
@@ -2222,12 +1891,6 @@ func (o ServerWorkflowDetailsPtrOutput) ToServerWorkflowDetailsPtrOutput() Serve
 
 func (o ServerWorkflowDetailsPtrOutput) ToServerWorkflowDetailsPtrOutputWithContext(ctx context.Context) ServerWorkflowDetailsPtrOutput {
 	return o
-}
-
-func (o ServerWorkflowDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerWorkflowDetails] {
-	return pulumix.Output[*ServerWorkflowDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerWorkflowDetailsPtrOutput) Elem() ServerWorkflowDetailsOutput {
@@ -2297,12 +1960,6 @@ func (i SftpConfigPropertiesArgs) ToSftpConfigPropertiesOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SftpConfigPropertiesOutput)
 }
 
-func (i SftpConfigPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[SftpConfigProperties] {
-	return pulumix.Output[SftpConfigProperties]{
-		OutputState: i.ToSftpConfigPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SftpConfigPropertiesArgs) ToSftpConfigPropertiesPtrOutput() SftpConfigPropertiesPtrOutput {
 	return i.ToSftpConfigPropertiesPtrOutputWithContext(context.Background())
 }
@@ -2344,12 +2001,6 @@ func (i *sftpConfigPropertiesPtrType) ToSftpConfigPropertiesPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SftpConfigPropertiesPtrOutput)
 }
 
-func (i *sftpConfigPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*SftpConfigProperties] {
-	return pulumix.Output[*SftpConfigProperties]{
-		OutputState: i.ToSftpConfigPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Configuration for an SFTP connector.
 type SftpConfigPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -2375,12 +2026,6 @@ func (o SftpConfigPropertiesOutput) ToSftpConfigPropertiesPtrOutputWithContext(c
 	}).(SftpConfigPropertiesPtrOutput)
 }
 
-func (o SftpConfigPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[SftpConfigProperties] {
-	return pulumix.Output[SftpConfigProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 // List of public host keys, for the external server to which you are connecting.
 func (o SftpConfigPropertiesOutput) TrustedHostKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SftpConfigProperties) []string { return v.TrustedHostKeys }).(pulumi.StringArrayOutput)
@@ -2403,12 +2048,6 @@ func (o SftpConfigPropertiesPtrOutput) ToSftpConfigPropertiesPtrOutput() SftpCon
 
 func (o SftpConfigPropertiesPtrOutput) ToSftpConfigPropertiesPtrOutputWithContext(ctx context.Context) SftpConfigPropertiesPtrOutput {
 	return o
-}
-
-func (o SftpConfigPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SftpConfigProperties] {
-	return pulumix.Output[*SftpConfigProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SftpConfigPropertiesPtrOutput) Elem() SftpConfigPropertiesOutput {
@@ -2474,12 +2113,6 @@ func (i UserHomeDirectoryMapEntryArgs) ToUserHomeDirectoryMapEntryOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(UserHomeDirectoryMapEntryOutput)
 }
 
-func (i UserHomeDirectoryMapEntryArgs) ToOutput(ctx context.Context) pulumix.Output[UserHomeDirectoryMapEntry] {
-	return pulumix.Output[UserHomeDirectoryMapEntry]{
-		OutputState: i.ToUserHomeDirectoryMapEntryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserHomeDirectoryMapEntryArrayInput is an input type that accepts UserHomeDirectoryMapEntryArray and UserHomeDirectoryMapEntryArrayOutput values.
 // You can construct a concrete instance of `UserHomeDirectoryMapEntryArrayInput` via:
 //
@@ -2505,12 +2138,6 @@ func (i UserHomeDirectoryMapEntryArray) ToUserHomeDirectoryMapEntryArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(UserHomeDirectoryMapEntryArrayOutput)
 }
 
-func (i UserHomeDirectoryMapEntryArray) ToOutput(ctx context.Context) pulumix.Output[[]UserHomeDirectoryMapEntry] {
-	return pulumix.Output[[]UserHomeDirectoryMapEntry]{
-		OutputState: i.ToUserHomeDirectoryMapEntryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserHomeDirectoryMapEntryOutput struct{ *pulumi.OutputState }
 
 func (UserHomeDirectoryMapEntryOutput) ElementType() reflect.Type {
@@ -2523,12 +2150,6 @@ func (o UserHomeDirectoryMapEntryOutput) ToUserHomeDirectoryMapEntryOutput() Use
 
 func (o UserHomeDirectoryMapEntryOutput) ToUserHomeDirectoryMapEntryOutputWithContext(ctx context.Context) UserHomeDirectoryMapEntryOutput {
 	return o
-}
-
-func (o UserHomeDirectoryMapEntryOutput) ToOutput(ctx context.Context) pulumix.Output[UserHomeDirectoryMapEntry] {
-	return pulumix.Output[UserHomeDirectoryMapEntry]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserHomeDirectoryMapEntryOutput) Entry() pulumi.StringOutput {
@@ -2551,12 +2172,6 @@ func (o UserHomeDirectoryMapEntryArrayOutput) ToUserHomeDirectoryMapEntryArrayOu
 
 func (o UserHomeDirectoryMapEntryArrayOutput) ToUserHomeDirectoryMapEntryArrayOutputWithContext(ctx context.Context) UserHomeDirectoryMapEntryArrayOutput {
 	return o
-}
-
-func (o UserHomeDirectoryMapEntryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UserHomeDirectoryMapEntry] {
-	return pulumix.Output[[]UserHomeDirectoryMapEntry]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserHomeDirectoryMapEntryArrayOutput) Index(i pulumi.IntInput) UserHomeDirectoryMapEntryOutput {
@@ -2600,12 +2215,6 @@ func (i UserPosixProfileArgs) ToUserPosixProfileOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(UserPosixProfileOutput)
 }
 
-func (i UserPosixProfileArgs) ToOutput(ctx context.Context) pulumix.Output[UserPosixProfile] {
-	return pulumix.Output[UserPosixProfile]{
-		OutputState: i.ToUserPosixProfileOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPosixProfileArgs) ToUserPosixProfilePtrOutput() UserPosixProfilePtrOutput {
 	return i.ToUserPosixProfilePtrOutputWithContext(context.Background())
 }
@@ -2647,12 +2256,6 @@ func (i *userPosixProfilePtrType) ToUserPosixProfilePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(UserPosixProfilePtrOutput)
 }
 
-func (i *userPosixProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPosixProfile] {
-	return pulumix.Output[*UserPosixProfile]{
-		OutputState: i.ToUserPosixProfilePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPosixProfileOutput struct{ *pulumi.OutputState }
 
 func (UserPosixProfileOutput) ElementType() reflect.Type {
@@ -2675,12 +2278,6 @@ func (o UserPosixProfileOutput) ToUserPosixProfilePtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPosixProfile) *UserPosixProfile {
 		return &v
 	}).(UserPosixProfilePtrOutput)
-}
-
-func (o UserPosixProfileOutput) ToOutput(ctx context.Context) pulumix.Output[UserPosixProfile] {
-	return pulumix.Output[UserPosixProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPosixProfileOutput) Gid() pulumi.Float64Output {
@@ -2707,12 +2304,6 @@ func (o UserPosixProfilePtrOutput) ToUserPosixProfilePtrOutput() UserPosixProfil
 
 func (o UserPosixProfilePtrOutput) ToUserPosixProfilePtrOutputWithContext(ctx context.Context) UserPosixProfilePtrOutput {
 	return o
-}
-
-func (o UserPosixProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPosixProfile] {
-	return pulumix.Output[*UserPosixProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPosixProfilePtrOutput) Elem() UserPosixProfileOutput {
@@ -2781,12 +2372,6 @@ func (i UserSshPublicKeyArgs) ToUserSshPublicKeyOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(UserSshPublicKeyOutput)
 }
 
-func (i UserSshPublicKeyArgs) ToOutput(ctx context.Context) pulumix.Output[UserSshPublicKey] {
-	return pulumix.Output[UserSshPublicKey]{
-		OutputState: i.ToUserSshPublicKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserSshPublicKeyArrayInput is an input type that accepts UserSshPublicKeyArray and UserSshPublicKeyArrayOutput values.
 // You can construct a concrete instance of `UserSshPublicKeyArrayInput` via:
 //
@@ -2812,12 +2397,6 @@ func (i UserSshPublicKeyArray) ToUserSshPublicKeyArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(UserSshPublicKeyArrayOutput)
 }
 
-func (i UserSshPublicKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]UserSshPublicKey] {
-	return pulumix.Output[[]UserSshPublicKey]{
-		OutputState: i.ToUserSshPublicKeyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserSshPublicKeyOutput struct{ *pulumi.OutputState }
 
 func (UserSshPublicKeyOutput) ElementType() reflect.Type {
@@ -2832,12 +2411,6 @@ func (o UserSshPublicKeyOutput) ToUserSshPublicKeyOutputWithContext(ctx context.
 	return o
 }
 
-func (o UserSshPublicKeyOutput) ToOutput(ctx context.Context) pulumix.Output[UserSshPublicKey] {
-	return pulumix.Output[UserSshPublicKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 type UserSshPublicKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (UserSshPublicKeyArrayOutput) ElementType() reflect.Type {
@@ -2850,12 +2423,6 @@ func (o UserSshPublicKeyArrayOutput) ToUserSshPublicKeyArrayOutput() UserSshPubl
 
 func (o UserSshPublicKeyArrayOutput) ToUserSshPublicKeyArrayOutputWithContext(ctx context.Context) UserSshPublicKeyArrayOutput {
 	return o
-}
-
-func (o UserSshPublicKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UserSshPublicKey] {
-	return pulumix.Output[[]UserSshPublicKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserSshPublicKeyArrayOutput) Index(i pulumi.IntInput) UserSshPublicKeyOutput {
@@ -2897,12 +2464,6 @@ func (i UserTagArgs) ToUserTagOutputWithContext(ctx context.Context) UserTagOutp
 	return pulumi.ToOutputWithContext(ctx, i).(UserTagOutput)
 }
 
-func (i UserTagArgs) ToOutput(ctx context.Context) pulumix.Output[UserTag] {
-	return pulumix.Output[UserTag]{
-		OutputState: i.ToUserTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserTagArrayInput is an input type that accepts UserTagArray and UserTagArrayOutput values.
 // You can construct a concrete instance of `UserTagArrayInput` via:
 //
@@ -2928,12 +2489,6 @@ func (i UserTagArray) ToUserTagArrayOutputWithContext(ctx context.Context) UserT
 	return pulumi.ToOutputWithContext(ctx, i).(UserTagArrayOutput)
 }
 
-func (i UserTagArray) ToOutput(ctx context.Context) pulumix.Output[[]UserTag] {
-	return pulumix.Output[[]UserTag]{
-		OutputState: i.ToUserTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserTagOutput struct{ *pulumi.OutputState }
 
 func (UserTagOutput) ElementType() reflect.Type {
@@ -2946,12 +2501,6 @@ func (o UserTagOutput) ToUserTagOutput() UserTagOutput {
 
 func (o UserTagOutput) ToUserTagOutputWithContext(ctx context.Context) UserTagOutput {
 	return o
-}
-
-func (o UserTagOutput) ToOutput(ctx context.Context) pulumix.Output[UserTag] {
-	return pulumix.Output[UserTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserTagOutput) Key() pulumi.StringOutput {
@@ -2974,12 +2523,6 @@ func (o UserTagArrayOutput) ToUserTagArrayOutput() UserTagArrayOutput {
 
 func (o UserTagArrayOutput) ToUserTagArrayOutputWithContext(ctx context.Context) UserTagArrayOutput {
 	return o
-}
-
-func (o UserTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UserTag] {
-	return pulumix.Output[[]UserTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserTagArrayOutput) Index(i pulumi.IntInput) UserTagOutput {
@@ -3027,12 +2570,6 @@ func (i WorkflowEfsInputFileLocationArgs) ToWorkflowEfsInputFileLocationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowEfsInputFileLocationOutput)
 }
 
-func (i WorkflowEfsInputFileLocationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowEfsInputFileLocation] {
-	return pulumix.Output[WorkflowEfsInputFileLocation]{
-		OutputState: i.ToWorkflowEfsInputFileLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkflowEfsInputFileLocationArgs) ToWorkflowEfsInputFileLocationPtrOutput() WorkflowEfsInputFileLocationPtrOutput {
 	return i.ToWorkflowEfsInputFileLocationPtrOutputWithContext(context.Background())
 }
@@ -3074,12 +2611,6 @@ func (i *workflowEfsInputFileLocationPtrType) ToWorkflowEfsInputFileLocationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowEfsInputFileLocationPtrOutput)
 }
 
-func (i *workflowEfsInputFileLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowEfsInputFileLocation] {
-	return pulumix.Output[*WorkflowEfsInputFileLocation]{
-		OutputState: i.ToWorkflowEfsInputFileLocationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies the details for an EFS file.
 type WorkflowEfsInputFileLocationOutput struct{ *pulumi.OutputState }
 
@@ -3105,12 +2636,6 @@ func (o WorkflowEfsInputFileLocationOutput) ToWorkflowEfsInputFileLocationPtrOut
 	}).(WorkflowEfsInputFileLocationPtrOutput)
 }
 
-func (o WorkflowEfsInputFileLocationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowEfsInputFileLocation] {
-	return pulumix.Output[WorkflowEfsInputFileLocation]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the EFS filesystem that contains the file.
 func (o WorkflowEfsInputFileLocationOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowEfsInputFileLocation) *string { return v.FileSystemId }).(pulumi.StringPtrOutput)
@@ -3133,12 +2658,6 @@ func (o WorkflowEfsInputFileLocationPtrOutput) ToWorkflowEfsInputFileLocationPtr
 
 func (o WorkflowEfsInputFileLocationPtrOutput) ToWorkflowEfsInputFileLocationPtrOutputWithContext(ctx context.Context) WorkflowEfsInputFileLocationPtrOutput {
 	return o
-}
-
-func (o WorkflowEfsInputFileLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowEfsInputFileLocation] {
-	return pulumix.Output[*WorkflowEfsInputFileLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowEfsInputFileLocationPtrOutput) Elem() WorkflowEfsInputFileLocationOutput {
@@ -3206,12 +2725,6 @@ func (i WorkflowInputFileLocationArgs) ToWorkflowInputFileLocationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowInputFileLocationOutput)
 }
 
-func (i WorkflowInputFileLocationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowInputFileLocation] {
-	return pulumix.Output[WorkflowInputFileLocation]{
-		OutputState: i.ToWorkflowInputFileLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkflowInputFileLocationArgs) ToWorkflowInputFileLocationPtrOutput() WorkflowInputFileLocationPtrOutput {
 	return i.ToWorkflowInputFileLocationPtrOutputWithContext(context.Background())
 }
@@ -3253,12 +2766,6 @@ func (i *workflowInputFileLocationPtrType) ToWorkflowInputFileLocationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowInputFileLocationPtrOutput)
 }
 
-func (i *workflowInputFileLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowInputFileLocation] {
-	return pulumix.Output[*WorkflowInputFileLocation]{
-		OutputState: i.ToWorkflowInputFileLocationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies the location for the file being decrypted. Only applicable for the Decrypt type of workflow steps.
 type WorkflowInputFileLocationOutput struct{ *pulumi.OutputState }
 
@@ -3284,12 +2791,6 @@ func (o WorkflowInputFileLocationOutput) ToWorkflowInputFileLocationPtrOutputWit
 	}).(WorkflowInputFileLocationPtrOutput)
 }
 
-func (o WorkflowInputFileLocationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowInputFileLocation] {
-	return pulumix.Output[WorkflowInputFileLocation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkflowInputFileLocationOutput) EfsFileLocation() WorkflowEfsInputFileLocationPtrOutput {
 	return o.ApplyT(func(v WorkflowInputFileLocation) *WorkflowEfsInputFileLocation { return v.EfsFileLocation }).(WorkflowEfsInputFileLocationPtrOutput)
 }
@@ -3310,12 +2811,6 @@ func (o WorkflowInputFileLocationPtrOutput) ToWorkflowInputFileLocationPtrOutput
 
 func (o WorkflowInputFileLocationPtrOutput) ToWorkflowInputFileLocationPtrOutputWithContext(ctx context.Context) WorkflowInputFileLocationPtrOutput {
 	return o
-}
-
-func (o WorkflowInputFileLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowInputFileLocation] {
-	return pulumix.Output[*WorkflowInputFileLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowInputFileLocationPtrOutput) Elem() WorkflowInputFileLocationOutput {
@@ -3379,12 +2874,6 @@ func (i WorkflowS3FileLocationArgs) ToWorkflowS3FileLocationOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowS3FileLocationOutput)
 }
 
-func (i WorkflowS3FileLocationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowS3FileLocation] {
-	return pulumix.Output[WorkflowS3FileLocation]{
-		OutputState: i.ToWorkflowS3FileLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkflowS3FileLocationArgs) ToWorkflowS3FileLocationPtrOutput() WorkflowS3FileLocationPtrOutput {
 	return i.ToWorkflowS3FileLocationPtrOutputWithContext(context.Background())
 }
@@ -3426,12 +2915,6 @@ func (i *workflowS3FileLocationPtrType) ToWorkflowS3FileLocationPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowS3FileLocationPtrOutput)
 }
 
-func (i *workflowS3FileLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowS3FileLocation] {
-	return pulumix.Output[*WorkflowS3FileLocation]{
-		OutputState: i.ToWorkflowS3FileLocationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
 type WorkflowS3FileLocationOutput struct{ *pulumi.OutputState }
 
@@ -3457,12 +2940,6 @@ func (o WorkflowS3FileLocationOutput) ToWorkflowS3FileLocationPtrOutputWithConte
 	}).(WorkflowS3FileLocationPtrOutput)
 }
 
-func (o WorkflowS3FileLocationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowS3FileLocation] {
-	return pulumix.Output[WorkflowS3FileLocation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkflowS3FileLocationOutput) S3FileLocation() WorkflowS3InputFileLocationPtrOutput {
 	return o.ApplyT(func(v WorkflowS3FileLocation) *WorkflowS3InputFileLocation { return v.S3FileLocation }).(WorkflowS3InputFileLocationPtrOutput)
 }
@@ -3479,12 +2956,6 @@ func (o WorkflowS3FileLocationPtrOutput) ToWorkflowS3FileLocationPtrOutput() Wor
 
 func (o WorkflowS3FileLocationPtrOutput) ToWorkflowS3FileLocationPtrOutputWithContext(ctx context.Context) WorkflowS3FileLocationPtrOutput {
 	return o
-}
-
-func (o WorkflowS3FileLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowS3FileLocation] {
-	return pulumix.Output[*WorkflowS3FileLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowS3FileLocationPtrOutput) Elem() WorkflowS3FileLocationOutput {
@@ -3545,12 +3016,6 @@ func (i WorkflowS3InputFileLocationArgs) ToWorkflowS3InputFileLocationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowS3InputFileLocationOutput)
 }
 
-func (i WorkflowS3InputFileLocationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowS3InputFileLocation] {
-	return pulumix.Output[WorkflowS3InputFileLocation]{
-		OutputState: i.ToWorkflowS3InputFileLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkflowS3InputFileLocationArgs) ToWorkflowS3InputFileLocationPtrOutput() WorkflowS3InputFileLocationPtrOutput {
 	return i.ToWorkflowS3InputFileLocationPtrOutputWithContext(context.Background())
 }
@@ -3592,12 +3057,6 @@ func (i *workflowS3InputFileLocationPtrType) ToWorkflowS3InputFileLocationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowS3InputFileLocationPtrOutput)
 }
 
-func (i *workflowS3InputFileLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowS3InputFileLocation] {
-	return pulumix.Output[*WorkflowS3InputFileLocation]{
-		OutputState: i.ToWorkflowS3InputFileLocationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies the details for a S3 file.
 type WorkflowS3InputFileLocationOutput struct{ *pulumi.OutputState }
 
@@ -3623,12 +3082,6 @@ func (o WorkflowS3InputFileLocationOutput) ToWorkflowS3InputFileLocationPtrOutpu
 	}).(WorkflowS3InputFileLocationPtrOutput)
 }
 
-func (o WorkflowS3InputFileLocationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowS3InputFileLocation] {
-	return pulumix.Output[WorkflowS3InputFileLocation]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the S3 bucket that contains the file.
 func (o WorkflowS3InputFileLocationOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowS3InputFileLocation) *string { return v.Bucket }).(pulumi.StringPtrOutput)
@@ -3651,12 +3104,6 @@ func (o WorkflowS3InputFileLocationPtrOutput) ToWorkflowS3InputFileLocationPtrOu
 
 func (o WorkflowS3InputFileLocationPtrOutput) ToWorkflowS3InputFileLocationPtrOutputWithContext(ctx context.Context) WorkflowS3InputFileLocationPtrOutput {
 	return o
-}
-
-func (o WorkflowS3InputFileLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowS3InputFileLocation] {
-	return pulumix.Output[*WorkflowS3InputFileLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowS3InputFileLocationPtrOutput) Elem() WorkflowS3InputFileLocationOutput {
@@ -3728,12 +3175,6 @@ func (i WorkflowS3TagArgs) ToWorkflowS3TagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowS3TagOutput)
 }
 
-func (i WorkflowS3TagArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowS3Tag] {
-	return pulumix.Output[WorkflowS3Tag]{
-		OutputState: i.ToWorkflowS3TagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WorkflowS3TagArrayInput is an input type that accepts WorkflowS3TagArray and WorkflowS3TagArrayOutput values.
 // You can construct a concrete instance of `WorkflowS3TagArrayInput` via:
 //
@@ -3759,12 +3200,6 @@ func (i WorkflowS3TagArray) ToWorkflowS3TagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowS3TagArrayOutput)
 }
 
-func (i WorkflowS3TagArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowS3Tag] {
-	return pulumix.Output[[]WorkflowS3Tag]{
-		OutputState: i.ToWorkflowS3TagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies the key-value pair that are assigned to a file during the execution of a Tagging step.
 type WorkflowS3TagOutput struct{ *pulumi.OutputState }
 
@@ -3778,12 +3213,6 @@ func (o WorkflowS3TagOutput) ToWorkflowS3TagOutput() WorkflowS3TagOutput {
 
 func (o WorkflowS3TagOutput) ToWorkflowS3TagOutputWithContext(ctx context.Context) WorkflowS3TagOutput {
 	return o
-}
-
-func (o WorkflowS3TagOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowS3Tag] {
-	return pulumix.Output[WorkflowS3Tag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name assigned to the tag that you create.
@@ -3808,12 +3237,6 @@ func (o WorkflowS3TagArrayOutput) ToWorkflowS3TagArrayOutput() WorkflowS3TagArra
 
 func (o WorkflowS3TagArrayOutput) ToWorkflowS3TagArrayOutputWithContext(ctx context.Context) WorkflowS3TagArrayOutput {
 	return o
-}
-
-func (o WorkflowS3TagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowS3Tag] {
-	return pulumix.Output[[]WorkflowS3Tag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowS3TagArrayOutput) Index(i pulumi.IntInput) WorkflowS3TagOutput {
@@ -3875,12 +3298,6 @@ func (i WorkflowStepArgs) ToWorkflowStepOutputWithContext(ctx context.Context) W
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepOutput)
 }
 
-func (i WorkflowStepArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowStep] {
-	return pulumix.Output[WorkflowStep]{
-		OutputState: i.ToWorkflowStepOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WorkflowStepArrayInput is an input type that accepts WorkflowStepArray and WorkflowStepArrayOutput values.
 // You can construct a concrete instance of `WorkflowStepArrayInput` via:
 //
@@ -3906,12 +3323,6 @@ func (i WorkflowStepArray) ToWorkflowStepArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepArrayOutput)
 }
 
-func (i WorkflowStepArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowStep] {
-	return pulumix.Output[[]WorkflowStep]{
-		OutputState: i.ToWorkflowStepArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The basic building block of a workflow.
 type WorkflowStepOutput struct{ *pulumi.OutputState }
 
@@ -3925,12 +3336,6 @@ func (o WorkflowStepOutput) ToWorkflowStepOutput() WorkflowStepOutput {
 
 func (o WorkflowStepOutput) ToWorkflowStepOutputWithContext(ctx context.Context) WorkflowStepOutput {
 	return o
-}
-
-func (o WorkflowStepOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStep] {
-	return pulumix.Output[WorkflowStep]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Details for a step that performs a file copy.
@@ -3974,12 +3379,6 @@ func (o WorkflowStepArrayOutput) ToWorkflowStepArrayOutput() WorkflowStepArrayOu
 
 func (o WorkflowStepArrayOutput) ToWorkflowStepArrayOutputWithContext(ctx context.Context) WorkflowStepArrayOutput {
 	return o
-}
-
-func (o WorkflowStepArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowStep] {
-	return pulumix.Output[[]WorkflowStep]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowStepArrayOutput) Index(i pulumi.IntInput) WorkflowStepOutput {
@@ -4033,12 +3432,6 @@ func (i WorkflowStepCopyStepDetailsPropertiesArgs) ToWorkflowStepCopyStepDetails
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepCopyStepDetailsPropertiesOutput)
 }
 
-func (i WorkflowStepCopyStepDetailsPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepCopyStepDetailsProperties] {
-	return pulumix.Output[WorkflowStepCopyStepDetailsProperties]{
-		OutputState: i.ToWorkflowStepCopyStepDetailsPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkflowStepCopyStepDetailsPropertiesArgs) ToWorkflowStepCopyStepDetailsPropertiesPtrOutput() WorkflowStepCopyStepDetailsPropertiesPtrOutput {
 	return i.ToWorkflowStepCopyStepDetailsPropertiesPtrOutputWithContext(context.Background())
 }
@@ -4080,12 +3473,6 @@ func (i *workflowStepCopyStepDetailsPropertiesPtrType) ToWorkflowStepCopyStepDet
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepCopyStepDetailsPropertiesPtrOutput)
 }
 
-func (i *workflowStepCopyStepDetailsPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepCopyStepDetailsProperties] {
-	return pulumix.Output[*WorkflowStepCopyStepDetailsProperties]{
-		OutputState: i.ToWorkflowStepCopyStepDetailsPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Details for a step that performs a file copy.
 type WorkflowStepCopyStepDetailsPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -4109,12 +3496,6 @@ func (o WorkflowStepCopyStepDetailsPropertiesOutput) ToWorkflowStepCopyStepDetai
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStepCopyStepDetailsProperties) *WorkflowStepCopyStepDetailsProperties {
 		return &v
 	}).(WorkflowStepCopyStepDetailsPropertiesPtrOutput)
-}
-
-func (o WorkflowStepCopyStepDetailsPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepCopyStepDetailsProperties] {
-	return pulumix.Output[WorkflowStepCopyStepDetailsProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowStepCopyStepDetailsPropertiesOutput) DestinationFileLocation() WorkflowS3FileLocationPtrOutput {
@@ -4152,12 +3533,6 @@ func (o WorkflowStepCopyStepDetailsPropertiesPtrOutput) ToWorkflowStepCopyStepDe
 
 func (o WorkflowStepCopyStepDetailsPropertiesPtrOutput) ToWorkflowStepCopyStepDetailsPropertiesPtrOutputWithContext(ctx context.Context) WorkflowStepCopyStepDetailsPropertiesPtrOutput {
 	return o
-}
-
-func (o WorkflowStepCopyStepDetailsPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepCopyStepDetailsProperties] {
-	return pulumix.Output[*WorkflowStepCopyStepDetailsProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowStepCopyStepDetailsPropertiesPtrOutput) Elem() WorkflowStepCopyStepDetailsPropertiesOutput {
@@ -4256,12 +3631,6 @@ func (i WorkflowStepCustomStepDetailsPropertiesArgs) ToWorkflowStepCustomStepDet
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepCustomStepDetailsPropertiesOutput)
 }
 
-func (i WorkflowStepCustomStepDetailsPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepCustomStepDetailsProperties] {
-	return pulumix.Output[WorkflowStepCustomStepDetailsProperties]{
-		OutputState: i.ToWorkflowStepCustomStepDetailsPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkflowStepCustomStepDetailsPropertiesArgs) ToWorkflowStepCustomStepDetailsPropertiesPtrOutput() WorkflowStepCustomStepDetailsPropertiesPtrOutput {
 	return i.ToWorkflowStepCustomStepDetailsPropertiesPtrOutputWithContext(context.Background())
 }
@@ -4303,12 +3672,6 @@ func (i *workflowStepCustomStepDetailsPropertiesPtrType) ToWorkflowStepCustomSte
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepCustomStepDetailsPropertiesPtrOutput)
 }
 
-func (i *workflowStepCustomStepDetailsPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepCustomStepDetailsProperties] {
-	return pulumix.Output[*WorkflowStepCustomStepDetailsProperties]{
-		OutputState: i.ToWorkflowStepCustomStepDetailsPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Details for a step that invokes a lambda function.
 type WorkflowStepCustomStepDetailsPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -4332,12 +3695,6 @@ func (o WorkflowStepCustomStepDetailsPropertiesOutput) ToWorkflowStepCustomStepD
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStepCustomStepDetailsProperties) *WorkflowStepCustomStepDetailsProperties {
 		return &v
 	}).(WorkflowStepCustomStepDetailsPropertiesPtrOutput)
-}
-
-func (o WorkflowStepCustomStepDetailsPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepCustomStepDetailsProperties] {
-	return pulumix.Output[WorkflowStepCustomStepDetailsProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the step, used as an identifier.
@@ -4372,12 +3729,6 @@ func (o WorkflowStepCustomStepDetailsPropertiesPtrOutput) ToWorkflowStepCustomSt
 
 func (o WorkflowStepCustomStepDetailsPropertiesPtrOutput) ToWorkflowStepCustomStepDetailsPropertiesPtrOutputWithContext(ctx context.Context) WorkflowStepCustomStepDetailsPropertiesPtrOutput {
 	return o
-}
-
-func (o WorkflowStepCustomStepDetailsPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepCustomStepDetailsProperties] {
-	return pulumix.Output[*WorkflowStepCustomStepDetailsProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowStepCustomStepDetailsPropertiesPtrOutput) Elem() WorkflowStepCustomStepDetailsPropertiesOutput {
@@ -4479,12 +3830,6 @@ func (i WorkflowStepDecryptStepDetailsPropertiesArgs) ToWorkflowStepDecryptStepD
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDecryptStepDetailsPropertiesOutput)
 }
 
-func (i WorkflowStepDecryptStepDetailsPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepDecryptStepDetailsProperties] {
-	return pulumix.Output[WorkflowStepDecryptStepDetailsProperties]{
-		OutputState: i.ToWorkflowStepDecryptStepDetailsPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkflowStepDecryptStepDetailsPropertiesArgs) ToWorkflowStepDecryptStepDetailsPropertiesPtrOutput() WorkflowStepDecryptStepDetailsPropertiesPtrOutput {
 	return i.ToWorkflowStepDecryptStepDetailsPropertiesPtrOutputWithContext(context.Background())
 }
@@ -4526,12 +3871,6 @@ func (i *workflowStepDecryptStepDetailsPropertiesPtrType) ToWorkflowStepDecryptS
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDecryptStepDetailsPropertiesPtrOutput)
 }
 
-func (i *workflowStepDecryptStepDetailsPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepDecryptStepDetailsProperties] {
-	return pulumix.Output[*WorkflowStepDecryptStepDetailsProperties]{
-		OutputState: i.ToWorkflowStepDecryptStepDetailsPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Details for a step that performs a file decryption.
 type WorkflowStepDecryptStepDetailsPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -4555,12 +3894,6 @@ func (o WorkflowStepDecryptStepDetailsPropertiesOutput) ToWorkflowStepDecryptSte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStepDecryptStepDetailsProperties) *WorkflowStepDecryptStepDetailsProperties {
 		return &v
 	}).(WorkflowStepDecryptStepDetailsPropertiesPtrOutput)
-}
-
-func (o WorkflowStepDecryptStepDetailsPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepDecryptStepDetailsProperties] {
-	return pulumix.Output[WorkflowStepDecryptStepDetailsProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowStepDecryptStepDetailsPropertiesOutput) DestinationFileLocation() WorkflowInputFileLocationPtrOutput {
@@ -4605,12 +3938,6 @@ func (o WorkflowStepDecryptStepDetailsPropertiesPtrOutput) ToWorkflowStepDecrypt
 
 func (o WorkflowStepDecryptStepDetailsPropertiesPtrOutput) ToWorkflowStepDecryptStepDetailsPropertiesPtrOutputWithContext(ctx context.Context) WorkflowStepDecryptStepDetailsPropertiesPtrOutput {
 	return o
-}
-
-func (o WorkflowStepDecryptStepDetailsPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepDecryptStepDetailsProperties] {
-	return pulumix.Output[*WorkflowStepDecryptStepDetailsProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowStepDecryptStepDetailsPropertiesPtrOutput) Elem() WorkflowStepDecryptStepDetailsPropertiesOutput {
@@ -4711,12 +4038,6 @@ func (i WorkflowStepDeleteStepDetailsPropertiesArgs) ToWorkflowStepDeleteStepDet
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDeleteStepDetailsPropertiesOutput)
 }
 
-func (i WorkflowStepDeleteStepDetailsPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepDeleteStepDetailsProperties] {
-	return pulumix.Output[WorkflowStepDeleteStepDetailsProperties]{
-		OutputState: i.ToWorkflowStepDeleteStepDetailsPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkflowStepDeleteStepDetailsPropertiesArgs) ToWorkflowStepDeleteStepDetailsPropertiesPtrOutput() WorkflowStepDeleteStepDetailsPropertiesPtrOutput {
 	return i.ToWorkflowStepDeleteStepDetailsPropertiesPtrOutputWithContext(context.Background())
 }
@@ -4758,12 +4079,6 @@ func (i *workflowStepDeleteStepDetailsPropertiesPtrType) ToWorkflowStepDeleteSte
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepDeleteStepDetailsPropertiesPtrOutput)
 }
 
-func (i *workflowStepDeleteStepDetailsPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepDeleteStepDetailsProperties] {
-	return pulumix.Output[*WorkflowStepDeleteStepDetailsProperties]{
-		OutputState: i.ToWorkflowStepDeleteStepDetailsPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Details for a step that deletes the file.
 type WorkflowStepDeleteStepDetailsPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -4789,12 +4104,6 @@ func (o WorkflowStepDeleteStepDetailsPropertiesOutput) ToWorkflowStepDeleteStepD
 	}).(WorkflowStepDeleteStepDetailsPropertiesPtrOutput)
 }
 
-func (o WorkflowStepDeleteStepDetailsPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepDeleteStepDetailsProperties] {
-	return pulumix.Output[WorkflowStepDeleteStepDetailsProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The name of the step, used as an identifier.
 func (o WorkflowStepDeleteStepDetailsPropertiesOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkflowStepDeleteStepDetailsProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -4817,12 +4126,6 @@ func (o WorkflowStepDeleteStepDetailsPropertiesPtrOutput) ToWorkflowStepDeleteSt
 
 func (o WorkflowStepDeleteStepDetailsPropertiesPtrOutput) ToWorkflowStepDeleteStepDetailsPropertiesPtrOutputWithContext(ctx context.Context) WorkflowStepDeleteStepDetailsPropertiesPtrOutput {
 	return o
-}
-
-func (o WorkflowStepDeleteStepDetailsPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepDeleteStepDetailsProperties] {
-	return pulumix.Output[*WorkflowStepDeleteStepDetailsProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowStepDeleteStepDetailsPropertiesPtrOutput) Elem() WorkflowStepDeleteStepDetailsPropertiesOutput {
@@ -4898,12 +4201,6 @@ func (i WorkflowStepTagStepDetailsPropertiesArgs) ToWorkflowStepTagStepDetailsPr
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepTagStepDetailsPropertiesOutput)
 }
 
-func (i WorkflowStepTagStepDetailsPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepTagStepDetailsProperties] {
-	return pulumix.Output[WorkflowStepTagStepDetailsProperties]{
-		OutputState: i.ToWorkflowStepTagStepDetailsPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkflowStepTagStepDetailsPropertiesArgs) ToWorkflowStepTagStepDetailsPropertiesPtrOutput() WorkflowStepTagStepDetailsPropertiesPtrOutput {
 	return i.ToWorkflowStepTagStepDetailsPropertiesPtrOutputWithContext(context.Background())
 }
@@ -4945,12 +4242,6 @@ func (i *workflowStepTagStepDetailsPropertiesPtrType) ToWorkflowStepTagStepDetai
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowStepTagStepDetailsPropertiesPtrOutput)
 }
 
-func (i *workflowStepTagStepDetailsPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepTagStepDetailsProperties] {
-	return pulumix.Output[*WorkflowStepTagStepDetailsProperties]{
-		OutputState: i.ToWorkflowStepTagStepDetailsPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Details for a step that creates one or more tags.
 type WorkflowStepTagStepDetailsPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -4974,12 +4265,6 @@ func (o WorkflowStepTagStepDetailsPropertiesOutput) ToWorkflowStepTagStepDetails
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowStepTagStepDetailsProperties) *WorkflowStepTagStepDetailsProperties {
 		return &v
 	}).(WorkflowStepTagStepDetailsPropertiesPtrOutput)
-}
-
-func (o WorkflowStepTagStepDetailsPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowStepTagStepDetailsProperties] {
-	return pulumix.Output[WorkflowStepTagStepDetailsProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the step, used as an identifier.
@@ -5009,12 +4294,6 @@ func (o WorkflowStepTagStepDetailsPropertiesPtrOutput) ToWorkflowStepTagStepDeta
 
 func (o WorkflowStepTagStepDetailsPropertiesPtrOutput) ToWorkflowStepTagStepDetailsPropertiesPtrOutputWithContext(ctx context.Context) WorkflowStepTagStepDetailsPropertiesPtrOutput {
 	return o
-}
-
-func (o WorkflowStepTagStepDetailsPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowStepTagStepDetailsProperties] {
-	return pulumix.Output[*WorkflowStepTagStepDetailsProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowStepTagStepDetailsPropertiesPtrOutput) Elem() WorkflowStepTagStepDetailsPropertiesOutput {
@@ -5096,12 +4375,6 @@ func (i WorkflowTagArgs) ToWorkflowTagOutputWithContext(ctx context.Context) Wor
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTagOutput)
 }
 
-func (i WorkflowTagArgs) ToOutput(ctx context.Context) pulumix.Output[WorkflowTag] {
-	return pulumix.Output[WorkflowTag]{
-		OutputState: i.ToWorkflowTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WorkflowTagArrayInput is an input type that accepts WorkflowTagArray and WorkflowTagArrayOutput values.
 // You can construct a concrete instance of `WorkflowTagArrayInput` via:
 //
@@ -5127,12 +4400,6 @@ func (i WorkflowTagArray) ToWorkflowTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(WorkflowTagArrayOutput)
 }
 
-func (i WorkflowTagArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowTag] {
-	return pulumix.Output[[]WorkflowTag]{
-		OutputState: i.ToWorkflowTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Creates a key-value pair for a specific resource.
 type WorkflowTagOutput struct{ *pulumi.OutputState }
 
@@ -5146,12 +4413,6 @@ func (o WorkflowTagOutput) ToWorkflowTagOutput() WorkflowTagOutput {
 
 func (o WorkflowTagOutput) ToWorkflowTagOutputWithContext(ctx context.Context) WorkflowTagOutput {
 	return o
-}
-
-func (o WorkflowTagOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowTag] {
-	return pulumix.Output[WorkflowTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name assigned to the tag that you create.
@@ -5176,12 +4437,6 @@ func (o WorkflowTagArrayOutput) ToWorkflowTagArrayOutput() WorkflowTagArrayOutpu
 
 func (o WorkflowTagArrayOutput) ToWorkflowTagArrayOutputWithContext(ctx context.Context) WorkflowTagArrayOutput {
 	return o
-}
-
-func (o WorkflowTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkflowTag] {
-	return pulumix.Output[[]WorkflowTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkflowTagArrayOutput) Index(i pulumi.IntInput) WorkflowTagOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::WAFRegional::GeoMatchSet
@@ -65,12 +64,6 @@ func (o LookupGeoMatchSetResultOutput) ToLookupGeoMatchSetResultOutput() LookupG
 
 func (o LookupGeoMatchSetResultOutput) ToLookupGeoMatchSetResultOutputWithContext(ctx context.Context) LookupGeoMatchSetResultOutput {
 	return o
-}
-
-func (o LookupGeoMatchSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGeoMatchSetResult] {
-	return pulumix.Output[LookupGeoMatchSetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupGeoMatchSetResultOutput) GeoMatchConstraints() GeoMatchSetGeoMatchConstraintArrayOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::FSx::DataRepositoryAssociation
@@ -150,12 +149,6 @@ func (i *DataRepositoryAssociation) ToDataRepositoryAssociationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationOutput)
 }
 
-func (i *DataRepositoryAssociation) ToOutput(ctx context.Context) pulumix.Output[*DataRepositoryAssociation] {
-	return pulumix.Output[*DataRepositoryAssociation]{
-		OutputState: i.ToDataRepositoryAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataRepositoryAssociationOutput struct{ *pulumi.OutputState }
 
 func (DataRepositoryAssociationOutput) ElementType() reflect.Type {
@@ -168,12 +161,6 @@ func (o DataRepositoryAssociationOutput) ToDataRepositoryAssociationOutput() Dat
 
 func (o DataRepositoryAssociationOutput) ToDataRepositoryAssociationOutputWithContext(ctx context.Context) DataRepositoryAssociationOutput {
 	return o
-}
-
-func (o DataRepositoryAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*DataRepositoryAssociation] {
-	return pulumix.Output[*DataRepositoryAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The system-generated, unique ID of the data repository association.

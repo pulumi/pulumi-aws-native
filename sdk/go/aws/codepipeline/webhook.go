@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CodePipeline::Webhook
@@ -137,12 +136,6 @@ func (i *Webhook) ToWebhookOutputWithContext(ctx context.Context) WebhookOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookOutput)
 }
 
-func (i *Webhook) ToOutput(ctx context.Context) pulumix.Output[*Webhook] {
-	return pulumix.Output[*Webhook]{
-		OutputState: i.ToWebhookOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WebhookOutput struct{ *pulumi.OutputState }
 
 func (WebhookOutput) ElementType() reflect.Type {
@@ -155,12 +148,6 @@ func (o WebhookOutput) ToWebhookOutput() WebhookOutput {
 
 func (o WebhookOutput) ToWebhookOutputWithContext(ctx context.Context) WebhookOutput {
 	return o
-}
-
-func (o WebhookOutput) ToOutput(ctx context.Context) pulumix.Output[*Webhook] {
-	return pulumix.Output[*Webhook]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WebhookOutput) Authentication() pulumi.StringOutput {

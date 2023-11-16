@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use a SecurityConfiguration resource to configure data encryption, Kerberos authentication, and Amazon S3 authorization for EMRFS.
@@ -108,12 +107,6 @@ func (i *SecurityConfiguration) ToSecurityConfigurationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationOutput)
 }
 
-func (i *SecurityConfiguration) ToOutput(ctx context.Context) pulumix.Output[*SecurityConfiguration] {
-	return pulumix.Output[*SecurityConfiguration]{
-		OutputState: i.ToSecurityConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SecurityConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SecurityConfigurationOutput) ElementType() reflect.Type {
@@ -126,12 +119,6 @@ func (o SecurityConfigurationOutput) ToSecurityConfigurationOutput() SecurityCon
 
 func (o SecurityConfigurationOutput) ToSecurityConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationOutput {
 	return o
-}
-
-func (o SecurityConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityConfiguration] {
-	return pulumix.Output[*SecurityConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the security configuration.

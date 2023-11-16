@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema of AWS::EC2::IPAMResourceDiscoveryAssociation Type
@@ -133,12 +132,6 @@ func (i *IpamResourceDiscoveryAssociation) ToIpamResourceDiscoveryAssociationOut
 	return pulumi.ToOutputWithContext(ctx, i).(IpamResourceDiscoveryAssociationOutput)
 }
 
-func (i *IpamResourceDiscoveryAssociation) ToOutput(ctx context.Context) pulumix.Output[*IpamResourceDiscoveryAssociation] {
-	return pulumix.Output[*IpamResourceDiscoveryAssociation]{
-		OutputState: i.ToIpamResourceDiscoveryAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IpamResourceDiscoveryAssociationOutput struct{ *pulumi.OutputState }
 
 func (IpamResourceDiscoveryAssociationOutput) ElementType() reflect.Type {
@@ -151,12 +144,6 @@ func (o IpamResourceDiscoveryAssociationOutput) ToIpamResourceDiscoveryAssociati
 
 func (o IpamResourceDiscoveryAssociationOutput) ToIpamResourceDiscoveryAssociationOutputWithContext(ctx context.Context) IpamResourceDiscoveryAssociationOutput {
 	return o
-}
-
-func (o IpamResourceDiscoveryAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*IpamResourceDiscoveryAssociation] {
-	return pulumix.Output[*IpamResourceDiscoveryAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Arn of the IPAM.

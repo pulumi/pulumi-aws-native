@@ -79,12 +79,6 @@ func (o EnvironmentFederationModeOutput) ToEnvironmentFederationModePtrOutputWit
 	}).(EnvironmentFederationModePtrOutput)
 }
 
-func (o EnvironmentFederationModeOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentFederationMode] {
-	return pulumix.Output[EnvironmentFederationMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentFederationModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o EnvironmentFederationModePtrOutput) ToEnvironmentFederationModePtrOutput
 
 func (o EnvironmentFederationModePtrOutput) ToEnvironmentFederationModePtrOutputWithContext(ctx context.Context) EnvironmentFederationModePtrOutput {
 	return o
-}
-
-func (o EnvironmentFederationModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentFederationMode] {
-	return pulumix.Output[*EnvironmentFederationMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentFederationModePtrOutput) Elem() EnvironmentFederationModeOutput {
@@ -234,12 +222,6 @@ func (o EnvironmentStatusOutput) ToEnvironmentStatusPtrOutputWithContext(ctx con
 	}).(EnvironmentStatusPtrOutput)
 }
 
-func (o EnvironmentStatusOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentStatus] {
-	return pulumix.Output[EnvironmentStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -273,12 +255,6 @@ func (o EnvironmentStatusPtrOutput) ToEnvironmentStatusPtrOutput() EnvironmentSt
 
 func (o EnvironmentStatusPtrOutput) ToEnvironmentStatusPtrOutputWithContext(ctx context.Context) EnvironmentStatusPtrOutput {
 	return o
-}
-
-func (o EnvironmentStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentStatus] {
-	return pulumix.Output[*EnvironmentStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentStatusPtrOutput) Elem() EnvironmentStatusOutput {

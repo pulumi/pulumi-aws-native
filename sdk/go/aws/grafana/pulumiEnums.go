@@ -79,12 +79,6 @@ func (o WorkspaceAccountAccessTypeOutput) ToWorkspaceAccountAccessTypePtrOutputW
 	}).(WorkspaceAccountAccessTypePtrOutput)
 }
 
-func (o WorkspaceAccountAccessTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceAccountAccessType] {
-	return pulumix.Output[WorkspaceAccountAccessType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkspaceAccountAccessTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o WorkspaceAccountAccessTypePtrOutput) ToWorkspaceAccountAccessTypePtrOutp
 
 func (o WorkspaceAccountAccessTypePtrOutput) ToWorkspaceAccountAccessTypePtrOutputWithContext(ctx context.Context) WorkspaceAccountAccessTypePtrOutput {
 	return o
-}
-
-func (o WorkspaceAccountAccessTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceAccountAccessType] {
-	return pulumix.Output[*WorkspaceAccountAccessType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceAccountAccessTypePtrOutput) Elem() WorkspaceAccountAccessTypeOutput {
@@ -262,12 +250,6 @@ func (o WorkspaceAuthenticationProviderTypesOutput) ToWorkspaceAuthenticationPro
 	}).(WorkspaceAuthenticationProviderTypesPtrOutput)
 }
 
-func (o WorkspaceAuthenticationProviderTypesOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceAuthenticationProviderTypes] {
-	return pulumix.Output[WorkspaceAuthenticationProviderTypes]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkspaceAuthenticationProviderTypesOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +283,6 @@ func (o WorkspaceAuthenticationProviderTypesPtrOutput) ToWorkspaceAuthentication
 
 func (o WorkspaceAuthenticationProviderTypesPtrOutput) ToWorkspaceAuthenticationProviderTypesPtrOutputWithContext(ctx context.Context) WorkspaceAuthenticationProviderTypesPtrOutput {
 	return o
-}
-
-func (o WorkspaceAuthenticationProviderTypesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceAuthenticationProviderTypes] {
-	return pulumix.Output[*WorkspaceAuthenticationProviderTypes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceAuthenticationProviderTypesPtrOutput) Elem() WorkspaceAuthenticationProviderTypesOutput {
@@ -402,12 +378,6 @@ func (i WorkspaceAuthenticationProviderTypesArray) ToWorkspaceAuthenticationProv
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAuthenticationProviderTypesArrayOutput)
 }
 
-func (i WorkspaceAuthenticationProviderTypesArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkspaceAuthenticationProviderTypes] {
-	return pulumix.Output[[]WorkspaceAuthenticationProviderTypes]{
-		OutputState: i.ToWorkspaceAuthenticationProviderTypesArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkspaceAuthenticationProviderTypesArrayOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceAuthenticationProviderTypesArrayOutput) ElementType() reflect.Type {
@@ -420,12 +390,6 @@ func (o WorkspaceAuthenticationProviderTypesArrayOutput) ToWorkspaceAuthenticati
 
 func (o WorkspaceAuthenticationProviderTypesArrayOutput) ToWorkspaceAuthenticationProviderTypesArrayOutputWithContext(ctx context.Context) WorkspaceAuthenticationProviderTypesArrayOutput {
 	return o
-}
-
-func (o WorkspaceAuthenticationProviderTypesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkspaceAuthenticationProviderTypes] {
-	return pulumix.Output[[]WorkspaceAuthenticationProviderTypes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceAuthenticationProviderTypesArrayOutput) Index(i pulumi.IntInput) WorkspaceAuthenticationProviderTypesOutput {
@@ -508,12 +472,6 @@ func (o WorkspaceDataSourceTypeOutput) ToWorkspaceDataSourceTypePtrOutputWithCon
 	}).(WorkspaceDataSourceTypePtrOutput)
 }
 
-func (o WorkspaceDataSourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceDataSourceType] {
-	return pulumix.Output[WorkspaceDataSourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkspaceDataSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -547,12 +505,6 @@ func (o WorkspaceDataSourceTypePtrOutput) ToWorkspaceDataSourceTypePtrOutput() W
 
 func (o WorkspaceDataSourceTypePtrOutput) ToWorkspaceDataSourceTypePtrOutputWithContext(ctx context.Context) WorkspaceDataSourceTypePtrOutput {
 	return o
-}
-
-func (o WorkspaceDataSourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceDataSourceType] {
-	return pulumix.Output[*WorkspaceDataSourceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceDataSourceTypePtrOutput) Elem() WorkspaceDataSourceTypeOutput {
@@ -648,12 +600,6 @@ func (i WorkspaceDataSourceTypeArray) ToWorkspaceDataSourceTypeArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceDataSourceTypeArrayOutput)
 }
 
-func (i WorkspaceDataSourceTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkspaceDataSourceType] {
-	return pulumix.Output[[]WorkspaceDataSourceType]{
-		OutputState: i.ToWorkspaceDataSourceTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkspaceDataSourceTypeArrayOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceDataSourceTypeArrayOutput) ElementType() reflect.Type {
@@ -666,12 +612,6 @@ func (o WorkspaceDataSourceTypeArrayOutput) ToWorkspaceDataSourceTypeArrayOutput
 
 func (o WorkspaceDataSourceTypeArrayOutput) ToWorkspaceDataSourceTypeArrayOutputWithContext(ctx context.Context) WorkspaceDataSourceTypeArrayOutput {
 	return o
-}
-
-func (o WorkspaceDataSourceTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkspaceDataSourceType] {
-	return pulumix.Output[[]WorkspaceDataSourceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceDataSourceTypeArrayOutput) Index(i pulumi.IntInput) WorkspaceDataSourceTypeOutput {
@@ -747,12 +687,6 @@ func (o WorkspaceNotificationDestinationTypeOutput) ToWorkspaceNotificationDesti
 	}).(WorkspaceNotificationDestinationTypePtrOutput)
 }
 
-func (o WorkspaceNotificationDestinationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceNotificationDestinationType] {
-	return pulumix.Output[WorkspaceNotificationDestinationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkspaceNotificationDestinationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -786,12 +720,6 @@ func (o WorkspaceNotificationDestinationTypePtrOutput) ToWorkspaceNotificationDe
 
 func (o WorkspaceNotificationDestinationTypePtrOutput) ToWorkspaceNotificationDestinationTypePtrOutputWithContext(ctx context.Context) WorkspaceNotificationDestinationTypePtrOutput {
 	return o
-}
-
-func (o WorkspaceNotificationDestinationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceNotificationDestinationType] {
-	return pulumix.Output[*WorkspaceNotificationDestinationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceNotificationDestinationTypePtrOutput) Elem() WorkspaceNotificationDestinationTypeOutput {
@@ -887,12 +815,6 @@ func (i WorkspaceNotificationDestinationTypeArray) ToWorkspaceNotificationDestin
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceNotificationDestinationTypeArrayOutput)
 }
 
-func (i WorkspaceNotificationDestinationTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]WorkspaceNotificationDestinationType] {
-	return pulumix.Output[[]WorkspaceNotificationDestinationType]{
-		OutputState: i.ToWorkspaceNotificationDestinationTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkspaceNotificationDestinationTypeArrayOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceNotificationDestinationTypeArrayOutput) ElementType() reflect.Type {
@@ -905,12 +827,6 @@ func (o WorkspaceNotificationDestinationTypeArrayOutput) ToWorkspaceNotification
 
 func (o WorkspaceNotificationDestinationTypeArrayOutput) ToWorkspaceNotificationDestinationTypeArrayOutputWithContext(ctx context.Context) WorkspaceNotificationDestinationTypeArrayOutput {
 	return o
-}
-
-func (o WorkspaceNotificationDestinationTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WorkspaceNotificationDestinationType] {
-	return pulumix.Output[[]WorkspaceNotificationDestinationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceNotificationDestinationTypeArrayOutput) Index(i pulumi.IntInput) WorkspaceNotificationDestinationTypeOutput {
@@ -987,12 +903,6 @@ func (o WorkspacePermissionTypeOutput) ToWorkspacePermissionTypePtrOutputWithCon
 	}).(WorkspacePermissionTypePtrOutput)
 }
 
-func (o WorkspacePermissionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspacePermissionType] {
-	return pulumix.Output[WorkspacePermissionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkspacePermissionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1026,12 +936,6 @@ func (o WorkspacePermissionTypePtrOutput) ToWorkspacePermissionTypePtrOutput() W
 
 func (o WorkspacePermissionTypePtrOutput) ToWorkspacePermissionTypePtrOutputWithContext(ctx context.Context) WorkspacePermissionTypePtrOutput {
 	return o
-}
-
-func (o WorkspacePermissionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspacePermissionType] {
-	return pulumix.Output[*WorkspacePermissionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspacePermissionTypePtrOutput) Elem() WorkspacePermissionTypeOutput {
@@ -1134,12 +1038,6 @@ func (o WorkspaceSamlConfigurationStatusOutput) ToWorkspaceSamlConfigurationStat
 	}).(WorkspaceSamlConfigurationStatusPtrOutput)
 }
 
-func (o WorkspaceSamlConfigurationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceSamlConfigurationStatus] {
-	return pulumix.Output[WorkspaceSamlConfigurationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkspaceSamlConfigurationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1173,12 +1071,6 @@ func (o WorkspaceSamlConfigurationStatusPtrOutput) ToWorkspaceSamlConfigurationS
 
 func (o WorkspaceSamlConfigurationStatusPtrOutput) ToWorkspaceSamlConfigurationStatusPtrOutputWithContext(ctx context.Context) WorkspaceSamlConfigurationStatusPtrOutput {
 	return o
-}
-
-func (o WorkspaceSamlConfigurationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceSamlConfigurationStatus] {
-	return pulumix.Output[*WorkspaceSamlConfigurationStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceSamlConfigurationStatusPtrOutput) Elem() WorkspaceSamlConfigurationStatusOutput {
@@ -1248,12 +1140,6 @@ func (o WorkspaceStatusOutput) ToWorkspaceStatusPtrOutputWithContext(ctx context
 	}).(WorkspaceStatusPtrOutput)
 }
 
-func (o WorkspaceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceStatus] {
-	return pulumix.Output[WorkspaceStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkspaceStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1287,12 +1173,6 @@ func (o WorkspaceStatusPtrOutput) ToWorkspaceStatusPtrOutput() WorkspaceStatusPt
 
 func (o WorkspaceStatusPtrOutput) ToWorkspaceStatusPtrOutputWithContext(ctx context.Context) WorkspaceStatusPtrOutput {
 	return o
-}
-
-func (o WorkspaceStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceStatus] {
-	return pulumix.Output[*WorkspaceStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceStatusPtrOutput) Elem() WorkspaceStatusOutput {

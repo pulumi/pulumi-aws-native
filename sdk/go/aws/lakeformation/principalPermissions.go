@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A resource schema representing a Lake Formation Permission.
@@ -125,12 +124,6 @@ func (i *PrincipalPermissions) ToPrincipalPermissionsOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsOutput)
 }
 
-func (i *PrincipalPermissions) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissions] {
-	return pulumix.Output[*PrincipalPermissions]{
-		OutputState: i.ToPrincipalPermissionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrincipalPermissionsOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsOutput) ElementType() reflect.Type {
@@ -143,12 +136,6 @@ func (o PrincipalPermissionsOutput) ToPrincipalPermissionsOutput() PrincipalPerm
 
 func (o PrincipalPermissionsOutput) ToPrincipalPermissionsOutputWithContext(ctx context.Context) PrincipalPermissionsOutput {
 	return o
-}
-
-func (o PrincipalPermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissions] {
-	return pulumix.Output[*PrincipalPermissions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPermissionsOutput) Catalog() pulumi.StringPtrOutput {

@@ -77,12 +77,6 @@ func (o AnalysisAnchorOptionOutput) ToAnalysisAnchorOptionPtrOutputWithContext(c
 	}).(AnalysisAnchorOptionPtrOutput)
 }
 
-func (o AnalysisAnchorOptionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisAnchorOption] {
-	return pulumix.Output[AnalysisAnchorOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisAnchorOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -116,12 +110,6 @@ func (o AnalysisAnchorOptionPtrOutput) ToAnalysisAnchorOptionPtrOutput() Analysi
 
 func (o AnalysisAnchorOptionPtrOutput) ToAnalysisAnchorOptionPtrOutputWithContext(ctx context.Context) AnalysisAnchorOptionPtrOutput {
 	return o
-}
-
-func (o AnalysisAnchorOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisAnchorOption] {
-	return pulumix.Output[*AnalysisAnchorOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisAnchorOptionPtrOutput) Elem() AnalysisAnchorOptionOutput {
@@ -261,12 +249,6 @@ func (o AnalysisArcThicknessOutput) ToAnalysisArcThicknessPtrOutputWithContext(c
 	}).(AnalysisArcThicknessPtrOutput)
 }
 
-func (o AnalysisArcThicknessOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisArcThickness] {
-	return pulumix.Output[AnalysisArcThickness]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisArcThicknessOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -300,12 +282,6 @@ func (o AnalysisArcThicknessPtrOutput) ToAnalysisArcThicknessPtrOutput() Analysi
 
 func (o AnalysisArcThicknessPtrOutput) ToAnalysisArcThicknessPtrOutputWithContext(ctx context.Context) AnalysisArcThicknessPtrOutput {
 	return o
-}
-
-func (o AnalysisArcThicknessPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisArcThickness] {
-	return pulumix.Output[*AnalysisArcThickness]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisArcThicknessPtrOutput) Elem() AnalysisArcThicknessOutput {
@@ -444,12 +420,6 @@ func (o AnalysisArcThicknessOptionsOutput) ToAnalysisArcThicknessOptionsPtrOutpu
 	}).(AnalysisArcThicknessOptionsPtrOutput)
 }
 
-func (o AnalysisArcThicknessOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisArcThicknessOptions] {
-	return pulumix.Output[AnalysisArcThicknessOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisArcThicknessOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -483,12 +453,6 @@ func (o AnalysisArcThicknessOptionsPtrOutput) ToAnalysisArcThicknessOptionsPtrOu
 
 func (o AnalysisArcThicknessOptionsPtrOutput) ToAnalysisArcThicknessOptionsPtrOutputWithContext(ctx context.Context) AnalysisArcThicknessOptionsPtrOutput {
 	return o
-}
-
-func (o AnalysisArcThicknessOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisArcThicknessOptions] {
-	return pulumix.Output[*AnalysisArcThicknessOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisArcThicknessOptionsPtrOutput) Elem() AnalysisArcThicknessOptionsOutput {
@@ -626,12 +590,6 @@ func (o AnalysisAxisBindingOutput) ToAnalysisAxisBindingPtrOutputWithContext(ctx
 	}).(AnalysisAxisBindingPtrOutput)
 }
 
-func (o AnalysisAxisBindingOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisAxisBinding] {
-	return pulumix.Output[AnalysisAxisBinding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisAxisBindingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -665,12 +623,6 @@ func (o AnalysisAxisBindingPtrOutput) ToAnalysisAxisBindingPtrOutput() AnalysisA
 
 func (o AnalysisAxisBindingPtrOutput) ToAnalysisAxisBindingPtrOutputWithContext(ctx context.Context) AnalysisAxisBindingPtrOutput {
 	return o
-}
-
-func (o AnalysisAxisBindingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisAxisBinding] {
-	return pulumix.Output[*AnalysisAxisBinding]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisAxisBindingPtrOutput) Elem() AnalysisAxisBindingOutput {
@@ -808,12 +760,6 @@ func (o AnalysisBarChartOrientationOutput) ToAnalysisBarChartOrientationPtrOutpu
 	}).(AnalysisBarChartOrientationPtrOutput)
 }
 
-func (o AnalysisBarChartOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisBarChartOrientation] {
-	return pulumix.Output[AnalysisBarChartOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisBarChartOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -847,12 +793,6 @@ func (o AnalysisBarChartOrientationPtrOutput) ToAnalysisBarChartOrientationPtrOu
 
 func (o AnalysisBarChartOrientationPtrOutput) ToAnalysisBarChartOrientationPtrOutputWithContext(ctx context.Context) AnalysisBarChartOrientationPtrOutput {
 	return o
-}
-
-func (o AnalysisBarChartOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisBarChartOrientation] {
-	return pulumix.Output[*AnalysisBarChartOrientation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisBarChartOrientationPtrOutput) Elem() AnalysisBarChartOrientationOutput {
@@ -991,12 +931,6 @@ func (o AnalysisBarsArrangementOutput) ToAnalysisBarsArrangementPtrOutputWithCon
 	}).(AnalysisBarsArrangementPtrOutput)
 }
 
-func (o AnalysisBarsArrangementOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisBarsArrangement] {
-	return pulumix.Output[AnalysisBarsArrangement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisBarsArrangementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1030,12 +964,6 @@ func (o AnalysisBarsArrangementPtrOutput) ToAnalysisBarsArrangementPtrOutput() A
 
 func (o AnalysisBarsArrangementPtrOutput) ToAnalysisBarsArrangementPtrOutputWithContext(ctx context.Context) AnalysisBarsArrangementPtrOutput {
 	return o
-}
-
-func (o AnalysisBarsArrangementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisBarsArrangement] {
-	return pulumix.Output[*AnalysisBarsArrangement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisBarsArrangementPtrOutput) Elem() AnalysisBarsArrangementOutput {
@@ -1175,12 +1103,6 @@ func (o AnalysisBaseMapStyleTypeOutput) ToAnalysisBaseMapStyleTypePtrOutputWithC
 	}).(AnalysisBaseMapStyleTypePtrOutput)
 }
 
-func (o AnalysisBaseMapStyleTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisBaseMapStyleType] {
-	return pulumix.Output[AnalysisBaseMapStyleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisBaseMapStyleTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1214,12 +1136,6 @@ func (o AnalysisBaseMapStyleTypePtrOutput) ToAnalysisBaseMapStyleTypePtrOutput()
 
 func (o AnalysisBaseMapStyleTypePtrOutput) ToAnalysisBaseMapStyleTypePtrOutputWithContext(ctx context.Context) AnalysisBaseMapStyleTypePtrOutput {
 	return o
-}
-
-func (o AnalysisBaseMapStyleTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisBaseMapStyleType] {
-	return pulumix.Output[*AnalysisBaseMapStyleType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisBaseMapStyleTypePtrOutput) Elem() AnalysisBaseMapStyleTypeOutput {
@@ -1357,12 +1273,6 @@ func (o AnalysisBoxPlotFillStyleOutput) ToAnalysisBoxPlotFillStylePtrOutputWithC
 	}).(AnalysisBoxPlotFillStylePtrOutput)
 }
 
-func (o AnalysisBoxPlotFillStyleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisBoxPlotFillStyle] {
-	return pulumix.Output[AnalysisBoxPlotFillStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisBoxPlotFillStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1396,12 +1306,6 @@ func (o AnalysisBoxPlotFillStylePtrOutput) ToAnalysisBoxPlotFillStylePtrOutput()
 
 func (o AnalysisBoxPlotFillStylePtrOutput) ToAnalysisBoxPlotFillStylePtrOutputWithContext(ctx context.Context) AnalysisBoxPlotFillStylePtrOutput {
 	return o
-}
-
-func (o AnalysisBoxPlotFillStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisBoxPlotFillStyle] {
-	return pulumix.Output[*AnalysisBoxPlotFillStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisBoxPlotFillStylePtrOutput) Elem() AnalysisBoxPlotFillStyleOutput {
@@ -1539,12 +1443,6 @@ func (o AnalysisCategoricalAggregationFunctionOutput) ToAnalysisCategoricalAggre
 	}).(AnalysisCategoricalAggregationFunctionPtrOutput)
 }
 
-func (o AnalysisCategoricalAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisCategoricalAggregationFunction] {
-	return pulumix.Output[AnalysisCategoricalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisCategoricalAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1578,12 +1476,6 @@ func (o AnalysisCategoricalAggregationFunctionPtrOutput) ToAnalysisCategoricalAg
 
 func (o AnalysisCategoricalAggregationFunctionPtrOutput) ToAnalysisCategoricalAggregationFunctionPtrOutputWithContext(ctx context.Context) AnalysisCategoricalAggregationFunctionPtrOutput {
 	return o
-}
-
-func (o AnalysisCategoricalAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisCategoricalAggregationFunction] {
-	return pulumix.Output[*AnalysisCategoricalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisCategoricalAggregationFunctionPtrOutput) Elem() AnalysisCategoricalAggregationFunctionOutput {
@@ -1725,12 +1617,6 @@ func (o AnalysisCategoryFilterMatchOperatorOutput) ToAnalysisCategoryFilterMatch
 	}).(AnalysisCategoryFilterMatchOperatorPtrOutput)
 }
 
-func (o AnalysisCategoryFilterMatchOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisCategoryFilterMatchOperator] {
-	return pulumix.Output[AnalysisCategoryFilterMatchOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisCategoryFilterMatchOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1764,12 +1650,6 @@ func (o AnalysisCategoryFilterMatchOperatorPtrOutput) ToAnalysisCategoryFilterMa
 
 func (o AnalysisCategoryFilterMatchOperatorPtrOutput) ToAnalysisCategoryFilterMatchOperatorPtrOutputWithContext(ctx context.Context) AnalysisCategoryFilterMatchOperatorPtrOutput {
 	return o
-}
-
-func (o AnalysisCategoryFilterMatchOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisCategoryFilterMatchOperator] {
-	return pulumix.Output[*AnalysisCategoryFilterMatchOperator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisCategoryFilterMatchOperatorPtrOutput) Elem() AnalysisCategoryFilterMatchOperatorOutput {
@@ -1906,12 +1786,6 @@ func (o AnalysisCategoryFilterSelectAllOptionsOutput) ToAnalysisCategoryFilterSe
 	}).(AnalysisCategoryFilterSelectAllOptionsPtrOutput)
 }
 
-func (o AnalysisCategoryFilterSelectAllOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisCategoryFilterSelectAllOptions] {
-	return pulumix.Output[AnalysisCategoryFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisCategoryFilterSelectAllOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1945,12 +1819,6 @@ func (o AnalysisCategoryFilterSelectAllOptionsPtrOutput) ToAnalysisCategoryFilte
 
 func (o AnalysisCategoryFilterSelectAllOptionsPtrOutput) ToAnalysisCategoryFilterSelectAllOptionsPtrOutputWithContext(ctx context.Context) AnalysisCategoryFilterSelectAllOptionsPtrOutput {
 	return o
-}
-
-func (o AnalysisCategoryFilterSelectAllOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisCategoryFilterSelectAllOptions] {
-	return pulumix.Output[*AnalysisCategoryFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisCategoryFilterSelectAllOptionsPtrOutput) Elem() AnalysisCategoryFilterSelectAllOptionsOutput {
@@ -2088,12 +1956,6 @@ func (o AnalysisColorFillTypeOutput) ToAnalysisColorFillTypePtrOutputWithContext
 	}).(AnalysisColorFillTypePtrOutput)
 }
 
-func (o AnalysisColorFillTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisColorFillType] {
-	return pulumix.Output[AnalysisColorFillType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisColorFillTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2127,12 +1989,6 @@ func (o AnalysisColorFillTypePtrOutput) ToAnalysisColorFillTypePtrOutput() Analy
 
 func (o AnalysisColorFillTypePtrOutput) ToAnalysisColorFillTypePtrOutputWithContext(ctx context.Context) AnalysisColorFillTypePtrOutput {
 	return o
-}
-
-func (o AnalysisColorFillTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisColorFillType] {
-	return pulumix.Output[*AnalysisColorFillType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisColorFillTypePtrOutput) Elem() AnalysisColorFillTypeOutput {
@@ -2270,12 +2126,6 @@ func (o AnalysisColumnRoleOutput) ToAnalysisColumnRolePtrOutputWithContext(ctx c
 	}).(AnalysisColumnRolePtrOutput)
 }
 
-func (o AnalysisColumnRoleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisColumnRole] {
-	return pulumix.Output[AnalysisColumnRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisColumnRoleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2309,12 +2159,6 @@ func (o AnalysisColumnRolePtrOutput) ToAnalysisColumnRolePtrOutput() AnalysisCol
 
 func (o AnalysisColumnRolePtrOutput) ToAnalysisColumnRolePtrOutputWithContext(ctx context.Context) AnalysisColumnRolePtrOutput {
 	return o
-}
-
-func (o AnalysisColumnRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisColumnRole] {
-	return pulumix.Output[*AnalysisColumnRole]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisColumnRolePtrOutput) Elem() AnalysisColumnRoleOutput {
@@ -2453,12 +2297,6 @@ func (o AnalysisComparisonMethodOutput) ToAnalysisComparisonMethodPtrOutputWithC
 	}).(AnalysisComparisonMethodPtrOutput)
 }
 
-func (o AnalysisComparisonMethodOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisComparisonMethod] {
-	return pulumix.Output[AnalysisComparisonMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisComparisonMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2492,12 +2330,6 @@ func (o AnalysisComparisonMethodPtrOutput) ToAnalysisComparisonMethodPtrOutput()
 
 func (o AnalysisComparisonMethodPtrOutput) ToAnalysisComparisonMethodPtrOutputWithContext(ctx context.Context) AnalysisComparisonMethodPtrOutput {
 	return o
-}
-
-func (o AnalysisComparisonMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisComparisonMethod] {
-	return pulumix.Output[*AnalysisComparisonMethod]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisComparisonMethodPtrOutput) Elem() AnalysisComparisonMethodOutput {
@@ -2634,12 +2466,6 @@ func (o AnalysisConditionalFormattingIconDisplayOptionOutput) ToAnalysisConditio
 	}).(AnalysisConditionalFormattingIconDisplayOptionPtrOutput)
 }
 
-func (o AnalysisConditionalFormattingIconDisplayOptionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisConditionalFormattingIconDisplayOption] {
-	return pulumix.Output[AnalysisConditionalFormattingIconDisplayOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisConditionalFormattingIconDisplayOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2673,12 +2499,6 @@ func (o AnalysisConditionalFormattingIconDisplayOptionPtrOutput) ToAnalysisCondi
 
 func (o AnalysisConditionalFormattingIconDisplayOptionPtrOutput) ToAnalysisConditionalFormattingIconDisplayOptionPtrOutputWithContext(ctx context.Context) AnalysisConditionalFormattingIconDisplayOptionPtrOutput {
 	return o
-}
-
-func (o AnalysisConditionalFormattingIconDisplayOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisConditionalFormattingIconDisplayOption] {
-	return pulumix.Output[*AnalysisConditionalFormattingIconDisplayOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisConditionalFormattingIconDisplayOptionPtrOutput) Elem() AnalysisConditionalFormattingIconDisplayOptionOutput {
@@ -2825,12 +2645,6 @@ func (o AnalysisConditionalFormattingIconSetTypeOutput) ToAnalysisConditionalFor
 	}).(AnalysisConditionalFormattingIconSetTypePtrOutput)
 }
 
-func (o AnalysisConditionalFormattingIconSetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisConditionalFormattingIconSetType] {
-	return pulumix.Output[AnalysisConditionalFormattingIconSetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisConditionalFormattingIconSetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2864,12 +2678,6 @@ func (o AnalysisConditionalFormattingIconSetTypePtrOutput) ToAnalysisConditional
 
 func (o AnalysisConditionalFormattingIconSetTypePtrOutput) ToAnalysisConditionalFormattingIconSetTypePtrOutputWithContext(ctx context.Context) AnalysisConditionalFormattingIconSetTypePtrOutput {
 	return o
-}
-
-func (o AnalysisConditionalFormattingIconSetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisConditionalFormattingIconSetType] {
-	return pulumix.Output[*AnalysisConditionalFormattingIconSetType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisConditionalFormattingIconSetTypePtrOutput) Elem() AnalysisConditionalFormattingIconSetTypeOutput {
@@ -3007,12 +2815,6 @@ func (o AnalysisCrossDatasetTypesOutput) ToAnalysisCrossDatasetTypesPtrOutputWit
 	}).(AnalysisCrossDatasetTypesPtrOutput)
 }
 
-func (o AnalysisCrossDatasetTypesOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisCrossDatasetTypes] {
-	return pulumix.Output[AnalysisCrossDatasetTypes]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisCrossDatasetTypesOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3046,12 +2848,6 @@ func (o AnalysisCrossDatasetTypesPtrOutput) ToAnalysisCrossDatasetTypesPtrOutput
 
 func (o AnalysisCrossDatasetTypesPtrOutput) ToAnalysisCrossDatasetTypesPtrOutputWithContext(ctx context.Context) AnalysisCrossDatasetTypesPtrOutput {
 	return o
-}
-
-func (o AnalysisCrossDatasetTypesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisCrossDatasetTypes] {
-	return pulumix.Output[*AnalysisCrossDatasetTypes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisCrossDatasetTypesPtrOutput) Elem() AnalysisCrossDatasetTypesOutput {
@@ -3191,12 +2987,6 @@ func (o AnalysisCustomContentImageScalingConfigurationOutput) ToAnalysisCustomCo
 	}).(AnalysisCustomContentImageScalingConfigurationPtrOutput)
 }
 
-func (o AnalysisCustomContentImageScalingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisCustomContentImageScalingConfiguration] {
-	return pulumix.Output[AnalysisCustomContentImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisCustomContentImageScalingConfigurationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3230,12 +3020,6 @@ func (o AnalysisCustomContentImageScalingConfigurationPtrOutput) ToAnalysisCusto
 
 func (o AnalysisCustomContentImageScalingConfigurationPtrOutput) ToAnalysisCustomContentImageScalingConfigurationPtrOutputWithContext(ctx context.Context) AnalysisCustomContentImageScalingConfigurationPtrOutput {
 	return o
-}
-
-func (o AnalysisCustomContentImageScalingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisCustomContentImageScalingConfiguration] {
-	return pulumix.Output[*AnalysisCustomContentImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisCustomContentImageScalingConfigurationPtrOutput) Elem() AnalysisCustomContentImageScalingConfigurationOutput {
@@ -3373,12 +3157,6 @@ func (o AnalysisCustomContentTypeOutput) ToAnalysisCustomContentTypePtrOutputWit
 	}).(AnalysisCustomContentTypePtrOutput)
 }
 
-func (o AnalysisCustomContentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisCustomContentType] {
-	return pulumix.Output[AnalysisCustomContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisCustomContentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3412,12 +3190,6 @@ func (o AnalysisCustomContentTypePtrOutput) ToAnalysisCustomContentTypePtrOutput
 
 func (o AnalysisCustomContentTypePtrOutput) ToAnalysisCustomContentTypePtrOutputWithContext(ctx context.Context) AnalysisCustomContentTypePtrOutput {
 	return o
-}
-
-func (o AnalysisCustomContentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisCustomContentType] {
-	return pulumix.Output[*AnalysisCustomContentType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisCustomContentTypePtrOutput) Elem() AnalysisCustomContentTypeOutput {
@@ -3556,12 +3328,6 @@ func (o AnalysisDataLabelContentOutput) ToAnalysisDataLabelContentPtrOutputWithC
 	}).(AnalysisDataLabelContentPtrOutput)
 }
 
-func (o AnalysisDataLabelContentOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisDataLabelContent] {
-	return pulumix.Output[AnalysisDataLabelContent]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisDataLabelContentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3595,12 +3361,6 @@ func (o AnalysisDataLabelContentPtrOutput) ToAnalysisDataLabelContentPtrOutput()
 
 func (o AnalysisDataLabelContentPtrOutput) ToAnalysisDataLabelContentPtrOutputWithContext(ctx context.Context) AnalysisDataLabelContentPtrOutput {
 	return o
-}
-
-func (o AnalysisDataLabelContentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisDataLabelContent] {
-	return pulumix.Output[*AnalysisDataLabelContent]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisDataLabelContentPtrOutput) Elem() AnalysisDataLabelContentOutput {
@@ -3738,12 +3498,6 @@ func (o AnalysisDataLabelOverlapOutput) ToAnalysisDataLabelOverlapPtrOutputWithC
 	}).(AnalysisDataLabelOverlapPtrOutput)
 }
 
-func (o AnalysisDataLabelOverlapOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisDataLabelOverlap] {
-	return pulumix.Output[AnalysisDataLabelOverlap]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisDataLabelOverlapOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3777,12 +3531,6 @@ func (o AnalysisDataLabelOverlapPtrOutput) ToAnalysisDataLabelOverlapPtrOutput()
 
 func (o AnalysisDataLabelOverlapPtrOutput) ToAnalysisDataLabelOverlapPtrOutputWithContext(ctx context.Context) AnalysisDataLabelOverlapPtrOutput {
 	return o
-}
-
-func (o AnalysisDataLabelOverlapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisDataLabelOverlap] {
-	return pulumix.Output[*AnalysisDataLabelOverlap]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisDataLabelOverlapPtrOutput) Elem() AnalysisDataLabelOverlapOutput {
@@ -3924,12 +3672,6 @@ func (o AnalysisDataLabelPositionOutput) ToAnalysisDataLabelPositionPtrOutputWit
 	}).(AnalysisDataLabelPositionPtrOutput)
 }
 
-func (o AnalysisDataLabelPositionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisDataLabelPosition] {
-	return pulumix.Output[AnalysisDataLabelPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisDataLabelPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3963,12 +3705,6 @@ func (o AnalysisDataLabelPositionPtrOutput) ToAnalysisDataLabelPositionPtrOutput
 
 func (o AnalysisDataLabelPositionPtrOutput) ToAnalysisDataLabelPositionPtrOutputWithContext(ctx context.Context) AnalysisDataLabelPositionPtrOutput {
 	return o
-}
-
-func (o AnalysisDataLabelPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisDataLabelPosition] {
-	return pulumix.Output[*AnalysisDataLabelPosition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisDataLabelPositionPtrOutput) Elem() AnalysisDataLabelPositionOutput {
@@ -4108,12 +3844,6 @@ func (o AnalysisDateAggregationFunctionOutput) ToAnalysisDateAggregationFunction
 	}).(AnalysisDateAggregationFunctionPtrOutput)
 }
 
-func (o AnalysisDateAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisDateAggregationFunction] {
-	return pulumix.Output[AnalysisDateAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisDateAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4147,12 +3877,6 @@ func (o AnalysisDateAggregationFunctionPtrOutput) ToAnalysisDateAggregationFunct
 
 func (o AnalysisDateAggregationFunctionPtrOutput) ToAnalysisDateAggregationFunctionPtrOutputWithContext(ctx context.Context) AnalysisDateAggregationFunctionPtrOutput {
 	return o
-}
-
-func (o AnalysisDateAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisDateAggregationFunction] {
-	return pulumix.Output[*AnalysisDateAggregationFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisDateAggregationFunctionPtrOutput) Elem() AnalysisDateAggregationFunctionOutput {
@@ -4262,12 +3986,6 @@ func (o AnalysisErrorTypeOutput) ToAnalysisErrorTypePtrOutputWithContext(ctx con
 	}).(AnalysisErrorTypePtrOutput)
 }
 
-func (o AnalysisErrorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisErrorType] {
-	return pulumix.Output[AnalysisErrorType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisErrorTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4301,12 +4019,6 @@ func (o AnalysisErrorTypePtrOutput) ToAnalysisErrorTypePtrOutput() AnalysisError
 
 func (o AnalysisErrorTypePtrOutput) ToAnalysisErrorTypePtrOutputWithContext(ctx context.Context) AnalysisErrorTypePtrOutput {
 	return o
-}
-
-func (o AnalysisErrorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisErrorType] {
-	return pulumix.Output[*AnalysisErrorType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisErrorTypePtrOutput) Elem() AnalysisErrorTypeOutput {
@@ -4401,12 +4113,6 @@ func (o AnalysisFilterNullOptionOutput) ToAnalysisFilterNullOptionPtrOutputWithC
 	}).(AnalysisFilterNullOptionPtrOutput)
 }
 
-func (o AnalysisFilterNullOptionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisFilterNullOption] {
-	return pulumix.Output[AnalysisFilterNullOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisFilterNullOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4440,12 +4146,6 @@ func (o AnalysisFilterNullOptionPtrOutput) ToAnalysisFilterNullOptionPtrOutput()
 
 func (o AnalysisFilterNullOptionPtrOutput) ToAnalysisFilterNullOptionPtrOutputWithContext(ctx context.Context) AnalysisFilterNullOptionPtrOutput {
 	return o
-}
-
-func (o AnalysisFilterNullOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisFilterNullOption] {
-	return pulumix.Output[*AnalysisFilterNullOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisFilterNullOptionPtrOutput) Elem() AnalysisFilterNullOptionOutput {
@@ -4583,12 +4283,6 @@ func (o AnalysisFilterVisualScopeOutput) ToAnalysisFilterVisualScopePtrOutputWit
 	}).(AnalysisFilterVisualScopePtrOutput)
 }
 
-func (o AnalysisFilterVisualScopeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisFilterVisualScope] {
-	return pulumix.Output[AnalysisFilterVisualScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisFilterVisualScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4622,12 +4316,6 @@ func (o AnalysisFilterVisualScopePtrOutput) ToAnalysisFilterVisualScopePtrOutput
 
 func (o AnalysisFilterVisualScopePtrOutput) ToAnalysisFilterVisualScopePtrOutputWithContext(ctx context.Context) AnalysisFilterVisualScopePtrOutput {
 	return o
-}
-
-func (o AnalysisFilterVisualScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisFilterVisualScope] {
-	return pulumix.Output[*AnalysisFilterVisualScope]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisFilterVisualScopePtrOutput) Elem() AnalysisFilterVisualScopeOutput {
@@ -4765,12 +4453,6 @@ func (o AnalysisFontDecorationOutput) ToAnalysisFontDecorationPtrOutputWithConte
 	}).(AnalysisFontDecorationPtrOutput)
 }
 
-func (o AnalysisFontDecorationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisFontDecoration] {
-	return pulumix.Output[AnalysisFontDecoration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisFontDecorationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4804,12 +4486,6 @@ func (o AnalysisFontDecorationPtrOutput) ToAnalysisFontDecorationPtrOutput() Ana
 
 func (o AnalysisFontDecorationPtrOutput) ToAnalysisFontDecorationPtrOutputWithContext(ctx context.Context) AnalysisFontDecorationPtrOutput {
 	return o
-}
-
-func (o AnalysisFontDecorationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisFontDecoration] {
-	return pulumix.Output[*AnalysisFontDecoration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisFontDecorationPtrOutput) Elem() AnalysisFontDecorationOutput {
@@ -4947,12 +4623,6 @@ func (o AnalysisFontStyleOutput) ToAnalysisFontStylePtrOutputWithContext(ctx con
 	}).(AnalysisFontStylePtrOutput)
 }
 
-func (o AnalysisFontStyleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisFontStyle] {
-	return pulumix.Output[AnalysisFontStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisFontStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4986,12 +4656,6 @@ func (o AnalysisFontStylePtrOutput) ToAnalysisFontStylePtrOutput() AnalysisFontS
 
 func (o AnalysisFontStylePtrOutput) ToAnalysisFontStylePtrOutputWithContext(ctx context.Context) AnalysisFontStylePtrOutput {
 	return o
-}
-
-func (o AnalysisFontStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisFontStyle] {
-	return pulumix.Output[*AnalysisFontStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisFontStylePtrOutput) Elem() AnalysisFontStyleOutput {
@@ -5129,12 +4793,6 @@ func (o AnalysisFontWeightNameOutput) ToAnalysisFontWeightNamePtrOutputWithConte
 	}).(AnalysisFontWeightNamePtrOutput)
 }
 
-func (o AnalysisFontWeightNameOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisFontWeightName] {
-	return pulumix.Output[AnalysisFontWeightName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisFontWeightNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5168,12 +4826,6 @@ func (o AnalysisFontWeightNamePtrOutput) ToAnalysisFontWeightNamePtrOutput() Ana
 
 func (o AnalysisFontWeightNamePtrOutput) ToAnalysisFontWeightNamePtrOutputWithContext(ctx context.Context) AnalysisFontWeightNamePtrOutput {
 	return o
-}
-
-func (o AnalysisFontWeightNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisFontWeightName] {
-	return pulumix.Output[*AnalysisFontWeightName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisFontWeightNamePtrOutput) Elem() AnalysisFontWeightNameOutput {
@@ -5311,12 +4963,6 @@ func (o AnalysisForecastComputationSeasonalityOutput) ToAnalysisForecastComputat
 	}).(AnalysisForecastComputationSeasonalityPtrOutput)
 }
 
-func (o AnalysisForecastComputationSeasonalityOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisForecastComputationSeasonality] {
-	return pulumix.Output[AnalysisForecastComputationSeasonality]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisForecastComputationSeasonalityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5350,12 +4996,6 @@ func (o AnalysisForecastComputationSeasonalityPtrOutput) ToAnalysisForecastCompu
 
 func (o AnalysisForecastComputationSeasonalityPtrOutput) ToAnalysisForecastComputationSeasonalityPtrOutputWithContext(ctx context.Context) AnalysisForecastComputationSeasonalityPtrOutput {
 	return o
-}
-
-func (o AnalysisForecastComputationSeasonalityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisForecastComputationSeasonality] {
-	return pulumix.Output[*AnalysisForecastComputationSeasonality]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisForecastComputationSeasonalityPtrOutput) Elem() AnalysisForecastComputationSeasonalityOutput {
@@ -5496,12 +5136,6 @@ func (o AnalysisFunnelChartMeasureDataLabelStyleOutput) ToAnalysisFunnelChartMea
 	}).(AnalysisFunnelChartMeasureDataLabelStylePtrOutput)
 }
 
-func (o AnalysisFunnelChartMeasureDataLabelStyleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisFunnelChartMeasureDataLabelStyle] {
-	return pulumix.Output[AnalysisFunnelChartMeasureDataLabelStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisFunnelChartMeasureDataLabelStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5535,12 +5169,6 @@ func (o AnalysisFunnelChartMeasureDataLabelStylePtrOutput) ToAnalysisFunnelChart
 
 func (o AnalysisFunnelChartMeasureDataLabelStylePtrOutput) ToAnalysisFunnelChartMeasureDataLabelStylePtrOutputWithContext(ctx context.Context) AnalysisFunnelChartMeasureDataLabelStylePtrOutput {
 	return o
-}
-
-func (o AnalysisFunnelChartMeasureDataLabelStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisFunnelChartMeasureDataLabelStyle] {
-	return pulumix.Output[*AnalysisFunnelChartMeasureDataLabelStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisFunnelChartMeasureDataLabelStylePtrOutput) Elem() AnalysisFunnelChartMeasureDataLabelStyleOutput {
@@ -5679,12 +5307,6 @@ func (o AnalysisGeospatialSelectedPointStyleOutput) ToAnalysisGeospatialSelected
 	}).(AnalysisGeospatialSelectedPointStylePtrOutput)
 }
 
-func (o AnalysisGeospatialSelectedPointStyleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisGeospatialSelectedPointStyle] {
-	return pulumix.Output[AnalysisGeospatialSelectedPointStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisGeospatialSelectedPointStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5718,12 +5340,6 @@ func (o AnalysisGeospatialSelectedPointStylePtrOutput) ToAnalysisGeospatialSelec
 
 func (o AnalysisGeospatialSelectedPointStylePtrOutput) ToAnalysisGeospatialSelectedPointStylePtrOutputWithContext(ctx context.Context) AnalysisGeospatialSelectedPointStylePtrOutput {
 	return o
-}
-
-func (o AnalysisGeospatialSelectedPointStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisGeospatialSelectedPointStyle] {
-	return pulumix.Output[*AnalysisGeospatialSelectedPointStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisGeospatialSelectedPointStylePtrOutput) Elem() AnalysisGeospatialSelectedPointStyleOutput {
@@ -5861,12 +5477,6 @@ func (o AnalysisHistogramBinTypeOutput) ToAnalysisHistogramBinTypePtrOutputWithC
 	}).(AnalysisHistogramBinTypePtrOutput)
 }
 
-func (o AnalysisHistogramBinTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisHistogramBinType] {
-	return pulumix.Output[AnalysisHistogramBinType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisHistogramBinTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5900,12 +5510,6 @@ func (o AnalysisHistogramBinTypePtrOutput) ToAnalysisHistogramBinTypePtrOutput()
 
 func (o AnalysisHistogramBinTypePtrOutput) ToAnalysisHistogramBinTypePtrOutputWithContext(ctx context.Context) AnalysisHistogramBinTypePtrOutput {
 	return o
-}
-
-func (o AnalysisHistogramBinTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisHistogramBinType] {
-	return pulumix.Output[*AnalysisHistogramBinType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisHistogramBinTypePtrOutput) Elem() AnalysisHistogramBinTypeOutput {
@@ -6045,12 +5649,6 @@ func (o AnalysisHorizontalTextAlignmentOutput) ToAnalysisHorizontalTextAlignment
 	}).(AnalysisHorizontalTextAlignmentPtrOutput)
 }
 
-func (o AnalysisHorizontalTextAlignmentOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisHorizontalTextAlignment] {
-	return pulumix.Output[AnalysisHorizontalTextAlignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisHorizontalTextAlignmentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6084,12 +5682,6 @@ func (o AnalysisHorizontalTextAlignmentPtrOutput) ToAnalysisHorizontalTextAlignm
 
 func (o AnalysisHorizontalTextAlignmentPtrOutput) ToAnalysisHorizontalTextAlignmentPtrOutputWithContext(ctx context.Context) AnalysisHorizontalTextAlignmentPtrOutput {
 	return o
-}
-
-func (o AnalysisHorizontalTextAlignmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisHorizontalTextAlignment] {
-	return pulumix.Output[*AnalysisHorizontalTextAlignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisHorizontalTextAlignmentPtrOutput) Elem() AnalysisHorizontalTextAlignmentOutput {
@@ -6251,12 +5843,6 @@ func (o AnalysisIconOutput) ToAnalysisIconPtrOutputWithContext(ctx context.Conte
 	}).(AnalysisIconPtrOutput)
 }
 
-func (o AnalysisIconOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisIcon] {
-	return pulumix.Output[AnalysisIcon]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisIconOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6290,12 +5876,6 @@ func (o AnalysisIconPtrOutput) ToAnalysisIconPtrOutput() AnalysisIconPtrOutput {
 
 func (o AnalysisIconPtrOutput) ToAnalysisIconPtrOutputWithContext(ctx context.Context) AnalysisIconPtrOutput {
 	return o
-}
-
-func (o AnalysisIconPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisIcon] {
-	return pulumix.Output[*AnalysisIcon]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisIconPtrOutput) Elem() AnalysisIconOutput {
@@ -6433,12 +6013,6 @@ func (o AnalysisKpiSparklineTypeOutput) ToAnalysisKpiSparklineTypePtrOutputWithC
 	}).(AnalysisKpiSparklineTypePtrOutput)
 }
 
-func (o AnalysisKpiSparklineTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisKpiSparklineType] {
-	return pulumix.Output[AnalysisKpiSparklineType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisKpiSparklineTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6472,12 +6046,6 @@ func (o AnalysisKpiSparklineTypePtrOutput) ToAnalysisKpiSparklineTypePtrOutput()
 
 func (o AnalysisKpiSparklineTypePtrOutput) ToAnalysisKpiSparklineTypePtrOutputWithContext(ctx context.Context) AnalysisKpiSparklineTypePtrOutput {
 	return o
-}
-
-func (o AnalysisKpiSparklineTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisKpiSparklineType] {
-	return pulumix.Output[*AnalysisKpiSparklineType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisKpiSparklineTypePtrOutput) Elem() AnalysisKpiSparklineTypeOutput {
@@ -6615,12 +6183,6 @@ func (o AnalysisKpiVisualStandardLayoutTypeOutput) ToAnalysisKpiVisualStandardLa
 	}).(AnalysisKpiVisualStandardLayoutTypePtrOutput)
 }
 
-func (o AnalysisKpiVisualStandardLayoutTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisKpiVisualStandardLayoutType] {
-	return pulumix.Output[AnalysisKpiVisualStandardLayoutType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisKpiVisualStandardLayoutTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6654,12 +6216,6 @@ func (o AnalysisKpiVisualStandardLayoutTypePtrOutput) ToAnalysisKpiVisualStandar
 
 func (o AnalysisKpiVisualStandardLayoutTypePtrOutput) ToAnalysisKpiVisualStandardLayoutTypePtrOutputWithContext(ctx context.Context) AnalysisKpiVisualStandardLayoutTypePtrOutput {
 	return o
-}
-
-func (o AnalysisKpiVisualStandardLayoutTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisKpiVisualStandardLayoutType] {
-	return pulumix.Output[*AnalysisKpiVisualStandardLayoutType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisKpiVisualStandardLayoutTypePtrOutput) Elem() AnalysisKpiVisualStandardLayoutTypeOutput {
@@ -6799,12 +6355,6 @@ func (o AnalysisLayoutElementTypeOutput) ToAnalysisLayoutElementTypePtrOutputWit
 	}).(AnalysisLayoutElementTypePtrOutput)
 }
 
-func (o AnalysisLayoutElementTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisLayoutElementType] {
-	return pulumix.Output[AnalysisLayoutElementType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisLayoutElementTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6838,12 +6388,6 @@ func (o AnalysisLayoutElementTypePtrOutput) ToAnalysisLayoutElementTypePtrOutput
 
 func (o AnalysisLayoutElementTypePtrOutput) ToAnalysisLayoutElementTypePtrOutputWithContext(ctx context.Context) AnalysisLayoutElementTypePtrOutput {
 	return o
-}
-
-func (o AnalysisLayoutElementTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisLayoutElementType] {
-	return pulumix.Output[*AnalysisLayoutElementType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisLayoutElementTypePtrOutput) Elem() AnalysisLayoutElementTypeOutput {
@@ -6983,12 +6527,6 @@ func (o AnalysisLegendPositionOutput) ToAnalysisLegendPositionPtrOutputWithConte
 	}).(AnalysisLegendPositionPtrOutput)
 }
 
-func (o AnalysisLegendPositionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisLegendPosition] {
-	return pulumix.Output[AnalysisLegendPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisLegendPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7022,12 +6560,6 @@ func (o AnalysisLegendPositionPtrOutput) ToAnalysisLegendPositionPtrOutput() Ana
 
 func (o AnalysisLegendPositionPtrOutput) ToAnalysisLegendPositionPtrOutputWithContext(ctx context.Context) AnalysisLegendPositionPtrOutput {
 	return o
-}
-
-func (o AnalysisLegendPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisLegendPosition] {
-	return pulumix.Output[*AnalysisLegendPosition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisLegendPositionPtrOutput) Elem() AnalysisLegendPositionOutput {
@@ -7166,12 +6698,6 @@ func (o AnalysisLineChartLineStyleOutput) ToAnalysisLineChartLineStylePtrOutputW
 	}).(AnalysisLineChartLineStylePtrOutput)
 }
 
-func (o AnalysisLineChartLineStyleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisLineChartLineStyle] {
-	return pulumix.Output[AnalysisLineChartLineStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisLineChartLineStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7205,12 +6731,6 @@ func (o AnalysisLineChartLineStylePtrOutput) ToAnalysisLineChartLineStylePtrOutp
 
 func (o AnalysisLineChartLineStylePtrOutput) ToAnalysisLineChartLineStylePtrOutputWithContext(ctx context.Context) AnalysisLineChartLineStylePtrOutput {
 	return o
-}
-
-func (o AnalysisLineChartLineStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisLineChartLineStyle] {
-	return pulumix.Output[*AnalysisLineChartLineStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisLineChartLineStylePtrOutput) Elem() AnalysisLineChartLineStyleOutput {
@@ -7351,12 +6871,6 @@ func (o AnalysisLineChartMarkerShapeOutput) ToAnalysisLineChartMarkerShapePtrOut
 	}).(AnalysisLineChartMarkerShapePtrOutput)
 }
 
-func (o AnalysisLineChartMarkerShapeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisLineChartMarkerShape] {
-	return pulumix.Output[AnalysisLineChartMarkerShape]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisLineChartMarkerShapeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7390,12 +6904,6 @@ func (o AnalysisLineChartMarkerShapePtrOutput) ToAnalysisLineChartMarkerShapePtr
 
 func (o AnalysisLineChartMarkerShapePtrOutput) ToAnalysisLineChartMarkerShapePtrOutputWithContext(ctx context.Context) AnalysisLineChartMarkerShapePtrOutput {
 	return o
-}
-
-func (o AnalysisLineChartMarkerShapePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisLineChartMarkerShape] {
-	return pulumix.Output[*AnalysisLineChartMarkerShape]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisLineChartMarkerShapePtrOutput) Elem() AnalysisLineChartMarkerShapeOutput {
@@ -7534,12 +7042,6 @@ func (o AnalysisLineChartTypeOutput) ToAnalysisLineChartTypePtrOutputWithContext
 	}).(AnalysisLineChartTypePtrOutput)
 }
 
-func (o AnalysisLineChartTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisLineChartType] {
-	return pulumix.Output[AnalysisLineChartType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisLineChartTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7573,12 +7075,6 @@ func (o AnalysisLineChartTypePtrOutput) ToAnalysisLineChartTypePtrOutput() Analy
 
 func (o AnalysisLineChartTypePtrOutput) ToAnalysisLineChartTypePtrOutputWithContext(ctx context.Context) AnalysisLineChartTypePtrOutput {
 	return o
-}
-
-func (o AnalysisLineChartTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisLineChartType] {
-	return pulumix.Output[*AnalysisLineChartType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisLineChartTypePtrOutput) Elem() AnalysisLineChartTypeOutput {
@@ -7717,12 +7213,6 @@ func (o AnalysisLineInterpolationOutput) ToAnalysisLineInterpolationPtrOutputWit
 	}).(AnalysisLineInterpolationPtrOutput)
 }
 
-func (o AnalysisLineInterpolationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisLineInterpolation] {
-	return pulumix.Output[AnalysisLineInterpolation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisLineInterpolationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7756,12 +7246,6 @@ func (o AnalysisLineInterpolationPtrOutput) ToAnalysisLineInterpolationPtrOutput
 
 func (o AnalysisLineInterpolationPtrOutput) ToAnalysisLineInterpolationPtrOutputWithContext(ctx context.Context) AnalysisLineInterpolationPtrOutput {
 	return o
-}
-
-func (o AnalysisLineInterpolationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisLineInterpolation] {
-	return pulumix.Output[*AnalysisLineInterpolation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisLineInterpolationPtrOutput) Elem() AnalysisLineInterpolationOutput {
@@ -7899,12 +7383,6 @@ func (o AnalysisMapZoomModeOutput) ToAnalysisMapZoomModePtrOutputWithContext(ctx
 	}).(AnalysisMapZoomModePtrOutput)
 }
 
-func (o AnalysisMapZoomModeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisMapZoomMode] {
-	return pulumix.Output[AnalysisMapZoomMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisMapZoomModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7938,12 +7416,6 @@ func (o AnalysisMapZoomModePtrOutput) ToAnalysisMapZoomModePtrOutput() AnalysisM
 
 func (o AnalysisMapZoomModePtrOutput) ToAnalysisMapZoomModePtrOutputWithContext(ctx context.Context) AnalysisMapZoomModePtrOutput {
 	return o
-}
-
-func (o AnalysisMapZoomModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisMapZoomMode] {
-	return pulumix.Output[*AnalysisMapZoomMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisMapZoomModePtrOutput) Elem() AnalysisMapZoomModeOutput {
@@ -8081,12 +7553,6 @@ func (o AnalysisMaximumMinimumComputationTypeOutput) ToAnalysisMaximumMinimumCom
 	}).(AnalysisMaximumMinimumComputationTypePtrOutput)
 }
 
-func (o AnalysisMaximumMinimumComputationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisMaximumMinimumComputationType] {
-	return pulumix.Output[AnalysisMaximumMinimumComputationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisMaximumMinimumComputationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8120,12 +7586,6 @@ func (o AnalysisMaximumMinimumComputationTypePtrOutput) ToAnalysisMaximumMinimum
 
 func (o AnalysisMaximumMinimumComputationTypePtrOutput) ToAnalysisMaximumMinimumComputationTypePtrOutputWithContext(ctx context.Context) AnalysisMaximumMinimumComputationTypePtrOutput {
 	return o
-}
-
-func (o AnalysisMaximumMinimumComputationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisMaximumMinimumComputationType] {
-	return pulumix.Output[*AnalysisMaximumMinimumComputationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisMaximumMinimumComputationTypePtrOutput) Elem() AnalysisMaximumMinimumComputationTypeOutput {
@@ -8264,12 +7724,6 @@ func (o AnalysisMissingDataTreatmentOptionOutput) ToAnalysisMissingDataTreatment
 	}).(AnalysisMissingDataTreatmentOptionPtrOutput)
 }
 
-func (o AnalysisMissingDataTreatmentOptionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisMissingDataTreatmentOption] {
-	return pulumix.Output[AnalysisMissingDataTreatmentOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisMissingDataTreatmentOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8303,12 +7757,6 @@ func (o AnalysisMissingDataTreatmentOptionPtrOutput) ToAnalysisMissingDataTreatm
 
 func (o AnalysisMissingDataTreatmentOptionPtrOutput) ToAnalysisMissingDataTreatmentOptionPtrOutputWithContext(ctx context.Context) AnalysisMissingDataTreatmentOptionPtrOutput {
 	return o
-}
-
-func (o AnalysisMissingDataTreatmentOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisMissingDataTreatmentOption] {
-	return pulumix.Output[*AnalysisMissingDataTreatmentOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisMissingDataTreatmentOptionPtrOutput) Elem() AnalysisMissingDataTreatmentOptionOutput {
@@ -8446,12 +7894,6 @@ func (o AnalysisNegativeValueDisplayModeOutput) ToAnalysisNegativeValueDisplayMo
 	}).(AnalysisNegativeValueDisplayModePtrOutput)
 }
 
-func (o AnalysisNegativeValueDisplayModeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisNegativeValueDisplayMode] {
-	return pulumix.Output[AnalysisNegativeValueDisplayMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisNegativeValueDisplayModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8485,12 +7927,6 @@ func (o AnalysisNegativeValueDisplayModePtrOutput) ToAnalysisNegativeValueDispla
 
 func (o AnalysisNegativeValueDisplayModePtrOutput) ToAnalysisNegativeValueDisplayModePtrOutputWithContext(ctx context.Context) AnalysisNegativeValueDisplayModePtrOutput {
 	return o
-}
-
-func (o AnalysisNegativeValueDisplayModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisNegativeValueDisplayMode] {
-	return pulumix.Output[*AnalysisNegativeValueDisplayMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisNegativeValueDisplayModePtrOutput) Elem() AnalysisNegativeValueDisplayModeOutput {
@@ -8632,12 +8068,6 @@ func (o AnalysisNumberScaleOutput) ToAnalysisNumberScalePtrOutputWithContext(ctx
 	}).(AnalysisNumberScalePtrOutput)
 }
 
-func (o AnalysisNumberScaleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisNumberScale] {
-	return pulumix.Output[AnalysisNumberScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisNumberScaleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8671,12 +8101,6 @@ func (o AnalysisNumberScalePtrOutput) ToAnalysisNumberScalePtrOutput() AnalysisN
 
 func (o AnalysisNumberScalePtrOutput) ToAnalysisNumberScalePtrOutputWithContext(ctx context.Context) AnalysisNumberScalePtrOutput {
 	return o
-}
-
-func (o AnalysisNumberScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisNumberScale] {
-	return pulumix.Output[*AnalysisNumberScale]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisNumberScalePtrOutput) Elem() AnalysisNumberScaleOutput {
@@ -8814,12 +8238,6 @@ func (o AnalysisNumericEqualityMatchOperatorOutput) ToAnalysisNumericEqualityMat
 	}).(AnalysisNumericEqualityMatchOperatorPtrOutput)
 }
 
-func (o AnalysisNumericEqualityMatchOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisNumericEqualityMatchOperator] {
-	return pulumix.Output[AnalysisNumericEqualityMatchOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisNumericEqualityMatchOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -8853,12 +8271,6 @@ func (o AnalysisNumericEqualityMatchOperatorPtrOutput) ToAnalysisNumericEquality
 
 func (o AnalysisNumericEqualityMatchOperatorPtrOutput) ToAnalysisNumericEqualityMatchOperatorPtrOutputWithContext(ctx context.Context) AnalysisNumericEqualityMatchOperatorPtrOutput {
 	return o
-}
-
-func (o AnalysisNumericEqualityMatchOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisNumericEqualityMatchOperator] {
-	return pulumix.Output[*AnalysisNumericEqualityMatchOperator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisNumericEqualityMatchOperatorPtrOutput) Elem() AnalysisNumericEqualityMatchOperatorOutput {
@@ -8995,12 +8407,6 @@ func (o AnalysisNumericFilterSelectAllOptionsOutput) ToAnalysisNumericFilterSele
 	}).(AnalysisNumericFilterSelectAllOptionsPtrOutput)
 }
 
-func (o AnalysisNumericFilterSelectAllOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisNumericFilterSelectAllOptions] {
-	return pulumix.Output[AnalysisNumericFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisNumericFilterSelectAllOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9034,12 +8440,6 @@ func (o AnalysisNumericFilterSelectAllOptionsPtrOutput) ToAnalysisNumericFilterS
 
 func (o AnalysisNumericFilterSelectAllOptionsPtrOutput) ToAnalysisNumericFilterSelectAllOptionsPtrOutputWithContext(ctx context.Context) AnalysisNumericFilterSelectAllOptionsPtrOutput {
 	return o
-}
-
-func (o AnalysisNumericFilterSelectAllOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisNumericFilterSelectAllOptions] {
-	return pulumix.Output[*AnalysisNumericFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisNumericFilterSelectAllOptionsPtrOutput) Elem() AnalysisNumericFilterSelectAllOptionsOutput {
@@ -9178,12 +8578,6 @@ func (o AnalysisNumericSeparatorSymbolOutput) ToAnalysisNumericSeparatorSymbolPt
 	}).(AnalysisNumericSeparatorSymbolPtrOutput)
 }
 
-func (o AnalysisNumericSeparatorSymbolOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisNumericSeparatorSymbol] {
-	return pulumix.Output[AnalysisNumericSeparatorSymbol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisNumericSeparatorSymbolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9217,12 +8611,6 @@ func (o AnalysisNumericSeparatorSymbolPtrOutput) ToAnalysisNumericSeparatorSymbo
 
 func (o AnalysisNumericSeparatorSymbolPtrOutput) ToAnalysisNumericSeparatorSymbolPtrOutputWithContext(ctx context.Context) AnalysisNumericSeparatorSymbolPtrOutput {
 	return o
-}
-
-func (o AnalysisNumericSeparatorSymbolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisNumericSeparatorSymbol] {
-	return pulumix.Output[*AnalysisNumericSeparatorSymbol]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisNumericSeparatorSymbolPtrOutput) Elem() AnalysisNumericSeparatorSymbolOutput {
@@ -9360,12 +8748,6 @@ func (o AnalysisOtherCategoriesOutput) ToAnalysisOtherCategoriesPtrOutputWithCon
 	}).(AnalysisOtherCategoriesPtrOutput)
 }
 
-func (o AnalysisOtherCategoriesOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisOtherCategories] {
-	return pulumix.Output[AnalysisOtherCategories]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisOtherCategoriesOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9399,12 +8781,6 @@ func (o AnalysisOtherCategoriesPtrOutput) ToAnalysisOtherCategoriesPtrOutput() A
 
 func (o AnalysisOtherCategoriesPtrOutput) ToAnalysisOtherCategoriesPtrOutputWithContext(ctx context.Context) AnalysisOtherCategoriesPtrOutput {
 	return o
-}
-
-func (o AnalysisOtherCategoriesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisOtherCategories] {
-	return pulumix.Output[*AnalysisOtherCategories]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisOtherCategoriesPtrOutput) Elem() AnalysisOtherCategoriesOutput {
@@ -9543,12 +8919,6 @@ func (o AnalysisPanelBorderStyleOutput) ToAnalysisPanelBorderStylePtrOutputWithC
 	}).(AnalysisPanelBorderStylePtrOutput)
 }
 
-func (o AnalysisPanelBorderStyleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisPanelBorderStyle] {
-	return pulumix.Output[AnalysisPanelBorderStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPanelBorderStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9582,12 +8952,6 @@ func (o AnalysisPanelBorderStylePtrOutput) ToAnalysisPanelBorderStylePtrOutput()
 
 func (o AnalysisPanelBorderStylePtrOutput) ToAnalysisPanelBorderStylePtrOutputWithContext(ctx context.Context) AnalysisPanelBorderStylePtrOutput {
 	return o
-}
-
-func (o AnalysisPanelBorderStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPanelBorderStyle] {
-	return pulumix.Output[*AnalysisPanelBorderStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisPanelBorderStylePtrOutput) Elem() AnalysisPanelBorderStyleOutput {
@@ -9725,12 +9089,6 @@ func (o AnalysisPaperOrientationOutput) ToAnalysisPaperOrientationPtrOutputWithC
 	}).(AnalysisPaperOrientationPtrOutput)
 }
 
-func (o AnalysisPaperOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisPaperOrientation] {
-	return pulumix.Output[AnalysisPaperOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPaperOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9764,12 +9122,6 @@ func (o AnalysisPaperOrientationPtrOutput) ToAnalysisPaperOrientationPtrOutput()
 
 func (o AnalysisPaperOrientationPtrOutput) ToAnalysisPaperOrientationPtrOutputWithContext(ctx context.Context) AnalysisPaperOrientationPtrOutput {
 	return o
-}
-
-func (o AnalysisPaperOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPaperOrientation] {
-	return pulumix.Output[*AnalysisPaperOrientation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisPaperOrientationPtrOutput) Elem() AnalysisPaperOrientationOutput {
@@ -9916,12 +9268,6 @@ func (o AnalysisPaperSizeOutput) ToAnalysisPaperSizePtrOutputWithContext(ctx con
 	}).(AnalysisPaperSizePtrOutput)
 }
 
-func (o AnalysisPaperSizeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisPaperSize] {
-	return pulumix.Output[AnalysisPaperSize]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPaperSizeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -9955,12 +9301,6 @@ func (o AnalysisPaperSizePtrOutput) ToAnalysisPaperSizePtrOutput() AnalysisPaper
 
 func (o AnalysisPaperSizePtrOutput) ToAnalysisPaperSizePtrOutputWithContext(ctx context.Context) AnalysisPaperSizePtrOutput {
 	return o
-}
-
-func (o AnalysisPaperSizePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPaperSize] {
-	return pulumix.Output[*AnalysisPaperSize]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisPaperSizePtrOutput) Elem() AnalysisPaperSizeOutput {
@@ -10098,12 +9438,6 @@ func (o AnalysisParameterValueTypeOutput) ToAnalysisParameterValueTypePtrOutputW
 	}).(AnalysisParameterValueTypePtrOutput)
 }
 
-func (o AnalysisParameterValueTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisParameterValueType] {
-	return pulumix.Output[AnalysisParameterValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisParameterValueTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -10137,12 +9471,6 @@ func (o AnalysisParameterValueTypePtrOutput) ToAnalysisParameterValueTypePtrOutp
 
 func (o AnalysisParameterValueTypePtrOutput) ToAnalysisParameterValueTypePtrOutputWithContext(ctx context.Context) AnalysisParameterValueTypePtrOutput {
 	return o
-}
-
-func (o AnalysisParameterValueTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisParameterValueType] {
-	return pulumix.Output[*AnalysisParameterValueType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisParameterValueTypePtrOutput) Elem() AnalysisParameterValueTypeOutput {
@@ -10281,12 +9609,6 @@ func (o AnalysisPivotTableConditionalFormattingScopeRoleOutput) ToAnalysisPivotT
 	}).(AnalysisPivotTableConditionalFormattingScopeRolePtrOutput)
 }
 
-func (o AnalysisPivotTableConditionalFormattingScopeRoleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisPivotTableConditionalFormattingScopeRole] {
-	return pulumix.Output[AnalysisPivotTableConditionalFormattingScopeRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPivotTableConditionalFormattingScopeRoleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -10320,12 +9642,6 @@ func (o AnalysisPivotTableConditionalFormattingScopeRolePtrOutput) ToAnalysisPiv
 
 func (o AnalysisPivotTableConditionalFormattingScopeRolePtrOutput) ToAnalysisPivotTableConditionalFormattingScopeRolePtrOutputWithContext(ctx context.Context) AnalysisPivotTableConditionalFormattingScopeRolePtrOutput {
 	return o
-}
-
-func (o AnalysisPivotTableConditionalFormattingScopeRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPivotTableConditionalFormattingScopeRole] {
-	return pulumix.Output[*AnalysisPivotTableConditionalFormattingScopeRole]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisPivotTableConditionalFormattingScopeRolePtrOutput) Elem() AnalysisPivotTableConditionalFormattingScopeRoleOutput {
@@ -10465,12 +9781,6 @@ func (o AnalysisPivotTableDataPathTypeOutput) ToAnalysisPivotTableDataPathTypePt
 	}).(AnalysisPivotTableDataPathTypePtrOutput)
 }
 
-func (o AnalysisPivotTableDataPathTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisPivotTableDataPathType] {
-	return pulumix.Output[AnalysisPivotTableDataPathType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPivotTableDataPathTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -10504,12 +9814,6 @@ func (o AnalysisPivotTableDataPathTypePtrOutput) ToAnalysisPivotTableDataPathTyp
 
 func (o AnalysisPivotTableDataPathTypePtrOutput) ToAnalysisPivotTableDataPathTypePtrOutputWithContext(ctx context.Context) AnalysisPivotTableDataPathTypePtrOutput {
 	return o
-}
-
-func (o AnalysisPivotTableDataPathTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPivotTableDataPathType] {
-	return pulumix.Output[*AnalysisPivotTableDataPathType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisPivotTableDataPathTypePtrOutput) Elem() AnalysisPivotTableDataPathTypeOutput {
@@ -10647,12 +9951,6 @@ func (o AnalysisPivotTableFieldCollapseStateOutput) ToAnalysisPivotTableFieldCol
 	}).(AnalysisPivotTableFieldCollapseStatePtrOutput)
 }
 
-func (o AnalysisPivotTableFieldCollapseStateOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisPivotTableFieldCollapseState] {
-	return pulumix.Output[AnalysisPivotTableFieldCollapseState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPivotTableFieldCollapseStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -10686,12 +9984,6 @@ func (o AnalysisPivotTableFieldCollapseStatePtrOutput) ToAnalysisPivotTableField
 
 func (o AnalysisPivotTableFieldCollapseStatePtrOutput) ToAnalysisPivotTableFieldCollapseStatePtrOutputWithContext(ctx context.Context) AnalysisPivotTableFieldCollapseStatePtrOutput {
 	return o
-}
-
-func (o AnalysisPivotTableFieldCollapseStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPivotTableFieldCollapseState] {
-	return pulumix.Output[*AnalysisPivotTableFieldCollapseState]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisPivotTableFieldCollapseStatePtrOutput) Elem() AnalysisPivotTableFieldCollapseStateOutput {
@@ -10829,12 +10121,6 @@ func (o AnalysisPivotTableMetricPlacementOutput) ToAnalysisPivotTableMetricPlace
 	}).(AnalysisPivotTableMetricPlacementPtrOutput)
 }
 
-func (o AnalysisPivotTableMetricPlacementOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisPivotTableMetricPlacement] {
-	return pulumix.Output[AnalysisPivotTableMetricPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPivotTableMetricPlacementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -10868,12 +10154,6 @@ func (o AnalysisPivotTableMetricPlacementPtrOutput) ToAnalysisPivotTableMetricPl
 
 func (o AnalysisPivotTableMetricPlacementPtrOutput) ToAnalysisPivotTableMetricPlacementPtrOutputWithContext(ctx context.Context) AnalysisPivotTableMetricPlacementPtrOutput {
 	return o
-}
-
-func (o AnalysisPivotTableMetricPlacementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPivotTableMetricPlacement] {
-	return pulumix.Output[*AnalysisPivotTableMetricPlacement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisPivotTableMetricPlacementPtrOutput) Elem() AnalysisPivotTableMetricPlacementOutput {
@@ -11011,12 +10291,6 @@ func (o AnalysisPivotTableRowsLayoutOutput) ToAnalysisPivotTableRowsLayoutPtrOut
 	}).(AnalysisPivotTableRowsLayoutPtrOutput)
 }
 
-func (o AnalysisPivotTableRowsLayoutOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisPivotTableRowsLayout] {
-	return pulumix.Output[AnalysisPivotTableRowsLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPivotTableRowsLayoutOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -11050,12 +10324,6 @@ func (o AnalysisPivotTableRowsLayoutPtrOutput) ToAnalysisPivotTableRowsLayoutPtr
 
 func (o AnalysisPivotTableRowsLayoutPtrOutput) ToAnalysisPivotTableRowsLayoutPtrOutputWithContext(ctx context.Context) AnalysisPivotTableRowsLayoutPtrOutput {
 	return o
-}
-
-func (o AnalysisPivotTableRowsLayoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPivotTableRowsLayout] {
-	return pulumix.Output[*AnalysisPivotTableRowsLayout]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisPivotTableRowsLayoutPtrOutput) Elem() AnalysisPivotTableRowsLayoutOutput {
@@ -11194,12 +10462,6 @@ func (o AnalysisPivotTableSubtotalLevelOutput) ToAnalysisPivotTableSubtotalLevel
 	}).(AnalysisPivotTableSubtotalLevelPtrOutput)
 }
 
-func (o AnalysisPivotTableSubtotalLevelOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisPivotTableSubtotalLevel] {
-	return pulumix.Output[AnalysisPivotTableSubtotalLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPivotTableSubtotalLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -11233,12 +10495,6 @@ func (o AnalysisPivotTableSubtotalLevelPtrOutput) ToAnalysisPivotTableSubtotalLe
 
 func (o AnalysisPivotTableSubtotalLevelPtrOutput) ToAnalysisPivotTableSubtotalLevelPtrOutputWithContext(ctx context.Context) AnalysisPivotTableSubtotalLevelPtrOutput {
 	return o
-}
-
-func (o AnalysisPivotTableSubtotalLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPivotTableSubtotalLevel] {
-	return pulumix.Output[*AnalysisPivotTableSubtotalLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisPivotTableSubtotalLevelPtrOutput) Elem() AnalysisPivotTableSubtotalLevelOutput {
@@ -11377,12 +10633,6 @@ func (o AnalysisPrimaryValueDisplayTypeOutput) ToAnalysisPrimaryValueDisplayType
 	}).(AnalysisPrimaryValueDisplayTypePtrOutput)
 }
 
-func (o AnalysisPrimaryValueDisplayTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisPrimaryValueDisplayType] {
-	return pulumix.Output[AnalysisPrimaryValueDisplayType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisPrimaryValueDisplayTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -11416,12 +10666,6 @@ func (o AnalysisPrimaryValueDisplayTypePtrOutput) ToAnalysisPrimaryValueDisplayT
 
 func (o AnalysisPrimaryValueDisplayTypePtrOutput) ToAnalysisPrimaryValueDisplayTypePtrOutputWithContext(ctx context.Context) AnalysisPrimaryValueDisplayTypePtrOutput {
 	return o
-}
-
-func (o AnalysisPrimaryValueDisplayTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisPrimaryValueDisplayType] {
-	return pulumix.Output[*AnalysisPrimaryValueDisplayType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisPrimaryValueDisplayTypePtrOutput) Elem() AnalysisPrimaryValueDisplayTypeOutput {
@@ -11560,12 +10804,6 @@ func (o AnalysisRadarChartAxesRangeScaleOutput) ToAnalysisRadarChartAxesRangeSca
 	}).(AnalysisRadarChartAxesRangeScalePtrOutput)
 }
 
-func (o AnalysisRadarChartAxesRangeScaleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisRadarChartAxesRangeScale] {
-	return pulumix.Output[AnalysisRadarChartAxesRangeScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisRadarChartAxesRangeScaleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -11599,12 +10837,6 @@ func (o AnalysisRadarChartAxesRangeScalePtrOutput) ToAnalysisRadarChartAxesRange
 
 func (o AnalysisRadarChartAxesRangeScalePtrOutput) ToAnalysisRadarChartAxesRangeScalePtrOutputWithContext(ctx context.Context) AnalysisRadarChartAxesRangeScalePtrOutput {
 	return o
-}
-
-func (o AnalysisRadarChartAxesRangeScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisRadarChartAxesRangeScale] {
-	return pulumix.Output[*AnalysisRadarChartAxesRangeScale]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisRadarChartAxesRangeScalePtrOutput) Elem() AnalysisRadarChartAxesRangeScaleOutput {
@@ -11742,12 +10974,6 @@ func (o AnalysisRadarChartShapeOutput) ToAnalysisRadarChartShapePtrOutputWithCon
 	}).(AnalysisRadarChartShapePtrOutput)
 }
 
-func (o AnalysisRadarChartShapeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisRadarChartShape] {
-	return pulumix.Output[AnalysisRadarChartShape]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisRadarChartShapeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -11781,12 +11007,6 @@ func (o AnalysisRadarChartShapePtrOutput) ToAnalysisRadarChartShapePtrOutput() A
 
 func (o AnalysisRadarChartShapePtrOutput) ToAnalysisRadarChartShapePtrOutputWithContext(ctx context.Context) AnalysisRadarChartShapePtrOutput {
 	return o
-}
-
-func (o AnalysisRadarChartShapePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisRadarChartShape] {
-	return pulumix.Output[*AnalysisRadarChartShape]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisRadarChartShapePtrOutput) Elem() AnalysisRadarChartShapeOutput {
@@ -11925,12 +11145,6 @@ func (o AnalysisReferenceLineLabelHorizontalPositionOutput) ToAnalysisReferenceL
 	}).(AnalysisReferenceLineLabelHorizontalPositionPtrOutput)
 }
 
-func (o AnalysisReferenceLineLabelHorizontalPositionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisReferenceLineLabelHorizontalPosition] {
-	return pulumix.Output[AnalysisReferenceLineLabelHorizontalPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisReferenceLineLabelHorizontalPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -11964,12 +11178,6 @@ func (o AnalysisReferenceLineLabelHorizontalPositionPtrOutput) ToAnalysisReferen
 
 func (o AnalysisReferenceLineLabelHorizontalPositionPtrOutput) ToAnalysisReferenceLineLabelHorizontalPositionPtrOutputWithContext(ctx context.Context) AnalysisReferenceLineLabelHorizontalPositionPtrOutput {
 	return o
-}
-
-func (o AnalysisReferenceLineLabelHorizontalPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisReferenceLineLabelHorizontalPosition] {
-	return pulumix.Output[*AnalysisReferenceLineLabelHorizontalPosition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisReferenceLineLabelHorizontalPositionPtrOutput) Elem() AnalysisReferenceLineLabelHorizontalPositionOutput {
@@ -12107,12 +11315,6 @@ func (o AnalysisReferenceLineLabelVerticalPositionOutput) ToAnalysisReferenceLin
 	}).(AnalysisReferenceLineLabelVerticalPositionPtrOutput)
 }
 
-func (o AnalysisReferenceLineLabelVerticalPositionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisReferenceLineLabelVerticalPosition] {
-	return pulumix.Output[AnalysisReferenceLineLabelVerticalPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisReferenceLineLabelVerticalPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -12146,12 +11348,6 @@ func (o AnalysisReferenceLineLabelVerticalPositionPtrOutput) ToAnalysisReference
 
 func (o AnalysisReferenceLineLabelVerticalPositionPtrOutput) ToAnalysisReferenceLineLabelVerticalPositionPtrOutputWithContext(ctx context.Context) AnalysisReferenceLineLabelVerticalPositionPtrOutput {
 	return o
-}
-
-func (o AnalysisReferenceLineLabelVerticalPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisReferenceLineLabelVerticalPosition] {
-	return pulumix.Output[*AnalysisReferenceLineLabelVerticalPosition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisReferenceLineLabelVerticalPositionPtrOutput) Elem() AnalysisReferenceLineLabelVerticalPositionOutput {
@@ -12290,12 +11486,6 @@ func (o AnalysisReferenceLinePatternTypeOutput) ToAnalysisReferenceLinePatternTy
 	}).(AnalysisReferenceLinePatternTypePtrOutput)
 }
 
-func (o AnalysisReferenceLinePatternTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisReferenceLinePatternType] {
-	return pulumix.Output[AnalysisReferenceLinePatternType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisReferenceLinePatternTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -12329,12 +11519,6 @@ func (o AnalysisReferenceLinePatternTypePtrOutput) ToAnalysisReferenceLinePatter
 
 func (o AnalysisReferenceLinePatternTypePtrOutput) ToAnalysisReferenceLinePatternTypePtrOutputWithContext(ctx context.Context) AnalysisReferenceLinePatternTypePtrOutput {
 	return o
-}
-
-func (o AnalysisReferenceLinePatternTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisReferenceLinePatternType] {
-	return pulumix.Output[*AnalysisReferenceLinePatternType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisReferenceLinePatternTypePtrOutput) Elem() AnalysisReferenceLinePatternTypeOutput {
@@ -12472,12 +11656,6 @@ func (o AnalysisReferenceLineSeriesTypeOutput) ToAnalysisReferenceLineSeriesType
 	}).(AnalysisReferenceLineSeriesTypePtrOutput)
 }
 
-func (o AnalysisReferenceLineSeriesTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisReferenceLineSeriesType] {
-	return pulumix.Output[AnalysisReferenceLineSeriesType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisReferenceLineSeriesTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -12511,12 +11689,6 @@ func (o AnalysisReferenceLineSeriesTypePtrOutput) ToAnalysisReferenceLineSeriesT
 
 func (o AnalysisReferenceLineSeriesTypePtrOutput) ToAnalysisReferenceLineSeriesTypePtrOutputWithContext(ctx context.Context) AnalysisReferenceLineSeriesTypePtrOutput {
 	return o
-}
-
-func (o AnalysisReferenceLineSeriesTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisReferenceLineSeriesType] {
-	return pulumix.Output[*AnalysisReferenceLineSeriesType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisReferenceLineSeriesTypePtrOutput) Elem() AnalysisReferenceLineSeriesTypeOutput {
@@ -12654,12 +11826,6 @@ func (o AnalysisReferenceLineValueLabelRelativePositionOutput) ToAnalysisReferen
 	}).(AnalysisReferenceLineValueLabelRelativePositionPtrOutput)
 }
 
-func (o AnalysisReferenceLineValueLabelRelativePositionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisReferenceLineValueLabelRelativePosition] {
-	return pulumix.Output[AnalysisReferenceLineValueLabelRelativePosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisReferenceLineValueLabelRelativePositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -12693,12 +11859,6 @@ func (o AnalysisReferenceLineValueLabelRelativePositionPtrOutput) ToAnalysisRefe
 
 func (o AnalysisReferenceLineValueLabelRelativePositionPtrOutput) ToAnalysisReferenceLineValueLabelRelativePositionPtrOutputWithContext(ctx context.Context) AnalysisReferenceLineValueLabelRelativePositionPtrOutput {
 	return o
-}
-
-func (o AnalysisReferenceLineValueLabelRelativePositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisReferenceLineValueLabelRelativePosition] {
-	return pulumix.Output[*AnalysisReferenceLineValueLabelRelativePosition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisReferenceLineValueLabelRelativePositionPtrOutput) Elem() AnalysisReferenceLineValueLabelRelativePositionOutput {
@@ -12839,12 +11999,6 @@ func (o AnalysisRelativeDateTypeOutput) ToAnalysisRelativeDateTypePtrOutputWithC
 	}).(AnalysisRelativeDateTypePtrOutput)
 }
 
-func (o AnalysisRelativeDateTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisRelativeDateType] {
-	return pulumix.Output[AnalysisRelativeDateType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisRelativeDateTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -12878,12 +12032,6 @@ func (o AnalysisRelativeDateTypePtrOutput) ToAnalysisRelativeDateTypePtrOutput()
 
 func (o AnalysisRelativeDateTypePtrOutput) ToAnalysisRelativeDateTypePtrOutputWithContext(ctx context.Context) AnalysisRelativeDateTypePtrOutput {
 	return o
-}
-
-func (o AnalysisRelativeDateTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisRelativeDateType] {
-	return pulumix.Output[*AnalysisRelativeDateType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisRelativeDateTypePtrOutput) Elem() AnalysisRelativeDateTypeOutput {
@@ -13024,12 +12172,6 @@ func (o AnalysisRelativeFontSizeOutput) ToAnalysisRelativeFontSizePtrOutputWithC
 	}).(AnalysisRelativeFontSizePtrOutput)
 }
 
-func (o AnalysisRelativeFontSizeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisRelativeFontSize] {
-	return pulumix.Output[AnalysisRelativeFontSize]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisRelativeFontSizeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -13063,12 +12205,6 @@ func (o AnalysisRelativeFontSizePtrOutput) ToAnalysisRelativeFontSizePtrOutput()
 
 func (o AnalysisRelativeFontSizePtrOutput) ToAnalysisRelativeFontSizePtrOutputWithContext(ctx context.Context) AnalysisRelativeFontSizePtrOutput {
 	return o
-}
-
-func (o AnalysisRelativeFontSizePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisRelativeFontSize] {
-	return pulumix.Output[*AnalysisRelativeFontSize]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisRelativeFontSizePtrOutput) Elem() AnalysisRelativeFontSizeOutput {
@@ -13206,12 +12342,6 @@ func (o AnalysisResizeOptionOutput) ToAnalysisResizeOptionPtrOutputWithContext(c
 	}).(AnalysisResizeOptionPtrOutput)
 }
 
-func (o AnalysisResizeOptionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisResizeOption] {
-	return pulumix.Output[AnalysisResizeOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisResizeOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -13245,12 +12375,6 @@ func (o AnalysisResizeOptionPtrOutput) ToAnalysisResizeOptionPtrOutput() Analysi
 
 func (o AnalysisResizeOptionPtrOutput) ToAnalysisResizeOptionPtrOutputWithContext(ctx context.Context) AnalysisResizeOptionPtrOutput {
 	return o
-}
-
-func (o AnalysisResizeOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisResizeOption] {
-	return pulumix.Output[*AnalysisResizeOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisResizeOptionPtrOutput) Elem() AnalysisResizeOptionOutput {
@@ -13393,12 +12517,6 @@ func (o AnalysisResourceStatusOutput) ToAnalysisResourceStatusPtrOutputWithConte
 	}).(AnalysisResourceStatusPtrOutput)
 }
 
-func (o AnalysisResourceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisResourceStatus] {
-	return pulumix.Output[AnalysisResourceStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisResourceStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -13432,12 +12550,6 @@ func (o AnalysisResourceStatusPtrOutput) ToAnalysisResourceStatusPtrOutput() Ana
 
 func (o AnalysisResourceStatusPtrOutput) ToAnalysisResourceStatusPtrOutputWithContext(ctx context.Context) AnalysisResourceStatusPtrOutput {
 	return o
-}
-
-func (o AnalysisResourceStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisResourceStatus] {
-	return pulumix.Output[*AnalysisResourceStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisResourceStatusPtrOutput) Elem() AnalysisResourceStatusOutput {
@@ -13575,12 +12687,6 @@ func (o AnalysisSectionPageBreakStatusOutput) ToAnalysisSectionPageBreakStatusPt
 	}).(AnalysisSectionPageBreakStatusPtrOutput)
 }
 
-func (o AnalysisSectionPageBreakStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSectionPageBreakStatus] {
-	return pulumix.Output[AnalysisSectionPageBreakStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSectionPageBreakStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -13614,12 +12720,6 @@ func (o AnalysisSectionPageBreakStatusPtrOutput) ToAnalysisSectionPageBreakStatu
 
 func (o AnalysisSectionPageBreakStatusPtrOutput) ToAnalysisSectionPageBreakStatusPtrOutputWithContext(ctx context.Context) AnalysisSectionPageBreakStatusPtrOutput {
 	return o
-}
-
-func (o AnalysisSectionPageBreakStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSectionPageBreakStatus] {
-	return pulumix.Output[*AnalysisSectionPageBreakStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisSectionPageBreakStatusPtrOutput) Elem() AnalysisSectionPageBreakStatusOutput {
@@ -13756,12 +12856,6 @@ func (o AnalysisSelectAllValueOptionsOutput) ToAnalysisSelectAllValueOptionsPtrO
 	}).(AnalysisSelectAllValueOptionsPtrOutput)
 }
 
-func (o AnalysisSelectAllValueOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSelectAllValueOptions] {
-	return pulumix.Output[AnalysisSelectAllValueOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSelectAllValueOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -13795,12 +12889,6 @@ func (o AnalysisSelectAllValueOptionsPtrOutput) ToAnalysisSelectAllValueOptionsP
 
 func (o AnalysisSelectAllValueOptionsPtrOutput) ToAnalysisSelectAllValueOptionsPtrOutputWithContext(ctx context.Context) AnalysisSelectAllValueOptionsPtrOutput {
 	return o
-}
-
-func (o AnalysisSelectAllValueOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSelectAllValueOptions] {
-	return pulumix.Output[*AnalysisSelectAllValueOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisSelectAllValueOptionsPtrOutput) Elem() AnalysisSelectAllValueOptionsOutput {
@@ -13937,12 +13025,6 @@ func (o AnalysisSelectedFieldOptionsOutput) ToAnalysisSelectedFieldOptionsPtrOut
 	}).(AnalysisSelectedFieldOptionsPtrOutput)
 }
 
-func (o AnalysisSelectedFieldOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSelectedFieldOptions] {
-	return pulumix.Output[AnalysisSelectedFieldOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSelectedFieldOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -13976,12 +13058,6 @@ func (o AnalysisSelectedFieldOptionsPtrOutput) ToAnalysisSelectedFieldOptionsPtr
 
 func (o AnalysisSelectedFieldOptionsPtrOutput) ToAnalysisSelectedFieldOptionsPtrOutputWithContext(ctx context.Context) AnalysisSelectedFieldOptionsPtrOutput {
 	return o
-}
-
-func (o AnalysisSelectedFieldOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSelectedFieldOptions] {
-	return pulumix.Output[*AnalysisSelectedFieldOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisSelectedFieldOptionsPtrOutput) Elem() AnalysisSelectedFieldOptionsOutput {
@@ -14119,12 +13195,6 @@ func (o AnalysisSelectedTooltipTypeOutput) ToAnalysisSelectedTooltipTypePtrOutpu
 	}).(AnalysisSelectedTooltipTypePtrOutput)
 }
 
-func (o AnalysisSelectedTooltipTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSelectedTooltipType] {
-	return pulumix.Output[AnalysisSelectedTooltipType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSelectedTooltipTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -14158,12 +13228,6 @@ func (o AnalysisSelectedTooltipTypePtrOutput) ToAnalysisSelectedTooltipTypePtrOu
 
 func (o AnalysisSelectedTooltipTypePtrOutput) ToAnalysisSelectedTooltipTypePtrOutputWithContext(ctx context.Context) AnalysisSelectedTooltipTypePtrOutput {
 	return o
-}
-
-func (o AnalysisSelectedTooltipTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSelectedTooltipType] {
-	return pulumix.Output[*AnalysisSelectedTooltipType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisSelectedTooltipTypePtrOutput) Elem() AnalysisSelectedTooltipTypeOutput {
@@ -14301,12 +13365,6 @@ func (o AnalysisSheetContentTypeOutput) ToAnalysisSheetContentTypePtrOutputWithC
 	}).(AnalysisSheetContentTypePtrOutput)
 }
 
-func (o AnalysisSheetContentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSheetContentType] {
-	return pulumix.Output[AnalysisSheetContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSheetContentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -14340,12 +13398,6 @@ func (o AnalysisSheetContentTypePtrOutput) ToAnalysisSheetContentTypePtrOutput()
 
 func (o AnalysisSheetContentTypePtrOutput) ToAnalysisSheetContentTypePtrOutputWithContext(ctx context.Context) AnalysisSheetContentTypePtrOutput {
 	return o
-}
-
-func (o AnalysisSheetContentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSheetContentType] {
-	return pulumix.Output[*AnalysisSheetContentType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisSheetContentTypePtrOutput) Elem() AnalysisSheetContentTypeOutput {
@@ -14483,12 +13535,6 @@ func (o AnalysisSheetControlDateTimePickerTypeOutput) ToAnalysisSheetControlDate
 	}).(AnalysisSheetControlDateTimePickerTypePtrOutput)
 }
 
-func (o AnalysisSheetControlDateTimePickerTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSheetControlDateTimePickerType] {
-	return pulumix.Output[AnalysisSheetControlDateTimePickerType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSheetControlDateTimePickerTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -14522,12 +13568,6 @@ func (o AnalysisSheetControlDateTimePickerTypePtrOutput) ToAnalysisSheetControlD
 
 func (o AnalysisSheetControlDateTimePickerTypePtrOutput) ToAnalysisSheetControlDateTimePickerTypePtrOutputWithContext(ctx context.Context) AnalysisSheetControlDateTimePickerTypePtrOutput {
 	return o
-}
-
-func (o AnalysisSheetControlDateTimePickerTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSheetControlDateTimePickerType] {
-	return pulumix.Output[*AnalysisSheetControlDateTimePickerType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisSheetControlDateTimePickerTypePtrOutput) Elem() AnalysisSheetControlDateTimePickerTypeOutput {
@@ -14665,12 +13705,6 @@ func (o AnalysisSheetControlListTypeOutput) ToAnalysisSheetControlListTypePtrOut
 	}).(AnalysisSheetControlListTypePtrOutput)
 }
 
-func (o AnalysisSheetControlListTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSheetControlListType] {
-	return pulumix.Output[AnalysisSheetControlListType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSheetControlListTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -14704,12 +13738,6 @@ func (o AnalysisSheetControlListTypePtrOutput) ToAnalysisSheetControlListTypePtr
 
 func (o AnalysisSheetControlListTypePtrOutput) ToAnalysisSheetControlListTypePtrOutputWithContext(ctx context.Context) AnalysisSheetControlListTypePtrOutput {
 	return o
-}
-
-func (o AnalysisSheetControlListTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSheetControlListType] {
-	return pulumix.Output[*AnalysisSheetControlListType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisSheetControlListTypePtrOutput) Elem() AnalysisSheetControlListTypeOutput {
@@ -14847,12 +13875,6 @@ func (o AnalysisSheetControlSliderTypeOutput) ToAnalysisSheetControlSliderTypePt
 	}).(AnalysisSheetControlSliderTypePtrOutput)
 }
 
-func (o AnalysisSheetControlSliderTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSheetControlSliderType] {
-	return pulumix.Output[AnalysisSheetControlSliderType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSheetControlSliderTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -14886,12 +13908,6 @@ func (o AnalysisSheetControlSliderTypePtrOutput) ToAnalysisSheetControlSliderTyp
 
 func (o AnalysisSheetControlSliderTypePtrOutput) ToAnalysisSheetControlSliderTypePtrOutputWithContext(ctx context.Context) AnalysisSheetControlSliderTypePtrOutput {
 	return o
-}
-
-func (o AnalysisSheetControlSliderTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSheetControlSliderType] {
-	return pulumix.Output[*AnalysisSheetControlSliderType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisSheetControlSliderTypePtrOutput) Elem() AnalysisSheetControlSliderTypeOutput {
@@ -15028,12 +14044,6 @@ func (o AnalysisSimpleAttributeAggregationFunctionOutput) ToAnalysisSimpleAttrib
 	}).(AnalysisSimpleAttributeAggregationFunctionPtrOutput)
 }
 
-func (o AnalysisSimpleAttributeAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSimpleAttributeAggregationFunction] {
-	return pulumix.Output[AnalysisSimpleAttributeAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSimpleAttributeAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -15067,12 +14077,6 @@ func (o AnalysisSimpleAttributeAggregationFunctionPtrOutput) ToAnalysisSimpleAtt
 
 func (o AnalysisSimpleAttributeAggregationFunctionPtrOutput) ToAnalysisSimpleAttributeAggregationFunctionPtrOutputWithContext(ctx context.Context) AnalysisSimpleAttributeAggregationFunctionPtrOutput {
 	return o
-}
-
-func (o AnalysisSimpleAttributeAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSimpleAttributeAggregationFunction] {
-	return pulumix.Output[*AnalysisSimpleAttributeAggregationFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisSimpleAttributeAggregationFunctionPtrOutput) Elem() AnalysisSimpleAttributeAggregationFunctionOutput {
@@ -15219,12 +14223,6 @@ func (o AnalysisSimpleNumericalAggregationFunctionOutput) ToAnalysisSimpleNumeri
 	}).(AnalysisSimpleNumericalAggregationFunctionPtrOutput)
 }
 
-func (o AnalysisSimpleNumericalAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSimpleNumericalAggregationFunction] {
-	return pulumix.Output[AnalysisSimpleNumericalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSimpleNumericalAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -15258,12 +14256,6 @@ func (o AnalysisSimpleNumericalAggregationFunctionPtrOutput) ToAnalysisSimpleNum
 
 func (o AnalysisSimpleNumericalAggregationFunctionPtrOutput) ToAnalysisSimpleNumericalAggregationFunctionPtrOutputWithContext(ctx context.Context) AnalysisSimpleNumericalAggregationFunctionPtrOutput {
 	return o
-}
-
-func (o AnalysisSimpleNumericalAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSimpleNumericalAggregationFunction] {
-	return pulumix.Output[*AnalysisSimpleNumericalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisSimpleNumericalAggregationFunctionPtrOutput) Elem() AnalysisSimpleNumericalAggregationFunctionOutput {
@@ -15405,12 +14397,6 @@ func (o AnalysisSimpleTotalAggregationFunctionOutput) ToAnalysisSimpleTotalAggre
 	}).(AnalysisSimpleTotalAggregationFunctionPtrOutput)
 }
 
-func (o AnalysisSimpleTotalAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSimpleTotalAggregationFunction] {
-	return pulumix.Output[AnalysisSimpleTotalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSimpleTotalAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -15444,12 +14430,6 @@ func (o AnalysisSimpleTotalAggregationFunctionPtrOutput) ToAnalysisSimpleTotalAg
 
 func (o AnalysisSimpleTotalAggregationFunctionPtrOutput) ToAnalysisSimpleTotalAggregationFunctionPtrOutputWithContext(ctx context.Context) AnalysisSimpleTotalAggregationFunctionPtrOutput {
 	return o
-}
-
-func (o AnalysisSimpleTotalAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSimpleTotalAggregationFunction] {
-	return pulumix.Output[*AnalysisSimpleTotalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisSimpleTotalAggregationFunctionPtrOutput) Elem() AnalysisSimpleTotalAggregationFunctionOutput {
@@ -15587,12 +14567,6 @@ func (o AnalysisSmallMultiplesAxisPlacementOutput) ToAnalysisSmallMultiplesAxisP
 	}).(AnalysisSmallMultiplesAxisPlacementPtrOutput)
 }
 
-func (o AnalysisSmallMultiplesAxisPlacementOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSmallMultiplesAxisPlacement] {
-	return pulumix.Output[AnalysisSmallMultiplesAxisPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSmallMultiplesAxisPlacementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -15626,12 +14600,6 @@ func (o AnalysisSmallMultiplesAxisPlacementPtrOutput) ToAnalysisSmallMultiplesAx
 
 func (o AnalysisSmallMultiplesAxisPlacementPtrOutput) ToAnalysisSmallMultiplesAxisPlacementPtrOutputWithContext(ctx context.Context) AnalysisSmallMultiplesAxisPlacementPtrOutput {
 	return o
-}
-
-func (o AnalysisSmallMultiplesAxisPlacementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSmallMultiplesAxisPlacement] {
-	return pulumix.Output[*AnalysisSmallMultiplesAxisPlacement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisSmallMultiplesAxisPlacementPtrOutput) Elem() AnalysisSmallMultiplesAxisPlacementOutput {
@@ -15769,12 +14737,6 @@ func (o AnalysisSmallMultiplesAxisScaleOutput) ToAnalysisSmallMultiplesAxisScale
 	}).(AnalysisSmallMultiplesAxisScalePtrOutput)
 }
 
-func (o AnalysisSmallMultiplesAxisScaleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSmallMultiplesAxisScale] {
-	return pulumix.Output[AnalysisSmallMultiplesAxisScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSmallMultiplesAxisScaleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -15808,12 +14770,6 @@ func (o AnalysisSmallMultiplesAxisScalePtrOutput) ToAnalysisSmallMultiplesAxisSc
 
 func (o AnalysisSmallMultiplesAxisScalePtrOutput) ToAnalysisSmallMultiplesAxisScalePtrOutputWithContext(ctx context.Context) AnalysisSmallMultiplesAxisScalePtrOutput {
 	return o
-}
-
-func (o AnalysisSmallMultiplesAxisScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSmallMultiplesAxisScale] {
-	return pulumix.Output[*AnalysisSmallMultiplesAxisScale]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisSmallMultiplesAxisScalePtrOutput) Elem() AnalysisSmallMultiplesAxisScaleOutput {
@@ -15951,12 +14907,6 @@ func (o AnalysisSortDirectionOutput) ToAnalysisSortDirectionPtrOutputWithContext
 	}).(AnalysisSortDirectionPtrOutput)
 }
 
-func (o AnalysisSortDirectionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSortDirection] {
-	return pulumix.Output[AnalysisSortDirection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSortDirectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -15990,12 +14940,6 @@ func (o AnalysisSortDirectionPtrOutput) ToAnalysisSortDirectionPtrOutput() Analy
 
 func (o AnalysisSortDirectionPtrOutput) ToAnalysisSortDirectionPtrOutputWithContext(ctx context.Context) AnalysisSortDirectionPtrOutput {
 	return o
-}
-
-func (o AnalysisSortDirectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSortDirection] {
-	return pulumix.Output[*AnalysisSortDirection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisSortDirectionPtrOutput) Elem() AnalysisSortDirectionOutput {
@@ -16134,12 +15078,6 @@ func (o AnalysisSpecialValueOutput) ToAnalysisSpecialValuePtrOutputWithContext(c
 	}).(AnalysisSpecialValuePtrOutput)
 }
 
-func (o AnalysisSpecialValueOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisSpecialValue] {
-	return pulumix.Output[AnalysisSpecialValue]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisSpecialValueOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -16173,12 +15111,6 @@ func (o AnalysisSpecialValuePtrOutput) ToAnalysisSpecialValuePtrOutput() Analysi
 
 func (o AnalysisSpecialValuePtrOutput) ToAnalysisSpecialValuePtrOutputWithContext(ctx context.Context) AnalysisSpecialValuePtrOutput {
 	return o
-}
-
-func (o AnalysisSpecialValuePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisSpecialValue] {
-	return pulumix.Output[*AnalysisSpecialValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisSpecialValuePtrOutput) Elem() AnalysisSpecialValueOutput {
@@ -16317,12 +15249,6 @@ func (o AnalysisStyledCellTypeOutput) ToAnalysisStyledCellTypePtrOutputWithConte
 	}).(AnalysisStyledCellTypePtrOutput)
 }
 
-func (o AnalysisStyledCellTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisStyledCellType] {
-	return pulumix.Output[AnalysisStyledCellType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisStyledCellTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -16356,12 +15282,6 @@ func (o AnalysisStyledCellTypePtrOutput) ToAnalysisStyledCellTypePtrOutput() Ana
 
 func (o AnalysisStyledCellTypePtrOutput) ToAnalysisStyledCellTypePtrOutputWithContext(ctx context.Context) AnalysisStyledCellTypePtrOutput {
 	return o
-}
-
-func (o AnalysisStyledCellTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisStyledCellType] {
-	return pulumix.Output[*AnalysisStyledCellType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisStyledCellTypePtrOutput) Elem() AnalysisStyledCellTypeOutput {
@@ -16499,12 +15419,6 @@ func (o AnalysisTableBorderStyleOutput) ToAnalysisTableBorderStylePtrOutputWithC
 	}).(AnalysisTableBorderStylePtrOutput)
 }
 
-func (o AnalysisTableBorderStyleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTableBorderStyle] {
-	return pulumix.Output[AnalysisTableBorderStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTableBorderStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -16538,12 +15452,6 @@ func (o AnalysisTableBorderStylePtrOutput) ToAnalysisTableBorderStylePtrOutput()
 
 func (o AnalysisTableBorderStylePtrOutput) ToAnalysisTableBorderStylePtrOutputWithContext(ctx context.Context) AnalysisTableBorderStylePtrOutput {
 	return o
-}
-
-func (o AnalysisTableBorderStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTableBorderStyle] {
-	return pulumix.Output[*AnalysisTableBorderStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisTableBorderStylePtrOutput) Elem() AnalysisTableBorderStyleOutput {
@@ -16682,12 +15590,6 @@ func (o AnalysisTableCellImageScalingConfigurationOutput) ToAnalysisTableCellIma
 	}).(AnalysisTableCellImageScalingConfigurationPtrOutput)
 }
 
-func (o AnalysisTableCellImageScalingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTableCellImageScalingConfiguration] {
-	return pulumix.Output[AnalysisTableCellImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTableCellImageScalingConfigurationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -16721,12 +15623,6 @@ func (o AnalysisTableCellImageScalingConfigurationPtrOutput) ToAnalysisTableCell
 
 func (o AnalysisTableCellImageScalingConfigurationPtrOutput) ToAnalysisTableCellImageScalingConfigurationPtrOutputWithContext(ctx context.Context) AnalysisTableCellImageScalingConfigurationPtrOutput {
 	return o
-}
-
-func (o AnalysisTableCellImageScalingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTableCellImageScalingConfiguration] {
-	return pulumix.Output[*AnalysisTableCellImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisTableCellImageScalingConfigurationPtrOutput) Elem() AnalysisTableCellImageScalingConfigurationOutput {
@@ -16863,12 +15759,6 @@ func (o AnalysisTableFieldIconSetTypeOutput) ToAnalysisTableFieldIconSetTypePtrO
 	}).(AnalysisTableFieldIconSetTypePtrOutput)
 }
 
-func (o AnalysisTableFieldIconSetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTableFieldIconSetType] {
-	return pulumix.Output[AnalysisTableFieldIconSetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTableFieldIconSetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -16902,12 +15792,6 @@ func (o AnalysisTableFieldIconSetTypePtrOutput) ToAnalysisTableFieldIconSetTypeP
 
 func (o AnalysisTableFieldIconSetTypePtrOutput) ToAnalysisTableFieldIconSetTypePtrOutputWithContext(ctx context.Context) AnalysisTableFieldIconSetTypePtrOutput {
 	return o
-}
-
-func (o AnalysisTableFieldIconSetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTableFieldIconSetType] {
-	return pulumix.Output[*AnalysisTableFieldIconSetType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisTableFieldIconSetTypePtrOutput) Elem() AnalysisTableFieldIconSetTypeOutput {
@@ -17045,12 +15929,6 @@ func (o AnalysisTableOrientationOutput) ToAnalysisTableOrientationPtrOutputWithC
 	}).(AnalysisTableOrientationPtrOutput)
 }
 
-func (o AnalysisTableOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTableOrientation] {
-	return pulumix.Output[AnalysisTableOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTableOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -17084,12 +15962,6 @@ func (o AnalysisTableOrientationPtrOutput) ToAnalysisTableOrientationPtrOutput()
 
 func (o AnalysisTableOrientationPtrOutput) ToAnalysisTableOrientationPtrOutputWithContext(ctx context.Context) AnalysisTableOrientationPtrOutput {
 	return o
-}
-
-func (o AnalysisTableOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTableOrientation] {
-	return pulumix.Output[*AnalysisTableOrientation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisTableOrientationPtrOutput) Elem() AnalysisTableOrientationOutput {
@@ -17228,12 +16100,6 @@ func (o AnalysisTableTotalsPlacementOutput) ToAnalysisTableTotalsPlacementPtrOut
 	}).(AnalysisTableTotalsPlacementPtrOutput)
 }
 
-func (o AnalysisTableTotalsPlacementOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTableTotalsPlacement] {
-	return pulumix.Output[AnalysisTableTotalsPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTableTotalsPlacementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -17267,12 +16133,6 @@ func (o AnalysisTableTotalsPlacementPtrOutput) ToAnalysisTableTotalsPlacementPtr
 
 func (o AnalysisTableTotalsPlacementPtrOutput) ToAnalysisTableTotalsPlacementPtrOutputWithContext(ctx context.Context) AnalysisTableTotalsPlacementPtrOutput {
 	return o
-}
-
-func (o AnalysisTableTotalsPlacementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTableTotalsPlacement] {
-	return pulumix.Output[*AnalysisTableTotalsPlacement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisTableTotalsPlacementPtrOutput) Elem() AnalysisTableTotalsPlacementOutput {
@@ -17410,12 +16270,6 @@ func (o AnalysisTableTotalsScrollStatusOutput) ToAnalysisTableTotalsScrollStatus
 	}).(AnalysisTableTotalsScrollStatusPtrOutput)
 }
 
-func (o AnalysisTableTotalsScrollStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTableTotalsScrollStatus] {
-	return pulumix.Output[AnalysisTableTotalsScrollStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTableTotalsScrollStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -17449,12 +16303,6 @@ func (o AnalysisTableTotalsScrollStatusPtrOutput) ToAnalysisTableTotalsScrollSta
 
 func (o AnalysisTableTotalsScrollStatusPtrOutput) ToAnalysisTableTotalsScrollStatusPtrOutputWithContext(ctx context.Context) AnalysisTableTotalsScrollStatusPtrOutput {
 	return o
-}
-
-func (o AnalysisTableTotalsScrollStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTableTotalsScrollStatus] {
-	return pulumix.Output[*AnalysisTableTotalsScrollStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisTableTotalsScrollStatusPtrOutput) Elem() AnalysisTableTotalsScrollStatusOutput {
@@ -17591,12 +16439,6 @@ func (o AnalysisTargetVisualOptionsOutput) ToAnalysisTargetVisualOptionsPtrOutpu
 	}).(AnalysisTargetVisualOptionsPtrOutput)
 }
 
-func (o AnalysisTargetVisualOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTargetVisualOptions] {
-	return pulumix.Output[AnalysisTargetVisualOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTargetVisualOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -17630,12 +16472,6 @@ func (o AnalysisTargetVisualOptionsPtrOutput) ToAnalysisTargetVisualOptionsPtrOu
 
 func (o AnalysisTargetVisualOptionsPtrOutput) ToAnalysisTargetVisualOptionsPtrOutputWithContext(ctx context.Context) AnalysisTargetVisualOptionsPtrOutput {
 	return o
-}
-
-func (o AnalysisTargetVisualOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTargetVisualOptions] {
-	return pulumix.Output[*AnalysisTargetVisualOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisTargetVisualOptionsPtrOutput) Elem() AnalysisTargetVisualOptionsOutput {
@@ -17773,12 +16609,6 @@ func (o AnalysisTextWrapOutput) ToAnalysisTextWrapPtrOutputWithContext(ctx conte
 	}).(AnalysisTextWrapPtrOutput)
 }
 
-func (o AnalysisTextWrapOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTextWrap] {
-	return pulumix.Output[AnalysisTextWrap]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTextWrapOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -17812,12 +16642,6 @@ func (o AnalysisTextWrapPtrOutput) ToAnalysisTextWrapPtrOutput() AnalysisTextWra
 
 func (o AnalysisTextWrapPtrOutput) ToAnalysisTextWrapPtrOutputWithContext(ctx context.Context) AnalysisTextWrapPtrOutput {
 	return o
-}
-
-func (o AnalysisTextWrapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTextWrap] {
-	return pulumix.Output[*AnalysisTextWrap]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisTextWrapPtrOutput) Elem() AnalysisTextWrapOutput {
@@ -17962,12 +16786,6 @@ func (o AnalysisTimeGranularityOutput) ToAnalysisTimeGranularityPtrOutputWithCon
 	}).(AnalysisTimeGranularityPtrOutput)
 }
 
-func (o AnalysisTimeGranularityOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTimeGranularity] {
-	return pulumix.Output[AnalysisTimeGranularity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTimeGranularityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -18001,12 +16819,6 @@ func (o AnalysisTimeGranularityPtrOutput) ToAnalysisTimeGranularityPtrOutput() A
 
 func (o AnalysisTimeGranularityPtrOutput) ToAnalysisTimeGranularityPtrOutputWithContext(ctx context.Context) AnalysisTimeGranularityPtrOutput {
 	return o
-}
-
-func (o AnalysisTimeGranularityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTimeGranularity] {
-	return pulumix.Output[*AnalysisTimeGranularity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisTimeGranularityPtrOutput) Elem() AnalysisTimeGranularityOutput {
@@ -18144,12 +16956,6 @@ func (o AnalysisTooltipTitleTypeOutput) ToAnalysisTooltipTitleTypePtrOutputWithC
 	}).(AnalysisTooltipTitleTypePtrOutput)
 }
 
-func (o AnalysisTooltipTitleTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTooltipTitleType] {
-	return pulumix.Output[AnalysisTooltipTitleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTooltipTitleTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -18183,12 +16989,6 @@ func (o AnalysisTooltipTitleTypePtrOutput) ToAnalysisTooltipTitleTypePtrOutput()
 
 func (o AnalysisTooltipTitleTypePtrOutput) ToAnalysisTooltipTitleTypePtrOutputWithContext(ctx context.Context) AnalysisTooltipTitleTypePtrOutput {
 	return o
-}
-
-func (o AnalysisTooltipTitleTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTooltipTitleType] {
-	return pulumix.Output[*AnalysisTooltipTitleType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisTooltipTitleTypePtrOutput) Elem() AnalysisTooltipTitleTypeOutput {
@@ -18326,12 +17126,6 @@ func (o AnalysisTopBottomComputationTypeOutput) ToAnalysisTopBottomComputationTy
 	}).(AnalysisTopBottomComputationTypePtrOutput)
 }
 
-func (o AnalysisTopBottomComputationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTopBottomComputationType] {
-	return pulumix.Output[AnalysisTopBottomComputationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTopBottomComputationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -18365,12 +17159,6 @@ func (o AnalysisTopBottomComputationTypePtrOutput) ToAnalysisTopBottomComputatio
 
 func (o AnalysisTopBottomComputationTypePtrOutput) ToAnalysisTopBottomComputationTypePtrOutputWithContext(ctx context.Context) AnalysisTopBottomComputationTypePtrOutput {
 	return o
-}
-
-func (o AnalysisTopBottomComputationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTopBottomComputationType] {
-	return pulumix.Output[*AnalysisTopBottomComputationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisTopBottomComputationTypePtrOutput) Elem() AnalysisTopBottomComputationTypeOutput {
@@ -18508,12 +17296,6 @@ func (o AnalysisTopBottomSortOrderOutput) ToAnalysisTopBottomSortOrderPtrOutputW
 	}).(AnalysisTopBottomSortOrderPtrOutput)
 }
 
-func (o AnalysisTopBottomSortOrderOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTopBottomSortOrder] {
-	return pulumix.Output[AnalysisTopBottomSortOrder]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTopBottomSortOrderOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -18547,12 +17329,6 @@ func (o AnalysisTopBottomSortOrderPtrOutput) ToAnalysisTopBottomSortOrderPtrOutp
 
 func (o AnalysisTopBottomSortOrderPtrOutput) ToAnalysisTopBottomSortOrderPtrOutputWithContext(ctx context.Context) AnalysisTopBottomSortOrderPtrOutput {
 	return o
-}
-
-func (o AnalysisTopBottomSortOrderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTopBottomSortOrder] {
-	return pulumix.Output[*AnalysisTopBottomSortOrder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisTopBottomSortOrderPtrOutput) Elem() AnalysisTopBottomSortOrderOutput {
@@ -18691,12 +17467,6 @@ func (o AnalysisUrlTargetConfigurationOutput) ToAnalysisUrlTargetConfigurationPt
 	}).(AnalysisUrlTargetConfigurationPtrOutput)
 }
 
-func (o AnalysisUrlTargetConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisUrlTargetConfiguration] {
-	return pulumix.Output[AnalysisUrlTargetConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisUrlTargetConfigurationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -18730,12 +17500,6 @@ func (o AnalysisUrlTargetConfigurationPtrOutput) ToAnalysisUrlTargetConfiguratio
 
 func (o AnalysisUrlTargetConfigurationPtrOutput) ToAnalysisUrlTargetConfigurationPtrOutputWithContext(ctx context.Context) AnalysisUrlTargetConfigurationPtrOutput {
 	return o
-}
-
-func (o AnalysisUrlTargetConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisUrlTargetConfiguration] {
-	return pulumix.Output[*AnalysisUrlTargetConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisUrlTargetConfigurationPtrOutput) Elem() AnalysisUrlTargetConfigurationOutput {
@@ -18873,12 +17637,6 @@ func (o AnalysisValidationStrategyModeOutput) ToAnalysisValidationStrategyModePt
 	}).(AnalysisValidationStrategyModePtrOutput)
 }
 
-func (o AnalysisValidationStrategyModeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisValidationStrategyMode] {
-	return pulumix.Output[AnalysisValidationStrategyMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisValidationStrategyModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -18912,12 +17670,6 @@ func (o AnalysisValidationStrategyModePtrOutput) ToAnalysisValidationStrategyMod
 
 func (o AnalysisValidationStrategyModePtrOutput) ToAnalysisValidationStrategyModePtrOutputWithContext(ctx context.Context) AnalysisValidationStrategyModePtrOutput {
 	return o
-}
-
-func (o AnalysisValidationStrategyModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisValidationStrategyMode] {
-	return pulumix.Output[*AnalysisValidationStrategyMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisValidationStrategyModePtrOutput) Elem() AnalysisValidationStrategyModeOutput {
@@ -19055,12 +17807,6 @@ func (o AnalysisValueWhenUnsetOptionOutput) ToAnalysisValueWhenUnsetOptionPtrOut
 	}).(AnalysisValueWhenUnsetOptionPtrOutput)
 }
 
-func (o AnalysisValueWhenUnsetOptionOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisValueWhenUnsetOption] {
-	return pulumix.Output[AnalysisValueWhenUnsetOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisValueWhenUnsetOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -19094,12 +17840,6 @@ func (o AnalysisValueWhenUnsetOptionPtrOutput) ToAnalysisValueWhenUnsetOptionPtr
 
 func (o AnalysisValueWhenUnsetOptionPtrOutput) ToAnalysisValueWhenUnsetOptionPtrOutputWithContext(ctx context.Context) AnalysisValueWhenUnsetOptionPtrOutput {
 	return o
-}
-
-func (o AnalysisValueWhenUnsetOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisValueWhenUnsetOption] {
-	return pulumix.Output[*AnalysisValueWhenUnsetOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisValueWhenUnsetOptionPtrOutput) Elem() AnalysisValueWhenUnsetOptionOutput {
@@ -19239,12 +17979,6 @@ func (o AnalysisVerticalTextAlignmentOutput) ToAnalysisVerticalTextAlignmentPtrO
 	}).(AnalysisVerticalTextAlignmentPtrOutput)
 }
 
-func (o AnalysisVerticalTextAlignmentOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisVerticalTextAlignment] {
-	return pulumix.Output[AnalysisVerticalTextAlignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisVerticalTextAlignmentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -19278,12 +18012,6 @@ func (o AnalysisVerticalTextAlignmentPtrOutput) ToAnalysisVerticalTextAlignmentP
 
 func (o AnalysisVerticalTextAlignmentPtrOutput) ToAnalysisVerticalTextAlignmentPtrOutputWithContext(ctx context.Context) AnalysisVerticalTextAlignmentPtrOutput {
 	return o
-}
-
-func (o AnalysisVerticalTextAlignmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisVerticalTextAlignment] {
-	return pulumix.Output[*AnalysisVerticalTextAlignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisVerticalTextAlignmentPtrOutput) Elem() AnalysisVerticalTextAlignmentOutput {
@@ -19421,12 +18149,6 @@ func (o AnalysisVisibilityOutput) ToAnalysisVisibilityPtrOutputWithContext(ctx c
 	}).(AnalysisVisibilityPtrOutput)
 }
 
-func (o AnalysisVisibilityOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisVisibility] {
-	return pulumix.Output[AnalysisVisibility]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisVisibilityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -19460,12 +18182,6 @@ func (o AnalysisVisibilityPtrOutput) ToAnalysisVisibilityPtrOutput() AnalysisVis
 
 func (o AnalysisVisibilityPtrOutput) ToAnalysisVisibilityPtrOutputWithContext(ctx context.Context) AnalysisVisibilityPtrOutput {
 	return o
-}
-
-func (o AnalysisVisibilityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisVisibility] {
-	return pulumix.Output[*AnalysisVisibility]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisVisibilityPtrOutput) Elem() AnalysisVisibilityOutput {
@@ -19603,12 +18319,6 @@ func (o AnalysisVisualCustomActionTriggerOutput) ToAnalysisVisualCustomActionTri
 	}).(AnalysisVisualCustomActionTriggerPtrOutput)
 }
 
-func (o AnalysisVisualCustomActionTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisVisualCustomActionTrigger] {
-	return pulumix.Output[AnalysisVisualCustomActionTrigger]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisVisualCustomActionTriggerOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -19642,12 +18352,6 @@ func (o AnalysisVisualCustomActionTriggerPtrOutput) ToAnalysisVisualCustomAction
 
 func (o AnalysisVisualCustomActionTriggerPtrOutput) ToAnalysisVisualCustomActionTriggerPtrOutputWithContext(ctx context.Context) AnalysisVisualCustomActionTriggerPtrOutput {
 	return o
-}
-
-func (o AnalysisVisualCustomActionTriggerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisVisualCustomActionTrigger] {
-	return pulumix.Output[*AnalysisVisualCustomActionTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisVisualCustomActionTriggerPtrOutput) Elem() AnalysisVisualCustomActionTriggerOutput {
@@ -19785,12 +18489,6 @@ func (o AnalysisWidgetStatusOutput) ToAnalysisWidgetStatusPtrOutputWithContext(c
 	}).(AnalysisWidgetStatusPtrOutput)
 }
 
-func (o AnalysisWidgetStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisWidgetStatus] {
-	return pulumix.Output[AnalysisWidgetStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisWidgetStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -19824,12 +18522,6 @@ func (o AnalysisWidgetStatusPtrOutput) ToAnalysisWidgetStatusPtrOutput() Analysi
 
 func (o AnalysisWidgetStatusPtrOutput) ToAnalysisWidgetStatusPtrOutputWithContext(ctx context.Context) AnalysisWidgetStatusPtrOutput {
 	return o
-}
-
-func (o AnalysisWidgetStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisWidgetStatus] {
-	return pulumix.Output[*AnalysisWidgetStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisWidgetStatusPtrOutput) Elem() AnalysisWidgetStatusOutput {
@@ -19967,12 +18659,6 @@ func (o AnalysisWordCloudCloudLayoutOutput) ToAnalysisWordCloudCloudLayoutPtrOut
 	}).(AnalysisWordCloudCloudLayoutPtrOutput)
 }
 
-func (o AnalysisWordCloudCloudLayoutOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisWordCloudCloudLayout] {
-	return pulumix.Output[AnalysisWordCloudCloudLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisWordCloudCloudLayoutOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -20006,12 +18692,6 @@ func (o AnalysisWordCloudCloudLayoutPtrOutput) ToAnalysisWordCloudCloudLayoutPtr
 
 func (o AnalysisWordCloudCloudLayoutPtrOutput) ToAnalysisWordCloudCloudLayoutPtrOutputWithContext(ctx context.Context) AnalysisWordCloudCloudLayoutPtrOutput {
 	return o
-}
-
-func (o AnalysisWordCloudCloudLayoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisWordCloudCloudLayout] {
-	return pulumix.Output[*AnalysisWordCloudCloudLayout]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisWordCloudCloudLayoutPtrOutput) Elem() AnalysisWordCloudCloudLayoutOutput {
@@ -20149,12 +18829,6 @@ func (o AnalysisWordCloudWordCasingOutput) ToAnalysisWordCloudWordCasingPtrOutpu
 	}).(AnalysisWordCloudWordCasingPtrOutput)
 }
 
-func (o AnalysisWordCloudWordCasingOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisWordCloudWordCasing] {
-	return pulumix.Output[AnalysisWordCloudWordCasing]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisWordCloudWordCasingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -20188,12 +18862,6 @@ func (o AnalysisWordCloudWordCasingPtrOutput) ToAnalysisWordCloudWordCasingPtrOu
 
 func (o AnalysisWordCloudWordCasingPtrOutput) ToAnalysisWordCloudWordCasingPtrOutputWithContext(ctx context.Context) AnalysisWordCloudWordCasingPtrOutput {
 	return o
-}
-
-func (o AnalysisWordCloudWordCasingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisWordCloudWordCasing] {
-	return pulumix.Output[*AnalysisWordCloudWordCasing]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisWordCloudWordCasingPtrOutput) Elem() AnalysisWordCloudWordCasingOutput {
@@ -20331,12 +18999,6 @@ func (o AnalysisWordCloudWordOrientationOutput) ToAnalysisWordCloudWordOrientati
 	}).(AnalysisWordCloudWordOrientationPtrOutput)
 }
 
-func (o AnalysisWordCloudWordOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisWordCloudWordOrientation] {
-	return pulumix.Output[AnalysisWordCloudWordOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisWordCloudWordOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -20370,12 +19032,6 @@ func (o AnalysisWordCloudWordOrientationPtrOutput) ToAnalysisWordCloudWordOrient
 
 func (o AnalysisWordCloudWordOrientationPtrOutput) ToAnalysisWordCloudWordOrientationPtrOutputWithContext(ctx context.Context) AnalysisWordCloudWordOrientationPtrOutput {
 	return o
-}
-
-func (o AnalysisWordCloudWordOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisWordCloudWordOrientation] {
-	return pulumix.Output[*AnalysisWordCloudWordOrientation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisWordCloudWordOrientationPtrOutput) Elem() AnalysisWordCloudWordOrientationOutput {
@@ -20515,12 +19171,6 @@ func (o AnalysisWordCloudWordPaddingOutput) ToAnalysisWordCloudWordPaddingPtrOut
 	}).(AnalysisWordCloudWordPaddingPtrOutput)
 }
 
-func (o AnalysisWordCloudWordPaddingOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisWordCloudWordPadding] {
-	return pulumix.Output[AnalysisWordCloudWordPadding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisWordCloudWordPaddingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -20554,12 +19204,6 @@ func (o AnalysisWordCloudWordPaddingPtrOutput) ToAnalysisWordCloudWordPaddingPtr
 
 func (o AnalysisWordCloudWordPaddingPtrOutput) ToAnalysisWordCloudWordPaddingPtrOutputWithContext(ctx context.Context) AnalysisWordCloudWordPaddingPtrOutput {
 	return o
-}
-
-func (o AnalysisWordCloudWordPaddingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisWordCloudWordPadding] {
-	return pulumix.Output[*AnalysisWordCloudWordPadding]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisWordCloudWordPaddingPtrOutput) Elem() AnalysisWordCloudWordPaddingOutput {
@@ -20697,12 +19341,6 @@ func (o AnalysisWordCloudWordScalingOutput) ToAnalysisWordCloudWordScalingPtrOut
 	}).(AnalysisWordCloudWordScalingPtrOutput)
 }
 
-func (o AnalysisWordCloudWordScalingOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisWordCloudWordScaling] {
-	return pulumix.Output[AnalysisWordCloudWordScaling]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisWordCloudWordScalingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -20736,12 +19374,6 @@ func (o AnalysisWordCloudWordScalingPtrOutput) ToAnalysisWordCloudWordScalingPtr
 
 func (o AnalysisWordCloudWordScalingPtrOutput) ToAnalysisWordCloudWordScalingPtrOutputWithContext(ctx context.Context) AnalysisWordCloudWordScalingPtrOutput {
 	return o
-}
-
-func (o AnalysisWordCloudWordScalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisWordCloudWordScaling] {
-	return pulumix.Output[*AnalysisWordCloudWordScaling]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisWordCloudWordScalingPtrOutput) Elem() AnalysisWordCloudWordScalingOutput {
@@ -20878,12 +19510,6 @@ func (o DashboardAnchorOptionOutput) ToDashboardAnchorOptionPtrOutputWithContext
 	}).(DashboardAnchorOptionPtrOutput)
 }
 
-func (o DashboardAnchorOptionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardAnchorOption] {
-	return pulumix.Output[DashboardAnchorOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardAnchorOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -20917,12 +19543,6 @@ func (o DashboardAnchorOptionPtrOutput) ToDashboardAnchorOptionPtrOutput() Dashb
 
 func (o DashboardAnchorOptionPtrOutput) ToDashboardAnchorOptionPtrOutputWithContext(ctx context.Context) DashboardAnchorOptionPtrOutput {
 	return o
-}
-
-func (o DashboardAnchorOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardAnchorOption] {
-	return pulumix.Output[*DashboardAnchorOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardAnchorOptionPtrOutput) Elem() DashboardAnchorOptionOutput {
@@ -21062,12 +19682,6 @@ func (o DashboardArcThicknessOutput) ToDashboardArcThicknessPtrOutputWithContext
 	}).(DashboardArcThicknessPtrOutput)
 }
 
-func (o DashboardArcThicknessOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardArcThickness] {
-	return pulumix.Output[DashboardArcThickness]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardArcThicknessOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -21101,12 +19715,6 @@ func (o DashboardArcThicknessPtrOutput) ToDashboardArcThicknessPtrOutput() Dashb
 
 func (o DashboardArcThicknessPtrOutput) ToDashboardArcThicknessPtrOutputWithContext(ctx context.Context) DashboardArcThicknessPtrOutput {
 	return o
-}
-
-func (o DashboardArcThicknessPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardArcThickness] {
-	return pulumix.Output[*DashboardArcThickness]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardArcThicknessPtrOutput) Elem() DashboardArcThicknessOutput {
@@ -21245,12 +19853,6 @@ func (o DashboardArcThicknessOptionsOutput) ToDashboardArcThicknessOptionsPtrOut
 	}).(DashboardArcThicknessOptionsPtrOutput)
 }
 
-func (o DashboardArcThicknessOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardArcThicknessOptions] {
-	return pulumix.Output[DashboardArcThicknessOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardArcThicknessOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -21284,12 +19886,6 @@ func (o DashboardArcThicknessOptionsPtrOutput) ToDashboardArcThicknessOptionsPtr
 
 func (o DashboardArcThicknessOptionsPtrOutput) ToDashboardArcThicknessOptionsPtrOutputWithContext(ctx context.Context) DashboardArcThicknessOptionsPtrOutput {
 	return o
-}
-
-func (o DashboardArcThicknessOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardArcThicknessOptions] {
-	return pulumix.Output[*DashboardArcThicknessOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardArcThicknessOptionsPtrOutput) Elem() DashboardArcThicknessOptionsOutput {
@@ -21427,12 +20023,6 @@ func (o DashboardAxisBindingOutput) ToDashboardAxisBindingPtrOutputWithContext(c
 	}).(DashboardAxisBindingPtrOutput)
 }
 
-func (o DashboardAxisBindingOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardAxisBinding] {
-	return pulumix.Output[DashboardAxisBinding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardAxisBindingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -21466,12 +20056,6 @@ func (o DashboardAxisBindingPtrOutput) ToDashboardAxisBindingPtrOutput() Dashboa
 
 func (o DashboardAxisBindingPtrOutput) ToDashboardAxisBindingPtrOutputWithContext(ctx context.Context) DashboardAxisBindingPtrOutput {
 	return o
-}
-
-func (o DashboardAxisBindingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardAxisBinding] {
-	return pulumix.Output[*DashboardAxisBinding]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardAxisBindingPtrOutput) Elem() DashboardAxisBindingOutput {
@@ -21609,12 +20193,6 @@ func (o DashboardBarChartOrientationOutput) ToDashboardBarChartOrientationPtrOut
 	}).(DashboardBarChartOrientationPtrOutput)
 }
 
-func (o DashboardBarChartOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardBarChartOrientation] {
-	return pulumix.Output[DashboardBarChartOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardBarChartOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -21648,12 +20226,6 @@ func (o DashboardBarChartOrientationPtrOutput) ToDashboardBarChartOrientationPtr
 
 func (o DashboardBarChartOrientationPtrOutput) ToDashboardBarChartOrientationPtrOutputWithContext(ctx context.Context) DashboardBarChartOrientationPtrOutput {
 	return o
-}
-
-func (o DashboardBarChartOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardBarChartOrientation] {
-	return pulumix.Output[*DashboardBarChartOrientation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardBarChartOrientationPtrOutput) Elem() DashboardBarChartOrientationOutput {
@@ -21792,12 +20364,6 @@ func (o DashboardBarsArrangementOutput) ToDashboardBarsArrangementPtrOutputWithC
 	}).(DashboardBarsArrangementPtrOutput)
 }
 
-func (o DashboardBarsArrangementOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardBarsArrangement] {
-	return pulumix.Output[DashboardBarsArrangement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardBarsArrangementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -21831,12 +20397,6 @@ func (o DashboardBarsArrangementPtrOutput) ToDashboardBarsArrangementPtrOutput()
 
 func (o DashboardBarsArrangementPtrOutput) ToDashboardBarsArrangementPtrOutputWithContext(ctx context.Context) DashboardBarsArrangementPtrOutput {
 	return o
-}
-
-func (o DashboardBarsArrangementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardBarsArrangement] {
-	return pulumix.Output[*DashboardBarsArrangement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardBarsArrangementPtrOutput) Elem() DashboardBarsArrangementOutput {
@@ -21976,12 +20536,6 @@ func (o DashboardBaseMapStyleTypeOutput) ToDashboardBaseMapStyleTypePtrOutputWit
 	}).(DashboardBaseMapStyleTypePtrOutput)
 }
 
-func (o DashboardBaseMapStyleTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardBaseMapStyleType] {
-	return pulumix.Output[DashboardBaseMapStyleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardBaseMapStyleTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -22015,12 +20569,6 @@ func (o DashboardBaseMapStyleTypePtrOutput) ToDashboardBaseMapStyleTypePtrOutput
 
 func (o DashboardBaseMapStyleTypePtrOutput) ToDashboardBaseMapStyleTypePtrOutputWithContext(ctx context.Context) DashboardBaseMapStyleTypePtrOutput {
 	return o
-}
-
-func (o DashboardBaseMapStyleTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardBaseMapStyleType] {
-	return pulumix.Output[*DashboardBaseMapStyleType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardBaseMapStyleTypePtrOutput) Elem() DashboardBaseMapStyleTypeOutput {
@@ -22158,12 +20706,6 @@ func (o DashboardBehaviorOutput) ToDashboardBehaviorPtrOutputWithContext(ctx con
 	}).(DashboardBehaviorPtrOutput)
 }
 
-func (o DashboardBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardBehavior] {
-	return pulumix.Output[DashboardBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardBehaviorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -22197,12 +20739,6 @@ func (o DashboardBehaviorPtrOutput) ToDashboardBehaviorPtrOutput() DashboardBeha
 
 func (o DashboardBehaviorPtrOutput) ToDashboardBehaviorPtrOutputWithContext(ctx context.Context) DashboardBehaviorPtrOutput {
 	return o
-}
-
-func (o DashboardBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardBehavior] {
-	return pulumix.Output[*DashboardBehavior]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardBehaviorPtrOutput) Elem() DashboardBehaviorOutput {
@@ -22340,12 +20876,6 @@ func (o DashboardBoxPlotFillStyleOutput) ToDashboardBoxPlotFillStylePtrOutputWit
 	}).(DashboardBoxPlotFillStylePtrOutput)
 }
 
-func (o DashboardBoxPlotFillStyleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardBoxPlotFillStyle] {
-	return pulumix.Output[DashboardBoxPlotFillStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardBoxPlotFillStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -22379,12 +20909,6 @@ func (o DashboardBoxPlotFillStylePtrOutput) ToDashboardBoxPlotFillStylePtrOutput
 
 func (o DashboardBoxPlotFillStylePtrOutput) ToDashboardBoxPlotFillStylePtrOutputWithContext(ctx context.Context) DashboardBoxPlotFillStylePtrOutput {
 	return o
-}
-
-func (o DashboardBoxPlotFillStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardBoxPlotFillStyle] {
-	return pulumix.Output[*DashboardBoxPlotFillStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardBoxPlotFillStylePtrOutput) Elem() DashboardBoxPlotFillStyleOutput {
@@ -22522,12 +21046,6 @@ func (o DashboardCategoricalAggregationFunctionOutput) ToDashboardCategoricalAgg
 	}).(DashboardCategoricalAggregationFunctionPtrOutput)
 }
 
-func (o DashboardCategoricalAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardCategoricalAggregationFunction] {
-	return pulumix.Output[DashboardCategoricalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardCategoricalAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -22561,12 +21079,6 @@ func (o DashboardCategoricalAggregationFunctionPtrOutput) ToDashboardCategorical
 
 func (o DashboardCategoricalAggregationFunctionPtrOutput) ToDashboardCategoricalAggregationFunctionPtrOutputWithContext(ctx context.Context) DashboardCategoricalAggregationFunctionPtrOutput {
 	return o
-}
-
-func (o DashboardCategoricalAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardCategoricalAggregationFunction] {
-	return pulumix.Output[*DashboardCategoricalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardCategoricalAggregationFunctionPtrOutput) Elem() DashboardCategoricalAggregationFunctionOutput {
@@ -22708,12 +21220,6 @@ func (o DashboardCategoryFilterMatchOperatorOutput) ToDashboardCategoryFilterMat
 	}).(DashboardCategoryFilterMatchOperatorPtrOutput)
 }
 
-func (o DashboardCategoryFilterMatchOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardCategoryFilterMatchOperator] {
-	return pulumix.Output[DashboardCategoryFilterMatchOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardCategoryFilterMatchOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -22747,12 +21253,6 @@ func (o DashboardCategoryFilterMatchOperatorPtrOutput) ToDashboardCategoryFilter
 
 func (o DashboardCategoryFilterMatchOperatorPtrOutput) ToDashboardCategoryFilterMatchOperatorPtrOutputWithContext(ctx context.Context) DashboardCategoryFilterMatchOperatorPtrOutput {
 	return o
-}
-
-func (o DashboardCategoryFilterMatchOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardCategoryFilterMatchOperator] {
-	return pulumix.Output[*DashboardCategoryFilterMatchOperator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardCategoryFilterMatchOperatorPtrOutput) Elem() DashboardCategoryFilterMatchOperatorOutput {
@@ -22889,12 +21389,6 @@ func (o DashboardCategoryFilterSelectAllOptionsOutput) ToDashboardCategoryFilter
 	}).(DashboardCategoryFilterSelectAllOptionsPtrOutput)
 }
 
-func (o DashboardCategoryFilterSelectAllOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardCategoryFilterSelectAllOptions] {
-	return pulumix.Output[DashboardCategoryFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardCategoryFilterSelectAllOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -22928,12 +21422,6 @@ func (o DashboardCategoryFilterSelectAllOptionsPtrOutput) ToDashboardCategoryFil
 
 func (o DashboardCategoryFilterSelectAllOptionsPtrOutput) ToDashboardCategoryFilterSelectAllOptionsPtrOutputWithContext(ctx context.Context) DashboardCategoryFilterSelectAllOptionsPtrOutput {
 	return o
-}
-
-func (o DashboardCategoryFilterSelectAllOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardCategoryFilterSelectAllOptions] {
-	return pulumix.Output[*DashboardCategoryFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardCategoryFilterSelectAllOptionsPtrOutput) Elem() DashboardCategoryFilterSelectAllOptionsOutput {
@@ -23071,12 +21559,6 @@ func (o DashboardColorFillTypeOutput) ToDashboardColorFillTypePtrOutputWithConte
 	}).(DashboardColorFillTypePtrOutput)
 }
 
-func (o DashboardColorFillTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardColorFillType] {
-	return pulumix.Output[DashboardColorFillType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardColorFillTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -23110,12 +21592,6 @@ func (o DashboardColorFillTypePtrOutput) ToDashboardColorFillTypePtrOutput() Das
 
 func (o DashboardColorFillTypePtrOutput) ToDashboardColorFillTypePtrOutputWithContext(ctx context.Context) DashboardColorFillTypePtrOutput {
 	return o
-}
-
-func (o DashboardColorFillTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardColorFillType] {
-	return pulumix.Output[*DashboardColorFillType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardColorFillTypePtrOutput) Elem() DashboardColorFillTypeOutput {
@@ -23253,12 +21729,6 @@ func (o DashboardColumnRoleOutput) ToDashboardColumnRolePtrOutputWithContext(ctx
 	}).(DashboardColumnRolePtrOutput)
 }
 
-func (o DashboardColumnRoleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardColumnRole] {
-	return pulumix.Output[DashboardColumnRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardColumnRoleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -23292,12 +21762,6 @@ func (o DashboardColumnRolePtrOutput) ToDashboardColumnRolePtrOutput() Dashboard
 
 func (o DashboardColumnRolePtrOutput) ToDashboardColumnRolePtrOutputWithContext(ctx context.Context) DashboardColumnRolePtrOutput {
 	return o
-}
-
-func (o DashboardColumnRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardColumnRole] {
-	return pulumix.Output[*DashboardColumnRole]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardColumnRolePtrOutput) Elem() DashboardColumnRoleOutput {
@@ -23436,12 +21900,6 @@ func (o DashboardComparisonMethodOutput) ToDashboardComparisonMethodPtrOutputWit
 	}).(DashboardComparisonMethodPtrOutput)
 }
 
-func (o DashboardComparisonMethodOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardComparisonMethod] {
-	return pulumix.Output[DashboardComparisonMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardComparisonMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -23475,12 +21933,6 @@ func (o DashboardComparisonMethodPtrOutput) ToDashboardComparisonMethodPtrOutput
 
 func (o DashboardComparisonMethodPtrOutput) ToDashboardComparisonMethodPtrOutputWithContext(ctx context.Context) DashboardComparisonMethodPtrOutput {
 	return o
-}
-
-func (o DashboardComparisonMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardComparisonMethod] {
-	return pulumix.Output[*DashboardComparisonMethod]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardComparisonMethodPtrOutput) Elem() DashboardComparisonMethodOutput {
@@ -23617,12 +22069,6 @@ func (o DashboardConditionalFormattingIconDisplayOptionOutput) ToDashboardCondit
 	}).(DashboardConditionalFormattingIconDisplayOptionPtrOutput)
 }
 
-func (o DashboardConditionalFormattingIconDisplayOptionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardConditionalFormattingIconDisplayOption] {
-	return pulumix.Output[DashboardConditionalFormattingIconDisplayOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardConditionalFormattingIconDisplayOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -23656,12 +22102,6 @@ func (o DashboardConditionalFormattingIconDisplayOptionPtrOutput) ToDashboardCon
 
 func (o DashboardConditionalFormattingIconDisplayOptionPtrOutput) ToDashboardConditionalFormattingIconDisplayOptionPtrOutputWithContext(ctx context.Context) DashboardConditionalFormattingIconDisplayOptionPtrOutput {
 	return o
-}
-
-func (o DashboardConditionalFormattingIconDisplayOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardConditionalFormattingIconDisplayOption] {
-	return pulumix.Output[*DashboardConditionalFormattingIconDisplayOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardConditionalFormattingIconDisplayOptionPtrOutput) Elem() DashboardConditionalFormattingIconDisplayOptionOutput {
@@ -23808,12 +22248,6 @@ func (o DashboardConditionalFormattingIconSetTypeOutput) ToDashboardConditionalF
 	}).(DashboardConditionalFormattingIconSetTypePtrOutput)
 }
 
-func (o DashboardConditionalFormattingIconSetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardConditionalFormattingIconSetType] {
-	return pulumix.Output[DashboardConditionalFormattingIconSetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardConditionalFormattingIconSetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -23847,12 +22281,6 @@ func (o DashboardConditionalFormattingIconSetTypePtrOutput) ToDashboardCondition
 
 func (o DashboardConditionalFormattingIconSetTypePtrOutput) ToDashboardConditionalFormattingIconSetTypePtrOutputWithContext(ctx context.Context) DashboardConditionalFormattingIconSetTypePtrOutput {
 	return o
-}
-
-func (o DashboardConditionalFormattingIconSetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardConditionalFormattingIconSetType] {
-	return pulumix.Output[*DashboardConditionalFormattingIconSetType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardConditionalFormattingIconSetTypePtrOutput) Elem() DashboardConditionalFormattingIconSetTypeOutput {
@@ -23990,12 +22418,6 @@ func (o DashboardCrossDatasetTypesOutput) ToDashboardCrossDatasetTypesPtrOutputW
 	}).(DashboardCrossDatasetTypesPtrOutput)
 }
 
-func (o DashboardCrossDatasetTypesOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardCrossDatasetTypes] {
-	return pulumix.Output[DashboardCrossDatasetTypes]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardCrossDatasetTypesOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -24029,12 +22451,6 @@ func (o DashboardCrossDatasetTypesPtrOutput) ToDashboardCrossDatasetTypesPtrOutp
 
 func (o DashboardCrossDatasetTypesPtrOutput) ToDashboardCrossDatasetTypesPtrOutputWithContext(ctx context.Context) DashboardCrossDatasetTypesPtrOutput {
 	return o
-}
-
-func (o DashboardCrossDatasetTypesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardCrossDatasetTypes] {
-	return pulumix.Output[*DashboardCrossDatasetTypes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardCrossDatasetTypesPtrOutput) Elem() DashboardCrossDatasetTypesOutput {
@@ -24174,12 +22590,6 @@ func (o DashboardCustomContentImageScalingConfigurationOutput) ToDashboardCustom
 	}).(DashboardCustomContentImageScalingConfigurationPtrOutput)
 }
 
-func (o DashboardCustomContentImageScalingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardCustomContentImageScalingConfiguration] {
-	return pulumix.Output[DashboardCustomContentImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardCustomContentImageScalingConfigurationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -24213,12 +22623,6 @@ func (o DashboardCustomContentImageScalingConfigurationPtrOutput) ToDashboardCus
 
 func (o DashboardCustomContentImageScalingConfigurationPtrOutput) ToDashboardCustomContentImageScalingConfigurationPtrOutputWithContext(ctx context.Context) DashboardCustomContentImageScalingConfigurationPtrOutput {
 	return o
-}
-
-func (o DashboardCustomContentImageScalingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardCustomContentImageScalingConfiguration] {
-	return pulumix.Output[*DashboardCustomContentImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardCustomContentImageScalingConfigurationPtrOutput) Elem() DashboardCustomContentImageScalingConfigurationOutput {
@@ -24356,12 +22760,6 @@ func (o DashboardCustomContentTypeOutput) ToDashboardCustomContentTypePtrOutputW
 	}).(DashboardCustomContentTypePtrOutput)
 }
 
-func (o DashboardCustomContentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardCustomContentType] {
-	return pulumix.Output[DashboardCustomContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardCustomContentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -24395,12 +22793,6 @@ func (o DashboardCustomContentTypePtrOutput) ToDashboardCustomContentTypePtrOutp
 
 func (o DashboardCustomContentTypePtrOutput) ToDashboardCustomContentTypePtrOutputWithContext(ctx context.Context) DashboardCustomContentTypePtrOutput {
 	return o
-}
-
-func (o DashboardCustomContentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardCustomContentType] {
-	return pulumix.Output[*DashboardCustomContentType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardCustomContentTypePtrOutput) Elem() DashboardCustomContentTypeOutput {
@@ -24539,12 +22931,6 @@ func (o DashboardDataLabelContentOutput) ToDashboardDataLabelContentPtrOutputWit
 	}).(DashboardDataLabelContentPtrOutput)
 }
 
-func (o DashboardDataLabelContentOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardDataLabelContent] {
-	return pulumix.Output[DashboardDataLabelContent]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardDataLabelContentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -24578,12 +22964,6 @@ func (o DashboardDataLabelContentPtrOutput) ToDashboardDataLabelContentPtrOutput
 
 func (o DashboardDataLabelContentPtrOutput) ToDashboardDataLabelContentPtrOutputWithContext(ctx context.Context) DashboardDataLabelContentPtrOutput {
 	return o
-}
-
-func (o DashboardDataLabelContentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardDataLabelContent] {
-	return pulumix.Output[*DashboardDataLabelContent]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardDataLabelContentPtrOutput) Elem() DashboardDataLabelContentOutput {
@@ -24721,12 +23101,6 @@ func (o DashboardDataLabelOverlapOutput) ToDashboardDataLabelOverlapPtrOutputWit
 	}).(DashboardDataLabelOverlapPtrOutput)
 }
 
-func (o DashboardDataLabelOverlapOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardDataLabelOverlap] {
-	return pulumix.Output[DashboardDataLabelOverlap]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardDataLabelOverlapOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -24760,12 +23134,6 @@ func (o DashboardDataLabelOverlapPtrOutput) ToDashboardDataLabelOverlapPtrOutput
 
 func (o DashboardDataLabelOverlapPtrOutput) ToDashboardDataLabelOverlapPtrOutputWithContext(ctx context.Context) DashboardDataLabelOverlapPtrOutput {
 	return o
-}
-
-func (o DashboardDataLabelOverlapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardDataLabelOverlap] {
-	return pulumix.Output[*DashboardDataLabelOverlap]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardDataLabelOverlapPtrOutput) Elem() DashboardDataLabelOverlapOutput {
@@ -24907,12 +23275,6 @@ func (o DashboardDataLabelPositionOutput) ToDashboardDataLabelPositionPtrOutputW
 	}).(DashboardDataLabelPositionPtrOutput)
 }
 
-func (o DashboardDataLabelPositionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardDataLabelPosition] {
-	return pulumix.Output[DashboardDataLabelPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardDataLabelPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -24946,12 +23308,6 @@ func (o DashboardDataLabelPositionPtrOutput) ToDashboardDataLabelPositionPtrOutp
 
 func (o DashboardDataLabelPositionPtrOutput) ToDashboardDataLabelPositionPtrOutputWithContext(ctx context.Context) DashboardDataLabelPositionPtrOutput {
 	return o
-}
-
-func (o DashboardDataLabelPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardDataLabelPosition] {
-	return pulumix.Output[*DashboardDataLabelPosition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardDataLabelPositionPtrOutput) Elem() DashboardDataLabelPositionOutput {
@@ -25091,12 +23447,6 @@ func (o DashboardDateAggregationFunctionOutput) ToDashboardDateAggregationFuncti
 	}).(DashboardDateAggregationFunctionPtrOutput)
 }
 
-func (o DashboardDateAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardDateAggregationFunction] {
-	return pulumix.Output[DashboardDateAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardDateAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -25130,12 +23480,6 @@ func (o DashboardDateAggregationFunctionPtrOutput) ToDashboardDateAggregationFun
 
 func (o DashboardDateAggregationFunctionPtrOutput) ToDashboardDateAggregationFunctionPtrOutputWithContext(ctx context.Context) DashboardDateAggregationFunctionPtrOutput {
 	return o
-}
-
-func (o DashboardDateAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardDateAggregationFunction] {
-	return pulumix.Output[*DashboardDateAggregationFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardDateAggregationFunctionPtrOutput) Elem() DashboardDateAggregationFunctionOutput {
@@ -25245,12 +23589,6 @@ func (o DashboardErrorTypeOutput) ToDashboardErrorTypePtrOutputWithContext(ctx c
 	}).(DashboardErrorTypePtrOutput)
 }
 
-func (o DashboardErrorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardErrorType] {
-	return pulumix.Output[DashboardErrorType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardErrorTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -25284,12 +23622,6 @@ func (o DashboardErrorTypePtrOutput) ToDashboardErrorTypePtrOutput() DashboardEr
 
 func (o DashboardErrorTypePtrOutput) ToDashboardErrorTypePtrOutputWithContext(ctx context.Context) DashboardErrorTypePtrOutput {
 	return o
-}
-
-func (o DashboardErrorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardErrorType] {
-	return pulumix.Output[*DashboardErrorType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardErrorTypePtrOutput) Elem() DashboardErrorTypeOutput {
@@ -25384,12 +23716,6 @@ func (o DashboardFilterNullOptionOutput) ToDashboardFilterNullOptionPtrOutputWit
 	}).(DashboardFilterNullOptionPtrOutput)
 }
 
-func (o DashboardFilterNullOptionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardFilterNullOption] {
-	return pulumix.Output[DashboardFilterNullOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardFilterNullOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -25423,12 +23749,6 @@ func (o DashboardFilterNullOptionPtrOutput) ToDashboardFilterNullOptionPtrOutput
 
 func (o DashboardFilterNullOptionPtrOutput) ToDashboardFilterNullOptionPtrOutputWithContext(ctx context.Context) DashboardFilterNullOptionPtrOutput {
 	return o
-}
-
-func (o DashboardFilterNullOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardFilterNullOption] {
-	return pulumix.Output[*DashboardFilterNullOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardFilterNullOptionPtrOutput) Elem() DashboardFilterNullOptionOutput {
@@ -25566,12 +23886,6 @@ func (o DashboardFilterVisualScopeOutput) ToDashboardFilterVisualScopePtrOutputW
 	}).(DashboardFilterVisualScopePtrOutput)
 }
 
-func (o DashboardFilterVisualScopeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardFilterVisualScope] {
-	return pulumix.Output[DashboardFilterVisualScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardFilterVisualScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -25605,12 +23919,6 @@ func (o DashboardFilterVisualScopePtrOutput) ToDashboardFilterVisualScopePtrOutp
 
 func (o DashboardFilterVisualScopePtrOutput) ToDashboardFilterVisualScopePtrOutputWithContext(ctx context.Context) DashboardFilterVisualScopePtrOutput {
 	return o
-}
-
-func (o DashboardFilterVisualScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardFilterVisualScope] {
-	return pulumix.Output[*DashboardFilterVisualScope]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardFilterVisualScopePtrOutput) Elem() DashboardFilterVisualScopeOutput {
@@ -25748,12 +24056,6 @@ func (o DashboardFontDecorationOutput) ToDashboardFontDecorationPtrOutputWithCon
 	}).(DashboardFontDecorationPtrOutput)
 }
 
-func (o DashboardFontDecorationOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardFontDecoration] {
-	return pulumix.Output[DashboardFontDecoration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardFontDecorationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -25787,12 +24089,6 @@ func (o DashboardFontDecorationPtrOutput) ToDashboardFontDecorationPtrOutput() D
 
 func (o DashboardFontDecorationPtrOutput) ToDashboardFontDecorationPtrOutputWithContext(ctx context.Context) DashboardFontDecorationPtrOutput {
 	return o
-}
-
-func (o DashboardFontDecorationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardFontDecoration] {
-	return pulumix.Output[*DashboardFontDecoration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardFontDecorationPtrOutput) Elem() DashboardFontDecorationOutput {
@@ -25930,12 +24226,6 @@ func (o DashboardFontStyleOutput) ToDashboardFontStylePtrOutputWithContext(ctx c
 	}).(DashboardFontStylePtrOutput)
 }
 
-func (o DashboardFontStyleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardFontStyle] {
-	return pulumix.Output[DashboardFontStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardFontStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -25969,12 +24259,6 @@ func (o DashboardFontStylePtrOutput) ToDashboardFontStylePtrOutput() DashboardFo
 
 func (o DashboardFontStylePtrOutput) ToDashboardFontStylePtrOutputWithContext(ctx context.Context) DashboardFontStylePtrOutput {
 	return o
-}
-
-func (o DashboardFontStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardFontStyle] {
-	return pulumix.Output[*DashboardFontStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardFontStylePtrOutput) Elem() DashboardFontStyleOutput {
@@ -26112,12 +24396,6 @@ func (o DashboardFontWeightNameOutput) ToDashboardFontWeightNamePtrOutputWithCon
 	}).(DashboardFontWeightNamePtrOutput)
 }
 
-func (o DashboardFontWeightNameOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardFontWeightName] {
-	return pulumix.Output[DashboardFontWeightName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardFontWeightNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -26151,12 +24429,6 @@ func (o DashboardFontWeightNamePtrOutput) ToDashboardFontWeightNamePtrOutput() D
 
 func (o DashboardFontWeightNamePtrOutput) ToDashboardFontWeightNamePtrOutputWithContext(ctx context.Context) DashboardFontWeightNamePtrOutput {
 	return o
-}
-
-func (o DashboardFontWeightNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardFontWeightName] {
-	return pulumix.Output[*DashboardFontWeightName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardFontWeightNamePtrOutput) Elem() DashboardFontWeightNameOutput {
@@ -26294,12 +24566,6 @@ func (o DashboardForecastComputationSeasonalityOutput) ToDashboardForecastComput
 	}).(DashboardForecastComputationSeasonalityPtrOutput)
 }
 
-func (o DashboardForecastComputationSeasonalityOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardForecastComputationSeasonality] {
-	return pulumix.Output[DashboardForecastComputationSeasonality]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardForecastComputationSeasonalityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -26333,12 +24599,6 @@ func (o DashboardForecastComputationSeasonalityPtrOutput) ToDashboardForecastCom
 
 func (o DashboardForecastComputationSeasonalityPtrOutput) ToDashboardForecastComputationSeasonalityPtrOutputWithContext(ctx context.Context) DashboardForecastComputationSeasonalityPtrOutput {
 	return o
-}
-
-func (o DashboardForecastComputationSeasonalityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardForecastComputationSeasonality] {
-	return pulumix.Output[*DashboardForecastComputationSeasonality]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardForecastComputationSeasonalityPtrOutput) Elem() DashboardForecastComputationSeasonalityOutput {
@@ -26479,12 +24739,6 @@ func (o DashboardFunnelChartMeasureDataLabelStyleOutput) ToDashboardFunnelChartM
 	}).(DashboardFunnelChartMeasureDataLabelStylePtrOutput)
 }
 
-func (o DashboardFunnelChartMeasureDataLabelStyleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardFunnelChartMeasureDataLabelStyle] {
-	return pulumix.Output[DashboardFunnelChartMeasureDataLabelStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardFunnelChartMeasureDataLabelStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -26518,12 +24772,6 @@ func (o DashboardFunnelChartMeasureDataLabelStylePtrOutput) ToDashboardFunnelCha
 
 func (o DashboardFunnelChartMeasureDataLabelStylePtrOutput) ToDashboardFunnelChartMeasureDataLabelStylePtrOutputWithContext(ctx context.Context) DashboardFunnelChartMeasureDataLabelStylePtrOutput {
 	return o
-}
-
-func (o DashboardFunnelChartMeasureDataLabelStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardFunnelChartMeasureDataLabelStyle] {
-	return pulumix.Output[*DashboardFunnelChartMeasureDataLabelStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardFunnelChartMeasureDataLabelStylePtrOutput) Elem() DashboardFunnelChartMeasureDataLabelStyleOutput {
@@ -26662,12 +24910,6 @@ func (o DashboardGeospatialSelectedPointStyleOutput) ToDashboardGeospatialSelect
 	}).(DashboardGeospatialSelectedPointStylePtrOutput)
 }
 
-func (o DashboardGeospatialSelectedPointStyleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardGeospatialSelectedPointStyle] {
-	return pulumix.Output[DashboardGeospatialSelectedPointStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardGeospatialSelectedPointStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -26701,12 +24943,6 @@ func (o DashboardGeospatialSelectedPointStylePtrOutput) ToDashboardGeospatialSel
 
 func (o DashboardGeospatialSelectedPointStylePtrOutput) ToDashboardGeospatialSelectedPointStylePtrOutputWithContext(ctx context.Context) DashboardGeospatialSelectedPointStylePtrOutput {
 	return o
-}
-
-func (o DashboardGeospatialSelectedPointStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardGeospatialSelectedPointStyle] {
-	return pulumix.Output[*DashboardGeospatialSelectedPointStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardGeospatialSelectedPointStylePtrOutput) Elem() DashboardGeospatialSelectedPointStyleOutput {
@@ -26844,12 +25080,6 @@ func (o DashboardHistogramBinTypeOutput) ToDashboardHistogramBinTypePtrOutputWit
 	}).(DashboardHistogramBinTypePtrOutput)
 }
 
-func (o DashboardHistogramBinTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardHistogramBinType] {
-	return pulumix.Output[DashboardHistogramBinType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardHistogramBinTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -26883,12 +25113,6 @@ func (o DashboardHistogramBinTypePtrOutput) ToDashboardHistogramBinTypePtrOutput
 
 func (o DashboardHistogramBinTypePtrOutput) ToDashboardHistogramBinTypePtrOutputWithContext(ctx context.Context) DashboardHistogramBinTypePtrOutput {
 	return o
-}
-
-func (o DashboardHistogramBinTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardHistogramBinType] {
-	return pulumix.Output[*DashboardHistogramBinType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardHistogramBinTypePtrOutput) Elem() DashboardHistogramBinTypeOutput {
@@ -27028,12 +25252,6 @@ func (o DashboardHorizontalTextAlignmentOutput) ToDashboardHorizontalTextAlignme
 	}).(DashboardHorizontalTextAlignmentPtrOutput)
 }
 
-func (o DashboardHorizontalTextAlignmentOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardHorizontalTextAlignment] {
-	return pulumix.Output[DashboardHorizontalTextAlignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardHorizontalTextAlignmentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -27067,12 +25285,6 @@ func (o DashboardHorizontalTextAlignmentPtrOutput) ToDashboardHorizontalTextAlig
 
 func (o DashboardHorizontalTextAlignmentPtrOutput) ToDashboardHorizontalTextAlignmentPtrOutputWithContext(ctx context.Context) DashboardHorizontalTextAlignmentPtrOutput {
 	return o
-}
-
-func (o DashboardHorizontalTextAlignmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardHorizontalTextAlignment] {
-	return pulumix.Output[*DashboardHorizontalTextAlignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardHorizontalTextAlignmentPtrOutput) Elem() DashboardHorizontalTextAlignmentOutput {
@@ -27234,12 +25446,6 @@ func (o DashboardIconOutput) ToDashboardIconPtrOutputWithContext(ctx context.Con
 	}).(DashboardIconPtrOutput)
 }
 
-func (o DashboardIconOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardIcon] {
-	return pulumix.Output[DashboardIcon]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardIconOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -27273,12 +25479,6 @@ func (o DashboardIconPtrOutput) ToDashboardIconPtrOutput() DashboardIconPtrOutpu
 
 func (o DashboardIconPtrOutput) ToDashboardIconPtrOutputWithContext(ctx context.Context) DashboardIconPtrOutput {
 	return o
-}
-
-func (o DashboardIconPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardIcon] {
-	return pulumix.Output[*DashboardIcon]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardIconPtrOutput) Elem() DashboardIconOutput {
@@ -27416,12 +25616,6 @@ func (o DashboardKpiSparklineTypeOutput) ToDashboardKpiSparklineTypePtrOutputWit
 	}).(DashboardKpiSparklineTypePtrOutput)
 }
 
-func (o DashboardKpiSparklineTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardKpiSparklineType] {
-	return pulumix.Output[DashboardKpiSparklineType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardKpiSparklineTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -27455,12 +25649,6 @@ func (o DashboardKpiSparklineTypePtrOutput) ToDashboardKpiSparklineTypePtrOutput
 
 func (o DashboardKpiSparklineTypePtrOutput) ToDashboardKpiSparklineTypePtrOutputWithContext(ctx context.Context) DashboardKpiSparklineTypePtrOutput {
 	return o
-}
-
-func (o DashboardKpiSparklineTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardKpiSparklineType] {
-	return pulumix.Output[*DashboardKpiSparklineType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardKpiSparklineTypePtrOutput) Elem() DashboardKpiSparklineTypeOutput {
@@ -27598,12 +25786,6 @@ func (o DashboardKpiVisualStandardLayoutTypeOutput) ToDashboardKpiVisualStandard
 	}).(DashboardKpiVisualStandardLayoutTypePtrOutput)
 }
 
-func (o DashboardKpiVisualStandardLayoutTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardKpiVisualStandardLayoutType] {
-	return pulumix.Output[DashboardKpiVisualStandardLayoutType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardKpiVisualStandardLayoutTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -27637,12 +25819,6 @@ func (o DashboardKpiVisualStandardLayoutTypePtrOutput) ToDashboardKpiVisualStand
 
 func (o DashboardKpiVisualStandardLayoutTypePtrOutput) ToDashboardKpiVisualStandardLayoutTypePtrOutputWithContext(ctx context.Context) DashboardKpiVisualStandardLayoutTypePtrOutput {
 	return o
-}
-
-func (o DashboardKpiVisualStandardLayoutTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardKpiVisualStandardLayoutType] {
-	return pulumix.Output[*DashboardKpiVisualStandardLayoutType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardKpiVisualStandardLayoutTypePtrOutput) Elem() DashboardKpiVisualStandardLayoutTypeOutput {
@@ -27782,12 +25958,6 @@ func (o DashboardLayoutElementTypeOutput) ToDashboardLayoutElementTypePtrOutputW
 	}).(DashboardLayoutElementTypePtrOutput)
 }
 
-func (o DashboardLayoutElementTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardLayoutElementType] {
-	return pulumix.Output[DashboardLayoutElementType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardLayoutElementTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -27821,12 +25991,6 @@ func (o DashboardLayoutElementTypePtrOutput) ToDashboardLayoutElementTypePtrOutp
 
 func (o DashboardLayoutElementTypePtrOutput) ToDashboardLayoutElementTypePtrOutputWithContext(ctx context.Context) DashboardLayoutElementTypePtrOutput {
 	return o
-}
-
-func (o DashboardLayoutElementTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardLayoutElementType] {
-	return pulumix.Output[*DashboardLayoutElementType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardLayoutElementTypePtrOutput) Elem() DashboardLayoutElementTypeOutput {
@@ -27966,12 +26130,6 @@ func (o DashboardLegendPositionOutput) ToDashboardLegendPositionPtrOutputWithCon
 	}).(DashboardLegendPositionPtrOutput)
 }
 
-func (o DashboardLegendPositionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardLegendPosition] {
-	return pulumix.Output[DashboardLegendPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardLegendPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -28005,12 +26163,6 @@ func (o DashboardLegendPositionPtrOutput) ToDashboardLegendPositionPtrOutput() D
 
 func (o DashboardLegendPositionPtrOutput) ToDashboardLegendPositionPtrOutputWithContext(ctx context.Context) DashboardLegendPositionPtrOutput {
 	return o
-}
-
-func (o DashboardLegendPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardLegendPosition] {
-	return pulumix.Output[*DashboardLegendPosition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardLegendPositionPtrOutput) Elem() DashboardLegendPositionOutput {
@@ -28149,12 +26301,6 @@ func (o DashboardLineChartLineStyleOutput) ToDashboardLineChartLineStylePtrOutpu
 	}).(DashboardLineChartLineStylePtrOutput)
 }
 
-func (o DashboardLineChartLineStyleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardLineChartLineStyle] {
-	return pulumix.Output[DashboardLineChartLineStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardLineChartLineStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -28188,12 +26334,6 @@ func (o DashboardLineChartLineStylePtrOutput) ToDashboardLineChartLineStylePtrOu
 
 func (o DashboardLineChartLineStylePtrOutput) ToDashboardLineChartLineStylePtrOutputWithContext(ctx context.Context) DashboardLineChartLineStylePtrOutput {
 	return o
-}
-
-func (o DashboardLineChartLineStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardLineChartLineStyle] {
-	return pulumix.Output[*DashboardLineChartLineStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardLineChartLineStylePtrOutput) Elem() DashboardLineChartLineStyleOutput {
@@ -28334,12 +26474,6 @@ func (o DashboardLineChartMarkerShapeOutput) ToDashboardLineChartMarkerShapePtrO
 	}).(DashboardLineChartMarkerShapePtrOutput)
 }
 
-func (o DashboardLineChartMarkerShapeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardLineChartMarkerShape] {
-	return pulumix.Output[DashboardLineChartMarkerShape]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardLineChartMarkerShapeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -28373,12 +26507,6 @@ func (o DashboardLineChartMarkerShapePtrOutput) ToDashboardLineChartMarkerShapeP
 
 func (o DashboardLineChartMarkerShapePtrOutput) ToDashboardLineChartMarkerShapePtrOutputWithContext(ctx context.Context) DashboardLineChartMarkerShapePtrOutput {
 	return o
-}
-
-func (o DashboardLineChartMarkerShapePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardLineChartMarkerShape] {
-	return pulumix.Output[*DashboardLineChartMarkerShape]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardLineChartMarkerShapePtrOutput) Elem() DashboardLineChartMarkerShapeOutput {
@@ -28517,12 +26645,6 @@ func (o DashboardLineChartTypeOutput) ToDashboardLineChartTypePtrOutputWithConte
 	}).(DashboardLineChartTypePtrOutput)
 }
 
-func (o DashboardLineChartTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardLineChartType] {
-	return pulumix.Output[DashboardLineChartType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardLineChartTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -28556,12 +26678,6 @@ func (o DashboardLineChartTypePtrOutput) ToDashboardLineChartTypePtrOutput() Das
 
 func (o DashboardLineChartTypePtrOutput) ToDashboardLineChartTypePtrOutputWithContext(ctx context.Context) DashboardLineChartTypePtrOutput {
 	return o
-}
-
-func (o DashboardLineChartTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardLineChartType] {
-	return pulumix.Output[*DashboardLineChartType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardLineChartTypePtrOutput) Elem() DashboardLineChartTypeOutput {
@@ -28700,12 +26816,6 @@ func (o DashboardLineInterpolationOutput) ToDashboardLineInterpolationPtrOutputW
 	}).(DashboardLineInterpolationPtrOutput)
 }
 
-func (o DashboardLineInterpolationOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardLineInterpolation] {
-	return pulumix.Output[DashboardLineInterpolation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardLineInterpolationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -28739,12 +26849,6 @@ func (o DashboardLineInterpolationPtrOutput) ToDashboardLineInterpolationPtrOutp
 
 func (o DashboardLineInterpolationPtrOutput) ToDashboardLineInterpolationPtrOutputWithContext(ctx context.Context) DashboardLineInterpolationPtrOutput {
 	return o
-}
-
-func (o DashboardLineInterpolationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardLineInterpolation] {
-	return pulumix.Output[*DashboardLineInterpolation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardLineInterpolationPtrOutput) Elem() DashboardLineInterpolationOutput {
@@ -28882,12 +26986,6 @@ func (o DashboardMapZoomModeOutput) ToDashboardMapZoomModePtrOutputWithContext(c
 	}).(DashboardMapZoomModePtrOutput)
 }
 
-func (o DashboardMapZoomModeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardMapZoomMode] {
-	return pulumix.Output[DashboardMapZoomMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardMapZoomModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -28921,12 +27019,6 @@ func (o DashboardMapZoomModePtrOutput) ToDashboardMapZoomModePtrOutput() Dashboa
 
 func (o DashboardMapZoomModePtrOutput) ToDashboardMapZoomModePtrOutputWithContext(ctx context.Context) DashboardMapZoomModePtrOutput {
 	return o
-}
-
-func (o DashboardMapZoomModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardMapZoomMode] {
-	return pulumix.Output[*DashboardMapZoomMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardMapZoomModePtrOutput) Elem() DashboardMapZoomModeOutput {
@@ -29064,12 +27156,6 @@ func (o DashboardMaximumMinimumComputationTypeOutput) ToDashboardMaximumMinimumC
 	}).(DashboardMaximumMinimumComputationTypePtrOutput)
 }
 
-func (o DashboardMaximumMinimumComputationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardMaximumMinimumComputationType] {
-	return pulumix.Output[DashboardMaximumMinimumComputationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardMaximumMinimumComputationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -29103,12 +27189,6 @@ func (o DashboardMaximumMinimumComputationTypePtrOutput) ToDashboardMaximumMinim
 
 func (o DashboardMaximumMinimumComputationTypePtrOutput) ToDashboardMaximumMinimumComputationTypePtrOutputWithContext(ctx context.Context) DashboardMaximumMinimumComputationTypePtrOutput {
 	return o
-}
-
-func (o DashboardMaximumMinimumComputationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardMaximumMinimumComputationType] {
-	return pulumix.Output[*DashboardMaximumMinimumComputationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardMaximumMinimumComputationTypePtrOutput) Elem() DashboardMaximumMinimumComputationTypeOutput {
@@ -29247,12 +27327,6 @@ func (o DashboardMissingDataTreatmentOptionOutput) ToDashboardMissingDataTreatme
 	}).(DashboardMissingDataTreatmentOptionPtrOutput)
 }
 
-func (o DashboardMissingDataTreatmentOptionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardMissingDataTreatmentOption] {
-	return pulumix.Output[DashboardMissingDataTreatmentOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardMissingDataTreatmentOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -29286,12 +27360,6 @@ func (o DashboardMissingDataTreatmentOptionPtrOutput) ToDashboardMissingDataTrea
 
 func (o DashboardMissingDataTreatmentOptionPtrOutput) ToDashboardMissingDataTreatmentOptionPtrOutputWithContext(ctx context.Context) DashboardMissingDataTreatmentOptionPtrOutput {
 	return o
-}
-
-func (o DashboardMissingDataTreatmentOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardMissingDataTreatmentOption] {
-	return pulumix.Output[*DashboardMissingDataTreatmentOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardMissingDataTreatmentOptionPtrOutput) Elem() DashboardMissingDataTreatmentOptionOutput {
@@ -29429,12 +27497,6 @@ func (o DashboardNegativeValueDisplayModeOutput) ToDashboardNegativeValueDisplay
 	}).(DashboardNegativeValueDisplayModePtrOutput)
 }
 
-func (o DashboardNegativeValueDisplayModeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardNegativeValueDisplayMode] {
-	return pulumix.Output[DashboardNegativeValueDisplayMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardNegativeValueDisplayModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -29468,12 +27530,6 @@ func (o DashboardNegativeValueDisplayModePtrOutput) ToDashboardNegativeValueDisp
 
 func (o DashboardNegativeValueDisplayModePtrOutput) ToDashboardNegativeValueDisplayModePtrOutputWithContext(ctx context.Context) DashboardNegativeValueDisplayModePtrOutput {
 	return o
-}
-
-func (o DashboardNegativeValueDisplayModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardNegativeValueDisplayMode] {
-	return pulumix.Output[*DashboardNegativeValueDisplayMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardNegativeValueDisplayModePtrOutput) Elem() DashboardNegativeValueDisplayModeOutput {
@@ -29615,12 +27671,6 @@ func (o DashboardNumberScaleOutput) ToDashboardNumberScalePtrOutputWithContext(c
 	}).(DashboardNumberScalePtrOutput)
 }
 
-func (o DashboardNumberScaleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardNumberScale] {
-	return pulumix.Output[DashboardNumberScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardNumberScaleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -29654,12 +27704,6 @@ func (o DashboardNumberScalePtrOutput) ToDashboardNumberScalePtrOutput() Dashboa
 
 func (o DashboardNumberScalePtrOutput) ToDashboardNumberScalePtrOutputWithContext(ctx context.Context) DashboardNumberScalePtrOutput {
 	return o
-}
-
-func (o DashboardNumberScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardNumberScale] {
-	return pulumix.Output[*DashboardNumberScale]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardNumberScalePtrOutput) Elem() DashboardNumberScaleOutput {
@@ -29797,12 +27841,6 @@ func (o DashboardNumericEqualityMatchOperatorOutput) ToDashboardNumericEqualityM
 	}).(DashboardNumericEqualityMatchOperatorPtrOutput)
 }
 
-func (o DashboardNumericEqualityMatchOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardNumericEqualityMatchOperator] {
-	return pulumix.Output[DashboardNumericEqualityMatchOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardNumericEqualityMatchOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -29836,12 +27874,6 @@ func (o DashboardNumericEqualityMatchOperatorPtrOutput) ToDashboardNumericEquali
 
 func (o DashboardNumericEqualityMatchOperatorPtrOutput) ToDashboardNumericEqualityMatchOperatorPtrOutputWithContext(ctx context.Context) DashboardNumericEqualityMatchOperatorPtrOutput {
 	return o
-}
-
-func (o DashboardNumericEqualityMatchOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardNumericEqualityMatchOperator] {
-	return pulumix.Output[*DashboardNumericEqualityMatchOperator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardNumericEqualityMatchOperatorPtrOutput) Elem() DashboardNumericEqualityMatchOperatorOutput {
@@ -29978,12 +28010,6 @@ func (o DashboardNumericFilterSelectAllOptionsOutput) ToDashboardNumericFilterSe
 	}).(DashboardNumericFilterSelectAllOptionsPtrOutput)
 }
 
-func (o DashboardNumericFilterSelectAllOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardNumericFilterSelectAllOptions] {
-	return pulumix.Output[DashboardNumericFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardNumericFilterSelectAllOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -30017,12 +28043,6 @@ func (o DashboardNumericFilterSelectAllOptionsPtrOutput) ToDashboardNumericFilte
 
 func (o DashboardNumericFilterSelectAllOptionsPtrOutput) ToDashboardNumericFilterSelectAllOptionsPtrOutputWithContext(ctx context.Context) DashboardNumericFilterSelectAllOptionsPtrOutput {
 	return o
-}
-
-func (o DashboardNumericFilterSelectAllOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardNumericFilterSelectAllOptions] {
-	return pulumix.Output[*DashboardNumericFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardNumericFilterSelectAllOptionsPtrOutput) Elem() DashboardNumericFilterSelectAllOptionsOutput {
@@ -30161,12 +28181,6 @@ func (o DashboardNumericSeparatorSymbolOutput) ToDashboardNumericSeparatorSymbol
 	}).(DashboardNumericSeparatorSymbolPtrOutput)
 }
 
-func (o DashboardNumericSeparatorSymbolOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardNumericSeparatorSymbol] {
-	return pulumix.Output[DashboardNumericSeparatorSymbol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardNumericSeparatorSymbolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -30200,12 +28214,6 @@ func (o DashboardNumericSeparatorSymbolPtrOutput) ToDashboardNumericSeparatorSym
 
 func (o DashboardNumericSeparatorSymbolPtrOutput) ToDashboardNumericSeparatorSymbolPtrOutputWithContext(ctx context.Context) DashboardNumericSeparatorSymbolPtrOutput {
 	return o
-}
-
-func (o DashboardNumericSeparatorSymbolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardNumericSeparatorSymbol] {
-	return pulumix.Output[*DashboardNumericSeparatorSymbol]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardNumericSeparatorSymbolPtrOutput) Elem() DashboardNumericSeparatorSymbolOutput {
@@ -30343,12 +28351,6 @@ func (o DashboardOtherCategoriesOutput) ToDashboardOtherCategoriesPtrOutputWithC
 	}).(DashboardOtherCategoriesPtrOutput)
 }
 
-func (o DashboardOtherCategoriesOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardOtherCategories] {
-	return pulumix.Output[DashboardOtherCategories]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardOtherCategoriesOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -30382,12 +28384,6 @@ func (o DashboardOtherCategoriesPtrOutput) ToDashboardOtherCategoriesPtrOutput()
 
 func (o DashboardOtherCategoriesPtrOutput) ToDashboardOtherCategoriesPtrOutputWithContext(ctx context.Context) DashboardOtherCategoriesPtrOutput {
 	return o
-}
-
-func (o DashboardOtherCategoriesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardOtherCategories] {
-	return pulumix.Output[*DashboardOtherCategories]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardOtherCategoriesPtrOutput) Elem() DashboardOtherCategoriesOutput {
@@ -30526,12 +28522,6 @@ func (o DashboardPanelBorderStyleOutput) ToDashboardPanelBorderStylePtrOutputWit
 	}).(DashboardPanelBorderStylePtrOutput)
 }
 
-func (o DashboardPanelBorderStyleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardPanelBorderStyle] {
-	return pulumix.Output[DashboardPanelBorderStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPanelBorderStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -30565,12 +28555,6 @@ func (o DashboardPanelBorderStylePtrOutput) ToDashboardPanelBorderStylePtrOutput
 
 func (o DashboardPanelBorderStylePtrOutput) ToDashboardPanelBorderStylePtrOutputWithContext(ctx context.Context) DashboardPanelBorderStylePtrOutput {
 	return o
-}
-
-func (o DashboardPanelBorderStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardPanelBorderStyle] {
-	return pulumix.Output[*DashboardPanelBorderStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardPanelBorderStylePtrOutput) Elem() DashboardPanelBorderStyleOutput {
@@ -30708,12 +28692,6 @@ func (o DashboardPaperOrientationOutput) ToDashboardPaperOrientationPtrOutputWit
 	}).(DashboardPaperOrientationPtrOutput)
 }
 
-func (o DashboardPaperOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardPaperOrientation] {
-	return pulumix.Output[DashboardPaperOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPaperOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -30747,12 +28725,6 @@ func (o DashboardPaperOrientationPtrOutput) ToDashboardPaperOrientationPtrOutput
 
 func (o DashboardPaperOrientationPtrOutput) ToDashboardPaperOrientationPtrOutputWithContext(ctx context.Context) DashboardPaperOrientationPtrOutput {
 	return o
-}
-
-func (o DashboardPaperOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardPaperOrientation] {
-	return pulumix.Output[*DashboardPaperOrientation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardPaperOrientationPtrOutput) Elem() DashboardPaperOrientationOutput {
@@ -30899,12 +28871,6 @@ func (o DashboardPaperSizeOutput) ToDashboardPaperSizePtrOutputWithContext(ctx c
 	}).(DashboardPaperSizePtrOutput)
 }
 
-func (o DashboardPaperSizeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardPaperSize] {
-	return pulumix.Output[DashboardPaperSize]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPaperSizeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -30938,12 +28904,6 @@ func (o DashboardPaperSizePtrOutput) ToDashboardPaperSizePtrOutput() DashboardPa
 
 func (o DashboardPaperSizePtrOutput) ToDashboardPaperSizePtrOutputWithContext(ctx context.Context) DashboardPaperSizePtrOutput {
 	return o
-}
-
-func (o DashboardPaperSizePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardPaperSize] {
-	return pulumix.Output[*DashboardPaperSize]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardPaperSizePtrOutput) Elem() DashboardPaperSizeOutput {
@@ -31081,12 +29041,6 @@ func (o DashboardParameterValueTypeOutput) ToDashboardParameterValueTypePtrOutpu
 	}).(DashboardParameterValueTypePtrOutput)
 }
 
-func (o DashboardParameterValueTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardParameterValueType] {
-	return pulumix.Output[DashboardParameterValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardParameterValueTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -31120,12 +29074,6 @@ func (o DashboardParameterValueTypePtrOutput) ToDashboardParameterValueTypePtrOu
 
 func (o DashboardParameterValueTypePtrOutput) ToDashboardParameterValueTypePtrOutputWithContext(ctx context.Context) DashboardParameterValueTypePtrOutput {
 	return o
-}
-
-func (o DashboardParameterValueTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardParameterValueType] {
-	return pulumix.Output[*DashboardParameterValueType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardParameterValueTypePtrOutput) Elem() DashboardParameterValueTypeOutput {
@@ -31264,12 +29212,6 @@ func (o DashboardPivotTableConditionalFormattingScopeRoleOutput) ToDashboardPivo
 	}).(DashboardPivotTableConditionalFormattingScopeRolePtrOutput)
 }
 
-func (o DashboardPivotTableConditionalFormattingScopeRoleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardPivotTableConditionalFormattingScopeRole] {
-	return pulumix.Output[DashboardPivotTableConditionalFormattingScopeRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPivotTableConditionalFormattingScopeRoleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -31303,12 +29245,6 @@ func (o DashboardPivotTableConditionalFormattingScopeRolePtrOutput) ToDashboardP
 
 func (o DashboardPivotTableConditionalFormattingScopeRolePtrOutput) ToDashboardPivotTableConditionalFormattingScopeRolePtrOutputWithContext(ctx context.Context) DashboardPivotTableConditionalFormattingScopeRolePtrOutput {
 	return o
-}
-
-func (o DashboardPivotTableConditionalFormattingScopeRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardPivotTableConditionalFormattingScopeRole] {
-	return pulumix.Output[*DashboardPivotTableConditionalFormattingScopeRole]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardPivotTableConditionalFormattingScopeRolePtrOutput) Elem() DashboardPivotTableConditionalFormattingScopeRoleOutput {
@@ -31448,12 +29384,6 @@ func (o DashboardPivotTableDataPathTypeOutput) ToDashboardPivotTableDataPathType
 	}).(DashboardPivotTableDataPathTypePtrOutput)
 }
 
-func (o DashboardPivotTableDataPathTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardPivotTableDataPathType] {
-	return pulumix.Output[DashboardPivotTableDataPathType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPivotTableDataPathTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -31487,12 +29417,6 @@ func (o DashboardPivotTableDataPathTypePtrOutput) ToDashboardPivotTableDataPathT
 
 func (o DashboardPivotTableDataPathTypePtrOutput) ToDashboardPivotTableDataPathTypePtrOutputWithContext(ctx context.Context) DashboardPivotTableDataPathTypePtrOutput {
 	return o
-}
-
-func (o DashboardPivotTableDataPathTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardPivotTableDataPathType] {
-	return pulumix.Output[*DashboardPivotTableDataPathType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardPivotTableDataPathTypePtrOutput) Elem() DashboardPivotTableDataPathTypeOutput {
@@ -31630,12 +29554,6 @@ func (o DashboardPivotTableFieldCollapseStateOutput) ToDashboardPivotTableFieldC
 	}).(DashboardPivotTableFieldCollapseStatePtrOutput)
 }
 
-func (o DashboardPivotTableFieldCollapseStateOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardPivotTableFieldCollapseState] {
-	return pulumix.Output[DashboardPivotTableFieldCollapseState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPivotTableFieldCollapseStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -31669,12 +29587,6 @@ func (o DashboardPivotTableFieldCollapseStatePtrOutput) ToDashboardPivotTableFie
 
 func (o DashboardPivotTableFieldCollapseStatePtrOutput) ToDashboardPivotTableFieldCollapseStatePtrOutputWithContext(ctx context.Context) DashboardPivotTableFieldCollapseStatePtrOutput {
 	return o
-}
-
-func (o DashboardPivotTableFieldCollapseStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardPivotTableFieldCollapseState] {
-	return pulumix.Output[*DashboardPivotTableFieldCollapseState]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardPivotTableFieldCollapseStatePtrOutput) Elem() DashboardPivotTableFieldCollapseStateOutput {
@@ -31812,12 +29724,6 @@ func (o DashboardPivotTableMetricPlacementOutput) ToDashboardPivotTableMetricPla
 	}).(DashboardPivotTableMetricPlacementPtrOutput)
 }
 
-func (o DashboardPivotTableMetricPlacementOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardPivotTableMetricPlacement] {
-	return pulumix.Output[DashboardPivotTableMetricPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPivotTableMetricPlacementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -31851,12 +29757,6 @@ func (o DashboardPivotTableMetricPlacementPtrOutput) ToDashboardPivotTableMetric
 
 func (o DashboardPivotTableMetricPlacementPtrOutput) ToDashboardPivotTableMetricPlacementPtrOutputWithContext(ctx context.Context) DashboardPivotTableMetricPlacementPtrOutput {
 	return o
-}
-
-func (o DashboardPivotTableMetricPlacementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardPivotTableMetricPlacement] {
-	return pulumix.Output[*DashboardPivotTableMetricPlacement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardPivotTableMetricPlacementPtrOutput) Elem() DashboardPivotTableMetricPlacementOutput {
@@ -31994,12 +29894,6 @@ func (o DashboardPivotTableRowsLayoutOutput) ToDashboardPivotTableRowsLayoutPtrO
 	}).(DashboardPivotTableRowsLayoutPtrOutput)
 }
 
-func (o DashboardPivotTableRowsLayoutOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardPivotTableRowsLayout] {
-	return pulumix.Output[DashboardPivotTableRowsLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPivotTableRowsLayoutOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -32033,12 +29927,6 @@ func (o DashboardPivotTableRowsLayoutPtrOutput) ToDashboardPivotTableRowsLayoutP
 
 func (o DashboardPivotTableRowsLayoutPtrOutput) ToDashboardPivotTableRowsLayoutPtrOutputWithContext(ctx context.Context) DashboardPivotTableRowsLayoutPtrOutput {
 	return o
-}
-
-func (o DashboardPivotTableRowsLayoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardPivotTableRowsLayout] {
-	return pulumix.Output[*DashboardPivotTableRowsLayout]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardPivotTableRowsLayoutPtrOutput) Elem() DashboardPivotTableRowsLayoutOutput {
@@ -32177,12 +30065,6 @@ func (o DashboardPivotTableSubtotalLevelOutput) ToDashboardPivotTableSubtotalLev
 	}).(DashboardPivotTableSubtotalLevelPtrOutput)
 }
 
-func (o DashboardPivotTableSubtotalLevelOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardPivotTableSubtotalLevel] {
-	return pulumix.Output[DashboardPivotTableSubtotalLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPivotTableSubtotalLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -32216,12 +30098,6 @@ func (o DashboardPivotTableSubtotalLevelPtrOutput) ToDashboardPivotTableSubtotal
 
 func (o DashboardPivotTableSubtotalLevelPtrOutput) ToDashboardPivotTableSubtotalLevelPtrOutputWithContext(ctx context.Context) DashboardPivotTableSubtotalLevelPtrOutput {
 	return o
-}
-
-func (o DashboardPivotTableSubtotalLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardPivotTableSubtotalLevel] {
-	return pulumix.Output[*DashboardPivotTableSubtotalLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardPivotTableSubtotalLevelPtrOutput) Elem() DashboardPivotTableSubtotalLevelOutput {
@@ -32360,12 +30236,6 @@ func (o DashboardPrimaryValueDisplayTypeOutput) ToDashboardPrimaryValueDisplayTy
 	}).(DashboardPrimaryValueDisplayTypePtrOutput)
 }
 
-func (o DashboardPrimaryValueDisplayTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardPrimaryValueDisplayType] {
-	return pulumix.Output[DashboardPrimaryValueDisplayType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardPrimaryValueDisplayTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -32399,12 +30269,6 @@ func (o DashboardPrimaryValueDisplayTypePtrOutput) ToDashboardPrimaryValueDispla
 
 func (o DashboardPrimaryValueDisplayTypePtrOutput) ToDashboardPrimaryValueDisplayTypePtrOutputWithContext(ctx context.Context) DashboardPrimaryValueDisplayTypePtrOutput {
 	return o
-}
-
-func (o DashboardPrimaryValueDisplayTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardPrimaryValueDisplayType] {
-	return pulumix.Output[*DashboardPrimaryValueDisplayType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardPrimaryValueDisplayTypePtrOutput) Elem() DashboardPrimaryValueDisplayTypeOutput {
@@ -32543,12 +30407,6 @@ func (o DashboardRadarChartAxesRangeScaleOutput) ToDashboardRadarChartAxesRangeS
 	}).(DashboardRadarChartAxesRangeScalePtrOutput)
 }
 
-func (o DashboardRadarChartAxesRangeScaleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardRadarChartAxesRangeScale] {
-	return pulumix.Output[DashboardRadarChartAxesRangeScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardRadarChartAxesRangeScaleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -32582,12 +30440,6 @@ func (o DashboardRadarChartAxesRangeScalePtrOutput) ToDashboardRadarChartAxesRan
 
 func (o DashboardRadarChartAxesRangeScalePtrOutput) ToDashboardRadarChartAxesRangeScalePtrOutputWithContext(ctx context.Context) DashboardRadarChartAxesRangeScalePtrOutput {
 	return o
-}
-
-func (o DashboardRadarChartAxesRangeScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardRadarChartAxesRangeScale] {
-	return pulumix.Output[*DashboardRadarChartAxesRangeScale]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardRadarChartAxesRangeScalePtrOutput) Elem() DashboardRadarChartAxesRangeScaleOutput {
@@ -32725,12 +30577,6 @@ func (o DashboardRadarChartShapeOutput) ToDashboardRadarChartShapePtrOutputWithC
 	}).(DashboardRadarChartShapePtrOutput)
 }
 
-func (o DashboardRadarChartShapeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardRadarChartShape] {
-	return pulumix.Output[DashboardRadarChartShape]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardRadarChartShapeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -32764,12 +30610,6 @@ func (o DashboardRadarChartShapePtrOutput) ToDashboardRadarChartShapePtrOutput()
 
 func (o DashboardRadarChartShapePtrOutput) ToDashboardRadarChartShapePtrOutputWithContext(ctx context.Context) DashboardRadarChartShapePtrOutput {
 	return o
-}
-
-func (o DashboardRadarChartShapePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardRadarChartShape] {
-	return pulumix.Output[*DashboardRadarChartShape]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardRadarChartShapePtrOutput) Elem() DashboardRadarChartShapeOutput {
@@ -32908,12 +30748,6 @@ func (o DashboardReferenceLineLabelHorizontalPositionOutput) ToDashboardReferenc
 	}).(DashboardReferenceLineLabelHorizontalPositionPtrOutput)
 }
 
-func (o DashboardReferenceLineLabelHorizontalPositionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardReferenceLineLabelHorizontalPosition] {
-	return pulumix.Output[DashboardReferenceLineLabelHorizontalPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardReferenceLineLabelHorizontalPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -32947,12 +30781,6 @@ func (o DashboardReferenceLineLabelHorizontalPositionPtrOutput) ToDashboardRefer
 
 func (o DashboardReferenceLineLabelHorizontalPositionPtrOutput) ToDashboardReferenceLineLabelHorizontalPositionPtrOutputWithContext(ctx context.Context) DashboardReferenceLineLabelHorizontalPositionPtrOutput {
 	return o
-}
-
-func (o DashboardReferenceLineLabelHorizontalPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardReferenceLineLabelHorizontalPosition] {
-	return pulumix.Output[*DashboardReferenceLineLabelHorizontalPosition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardReferenceLineLabelHorizontalPositionPtrOutput) Elem() DashboardReferenceLineLabelHorizontalPositionOutput {
@@ -33090,12 +30918,6 @@ func (o DashboardReferenceLineLabelVerticalPositionOutput) ToDashboardReferenceL
 	}).(DashboardReferenceLineLabelVerticalPositionPtrOutput)
 }
 
-func (o DashboardReferenceLineLabelVerticalPositionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardReferenceLineLabelVerticalPosition] {
-	return pulumix.Output[DashboardReferenceLineLabelVerticalPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardReferenceLineLabelVerticalPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -33129,12 +30951,6 @@ func (o DashboardReferenceLineLabelVerticalPositionPtrOutput) ToDashboardReferen
 
 func (o DashboardReferenceLineLabelVerticalPositionPtrOutput) ToDashboardReferenceLineLabelVerticalPositionPtrOutputWithContext(ctx context.Context) DashboardReferenceLineLabelVerticalPositionPtrOutput {
 	return o
-}
-
-func (o DashboardReferenceLineLabelVerticalPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardReferenceLineLabelVerticalPosition] {
-	return pulumix.Output[*DashboardReferenceLineLabelVerticalPosition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardReferenceLineLabelVerticalPositionPtrOutput) Elem() DashboardReferenceLineLabelVerticalPositionOutput {
@@ -33273,12 +31089,6 @@ func (o DashboardReferenceLinePatternTypeOutput) ToDashboardReferenceLinePattern
 	}).(DashboardReferenceLinePatternTypePtrOutput)
 }
 
-func (o DashboardReferenceLinePatternTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardReferenceLinePatternType] {
-	return pulumix.Output[DashboardReferenceLinePatternType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardReferenceLinePatternTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -33312,12 +31122,6 @@ func (o DashboardReferenceLinePatternTypePtrOutput) ToDashboardReferenceLinePatt
 
 func (o DashboardReferenceLinePatternTypePtrOutput) ToDashboardReferenceLinePatternTypePtrOutputWithContext(ctx context.Context) DashboardReferenceLinePatternTypePtrOutput {
 	return o
-}
-
-func (o DashboardReferenceLinePatternTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardReferenceLinePatternType] {
-	return pulumix.Output[*DashboardReferenceLinePatternType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardReferenceLinePatternTypePtrOutput) Elem() DashboardReferenceLinePatternTypeOutput {
@@ -33455,12 +31259,6 @@ func (o DashboardReferenceLineSeriesTypeOutput) ToDashboardReferenceLineSeriesTy
 	}).(DashboardReferenceLineSeriesTypePtrOutput)
 }
 
-func (o DashboardReferenceLineSeriesTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardReferenceLineSeriesType] {
-	return pulumix.Output[DashboardReferenceLineSeriesType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardReferenceLineSeriesTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -33494,12 +31292,6 @@ func (o DashboardReferenceLineSeriesTypePtrOutput) ToDashboardReferenceLineSerie
 
 func (o DashboardReferenceLineSeriesTypePtrOutput) ToDashboardReferenceLineSeriesTypePtrOutputWithContext(ctx context.Context) DashboardReferenceLineSeriesTypePtrOutput {
 	return o
-}
-
-func (o DashboardReferenceLineSeriesTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardReferenceLineSeriesType] {
-	return pulumix.Output[*DashboardReferenceLineSeriesType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardReferenceLineSeriesTypePtrOutput) Elem() DashboardReferenceLineSeriesTypeOutput {
@@ -33637,12 +31429,6 @@ func (o DashboardReferenceLineValueLabelRelativePositionOutput) ToDashboardRefer
 	}).(DashboardReferenceLineValueLabelRelativePositionPtrOutput)
 }
 
-func (o DashboardReferenceLineValueLabelRelativePositionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardReferenceLineValueLabelRelativePosition] {
-	return pulumix.Output[DashboardReferenceLineValueLabelRelativePosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardReferenceLineValueLabelRelativePositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -33676,12 +31462,6 @@ func (o DashboardReferenceLineValueLabelRelativePositionPtrOutput) ToDashboardRe
 
 func (o DashboardReferenceLineValueLabelRelativePositionPtrOutput) ToDashboardReferenceLineValueLabelRelativePositionPtrOutputWithContext(ctx context.Context) DashboardReferenceLineValueLabelRelativePositionPtrOutput {
 	return o
-}
-
-func (o DashboardReferenceLineValueLabelRelativePositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardReferenceLineValueLabelRelativePosition] {
-	return pulumix.Output[*DashboardReferenceLineValueLabelRelativePosition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardReferenceLineValueLabelRelativePositionPtrOutput) Elem() DashboardReferenceLineValueLabelRelativePositionOutput {
@@ -33822,12 +31602,6 @@ func (o DashboardRelativeDateTypeOutput) ToDashboardRelativeDateTypePtrOutputWit
 	}).(DashboardRelativeDateTypePtrOutput)
 }
 
-func (o DashboardRelativeDateTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardRelativeDateType] {
-	return pulumix.Output[DashboardRelativeDateType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardRelativeDateTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -33861,12 +31635,6 @@ func (o DashboardRelativeDateTypePtrOutput) ToDashboardRelativeDateTypePtrOutput
 
 func (o DashboardRelativeDateTypePtrOutput) ToDashboardRelativeDateTypePtrOutputWithContext(ctx context.Context) DashboardRelativeDateTypePtrOutput {
 	return o
-}
-
-func (o DashboardRelativeDateTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardRelativeDateType] {
-	return pulumix.Output[*DashboardRelativeDateType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardRelativeDateTypePtrOutput) Elem() DashboardRelativeDateTypeOutput {
@@ -34007,12 +31775,6 @@ func (o DashboardRelativeFontSizeOutput) ToDashboardRelativeFontSizePtrOutputWit
 	}).(DashboardRelativeFontSizePtrOutput)
 }
 
-func (o DashboardRelativeFontSizeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardRelativeFontSize] {
-	return pulumix.Output[DashboardRelativeFontSize]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardRelativeFontSizeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -34046,12 +31808,6 @@ func (o DashboardRelativeFontSizePtrOutput) ToDashboardRelativeFontSizePtrOutput
 
 func (o DashboardRelativeFontSizePtrOutput) ToDashboardRelativeFontSizePtrOutputWithContext(ctx context.Context) DashboardRelativeFontSizePtrOutput {
 	return o
-}
-
-func (o DashboardRelativeFontSizePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardRelativeFontSize] {
-	return pulumix.Output[*DashboardRelativeFontSize]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardRelativeFontSizePtrOutput) Elem() DashboardRelativeFontSizeOutput {
@@ -34189,12 +31945,6 @@ func (o DashboardResizeOptionOutput) ToDashboardResizeOptionPtrOutputWithContext
 	}).(DashboardResizeOptionPtrOutput)
 }
 
-func (o DashboardResizeOptionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardResizeOption] {
-	return pulumix.Output[DashboardResizeOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardResizeOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -34228,12 +31978,6 @@ func (o DashboardResizeOptionPtrOutput) ToDashboardResizeOptionPtrOutput() Dashb
 
 func (o DashboardResizeOptionPtrOutput) ToDashboardResizeOptionPtrOutputWithContext(ctx context.Context) DashboardResizeOptionPtrOutput {
 	return o
-}
-
-func (o DashboardResizeOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardResizeOption] {
-	return pulumix.Output[*DashboardResizeOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardResizeOptionPtrOutput) Elem() DashboardResizeOptionOutput {
@@ -34340,12 +32084,6 @@ func (o DashboardResourceStatusOutput) ToDashboardResourceStatusPtrOutputWithCon
 	}).(DashboardResourceStatusPtrOutput)
 }
 
-func (o DashboardResourceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardResourceStatus] {
-	return pulumix.Output[DashboardResourceStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardResourceStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -34379,12 +32117,6 @@ func (o DashboardResourceStatusPtrOutput) ToDashboardResourceStatusPtrOutput() D
 
 func (o DashboardResourceStatusPtrOutput) ToDashboardResourceStatusPtrOutputWithContext(ctx context.Context) DashboardResourceStatusPtrOutput {
 	return o
-}
-
-func (o DashboardResourceStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardResourceStatus] {
-	return pulumix.Output[*DashboardResourceStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardResourceStatusPtrOutput) Elem() DashboardResourceStatusOutput {
@@ -34478,12 +32210,6 @@ func (o DashboardSectionPageBreakStatusOutput) ToDashboardSectionPageBreakStatus
 	}).(DashboardSectionPageBreakStatusPtrOutput)
 }
 
-func (o DashboardSectionPageBreakStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSectionPageBreakStatus] {
-	return pulumix.Output[DashboardSectionPageBreakStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSectionPageBreakStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -34517,12 +32243,6 @@ func (o DashboardSectionPageBreakStatusPtrOutput) ToDashboardSectionPageBreakSta
 
 func (o DashboardSectionPageBreakStatusPtrOutput) ToDashboardSectionPageBreakStatusPtrOutputWithContext(ctx context.Context) DashboardSectionPageBreakStatusPtrOutput {
 	return o
-}
-
-func (o DashboardSectionPageBreakStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSectionPageBreakStatus] {
-	return pulumix.Output[*DashboardSectionPageBreakStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardSectionPageBreakStatusPtrOutput) Elem() DashboardSectionPageBreakStatusOutput {
@@ -34659,12 +32379,6 @@ func (o DashboardSelectAllValueOptionsOutput) ToDashboardSelectAllValueOptionsPt
 	}).(DashboardSelectAllValueOptionsPtrOutput)
 }
 
-func (o DashboardSelectAllValueOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSelectAllValueOptions] {
-	return pulumix.Output[DashboardSelectAllValueOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSelectAllValueOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -34698,12 +32412,6 @@ func (o DashboardSelectAllValueOptionsPtrOutput) ToDashboardSelectAllValueOption
 
 func (o DashboardSelectAllValueOptionsPtrOutput) ToDashboardSelectAllValueOptionsPtrOutputWithContext(ctx context.Context) DashboardSelectAllValueOptionsPtrOutput {
 	return o
-}
-
-func (o DashboardSelectAllValueOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSelectAllValueOptions] {
-	return pulumix.Output[*DashboardSelectAllValueOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardSelectAllValueOptionsPtrOutput) Elem() DashboardSelectAllValueOptionsOutput {
@@ -34840,12 +32548,6 @@ func (o DashboardSelectedFieldOptionsOutput) ToDashboardSelectedFieldOptionsPtrO
 	}).(DashboardSelectedFieldOptionsPtrOutput)
 }
 
-func (o DashboardSelectedFieldOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSelectedFieldOptions] {
-	return pulumix.Output[DashboardSelectedFieldOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSelectedFieldOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -34879,12 +32581,6 @@ func (o DashboardSelectedFieldOptionsPtrOutput) ToDashboardSelectedFieldOptionsP
 
 func (o DashboardSelectedFieldOptionsPtrOutput) ToDashboardSelectedFieldOptionsPtrOutputWithContext(ctx context.Context) DashboardSelectedFieldOptionsPtrOutput {
 	return o
-}
-
-func (o DashboardSelectedFieldOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSelectedFieldOptions] {
-	return pulumix.Output[*DashboardSelectedFieldOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardSelectedFieldOptionsPtrOutput) Elem() DashboardSelectedFieldOptionsOutput {
@@ -35022,12 +32718,6 @@ func (o DashboardSelectedTooltipTypeOutput) ToDashboardSelectedTooltipTypePtrOut
 	}).(DashboardSelectedTooltipTypePtrOutput)
 }
 
-func (o DashboardSelectedTooltipTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSelectedTooltipType] {
-	return pulumix.Output[DashboardSelectedTooltipType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSelectedTooltipTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -35061,12 +32751,6 @@ func (o DashboardSelectedTooltipTypePtrOutput) ToDashboardSelectedTooltipTypePtr
 
 func (o DashboardSelectedTooltipTypePtrOutput) ToDashboardSelectedTooltipTypePtrOutputWithContext(ctx context.Context) DashboardSelectedTooltipTypePtrOutput {
 	return o
-}
-
-func (o DashboardSelectedTooltipTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSelectedTooltipType] {
-	return pulumix.Output[*DashboardSelectedTooltipType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardSelectedTooltipTypePtrOutput) Elem() DashboardSelectedTooltipTypeOutput {
@@ -35204,12 +32888,6 @@ func (o DashboardSheetContentTypeOutput) ToDashboardSheetContentTypePtrOutputWit
 	}).(DashboardSheetContentTypePtrOutput)
 }
 
-func (o DashboardSheetContentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSheetContentType] {
-	return pulumix.Output[DashboardSheetContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSheetContentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -35243,12 +32921,6 @@ func (o DashboardSheetContentTypePtrOutput) ToDashboardSheetContentTypePtrOutput
 
 func (o DashboardSheetContentTypePtrOutput) ToDashboardSheetContentTypePtrOutputWithContext(ctx context.Context) DashboardSheetContentTypePtrOutput {
 	return o
-}
-
-func (o DashboardSheetContentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSheetContentType] {
-	return pulumix.Output[*DashboardSheetContentType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardSheetContentTypePtrOutput) Elem() DashboardSheetContentTypeOutput {
@@ -35386,12 +33058,6 @@ func (o DashboardSheetControlDateTimePickerTypeOutput) ToDashboardSheetControlDa
 	}).(DashboardSheetControlDateTimePickerTypePtrOutput)
 }
 
-func (o DashboardSheetControlDateTimePickerTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSheetControlDateTimePickerType] {
-	return pulumix.Output[DashboardSheetControlDateTimePickerType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSheetControlDateTimePickerTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -35425,12 +33091,6 @@ func (o DashboardSheetControlDateTimePickerTypePtrOutput) ToDashboardSheetContro
 
 func (o DashboardSheetControlDateTimePickerTypePtrOutput) ToDashboardSheetControlDateTimePickerTypePtrOutputWithContext(ctx context.Context) DashboardSheetControlDateTimePickerTypePtrOutput {
 	return o
-}
-
-func (o DashboardSheetControlDateTimePickerTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSheetControlDateTimePickerType] {
-	return pulumix.Output[*DashboardSheetControlDateTimePickerType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardSheetControlDateTimePickerTypePtrOutput) Elem() DashboardSheetControlDateTimePickerTypeOutput {
@@ -35568,12 +33228,6 @@ func (o DashboardSheetControlListTypeOutput) ToDashboardSheetControlListTypePtrO
 	}).(DashboardSheetControlListTypePtrOutput)
 }
 
-func (o DashboardSheetControlListTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSheetControlListType] {
-	return pulumix.Output[DashboardSheetControlListType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSheetControlListTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -35607,12 +33261,6 @@ func (o DashboardSheetControlListTypePtrOutput) ToDashboardSheetControlListTypeP
 
 func (o DashboardSheetControlListTypePtrOutput) ToDashboardSheetControlListTypePtrOutputWithContext(ctx context.Context) DashboardSheetControlListTypePtrOutput {
 	return o
-}
-
-func (o DashboardSheetControlListTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSheetControlListType] {
-	return pulumix.Output[*DashboardSheetControlListType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardSheetControlListTypePtrOutput) Elem() DashboardSheetControlListTypeOutput {
@@ -35750,12 +33398,6 @@ func (o DashboardSheetControlSliderTypeOutput) ToDashboardSheetControlSliderType
 	}).(DashboardSheetControlSliderTypePtrOutput)
 }
 
-func (o DashboardSheetControlSliderTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSheetControlSliderType] {
-	return pulumix.Output[DashboardSheetControlSliderType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSheetControlSliderTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -35789,12 +33431,6 @@ func (o DashboardSheetControlSliderTypePtrOutput) ToDashboardSheetControlSliderT
 
 func (o DashboardSheetControlSliderTypePtrOutput) ToDashboardSheetControlSliderTypePtrOutputWithContext(ctx context.Context) DashboardSheetControlSliderTypePtrOutput {
 	return o
-}
-
-func (o DashboardSheetControlSliderTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSheetControlSliderType] {
-	return pulumix.Output[*DashboardSheetControlSliderType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardSheetControlSliderTypePtrOutput) Elem() DashboardSheetControlSliderTypeOutput {
@@ -35931,12 +33567,6 @@ func (o DashboardSimpleAttributeAggregationFunctionOutput) ToDashboardSimpleAttr
 	}).(DashboardSimpleAttributeAggregationFunctionPtrOutput)
 }
 
-func (o DashboardSimpleAttributeAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSimpleAttributeAggregationFunction] {
-	return pulumix.Output[DashboardSimpleAttributeAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSimpleAttributeAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -35970,12 +33600,6 @@ func (o DashboardSimpleAttributeAggregationFunctionPtrOutput) ToDashboardSimpleA
 
 func (o DashboardSimpleAttributeAggregationFunctionPtrOutput) ToDashboardSimpleAttributeAggregationFunctionPtrOutputWithContext(ctx context.Context) DashboardSimpleAttributeAggregationFunctionPtrOutput {
 	return o
-}
-
-func (o DashboardSimpleAttributeAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSimpleAttributeAggregationFunction] {
-	return pulumix.Output[*DashboardSimpleAttributeAggregationFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardSimpleAttributeAggregationFunctionPtrOutput) Elem() DashboardSimpleAttributeAggregationFunctionOutput {
@@ -36122,12 +33746,6 @@ func (o DashboardSimpleNumericalAggregationFunctionOutput) ToDashboardSimpleNume
 	}).(DashboardSimpleNumericalAggregationFunctionPtrOutput)
 }
 
-func (o DashboardSimpleNumericalAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSimpleNumericalAggregationFunction] {
-	return pulumix.Output[DashboardSimpleNumericalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSimpleNumericalAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -36161,12 +33779,6 @@ func (o DashboardSimpleNumericalAggregationFunctionPtrOutput) ToDashboardSimpleN
 
 func (o DashboardSimpleNumericalAggregationFunctionPtrOutput) ToDashboardSimpleNumericalAggregationFunctionPtrOutputWithContext(ctx context.Context) DashboardSimpleNumericalAggregationFunctionPtrOutput {
 	return o
-}
-
-func (o DashboardSimpleNumericalAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSimpleNumericalAggregationFunction] {
-	return pulumix.Output[*DashboardSimpleNumericalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardSimpleNumericalAggregationFunctionPtrOutput) Elem() DashboardSimpleNumericalAggregationFunctionOutput {
@@ -36308,12 +33920,6 @@ func (o DashboardSimpleTotalAggregationFunctionOutput) ToDashboardSimpleTotalAgg
 	}).(DashboardSimpleTotalAggregationFunctionPtrOutput)
 }
 
-func (o DashboardSimpleTotalAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSimpleTotalAggregationFunction] {
-	return pulumix.Output[DashboardSimpleTotalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSimpleTotalAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -36347,12 +33953,6 @@ func (o DashboardSimpleTotalAggregationFunctionPtrOutput) ToDashboardSimpleTotal
 
 func (o DashboardSimpleTotalAggregationFunctionPtrOutput) ToDashboardSimpleTotalAggregationFunctionPtrOutputWithContext(ctx context.Context) DashboardSimpleTotalAggregationFunctionPtrOutput {
 	return o
-}
-
-func (o DashboardSimpleTotalAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSimpleTotalAggregationFunction] {
-	return pulumix.Output[*DashboardSimpleTotalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardSimpleTotalAggregationFunctionPtrOutput) Elem() DashboardSimpleTotalAggregationFunctionOutput {
@@ -36490,12 +34090,6 @@ func (o DashboardSmallMultiplesAxisPlacementOutput) ToDashboardSmallMultiplesAxi
 	}).(DashboardSmallMultiplesAxisPlacementPtrOutput)
 }
 
-func (o DashboardSmallMultiplesAxisPlacementOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSmallMultiplesAxisPlacement] {
-	return pulumix.Output[DashboardSmallMultiplesAxisPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSmallMultiplesAxisPlacementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -36529,12 +34123,6 @@ func (o DashboardSmallMultiplesAxisPlacementPtrOutput) ToDashboardSmallMultiples
 
 func (o DashboardSmallMultiplesAxisPlacementPtrOutput) ToDashboardSmallMultiplesAxisPlacementPtrOutputWithContext(ctx context.Context) DashboardSmallMultiplesAxisPlacementPtrOutput {
 	return o
-}
-
-func (o DashboardSmallMultiplesAxisPlacementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSmallMultiplesAxisPlacement] {
-	return pulumix.Output[*DashboardSmallMultiplesAxisPlacement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardSmallMultiplesAxisPlacementPtrOutput) Elem() DashboardSmallMultiplesAxisPlacementOutput {
@@ -36672,12 +34260,6 @@ func (o DashboardSmallMultiplesAxisScaleOutput) ToDashboardSmallMultiplesAxisSca
 	}).(DashboardSmallMultiplesAxisScalePtrOutput)
 }
 
-func (o DashboardSmallMultiplesAxisScaleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSmallMultiplesAxisScale] {
-	return pulumix.Output[DashboardSmallMultiplesAxisScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSmallMultiplesAxisScaleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -36711,12 +34293,6 @@ func (o DashboardSmallMultiplesAxisScalePtrOutput) ToDashboardSmallMultiplesAxis
 
 func (o DashboardSmallMultiplesAxisScalePtrOutput) ToDashboardSmallMultiplesAxisScalePtrOutputWithContext(ctx context.Context) DashboardSmallMultiplesAxisScalePtrOutput {
 	return o
-}
-
-func (o DashboardSmallMultiplesAxisScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSmallMultiplesAxisScale] {
-	return pulumix.Output[*DashboardSmallMultiplesAxisScale]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardSmallMultiplesAxisScalePtrOutput) Elem() DashboardSmallMultiplesAxisScaleOutput {
@@ -36854,12 +34430,6 @@ func (o DashboardSortDirectionOutput) ToDashboardSortDirectionPtrOutputWithConte
 	}).(DashboardSortDirectionPtrOutput)
 }
 
-func (o DashboardSortDirectionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSortDirection] {
-	return pulumix.Output[DashboardSortDirection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSortDirectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -36893,12 +34463,6 @@ func (o DashboardSortDirectionPtrOutput) ToDashboardSortDirectionPtrOutput() Das
 
 func (o DashboardSortDirectionPtrOutput) ToDashboardSortDirectionPtrOutputWithContext(ctx context.Context) DashboardSortDirectionPtrOutput {
 	return o
-}
-
-func (o DashboardSortDirectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSortDirection] {
-	return pulumix.Output[*DashboardSortDirection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardSortDirectionPtrOutput) Elem() DashboardSortDirectionOutput {
@@ -37037,12 +34601,6 @@ func (o DashboardSpecialValueOutput) ToDashboardSpecialValuePtrOutputWithContext
 	}).(DashboardSpecialValuePtrOutput)
 }
 
-func (o DashboardSpecialValueOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardSpecialValue] {
-	return pulumix.Output[DashboardSpecialValue]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardSpecialValueOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -37076,12 +34634,6 @@ func (o DashboardSpecialValuePtrOutput) ToDashboardSpecialValuePtrOutput() Dashb
 
 func (o DashboardSpecialValuePtrOutput) ToDashboardSpecialValuePtrOutputWithContext(ctx context.Context) DashboardSpecialValuePtrOutput {
 	return o
-}
-
-func (o DashboardSpecialValuePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardSpecialValue] {
-	return pulumix.Output[*DashboardSpecialValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardSpecialValuePtrOutput) Elem() DashboardSpecialValueOutput {
@@ -37220,12 +34772,6 @@ func (o DashboardStyledCellTypeOutput) ToDashboardStyledCellTypePtrOutputWithCon
 	}).(DashboardStyledCellTypePtrOutput)
 }
 
-func (o DashboardStyledCellTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardStyledCellType] {
-	return pulumix.Output[DashboardStyledCellType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardStyledCellTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -37259,12 +34805,6 @@ func (o DashboardStyledCellTypePtrOutput) ToDashboardStyledCellTypePtrOutput() D
 
 func (o DashboardStyledCellTypePtrOutput) ToDashboardStyledCellTypePtrOutputWithContext(ctx context.Context) DashboardStyledCellTypePtrOutput {
 	return o
-}
-
-func (o DashboardStyledCellTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardStyledCellType] {
-	return pulumix.Output[*DashboardStyledCellType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardStyledCellTypePtrOutput) Elem() DashboardStyledCellTypeOutput {
@@ -37402,12 +34942,6 @@ func (o DashboardTableBorderStyleOutput) ToDashboardTableBorderStylePtrOutputWit
 	}).(DashboardTableBorderStylePtrOutput)
 }
 
-func (o DashboardTableBorderStyleOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTableBorderStyle] {
-	return pulumix.Output[DashboardTableBorderStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTableBorderStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -37441,12 +34975,6 @@ func (o DashboardTableBorderStylePtrOutput) ToDashboardTableBorderStylePtrOutput
 
 func (o DashboardTableBorderStylePtrOutput) ToDashboardTableBorderStylePtrOutputWithContext(ctx context.Context) DashboardTableBorderStylePtrOutput {
 	return o
-}
-
-func (o DashboardTableBorderStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTableBorderStyle] {
-	return pulumix.Output[*DashboardTableBorderStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardTableBorderStylePtrOutput) Elem() DashboardTableBorderStyleOutput {
@@ -37585,12 +35113,6 @@ func (o DashboardTableCellImageScalingConfigurationOutput) ToDashboardTableCellI
 	}).(DashboardTableCellImageScalingConfigurationPtrOutput)
 }
 
-func (o DashboardTableCellImageScalingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTableCellImageScalingConfiguration] {
-	return pulumix.Output[DashboardTableCellImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTableCellImageScalingConfigurationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -37624,12 +35146,6 @@ func (o DashboardTableCellImageScalingConfigurationPtrOutput) ToDashboardTableCe
 
 func (o DashboardTableCellImageScalingConfigurationPtrOutput) ToDashboardTableCellImageScalingConfigurationPtrOutputWithContext(ctx context.Context) DashboardTableCellImageScalingConfigurationPtrOutput {
 	return o
-}
-
-func (o DashboardTableCellImageScalingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTableCellImageScalingConfiguration] {
-	return pulumix.Output[*DashboardTableCellImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardTableCellImageScalingConfigurationPtrOutput) Elem() DashboardTableCellImageScalingConfigurationOutput {
@@ -37766,12 +35282,6 @@ func (o DashboardTableFieldIconSetTypeOutput) ToDashboardTableFieldIconSetTypePt
 	}).(DashboardTableFieldIconSetTypePtrOutput)
 }
 
-func (o DashboardTableFieldIconSetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTableFieldIconSetType] {
-	return pulumix.Output[DashboardTableFieldIconSetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTableFieldIconSetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -37805,12 +35315,6 @@ func (o DashboardTableFieldIconSetTypePtrOutput) ToDashboardTableFieldIconSetTyp
 
 func (o DashboardTableFieldIconSetTypePtrOutput) ToDashboardTableFieldIconSetTypePtrOutputWithContext(ctx context.Context) DashboardTableFieldIconSetTypePtrOutput {
 	return o
-}
-
-func (o DashboardTableFieldIconSetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTableFieldIconSetType] {
-	return pulumix.Output[*DashboardTableFieldIconSetType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardTableFieldIconSetTypePtrOutput) Elem() DashboardTableFieldIconSetTypeOutput {
@@ -37948,12 +35452,6 @@ func (o DashboardTableOrientationOutput) ToDashboardTableOrientationPtrOutputWit
 	}).(DashboardTableOrientationPtrOutput)
 }
 
-func (o DashboardTableOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTableOrientation] {
-	return pulumix.Output[DashboardTableOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTableOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -37987,12 +35485,6 @@ func (o DashboardTableOrientationPtrOutput) ToDashboardTableOrientationPtrOutput
 
 func (o DashboardTableOrientationPtrOutput) ToDashboardTableOrientationPtrOutputWithContext(ctx context.Context) DashboardTableOrientationPtrOutput {
 	return o
-}
-
-func (o DashboardTableOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTableOrientation] {
-	return pulumix.Output[*DashboardTableOrientation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardTableOrientationPtrOutput) Elem() DashboardTableOrientationOutput {
@@ -38131,12 +35623,6 @@ func (o DashboardTableTotalsPlacementOutput) ToDashboardTableTotalsPlacementPtrO
 	}).(DashboardTableTotalsPlacementPtrOutput)
 }
 
-func (o DashboardTableTotalsPlacementOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTableTotalsPlacement] {
-	return pulumix.Output[DashboardTableTotalsPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTableTotalsPlacementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -38170,12 +35656,6 @@ func (o DashboardTableTotalsPlacementPtrOutput) ToDashboardTableTotalsPlacementP
 
 func (o DashboardTableTotalsPlacementPtrOutput) ToDashboardTableTotalsPlacementPtrOutputWithContext(ctx context.Context) DashboardTableTotalsPlacementPtrOutput {
 	return o
-}
-
-func (o DashboardTableTotalsPlacementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTableTotalsPlacement] {
-	return pulumix.Output[*DashboardTableTotalsPlacement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardTableTotalsPlacementPtrOutput) Elem() DashboardTableTotalsPlacementOutput {
@@ -38313,12 +35793,6 @@ func (o DashboardTableTotalsScrollStatusOutput) ToDashboardTableTotalsScrollStat
 	}).(DashboardTableTotalsScrollStatusPtrOutput)
 }
 
-func (o DashboardTableTotalsScrollStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTableTotalsScrollStatus] {
-	return pulumix.Output[DashboardTableTotalsScrollStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTableTotalsScrollStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -38352,12 +35826,6 @@ func (o DashboardTableTotalsScrollStatusPtrOutput) ToDashboardTableTotalsScrollS
 
 func (o DashboardTableTotalsScrollStatusPtrOutput) ToDashboardTableTotalsScrollStatusPtrOutputWithContext(ctx context.Context) DashboardTableTotalsScrollStatusPtrOutput {
 	return o
-}
-
-func (o DashboardTableTotalsScrollStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTableTotalsScrollStatus] {
-	return pulumix.Output[*DashboardTableTotalsScrollStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardTableTotalsScrollStatusPtrOutput) Elem() DashboardTableTotalsScrollStatusOutput {
@@ -38494,12 +35962,6 @@ func (o DashboardTargetVisualOptionsOutput) ToDashboardTargetVisualOptionsPtrOut
 	}).(DashboardTargetVisualOptionsPtrOutput)
 }
 
-func (o DashboardTargetVisualOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTargetVisualOptions] {
-	return pulumix.Output[DashboardTargetVisualOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTargetVisualOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -38533,12 +35995,6 @@ func (o DashboardTargetVisualOptionsPtrOutput) ToDashboardTargetVisualOptionsPtr
 
 func (o DashboardTargetVisualOptionsPtrOutput) ToDashboardTargetVisualOptionsPtrOutputWithContext(ctx context.Context) DashboardTargetVisualOptionsPtrOutput {
 	return o
-}
-
-func (o DashboardTargetVisualOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTargetVisualOptions] {
-	return pulumix.Output[*DashboardTargetVisualOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardTargetVisualOptionsPtrOutput) Elem() DashboardTargetVisualOptionsOutput {
@@ -38676,12 +36132,6 @@ func (o DashboardTextWrapOutput) ToDashboardTextWrapPtrOutputWithContext(ctx con
 	}).(DashboardTextWrapPtrOutput)
 }
 
-func (o DashboardTextWrapOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTextWrap] {
-	return pulumix.Output[DashboardTextWrap]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTextWrapOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -38715,12 +36165,6 @@ func (o DashboardTextWrapPtrOutput) ToDashboardTextWrapPtrOutput() DashboardText
 
 func (o DashboardTextWrapPtrOutput) ToDashboardTextWrapPtrOutputWithContext(ctx context.Context) DashboardTextWrapPtrOutput {
 	return o
-}
-
-func (o DashboardTextWrapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTextWrap] {
-	return pulumix.Output[*DashboardTextWrap]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardTextWrapPtrOutput) Elem() DashboardTextWrapOutput {
@@ -38865,12 +36309,6 @@ func (o DashboardTimeGranularityOutput) ToDashboardTimeGranularityPtrOutputWithC
 	}).(DashboardTimeGranularityPtrOutput)
 }
 
-func (o DashboardTimeGranularityOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTimeGranularity] {
-	return pulumix.Output[DashboardTimeGranularity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTimeGranularityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -38904,12 +36342,6 @@ func (o DashboardTimeGranularityPtrOutput) ToDashboardTimeGranularityPtrOutput()
 
 func (o DashboardTimeGranularityPtrOutput) ToDashboardTimeGranularityPtrOutputWithContext(ctx context.Context) DashboardTimeGranularityPtrOutput {
 	return o
-}
-
-func (o DashboardTimeGranularityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTimeGranularity] {
-	return pulumix.Output[*DashboardTimeGranularity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardTimeGranularityPtrOutput) Elem() DashboardTimeGranularityOutput {
@@ -39047,12 +36479,6 @@ func (o DashboardTooltipTitleTypeOutput) ToDashboardTooltipTitleTypePtrOutputWit
 	}).(DashboardTooltipTitleTypePtrOutput)
 }
 
-func (o DashboardTooltipTitleTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTooltipTitleType] {
-	return pulumix.Output[DashboardTooltipTitleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTooltipTitleTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -39086,12 +36512,6 @@ func (o DashboardTooltipTitleTypePtrOutput) ToDashboardTooltipTitleTypePtrOutput
 
 func (o DashboardTooltipTitleTypePtrOutput) ToDashboardTooltipTitleTypePtrOutputWithContext(ctx context.Context) DashboardTooltipTitleTypePtrOutput {
 	return o
-}
-
-func (o DashboardTooltipTitleTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTooltipTitleType] {
-	return pulumix.Output[*DashboardTooltipTitleType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardTooltipTitleTypePtrOutput) Elem() DashboardTooltipTitleTypeOutput {
@@ -39229,12 +36649,6 @@ func (o DashboardTopBottomComputationTypeOutput) ToDashboardTopBottomComputation
 	}).(DashboardTopBottomComputationTypePtrOutput)
 }
 
-func (o DashboardTopBottomComputationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTopBottomComputationType] {
-	return pulumix.Output[DashboardTopBottomComputationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTopBottomComputationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -39268,12 +36682,6 @@ func (o DashboardTopBottomComputationTypePtrOutput) ToDashboardTopBottomComputat
 
 func (o DashboardTopBottomComputationTypePtrOutput) ToDashboardTopBottomComputationTypePtrOutputWithContext(ctx context.Context) DashboardTopBottomComputationTypePtrOutput {
 	return o
-}
-
-func (o DashboardTopBottomComputationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTopBottomComputationType] {
-	return pulumix.Output[*DashboardTopBottomComputationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardTopBottomComputationTypePtrOutput) Elem() DashboardTopBottomComputationTypeOutput {
@@ -39411,12 +36819,6 @@ func (o DashboardTopBottomSortOrderOutput) ToDashboardTopBottomSortOrderPtrOutpu
 	}).(DashboardTopBottomSortOrderPtrOutput)
 }
 
-func (o DashboardTopBottomSortOrderOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardTopBottomSortOrder] {
-	return pulumix.Output[DashboardTopBottomSortOrder]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardTopBottomSortOrderOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -39450,12 +36852,6 @@ func (o DashboardTopBottomSortOrderPtrOutput) ToDashboardTopBottomSortOrderPtrOu
 
 func (o DashboardTopBottomSortOrderPtrOutput) ToDashboardTopBottomSortOrderPtrOutputWithContext(ctx context.Context) DashboardTopBottomSortOrderPtrOutput {
 	return o
-}
-
-func (o DashboardTopBottomSortOrderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardTopBottomSortOrder] {
-	return pulumix.Output[*DashboardTopBottomSortOrder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardTopBottomSortOrderPtrOutput) Elem() DashboardTopBottomSortOrderOutput {
@@ -39593,12 +36989,6 @@ func (o DashboardUiStateOutput) ToDashboardUiStatePtrOutputWithContext(ctx conte
 	}).(DashboardUiStatePtrOutput)
 }
 
-func (o DashboardUiStateOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardUiState] {
-	return pulumix.Output[DashboardUiState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardUiStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -39632,12 +37022,6 @@ func (o DashboardUiStatePtrOutput) ToDashboardUiStatePtrOutput() DashboardUiStat
 
 func (o DashboardUiStatePtrOutput) ToDashboardUiStatePtrOutputWithContext(ctx context.Context) DashboardUiStatePtrOutput {
 	return o
-}
-
-func (o DashboardUiStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardUiState] {
-	return pulumix.Output[*DashboardUiState]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardUiStatePtrOutput) Elem() DashboardUiStateOutput {
@@ -39776,12 +37160,6 @@ func (o DashboardUrlTargetConfigurationOutput) ToDashboardUrlTargetConfiguration
 	}).(DashboardUrlTargetConfigurationPtrOutput)
 }
 
-func (o DashboardUrlTargetConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardUrlTargetConfiguration] {
-	return pulumix.Output[DashboardUrlTargetConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardUrlTargetConfigurationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -39815,12 +37193,6 @@ func (o DashboardUrlTargetConfigurationPtrOutput) ToDashboardUrlTargetConfigurat
 
 func (o DashboardUrlTargetConfigurationPtrOutput) ToDashboardUrlTargetConfigurationPtrOutputWithContext(ctx context.Context) DashboardUrlTargetConfigurationPtrOutput {
 	return o
-}
-
-func (o DashboardUrlTargetConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardUrlTargetConfiguration] {
-	return pulumix.Output[*DashboardUrlTargetConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardUrlTargetConfigurationPtrOutput) Elem() DashboardUrlTargetConfigurationOutput {
@@ -39958,12 +37330,6 @@ func (o DashboardValidationStrategyModeOutput) ToDashboardValidationStrategyMode
 	}).(DashboardValidationStrategyModePtrOutput)
 }
 
-func (o DashboardValidationStrategyModeOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardValidationStrategyMode] {
-	return pulumix.Output[DashboardValidationStrategyMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardValidationStrategyModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -39997,12 +37363,6 @@ func (o DashboardValidationStrategyModePtrOutput) ToDashboardValidationStrategyM
 
 func (o DashboardValidationStrategyModePtrOutput) ToDashboardValidationStrategyModePtrOutputWithContext(ctx context.Context) DashboardValidationStrategyModePtrOutput {
 	return o
-}
-
-func (o DashboardValidationStrategyModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardValidationStrategyMode] {
-	return pulumix.Output[*DashboardValidationStrategyMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardValidationStrategyModePtrOutput) Elem() DashboardValidationStrategyModeOutput {
@@ -40140,12 +37500,6 @@ func (o DashboardValueWhenUnsetOptionOutput) ToDashboardValueWhenUnsetOptionPtrO
 	}).(DashboardValueWhenUnsetOptionPtrOutput)
 }
 
-func (o DashboardValueWhenUnsetOptionOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardValueWhenUnsetOption] {
-	return pulumix.Output[DashboardValueWhenUnsetOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardValueWhenUnsetOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -40179,12 +37533,6 @@ func (o DashboardValueWhenUnsetOptionPtrOutput) ToDashboardValueWhenUnsetOptionP
 
 func (o DashboardValueWhenUnsetOptionPtrOutput) ToDashboardValueWhenUnsetOptionPtrOutputWithContext(ctx context.Context) DashboardValueWhenUnsetOptionPtrOutput {
 	return o
-}
-
-func (o DashboardValueWhenUnsetOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardValueWhenUnsetOption] {
-	return pulumix.Output[*DashboardValueWhenUnsetOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardValueWhenUnsetOptionPtrOutput) Elem() DashboardValueWhenUnsetOptionOutput {
@@ -40324,12 +37672,6 @@ func (o DashboardVerticalTextAlignmentOutput) ToDashboardVerticalTextAlignmentPt
 	}).(DashboardVerticalTextAlignmentPtrOutput)
 }
 
-func (o DashboardVerticalTextAlignmentOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardVerticalTextAlignment] {
-	return pulumix.Output[DashboardVerticalTextAlignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardVerticalTextAlignmentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -40363,12 +37705,6 @@ func (o DashboardVerticalTextAlignmentPtrOutput) ToDashboardVerticalTextAlignmen
 
 func (o DashboardVerticalTextAlignmentPtrOutput) ToDashboardVerticalTextAlignmentPtrOutputWithContext(ctx context.Context) DashboardVerticalTextAlignmentPtrOutput {
 	return o
-}
-
-func (o DashboardVerticalTextAlignmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardVerticalTextAlignment] {
-	return pulumix.Output[*DashboardVerticalTextAlignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardVerticalTextAlignmentPtrOutput) Elem() DashboardVerticalTextAlignmentOutput {
@@ -40506,12 +37842,6 @@ func (o DashboardVisibilityOutput) ToDashboardVisibilityPtrOutputWithContext(ctx
 	}).(DashboardVisibilityPtrOutput)
 }
 
-func (o DashboardVisibilityOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardVisibility] {
-	return pulumix.Output[DashboardVisibility]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardVisibilityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -40545,12 +37875,6 @@ func (o DashboardVisibilityPtrOutput) ToDashboardVisibilityPtrOutput() Dashboard
 
 func (o DashboardVisibilityPtrOutput) ToDashboardVisibilityPtrOutputWithContext(ctx context.Context) DashboardVisibilityPtrOutput {
 	return o
-}
-
-func (o DashboardVisibilityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardVisibility] {
-	return pulumix.Output[*DashboardVisibility]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardVisibilityPtrOutput) Elem() DashboardVisibilityOutput {
@@ -40688,12 +38012,6 @@ func (o DashboardVisualCustomActionTriggerOutput) ToDashboardVisualCustomActionT
 	}).(DashboardVisualCustomActionTriggerPtrOutput)
 }
 
-func (o DashboardVisualCustomActionTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardVisualCustomActionTrigger] {
-	return pulumix.Output[DashboardVisualCustomActionTrigger]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardVisualCustomActionTriggerOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -40727,12 +38045,6 @@ func (o DashboardVisualCustomActionTriggerPtrOutput) ToDashboardVisualCustomActi
 
 func (o DashboardVisualCustomActionTriggerPtrOutput) ToDashboardVisualCustomActionTriggerPtrOutputWithContext(ctx context.Context) DashboardVisualCustomActionTriggerPtrOutput {
 	return o
-}
-
-func (o DashboardVisualCustomActionTriggerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardVisualCustomActionTrigger] {
-	return pulumix.Output[*DashboardVisualCustomActionTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardVisualCustomActionTriggerPtrOutput) Elem() DashboardVisualCustomActionTriggerOutput {
@@ -40870,12 +38182,6 @@ func (o DashboardWidgetStatusOutput) ToDashboardWidgetStatusPtrOutputWithContext
 	}).(DashboardWidgetStatusPtrOutput)
 }
 
-func (o DashboardWidgetStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardWidgetStatus] {
-	return pulumix.Output[DashboardWidgetStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardWidgetStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -40909,12 +38215,6 @@ func (o DashboardWidgetStatusPtrOutput) ToDashboardWidgetStatusPtrOutput() Dashb
 
 func (o DashboardWidgetStatusPtrOutput) ToDashboardWidgetStatusPtrOutputWithContext(ctx context.Context) DashboardWidgetStatusPtrOutput {
 	return o
-}
-
-func (o DashboardWidgetStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardWidgetStatus] {
-	return pulumix.Output[*DashboardWidgetStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardWidgetStatusPtrOutput) Elem() DashboardWidgetStatusOutput {
@@ -41052,12 +38352,6 @@ func (o DashboardWordCloudCloudLayoutOutput) ToDashboardWordCloudCloudLayoutPtrO
 	}).(DashboardWordCloudCloudLayoutPtrOutput)
 }
 
-func (o DashboardWordCloudCloudLayoutOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardWordCloudCloudLayout] {
-	return pulumix.Output[DashboardWordCloudCloudLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardWordCloudCloudLayoutOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -41091,12 +38385,6 @@ func (o DashboardWordCloudCloudLayoutPtrOutput) ToDashboardWordCloudCloudLayoutP
 
 func (o DashboardWordCloudCloudLayoutPtrOutput) ToDashboardWordCloudCloudLayoutPtrOutputWithContext(ctx context.Context) DashboardWordCloudCloudLayoutPtrOutput {
 	return o
-}
-
-func (o DashboardWordCloudCloudLayoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardWordCloudCloudLayout] {
-	return pulumix.Output[*DashboardWordCloudCloudLayout]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardWordCloudCloudLayoutPtrOutput) Elem() DashboardWordCloudCloudLayoutOutput {
@@ -41234,12 +38522,6 @@ func (o DashboardWordCloudWordCasingOutput) ToDashboardWordCloudWordCasingPtrOut
 	}).(DashboardWordCloudWordCasingPtrOutput)
 }
 
-func (o DashboardWordCloudWordCasingOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardWordCloudWordCasing] {
-	return pulumix.Output[DashboardWordCloudWordCasing]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardWordCloudWordCasingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -41273,12 +38555,6 @@ func (o DashboardWordCloudWordCasingPtrOutput) ToDashboardWordCloudWordCasingPtr
 
 func (o DashboardWordCloudWordCasingPtrOutput) ToDashboardWordCloudWordCasingPtrOutputWithContext(ctx context.Context) DashboardWordCloudWordCasingPtrOutput {
 	return o
-}
-
-func (o DashboardWordCloudWordCasingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardWordCloudWordCasing] {
-	return pulumix.Output[*DashboardWordCloudWordCasing]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardWordCloudWordCasingPtrOutput) Elem() DashboardWordCloudWordCasingOutput {
@@ -41416,12 +38692,6 @@ func (o DashboardWordCloudWordOrientationOutput) ToDashboardWordCloudWordOrienta
 	}).(DashboardWordCloudWordOrientationPtrOutput)
 }
 
-func (o DashboardWordCloudWordOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardWordCloudWordOrientation] {
-	return pulumix.Output[DashboardWordCloudWordOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardWordCloudWordOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -41455,12 +38725,6 @@ func (o DashboardWordCloudWordOrientationPtrOutput) ToDashboardWordCloudWordOrie
 
 func (o DashboardWordCloudWordOrientationPtrOutput) ToDashboardWordCloudWordOrientationPtrOutputWithContext(ctx context.Context) DashboardWordCloudWordOrientationPtrOutput {
 	return o
-}
-
-func (o DashboardWordCloudWordOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardWordCloudWordOrientation] {
-	return pulumix.Output[*DashboardWordCloudWordOrientation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardWordCloudWordOrientationPtrOutput) Elem() DashboardWordCloudWordOrientationOutput {
@@ -41600,12 +38864,6 @@ func (o DashboardWordCloudWordPaddingOutput) ToDashboardWordCloudWordPaddingPtrO
 	}).(DashboardWordCloudWordPaddingPtrOutput)
 }
 
-func (o DashboardWordCloudWordPaddingOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardWordCloudWordPadding] {
-	return pulumix.Output[DashboardWordCloudWordPadding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardWordCloudWordPaddingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -41639,12 +38897,6 @@ func (o DashboardWordCloudWordPaddingPtrOutput) ToDashboardWordCloudWordPaddingP
 
 func (o DashboardWordCloudWordPaddingPtrOutput) ToDashboardWordCloudWordPaddingPtrOutputWithContext(ctx context.Context) DashboardWordCloudWordPaddingPtrOutput {
 	return o
-}
-
-func (o DashboardWordCloudWordPaddingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardWordCloudWordPadding] {
-	return pulumix.Output[*DashboardWordCloudWordPadding]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardWordCloudWordPaddingPtrOutput) Elem() DashboardWordCloudWordPaddingOutput {
@@ -41782,12 +39034,6 @@ func (o DashboardWordCloudWordScalingOutput) ToDashboardWordCloudWordScalingPtrO
 	}).(DashboardWordCloudWordScalingPtrOutput)
 }
 
-func (o DashboardWordCloudWordScalingOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardWordCloudWordScaling] {
-	return pulumix.Output[DashboardWordCloudWordScaling]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DashboardWordCloudWordScalingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -41821,12 +39067,6 @@ func (o DashboardWordCloudWordScalingPtrOutput) ToDashboardWordCloudWordScalingP
 
 func (o DashboardWordCloudWordScalingPtrOutput) ToDashboardWordCloudWordScalingPtrOutputWithContext(ctx context.Context) DashboardWordCloudWordScalingPtrOutput {
 	return o
-}
-
-func (o DashboardWordCloudWordScalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardWordCloudWordScaling] {
-	return pulumix.Output[*DashboardWordCloudWordScaling]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DashboardWordCloudWordScalingPtrOutput) Elem() DashboardWordCloudWordScalingOutput {
@@ -41930,12 +39170,6 @@ func (o DataSetColumnDataTypeOutput) ToDataSetColumnDataTypePtrOutputWithContext
 	}).(DataSetColumnDataTypePtrOutput)
 }
 
-func (o DataSetColumnDataTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSetColumnDataType] {
-	return pulumix.Output[DataSetColumnDataType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetColumnDataTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -41969,12 +39203,6 @@ func (o DataSetColumnDataTypePtrOutput) ToDataSetColumnDataTypePtrOutput() DataS
 
 func (o DataSetColumnDataTypePtrOutput) ToDataSetColumnDataTypePtrOutputWithContext(ctx context.Context) DataSetColumnDataTypePtrOutput {
 	return o
-}
-
-func (o DataSetColumnDataTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSetColumnDataType] {
-	return pulumix.Output[*DataSetColumnDataType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataSetColumnDataTypePtrOutput) Elem() DataSetColumnDataTypeOutput {
@@ -42069,12 +39297,6 @@ func (o DataSetDatasetParameterValueTypeOutput) ToDataSetDatasetParameterValueTy
 	}).(DataSetDatasetParameterValueTypePtrOutput)
 }
 
-func (o DataSetDatasetParameterValueTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSetDatasetParameterValueType] {
-	return pulumix.Output[DataSetDatasetParameterValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetDatasetParameterValueTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -42108,12 +39330,6 @@ func (o DataSetDatasetParameterValueTypePtrOutput) ToDataSetDatasetParameterValu
 
 func (o DataSetDatasetParameterValueTypePtrOutput) ToDataSetDatasetParameterValueTypePtrOutputWithContext(ctx context.Context) DataSetDatasetParameterValueTypePtrOutput {
 	return o
-}
-
-func (o DataSetDatasetParameterValueTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSetDatasetParameterValueType] {
-	return pulumix.Output[*DataSetDatasetParameterValueType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataSetDatasetParameterValueTypePtrOutput) Elem() DataSetDatasetParameterValueTypeOutput {
@@ -42250,12 +39466,6 @@ func (o DataSetGeoSpatialCountryCodeOutput) ToDataSetGeoSpatialCountryCodePtrOut
 	}).(DataSetGeoSpatialCountryCodePtrOutput)
 }
 
-func (o DataSetGeoSpatialCountryCodeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSetGeoSpatialCountryCode] {
-	return pulumix.Output[DataSetGeoSpatialCountryCode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetGeoSpatialCountryCodeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -42289,12 +39499,6 @@ func (o DataSetGeoSpatialCountryCodePtrOutput) ToDataSetGeoSpatialCountryCodePtr
 
 func (o DataSetGeoSpatialCountryCodePtrOutput) ToDataSetGeoSpatialCountryCodePtrOutputWithContext(ctx context.Context) DataSetGeoSpatialCountryCodePtrOutput {
 	return o
-}
-
-func (o DataSetGeoSpatialCountryCodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSetGeoSpatialCountryCode] {
-	return pulumix.Output[*DataSetGeoSpatialCountryCode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataSetGeoSpatialCountryCodePtrOutput) Elem() DataSetGeoSpatialCountryCodeOutput {
@@ -42432,12 +39636,6 @@ func (o DataSetImportModeOutput) ToDataSetImportModePtrOutputWithContext(ctx con
 	}).(DataSetImportModePtrOutput)
 }
 
-func (o DataSetImportModeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSetImportMode] {
-	return pulumix.Output[DataSetImportMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetImportModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -42471,12 +39669,6 @@ func (o DataSetImportModePtrOutput) ToDataSetImportModePtrOutput() DataSetImport
 
 func (o DataSetImportModePtrOutput) ToDataSetImportModePtrOutputWithContext(ctx context.Context) DataSetImportModePtrOutput {
 	return o
-}
-
-func (o DataSetImportModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSetImportMode] {
-	return pulumix.Output[*DataSetImportMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataSetImportModePtrOutput) Elem() DataSetImportModeOutput {
@@ -42614,12 +39806,6 @@ func (o DataSetRowLevelPermissionFormatVersionOutput) ToDataSetRowLevelPermissio
 	}).(DataSetRowLevelPermissionFormatVersionPtrOutput)
 }
 
-func (o DataSetRowLevelPermissionFormatVersionOutput) ToOutput(ctx context.Context) pulumix.Output[DataSetRowLevelPermissionFormatVersion] {
-	return pulumix.Output[DataSetRowLevelPermissionFormatVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetRowLevelPermissionFormatVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -42653,12 +39839,6 @@ func (o DataSetRowLevelPermissionFormatVersionPtrOutput) ToDataSetRowLevelPermis
 
 func (o DataSetRowLevelPermissionFormatVersionPtrOutput) ToDataSetRowLevelPermissionFormatVersionPtrOutputWithContext(ctx context.Context) DataSetRowLevelPermissionFormatVersionPtrOutput {
 	return o
-}
-
-func (o DataSetRowLevelPermissionFormatVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSetRowLevelPermissionFormatVersion] {
-	return pulumix.Output[*DataSetRowLevelPermissionFormatVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataSetRowLevelPermissionFormatVersionPtrOutput) Elem() DataSetRowLevelPermissionFormatVersionOutput {
@@ -42796,12 +39976,6 @@ func (o DataSetRowLevelPermissionPolicyOutput) ToDataSetRowLevelPermissionPolicy
 	}).(DataSetRowLevelPermissionPolicyPtrOutput)
 }
 
-func (o DataSetRowLevelPermissionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[DataSetRowLevelPermissionPolicy] {
-	return pulumix.Output[DataSetRowLevelPermissionPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetRowLevelPermissionPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -42835,12 +40009,6 @@ func (o DataSetRowLevelPermissionPolicyPtrOutput) ToDataSetRowLevelPermissionPol
 
 func (o DataSetRowLevelPermissionPolicyPtrOutput) ToDataSetRowLevelPermissionPolicyPtrOutputWithContext(ctx context.Context) DataSetRowLevelPermissionPolicyPtrOutput {
 	return o
-}
-
-func (o DataSetRowLevelPermissionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSetRowLevelPermissionPolicy] {
-	return pulumix.Output[*DataSetRowLevelPermissionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataSetRowLevelPermissionPolicyPtrOutput) Elem() DataSetRowLevelPermissionPolicyOutput {
@@ -42979,12 +40147,6 @@ func (o DataSetSizeUnitOutput) ToDataSetSizeUnitPtrOutputWithContext(ctx context
 	}).(DataSetSizeUnitPtrOutput)
 }
 
-func (o DataSetSizeUnitOutput) ToOutput(ctx context.Context) pulumix.Output[DataSetSizeUnit] {
-	return pulumix.Output[DataSetSizeUnit]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetSizeUnitOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -43018,12 +40180,6 @@ func (o DataSetSizeUnitPtrOutput) ToDataSetSizeUnitPtrOutput() DataSetSizeUnitPt
 
 func (o DataSetSizeUnitPtrOutput) ToDataSetSizeUnitPtrOutputWithContext(ctx context.Context) DataSetSizeUnitPtrOutput {
 	return o
-}
-
-func (o DataSetSizeUnitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSetSizeUnit] {
-	return pulumix.Output[*DataSetSizeUnit]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataSetSizeUnitPtrOutput) Elem() DataSetSizeUnitOutput {
@@ -43161,12 +40317,6 @@ func (o DataSetStatusOutput) ToDataSetStatusPtrOutputWithContext(ctx context.Con
 	}).(DataSetStatusPtrOutput)
 }
 
-func (o DataSetStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DataSetStatus] {
-	return pulumix.Output[DataSetStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -43200,12 +40350,6 @@ func (o DataSetStatusPtrOutput) ToDataSetStatusPtrOutput() DataSetStatusPtrOutpu
 
 func (o DataSetStatusPtrOutput) ToDataSetStatusPtrOutputWithContext(ctx context.Context) DataSetStatusPtrOutput {
 	return o
-}
-
-func (o DataSetStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSetStatus] {
-	return pulumix.Output[*DataSetStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataSetStatusPtrOutput) Elem() DataSetStatusOutput {
@@ -43350,12 +40494,6 @@ func (o DataSetTimeGranularityOutput) ToDataSetTimeGranularityPtrOutputWithConte
 	}).(DataSetTimeGranularityPtrOutput)
 }
 
-func (o DataSetTimeGranularityOutput) ToOutput(ctx context.Context) pulumix.Output[DataSetTimeGranularity] {
-	return pulumix.Output[DataSetTimeGranularity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSetTimeGranularityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -43389,12 +40527,6 @@ func (o DataSetTimeGranularityPtrOutput) ToDataSetTimeGranularityPtrOutput() Dat
 
 func (o DataSetTimeGranularityPtrOutput) ToDataSetTimeGranularityPtrOutputWithContext(ctx context.Context) DataSetTimeGranularityPtrOutput {
 	return o
-}
-
-func (o DataSetTimeGranularityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSetTimeGranularity] {
-	return pulumix.Output[*DataSetTimeGranularity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataSetTimeGranularityPtrOutput) Elem() DataSetTimeGranularityOutput {
@@ -43538,12 +40670,6 @@ func (o DataSourceErrorInfoTypeOutput) ToDataSourceErrorInfoTypePtrOutputWithCon
 	}).(DataSourceErrorInfoTypePtrOutput)
 }
 
-func (o DataSourceErrorInfoTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceErrorInfoType] {
-	return pulumix.Output[DataSourceErrorInfoType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSourceErrorInfoTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -43577,12 +40703,6 @@ func (o DataSourceErrorInfoTypePtrOutput) ToDataSourceErrorInfoTypePtrOutput() D
 
 func (o DataSourceErrorInfoTypePtrOutput) ToDataSourceErrorInfoTypePtrOutputWithContext(ctx context.Context) DataSourceErrorInfoTypePtrOutput {
 	return o
-}
-
-func (o DataSourceErrorInfoTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceErrorInfoType] {
-	return pulumix.Output[*DataSourceErrorInfoType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataSourceErrorInfoTypePtrOutput) Elem() DataSourceErrorInfoTypeOutput {
@@ -43689,12 +40809,6 @@ func (o DataSourceResourceStatusOutput) ToDataSourceResourceStatusPtrOutputWithC
 	}).(DataSourceResourceStatusPtrOutput)
 }
 
-func (o DataSourceResourceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceResourceStatus] {
-	return pulumix.Output[DataSourceResourceStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSourceResourceStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -43728,12 +40842,6 @@ func (o DataSourceResourceStatusPtrOutput) ToDataSourceResourceStatusPtrOutput()
 
 func (o DataSourceResourceStatusPtrOutput) ToDataSourceResourceStatusPtrOutputWithContext(ctx context.Context) DataSourceResourceStatusPtrOutput {
 	return o
-}
-
-func (o DataSourceResourceStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceResourceStatus] {
-	return pulumix.Output[*DataSourceResourceStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataSourceResourceStatusPtrOutput) Elem() DataSourceResourceStatusOutput {
@@ -43850,12 +40958,6 @@ func (o DataSourceTypeOutput) ToDataSourceTypePtrOutputWithContext(ctx context.C
 	}).(DataSourceTypePtrOutput)
 }
 
-func (o DataSourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceType] {
-	return pulumix.Output[DataSourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -43889,12 +40991,6 @@ func (o DataSourceTypePtrOutput) ToDataSourceTypePtrOutput() DataSourceTypePtrOu
 
 func (o DataSourceTypePtrOutput) ToDataSourceTypePtrOutputWithContext(ctx context.Context) DataSourceTypePtrOutput {
 	return o
-}
-
-func (o DataSourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceType] {
-	return pulumix.Output[*DataSourceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataSourceTypePtrOutput) Elem() DataSourceTypeOutput {
@@ -44032,12 +41128,6 @@ func (o RefreshScheduleMapRefreshTypeOutput) ToRefreshScheduleMapRefreshTypePtrO
 	}).(RefreshScheduleMapRefreshTypePtrOutput)
 }
 
-func (o RefreshScheduleMapRefreshTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RefreshScheduleMapRefreshType] {
-	return pulumix.Output[RefreshScheduleMapRefreshType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RefreshScheduleMapRefreshTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -44071,12 +41161,6 @@ func (o RefreshScheduleMapRefreshTypePtrOutput) ToRefreshScheduleMapRefreshTypeP
 
 func (o RefreshScheduleMapRefreshTypePtrOutput) ToRefreshScheduleMapRefreshTypePtrOutputWithContext(ctx context.Context) RefreshScheduleMapRefreshTypePtrOutput {
 	return o
-}
-
-func (o RefreshScheduleMapRefreshTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RefreshScheduleMapRefreshType] {
-	return pulumix.Output[*RefreshScheduleMapRefreshType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RefreshScheduleMapRefreshTypePtrOutput) Elem() RefreshScheduleMapRefreshTypeOutput {
@@ -44218,12 +41302,6 @@ func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput) ToRefreshSc
 	}).(RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput)
 }
 
-func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput) ToOutput(ctx context.Context) pulumix.Output[RefreshScheduleMapScheduleFrequencyPropertiesInterval] {
-	return pulumix.Output[RefreshScheduleMapScheduleFrequencyPropertiesInterval]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -44257,12 +41335,6 @@ func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput) ToRefres
 
 func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput {
 	return o
-}
-
-func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RefreshScheduleMapScheduleFrequencyPropertiesInterval] {
-	return pulumix.Output[*RefreshScheduleMapScheduleFrequencyPropertiesInterval]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RefreshScheduleMapScheduleFrequencyPropertiesIntervalPtrOutput) Elem() RefreshScheduleMapScheduleFrequencyPropertiesIntervalOutput {
@@ -44405,12 +41477,6 @@ func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOf
 	}).(RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput)
 }
 
-func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput) ToOutput(ctx context.Context) pulumix.Output[RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek] {
-	return pulumix.Output[RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -44444,12 +41510,6 @@ func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOf
 
 func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput) ToRefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutputWithContext(ctx context.Context) RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput {
 	return o
-}
-
-func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek] {
-	return pulumix.Output[*RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeek]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekPtrOutput) Elem() RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesDayOfWeekOutput {
@@ -44586,12 +41646,6 @@ func (o TemplateAnchorOptionOutput) ToTemplateAnchorOptionPtrOutputWithContext(c
 	}).(TemplateAnchorOptionPtrOutput)
 }
 
-func (o TemplateAnchorOptionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateAnchorOption] {
-	return pulumix.Output[TemplateAnchorOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateAnchorOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -44625,12 +41679,6 @@ func (o TemplateAnchorOptionPtrOutput) ToTemplateAnchorOptionPtrOutput() Templat
 
 func (o TemplateAnchorOptionPtrOutput) ToTemplateAnchorOptionPtrOutputWithContext(ctx context.Context) TemplateAnchorOptionPtrOutput {
 	return o
-}
-
-func (o TemplateAnchorOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateAnchorOption] {
-	return pulumix.Output[*TemplateAnchorOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateAnchorOptionPtrOutput) Elem() TemplateAnchorOptionOutput {
@@ -44770,12 +41818,6 @@ func (o TemplateArcThicknessOutput) ToTemplateArcThicknessPtrOutputWithContext(c
 	}).(TemplateArcThicknessPtrOutput)
 }
 
-func (o TemplateArcThicknessOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateArcThickness] {
-	return pulumix.Output[TemplateArcThickness]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateArcThicknessOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -44809,12 +41851,6 @@ func (o TemplateArcThicknessPtrOutput) ToTemplateArcThicknessPtrOutput() Templat
 
 func (o TemplateArcThicknessPtrOutput) ToTemplateArcThicknessPtrOutputWithContext(ctx context.Context) TemplateArcThicknessPtrOutput {
 	return o
-}
-
-func (o TemplateArcThicknessPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateArcThickness] {
-	return pulumix.Output[*TemplateArcThickness]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateArcThicknessPtrOutput) Elem() TemplateArcThicknessOutput {
@@ -44953,12 +41989,6 @@ func (o TemplateArcThicknessOptionsOutput) ToTemplateArcThicknessOptionsPtrOutpu
 	}).(TemplateArcThicknessOptionsPtrOutput)
 }
 
-func (o TemplateArcThicknessOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateArcThicknessOptions] {
-	return pulumix.Output[TemplateArcThicknessOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateArcThicknessOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -44992,12 +42022,6 @@ func (o TemplateArcThicknessOptionsPtrOutput) ToTemplateArcThicknessOptionsPtrOu
 
 func (o TemplateArcThicknessOptionsPtrOutput) ToTemplateArcThicknessOptionsPtrOutputWithContext(ctx context.Context) TemplateArcThicknessOptionsPtrOutput {
 	return o
-}
-
-func (o TemplateArcThicknessOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateArcThicknessOptions] {
-	return pulumix.Output[*TemplateArcThicknessOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateArcThicknessOptionsPtrOutput) Elem() TemplateArcThicknessOptionsOutput {
@@ -45135,12 +42159,6 @@ func (o TemplateAxisBindingOutput) ToTemplateAxisBindingPtrOutputWithContext(ctx
 	}).(TemplateAxisBindingPtrOutput)
 }
 
-func (o TemplateAxisBindingOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateAxisBinding] {
-	return pulumix.Output[TemplateAxisBinding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateAxisBindingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -45174,12 +42192,6 @@ func (o TemplateAxisBindingPtrOutput) ToTemplateAxisBindingPtrOutput() TemplateA
 
 func (o TemplateAxisBindingPtrOutput) ToTemplateAxisBindingPtrOutputWithContext(ctx context.Context) TemplateAxisBindingPtrOutput {
 	return o
-}
-
-func (o TemplateAxisBindingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateAxisBinding] {
-	return pulumix.Output[*TemplateAxisBinding]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateAxisBindingPtrOutput) Elem() TemplateAxisBindingOutput {
@@ -45317,12 +42329,6 @@ func (o TemplateBarChartOrientationOutput) ToTemplateBarChartOrientationPtrOutpu
 	}).(TemplateBarChartOrientationPtrOutput)
 }
 
-func (o TemplateBarChartOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateBarChartOrientation] {
-	return pulumix.Output[TemplateBarChartOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateBarChartOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -45356,12 +42362,6 @@ func (o TemplateBarChartOrientationPtrOutput) ToTemplateBarChartOrientationPtrOu
 
 func (o TemplateBarChartOrientationPtrOutput) ToTemplateBarChartOrientationPtrOutputWithContext(ctx context.Context) TemplateBarChartOrientationPtrOutput {
 	return o
-}
-
-func (o TemplateBarChartOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateBarChartOrientation] {
-	return pulumix.Output[*TemplateBarChartOrientation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateBarChartOrientationPtrOutput) Elem() TemplateBarChartOrientationOutput {
@@ -45500,12 +42500,6 @@ func (o TemplateBarsArrangementOutput) ToTemplateBarsArrangementPtrOutputWithCon
 	}).(TemplateBarsArrangementPtrOutput)
 }
 
-func (o TemplateBarsArrangementOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateBarsArrangement] {
-	return pulumix.Output[TemplateBarsArrangement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateBarsArrangementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -45539,12 +42533,6 @@ func (o TemplateBarsArrangementPtrOutput) ToTemplateBarsArrangementPtrOutput() T
 
 func (o TemplateBarsArrangementPtrOutput) ToTemplateBarsArrangementPtrOutputWithContext(ctx context.Context) TemplateBarsArrangementPtrOutput {
 	return o
-}
-
-func (o TemplateBarsArrangementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateBarsArrangement] {
-	return pulumix.Output[*TemplateBarsArrangement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateBarsArrangementPtrOutput) Elem() TemplateBarsArrangementOutput {
@@ -45684,12 +42672,6 @@ func (o TemplateBaseMapStyleTypeOutput) ToTemplateBaseMapStyleTypePtrOutputWithC
 	}).(TemplateBaseMapStyleTypePtrOutput)
 }
 
-func (o TemplateBaseMapStyleTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateBaseMapStyleType] {
-	return pulumix.Output[TemplateBaseMapStyleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateBaseMapStyleTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -45723,12 +42705,6 @@ func (o TemplateBaseMapStyleTypePtrOutput) ToTemplateBaseMapStyleTypePtrOutput()
 
 func (o TemplateBaseMapStyleTypePtrOutput) ToTemplateBaseMapStyleTypePtrOutputWithContext(ctx context.Context) TemplateBaseMapStyleTypePtrOutput {
 	return o
-}
-
-func (o TemplateBaseMapStyleTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateBaseMapStyleType] {
-	return pulumix.Output[*TemplateBaseMapStyleType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateBaseMapStyleTypePtrOutput) Elem() TemplateBaseMapStyleTypeOutput {
@@ -45866,12 +42842,6 @@ func (o TemplateBoxPlotFillStyleOutput) ToTemplateBoxPlotFillStylePtrOutputWithC
 	}).(TemplateBoxPlotFillStylePtrOutput)
 }
 
-func (o TemplateBoxPlotFillStyleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateBoxPlotFillStyle] {
-	return pulumix.Output[TemplateBoxPlotFillStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateBoxPlotFillStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -45905,12 +42875,6 @@ func (o TemplateBoxPlotFillStylePtrOutput) ToTemplateBoxPlotFillStylePtrOutput()
 
 func (o TemplateBoxPlotFillStylePtrOutput) ToTemplateBoxPlotFillStylePtrOutputWithContext(ctx context.Context) TemplateBoxPlotFillStylePtrOutput {
 	return o
-}
-
-func (o TemplateBoxPlotFillStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateBoxPlotFillStyle] {
-	return pulumix.Output[*TemplateBoxPlotFillStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateBoxPlotFillStylePtrOutput) Elem() TemplateBoxPlotFillStyleOutput {
@@ -46048,12 +43012,6 @@ func (o TemplateCategoricalAggregationFunctionOutput) ToTemplateCategoricalAggre
 	}).(TemplateCategoricalAggregationFunctionPtrOutput)
 }
 
-func (o TemplateCategoricalAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateCategoricalAggregationFunction] {
-	return pulumix.Output[TemplateCategoricalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateCategoricalAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -46087,12 +43045,6 @@ func (o TemplateCategoricalAggregationFunctionPtrOutput) ToTemplateCategoricalAg
 
 func (o TemplateCategoricalAggregationFunctionPtrOutput) ToTemplateCategoricalAggregationFunctionPtrOutputWithContext(ctx context.Context) TemplateCategoricalAggregationFunctionPtrOutput {
 	return o
-}
-
-func (o TemplateCategoricalAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateCategoricalAggregationFunction] {
-	return pulumix.Output[*TemplateCategoricalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateCategoricalAggregationFunctionPtrOutput) Elem() TemplateCategoricalAggregationFunctionOutput {
@@ -46234,12 +43186,6 @@ func (o TemplateCategoryFilterMatchOperatorOutput) ToTemplateCategoryFilterMatch
 	}).(TemplateCategoryFilterMatchOperatorPtrOutput)
 }
 
-func (o TemplateCategoryFilterMatchOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateCategoryFilterMatchOperator] {
-	return pulumix.Output[TemplateCategoryFilterMatchOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateCategoryFilterMatchOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -46273,12 +43219,6 @@ func (o TemplateCategoryFilterMatchOperatorPtrOutput) ToTemplateCategoryFilterMa
 
 func (o TemplateCategoryFilterMatchOperatorPtrOutput) ToTemplateCategoryFilterMatchOperatorPtrOutputWithContext(ctx context.Context) TemplateCategoryFilterMatchOperatorPtrOutput {
 	return o
-}
-
-func (o TemplateCategoryFilterMatchOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateCategoryFilterMatchOperator] {
-	return pulumix.Output[*TemplateCategoryFilterMatchOperator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateCategoryFilterMatchOperatorPtrOutput) Elem() TemplateCategoryFilterMatchOperatorOutput {
@@ -46415,12 +43355,6 @@ func (o TemplateCategoryFilterSelectAllOptionsOutput) ToTemplateCategoryFilterSe
 	}).(TemplateCategoryFilterSelectAllOptionsPtrOutput)
 }
 
-func (o TemplateCategoryFilterSelectAllOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateCategoryFilterSelectAllOptions] {
-	return pulumix.Output[TemplateCategoryFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateCategoryFilterSelectAllOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -46454,12 +43388,6 @@ func (o TemplateCategoryFilterSelectAllOptionsPtrOutput) ToTemplateCategoryFilte
 
 func (o TemplateCategoryFilterSelectAllOptionsPtrOutput) ToTemplateCategoryFilterSelectAllOptionsPtrOutputWithContext(ctx context.Context) TemplateCategoryFilterSelectAllOptionsPtrOutput {
 	return o
-}
-
-func (o TemplateCategoryFilterSelectAllOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateCategoryFilterSelectAllOptions] {
-	return pulumix.Output[*TemplateCategoryFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateCategoryFilterSelectAllOptionsPtrOutput) Elem() TemplateCategoryFilterSelectAllOptionsOutput {
@@ -46597,12 +43525,6 @@ func (o TemplateColorFillTypeOutput) ToTemplateColorFillTypePtrOutputWithContext
 	}).(TemplateColorFillTypePtrOutput)
 }
 
-func (o TemplateColorFillTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateColorFillType] {
-	return pulumix.Output[TemplateColorFillType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateColorFillTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -46636,12 +43558,6 @@ func (o TemplateColorFillTypePtrOutput) ToTemplateColorFillTypePtrOutput() Templ
 
 func (o TemplateColorFillTypePtrOutput) ToTemplateColorFillTypePtrOutputWithContext(ctx context.Context) TemplateColorFillTypePtrOutput {
 	return o
-}
-
-func (o TemplateColorFillTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateColorFillType] {
-	return pulumix.Output[*TemplateColorFillType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateColorFillTypePtrOutput) Elem() TemplateColorFillTypeOutput {
@@ -46779,12 +43695,6 @@ func (o TemplateColumnRoleOutput) ToTemplateColumnRolePtrOutputWithContext(ctx c
 	}).(TemplateColumnRolePtrOutput)
 }
 
-func (o TemplateColumnRoleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateColumnRole] {
-	return pulumix.Output[TemplateColumnRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateColumnRoleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -46818,12 +43728,6 @@ func (o TemplateColumnRolePtrOutput) ToTemplateColumnRolePtrOutput() TemplateCol
 
 func (o TemplateColumnRolePtrOutput) ToTemplateColumnRolePtrOutputWithContext(ctx context.Context) TemplateColumnRolePtrOutput {
 	return o
-}
-
-func (o TemplateColumnRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateColumnRole] {
-	return pulumix.Output[*TemplateColumnRole]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateColumnRolePtrOutput) Elem() TemplateColumnRoleOutput {
@@ -46962,12 +43866,6 @@ func (o TemplateComparisonMethodOutput) ToTemplateComparisonMethodPtrOutputWithC
 	}).(TemplateComparisonMethodPtrOutput)
 }
 
-func (o TemplateComparisonMethodOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateComparisonMethod] {
-	return pulumix.Output[TemplateComparisonMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateComparisonMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -47001,12 +43899,6 @@ func (o TemplateComparisonMethodPtrOutput) ToTemplateComparisonMethodPtrOutput()
 
 func (o TemplateComparisonMethodPtrOutput) ToTemplateComparisonMethodPtrOutputWithContext(ctx context.Context) TemplateComparisonMethodPtrOutput {
 	return o
-}
-
-func (o TemplateComparisonMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateComparisonMethod] {
-	return pulumix.Output[*TemplateComparisonMethod]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateComparisonMethodPtrOutput) Elem() TemplateComparisonMethodOutput {
@@ -47143,12 +44035,6 @@ func (o TemplateConditionalFormattingIconDisplayOptionOutput) ToTemplateConditio
 	}).(TemplateConditionalFormattingIconDisplayOptionPtrOutput)
 }
 
-func (o TemplateConditionalFormattingIconDisplayOptionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateConditionalFormattingIconDisplayOption] {
-	return pulumix.Output[TemplateConditionalFormattingIconDisplayOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateConditionalFormattingIconDisplayOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -47182,12 +44068,6 @@ func (o TemplateConditionalFormattingIconDisplayOptionPtrOutput) ToTemplateCondi
 
 func (o TemplateConditionalFormattingIconDisplayOptionPtrOutput) ToTemplateConditionalFormattingIconDisplayOptionPtrOutputWithContext(ctx context.Context) TemplateConditionalFormattingIconDisplayOptionPtrOutput {
 	return o
-}
-
-func (o TemplateConditionalFormattingIconDisplayOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateConditionalFormattingIconDisplayOption] {
-	return pulumix.Output[*TemplateConditionalFormattingIconDisplayOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateConditionalFormattingIconDisplayOptionPtrOutput) Elem() TemplateConditionalFormattingIconDisplayOptionOutput {
@@ -47334,12 +44214,6 @@ func (o TemplateConditionalFormattingIconSetTypeOutput) ToTemplateConditionalFor
 	}).(TemplateConditionalFormattingIconSetTypePtrOutput)
 }
 
-func (o TemplateConditionalFormattingIconSetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateConditionalFormattingIconSetType] {
-	return pulumix.Output[TemplateConditionalFormattingIconSetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateConditionalFormattingIconSetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -47373,12 +44247,6 @@ func (o TemplateConditionalFormattingIconSetTypePtrOutput) ToTemplateConditional
 
 func (o TemplateConditionalFormattingIconSetTypePtrOutput) ToTemplateConditionalFormattingIconSetTypePtrOutputWithContext(ctx context.Context) TemplateConditionalFormattingIconSetTypePtrOutput {
 	return o
-}
-
-func (o TemplateConditionalFormattingIconSetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateConditionalFormattingIconSetType] {
-	return pulumix.Output[*TemplateConditionalFormattingIconSetType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateConditionalFormattingIconSetTypePtrOutput) Elem() TemplateConditionalFormattingIconSetTypeOutput {
@@ -47516,12 +44384,6 @@ func (o TemplateCrossDatasetTypesOutput) ToTemplateCrossDatasetTypesPtrOutputWit
 	}).(TemplateCrossDatasetTypesPtrOutput)
 }
 
-func (o TemplateCrossDatasetTypesOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateCrossDatasetTypes] {
-	return pulumix.Output[TemplateCrossDatasetTypes]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateCrossDatasetTypesOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -47555,12 +44417,6 @@ func (o TemplateCrossDatasetTypesPtrOutput) ToTemplateCrossDatasetTypesPtrOutput
 
 func (o TemplateCrossDatasetTypesPtrOutput) ToTemplateCrossDatasetTypesPtrOutputWithContext(ctx context.Context) TemplateCrossDatasetTypesPtrOutput {
 	return o
-}
-
-func (o TemplateCrossDatasetTypesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateCrossDatasetTypes] {
-	return pulumix.Output[*TemplateCrossDatasetTypes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateCrossDatasetTypesPtrOutput) Elem() TemplateCrossDatasetTypesOutput {
@@ -47700,12 +44556,6 @@ func (o TemplateCustomContentImageScalingConfigurationOutput) ToTemplateCustomCo
 	}).(TemplateCustomContentImageScalingConfigurationPtrOutput)
 }
 
-func (o TemplateCustomContentImageScalingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateCustomContentImageScalingConfiguration] {
-	return pulumix.Output[TemplateCustomContentImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateCustomContentImageScalingConfigurationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -47739,12 +44589,6 @@ func (o TemplateCustomContentImageScalingConfigurationPtrOutput) ToTemplateCusto
 
 func (o TemplateCustomContentImageScalingConfigurationPtrOutput) ToTemplateCustomContentImageScalingConfigurationPtrOutputWithContext(ctx context.Context) TemplateCustomContentImageScalingConfigurationPtrOutput {
 	return o
-}
-
-func (o TemplateCustomContentImageScalingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateCustomContentImageScalingConfiguration] {
-	return pulumix.Output[*TemplateCustomContentImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateCustomContentImageScalingConfigurationPtrOutput) Elem() TemplateCustomContentImageScalingConfigurationOutput {
@@ -47882,12 +44726,6 @@ func (o TemplateCustomContentTypeOutput) ToTemplateCustomContentTypePtrOutputWit
 	}).(TemplateCustomContentTypePtrOutput)
 }
 
-func (o TemplateCustomContentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateCustomContentType] {
-	return pulumix.Output[TemplateCustomContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateCustomContentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -47921,12 +44759,6 @@ func (o TemplateCustomContentTypePtrOutput) ToTemplateCustomContentTypePtrOutput
 
 func (o TemplateCustomContentTypePtrOutput) ToTemplateCustomContentTypePtrOutputWithContext(ctx context.Context) TemplateCustomContentTypePtrOutput {
 	return o
-}
-
-func (o TemplateCustomContentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateCustomContentType] {
-	return pulumix.Output[*TemplateCustomContentType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateCustomContentTypePtrOutput) Elem() TemplateCustomContentTypeOutput {
@@ -48065,12 +44897,6 @@ func (o TemplateDataLabelContentOutput) ToTemplateDataLabelContentPtrOutputWithC
 	}).(TemplateDataLabelContentPtrOutput)
 }
 
-func (o TemplateDataLabelContentOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateDataLabelContent] {
-	return pulumix.Output[TemplateDataLabelContent]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateDataLabelContentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -48104,12 +44930,6 @@ func (o TemplateDataLabelContentPtrOutput) ToTemplateDataLabelContentPtrOutput()
 
 func (o TemplateDataLabelContentPtrOutput) ToTemplateDataLabelContentPtrOutputWithContext(ctx context.Context) TemplateDataLabelContentPtrOutput {
 	return o
-}
-
-func (o TemplateDataLabelContentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateDataLabelContent] {
-	return pulumix.Output[*TemplateDataLabelContent]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateDataLabelContentPtrOutput) Elem() TemplateDataLabelContentOutput {
@@ -48247,12 +45067,6 @@ func (o TemplateDataLabelOverlapOutput) ToTemplateDataLabelOverlapPtrOutputWithC
 	}).(TemplateDataLabelOverlapPtrOutput)
 }
 
-func (o TemplateDataLabelOverlapOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateDataLabelOverlap] {
-	return pulumix.Output[TemplateDataLabelOverlap]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateDataLabelOverlapOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -48286,12 +45100,6 @@ func (o TemplateDataLabelOverlapPtrOutput) ToTemplateDataLabelOverlapPtrOutput()
 
 func (o TemplateDataLabelOverlapPtrOutput) ToTemplateDataLabelOverlapPtrOutputWithContext(ctx context.Context) TemplateDataLabelOverlapPtrOutput {
 	return o
-}
-
-func (o TemplateDataLabelOverlapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateDataLabelOverlap] {
-	return pulumix.Output[*TemplateDataLabelOverlap]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateDataLabelOverlapPtrOutput) Elem() TemplateDataLabelOverlapOutput {
@@ -48433,12 +45241,6 @@ func (o TemplateDataLabelPositionOutput) ToTemplateDataLabelPositionPtrOutputWit
 	}).(TemplateDataLabelPositionPtrOutput)
 }
 
-func (o TemplateDataLabelPositionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateDataLabelPosition] {
-	return pulumix.Output[TemplateDataLabelPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateDataLabelPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -48472,12 +45274,6 @@ func (o TemplateDataLabelPositionPtrOutput) ToTemplateDataLabelPositionPtrOutput
 
 func (o TemplateDataLabelPositionPtrOutput) ToTemplateDataLabelPositionPtrOutputWithContext(ctx context.Context) TemplateDataLabelPositionPtrOutput {
 	return o
-}
-
-func (o TemplateDataLabelPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateDataLabelPosition] {
-	return pulumix.Output[*TemplateDataLabelPosition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateDataLabelPositionPtrOutput) Elem() TemplateDataLabelPositionOutput {
@@ -48617,12 +45413,6 @@ func (o TemplateDateAggregationFunctionOutput) ToTemplateDateAggregationFunction
 	}).(TemplateDateAggregationFunctionPtrOutput)
 }
 
-func (o TemplateDateAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateDateAggregationFunction] {
-	return pulumix.Output[TemplateDateAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateDateAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -48656,12 +45446,6 @@ func (o TemplateDateAggregationFunctionPtrOutput) ToTemplateDateAggregationFunct
 
 func (o TemplateDateAggregationFunctionPtrOutput) ToTemplateDateAggregationFunctionPtrOutputWithContext(ctx context.Context) TemplateDateAggregationFunctionPtrOutput {
 	return o
-}
-
-func (o TemplateDateAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateDateAggregationFunction] {
-	return pulumix.Output[*TemplateDateAggregationFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateDateAggregationFunctionPtrOutput) Elem() TemplateDateAggregationFunctionOutput {
@@ -48765,12 +45549,6 @@ func (o TemplateErrorTypeOutput) ToTemplateErrorTypePtrOutputWithContext(ctx con
 	}).(TemplateErrorTypePtrOutput)
 }
 
-func (o TemplateErrorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateErrorType] {
-	return pulumix.Output[TemplateErrorType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateErrorTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -48804,12 +45582,6 @@ func (o TemplateErrorTypePtrOutput) ToTemplateErrorTypePtrOutput() TemplateError
 
 func (o TemplateErrorTypePtrOutput) ToTemplateErrorTypePtrOutputWithContext(ctx context.Context) TemplateErrorTypePtrOutput {
 	return o
-}
-
-func (o TemplateErrorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateErrorType] {
-	return pulumix.Output[*TemplateErrorType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateErrorTypePtrOutput) Elem() TemplateErrorTypeOutput {
@@ -48904,12 +45676,6 @@ func (o TemplateFilterNullOptionOutput) ToTemplateFilterNullOptionPtrOutputWithC
 	}).(TemplateFilterNullOptionPtrOutput)
 }
 
-func (o TemplateFilterNullOptionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateFilterNullOption] {
-	return pulumix.Output[TemplateFilterNullOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateFilterNullOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -48943,12 +45709,6 @@ func (o TemplateFilterNullOptionPtrOutput) ToTemplateFilterNullOptionPtrOutput()
 
 func (o TemplateFilterNullOptionPtrOutput) ToTemplateFilterNullOptionPtrOutputWithContext(ctx context.Context) TemplateFilterNullOptionPtrOutput {
 	return o
-}
-
-func (o TemplateFilterNullOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateFilterNullOption] {
-	return pulumix.Output[*TemplateFilterNullOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateFilterNullOptionPtrOutput) Elem() TemplateFilterNullOptionOutput {
@@ -49086,12 +45846,6 @@ func (o TemplateFilterVisualScopeOutput) ToTemplateFilterVisualScopePtrOutputWit
 	}).(TemplateFilterVisualScopePtrOutput)
 }
 
-func (o TemplateFilterVisualScopeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateFilterVisualScope] {
-	return pulumix.Output[TemplateFilterVisualScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateFilterVisualScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -49125,12 +45879,6 @@ func (o TemplateFilterVisualScopePtrOutput) ToTemplateFilterVisualScopePtrOutput
 
 func (o TemplateFilterVisualScopePtrOutput) ToTemplateFilterVisualScopePtrOutputWithContext(ctx context.Context) TemplateFilterVisualScopePtrOutput {
 	return o
-}
-
-func (o TemplateFilterVisualScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateFilterVisualScope] {
-	return pulumix.Output[*TemplateFilterVisualScope]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateFilterVisualScopePtrOutput) Elem() TemplateFilterVisualScopeOutput {
@@ -49268,12 +46016,6 @@ func (o TemplateFontDecorationOutput) ToTemplateFontDecorationPtrOutputWithConte
 	}).(TemplateFontDecorationPtrOutput)
 }
 
-func (o TemplateFontDecorationOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateFontDecoration] {
-	return pulumix.Output[TemplateFontDecoration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateFontDecorationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -49307,12 +46049,6 @@ func (o TemplateFontDecorationPtrOutput) ToTemplateFontDecorationPtrOutput() Tem
 
 func (o TemplateFontDecorationPtrOutput) ToTemplateFontDecorationPtrOutputWithContext(ctx context.Context) TemplateFontDecorationPtrOutput {
 	return o
-}
-
-func (o TemplateFontDecorationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateFontDecoration] {
-	return pulumix.Output[*TemplateFontDecoration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateFontDecorationPtrOutput) Elem() TemplateFontDecorationOutput {
@@ -49450,12 +46186,6 @@ func (o TemplateFontStyleOutput) ToTemplateFontStylePtrOutputWithContext(ctx con
 	}).(TemplateFontStylePtrOutput)
 }
 
-func (o TemplateFontStyleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateFontStyle] {
-	return pulumix.Output[TemplateFontStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateFontStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -49489,12 +46219,6 @@ func (o TemplateFontStylePtrOutput) ToTemplateFontStylePtrOutput() TemplateFontS
 
 func (o TemplateFontStylePtrOutput) ToTemplateFontStylePtrOutputWithContext(ctx context.Context) TemplateFontStylePtrOutput {
 	return o
-}
-
-func (o TemplateFontStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateFontStyle] {
-	return pulumix.Output[*TemplateFontStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateFontStylePtrOutput) Elem() TemplateFontStyleOutput {
@@ -49632,12 +46356,6 @@ func (o TemplateFontWeightNameOutput) ToTemplateFontWeightNamePtrOutputWithConte
 	}).(TemplateFontWeightNamePtrOutput)
 }
 
-func (o TemplateFontWeightNameOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateFontWeightName] {
-	return pulumix.Output[TemplateFontWeightName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateFontWeightNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -49671,12 +46389,6 @@ func (o TemplateFontWeightNamePtrOutput) ToTemplateFontWeightNamePtrOutput() Tem
 
 func (o TemplateFontWeightNamePtrOutput) ToTemplateFontWeightNamePtrOutputWithContext(ctx context.Context) TemplateFontWeightNamePtrOutput {
 	return o
-}
-
-func (o TemplateFontWeightNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateFontWeightName] {
-	return pulumix.Output[*TemplateFontWeightName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateFontWeightNamePtrOutput) Elem() TemplateFontWeightNameOutput {
@@ -49814,12 +46526,6 @@ func (o TemplateForecastComputationSeasonalityOutput) ToTemplateForecastComputat
 	}).(TemplateForecastComputationSeasonalityPtrOutput)
 }
 
-func (o TemplateForecastComputationSeasonalityOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateForecastComputationSeasonality] {
-	return pulumix.Output[TemplateForecastComputationSeasonality]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateForecastComputationSeasonalityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -49853,12 +46559,6 @@ func (o TemplateForecastComputationSeasonalityPtrOutput) ToTemplateForecastCompu
 
 func (o TemplateForecastComputationSeasonalityPtrOutput) ToTemplateForecastComputationSeasonalityPtrOutputWithContext(ctx context.Context) TemplateForecastComputationSeasonalityPtrOutput {
 	return o
-}
-
-func (o TemplateForecastComputationSeasonalityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateForecastComputationSeasonality] {
-	return pulumix.Output[*TemplateForecastComputationSeasonality]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateForecastComputationSeasonalityPtrOutput) Elem() TemplateForecastComputationSeasonalityOutput {
@@ -49999,12 +46699,6 @@ func (o TemplateFunnelChartMeasureDataLabelStyleOutput) ToTemplateFunnelChartMea
 	}).(TemplateFunnelChartMeasureDataLabelStylePtrOutput)
 }
 
-func (o TemplateFunnelChartMeasureDataLabelStyleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateFunnelChartMeasureDataLabelStyle] {
-	return pulumix.Output[TemplateFunnelChartMeasureDataLabelStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateFunnelChartMeasureDataLabelStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -50038,12 +46732,6 @@ func (o TemplateFunnelChartMeasureDataLabelStylePtrOutput) ToTemplateFunnelChart
 
 func (o TemplateFunnelChartMeasureDataLabelStylePtrOutput) ToTemplateFunnelChartMeasureDataLabelStylePtrOutputWithContext(ctx context.Context) TemplateFunnelChartMeasureDataLabelStylePtrOutput {
 	return o
-}
-
-func (o TemplateFunnelChartMeasureDataLabelStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateFunnelChartMeasureDataLabelStyle] {
-	return pulumix.Output[*TemplateFunnelChartMeasureDataLabelStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateFunnelChartMeasureDataLabelStylePtrOutput) Elem() TemplateFunnelChartMeasureDataLabelStyleOutput {
@@ -50182,12 +46870,6 @@ func (o TemplateGeospatialSelectedPointStyleOutput) ToTemplateGeospatialSelected
 	}).(TemplateGeospatialSelectedPointStylePtrOutput)
 }
 
-func (o TemplateGeospatialSelectedPointStyleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateGeospatialSelectedPointStyle] {
-	return pulumix.Output[TemplateGeospatialSelectedPointStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateGeospatialSelectedPointStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -50221,12 +46903,6 @@ func (o TemplateGeospatialSelectedPointStylePtrOutput) ToTemplateGeospatialSelec
 
 func (o TemplateGeospatialSelectedPointStylePtrOutput) ToTemplateGeospatialSelectedPointStylePtrOutputWithContext(ctx context.Context) TemplateGeospatialSelectedPointStylePtrOutput {
 	return o
-}
-
-func (o TemplateGeospatialSelectedPointStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateGeospatialSelectedPointStyle] {
-	return pulumix.Output[*TemplateGeospatialSelectedPointStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateGeospatialSelectedPointStylePtrOutput) Elem() TemplateGeospatialSelectedPointStyleOutput {
@@ -50364,12 +47040,6 @@ func (o TemplateHistogramBinTypeOutput) ToTemplateHistogramBinTypePtrOutputWithC
 	}).(TemplateHistogramBinTypePtrOutput)
 }
 
-func (o TemplateHistogramBinTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateHistogramBinType] {
-	return pulumix.Output[TemplateHistogramBinType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateHistogramBinTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -50403,12 +47073,6 @@ func (o TemplateHistogramBinTypePtrOutput) ToTemplateHistogramBinTypePtrOutput()
 
 func (o TemplateHistogramBinTypePtrOutput) ToTemplateHistogramBinTypePtrOutputWithContext(ctx context.Context) TemplateHistogramBinTypePtrOutput {
 	return o
-}
-
-func (o TemplateHistogramBinTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateHistogramBinType] {
-	return pulumix.Output[*TemplateHistogramBinType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateHistogramBinTypePtrOutput) Elem() TemplateHistogramBinTypeOutput {
@@ -50548,12 +47212,6 @@ func (o TemplateHorizontalTextAlignmentOutput) ToTemplateHorizontalTextAlignment
 	}).(TemplateHorizontalTextAlignmentPtrOutput)
 }
 
-func (o TemplateHorizontalTextAlignmentOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateHorizontalTextAlignment] {
-	return pulumix.Output[TemplateHorizontalTextAlignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateHorizontalTextAlignmentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -50587,12 +47245,6 @@ func (o TemplateHorizontalTextAlignmentPtrOutput) ToTemplateHorizontalTextAlignm
 
 func (o TemplateHorizontalTextAlignmentPtrOutput) ToTemplateHorizontalTextAlignmentPtrOutputWithContext(ctx context.Context) TemplateHorizontalTextAlignmentPtrOutput {
 	return o
-}
-
-func (o TemplateHorizontalTextAlignmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateHorizontalTextAlignment] {
-	return pulumix.Output[*TemplateHorizontalTextAlignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateHorizontalTextAlignmentPtrOutput) Elem() TemplateHorizontalTextAlignmentOutput {
@@ -50754,12 +47406,6 @@ func (o TemplateIconOutput) ToTemplateIconPtrOutputWithContext(ctx context.Conte
 	}).(TemplateIconPtrOutput)
 }
 
-func (o TemplateIconOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateIcon] {
-	return pulumix.Output[TemplateIcon]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateIconOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -50793,12 +47439,6 @@ func (o TemplateIconPtrOutput) ToTemplateIconPtrOutput() TemplateIconPtrOutput {
 
 func (o TemplateIconPtrOutput) ToTemplateIconPtrOutputWithContext(ctx context.Context) TemplateIconPtrOutput {
 	return o
-}
-
-func (o TemplateIconPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateIcon] {
-	return pulumix.Output[*TemplateIcon]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateIconPtrOutput) Elem() TemplateIconOutput {
@@ -50936,12 +47576,6 @@ func (o TemplateKpiSparklineTypeOutput) ToTemplateKpiSparklineTypePtrOutputWithC
 	}).(TemplateKpiSparklineTypePtrOutput)
 }
 
-func (o TemplateKpiSparklineTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateKpiSparklineType] {
-	return pulumix.Output[TemplateKpiSparklineType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateKpiSparklineTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -50975,12 +47609,6 @@ func (o TemplateKpiSparklineTypePtrOutput) ToTemplateKpiSparklineTypePtrOutput()
 
 func (o TemplateKpiSparklineTypePtrOutput) ToTemplateKpiSparklineTypePtrOutputWithContext(ctx context.Context) TemplateKpiSparklineTypePtrOutput {
 	return o
-}
-
-func (o TemplateKpiSparklineTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateKpiSparklineType] {
-	return pulumix.Output[*TemplateKpiSparklineType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateKpiSparklineTypePtrOutput) Elem() TemplateKpiSparklineTypeOutput {
@@ -51118,12 +47746,6 @@ func (o TemplateKpiVisualStandardLayoutTypeOutput) ToTemplateKpiVisualStandardLa
 	}).(TemplateKpiVisualStandardLayoutTypePtrOutput)
 }
 
-func (o TemplateKpiVisualStandardLayoutTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateKpiVisualStandardLayoutType] {
-	return pulumix.Output[TemplateKpiVisualStandardLayoutType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateKpiVisualStandardLayoutTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -51157,12 +47779,6 @@ func (o TemplateKpiVisualStandardLayoutTypePtrOutput) ToTemplateKpiVisualStandar
 
 func (o TemplateKpiVisualStandardLayoutTypePtrOutput) ToTemplateKpiVisualStandardLayoutTypePtrOutputWithContext(ctx context.Context) TemplateKpiVisualStandardLayoutTypePtrOutput {
 	return o
-}
-
-func (o TemplateKpiVisualStandardLayoutTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateKpiVisualStandardLayoutType] {
-	return pulumix.Output[*TemplateKpiVisualStandardLayoutType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateKpiVisualStandardLayoutTypePtrOutput) Elem() TemplateKpiVisualStandardLayoutTypeOutput {
@@ -51302,12 +47918,6 @@ func (o TemplateLayoutElementTypeOutput) ToTemplateLayoutElementTypePtrOutputWit
 	}).(TemplateLayoutElementTypePtrOutput)
 }
 
-func (o TemplateLayoutElementTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateLayoutElementType] {
-	return pulumix.Output[TemplateLayoutElementType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateLayoutElementTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -51341,12 +47951,6 @@ func (o TemplateLayoutElementTypePtrOutput) ToTemplateLayoutElementTypePtrOutput
 
 func (o TemplateLayoutElementTypePtrOutput) ToTemplateLayoutElementTypePtrOutputWithContext(ctx context.Context) TemplateLayoutElementTypePtrOutput {
 	return o
-}
-
-func (o TemplateLayoutElementTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateLayoutElementType] {
-	return pulumix.Output[*TemplateLayoutElementType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateLayoutElementTypePtrOutput) Elem() TemplateLayoutElementTypeOutput {
@@ -51486,12 +48090,6 @@ func (o TemplateLegendPositionOutput) ToTemplateLegendPositionPtrOutputWithConte
 	}).(TemplateLegendPositionPtrOutput)
 }
 
-func (o TemplateLegendPositionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateLegendPosition] {
-	return pulumix.Output[TemplateLegendPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateLegendPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -51525,12 +48123,6 @@ func (o TemplateLegendPositionPtrOutput) ToTemplateLegendPositionPtrOutput() Tem
 
 func (o TemplateLegendPositionPtrOutput) ToTemplateLegendPositionPtrOutputWithContext(ctx context.Context) TemplateLegendPositionPtrOutput {
 	return o
-}
-
-func (o TemplateLegendPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateLegendPosition] {
-	return pulumix.Output[*TemplateLegendPosition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateLegendPositionPtrOutput) Elem() TemplateLegendPositionOutput {
@@ -51669,12 +48261,6 @@ func (o TemplateLineChartLineStyleOutput) ToTemplateLineChartLineStylePtrOutputW
 	}).(TemplateLineChartLineStylePtrOutput)
 }
 
-func (o TemplateLineChartLineStyleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateLineChartLineStyle] {
-	return pulumix.Output[TemplateLineChartLineStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateLineChartLineStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -51708,12 +48294,6 @@ func (o TemplateLineChartLineStylePtrOutput) ToTemplateLineChartLineStylePtrOutp
 
 func (o TemplateLineChartLineStylePtrOutput) ToTemplateLineChartLineStylePtrOutputWithContext(ctx context.Context) TemplateLineChartLineStylePtrOutput {
 	return o
-}
-
-func (o TemplateLineChartLineStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateLineChartLineStyle] {
-	return pulumix.Output[*TemplateLineChartLineStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateLineChartLineStylePtrOutput) Elem() TemplateLineChartLineStyleOutput {
@@ -51854,12 +48434,6 @@ func (o TemplateLineChartMarkerShapeOutput) ToTemplateLineChartMarkerShapePtrOut
 	}).(TemplateLineChartMarkerShapePtrOutput)
 }
 
-func (o TemplateLineChartMarkerShapeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateLineChartMarkerShape] {
-	return pulumix.Output[TemplateLineChartMarkerShape]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateLineChartMarkerShapeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -51893,12 +48467,6 @@ func (o TemplateLineChartMarkerShapePtrOutput) ToTemplateLineChartMarkerShapePtr
 
 func (o TemplateLineChartMarkerShapePtrOutput) ToTemplateLineChartMarkerShapePtrOutputWithContext(ctx context.Context) TemplateLineChartMarkerShapePtrOutput {
 	return o
-}
-
-func (o TemplateLineChartMarkerShapePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateLineChartMarkerShape] {
-	return pulumix.Output[*TemplateLineChartMarkerShape]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateLineChartMarkerShapePtrOutput) Elem() TemplateLineChartMarkerShapeOutput {
@@ -52037,12 +48605,6 @@ func (o TemplateLineChartTypeOutput) ToTemplateLineChartTypePtrOutputWithContext
 	}).(TemplateLineChartTypePtrOutput)
 }
 
-func (o TemplateLineChartTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateLineChartType] {
-	return pulumix.Output[TemplateLineChartType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateLineChartTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -52076,12 +48638,6 @@ func (o TemplateLineChartTypePtrOutput) ToTemplateLineChartTypePtrOutput() Templ
 
 func (o TemplateLineChartTypePtrOutput) ToTemplateLineChartTypePtrOutputWithContext(ctx context.Context) TemplateLineChartTypePtrOutput {
 	return o
-}
-
-func (o TemplateLineChartTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateLineChartType] {
-	return pulumix.Output[*TemplateLineChartType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateLineChartTypePtrOutput) Elem() TemplateLineChartTypeOutput {
@@ -52220,12 +48776,6 @@ func (o TemplateLineInterpolationOutput) ToTemplateLineInterpolationPtrOutputWit
 	}).(TemplateLineInterpolationPtrOutput)
 }
 
-func (o TemplateLineInterpolationOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateLineInterpolation] {
-	return pulumix.Output[TemplateLineInterpolation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateLineInterpolationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -52259,12 +48809,6 @@ func (o TemplateLineInterpolationPtrOutput) ToTemplateLineInterpolationPtrOutput
 
 func (o TemplateLineInterpolationPtrOutput) ToTemplateLineInterpolationPtrOutputWithContext(ctx context.Context) TemplateLineInterpolationPtrOutput {
 	return o
-}
-
-func (o TemplateLineInterpolationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateLineInterpolation] {
-	return pulumix.Output[*TemplateLineInterpolation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateLineInterpolationPtrOutput) Elem() TemplateLineInterpolationOutput {
@@ -52402,12 +48946,6 @@ func (o TemplateMapZoomModeOutput) ToTemplateMapZoomModePtrOutputWithContext(ctx
 	}).(TemplateMapZoomModePtrOutput)
 }
 
-func (o TemplateMapZoomModeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateMapZoomMode] {
-	return pulumix.Output[TemplateMapZoomMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateMapZoomModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -52441,12 +48979,6 @@ func (o TemplateMapZoomModePtrOutput) ToTemplateMapZoomModePtrOutput() TemplateM
 
 func (o TemplateMapZoomModePtrOutput) ToTemplateMapZoomModePtrOutputWithContext(ctx context.Context) TemplateMapZoomModePtrOutput {
 	return o
-}
-
-func (o TemplateMapZoomModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateMapZoomMode] {
-	return pulumix.Output[*TemplateMapZoomMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateMapZoomModePtrOutput) Elem() TemplateMapZoomModeOutput {
@@ -52584,12 +49116,6 @@ func (o TemplateMaximumMinimumComputationTypeOutput) ToTemplateMaximumMinimumCom
 	}).(TemplateMaximumMinimumComputationTypePtrOutput)
 }
 
-func (o TemplateMaximumMinimumComputationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateMaximumMinimumComputationType] {
-	return pulumix.Output[TemplateMaximumMinimumComputationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateMaximumMinimumComputationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -52623,12 +49149,6 @@ func (o TemplateMaximumMinimumComputationTypePtrOutput) ToTemplateMaximumMinimum
 
 func (o TemplateMaximumMinimumComputationTypePtrOutput) ToTemplateMaximumMinimumComputationTypePtrOutputWithContext(ctx context.Context) TemplateMaximumMinimumComputationTypePtrOutput {
 	return o
-}
-
-func (o TemplateMaximumMinimumComputationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateMaximumMinimumComputationType] {
-	return pulumix.Output[*TemplateMaximumMinimumComputationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateMaximumMinimumComputationTypePtrOutput) Elem() TemplateMaximumMinimumComputationTypeOutput {
@@ -52767,12 +49287,6 @@ func (o TemplateMissingDataTreatmentOptionOutput) ToTemplateMissingDataTreatment
 	}).(TemplateMissingDataTreatmentOptionPtrOutput)
 }
 
-func (o TemplateMissingDataTreatmentOptionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateMissingDataTreatmentOption] {
-	return pulumix.Output[TemplateMissingDataTreatmentOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateMissingDataTreatmentOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -52806,12 +49320,6 @@ func (o TemplateMissingDataTreatmentOptionPtrOutput) ToTemplateMissingDataTreatm
 
 func (o TemplateMissingDataTreatmentOptionPtrOutput) ToTemplateMissingDataTreatmentOptionPtrOutputWithContext(ctx context.Context) TemplateMissingDataTreatmentOptionPtrOutput {
 	return o
-}
-
-func (o TemplateMissingDataTreatmentOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateMissingDataTreatmentOption] {
-	return pulumix.Output[*TemplateMissingDataTreatmentOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateMissingDataTreatmentOptionPtrOutput) Elem() TemplateMissingDataTreatmentOptionOutput {
@@ -52949,12 +49457,6 @@ func (o TemplateNegativeValueDisplayModeOutput) ToTemplateNegativeValueDisplayMo
 	}).(TemplateNegativeValueDisplayModePtrOutput)
 }
 
-func (o TemplateNegativeValueDisplayModeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateNegativeValueDisplayMode] {
-	return pulumix.Output[TemplateNegativeValueDisplayMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateNegativeValueDisplayModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -52988,12 +49490,6 @@ func (o TemplateNegativeValueDisplayModePtrOutput) ToTemplateNegativeValueDispla
 
 func (o TemplateNegativeValueDisplayModePtrOutput) ToTemplateNegativeValueDisplayModePtrOutputWithContext(ctx context.Context) TemplateNegativeValueDisplayModePtrOutput {
 	return o
-}
-
-func (o TemplateNegativeValueDisplayModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateNegativeValueDisplayMode] {
-	return pulumix.Output[*TemplateNegativeValueDisplayMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateNegativeValueDisplayModePtrOutput) Elem() TemplateNegativeValueDisplayModeOutput {
@@ -53135,12 +49631,6 @@ func (o TemplateNumberScaleOutput) ToTemplateNumberScalePtrOutputWithContext(ctx
 	}).(TemplateNumberScalePtrOutput)
 }
 
-func (o TemplateNumberScaleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateNumberScale] {
-	return pulumix.Output[TemplateNumberScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateNumberScaleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -53174,12 +49664,6 @@ func (o TemplateNumberScalePtrOutput) ToTemplateNumberScalePtrOutput() TemplateN
 
 func (o TemplateNumberScalePtrOutput) ToTemplateNumberScalePtrOutputWithContext(ctx context.Context) TemplateNumberScalePtrOutput {
 	return o
-}
-
-func (o TemplateNumberScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateNumberScale] {
-	return pulumix.Output[*TemplateNumberScale]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateNumberScalePtrOutput) Elem() TemplateNumberScaleOutput {
@@ -53317,12 +49801,6 @@ func (o TemplateNumericEqualityMatchOperatorOutput) ToTemplateNumericEqualityMat
 	}).(TemplateNumericEqualityMatchOperatorPtrOutput)
 }
 
-func (o TemplateNumericEqualityMatchOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateNumericEqualityMatchOperator] {
-	return pulumix.Output[TemplateNumericEqualityMatchOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateNumericEqualityMatchOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -53356,12 +49834,6 @@ func (o TemplateNumericEqualityMatchOperatorPtrOutput) ToTemplateNumericEquality
 
 func (o TemplateNumericEqualityMatchOperatorPtrOutput) ToTemplateNumericEqualityMatchOperatorPtrOutputWithContext(ctx context.Context) TemplateNumericEqualityMatchOperatorPtrOutput {
 	return o
-}
-
-func (o TemplateNumericEqualityMatchOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateNumericEqualityMatchOperator] {
-	return pulumix.Output[*TemplateNumericEqualityMatchOperator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateNumericEqualityMatchOperatorPtrOutput) Elem() TemplateNumericEqualityMatchOperatorOutput {
@@ -53498,12 +49970,6 @@ func (o TemplateNumericFilterSelectAllOptionsOutput) ToTemplateNumericFilterSele
 	}).(TemplateNumericFilterSelectAllOptionsPtrOutput)
 }
 
-func (o TemplateNumericFilterSelectAllOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateNumericFilterSelectAllOptions] {
-	return pulumix.Output[TemplateNumericFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateNumericFilterSelectAllOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -53537,12 +50003,6 @@ func (o TemplateNumericFilterSelectAllOptionsPtrOutput) ToTemplateNumericFilterS
 
 func (o TemplateNumericFilterSelectAllOptionsPtrOutput) ToTemplateNumericFilterSelectAllOptionsPtrOutputWithContext(ctx context.Context) TemplateNumericFilterSelectAllOptionsPtrOutput {
 	return o
-}
-
-func (o TemplateNumericFilterSelectAllOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateNumericFilterSelectAllOptions] {
-	return pulumix.Output[*TemplateNumericFilterSelectAllOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateNumericFilterSelectAllOptionsPtrOutput) Elem() TemplateNumericFilterSelectAllOptionsOutput {
@@ -53681,12 +50141,6 @@ func (o TemplateNumericSeparatorSymbolOutput) ToTemplateNumericSeparatorSymbolPt
 	}).(TemplateNumericSeparatorSymbolPtrOutput)
 }
 
-func (o TemplateNumericSeparatorSymbolOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateNumericSeparatorSymbol] {
-	return pulumix.Output[TemplateNumericSeparatorSymbol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateNumericSeparatorSymbolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -53720,12 +50174,6 @@ func (o TemplateNumericSeparatorSymbolPtrOutput) ToTemplateNumericSeparatorSymbo
 
 func (o TemplateNumericSeparatorSymbolPtrOutput) ToTemplateNumericSeparatorSymbolPtrOutputWithContext(ctx context.Context) TemplateNumericSeparatorSymbolPtrOutput {
 	return o
-}
-
-func (o TemplateNumericSeparatorSymbolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateNumericSeparatorSymbol] {
-	return pulumix.Output[*TemplateNumericSeparatorSymbol]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateNumericSeparatorSymbolPtrOutput) Elem() TemplateNumericSeparatorSymbolOutput {
@@ -53863,12 +50311,6 @@ func (o TemplateOtherCategoriesOutput) ToTemplateOtherCategoriesPtrOutputWithCon
 	}).(TemplateOtherCategoriesPtrOutput)
 }
 
-func (o TemplateOtherCategoriesOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateOtherCategories] {
-	return pulumix.Output[TemplateOtherCategories]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateOtherCategoriesOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -53902,12 +50344,6 @@ func (o TemplateOtherCategoriesPtrOutput) ToTemplateOtherCategoriesPtrOutput() T
 
 func (o TemplateOtherCategoriesPtrOutput) ToTemplateOtherCategoriesPtrOutputWithContext(ctx context.Context) TemplateOtherCategoriesPtrOutput {
 	return o
-}
-
-func (o TemplateOtherCategoriesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateOtherCategories] {
-	return pulumix.Output[*TemplateOtherCategories]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateOtherCategoriesPtrOutput) Elem() TemplateOtherCategoriesOutput {
@@ -54046,12 +50482,6 @@ func (o TemplatePanelBorderStyleOutput) ToTemplatePanelBorderStylePtrOutputWithC
 	}).(TemplatePanelBorderStylePtrOutput)
 }
 
-func (o TemplatePanelBorderStyleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplatePanelBorderStyle] {
-	return pulumix.Output[TemplatePanelBorderStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePanelBorderStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -54085,12 +50515,6 @@ func (o TemplatePanelBorderStylePtrOutput) ToTemplatePanelBorderStylePtrOutput()
 
 func (o TemplatePanelBorderStylePtrOutput) ToTemplatePanelBorderStylePtrOutputWithContext(ctx context.Context) TemplatePanelBorderStylePtrOutput {
 	return o
-}
-
-func (o TemplatePanelBorderStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplatePanelBorderStyle] {
-	return pulumix.Output[*TemplatePanelBorderStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplatePanelBorderStylePtrOutput) Elem() TemplatePanelBorderStyleOutput {
@@ -54228,12 +50652,6 @@ func (o TemplatePaperOrientationOutput) ToTemplatePaperOrientationPtrOutputWithC
 	}).(TemplatePaperOrientationPtrOutput)
 }
 
-func (o TemplatePaperOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[TemplatePaperOrientation] {
-	return pulumix.Output[TemplatePaperOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePaperOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -54267,12 +50685,6 @@ func (o TemplatePaperOrientationPtrOutput) ToTemplatePaperOrientationPtrOutput()
 
 func (o TemplatePaperOrientationPtrOutput) ToTemplatePaperOrientationPtrOutputWithContext(ctx context.Context) TemplatePaperOrientationPtrOutput {
 	return o
-}
-
-func (o TemplatePaperOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplatePaperOrientation] {
-	return pulumix.Output[*TemplatePaperOrientation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplatePaperOrientationPtrOutput) Elem() TemplatePaperOrientationOutput {
@@ -54419,12 +50831,6 @@ func (o TemplatePaperSizeOutput) ToTemplatePaperSizePtrOutputWithContext(ctx con
 	}).(TemplatePaperSizePtrOutput)
 }
 
-func (o TemplatePaperSizeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplatePaperSize] {
-	return pulumix.Output[TemplatePaperSize]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePaperSizeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -54458,12 +50864,6 @@ func (o TemplatePaperSizePtrOutput) ToTemplatePaperSizePtrOutput() TemplatePaper
 
 func (o TemplatePaperSizePtrOutput) ToTemplatePaperSizePtrOutputWithContext(ctx context.Context) TemplatePaperSizePtrOutput {
 	return o
-}
-
-func (o TemplatePaperSizePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplatePaperSize] {
-	return pulumix.Output[*TemplatePaperSize]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplatePaperSizePtrOutput) Elem() TemplatePaperSizeOutput {
@@ -54601,12 +51001,6 @@ func (o TemplateParameterValueTypeOutput) ToTemplateParameterValueTypePtrOutputW
 	}).(TemplateParameterValueTypePtrOutput)
 }
 
-func (o TemplateParameterValueTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateParameterValueType] {
-	return pulumix.Output[TemplateParameterValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateParameterValueTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -54640,12 +51034,6 @@ func (o TemplateParameterValueTypePtrOutput) ToTemplateParameterValueTypePtrOutp
 
 func (o TemplateParameterValueTypePtrOutput) ToTemplateParameterValueTypePtrOutputWithContext(ctx context.Context) TemplateParameterValueTypePtrOutput {
 	return o
-}
-
-func (o TemplateParameterValueTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateParameterValueType] {
-	return pulumix.Output[*TemplateParameterValueType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateParameterValueTypePtrOutput) Elem() TemplateParameterValueTypeOutput {
@@ -54784,12 +51172,6 @@ func (o TemplatePivotTableConditionalFormattingScopeRoleOutput) ToTemplatePivotT
 	}).(TemplatePivotTableConditionalFormattingScopeRolePtrOutput)
 }
 
-func (o TemplatePivotTableConditionalFormattingScopeRoleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplatePivotTableConditionalFormattingScopeRole] {
-	return pulumix.Output[TemplatePivotTableConditionalFormattingScopeRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePivotTableConditionalFormattingScopeRoleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -54823,12 +51205,6 @@ func (o TemplatePivotTableConditionalFormattingScopeRolePtrOutput) ToTemplatePiv
 
 func (o TemplatePivotTableConditionalFormattingScopeRolePtrOutput) ToTemplatePivotTableConditionalFormattingScopeRolePtrOutputWithContext(ctx context.Context) TemplatePivotTableConditionalFormattingScopeRolePtrOutput {
 	return o
-}
-
-func (o TemplatePivotTableConditionalFormattingScopeRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplatePivotTableConditionalFormattingScopeRole] {
-	return pulumix.Output[*TemplatePivotTableConditionalFormattingScopeRole]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplatePivotTableConditionalFormattingScopeRolePtrOutput) Elem() TemplatePivotTableConditionalFormattingScopeRoleOutput {
@@ -54968,12 +51344,6 @@ func (o TemplatePivotTableDataPathTypeOutput) ToTemplatePivotTableDataPathTypePt
 	}).(TemplatePivotTableDataPathTypePtrOutput)
 }
 
-func (o TemplatePivotTableDataPathTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplatePivotTableDataPathType] {
-	return pulumix.Output[TemplatePivotTableDataPathType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePivotTableDataPathTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -55007,12 +51377,6 @@ func (o TemplatePivotTableDataPathTypePtrOutput) ToTemplatePivotTableDataPathTyp
 
 func (o TemplatePivotTableDataPathTypePtrOutput) ToTemplatePivotTableDataPathTypePtrOutputWithContext(ctx context.Context) TemplatePivotTableDataPathTypePtrOutput {
 	return o
-}
-
-func (o TemplatePivotTableDataPathTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplatePivotTableDataPathType] {
-	return pulumix.Output[*TemplatePivotTableDataPathType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplatePivotTableDataPathTypePtrOutput) Elem() TemplatePivotTableDataPathTypeOutput {
@@ -55150,12 +51514,6 @@ func (o TemplatePivotTableFieldCollapseStateOutput) ToTemplatePivotTableFieldCol
 	}).(TemplatePivotTableFieldCollapseStatePtrOutput)
 }
 
-func (o TemplatePivotTableFieldCollapseStateOutput) ToOutput(ctx context.Context) pulumix.Output[TemplatePivotTableFieldCollapseState] {
-	return pulumix.Output[TemplatePivotTableFieldCollapseState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePivotTableFieldCollapseStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -55189,12 +51547,6 @@ func (o TemplatePivotTableFieldCollapseStatePtrOutput) ToTemplatePivotTableField
 
 func (o TemplatePivotTableFieldCollapseStatePtrOutput) ToTemplatePivotTableFieldCollapseStatePtrOutputWithContext(ctx context.Context) TemplatePivotTableFieldCollapseStatePtrOutput {
 	return o
-}
-
-func (o TemplatePivotTableFieldCollapseStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplatePivotTableFieldCollapseState] {
-	return pulumix.Output[*TemplatePivotTableFieldCollapseState]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplatePivotTableFieldCollapseStatePtrOutput) Elem() TemplatePivotTableFieldCollapseStateOutput {
@@ -55332,12 +51684,6 @@ func (o TemplatePivotTableMetricPlacementOutput) ToTemplatePivotTableMetricPlace
 	}).(TemplatePivotTableMetricPlacementPtrOutput)
 }
 
-func (o TemplatePivotTableMetricPlacementOutput) ToOutput(ctx context.Context) pulumix.Output[TemplatePivotTableMetricPlacement] {
-	return pulumix.Output[TemplatePivotTableMetricPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePivotTableMetricPlacementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -55371,12 +51717,6 @@ func (o TemplatePivotTableMetricPlacementPtrOutput) ToTemplatePivotTableMetricPl
 
 func (o TemplatePivotTableMetricPlacementPtrOutput) ToTemplatePivotTableMetricPlacementPtrOutputWithContext(ctx context.Context) TemplatePivotTableMetricPlacementPtrOutput {
 	return o
-}
-
-func (o TemplatePivotTableMetricPlacementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplatePivotTableMetricPlacement] {
-	return pulumix.Output[*TemplatePivotTableMetricPlacement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplatePivotTableMetricPlacementPtrOutput) Elem() TemplatePivotTableMetricPlacementOutput {
@@ -55514,12 +51854,6 @@ func (o TemplatePivotTableRowsLayoutOutput) ToTemplatePivotTableRowsLayoutPtrOut
 	}).(TemplatePivotTableRowsLayoutPtrOutput)
 }
 
-func (o TemplatePivotTableRowsLayoutOutput) ToOutput(ctx context.Context) pulumix.Output[TemplatePivotTableRowsLayout] {
-	return pulumix.Output[TemplatePivotTableRowsLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePivotTableRowsLayoutOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -55553,12 +51887,6 @@ func (o TemplatePivotTableRowsLayoutPtrOutput) ToTemplatePivotTableRowsLayoutPtr
 
 func (o TemplatePivotTableRowsLayoutPtrOutput) ToTemplatePivotTableRowsLayoutPtrOutputWithContext(ctx context.Context) TemplatePivotTableRowsLayoutPtrOutput {
 	return o
-}
-
-func (o TemplatePivotTableRowsLayoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplatePivotTableRowsLayout] {
-	return pulumix.Output[*TemplatePivotTableRowsLayout]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplatePivotTableRowsLayoutPtrOutput) Elem() TemplatePivotTableRowsLayoutOutput {
@@ -55697,12 +52025,6 @@ func (o TemplatePivotTableSubtotalLevelOutput) ToTemplatePivotTableSubtotalLevel
 	}).(TemplatePivotTableSubtotalLevelPtrOutput)
 }
 
-func (o TemplatePivotTableSubtotalLevelOutput) ToOutput(ctx context.Context) pulumix.Output[TemplatePivotTableSubtotalLevel] {
-	return pulumix.Output[TemplatePivotTableSubtotalLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePivotTableSubtotalLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -55736,12 +52058,6 @@ func (o TemplatePivotTableSubtotalLevelPtrOutput) ToTemplatePivotTableSubtotalLe
 
 func (o TemplatePivotTableSubtotalLevelPtrOutput) ToTemplatePivotTableSubtotalLevelPtrOutputWithContext(ctx context.Context) TemplatePivotTableSubtotalLevelPtrOutput {
 	return o
-}
-
-func (o TemplatePivotTableSubtotalLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplatePivotTableSubtotalLevel] {
-	return pulumix.Output[*TemplatePivotTableSubtotalLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplatePivotTableSubtotalLevelPtrOutput) Elem() TemplatePivotTableSubtotalLevelOutput {
@@ -55880,12 +52196,6 @@ func (o TemplatePrimaryValueDisplayTypeOutput) ToTemplatePrimaryValueDisplayType
 	}).(TemplatePrimaryValueDisplayTypePtrOutput)
 }
 
-func (o TemplatePrimaryValueDisplayTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplatePrimaryValueDisplayType] {
-	return pulumix.Output[TemplatePrimaryValueDisplayType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplatePrimaryValueDisplayTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -55919,12 +52229,6 @@ func (o TemplatePrimaryValueDisplayTypePtrOutput) ToTemplatePrimaryValueDisplayT
 
 func (o TemplatePrimaryValueDisplayTypePtrOutput) ToTemplatePrimaryValueDisplayTypePtrOutputWithContext(ctx context.Context) TemplatePrimaryValueDisplayTypePtrOutput {
 	return o
-}
-
-func (o TemplatePrimaryValueDisplayTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplatePrimaryValueDisplayType] {
-	return pulumix.Output[*TemplatePrimaryValueDisplayType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplatePrimaryValueDisplayTypePtrOutput) Elem() TemplatePrimaryValueDisplayTypeOutput {
@@ -56063,12 +52367,6 @@ func (o TemplateRadarChartAxesRangeScaleOutput) ToTemplateRadarChartAxesRangeSca
 	}).(TemplateRadarChartAxesRangeScalePtrOutput)
 }
 
-func (o TemplateRadarChartAxesRangeScaleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateRadarChartAxesRangeScale] {
-	return pulumix.Output[TemplateRadarChartAxesRangeScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateRadarChartAxesRangeScaleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -56102,12 +52400,6 @@ func (o TemplateRadarChartAxesRangeScalePtrOutput) ToTemplateRadarChartAxesRange
 
 func (o TemplateRadarChartAxesRangeScalePtrOutput) ToTemplateRadarChartAxesRangeScalePtrOutputWithContext(ctx context.Context) TemplateRadarChartAxesRangeScalePtrOutput {
 	return o
-}
-
-func (o TemplateRadarChartAxesRangeScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateRadarChartAxesRangeScale] {
-	return pulumix.Output[*TemplateRadarChartAxesRangeScale]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateRadarChartAxesRangeScalePtrOutput) Elem() TemplateRadarChartAxesRangeScaleOutput {
@@ -56245,12 +52537,6 @@ func (o TemplateRadarChartShapeOutput) ToTemplateRadarChartShapePtrOutputWithCon
 	}).(TemplateRadarChartShapePtrOutput)
 }
 
-func (o TemplateRadarChartShapeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateRadarChartShape] {
-	return pulumix.Output[TemplateRadarChartShape]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateRadarChartShapeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -56284,12 +52570,6 @@ func (o TemplateRadarChartShapePtrOutput) ToTemplateRadarChartShapePtrOutput() T
 
 func (o TemplateRadarChartShapePtrOutput) ToTemplateRadarChartShapePtrOutputWithContext(ctx context.Context) TemplateRadarChartShapePtrOutput {
 	return o
-}
-
-func (o TemplateRadarChartShapePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateRadarChartShape] {
-	return pulumix.Output[*TemplateRadarChartShape]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateRadarChartShapePtrOutput) Elem() TemplateRadarChartShapeOutput {
@@ -56428,12 +52708,6 @@ func (o TemplateReferenceLineLabelHorizontalPositionOutput) ToTemplateReferenceL
 	}).(TemplateReferenceLineLabelHorizontalPositionPtrOutput)
 }
 
-func (o TemplateReferenceLineLabelHorizontalPositionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateReferenceLineLabelHorizontalPosition] {
-	return pulumix.Output[TemplateReferenceLineLabelHorizontalPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateReferenceLineLabelHorizontalPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -56467,12 +52741,6 @@ func (o TemplateReferenceLineLabelHorizontalPositionPtrOutput) ToTemplateReferen
 
 func (o TemplateReferenceLineLabelHorizontalPositionPtrOutput) ToTemplateReferenceLineLabelHorizontalPositionPtrOutputWithContext(ctx context.Context) TemplateReferenceLineLabelHorizontalPositionPtrOutput {
 	return o
-}
-
-func (o TemplateReferenceLineLabelHorizontalPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateReferenceLineLabelHorizontalPosition] {
-	return pulumix.Output[*TemplateReferenceLineLabelHorizontalPosition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateReferenceLineLabelHorizontalPositionPtrOutput) Elem() TemplateReferenceLineLabelHorizontalPositionOutput {
@@ -56610,12 +52878,6 @@ func (o TemplateReferenceLineLabelVerticalPositionOutput) ToTemplateReferenceLin
 	}).(TemplateReferenceLineLabelVerticalPositionPtrOutput)
 }
 
-func (o TemplateReferenceLineLabelVerticalPositionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateReferenceLineLabelVerticalPosition] {
-	return pulumix.Output[TemplateReferenceLineLabelVerticalPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateReferenceLineLabelVerticalPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -56649,12 +52911,6 @@ func (o TemplateReferenceLineLabelVerticalPositionPtrOutput) ToTemplateReference
 
 func (o TemplateReferenceLineLabelVerticalPositionPtrOutput) ToTemplateReferenceLineLabelVerticalPositionPtrOutputWithContext(ctx context.Context) TemplateReferenceLineLabelVerticalPositionPtrOutput {
 	return o
-}
-
-func (o TemplateReferenceLineLabelVerticalPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateReferenceLineLabelVerticalPosition] {
-	return pulumix.Output[*TemplateReferenceLineLabelVerticalPosition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateReferenceLineLabelVerticalPositionPtrOutput) Elem() TemplateReferenceLineLabelVerticalPositionOutput {
@@ -56793,12 +53049,6 @@ func (o TemplateReferenceLinePatternTypeOutput) ToTemplateReferenceLinePatternTy
 	}).(TemplateReferenceLinePatternTypePtrOutput)
 }
 
-func (o TemplateReferenceLinePatternTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateReferenceLinePatternType] {
-	return pulumix.Output[TemplateReferenceLinePatternType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateReferenceLinePatternTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -56832,12 +53082,6 @@ func (o TemplateReferenceLinePatternTypePtrOutput) ToTemplateReferenceLinePatter
 
 func (o TemplateReferenceLinePatternTypePtrOutput) ToTemplateReferenceLinePatternTypePtrOutputWithContext(ctx context.Context) TemplateReferenceLinePatternTypePtrOutput {
 	return o
-}
-
-func (o TemplateReferenceLinePatternTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateReferenceLinePatternType] {
-	return pulumix.Output[*TemplateReferenceLinePatternType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateReferenceLinePatternTypePtrOutput) Elem() TemplateReferenceLinePatternTypeOutput {
@@ -56975,12 +53219,6 @@ func (o TemplateReferenceLineSeriesTypeOutput) ToTemplateReferenceLineSeriesType
 	}).(TemplateReferenceLineSeriesTypePtrOutput)
 }
 
-func (o TemplateReferenceLineSeriesTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateReferenceLineSeriesType] {
-	return pulumix.Output[TemplateReferenceLineSeriesType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateReferenceLineSeriesTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -57014,12 +53252,6 @@ func (o TemplateReferenceLineSeriesTypePtrOutput) ToTemplateReferenceLineSeriesT
 
 func (o TemplateReferenceLineSeriesTypePtrOutput) ToTemplateReferenceLineSeriesTypePtrOutputWithContext(ctx context.Context) TemplateReferenceLineSeriesTypePtrOutput {
 	return o
-}
-
-func (o TemplateReferenceLineSeriesTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateReferenceLineSeriesType] {
-	return pulumix.Output[*TemplateReferenceLineSeriesType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateReferenceLineSeriesTypePtrOutput) Elem() TemplateReferenceLineSeriesTypeOutput {
@@ -57157,12 +53389,6 @@ func (o TemplateReferenceLineValueLabelRelativePositionOutput) ToTemplateReferen
 	}).(TemplateReferenceLineValueLabelRelativePositionPtrOutput)
 }
 
-func (o TemplateReferenceLineValueLabelRelativePositionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateReferenceLineValueLabelRelativePosition] {
-	return pulumix.Output[TemplateReferenceLineValueLabelRelativePosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateReferenceLineValueLabelRelativePositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -57196,12 +53422,6 @@ func (o TemplateReferenceLineValueLabelRelativePositionPtrOutput) ToTemplateRefe
 
 func (o TemplateReferenceLineValueLabelRelativePositionPtrOutput) ToTemplateReferenceLineValueLabelRelativePositionPtrOutputWithContext(ctx context.Context) TemplateReferenceLineValueLabelRelativePositionPtrOutput {
 	return o
-}
-
-func (o TemplateReferenceLineValueLabelRelativePositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateReferenceLineValueLabelRelativePosition] {
-	return pulumix.Output[*TemplateReferenceLineValueLabelRelativePosition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateReferenceLineValueLabelRelativePositionPtrOutput) Elem() TemplateReferenceLineValueLabelRelativePositionOutput {
@@ -57342,12 +53562,6 @@ func (o TemplateRelativeDateTypeOutput) ToTemplateRelativeDateTypePtrOutputWithC
 	}).(TemplateRelativeDateTypePtrOutput)
 }
 
-func (o TemplateRelativeDateTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateRelativeDateType] {
-	return pulumix.Output[TemplateRelativeDateType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateRelativeDateTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -57381,12 +53595,6 @@ func (o TemplateRelativeDateTypePtrOutput) ToTemplateRelativeDateTypePtrOutput()
 
 func (o TemplateRelativeDateTypePtrOutput) ToTemplateRelativeDateTypePtrOutputWithContext(ctx context.Context) TemplateRelativeDateTypePtrOutput {
 	return o
-}
-
-func (o TemplateRelativeDateTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateRelativeDateType] {
-	return pulumix.Output[*TemplateRelativeDateType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateRelativeDateTypePtrOutput) Elem() TemplateRelativeDateTypeOutput {
@@ -57527,12 +53735,6 @@ func (o TemplateRelativeFontSizeOutput) ToTemplateRelativeFontSizePtrOutputWithC
 	}).(TemplateRelativeFontSizePtrOutput)
 }
 
-func (o TemplateRelativeFontSizeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateRelativeFontSize] {
-	return pulumix.Output[TemplateRelativeFontSize]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateRelativeFontSizeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -57566,12 +53768,6 @@ func (o TemplateRelativeFontSizePtrOutput) ToTemplateRelativeFontSizePtrOutput()
 
 func (o TemplateRelativeFontSizePtrOutput) ToTemplateRelativeFontSizePtrOutputWithContext(ctx context.Context) TemplateRelativeFontSizePtrOutput {
 	return o
-}
-
-func (o TemplateRelativeFontSizePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateRelativeFontSize] {
-	return pulumix.Output[*TemplateRelativeFontSize]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateRelativeFontSizePtrOutput) Elem() TemplateRelativeFontSizeOutput {
@@ -57709,12 +53905,6 @@ func (o TemplateResizeOptionOutput) ToTemplateResizeOptionPtrOutputWithContext(c
 	}).(TemplateResizeOptionPtrOutput)
 }
 
-func (o TemplateResizeOptionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateResizeOption] {
-	return pulumix.Output[TemplateResizeOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateResizeOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -57748,12 +53938,6 @@ func (o TemplateResizeOptionPtrOutput) ToTemplateResizeOptionPtrOutput() Templat
 
 func (o TemplateResizeOptionPtrOutput) ToTemplateResizeOptionPtrOutputWithContext(ctx context.Context) TemplateResizeOptionPtrOutput {
 	return o
-}
-
-func (o TemplateResizeOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateResizeOption] {
-	return pulumix.Output[*TemplateResizeOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateResizeOptionPtrOutput) Elem() TemplateResizeOptionOutput {
@@ -57860,12 +54044,6 @@ func (o TemplateResourceStatusOutput) ToTemplateResourceStatusPtrOutputWithConte
 	}).(TemplateResourceStatusPtrOutput)
 }
 
-func (o TemplateResourceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateResourceStatus] {
-	return pulumix.Output[TemplateResourceStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateResourceStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -57899,12 +54077,6 @@ func (o TemplateResourceStatusPtrOutput) ToTemplateResourceStatusPtrOutput() Tem
 
 func (o TemplateResourceStatusPtrOutput) ToTemplateResourceStatusPtrOutputWithContext(ctx context.Context) TemplateResourceStatusPtrOutput {
 	return o
-}
-
-func (o TemplateResourceStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateResourceStatus] {
-	return pulumix.Output[*TemplateResourceStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateResourceStatusPtrOutput) Elem() TemplateResourceStatusOutput {
@@ -57998,12 +54170,6 @@ func (o TemplateSectionPageBreakStatusOutput) ToTemplateSectionPageBreakStatusPt
 	}).(TemplateSectionPageBreakStatusPtrOutput)
 }
 
-func (o TemplateSectionPageBreakStatusOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSectionPageBreakStatus] {
-	return pulumix.Output[TemplateSectionPageBreakStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSectionPageBreakStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -58037,12 +54203,6 @@ func (o TemplateSectionPageBreakStatusPtrOutput) ToTemplateSectionPageBreakStatu
 
 func (o TemplateSectionPageBreakStatusPtrOutput) ToTemplateSectionPageBreakStatusPtrOutputWithContext(ctx context.Context) TemplateSectionPageBreakStatusPtrOutput {
 	return o
-}
-
-func (o TemplateSectionPageBreakStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSectionPageBreakStatus] {
-	return pulumix.Output[*TemplateSectionPageBreakStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateSectionPageBreakStatusPtrOutput) Elem() TemplateSectionPageBreakStatusOutput {
@@ -58179,12 +54339,6 @@ func (o TemplateSelectAllValueOptionsOutput) ToTemplateSelectAllValueOptionsPtrO
 	}).(TemplateSelectAllValueOptionsPtrOutput)
 }
 
-func (o TemplateSelectAllValueOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSelectAllValueOptions] {
-	return pulumix.Output[TemplateSelectAllValueOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSelectAllValueOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -58218,12 +54372,6 @@ func (o TemplateSelectAllValueOptionsPtrOutput) ToTemplateSelectAllValueOptionsP
 
 func (o TemplateSelectAllValueOptionsPtrOutput) ToTemplateSelectAllValueOptionsPtrOutputWithContext(ctx context.Context) TemplateSelectAllValueOptionsPtrOutput {
 	return o
-}
-
-func (o TemplateSelectAllValueOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSelectAllValueOptions] {
-	return pulumix.Output[*TemplateSelectAllValueOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateSelectAllValueOptionsPtrOutput) Elem() TemplateSelectAllValueOptionsOutput {
@@ -58360,12 +54508,6 @@ func (o TemplateSelectedFieldOptionsOutput) ToTemplateSelectedFieldOptionsPtrOut
 	}).(TemplateSelectedFieldOptionsPtrOutput)
 }
 
-func (o TemplateSelectedFieldOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSelectedFieldOptions] {
-	return pulumix.Output[TemplateSelectedFieldOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSelectedFieldOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -58399,12 +54541,6 @@ func (o TemplateSelectedFieldOptionsPtrOutput) ToTemplateSelectedFieldOptionsPtr
 
 func (o TemplateSelectedFieldOptionsPtrOutput) ToTemplateSelectedFieldOptionsPtrOutputWithContext(ctx context.Context) TemplateSelectedFieldOptionsPtrOutput {
 	return o
-}
-
-func (o TemplateSelectedFieldOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSelectedFieldOptions] {
-	return pulumix.Output[*TemplateSelectedFieldOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateSelectedFieldOptionsPtrOutput) Elem() TemplateSelectedFieldOptionsOutput {
@@ -58542,12 +54678,6 @@ func (o TemplateSelectedTooltipTypeOutput) ToTemplateSelectedTooltipTypePtrOutpu
 	}).(TemplateSelectedTooltipTypePtrOutput)
 }
 
-func (o TemplateSelectedTooltipTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSelectedTooltipType] {
-	return pulumix.Output[TemplateSelectedTooltipType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSelectedTooltipTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -58581,12 +54711,6 @@ func (o TemplateSelectedTooltipTypePtrOutput) ToTemplateSelectedTooltipTypePtrOu
 
 func (o TemplateSelectedTooltipTypePtrOutput) ToTemplateSelectedTooltipTypePtrOutputWithContext(ctx context.Context) TemplateSelectedTooltipTypePtrOutput {
 	return o
-}
-
-func (o TemplateSelectedTooltipTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSelectedTooltipType] {
-	return pulumix.Output[*TemplateSelectedTooltipType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateSelectedTooltipTypePtrOutput) Elem() TemplateSelectedTooltipTypeOutput {
@@ -58724,12 +54848,6 @@ func (o TemplateSheetContentTypeOutput) ToTemplateSheetContentTypePtrOutputWithC
 	}).(TemplateSheetContentTypePtrOutput)
 }
 
-func (o TemplateSheetContentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSheetContentType] {
-	return pulumix.Output[TemplateSheetContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSheetContentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -58763,12 +54881,6 @@ func (o TemplateSheetContentTypePtrOutput) ToTemplateSheetContentTypePtrOutput()
 
 func (o TemplateSheetContentTypePtrOutput) ToTemplateSheetContentTypePtrOutputWithContext(ctx context.Context) TemplateSheetContentTypePtrOutput {
 	return o
-}
-
-func (o TemplateSheetContentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSheetContentType] {
-	return pulumix.Output[*TemplateSheetContentType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateSheetContentTypePtrOutput) Elem() TemplateSheetContentTypeOutput {
@@ -58906,12 +55018,6 @@ func (o TemplateSheetControlDateTimePickerTypeOutput) ToTemplateSheetControlDate
 	}).(TemplateSheetControlDateTimePickerTypePtrOutput)
 }
 
-func (o TemplateSheetControlDateTimePickerTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSheetControlDateTimePickerType] {
-	return pulumix.Output[TemplateSheetControlDateTimePickerType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSheetControlDateTimePickerTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -58945,12 +55051,6 @@ func (o TemplateSheetControlDateTimePickerTypePtrOutput) ToTemplateSheetControlD
 
 func (o TemplateSheetControlDateTimePickerTypePtrOutput) ToTemplateSheetControlDateTimePickerTypePtrOutputWithContext(ctx context.Context) TemplateSheetControlDateTimePickerTypePtrOutput {
 	return o
-}
-
-func (o TemplateSheetControlDateTimePickerTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSheetControlDateTimePickerType] {
-	return pulumix.Output[*TemplateSheetControlDateTimePickerType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateSheetControlDateTimePickerTypePtrOutput) Elem() TemplateSheetControlDateTimePickerTypeOutput {
@@ -59088,12 +55188,6 @@ func (o TemplateSheetControlListTypeOutput) ToTemplateSheetControlListTypePtrOut
 	}).(TemplateSheetControlListTypePtrOutput)
 }
 
-func (o TemplateSheetControlListTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSheetControlListType] {
-	return pulumix.Output[TemplateSheetControlListType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSheetControlListTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -59127,12 +55221,6 @@ func (o TemplateSheetControlListTypePtrOutput) ToTemplateSheetControlListTypePtr
 
 func (o TemplateSheetControlListTypePtrOutput) ToTemplateSheetControlListTypePtrOutputWithContext(ctx context.Context) TemplateSheetControlListTypePtrOutput {
 	return o
-}
-
-func (o TemplateSheetControlListTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSheetControlListType] {
-	return pulumix.Output[*TemplateSheetControlListType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateSheetControlListTypePtrOutput) Elem() TemplateSheetControlListTypeOutput {
@@ -59270,12 +55358,6 @@ func (o TemplateSheetControlSliderTypeOutput) ToTemplateSheetControlSliderTypePt
 	}).(TemplateSheetControlSliderTypePtrOutput)
 }
 
-func (o TemplateSheetControlSliderTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSheetControlSliderType] {
-	return pulumix.Output[TemplateSheetControlSliderType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSheetControlSliderTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -59309,12 +55391,6 @@ func (o TemplateSheetControlSliderTypePtrOutput) ToTemplateSheetControlSliderTyp
 
 func (o TemplateSheetControlSliderTypePtrOutput) ToTemplateSheetControlSliderTypePtrOutputWithContext(ctx context.Context) TemplateSheetControlSliderTypePtrOutput {
 	return o
-}
-
-func (o TemplateSheetControlSliderTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSheetControlSliderType] {
-	return pulumix.Output[*TemplateSheetControlSliderType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateSheetControlSliderTypePtrOutput) Elem() TemplateSheetControlSliderTypeOutput {
@@ -59451,12 +55527,6 @@ func (o TemplateSimpleAttributeAggregationFunctionOutput) ToTemplateSimpleAttrib
 	}).(TemplateSimpleAttributeAggregationFunctionPtrOutput)
 }
 
-func (o TemplateSimpleAttributeAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSimpleAttributeAggregationFunction] {
-	return pulumix.Output[TemplateSimpleAttributeAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSimpleAttributeAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -59490,12 +55560,6 @@ func (o TemplateSimpleAttributeAggregationFunctionPtrOutput) ToTemplateSimpleAtt
 
 func (o TemplateSimpleAttributeAggregationFunctionPtrOutput) ToTemplateSimpleAttributeAggregationFunctionPtrOutputWithContext(ctx context.Context) TemplateSimpleAttributeAggregationFunctionPtrOutput {
 	return o
-}
-
-func (o TemplateSimpleAttributeAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSimpleAttributeAggregationFunction] {
-	return pulumix.Output[*TemplateSimpleAttributeAggregationFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateSimpleAttributeAggregationFunctionPtrOutput) Elem() TemplateSimpleAttributeAggregationFunctionOutput {
@@ -59642,12 +55706,6 @@ func (o TemplateSimpleNumericalAggregationFunctionOutput) ToTemplateSimpleNumeri
 	}).(TemplateSimpleNumericalAggregationFunctionPtrOutput)
 }
 
-func (o TemplateSimpleNumericalAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSimpleNumericalAggregationFunction] {
-	return pulumix.Output[TemplateSimpleNumericalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSimpleNumericalAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -59681,12 +55739,6 @@ func (o TemplateSimpleNumericalAggregationFunctionPtrOutput) ToTemplateSimpleNum
 
 func (o TemplateSimpleNumericalAggregationFunctionPtrOutput) ToTemplateSimpleNumericalAggregationFunctionPtrOutputWithContext(ctx context.Context) TemplateSimpleNumericalAggregationFunctionPtrOutput {
 	return o
-}
-
-func (o TemplateSimpleNumericalAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSimpleNumericalAggregationFunction] {
-	return pulumix.Output[*TemplateSimpleNumericalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateSimpleNumericalAggregationFunctionPtrOutput) Elem() TemplateSimpleNumericalAggregationFunctionOutput {
@@ -59828,12 +55880,6 @@ func (o TemplateSimpleTotalAggregationFunctionOutput) ToTemplateSimpleTotalAggre
 	}).(TemplateSimpleTotalAggregationFunctionPtrOutput)
 }
 
-func (o TemplateSimpleTotalAggregationFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSimpleTotalAggregationFunction] {
-	return pulumix.Output[TemplateSimpleTotalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSimpleTotalAggregationFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -59867,12 +55913,6 @@ func (o TemplateSimpleTotalAggregationFunctionPtrOutput) ToTemplateSimpleTotalAg
 
 func (o TemplateSimpleTotalAggregationFunctionPtrOutput) ToTemplateSimpleTotalAggregationFunctionPtrOutputWithContext(ctx context.Context) TemplateSimpleTotalAggregationFunctionPtrOutput {
 	return o
-}
-
-func (o TemplateSimpleTotalAggregationFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSimpleTotalAggregationFunction] {
-	return pulumix.Output[*TemplateSimpleTotalAggregationFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateSimpleTotalAggregationFunctionPtrOutput) Elem() TemplateSimpleTotalAggregationFunctionOutput {
@@ -60010,12 +56050,6 @@ func (o TemplateSmallMultiplesAxisPlacementOutput) ToTemplateSmallMultiplesAxisP
 	}).(TemplateSmallMultiplesAxisPlacementPtrOutput)
 }
 
-func (o TemplateSmallMultiplesAxisPlacementOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSmallMultiplesAxisPlacement] {
-	return pulumix.Output[TemplateSmallMultiplesAxisPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSmallMultiplesAxisPlacementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -60049,12 +56083,6 @@ func (o TemplateSmallMultiplesAxisPlacementPtrOutput) ToTemplateSmallMultiplesAx
 
 func (o TemplateSmallMultiplesAxisPlacementPtrOutput) ToTemplateSmallMultiplesAxisPlacementPtrOutputWithContext(ctx context.Context) TemplateSmallMultiplesAxisPlacementPtrOutput {
 	return o
-}
-
-func (o TemplateSmallMultiplesAxisPlacementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSmallMultiplesAxisPlacement] {
-	return pulumix.Output[*TemplateSmallMultiplesAxisPlacement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateSmallMultiplesAxisPlacementPtrOutput) Elem() TemplateSmallMultiplesAxisPlacementOutput {
@@ -60192,12 +56220,6 @@ func (o TemplateSmallMultiplesAxisScaleOutput) ToTemplateSmallMultiplesAxisScale
 	}).(TemplateSmallMultiplesAxisScalePtrOutput)
 }
 
-func (o TemplateSmallMultiplesAxisScaleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSmallMultiplesAxisScale] {
-	return pulumix.Output[TemplateSmallMultiplesAxisScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSmallMultiplesAxisScaleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -60231,12 +56253,6 @@ func (o TemplateSmallMultiplesAxisScalePtrOutput) ToTemplateSmallMultiplesAxisSc
 
 func (o TemplateSmallMultiplesAxisScalePtrOutput) ToTemplateSmallMultiplesAxisScalePtrOutputWithContext(ctx context.Context) TemplateSmallMultiplesAxisScalePtrOutput {
 	return o
-}
-
-func (o TemplateSmallMultiplesAxisScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSmallMultiplesAxisScale] {
-	return pulumix.Output[*TemplateSmallMultiplesAxisScale]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateSmallMultiplesAxisScalePtrOutput) Elem() TemplateSmallMultiplesAxisScaleOutput {
@@ -60374,12 +56390,6 @@ func (o TemplateSortDirectionOutput) ToTemplateSortDirectionPtrOutputWithContext
 	}).(TemplateSortDirectionPtrOutput)
 }
 
-func (o TemplateSortDirectionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSortDirection] {
-	return pulumix.Output[TemplateSortDirection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSortDirectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -60413,12 +56423,6 @@ func (o TemplateSortDirectionPtrOutput) ToTemplateSortDirectionPtrOutput() Templ
 
 func (o TemplateSortDirectionPtrOutput) ToTemplateSortDirectionPtrOutputWithContext(ctx context.Context) TemplateSortDirectionPtrOutput {
 	return o
-}
-
-func (o TemplateSortDirectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSortDirection] {
-	return pulumix.Output[*TemplateSortDirection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateSortDirectionPtrOutput) Elem() TemplateSortDirectionOutput {
@@ -60557,12 +56561,6 @@ func (o TemplateSpecialValueOutput) ToTemplateSpecialValuePtrOutputWithContext(c
 	}).(TemplateSpecialValuePtrOutput)
 }
 
-func (o TemplateSpecialValueOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateSpecialValue] {
-	return pulumix.Output[TemplateSpecialValue]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateSpecialValueOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -60596,12 +56594,6 @@ func (o TemplateSpecialValuePtrOutput) ToTemplateSpecialValuePtrOutput() Templat
 
 func (o TemplateSpecialValuePtrOutput) ToTemplateSpecialValuePtrOutputWithContext(ctx context.Context) TemplateSpecialValuePtrOutput {
 	return o
-}
-
-func (o TemplateSpecialValuePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateSpecialValue] {
-	return pulumix.Output[*TemplateSpecialValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateSpecialValuePtrOutput) Elem() TemplateSpecialValueOutput {
@@ -60740,12 +56732,6 @@ func (o TemplateStyledCellTypeOutput) ToTemplateStyledCellTypePtrOutputWithConte
 	}).(TemplateStyledCellTypePtrOutput)
 }
 
-func (o TemplateStyledCellTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateStyledCellType] {
-	return pulumix.Output[TemplateStyledCellType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateStyledCellTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -60779,12 +56765,6 @@ func (o TemplateStyledCellTypePtrOutput) ToTemplateStyledCellTypePtrOutput() Tem
 
 func (o TemplateStyledCellTypePtrOutput) ToTemplateStyledCellTypePtrOutputWithContext(ctx context.Context) TemplateStyledCellTypePtrOutput {
 	return o
-}
-
-func (o TemplateStyledCellTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateStyledCellType] {
-	return pulumix.Output[*TemplateStyledCellType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateStyledCellTypePtrOutput) Elem() TemplateStyledCellTypeOutput {
@@ -60922,12 +56902,6 @@ func (o TemplateTableBorderStyleOutput) ToTemplateTableBorderStylePtrOutputWithC
 	}).(TemplateTableBorderStylePtrOutput)
 }
 
-func (o TemplateTableBorderStyleOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTableBorderStyle] {
-	return pulumix.Output[TemplateTableBorderStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTableBorderStyleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -60961,12 +56935,6 @@ func (o TemplateTableBorderStylePtrOutput) ToTemplateTableBorderStylePtrOutput()
 
 func (o TemplateTableBorderStylePtrOutput) ToTemplateTableBorderStylePtrOutputWithContext(ctx context.Context) TemplateTableBorderStylePtrOutput {
 	return o
-}
-
-func (o TemplateTableBorderStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTableBorderStyle] {
-	return pulumix.Output[*TemplateTableBorderStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateTableBorderStylePtrOutput) Elem() TemplateTableBorderStyleOutput {
@@ -61105,12 +57073,6 @@ func (o TemplateTableCellImageScalingConfigurationOutput) ToTemplateTableCellIma
 	}).(TemplateTableCellImageScalingConfigurationPtrOutput)
 }
 
-func (o TemplateTableCellImageScalingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTableCellImageScalingConfiguration] {
-	return pulumix.Output[TemplateTableCellImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTableCellImageScalingConfigurationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -61144,12 +57106,6 @@ func (o TemplateTableCellImageScalingConfigurationPtrOutput) ToTemplateTableCell
 
 func (o TemplateTableCellImageScalingConfigurationPtrOutput) ToTemplateTableCellImageScalingConfigurationPtrOutputWithContext(ctx context.Context) TemplateTableCellImageScalingConfigurationPtrOutput {
 	return o
-}
-
-func (o TemplateTableCellImageScalingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTableCellImageScalingConfiguration] {
-	return pulumix.Output[*TemplateTableCellImageScalingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateTableCellImageScalingConfigurationPtrOutput) Elem() TemplateTableCellImageScalingConfigurationOutput {
@@ -61286,12 +57242,6 @@ func (o TemplateTableFieldIconSetTypeOutput) ToTemplateTableFieldIconSetTypePtrO
 	}).(TemplateTableFieldIconSetTypePtrOutput)
 }
 
-func (o TemplateTableFieldIconSetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTableFieldIconSetType] {
-	return pulumix.Output[TemplateTableFieldIconSetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTableFieldIconSetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -61325,12 +57275,6 @@ func (o TemplateTableFieldIconSetTypePtrOutput) ToTemplateTableFieldIconSetTypeP
 
 func (o TemplateTableFieldIconSetTypePtrOutput) ToTemplateTableFieldIconSetTypePtrOutputWithContext(ctx context.Context) TemplateTableFieldIconSetTypePtrOutput {
 	return o
-}
-
-func (o TemplateTableFieldIconSetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTableFieldIconSetType] {
-	return pulumix.Output[*TemplateTableFieldIconSetType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateTableFieldIconSetTypePtrOutput) Elem() TemplateTableFieldIconSetTypeOutput {
@@ -61468,12 +57412,6 @@ func (o TemplateTableOrientationOutput) ToTemplateTableOrientationPtrOutputWithC
 	}).(TemplateTableOrientationPtrOutput)
 }
 
-func (o TemplateTableOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTableOrientation] {
-	return pulumix.Output[TemplateTableOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTableOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -61507,12 +57445,6 @@ func (o TemplateTableOrientationPtrOutput) ToTemplateTableOrientationPtrOutput()
 
 func (o TemplateTableOrientationPtrOutput) ToTemplateTableOrientationPtrOutputWithContext(ctx context.Context) TemplateTableOrientationPtrOutput {
 	return o
-}
-
-func (o TemplateTableOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTableOrientation] {
-	return pulumix.Output[*TemplateTableOrientation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateTableOrientationPtrOutput) Elem() TemplateTableOrientationOutput {
@@ -61651,12 +57583,6 @@ func (o TemplateTableTotalsPlacementOutput) ToTemplateTableTotalsPlacementPtrOut
 	}).(TemplateTableTotalsPlacementPtrOutput)
 }
 
-func (o TemplateTableTotalsPlacementOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTableTotalsPlacement] {
-	return pulumix.Output[TemplateTableTotalsPlacement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTableTotalsPlacementOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -61690,12 +57616,6 @@ func (o TemplateTableTotalsPlacementPtrOutput) ToTemplateTableTotalsPlacementPtr
 
 func (o TemplateTableTotalsPlacementPtrOutput) ToTemplateTableTotalsPlacementPtrOutputWithContext(ctx context.Context) TemplateTableTotalsPlacementPtrOutput {
 	return o
-}
-
-func (o TemplateTableTotalsPlacementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTableTotalsPlacement] {
-	return pulumix.Output[*TemplateTableTotalsPlacement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateTableTotalsPlacementPtrOutput) Elem() TemplateTableTotalsPlacementOutput {
@@ -61833,12 +57753,6 @@ func (o TemplateTableTotalsScrollStatusOutput) ToTemplateTableTotalsScrollStatus
 	}).(TemplateTableTotalsScrollStatusPtrOutput)
 }
 
-func (o TemplateTableTotalsScrollStatusOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTableTotalsScrollStatus] {
-	return pulumix.Output[TemplateTableTotalsScrollStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTableTotalsScrollStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -61872,12 +57786,6 @@ func (o TemplateTableTotalsScrollStatusPtrOutput) ToTemplateTableTotalsScrollSta
 
 func (o TemplateTableTotalsScrollStatusPtrOutput) ToTemplateTableTotalsScrollStatusPtrOutputWithContext(ctx context.Context) TemplateTableTotalsScrollStatusPtrOutput {
 	return o
-}
-
-func (o TemplateTableTotalsScrollStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTableTotalsScrollStatus] {
-	return pulumix.Output[*TemplateTableTotalsScrollStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateTableTotalsScrollStatusPtrOutput) Elem() TemplateTableTotalsScrollStatusOutput {
@@ -62014,12 +57922,6 @@ func (o TemplateTargetVisualOptionsOutput) ToTemplateTargetVisualOptionsPtrOutpu
 	}).(TemplateTargetVisualOptionsPtrOutput)
 }
 
-func (o TemplateTargetVisualOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTargetVisualOptions] {
-	return pulumix.Output[TemplateTargetVisualOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTargetVisualOptionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -62053,12 +57955,6 @@ func (o TemplateTargetVisualOptionsPtrOutput) ToTemplateTargetVisualOptionsPtrOu
 
 func (o TemplateTargetVisualOptionsPtrOutput) ToTemplateTargetVisualOptionsPtrOutputWithContext(ctx context.Context) TemplateTargetVisualOptionsPtrOutput {
 	return o
-}
-
-func (o TemplateTargetVisualOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTargetVisualOptions] {
-	return pulumix.Output[*TemplateTargetVisualOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateTargetVisualOptionsPtrOutput) Elem() TemplateTargetVisualOptionsOutput {
@@ -62196,12 +58092,6 @@ func (o TemplateTextWrapOutput) ToTemplateTextWrapPtrOutputWithContext(ctx conte
 	}).(TemplateTextWrapPtrOutput)
 }
 
-func (o TemplateTextWrapOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTextWrap] {
-	return pulumix.Output[TemplateTextWrap]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTextWrapOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -62235,12 +58125,6 @@ func (o TemplateTextWrapPtrOutput) ToTemplateTextWrapPtrOutput() TemplateTextWra
 
 func (o TemplateTextWrapPtrOutput) ToTemplateTextWrapPtrOutputWithContext(ctx context.Context) TemplateTextWrapPtrOutput {
 	return o
-}
-
-func (o TemplateTextWrapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTextWrap] {
-	return pulumix.Output[*TemplateTextWrap]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateTextWrapPtrOutput) Elem() TemplateTextWrapOutput {
@@ -62385,12 +58269,6 @@ func (o TemplateTimeGranularityOutput) ToTemplateTimeGranularityPtrOutputWithCon
 	}).(TemplateTimeGranularityPtrOutput)
 }
 
-func (o TemplateTimeGranularityOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTimeGranularity] {
-	return pulumix.Output[TemplateTimeGranularity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTimeGranularityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -62424,12 +58302,6 @@ func (o TemplateTimeGranularityPtrOutput) ToTemplateTimeGranularityPtrOutput() T
 
 func (o TemplateTimeGranularityPtrOutput) ToTemplateTimeGranularityPtrOutputWithContext(ctx context.Context) TemplateTimeGranularityPtrOutput {
 	return o
-}
-
-func (o TemplateTimeGranularityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTimeGranularity] {
-	return pulumix.Output[*TemplateTimeGranularity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateTimeGranularityPtrOutput) Elem() TemplateTimeGranularityOutput {
@@ -62567,12 +58439,6 @@ func (o TemplateTooltipTitleTypeOutput) ToTemplateTooltipTitleTypePtrOutputWithC
 	}).(TemplateTooltipTitleTypePtrOutput)
 }
 
-func (o TemplateTooltipTitleTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTooltipTitleType] {
-	return pulumix.Output[TemplateTooltipTitleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTooltipTitleTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -62606,12 +58472,6 @@ func (o TemplateTooltipTitleTypePtrOutput) ToTemplateTooltipTitleTypePtrOutput()
 
 func (o TemplateTooltipTitleTypePtrOutput) ToTemplateTooltipTitleTypePtrOutputWithContext(ctx context.Context) TemplateTooltipTitleTypePtrOutput {
 	return o
-}
-
-func (o TemplateTooltipTitleTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTooltipTitleType] {
-	return pulumix.Output[*TemplateTooltipTitleType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateTooltipTitleTypePtrOutput) Elem() TemplateTooltipTitleTypeOutput {
@@ -62749,12 +58609,6 @@ func (o TemplateTopBottomComputationTypeOutput) ToTemplateTopBottomComputationTy
 	}).(TemplateTopBottomComputationTypePtrOutput)
 }
 
-func (o TemplateTopBottomComputationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTopBottomComputationType] {
-	return pulumix.Output[TemplateTopBottomComputationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTopBottomComputationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -62788,12 +58642,6 @@ func (o TemplateTopBottomComputationTypePtrOutput) ToTemplateTopBottomComputatio
 
 func (o TemplateTopBottomComputationTypePtrOutput) ToTemplateTopBottomComputationTypePtrOutputWithContext(ctx context.Context) TemplateTopBottomComputationTypePtrOutput {
 	return o
-}
-
-func (o TemplateTopBottomComputationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTopBottomComputationType] {
-	return pulumix.Output[*TemplateTopBottomComputationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateTopBottomComputationTypePtrOutput) Elem() TemplateTopBottomComputationTypeOutput {
@@ -62931,12 +58779,6 @@ func (o TemplateTopBottomSortOrderOutput) ToTemplateTopBottomSortOrderPtrOutputW
 	}).(TemplateTopBottomSortOrderPtrOutput)
 }
 
-func (o TemplateTopBottomSortOrderOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTopBottomSortOrder] {
-	return pulumix.Output[TemplateTopBottomSortOrder]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateTopBottomSortOrderOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -62970,12 +58812,6 @@ func (o TemplateTopBottomSortOrderPtrOutput) ToTemplateTopBottomSortOrderPtrOutp
 
 func (o TemplateTopBottomSortOrderPtrOutput) ToTemplateTopBottomSortOrderPtrOutputWithContext(ctx context.Context) TemplateTopBottomSortOrderPtrOutput {
 	return o
-}
-
-func (o TemplateTopBottomSortOrderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTopBottomSortOrder] {
-	return pulumix.Output[*TemplateTopBottomSortOrder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateTopBottomSortOrderPtrOutput) Elem() TemplateTopBottomSortOrderOutput {
@@ -63114,12 +58950,6 @@ func (o TemplateUrlTargetConfigurationOutput) ToTemplateUrlTargetConfigurationPt
 	}).(TemplateUrlTargetConfigurationPtrOutput)
 }
 
-func (o TemplateUrlTargetConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateUrlTargetConfiguration] {
-	return pulumix.Output[TemplateUrlTargetConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateUrlTargetConfigurationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -63153,12 +58983,6 @@ func (o TemplateUrlTargetConfigurationPtrOutput) ToTemplateUrlTargetConfiguratio
 
 func (o TemplateUrlTargetConfigurationPtrOutput) ToTemplateUrlTargetConfigurationPtrOutputWithContext(ctx context.Context) TemplateUrlTargetConfigurationPtrOutput {
 	return o
-}
-
-func (o TemplateUrlTargetConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateUrlTargetConfiguration] {
-	return pulumix.Output[*TemplateUrlTargetConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateUrlTargetConfigurationPtrOutput) Elem() TemplateUrlTargetConfigurationOutput {
@@ -63296,12 +59120,6 @@ func (o TemplateValidationStrategyModeOutput) ToTemplateValidationStrategyModePt
 	}).(TemplateValidationStrategyModePtrOutput)
 }
 
-func (o TemplateValidationStrategyModeOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateValidationStrategyMode] {
-	return pulumix.Output[TemplateValidationStrategyMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateValidationStrategyModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -63335,12 +59153,6 @@ func (o TemplateValidationStrategyModePtrOutput) ToTemplateValidationStrategyMod
 
 func (o TemplateValidationStrategyModePtrOutput) ToTemplateValidationStrategyModePtrOutputWithContext(ctx context.Context) TemplateValidationStrategyModePtrOutput {
 	return o
-}
-
-func (o TemplateValidationStrategyModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateValidationStrategyMode] {
-	return pulumix.Output[*TemplateValidationStrategyMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateValidationStrategyModePtrOutput) Elem() TemplateValidationStrategyModeOutput {
@@ -63478,12 +59290,6 @@ func (o TemplateValueWhenUnsetOptionOutput) ToTemplateValueWhenUnsetOptionPtrOut
 	}).(TemplateValueWhenUnsetOptionPtrOutput)
 }
 
-func (o TemplateValueWhenUnsetOptionOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateValueWhenUnsetOption] {
-	return pulumix.Output[TemplateValueWhenUnsetOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateValueWhenUnsetOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -63517,12 +59323,6 @@ func (o TemplateValueWhenUnsetOptionPtrOutput) ToTemplateValueWhenUnsetOptionPtr
 
 func (o TemplateValueWhenUnsetOptionPtrOutput) ToTemplateValueWhenUnsetOptionPtrOutputWithContext(ctx context.Context) TemplateValueWhenUnsetOptionPtrOutput {
 	return o
-}
-
-func (o TemplateValueWhenUnsetOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateValueWhenUnsetOption] {
-	return pulumix.Output[*TemplateValueWhenUnsetOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateValueWhenUnsetOptionPtrOutput) Elem() TemplateValueWhenUnsetOptionOutput {
@@ -63662,12 +59462,6 @@ func (o TemplateVerticalTextAlignmentOutput) ToTemplateVerticalTextAlignmentPtrO
 	}).(TemplateVerticalTextAlignmentPtrOutput)
 }
 
-func (o TemplateVerticalTextAlignmentOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateVerticalTextAlignment] {
-	return pulumix.Output[TemplateVerticalTextAlignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateVerticalTextAlignmentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -63701,12 +59495,6 @@ func (o TemplateVerticalTextAlignmentPtrOutput) ToTemplateVerticalTextAlignmentP
 
 func (o TemplateVerticalTextAlignmentPtrOutput) ToTemplateVerticalTextAlignmentPtrOutputWithContext(ctx context.Context) TemplateVerticalTextAlignmentPtrOutput {
 	return o
-}
-
-func (o TemplateVerticalTextAlignmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateVerticalTextAlignment] {
-	return pulumix.Output[*TemplateVerticalTextAlignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateVerticalTextAlignmentPtrOutput) Elem() TemplateVerticalTextAlignmentOutput {
@@ -63844,12 +59632,6 @@ func (o TemplateVisibilityOutput) ToTemplateVisibilityPtrOutputWithContext(ctx c
 	}).(TemplateVisibilityPtrOutput)
 }
 
-func (o TemplateVisibilityOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateVisibility] {
-	return pulumix.Output[TemplateVisibility]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateVisibilityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -63883,12 +59665,6 @@ func (o TemplateVisibilityPtrOutput) ToTemplateVisibilityPtrOutput() TemplateVis
 
 func (o TemplateVisibilityPtrOutput) ToTemplateVisibilityPtrOutputWithContext(ctx context.Context) TemplateVisibilityPtrOutput {
 	return o
-}
-
-func (o TemplateVisibilityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateVisibility] {
-	return pulumix.Output[*TemplateVisibility]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateVisibilityPtrOutput) Elem() TemplateVisibilityOutput {
@@ -64026,12 +59802,6 @@ func (o TemplateVisualCustomActionTriggerOutput) ToTemplateVisualCustomActionTri
 	}).(TemplateVisualCustomActionTriggerPtrOutput)
 }
 
-func (o TemplateVisualCustomActionTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateVisualCustomActionTrigger] {
-	return pulumix.Output[TemplateVisualCustomActionTrigger]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateVisualCustomActionTriggerOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -64065,12 +59835,6 @@ func (o TemplateVisualCustomActionTriggerPtrOutput) ToTemplateVisualCustomAction
 
 func (o TemplateVisualCustomActionTriggerPtrOutput) ToTemplateVisualCustomActionTriggerPtrOutputWithContext(ctx context.Context) TemplateVisualCustomActionTriggerPtrOutput {
 	return o
-}
-
-func (o TemplateVisualCustomActionTriggerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateVisualCustomActionTrigger] {
-	return pulumix.Output[*TemplateVisualCustomActionTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateVisualCustomActionTriggerPtrOutput) Elem() TemplateVisualCustomActionTriggerOutput {
@@ -64208,12 +59972,6 @@ func (o TemplateWidgetStatusOutput) ToTemplateWidgetStatusPtrOutputWithContext(c
 	}).(TemplateWidgetStatusPtrOutput)
 }
 
-func (o TemplateWidgetStatusOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateWidgetStatus] {
-	return pulumix.Output[TemplateWidgetStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateWidgetStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -64247,12 +60005,6 @@ func (o TemplateWidgetStatusPtrOutput) ToTemplateWidgetStatusPtrOutput() Templat
 
 func (o TemplateWidgetStatusPtrOutput) ToTemplateWidgetStatusPtrOutputWithContext(ctx context.Context) TemplateWidgetStatusPtrOutput {
 	return o
-}
-
-func (o TemplateWidgetStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateWidgetStatus] {
-	return pulumix.Output[*TemplateWidgetStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateWidgetStatusPtrOutput) Elem() TemplateWidgetStatusOutput {
@@ -64390,12 +60142,6 @@ func (o TemplateWordCloudCloudLayoutOutput) ToTemplateWordCloudCloudLayoutPtrOut
 	}).(TemplateWordCloudCloudLayoutPtrOutput)
 }
 
-func (o TemplateWordCloudCloudLayoutOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateWordCloudCloudLayout] {
-	return pulumix.Output[TemplateWordCloudCloudLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateWordCloudCloudLayoutOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -64429,12 +60175,6 @@ func (o TemplateWordCloudCloudLayoutPtrOutput) ToTemplateWordCloudCloudLayoutPtr
 
 func (o TemplateWordCloudCloudLayoutPtrOutput) ToTemplateWordCloudCloudLayoutPtrOutputWithContext(ctx context.Context) TemplateWordCloudCloudLayoutPtrOutput {
 	return o
-}
-
-func (o TemplateWordCloudCloudLayoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateWordCloudCloudLayout] {
-	return pulumix.Output[*TemplateWordCloudCloudLayout]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateWordCloudCloudLayoutPtrOutput) Elem() TemplateWordCloudCloudLayoutOutput {
@@ -64572,12 +60312,6 @@ func (o TemplateWordCloudWordCasingOutput) ToTemplateWordCloudWordCasingPtrOutpu
 	}).(TemplateWordCloudWordCasingPtrOutput)
 }
 
-func (o TemplateWordCloudWordCasingOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateWordCloudWordCasing] {
-	return pulumix.Output[TemplateWordCloudWordCasing]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateWordCloudWordCasingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -64611,12 +60345,6 @@ func (o TemplateWordCloudWordCasingPtrOutput) ToTemplateWordCloudWordCasingPtrOu
 
 func (o TemplateWordCloudWordCasingPtrOutput) ToTemplateWordCloudWordCasingPtrOutputWithContext(ctx context.Context) TemplateWordCloudWordCasingPtrOutput {
 	return o
-}
-
-func (o TemplateWordCloudWordCasingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateWordCloudWordCasing] {
-	return pulumix.Output[*TemplateWordCloudWordCasing]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateWordCloudWordCasingPtrOutput) Elem() TemplateWordCloudWordCasingOutput {
@@ -64754,12 +60482,6 @@ func (o TemplateWordCloudWordOrientationOutput) ToTemplateWordCloudWordOrientati
 	}).(TemplateWordCloudWordOrientationPtrOutput)
 }
 
-func (o TemplateWordCloudWordOrientationOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateWordCloudWordOrientation] {
-	return pulumix.Output[TemplateWordCloudWordOrientation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateWordCloudWordOrientationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -64793,12 +60515,6 @@ func (o TemplateWordCloudWordOrientationPtrOutput) ToTemplateWordCloudWordOrient
 
 func (o TemplateWordCloudWordOrientationPtrOutput) ToTemplateWordCloudWordOrientationPtrOutputWithContext(ctx context.Context) TemplateWordCloudWordOrientationPtrOutput {
 	return o
-}
-
-func (o TemplateWordCloudWordOrientationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateWordCloudWordOrientation] {
-	return pulumix.Output[*TemplateWordCloudWordOrientation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateWordCloudWordOrientationPtrOutput) Elem() TemplateWordCloudWordOrientationOutput {
@@ -64938,12 +60654,6 @@ func (o TemplateWordCloudWordPaddingOutput) ToTemplateWordCloudWordPaddingPtrOut
 	}).(TemplateWordCloudWordPaddingPtrOutput)
 }
 
-func (o TemplateWordCloudWordPaddingOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateWordCloudWordPadding] {
-	return pulumix.Output[TemplateWordCloudWordPadding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateWordCloudWordPaddingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -64977,12 +60687,6 @@ func (o TemplateWordCloudWordPaddingPtrOutput) ToTemplateWordCloudWordPaddingPtr
 
 func (o TemplateWordCloudWordPaddingPtrOutput) ToTemplateWordCloudWordPaddingPtrOutputWithContext(ctx context.Context) TemplateWordCloudWordPaddingPtrOutput {
 	return o
-}
-
-func (o TemplateWordCloudWordPaddingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateWordCloudWordPadding] {
-	return pulumix.Output[*TemplateWordCloudWordPadding]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateWordCloudWordPaddingPtrOutput) Elem() TemplateWordCloudWordPaddingOutput {
@@ -65120,12 +60824,6 @@ func (o TemplateWordCloudWordScalingOutput) ToTemplateWordCloudWordScalingPtrOut
 	}).(TemplateWordCloudWordScalingPtrOutput)
 }
 
-func (o TemplateWordCloudWordScalingOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateWordCloudWordScaling] {
-	return pulumix.Output[TemplateWordCloudWordScaling]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateWordCloudWordScalingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -65159,12 +60857,6 @@ func (o TemplateWordCloudWordScalingPtrOutput) ToTemplateWordCloudWordScalingPtr
 
 func (o TemplateWordCloudWordScalingPtrOutput) ToTemplateWordCloudWordScalingPtrOutputWithContext(ctx context.Context) TemplateWordCloudWordScalingPtrOutput {
 	return o
-}
-
-func (o TemplateWordCloudWordScalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateWordCloudWordScaling] {
-	return pulumix.Output[*TemplateWordCloudWordScaling]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateWordCloudWordScalingPtrOutput) Elem() TemplateWordCloudWordScalingOutput {
@@ -65265,12 +60957,6 @@ func (o ThemeErrorTypeOutput) ToThemeErrorTypePtrOutputWithContext(ctx context.C
 	}).(ThemeErrorTypePtrOutput)
 }
 
-func (o ThemeErrorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeErrorType] {
-	return pulumix.Output[ThemeErrorType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ThemeErrorTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -65304,12 +60990,6 @@ func (o ThemeErrorTypePtrOutput) ToThemeErrorTypePtrOutput() ThemeErrorTypePtrOu
 
 func (o ThemeErrorTypePtrOutput) ToThemeErrorTypePtrOutputWithContext(ctx context.Context) ThemeErrorTypePtrOutput {
 	return o
-}
-
-func (o ThemeErrorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeErrorType] {
-	return pulumix.Output[*ThemeErrorType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeErrorTypePtrOutput) Elem() ThemeErrorTypeOutput {
@@ -65372,12 +61052,6 @@ func (o ThemeResourceStatusOutput) ToThemeResourceStatusPtrOutputWithContext(ctx
 	}).(ThemeResourceStatusPtrOutput)
 }
 
-func (o ThemeResourceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeResourceStatus] {
-	return pulumix.Output[ThemeResourceStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ThemeResourceStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -65411,12 +61085,6 @@ func (o ThemeResourceStatusPtrOutput) ToThemeResourceStatusPtrOutput() ThemeReso
 
 func (o ThemeResourceStatusPtrOutput) ToThemeResourceStatusPtrOutputWithContext(ctx context.Context) ThemeResourceStatusPtrOutput {
 	return o
-}
-
-func (o ThemeResourceStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeResourceStatus] {
-	return pulumix.Output[*ThemeResourceStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeResourceStatusPtrOutput) Elem() ThemeResourceStatusOutput {
@@ -65475,12 +61143,6 @@ func (o ThemeTypeOutput) ToThemeTypePtrOutputWithContext(ctx context.Context) Th
 	}).(ThemeTypePtrOutput)
 }
 
-func (o ThemeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeType] {
-	return pulumix.Output[ThemeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ThemeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -65514,12 +61176,6 @@ func (o ThemeTypePtrOutput) ToThemeTypePtrOutput() ThemeTypePtrOutput {
 
 func (o ThemeTypePtrOutput) ToThemeTypePtrOutputWithContext(ctx context.Context) ThemeTypePtrOutput {
 	return o
-}
-
-func (o ThemeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeType] {
-	return pulumix.Output[*ThemeType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeTypePtrOutput) Elem() ThemeTypeOutput {
@@ -65623,12 +61279,6 @@ func (o TopicAuthorSpecifiedAggregationOutput) ToTopicAuthorSpecifiedAggregation
 	}).(TopicAuthorSpecifiedAggregationPtrOutput)
 }
 
-func (o TopicAuthorSpecifiedAggregationOutput) ToOutput(ctx context.Context) pulumix.Output[TopicAuthorSpecifiedAggregation] {
-	return pulumix.Output[TopicAuthorSpecifiedAggregation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicAuthorSpecifiedAggregationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -65662,12 +61312,6 @@ func (o TopicAuthorSpecifiedAggregationPtrOutput) ToTopicAuthorSpecifiedAggregat
 
 func (o TopicAuthorSpecifiedAggregationPtrOutput) ToTopicAuthorSpecifiedAggregationPtrOutputWithContext(ctx context.Context) TopicAuthorSpecifiedAggregationPtrOutput {
 	return o
-}
-
-func (o TopicAuthorSpecifiedAggregationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicAuthorSpecifiedAggregation] {
-	return pulumix.Output[*TopicAuthorSpecifiedAggregation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicAuthorSpecifiedAggregationPtrOutput) Elem() TopicAuthorSpecifiedAggregationOutput {
@@ -65763,12 +61407,6 @@ func (i TopicAuthorSpecifiedAggregationArray) ToTopicAuthorSpecifiedAggregationA
 	return pulumi.ToOutputWithContext(ctx, i).(TopicAuthorSpecifiedAggregationArrayOutput)
 }
 
-func (i TopicAuthorSpecifiedAggregationArray) ToOutput(ctx context.Context) pulumix.Output[[]TopicAuthorSpecifiedAggregation] {
-	return pulumix.Output[[]TopicAuthorSpecifiedAggregation]{
-		OutputState: i.ToTopicAuthorSpecifiedAggregationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicAuthorSpecifiedAggregationArrayOutput struct{ *pulumi.OutputState }
 
 func (TopicAuthorSpecifiedAggregationArrayOutput) ElementType() reflect.Type {
@@ -65781,12 +61419,6 @@ func (o TopicAuthorSpecifiedAggregationArrayOutput) ToTopicAuthorSpecifiedAggreg
 
 func (o TopicAuthorSpecifiedAggregationArrayOutput) ToTopicAuthorSpecifiedAggregationArrayOutputWithContext(ctx context.Context) TopicAuthorSpecifiedAggregationArrayOutput {
 	return o
-}
-
-func (o TopicAuthorSpecifiedAggregationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TopicAuthorSpecifiedAggregation] {
-	return pulumix.Output[[]TopicAuthorSpecifiedAggregation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicAuthorSpecifiedAggregationArrayOutput) Index(i pulumi.IntInput) TopicAuthorSpecifiedAggregationOutput {
@@ -65862,12 +61494,6 @@ func (o TopicCategoryFilterFunctionOutput) ToTopicCategoryFilterFunctionPtrOutpu
 	}).(TopicCategoryFilterFunctionPtrOutput)
 }
 
-func (o TopicCategoryFilterFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[TopicCategoryFilterFunction] {
-	return pulumix.Output[TopicCategoryFilterFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicCategoryFilterFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -65901,12 +61527,6 @@ func (o TopicCategoryFilterFunctionPtrOutput) ToTopicCategoryFilterFunctionPtrOu
 
 func (o TopicCategoryFilterFunctionPtrOutput) ToTopicCategoryFilterFunctionPtrOutputWithContext(ctx context.Context) TopicCategoryFilterFunctionPtrOutput {
 	return o
-}
-
-func (o TopicCategoryFilterFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicCategoryFilterFunction] {
-	return pulumix.Output[*TopicCategoryFilterFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicCategoryFilterFunctionPtrOutput) Elem() TopicCategoryFilterFunctionOutput {
@@ -66045,12 +61665,6 @@ func (o TopicCategoryFilterTypeOutput) ToTopicCategoryFilterTypePtrOutputWithCon
 	}).(TopicCategoryFilterTypePtrOutput)
 }
 
-func (o TopicCategoryFilterTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TopicCategoryFilterType] {
-	return pulumix.Output[TopicCategoryFilterType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicCategoryFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -66084,12 +61698,6 @@ func (o TopicCategoryFilterTypePtrOutput) ToTopicCategoryFilterTypePtrOutput() T
 
 func (o TopicCategoryFilterTypePtrOutput) ToTopicCategoryFilterTypePtrOutputWithContext(ctx context.Context) TopicCategoryFilterTypePtrOutput {
 	return o
-}
-
-func (o TopicCategoryFilterTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicCategoryFilterType] {
-	return pulumix.Output[*TopicCategoryFilterType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicCategoryFilterTypePtrOutput) Elem() TopicCategoryFilterTypeOutput {
@@ -66227,12 +61835,6 @@ func (o TopicColumnDataRoleOutput) ToTopicColumnDataRolePtrOutputWithContext(ctx
 	}).(TopicColumnDataRolePtrOutput)
 }
 
-func (o TopicColumnDataRoleOutput) ToOutput(ctx context.Context) pulumix.Output[TopicColumnDataRole] {
-	return pulumix.Output[TopicColumnDataRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicColumnDataRoleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -66266,12 +61868,6 @@ func (o TopicColumnDataRolePtrOutput) ToTopicColumnDataRolePtrOutput() TopicColu
 
 func (o TopicColumnDataRolePtrOutput) ToTopicColumnDataRolePtrOutputWithContext(ctx context.Context) TopicColumnDataRolePtrOutput {
 	return o
-}
-
-func (o TopicColumnDataRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicColumnDataRole] {
-	return pulumix.Output[*TopicColumnDataRole]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicColumnDataRolePtrOutput) Elem() TopicColumnDataRoleOutput {
@@ -66410,12 +62006,6 @@ func (o TopicColumnOrderingTypeOutput) ToTopicColumnOrderingTypePtrOutputWithCon
 	}).(TopicColumnOrderingTypePtrOutput)
 }
 
-func (o TopicColumnOrderingTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TopicColumnOrderingType] {
-	return pulumix.Output[TopicColumnOrderingType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicColumnOrderingTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -66449,12 +62039,6 @@ func (o TopicColumnOrderingTypePtrOutput) ToTopicColumnOrderingTypePtrOutput() T
 
 func (o TopicColumnOrderingTypePtrOutput) ToTopicColumnOrderingTypePtrOutputWithContext(ctx context.Context) TopicColumnOrderingTypePtrOutput {
 	return o
-}
-
-func (o TopicColumnOrderingTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicColumnOrderingType] {
-	return pulumix.Output[*TopicColumnOrderingType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicColumnOrderingTypePtrOutput) Elem() TopicColumnOrderingTypeOutput {
@@ -66593,12 +62177,6 @@ func (o TopicConstantTypeOutput) ToTopicConstantTypePtrOutputWithContext(ctx con
 	}).(TopicConstantTypePtrOutput)
 }
 
-func (o TopicConstantTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TopicConstantType] {
-	return pulumix.Output[TopicConstantType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicConstantTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -66632,12 +62210,6 @@ func (o TopicConstantTypePtrOutput) ToTopicConstantTypePtrOutput() TopicConstant
 
 func (o TopicConstantTypePtrOutput) ToTopicConstantTypePtrOutputWithContext(ctx context.Context) TopicConstantTypePtrOutput {
 	return o
-}
-
-func (o TopicConstantTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicConstantType] {
-	return pulumix.Output[*TopicConstantType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicConstantTypePtrOutput) Elem() TopicConstantTypeOutput {
@@ -66784,12 +62356,6 @@ func (o TopicDefaultAggregationOutput) ToTopicDefaultAggregationPtrOutputWithCon
 	}).(TopicDefaultAggregationPtrOutput)
 }
 
-func (o TopicDefaultAggregationOutput) ToOutput(ctx context.Context) pulumix.Output[TopicDefaultAggregation] {
-	return pulumix.Output[TopicDefaultAggregation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicDefaultAggregationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -66823,12 +62389,6 @@ func (o TopicDefaultAggregationPtrOutput) ToTopicDefaultAggregationPtrOutput() T
 
 func (o TopicDefaultAggregationPtrOutput) ToTopicDefaultAggregationPtrOutputWithContext(ctx context.Context) TopicDefaultAggregationPtrOutput {
 	return o
-}
-
-func (o TopicDefaultAggregationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicDefaultAggregation] {
-	return pulumix.Output[*TopicDefaultAggregation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicDefaultAggregationPtrOutput) Elem() TopicDefaultAggregationOutput {
@@ -66970,12 +62530,6 @@ func (o TopicDisplayFormatOutput) ToTopicDisplayFormatPtrOutputWithContext(ctx c
 	}).(TopicDisplayFormatPtrOutput)
 }
 
-func (o TopicDisplayFormatOutput) ToOutput(ctx context.Context) pulumix.Output[TopicDisplayFormat] {
-	return pulumix.Output[TopicDisplayFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicDisplayFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -67009,12 +62563,6 @@ func (o TopicDisplayFormatPtrOutput) ToTopicDisplayFormatPtrOutput() TopicDispla
 
 func (o TopicDisplayFormatPtrOutput) ToTopicDisplayFormatPtrOutputWithContext(ctx context.Context) TopicDisplayFormatPtrOutput {
 	return o
-}
-
-func (o TopicDisplayFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicDisplayFormat] {
-	return pulumix.Output[*TopicDisplayFormat]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicDisplayFormatPtrOutput) Elem() TopicDisplayFormatOutput {
@@ -67153,12 +62701,6 @@ func (o TopicFilterClassOutput) ToTopicFilterClassPtrOutputWithContext(ctx conte
 	}).(TopicFilterClassPtrOutput)
 }
 
-func (o TopicFilterClassOutput) ToOutput(ctx context.Context) pulumix.Output[TopicFilterClass] {
-	return pulumix.Output[TopicFilterClass]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicFilterClassOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -67192,12 +62734,6 @@ func (o TopicFilterClassPtrOutput) ToTopicFilterClassPtrOutput() TopicFilterClas
 
 func (o TopicFilterClassPtrOutput) ToTopicFilterClassPtrOutputWithContext(ctx context.Context) TopicFilterClassPtrOutput {
 	return o
-}
-
-func (o TopicFilterClassPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicFilterClass] {
-	return pulumix.Output[*TopicFilterClass]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicFilterClassPtrOutput) Elem() TopicFilterClassOutput {
@@ -67346,12 +62882,6 @@ func (o TopicNamedEntityAggTypeOutput) ToTopicNamedEntityAggTypePtrOutputWithCon
 	}).(TopicNamedEntityAggTypePtrOutput)
 }
 
-func (o TopicNamedEntityAggTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TopicNamedEntityAggType] {
-	return pulumix.Output[TopicNamedEntityAggType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicNamedEntityAggTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -67385,12 +62915,6 @@ func (o TopicNamedEntityAggTypePtrOutput) ToTopicNamedEntityAggTypePtrOutput() T
 
 func (o TopicNamedEntityAggTypePtrOutput) ToTopicNamedEntityAggTypePtrOutputWithContext(ctx context.Context) TopicNamedEntityAggTypePtrOutput {
 	return o
-}
-
-func (o TopicNamedEntityAggTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicNamedEntityAggType] {
-	return pulumix.Output[*TopicNamedEntityAggType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicNamedEntityAggTypePtrOutput) Elem() TopicNamedEntityAggTypeOutput {
@@ -67538,12 +63062,6 @@ func (o TopicNamedFilterAggTypeOutput) ToTopicNamedFilterAggTypePtrOutputWithCon
 	}).(TopicNamedFilterAggTypePtrOutput)
 }
 
-func (o TopicNamedFilterAggTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TopicNamedFilterAggType] {
-	return pulumix.Output[TopicNamedFilterAggType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicNamedFilterAggTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -67577,12 +63095,6 @@ func (o TopicNamedFilterAggTypePtrOutput) ToTopicNamedFilterAggTypePtrOutput() T
 
 func (o TopicNamedFilterAggTypePtrOutput) ToTopicNamedFilterAggTypePtrOutputWithContext(ctx context.Context) TopicNamedFilterAggTypePtrOutput {
 	return o
-}
-
-func (o TopicNamedFilterAggTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicNamedFilterAggType] {
-	return pulumix.Output[*TopicNamedFilterAggType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicNamedFilterAggTypePtrOutput) Elem() TopicNamedFilterAggTypeOutput {
@@ -67723,12 +63235,6 @@ func (o TopicNamedFilterTypeOutput) ToTopicNamedFilterTypePtrOutputWithContext(c
 	}).(TopicNamedFilterTypePtrOutput)
 }
 
-func (o TopicNamedFilterTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TopicNamedFilterType] {
-	return pulumix.Output[TopicNamedFilterType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicNamedFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -67762,12 +63268,6 @@ func (o TopicNamedFilterTypePtrOutput) ToTopicNamedFilterTypePtrOutput() TopicNa
 
 func (o TopicNamedFilterTypePtrOutput) ToTopicNamedFilterTypePtrOutputWithContext(ctx context.Context) TopicNamedFilterTypePtrOutput {
 	return o
-}
-
-func (o TopicNamedFilterTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicNamedFilterType] {
-	return pulumix.Output[*TopicNamedFilterType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicNamedFilterTypePtrOutput) Elem() TopicNamedFilterTypeOutput {
@@ -67909,12 +63409,6 @@ func (o TopicNumberScaleOutput) ToTopicNumberScalePtrOutputWithContext(ctx conte
 	}).(TopicNumberScalePtrOutput)
 }
 
-func (o TopicNumberScaleOutput) ToOutput(ctx context.Context) pulumix.Output[TopicNumberScale] {
-	return pulumix.Output[TopicNumberScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicNumberScaleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -67948,12 +63442,6 @@ func (o TopicNumberScalePtrOutput) ToTopicNumberScalePtrOutput() TopicNumberScal
 
 func (o TopicNumberScalePtrOutput) ToTopicNumberScalePtrOutputWithContext(ctx context.Context) TopicNumberScalePtrOutput {
 	return o
-}
-
-func (o TopicNumberScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicNumberScale] {
-	return pulumix.Output[*TopicNumberScale]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicNumberScalePtrOutput) Elem() TopicNumberScaleOutput {
@@ -68091,12 +63579,6 @@ func (o TopicNumericSeparatorSymbolOutput) ToTopicNumericSeparatorSymbolPtrOutpu
 	}).(TopicNumericSeparatorSymbolPtrOutput)
 }
 
-func (o TopicNumericSeparatorSymbolOutput) ToOutput(ctx context.Context) pulumix.Output[TopicNumericSeparatorSymbol] {
-	return pulumix.Output[TopicNumericSeparatorSymbol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicNumericSeparatorSymbolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -68130,12 +63612,6 @@ func (o TopicNumericSeparatorSymbolPtrOutput) ToTopicNumericSeparatorSymbolPtrOu
 
 func (o TopicNumericSeparatorSymbolPtrOutput) ToTopicNumericSeparatorSymbolPtrOutputWithContext(ctx context.Context) TopicNumericSeparatorSymbolPtrOutput {
 	return o
-}
-
-func (o TopicNumericSeparatorSymbolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicNumericSeparatorSymbol] {
-	return pulumix.Output[*TopicNumericSeparatorSymbol]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicNumericSeparatorSymbolPtrOutput) Elem() TopicNumericSeparatorSymbolOutput {
@@ -68273,12 +63749,6 @@ func (o TopicPropertyRoleOutput) ToTopicPropertyRolePtrOutputWithContext(ctx con
 	}).(TopicPropertyRolePtrOutput)
 }
 
-func (o TopicPropertyRoleOutput) ToOutput(ctx context.Context) pulumix.Output[TopicPropertyRole] {
-	return pulumix.Output[TopicPropertyRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicPropertyRoleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -68312,12 +63782,6 @@ func (o TopicPropertyRolePtrOutput) ToTopicPropertyRolePtrOutput() TopicProperty
 
 func (o TopicPropertyRolePtrOutput) ToTopicPropertyRolePtrOutputWithContext(ctx context.Context) TopicPropertyRolePtrOutput {
 	return o
-}
-
-func (o TopicPropertyRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicPropertyRole] {
-	return pulumix.Output[*TopicPropertyRole]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicPropertyRolePtrOutput) Elem() TopicPropertyRoleOutput {
@@ -68456,12 +63920,6 @@ func (o TopicPropertyUsageOutput) ToTopicPropertyUsagePtrOutputWithContext(ctx c
 	}).(TopicPropertyUsagePtrOutput)
 }
 
-func (o TopicPropertyUsageOutput) ToOutput(ctx context.Context) pulumix.Output[TopicPropertyUsage] {
-	return pulumix.Output[TopicPropertyUsage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicPropertyUsageOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -68495,12 +63953,6 @@ func (o TopicPropertyUsagePtrOutput) ToTopicPropertyUsagePtrOutput() TopicProper
 
 func (o TopicPropertyUsagePtrOutput) ToTopicPropertyUsagePtrOutputWithContext(ctx context.Context) TopicPropertyUsagePtrOutput {
 	return o
-}
-
-func (o TopicPropertyUsagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicPropertyUsage] {
-	return pulumix.Output[*TopicPropertyUsage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicPropertyUsagePtrOutput) Elem() TopicPropertyUsageOutput {
@@ -68641,12 +64093,6 @@ func (o TopicRelativeDateFilterFunctionOutput) ToTopicRelativeDateFilterFunction
 	}).(TopicRelativeDateFilterFunctionPtrOutput)
 }
 
-func (o TopicRelativeDateFilterFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[TopicRelativeDateFilterFunction] {
-	return pulumix.Output[TopicRelativeDateFilterFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicRelativeDateFilterFunctionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -68680,12 +64126,6 @@ func (o TopicRelativeDateFilterFunctionPtrOutput) ToTopicRelativeDateFilterFunct
 
 func (o TopicRelativeDateFilterFunctionPtrOutput) ToTopicRelativeDateFilterFunctionPtrOutputWithContext(ctx context.Context) TopicRelativeDateFilterFunctionPtrOutput {
 	return o
-}
-
-func (o TopicRelativeDateFilterFunctionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicRelativeDateFilterFunction] {
-	return pulumix.Output[*TopicRelativeDateFilterFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicRelativeDateFilterFunctionPtrOutput) Elem() TopicRelativeDateFilterFunctionOutput {
@@ -68829,12 +64269,6 @@ func (o TopicTimeGranularityOutput) ToTopicTimeGranularityPtrOutputWithContext(c
 	}).(TopicTimeGranularityPtrOutput)
 }
 
-func (o TopicTimeGranularityOutput) ToOutput(ctx context.Context) pulumix.Output[TopicTimeGranularity] {
-	return pulumix.Output[TopicTimeGranularity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicTimeGranularityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -68868,12 +64302,6 @@ func (o TopicTimeGranularityPtrOutput) ToTopicTimeGranularityPtrOutput() TopicTi
 
 func (o TopicTimeGranularityPtrOutput) ToTopicTimeGranularityPtrOutputWithContext(ctx context.Context) TopicTimeGranularityPtrOutput {
 	return o
-}
-
-func (o TopicTimeGranularityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicTimeGranularity] {
-	return pulumix.Output[*TopicTimeGranularity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicTimeGranularityPtrOutput) Elem() TopicTimeGranularityOutput {
@@ -69011,12 +64439,6 @@ func (o TopicUndefinedSpecifiedValueTypeOutput) ToTopicUndefinedSpecifiedValueTy
 	}).(TopicUndefinedSpecifiedValueTypePtrOutput)
 }
 
-func (o TopicUndefinedSpecifiedValueTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TopicUndefinedSpecifiedValueType] {
-	return pulumix.Output[TopicUndefinedSpecifiedValueType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicUndefinedSpecifiedValueTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -69050,12 +64472,6 @@ func (o TopicUndefinedSpecifiedValueTypePtrOutput) ToTopicUndefinedSpecifiedValu
 
 func (o TopicUndefinedSpecifiedValueTypePtrOutput) ToTopicUndefinedSpecifiedValueTypePtrOutputWithContext(ctx context.Context) TopicUndefinedSpecifiedValueTypePtrOutput {
 	return o
-}
-
-func (o TopicUndefinedSpecifiedValueTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicUndefinedSpecifiedValueType] {
-	return pulumix.Output[*TopicUndefinedSpecifiedValueType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicUndefinedSpecifiedValueTypePtrOutput) Elem() TopicUndefinedSpecifiedValueTypeOutput {
@@ -69165,12 +64581,6 @@ func (o VpcConnectionNetworkInterfaceStatusOutput) ToVpcConnectionNetworkInterfa
 	}).(VpcConnectionNetworkInterfaceStatusPtrOutput)
 }
 
-func (o VpcConnectionNetworkInterfaceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[VpcConnectionNetworkInterfaceStatus] {
-	return pulumix.Output[VpcConnectionNetworkInterfaceStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpcConnectionNetworkInterfaceStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -69204,12 +64614,6 @@ func (o VpcConnectionNetworkInterfaceStatusPtrOutput) ToVpcConnectionNetworkInte
 
 func (o VpcConnectionNetworkInterfaceStatusPtrOutput) ToVpcConnectionNetworkInterfaceStatusPtrOutputWithContext(ctx context.Context) VpcConnectionNetworkInterfaceStatusPtrOutput {
 	return o
-}
-
-func (o VpcConnectionNetworkInterfaceStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcConnectionNetworkInterfaceStatus] {
-	return pulumix.Output[*VpcConnectionNetworkInterfaceStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpcConnectionNetworkInterfaceStatusPtrOutput) Elem() VpcConnectionNetworkInterfaceStatusOutput {
@@ -69304,12 +64708,6 @@ func (o VpcConnectionVpcConnectionAvailabilityStatusOutput) ToVpcConnectionVpcCo
 	}).(VpcConnectionVpcConnectionAvailabilityStatusPtrOutput)
 }
 
-func (o VpcConnectionVpcConnectionAvailabilityStatusOutput) ToOutput(ctx context.Context) pulumix.Output[VpcConnectionVpcConnectionAvailabilityStatus] {
-	return pulumix.Output[VpcConnectionVpcConnectionAvailabilityStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpcConnectionVpcConnectionAvailabilityStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -69343,12 +64741,6 @@ func (o VpcConnectionVpcConnectionAvailabilityStatusPtrOutput) ToVpcConnectionVp
 
 func (o VpcConnectionVpcConnectionAvailabilityStatusPtrOutput) ToVpcConnectionVpcConnectionAvailabilityStatusPtrOutputWithContext(ctx context.Context) VpcConnectionVpcConnectionAvailabilityStatusPtrOutput {
 	return o
-}
-
-func (o VpcConnectionVpcConnectionAvailabilityStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcConnectionVpcConnectionAvailabilityStatus] {
-	return pulumix.Output[*VpcConnectionVpcConnectionAvailabilityStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpcConnectionVpcConnectionAvailabilityStatusPtrOutput) Elem() VpcConnectionVpcConnectionAvailabilityStatusOutput {
@@ -69457,12 +64849,6 @@ func (o VpcConnectionVpcConnectionResourceStatusOutput) ToVpcConnectionVpcConnec
 	}).(VpcConnectionVpcConnectionResourceStatusPtrOutput)
 }
 
-func (o VpcConnectionVpcConnectionResourceStatusOutput) ToOutput(ctx context.Context) pulumix.Output[VpcConnectionVpcConnectionResourceStatus] {
-	return pulumix.Output[VpcConnectionVpcConnectionResourceStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpcConnectionVpcConnectionResourceStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -69496,12 +64882,6 @@ func (o VpcConnectionVpcConnectionResourceStatusPtrOutput) ToVpcConnectionVpcCon
 
 func (o VpcConnectionVpcConnectionResourceStatusPtrOutput) ToVpcConnectionVpcConnectionResourceStatusPtrOutputWithContext(ctx context.Context) VpcConnectionVpcConnectionResourceStatusPtrOutput {
 	return o
-}
-
-func (o VpcConnectionVpcConnectionResourceStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcConnectionVpcConnectionResourceStatus] {
-	return pulumix.Output[*VpcConnectionVpcConnectionResourceStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpcConnectionVpcConnectionResourceStatusPtrOutput) Elem() VpcConnectionVpcConnectionResourceStatusOutput {

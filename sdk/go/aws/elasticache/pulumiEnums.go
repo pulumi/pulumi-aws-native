@@ -79,12 +79,6 @@ func (o GlobalReplicationGroupMemberRoleOutput) ToGlobalReplicationGroupMemberRo
 	}).(GlobalReplicationGroupMemberRolePtrOutput)
 }
 
-func (o GlobalReplicationGroupMemberRoleOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalReplicationGroupMemberRole] {
-	return pulumix.Output[GlobalReplicationGroupMemberRole]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GlobalReplicationGroupMemberRoleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o GlobalReplicationGroupMemberRolePtrOutput) ToGlobalReplicationGroupMembe
 
 func (o GlobalReplicationGroupMemberRolePtrOutput) ToGlobalReplicationGroupMemberRolePtrOutputWithContext(ctx context.Context) GlobalReplicationGroupMemberRolePtrOutput {
 	return o
-}
-
-func (o GlobalReplicationGroupMemberRolePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalReplicationGroupMemberRole] {
-	return pulumix.Output[*GlobalReplicationGroupMemberRole]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalReplicationGroupMemberRolePtrOutput) Elem() GlobalReplicationGroupMemberRoleOutput {
@@ -263,12 +251,6 @@ func (o UserAuthenticationModePropertiesTypeOutput) ToUserAuthenticationModeProp
 	}).(UserAuthenticationModePropertiesTypePtrOutput)
 }
 
-func (o UserAuthenticationModePropertiesTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UserAuthenticationModePropertiesType] {
-	return pulumix.Output[UserAuthenticationModePropertiesType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserAuthenticationModePropertiesTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -302,12 +284,6 @@ func (o UserAuthenticationModePropertiesTypePtrOutput) ToUserAuthenticationModeP
 
 func (o UserAuthenticationModePropertiesTypePtrOutput) ToUserAuthenticationModePropertiesTypePtrOutputWithContext(ctx context.Context) UserAuthenticationModePropertiesTypePtrOutput {
 	return o
-}
-
-func (o UserAuthenticationModePropertiesTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserAuthenticationModePropertiesType] {
-	return pulumix.Output[*UserAuthenticationModePropertiesType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserAuthenticationModePropertiesTypePtrOutput) Elem() UserAuthenticationModePropertiesTypeOutput {
@@ -445,12 +421,6 @@ func (o UserEngineOutput) ToUserEnginePtrOutputWithContext(ctx context.Context) 
 	}).(UserEnginePtrOutput)
 }
 
-func (o UserEngineOutput) ToOutput(ctx context.Context) pulumix.Output[UserEngine] {
-	return pulumix.Output[UserEngine]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserEngineOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -484,12 +454,6 @@ func (o UserEnginePtrOutput) ToUserEnginePtrOutput() UserEnginePtrOutput {
 
 func (o UserEnginePtrOutput) ToUserEnginePtrOutputWithContext(ctx context.Context) UserEnginePtrOutput {
 	return o
-}
-
-func (o UserEnginePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserEngine] {
-	return pulumix.Output[*UserEngine]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserEnginePtrOutput) Elem() UserEngineOutput {
@@ -627,12 +591,6 @@ func (o UserGroupEngineOutput) ToUserGroupEnginePtrOutputWithContext(ctx context
 	}).(UserGroupEnginePtrOutput)
 }
 
-func (o UserGroupEngineOutput) ToOutput(ctx context.Context) pulumix.Output[UserGroupEngine] {
-	return pulumix.Output[UserGroupEngine]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserGroupEngineOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -666,12 +624,6 @@ func (o UserGroupEnginePtrOutput) ToUserGroupEnginePtrOutput() UserGroupEnginePt
 
 func (o UserGroupEnginePtrOutput) ToUserGroupEnginePtrOutputWithContext(ctx context.Context) UserGroupEnginePtrOutput {
 	return o
-}
-
-func (o UserGroupEnginePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserGroupEngine] {
-	return pulumix.Output[*UserGroupEngine]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserGroupEnginePtrOutput) Elem() UserGroupEngineOutput {

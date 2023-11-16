@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::IoTTwinMaker::ComponentType
@@ -95,12 +94,6 @@ func (o LookupComponentTypeResultOutput) ToLookupComponentTypeResultOutput() Loo
 
 func (o LookupComponentTypeResultOutput) ToLookupComponentTypeResultOutputWithContext(ctx context.Context) LookupComponentTypeResultOutput {
 	return o
-}
-
-func (o LookupComponentTypeResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupComponentTypeResult] {
-	return pulumix.Output[LookupComponentTypeResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the component type.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::PinpointEmail::ConfigurationSet
@@ -111,12 +110,6 @@ func (i *ConfigurationSet) ToConfigurationSetOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetOutput)
 }
 
-func (i *ConfigurationSet) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSet] {
-	return pulumix.Output[*ConfigurationSet]{
-		OutputState: i.ToConfigurationSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetOutput) ElementType() reflect.Type {
@@ -129,12 +122,6 @@ func (o ConfigurationSetOutput) ToConfigurationSetOutput() ConfigurationSetOutpu
 
 func (o ConfigurationSetOutput) ToConfigurationSetOutputWithContext(ctx context.Context) ConfigurationSetOutput {
 	return o
-}
-
-func (o ConfigurationSetOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSet] {
-	return pulumix.Output[*ConfigurationSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetOutput) DeliveryOptions() ConfigurationSetDeliveryOptionsPtrOutput {

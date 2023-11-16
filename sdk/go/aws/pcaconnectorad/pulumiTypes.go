@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -41,12 +40,6 @@ func (i ConnectorTagsArgs) ToConnectorTagsOutput() ConnectorTagsOutput {
 
 func (i ConnectorTagsArgs) ToConnectorTagsOutputWithContext(ctx context.Context) ConnectorTagsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorTagsOutput)
-}
-
-func (i ConnectorTagsArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorTags] {
-	return pulumix.Output[ConnectorTags]{
-		OutputState: i.ToConnectorTagsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ConnectorTagsArgs) ToConnectorTagsPtrOutput() ConnectorTagsPtrOutput {
@@ -90,12 +83,6 @@ func (i *connectorTagsPtrType) ToConnectorTagsPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorTagsPtrOutput)
 }
 
-func (i *connectorTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorTags] {
-	return pulumix.Output[*ConnectorTags]{
-		OutputState: i.ToConnectorTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorTagsOutput struct{ *pulumi.OutputState }
 
 func (ConnectorTagsOutput) ElementType() reflect.Type {
@@ -120,12 +107,6 @@ func (o ConnectorTagsOutput) ToConnectorTagsPtrOutputWithContext(ctx context.Con
 	}).(ConnectorTagsPtrOutput)
 }
 
-func (o ConnectorTagsOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorTags] {
-	return pulumix.Output[ConnectorTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 type ConnectorTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (ConnectorTagsPtrOutput) ElementType() reflect.Type {
@@ -138,12 +119,6 @@ func (o ConnectorTagsPtrOutput) ToConnectorTagsPtrOutput() ConnectorTagsPtrOutpu
 
 func (o ConnectorTagsPtrOutput) ToConnectorTagsPtrOutputWithContext(ctx context.Context) ConnectorTagsPtrOutput {
 	return o
-}
-
-func (o ConnectorTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorTags] {
-	return pulumix.Output[*ConnectorTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorTagsPtrOutput) Elem() ConnectorTagsOutput {
@@ -187,12 +162,6 @@ func (i ConnectorVpcInformationArgs) ToConnectorVpcInformationOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorVpcInformationOutput)
 }
 
-func (i ConnectorVpcInformationArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorVpcInformation] {
-	return pulumix.Output[ConnectorVpcInformation]{
-		OutputState: i.ToConnectorVpcInformationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorVpcInformationOutput struct{ *pulumi.OutputState }
 
 func (ConnectorVpcInformationOutput) ElementType() reflect.Type {
@@ -205,12 +174,6 @@ func (o ConnectorVpcInformationOutput) ToConnectorVpcInformationOutput() Connect
 
 func (o ConnectorVpcInformationOutput) ToConnectorVpcInformationOutputWithContext(ctx context.Context) ConnectorVpcInformationOutput {
 	return o
-}
-
-func (o ConnectorVpcInformationOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorVpcInformation] {
-	return pulumix.Output[ConnectorVpcInformation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorVpcInformationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
@@ -244,12 +207,6 @@ func (i DirectoryRegistrationTagsArgs) ToDirectoryRegistrationTagsOutput() Direc
 
 func (i DirectoryRegistrationTagsArgs) ToDirectoryRegistrationTagsOutputWithContext(ctx context.Context) DirectoryRegistrationTagsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryRegistrationTagsOutput)
-}
-
-func (i DirectoryRegistrationTagsArgs) ToOutput(ctx context.Context) pulumix.Output[DirectoryRegistrationTags] {
-	return pulumix.Output[DirectoryRegistrationTags]{
-		OutputState: i.ToDirectoryRegistrationTagsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i DirectoryRegistrationTagsArgs) ToDirectoryRegistrationTagsPtrOutput() DirectoryRegistrationTagsPtrOutput {
@@ -293,12 +250,6 @@ func (i *directoryRegistrationTagsPtrType) ToDirectoryRegistrationTagsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryRegistrationTagsPtrOutput)
 }
 
-func (i *directoryRegistrationTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DirectoryRegistrationTags] {
-	return pulumix.Output[*DirectoryRegistrationTags]{
-		OutputState: i.ToDirectoryRegistrationTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DirectoryRegistrationTagsOutput struct{ *pulumi.OutputState }
 
 func (DirectoryRegistrationTagsOutput) ElementType() reflect.Type {
@@ -323,12 +274,6 @@ func (o DirectoryRegistrationTagsOutput) ToDirectoryRegistrationTagsPtrOutputWit
 	}).(DirectoryRegistrationTagsPtrOutput)
 }
 
-func (o DirectoryRegistrationTagsOutput) ToOutput(ctx context.Context) pulumix.Output[DirectoryRegistrationTags] {
-	return pulumix.Output[DirectoryRegistrationTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 type DirectoryRegistrationTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (DirectoryRegistrationTagsPtrOutput) ElementType() reflect.Type {
@@ -341,12 +286,6 @@ func (o DirectoryRegistrationTagsPtrOutput) ToDirectoryRegistrationTagsPtrOutput
 
 func (o DirectoryRegistrationTagsPtrOutput) ToDirectoryRegistrationTagsPtrOutputWithContext(ctx context.Context) DirectoryRegistrationTagsPtrOutput {
 	return o
-}
-
-func (o DirectoryRegistrationTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DirectoryRegistrationTags] {
-	return pulumix.Output[*DirectoryRegistrationTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DirectoryRegistrationTagsPtrOutput) Elem() DirectoryRegistrationTagsOutput {
@@ -476,12 +415,6 @@ func (i TemplateGroupAccessControlEntryAccessRightsArgs) ToTemplateGroupAccessCo
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateGroupAccessControlEntryAccessRightsOutput)
 }
 
-func (i TemplateGroupAccessControlEntryAccessRightsArgs) ToOutput(ctx context.Context) pulumix.Output[TemplateGroupAccessControlEntryAccessRights] {
-	return pulumix.Output[TemplateGroupAccessControlEntryAccessRights]{
-		OutputState: i.ToTemplateGroupAccessControlEntryAccessRightsOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TemplateGroupAccessControlEntryAccessRightsOutput struct{ *pulumi.OutputState }
 
 func (TemplateGroupAccessControlEntryAccessRightsOutput) ElementType() reflect.Type {
@@ -494,12 +427,6 @@ func (o TemplateGroupAccessControlEntryAccessRightsOutput) ToTemplateGroupAccess
 
 func (o TemplateGroupAccessControlEntryAccessRightsOutput) ToTemplateGroupAccessControlEntryAccessRightsOutputWithContext(ctx context.Context) TemplateGroupAccessControlEntryAccessRightsOutput {
 	return o
-}
-
-func (o TemplateGroupAccessControlEntryAccessRightsOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateGroupAccessControlEntryAccessRights] {
-	return pulumix.Output[TemplateGroupAccessControlEntryAccessRights]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateGroupAccessControlEntryAccessRightsOutput) AutoEnroll() TemplateGroupAccessControlEntryAccessRightPtrOutput {
@@ -653,12 +580,6 @@ func (i TemplateTagsArgs) ToTemplateTagsOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateTagsOutput)
 }
 
-func (i TemplateTagsArgs) ToOutput(ctx context.Context) pulumix.Output[TemplateTags] {
-	return pulumix.Output[TemplateTags]{
-		OutputState: i.ToTemplateTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TemplateTagsArgs) ToTemplateTagsPtrOutput() TemplateTagsPtrOutput {
 	return i.ToTemplateTagsPtrOutputWithContext(context.Background())
 }
@@ -700,12 +621,6 @@ func (i *templateTagsPtrType) ToTemplateTagsPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateTagsPtrOutput)
 }
 
-func (i *templateTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*TemplateTags] {
-	return pulumix.Output[*TemplateTags]{
-		OutputState: i.ToTemplateTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TemplateTagsOutput struct{ *pulumi.OutputState }
 
 func (TemplateTagsOutput) ElementType() reflect.Type {
@@ -730,12 +645,6 @@ func (o TemplateTagsOutput) ToTemplateTagsPtrOutputWithContext(ctx context.Conte
 	}).(TemplateTagsPtrOutput)
 }
 
-func (o TemplateTagsOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateTags] {
-	return pulumix.Output[TemplateTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 type TemplateTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (TemplateTagsPtrOutput) ElementType() reflect.Type {
@@ -748,12 +657,6 @@ func (o TemplateTagsPtrOutput) ToTemplateTagsPtrOutput() TemplateTagsPtrOutput {
 
 func (o TemplateTagsPtrOutput) ToTemplateTagsPtrOutputWithContext(ctx context.Context) TemplateTagsPtrOutput {
 	return o
-}
-
-func (o TemplateTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateTags] {
-	return pulumix.Output[*TemplateTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateTagsPtrOutput) Elem() TemplateTagsOutput {

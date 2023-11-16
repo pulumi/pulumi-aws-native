@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::NetworkManager::ConnectAttachment Resource Type Definition
@@ -163,12 +162,6 @@ func (i *ConnectAttachment) ToConnectAttachmentOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentOutput)
 }
 
-func (i *ConnectAttachment) ToOutput(ctx context.Context) pulumix.Output[*ConnectAttachment] {
-	return pulumix.Output[*ConnectAttachment]{
-		OutputState: i.ToConnectAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectAttachmentOutput struct{ *pulumi.OutputState }
 
 func (ConnectAttachmentOutput) ElementType() reflect.Type {
@@ -181,12 +174,6 @@ func (o ConnectAttachmentOutput) ToConnectAttachmentOutput() ConnectAttachmentOu
 
 func (o ConnectAttachmentOutput) ToConnectAttachmentOutputWithContext(ctx context.Context) ConnectAttachmentOutput {
 	return o
-}
-
-func (o ConnectAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectAttachment] {
-	return pulumix.Output[*ConnectAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the attachment.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The API Schema for AWS Route53 Recovery Readiness Cells.
@@ -73,12 +72,6 @@ func (o LookupCellResultOutput) ToLookupCellResultOutput() LookupCellResultOutpu
 
 func (o LookupCellResultOutput) ToLookupCellResultOutputWithContext(ctx context.Context) LookupCellResultOutput {
 	return o
-}
-
-func (o LookupCellResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCellResult] {
-	return pulumix.Output[LookupCellResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the cell.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A dimension can be used to limit the scope of a metric used in a security profile for AWS IoT Device Defender.
@@ -71,12 +70,6 @@ func (o LookupDimensionResultOutput) ToLookupDimensionResultOutput() LookupDimen
 
 func (o LookupDimensionResultOutput) ToLookupDimensionResultOutputWithContext(ctx context.Context) LookupDimensionResultOutput {
 	return o
-}
-
-func (o LookupDimensionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDimensionResult] {
-	return pulumix.Output[LookupDimensionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN (Amazon resource name) of the created dimension.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetRegion(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetRegionResult, error) {
@@ -49,12 +48,6 @@ func (o GetRegionResultOutput) ToGetRegionResultOutput() GetRegionResultOutput {
 
 func (o GetRegionResultOutput) ToGetRegionResultOutputWithContext(ctx context.Context) GetRegionResultOutput {
 	return o
-}
-
-func (o GetRegionResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRegionResult] {
-	return pulumix.Output[GetRegionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRegionResultOutput) Region() pulumi.StringOutput {

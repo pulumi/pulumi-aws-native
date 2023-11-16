@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An AWS Support App resource that creates, updates, reads, and deletes a customer's account alias.
@@ -99,12 +98,6 @@ func (i *AccountAlias) ToAccountAliasOutputWithContext(ctx context.Context) Acco
 	return pulumi.ToOutputWithContext(ctx, i).(AccountAliasOutput)
 }
 
-func (i *AccountAlias) ToOutput(ctx context.Context) pulumix.Output[*AccountAlias] {
-	return pulumix.Output[*AccountAlias]{
-		OutputState: i.ToAccountAliasOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountAliasOutput struct{ *pulumi.OutputState }
 
 func (AccountAliasOutput) ElementType() reflect.Type {
@@ -117,12 +110,6 @@ func (o AccountAliasOutput) ToAccountAliasOutput() AccountAliasOutput {
 
 func (o AccountAliasOutput) ToAccountAliasOutputWithContext(ctx context.Context) AccountAliasOutput {
 	return o
-}
-
-func (o AccountAliasOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountAlias] {
-	return pulumix.Output[*AccountAlias]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An account alias associated with a customer's account.

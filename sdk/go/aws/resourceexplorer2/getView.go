@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::ResourceExplorer2::View Resource Type
@@ -67,12 +66,6 @@ func (o LookupViewResultOutput) ToLookupViewResultOutput() LookupViewResultOutpu
 
 func (o LookupViewResultOutput) ToLookupViewResultOutputWithContext(ctx context.Context) LookupViewResultOutput {
 	return o
-}
-
-func (o LookupViewResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupViewResult] {
-	return pulumix.Output[LookupViewResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupViewResultOutput) Filters() ViewFiltersPtrOutput {

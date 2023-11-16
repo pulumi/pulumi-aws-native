@@ -78,12 +78,6 @@ func (o SigningProfilePlatformIdOutput) ToSigningProfilePlatformIdPtrOutputWithC
 	}).(SigningProfilePlatformIdPtrOutput)
 }
 
-func (o SigningProfilePlatformIdOutput) ToOutput(ctx context.Context) pulumix.Output[SigningProfilePlatformId] {
-	return pulumix.Output[SigningProfilePlatformId]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SigningProfilePlatformIdOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o SigningProfilePlatformIdPtrOutput) ToSigningProfilePlatformIdPtrOutput()
 
 func (o SigningProfilePlatformIdPtrOutput) ToSigningProfilePlatformIdPtrOutputWithContext(ctx context.Context) SigningProfilePlatformIdPtrOutput {
 	return o
-}
-
-func (o SigningProfilePlatformIdPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SigningProfilePlatformId] {
-	return pulumix.Output[*SigningProfilePlatformId]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SigningProfilePlatformIdPtrOutput) Elem() SigningProfilePlatformIdOutput {
@@ -261,12 +249,6 @@ func (o SigningProfileSignatureValidityPeriodTypeOutput) ToSigningProfileSignatu
 	}).(SigningProfileSignatureValidityPeriodTypePtrOutput)
 }
 
-func (o SigningProfileSignatureValidityPeriodTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SigningProfileSignatureValidityPeriodType] {
-	return pulumix.Output[SigningProfileSignatureValidityPeriodType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SigningProfileSignatureValidityPeriodTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -300,12 +282,6 @@ func (o SigningProfileSignatureValidityPeriodTypePtrOutput) ToSigningProfileSign
 
 func (o SigningProfileSignatureValidityPeriodTypePtrOutput) ToSigningProfileSignatureValidityPeriodTypePtrOutputWithContext(ctx context.Context) SigningProfileSignatureValidityPeriodTypePtrOutput {
 	return o
-}
-
-func (o SigningProfileSignatureValidityPeriodTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SigningProfileSignatureValidityPeriodType] {
-	return pulumix.Output[*SigningProfileSignatureValidityPeriodType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SigningProfileSignatureValidityPeriodTypePtrOutput) Elem() SigningProfileSignatureValidityPeriodTypeOutput {

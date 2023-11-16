@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An outcome for rule evaluation.
@@ -115,12 +114,6 @@ func (i *Outcome) ToOutcomeOutputWithContext(ctx context.Context) OutcomeOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(OutcomeOutput)
 }
 
-func (i *Outcome) ToOutput(ctx context.Context) pulumix.Output[*Outcome] {
-	return pulumix.Output[*Outcome]{
-		OutputState: i.ToOutcomeOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OutcomeOutput struct{ *pulumi.OutputState }
 
 func (OutcomeOutput) ElementType() reflect.Type {
@@ -133,12 +126,6 @@ func (o OutcomeOutput) ToOutcomeOutput() OutcomeOutput {
 
 func (o OutcomeOutput) ToOutcomeOutputWithContext(ctx context.Context) OutcomeOutput {
 	return o
-}
-
-func (o OutcomeOutput) ToOutput(ctx context.Context) pulumix.Output[*Outcome] {
-	return pulumix.Output[*Outcome]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The outcome ARN.

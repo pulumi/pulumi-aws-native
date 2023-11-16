@@ -78,12 +78,6 @@ func (o PipeAssignPublicIpOutput) ToPipeAssignPublicIpPtrOutputWithContext(ctx c
 	}).(PipeAssignPublicIpPtrOutput)
 }
 
-func (o PipeAssignPublicIpOutput) ToOutput(ctx context.Context) pulumix.Output[PipeAssignPublicIp] {
-	return pulumix.Output[PipeAssignPublicIp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PipeAssignPublicIpOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o PipeAssignPublicIpPtrOutput) ToPipeAssignPublicIpPtrOutput() PipeAssignP
 
 func (o PipeAssignPublicIpPtrOutput) ToPipeAssignPublicIpPtrOutputWithContext(ctx context.Context) PipeAssignPublicIpPtrOutput {
 	return o
-}
-
-func (o PipeAssignPublicIpPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeAssignPublicIp] {
-	return pulumix.Output[*PipeAssignPublicIp]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipeAssignPublicIpPtrOutput) Elem() PipeAssignPublicIpOutput {
@@ -260,12 +248,6 @@ func (o PipeBatchJobDependencyTypeOutput) ToPipeBatchJobDependencyTypePtrOutputW
 	}).(PipeBatchJobDependencyTypePtrOutput)
 }
 
-func (o PipeBatchJobDependencyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PipeBatchJobDependencyType] {
-	return pulumix.Output[PipeBatchJobDependencyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PipeBatchJobDependencyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -299,12 +281,6 @@ func (o PipeBatchJobDependencyTypePtrOutput) ToPipeBatchJobDependencyTypePtrOutp
 
 func (o PipeBatchJobDependencyTypePtrOutput) ToPipeBatchJobDependencyTypePtrOutputWithContext(ctx context.Context) PipeBatchJobDependencyTypePtrOutput {
 	return o
-}
-
-func (o PipeBatchJobDependencyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeBatchJobDependencyType] {
-	return pulumix.Output[*PipeBatchJobDependencyType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipeBatchJobDependencyTypePtrOutput) Elem() PipeBatchJobDependencyTypeOutput {
@@ -443,12 +419,6 @@ func (o PipeBatchResourceRequirementTypeOutput) ToPipeBatchResourceRequirementTy
 	}).(PipeBatchResourceRequirementTypePtrOutput)
 }
 
-func (o PipeBatchResourceRequirementTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PipeBatchResourceRequirementType] {
-	return pulumix.Output[PipeBatchResourceRequirementType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PipeBatchResourceRequirementTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -482,12 +452,6 @@ func (o PipeBatchResourceRequirementTypePtrOutput) ToPipeBatchResourceRequiremen
 
 func (o PipeBatchResourceRequirementTypePtrOutput) ToPipeBatchResourceRequirementTypePtrOutputWithContext(ctx context.Context) PipeBatchResourceRequirementTypePtrOutput {
 	return o
-}
-
-func (o PipeBatchResourceRequirementTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeBatchResourceRequirementType] {
-	return pulumix.Output[*PipeBatchResourceRequirementType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipeBatchResourceRequirementTypePtrOutput) Elem() PipeBatchResourceRequirementTypeOutput {
@@ -625,12 +589,6 @@ func (o PipeDynamoDbStreamStartPositionOutput) ToPipeDynamoDbStreamStartPosition
 	}).(PipeDynamoDbStreamStartPositionPtrOutput)
 }
 
-func (o PipeDynamoDbStreamStartPositionOutput) ToOutput(ctx context.Context) pulumix.Output[PipeDynamoDbStreamStartPosition] {
-	return pulumix.Output[PipeDynamoDbStreamStartPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PipeDynamoDbStreamStartPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -664,12 +622,6 @@ func (o PipeDynamoDbStreamStartPositionPtrOutput) ToPipeDynamoDbStreamStartPosit
 
 func (o PipeDynamoDbStreamStartPositionPtrOutput) ToPipeDynamoDbStreamStartPositionPtrOutputWithContext(ctx context.Context) PipeDynamoDbStreamStartPositionPtrOutput {
 	return o
-}
-
-func (o PipeDynamoDbStreamStartPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeDynamoDbStreamStartPosition] {
-	return pulumix.Output[*PipeDynamoDbStreamStartPosition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipeDynamoDbStreamStartPositionPtrOutput) Elem() PipeDynamoDbStreamStartPositionOutput {
@@ -806,12 +758,6 @@ func (o PipeEcsEnvironmentFileTypeOutput) ToPipeEcsEnvironmentFileTypePtrOutputW
 	}).(PipeEcsEnvironmentFileTypePtrOutput)
 }
 
-func (o PipeEcsEnvironmentFileTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PipeEcsEnvironmentFileType] {
-	return pulumix.Output[PipeEcsEnvironmentFileType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PipeEcsEnvironmentFileTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -845,12 +791,6 @@ func (o PipeEcsEnvironmentFileTypePtrOutput) ToPipeEcsEnvironmentFileTypePtrOutp
 
 func (o PipeEcsEnvironmentFileTypePtrOutput) ToPipeEcsEnvironmentFileTypePtrOutputWithContext(ctx context.Context) PipeEcsEnvironmentFileTypePtrOutput {
 	return o
-}
-
-func (o PipeEcsEnvironmentFileTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeEcsEnvironmentFileType] {
-	return pulumix.Output[*PipeEcsEnvironmentFileType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipeEcsEnvironmentFileTypePtrOutput) Elem() PipeEcsEnvironmentFileTypeOutput {
@@ -988,12 +928,6 @@ func (o PipeEcsResourceRequirementTypeOutput) ToPipeEcsResourceRequirementTypePt
 	}).(PipeEcsResourceRequirementTypePtrOutput)
 }
 
-func (o PipeEcsResourceRequirementTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PipeEcsResourceRequirementType] {
-	return pulumix.Output[PipeEcsResourceRequirementType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PipeEcsResourceRequirementTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1027,12 +961,6 @@ func (o PipeEcsResourceRequirementTypePtrOutput) ToPipeEcsResourceRequirementTyp
 
 func (o PipeEcsResourceRequirementTypePtrOutput) ToPipeEcsResourceRequirementTypePtrOutputWithContext(ctx context.Context) PipeEcsResourceRequirementTypePtrOutput {
 	return o
-}
-
-func (o PipeEcsResourceRequirementTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeEcsResourceRequirementType] {
-	return pulumix.Output[*PipeEcsResourceRequirementType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipeEcsResourceRequirementTypePtrOutput) Elem() PipeEcsResourceRequirementTypeOutput {
@@ -1171,12 +1099,6 @@ func (o PipeKinesisStreamStartPositionOutput) ToPipeKinesisStreamStartPositionPt
 	}).(PipeKinesisStreamStartPositionPtrOutput)
 }
 
-func (o PipeKinesisStreamStartPositionOutput) ToOutput(ctx context.Context) pulumix.Output[PipeKinesisStreamStartPosition] {
-	return pulumix.Output[PipeKinesisStreamStartPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PipeKinesisStreamStartPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1210,12 +1132,6 @@ func (o PipeKinesisStreamStartPositionPtrOutput) ToPipeKinesisStreamStartPositio
 
 func (o PipeKinesisStreamStartPositionPtrOutput) ToPipeKinesisStreamStartPositionPtrOutputWithContext(ctx context.Context) PipeKinesisStreamStartPositionPtrOutput {
 	return o
-}
-
-func (o PipeKinesisStreamStartPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeKinesisStreamStartPosition] {
-	return pulumix.Output[*PipeKinesisStreamStartPosition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipeKinesisStreamStartPositionPtrOutput) Elem() PipeKinesisStreamStartPositionOutput {
@@ -1354,12 +1270,6 @@ func (o PipeLaunchTypeOutput) ToPipeLaunchTypePtrOutputWithContext(ctx context.C
 	}).(PipeLaunchTypePtrOutput)
 }
 
-func (o PipeLaunchTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PipeLaunchType] {
-	return pulumix.Output[PipeLaunchType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PipeLaunchTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1393,12 +1303,6 @@ func (o PipeLaunchTypePtrOutput) ToPipeLaunchTypePtrOutput() PipeLaunchTypePtrOu
 
 func (o PipeLaunchTypePtrOutput) ToPipeLaunchTypePtrOutputWithContext(ctx context.Context) PipeLaunchTypePtrOutput {
 	return o
-}
-
-func (o PipeLaunchTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeLaunchType] {
-	return pulumix.Output[*PipeLaunchType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipeLaunchTypePtrOutput) Elem() PipeLaunchTypeOutput {
@@ -1536,12 +1440,6 @@ func (o PipeMskStartPositionOutput) ToPipeMskStartPositionPtrOutputWithContext(c
 	}).(PipeMskStartPositionPtrOutput)
 }
 
-func (o PipeMskStartPositionOutput) ToOutput(ctx context.Context) pulumix.Output[PipeMskStartPosition] {
-	return pulumix.Output[PipeMskStartPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PipeMskStartPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1575,12 +1473,6 @@ func (o PipeMskStartPositionPtrOutput) ToPipeMskStartPositionPtrOutput() PipeMsk
 
 func (o PipeMskStartPositionPtrOutput) ToPipeMskStartPositionPtrOutputWithContext(ctx context.Context) PipeMskStartPositionPtrOutput {
 	return o
-}
-
-func (o PipeMskStartPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeMskStartPosition] {
-	return pulumix.Output[*PipeMskStartPosition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipeMskStartPositionPtrOutput) Elem() PipeMskStartPositionOutput {
@@ -1717,12 +1609,6 @@ func (o PipeOnPartialBatchItemFailureStreamsOutput) ToPipeOnPartialBatchItemFail
 	}).(PipeOnPartialBatchItemFailureStreamsPtrOutput)
 }
 
-func (o PipeOnPartialBatchItemFailureStreamsOutput) ToOutput(ctx context.Context) pulumix.Output[PipeOnPartialBatchItemFailureStreams] {
-	return pulumix.Output[PipeOnPartialBatchItemFailureStreams]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PipeOnPartialBatchItemFailureStreamsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1756,12 +1642,6 @@ func (o PipeOnPartialBatchItemFailureStreamsPtrOutput) ToPipeOnPartialBatchItemF
 
 func (o PipeOnPartialBatchItemFailureStreamsPtrOutput) ToPipeOnPartialBatchItemFailureStreamsPtrOutputWithContext(ctx context.Context) PipeOnPartialBatchItemFailureStreamsPtrOutput {
 	return o
-}
-
-func (o PipeOnPartialBatchItemFailureStreamsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeOnPartialBatchItemFailureStreams] {
-	return pulumix.Output[*PipeOnPartialBatchItemFailureStreams]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipeOnPartialBatchItemFailureStreamsPtrOutput) Elem() PipeOnPartialBatchItemFailureStreamsOutput {
@@ -1899,12 +1779,6 @@ func (o PipePlacementConstraintTypeOutput) ToPipePlacementConstraintTypePtrOutpu
 	}).(PipePlacementConstraintTypePtrOutput)
 }
 
-func (o PipePlacementConstraintTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PipePlacementConstraintType] {
-	return pulumix.Output[PipePlacementConstraintType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PipePlacementConstraintTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1938,12 +1812,6 @@ func (o PipePlacementConstraintTypePtrOutput) ToPipePlacementConstraintTypePtrOu
 
 func (o PipePlacementConstraintTypePtrOutput) ToPipePlacementConstraintTypePtrOutputWithContext(ctx context.Context) PipePlacementConstraintTypePtrOutput {
 	return o
-}
-
-func (o PipePlacementConstraintTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipePlacementConstraintType] {
-	return pulumix.Output[*PipePlacementConstraintType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipePlacementConstraintTypePtrOutput) Elem() PipePlacementConstraintTypeOutput {
@@ -2082,12 +1950,6 @@ func (o PipePlacementStrategyTypeOutput) ToPipePlacementStrategyTypePtrOutputWit
 	}).(PipePlacementStrategyTypePtrOutput)
 }
 
-func (o PipePlacementStrategyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PipePlacementStrategyType] {
-	return pulumix.Output[PipePlacementStrategyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PipePlacementStrategyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2121,12 +1983,6 @@ func (o PipePlacementStrategyTypePtrOutput) ToPipePlacementStrategyTypePtrOutput
 
 func (o PipePlacementStrategyTypePtrOutput) ToPipePlacementStrategyTypePtrOutputWithContext(ctx context.Context) PipePlacementStrategyTypePtrOutput {
 	return o
-}
-
-func (o PipePlacementStrategyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipePlacementStrategyType] {
-	return pulumix.Output[*PipePlacementStrategyType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipePlacementStrategyTypePtrOutput) Elem() PipePlacementStrategyTypeOutput {
@@ -2263,12 +2119,6 @@ func (o PipePropagateTagsOutput) ToPipePropagateTagsPtrOutputWithContext(ctx con
 	}).(PipePropagateTagsPtrOutput)
 }
 
-func (o PipePropagateTagsOutput) ToOutput(ctx context.Context) pulumix.Output[PipePropagateTags] {
-	return pulumix.Output[PipePropagateTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PipePropagateTagsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2302,12 +2152,6 @@ func (o PipePropagateTagsPtrOutput) ToPipePropagateTagsPtrOutput() PipePropagate
 
 func (o PipePropagateTagsPtrOutput) ToPipePropagateTagsPtrOutputWithContext(ctx context.Context) PipePropagateTagsPtrOutput {
 	return o
-}
-
-func (o PipePropagateTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipePropagateTags] {
-	return pulumix.Output[*PipePropagateTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipePropagateTagsPtrOutput) Elem() PipePropagateTagsOutput {
@@ -2445,12 +2289,6 @@ func (o PipeRequestedPipeStateOutput) ToPipeRequestedPipeStatePtrOutputWithConte
 	}).(PipeRequestedPipeStatePtrOutput)
 }
 
-func (o PipeRequestedPipeStateOutput) ToOutput(ctx context.Context) pulumix.Output[PipeRequestedPipeState] {
-	return pulumix.Output[PipeRequestedPipeState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PipeRequestedPipeStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2484,12 +2322,6 @@ func (o PipeRequestedPipeStatePtrOutput) ToPipeRequestedPipeStatePtrOutput() Pip
 
 func (o PipeRequestedPipeStatePtrOutput) ToPipeRequestedPipeStatePtrOutputWithContext(ctx context.Context) PipeRequestedPipeStatePtrOutput {
 	return o
-}
-
-func (o PipeRequestedPipeStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeRequestedPipeState] {
-	return pulumix.Output[*PipeRequestedPipeState]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipeRequestedPipeStatePtrOutput) Elem() PipeRequestedPipeStateOutput {
@@ -2627,12 +2459,6 @@ func (o PipeSelfManagedKafkaStartPositionOutput) ToPipeSelfManagedKafkaStartPosi
 	}).(PipeSelfManagedKafkaStartPositionPtrOutput)
 }
 
-func (o PipeSelfManagedKafkaStartPositionOutput) ToOutput(ctx context.Context) pulumix.Output[PipeSelfManagedKafkaStartPosition] {
-	return pulumix.Output[PipeSelfManagedKafkaStartPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PipeSelfManagedKafkaStartPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2666,12 +2492,6 @@ func (o PipeSelfManagedKafkaStartPositionPtrOutput) ToPipeSelfManagedKafkaStartP
 
 func (o PipeSelfManagedKafkaStartPositionPtrOutput) ToPipeSelfManagedKafkaStartPositionPtrOutputWithContext(ctx context.Context) PipeSelfManagedKafkaStartPositionPtrOutput {
 	return o
-}
-
-func (o PipeSelfManagedKafkaStartPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeSelfManagedKafkaStartPosition] {
-	return pulumix.Output[*PipeSelfManagedKafkaStartPosition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipeSelfManagedKafkaStartPositionPtrOutput) Elem() PipeSelfManagedKafkaStartPositionOutput {
@@ -2782,12 +2602,6 @@ func (o PipeStateEnumOutput) ToPipeStateEnumPtrOutputWithContext(ctx context.Con
 	}).(PipeStateEnumPtrOutput)
 }
 
-func (o PipeStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[PipeStateEnum] {
-	return pulumix.Output[PipeStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PipeStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2821,12 +2635,6 @@ func (o PipeStateEnumPtrOutput) ToPipeStateEnumPtrOutput() PipeStateEnumPtrOutpu
 
 func (o PipeStateEnumPtrOutput) ToPipeStateEnumPtrOutputWithContext(ctx context.Context) PipeStateEnumPtrOutput {
 	return o
-}
-
-func (o PipeStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeStateEnum] {
-	return pulumix.Output[*PipeStateEnum]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipeStateEnumPtrOutput) Elem() PipeStateEnumOutput {
@@ -2920,12 +2728,6 @@ func (o PipeTargetInvocationTypeOutput) ToPipeTargetInvocationTypePtrOutputWithC
 	}).(PipeTargetInvocationTypePtrOutput)
 }
 
-func (o PipeTargetInvocationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PipeTargetInvocationType] {
-	return pulumix.Output[PipeTargetInvocationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PipeTargetInvocationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2959,12 +2761,6 @@ func (o PipeTargetInvocationTypePtrOutput) ToPipeTargetInvocationTypePtrOutput()
 
 func (o PipeTargetInvocationTypePtrOutput) ToPipeTargetInvocationTypePtrOutputWithContext(ctx context.Context) PipeTargetInvocationTypePtrOutput {
 	return o
-}
-
-func (o PipeTargetInvocationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeTargetInvocationType] {
-	return pulumix.Output[*PipeTargetInvocationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipeTargetInvocationTypePtrOutput) Elem() PipeTargetInvocationTypeOutput {

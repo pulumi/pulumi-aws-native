@@ -78,12 +78,6 @@ func (o StreamEncryptionEncryptionTypeOutput) ToStreamEncryptionEncryptionTypePt
 	}).(StreamEncryptionEncryptionTypePtrOutput)
 }
 
-func (o StreamEncryptionEncryptionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[StreamEncryptionEncryptionType] {
-	return pulumix.Output[StreamEncryptionEncryptionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StreamEncryptionEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o StreamEncryptionEncryptionTypePtrOutput) ToStreamEncryptionEncryptionTyp
 
 func (o StreamEncryptionEncryptionTypePtrOutput) ToStreamEncryptionEncryptionTypePtrOutputWithContext(ctx context.Context) StreamEncryptionEncryptionTypePtrOutput {
 	return o
-}
-
-func (o StreamEncryptionEncryptionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamEncryptionEncryptionType] {
-	return pulumix.Output[*StreamEncryptionEncryptionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamEncryptionEncryptionTypePtrOutput) Elem() StreamEncryptionEncryptionTypeOutput {
@@ -261,12 +249,6 @@ func (o StreamModeDetailsStreamModeOutput) ToStreamModeDetailsStreamModePtrOutpu
 	}).(StreamModeDetailsStreamModePtrOutput)
 }
 
-func (o StreamModeDetailsStreamModeOutput) ToOutput(ctx context.Context) pulumix.Output[StreamModeDetailsStreamMode] {
-	return pulumix.Output[StreamModeDetailsStreamMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StreamModeDetailsStreamModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -300,12 +282,6 @@ func (o StreamModeDetailsStreamModePtrOutput) ToStreamModeDetailsStreamModePtrOu
 
 func (o StreamModeDetailsStreamModePtrOutput) ToStreamModeDetailsStreamModePtrOutputWithContext(ctx context.Context) StreamModeDetailsStreamModePtrOutput {
 	return o
-}
-
-func (o StreamModeDetailsStreamModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamModeDetailsStreamMode] {
-	return pulumix.Output[*StreamModeDetailsStreamMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamModeDetailsStreamModePtrOutput) Elem() StreamModeDetailsStreamModeOutput {

@@ -179,12 +179,6 @@ func (o TemplateGroupAccessControlEntryAccessRightOutput) ToTemplateGroupAccessC
 	}).(TemplateGroupAccessControlEntryAccessRightPtrOutput)
 }
 
-func (o TemplateGroupAccessControlEntryAccessRightOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateGroupAccessControlEntryAccessRight] {
-	return pulumix.Output[TemplateGroupAccessControlEntryAccessRight]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateGroupAccessControlEntryAccessRightOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -218,12 +212,6 @@ func (o TemplateGroupAccessControlEntryAccessRightPtrOutput) ToTemplateGroupAcce
 
 func (o TemplateGroupAccessControlEntryAccessRightPtrOutput) ToTemplateGroupAccessControlEntryAccessRightPtrOutputWithContext(ctx context.Context) TemplateGroupAccessControlEntryAccessRightPtrOutput {
 	return o
-}
-
-func (o TemplateGroupAccessControlEntryAccessRightPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateGroupAccessControlEntryAccessRight] {
-	return pulumix.Output[*TemplateGroupAccessControlEntryAccessRight]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateGroupAccessControlEntryAccessRightPtrOutput) Elem() TemplateGroupAccessControlEntryAccessRightOutput {

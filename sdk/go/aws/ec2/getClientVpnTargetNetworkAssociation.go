@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::ClientVpnTargetNetworkAssociation
@@ -64,12 +63,6 @@ func (o LookupClientVpnTargetNetworkAssociationResultOutput) ToLookupClientVpnTa
 
 func (o LookupClientVpnTargetNetworkAssociationResultOutput) ToLookupClientVpnTargetNetworkAssociationResultOutputWithContext(ctx context.Context) LookupClientVpnTargetNetworkAssociationResultOutput {
 	return o
-}
-
-func (o LookupClientVpnTargetNetworkAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupClientVpnTargetNetworkAssociationResult] {
-	return pulumix.Output[LookupClientVpnTargetNetworkAssociationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupClientVpnTargetNetworkAssociationResultOutput) Id() pulumi.StringPtrOutput {

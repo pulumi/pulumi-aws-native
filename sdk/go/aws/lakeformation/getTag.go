@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A resource schema representing a Lake Formation Tag.
@@ -67,12 +66,6 @@ func (o LookupTagResultOutput) ToLookupTagResultOutput() LookupTagResultOutput {
 
 func (o LookupTagResultOutput) ToLookupTagResultOutputWithContext(ctx context.Context) LookupTagResultOutput {
 	return o
-}
-
-func (o LookupTagResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTagResult] {
-	return pulumix.Output[LookupTagResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of possible values an attribute can take.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::ImageBuilder::Component
@@ -71,12 +70,6 @@ func (o LookupComponentResultOutput) ToLookupComponentResultOutput() LookupCompo
 
 func (o LookupComponentResultOutput) ToLookupComponentResultOutputWithContext(ctx context.Context) LookupComponentResultOutput {
 	return o
-}
-
-func (o LookupComponentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupComponentResult] {
-	return pulumix.Output[LookupComponentResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the component.

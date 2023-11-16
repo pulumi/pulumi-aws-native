@@ -81,12 +81,6 @@ func (o AssetModelDataTypeOutput) ToAssetModelDataTypePtrOutputWithContext(ctx c
 	}).(AssetModelDataTypePtrOutput)
 }
 
-func (o AssetModelDataTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AssetModelDataType] {
-	return pulumix.Output[AssetModelDataType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssetModelDataTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +114,6 @@ func (o AssetModelDataTypePtrOutput) ToAssetModelDataTypePtrOutput() AssetModelD
 
 func (o AssetModelDataTypePtrOutput) ToAssetModelDataTypePtrOutputWithContext(ctx context.Context) AssetModelDataTypePtrOutput {
 	return o
-}
-
-func (o AssetModelDataTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssetModelDataType] {
-	return pulumix.Output[*AssetModelDataType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetModelDataTypePtrOutput) Elem() AssetModelDataTypeOutput {
@@ -262,12 +250,6 @@ func (o AssetModelDataTypeSpecOutput) ToAssetModelDataTypeSpecPtrOutputWithConte
 	}).(AssetModelDataTypeSpecPtrOutput)
 }
 
-func (o AssetModelDataTypeSpecOutput) ToOutput(ctx context.Context) pulumix.Output[AssetModelDataTypeSpec] {
-	return pulumix.Output[AssetModelDataTypeSpec]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssetModelDataTypeSpecOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +283,6 @@ func (o AssetModelDataTypeSpecPtrOutput) ToAssetModelDataTypeSpecPtrOutput() Ass
 
 func (o AssetModelDataTypeSpecPtrOutput) ToAssetModelDataTypeSpecPtrOutputWithContext(ctx context.Context) AssetModelDataTypeSpecPtrOutput {
 	return o
-}
-
-func (o AssetModelDataTypeSpecPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssetModelDataTypeSpec] {
-	return pulumix.Output[*AssetModelDataTypeSpec]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetModelDataTypeSpecPtrOutput) Elem() AssetModelDataTypeSpecOutput {
@@ -446,12 +422,6 @@ func (o AssetModelTypeNameOutput) ToAssetModelTypeNamePtrOutputWithContext(ctx c
 	}).(AssetModelTypeNamePtrOutput)
 }
 
-func (o AssetModelTypeNameOutput) ToOutput(ctx context.Context) pulumix.Output[AssetModelTypeName] {
-	return pulumix.Output[AssetModelTypeName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssetModelTypeNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -485,12 +455,6 @@ func (o AssetModelTypeNamePtrOutput) ToAssetModelTypeNamePtrOutput() AssetModelT
 
 func (o AssetModelTypeNamePtrOutput) ToAssetModelTypeNamePtrOutputWithContext(ctx context.Context) AssetModelTypeNamePtrOutput {
 	return o
-}
-
-func (o AssetModelTypeNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssetModelTypeName] {
-	return pulumix.Output[*AssetModelTypeName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetModelTypeNamePtrOutput) Elem() AssetModelTypeNameOutput {
@@ -629,12 +593,6 @@ func (o AssetPropertyNotificationStateOutput) ToAssetPropertyNotificationStatePt
 	}).(AssetPropertyNotificationStatePtrOutput)
 }
 
-func (o AssetPropertyNotificationStateOutput) ToOutput(ctx context.Context) pulumix.Output[AssetPropertyNotificationState] {
-	return pulumix.Output[AssetPropertyNotificationState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssetPropertyNotificationStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -668,12 +626,6 @@ func (o AssetPropertyNotificationStatePtrOutput) ToAssetPropertyNotificationStat
 
 func (o AssetPropertyNotificationStatePtrOutput) ToAssetPropertyNotificationStatePtrOutputWithContext(ctx context.Context) AssetPropertyNotificationStatePtrOutput {
 	return o
-}
-
-func (o AssetPropertyNotificationStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssetPropertyNotificationState] {
-	return pulumix.Output[*AssetPropertyNotificationState]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetPropertyNotificationStatePtrOutput) Elem() AssetPropertyNotificationStateOutput {

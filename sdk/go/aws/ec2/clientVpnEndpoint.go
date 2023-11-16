@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::ClientVpnEndpoint
@@ -157,12 +156,6 @@ func (i *ClientVpnEndpoint) ToClientVpnEndpointOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ClientVpnEndpointOutput)
 }
 
-func (i *ClientVpnEndpoint) ToOutput(ctx context.Context) pulumix.Output[*ClientVpnEndpoint] {
-	return pulumix.Output[*ClientVpnEndpoint]{
-		OutputState: i.ToClientVpnEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClientVpnEndpointOutput struct{ *pulumi.OutputState }
 
 func (ClientVpnEndpointOutput) ElementType() reflect.Type {
@@ -175,12 +168,6 @@ func (o ClientVpnEndpointOutput) ToClientVpnEndpointOutput() ClientVpnEndpointOu
 
 func (o ClientVpnEndpointOutput) ToClientVpnEndpointOutputWithContext(ctx context.Context) ClientVpnEndpointOutput {
 	return o
-}
-
-func (o ClientVpnEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*ClientVpnEndpoint] {
-	return pulumix.Output[*ClientVpnEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClientVpnEndpointOutput) AuthenticationOptions() ClientVpnEndpointClientAuthenticationRequestArrayOutput {

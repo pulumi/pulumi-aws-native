@@ -78,12 +78,6 @@ func (o CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionOutp
 	}).(CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput)
 }
 
-func (o CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionOutput) ToOutput(ctx context.Context) pulumix.Output[CapacityProviderAutoScalingGroupProviderManagedTerminationProtection] {
-	return pulumix.Output[CapacityProviderAutoScalingGroupProviderManagedTerminationProtection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrO
 
 func (o CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput) ToCapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutputWithContext(ctx context.Context) CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput {
 	return o
-}
-
-func (o CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CapacityProviderAutoScalingGroupProviderManagedTerminationProtection] {
-	return pulumix.Output[*CapacityProviderAutoScalingGroupProviderManagedTerminationProtection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput) Elem() CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionOutput {
@@ -260,12 +248,6 @@ func (o CapacityProviderManagedScalingStatusOutput) ToCapacityProviderManagedSca
 	}).(CapacityProviderManagedScalingStatusPtrOutput)
 }
 
-func (o CapacityProviderManagedScalingStatusOutput) ToOutput(ctx context.Context) pulumix.Output[CapacityProviderManagedScalingStatus] {
-	return pulumix.Output[CapacityProviderManagedScalingStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CapacityProviderManagedScalingStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -299,12 +281,6 @@ func (o CapacityProviderManagedScalingStatusPtrOutput) ToCapacityProviderManaged
 
 func (o CapacityProviderManagedScalingStatusPtrOutput) ToCapacityProviderManagedScalingStatusPtrOutputWithContext(ctx context.Context) CapacityProviderManagedScalingStatusPtrOutput {
 	return o
-}
-
-func (o CapacityProviderManagedScalingStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CapacityProviderManagedScalingStatus] {
-	return pulumix.Output[*CapacityProviderManagedScalingStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CapacityProviderManagedScalingStatusPtrOutput) Elem() CapacityProviderManagedScalingStatusOutput {
@@ -458,12 +434,6 @@ func (o ServiceAwsVpcConfigurationAssignPublicIpOutput) ToServiceAwsVpcConfigura
 	}).(ServiceAwsVpcConfigurationAssignPublicIpPtrOutput)
 }
 
-func (o ServiceAwsVpcConfigurationAssignPublicIpOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceAwsVpcConfigurationAssignPublicIp] {
-	return pulumix.Output[ServiceAwsVpcConfigurationAssignPublicIp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceAwsVpcConfigurationAssignPublicIpOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -497,12 +467,6 @@ func (o ServiceAwsVpcConfigurationAssignPublicIpPtrOutput) ToServiceAwsVpcConfig
 
 func (o ServiceAwsVpcConfigurationAssignPublicIpPtrOutput) ToServiceAwsVpcConfigurationAssignPublicIpPtrOutputWithContext(ctx context.Context) ServiceAwsVpcConfigurationAssignPublicIpPtrOutput {
 	return o
-}
-
-func (o ServiceAwsVpcConfigurationAssignPublicIpPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceAwsVpcConfigurationAssignPublicIp] {
-	return pulumix.Output[*ServiceAwsVpcConfigurationAssignPublicIp]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceAwsVpcConfigurationAssignPublicIpPtrOutput) Elem() ServiceAwsVpcConfigurationAssignPublicIpOutput {
@@ -641,12 +605,6 @@ func (o ServiceDeploymentControllerTypeOutput) ToServiceDeploymentControllerType
 	}).(ServiceDeploymentControllerTypePtrOutput)
 }
 
-func (o ServiceDeploymentControllerTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceDeploymentControllerType] {
-	return pulumix.Output[ServiceDeploymentControllerType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceDeploymentControllerTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -680,12 +638,6 @@ func (o ServiceDeploymentControllerTypePtrOutput) ToServiceDeploymentControllerT
 
 func (o ServiceDeploymentControllerTypePtrOutput) ToServiceDeploymentControllerTypePtrOutputWithContext(ctx context.Context) ServiceDeploymentControllerTypePtrOutput {
 	return o
-}
-
-func (o ServiceDeploymentControllerTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceDeploymentControllerType] {
-	return pulumix.Output[*ServiceDeploymentControllerType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceDeploymentControllerTypePtrOutput) Elem() ServiceDeploymentControllerTypeOutput {
@@ -824,12 +776,6 @@ func (o ServiceLaunchTypeOutput) ToServiceLaunchTypePtrOutputWithContext(ctx con
 	}).(ServiceLaunchTypePtrOutput)
 }
 
-func (o ServiceLaunchTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceLaunchType] {
-	return pulumix.Output[ServiceLaunchType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceLaunchTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -863,12 +809,6 @@ func (o ServiceLaunchTypePtrOutput) ToServiceLaunchTypePtrOutput() ServiceLaunch
 
 func (o ServiceLaunchTypePtrOutput) ToServiceLaunchTypePtrOutputWithContext(ctx context.Context) ServiceLaunchTypePtrOutput {
 	return o
-}
-
-func (o ServiceLaunchTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceLaunchType] {
-	return pulumix.Output[*ServiceLaunchType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceLaunchTypePtrOutput) Elem() ServiceLaunchTypeOutput {
@@ -1006,12 +946,6 @@ func (o ServicePlacementConstraintTypeOutput) ToServicePlacementConstraintTypePt
 	}).(ServicePlacementConstraintTypePtrOutput)
 }
 
-func (o ServicePlacementConstraintTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServicePlacementConstraintType] {
-	return pulumix.Output[ServicePlacementConstraintType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServicePlacementConstraintTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1045,12 +979,6 @@ func (o ServicePlacementConstraintTypePtrOutput) ToServicePlacementConstraintTyp
 
 func (o ServicePlacementConstraintTypePtrOutput) ToServicePlacementConstraintTypePtrOutputWithContext(ctx context.Context) ServicePlacementConstraintTypePtrOutput {
 	return o
-}
-
-func (o ServicePlacementConstraintTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServicePlacementConstraintType] {
-	return pulumix.Output[*ServicePlacementConstraintType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServicePlacementConstraintTypePtrOutput) Elem() ServicePlacementConstraintTypeOutput {
@@ -1189,12 +1117,6 @@ func (o ServicePlacementStrategyTypeOutput) ToServicePlacementStrategyTypePtrOut
 	}).(ServicePlacementStrategyTypePtrOutput)
 }
 
-func (o ServicePlacementStrategyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServicePlacementStrategyType] {
-	return pulumix.Output[ServicePlacementStrategyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServicePlacementStrategyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1228,12 +1150,6 @@ func (o ServicePlacementStrategyTypePtrOutput) ToServicePlacementStrategyTypePtr
 
 func (o ServicePlacementStrategyTypePtrOutput) ToServicePlacementStrategyTypePtrOutputWithContext(ctx context.Context) ServicePlacementStrategyTypePtrOutput {
 	return o
-}
-
-func (o ServicePlacementStrategyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServicePlacementStrategyType] {
-	return pulumix.Output[*ServicePlacementStrategyType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServicePlacementStrategyTypePtrOutput) Elem() ServicePlacementStrategyTypeOutput {
@@ -1371,12 +1287,6 @@ func (o ServicePropagateTagsOutput) ToServicePropagateTagsPtrOutputWithContext(c
 	}).(ServicePropagateTagsPtrOutput)
 }
 
-func (o ServicePropagateTagsOutput) ToOutput(ctx context.Context) pulumix.Output[ServicePropagateTags] {
-	return pulumix.Output[ServicePropagateTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServicePropagateTagsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1410,12 +1320,6 @@ func (o ServicePropagateTagsPtrOutput) ToServicePropagateTagsPtrOutput() Service
 
 func (o ServicePropagateTagsPtrOutput) ToServicePropagateTagsPtrOutputWithContext(ctx context.Context) ServicePropagateTagsPtrOutput {
 	return o
-}
-
-func (o ServicePropagateTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServicePropagateTags] {
-	return pulumix.Output[*ServicePropagateTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServicePropagateTagsPtrOutput) Elem() ServicePropagateTagsOutput {
@@ -1553,12 +1457,6 @@ func (o ServiceSchedulingStrategyOutput) ToServiceSchedulingStrategyPtrOutputWit
 	}).(ServiceSchedulingStrategyPtrOutput)
 }
 
-func (o ServiceSchedulingStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceSchedulingStrategy] {
-	return pulumix.Output[ServiceSchedulingStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceSchedulingStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1592,12 +1490,6 @@ func (o ServiceSchedulingStrategyPtrOutput) ToServiceSchedulingStrategyPtrOutput
 
 func (o ServiceSchedulingStrategyPtrOutput) ToServiceSchedulingStrategyPtrOutputWithContext(ctx context.Context) ServiceSchedulingStrategyPtrOutput {
 	return o
-}
-
-func (o ServiceSchedulingStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceSchedulingStrategy] {
-	return pulumix.Output[*ServiceSchedulingStrategy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceSchedulingStrategyPtrOutput) Elem() ServiceSchedulingStrategyOutput {
@@ -1735,12 +1627,6 @@ func (o TaskDefinitionAuthorizationConfigIamOutput) ToTaskDefinitionAuthorizatio
 	}).(TaskDefinitionAuthorizationConfigIamPtrOutput)
 }
 
-func (o TaskDefinitionAuthorizationConfigIamOutput) ToOutput(ctx context.Context) pulumix.Output[TaskDefinitionAuthorizationConfigIam] {
-	return pulumix.Output[TaskDefinitionAuthorizationConfigIam]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskDefinitionAuthorizationConfigIamOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1774,12 +1660,6 @@ func (o TaskDefinitionAuthorizationConfigIamPtrOutput) ToTaskDefinitionAuthoriza
 
 func (o TaskDefinitionAuthorizationConfigIamPtrOutput) ToTaskDefinitionAuthorizationConfigIamPtrOutputWithContext(ctx context.Context) TaskDefinitionAuthorizationConfigIamPtrOutput {
 	return o
-}
-
-func (o TaskDefinitionAuthorizationConfigIamPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinitionAuthorizationConfigIam] {
-	return pulumix.Output[*TaskDefinitionAuthorizationConfigIam]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskDefinitionAuthorizationConfigIamPtrOutput) Elem() TaskDefinitionAuthorizationConfigIamOutput {
@@ -1917,12 +1797,6 @@ func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput) ToTaskDefin
 	}).(TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput)
 }
 
-func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[TaskDefinitionEfsVolumeConfigurationTransitEncryption] {
-	return pulumix.Output[TaskDefinitionEfsVolumeConfigurationTransitEncryption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1956,12 +1830,6 @@ func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput) ToTaskDe
 
 func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput) ToTaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutputWithContext(ctx context.Context) TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput {
 	return o
-}
-
-func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinitionEfsVolumeConfigurationTransitEncryption] {
-	return pulumix.Output[*TaskDefinitionEfsVolumeConfigurationTransitEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput) Elem() TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput {
@@ -2100,12 +1968,6 @@ func (o TaskDefinitionPortMappingAppProtocolOutput) ToTaskDefinitionPortMappingA
 	}).(TaskDefinitionPortMappingAppProtocolPtrOutput)
 }
 
-func (o TaskDefinitionPortMappingAppProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[TaskDefinitionPortMappingAppProtocol] {
-	return pulumix.Output[TaskDefinitionPortMappingAppProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskDefinitionPortMappingAppProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2139,12 +2001,6 @@ func (o TaskDefinitionPortMappingAppProtocolPtrOutput) ToTaskDefinitionPortMappi
 
 func (o TaskDefinitionPortMappingAppProtocolPtrOutput) ToTaskDefinitionPortMappingAppProtocolPtrOutputWithContext(ctx context.Context) TaskDefinitionPortMappingAppProtocolPtrOutput {
 	return o
-}
-
-func (o TaskDefinitionPortMappingAppProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinitionPortMappingAppProtocol] {
-	return pulumix.Output[*TaskDefinitionPortMappingAppProtocol]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskDefinitionPortMappingAppProtocolPtrOutput) Elem() TaskDefinitionPortMappingAppProtocolOutput {
@@ -2283,12 +2139,6 @@ func (o TaskSetAwsVpcConfigurationAssignPublicIpOutput) ToTaskSetAwsVpcConfigura
 	}).(TaskSetAwsVpcConfigurationAssignPublicIpPtrOutput)
 }
 
-func (o TaskSetAwsVpcConfigurationAssignPublicIpOutput) ToOutput(ctx context.Context) pulumix.Output[TaskSetAwsVpcConfigurationAssignPublicIp] {
-	return pulumix.Output[TaskSetAwsVpcConfigurationAssignPublicIp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskSetAwsVpcConfigurationAssignPublicIpOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2322,12 +2172,6 @@ func (o TaskSetAwsVpcConfigurationAssignPublicIpPtrOutput) ToTaskSetAwsVpcConfig
 
 func (o TaskSetAwsVpcConfigurationAssignPublicIpPtrOutput) ToTaskSetAwsVpcConfigurationAssignPublicIpPtrOutputWithContext(ctx context.Context) TaskSetAwsVpcConfigurationAssignPublicIpPtrOutput {
 	return o
-}
-
-func (o TaskSetAwsVpcConfigurationAssignPublicIpPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskSetAwsVpcConfigurationAssignPublicIp] {
-	return pulumix.Output[*TaskSetAwsVpcConfigurationAssignPublicIp]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskSetAwsVpcConfigurationAssignPublicIpPtrOutput) Elem() TaskSetAwsVpcConfigurationAssignPublicIpOutput {
@@ -2466,12 +2310,6 @@ func (o TaskSetLaunchTypeOutput) ToTaskSetLaunchTypePtrOutputWithContext(ctx con
 	}).(TaskSetLaunchTypePtrOutput)
 }
 
-func (o TaskSetLaunchTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskSetLaunchType] {
-	return pulumix.Output[TaskSetLaunchType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskSetLaunchTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2505,12 +2343,6 @@ func (o TaskSetLaunchTypePtrOutput) ToTaskSetLaunchTypePtrOutput() TaskSetLaunch
 
 func (o TaskSetLaunchTypePtrOutput) ToTaskSetLaunchTypePtrOutputWithContext(ctx context.Context) TaskSetLaunchTypePtrOutput {
 	return o
-}
-
-func (o TaskSetLaunchTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskSetLaunchType] {
-	return pulumix.Output[*TaskSetLaunchType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskSetLaunchTypePtrOutput) Elem() TaskSetLaunchTypeOutput {
@@ -2648,12 +2480,6 @@ func (o TaskSetScaleUnitOutput) ToTaskSetScaleUnitPtrOutputWithContext(ctx conte
 	}).(TaskSetScaleUnitPtrOutput)
 }
 
-func (o TaskSetScaleUnitOutput) ToOutput(ctx context.Context) pulumix.Output[TaskSetScaleUnit] {
-	return pulumix.Output[TaskSetScaleUnit]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskSetScaleUnitOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2687,12 +2513,6 @@ func (o TaskSetScaleUnitPtrOutput) ToTaskSetScaleUnitPtrOutput() TaskSetScaleUni
 
 func (o TaskSetScaleUnitPtrOutput) ToTaskSetScaleUnitPtrOutputWithContext(ctx context.Context) TaskSetScaleUnitPtrOutput {
 	return o
-}
-
-func (o TaskSetScaleUnitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskSetScaleUnit] {
-	return pulumix.Output[*TaskSetScaleUnit]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskSetScaleUnitPtrOutput) Elem() TaskSetScaleUnitOutput {

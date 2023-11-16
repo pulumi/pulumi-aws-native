@@ -79,12 +79,6 @@ func (o AppAssessmentScheduleOutput) ToAppAssessmentSchedulePtrOutputWithContext
 	}).(AppAssessmentSchedulePtrOutput)
 }
 
-func (o AppAssessmentScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[AppAssessmentSchedule] {
-	return pulumix.Output[AppAssessmentSchedule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AppAssessmentScheduleOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o AppAssessmentSchedulePtrOutput) ToAppAssessmentSchedulePtrOutput() AppAs
 
 func (o AppAssessmentSchedulePtrOutput) ToAppAssessmentSchedulePtrOutputWithContext(ctx context.Context) AppAssessmentSchedulePtrOutput {
 	return o
-}
-
-func (o AppAssessmentSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppAssessmentSchedule] {
-	return pulumix.Output[*AppAssessmentSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppAssessmentSchedulePtrOutput) Elem() AppAssessmentScheduleOutput {
@@ -227,12 +215,6 @@ func (o AppDriftStatusOutput) ToAppDriftStatusPtrOutputWithContext(ctx context.C
 	}).(AppDriftStatusPtrOutput)
 }
 
-func (o AppDriftStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AppDriftStatus] {
-	return pulumix.Output[AppDriftStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AppDriftStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -266,12 +248,6 @@ func (o AppDriftStatusPtrOutput) ToAppDriftStatusPtrOutput() AppDriftStatusPtrOu
 
 func (o AppDriftStatusPtrOutput) ToAppDriftStatusPtrOutputWithContext(ctx context.Context) AppDriftStatusPtrOutput {
 	return o
-}
-
-func (o AppDriftStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppDriftStatus] {
-	return pulumix.Output[*AppDriftStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppDriftStatusPtrOutput) Elem() AppDriftStatusOutput {
@@ -366,12 +342,6 @@ func (o AppEventSubscriptionEventTypeOutput) ToAppEventSubscriptionEventTypePtrO
 	}).(AppEventSubscriptionEventTypePtrOutput)
 }
 
-func (o AppEventSubscriptionEventTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AppEventSubscriptionEventType] {
-	return pulumix.Output[AppEventSubscriptionEventType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AppEventSubscriptionEventTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -405,12 +375,6 @@ func (o AppEventSubscriptionEventTypePtrOutput) ToAppEventSubscriptionEventTypeP
 
 func (o AppEventSubscriptionEventTypePtrOutput) ToAppEventSubscriptionEventTypePtrOutputWithContext(ctx context.Context) AppEventSubscriptionEventTypePtrOutput {
 	return o
-}
-
-func (o AppEventSubscriptionEventTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppEventSubscriptionEventType] {
-	return pulumix.Output[*AppEventSubscriptionEventType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppEventSubscriptionEventTypePtrOutput) Elem() AppEventSubscriptionEventTypeOutput {
@@ -549,12 +513,6 @@ func (o AppPermissionModelTypeOutput) ToAppPermissionModelTypePtrOutputWithConte
 	}).(AppPermissionModelTypePtrOutput)
 }
 
-func (o AppPermissionModelTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AppPermissionModelType] {
-	return pulumix.Output[AppPermissionModelType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AppPermissionModelTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -588,12 +546,6 @@ func (o AppPermissionModelTypePtrOutput) ToAppPermissionModelTypePtrOutput() App
 
 func (o AppPermissionModelTypePtrOutput) ToAppPermissionModelTypePtrOutputWithContext(ctx context.Context) AppPermissionModelTypePtrOutput {
 	return o
-}
-
-func (o AppPermissionModelTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppPermissionModelType] {
-	return pulumix.Output[*AppPermissionModelType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppPermissionModelTypePtrOutput) Elem() AppPermissionModelTypeOutput {
@@ -733,12 +685,6 @@ func (o ResiliencyPolicyDataLocationConstraintOutput) ToResiliencyPolicyDataLoca
 	}).(ResiliencyPolicyDataLocationConstraintPtrOutput)
 }
 
-func (o ResiliencyPolicyDataLocationConstraintOutput) ToOutput(ctx context.Context) pulumix.Output[ResiliencyPolicyDataLocationConstraint] {
-	return pulumix.Output[ResiliencyPolicyDataLocationConstraint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResiliencyPolicyDataLocationConstraintOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -772,12 +718,6 @@ func (o ResiliencyPolicyDataLocationConstraintPtrOutput) ToResiliencyPolicyDataL
 
 func (o ResiliencyPolicyDataLocationConstraintPtrOutput) ToResiliencyPolicyDataLocationConstraintPtrOutputWithContext(ctx context.Context) ResiliencyPolicyDataLocationConstraintPtrOutput {
 	return o
-}
-
-func (o ResiliencyPolicyDataLocationConstraintPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResiliencyPolicyDataLocationConstraint] {
-	return pulumix.Output[*ResiliencyPolicyDataLocationConstraint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResiliencyPolicyDataLocationConstraintPtrOutput) Elem() ResiliencyPolicyDataLocationConstraintOutput {
@@ -919,12 +859,6 @@ func (o ResiliencyPolicyTierOutput) ToResiliencyPolicyTierPtrOutputWithContext(c
 	}).(ResiliencyPolicyTierPtrOutput)
 }
 
-func (o ResiliencyPolicyTierOutput) ToOutput(ctx context.Context) pulumix.Output[ResiliencyPolicyTier] {
-	return pulumix.Output[ResiliencyPolicyTier]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResiliencyPolicyTierOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -958,12 +892,6 @@ func (o ResiliencyPolicyTierPtrOutput) ToResiliencyPolicyTierPtrOutput() Resilie
 
 func (o ResiliencyPolicyTierPtrOutput) ToResiliencyPolicyTierPtrOutputWithContext(ctx context.Context) ResiliencyPolicyTierPtrOutput {
 	return o
-}
-
-func (o ResiliencyPolicyTierPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResiliencyPolicyTier] {
-	return pulumix.Output[*ResiliencyPolicyTier]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResiliencyPolicyTierPtrOutput) Elem() ResiliencyPolicyTierOutput {

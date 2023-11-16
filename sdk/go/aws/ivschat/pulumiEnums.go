@@ -48,12 +48,6 @@ func (o LoggingConfigurationStateEnumOutput) ToLoggingConfigurationStateEnumPtrO
 	}).(LoggingConfigurationStateEnumPtrOutput)
 }
 
-func (o LoggingConfigurationStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[LoggingConfigurationStateEnum] {
-	return pulumix.Output[LoggingConfigurationStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LoggingConfigurationStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -87,12 +81,6 @@ func (o LoggingConfigurationStateEnumPtrOutput) ToLoggingConfigurationStateEnumP
 
 func (o LoggingConfigurationStateEnumPtrOutput) ToLoggingConfigurationStateEnumPtrOutputWithContext(ctx context.Context) LoggingConfigurationStateEnumPtrOutput {
 	return o
-}
-
-func (o LoggingConfigurationStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigurationStateEnum] {
-	return pulumix.Output[*LoggingConfigurationStateEnum]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoggingConfigurationStateEnumPtrOutput) Elem() LoggingConfigurationStateEnumOutput {
@@ -187,12 +175,6 @@ func (o RoomMessageReviewHandlerFallbackResultOutput) ToRoomMessageReviewHandler
 	}).(RoomMessageReviewHandlerFallbackResultPtrOutput)
 }
 
-func (o RoomMessageReviewHandlerFallbackResultOutput) ToOutput(ctx context.Context) pulumix.Output[RoomMessageReviewHandlerFallbackResult] {
-	return pulumix.Output[RoomMessageReviewHandlerFallbackResult]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RoomMessageReviewHandlerFallbackResultOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -226,12 +208,6 @@ func (o RoomMessageReviewHandlerFallbackResultPtrOutput) ToRoomMessageReviewHand
 
 func (o RoomMessageReviewHandlerFallbackResultPtrOutput) ToRoomMessageReviewHandlerFallbackResultPtrOutputWithContext(ctx context.Context) RoomMessageReviewHandlerFallbackResultPtrOutput {
 	return o
-}
-
-func (o RoomMessageReviewHandlerFallbackResultPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RoomMessageReviewHandlerFallbackResult] {
-	return pulumix.Output[*RoomMessageReviewHandlerFallbackResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RoomMessageReviewHandlerFallbackResultPtrOutput) Elem() RoomMessageReviewHandlerFallbackResultOutput {

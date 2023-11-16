@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for EC2 EIP association.
@@ -125,12 +124,6 @@ func (i *EipAssociation) ToEipAssociationOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(EipAssociationOutput)
 }
 
-func (i *EipAssociation) ToOutput(ctx context.Context) pulumix.Output[*EipAssociation] {
-	return pulumix.Output[*EipAssociation]{
-		OutputState: i.ToEipAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EipAssociationOutput struct{ *pulumi.OutputState }
 
 func (EipAssociationOutput) ElementType() reflect.Type {
@@ -143,12 +136,6 @@ func (o EipAssociationOutput) ToEipAssociationOutput() EipAssociationOutput {
 
 func (o EipAssociationOutput) ToEipAssociationOutputWithContext(ctx context.Context) EipAssociationOutput {
 	return o
-}
-
-func (o EipAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*EipAssociation] {
-	return pulumix.Output[*EipAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The allocation ID. This is required for EC2-VPC.

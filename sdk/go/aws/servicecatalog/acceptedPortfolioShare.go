@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ServiceCatalog::AcceptedPortfolioShare
@@ -104,12 +103,6 @@ func (i *AcceptedPortfolioShare) ToAcceptedPortfolioShareOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(AcceptedPortfolioShareOutput)
 }
 
-func (i *AcceptedPortfolioShare) ToOutput(ctx context.Context) pulumix.Output[*AcceptedPortfolioShare] {
-	return pulumix.Output[*AcceptedPortfolioShare]{
-		OutputState: i.ToAcceptedPortfolioShareOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AcceptedPortfolioShareOutput struct{ *pulumi.OutputState }
 
 func (AcceptedPortfolioShareOutput) ElementType() reflect.Type {
@@ -122,12 +115,6 @@ func (o AcceptedPortfolioShareOutput) ToAcceptedPortfolioShareOutput() AcceptedP
 
 func (o AcceptedPortfolioShareOutput) ToAcceptedPortfolioShareOutputWithContext(ctx context.Context) AcceptedPortfolioShareOutput {
 	return o
-}
-
-func (o AcceptedPortfolioShareOutput) ToOutput(ctx context.Context) pulumix.Output[*AcceptedPortfolioShare] {
-	return pulumix.Output[*AcceptedPortfolioShare]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AcceptedPortfolioShareOutput) AcceptLanguage() pulumi.StringPtrOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i AccessPointCreationInfoArgs) ToAccessPointCreationInfoOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointCreationInfoOutput)
 }
 
-func (i AccessPointCreationInfoArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPointCreationInfo] {
-	return pulumix.Output[AccessPointCreationInfo]{
-		OutputState: i.ToAccessPointCreationInfoOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccessPointCreationInfoArgs) ToAccessPointCreationInfoPtrOutput() AccessPointCreationInfoPtrOutput {
 	return i.ToAccessPointCreationInfoPtrOutputWithContext(context.Background())
 }
@@ -102,12 +95,6 @@ func (i *accessPointCreationInfoPtrType) ToAccessPointCreationInfoPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointCreationInfoPtrOutput)
 }
 
-func (i *accessPointCreationInfoPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccessPointCreationInfo] {
-	return pulumix.Output[*AccessPointCreationInfo]{
-		OutputState: i.ToAccessPointCreationInfoPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccessPointCreationInfoOutput struct{ *pulumi.OutputState }
 
 func (AccessPointCreationInfoOutput) ElementType() reflect.Type {
@@ -130,12 +117,6 @@ func (o AccessPointCreationInfoOutput) ToAccessPointCreationInfoPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPointCreationInfo) *AccessPointCreationInfo {
 		return &v
 	}).(AccessPointCreationInfoPtrOutput)
-}
-
-func (o AccessPointCreationInfoOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPointCreationInfo] {
-	return pulumix.Output[AccessPointCreationInfo]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the POSIX group ID to apply to the RootDirectory. Accepts values from 0 to 2^32 (4294967295).
@@ -165,12 +146,6 @@ func (o AccessPointCreationInfoPtrOutput) ToAccessPointCreationInfoPtrOutput() A
 
 func (o AccessPointCreationInfoPtrOutput) ToAccessPointCreationInfoPtrOutputWithContext(ctx context.Context) AccessPointCreationInfoPtrOutput {
 	return o
-}
-
-func (o AccessPointCreationInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPointCreationInfo] {
-	return pulumix.Output[*AccessPointCreationInfo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessPointCreationInfoPtrOutput) Elem() AccessPointCreationInfoOutput {
@@ -254,12 +229,6 @@ func (i AccessPointPosixUserArgs) ToAccessPointPosixUserOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPosixUserOutput)
 }
 
-func (i AccessPointPosixUserArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPointPosixUser] {
-	return pulumix.Output[AccessPointPosixUser]{
-		OutputState: i.ToAccessPointPosixUserOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccessPointPosixUserArgs) ToAccessPointPosixUserPtrOutput() AccessPointPosixUserPtrOutput {
 	return i.ToAccessPointPosixUserPtrOutputWithContext(context.Background())
 }
@@ -301,12 +270,6 @@ func (i *accessPointPosixUserPtrType) ToAccessPointPosixUserPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPosixUserPtrOutput)
 }
 
-func (i *accessPointPosixUserPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccessPointPosixUser] {
-	return pulumix.Output[*AccessPointPosixUser]{
-		OutputState: i.ToAccessPointPosixUserPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccessPointPosixUserOutput struct{ *pulumi.OutputState }
 
 func (AccessPointPosixUserOutput) ElementType() reflect.Type {
@@ -329,12 +292,6 @@ func (o AccessPointPosixUserOutput) ToAccessPointPosixUserPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPointPosixUser) *AccessPointPosixUser {
 		return &v
 	}).(AccessPointPosixUserPtrOutput)
-}
-
-func (o AccessPointPosixUserOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPointPosixUser] {
-	return pulumix.Output[AccessPointPosixUser]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The POSIX group ID used for all file system operations using this access point.
@@ -364,12 +321,6 @@ func (o AccessPointPosixUserPtrOutput) ToAccessPointPosixUserPtrOutput() AccessP
 
 func (o AccessPointPosixUserPtrOutput) ToAccessPointPosixUserPtrOutputWithContext(ctx context.Context) AccessPointPosixUserPtrOutput {
 	return o
-}
-
-func (o AccessPointPosixUserPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPointPosixUser] {
-	return pulumix.Output[*AccessPointPosixUser]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessPointPosixUserPtrOutput) Elem() AccessPointPosixUserOutput {
@@ -449,12 +400,6 @@ func (i AccessPointRootDirectoryArgs) ToAccessPointRootDirectoryOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointRootDirectoryOutput)
 }
 
-func (i AccessPointRootDirectoryArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPointRootDirectory] {
-	return pulumix.Output[AccessPointRootDirectory]{
-		OutputState: i.ToAccessPointRootDirectoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccessPointRootDirectoryArgs) ToAccessPointRootDirectoryPtrOutput() AccessPointRootDirectoryPtrOutput {
 	return i.ToAccessPointRootDirectoryPtrOutputWithContext(context.Background())
 }
@@ -496,12 +441,6 @@ func (i *accessPointRootDirectoryPtrType) ToAccessPointRootDirectoryPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointRootDirectoryPtrOutput)
 }
 
-func (i *accessPointRootDirectoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccessPointRootDirectory] {
-	return pulumix.Output[*AccessPointRootDirectory]{
-		OutputState: i.ToAccessPointRootDirectoryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccessPointRootDirectoryOutput struct{ *pulumi.OutputState }
 
 func (AccessPointRootDirectoryOutput) ElementType() reflect.Type {
@@ -526,12 +465,6 @@ func (o AccessPointRootDirectoryOutput) ToAccessPointRootDirectoryPtrOutputWithC
 	}).(AccessPointRootDirectoryPtrOutput)
 }
 
-func (o AccessPointRootDirectoryOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPointRootDirectory] {
-	return pulumix.Output[AccessPointRootDirectory]{
-		OutputState: o.OutputState,
-	}
-}
-
 // (Optional) Specifies the POSIX IDs and permissions to apply to the access point's RootDirectory. If the RootDirectory>Path specified does not exist, EFS creates the root directory using the CreationInfo settings when a client connects to an access point. When specifying the CreationInfo, you must provide values for all properties.   If you do not provide CreationInfo and the specified RootDirectory>Path does not exist, attempts to mount the file system using the access point will fail.
 func (o AccessPointRootDirectoryOutput) CreationInfo() AccessPointCreationInfoPtrOutput {
 	return o.ApplyT(func(v AccessPointRootDirectory) *AccessPointCreationInfo { return v.CreationInfo }).(AccessPointCreationInfoPtrOutput)
@@ -554,12 +487,6 @@ func (o AccessPointRootDirectoryPtrOutput) ToAccessPointRootDirectoryPtrOutput()
 
 func (o AccessPointRootDirectoryPtrOutput) ToAccessPointRootDirectoryPtrOutputWithContext(ctx context.Context) AccessPointRootDirectoryPtrOutput {
 	return o
-}
-
-func (o AccessPointRootDirectoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPointRootDirectory] {
-	return pulumix.Output[*AccessPointRootDirectory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessPointRootDirectoryPtrOutput) Elem() AccessPointRootDirectoryOutput {
@@ -625,12 +552,6 @@ func (i AccessPointTagArgs) ToAccessPointTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointTagOutput)
 }
 
-func (i AccessPointTagArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPointTag] {
-	return pulumix.Output[AccessPointTag]{
-		OutputState: i.ToAccessPointTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccessPointTagArrayInput is an input type that accepts AccessPointTagArray and AccessPointTagArrayOutput values.
 // You can construct a concrete instance of `AccessPointTagArrayInput` via:
 //
@@ -656,12 +577,6 @@ func (i AccessPointTagArray) ToAccessPointTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointTagArrayOutput)
 }
 
-func (i AccessPointTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AccessPointTag] {
-	return pulumix.Output[[]AccessPointTag]{
-		OutputState: i.ToAccessPointTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccessPointTagOutput struct{ *pulumi.OutputState }
 
 func (AccessPointTagOutput) ElementType() reflect.Type {
@@ -674,12 +589,6 @@ func (o AccessPointTagOutput) ToAccessPointTagOutput() AccessPointTagOutput {
 
 func (o AccessPointTagOutput) ToAccessPointTagOutputWithContext(ctx context.Context) AccessPointTagOutput {
 	return o
-}
-
-func (o AccessPointTagOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPointTag] {
-	return pulumix.Output[AccessPointTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessPointTagOutput) Key() pulumi.StringPtrOutput {
@@ -702,12 +611,6 @@ func (o AccessPointTagArrayOutput) ToAccessPointTagArrayOutput() AccessPointTagA
 
 func (o AccessPointTagArrayOutput) ToAccessPointTagArrayOutputWithContext(ctx context.Context) AccessPointTagArrayOutput {
 	return o
-}
-
-func (o AccessPointTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccessPointTag] {
-	return pulumix.Output[[]AccessPointTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessPointTagArrayOutput) Index(i pulumi.IntInput) AccessPointTagOutput {
@@ -745,12 +648,6 @@ func (i FileSystemBackupPolicyArgs) ToFileSystemBackupPolicyOutput() FileSystemB
 
 func (i FileSystemBackupPolicyArgs) ToFileSystemBackupPolicyOutputWithContext(ctx context.Context) FileSystemBackupPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemBackupPolicyOutput)
-}
-
-func (i FileSystemBackupPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemBackupPolicy] {
-	return pulumix.Output[FileSystemBackupPolicy]{
-		OutputState: i.ToFileSystemBackupPolicyOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i FileSystemBackupPolicyArgs) ToFileSystemBackupPolicyPtrOutput() FileSystemBackupPolicyPtrOutput {
@@ -794,12 +691,6 @@ func (i *fileSystemBackupPolicyPtrType) ToFileSystemBackupPolicyPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemBackupPolicyPtrOutput)
 }
 
-func (i *fileSystemBackupPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*FileSystemBackupPolicy] {
-	return pulumix.Output[*FileSystemBackupPolicy]{
-		OutputState: i.ToFileSystemBackupPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileSystemBackupPolicyOutput struct{ *pulumi.OutputState }
 
 func (FileSystemBackupPolicyOutput) ElementType() reflect.Type {
@@ -824,12 +715,6 @@ func (o FileSystemBackupPolicyOutput) ToFileSystemBackupPolicyPtrOutputWithConte
 	}).(FileSystemBackupPolicyPtrOutput)
 }
 
-func (o FileSystemBackupPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemBackupPolicy] {
-	return pulumix.Output[FileSystemBackupPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FileSystemBackupPolicyOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v FileSystemBackupPolicy) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -846,12 +731,6 @@ func (o FileSystemBackupPolicyPtrOutput) ToFileSystemBackupPolicyPtrOutput() Fil
 
 func (o FileSystemBackupPolicyPtrOutput) ToFileSystemBackupPolicyPtrOutputWithContext(ctx context.Context) FileSystemBackupPolicyPtrOutput {
 	return o
-}
-
-func (o FileSystemBackupPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FileSystemBackupPolicy] {
-	return pulumix.Output[*FileSystemBackupPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemBackupPolicyPtrOutput) Elem() FileSystemBackupPolicyOutput {
@@ -906,12 +785,6 @@ func (i FileSystemElasticFileSystemTagArgs) ToFileSystemElasticFileSystemTagOutp
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemElasticFileSystemTagOutput)
 }
 
-func (i FileSystemElasticFileSystemTagArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemElasticFileSystemTag] {
-	return pulumix.Output[FileSystemElasticFileSystemTag]{
-		OutputState: i.ToFileSystemElasticFileSystemTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FileSystemElasticFileSystemTagArrayInput is an input type that accepts FileSystemElasticFileSystemTagArray and FileSystemElasticFileSystemTagArrayOutput values.
 // You can construct a concrete instance of `FileSystemElasticFileSystemTagArrayInput` via:
 //
@@ -937,12 +810,6 @@ func (i FileSystemElasticFileSystemTagArray) ToFileSystemElasticFileSystemTagArr
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemElasticFileSystemTagArrayOutput)
 }
 
-func (i FileSystemElasticFileSystemTagArray) ToOutput(ctx context.Context) pulumix.Output[[]FileSystemElasticFileSystemTag] {
-	return pulumix.Output[[]FileSystemElasticFileSystemTag]{
-		OutputState: i.ToFileSystemElasticFileSystemTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileSystemElasticFileSystemTagOutput struct{ *pulumi.OutputState }
 
 func (FileSystemElasticFileSystemTagOutput) ElementType() reflect.Type {
@@ -955,12 +822,6 @@ func (o FileSystemElasticFileSystemTagOutput) ToFileSystemElasticFileSystemTagOu
 
 func (o FileSystemElasticFileSystemTagOutput) ToFileSystemElasticFileSystemTagOutputWithContext(ctx context.Context) FileSystemElasticFileSystemTagOutput {
 	return o
-}
-
-func (o FileSystemElasticFileSystemTagOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemElasticFileSystemTag] {
-	return pulumix.Output[FileSystemElasticFileSystemTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemElasticFileSystemTagOutput) Key() pulumi.StringOutput {
@@ -983,12 +844,6 @@ func (o FileSystemElasticFileSystemTagArrayOutput) ToFileSystemElasticFileSystem
 
 func (o FileSystemElasticFileSystemTagArrayOutput) ToFileSystemElasticFileSystemTagArrayOutputWithContext(ctx context.Context) FileSystemElasticFileSystemTagArrayOutput {
 	return o
-}
-
-func (o FileSystemElasticFileSystemTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FileSystemElasticFileSystemTag] {
-	return pulumix.Output[[]FileSystemElasticFileSystemTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemElasticFileSystemTagArrayOutput) Index(i pulumi.IntInput) FileSystemElasticFileSystemTagOutput {
@@ -1030,12 +885,6 @@ func (i FileSystemLifecyclePolicyArgs) ToFileSystemLifecyclePolicyOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemLifecyclePolicyOutput)
 }
 
-func (i FileSystemLifecyclePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemLifecyclePolicy] {
-	return pulumix.Output[FileSystemLifecyclePolicy]{
-		OutputState: i.ToFileSystemLifecyclePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FileSystemLifecyclePolicyArrayInput is an input type that accepts FileSystemLifecyclePolicyArray and FileSystemLifecyclePolicyArrayOutput values.
 // You can construct a concrete instance of `FileSystemLifecyclePolicyArrayInput` via:
 //
@@ -1061,12 +910,6 @@ func (i FileSystemLifecyclePolicyArray) ToFileSystemLifecyclePolicyArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemLifecyclePolicyArrayOutput)
 }
 
-func (i FileSystemLifecyclePolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]FileSystemLifecyclePolicy] {
-	return pulumix.Output[[]FileSystemLifecyclePolicy]{
-		OutputState: i.ToFileSystemLifecyclePolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileSystemLifecyclePolicyOutput struct{ *pulumi.OutputState }
 
 func (FileSystemLifecyclePolicyOutput) ElementType() reflect.Type {
@@ -1079,12 +922,6 @@ func (o FileSystemLifecyclePolicyOutput) ToFileSystemLifecyclePolicyOutput() Fil
 
 func (o FileSystemLifecyclePolicyOutput) ToFileSystemLifecyclePolicyOutputWithContext(ctx context.Context) FileSystemLifecyclePolicyOutput {
 	return o
-}
-
-func (o FileSystemLifecyclePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemLifecyclePolicy] {
-	return pulumix.Output[FileSystemLifecyclePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemLifecyclePolicyOutput) TransitionToIa() pulumi.StringPtrOutput {
@@ -1107,12 +944,6 @@ func (o FileSystemLifecyclePolicyArrayOutput) ToFileSystemLifecyclePolicyArrayOu
 
 func (o FileSystemLifecyclePolicyArrayOutput) ToFileSystemLifecyclePolicyArrayOutputWithContext(ctx context.Context) FileSystemLifecyclePolicyArrayOutput {
 	return o
-}
-
-func (o FileSystemLifecyclePolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FileSystemLifecyclePolicy] {
-	return pulumix.Output[[]FileSystemLifecyclePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemLifecyclePolicyArrayOutput) Index(i pulumi.IntInput) FileSystemLifecyclePolicyOutput {
@@ -1150,12 +981,6 @@ func (i FileSystemReplicationConfigurationArgs) ToFileSystemReplicationConfigura
 
 func (i FileSystemReplicationConfigurationArgs) ToFileSystemReplicationConfigurationOutputWithContext(ctx context.Context) FileSystemReplicationConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemReplicationConfigurationOutput)
-}
-
-func (i FileSystemReplicationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemReplicationConfiguration] {
-	return pulumix.Output[FileSystemReplicationConfiguration]{
-		OutputState: i.ToFileSystemReplicationConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i FileSystemReplicationConfigurationArgs) ToFileSystemReplicationConfigurationPtrOutput() FileSystemReplicationConfigurationPtrOutput {
@@ -1199,12 +1024,6 @@ func (i *fileSystemReplicationConfigurationPtrType) ToFileSystemReplicationConfi
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemReplicationConfigurationPtrOutput)
 }
 
-func (i *fileSystemReplicationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FileSystemReplicationConfiguration] {
-	return pulumix.Output[*FileSystemReplicationConfiguration]{
-		OutputState: i.ToFileSystemReplicationConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileSystemReplicationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FileSystemReplicationConfigurationOutput) ElementType() reflect.Type {
@@ -1229,12 +1048,6 @@ func (o FileSystemReplicationConfigurationOutput) ToFileSystemReplicationConfigu
 	}).(FileSystemReplicationConfigurationPtrOutput)
 }
 
-func (o FileSystemReplicationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemReplicationConfiguration] {
-	return pulumix.Output[FileSystemReplicationConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FileSystemReplicationConfigurationOutput) Destinations() FileSystemReplicationDestinationArrayOutput {
 	return o.ApplyT(func(v FileSystemReplicationConfiguration) []FileSystemReplicationDestination { return v.Destinations }).(FileSystemReplicationDestinationArrayOutput)
 }
@@ -1251,12 +1064,6 @@ func (o FileSystemReplicationConfigurationPtrOutput) ToFileSystemReplicationConf
 
 func (o FileSystemReplicationConfigurationPtrOutput) ToFileSystemReplicationConfigurationPtrOutputWithContext(ctx context.Context) FileSystemReplicationConfigurationPtrOutput {
 	return o
-}
-
-func (o FileSystemReplicationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FileSystemReplicationConfiguration] {
-	return pulumix.Output[*FileSystemReplicationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemReplicationConfigurationPtrOutput) Elem() FileSystemReplicationConfigurationOutput {
@@ -1315,12 +1122,6 @@ func (i FileSystemReplicationDestinationArgs) ToFileSystemReplicationDestination
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemReplicationDestinationOutput)
 }
 
-func (i FileSystemReplicationDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemReplicationDestination] {
-	return pulumix.Output[FileSystemReplicationDestination]{
-		OutputState: i.ToFileSystemReplicationDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FileSystemReplicationDestinationArrayInput is an input type that accepts FileSystemReplicationDestinationArray and FileSystemReplicationDestinationArrayOutput values.
 // You can construct a concrete instance of `FileSystemReplicationDestinationArrayInput` via:
 //
@@ -1346,12 +1147,6 @@ func (i FileSystemReplicationDestinationArray) ToFileSystemReplicationDestinatio
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemReplicationDestinationArrayOutput)
 }
 
-func (i FileSystemReplicationDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]FileSystemReplicationDestination] {
-	return pulumix.Output[[]FileSystemReplicationDestination]{
-		OutputState: i.ToFileSystemReplicationDestinationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileSystemReplicationDestinationOutput struct{ *pulumi.OutputState }
 
 func (FileSystemReplicationDestinationOutput) ElementType() reflect.Type {
@@ -1364,12 +1159,6 @@ func (o FileSystemReplicationDestinationOutput) ToFileSystemReplicationDestinati
 
 func (o FileSystemReplicationDestinationOutput) ToFileSystemReplicationDestinationOutputWithContext(ctx context.Context) FileSystemReplicationDestinationOutput {
 	return o
-}
-
-func (o FileSystemReplicationDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemReplicationDestination] {
-	return pulumix.Output[FileSystemReplicationDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemReplicationDestinationOutput) AvailabilityZoneName() pulumi.StringPtrOutput {
@@ -1400,12 +1189,6 @@ func (o FileSystemReplicationDestinationArrayOutput) ToFileSystemReplicationDest
 
 func (o FileSystemReplicationDestinationArrayOutput) ToFileSystemReplicationDestinationArrayOutputWithContext(ctx context.Context) FileSystemReplicationDestinationArrayOutput {
 	return o
-}
-
-func (o FileSystemReplicationDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FileSystemReplicationDestination] {
-	return pulumix.Output[[]FileSystemReplicationDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemReplicationDestinationArrayOutput) Index(i pulumi.IntInput) FileSystemReplicationDestinationOutput {

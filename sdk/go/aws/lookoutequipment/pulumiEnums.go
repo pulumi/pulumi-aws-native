@@ -82,12 +82,6 @@ func (o InferenceSchedulerDataUploadFrequencyOutput) ToInferenceSchedulerDataUpl
 	}).(InferenceSchedulerDataUploadFrequencyPtrOutput)
 }
 
-func (o InferenceSchedulerDataUploadFrequencyOutput) ToOutput(ctx context.Context) pulumix.Output[InferenceSchedulerDataUploadFrequency] {
-	return pulumix.Output[InferenceSchedulerDataUploadFrequency]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InferenceSchedulerDataUploadFrequencyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -121,12 +115,6 @@ func (o InferenceSchedulerDataUploadFrequencyPtrOutput) ToInferenceSchedulerData
 
 func (o InferenceSchedulerDataUploadFrequencyPtrOutput) ToInferenceSchedulerDataUploadFrequencyPtrOutputWithContext(ctx context.Context) InferenceSchedulerDataUploadFrequencyPtrOutput {
 	return o
-}
-
-func (o InferenceSchedulerDataUploadFrequencyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InferenceSchedulerDataUploadFrequency] {
-	return pulumix.Output[*InferenceSchedulerDataUploadFrequency]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InferenceSchedulerDataUploadFrequencyPtrOutput) Elem() InferenceSchedulerDataUploadFrequencyOutput {

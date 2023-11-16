@@ -78,12 +78,6 @@ func (o ReplicationConfigurationFilterTypeOutput) ToReplicationConfigurationFilt
 	}).(ReplicationConfigurationFilterTypePtrOutput)
 }
 
-func (o ReplicationConfigurationFilterTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigurationFilterType] {
-	return pulumix.Output[ReplicationConfigurationFilterType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicationConfigurationFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o ReplicationConfigurationFilterTypePtrOutput) ToReplicationConfigurationF
 
 func (o ReplicationConfigurationFilterTypePtrOutput) ToReplicationConfigurationFilterTypePtrOutputWithContext(ctx context.Context) ReplicationConfigurationFilterTypePtrOutput {
 	return o
-}
-
-func (o ReplicationConfigurationFilterTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfigurationFilterType] {
-	return pulumix.Output[*ReplicationConfigurationFilterType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationConfigurationFilterTypePtrOutput) Elem() ReplicationConfigurationFilterTypeOutput {
@@ -261,12 +249,6 @@ func (o RepositoryEncryptionTypeOutput) ToRepositoryEncryptionTypePtrOutputWithC
 	}).(RepositoryEncryptionTypePtrOutput)
 }
 
-func (o RepositoryEncryptionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryEncryptionType] {
-	return pulumix.Output[RepositoryEncryptionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RepositoryEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -300,12 +282,6 @@ func (o RepositoryEncryptionTypePtrOutput) ToRepositoryEncryptionTypePtrOutput()
 
 func (o RepositoryEncryptionTypePtrOutput) ToRepositoryEncryptionTypePtrOutputWithContext(ctx context.Context) RepositoryEncryptionTypePtrOutput {
 	return o
-}
-
-func (o RepositoryEncryptionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryEncryptionType] {
-	return pulumix.Output[*RepositoryEncryptionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryEncryptionTypePtrOutput) Elem() RepositoryEncryptionTypeOutput {
@@ -444,12 +420,6 @@ func (o RepositoryImageTagMutabilityOutput) ToRepositoryImageTagMutabilityPtrOut
 	}).(RepositoryImageTagMutabilityPtrOutput)
 }
 
-func (o RepositoryImageTagMutabilityOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryImageTagMutability] {
-	return pulumix.Output[RepositoryImageTagMutability]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RepositoryImageTagMutabilityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -483,12 +453,6 @@ func (o RepositoryImageTagMutabilityPtrOutput) ToRepositoryImageTagMutabilityPtr
 
 func (o RepositoryImageTagMutabilityPtrOutput) ToRepositoryImageTagMutabilityPtrOutputWithContext(ctx context.Context) RepositoryImageTagMutabilityPtrOutput {
 	return o
-}
-
-func (o RepositoryImageTagMutabilityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryImageTagMutability] {
-	return pulumix.Output[*RepositoryImageTagMutability]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryImageTagMutabilityPtrOutput) Elem() RepositoryImageTagMutabilityOutput {

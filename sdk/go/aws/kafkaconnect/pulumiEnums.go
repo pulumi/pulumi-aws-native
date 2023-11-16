@@ -79,12 +79,6 @@ func (o ConnectorKafkaClusterClientAuthenticationTypeOutput) ToConnectorKafkaClu
 	}).(ConnectorKafkaClusterClientAuthenticationTypePtrOutput)
 }
 
-func (o ConnectorKafkaClusterClientAuthenticationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorKafkaClusterClientAuthenticationType] {
-	return pulumix.Output[ConnectorKafkaClusterClientAuthenticationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectorKafkaClusterClientAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o ConnectorKafkaClusterClientAuthenticationTypePtrOutput) ToConnectorKafka
 
 func (o ConnectorKafkaClusterClientAuthenticationTypePtrOutput) ToConnectorKafkaClusterClientAuthenticationTypePtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterClientAuthenticationTypePtrOutput {
 	return o
-}
-
-func (o ConnectorKafkaClusterClientAuthenticationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorKafkaClusterClientAuthenticationType] {
-	return pulumix.Output[*ConnectorKafkaClusterClientAuthenticationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorKafkaClusterClientAuthenticationTypePtrOutput) Elem() ConnectorKafkaClusterClientAuthenticationTypeOutput {
@@ -262,12 +250,6 @@ func (o ConnectorKafkaClusterEncryptionInTransitTypeOutput) ToConnectorKafkaClus
 	}).(ConnectorKafkaClusterEncryptionInTransitTypePtrOutput)
 }
 
-func (o ConnectorKafkaClusterEncryptionInTransitTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorKafkaClusterEncryptionInTransitType] {
-	return pulumix.Output[ConnectorKafkaClusterEncryptionInTransitType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectorKafkaClusterEncryptionInTransitTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +283,6 @@ func (o ConnectorKafkaClusterEncryptionInTransitTypePtrOutput) ToConnectorKafkaC
 
 func (o ConnectorKafkaClusterEncryptionInTransitTypePtrOutput) ToConnectorKafkaClusterEncryptionInTransitTypePtrOutputWithContext(ctx context.Context) ConnectorKafkaClusterEncryptionInTransitTypePtrOutput {
 	return o
-}
-
-func (o ConnectorKafkaClusterEncryptionInTransitTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorKafkaClusterEncryptionInTransitType] {
-	return pulumix.Output[*ConnectorKafkaClusterEncryptionInTransitType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorKafkaClusterEncryptionInTransitTypePtrOutput) Elem() ConnectorKafkaClusterEncryptionInTransitTypeOutput {

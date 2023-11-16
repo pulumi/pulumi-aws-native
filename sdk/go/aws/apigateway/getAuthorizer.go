@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGateway::Authorizer“ resource creates an authorization layer that API Gateway activates for methods that have authorization enabled. API Gateway activates the authorizer when a client calls those methods.
@@ -86,12 +85,6 @@ func (o LookupAuthorizerResultOutput) ToLookupAuthorizerResultOutput() LookupAut
 
 func (o LookupAuthorizerResultOutput) ToLookupAuthorizerResultOutputWithContext(ctx context.Context) LookupAuthorizerResultOutput {
 	return o
-}
-
-func (o LookupAuthorizerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAuthorizerResult] {
-	return pulumix.Output[LookupAuthorizerResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Optional customer-defined field, used in OpenAPI imports and exports without functional impact.

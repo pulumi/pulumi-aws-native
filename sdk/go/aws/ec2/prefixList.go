@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema of AWS::EC2::PrefixList Type
@@ -132,12 +131,6 @@ func (i *PrefixList) ToPrefixListOutputWithContext(ctx context.Context) PrefixLi
 	return pulumi.ToOutputWithContext(ctx, i).(PrefixListOutput)
 }
 
-func (i *PrefixList) ToOutput(ctx context.Context) pulumix.Output[*PrefixList] {
-	return pulumix.Output[*PrefixList]{
-		OutputState: i.ToPrefixListOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrefixListOutput struct{ *pulumi.OutputState }
 
 func (PrefixListOutput) ElementType() reflect.Type {
@@ -150,12 +143,6 @@ func (o PrefixListOutput) ToPrefixListOutput() PrefixListOutput {
 
 func (o PrefixListOutput) ToPrefixListOutputWithContext(ctx context.Context) PrefixListOutput {
 	return o
-}
-
-func (o PrefixListOutput) ToOutput(ctx context.Context) pulumix.Output[*PrefixList] {
-	return pulumix.Output[*PrefixList]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Ip Version of Prefix List.
