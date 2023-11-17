@@ -34,7 +34,7 @@
       "required" : [ "AvailabilityZone", "InstanceType" ]
     }
   },
-  "required" : [ "MemberId", "NetworkId", "NodeConfiguration" ],
+  "required" : [ "NetworkId", "NodeConfiguration" ],
   "primaryIdentifier" : [ "/properties/NodeId" ],
   "readOnlyProperties" : [ "/properties/NodeId", "/properties/Arn" ]
 }

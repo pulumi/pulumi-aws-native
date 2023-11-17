@@ -261,7 +261,7 @@
           }
         },
         "Subnets" : {
-          "uniqueItems" : true,
+          "uniqueItems" : false,
           "insertionOrder" : true,
           "type" : "array",
           "items" : {
