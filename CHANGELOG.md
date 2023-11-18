@@ -2,6 +2,54 @@
 
 (None)
 
+## 0.85.0 (2023-11-18)
+
+### Upstream breaking changes:
+
+- Resource "aws-native:resourceexplorer2:View" input "filters" type changed from "#/types/aws-native:resourceexplorer2:ViewFilters" to "#/types/aws-native:resourceexplorer2:ViewSearchFilter"
+- Resource "aws-native:resourceexplorer2:View" output "filters" type changed from "#/types/aws-native:resourceexplorer2:ViewFilters" to "#/types/aws-native:resourceexplorer2:ViewSearchFilter"
+- Function "aws-native:resourceexplorer2:getView" output "filters" type changed from "#/types/aws-native:resourceexplorer2:ViewFilters" to "#/types/aws-native:resourceexplorer2:ViewSearchFilter"
+- Function "aws-native:appsync:getResolver" missing input "id"
+- Function "aws-native:appsync:getResolver" missing output "responseMappingTemplateS3Location"
+- Function "aws-native:appsync:getResolver" missing output "codeS3Location"
+- Function "aws-native:appsync:getResolver" missing output "requestMappingTemplateS3Location"
+- Function "aws-native:appsync:getResolver" missing output "id"
+- Type "aws-native:resourceexplorer2:ViewFilters" missing
+
+### New resources:
+
+- `applicationautoscaling.ScalingPolicy`
+- `backup.RestoreTestingPlan`
+- `backup.RestoreTestingSelection`
+- `gamelift.GameSessionQueue`
+- `gamelift.MatchmakingConfiguration`
+- `gamelift.MatchmakingRuleSet`
+- `gamelift.Script`
+- `guardduty.IpSet`
+- `guardduty.ThreatIntelSet`
+- `imagebuilder.LifecyclePolicy`
+- `medialive.Multiplex`
+- `medialive.Multiplexprogram`
+- `opensearchserverless.LifecyclePolicy`
+- `s3.StorageLensGroup`
+
+### New functions:
+
+- `applicationautoscaling.getScalingPolicy`
+- `backup.getRestoreTestingPlan`
+- `backup.getRestoreTestingSelection`
+- `gamelift.getGameSessionQueue`
+- `gamelift.getMatchmakingConfiguration`
+- `gamelift.getMatchmakingRuleSet`
+- `gamelift.getScript`
+- `guardduty.getIpSet`
+- `guardduty.getThreatIntelSet`
+- `imagebuilder.getLifecyclePolicy`
+- `medialive.getMultiplex`
+- `medialive.getMultiplexprogram`
+- `opensearchserverless.getLifecyclePolicy`
+- `s3.getStorageLensGroup`
+
 ## 0.84.0 (2023-11-06)
 
 #### Breaking Changes:
