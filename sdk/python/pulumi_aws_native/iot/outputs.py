@@ -38,6 +38,7 @@ __all__ = [
     'JobTemplateRateIncreaseCriteria',
     'JobTemplateRetryCriteria',
     'JobTemplateTag',
+    'MetricsExportConfigProperties',
     'MitigationActionActionParams',
     'MitigationActionAddThingsToThingGroupParams',
     'MitigationActionEnableIoTLoggingParams',
@@ -1265,6 +1266,58 @@ class JobTemplateTag(dict):
 
 
 @pulumi.output_type
+class MetricsExportConfigProperties(dict):
+    """
+    A structure containing the mqtt topic for metrics export.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mqttTopic":
+            suggest = "mqtt_topic"
+        elif key == "roleArn":
+            suggest = "role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricsExportConfigProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricsExportConfigProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricsExportConfigProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mqtt_topic: str,
+                 role_arn: str):
+        """
+        A structure containing the mqtt topic for metrics export.
+        :param str mqtt_topic: The topic for metrics export.
+        :param str role_arn: The ARN of the role that grants permission to publish to mqtt topic.
+        """
+        pulumi.set(__self__, "mqtt_topic", mqtt_topic)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="mqttTopic")
+    def mqtt_topic(self) -> str:
+        """
+        The topic for metrics export.
+        """
+        return pulumi.get(self, "mqtt_topic")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        The ARN of the role that grants permission to publish to mqtt topic.
+        """
+        return pulumi.get(self, "role_arn")
+
+
+@pulumi.output_type
 class MitigationActionActionParams(dict):
     """
     The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
@@ -1795,7 +1848,9 @@ class SecurityProfileBehavior(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "metricDimension":
+        if key == "exportMetric":
+            suggest = "export_metric"
+        elif key == "metricDimension":
             suggest = "metric_dimension"
         elif key == "suppressAlerts":
             suggest = "suppress_alerts"
@@ -1814,6 +1869,7 @@ class SecurityProfileBehavior(dict):
     def __init__(__self__, *,
                  name: str,
                  criteria: Optional['outputs.SecurityProfileBehaviorCriteria'] = None,
+                 export_metric: Optional[bool] = None,
                  metric: Optional[str] = None,
                  metric_dimension: Optional['outputs.SecurityProfileMetricDimension'] = None,
                  suppress_alerts: Optional[bool] = None):
@@ -1826,6 +1882,8 @@ class SecurityProfileBehavior(dict):
         pulumi.set(__self__, "name", name)
         if criteria is not None:
             pulumi.set(__self__, "criteria", criteria)
+        if export_metric is not None:
+            pulumi.set(__self__, "export_metric", export_metric)
         if metric is not None:
             pulumi.set(__self__, "metric", metric)
         if metric_dimension is not None:
@@ -1845,6 +1903,11 @@ class SecurityProfileBehavior(dict):
     @pulumi.getter
     def criteria(self) -> Optional['outputs.SecurityProfileBehaviorCriteria']:
         return pulumi.get(self, "criteria")
+
+    @property
+    @pulumi.getter(name="exportMetric")
+    def export_metric(self) -> Optional[bool]:
+        return pulumi.get(self, "export_metric")
 
     @property
     @pulumi.getter
@@ -2077,7 +2140,9 @@ class SecurityProfileMetricToRetain(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "metricDimension":
+        if key == "exportMetric":
+            suggest = "export_metric"
+        elif key == "metricDimension":
             suggest = "metric_dimension"
 
         if suggest:
@@ -2093,12 +2158,15 @@ class SecurityProfileMetricToRetain(dict):
 
     def __init__(__self__, *,
                  metric: str,
+                 export_metric: Optional[bool] = None,
                  metric_dimension: Optional['outputs.SecurityProfileMetricDimension'] = None):
         """
         The metric you want to retain. Dimensions are optional.
         :param str metric: What is measured by the behavior.
         """
         pulumi.set(__self__, "metric", metric)
+        if export_metric is not None:
+            pulumi.set(__self__, "export_metric", export_metric)
         if metric_dimension is not None:
             pulumi.set(__self__, "metric_dimension", metric_dimension)
 
@@ -2109,6 +2177,11 @@ class SecurityProfileMetricToRetain(dict):
         What is measured by the behavior.
         """
         return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter(name="exportMetric")
+    def export_metric(self) -> Optional[bool]:
+        return pulumi.get(self, "export_metric")
 
     @property
     @pulumi.getter(name="metricDimension")

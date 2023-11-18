@@ -12,15 +12,14 @@ namespace Pulumi.AwsNative.GuardDuty
     /// <summary>
     /// Resource Type definition for AWS::GuardDuty::ThreatIntelSet
     /// </summary>
-    [Obsolete(@"ThreatIntelSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:guardduty:ThreatIntelSet")]
     public partial class ThreatIntelSet : global::Pulumi.CustomResource
     {
         [Output("activate")]
-        public Output<bool> Activate { get; private set; } = null!;
+        public Output<bool?> Activate { get; private set; } = null!;
 
         [Output("detectorId")]
-        public Output<string> DetectorId { get; private set; } = null!;
+        public Output<string?> DetectorId { get; private set; } = null!;
 
         [Output("format")]
         public Output<string> Format { get; private set; } = null!;
@@ -29,10 +28,10 @@ namespace Pulumi.AwsNative.GuardDuty
         public Output<string> Location { get; private set; } = null!;
 
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.ThreatIntelSetTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ThreatIntelSetTagItem>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -84,11 +83,11 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class ThreatIntelSetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("activate", required: true)]
-        public Input<bool> Activate { get; set; } = null!;
+        [Input("activate")]
+        public Input<bool>? Activate { get; set; }
 
-        [Input("detectorId", required: true)]
-        public Input<string> DetectorId { get; set; } = null!;
+        [Input("detectorId")]
+        public Input<string>? DetectorId { get; set; }
 
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;
@@ -100,10 +99,10 @@ namespace Pulumi.AwsNative.GuardDuty
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.ThreatIntelSetTagArgs>? _tags;
-        public InputList<Inputs.ThreatIntelSetTagArgs> Tags
+        private InputList<Inputs.ThreatIntelSetTagItemArgs>? _tags;
+        public InputList<Inputs.ThreatIntelSetTagItemArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.ThreatIntelSetTagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.ThreatIntelSetTagItemArgs>());
             set => _tags = value;
         }
 

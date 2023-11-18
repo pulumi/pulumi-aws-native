@@ -174,7 +174,7 @@ class OriginEndpoint(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointTagArgs']]]]] = None,
                  __props__=None):
         """
-        Definition of AWS::MediaPackageV2::OriginEndpoint Resource Type
+        <p>Represents an origin endpoint that is associated with a channel, offering a dynamically repackaged version of its content through various streaming media protocols. The content can be efficiently disseminated to end-users via a Content Delivery Network (CDN), like Amazon CloudFront.</p>
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -190,7 +190,7 @@ class OriginEndpoint(pulumi.CustomResource):
                  args: OriginEndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Definition of AWS::MediaPackageV2::OriginEndpoint Resource Type
+        <p>Represents an origin endpoint that is associated with a channel, offering a dynamically repackaged version of its content through various streaming media protocols. The content can be efficiently disseminated to end-users via a Content Delivery Network (CDN), like Amazon CloudFront.</p>
 
         :param str resource_name: The name of the resource.
         :param OriginEndpointArgs args: The arguments to use to populate this resource's properties.

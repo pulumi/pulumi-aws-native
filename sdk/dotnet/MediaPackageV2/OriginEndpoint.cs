@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.MediaPackageV2
 {
     /// <summary>
-    /// Definition of AWS::MediaPackageV2::OriginEndpoint Resource Type
+    /// &lt;p&gt;Represents an origin endpoint that is associated with a channel, offering a dynamically repackaged version of its content through various streaming media protocols. The content can be efficiently disseminated to end-users via a Content Delivery Network (CDN), like Amazon CloudFront.&lt;/p&gt;
     /// </summary>
     [AwsNativeResourceType("aws-native:mediapackagev2:OriginEndpoint")]
     public partial class OriginEndpoint : global::Pulumi.CustomResource

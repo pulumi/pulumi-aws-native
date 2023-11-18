@@ -16,9 +16,11 @@ from .get_image import *
 from .get_image_pipeline import *
 from .get_image_recipe import *
 from .get_infrastructure_configuration import *
+from .get_lifecycle_policy import *
 from .image import *
 from .image_pipeline import *
 from .image_recipe import *
 from .infrastructure_configuration import *
+from .lifecycle_policy import *
 from ._inputs import *
 from . import outputs

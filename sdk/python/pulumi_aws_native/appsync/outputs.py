@@ -1025,17 +1025,27 @@ class ResolverAppSyncRuntime(dict):
     def __init__(__self__, *,
                  name: str,
                  runtime_version: str):
+        """
+        :param str name: The name of the runtime to use.
+        :param str runtime_version: The version of the runtime to use.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "runtime_version", runtime_version)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the runtime to use.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="runtimeVersion")
     def runtime_version(self) -> str:
+        """
+        The version of the runtime to use.
+        """
         return pulumi.get(self, "runtime_version")
 
 
@@ -1061,6 +1071,10 @@ class ResolverCachingConfig(dict):
     def __init__(__self__, *,
                  ttl: float,
                  caching_keys: Optional[Sequence[str]] = None):
+        """
+        :param float ttl: The TTL in seconds for a resolver that has caching activated. Valid values are 1-36.00 seconds.
+        :param Sequence[str] caching_keys: The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+        """
         pulumi.set(__self__, "ttl", ttl)
         if caching_keys is not None:
             pulumi.set(__self__, "caching_keys", caching_keys)
@@ -1068,16 +1082,25 @@ class ResolverCachingConfig(dict):
     @property
     @pulumi.getter
     def ttl(self) -> float:
+        """
+        The TTL in seconds for a resolver that has caching activated. Valid values are 1-36.00 seconds.
+        """
         return pulumi.get(self, "ttl")
 
     @property
     @pulumi.getter(name="cachingKeys")
     def caching_keys(self) -> Optional[Sequence[str]]:
+        """
+        The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+        """
         return pulumi.get(self, "caching_keys")
 
 
 @pulumi.output_type
 class ResolverLambdaConflictHandlerConfig(dict):
+    """
+    The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1097,12 +1120,19 @@ class ResolverLambdaConflictHandlerConfig(dict):
 
     def __init__(__self__, *,
                  lambda_conflict_handler_arn: Optional[str] = None):
+        """
+        The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
+        :param str lambda_conflict_handler_arn: The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+        """
         if lambda_conflict_handler_arn is not None:
             pulumi.set(__self__, "lambda_conflict_handler_arn", lambda_conflict_handler_arn)
 
     @property
     @pulumi.getter(name="lambdaConflictHandlerArn")
     def lambda_conflict_handler_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+        """
         return pulumi.get(self, "lambda_conflict_handler_arn")
 
 
@@ -1110,12 +1140,18 @@ class ResolverLambdaConflictHandlerConfig(dict):
 class ResolverPipelineConfig(dict):
     def __init__(__self__, *,
                  functions: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] functions: A list of Function objects.
+        """
         if functions is not None:
             pulumi.set(__self__, "functions", functions)
 
     @property
     @pulumi.getter
     def functions(self) -> Optional[Sequence[str]]:
+        """
+        A list of Function objects.
+        """
         return pulumi.get(self, "functions")
 
 
@@ -1146,6 +1182,10 @@ class ResolverSyncConfig(dict):
                  conflict_detection: str,
                  conflict_handler: Optional[str] = None,
                  lambda_conflict_handler_config: Optional['outputs.ResolverLambdaConflictHandlerConfig'] = None):
+        """
+        :param str conflict_detection: The Conflict Detection strategy to use.
+        :param str conflict_handler: The Conflict Resolution strategy to perform in the event of a conflict.
+        """
         pulumi.set(__self__, "conflict_detection", conflict_detection)
         if conflict_handler is not None:
             pulumi.set(__self__, "conflict_handler", conflict_handler)
@@ -1155,11 +1195,17 @@ class ResolverSyncConfig(dict):
     @property
     @pulumi.getter(name="conflictDetection")
     def conflict_detection(self) -> str:
+        """
+        The Conflict Detection strategy to use.
+        """
         return pulumi.get(self, "conflict_detection")
 
     @property
     @pulumi.getter(name="conflictHandler")
     def conflict_handler(self) -> Optional[str]:
+        """
+        The Conflict Resolution strategy to perform in the event of a conflict.
+        """
         return pulumi.get(self, "conflict_handler")
 
     @property

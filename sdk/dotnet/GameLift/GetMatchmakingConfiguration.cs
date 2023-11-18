@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.GameLift
     public static class GetMatchmakingConfiguration
     {
         /// <summary>
-        /// Resource Type definition for AWS::GameLift::MatchmakingConfiguration
+        /// The AWS::GameLift::MatchmakingConfiguration resource creates an Amazon GameLift (GameLift) matchmaking configuration.
         /// </summary>
         public static Task<GetMatchmakingConfigurationResult> InvokeAsync(GetMatchmakingConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMatchmakingConfigurationResult>("aws-native:gamelift:getMatchmakingConfiguration", args ?? new GetMatchmakingConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::GameLift::MatchmakingConfiguration
+        /// The AWS::GameLift::MatchmakingConfiguration resource creates an Amazon GameLift (GameLift) matchmaking configuration.
         /// </summary>
         public static Output<GetMatchmakingConfigurationResult> Invoke(GetMatchmakingConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMatchmakingConfigurationResult>("aws-native:gamelift:getMatchmakingConfiguration", args ?? new GetMatchmakingConfigurationInvokeArgs(), options.WithDefaults());
@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.GameLift
 
     public sealed class GetMatchmakingConfigurationArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// A unique identifier for the matchmaking configuration.
+        /// </summary>
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetMatchmakingConfigurationArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.GameLift
 
     public sealed class GetMatchmakingConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// A unique identifier for the matchmaking configuration.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetMatchmakingConfigurationInvokeArgs()
         {
@@ -51,21 +57,73 @@ namespace Pulumi.AwsNative.GameLift
     [OutputType]
     public sealed class GetMatchmakingConfigurationResult
     {
+        /// <summary>
+        /// A flag that indicates whether a match that was created with this configuration must be accepted by the matched players
+        /// </summary>
         public readonly bool? AcceptanceRequired;
+        /// <summary>
+        /// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
+        /// </summary>
         public readonly int? AcceptanceTimeoutSeconds;
+        /// <summary>
+        /// The number of player slots in a match to keep open for future players.
+        /// </summary>
         public readonly int? AdditionalPlayerCount;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift matchmaking configuration resource and uniquely identifies it.
+        /// </summary>
         public readonly string? Arn;
-        public readonly string? BackfillMode;
+        /// <summary>
+        /// The method used to backfill game sessions created with this matchmaking configuration.
+        /// </summary>
+        public readonly Pulumi.AwsNative.GameLift.MatchmakingConfigurationBackfillMode? BackfillMode;
+        /// <summary>
+        /// A time stamp indicating when this data object was created.
+        /// </summary>
+        public readonly string? CreationTime;
+        /// <summary>
+        /// Information to attach to all events related to the matchmaking configuration.
+        /// </summary>
         public readonly string? CustomEventData;
+        /// <summary>
+        /// A descriptive label that is associated with matchmaking configuration.
+        /// </summary>
         public readonly string? Description;
-        public readonly string? FlexMatchMode;
+        /// <summary>
+        /// Indicates whether this matchmaking configuration is being used with Amazon GameLift hosting or as a standalone matchmaking solution.
+        /// </summary>
+        public readonly Pulumi.AwsNative.GameLift.MatchmakingConfigurationFlexMatchMode? FlexMatchMode;
+        /// <summary>
+        /// A set of custom properties for a game session, formatted as key:value pairs.
+        /// </summary>
         public readonly ImmutableArray<Outputs.MatchmakingConfigurationGameProperty> GameProperties;
+        /// <summary>
+        /// A set of custom game session properties, formatted as a single string value.
+        /// </summary>
         public readonly string? GameSessionData;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it.
+        /// </summary>
         public readonly ImmutableArray<string> GameSessionQueueArns;
-        public readonly string? Id;
+        /// <summary>
+        /// An SNS topic ARN that is set up to receive matchmaking notifications.
+        /// </summary>
         public readonly string? NotificationTarget;
+        /// <summary>
+        /// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
+        /// </summary>
         public readonly int? RequestTimeoutSeconds;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) associated with the GameLift matchmaking rule set resource that this configuration uses.
+        /// </summary>
+        public readonly string? RuleSetArn;
+        /// <summary>
+        /// A unique identifier for the matchmaking rule set to use with this configuration.
+        /// </summary>
         public readonly string? RuleSetName;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public readonly ImmutableArray<Outputs.MatchmakingConfigurationTag> Tags;
 
         [OutputConstructor]
@@ -78,13 +136,15 @@ namespace Pulumi.AwsNative.GameLift
 
             string? arn,
 
-            string? backfillMode,
+            Pulumi.AwsNative.GameLift.MatchmakingConfigurationBackfillMode? backfillMode,
+
+            string? creationTime,
 
             string? customEventData,
 
             string? description,
 
-            string? flexMatchMode,
+            Pulumi.AwsNative.GameLift.MatchmakingConfigurationFlexMatchMode? flexMatchMode,
 
             ImmutableArray<Outputs.MatchmakingConfigurationGameProperty> gameProperties,
 
@@ -92,11 +152,11 @@ namespace Pulumi.AwsNative.GameLift
 
             ImmutableArray<string> gameSessionQueueArns,
 
-            string? id,
-
             string? notificationTarget,
 
             int? requestTimeoutSeconds,
+
+            string? ruleSetArn,
 
             string? ruleSetName,
 
@@ -107,15 +167,16 @@ namespace Pulumi.AwsNative.GameLift
             AdditionalPlayerCount = additionalPlayerCount;
             Arn = arn;
             BackfillMode = backfillMode;
+            CreationTime = creationTime;
             CustomEventData = customEventData;
             Description = description;
             FlexMatchMode = flexMatchMode;
             GameProperties = gameProperties;
             GameSessionData = gameSessionData;
             GameSessionQueueArns = gameSessionQueueArns;
-            Id = id;
             NotificationTarget = notificationTarget;
             RequestTimeoutSeconds = requestTimeoutSeconds;
+            RuleSetArn = ruleSetArn;
             RuleSetName = ruleSetName;
             Tags = tags;
         }

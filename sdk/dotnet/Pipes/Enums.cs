@@ -176,6 +176,33 @@ namespace Pulumi.AwsNative.Pipes
     }
 
     [EnumType]
+    public readonly struct PipeIncludeExecutionDataOption : IEquatable<PipeIncludeExecutionDataOption>
+    {
+        private readonly string _value;
+
+        private PipeIncludeExecutionDataOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PipeIncludeExecutionDataOption All { get; } = new PipeIncludeExecutionDataOption("ALL");
+
+        public static bool operator ==(PipeIncludeExecutionDataOption left, PipeIncludeExecutionDataOption right) => left.Equals(right);
+        public static bool operator !=(PipeIncludeExecutionDataOption left, PipeIncludeExecutionDataOption right) => !left.Equals(right);
+
+        public static explicit operator string(PipeIncludeExecutionDataOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PipeIncludeExecutionDataOption other && Equals(other);
+        public bool Equals(PipeIncludeExecutionDataOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct PipeKinesisStreamStartPosition : IEquatable<PipeKinesisStreamStartPosition>
     {
         private readonly string _value;
@@ -226,6 +253,36 @@ namespace Pulumi.AwsNative.Pipes
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PipeLaunchType other && Equals(other);
         public bool Equals(PipeLaunchType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PipeLogLevel : IEquatable<PipeLogLevel>
+    {
+        private readonly string _value;
+
+        private PipeLogLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PipeLogLevel Off { get; } = new PipeLogLevel("OFF");
+        public static PipeLogLevel Error { get; } = new PipeLogLevel("ERROR");
+        public static PipeLogLevel Info { get; } = new PipeLogLevel("INFO");
+        public static PipeLogLevel Trace { get; } = new PipeLogLevel("TRACE");
+
+        public static bool operator ==(PipeLogLevel left, PipeLogLevel right) => left.Equals(right);
+        public static bool operator !=(PipeLogLevel left, PipeLogLevel right) => !left.Equals(right);
+
+        public static explicit operator string(PipeLogLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PipeLogLevel other && Equals(other);
+        public bool Equals(PipeLogLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -401,6 +458,35 @@ namespace Pulumi.AwsNative.Pipes
     }
 
     [EnumType]
+    public readonly struct PipeS3OutputFormat : IEquatable<PipeS3OutputFormat>
+    {
+        private readonly string _value;
+
+        private PipeS3OutputFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PipeS3OutputFormat Json { get; } = new PipeS3OutputFormat("json");
+        public static PipeS3OutputFormat Plain { get; } = new PipeS3OutputFormat("plain");
+        public static PipeS3OutputFormat W3c { get; } = new PipeS3OutputFormat("w3c");
+
+        public static bool operator ==(PipeS3OutputFormat left, PipeS3OutputFormat right) => left.Equals(right);
+        public static bool operator !=(PipeS3OutputFormat left, PipeS3OutputFormat right) => !left.Equals(right);
+
+        public static explicit operator string(PipeS3OutputFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PipeS3OutputFormat other && Equals(other);
+        public bool Equals(PipeS3OutputFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct PipeSelfManagedKafkaStartPosition : IEquatable<PipeSelfManagedKafkaStartPosition>
     {
         private readonly string _value;
@@ -449,6 +535,10 @@ namespace Pulumi.AwsNative.Pipes
         public static PipeState UpdateFailed { get; } = new PipeState("UPDATE_FAILED");
         public static PipeState StartFailed { get; } = new PipeState("START_FAILED");
         public static PipeState StopFailed { get; } = new PipeState("STOP_FAILED");
+        public static PipeState DeleteFailed { get; } = new PipeState("DELETE_FAILED");
+        public static PipeState CreateRollbackFailed { get; } = new PipeState("CREATE_ROLLBACK_FAILED");
+        public static PipeState DeleteRollbackFailed { get; } = new PipeState("DELETE_ROLLBACK_FAILED");
+        public static PipeState UpdateRollbackFailed { get; } = new PipeState("UPDATE_ROLLBACK_FAILED");
 
         public static bool operator ==(PipeState left, PipeState right) => left.Equals(right);
         public static bool operator !=(PipeState left, PipeState right) => !left.Equals(right);

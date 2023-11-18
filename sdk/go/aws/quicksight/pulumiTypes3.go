@@ -14,6 +14,799 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ThemeError struct {
+	Message *string         `pulumi:"message"`
+	Type    *ThemeErrorType `pulumi:"type"`
+}
+
+type ThemeErrorOutput struct{ *pulumi.OutputState }
+
+func (ThemeErrorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeError)(nil)).Elem()
+}
+
+func (o ThemeErrorOutput) ToThemeErrorOutput() ThemeErrorOutput {
+	return o
+}
+
+func (o ThemeErrorOutput) ToThemeErrorOutputWithContext(ctx context.Context) ThemeErrorOutput {
+	return o
+}
+
+func (o ThemeErrorOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeError] {
+	return pulumix.Output[ThemeError]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeErrorOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeError) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+func (o ThemeErrorOutput) Type() ThemeErrorTypePtrOutput {
+	return o.ApplyT(func(v ThemeError) *ThemeErrorType { return v.Type }).(ThemeErrorTypePtrOutput)
+}
+
+type ThemeErrorArrayOutput struct{ *pulumi.OutputState }
+
+func (ThemeErrorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThemeError)(nil)).Elem()
+}
+
+func (o ThemeErrorArrayOutput) ToThemeErrorArrayOutput() ThemeErrorArrayOutput {
+	return o
+}
+
+func (o ThemeErrorArrayOutput) ToThemeErrorArrayOutputWithContext(ctx context.Context) ThemeErrorArrayOutput {
+	return o
+}
+
+func (o ThemeErrorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ThemeError] {
+	return pulumix.Output[[]ThemeError]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeErrorArrayOutput) Index(i pulumi.IntInput) ThemeErrorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThemeError {
+		return vs[0].([]ThemeError)[vs[1].(int)]
+	}).(ThemeErrorOutput)
+}
+
+type ThemeFont struct {
+	FontFamily *string `pulumi:"fontFamily"`
+}
+
+// ThemeFontInput is an input type that accepts ThemeFontArgs and ThemeFontOutput values.
+// You can construct a concrete instance of `ThemeFontInput` via:
+//
+//	ThemeFontArgs{...}
+type ThemeFontInput interface {
+	pulumi.Input
+
+	ToThemeFontOutput() ThemeFontOutput
+	ToThemeFontOutputWithContext(context.Context) ThemeFontOutput
+}
+
+type ThemeFontArgs struct {
+	FontFamily pulumi.StringPtrInput `pulumi:"fontFamily"`
+}
+
+func (ThemeFontArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeFont)(nil)).Elem()
+}
+
+func (i ThemeFontArgs) ToThemeFontOutput() ThemeFontOutput {
+	return i.ToThemeFontOutputWithContext(context.Background())
+}
+
+func (i ThemeFontArgs) ToThemeFontOutputWithContext(ctx context.Context) ThemeFontOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeFontOutput)
+}
+
+func (i ThemeFontArgs) ToOutput(ctx context.Context) pulumix.Output[ThemeFont] {
+	return pulumix.Output[ThemeFont]{
+		OutputState: i.ToThemeFontOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ThemeFontArrayInput is an input type that accepts ThemeFontArray and ThemeFontArrayOutput values.
+// You can construct a concrete instance of `ThemeFontArrayInput` via:
+//
+//	ThemeFontArray{ ThemeFontArgs{...} }
+type ThemeFontArrayInput interface {
+	pulumi.Input
+
+	ToThemeFontArrayOutput() ThemeFontArrayOutput
+	ToThemeFontArrayOutputWithContext(context.Context) ThemeFontArrayOutput
+}
+
+type ThemeFontArray []ThemeFontInput
+
+func (ThemeFontArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThemeFont)(nil)).Elem()
+}
+
+func (i ThemeFontArray) ToThemeFontArrayOutput() ThemeFontArrayOutput {
+	return i.ToThemeFontArrayOutputWithContext(context.Background())
+}
+
+func (i ThemeFontArray) ToThemeFontArrayOutputWithContext(ctx context.Context) ThemeFontArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeFontArrayOutput)
+}
+
+func (i ThemeFontArray) ToOutput(ctx context.Context) pulumix.Output[[]ThemeFont] {
+	return pulumix.Output[[]ThemeFont]{
+		OutputState: i.ToThemeFontArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ThemeFontOutput struct{ *pulumi.OutputState }
+
+func (ThemeFontOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeFont)(nil)).Elem()
+}
+
+func (o ThemeFontOutput) ToThemeFontOutput() ThemeFontOutput {
+	return o
+}
+
+func (o ThemeFontOutput) ToThemeFontOutputWithContext(ctx context.Context) ThemeFontOutput {
+	return o
+}
+
+func (o ThemeFontOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeFont] {
+	return pulumix.Output[ThemeFont]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeFontOutput) FontFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeFont) *string { return v.FontFamily }).(pulumi.StringPtrOutput)
+}
+
+type ThemeFontArrayOutput struct{ *pulumi.OutputState }
+
+func (ThemeFontArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThemeFont)(nil)).Elem()
+}
+
+func (o ThemeFontArrayOutput) ToThemeFontArrayOutput() ThemeFontArrayOutput {
+	return o
+}
+
+func (o ThemeFontArrayOutput) ToThemeFontArrayOutputWithContext(ctx context.Context) ThemeFontArrayOutput {
+	return o
+}
+
+func (o ThemeFontArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ThemeFont] {
+	return pulumix.Output[[]ThemeFont]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeFontArrayOutput) Index(i pulumi.IntInput) ThemeFontOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThemeFont {
+		return vs[0].([]ThemeFont)[vs[1].(int)]
+	}).(ThemeFontOutput)
+}
+
+type ThemeGutterStyle struct {
+	Show *bool `pulumi:"show"`
+}
+
+// ThemeGutterStyleInput is an input type that accepts ThemeGutterStyleArgs and ThemeGutterStyleOutput values.
+// You can construct a concrete instance of `ThemeGutterStyleInput` via:
+//
+//	ThemeGutterStyleArgs{...}
+type ThemeGutterStyleInput interface {
+	pulumi.Input
+
+	ToThemeGutterStyleOutput() ThemeGutterStyleOutput
+	ToThemeGutterStyleOutputWithContext(context.Context) ThemeGutterStyleOutput
+}
+
+type ThemeGutterStyleArgs struct {
+	Show pulumi.BoolPtrInput `pulumi:"show"`
+}
+
+func (ThemeGutterStyleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeGutterStyle)(nil)).Elem()
+}
+
+func (i ThemeGutterStyleArgs) ToThemeGutterStyleOutput() ThemeGutterStyleOutput {
+	return i.ToThemeGutterStyleOutputWithContext(context.Background())
+}
+
+func (i ThemeGutterStyleArgs) ToThemeGutterStyleOutputWithContext(ctx context.Context) ThemeGutterStyleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeGutterStyleOutput)
+}
+
+func (i ThemeGutterStyleArgs) ToOutput(ctx context.Context) pulumix.Output[ThemeGutterStyle] {
+	return pulumix.Output[ThemeGutterStyle]{
+		OutputState: i.ToThemeGutterStyleOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ThemeGutterStyleArgs) ToThemeGutterStylePtrOutput() ThemeGutterStylePtrOutput {
+	return i.ToThemeGutterStylePtrOutputWithContext(context.Background())
+}
+
+func (i ThemeGutterStyleArgs) ToThemeGutterStylePtrOutputWithContext(ctx context.Context) ThemeGutterStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeGutterStyleOutput).ToThemeGutterStylePtrOutputWithContext(ctx)
+}
+
+// ThemeGutterStylePtrInput is an input type that accepts ThemeGutterStyleArgs, ThemeGutterStylePtr and ThemeGutterStylePtrOutput values.
+// You can construct a concrete instance of `ThemeGutterStylePtrInput` via:
+//
+//	        ThemeGutterStyleArgs{...}
+//
+//	or:
+//
+//	        nil
+type ThemeGutterStylePtrInput interface {
+	pulumi.Input
+
+	ToThemeGutterStylePtrOutput() ThemeGutterStylePtrOutput
+	ToThemeGutterStylePtrOutputWithContext(context.Context) ThemeGutterStylePtrOutput
+}
+
+type themeGutterStylePtrType ThemeGutterStyleArgs
+
+func ThemeGutterStylePtr(v *ThemeGutterStyleArgs) ThemeGutterStylePtrInput {
+	return (*themeGutterStylePtrType)(v)
+}
+
+func (*themeGutterStylePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeGutterStyle)(nil)).Elem()
+}
+
+func (i *themeGutterStylePtrType) ToThemeGutterStylePtrOutput() ThemeGutterStylePtrOutput {
+	return i.ToThemeGutterStylePtrOutputWithContext(context.Background())
+}
+
+func (i *themeGutterStylePtrType) ToThemeGutterStylePtrOutputWithContext(ctx context.Context) ThemeGutterStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeGutterStylePtrOutput)
+}
+
+func (i *themeGutterStylePtrType) ToOutput(ctx context.Context) pulumix.Output[*ThemeGutterStyle] {
+	return pulumix.Output[*ThemeGutterStyle]{
+		OutputState: i.ToThemeGutterStylePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ThemeGutterStyleOutput struct{ *pulumi.OutputState }
+
+func (ThemeGutterStyleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeGutterStyle)(nil)).Elem()
+}
+
+func (o ThemeGutterStyleOutput) ToThemeGutterStyleOutput() ThemeGutterStyleOutput {
+	return o
+}
+
+func (o ThemeGutterStyleOutput) ToThemeGutterStyleOutputWithContext(ctx context.Context) ThemeGutterStyleOutput {
+	return o
+}
+
+func (o ThemeGutterStyleOutput) ToThemeGutterStylePtrOutput() ThemeGutterStylePtrOutput {
+	return o.ToThemeGutterStylePtrOutputWithContext(context.Background())
+}
+
+func (o ThemeGutterStyleOutput) ToThemeGutterStylePtrOutputWithContext(ctx context.Context) ThemeGutterStylePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeGutterStyle) *ThemeGutterStyle {
+		return &v
+	}).(ThemeGutterStylePtrOutput)
+}
+
+func (o ThemeGutterStyleOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeGutterStyle] {
+	return pulumix.Output[ThemeGutterStyle]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeGutterStyleOutput) Show() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ThemeGutterStyle) *bool { return v.Show }).(pulumi.BoolPtrOutput)
+}
+
+type ThemeGutterStylePtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeGutterStylePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeGutterStyle)(nil)).Elem()
+}
+
+func (o ThemeGutterStylePtrOutput) ToThemeGutterStylePtrOutput() ThemeGutterStylePtrOutput {
+	return o
+}
+
+func (o ThemeGutterStylePtrOutput) ToThemeGutterStylePtrOutputWithContext(ctx context.Context) ThemeGutterStylePtrOutput {
+	return o
+}
+
+func (o ThemeGutterStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeGutterStyle] {
+	return pulumix.Output[*ThemeGutterStyle]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeGutterStylePtrOutput) Elem() ThemeGutterStyleOutput {
+	return o.ApplyT(func(v *ThemeGutterStyle) ThemeGutterStyle {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeGutterStyle
+		return ret
+	}).(ThemeGutterStyleOutput)
+}
+
+func (o ThemeGutterStylePtrOutput) Show() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ThemeGutterStyle) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Show
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ThemeMarginStyle struct {
+	Show *bool `pulumi:"show"`
+}
+
+// ThemeMarginStyleInput is an input type that accepts ThemeMarginStyleArgs and ThemeMarginStyleOutput values.
+// You can construct a concrete instance of `ThemeMarginStyleInput` via:
+//
+//	ThemeMarginStyleArgs{...}
+type ThemeMarginStyleInput interface {
+	pulumi.Input
+
+	ToThemeMarginStyleOutput() ThemeMarginStyleOutput
+	ToThemeMarginStyleOutputWithContext(context.Context) ThemeMarginStyleOutput
+}
+
+type ThemeMarginStyleArgs struct {
+	Show pulumi.BoolPtrInput `pulumi:"show"`
+}
+
+func (ThemeMarginStyleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeMarginStyle)(nil)).Elem()
+}
+
+func (i ThemeMarginStyleArgs) ToThemeMarginStyleOutput() ThemeMarginStyleOutput {
+	return i.ToThemeMarginStyleOutputWithContext(context.Background())
+}
+
+func (i ThemeMarginStyleArgs) ToThemeMarginStyleOutputWithContext(ctx context.Context) ThemeMarginStyleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeMarginStyleOutput)
+}
+
+func (i ThemeMarginStyleArgs) ToOutput(ctx context.Context) pulumix.Output[ThemeMarginStyle] {
+	return pulumix.Output[ThemeMarginStyle]{
+		OutputState: i.ToThemeMarginStyleOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ThemeMarginStyleArgs) ToThemeMarginStylePtrOutput() ThemeMarginStylePtrOutput {
+	return i.ToThemeMarginStylePtrOutputWithContext(context.Background())
+}
+
+func (i ThemeMarginStyleArgs) ToThemeMarginStylePtrOutputWithContext(ctx context.Context) ThemeMarginStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeMarginStyleOutput).ToThemeMarginStylePtrOutputWithContext(ctx)
+}
+
+// ThemeMarginStylePtrInput is an input type that accepts ThemeMarginStyleArgs, ThemeMarginStylePtr and ThemeMarginStylePtrOutput values.
+// You can construct a concrete instance of `ThemeMarginStylePtrInput` via:
+//
+//	        ThemeMarginStyleArgs{...}
+//
+//	or:
+//
+//	        nil
+type ThemeMarginStylePtrInput interface {
+	pulumi.Input
+
+	ToThemeMarginStylePtrOutput() ThemeMarginStylePtrOutput
+	ToThemeMarginStylePtrOutputWithContext(context.Context) ThemeMarginStylePtrOutput
+}
+
+type themeMarginStylePtrType ThemeMarginStyleArgs
+
+func ThemeMarginStylePtr(v *ThemeMarginStyleArgs) ThemeMarginStylePtrInput {
+	return (*themeMarginStylePtrType)(v)
+}
+
+func (*themeMarginStylePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeMarginStyle)(nil)).Elem()
+}
+
+func (i *themeMarginStylePtrType) ToThemeMarginStylePtrOutput() ThemeMarginStylePtrOutput {
+	return i.ToThemeMarginStylePtrOutputWithContext(context.Background())
+}
+
+func (i *themeMarginStylePtrType) ToThemeMarginStylePtrOutputWithContext(ctx context.Context) ThemeMarginStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeMarginStylePtrOutput)
+}
+
+func (i *themeMarginStylePtrType) ToOutput(ctx context.Context) pulumix.Output[*ThemeMarginStyle] {
+	return pulumix.Output[*ThemeMarginStyle]{
+		OutputState: i.ToThemeMarginStylePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ThemeMarginStyleOutput struct{ *pulumi.OutputState }
+
+func (ThemeMarginStyleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeMarginStyle)(nil)).Elem()
+}
+
+func (o ThemeMarginStyleOutput) ToThemeMarginStyleOutput() ThemeMarginStyleOutput {
+	return o
+}
+
+func (o ThemeMarginStyleOutput) ToThemeMarginStyleOutputWithContext(ctx context.Context) ThemeMarginStyleOutput {
+	return o
+}
+
+func (o ThemeMarginStyleOutput) ToThemeMarginStylePtrOutput() ThemeMarginStylePtrOutput {
+	return o.ToThemeMarginStylePtrOutputWithContext(context.Background())
+}
+
+func (o ThemeMarginStyleOutput) ToThemeMarginStylePtrOutputWithContext(ctx context.Context) ThemeMarginStylePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeMarginStyle) *ThemeMarginStyle {
+		return &v
+	}).(ThemeMarginStylePtrOutput)
+}
+
+func (o ThemeMarginStyleOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeMarginStyle] {
+	return pulumix.Output[ThemeMarginStyle]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeMarginStyleOutput) Show() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ThemeMarginStyle) *bool { return v.Show }).(pulumi.BoolPtrOutput)
+}
+
+type ThemeMarginStylePtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeMarginStylePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeMarginStyle)(nil)).Elem()
+}
+
+func (o ThemeMarginStylePtrOutput) ToThemeMarginStylePtrOutput() ThemeMarginStylePtrOutput {
+	return o
+}
+
+func (o ThemeMarginStylePtrOutput) ToThemeMarginStylePtrOutputWithContext(ctx context.Context) ThemeMarginStylePtrOutput {
+	return o
+}
+
+func (o ThemeMarginStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeMarginStyle] {
+	return pulumix.Output[*ThemeMarginStyle]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeMarginStylePtrOutput) Elem() ThemeMarginStyleOutput {
+	return o.ApplyT(func(v *ThemeMarginStyle) ThemeMarginStyle {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeMarginStyle
+		return ret
+	}).(ThemeMarginStyleOutput)
+}
+
+func (o ThemeMarginStylePtrOutput) Show() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ThemeMarginStyle) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Show
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ThemeResourcePermission struct {
+	Actions   []string `pulumi:"actions"`
+	Principal string   `pulumi:"principal"`
+	Resource  *string  `pulumi:"resource"`
+}
+
+// ThemeResourcePermissionInput is an input type that accepts ThemeResourcePermissionArgs and ThemeResourcePermissionOutput values.
+// You can construct a concrete instance of `ThemeResourcePermissionInput` via:
+//
+//	ThemeResourcePermissionArgs{...}
+type ThemeResourcePermissionInput interface {
+	pulumi.Input
+
+	ToThemeResourcePermissionOutput() ThemeResourcePermissionOutput
+	ToThemeResourcePermissionOutputWithContext(context.Context) ThemeResourcePermissionOutput
+}
+
+type ThemeResourcePermissionArgs struct {
+	Actions   pulumi.StringArrayInput `pulumi:"actions"`
+	Principal pulumi.StringInput      `pulumi:"principal"`
+	Resource  pulumi.StringPtrInput   `pulumi:"resource"`
+}
+
+func (ThemeResourcePermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeResourcePermission)(nil)).Elem()
+}
+
+func (i ThemeResourcePermissionArgs) ToThemeResourcePermissionOutput() ThemeResourcePermissionOutput {
+	return i.ToThemeResourcePermissionOutputWithContext(context.Background())
+}
+
+func (i ThemeResourcePermissionArgs) ToThemeResourcePermissionOutputWithContext(ctx context.Context) ThemeResourcePermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeResourcePermissionOutput)
+}
+
+func (i ThemeResourcePermissionArgs) ToOutput(ctx context.Context) pulumix.Output[ThemeResourcePermission] {
+	return pulumix.Output[ThemeResourcePermission]{
+		OutputState: i.ToThemeResourcePermissionOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ThemeResourcePermissionArrayInput is an input type that accepts ThemeResourcePermissionArray and ThemeResourcePermissionArrayOutput values.
+// You can construct a concrete instance of `ThemeResourcePermissionArrayInput` via:
+//
+//	ThemeResourcePermissionArray{ ThemeResourcePermissionArgs{...} }
+type ThemeResourcePermissionArrayInput interface {
+	pulumi.Input
+
+	ToThemeResourcePermissionArrayOutput() ThemeResourcePermissionArrayOutput
+	ToThemeResourcePermissionArrayOutputWithContext(context.Context) ThemeResourcePermissionArrayOutput
+}
+
+type ThemeResourcePermissionArray []ThemeResourcePermissionInput
+
+func (ThemeResourcePermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThemeResourcePermission)(nil)).Elem()
+}
+
+func (i ThemeResourcePermissionArray) ToThemeResourcePermissionArrayOutput() ThemeResourcePermissionArrayOutput {
+	return i.ToThemeResourcePermissionArrayOutputWithContext(context.Background())
+}
+
+func (i ThemeResourcePermissionArray) ToThemeResourcePermissionArrayOutputWithContext(ctx context.Context) ThemeResourcePermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeResourcePermissionArrayOutput)
+}
+
+func (i ThemeResourcePermissionArray) ToOutput(ctx context.Context) pulumix.Output[[]ThemeResourcePermission] {
+	return pulumix.Output[[]ThemeResourcePermission]{
+		OutputState: i.ToThemeResourcePermissionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ThemeResourcePermissionOutput struct{ *pulumi.OutputState }
+
+func (ThemeResourcePermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeResourcePermission)(nil)).Elem()
+}
+
+func (o ThemeResourcePermissionOutput) ToThemeResourcePermissionOutput() ThemeResourcePermissionOutput {
+	return o
+}
+
+func (o ThemeResourcePermissionOutput) ToThemeResourcePermissionOutputWithContext(ctx context.Context) ThemeResourcePermissionOutput {
+	return o
+}
+
+func (o ThemeResourcePermissionOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeResourcePermission] {
+	return pulumix.Output[ThemeResourcePermission]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeResourcePermissionOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ThemeResourcePermission) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+func (o ThemeResourcePermissionOutput) Principal() pulumi.StringOutput {
+	return o.ApplyT(func(v ThemeResourcePermission) string { return v.Principal }).(pulumi.StringOutput)
+}
+
+func (o ThemeResourcePermissionOutput) Resource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThemeResourcePermission) *string { return v.Resource }).(pulumi.StringPtrOutput)
+}
+
+type ThemeResourcePermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (ThemeResourcePermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThemeResourcePermission)(nil)).Elem()
+}
+
+func (o ThemeResourcePermissionArrayOutput) ToThemeResourcePermissionArrayOutput() ThemeResourcePermissionArrayOutput {
+	return o
+}
+
+func (o ThemeResourcePermissionArrayOutput) ToThemeResourcePermissionArrayOutputWithContext(ctx context.Context) ThemeResourcePermissionArrayOutput {
+	return o
+}
+
+func (o ThemeResourcePermissionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ThemeResourcePermission] {
+	return pulumix.Output[[]ThemeResourcePermission]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeResourcePermissionArrayOutput) Index(i pulumi.IntInput) ThemeResourcePermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThemeResourcePermission {
+		return vs[0].([]ThemeResourcePermission)[vs[1].(int)]
+	}).(ThemeResourcePermissionOutput)
+}
+
+type ThemeSheetStyle struct {
+	Tile       *ThemeTileStyle       `pulumi:"tile"`
+	TileLayout *ThemeTileLayoutStyle `pulumi:"tileLayout"`
+}
+
+// ThemeSheetStyleInput is an input type that accepts ThemeSheetStyleArgs and ThemeSheetStyleOutput values.
+// You can construct a concrete instance of `ThemeSheetStyleInput` via:
+//
+//	ThemeSheetStyleArgs{...}
+type ThemeSheetStyleInput interface {
+	pulumi.Input
+
+	ToThemeSheetStyleOutput() ThemeSheetStyleOutput
+	ToThemeSheetStyleOutputWithContext(context.Context) ThemeSheetStyleOutput
+}
+
+type ThemeSheetStyleArgs struct {
+	Tile       ThemeTileStylePtrInput       `pulumi:"tile"`
+	TileLayout ThemeTileLayoutStylePtrInput `pulumi:"tileLayout"`
+}
+
+func (ThemeSheetStyleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeSheetStyle)(nil)).Elem()
+}
+
+func (i ThemeSheetStyleArgs) ToThemeSheetStyleOutput() ThemeSheetStyleOutput {
+	return i.ToThemeSheetStyleOutputWithContext(context.Background())
+}
+
+func (i ThemeSheetStyleArgs) ToThemeSheetStyleOutputWithContext(ctx context.Context) ThemeSheetStyleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeSheetStyleOutput)
+}
+
+func (i ThemeSheetStyleArgs) ToOutput(ctx context.Context) pulumix.Output[ThemeSheetStyle] {
+	return pulumix.Output[ThemeSheetStyle]{
+		OutputState: i.ToThemeSheetStyleOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ThemeSheetStyleArgs) ToThemeSheetStylePtrOutput() ThemeSheetStylePtrOutput {
+	return i.ToThemeSheetStylePtrOutputWithContext(context.Background())
+}
+
+func (i ThemeSheetStyleArgs) ToThemeSheetStylePtrOutputWithContext(ctx context.Context) ThemeSheetStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeSheetStyleOutput).ToThemeSheetStylePtrOutputWithContext(ctx)
+}
+
+// ThemeSheetStylePtrInput is an input type that accepts ThemeSheetStyleArgs, ThemeSheetStylePtr and ThemeSheetStylePtrOutput values.
+// You can construct a concrete instance of `ThemeSheetStylePtrInput` via:
+//
+//	        ThemeSheetStyleArgs{...}
+//
+//	or:
+//
+//	        nil
+type ThemeSheetStylePtrInput interface {
+	pulumi.Input
+
+	ToThemeSheetStylePtrOutput() ThemeSheetStylePtrOutput
+	ToThemeSheetStylePtrOutputWithContext(context.Context) ThemeSheetStylePtrOutput
+}
+
+type themeSheetStylePtrType ThemeSheetStyleArgs
+
+func ThemeSheetStylePtr(v *ThemeSheetStyleArgs) ThemeSheetStylePtrInput {
+	return (*themeSheetStylePtrType)(v)
+}
+
+func (*themeSheetStylePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeSheetStyle)(nil)).Elem()
+}
+
+func (i *themeSheetStylePtrType) ToThemeSheetStylePtrOutput() ThemeSheetStylePtrOutput {
+	return i.ToThemeSheetStylePtrOutputWithContext(context.Background())
+}
+
+func (i *themeSheetStylePtrType) ToThemeSheetStylePtrOutputWithContext(ctx context.Context) ThemeSheetStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThemeSheetStylePtrOutput)
+}
+
+func (i *themeSheetStylePtrType) ToOutput(ctx context.Context) pulumix.Output[*ThemeSheetStyle] {
+	return pulumix.Output[*ThemeSheetStyle]{
+		OutputState: i.ToThemeSheetStylePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ThemeSheetStyleOutput struct{ *pulumi.OutputState }
+
+func (ThemeSheetStyleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThemeSheetStyle)(nil)).Elem()
+}
+
+func (o ThemeSheetStyleOutput) ToThemeSheetStyleOutput() ThemeSheetStyleOutput {
+	return o
+}
+
+func (o ThemeSheetStyleOutput) ToThemeSheetStyleOutputWithContext(ctx context.Context) ThemeSheetStyleOutput {
+	return o
+}
+
+func (o ThemeSheetStyleOutput) ToThemeSheetStylePtrOutput() ThemeSheetStylePtrOutput {
+	return o.ToThemeSheetStylePtrOutputWithContext(context.Background())
+}
+
+func (o ThemeSheetStyleOutput) ToThemeSheetStylePtrOutputWithContext(ctx context.Context) ThemeSheetStylePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeSheetStyle) *ThemeSheetStyle {
+		return &v
+	}).(ThemeSheetStylePtrOutput)
+}
+
+func (o ThemeSheetStyleOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeSheetStyle] {
+	return pulumix.Output[ThemeSheetStyle]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeSheetStyleOutput) Tile() ThemeTileStylePtrOutput {
+	return o.ApplyT(func(v ThemeSheetStyle) *ThemeTileStyle { return v.Tile }).(ThemeTileStylePtrOutput)
+}
+
+func (o ThemeSheetStyleOutput) TileLayout() ThemeTileLayoutStylePtrOutput {
+	return o.ApplyT(func(v ThemeSheetStyle) *ThemeTileLayoutStyle { return v.TileLayout }).(ThemeTileLayoutStylePtrOutput)
+}
+
+type ThemeSheetStylePtrOutput struct{ *pulumi.OutputState }
+
+func (ThemeSheetStylePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThemeSheetStyle)(nil)).Elem()
+}
+
+func (o ThemeSheetStylePtrOutput) ToThemeSheetStylePtrOutput() ThemeSheetStylePtrOutput {
+	return o
+}
+
+func (o ThemeSheetStylePtrOutput) ToThemeSheetStylePtrOutputWithContext(ctx context.Context) ThemeSheetStylePtrOutput {
+	return o
+}
+
+func (o ThemeSheetStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeSheetStyle] {
+	return pulumix.Output[*ThemeSheetStyle]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ThemeSheetStylePtrOutput) Elem() ThemeSheetStyleOutput {
+	return o.ApplyT(func(v *ThemeSheetStyle) ThemeSheetStyle {
+		if v != nil {
+			return *v
+		}
+		var ret ThemeSheetStyle
+		return ret
+	}).(ThemeSheetStyleOutput)
+}
+
+func (o ThemeSheetStylePtrOutput) Tile() ThemeTileStylePtrOutput {
+	return o.ApplyT(func(v *ThemeSheetStyle) *ThemeTileStyle {
+		if v == nil {
+			return nil
+		}
+		return v.Tile
+	}).(ThemeTileStylePtrOutput)
+}
+
+func (o ThemeSheetStylePtrOutput) TileLayout() ThemeTileLayoutStylePtrOutput {
+	return o.ApplyT(func(v *ThemeSheetStyle) *ThemeTileLayoutStyle {
+		if v == nil {
+			return nil
+		}
+		return v.TileLayout
+	}).(ThemeTileLayoutStylePtrOutput)
+}
+
 type ThemeTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -6231,6 +7024,16 @@ func (o VpcConnectionTagArrayOutput) Index(i pulumi.IntInput) VpcConnectionTagOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeFontInput)(nil)).Elem(), ThemeFontArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeFontArrayInput)(nil)).Elem(), ThemeFontArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeGutterStyleInput)(nil)).Elem(), ThemeGutterStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeGutterStylePtrInput)(nil)).Elem(), ThemeGutterStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeMarginStyleInput)(nil)).Elem(), ThemeMarginStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeMarginStylePtrInput)(nil)).Elem(), ThemeMarginStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeResourcePermissionInput)(nil)).Elem(), ThemeResourcePermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeResourcePermissionArrayInput)(nil)).Elem(), ThemeResourcePermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeSheetStyleInput)(nil)).Elem(), ThemeSheetStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThemeSheetStylePtrInput)(nil)).Elem(), ThemeSheetStyleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTagInput)(nil)).Elem(), ThemeTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTagArrayInput)(nil)).Elem(), ThemeTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThemeTileLayoutStyleInput)(nil)).Elem(), ThemeTileLayoutStyleArgs{})
@@ -6297,6 +7100,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicTypeParametersPtrInput)(nil)).Elem(), TopicTypeParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionTagInput)(nil)).Elem(), VpcConnectionTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionTagArrayInput)(nil)).Elem(), VpcConnectionTagArray{})
+	pulumi.RegisterOutputType(ThemeErrorOutput{})
+	pulumi.RegisterOutputType(ThemeErrorArrayOutput{})
+	pulumi.RegisterOutputType(ThemeFontOutput{})
+	pulumi.RegisterOutputType(ThemeFontArrayOutput{})
+	pulumi.RegisterOutputType(ThemeGutterStyleOutput{})
+	pulumi.RegisterOutputType(ThemeGutterStylePtrOutput{})
+	pulumi.RegisterOutputType(ThemeMarginStyleOutput{})
+	pulumi.RegisterOutputType(ThemeMarginStylePtrOutput{})
+	pulumi.RegisterOutputType(ThemeResourcePermissionOutput{})
+	pulumi.RegisterOutputType(ThemeResourcePermissionArrayOutput{})
+	pulumi.RegisterOutputType(ThemeSheetStyleOutput{})
+	pulumi.RegisterOutputType(ThemeSheetStylePtrOutput{})
 	pulumi.RegisterOutputType(ThemeTagOutput{})
 	pulumi.RegisterOutputType(ThemeTagArrayOutput{})
 	pulumi.RegisterOutputType(ThemeTileLayoutStyleOutput{})

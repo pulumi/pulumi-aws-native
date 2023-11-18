@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::GameLift::MatchmakingRuleSet
+// The AWS::GameLift::MatchmakingRuleSet resource creates an Amazon GameLift (GameLift) matchmaking rule set.
 func LookupMatchmakingRuleSet(ctx *pulumi.Context, args *LookupMatchmakingRuleSetArgs, opts ...pulumi.InvokeOption) (*LookupMatchmakingRuleSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMatchmakingRuleSetResult
@@ -24,12 +24,16 @@ func LookupMatchmakingRuleSet(ctx *pulumi.Context, args *LookupMatchmakingRuleSe
 }
 
 type LookupMatchmakingRuleSetArgs struct {
-	Id string `pulumi:"id"`
+	// A unique identifier for the matchmaking rule set.
+	Name string `pulumi:"name"`
 }
 
 type LookupMatchmakingRuleSetResult struct {
-	Arn  *string                 `pulumi:"arn"`
-	Id   *string                 `pulumi:"id"`
+	// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift matchmaking rule set resource and uniquely identifies it.
+	Arn *string `pulumi:"arn"`
+	// A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds.
+	CreationTime *string `pulumi:"creationTime"`
+	// An array of key-value pairs to apply to this resource.
 	Tags []MatchmakingRuleSetTag `pulumi:"tags"`
 }
 
@@ -47,7 +51,8 @@ func LookupMatchmakingRuleSetOutput(ctx *pulumi.Context, args LookupMatchmakingR
 }
 
 type LookupMatchmakingRuleSetOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// A unique identifier for the matchmaking rule set.
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (LookupMatchmakingRuleSetOutputArgs) ElementType() reflect.Type {
@@ -74,14 +79,17 @@ func (o LookupMatchmakingRuleSetResultOutput) ToOutput(ctx context.Context) pulu
 	}
 }
 
+// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift matchmaking rule set resource and uniquely identifies it.
 func (o LookupMatchmakingRuleSetResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMatchmakingRuleSetResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupMatchmakingRuleSetResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupMatchmakingRuleSetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+// A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds.
+func (o LookupMatchmakingRuleSetResultOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMatchmakingRuleSetResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
 func (o LookupMatchmakingRuleSetResultOutput) Tags() MatchmakingRuleSetTagArrayOutput {
 	return o.ApplyT(func(v LookupMatchmakingRuleSetResult) []MatchmakingRuleSetTag { return v.Tags }).(MatchmakingRuleSetTagArrayOutput)
 }

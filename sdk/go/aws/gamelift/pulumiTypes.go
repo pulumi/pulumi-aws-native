@@ -1583,6 +1583,226 @@ func (o FleetRuntimeConfigurationPtrOutput) ServerProcesses() FleetServerProcess
 	}).(FleetServerProcessArrayOutput)
 }
 
+// Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.
+type FleetScalingPolicy struct {
+	// Comparison operator to use when measuring a metric against the threshold value.
+	ComparisonOperator *FleetScalingPolicyComparisonOperator `pulumi:"comparisonOperator"`
+	// Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
+	EvaluationPeriods *int    `pulumi:"evaluationPeriods"`
+	Location          *string `pulumi:"location"`
+	// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+	MetricName FleetScalingPolicyMetricName `pulumi:"metricName"`
+	// A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
+	Name string `pulumi:"name"`
+	// The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
+	PolicyType *FleetScalingPolicyPolicyType `pulumi:"policyType"`
+	// Amount of adjustment to make, based on the scaling adjustment type.
+	ScalingAdjustment *int `pulumi:"scalingAdjustment"`
+	// The type of adjustment to make to a fleet's instance count.
+	ScalingAdjustmentType *FleetScalingPolicyScalingAdjustmentType `pulumi:"scalingAdjustmentType"`
+	// Current status of the scaling policy. The scaling policy can be in force only when in an ACTIVE status. Scaling policies can be suspended for individual fleets. If the policy is suspended for a fleet, the policy status does not change.
+	Status *FleetScalingPolicyStatus `pulumi:"status"`
+	// An object that contains settings for a target-based scaling policy.
+	TargetConfiguration *FleetTargetConfiguration `pulumi:"targetConfiguration"`
+	// Metric value used to trigger a scaling event.
+	Threshold *float64 `pulumi:"threshold"`
+	// The current status of the fleet's scaling policies in a requested fleet location. The status PENDING_UPDATE indicates that an update was requested for the fleet but has not yet been completed for the location.
+	UpdateStatus *FleetScalingPolicyUpdateStatus `pulumi:"updateStatus"`
+}
+
+// FleetScalingPolicyInput is an input type that accepts FleetScalingPolicyArgs and FleetScalingPolicyOutput values.
+// You can construct a concrete instance of `FleetScalingPolicyInput` via:
+//
+//	FleetScalingPolicyArgs{...}
+type FleetScalingPolicyInput interface {
+	pulumi.Input
+
+	ToFleetScalingPolicyOutput() FleetScalingPolicyOutput
+	ToFleetScalingPolicyOutputWithContext(context.Context) FleetScalingPolicyOutput
+}
+
+// Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.
+type FleetScalingPolicyArgs struct {
+	// Comparison operator to use when measuring a metric against the threshold value.
+	ComparisonOperator FleetScalingPolicyComparisonOperatorPtrInput `pulumi:"comparisonOperator"`
+	// Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
+	EvaluationPeriods pulumi.IntPtrInput    `pulumi:"evaluationPeriods"`
+	Location          pulumi.StringPtrInput `pulumi:"location"`
+	// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+	MetricName FleetScalingPolicyMetricNameInput `pulumi:"metricName"`
+	// A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
+	PolicyType FleetScalingPolicyPolicyTypePtrInput `pulumi:"policyType"`
+	// Amount of adjustment to make, based on the scaling adjustment type.
+	ScalingAdjustment pulumi.IntPtrInput `pulumi:"scalingAdjustment"`
+	// The type of adjustment to make to a fleet's instance count.
+	ScalingAdjustmentType FleetScalingPolicyScalingAdjustmentTypePtrInput `pulumi:"scalingAdjustmentType"`
+	// Current status of the scaling policy. The scaling policy can be in force only when in an ACTIVE status. Scaling policies can be suspended for individual fleets. If the policy is suspended for a fleet, the policy status does not change.
+	Status FleetScalingPolicyStatusPtrInput `pulumi:"status"`
+	// An object that contains settings for a target-based scaling policy.
+	TargetConfiguration FleetTargetConfigurationPtrInput `pulumi:"targetConfiguration"`
+	// Metric value used to trigger a scaling event.
+	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
+	// The current status of the fleet's scaling policies in a requested fleet location. The status PENDING_UPDATE indicates that an update was requested for the fleet but has not yet been completed for the location.
+	UpdateStatus FleetScalingPolicyUpdateStatusPtrInput `pulumi:"updateStatus"`
+}
+
+func (FleetScalingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetScalingPolicy)(nil)).Elem()
+}
+
+func (i FleetScalingPolicyArgs) ToFleetScalingPolicyOutput() FleetScalingPolicyOutput {
+	return i.ToFleetScalingPolicyOutputWithContext(context.Background())
+}
+
+func (i FleetScalingPolicyArgs) ToFleetScalingPolicyOutputWithContext(ctx context.Context) FleetScalingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetScalingPolicyOutput)
+}
+
+func (i FleetScalingPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[FleetScalingPolicy] {
+	return pulumix.Output[FleetScalingPolicy]{
+		OutputState: i.ToFleetScalingPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
+// FleetScalingPolicyArrayInput is an input type that accepts FleetScalingPolicyArray and FleetScalingPolicyArrayOutput values.
+// You can construct a concrete instance of `FleetScalingPolicyArrayInput` via:
+//
+//	FleetScalingPolicyArray{ FleetScalingPolicyArgs{...} }
+type FleetScalingPolicyArrayInput interface {
+	pulumi.Input
+
+	ToFleetScalingPolicyArrayOutput() FleetScalingPolicyArrayOutput
+	ToFleetScalingPolicyArrayOutputWithContext(context.Context) FleetScalingPolicyArrayOutput
+}
+
+type FleetScalingPolicyArray []FleetScalingPolicyInput
+
+func (FleetScalingPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetScalingPolicy)(nil)).Elem()
+}
+
+func (i FleetScalingPolicyArray) ToFleetScalingPolicyArrayOutput() FleetScalingPolicyArrayOutput {
+	return i.ToFleetScalingPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i FleetScalingPolicyArray) ToFleetScalingPolicyArrayOutputWithContext(ctx context.Context) FleetScalingPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetScalingPolicyArrayOutput)
+}
+
+func (i FleetScalingPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]FleetScalingPolicy] {
+	return pulumix.Output[[]FleetScalingPolicy]{
+		OutputState: i.ToFleetScalingPolicyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.
+type FleetScalingPolicyOutput struct{ *pulumi.OutputState }
+
+func (FleetScalingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetScalingPolicy)(nil)).Elem()
+}
+
+func (o FleetScalingPolicyOutput) ToFleetScalingPolicyOutput() FleetScalingPolicyOutput {
+	return o
+}
+
+func (o FleetScalingPolicyOutput) ToFleetScalingPolicyOutputWithContext(ctx context.Context) FleetScalingPolicyOutput {
+	return o
+}
+
+func (o FleetScalingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[FleetScalingPolicy] {
+	return pulumix.Output[FleetScalingPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Comparison operator to use when measuring a metric against the threshold value.
+func (o FleetScalingPolicyOutput) ComparisonOperator() FleetScalingPolicyComparisonOperatorPtrOutput {
+	return o.ApplyT(func(v FleetScalingPolicy) *FleetScalingPolicyComparisonOperator { return v.ComparisonOperator }).(FleetScalingPolicyComparisonOperatorPtrOutput)
+}
+
+// Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
+func (o FleetScalingPolicyOutput) EvaluationPeriods() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetScalingPolicy) *int { return v.EvaluationPeriods }).(pulumi.IntPtrOutput)
+}
+
+func (o FleetScalingPolicyOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetScalingPolicy) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+func (o FleetScalingPolicyOutput) MetricName() FleetScalingPolicyMetricNameOutput {
+	return o.ApplyT(func(v FleetScalingPolicy) FleetScalingPolicyMetricName { return v.MetricName }).(FleetScalingPolicyMetricNameOutput)
+}
+
+// A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
+func (o FleetScalingPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetScalingPolicy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
+func (o FleetScalingPolicyOutput) PolicyType() FleetScalingPolicyPolicyTypePtrOutput {
+	return o.ApplyT(func(v FleetScalingPolicy) *FleetScalingPolicyPolicyType { return v.PolicyType }).(FleetScalingPolicyPolicyTypePtrOutput)
+}
+
+// Amount of adjustment to make, based on the scaling adjustment type.
+func (o FleetScalingPolicyOutput) ScalingAdjustment() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetScalingPolicy) *int { return v.ScalingAdjustment }).(pulumi.IntPtrOutput)
+}
+
+// The type of adjustment to make to a fleet's instance count.
+func (o FleetScalingPolicyOutput) ScalingAdjustmentType() FleetScalingPolicyScalingAdjustmentTypePtrOutput {
+	return o.ApplyT(func(v FleetScalingPolicy) *FleetScalingPolicyScalingAdjustmentType { return v.ScalingAdjustmentType }).(FleetScalingPolicyScalingAdjustmentTypePtrOutput)
+}
+
+// Current status of the scaling policy. The scaling policy can be in force only when in an ACTIVE status. Scaling policies can be suspended for individual fleets. If the policy is suspended for a fleet, the policy status does not change.
+func (o FleetScalingPolicyOutput) Status() FleetScalingPolicyStatusPtrOutput {
+	return o.ApplyT(func(v FleetScalingPolicy) *FleetScalingPolicyStatus { return v.Status }).(FleetScalingPolicyStatusPtrOutput)
+}
+
+// An object that contains settings for a target-based scaling policy.
+func (o FleetScalingPolicyOutput) TargetConfiguration() FleetTargetConfigurationPtrOutput {
+	return o.ApplyT(func(v FleetScalingPolicy) *FleetTargetConfiguration { return v.TargetConfiguration }).(FleetTargetConfigurationPtrOutput)
+}
+
+// Metric value used to trigger a scaling event.
+func (o FleetScalingPolicyOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FleetScalingPolicy) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
+}
+
+// The current status of the fleet's scaling policies in a requested fleet location. The status PENDING_UPDATE indicates that an update was requested for the fleet but has not yet been completed for the location.
+func (o FleetScalingPolicyOutput) UpdateStatus() FleetScalingPolicyUpdateStatusPtrOutput {
+	return o.ApplyT(func(v FleetScalingPolicy) *FleetScalingPolicyUpdateStatus { return v.UpdateStatus }).(FleetScalingPolicyUpdateStatusPtrOutput)
+}
+
+type FleetScalingPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (FleetScalingPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetScalingPolicy)(nil)).Elem()
+}
+
+func (o FleetScalingPolicyArrayOutput) ToFleetScalingPolicyArrayOutput() FleetScalingPolicyArrayOutput {
+	return o
+}
+
+func (o FleetScalingPolicyArrayOutput) ToFleetScalingPolicyArrayOutputWithContext(ctx context.Context) FleetScalingPolicyArrayOutput {
+	return o
+}
+
+func (o FleetScalingPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FleetScalingPolicy] {
+	return pulumix.Output[[]FleetScalingPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FleetScalingPolicyArrayOutput) Index(i pulumi.IntInput) FleetScalingPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetScalingPolicy {
+		return vs[0].([]FleetScalingPolicy)[vs[1].(int)]
+	}).(FleetScalingPolicyOutput)
+}
+
 // A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's RuntimeConfiguration.
 type FleetServerProcess struct {
 	// The number of server processes that use this configuration to run concurrently on an instance.
@@ -1735,6 +1955,170 @@ func (o FleetServerProcessArrayOutput) Index(i pulumi.IntInput) FleetServerProce
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetServerProcess {
 		return vs[0].([]FleetServerProcess)[vs[1].(int)]
 	}).(FleetServerProcessOutput)
+}
+
+// Settings for a target-based scaling policy. A target-based policy tracks a particular fleet metric specifies a target value for the metric. As player usage changes, the policy triggers Amazon GameLift to adjust capacity so that the metric returns to the target value. The target configuration specifies settings as needed for the target based policy, including the target value.
+type FleetTargetConfiguration struct {
+	// Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet's buffer (the percent of capacity that should be idle and ready for new game sessions).
+	TargetValue float64 `pulumi:"targetValue"`
+}
+
+// FleetTargetConfigurationInput is an input type that accepts FleetTargetConfigurationArgs and FleetTargetConfigurationOutput values.
+// You can construct a concrete instance of `FleetTargetConfigurationInput` via:
+//
+//	FleetTargetConfigurationArgs{...}
+type FleetTargetConfigurationInput interface {
+	pulumi.Input
+
+	ToFleetTargetConfigurationOutput() FleetTargetConfigurationOutput
+	ToFleetTargetConfigurationOutputWithContext(context.Context) FleetTargetConfigurationOutput
+}
+
+// Settings for a target-based scaling policy. A target-based policy tracks a particular fleet metric specifies a target value for the metric. As player usage changes, the policy triggers Amazon GameLift to adjust capacity so that the metric returns to the target value. The target configuration specifies settings as needed for the target based policy, including the target value.
+type FleetTargetConfigurationArgs struct {
+	// Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet's buffer (the percent of capacity that should be idle and ready for new game sessions).
+	TargetValue pulumi.Float64Input `pulumi:"targetValue"`
+}
+
+func (FleetTargetConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetTargetConfiguration)(nil)).Elem()
+}
+
+func (i FleetTargetConfigurationArgs) ToFleetTargetConfigurationOutput() FleetTargetConfigurationOutput {
+	return i.ToFleetTargetConfigurationOutputWithContext(context.Background())
+}
+
+func (i FleetTargetConfigurationArgs) ToFleetTargetConfigurationOutputWithContext(ctx context.Context) FleetTargetConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetTargetConfigurationOutput)
+}
+
+func (i FleetTargetConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FleetTargetConfiguration] {
+	return pulumix.Output[FleetTargetConfiguration]{
+		OutputState: i.ToFleetTargetConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i FleetTargetConfigurationArgs) ToFleetTargetConfigurationPtrOutput() FleetTargetConfigurationPtrOutput {
+	return i.ToFleetTargetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FleetTargetConfigurationArgs) ToFleetTargetConfigurationPtrOutputWithContext(ctx context.Context) FleetTargetConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetTargetConfigurationOutput).ToFleetTargetConfigurationPtrOutputWithContext(ctx)
+}
+
+// FleetTargetConfigurationPtrInput is an input type that accepts FleetTargetConfigurationArgs, FleetTargetConfigurationPtr and FleetTargetConfigurationPtrOutput values.
+// You can construct a concrete instance of `FleetTargetConfigurationPtrInput` via:
+//
+//	        FleetTargetConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FleetTargetConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFleetTargetConfigurationPtrOutput() FleetTargetConfigurationPtrOutput
+	ToFleetTargetConfigurationPtrOutputWithContext(context.Context) FleetTargetConfigurationPtrOutput
+}
+
+type fleetTargetConfigurationPtrType FleetTargetConfigurationArgs
+
+func FleetTargetConfigurationPtr(v *FleetTargetConfigurationArgs) FleetTargetConfigurationPtrInput {
+	return (*fleetTargetConfigurationPtrType)(v)
+}
+
+func (*fleetTargetConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetTargetConfiguration)(nil)).Elem()
+}
+
+func (i *fleetTargetConfigurationPtrType) ToFleetTargetConfigurationPtrOutput() FleetTargetConfigurationPtrOutput {
+	return i.ToFleetTargetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetTargetConfigurationPtrType) ToFleetTargetConfigurationPtrOutputWithContext(ctx context.Context) FleetTargetConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetTargetConfigurationPtrOutput)
+}
+
+func (i *fleetTargetConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*FleetTargetConfiguration] {
+	return pulumix.Output[*FleetTargetConfiguration]{
+		OutputState: i.ToFleetTargetConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Settings for a target-based scaling policy. A target-based policy tracks a particular fleet metric specifies a target value for the metric. As player usage changes, the policy triggers Amazon GameLift to adjust capacity so that the metric returns to the target value. The target configuration specifies settings as needed for the target based policy, including the target value.
+type FleetTargetConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FleetTargetConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetTargetConfiguration)(nil)).Elem()
+}
+
+func (o FleetTargetConfigurationOutput) ToFleetTargetConfigurationOutput() FleetTargetConfigurationOutput {
+	return o
+}
+
+func (o FleetTargetConfigurationOutput) ToFleetTargetConfigurationOutputWithContext(ctx context.Context) FleetTargetConfigurationOutput {
+	return o
+}
+
+func (o FleetTargetConfigurationOutput) ToFleetTargetConfigurationPtrOutput() FleetTargetConfigurationPtrOutput {
+	return o.ToFleetTargetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FleetTargetConfigurationOutput) ToFleetTargetConfigurationPtrOutputWithContext(ctx context.Context) FleetTargetConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetTargetConfiguration) *FleetTargetConfiguration {
+		return &v
+	}).(FleetTargetConfigurationPtrOutput)
+}
+
+func (o FleetTargetConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FleetTargetConfiguration] {
+	return pulumix.Output[FleetTargetConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet's buffer (the percent of capacity that should be idle and ready for new game sessions).
+func (o FleetTargetConfigurationOutput) TargetValue() pulumi.Float64Output {
+	return o.ApplyT(func(v FleetTargetConfiguration) float64 { return v.TargetValue }).(pulumi.Float64Output)
+}
+
+type FleetTargetConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetTargetConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetTargetConfiguration)(nil)).Elem()
+}
+
+func (o FleetTargetConfigurationPtrOutput) ToFleetTargetConfigurationPtrOutput() FleetTargetConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetTargetConfigurationPtrOutput) ToFleetTargetConfigurationPtrOutputWithContext(ctx context.Context) FleetTargetConfigurationPtrOutput {
+	return o
+}
+
+func (o FleetTargetConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetTargetConfiguration] {
+	return pulumix.Output[*FleetTargetConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FleetTargetConfigurationPtrOutput) Elem() FleetTargetConfigurationOutput {
+	return o.ApplyT(func(v *FleetTargetConfiguration) FleetTargetConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FleetTargetConfiguration
+		return ret
+	}).(FleetTargetConfigurationOutput)
+}
+
+// Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet's buffer (the percent of capacity that should be idle and ready for new game sessions).
+func (o FleetTargetConfigurationPtrOutput) TargetValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FleetTargetConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetValue
+	}).(pulumi.Float64PtrOutput)
 }
 
 // Configuration settings to define a scaling policy for the Auto Scaling group that is optimized for game hosting
@@ -2521,6 +2905,7 @@ func (o GameServerGroupTargetTrackingConfigurationPtrOutput) TargetValue() pulum
 	}).(pulumi.Float64PtrOutput)
 }
 
+// A fleet or alias designated in a game session queue.
 type GameSessionQueueDestination struct {
 	DestinationArn *string `pulumi:"destinationArn"`
 }
@@ -2536,6 +2921,7 @@ type GameSessionQueueDestinationInput interface {
 	ToGameSessionQueueDestinationOutputWithContext(context.Context) GameSessionQueueDestinationOutput
 }
 
+// A fleet or alias designated in a game session queue.
 type GameSessionQueueDestinationArgs struct {
 	DestinationArn pulumi.StringPtrInput `pulumi:"destinationArn"`
 }
@@ -2589,6 +2975,7 @@ func (i GameSessionQueueDestinationArray) ToOutput(ctx context.Context) pulumix.
 	}
 }
 
+// A fleet or alias designated in a game session queue.
 type GameSessionQueueDestinationOutput struct{ *pulumi.OutputState }
 
 func (GameSessionQueueDestinationOutput) ElementType() reflect.Type {
@@ -2796,9 +3183,12 @@ func (o GameSessionQueueFilterConfigurationPtrOutput) AllowedLocations() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
+// Sets a latency cap for individual players when placing a game session.
 type GameSessionQueuePlayerLatencyPolicy struct {
+	// The maximum latency value that is allowed for any player, in milliseconds. All policies must have a value set for this property.
 	MaximumIndividualPlayerLatencyMilliseconds *int `pulumi:"maximumIndividualPlayerLatencyMilliseconds"`
-	PolicyDurationSeconds                      *int `pulumi:"policyDurationSeconds"`
+	// The length of time, in seconds, that the policy is enforced while placing a new game session.
+	PolicyDurationSeconds *int `pulumi:"policyDurationSeconds"`
 }
 
 // GameSessionQueuePlayerLatencyPolicyInput is an input type that accepts GameSessionQueuePlayerLatencyPolicyArgs and GameSessionQueuePlayerLatencyPolicyOutput values.
@@ -2812,9 +3202,12 @@ type GameSessionQueuePlayerLatencyPolicyInput interface {
 	ToGameSessionQueuePlayerLatencyPolicyOutputWithContext(context.Context) GameSessionQueuePlayerLatencyPolicyOutput
 }
 
+// Sets a latency cap for individual players when placing a game session.
 type GameSessionQueuePlayerLatencyPolicyArgs struct {
+	// The maximum latency value that is allowed for any player, in milliseconds. All policies must have a value set for this property.
 	MaximumIndividualPlayerLatencyMilliseconds pulumi.IntPtrInput `pulumi:"maximumIndividualPlayerLatencyMilliseconds"`
-	PolicyDurationSeconds                      pulumi.IntPtrInput `pulumi:"policyDurationSeconds"`
+	// The length of time, in seconds, that the policy is enforced while placing a new game session.
+	PolicyDurationSeconds pulumi.IntPtrInput `pulumi:"policyDurationSeconds"`
 }
 
 func (GameSessionQueuePlayerLatencyPolicyArgs) ElementType() reflect.Type {
@@ -2866,6 +3259,7 @@ func (i GameSessionQueuePlayerLatencyPolicyArray) ToOutput(ctx context.Context) 
 	}
 }
 
+// Sets a latency cap for individual players when placing a game session.
 type GameSessionQueuePlayerLatencyPolicyOutput struct{ *pulumi.OutputState }
 
 func (GameSessionQueuePlayerLatencyPolicyOutput) ElementType() reflect.Type {
@@ -2886,10 +3280,12 @@ func (o GameSessionQueuePlayerLatencyPolicyOutput) ToOutput(ctx context.Context)
 	}
 }
 
+// The maximum latency value that is allowed for any player, in milliseconds. All policies must have a value set for this property.
 func (o GameSessionQueuePlayerLatencyPolicyOutput) MaximumIndividualPlayerLatencyMilliseconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GameSessionQueuePlayerLatencyPolicy) *int { return v.MaximumIndividualPlayerLatencyMilliseconds }).(pulumi.IntPtrOutput)
 }
 
+// The length of time, in seconds, that the policy is enforced while placing a new game session.
 func (o GameSessionQueuePlayerLatencyPolicyOutput) PolicyDurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GameSessionQueuePlayerLatencyPolicy) *int { return v.PolicyDurationSeconds }).(pulumi.IntPtrOutput)
 }
@@ -2921,8 +3317,8 @@ func (o GameSessionQueuePlayerLatencyPolicyArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GameSessionQueuePriorityConfiguration struct {
-	LocationOrder []string `pulumi:"locationOrder"`
-	PriorityOrder []string `pulumi:"priorityOrder"`
+	LocationOrder []string                            `pulumi:"locationOrder"`
+	PriorityOrder []GameSessionQueuePriorityOrderItem `pulumi:"priorityOrder"`
 }
 
 // GameSessionQueuePriorityConfigurationInput is an input type that accepts GameSessionQueuePriorityConfigurationArgs and GameSessionQueuePriorityConfigurationOutput values.
@@ -2937,8 +3333,8 @@ type GameSessionQueuePriorityConfigurationInput interface {
 }
 
 type GameSessionQueuePriorityConfigurationArgs struct {
-	LocationOrder pulumi.StringArrayInput `pulumi:"locationOrder"`
-	PriorityOrder pulumi.StringArrayInput `pulumi:"priorityOrder"`
+	LocationOrder pulumi.StringArrayInput                     `pulumi:"locationOrder"`
+	PriorityOrder GameSessionQueuePriorityOrderItemArrayInput `pulumi:"priorityOrder"`
 }
 
 func (GameSessionQueuePriorityConfigurationArgs) ElementType() reflect.Type {
@@ -3040,8 +3436,10 @@ func (o GameSessionQueuePriorityConfigurationOutput) LocationOrder() pulumi.Stri
 	return o.ApplyT(func(v GameSessionQueuePriorityConfiguration) []string { return v.LocationOrder }).(pulumi.StringArrayOutput)
 }
 
-func (o GameSessionQueuePriorityConfigurationOutput) PriorityOrder() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GameSessionQueuePriorityConfiguration) []string { return v.PriorityOrder }).(pulumi.StringArrayOutput)
+func (o GameSessionQueuePriorityConfigurationOutput) PriorityOrder() GameSessionQueuePriorityOrderItemArrayOutput {
+	return o.ApplyT(func(v GameSessionQueuePriorityConfiguration) []GameSessionQueuePriorityOrderItem {
+		return v.PriorityOrder
+	}).(GameSessionQueuePriorityOrderItemArrayOutput)
 }
 
 type GameSessionQueuePriorityConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -3083,17 +3481,20 @@ func (o GameSessionQueuePriorityConfigurationPtrOutput) LocationOrder() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-func (o GameSessionQueuePriorityConfigurationPtrOutput) PriorityOrder() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *GameSessionQueuePriorityConfiguration) []string {
+func (o GameSessionQueuePriorityConfigurationPtrOutput) PriorityOrder() GameSessionQueuePriorityOrderItemArrayOutput {
+	return o.ApplyT(func(v *GameSessionQueuePriorityConfiguration) []GameSessionQueuePriorityOrderItem {
 		if v == nil {
 			return nil
 		}
 		return v.PriorityOrder
-	}).(pulumi.StringArrayOutput)
+	}).(GameSessionQueuePriorityOrderItemArrayOutput)
 }
 
+// A key-value pair to associate with a resource.
 type GameSessionQueueTag struct {
-	Key   string `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
 	Value string `pulumi:"value"`
 }
 
@@ -3108,8 +3509,11 @@ type GameSessionQueueTagInput interface {
 	ToGameSessionQueueTagOutputWithContext(context.Context) GameSessionQueueTagOutput
 }
 
+// A key-value pair to associate with a resource.
 type GameSessionQueueTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -3162,6 +3566,7 @@ func (i GameSessionQueueTagArray) ToOutput(ctx context.Context) pulumix.Output[[
 	}
 }
 
+// A key-value pair to associate with a resource.
 type GameSessionQueueTagOutput struct{ *pulumi.OutputState }
 
 func (GameSessionQueueTagOutput) ElementType() reflect.Type {
@@ -3182,10 +3587,12 @@ func (o GameSessionQueueTagOutput) ToOutput(ctx context.Context) pulumix.Output[
 	}
 }
 
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
 func (o GameSessionQueueTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v GameSessionQueueTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
 func (o GameSessionQueueTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GameSessionQueueTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3349,8 +3756,11 @@ func (o LocationTagArrayOutput) Index(i pulumi.IntInput) LocationTagOutput {
 	}).(LocationTagOutput)
 }
 
+// A key-value pair that contains information about a game session.
 type MatchmakingConfigurationGameProperty struct {
-	Key   string `pulumi:"key"`
+	// The game property identifier.
+	Key string `pulumi:"key"`
+	// The game property value.
 	Value string `pulumi:"value"`
 }
 
@@ -3365,8 +3775,11 @@ type MatchmakingConfigurationGamePropertyInput interface {
 	ToMatchmakingConfigurationGamePropertyOutputWithContext(context.Context) MatchmakingConfigurationGamePropertyOutput
 }
 
+// A key-value pair that contains information about a game session.
 type MatchmakingConfigurationGamePropertyArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The game property identifier.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The game property value.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -3419,6 +3832,7 @@ func (i MatchmakingConfigurationGamePropertyArray) ToOutput(ctx context.Context)
 	}
 }
 
+// A key-value pair that contains information about a game session.
 type MatchmakingConfigurationGamePropertyOutput struct{ *pulumi.OutputState }
 
 func (MatchmakingConfigurationGamePropertyOutput) ElementType() reflect.Type {
@@ -3439,10 +3853,12 @@ func (o MatchmakingConfigurationGamePropertyOutput) ToOutput(ctx context.Context
 	}
 }
 
+// The game property identifier.
 func (o MatchmakingConfigurationGamePropertyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v MatchmakingConfigurationGameProperty) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The game property value.
 func (o MatchmakingConfigurationGamePropertyOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v MatchmakingConfigurationGameProperty) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3473,8 +3889,11 @@ func (o MatchmakingConfigurationGamePropertyArrayOutput) Index(i pulumi.IntInput
 	}).(MatchmakingConfigurationGamePropertyOutput)
 }
 
+// A key-value pair to associate with a resource.
 type MatchmakingConfigurationTag struct {
-	Key   string `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
 	Value string `pulumi:"value"`
 }
 
@@ -3489,8 +3908,11 @@ type MatchmakingConfigurationTagInput interface {
 	ToMatchmakingConfigurationTagOutputWithContext(context.Context) MatchmakingConfigurationTagOutput
 }
 
+// A key-value pair to associate with a resource.
 type MatchmakingConfigurationTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -3543,6 +3965,7 @@ func (i MatchmakingConfigurationTagArray) ToOutput(ctx context.Context) pulumix.
 	}
 }
 
+// A key-value pair to associate with a resource.
 type MatchmakingConfigurationTagOutput struct{ *pulumi.OutputState }
 
 func (MatchmakingConfigurationTagOutput) ElementType() reflect.Type {
@@ -3563,10 +3986,12 @@ func (o MatchmakingConfigurationTagOutput) ToOutput(ctx context.Context) pulumix
 	}
 }
 
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
 func (o MatchmakingConfigurationTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v MatchmakingConfigurationTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
 func (o MatchmakingConfigurationTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v MatchmakingConfigurationTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3597,8 +4022,11 @@ func (o MatchmakingConfigurationTagArrayOutput) Index(i pulumi.IntInput) Matchma
 	}).(MatchmakingConfigurationTagOutput)
 }
 
+// A key-value pair to associate with a resource.
 type MatchmakingRuleSetTag struct {
-	Key   string `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
 	Value string `pulumi:"value"`
 }
 
@@ -3613,8 +4041,11 @@ type MatchmakingRuleSetTagInput interface {
 	ToMatchmakingRuleSetTagOutputWithContext(context.Context) MatchmakingRuleSetTagOutput
 }
 
+// A key-value pair to associate with a resource.
 type MatchmakingRuleSetTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -3667,6 +4098,7 @@ func (i MatchmakingRuleSetTagArray) ToOutput(ctx context.Context) pulumix.Output
 	}
 }
 
+// A key-value pair to associate with a resource.
 type MatchmakingRuleSetTagOutput struct{ *pulumi.OutputState }
 
 func (MatchmakingRuleSetTagOutput) ElementType() reflect.Type {
@@ -3687,10 +4119,12 @@ func (o MatchmakingRuleSetTagOutput) ToOutput(ctx context.Context) pulumix.Outpu
 	}
 }
 
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
 func (o MatchmakingRuleSetTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v MatchmakingRuleSetTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
 func (o MatchmakingRuleSetTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v MatchmakingRuleSetTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3722,10 +4156,14 @@ func (o MatchmakingRuleSetTagArrayOutput) Index(i pulumi.IntInput) MatchmakingRu
 }
 
 type ScriptS3Location struct {
-	Bucket        string  `pulumi:"bucket"`
-	Key           string  `pulumi:"key"`
+	// An Amazon S3 bucket identifier. This is the name of the S3 bucket.
+	Bucket string `pulumi:"bucket"`
+	// The name of the zip file that contains the script files.
+	Key string `pulumi:"key"`
+	// The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter.
 	ObjectVersion *string `pulumi:"objectVersion"`
-	RoleArn       string  `pulumi:"roleArn"`
+	// The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+	RoleArn string `pulumi:"roleArn"`
 }
 
 // ScriptS3LocationInput is an input type that accepts ScriptS3LocationArgs and ScriptS3LocationOutput values.
@@ -3740,10 +4178,14 @@ type ScriptS3LocationInput interface {
 }
 
 type ScriptS3LocationArgs struct {
-	Bucket        pulumi.StringInput    `pulumi:"bucket"`
-	Key           pulumi.StringInput    `pulumi:"key"`
+	// An Amazon S3 bucket identifier. This is the name of the S3 bucket.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The name of the zip file that contains the script files.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter.
 	ObjectVersion pulumi.StringPtrInput `pulumi:"objectVersion"`
-	RoleArn       pulumi.StringInput    `pulumi:"roleArn"`
+	// The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
 func (ScriptS3LocationArgs) ElementType() reflect.Type {
@@ -3784,18 +4226,22 @@ func (o ScriptS3LocationOutput) ToOutput(ctx context.Context) pulumix.Output[Scr
 	}
 }
 
+// An Amazon S3 bucket identifier. This is the name of the S3 bucket.
 func (o ScriptS3LocationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v ScriptS3Location) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// The name of the zip file that contains the script files.
 func (o ScriptS3LocationOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ScriptS3Location) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter.
 func (o ScriptS3LocationOutput) ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScriptS3Location) *string { return v.ObjectVersion }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket.
 func (o ScriptS3LocationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ScriptS3Location) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -3830,6 +4276,7 @@ func (o ScriptS3LocationPtrOutput) Elem() ScriptS3LocationOutput {
 	}).(ScriptS3LocationOutput)
 }
 
+// An Amazon S3 bucket identifier. This is the name of the S3 bucket.
 func (o ScriptS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScriptS3Location) *string {
 		if v == nil {
@@ -3839,6 +4286,7 @@ func (o ScriptS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The name of the zip file that contains the script files.
 func (o ScriptS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScriptS3Location) *string {
 		if v == nil {
@@ -3848,6 +4296,7 @@ func (o ScriptS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter.
 func (o ScriptS3LocationPtrOutput) ObjectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScriptS3Location) *string {
 		if v == nil {
@@ -3857,6 +4306,7 @@ func (o ScriptS3LocationPtrOutput) ObjectVersion() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket.
 func (o ScriptS3LocationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScriptS3Location) *string {
 		if v == nil {
@@ -3866,8 +4316,11 @@ func (o ScriptS3LocationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A key-value pair to associate with a resource.
 type ScriptTag struct {
-	Key   string `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
 	Value string `pulumi:"value"`
 }
 
@@ -3882,8 +4335,11 @@ type ScriptTagInput interface {
 	ToScriptTagOutputWithContext(context.Context) ScriptTagOutput
 }
 
+// A key-value pair to associate with a resource.
 type ScriptTagArgs struct {
-	Key   pulumi.StringInput `pulumi:"key"`
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -3936,6 +4392,7 @@ func (i ScriptTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ScriptTag
 	}
 }
 
+// A key-value pair to associate with a resource.
 type ScriptTagOutput struct{ *pulumi.OutputState }
 
 func (ScriptTagOutput) ElementType() reflect.Type {
@@ -3956,10 +4413,12 @@ func (o ScriptTagOutput) ToOutput(ctx context.Context) pulumix.Output[ScriptTag]
 	}
 }
 
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
 func (o ScriptTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ScriptTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
 func (o ScriptTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ScriptTag) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -4008,8 +4467,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetResourceCreationLimitPolicyPtrInput)(nil)).Elem(), FleetResourceCreationLimitPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetRuntimeConfigurationInput)(nil)).Elem(), FleetRuntimeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetRuntimeConfigurationPtrInput)(nil)).Elem(), FleetRuntimeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingPolicyInput)(nil)).Elem(), FleetScalingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingPolicyArrayInput)(nil)).Elem(), FleetScalingPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetServerProcessInput)(nil)).Elem(), FleetServerProcessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetServerProcessArrayInput)(nil)).Elem(), FleetServerProcessArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetTargetConfigurationInput)(nil)).Elem(), FleetTargetConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetTargetConfigurationPtrInput)(nil)).Elem(), FleetTargetConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupAutoScalingPolicyInput)(nil)).Elem(), GameServerGroupAutoScalingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupAutoScalingPolicyPtrInput)(nil)).Elem(), GameServerGroupAutoScalingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupInstanceDefinitionInput)(nil)).Elem(), GameServerGroupInstanceDefinitionArgs{})
@@ -4059,8 +4522,12 @@ func init() {
 	pulumi.RegisterOutputType(FleetResourceCreationLimitPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FleetRuntimeConfigurationOutput{})
 	pulumi.RegisterOutputType(FleetRuntimeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FleetScalingPolicyOutput{})
+	pulumi.RegisterOutputType(FleetScalingPolicyArrayOutput{})
 	pulumi.RegisterOutputType(FleetServerProcessOutput{})
 	pulumi.RegisterOutputType(FleetServerProcessArrayOutput{})
+	pulumi.RegisterOutputType(FleetTargetConfigurationOutput{})
+	pulumi.RegisterOutputType(FleetTargetConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GameServerGroupAutoScalingPolicyOutput{})
 	pulumi.RegisterOutputType(GameServerGroupAutoScalingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(GameServerGroupInstanceDefinitionOutput{})

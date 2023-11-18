@@ -12,13 +12,15 @@ namespace Pulumi.AwsNative.FSx
     public static class GetDataRepositoryAssociation
     {
         /// <summary>
-        /// Resource Type definition for AWS::FSx::DataRepositoryAssociation
+        /// Creates an Amazon FSx for Lustre data repository association (DRA). A data repository association is a link between a directory on the file system and an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository associations on a file system. Data repository associations are supported on all FSx for Lustre 2.12 and newer file systems, excluding ``scratch_1`` deployment type. 
+        ///  Each data repository association must have a unique Amazon FSx file system directory and a unique S3 bucket or prefix associated with it. You can configure a data repository association for automatic import only, for automatic export only, or for both. To learn more about linking a data repository to your file system, see [Linking your file system to an S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html).
         /// </summary>
         public static Task<GetDataRepositoryAssociationResult> InvokeAsync(GetDataRepositoryAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataRepositoryAssociationResult>("aws-native:fsx:getDataRepositoryAssociation", args ?? new GetDataRepositoryAssociationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::FSx::DataRepositoryAssociation
+        /// Creates an Amazon FSx for Lustre data repository association (DRA). A data repository association is a link between a directory on the file system and an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository associations on a file system. Data repository associations are supported on all FSx for Lustre 2.12 and newer file systems, excluding ``scratch_1`` deployment type. 
+        ///  Each data repository association must have a unique Amazon FSx file system directory and a unique S3 bucket or prefix associated with it. You can configure a data repository association for automatic import only, for automatic export only, or for both. To learn more about linking a data repository to your file system, see [Linking your file system to an S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html).
         /// </summary>
         public static Output<GetDataRepositoryAssociationResult> Invoke(GetDataRepositoryAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataRepositoryAssociationResult>("aws-native:fsx:getDataRepositoryAssociation", args ?? new GetDataRepositoryAssociationInvokeArgs(), options.WithDefaults());
@@ -27,9 +29,6 @@ namespace Pulumi.AwsNative.FSx
 
     public sealed class GetDataRepositoryAssociationArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The system-generated, unique ID of the data repository association.
-        /// </summary>
         [Input("associationId", required: true)]
         public string AssociationId { get; set; } = null!;
 
@@ -41,9 +40,6 @@ namespace Pulumi.AwsNative.FSx
 
     public sealed class GetDataRepositoryAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The system-generated, unique ID of the data repository association.
-        /// </summary>
         [Input("associationId", required: true)]
         public Input<string> AssociationId { get; set; } = null!;
 
@@ -57,24 +53,20 @@ namespace Pulumi.AwsNative.FSx
     [OutputType]
     public sealed class GetDataRepositoryAssociationResult
     {
-        /// <summary>
-        /// The system-generated, unique ID of the data repository association.
-        /// </summary>
         public readonly string? AssociationId;
         /// <summary>
-        /// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
+        /// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system or cache.
+        ///  The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
         /// </summary>
         public readonly int? ImportedFileChunkSize;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services resources. We require an ARN when you need to specify a resource unambiguously across all of Amazon Web Services. For more information, see Amazon Resource Names (ARNs) in the Amazon Web Services General Reference.
-        /// </summary>
         public readonly string? ResourceArn;
         /// <summary>
         /// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
         /// </summary>
         public readonly Outputs.DataRepositoryAssociationS3? S3;
         /// <summary>
-        /// A list of Tag values, with a maximum of 50 elements.
+        /// An array of key-value pairs to apply to this resource.
+        ///  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         /// </summary>
         public readonly ImmutableArray<Outputs.DataRepositoryAssociationTag> Tags;
 

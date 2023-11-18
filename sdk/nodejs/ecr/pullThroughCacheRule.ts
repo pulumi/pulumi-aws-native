@@ -35,9 +35,17 @@ export class PullThroughCacheRule extends pulumi.CustomResource {
     }
 
     /**
+     * The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that identifies the credentials to authenticate to the upstream registry.
+     */
+    public readonly credentialArn!: pulumi.Output<string | undefined>;
+    /**
      * The ECRRepositoryPrefix is a custom alias for upstream registry url.
      */
     public readonly ecrRepositoryPrefix!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the upstream registry.
+     */
+    public readonly upstreamRegistry!: pulumi.Output<string | undefined>;
     /**
      * The upstreamRegistryUrl is the endpoint of upstream registry url of the public repository to be cached
      */
@@ -54,14 +62,18 @@ export class PullThroughCacheRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["credentialArn"] = args ? args.credentialArn : undefined;
             resourceInputs["ecrRepositoryPrefix"] = args ? args.ecrRepositoryPrefix : undefined;
+            resourceInputs["upstreamRegistry"] = args ? args.upstreamRegistry : undefined;
             resourceInputs["upstreamRegistryUrl"] = args ? args.upstreamRegistryUrl : undefined;
         } else {
+            resourceInputs["credentialArn"] = undefined /*out*/;
             resourceInputs["ecrRepositoryPrefix"] = undefined /*out*/;
+            resourceInputs["upstreamRegistry"] = undefined /*out*/;
             resourceInputs["upstreamRegistryUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["ecrRepositoryPrefix", "upstreamRegistryUrl"] };
+        const replaceOnChanges = { replaceOnChanges: ["credentialArn", "ecrRepositoryPrefix", "upstreamRegistry", "upstreamRegistryUrl"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PullThroughCacheRule.__pulumiType, name, resourceInputs, opts);
     }
@@ -72,9 +84,17 @@ export class PullThroughCacheRule extends pulumi.CustomResource {
  */
 export interface PullThroughCacheRuleArgs {
     /**
+     * The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that identifies the credentials to authenticate to the upstream registry.
+     */
+    credentialArn?: pulumi.Input<string>;
+    /**
      * The ECRRepositoryPrefix is a custom alias for upstream registry url.
      */
     ecrRepositoryPrefix?: pulumi.Input<string>;
+    /**
+     * The name of the upstream registry.
+     */
+    upstreamRegistry?: pulumi.Input<string>;
     /**
      * The upstreamRegistryUrl is the endpoint of upstream registry url of the public repository to be cached
      */

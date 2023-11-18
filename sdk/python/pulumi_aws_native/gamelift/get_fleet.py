@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFleetResult:
-    def __init__(__self__, anywhere_configuration=None, description=None, desired_ec2_instances=None, ec2_inbound_permissions=None, fleet_id=None, locations=None, max_size=None, metric_groups=None, min_size=None, name=None, new_game_session_protection_policy=None, resource_creation_limit_policy=None, runtime_configuration=None):
+    def __init__(__self__, anywhere_configuration=None, description=None, desired_ec2_instances=None, ec2_inbound_permissions=None, fleet_id=None, locations=None, max_size=None, metric_groups=None, min_size=None, name=None, new_game_session_protection_policy=None, resource_creation_limit_policy=None, runtime_configuration=None, scaling_policies=None):
         if anywhere_configuration and not isinstance(anywhere_configuration, dict):
             raise TypeError("Expected argument 'anywhere_configuration' to be a dict")
         pulumi.set(__self__, "anywhere_configuration", anywhere_configuration)
@@ -60,6 +60,9 @@ class GetFleetResult:
         if runtime_configuration and not isinstance(runtime_configuration, dict):
             raise TypeError("Expected argument 'runtime_configuration' to be a dict")
         pulumi.set(__self__, "runtime_configuration", runtime_configuration)
+        if scaling_policies and not isinstance(scaling_policies, list):
+            raise TypeError("Expected argument 'scaling_policies' to be a list")
+        pulumi.set(__self__, "scaling_policies", scaling_policies)
 
     @property
     @pulumi.getter(name="anywhereConfiguration")
@@ -164,6 +167,14 @@ class GetFleetResult:
         """
         return pulumi.get(self, "runtime_configuration")
 
+    @property
+    @pulumi.getter(name="scalingPolicies")
+    def scaling_policies(self) -> Optional[Sequence['outputs.FleetScalingPolicy']]:
+        """
+        A list of rules that control how a fleet is scaled.
+        """
+        return pulumi.get(self, "scaling_policies")
+
 
 class AwaitableGetFleetResult(GetFleetResult):
     # pylint: disable=using-constant-test
@@ -183,7 +194,8 @@ class AwaitableGetFleetResult(GetFleetResult):
             name=self.name,
             new_game_session_protection_policy=self.new_game_session_protection_policy,
             resource_creation_limit_policy=self.resource_creation_limit_policy,
-            runtime_configuration=self.runtime_configuration)
+            runtime_configuration=self.runtime_configuration,
+            scaling_policies=self.scaling_policies)
 
 
 def get_fleet(fleet_id: Optional[str] = None,
@@ -212,7 +224,8 @@ def get_fleet(fleet_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         new_game_session_protection_policy=pulumi.get(__ret__, 'new_game_session_protection_policy'),
         resource_creation_limit_policy=pulumi.get(__ret__, 'resource_creation_limit_policy'),
-        runtime_configuration=pulumi.get(__ret__, 'runtime_configuration'))
+        runtime_configuration=pulumi.get(__ret__, 'runtime_configuration'),
+        scaling_policies=pulumi.get(__ret__, 'scaling_policies'))
 
 
 @_utilities.lift_output_func(get_fleet)

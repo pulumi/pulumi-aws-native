@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
 {
 
+    /// <summary>
+    /// Describes the dimension names and values associated with a metric.
+    /// </summary>
     public sealed class ScalingPolicyMetricDimensionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the dimension.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The value of the dimension.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

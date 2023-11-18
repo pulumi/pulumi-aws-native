@@ -28,6 +28,7 @@ __all__ = [
     'AnalysisDataLabelOverlap',
     'AnalysisDataLabelPosition',
     'AnalysisDateAggregationFunction',
+    'AnalysisDayOfTheWeek',
     'AnalysisErrorType',
     'AnalysisFilterNullOption',
     'AnalysisFilterVisualScope',
@@ -143,6 +144,7 @@ __all__ = [
     'DashboardDataLabelOverlap',
     'DashboardDataLabelPosition',
     'DashboardDateAggregationFunction',
+    'DashboardDayOfTheWeek',
     'DashboardErrorType',
     'DashboardFilterNullOption',
     'DashboardFilterVisualScope',
@@ -236,6 +238,7 @@ __all__ = [
     'DashboardWordCloudWordPadding',
     'DashboardWordCloudWordScaling',
     'DataSetColumnDataType',
+    'DataSetColumnSubDataType',
     'DataSetDatasetParameterValueType',
     'DataSetGeoSpatialCountryCode',
     'DataSetImportMode',
@@ -246,6 +249,7 @@ __all__ = [
     'DataSetTimeGranularity',
     'DataSourceErrorInfoType',
     'DataSourceResourceStatus',
+    'DataSourceStarburstProductType',
     'DataSourceType',
     'RefreshScheduleMapRefreshType',
     'RefreshScheduleMapScheduleFrequencyPropertiesInterval',
@@ -273,6 +277,7 @@ __all__ = [
     'TemplateDataLabelOverlap',
     'TemplateDataLabelPosition',
     'TemplateDateAggregationFunction',
+    'TemplateDayOfTheWeek',
     'TemplateErrorType',
     'TemplateFilterNullOption',
     'TemplateFilterVisualScope',
@@ -531,6 +536,16 @@ class AnalysisDateAggregationFunction(str, Enum):
     DISTINCT_COUNT = "DISTINCT_COUNT"
     MIN = "MIN"
     MAX = "MAX"
+
+
+class AnalysisDayOfTheWeek(str, Enum):
+    SUNDAY = "SUNDAY"
+    MONDAY = "MONDAY"
+    TUESDAY = "TUESDAY"
+    WEDNESDAY = "WEDNESDAY"
+    THURSDAY = "THURSDAY"
+    FRIDAY = "FRIDAY"
+    SATURDAY = "SATURDAY"
 
 
 class AnalysisErrorType(str, Enum):
@@ -1241,6 +1256,16 @@ class DashboardDateAggregationFunction(str, Enum):
     MAX = "MAX"
 
 
+class DashboardDayOfTheWeek(str, Enum):
+    SUNDAY = "SUNDAY"
+    MONDAY = "MONDAY"
+    TUESDAY = "TUESDAY"
+    WEDNESDAY = "WEDNESDAY"
+    THURSDAY = "THURSDAY"
+    FRIDAY = "FRIDAY"
+    SATURDAY = "SATURDAY"
+
+
 class DashboardErrorType(str, Enum):
     ACCESS_DENIED = "ACCESS_DENIED"
     SOURCE_NOT_FOUND = "SOURCE_NOT_FOUND"
@@ -1815,6 +1840,11 @@ class DataSetColumnDataType(str, Enum):
     DATETIME = "DATETIME"
 
 
+class DataSetColumnSubDataType(str, Enum):
+    FIXED = "FIXED"
+    FLOAT = "FLOAT"
+
+
 class DataSetDatasetParameterValueType(str, Enum):
     """
     <p>Every parameter value could be either a single value or multi value which helps to validate before evaluation.</p>
@@ -1886,6 +1916,11 @@ class DataSourceResourceStatus(str, Enum):
     DELETED = "DELETED"
 
 
+class DataSourceStarburstProductType(str, Enum):
+    GALAXY = "GALAXY"
+    ENTERPRISE = "ENTERPRISE"
+
+
 class DataSourceType(str, Enum):
     ADOBE_ANALYTICS = "ADOBE_ANALYTICS"
     AMAZON_ELASTICSEARCH = "AMAZON_ELASTICSEARCH"
@@ -1912,6 +1947,8 @@ class DataSourceType(str, Enum):
     TERADATA = "TERADATA"
     TWITTER = "TWITTER"
     TIMESTREAM = "TIMESTREAM"
+    STARBURST = "STARBURST"
+    TRINO = "TRINO"
 
 
 class RefreshScheduleMapRefreshType(str, Enum):
@@ -2077,6 +2114,16 @@ class TemplateDateAggregationFunction(str, Enum):
     DISTINCT_COUNT = "DISTINCT_COUNT"
     MIN = "MIN"
     MAX = "MAX"
+
+
+class TemplateDayOfTheWeek(str, Enum):
+    SUNDAY = "SUNDAY"
+    MONDAY = "MONDAY"
+    TUESDAY = "TUESDAY"
+    WEDNESDAY = "WEDNESDAY"
+    THURSDAY = "THURSDAY"
+    FRIDAY = "FRIDAY"
+    SATURDAY = "SATURDAY"
 
 
 class TemplateErrorType(str, Enum):

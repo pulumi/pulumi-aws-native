@@ -70,6 +70,10 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         public readonly ImmutableArray<Outputs.SecurityProfileBehavior> Behaviors;
         /// <summary>
+        /// A structure containing the mqtt topic for metrics export.
+        /// </summary>
+        public readonly Outputs.MetricsExportConfigProperties? MetricsExportConfig;
+        /// <summary>
         /// The ARN (Amazon resource name) of the created security profile.
         /// </summary>
         public readonly string? SecurityProfileArn;
@@ -94,6 +98,8 @@ namespace Pulumi.AwsNative.IoT
 
             ImmutableArray<Outputs.SecurityProfileBehavior> behaviors,
 
+            Outputs.MetricsExportConfigProperties? metricsExportConfig,
+
             string? securityProfileArn,
 
             string? securityProfileDescription,
@@ -105,6 +111,7 @@ namespace Pulumi.AwsNative.IoT
             AdditionalMetricsToRetainV2 = additionalMetricsToRetainV2;
             AlertTargets = alertTargets;
             Behaviors = behaviors;
+            MetricsExportConfig = metricsExportConfig;
             SecurityProfileArn = securityProfileArn;
             SecurityProfileDescription = securityProfileDescription;
             Tags = tags;

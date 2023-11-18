@@ -52,6 +52,7 @@ export interface GetApplicationResult {
      * Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
      */
     readonly maximumCapacity?: outputs.emrserverless.ApplicationMaximumAllowedResources;
+    readonly monitoringConfiguration?: outputs.emrserverless.ApplicationMonitoringConfiguration;
     /**
      * Network Configuration for customer VPC connectivity.
      */
@@ -60,6 +61,7 @@ export interface GetApplicationResult {
      * EMR release label.
      */
     readonly releaseLabel?: string;
+    readonly runtimeConfiguration?: outputs.emrserverless.ApplicationConfigurationObject[];
     /**
      * Tag map with key and value
      */

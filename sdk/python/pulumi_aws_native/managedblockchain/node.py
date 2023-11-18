@@ -16,24 +16,16 @@ __all__ = ['NodeArgs', 'Node']
 @pulumi.input_type
 class NodeArgs:
     def __init__(__self__, *,
-                 member_id: pulumi.Input[str],
                  network_id: pulumi.Input[str],
-                 node_configuration: pulumi.Input['NodeConfigurationArgs']):
+                 node_configuration: pulumi.Input['NodeConfigurationArgs'],
+                 member_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Node resource.
         """
-        pulumi.set(__self__, "member_id", member_id)
         pulumi.set(__self__, "network_id", network_id)
         pulumi.set(__self__, "node_configuration", node_configuration)
-
-    @property
-    @pulumi.getter(name="memberId")
-    def member_id(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "member_id")
-
-    @member_id.setter
-    def member_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "member_id", value)
+        if member_id is not None:
+            pulumi.set(__self__, "member_id", member_id)
 
     @property
     @pulumi.getter(name="networkId")
@@ -52,6 +44,15 @@ class NodeArgs:
     @node_configuration.setter
     def node_configuration(self, value: pulumi.Input['NodeConfigurationArgs']):
         pulumi.set(self, "node_configuration", value)
+
+    @property
+    @pulumi.getter(name="memberId")
+    def member_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "member_id")
+
+    @member_id.setter
+    def member_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "member_id", value)
 
 
 warnings.warn("""Node is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
@@ -111,8 +112,6 @@ class Node(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NodeArgs.__new__(NodeArgs)
 
-            if member_id is None and not opts.urn:
-                raise TypeError("Missing required property 'member_id'")
             __props__.__dict__["member_id"] = member_id
             if network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_id'")
@@ -158,7 +157,7 @@ class Node(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="memberId")
-    def member_id(self) -> pulumi.Output[str]:
+    def member_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "member_id")
 
     @property

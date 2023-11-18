@@ -195,6 +195,190 @@ func (in *addonResolveConflictsPtr) ToOutput(ctx context.Context) pulumix.Output
 	}
 }
 
+// Specify the authentication mode that should be used to create your cluster.
+type ClusterAccessConfigAuthenticationMode string
+
+const (
+	ClusterAccessConfigAuthenticationModeConfigMap       = ClusterAccessConfigAuthenticationMode("CONFIG_MAP")
+	ClusterAccessConfigAuthenticationModeApiAndConfigMap = ClusterAccessConfigAuthenticationMode("API_AND_CONFIG_MAP")
+	ClusterAccessConfigAuthenticationModeApi             = ClusterAccessConfigAuthenticationMode("API")
+)
+
+func (ClusterAccessConfigAuthenticationMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAccessConfigAuthenticationMode)(nil)).Elem()
+}
+
+func (e ClusterAccessConfigAuthenticationMode) ToClusterAccessConfigAuthenticationModeOutput() ClusterAccessConfigAuthenticationModeOutput {
+	return pulumi.ToOutput(e).(ClusterAccessConfigAuthenticationModeOutput)
+}
+
+func (e ClusterAccessConfigAuthenticationMode) ToClusterAccessConfigAuthenticationModeOutputWithContext(ctx context.Context) ClusterAccessConfigAuthenticationModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ClusterAccessConfigAuthenticationModeOutput)
+}
+
+func (e ClusterAccessConfigAuthenticationMode) ToClusterAccessConfigAuthenticationModePtrOutput() ClusterAccessConfigAuthenticationModePtrOutput {
+	return e.ToClusterAccessConfigAuthenticationModePtrOutputWithContext(context.Background())
+}
+
+func (e ClusterAccessConfigAuthenticationMode) ToClusterAccessConfigAuthenticationModePtrOutputWithContext(ctx context.Context) ClusterAccessConfigAuthenticationModePtrOutput {
+	return ClusterAccessConfigAuthenticationMode(e).ToClusterAccessConfigAuthenticationModeOutputWithContext(ctx).ToClusterAccessConfigAuthenticationModePtrOutputWithContext(ctx)
+}
+
+func (e ClusterAccessConfigAuthenticationMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterAccessConfigAuthenticationMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ClusterAccessConfigAuthenticationMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ClusterAccessConfigAuthenticationMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ClusterAccessConfigAuthenticationModeOutput struct{ *pulumi.OutputState }
+
+func (ClusterAccessConfigAuthenticationModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAccessConfigAuthenticationMode)(nil)).Elem()
+}
+
+func (o ClusterAccessConfigAuthenticationModeOutput) ToClusterAccessConfigAuthenticationModeOutput() ClusterAccessConfigAuthenticationModeOutput {
+	return o
+}
+
+func (o ClusterAccessConfigAuthenticationModeOutput) ToClusterAccessConfigAuthenticationModeOutputWithContext(ctx context.Context) ClusterAccessConfigAuthenticationModeOutput {
+	return o
+}
+
+func (o ClusterAccessConfigAuthenticationModeOutput) ToClusterAccessConfigAuthenticationModePtrOutput() ClusterAccessConfigAuthenticationModePtrOutput {
+	return o.ToClusterAccessConfigAuthenticationModePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterAccessConfigAuthenticationModeOutput) ToClusterAccessConfigAuthenticationModePtrOutputWithContext(ctx context.Context) ClusterAccessConfigAuthenticationModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterAccessConfigAuthenticationMode) *ClusterAccessConfigAuthenticationMode {
+		return &v
+	}).(ClusterAccessConfigAuthenticationModePtrOutput)
+}
+
+func (o ClusterAccessConfigAuthenticationModeOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterAccessConfigAuthenticationMode] {
+	return pulumix.Output[ClusterAccessConfigAuthenticationMode]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ClusterAccessConfigAuthenticationModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ClusterAccessConfigAuthenticationModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterAccessConfigAuthenticationMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ClusterAccessConfigAuthenticationModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterAccessConfigAuthenticationModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ClusterAccessConfigAuthenticationMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterAccessConfigAuthenticationModePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterAccessConfigAuthenticationModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAccessConfigAuthenticationMode)(nil)).Elem()
+}
+
+func (o ClusterAccessConfigAuthenticationModePtrOutput) ToClusterAccessConfigAuthenticationModePtrOutput() ClusterAccessConfigAuthenticationModePtrOutput {
+	return o
+}
+
+func (o ClusterAccessConfigAuthenticationModePtrOutput) ToClusterAccessConfigAuthenticationModePtrOutputWithContext(ctx context.Context) ClusterAccessConfigAuthenticationModePtrOutput {
+	return o
+}
+
+func (o ClusterAccessConfigAuthenticationModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterAccessConfigAuthenticationMode] {
+	return pulumix.Output[*ClusterAccessConfigAuthenticationMode]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ClusterAccessConfigAuthenticationModePtrOutput) Elem() ClusterAccessConfigAuthenticationModeOutput {
+	return o.ApplyT(func(v *ClusterAccessConfigAuthenticationMode) ClusterAccessConfigAuthenticationMode {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterAccessConfigAuthenticationMode
+		return ret
+	}).(ClusterAccessConfigAuthenticationModeOutput)
+}
+
+func (o ClusterAccessConfigAuthenticationModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterAccessConfigAuthenticationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ClusterAccessConfigAuthenticationMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ClusterAccessConfigAuthenticationModeInput is an input type that accepts ClusterAccessConfigAuthenticationModeArgs and ClusterAccessConfigAuthenticationModeOutput values.
+// You can construct a concrete instance of `ClusterAccessConfigAuthenticationModeInput` via:
+//
+//	ClusterAccessConfigAuthenticationModeArgs{...}
+type ClusterAccessConfigAuthenticationModeInput interface {
+	pulumi.Input
+
+	ToClusterAccessConfigAuthenticationModeOutput() ClusterAccessConfigAuthenticationModeOutput
+	ToClusterAccessConfigAuthenticationModeOutputWithContext(context.Context) ClusterAccessConfigAuthenticationModeOutput
+}
+
+var clusterAccessConfigAuthenticationModePtrType = reflect.TypeOf((**ClusterAccessConfigAuthenticationMode)(nil)).Elem()
+
+type ClusterAccessConfigAuthenticationModePtrInput interface {
+	pulumi.Input
+
+	ToClusterAccessConfigAuthenticationModePtrOutput() ClusterAccessConfigAuthenticationModePtrOutput
+	ToClusterAccessConfigAuthenticationModePtrOutputWithContext(context.Context) ClusterAccessConfigAuthenticationModePtrOutput
+}
+
+type clusterAccessConfigAuthenticationModePtr string
+
+func ClusterAccessConfigAuthenticationModePtr(v string) ClusterAccessConfigAuthenticationModePtrInput {
+	return (*clusterAccessConfigAuthenticationModePtr)(&v)
+}
+
+func (*clusterAccessConfigAuthenticationModePtr) ElementType() reflect.Type {
+	return clusterAccessConfigAuthenticationModePtrType
+}
+
+func (in *clusterAccessConfigAuthenticationModePtr) ToClusterAccessConfigAuthenticationModePtrOutput() ClusterAccessConfigAuthenticationModePtrOutput {
+	return pulumi.ToOutput(in).(ClusterAccessConfigAuthenticationModePtrOutput)
+}
+
+func (in *clusterAccessConfigAuthenticationModePtr) ToClusterAccessConfigAuthenticationModePtrOutputWithContext(ctx context.Context) ClusterAccessConfigAuthenticationModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ClusterAccessConfigAuthenticationModePtrOutput)
+}
+
+func (in *clusterAccessConfigAuthenticationModePtr) ToOutput(ctx context.Context) pulumix.Output[*ClusterAccessConfigAuthenticationMode] {
+	return pulumix.Output[*ClusterAccessConfigAuthenticationMode]{
+		OutputState: in.ToClusterAccessConfigAuthenticationModePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Ipv4 or Ipv6. You can only specify ipv6 for 1.21 and later clusters that use version 1.10.1 or later of the Amazon VPC CNI add-on
 type ClusterKubernetesNetworkConfigIpFamily string
 
@@ -749,6 +933,8 @@ func (in *identityProviderConfigTypePtr) ToOutput(ctx context.Context) pulumix.O
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonResolveConflictsInput)(nil)).Elem(), AddonResolveConflicts("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonResolveConflictsPtrInput)(nil)).Elem(), AddonResolveConflicts("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAccessConfigAuthenticationModeInput)(nil)).Elem(), ClusterAccessConfigAuthenticationMode("CONFIG_MAP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAccessConfigAuthenticationModePtrInput)(nil)).Elem(), ClusterAccessConfigAuthenticationMode("CONFIG_MAP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigIpFamilyInput)(nil)).Elem(), ClusterKubernetesNetworkConfigIpFamily("ipv4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigIpFamilyPtrInput)(nil)).Elem(), ClusterKubernetesNetworkConfigIpFamily("ipv4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLoggingTypeConfigTypeInput)(nil)).Elem(), ClusterLoggingTypeConfigType("api"))
@@ -757,6 +943,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderConfigTypePtrInput)(nil)).Elem(), IdentityProviderConfigType("oidc"))
 	pulumi.RegisterOutputType(AddonResolveConflictsOutput{})
 	pulumi.RegisterOutputType(AddonResolveConflictsPtrOutput{})
+	pulumi.RegisterOutputType(ClusterAccessConfigAuthenticationModeOutput{})
+	pulumi.RegisterOutputType(ClusterAccessConfigAuthenticationModePtrOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigIpFamilyOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigIpFamilyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingTypeConfigTypeOutput{})

@@ -14,17 +14,15 @@ import (
 )
 
 // Resource Type definition for AWS::GuardDuty::ThreatIntelSet
-//
-// Deprecated: ThreatIntelSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type ThreatIntelSet struct {
 	pulumi.CustomResourceState
 
-	Activate   pulumi.BoolOutput            `pulumi:"activate"`
-	DetectorId pulumi.StringOutput          `pulumi:"detectorId"`
-	Format     pulumi.StringOutput          `pulumi:"format"`
-	Location   pulumi.StringOutput          `pulumi:"location"`
-	Name       pulumi.StringPtrOutput       `pulumi:"name"`
-	Tags       ThreatIntelSetTagArrayOutput `pulumi:"tags"`
+	Activate   pulumi.BoolPtrOutput             `pulumi:"activate"`
+	DetectorId pulumi.StringPtrOutput           `pulumi:"detectorId"`
+	Format     pulumi.StringOutput              `pulumi:"format"`
+	Location   pulumi.StringOutput              `pulumi:"location"`
+	Name       pulumi.StringOutput              `pulumi:"name"`
+	Tags       ThreatIntelSetTagItemArrayOutput `pulumi:"tags"`
 }
 
 // NewThreatIntelSet registers a new resource with the given unique name, arguments, and options.
@@ -34,12 +32,6 @@ func NewThreatIntelSet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Activate == nil {
-		return nil, errors.New("invalid value for required argument 'Activate'")
-	}
-	if args.DetectorId == nil {
-		return nil, errors.New("invalid value for required argument 'DetectorId'")
-	}
 	if args.Format == nil {
 		return nil, errors.New("invalid value for required argument 'Format'")
 	}
@@ -84,22 +76,22 @@ func (ThreatIntelSetState) ElementType() reflect.Type {
 }
 
 type threatIntelSetArgs struct {
-	Activate   bool                `pulumi:"activate"`
-	DetectorId string              `pulumi:"detectorId"`
-	Format     string              `pulumi:"format"`
-	Location   string              `pulumi:"location"`
-	Name       *string             `pulumi:"name"`
-	Tags       []ThreatIntelSetTag `pulumi:"tags"`
+	Activate   *bool                   `pulumi:"activate"`
+	DetectorId *string                 `pulumi:"detectorId"`
+	Format     string                  `pulumi:"format"`
+	Location   string                  `pulumi:"location"`
+	Name       *string                 `pulumi:"name"`
+	Tags       []ThreatIntelSetTagItem `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ThreatIntelSet resource.
 type ThreatIntelSetArgs struct {
-	Activate   pulumi.BoolInput
-	DetectorId pulumi.StringInput
+	Activate   pulumi.BoolPtrInput
+	DetectorId pulumi.StringPtrInput
 	Format     pulumi.StringInput
 	Location   pulumi.StringInput
 	Name       pulumi.StringPtrInput
-	Tags       ThreatIntelSetTagArrayInput
+	Tags       ThreatIntelSetTagItemArrayInput
 }
 
 func (ThreatIntelSetArgs) ElementType() reflect.Type {
@@ -151,12 +143,12 @@ func (o ThreatIntelSetOutput) ToOutput(ctx context.Context) pulumix.Output[*Thre
 	}
 }
 
-func (o ThreatIntelSetOutput) Activate() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ThreatIntelSet) pulumi.BoolOutput { return v.Activate }).(pulumi.BoolOutput)
+func (o ThreatIntelSetOutput) Activate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ThreatIntelSet) pulumi.BoolPtrOutput { return v.Activate }).(pulumi.BoolPtrOutput)
 }
 
-func (o ThreatIntelSetOutput) DetectorId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
+func (o ThreatIntelSetOutput) DetectorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringPtrOutput { return v.DetectorId }).(pulumi.StringPtrOutput)
 }
 
 func (o ThreatIntelSetOutput) Format() pulumi.StringOutput {
@@ -167,12 +159,12 @@ func (o ThreatIntelSetOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-func (o ThreatIntelSetOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o ThreatIntelSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o ThreatIntelSetOutput) Tags() ThreatIntelSetTagArrayOutput {
-	return o.ApplyT(func(v *ThreatIntelSet) ThreatIntelSetTagArrayOutput { return v.Tags }).(ThreatIntelSetTagArrayOutput)
+func (o ThreatIntelSetOutput) Tags() ThreatIntelSetTagItemArrayOutput {
+	return o.ApplyT(func(v *ThreatIntelSet) ThreatIntelSetTagItemArrayOutput { return v.Tags }).(ThreatIntelSetTagItemArrayOutput)
 }
 
 func init() {

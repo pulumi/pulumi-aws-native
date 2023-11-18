@@ -86,8 +86,14 @@ __all__ = [
     'StorageLensDataExport',
     'StorageLensDetailedStatusCodesMetrics',
     'StorageLensEncryption',
+    'StorageLensGroupAnd',
+    'StorageLensGroupFilter',
     'StorageLensGroupLevel',
+    'StorageLensGroupMatchObjectAge',
+    'StorageLensGroupMatchObjectSize',
+    'StorageLensGroupOr',
     'StorageLensGroupSelectionCriteria',
+    'StorageLensGroupTag',
     'StorageLensPrefixLevel',
     'StorageLensPrefixLevelStorageMetrics',
     'StorageLensS3BucketDestination',
@@ -3732,6 +3738,178 @@ class StorageLensEncryption(dict):
 
 
 @pulumi.output_type
+class StorageLensGroupAnd(dict):
+    """
+    The Storage Lens group will include objects that match all of the specified filter values.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchAnyPrefix":
+            suggest = "match_any_prefix"
+        elif key == "matchAnySuffix":
+            suggest = "match_any_suffix"
+        elif key == "matchAnyTag":
+            suggest = "match_any_tag"
+        elif key == "matchObjectAge":
+            suggest = "match_object_age"
+        elif key == "matchObjectSize":
+            suggest = "match_object_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensGroupAnd. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensGroupAnd.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensGroupAnd.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_any_prefix: Optional[Sequence[str]] = None,
+                 match_any_suffix: Optional[Sequence[str]] = None,
+                 match_any_tag: Optional[Sequence['outputs.StorageLensGroupTag']] = None,
+                 match_object_age: Optional['outputs.StorageLensGroupMatchObjectAge'] = None,
+                 match_object_size: Optional['outputs.StorageLensGroupMatchObjectSize'] = None):
+        """
+        The Storage Lens group will include objects that match all of the specified filter values.
+        """
+        if match_any_prefix is not None:
+            pulumi.set(__self__, "match_any_prefix", match_any_prefix)
+        if match_any_suffix is not None:
+            pulumi.set(__self__, "match_any_suffix", match_any_suffix)
+        if match_any_tag is not None:
+            pulumi.set(__self__, "match_any_tag", match_any_tag)
+        if match_object_age is not None:
+            pulumi.set(__self__, "match_object_age", match_object_age)
+        if match_object_size is not None:
+            pulumi.set(__self__, "match_object_size", match_object_size)
+
+    @property
+    @pulumi.getter(name="matchAnyPrefix")
+    def match_any_prefix(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "match_any_prefix")
+
+    @property
+    @pulumi.getter(name="matchAnySuffix")
+    def match_any_suffix(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "match_any_suffix")
+
+    @property
+    @pulumi.getter(name="matchAnyTag")
+    def match_any_tag(self) -> Optional[Sequence['outputs.StorageLensGroupTag']]:
+        return pulumi.get(self, "match_any_tag")
+
+    @property
+    @pulumi.getter(name="matchObjectAge")
+    def match_object_age(self) -> Optional['outputs.StorageLensGroupMatchObjectAge']:
+        return pulumi.get(self, "match_object_age")
+
+    @property
+    @pulumi.getter(name="matchObjectSize")
+    def match_object_size(self) -> Optional['outputs.StorageLensGroupMatchObjectSize']:
+        return pulumi.get(self, "match_object_size")
+
+
+@pulumi.output_type
+class StorageLensGroupFilter(dict):
+    """
+    Sets the Storage Lens Group filter.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "and":
+            suggest = "and_"
+        elif key == "matchAnyPrefix":
+            suggest = "match_any_prefix"
+        elif key == "matchAnySuffix":
+            suggest = "match_any_suffix"
+        elif key == "matchAnyTag":
+            suggest = "match_any_tag"
+        elif key == "matchObjectAge":
+            suggest = "match_object_age"
+        elif key == "matchObjectSize":
+            suggest = "match_object_size"
+        elif key == "or":
+            suggest = "or_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensGroupFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensGroupFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensGroupFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 and_: Optional['outputs.StorageLensGroupAnd'] = None,
+                 match_any_prefix: Optional[Sequence[str]] = None,
+                 match_any_suffix: Optional[Sequence[str]] = None,
+                 match_any_tag: Optional[Sequence['outputs.StorageLensGroupTag']] = None,
+                 match_object_age: Optional['outputs.StorageLensGroupMatchObjectAge'] = None,
+                 match_object_size: Optional['outputs.StorageLensGroupMatchObjectSize'] = None,
+                 or_: Optional['outputs.StorageLensGroupOr'] = None):
+        """
+        Sets the Storage Lens Group filter.
+        """
+        if and_ is not None:
+            pulumi.set(__self__, "and_", and_)
+        if match_any_prefix is not None:
+            pulumi.set(__self__, "match_any_prefix", match_any_prefix)
+        if match_any_suffix is not None:
+            pulumi.set(__self__, "match_any_suffix", match_any_suffix)
+        if match_any_tag is not None:
+            pulumi.set(__self__, "match_any_tag", match_any_tag)
+        if match_object_age is not None:
+            pulumi.set(__self__, "match_object_age", match_object_age)
+        if match_object_size is not None:
+            pulumi.set(__self__, "match_object_size", match_object_size)
+        if or_ is not None:
+            pulumi.set(__self__, "or_", or_)
+
+    @property
+    @pulumi.getter(name="and")
+    def and_(self) -> Optional['outputs.StorageLensGroupAnd']:
+        return pulumi.get(self, "and_")
+
+    @property
+    @pulumi.getter(name="matchAnyPrefix")
+    def match_any_prefix(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "match_any_prefix")
+
+    @property
+    @pulumi.getter(name="matchAnySuffix")
+    def match_any_suffix(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "match_any_suffix")
+
+    @property
+    @pulumi.getter(name="matchAnyTag")
+    def match_any_tag(self) -> Optional[Sequence['outputs.StorageLensGroupTag']]:
+        return pulumi.get(self, "match_any_tag")
+
+    @property
+    @pulumi.getter(name="matchObjectAge")
+    def match_object_age(self) -> Optional['outputs.StorageLensGroupMatchObjectAge']:
+        return pulumi.get(self, "match_object_age")
+
+    @property
+    @pulumi.getter(name="matchObjectSize")
+    def match_object_size(self) -> Optional['outputs.StorageLensGroupMatchObjectSize']:
+        return pulumi.get(self, "match_object_size")
+
+    @property
+    @pulumi.getter(name="or")
+    def or_(self) -> Optional['outputs.StorageLensGroupOr']:
+        return pulumi.get(self, "or_")
+
+
+@pulumi.output_type
 class StorageLensGroupLevel(dict):
     """
     Specifies the details of Amazon S3 Storage Lens Group configuration.
@@ -3768,6 +3946,190 @@ class StorageLensGroupLevel(dict):
 
 
 @pulumi.output_type
+class StorageLensGroupMatchObjectAge(dict):
+    """
+    Filter to match all of the specified values for the minimum and maximum object age.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "daysGreaterThan":
+            suggest = "days_greater_than"
+        elif key == "daysLessThan":
+            suggest = "days_less_than"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensGroupMatchObjectAge. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensGroupMatchObjectAge.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensGroupMatchObjectAge.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 days_greater_than: Optional[int] = None,
+                 days_less_than: Optional[int] = None):
+        """
+        Filter to match all of the specified values for the minimum and maximum object age.
+        :param int days_greater_than: Minimum object age to which the rule applies.
+        :param int days_less_than: Maximum object age to which the rule applies.
+        """
+        if days_greater_than is not None:
+            pulumi.set(__self__, "days_greater_than", days_greater_than)
+        if days_less_than is not None:
+            pulumi.set(__self__, "days_less_than", days_less_than)
+
+    @property
+    @pulumi.getter(name="daysGreaterThan")
+    def days_greater_than(self) -> Optional[int]:
+        """
+        Minimum object age to which the rule applies.
+        """
+        return pulumi.get(self, "days_greater_than")
+
+    @property
+    @pulumi.getter(name="daysLessThan")
+    def days_less_than(self) -> Optional[int]:
+        """
+        Maximum object age to which the rule applies.
+        """
+        return pulumi.get(self, "days_less_than")
+
+
+@pulumi.output_type
+class StorageLensGroupMatchObjectSize(dict):
+    """
+    Filter to match all of the specified values for the minimum and maximum object size.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bytesGreaterThan":
+            suggest = "bytes_greater_than"
+        elif key == "bytesLessThan":
+            suggest = "bytes_less_than"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensGroupMatchObjectSize. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensGroupMatchObjectSize.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensGroupMatchObjectSize.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bytes_greater_than: Optional[int] = None,
+                 bytes_less_than: Optional[int] = None):
+        """
+        Filter to match all of the specified values for the minimum and maximum object size.
+        :param int bytes_greater_than: Minimum object size to which the rule applies.
+        :param int bytes_less_than: Maximum object size to which the rule applies.
+        """
+        if bytes_greater_than is not None:
+            pulumi.set(__self__, "bytes_greater_than", bytes_greater_than)
+        if bytes_less_than is not None:
+            pulumi.set(__self__, "bytes_less_than", bytes_less_than)
+
+    @property
+    @pulumi.getter(name="bytesGreaterThan")
+    def bytes_greater_than(self) -> Optional[int]:
+        """
+        Minimum object size to which the rule applies.
+        """
+        return pulumi.get(self, "bytes_greater_than")
+
+    @property
+    @pulumi.getter(name="bytesLessThan")
+    def bytes_less_than(self) -> Optional[int]:
+        """
+        Maximum object size to which the rule applies.
+        """
+        return pulumi.get(self, "bytes_less_than")
+
+
+@pulumi.output_type
+class StorageLensGroupOr(dict):
+    """
+    The Storage Lens group will include objects that match any of the specified filter values.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchAnyPrefix":
+            suggest = "match_any_prefix"
+        elif key == "matchAnySuffix":
+            suggest = "match_any_suffix"
+        elif key == "matchAnyTag":
+            suggest = "match_any_tag"
+        elif key == "matchObjectAge":
+            suggest = "match_object_age"
+        elif key == "matchObjectSize":
+            suggest = "match_object_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLensGroupOr. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLensGroupOr.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLensGroupOr.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_any_prefix: Optional[Sequence[str]] = None,
+                 match_any_suffix: Optional[Sequence[str]] = None,
+                 match_any_tag: Optional[Sequence['outputs.StorageLensGroupTag']] = None,
+                 match_object_age: Optional['outputs.StorageLensGroupMatchObjectAge'] = None,
+                 match_object_size: Optional['outputs.StorageLensGroupMatchObjectSize'] = None):
+        """
+        The Storage Lens group will include objects that match any of the specified filter values.
+        """
+        if match_any_prefix is not None:
+            pulumi.set(__self__, "match_any_prefix", match_any_prefix)
+        if match_any_suffix is not None:
+            pulumi.set(__self__, "match_any_suffix", match_any_suffix)
+        if match_any_tag is not None:
+            pulumi.set(__self__, "match_any_tag", match_any_tag)
+        if match_object_age is not None:
+            pulumi.set(__self__, "match_object_age", match_object_age)
+        if match_object_size is not None:
+            pulumi.set(__self__, "match_object_size", match_object_size)
+
+    @property
+    @pulumi.getter(name="matchAnyPrefix")
+    def match_any_prefix(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "match_any_prefix")
+
+    @property
+    @pulumi.getter(name="matchAnySuffix")
+    def match_any_suffix(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "match_any_suffix")
+
+    @property
+    @pulumi.getter(name="matchAnyTag")
+    def match_any_tag(self) -> Optional[Sequence['outputs.StorageLensGroupTag']]:
+        return pulumi.get(self, "match_any_tag")
+
+    @property
+    @pulumi.getter(name="matchObjectAge")
+    def match_object_age(self) -> Optional['outputs.StorageLensGroupMatchObjectAge']:
+        return pulumi.get(self, "match_object_age")
+
+    @property
+    @pulumi.getter(name="matchObjectSize")
+    def match_object_size(self) -> Optional['outputs.StorageLensGroupMatchObjectSize']:
+        return pulumi.get(self, "match_object_size")
+
+
+@pulumi.output_type
 class StorageLensGroupSelectionCriteria(dict):
     """
     Selection criteria for Storage Lens Group level metrics
@@ -3792,6 +4154,25 @@ class StorageLensGroupSelectionCriteria(dict):
     @pulumi.getter
     def include(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "include")
+
+
+@pulumi.output_type
+class StorageLensGroupTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

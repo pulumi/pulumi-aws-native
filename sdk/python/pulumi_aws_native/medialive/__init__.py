@@ -5,11 +5,16 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .channel import *
 from .get_channel import *
 from .get_input import *
 from .get_input_security_group import *
+from .get_multiplex import *
+from .get_multiplexprogram import *
 from .input import *
 from .input_security_group import *
+from .multiplex import *
+from .multiplexprogram import *
 from ._inputs import *
 from . import outputs

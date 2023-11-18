@@ -21,6 +21,7 @@ __all__ = [
     'PipeBatchResourceRequirement',
     'PipeBatchRetryStrategy',
     'PipeCapacityProviderStrategyItem',
+    'PipeCloudwatchLogsLogDestination',
     'PipeDeadLetterConfig',
     'PipeEcsContainerOverride',
     'PipeEcsEnvironmentFile',
@@ -33,7 +34,9 @@ __all__ = [
     'PipeEnrichmentParameters',
     'PipeFilter',
     'PipeFilterCriteria',
+    'PipeFirehoseLogDestination',
     'PipeHeaderParametersMap',
+    'PipeLogConfiguration',
     'PipeMqBrokerAccessCredentialsProperties',
     'PipeMskAccessCredentials0Properties',
     'PipeMskAccessCredentials1Properties',
@@ -41,6 +44,7 @@ __all__ = [
     'PipePlacementConstraint',
     'PipePlacementStrategy',
     'PipeQueryStringParametersMap',
+    'PipeS3LogDestination',
     'PipeSageMakerPipelineParameter',
     'PipeSelfManagedKafkaAccessConfigurationCredentials0Properties',
     'PipeSelfManagedKafkaAccessConfigurationCredentials1Properties',
@@ -327,6 +331,36 @@ class PipeCapacityProviderStrategyItem(dict):
     @pulumi.getter
     def weight(self) -> Optional[int]:
         return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class PipeCloudwatchLogsLogDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupArn":
+            suggest = "log_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipeCloudwatchLogsLogDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipeCloudwatchLogsLogDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipeCloudwatchLogsLogDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group_arn: Optional[str] = None):
+        if log_group_arn is not None:
+            pulumi.set(__self__, "log_group_arn", log_group_arn)
+
+    @property
+    @pulumi.getter(name="logGroupArn")
+    def log_group_arn(self) -> Optional[str]:
+        return pulumi.get(self, "log_group_arn")
 
 
 @pulumi.output_type
@@ -763,9 +797,107 @@ class PipeFilterCriteria(dict):
 
 
 @pulumi.output_type
+class PipeFirehoseLogDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deliveryStreamArn":
+            suggest = "delivery_stream_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipeFirehoseLogDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipeFirehoseLogDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipeFirehoseLogDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delivery_stream_arn: Optional[str] = None):
+        if delivery_stream_arn is not None:
+            pulumi.set(__self__, "delivery_stream_arn", delivery_stream_arn)
+
+    @property
+    @pulumi.getter(name="deliveryStreamArn")
+    def delivery_stream_arn(self) -> Optional[str]:
+        return pulumi.get(self, "delivery_stream_arn")
+
+
+@pulumi.output_type
 class PipeHeaderParametersMap(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class PipeLogConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchLogsLogDestination":
+            suggest = "cloudwatch_logs_log_destination"
+        elif key == "firehoseLogDestination":
+            suggest = "firehose_log_destination"
+        elif key == "includeExecutionData":
+            suggest = "include_execution_data"
+        elif key == "s3LogDestination":
+            suggest = "s3_log_destination"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipeLogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipeLogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipeLogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloudwatch_logs_log_destination: Optional['outputs.PipeCloudwatchLogsLogDestination'] = None,
+                 firehose_log_destination: Optional['outputs.PipeFirehoseLogDestination'] = None,
+                 include_execution_data: Optional[Sequence['PipeIncludeExecutionDataOption']] = None,
+                 level: Optional['PipeLogLevel'] = None,
+                 s3_log_destination: Optional['outputs.PipeS3LogDestination'] = None):
+        if cloudwatch_logs_log_destination is not None:
+            pulumi.set(__self__, "cloudwatch_logs_log_destination", cloudwatch_logs_log_destination)
+        if firehose_log_destination is not None:
+            pulumi.set(__self__, "firehose_log_destination", firehose_log_destination)
+        if include_execution_data is not None:
+            pulumi.set(__self__, "include_execution_data", include_execution_data)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if s3_log_destination is not None:
+            pulumi.set(__self__, "s3_log_destination", s3_log_destination)
+
+    @property
+    @pulumi.getter(name="cloudwatchLogsLogDestination")
+    def cloudwatch_logs_log_destination(self) -> Optional['outputs.PipeCloudwatchLogsLogDestination']:
+        return pulumi.get(self, "cloudwatch_logs_log_destination")
+
+    @property
+    @pulumi.getter(name="firehoseLogDestination")
+    def firehose_log_destination(self) -> Optional['outputs.PipeFirehoseLogDestination']:
+        return pulumi.get(self, "firehose_log_destination")
+
+    @property
+    @pulumi.getter(name="includeExecutionData")
+    def include_execution_data(self) -> Optional[Sequence['PipeIncludeExecutionDataOption']]:
+        return pulumi.get(self, "include_execution_data")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional['PipeLogLevel']:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter(name="s3LogDestination")
+    def s3_log_destination(self) -> Optional['outputs.PipeS3LogDestination']:
+        return pulumi.get(self, "s3_log_destination")
 
 
 @pulumi.output_type
@@ -949,6 +1081,64 @@ class PipePlacementStrategy(dict):
 class PipeQueryStringParametersMap(dict):
     def __init__(__self__):
         pass
+
+
+@pulumi.output_type
+class PipeS3LogDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "bucketOwner":
+            suggest = "bucket_owner"
+        elif key == "outputFormat":
+            suggest = "output_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipeS3LogDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipeS3LogDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipeS3LogDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: Optional[str] = None,
+                 bucket_owner: Optional[str] = None,
+                 output_format: Optional['PipeS3OutputFormat'] = None,
+                 prefix: Optional[str] = None):
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
+        if bucket_owner is not None:
+            pulumi.set(__self__, "bucket_owner", bucket_owner)
+        if output_format is not None:
+            pulumi.set(__self__, "output_format", output_format)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> Optional[str]:
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="bucketOwner")
+    def bucket_owner(self) -> Optional[str]:
+        return pulumi.get(self, "bucket_owner")
+
+    @property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> Optional['PipeS3OutputFormat']:
+        return pulumi.get(self, "output_format")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        return pulumi.get(self, "prefix")
 
 
 @pulumi.output_type

@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("lastUpdatedTime")]
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
+        [Output("linkSharingConfiguration")]
+        public Output<Outputs.DashboardLinkSharingConfiguration?> LinkSharingConfiguration { get; private set; } = null!;
+
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -127,6 +130,9 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("definition")]
         public Input<Inputs.DashboardVersionDefinitionArgs>? Definition { get; set; }
+
+        [Input("linkSharingConfiguration")]
+        public Input<Inputs.DashboardLinkSharingConfigurationArgs>? LinkSharingConfiguration { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }

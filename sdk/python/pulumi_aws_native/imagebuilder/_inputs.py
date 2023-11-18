@@ -42,6 +42,15 @@ __all__ = [
     'InfrastructureConfigurationInstanceMetadataOptionsArgs',
     'InfrastructureConfigurationLoggingArgs',
     'InfrastructureConfigurationS3LogsArgs',
+    'LifecyclePolicyActionArgs',
+    'LifecyclePolicyAmiExclusionRulesArgs',
+    'LifecyclePolicyExclusionRulesArgs',
+    'LifecyclePolicyFilterArgs',
+    'LifecyclePolicyIncludeResourcesArgs',
+    'LifecyclePolicyLastLaunchedArgs',
+    'LifecyclePolicyPolicyDetailArgs',
+    'LifecyclePolicyRecipeSelectionArgs',
+    'LifecyclePolicyResourceSelectionArgs',
 ]
 
 @pulumi.input_type
@@ -1725,5 +1734,449 @@ class InfrastructureConfigurationS3LogsArgs:
     @s3_key_prefix.setter
     def s3_key_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_key_prefix", value)
+
+
+@pulumi.input_type
+class LifecyclePolicyActionArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['LifecyclePolicyActionType'],
+                 include_resources: Optional[pulumi.Input['LifecyclePolicyIncludeResourcesArgs']] = None):
+        """
+        The action of the policy detail.
+        :param pulumi.Input['LifecyclePolicyActionType'] type: The action type of the policy detail.
+        """
+        pulumi.set(__self__, "type", type)
+        if include_resources is not None:
+            pulumi.set(__self__, "include_resources", include_resources)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['LifecyclePolicyActionType']:
+        """
+        The action type of the policy detail.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['LifecyclePolicyActionType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="includeResources")
+    def include_resources(self) -> Optional[pulumi.Input['LifecyclePolicyIncludeResourcesArgs']]:
+        return pulumi.get(self, "include_resources")
+
+    @include_resources.setter
+    def include_resources(self, value: Optional[pulumi.Input['LifecyclePolicyIncludeResourcesArgs']]):
+        pulumi.set(self, "include_resources", value)
+
+
+@pulumi.input_type
+class LifecyclePolicyAmiExclusionRulesArgs:
+    def __init__(__self__, *,
+                 is_public: Optional[pulumi.Input[bool]] = None,
+                 last_launched: Optional[pulumi.Input['LifecyclePolicyLastLaunchedArgs']] = None,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 shared_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tag_map: Optional[Any] = None):
+        """
+        The AMI exclusion rules for the policy detail.
+        :param pulumi.Input[bool] is_public: Use to apply lifecycle policy actions on whether the AMI is public.
+        :param pulumi.Input['LifecyclePolicyLastLaunchedArgs'] last_launched: Use to apply lifecycle policy actions on AMIs launched before a certain time.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] regions: Use to apply lifecycle policy actions on AMIs distributed to a set of regions.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] shared_accounts: Use to apply lifecycle policy actions on AMIs shared with a set of regions.
+        :param Any tag_map: The AMIs to select by tag.
+        """
+        if is_public is not None:
+            pulumi.set(__self__, "is_public", is_public)
+        if last_launched is not None:
+            pulumi.set(__self__, "last_launched", last_launched)
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
+        if shared_accounts is not None:
+            pulumi.set(__self__, "shared_accounts", shared_accounts)
+        if tag_map is not None:
+            pulumi.set(__self__, "tag_map", tag_map)
+
+    @property
+    @pulumi.getter(name="isPublic")
+    def is_public(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Use to apply lifecycle policy actions on whether the AMI is public.
+        """
+        return pulumi.get(self, "is_public")
+
+    @is_public.setter
+    def is_public(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_public", value)
+
+    @property
+    @pulumi.getter(name="lastLaunched")
+    def last_launched(self) -> Optional[pulumi.Input['LifecyclePolicyLastLaunchedArgs']]:
+        """
+        Use to apply lifecycle policy actions on AMIs launched before a certain time.
+        """
+        return pulumi.get(self, "last_launched")
+
+    @last_launched.setter
+    def last_launched(self, value: Optional[pulumi.Input['LifecyclePolicyLastLaunchedArgs']]):
+        pulumi.set(self, "last_launched", value)
+
+    @property
+    @pulumi.getter
+    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Use to apply lifecycle policy actions on AMIs distributed to a set of regions.
+        """
+        return pulumi.get(self, "regions")
+
+    @regions.setter
+    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "regions", value)
+
+    @property
+    @pulumi.getter(name="sharedAccounts")
+    def shared_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Use to apply lifecycle policy actions on AMIs shared with a set of regions.
+        """
+        return pulumi.get(self, "shared_accounts")
+
+    @shared_accounts.setter
+    def shared_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "shared_accounts", value)
+
+    @property
+    @pulumi.getter(name="tagMap")
+    def tag_map(self) -> Optional[Any]:
+        """
+        The AMIs to select by tag.
+        """
+        return pulumi.get(self, "tag_map")
+
+    @tag_map.setter
+    def tag_map(self, value: Optional[Any]):
+        pulumi.set(self, "tag_map", value)
+
+
+@pulumi.input_type
+class LifecyclePolicyExclusionRulesArgs:
+    def __init__(__self__, *,
+                 amis: Optional[pulumi.Input['LifecyclePolicyAmiExclusionRulesArgs']] = None,
+                 tag_map: Optional[Any] = None):
+        """
+        The exclusion rules to apply of the policy detail.
+        :param Any tag_map: The Image Builder tags to filter on.
+        """
+        if amis is not None:
+            pulumi.set(__self__, "amis", amis)
+        if tag_map is not None:
+            pulumi.set(__self__, "tag_map", tag_map)
+
+    @property
+    @pulumi.getter
+    def amis(self) -> Optional[pulumi.Input['LifecyclePolicyAmiExclusionRulesArgs']]:
+        return pulumi.get(self, "amis")
+
+    @amis.setter
+    def amis(self, value: Optional[pulumi.Input['LifecyclePolicyAmiExclusionRulesArgs']]):
+        pulumi.set(self, "amis", value)
+
+    @property
+    @pulumi.getter(name="tagMap")
+    def tag_map(self) -> Optional[Any]:
+        """
+        The Image Builder tags to filter on.
+        """
+        return pulumi.get(self, "tag_map")
+
+    @tag_map.setter
+    def tag_map(self, value: Optional[Any]):
+        pulumi.set(self, "tag_map", value)
+
+
+@pulumi.input_type
+class LifecyclePolicyFilterArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['LifecyclePolicyFilterType'],
+                 value: pulumi.Input[int],
+                 retain_at_least: Optional[pulumi.Input[int]] = None,
+                 unit: Optional[pulumi.Input['LifecyclePolicyTimeUnit']] = None):
+        """
+        The filters to apply of the policy detail.
+        :param pulumi.Input['LifecyclePolicyFilterType'] type: The filter type.
+        :param pulumi.Input[int] value: The filter value.
+        :param pulumi.Input[int] retain_at_least: The minimum number of Image Builder resources to retain.
+        :param pulumi.Input['LifecyclePolicyTimeUnit'] unit: The value's time unit.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+        if retain_at_least is not None:
+            pulumi.set(__self__, "retain_at_least", retain_at_least)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['LifecyclePolicyFilterType']:
+        """
+        The filter type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['LifecyclePolicyFilterType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The filter value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="retainAtLeast")
+    def retain_at_least(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum number of Image Builder resources to retain.
+        """
+        return pulumi.get(self, "retain_at_least")
+
+    @retain_at_least.setter
+    def retain_at_least(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retain_at_least", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[pulumi.Input['LifecyclePolicyTimeUnit']]:
+        """
+        The value's time unit.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: Optional[pulumi.Input['LifecyclePolicyTimeUnit']]):
+        pulumi.set(self, "unit", value)
+
+
+@pulumi.input_type
+class LifecyclePolicyIncludeResourcesArgs:
+    def __init__(__self__, *,
+                 amis: Optional[pulumi.Input[bool]] = None,
+                 containers: Optional[pulumi.Input[bool]] = None,
+                 snapshots: Optional[pulumi.Input[bool]] = None):
+        """
+        The included resources of the policy detail.
+        :param pulumi.Input[bool] amis: Use to configure lifecycle actions on AMIs.
+        :param pulumi.Input[bool] containers: Use to configure lifecycle actions on containers.
+        :param pulumi.Input[bool] snapshots: Use to configure lifecycle actions on snapshots.
+        """
+        if amis is not None:
+            pulumi.set(__self__, "amis", amis)
+        if containers is not None:
+            pulumi.set(__self__, "containers", containers)
+        if snapshots is not None:
+            pulumi.set(__self__, "snapshots", snapshots)
+
+    @property
+    @pulumi.getter
+    def amis(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Use to configure lifecycle actions on AMIs.
+        """
+        return pulumi.get(self, "amis")
+
+    @amis.setter
+    def amis(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "amis", value)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Use to configure lifecycle actions on containers.
+        """
+        return pulumi.get(self, "containers")
+
+    @containers.setter
+    def containers(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "containers", value)
+
+    @property
+    @pulumi.getter
+    def snapshots(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Use to configure lifecycle actions on snapshots.
+        """
+        return pulumi.get(self, "snapshots")
+
+    @snapshots.setter
+    def snapshots(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "snapshots", value)
+
+
+@pulumi.input_type
+class LifecyclePolicyLastLaunchedArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input['LifecyclePolicyTimeUnit'],
+                 value: pulumi.Input[int]):
+        """
+        The last launched time of a resource.
+        :param pulumi.Input['LifecyclePolicyTimeUnit'] unit: The value's time unit.
+        :param pulumi.Input[int] value: The last launched value.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input['LifecyclePolicyTimeUnit']:
+        """
+        The value's time unit.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input['LifecyclePolicyTimeUnit']):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The last launched value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class LifecyclePolicyPolicyDetailArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['LifecyclePolicyActionArgs'],
+                 filter: pulumi.Input['LifecyclePolicyFilterArgs'],
+                 exclusion_rules: Optional[pulumi.Input['LifecyclePolicyExclusionRulesArgs']] = None):
+        """
+        The policy detail of the lifecycle policy.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "filter", filter)
+        if exclusion_rules is not None:
+            pulumi.set(__self__, "exclusion_rules", exclusion_rules)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['LifecyclePolicyActionArgs']:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['LifecyclePolicyActionArgs']):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> pulumi.Input['LifecyclePolicyFilterArgs']:
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: pulumi.Input['LifecyclePolicyFilterArgs']):
+        pulumi.set(self, "filter", value)
+
+    @property
+    @pulumi.getter(name="exclusionRules")
+    def exclusion_rules(self) -> Optional[pulumi.Input['LifecyclePolicyExclusionRulesArgs']]:
+        return pulumi.get(self, "exclusion_rules")
+
+    @exclusion_rules.setter
+    def exclusion_rules(self, value: Optional[pulumi.Input['LifecyclePolicyExclusionRulesArgs']]):
+        pulumi.set(self, "exclusion_rules", value)
+
+
+@pulumi.input_type
+class LifecyclePolicyRecipeSelectionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 semantic_version: Optional[pulumi.Input[str]] = None):
+        """
+        The recipe to apply the lifecycle policy for.
+        :param pulumi.Input[str] name: The recipe name.
+        :param pulumi.Input[str] semantic_version: The recipe version.
+        """
+        pulumi.set(__self__, "name", name)
+        if semantic_version is not None:
+            pulumi.set(__self__, "semantic_version", semantic_version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The recipe name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="semanticVersion")
+    def semantic_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The recipe version.
+        """
+        return pulumi.get(self, "semantic_version")
+
+    @semantic_version.setter
+    def semantic_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "semantic_version", value)
+
+
+@pulumi.input_type
+class LifecyclePolicyResourceSelectionArgs:
+    def __init__(__self__, *,
+                 recipes: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyRecipeSelectionArgs']]]] = None,
+                 tag_map: Optional[Any] = None):
+        """
+        The resource selection for the lifecycle policy.
+        :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyRecipeSelectionArgs']]] recipes: The recipes to select.
+        :param Any tag_map: The Image Builder resources to select by tag.
+        """
+        if recipes is not None:
+            pulumi.set(__self__, "recipes", recipes)
+        if tag_map is not None:
+            pulumi.set(__self__, "tag_map", tag_map)
+
+    @property
+    @pulumi.getter
+    def recipes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyRecipeSelectionArgs']]]]:
+        """
+        The recipes to select.
+        """
+        return pulumi.get(self, "recipes")
+
+    @recipes.setter
+    def recipes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyRecipeSelectionArgs']]]]):
+        pulumi.set(self, "recipes", value)
+
+    @property
+    @pulumi.getter(name="tagMap")
+    def tag_map(self) -> Optional[Any]:
+        """
+        The Image Builder resources to select by tag.
+        """
+        return pulumi.get(self, "tag_map")
+
+    @tag_map.setter
+    def tag_map(self, value: Optional[Any]):
+        pulumi.set(self, "tag_map", value)
 
 

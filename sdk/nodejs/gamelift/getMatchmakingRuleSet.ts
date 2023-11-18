@@ -8,32 +8,47 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::GameLift::MatchmakingRuleSet
+ * The AWS::GameLift::MatchmakingRuleSet resource creates an Amazon GameLift (GameLift) matchmaking rule set.
  */
 export function getMatchmakingRuleSet(args: GetMatchmakingRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetMatchmakingRuleSetResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:gamelift:getMatchmakingRuleSet", {
-        "id": args.id,
+        "name": args.name,
     }, opts);
 }
 
 export interface GetMatchmakingRuleSetArgs {
-    id: string;
+    /**
+     * A unique identifier for the matchmaking rule set.
+     */
+    name: string;
 }
 
 export interface GetMatchmakingRuleSetResult {
+    /**
+     * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift matchmaking rule set resource and uniquely identifies it.
+     */
     readonly arn?: string;
-    readonly id?: string;
+    /**
+     * A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds.
+     */
+    readonly creationTime?: string;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     readonly tags?: outputs.gamelift.MatchmakingRuleSetTag[];
 }
 /**
- * Resource Type definition for AWS::GameLift::MatchmakingRuleSet
+ * The AWS::GameLift::MatchmakingRuleSet resource creates an Amazon GameLift (GameLift) matchmaking rule set.
  */
 export function getMatchmakingRuleSetOutput(args: GetMatchmakingRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMatchmakingRuleSetResult> {
     return pulumi.output(args).apply((a: any) => getMatchmakingRuleSet(a, opts))
 }
 
 export interface GetMatchmakingRuleSetOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * A unique identifier for the matchmaking rule set.
+     */
+    name: pulumi.Input<string>;
 }

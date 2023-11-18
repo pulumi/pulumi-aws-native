@@ -96,6 +96,8 @@ __all__ = [
     'LaunchTemplateEbs',
     'LaunchTemplateElasticGpuSpecification',
     'LaunchTemplateElasticInferenceAccelerator',
+    'LaunchTemplateEnaSrdSpecification',
+    'LaunchTemplateEnaSrdUdpSpecification',
     'LaunchTemplateEnclaveOptions',
     'LaunchTemplateHibernationOptions',
     'LaunchTemplateIamInstanceProfile',
@@ -4080,6 +4082,96 @@ class LaunchTemplateElasticInferenceAccelerator(dict):
 
 
 @pulumi.output_type
+class LaunchTemplateEnaSrdSpecification(dict):
+    """
+    Allows customer to specify ENA-SRD options
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enaSrdEnabled":
+            suggest = "ena_srd_enabled"
+        elif key == "enaSrdUdpSpecification":
+            suggest = "ena_srd_udp_specification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateEnaSrdSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateEnaSrdSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateEnaSrdSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ena_srd_enabled: Optional[bool] = None,
+                 ena_srd_udp_specification: Optional['outputs.LaunchTemplateEnaSrdUdpSpecification'] = None):
+        """
+        Allows customer to specify ENA-SRD options
+        :param bool ena_srd_enabled: Enables TCP ENA-SRD
+        """
+        if ena_srd_enabled is not None:
+            pulumi.set(__self__, "ena_srd_enabled", ena_srd_enabled)
+        if ena_srd_udp_specification is not None:
+            pulumi.set(__self__, "ena_srd_udp_specification", ena_srd_udp_specification)
+
+    @property
+    @pulumi.getter(name="enaSrdEnabled")
+    def ena_srd_enabled(self) -> Optional[bool]:
+        """
+        Enables TCP ENA-SRD
+        """
+        return pulumi.get(self, "ena_srd_enabled")
+
+    @property
+    @pulumi.getter(name="enaSrdUdpSpecification")
+    def ena_srd_udp_specification(self) -> Optional['outputs.LaunchTemplateEnaSrdUdpSpecification']:
+        return pulumi.get(self, "ena_srd_udp_specification")
+
+
+@pulumi.output_type
+class LaunchTemplateEnaSrdUdpSpecification(dict):
+    """
+    Allows customer to specify ENA-SRD (UDP) options
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enaSrdUdpEnabled":
+            suggest = "ena_srd_udp_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateEnaSrdUdpSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateEnaSrdUdpSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateEnaSrdUdpSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ena_srd_udp_enabled: Optional[bool] = None):
+        """
+        Allows customer to specify ENA-SRD (UDP) options
+        :param bool ena_srd_udp_enabled: Enables UDP ENA-SRD
+        """
+        if ena_srd_udp_enabled is not None:
+            pulumi.set(__self__, "ena_srd_udp_enabled", ena_srd_udp_enabled)
+
+    @property
+    @pulumi.getter(name="enaSrdUdpEnabled")
+    def ena_srd_udp_enabled(self) -> Optional[bool]:
+        """
+        Enables UDP ENA-SRD
+        """
+        return pulumi.get(self, "ena_srd_udp_enabled")
+
+
+@pulumi.output_type
 class LaunchTemplateEnclaveOptions(dict):
     """
     Indicates whether the instance is enabled for AWS Nitro Enclaves.
@@ -4950,6 +5042,8 @@ class LaunchTemplateNetworkInterface(dict):
             suggest = "delete_on_termination"
         elif key == "deviceIndex":
             suggest = "device_index"
+        elif key == "enaSrdSpecification":
+            suggest = "ena_srd_specification"
         elif key == "interfaceType":
             suggest = "interface_type"
         elif key == "ipv4PrefixCount":
@@ -4996,6 +5090,7 @@ class LaunchTemplateNetworkInterface(dict):
                  delete_on_termination: Optional[bool] = None,
                  description: Optional[str] = None,
                  device_index: Optional[int] = None,
+                 ena_srd_specification: Optional['outputs.LaunchTemplateEnaSrdSpecification'] = None,
                  groups: Optional[Sequence[str]] = None,
                  interface_type: Optional[str] = None,
                  ipv4_prefix_count: Optional[int] = None,
@@ -5044,6 +5139,8 @@ class LaunchTemplateNetworkInterface(dict):
             pulumi.set(__self__, "description", description)
         if device_index is not None:
             pulumi.set(__self__, "device_index", device_index)
+        if ena_srd_specification is not None:
+            pulumi.set(__self__, "ena_srd_specification", ena_srd_specification)
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if interface_type is not None:
@@ -5114,6 +5211,11 @@ class LaunchTemplateNetworkInterface(dict):
         The device index for the network interface attachment.
         """
         return pulumi.get(self, "device_index")
+
+    @property
+    @pulumi.getter(name="enaSrdSpecification")
+    def ena_srd_specification(self) -> Optional['outputs.LaunchTemplateEnaSrdSpecification']:
+        return pulumi.get(self, "ena_srd_specification")
 
     @property
     @pulumi.getter

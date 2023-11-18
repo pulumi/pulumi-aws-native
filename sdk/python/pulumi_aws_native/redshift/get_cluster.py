@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, allow_version_upgrade=None, aqua_configuration_status=None, automated_snapshot_retention_period=None, availability_zone=None, availability_zone_relocation=None, availability_zone_relocation_status=None, cluster_parameter_group_name=None, cluster_security_groups=None, cluster_type=None, cluster_version=None, defer_maintenance=None, defer_maintenance_duration=None, defer_maintenance_end_time=None, defer_maintenance_identifier=None, defer_maintenance_start_time=None, destination_region=None, elastic_ip=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, hsm_client_certificate_identifier=None, hsm_configuration_identifier=None, iam_roles=None, id=None, kms_key_id=None, logging_properties=None, maintenance_track_name=None, manual_snapshot_retention_period=None, node_type=None, number_of_nodes=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, resource_action=None, revision_target=None, rotate_encryption_key=None, snapshot_copy_grant_name=None, snapshot_copy_manual=None, snapshot_copy_retention_period=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, allow_version_upgrade=None, aqua_configuration_status=None, automated_snapshot_retention_period=None, availability_zone=None, availability_zone_relocation=None, availability_zone_relocation_status=None, cluster_parameter_group_name=None, cluster_security_groups=None, cluster_type=None, cluster_version=None, defer_maintenance=None, defer_maintenance_duration=None, defer_maintenance_end_time=None, defer_maintenance_identifier=None, defer_maintenance_start_time=None, destination_region=None, elastic_ip=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, hsm_client_certificate_identifier=None, hsm_configuration_identifier=None, iam_roles=None, id=None, kms_key_id=None, logging_properties=None, maintenance_track_name=None, manual_snapshot_retention_period=None, multi_az=None, node_type=None, number_of_nodes=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, resource_action=None, revision_target=None, rotate_encryption_key=None, snapshot_copy_grant_name=None, snapshot_copy_manual=None, snapshot_copy_retention_period=None, tags=None, vpc_security_group_ids=None):
         if allow_version_upgrade and not isinstance(allow_version_upgrade, bool):
             raise TypeError("Expected argument 'allow_version_upgrade' to be a bool")
         pulumi.set(__self__, "allow_version_upgrade", allow_version_upgrade)
@@ -104,6 +104,9 @@ class GetClusterResult:
         if manual_snapshot_retention_period and not isinstance(manual_snapshot_retention_period, int):
             raise TypeError("Expected argument 'manual_snapshot_retention_period' to be a int")
         pulumi.set(__self__, "manual_snapshot_retention_period", manual_snapshot_retention_period)
+        if multi_az and not isinstance(multi_az, bool):
+            raise TypeError("Expected argument 'multi_az' to be a bool")
+        pulumi.set(__self__, "multi_az", multi_az)
         if node_type and not isinstance(node_type, str):
             raise TypeError("Expected argument 'node_type' to be a str")
         pulumi.set(__self__, "node_type", node_type)
@@ -370,6 +373,14 @@ class GetClusterResult:
         return pulumi.get(self, "manual_snapshot_retention_period")
 
     @property
+    @pulumi.getter(name="multiAz")
+    def multi_az(self) -> Optional[bool]:
+        """
+        A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
+        """
+        return pulumi.get(self, "multi_az")
+
+    @property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> Optional[str]:
         """
@@ -413,7 +424,7 @@ class GetClusterResult:
     @pulumi.getter(name="resourceAction")
     def resource_action(self) -> Optional[str]:
         """
-        The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster APIs
+        The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster, failover-primary-compute APIs
         """
         return pulumi.get(self, "resource_action")
 
@@ -512,6 +523,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             logging_properties=self.logging_properties,
             maintenance_track_name=self.maintenance_track_name,
             manual_snapshot_retention_period=self.manual_snapshot_retention_period,
+            multi_az=self.multi_az,
             node_type=self.node_type,
             number_of_nodes=self.number_of_nodes,
             port=self.port,
@@ -569,6 +581,7 @@ def get_cluster(cluster_identifier: Optional[str] = None,
         logging_properties=pulumi.get(__ret__, 'logging_properties'),
         maintenance_track_name=pulumi.get(__ret__, 'maintenance_track_name'),
         manual_snapshot_retention_period=pulumi.get(__ret__, 'manual_snapshot_retention_period'),
+        multi_az=pulumi.get(__ret__, 'multi_az'),
         node_type=pulumi.get(__ret__, 'node_type'),
         number_of_nodes=pulumi.get(__ret__, 'number_of_nodes'),
         port=pulumi.get(__ret__, 'port'),

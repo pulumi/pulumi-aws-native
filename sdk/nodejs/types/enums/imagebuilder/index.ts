@@ -118,3 +118,56 @@ export const InfrastructureConfigurationInstanceMetadataOptionsHttpTokens = {
  * Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows: 
  */
 export type InfrastructureConfigurationInstanceMetadataOptionsHttpTokens = (typeof InfrastructureConfigurationInstanceMetadataOptionsHttpTokens)[keyof typeof InfrastructureConfigurationInstanceMetadataOptionsHttpTokens];
+
+export const LifecyclePolicyActionType = {
+    Delete: "DELETE",
+    Deprecate: "DEPRECATE",
+    Disable: "DISABLE",
+} as const;
+
+/**
+ * The action type of the policy detail.
+ */
+export type LifecyclePolicyActionType = (typeof LifecyclePolicyActionType)[keyof typeof LifecyclePolicyActionType];
+
+export const LifecyclePolicyFilterType = {
+    Age: "AGE",
+    Count: "COUNT",
+} as const;
+
+/**
+ * The filter type.
+ */
+export type LifecyclePolicyFilterType = (typeof LifecyclePolicyFilterType)[keyof typeof LifecyclePolicyFilterType];
+
+export const LifecyclePolicyResourceType = {
+    AmiImage: "AMI_IMAGE",
+    ContainerImage: "CONTAINER_IMAGE",
+} as const;
+
+/**
+ * The resource type of the lifecycle policy.
+ */
+export type LifecyclePolicyResourceType = (typeof LifecyclePolicyResourceType)[keyof typeof LifecyclePolicyResourceType];
+
+export const LifecyclePolicyStatus = {
+    Disabled: "DISABLED",
+    Enabled: "ENABLED",
+} as const;
+
+/**
+ * The status of the lifecycle policy.
+ */
+export type LifecyclePolicyStatus = (typeof LifecyclePolicyStatus)[keyof typeof LifecyclePolicyStatus];
+
+export const LifecyclePolicyTimeUnit = {
+    Days: "DAYS",
+    Weeks: "WEEKS",
+    Months: "MONTHS",
+    Years: "YEARS",
+} as const;
+
+/**
+ * A time unit.
+ */
+export type LifecyclePolicyTimeUnit = (typeof LifecyclePolicyTimeUnit)[keyof typeof LifecyclePolicyTimeUnit];

@@ -39,6 +39,7 @@ class DbInstanceArgs:
                  db_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 dedicated_log_volume: Optional[pulumi.Input[bool]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
@@ -133,6 +134,7 @@ class DbInstanceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] db_security_groups: A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
         :param pulumi.Input[str] db_snapshot_identifier: The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance. If you're restoring from a shared manual DB snapshot, you must specify the ARN of the snapshot.
         :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
+        :param pulumi.Input[bool] dedicated_log_volume: Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
         :param pulumi.Input[bool] delete_automated_backups: A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
         :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         :param pulumi.Input[str] domain: The Active Directory directory ID to create the DB instance in. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
@@ -231,6 +233,8 @@ class DbInstanceArgs:
             pulumi.set(__self__, "db_snapshot_identifier", db_snapshot_identifier)
         if db_subnet_group_name is not None:
             pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
+        if dedicated_log_volume is not None:
+            pulumi.set(__self__, "dedicated_log_volume", dedicated_log_volume)
         if delete_automated_backups is not None:
             pulumi.set(__self__, "delete_automated_backups", delete_automated_backups)
         if deletion_protection is not None:
@@ -618,6 +622,18 @@ class DbInstanceArgs:
     @db_subnet_group_name.setter
     def db_subnet_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "db_subnet_group_name", value)
+
+    @property
+    @pulumi.getter(name="dedicatedLogVolume")
+    def dedicated_log_volume(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
+        """
+        return pulumi.get(self, "dedicated_log_volume")
+
+    @dedicated_log_volume.setter
+    def dedicated_log_volume(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dedicated_log_volume", value)
 
     @property
     @pulumi.getter(name="deleteAutomatedBackups")
@@ -1283,6 +1299,7 @@ class DbInstance(pulumi.CustomResource):
                  db_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 dedicated_log_volume: Optional[pulumi.Input[bool]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
@@ -1381,6 +1398,7 @@ class DbInstance(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] db_security_groups: A list of the DB security groups to assign to the DB instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.
         :param pulumi.Input[str] db_snapshot_identifier: The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance. If you're restoring from a shared manual DB snapshot, you must specify the ARN of the snapshot.
         :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
+        :param pulumi.Input[bool] dedicated_log_volume: Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
         :param pulumi.Input[bool] delete_automated_backups: A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
         :param pulumi.Input[bool] deletion_protection: A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         :param pulumi.Input[str] domain: The Active Directory directory ID to create the DB instance in. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
@@ -1481,6 +1499,7 @@ class DbInstance(pulumi.CustomResource):
                  db_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 dedicated_log_volume: Optional[pulumi.Input[bool]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
@@ -1565,6 +1584,7 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["db_security_groups"] = db_security_groups
             __props__.__dict__["db_snapshot_identifier"] = db_snapshot_identifier
             __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
+            __props__.__dict__["dedicated_log_volume"] = dedicated_log_volume
             __props__.__dict__["delete_automated_backups"] = delete_automated_backups
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["domain"] = domain
@@ -1670,6 +1690,7 @@ class DbInstance(pulumi.CustomResource):
         __props__.__dict__["db_subnet_group_name"] = None
         __props__.__dict__["db_system_id"] = None
         __props__.__dict__["dbi_resource_id"] = None
+        __props__.__dict__["dedicated_log_volume"] = None
         __props__.__dict__["delete_automated_backups"] = None
         __props__.__dict__["deletion_protection"] = None
         __props__.__dict__["domain"] = None
@@ -1941,6 +1962,14 @@ class DbInstance(pulumi.CustomResource):
         The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
         """
         return pulumi.get(self, "dbi_resource_id")
+
+    @property
+    @pulumi.getter(name="dedicatedLogVolume")
+    def dedicated_log_volume(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
+        """
+        return pulumi.get(self, "dedicated_log_volume")
 
     @property
     @pulumi.getter(name="deleteAutomatedBackups")

@@ -24,13 +24,26 @@ func LookupScalingPolicy(ctx *pulumi.Context, args *LookupScalingPolicyArgs, opt
 }
 
 type LookupScalingPolicyArgs struct {
-	Id string `pulumi:"id"`
+	// ARN is a read only property for the resource.
+	Arn string `pulumi:"arn"`
+	// The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
+	ScalableDimension string `pulumi:"scalableDimension"`
 }
 
 type LookupScalingPolicyResult struct {
-	Id                                       *string                                                `pulumi:"id"`
-	PolicyType                               *string                                                `pulumi:"policyType"`
-	StepScalingPolicyConfiguration           *ScalingPolicyStepScalingPolicyConfiguration           `pulumi:"stepScalingPolicyConfiguration"`
+	// ARN is a read only property for the resource.
+	Arn *string `pulumi:"arn"`
+	// The scaling policy type.
+	//
+	// The following policy types are supported:
+	//
+	// TargetTrackingScaling Not supported for Amazon EMR
+	//
+	// StepScaling Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
+	PolicyType *string `pulumi:"policyType"`
+	// A step scaling policy.
+	StepScalingPolicyConfiguration *ScalingPolicyStepScalingPolicyConfiguration `pulumi:"stepScalingPolicyConfiguration"`
+	// A target tracking scaling policy.
 	TargetTrackingScalingPolicyConfiguration *ScalingPolicyTargetTrackingScalingPolicyConfiguration `pulumi:"targetTrackingScalingPolicyConfiguration"`
 }
 
@@ -48,7 +61,10 @@ func LookupScalingPolicyOutput(ctx *pulumi.Context, args LookupScalingPolicyOutp
 }
 
 type LookupScalingPolicyOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// ARN is a read only property for the resource.
+	Arn pulumi.StringInput `pulumi:"arn"`
+	// The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
+	ScalableDimension pulumi.StringInput `pulumi:"scalableDimension"`
 }
 
 func (LookupScalingPolicyOutputArgs) ElementType() reflect.Type {
@@ -75,20 +91,30 @@ func (o LookupScalingPolicyResultOutput) ToOutput(ctx context.Context) pulumix.O
 	}
 }
 
-func (o LookupScalingPolicyResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupScalingPolicyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+// ARN is a read only property for the resource.
+func (o LookupScalingPolicyResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScalingPolicyResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The scaling policy type.
+//
+// The following policy types are supported:
+//
+// # TargetTrackingScaling Not supported for Amazon EMR
+//
+// StepScaling Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
 func (o LookupScalingPolicyResultOutput) PolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupScalingPolicyResult) *string { return v.PolicyType }).(pulumi.StringPtrOutput)
 }
 
+// A step scaling policy.
 func (o LookupScalingPolicyResultOutput) StepScalingPolicyConfiguration() ScalingPolicyStepScalingPolicyConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupScalingPolicyResult) *ScalingPolicyStepScalingPolicyConfiguration {
 		return v.StepScalingPolicyConfiguration
 	}).(ScalingPolicyStepScalingPolicyConfigurationPtrOutput)
 }
 
+// A target tracking scaling policy.
 func (o LookupScalingPolicyResultOutput) TargetTrackingScalingPolicyConfiguration() ScalingPolicyTargetTrackingScalingPolicyConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupScalingPolicyResult) *ScalingPolicyTargetTrackingScalingPolicyConfiguration {
 		return v.TargetTrackingScalingPolicyConfiguration

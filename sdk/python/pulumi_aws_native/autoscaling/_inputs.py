@@ -13,6 +13,7 @@ __all__ = [
     'AutoScalingGroupAcceleratorCountRequestArgs',
     'AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs',
     'AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs',
+    'AutoScalingGroupInstanceMaintenancePolicyArgs',
     'AutoScalingGroupInstanceRequirementsArgs',
     'AutoScalingGroupInstancesDistributionArgs',
     'AutoScalingGroupLaunchTemplateOverridesArgs',
@@ -136,6 +137,35 @@ class AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs:
     @min.setter
     def min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min", value)
+
+
+@pulumi.input_type
+class AutoScalingGroupInstanceMaintenancePolicyArgs:
+    def __init__(__self__, *,
+                 max_healthy_percentage: Optional[pulumi.Input[int]] = None,
+                 min_healthy_percentage: Optional[pulumi.Input[int]] = None):
+        if max_healthy_percentage is not None:
+            pulumi.set(__self__, "max_healthy_percentage", max_healthy_percentage)
+        if min_healthy_percentage is not None:
+            pulumi.set(__self__, "min_healthy_percentage", min_healthy_percentage)
+
+    @property
+    @pulumi.getter(name="maxHealthyPercentage")
+    def max_healthy_percentage(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_healthy_percentage")
+
+    @max_healthy_percentage.setter
+    def max_healthy_percentage(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_healthy_percentage", value)
+
+    @property
+    @pulumi.getter(name="minHealthyPercentage")
+    def min_healthy_percentage(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "min_healthy_percentage")
+
+    @min_healthy_percentage.setter
+    def min_healthy_percentage(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_healthy_percentage", value)
 
 
 @pulumi.input_type

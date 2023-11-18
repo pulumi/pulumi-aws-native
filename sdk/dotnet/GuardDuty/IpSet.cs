@@ -12,15 +12,14 @@ namespace Pulumi.AwsNative.GuardDuty
     /// <summary>
     /// Resource Type definition for AWS::GuardDuty::IPSet
     /// </summary>
-    [Obsolete(@"IpSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:guardduty:IpSet")]
     public partial class IpSet : global::Pulumi.CustomResource
     {
         [Output("activate")]
-        public Output<bool> Activate { get; private set; } = null!;
+        public Output<bool?> Activate { get; private set; } = null!;
 
         [Output("detectorId")]
-        public Output<string> DetectorId { get; private set; } = null!;
+        public Output<string?> DetectorId { get; private set; } = null!;
 
         [Output("format")]
         public Output<string> Format { get; private set; } = null!;
@@ -29,10 +28,10 @@ namespace Pulumi.AwsNative.GuardDuty
         public Output<string> Location { get; private set; } = null!;
 
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         [Output("tags")]
-        public Output<ImmutableArray<Outputs.IpSetTag>> Tags { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IpSetTagItem>> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -84,11 +83,11 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class IpSetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("activate", required: true)]
-        public Input<bool> Activate { get; set; } = null!;
+        [Input("activate")]
+        public Input<bool>? Activate { get; set; }
 
-        [Input("detectorId", required: true)]
-        public Input<string> DetectorId { get; set; } = null!;
+        [Input("detectorId")]
+        public Input<string>? DetectorId { get; set; }
 
         [Input("format", required: true)]
         public Input<string> Format { get; set; } = null!;
@@ -100,10 +99,10 @@ namespace Pulumi.AwsNative.GuardDuty
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
-        private InputList<Inputs.IpSetTagArgs>? _tags;
-        public InputList<Inputs.IpSetTagArgs> Tags
+        private InputList<Inputs.IpSetTagItemArgs>? _tags;
+        public InputList<Inputs.IpSetTagItemArgs> Tags
         {
-            get => _tags ?? (_tags = new InputList<Inputs.IpSetTagArgs>());
+            get => _tags ?? (_tags = new InputList<Inputs.IpSetTagItemArgs>());
             set => _tags = value;
         }
 

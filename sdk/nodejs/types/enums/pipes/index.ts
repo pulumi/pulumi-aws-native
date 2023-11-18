@@ -44,6 +44,12 @@ export const PipeEcsResourceRequirementType = {
 
 export type PipeEcsResourceRequirementType = (typeof PipeEcsResourceRequirementType)[keyof typeof PipeEcsResourceRequirementType];
 
+export const PipeIncludeExecutionDataOption = {
+    All: "ALL",
+} as const;
+
+export type PipeIncludeExecutionDataOption = (typeof PipeIncludeExecutionDataOption)[keyof typeof PipeIncludeExecutionDataOption];
+
 export const PipeKinesisStreamStartPosition = {
     TrimHorizon: "TRIM_HORIZON",
     Latest: "LATEST",
@@ -59,6 +65,15 @@ export const PipeLaunchType = {
 } as const;
 
 export type PipeLaunchType = (typeof PipeLaunchType)[keyof typeof PipeLaunchType];
+
+export const PipeLogLevel = {
+    Off: "OFF",
+    Error: "ERROR",
+    Info: "INFO",
+    Trace: "TRACE",
+} as const;
+
+export type PipeLogLevel = (typeof PipeLogLevel)[keyof typeof PipeLogLevel];
 
 export const PipeMskStartPosition = {
     TrimHorizon: "TRIM_HORIZON",
@@ -101,6 +116,14 @@ export const PipeRequestedPipeState = {
 
 export type PipeRequestedPipeState = (typeof PipeRequestedPipeState)[keyof typeof PipeRequestedPipeState];
 
+export const PipeS3OutputFormat = {
+    Json: "json",
+    Plain: "plain",
+    W3c: "w3c",
+} as const;
+
+export type PipeS3OutputFormat = (typeof PipeS3OutputFormat)[keyof typeof PipeS3OutputFormat];
+
 export const PipeSelfManagedKafkaStartPosition = {
     TrimHorizon: "TRIM_HORIZON",
     Latest: "LATEST",
@@ -120,6 +143,10 @@ export const PipeState = {
     UpdateFailed: "UPDATE_FAILED",
     StartFailed: "START_FAILED",
     StopFailed: "STOP_FAILED",
+    DeleteFailed: "DELETE_FAILED",
+    CreateRollbackFailed: "CREATE_ROLLBACK_FAILED",
+    DeleteRollbackFailed: "DELETE_ROLLBACK_FAILED",
+    UpdateRollbackFailed: "UPDATE_ROLLBACK_FAILED",
 } as const;
 
 export type PipeState = (typeof PipeState)[keyof typeof PipeState];

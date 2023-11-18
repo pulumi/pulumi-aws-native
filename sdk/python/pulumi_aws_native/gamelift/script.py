@@ -22,6 +22,10 @@ class ScriptArgs:
                  version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Script resource.
+        :param pulumi.Input['ScriptS3LocationArgs'] storage_location: The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the ObjectVersion parameter to specify an earlier version.
+        :param pulumi.Input[str] name: A descriptive label that is associated with a script. Script names do not need to be unique.
+        :param pulumi.Input[Sequence[pulumi.Input['ScriptTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] version: The version that is associated with a script. Version strings do not need to be unique.
         """
         pulumi.set(__self__, "storage_location", storage_location)
         if name is not None:
@@ -34,6 +38,9 @@ class ScriptArgs:
     @property
     @pulumi.getter(name="storageLocation")
     def storage_location(self) -> pulumi.Input['ScriptS3LocationArgs']:
+        """
+        The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the ObjectVersion parameter to specify an earlier version.
+        """
         return pulumi.get(self, "storage_location")
 
     @storage_location.setter
@@ -43,6 +50,9 @@ class ScriptArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A descriptive label that is associated with a script. Script names do not need to be unique.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -52,6 +62,9 @@ class ScriptArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScriptTagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -61,6 +74,9 @@ class ScriptArgs:
     @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version that is associated with a script. Version strings do not need to be unique.
+        """
         return pulumi.get(self, "version")
 
     @version.setter
@@ -68,12 +84,7 @@ class ScriptArgs:
         pulumi.set(self, "version", value)
 
 
-warnings.warn("""Script is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Script(pulumi.CustomResource):
-    warnings.warn("""Script is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -84,10 +95,14 @@ class Script(pulumi.CustomResource):
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::GameLift::Script
+        The AWS::GameLift::Script resource creates a new script record for your Realtime Servers script. Realtime scripts are JavaScript that provide configuration settings and optional custom game logic for your game. The script is deployed when you create a Realtime Servers fleet to host your game sessions. Script logic is executed during an active game session.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: A descriptive label that is associated with a script. Script names do not need to be unique.
+        :param pulumi.Input[pulumi.InputType['ScriptS3LocationArgs']] storage_location: The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the ObjectVersion parameter to specify an earlier version.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] version: The version that is associated with a script. Version strings do not need to be unique.
         """
         ...
     @overload
@@ -96,7 +111,7 @@ class Script(pulumi.CustomResource):
                  args: ScriptArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::GameLift::Script
+        The AWS::GameLift::Script resource creates a new script record for your Realtime Servers script. Realtime scripts are JavaScript that provide configuration settings and optional custom game logic for your game. The script is deployed when you create a Realtime Servers fleet to host your game sessions. Script logic is executed during an active game session.
 
         :param str resource_name: The name of the resource.
         :param ScriptArgs args: The arguments to use to populate this resource's properties.
@@ -118,7 +133,6 @@ class Script(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ScriptTagArgs']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Script is deprecated: Script is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -134,6 +148,8 @@ class Script(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
             __props__.__dict__["arn"] = None
+            __props__.__dict__["creation_time"] = None
+            __props__.__dict__["size_on_disk"] = None
         super(Script, __self__).__init__(
             'aws-native:gamelift:Script',
             resource_name,
@@ -157,7 +173,9 @@ class Script(pulumi.CustomResource):
         __props__ = ScriptArgs.__new__(ScriptArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["creation_time"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["size_on_disk"] = None
         __props__.__dict__["storage_location"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["version"] = None
@@ -166,25 +184,56 @@ class Script(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift script resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift script ARN, the resource ID matches the Id value.
+        """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> pulumi.Output[str]:
+        """
+        A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+        """
+        return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        A descriptive label that is associated with a script. Script names do not need to be unique.
+        """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sizeOnDisk")
+    def size_on_disk(self) -> pulumi.Output[int]:
+        """
+        The file size of the uploaded Realtime script, expressed in bytes. When files are uploaded from an S3 location, this value remains at "0".
+        """
+        return pulumi.get(self, "size_on_disk")
 
     @property
     @pulumi.getter(name="storageLocation")
     def storage_location(self) -> pulumi.Output['outputs.ScriptS3Location']:
+        """
+        The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the ObjectVersion parameter to specify an earlier version.
+        """
         return pulumi.get(self, "storage_location")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.ScriptTag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The version that is associated with a script. Version strings do not need to be unique.
+        """
         return pulumi.get(self, "version")
 

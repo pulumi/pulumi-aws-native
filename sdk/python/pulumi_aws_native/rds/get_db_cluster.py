@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbClusterResult:
-    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, backtrack_window=None, backup_retention_period=None, copy_tags_to_snapshot=None, db_cluster_arn=None, db_cluster_instance_class=None, db_cluster_parameter_group_name=None, db_cluster_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_http_endpoint=None, enable_iam_database_authentication=None, endpoint=None, engine=None, engine_version=None, global_cluster_identifier=None, iops=None, manage_master_user_password=None, master_user_secret=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, replication_source_identifier=None, scaling_configuration=None, serverless_v2_scaling_configuration=None, storage_type=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, backtrack_window=None, backup_retention_period=None, copy_tags_to_snapshot=None, db_cluster_arn=None, db_cluster_instance_class=None, db_cluster_parameter_group_name=None, db_cluster_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_global_write_forwarding=None, enable_http_endpoint=None, enable_iam_database_authentication=None, endpoint=None, engine=None, engine_version=None, global_cluster_identifier=None, iops=None, manage_master_user_password=None, master_user_secret=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, replication_source_identifier=None, scaling_configuration=None, serverless_v2_scaling_configuration=None, storage_type=None, tags=None, vpc_security_group_ids=None):
         if allocated_storage and not isinstance(allocated_storage, int):
             raise TypeError("Expected argument 'allocated_storage' to be a int")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -62,6 +62,9 @@ class GetDbClusterResult:
         if enable_cloudwatch_logs_exports and not isinstance(enable_cloudwatch_logs_exports, list):
             raise TypeError("Expected argument 'enable_cloudwatch_logs_exports' to be a list")
         pulumi.set(__self__, "enable_cloudwatch_logs_exports", enable_cloudwatch_logs_exports)
+        if enable_global_write_forwarding and not isinstance(enable_global_write_forwarding, bool):
+            raise TypeError("Expected argument 'enable_global_write_forwarding' to be a bool")
+        pulumi.set(__self__, "enable_global_write_forwarding", enable_global_write_forwarding)
         if enable_http_endpoint and not isinstance(enable_http_endpoint, bool):
             raise TypeError("Expected argument 'enable_http_endpoint' to be a bool")
         pulumi.set(__self__, "enable_http_endpoint", enable_http_endpoint)
@@ -252,6 +255,14 @@ class GetDbClusterResult:
         The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
         """
         return pulumi.get(self, "enable_cloudwatch_logs_exports")
+
+    @property
+    @pulumi.getter(name="enableGlobalWriteForwarding")
+    def enable_global_write_forwarding(self) -> Optional[bool]:
+        """
+        Specifies whether to enable this DB cluster to forward write operations to the primary cluster of a global cluster (Aurora global database). By default, write operations are not allowed on Aurora DB clusters that are secondary clusters in an Aurora global database.
+        """
+        return pulumi.get(self, "enable_global_write_forwarding")
 
     @property
     @pulumi.getter(name="enableHttpEndpoint")
@@ -478,6 +489,7 @@ class AwaitableGetDbClusterResult(GetDbClusterResult):
             domain=self.domain,
             domain_iam_role_name=self.domain_iam_role_name,
             enable_cloudwatch_logs_exports=self.enable_cloudwatch_logs_exports,
+            enable_global_write_forwarding=self.enable_global_write_forwarding,
             enable_http_endpoint=self.enable_http_endpoint,
             enable_iam_database_authentication=self.enable_iam_database_authentication,
             endpoint=self.endpoint,
@@ -534,6 +546,7 @@ def get_db_cluster(db_cluster_identifier: Optional[str] = None,
         domain=pulumi.get(__ret__, 'domain'),
         domain_iam_role_name=pulumi.get(__ret__, 'domain_iam_role_name'),
         enable_cloudwatch_logs_exports=pulumi.get(__ret__, 'enable_cloudwatch_logs_exports'),
+        enable_global_write_forwarding=pulumi.get(__ret__, 'enable_global_write_forwarding'),
         enable_http_endpoint=pulumi.get(__ret__, 'enable_http_endpoint'),
         enable_iam_database_authentication=pulumi.get(__ret__, 'enable_iam_database_authentication'),
         endpoint=pulumi.get(__ret__, 'endpoint'),

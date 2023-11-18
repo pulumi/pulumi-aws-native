@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudTrail
 {
     /// <summary>
-    /// A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 90 to 2555 days (about three months to up to seven years).
+    /// A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 7 to 2557 or 3653 days (about seven or ten years) depending on the selected BillingMode.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudtrail:EventDataStore")]
     public partial class EventDataStore : global::Pulumi.CustomResource
@@ -20,6 +20,12 @@ namespace Pulumi.AwsNative.CloudTrail
         /// </summary>
         [Output("advancedEventSelectors")]
         public Output<ImmutableArray<Outputs.EventDataStoreAdvancedEventSelector>> AdvancedEventSelectors { get; private set; } = null!;
+
+        /// <summary>
+        /// The mode that the event data store will use to charge for event storage.
+        /// </summary>
+        [Output("billingMode")]
+        public Output<string?> BillingMode { get; private set; } = null!;
 
         /// <summary>
         /// The timestamp of the event data store's creation.
@@ -38,6 +44,18 @@ namespace Pulumi.AwsNative.CloudTrail
         /// </summary>
         [Output("ingestionEnabled")]
         public Output<bool?> IngestionEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
+        /// </summary>
+        [Output("insightSelectors")]
+        public Output<ImmutableArray<Outputs.EventDataStoreInsightSelector>> InsightSelectors { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the ARN of the event data store that will collect Insights events. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store
+        /// </summary>
+        [Output("insightsDestination")]
+        public Output<string?> InsightsDestination { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
@@ -148,10 +166,34 @@ namespace Pulumi.AwsNative.CloudTrail
         }
 
         /// <summary>
+        /// The mode that the event data store will use to charge for event storage.
+        /// </summary>
+        [Input("billingMode")]
+        public Input<string>? BillingMode { get; set; }
+
+        /// <summary>
         /// Indicates whether the event data store is ingesting events.
         /// </summary>
         [Input("ingestionEnabled")]
         public Input<bool>? IngestionEnabled { get; set; }
+
+        [Input("insightSelectors")]
+        private InputList<Inputs.EventDataStoreInsightSelectorArgs>? _insightSelectors;
+
+        /// <summary>
+        /// Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
+        /// </summary>
+        public InputList<Inputs.EventDataStoreInsightSelectorArgs> InsightSelectors
+        {
+            get => _insightSelectors ?? (_insightSelectors = new InputList<Inputs.EventDataStoreInsightSelectorArgs>());
+            set => _insightSelectors = value;
+        }
+
+        /// <summary>
+        /// Specifies the ARN of the event data store that will collect Insights events. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store
+        /// </summary>
+        [Input("insightsDestination")]
+        public Input<string>? InsightsDestination { get; set; }
 
         /// <summary>
         /// Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.

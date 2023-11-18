@@ -189,6 +189,18 @@ export const AnalysisDateAggregationFunction = {
 
 export type AnalysisDateAggregationFunction = (typeof AnalysisDateAggregationFunction)[keyof typeof AnalysisDateAggregationFunction];
 
+export const AnalysisDayOfTheWeek = {
+    Sunday: "SUNDAY",
+    Monday: "MONDAY",
+    Tuesday: "TUESDAY",
+    Wednesday: "WEDNESDAY",
+    Thursday: "THURSDAY",
+    Friday: "FRIDAY",
+    Saturday: "SATURDAY",
+} as const;
+
+export type AnalysisDayOfTheWeek = (typeof AnalysisDayOfTheWeek)[keyof typeof AnalysisDayOfTheWeek];
+
 export const AnalysisErrorType = {
     AccessDenied: "ACCESS_DENIED",
     SourceNotFound: "SOURCE_NOT_FOUND",
@@ -1127,6 +1139,18 @@ export const DashboardDateAggregationFunction = {
 
 export type DashboardDateAggregationFunction = (typeof DashboardDateAggregationFunction)[keyof typeof DashboardDateAggregationFunction];
 
+export const DashboardDayOfTheWeek = {
+    Sunday: "SUNDAY",
+    Monday: "MONDAY",
+    Tuesday: "TUESDAY",
+    Wednesday: "WEDNESDAY",
+    Thursday: "THURSDAY",
+    Friday: "FRIDAY",
+    Saturday: "SATURDAY",
+} as const;
+
+export type DashboardDayOfTheWeek = (typeof DashboardDayOfTheWeek)[keyof typeof DashboardDayOfTheWeek];
+
 export const DashboardErrorType = {
     AccessDenied: "ACCESS_DENIED",
     SourceNotFound: "SOURCE_NOT_FOUND",
@@ -1887,6 +1911,13 @@ export const DataSetColumnDataType = {
 
 export type DataSetColumnDataType = (typeof DataSetColumnDataType)[keyof typeof DataSetColumnDataType];
 
+export const DataSetColumnSubDataType = {
+    Fixed: "FIXED",
+    Float: "FLOAT",
+} as const;
+
+export type DataSetColumnSubDataType = (typeof DataSetColumnSubDataType)[keyof typeof DataSetColumnSubDataType];
+
 export const DataSetDatasetParameterValueType = {
     MultiValued: "MULTI_VALUED",
     SingleValued: "SINGLE_VALUED",
@@ -1978,6 +2009,13 @@ export const DataSourceResourceStatus = {
 
 export type DataSourceResourceStatus = (typeof DataSourceResourceStatus)[keyof typeof DataSourceResourceStatus];
 
+export const DataSourceStarburstProductType = {
+    Galaxy: "GALAXY",
+    Enterprise: "ENTERPRISE",
+} as const;
+
+export type DataSourceStarburstProductType = (typeof DataSourceStarburstProductType)[keyof typeof DataSourceStarburstProductType];
+
 export const DataSourceType = {
     AdobeAnalytics: "ADOBE_ANALYTICS",
     AmazonElasticsearch: "AMAZON_ELASTICSEARCH",
@@ -2004,6 +2042,8 @@ export const DataSourceType = {
     Teradata: "TERADATA",
     Twitter: "TWITTER",
     Timestream: "TIMESTREAM",
+    Starburst: "STARBURST",
+    Trino: "TRINO",
 } as const;
 
 export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
@@ -2224,6 +2264,18 @@ export const TemplateDateAggregationFunction = {
 } as const;
 
 export type TemplateDateAggregationFunction = (typeof TemplateDateAggregationFunction)[keyof typeof TemplateDateAggregationFunction];
+
+export const TemplateDayOfTheWeek = {
+    Sunday: "SUNDAY",
+    Monday: "MONDAY",
+    Tuesday: "TUESDAY",
+    Wednesday: "WEDNESDAY",
+    Thursday: "THURSDAY",
+    Friday: "FRIDAY",
+    Saturday: "SATURDAY",
+} as const;
+
+export type TemplateDayOfTheWeek = (typeof TemplateDayOfTheWeek)[keyof typeof TemplateDayOfTheWeek];
 
 export const TemplateErrorType = {
     SourceNotFound: "SOURCE_NOT_FOUND",

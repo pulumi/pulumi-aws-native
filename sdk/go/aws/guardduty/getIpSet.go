@@ -24,15 +24,15 @@ func LookupIpSet(ctx *pulumi.Context, args *LookupIpSetArgs, opts ...pulumi.Invo
 }
 
 type LookupIpSetArgs struct {
-	Id string `pulumi:"id"`
+	DetectorId string `pulumi:"detectorId"`
+	Id         string `pulumi:"id"`
 }
 
 type LookupIpSetResult struct {
-	Activate *bool      `pulumi:"activate"`
-	Id       *string    `pulumi:"id"`
-	Location *string    `pulumi:"location"`
-	Name     *string    `pulumi:"name"`
-	Tags     []IpSetTag `pulumi:"tags"`
+	Id       *string        `pulumi:"id"`
+	Location *string        `pulumi:"location"`
+	Name     *string        `pulumi:"name"`
+	Tags     []IpSetTagItem `pulumi:"tags"`
 }
 
 func LookupIpSetOutput(ctx *pulumi.Context, args LookupIpSetOutputArgs, opts ...pulumi.InvokeOption) LookupIpSetResultOutput {
@@ -49,7 +49,8 @@ func LookupIpSetOutput(ctx *pulumi.Context, args LookupIpSetOutputArgs, opts ...
 }
 
 type LookupIpSetOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	DetectorId pulumi.StringInput `pulumi:"detectorId"`
+	Id         pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupIpSetOutputArgs) ElementType() reflect.Type {
@@ -76,10 +77,6 @@ func (o LookupIpSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[Lo
 	}
 }
 
-func (o LookupIpSetResultOutput) Activate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupIpSetResult) *bool { return v.Activate }).(pulumi.BoolPtrOutput)
-}
-
 func (o LookupIpSetResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIpSetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -92,8 +89,8 @@ func (o LookupIpSetResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIpSetResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupIpSetResultOutput) Tags() IpSetTagArrayOutput {
-	return o.ApplyT(func(v LookupIpSetResult) []IpSetTag { return v.Tags }).(IpSetTagArrayOutput)
+func (o LookupIpSetResultOutput) Tags() IpSetTagItemArrayOutput {
+	return o.ApplyT(func(v LookupIpSetResult) []IpSetTagItem { return v.Tags }).(IpSetTagItemArrayOutput)
 }
 
 func init() {

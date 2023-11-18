@@ -47,6 +47,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
             set => _filterGroups = value;
         }
 
+        [Input("options")]
+        public Input<Inputs.DashboardAssetOptionsArgs>? Options { get; set; }
+
         [Input("parameterDeclarations")]
         private InputList<Inputs.DashboardParameterDeclarationArgs>? _parameterDeclarations;
         public InputList<Inputs.DashboardParameterDeclarationArgs> ParameterDeclarations

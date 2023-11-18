@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.GameLift.Outputs
     [OutputType]
     public sealed class ScriptS3Location
     {
+        /// <summary>
+        /// An Amazon S3 bucket identifier. This is the name of the S3 bucket.
+        /// </summary>
         public readonly string Bucket;
+        /// <summary>
+        /// The name of the zip file that contains the script files.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter.
+        /// </summary>
         public readonly string? ObjectVersion;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+        /// </summary>
         public readonly string RoleArn;
 
         [OutputConstructor]

@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'BackupPlanAdvancedBackupSettingResourceTypeArgs',
@@ -28,6 +29,11 @@ __all__ = [
     'ReportDeliveryChannelPropertiesArgs',
     'ReportPlanTagArgs',
     'ReportSettingPropertiesArgs',
+    'RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs',
+    'RestoreTestingPlanTagArgs',
+    'RestoreTestingSelectionKeyValueArgs',
+    'RestoreTestingSelectionProtectedResourceConditionsArgs',
+    'RestoreTestingSelectionSensitiveStringMapArgs',
 ]
 
 @pulumi.input_type
@@ -895,5 +901,166 @@ class ReportSettingPropertiesArgs:
     @regions.setter
     def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "regions", value)
+
+
+@pulumi.input_type
+class RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs:
+    def __init__(__self__, *,
+                 algorithm: pulumi.Input['RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm'],
+                 include_vaults: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 recovery_point_types: pulumi.Input[Sequence[pulumi.Input['RestoreTestingPlanRestoreTestingRecoveryPointType']]],
+                 exclude_vaults: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 selection_window_days: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "algorithm", algorithm)
+        pulumi.set(__self__, "include_vaults", include_vaults)
+        pulumi.set(__self__, "recovery_point_types", recovery_point_types)
+        if exclude_vaults is not None:
+            pulumi.set(__self__, "exclude_vaults", exclude_vaults)
+        if selection_window_days is not None:
+            pulumi.set(__self__, "selection_window_days", selection_window_days)
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> pulumi.Input['RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm']:
+        return pulumi.get(self, "algorithm")
+
+    @algorithm.setter
+    def algorithm(self, value: pulumi.Input['RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm']):
+        pulumi.set(self, "algorithm", value)
+
+    @property
+    @pulumi.getter(name="includeVaults")
+    def include_vaults(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "include_vaults")
+
+    @include_vaults.setter
+    def include_vaults(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "include_vaults", value)
+
+    @property
+    @pulumi.getter(name="recoveryPointTypes")
+    def recovery_point_types(self) -> pulumi.Input[Sequence[pulumi.Input['RestoreTestingPlanRestoreTestingRecoveryPointType']]]:
+        return pulumi.get(self, "recovery_point_types")
+
+    @recovery_point_types.setter
+    def recovery_point_types(self, value: pulumi.Input[Sequence[pulumi.Input['RestoreTestingPlanRestoreTestingRecoveryPointType']]]):
+        pulumi.set(self, "recovery_point_types", value)
+
+    @property
+    @pulumi.getter(name="excludeVaults")
+    def exclude_vaults(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "exclude_vaults")
+
+    @exclude_vaults.setter
+    def exclude_vaults(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclude_vaults", value)
+
+    @property
+    @pulumi.getter(name="selectionWindowDays")
+    def selection_window_days(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "selection_window_days")
+
+    @selection_window_days.setter
+    def selection_window_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "selection_window_days", value)
+
+
+@pulumi.input_type
+class RestoreTestingPlanTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class RestoreTestingSelectionKeyValueArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class RestoreTestingSelectionProtectedResourceConditionsArgs:
+    def __init__(__self__, *,
+                 string_equals: Optional[pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionKeyValueArgs']]]] = None,
+                 string_not_equals: Optional[pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionKeyValueArgs']]]] = None):
+        if string_equals is not None:
+            pulumi.set(__self__, "string_equals", string_equals)
+        if string_not_equals is not None:
+            pulumi.set(__self__, "string_not_equals", string_not_equals)
+
+    @property
+    @pulumi.getter(name="stringEquals")
+    def string_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionKeyValueArgs']]]]:
+        return pulumi.get(self, "string_equals")
+
+    @string_equals.setter
+    def string_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionKeyValueArgs']]]]):
+        pulumi.set(self, "string_equals", value)
+
+    @property
+    @pulumi.getter(name="stringNotEquals")
+    def string_not_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionKeyValueArgs']]]]:
+        return pulumi.get(self, "string_not_equals")
+
+    @string_not_equals.setter
+    def string_not_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RestoreTestingSelectionKeyValueArgs']]]]):
+        pulumi.set(self, "string_not_equals", value)
+
+
+@pulumi.input_type
+class RestoreTestingSelectionSensitiveStringMapArgs:
+    def __init__(__self__):
+        pass
 
 

@@ -983,7 +983,9 @@ _utilities.register(
    "aws-native:backup:BackupSelection": "BackupSelection",
    "aws-native:backup:BackupVault": "BackupVault",
    "aws-native:backup:Framework": "Framework",
-   "aws-native:backup:ReportPlan": "ReportPlan"
+   "aws-native:backup:ReportPlan": "ReportPlan",
+   "aws-native:backup:RestoreTestingPlan": "RestoreTestingPlan",
+   "aws-native:backup:RestoreTestingSelection": "RestoreTestingSelection"
   }
  },
  {
@@ -2006,7 +2008,8 @@ _utilities.register(
    "aws-native:imagebuilder:Image": "Image",
    "aws-native:imagebuilder:ImagePipeline": "ImagePipeline",
    "aws-native:imagebuilder:ImageRecipe": "ImageRecipe",
-   "aws-native:imagebuilder:InfrastructureConfiguration": "InfrastructureConfiguration"
+   "aws-native:imagebuilder:InfrastructureConfiguration": "InfrastructureConfiguration",
+   "aws-native:imagebuilder:LifecyclePolicy": "LifecyclePolicy"
   }
  },
  {
@@ -2477,7 +2480,9 @@ _utilities.register(
   "classes": {
    "aws-native:medialive:Channel": "Channel",
    "aws-native:medialive:Input": "Input",
-   "aws-native:medialive:InputSecurityGroup": "InputSecurityGroup"
+   "aws-native:medialive:InputSecurityGroup": "InputSecurityGroup",
+   "aws-native:medialive:Multiplex": "Multiplex",
+   "aws-native:medialive:Multiplexprogram": "Multiplexprogram"
   }
  },
  {
@@ -2643,6 +2648,7 @@ _utilities.register(
   "classes": {
    "aws-native:opensearchserverless:AccessPolicy": "AccessPolicy",
    "aws-native:opensearchserverless:Collection": "Collection",
+   "aws-native:opensearchserverless:LifecyclePolicy": "LifecyclePolicy",
    "aws-native:opensearchserverless:SecurityConfig": "SecurityConfig",
    "aws-native:opensearchserverless:SecurityPolicy": "SecurityPolicy",
    "aws-native:opensearchserverless:VpcEndpoint": "VpcEndpoint"
@@ -3009,7 +3015,8 @@ _utilities.register(
    "aws-native:s3:BucketPolicy": "BucketPolicy",
    "aws-native:s3:MultiRegionAccessPoint": "MultiRegionAccessPoint",
    "aws-native:s3:MultiRegionAccessPointPolicy": "MultiRegionAccessPointPolicy",
-   "aws-native:s3:StorageLens": "StorageLens"
+   "aws-native:s3:StorageLens": "StorageLens",
+   "aws-native:s3:StorageLensGroup": "StorageLensGroup"
   }
  },
  {

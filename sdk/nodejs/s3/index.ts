@@ -45,6 +45,11 @@ export const getMultiRegionAccessPointPolicy: typeof import("./getMultiRegionAcc
 export const getMultiRegionAccessPointPolicyOutput: typeof import("./getMultiRegionAccessPointPolicy").getMultiRegionAccessPointPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getMultiRegionAccessPointPolicy","getMultiRegionAccessPointPolicyOutput"], () => require("./getMultiRegionAccessPointPolicy"));
 
+export { GetStorageLensGroupArgs, GetStorageLensGroupResult, GetStorageLensGroupOutputArgs } from "./getStorageLensGroup";
+export const getStorageLensGroup: typeof import("./getStorageLensGroup").getStorageLensGroup = null as any;
+export const getStorageLensGroupOutput: typeof import("./getStorageLensGroup").getStorageLensGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageLensGroup","getStorageLensGroupOutput"], () => require("./getStorageLensGroup"));
+
 export { MultiRegionAccessPointArgs } from "./multiRegionAccessPoint";
 export type MultiRegionAccessPoint = import("./multiRegionAccessPoint").MultiRegionAccessPoint;
 export const MultiRegionAccessPoint: typeof import("./multiRegionAccessPoint").MultiRegionAccessPoint = null as any;
@@ -59,6 +64,11 @@ export { StorageLensArgs } from "./storageLens";
 export type StorageLens = import("./storageLens").StorageLens;
 export const StorageLens: typeof import("./storageLens").StorageLens = null as any;
 utilities.lazyLoad(exports, ["StorageLens"], () => require("./storageLens"));
+
+export { StorageLensGroupArgs } from "./storageLensGroup";
+export type StorageLensGroup = import("./storageLensGroup").StorageLensGroup;
+export const StorageLensGroup: typeof import("./storageLensGroup").StorageLensGroup = null as any;
+utilities.lazyLoad(exports, ["StorageLensGroup"], () => require("./storageLensGroup"));
 
 
 // Export enums:
@@ -80,6 +90,8 @@ const _module = {
                 return new MultiRegionAccessPointPolicy(name, <any>undefined, { urn })
             case "aws-native:s3:StorageLens":
                 return new StorageLens(name, <any>undefined, { urn })
+            case "aws-native:s3:StorageLensGroup":
+                return new StorageLensGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::GameLift::MatchmakingRuleSet
- *
- * @deprecated MatchmakingRuleSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * The AWS::GameLift::MatchmakingRuleSet resource creates an Amazon GameLift (GameLift) matchmaking rule set.
  */
 export class MatchmakingRuleSet extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class MatchmakingRuleSet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MatchmakingRuleSet {
-        pulumi.log.warn("MatchmakingRuleSet is deprecated: MatchmakingRuleSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new MatchmakingRuleSet(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,9 +37,25 @@ export class MatchmakingRuleSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === MatchmakingRuleSet.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift matchmaking rule set resource and uniquely identifies it.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds.
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * A unique identifier for the matchmaking rule set.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A collection of matchmaking rules, formatted as a JSON string.
+     */
     public readonly ruleSetBody!: pulumi.Output<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     public readonly tags!: pulumi.Output<outputs.gamelift.MatchmakingRuleSetTag[] | undefined>;
 
     /**
@@ -52,9 +65,7 @@ export class MatchmakingRuleSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated MatchmakingRuleSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: MatchmakingRuleSetArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("MatchmakingRuleSet is deprecated: MatchmakingRuleSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -65,8 +76,10 @@ export class MatchmakingRuleSet extends pulumi.CustomResource {
             resourceInputs["ruleSetBody"] = args ? args.ruleSetBody : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["ruleSetBody"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -82,7 +95,16 @@ export class MatchmakingRuleSet extends pulumi.CustomResource {
  * The set of arguments for constructing a MatchmakingRuleSet resource.
  */
 export interface MatchmakingRuleSetArgs {
+    /**
+     * A unique identifier for the matchmaking rule set.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * A collection of matchmaking rules, formatted as a JSON string.
+     */
     ruleSetBody: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.gamelift.MatchmakingRuleSetTagArgs>[]>;
 }

@@ -14,17 +14,37 @@ __all__ = ['PullThroughCacheRuleArgs', 'PullThroughCacheRule']
 @pulumi.input_type
 class PullThroughCacheRuleArgs:
     def __init__(__self__, *,
+                 credential_arn: Optional[pulumi.Input[str]] = None,
                  ecr_repository_prefix: Optional[pulumi.Input[str]] = None,
+                 upstream_registry: Optional[pulumi.Input[str]] = None,
                  upstream_registry_url: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PullThroughCacheRule resource.
+        :param pulumi.Input[str] credential_arn: The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that identifies the credentials to authenticate to the upstream registry.
         :param pulumi.Input[str] ecr_repository_prefix: The ECRRepositoryPrefix is a custom alias for upstream registry url.
+        :param pulumi.Input[str] upstream_registry: The name of the upstream registry.
         :param pulumi.Input[str] upstream_registry_url: The upstreamRegistryUrl is the endpoint of upstream registry url of the public repository to be cached
         """
+        if credential_arn is not None:
+            pulumi.set(__self__, "credential_arn", credential_arn)
         if ecr_repository_prefix is not None:
             pulumi.set(__self__, "ecr_repository_prefix", ecr_repository_prefix)
+        if upstream_registry is not None:
+            pulumi.set(__self__, "upstream_registry", upstream_registry)
         if upstream_registry_url is not None:
             pulumi.set(__self__, "upstream_registry_url", upstream_registry_url)
+
+    @property
+    @pulumi.getter(name="credentialArn")
+    def credential_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that identifies the credentials to authenticate to the upstream registry.
+        """
+        return pulumi.get(self, "credential_arn")
+
+    @credential_arn.setter
+    def credential_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "credential_arn", value)
 
     @property
     @pulumi.getter(name="ecrRepositoryPrefix")
@@ -37,6 +57,18 @@ class PullThroughCacheRuleArgs:
     @ecr_repository_prefix.setter
     def ecr_repository_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ecr_repository_prefix", value)
+
+    @property
+    @pulumi.getter(name="upstreamRegistry")
+    def upstream_registry(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the upstream registry.
+        """
+        return pulumi.get(self, "upstream_registry")
+
+    @upstream_registry.setter
+    def upstream_registry(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "upstream_registry", value)
 
     @property
     @pulumi.getter(name="upstreamRegistryUrl")
@@ -56,7 +88,9 @@ class PullThroughCacheRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 credential_arn: Optional[pulumi.Input[str]] = None,
                  ecr_repository_prefix: Optional[pulumi.Input[str]] = None,
+                 upstream_registry: Optional[pulumi.Input[str]] = None,
                  upstream_registry_url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -64,7 +98,9 @@ class PullThroughCacheRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] credential_arn: The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that identifies the credentials to authenticate to the upstream registry.
         :param pulumi.Input[str] ecr_repository_prefix: The ECRRepositoryPrefix is a custom alias for upstream registry url.
+        :param pulumi.Input[str] upstream_registry: The name of the upstream registry.
         :param pulumi.Input[str] upstream_registry_url: The upstreamRegistryUrl is the endpoint of upstream registry url of the public repository to be cached
         """
         ...
@@ -91,7 +127,9 @@ class PullThroughCacheRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 credential_arn: Optional[pulumi.Input[str]] = None,
                  ecr_repository_prefix: Optional[pulumi.Input[str]] = None,
+                 upstream_registry: Optional[pulumi.Input[str]] = None,
                  upstream_registry_url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -102,9 +140,11 @@ class PullThroughCacheRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PullThroughCacheRuleArgs.__new__(PullThroughCacheRuleArgs)
 
+            __props__.__dict__["credential_arn"] = credential_arn
             __props__.__dict__["ecr_repository_prefix"] = ecr_repository_prefix
+            __props__.__dict__["upstream_registry"] = upstream_registry
             __props__.__dict__["upstream_registry_url"] = upstream_registry_url
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["ecr_repository_prefix", "upstream_registry_url"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["credential_arn", "ecr_repository_prefix", "upstream_registry", "upstream_registry_url"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PullThroughCacheRule, __self__).__init__(
             'aws-native:ecr:PullThroughCacheRule',
@@ -128,9 +168,19 @@ class PullThroughCacheRule(pulumi.CustomResource):
 
         __props__ = PullThroughCacheRuleArgs.__new__(PullThroughCacheRuleArgs)
 
+        __props__.__dict__["credential_arn"] = None
         __props__.__dict__["ecr_repository_prefix"] = None
+        __props__.__dict__["upstream_registry"] = None
         __props__.__dict__["upstream_registry_url"] = None
         return PullThroughCacheRule(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="credentialArn")
+    def credential_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that identifies the credentials to authenticate to the upstream registry.
+        """
+        return pulumi.get(self, "credential_arn")
 
     @property
     @pulumi.getter(name="ecrRepositoryPrefix")
@@ -139,6 +189,14 @@ class PullThroughCacheRule(pulumi.CustomResource):
         The ECRRepositoryPrefix is a custom alias for upstream registry url.
         """
         return pulumi.get(self, "ecr_repository_prefix")
+
+    @property
+    @pulumi.getter(name="upstreamRegistry")
+    def upstream_registry(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the upstream registry.
+        """
+        return pulumi.get(self, "upstream_registry")
 
     @property
     @pulumi.getter(name="upstreamRegistryUrl")

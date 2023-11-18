@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.GameLift
     public static class GetGameSessionQueue
     {
         /// <summary>
-        /// Resource Type definition for AWS::GameLift::GameSessionQueue
+        /// The AWS::GameLift::GameSessionQueue resource creates an Amazon GameLift (GameLift) game session queue.
         /// </summary>
         public static Task<GetGameSessionQueueResult> InvokeAsync(GetGameSessionQueueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGameSessionQueueResult>("aws-native:gamelift:getGameSessionQueue", args ?? new GetGameSessionQueueArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::GameLift::GameSessionQueue
+        /// The AWS::GameLift::GameSessionQueue resource creates an Amazon GameLift (GameLift) game session queue.
         /// </summary>
         public static Output<GetGameSessionQueueResult> Invoke(GetGameSessionQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGameSessionQueueResult>("aws-native:gamelift:getGameSessionQueue", args ?? new GetGameSessionQueueInvokeArgs(), options.WithDefaults());
@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.GameLift
 
     public sealed class GetGameSessionQueueArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
+        /// </summary>
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetGameSessionQueueArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.GameLift
 
     public sealed class GetGameSessionQueueInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetGameSessionQueueInvokeArgs()
         {
@@ -51,15 +57,41 @@ namespace Pulumi.AwsNative.GameLift
     [OutputType]
     public sealed class GetGameSessionQueueResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Information that is added to all events that are related to this game session queue.
+        /// </summary>
         public readonly string? CustomEventData;
+        /// <summary>
+        /// A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GameSessionQueueDestination> Destinations;
+        /// <summary>
+        /// A list of locations where a queue is allowed to place new game sessions.
+        /// </summary>
         public readonly Outputs.GameSessionQueueFilterConfiguration? FilterConfiguration;
-        public readonly string? Id;
+        /// <summary>
+        /// An SNS topic ARN that is set up to receive game session placement notifications.
+        /// </summary>
         public readonly string? NotificationTarget;
+        /// <summary>
+        /// A set of policies that act as a sliding cap on player latency.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GameSessionQueuePlayerLatencyPolicy> PlayerLatencyPolicies;
+        /// <summary>
+        /// Custom settings to use when prioritizing destinations and locations for game session placements.
+        /// </summary>
         public readonly Outputs.GameSessionQueuePriorityConfiguration? PriorityConfiguration;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GameSessionQueueTag> Tags;
+        /// <summary>
+        /// The maximum time, in seconds, that a new game session placement request remains in the queue.
+        /// </summary>
         public readonly int? TimeoutInSeconds;
 
         [OutputConstructor]
@@ -71,8 +103,6 @@ namespace Pulumi.AwsNative.GameLift
             ImmutableArray<Outputs.GameSessionQueueDestination> destinations,
 
             Outputs.GameSessionQueueFilterConfiguration? filterConfiguration,
-
-            string? id,
 
             string? notificationTarget,
 
@@ -88,7 +118,6 @@ namespace Pulumi.AwsNative.GameLift
             CustomEventData = customEventData;
             Destinations = destinations;
             FilterConfiguration = filterConfiguration;
-            Id = id;
             NotificationTarget = notificationTarget;
             PlayerLatencyPolicies = playerLatencyPolicies;
             PriorityConfiguration = priorityConfiguration;

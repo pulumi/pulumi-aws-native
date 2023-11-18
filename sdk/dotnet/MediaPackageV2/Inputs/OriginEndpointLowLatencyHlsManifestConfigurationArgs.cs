@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         [Input("childManifestName")]
         public Input<string>? ChildManifestName { get; set; }
 
+        [Input("filterConfiguration")]
+        public Input<Inputs.OriginEndpointFilterConfigurationArgs>? FilterConfiguration { get; set; }
+
         /// <summary>
         /// &lt;p&gt;A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.&lt;/p&gt;
         /// </summary>

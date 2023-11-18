@@ -31,6 +31,7 @@ export interface GetPipeResult {
     readonly enrichment?: string;
     readonly enrichmentParameters?: outputs.pipes.PipeEnrichmentParameters;
     readonly lastModifiedTime?: string;
+    readonly logConfiguration?: outputs.pipes.PipeLogConfiguration;
     readonly roleArn?: string;
     readonly stateReason?: string;
     readonly tags?: outputs.pipes.PipeTagMap;

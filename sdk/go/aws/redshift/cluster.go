@@ -91,6 +91,8 @@ type Cluster struct {
 	MasterUserPassword pulumi.StringOutput `pulumi:"masterUserPassword"`
 	// The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.
 	MasterUsername pulumi.StringOutput `pulumi:"masterUsername"`
+	// A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
+	MultiAz pulumi.BoolPtrOutput `pulumi:"multiAz"`
 	// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
 	NodeType pulumi.StringOutput `pulumi:"nodeType"`
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
@@ -102,7 +104,7 @@ type Cluster struct {
 	PreferredMaintenanceWindow pulumi.StringPtrOutput `pulumi:"preferredMaintenanceWindow"`
 	// If true, the cluster can be accessed from a public network.
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
-	// The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster APIs
+	// The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster, failover-primary-compute APIs
 	ResourceAction pulumi.StringPtrOutput `pulumi:"resourceAction"`
 	// The identifier of the database revision. You can retrieve this value from the response to the DescribeClusterDbRevisions request.
 	RevisionTarget pulumi.StringPtrOutput `pulumi:"revisionTarget"`
@@ -265,6 +267,8 @@ type clusterArgs struct {
 	MasterUserPassword string `pulumi:"masterUserPassword"`
 	// The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.
 	MasterUsername string `pulumi:"masterUsername"`
+	// A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
+	MultiAz *bool `pulumi:"multiAz"`
 	// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
 	NodeType string `pulumi:"nodeType"`
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
@@ -276,7 +280,7 @@ type clusterArgs struct {
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// If true, the cluster can be accessed from a public network.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
-	// The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster APIs
+	// The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster, failover-primary-compute APIs
 	ResourceAction *string `pulumi:"resourceAction"`
 	// The identifier of the database revision. You can retrieve this value from the response to the DescribeClusterDbRevisions request.
 	RevisionTarget *string `pulumi:"revisionTarget"`
@@ -376,6 +380,8 @@ type ClusterArgs struct {
 	MasterUserPassword pulumi.StringInput
 	// The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.
 	MasterUsername pulumi.StringInput
+	// A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
+	MultiAz pulumi.BoolPtrInput
 	// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
 	NodeType pulumi.StringInput
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
@@ -387,7 +393,7 @@ type ClusterArgs struct {
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// If true, the cluster can be accessed from a public network.
 	PubliclyAccessible pulumi.BoolPtrInput
-	// The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster APIs
+	// The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster, failover-primary-compute APIs
 	ResourceAction pulumi.StringPtrInput
 	// The identifier of the database revision. You can retrieve this value from the response to the DescribeClusterDbRevisions request.
 	RevisionTarget pulumi.StringPtrInput
@@ -635,6 +641,11 @@ func (o ClusterOutput) MasterUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MasterUsername }).(pulumi.StringOutput)
 }
 
+// A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
+func (o ClusterOutput) MultiAz() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.MultiAz }).(pulumi.BoolPtrOutput)
+}
+
 // The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
 func (o ClusterOutput) NodeType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.NodeType }).(pulumi.StringOutput)
@@ -664,7 +675,7 @@ func (o ClusterOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
 }
 
-// The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster APIs
+// The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster, failover-primary-compute APIs
 func (o ClusterOutput) ResourceAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ResourceAction }).(pulumi.StringPtrOutput)
 }

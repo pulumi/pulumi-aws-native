@@ -103,6 +103,10 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         public readonly ImmutableArray<string> Layers;
         /// <summary>
+        /// The logging configuration of your function
+        /// </summary>
+        public readonly Outputs.FunctionLoggingConfig? LoggingConfig;
+        /// <summary>
         /// The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
         /// </summary>
         public readonly int? MemorySize;
@@ -173,6 +177,8 @@ namespace Pulumi.AwsNative.Lambda
 
             ImmutableArray<string> layers,
 
+            Outputs.FunctionLoggingConfig? loggingConfig,
+
             int? memorySize,
 
             Pulumi.AwsNative.Lambda.FunctionPackageType? packageType,
@@ -207,6 +213,7 @@ namespace Pulumi.AwsNative.Lambda
             ImageConfig = imageConfig;
             KmsKeyArn = kmsKeyArn;
             Layers = layers;
+            LoggingConfig = loggingConfig;
             MemorySize = memorySize;
             PackageType = packageType;
             ReservedConcurrentExecutions = reservedConcurrentExecutions;

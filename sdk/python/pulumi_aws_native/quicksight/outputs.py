@@ -20,6 +20,7 @@ __all__ = [
     'AnalysisArcAxisDisplayRange',
     'AnalysisArcConfiguration',
     'AnalysisArcOptions',
+    'AnalysisAssetOptions',
     'AnalysisAttributeAggregationFunction',
     'AnalysisAxisDataOptions',
     'AnalysisAxisDisplayDataDrivenRange',
@@ -495,6 +496,7 @@ __all__ = [
     'DashboardArcAxisDisplayRange',
     'DashboardArcConfiguration',
     'DashboardArcOptions',
+    'DashboardAssetOptions',
     'DashboardAttributeAggregationFunction',
     'DashboardAxisDataOptions',
     'DashboardAxisDisplayDataDrivenRange',
@@ -745,6 +747,7 @@ __all__ = [
     'DashboardLineChartSortConfiguration',
     'DashboardLineChartVisual',
     'DashboardLineSeriesAxisDisplayOptions',
+    'DashboardLinkSharingConfiguration',
     'DashboardListControlDisplayOptions',
     'DashboardListControlSearchOptions',
     'DashboardListControlSelectAllOptions',
@@ -1023,8 +1026,10 @@ __all__ = [
     'DataSourceSparkParameters',
     'DataSourceSqlServerParameters',
     'DataSourceSslProperties',
+    'DataSourceStarburstParameters',
     'DataSourceTag',
     'DataSourceTeradataParameters',
+    'DataSourceTrinoParameters',
     'DataSourceVpcConnectionProperties',
     'RefreshScheduleMap',
     'RefreshScheduleMapScheduleFrequencyProperties',
@@ -1038,6 +1043,7 @@ __all__ = [
     'TemplateArcAxisDisplayRange',
     'TemplateArcConfiguration',
     'TemplateArcOptions',
+    'TemplateAssetOptions',
     'TemplateAttributeAggregationFunction',
     'TemplateAxisDataOptions',
     'TemplateAxisDisplayDataDrivenRange',
@@ -1828,6 +1834,44 @@ class AnalysisArcOptions(dict):
     @pulumi.getter(name="arcThickness")
     def arc_thickness(self) -> Optional['AnalysisArcThickness']:
         return pulumi.get(self, "arc_thickness")
+
+
+@pulumi.output_type
+class AnalysisAssetOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "weekStart":
+            suggest = "week_start"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalysisAssetOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalysisAssetOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalysisAssetOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 timezone: Optional[str] = None,
+                 week_start: Optional['AnalysisDayOfTheWeek'] = None):
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+        if week_start is not None:
+            pulumi.set(__self__, "week_start", week_start)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[str]:
+        return pulumi.get(self, "timezone")
+
+    @property
+    @pulumi.getter(name="weekStart")
+    def week_start(self) -> Optional['AnalysisDayOfTheWeek']:
+        return pulumi.get(self, "week_start")
 
 
 @pulumi.output_type
@@ -7042,6 +7086,7 @@ class AnalysisDefinition(dict):
                  calculated_fields: Optional[Sequence['outputs.AnalysisCalculatedField']] = None,
                  column_configurations: Optional[Sequence['outputs.AnalysisColumnConfiguration']] = None,
                  filter_groups: Optional[Sequence['outputs.AnalysisFilterGroup']] = None,
+                 options: Optional['outputs.AnalysisAssetOptions'] = None,
                  parameter_declarations: Optional[Sequence['outputs.AnalysisParameterDeclaration']] = None,
                  sheets: Optional[Sequence['outputs.AnalysisSheetDefinition']] = None):
         pulumi.set(__self__, "data_set_identifier_declarations", data_set_identifier_declarations)
@@ -7053,6 +7098,8 @@ class AnalysisDefinition(dict):
             pulumi.set(__self__, "column_configurations", column_configurations)
         if filter_groups is not None:
             pulumi.set(__self__, "filter_groups", filter_groups)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
         if parameter_declarations is not None:
             pulumi.set(__self__, "parameter_declarations", parameter_declarations)
         if sheets is not None:
@@ -7082,6 +7129,11 @@ class AnalysisDefinition(dict):
     @pulumi.getter(name="filterGroups")
     def filter_groups(self) -> Optional[Sequence['outputs.AnalysisFilterGroup']]:
         return pulumi.get(self, "filter_groups")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional['outputs.AnalysisAssetOptions']:
+        return pulumi.get(self, "options")
 
     @property
     @pulumi.getter(name="parameterDeclarations")
@@ -24553,6 +24605,44 @@ class DashboardArcOptions(dict):
 
 
 @pulumi.output_type
+class DashboardAssetOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "weekStart":
+            suggest = "week_start"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardAssetOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardAssetOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardAssetOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 timezone: Optional[str] = None,
+                 week_start: Optional['DashboardDayOfTheWeek'] = None):
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+        if week_start is not None:
+            pulumi.set(__self__, "week_start", week_start)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[str]:
+        return pulumi.get(self, "timezone")
+
+    @property
+    @pulumi.getter(name="weekStart")
+    def week_start(self) -> Optional['DashboardDayOfTheWeek']:
+        return pulumi.get(self, "week_start")
+
+
+@pulumi.output_type
 class DashboardAttributeAggregationFunction(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -36447,6 +36537,19 @@ class DashboardLineSeriesAxisDisplayOptions(dict):
 
 
 @pulumi.output_type
+class DashboardLinkSharingConfiguration(dict):
+    def __init__(__self__, *,
+                 permissions: Optional[Sequence['outputs.DashboardResourcePermission']] = None):
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[Sequence['outputs.DashboardResourcePermission']]:
+        return pulumi.get(self, "permissions")
+
+
+@pulumi.output_type
 class DashboardListControlDisplayOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -46112,6 +46215,7 @@ class DashboardVersionDefinition(dict):
                  calculated_fields: Optional[Sequence['outputs.DashboardCalculatedField']] = None,
                  column_configurations: Optional[Sequence['outputs.DashboardColumnConfiguration']] = None,
                  filter_groups: Optional[Sequence['outputs.DashboardFilterGroup']] = None,
+                 options: Optional['outputs.DashboardAssetOptions'] = None,
                  parameter_declarations: Optional[Sequence['outputs.DashboardParameterDeclaration']] = None,
                  sheets: Optional[Sequence['outputs.DashboardSheetDefinition']] = None):
         pulumi.set(__self__, "data_set_identifier_declarations", data_set_identifier_declarations)
@@ -46123,6 +46227,8 @@ class DashboardVersionDefinition(dict):
             pulumi.set(__self__, "column_configurations", column_configurations)
         if filter_groups is not None:
             pulumi.set(__self__, "filter_groups", filter_groups)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
         if parameter_declarations is not None:
             pulumi.set(__self__, "parameter_declarations", parameter_declarations)
         if sheets is not None:
@@ -46152,6 +46258,11 @@ class DashboardVersionDefinition(dict):
     @pulumi.getter(name="filterGroups")
     def filter_groups(self) -> Optional[Sequence['outputs.DashboardFilterGroup']]:
         return pulumi.get(self, "filter_groups")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional['outputs.DashboardAssetOptions']:
+        return pulumi.get(self, "options")
 
     @property
     @pulumi.getter(name="parameterDeclarations")
@@ -48153,9 +48264,27 @@ class DataSetOutputColumn(dict):
     """
     <p>Output column.</p>
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subType":
+            suggest = "sub_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSetOutputColumn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSetOutputColumn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSetOutputColumn.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  description: Optional[str] = None,
                  name: Optional[str] = None,
+                 sub_type: Optional['DataSetColumnSubDataType'] = None,
                  type: Optional['DataSetColumnDataType'] = None):
         """
         <p>Output column.</p>
@@ -48166,6 +48295,8 @@ class DataSetOutputColumn(dict):
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if sub_type is not None:
+            pulumi.set(__self__, "sub_type", sub_type)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -48184,6 +48315,11 @@ class DataSetOutputColumn(dict):
         <p>A display name for the dataset.</p>
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="subType")
+    def sub_type(self) -> Optional['DataSetColumnSubDataType']:
+        return pulumi.get(self, "sub_type")
 
     @property
     @pulumi.getter
@@ -49346,8 +49482,12 @@ class DataSourceParameters(dict):
             suggest = "spark_parameters"
         elif key == "sqlServerParameters":
             suggest = "sql_server_parameters"
+        elif key == "starburstParameters":
+            suggest = "starburst_parameters"
         elif key == "teradataParameters":
             suggest = "teradata_parameters"
+        elif key == "trinoParameters":
+            suggest = "trino_parameters"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DataSourceParameters. Access the value via the '{suggest}' property getter instead.")
@@ -49378,7 +49518,9 @@ class DataSourceParameters(dict):
                  snowflake_parameters: Optional['outputs.DataSourceSnowflakeParameters'] = None,
                  spark_parameters: Optional['outputs.DataSourceSparkParameters'] = None,
                  sql_server_parameters: Optional['outputs.DataSourceSqlServerParameters'] = None,
-                 teradata_parameters: Optional['outputs.DataSourceTeradataParameters'] = None):
+                 starburst_parameters: Optional['outputs.DataSourceStarburstParameters'] = None,
+                 teradata_parameters: Optional['outputs.DataSourceTeradataParameters'] = None,
+                 trino_parameters: Optional['outputs.DataSourceTrinoParameters'] = None):
         """
         <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
                     This is a variant type structure. For this structure to be valid, only one of the
@@ -49418,8 +49560,12 @@ class DataSourceParameters(dict):
             pulumi.set(__self__, "spark_parameters", spark_parameters)
         if sql_server_parameters is not None:
             pulumi.set(__self__, "sql_server_parameters", sql_server_parameters)
+        if starburst_parameters is not None:
+            pulumi.set(__self__, "starburst_parameters", starburst_parameters)
         if teradata_parameters is not None:
             pulumi.set(__self__, "teradata_parameters", teradata_parameters)
+        if trino_parameters is not None:
+            pulumi.set(__self__, "trino_parameters", trino_parameters)
 
     @property
     @pulumi.getter(name="amazonElasticsearchParameters")
@@ -49507,9 +49653,19 @@ class DataSourceParameters(dict):
         return pulumi.get(self, "sql_server_parameters")
 
     @property
+    @pulumi.getter(name="starburstParameters")
+    def starburst_parameters(self) -> Optional['outputs.DataSourceStarburstParameters']:
+        return pulumi.get(self, "starburst_parameters")
+
+    @property
     @pulumi.getter(name="teradataParameters")
     def teradata_parameters(self) -> Optional['outputs.DataSourceTeradataParameters']:
         return pulumi.get(self, "teradata_parameters")
+
+    @property
+    @pulumi.getter(name="trinoParameters")
+    def trino_parameters(self) -> Optional['outputs.DataSourceTrinoParameters']:
+        return pulumi.get(self, "trino_parameters")
 
 
 @pulumi.output_type
@@ -50005,6 +50161,75 @@ class DataSourceSslProperties(dict):
 
 
 @pulumi.output_type
+class DataSourceStarburstParameters(dict):
+    """
+    <p>Starburst parameters.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "productType":
+            suggest = "product_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceStarburstParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceStarburstParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceStarburstParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 catalog: str,
+                 host: str,
+                 port: float,
+                 product_type: Optional['DataSourceStarburstProductType'] = None):
+        """
+        <p>Starburst parameters.</p>
+        :param str catalog: <p>Catalog.</p>
+        :param str host: <p>Host.</p>
+        :param float port: <p>Port.</p>
+        """
+        pulumi.set(__self__, "catalog", catalog)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "port", port)
+        if product_type is not None:
+            pulumi.set(__self__, "product_type", product_type)
+
+    @property
+    @pulumi.getter
+    def catalog(self) -> str:
+        """
+        <p>Catalog.</p>
+        """
+        return pulumi.get(self, "catalog")
+
+    @property
+    @pulumi.getter
+    def host(self) -> str:
+        """
+        <p>Host.</p>
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter
+    def port(self) -> float:
+        """
+        <p>Port.</p>
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="productType")
+    def product_type(self) -> Optional['DataSourceStarburstProductType']:
+        return pulumi.get(self, "product_type")
+
+
+@pulumi.output_type
 class DataSourceTag(dict):
     """
     <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
@@ -50065,6 +50290,50 @@ class DataSourceTeradataParameters(dict):
         <p>Database.</p>
         """
         return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def host(self) -> str:
+        """
+        <p>Host.</p>
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter
+    def port(self) -> float:
+        """
+        <p>Port.</p>
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class DataSourceTrinoParameters(dict):
+    """
+    <p>Trino parameters.</p>
+    """
+    def __init__(__self__, *,
+                 catalog: str,
+                 host: str,
+                 port: float):
+        """
+        <p>Trino parameters.</p>
+        :param str catalog: <p>Catalog.</p>
+        :param str host: <p>Host.</p>
+        :param float port: <p>Port.</p>
+        """
+        pulumi.set(__self__, "catalog", catalog)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def catalog(self) -> str:
+        """
+        <p>Catalog.</p>
+        """
+        return pulumi.get(self, "catalog")
 
     @property
     @pulumi.getter
@@ -50630,6 +50899,44 @@ class TemplateArcOptions(dict):
     @pulumi.getter(name="arcThickness")
     def arc_thickness(self) -> Optional['TemplateArcThickness']:
         return pulumi.get(self, "arc_thickness")
+
+
+@pulumi.output_type
+class TemplateAssetOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "weekStart":
+            suggest = "week_start"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TemplateAssetOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TemplateAssetOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TemplateAssetOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 timezone: Optional[str] = None,
+                 week_start: Optional['TemplateDayOfTheWeek'] = None):
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+        if week_start is not None:
+            pulumi.set(__self__, "week_start", week_start)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[str]:
+        return pulumi.get(self, "timezone")
+
+    @property
+    @pulumi.getter(name="weekStart")
+    def week_start(self) -> Optional['TemplateDayOfTheWeek']:
+        return pulumi.get(self, "week_start")
 
 
 @pulumi.output_type
@@ -71841,6 +72148,7 @@ class TemplateVersionDefinition(dict):
                  calculated_fields: Optional[Sequence['outputs.TemplateCalculatedField']] = None,
                  column_configurations: Optional[Sequence['outputs.TemplateColumnConfiguration']] = None,
                  filter_groups: Optional[Sequence['outputs.TemplateFilterGroup']] = None,
+                 options: Optional['outputs.TemplateAssetOptions'] = None,
                  parameter_declarations: Optional[Sequence['outputs.TemplateParameterDeclaration']] = None,
                  sheets: Optional[Sequence['outputs.TemplateSheetDefinition']] = None):
         pulumi.set(__self__, "data_set_configurations", data_set_configurations)
@@ -71852,6 +72160,8 @@ class TemplateVersionDefinition(dict):
             pulumi.set(__self__, "column_configurations", column_configurations)
         if filter_groups is not None:
             pulumi.set(__self__, "filter_groups", filter_groups)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
         if parameter_declarations is not None:
             pulumi.set(__self__, "parameter_declarations", parameter_declarations)
         if sheets is not None:
@@ -71881,6 +72191,11 @@ class TemplateVersionDefinition(dict):
     @pulumi.getter(name="filterGroups")
     def filter_groups(self) -> Optional[Sequence['outputs.TemplateFilterGroup']]:
         return pulumi.get(self, "filter_groups")
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional['outputs.TemplateAssetOptions']:
+        return pulumi.get(self, "options")
 
     @property
     @pulumi.getter(name="parameterDeclarations")

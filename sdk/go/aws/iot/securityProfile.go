@@ -22,6 +22,8 @@ type SecurityProfile struct {
 	AlertTargets pulumi.AnyOutput `pulumi:"alertTargets"`
 	// Specifies the behaviors that, when violated by a device (thing), cause an alert.
 	Behaviors SecurityProfileBehaviorArrayOutput `pulumi:"behaviors"`
+	// A structure containing the mqtt topic for metrics export.
+	MetricsExportConfig MetricsExportConfigPropertiesPtrOutput `pulumi:"metricsExportConfig"`
 	// The ARN (Amazon resource name) of the created security profile.
 	SecurityProfileArn pulumi.StringOutput `pulumi:"securityProfileArn"`
 	// A description of the security profile.
@@ -84,6 +86,8 @@ type securityProfileArgs struct {
 	AlertTargets interface{} `pulumi:"alertTargets"`
 	// Specifies the behaviors that, when violated by a device (thing), cause an alert.
 	Behaviors []SecurityProfileBehavior `pulumi:"behaviors"`
+	// A structure containing the mqtt topic for metrics export.
+	MetricsExportConfig *MetricsExportConfigProperties `pulumi:"metricsExportConfig"`
 	// A description of the security profile.
 	SecurityProfileDescription *string `pulumi:"securityProfileDescription"`
 	// A unique identifier for the security profile.
@@ -102,6 +106,8 @@ type SecurityProfileArgs struct {
 	AlertTargets pulumi.Input
 	// Specifies the behaviors that, when violated by a device (thing), cause an alert.
 	Behaviors SecurityProfileBehaviorArrayInput
+	// A structure containing the mqtt topic for metrics export.
+	MetricsExportConfig MetricsExportConfigPropertiesPtrInput
 	// A description of the security profile.
 	SecurityProfileDescription pulumi.StringPtrInput
 	// A unique identifier for the security profile.
@@ -176,6 +182,11 @@ func (o SecurityProfileOutput) AlertTargets() pulumi.AnyOutput {
 // Specifies the behaviors that, when violated by a device (thing), cause an alert.
 func (o SecurityProfileOutput) Behaviors() SecurityProfileBehaviorArrayOutput {
 	return o.ApplyT(func(v *SecurityProfile) SecurityProfileBehaviorArrayOutput { return v.Behaviors }).(SecurityProfileBehaviorArrayOutput)
+}
+
+// A structure containing the mqtt topic for metrics export.
+func (o SecurityProfileOutput) MetricsExportConfig() MetricsExportConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v *SecurityProfile) MetricsExportConfigPropertiesPtrOutput { return v.MetricsExportConfig }).(MetricsExportConfigPropertiesPtrOutput)
 }
 
 // The ARN (Amazon resource name) of the created security profile.

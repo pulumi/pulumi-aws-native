@@ -51,6 +51,41 @@ export const FunctionArchitecturesItem = {
 
 export type FunctionArchitecturesItem = (typeof FunctionArchitecturesItem)[keyof typeof FunctionArchitecturesItem];
 
+export const FunctionLoggingConfigApplicationLogLevel = {
+    Trace: "TRACE",
+    Debug: "DEBUG",
+    Info: "INFO",
+    Warn: "WARN",
+    Error: "ERROR",
+    Fatal: "FATAL",
+} as const;
+
+/**
+ * Application log granularity level, can only be used when LogFormat is set to JSON
+ */
+export type FunctionLoggingConfigApplicationLogLevel = (typeof FunctionLoggingConfigApplicationLogLevel)[keyof typeof FunctionLoggingConfigApplicationLogLevel];
+
+export const FunctionLoggingConfigLogFormat = {
+    Text: "Text",
+    Json: "JSON",
+} as const;
+
+/**
+ * Log delivery format for the lambda function
+ */
+export type FunctionLoggingConfigLogFormat = (typeof FunctionLoggingConfigLogFormat)[keyof typeof FunctionLoggingConfigLogFormat];
+
+export const FunctionLoggingConfigSystemLogLevel = {
+    Debug: "DEBUG",
+    Info: "INFO",
+    Warn: "WARN",
+} as const;
+
+/**
+ * System log granularity level, can only be used when LogFormat is set to JSON
+ */
+export type FunctionLoggingConfigSystemLogLevel = (typeof FunctionLoggingConfigSystemLogLevel)[keyof typeof FunctionLoggingConfigSystemLogLevel];
+
 export const FunctionPackageType = {
     Image: "Image",
     Zip: "Zip",

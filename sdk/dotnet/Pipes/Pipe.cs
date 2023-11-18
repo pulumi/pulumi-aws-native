@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.Pipes
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
+        [Output("logConfiguration")]
+        public Output<Outputs.PipeLogConfiguration?> LogConfiguration { get; private set; } = null!;
+
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
@@ -133,6 +136,9 @@ namespace Pulumi.AwsNative.Pipes
 
         [Input("enrichmentParameters")]
         public Input<Inputs.PipeEnrichmentParametersArgs>? EnrichmentParameters { get; set; }
+
+        [Input("logConfiguration")]
+        public Input<Inputs.PipeLogConfigurationArgs>? LogConfiguration { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }

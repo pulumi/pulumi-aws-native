@@ -25,6 +25,7 @@ type Pipe struct {
 	Enrichment           pulumi.StringPtrOutput            `pulumi:"enrichment"`
 	EnrichmentParameters PipeEnrichmentParametersPtrOutput `pulumi:"enrichmentParameters"`
 	LastModifiedTime     pulumi.StringOutput               `pulumi:"lastModifiedTime"`
+	LogConfiguration     PipeLogConfigurationPtrOutput     `pulumi:"logConfiguration"`
 	Name                 pulumi.StringPtrOutput            `pulumi:"name"`
 	RoleArn              pulumi.StringOutput               `pulumi:"roleArn"`
 	Source               pulumi.StringOutput               `pulumi:"source"`
@@ -102,6 +103,7 @@ type pipeArgs struct {
 	DesiredState         *PipeRequestedPipeState   `pulumi:"desiredState"`
 	Enrichment           *string                   `pulumi:"enrichment"`
 	EnrichmentParameters *PipeEnrichmentParameters `pulumi:"enrichmentParameters"`
+	LogConfiguration     *PipeLogConfiguration     `pulumi:"logConfiguration"`
 	Name                 *string                   `pulumi:"name"`
 	RoleArn              string                    `pulumi:"roleArn"`
 	Source               string                    `pulumi:"source"`
@@ -117,6 +119,7 @@ type PipeArgs struct {
 	DesiredState         PipeRequestedPipeStatePtrInput
 	Enrichment           pulumi.StringPtrInput
 	EnrichmentParameters PipeEnrichmentParametersPtrInput
+	LogConfiguration     PipeLogConfigurationPtrInput
 	Name                 pulumi.StringPtrInput
 	RoleArn              pulumi.StringInput
 	Source               pulumi.StringInput
@@ -205,6 +208,10 @@ func (o PipeOutput) EnrichmentParameters() PipeEnrichmentParametersPtrOutput {
 
 func (o PipeOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
+}
+
+func (o PipeOutput) LogConfiguration() PipeLogConfigurationPtrOutput {
+	return o.ApplyT(func(v *Pipe) PipeLogConfigurationPtrOutput { return v.LogConfiguration }).(PipeLogConfigurationPtrOutput)
 }
 
 func (o PipeOutput) Name() pulumi.StringPtrOutput {

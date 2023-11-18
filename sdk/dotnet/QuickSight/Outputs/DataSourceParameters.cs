@@ -35,7 +35,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Outputs.DataSourceSnowflakeParameters? SnowflakeParameters;
         public readonly Outputs.DataSourceSparkParameters? SparkParameters;
         public readonly Outputs.DataSourceSqlServerParameters? SqlServerParameters;
+        public readonly Outputs.DataSourceStarburstParameters? StarburstParameters;
         public readonly Outputs.DataSourceTeradataParameters? TeradataParameters;
+        public readonly Outputs.DataSourceTrinoParameters? TrinoParameters;
 
         [OutputConstructor]
         private DataSourceParameters(
@@ -73,7 +75,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DataSourceSqlServerParameters? sqlServerParameters,
 
-            Outputs.DataSourceTeradataParameters? teradataParameters)
+            Outputs.DataSourceStarburstParameters? starburstParameters,
+
+            Outputs.DataSourceTeradataParameters? teradataParameters,
+
+            Outputs.DataSourceTrinoParameters? trinoParameters)
         {
             AmazonElasticsearchParameters = amazonElasticsearchParameters;
             AmazonOpenSearchParameters = amazonOpenSearchParameters;
@@ -92,7 +98,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             SnowflakeParameters = snowflakeParameters;
             SparkParameters = sparkParameters;
             SqlServerParameters = sqlServerParameters;
+            StarburstParameters = starburstParameters;
             TeradataParameters = teradataParameters;
+            TrinoParameters = trinoParameters;
         }
     }
 }

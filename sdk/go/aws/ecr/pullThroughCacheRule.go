@@ -16,8 +16,12 @@ import (
 type PullThroughCacheRule struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that identifies the credentials to authenticate to the upstream registry.
+	CredentialArn pulumi.StringPtrOutput `pulumi:"credentialArn"`
 	// The ECRRepositoryPrefix is a custom alias for upstream registry url.
 	EcrRepositoryPrefix pulumi.StringPtrOutput `pulumi:"ecrRepositoryPrefix"`
+	// The name of the upstream registry.
+	UpstreamRegistry pulumi.StringPtrOutput `pulumi:"upstreamRegistry"`
 	// The upstreamRegistryUrl is the endpoint of upstream registry url of the public repository to be cached
 	UpstreamRegistryUrl pulumi.StringPtrOutput `pulumi:"upstreamRegistryUrl"`
 }
@@ -30,7 +34,9 @@ func NewPullThroughCacheRule(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"credentialArn",
 		"ecrRepositoryPrefix",
+		"upstreamRegistry",
 		"upstreamRegistryUrl",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -67,16 +73,24 @@ func (PullThroughCacheRuleState) ElementType() reflect.Type {
 }
 
 type pullThroughCacheRuleArgs struct {
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that identifies the credentials to authenticate to the upstream registry.
+	CredentialArn *string `pulumi:"credentialArn"`
 	// The ECRRepositoryPrefix is a custom alias for upstream registry url.
 	EcrRepositoryPrefix *string `pulumi:"ecrRepositoryPrefix"`
+	// The name of the upstream registry.
+	UpstreamRegistry *string `pulumi:"upstreamRegistry"`
 	// The upstreamRegistryUrl is the endpoint of upstream registry url of the public repository to be cached
 	UpstreamRegistryUrl *string `pulumi:"upstreamRegistryUrl"`
 }
 
 // The set of arguments for constructing a PullThroughCacheRule resource.
 type PullThroughCacheRuleArgs struct {
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that identifies the credentials to authenticate to the upstream registry.
+	CredentialArn pulumi.StringPtrInput
 	// The ECRRepositoryPrefix is a custom alias for upstream registry url.
 	EcrRepositoryPrefix pulumi.StringPtrInput
+	// The name of the upstream registry.
+	UpstreamRegistry pulumi.StringPtrInput
 	// The upstreamRegistryUrl is the endpoint of upstream registry url of the public repository to be cached
 	UpstreamRegistryUrl pulumi.StringPtrInput
 }
@@ -130,9 +144,19 @@ func (o PullThroughCacheRuleOutput) ToOutput(ctx context.Context) pulumix.Output
 	}
 }
 
+// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that identifies the credentials to authenticate to the upstream registry.
+func (o PullThroughCacheRuleOutput) CredentialArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PullThroughCacheRule) pulumi.StringPtrOutput { return v.CredentialArn }).(pulumi.StringPtrOutput)
+}
+
 // The ECRRepositoryPrefix is a custom alias for upstream registry url.
 func (o PullThroughCacheRuleOutput) EcrRepositoryPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PullThroughCacheRule) pulumi.StringPtrOutput { return v.EcrRepositoryPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The name of the upstream registry.
+func (o PullThroughCacheRuleOutput) UpstreamRegistry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PullThroughCacheRule) pulumi.StringPtrOutput { return v.UpstreamRegistry }).(pulumi.StringPtrOutput)
 }
 
 // The upstreamRegistryUrl is the endpoint of upstream registry url of the public repository to be cached

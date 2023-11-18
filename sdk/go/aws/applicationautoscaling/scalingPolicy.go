@@ -14,18 +14,34 @@ import (
 )
 
 // Resource Type definition for AWS::ApplicationAutoScaling::ScalingPolicy
-//
-// Deprecated: ScalingPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type ScalingPolicy struct {
 	pulumi.CustomResourceState
 
-	PolicyName                               pulumi.StringOutput                                            `pulumi:"policyName"`
-	PolicyType                               pulumi.StringOutput                                            `pulumi:"policyType"`
-	ResourceId                               pulumi.StringPtrOutput                                         `pulumi:"resourceId"`
-	ScalableDimension                        pulumi.StringPtrOutput                                         `pulumi:"scalableDimension"`
-	ScalingTargetId                          pulumi.StringPtrOutput                                         `pulumi:"scalingTargetId"`
-	ServiceNamespace                         pulumi.StringPtrOutput                                         `pulumi:"serviceNamespace"`
-	StepScalingPolicyConfiguration           ScalingPolicyStepScalingPolicyConfigurationPtrOutput           `pulumi:"stepScalingPolicyConfiguration"`
+	// ARN is a read only property for the resource.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The name of the scaling policy.
+	//
+	// Updates to the name of a target tracking scaling policy are not supported, unless you also update the metric used for scaling. To change only a target tracking scaling policy's name, first delete the policy by removing the existing AWS::ApplicationAutoScaling::ScalingPolicy resource from the template and updating the stack. Then, recreate the resource with the same settings and a different name.
+	PolicyName pulumi.StringOutput `pulumi:"policyName"`
+	// The scaling policy type.
+	//
+	// The following policy types are supported:
+	//
+	// TargetTrackingScaling Not supported for Amazon EMR
+	//
+	// StepScaling Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
+	PolicyType pulumi.StringOutput `pulumi:"policyType"`
+	// The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
+	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
+	// The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
+	ScalableDimension pulumi.StringPtrOutput `pulumi:"scalableDimension"`
+	// The CloudFormation-generated ID of an Application Auto Scaling scalable target. For more information about the ID, see the Return Value section of the AWS::ApplicationAutoScaling::ScalableTarget resource.
+	ScalingTargetId pulumi.StringPtrOutput `pulumi:"scalingTargetId"`
+	// The namespace of the AWS service that provides the resource, or a custom-resource.
+	ServiceNamespace pulumi.StringPtrOutput `pulumi:"serviceNamespace"`
+	// A step scaling policy.
+	StepScalingPolicyConfiguration ScalingPolicyStepScalingPolicyConfigurationPtrOutput `pulumi:"stepScalingPolicyConfiguration"`
+	// A target tracking scaling policy.
 	TargetTrackingScalingPolicyConfiguration ScalingPolicyTargetTrackingScalingPolicyConfigurationPtrOutput `pulumi:"targetTrackingScalingPolicyConfiguration"`
 }
 
@@ -83,25 +99,57 @@ func (ScalingPolicyState) ElementType() reflect.Type {
 }
 
 type scalingPolicyArgs struct {
-	PolicyName                               string                                                 `pulumi:"policyName"`
-	PolicyType                               string                                                 `pulumi:"policyType"`
-	ResourceId                               *string                                                `pulumi:"resourceId"`
-	ScalableDimension                        *string                                                `pulumi:"scalableDimension"`
-	ScalingTargetId                          *string                                                `pulumi:"scalingTargetId"`
-	ServiceNamespace                         *string                                                `pulumi:"serviceNamespace"`
-	StepScalingPolicyConfiguration           *ScalingPolicyStepScalingPolicyConfiguration           `pulumi:"stepScalingPolicyConfiguration"`
+	// The name of the scaling policy.
+	//
+	// Updates to the name of a target tracking scaling policy are not supported, unless you also update the metric used for scaling. To change only a target tracking scaling policy's name, first delete the policy by removing the existing AWS::ApplicationAutoScaling::ScalingPolicy resource from the template and updating the stack. Then, recreate the resource with the same settings and a different name.
+	PolicyName string `pulumi:"policyName"`
+	// The scaling policy type.
+	//
+	// The following policy types are supported:
+	//
+	// TargetTrackingScaling Not supported for Amazon EMR
+	//
+	// StepScaling Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
+	PolicyType string `pulumi:"policyType"`
+	// The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
+	ResourceId *string `pulumi:"resourceId"`
+	// The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
+	ScalableDimension *string `pulumi:"scalableDimension"`
+	// The CloudFormation-generated ID of an Application Auto Scaling scalable target. For more information about the ID, see the Return Value section of the AWS::ApplicationAutoScaling::ScalableTarget resource.
+	ScalingTargetId *string `pulumi:"scalingTargetId"`
+	// The namespace of the AWS service that provides the resource, or a custom-resource.
+	ServiceNamespace *string `pulumi:"serviceNamespace"`
+	// A step scaling policy.
+	StepScalingPolicyConfiguration *ScalingPolicyStepScalingPolicyConfiguration `pulumi:"stepScalingPolicyConfiguration"`
+	// A target tracking scaling policy.
 	TargetTrackingScalingPolicyConfiguration *ScalingPolicyTargetTrackingScalingPolicyConfiguration `pulumi:"targetTrackingScalingPolicyConfiguration"`
 }
 
 // The set of arguments for constructing a ScalingPolicy resource.
 type ScalingPolicyArgs struct {
-	PolicyName                               pulumi.StringInput
-	PolicyType                               pulumi.StringInput
-	ResourceId                               pulumi.StringPtrInput
-	ScalableDimension                        pulumi.StringPtrInput
-	ScalingTargetId                          pulumi.StringPtrInput
-	ServiceNamespace                         pulumi.StringPtrInput
-	StepScalingPolicyConfiguration           ScalingPolicyStepScalingPolicyConfigurationPtrInput
+	// The name of the scaling policy.
+	//
+	// Updates to the name of a target tracking scaling policy are not supported, unless you also update the metric used for scaling. To change only a target tracking scaling policy's name, first delete the policy by removing the existing AWS::ApplicationAutoScaling::ScalingPolicy resource from the template and updating the stack. Then, recreate the resource with the same settings and a different name.
+	PolicyName pulumi.StringInput
+	// The scaling policy type.
+	//
+	// The following policy types are supported:
+	//
+	// TargetTrackingScaling Not supported for Amazon EMR
+	//
+	// StepScaling Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
+	PolicyType pulumi.StringInput
+	// The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
+	ResourceId pulumi.StringPtrInput
+	// The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
+	ScalableDimension pulumi.StringPtrInput
+	// The CloudFormation-generated ID of an Application Auto Scaling scalable target. For more information about the ID, see the Return Value section of the AWS::ApplicationAutoScaling::ScalableTarget resource.
+	ScalingTargetId pulumi.StringPtrInput
+	// The namespace of the AWS service that provides the resource, or a custom-resource.
+	ServiceNamespace pulumi.StringPtrInput
+	// A step scaling policy.
+	StepScalingPolicyConfiguration ScalingPolicyStepScalingPolicyConfigurationPtrInput
+	// A target tracking scaling policy.
 	TargetTrackingScalingPolicyConfiguration ScalingPolicyTargetTrackingScalingPolicyConfigurationPtrInput
 }
 
@@ -154,36 +202,57 @@ func (o ScalingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*Scali
 	}
 }
 
+// ARN is a read only property for the resource.
+func (o ScalingPolicyOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ScalingPolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The name of the scaling policy.
+//
+// Updates to the name of a target tracking scaling policy are not supported, unless you also update the metric used for scaling. To change only a target tracking scaling policy's name, first delete the policy by removing the existing AWS::ApplicationAutoScaling::ScalingPolicy resource from the template and updating the stack. Then, recreate the resource with the same settings and a different name.
 func (o ScalingPolicyOutput) PolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScalingPolicy) pulumi.StringOutput { return v.PolicyName }).(pulumi.StringOutput)
 }
 
+// The scaling policy type.
+//
+// The following policy types are supported:
+//
+// # TargetTrackingScaling Not supported for Amazon EMR
+//
+// StepScaling Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
 func (o ScalingPolicyOutput) PolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScalingPolicy) pulumi.StringOutput { return v.PolicyType }).(pulumi.StringOutput)
 }
 
+// The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
 func (o ScalingPolicyOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicy) pulumi.StringPtrOutput { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
+// The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
 func (o ScalingPolicyOutput) ScalableDimension() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicy) pulumi.StringPtrOutput { return v.ScalableDimension }).(pulumi.StringPtrOutput)
 }
 
+// The CloudFormation-generated ID of an Application Auto Scaling scalable target. For more information about the ID, see the Return Value section of the AWS::ApplicationAutoScaling::ScalableTarget resource.
 func (o ScalingPolicyOutput) ScalingTargetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicy) pulumi.StringPtrOutput { return v.ScalingTargetId }).(pulumi.StringPtrOutput)
 }
 
+// The namespace of the AWS service that provides the resource, or a custom-resource.
 func (o ScalingPolicyOutput) ServiceNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicy) pulumi.StringPtrOutput { return v.ServiceNamespace }).(pulumi.StringPtrOutput)
 }
 
+// A step scaling policy.
 func (o ScalingPolicyOutput) StepScalingPolicyConfiguration() ScalingPolicyStepScalingPolicyConfigurationPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicy) ScalingPolicyStepScalingPolicyConfigurationPtrOutput {
 		return v.StepScalingPolicyConfiguration
 	}).(ScalingPolicyStepScalingPolicyConfigurationPtrOutput)
 }
 
+// A target tracking scaling policy.
 func (o ScalingPolicyOutput) TargetTrackingScalingPolicyConfiguration() ScalingPolicyTargetTrackingScalingPolicyConfigurationPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicy) ScalingPolicyTargetTrackingScalingPolicyConfigurationPtrOutput {
 		return v.TargetTrackingScalingPolicyConfiguration

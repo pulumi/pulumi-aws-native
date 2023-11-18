@@ -39,6 +39,10 @@ export interface GetSecurityProfileResult {
      */
     readonly behaviors?: outputs.iot.SecurityProfileBehavior[];
     /**
+     * A structure containing the mqtt topic for metrics export.
+     */
+    readonly metricsExportConfig?: outputs.iot.MetricsExportConfigProperties;
+    /**
      * The ARN (Amazon resource name) of the created security profile.
      */
     readonly securityProfileArn?: string;

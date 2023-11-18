@@ -10,22 +10,41 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
 {
 
+    /// <summary>
+    /// A step scaling policy.
+    /// </summary>
     public sealed class ScalingPolicyStepScalingPolicyConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies how the ScalingAdjustment value in a StepAdjustment is interpreted.
+        /// </summary>
         [Input("adjustmentType")]
         public Input<string>? AdjustmentType { get; set; }
 
+        /// <summary>
+        /// The amount of time, in seconds, to wait for a previous scaling activity to take effect.
+        /// </summary>
         [Input("cooldown")]
         public Input<int>? Cooldown { get; set; }
 
+        /// <summary>
+        /// The aggregation type for the CloudWatch metrics. Valid values are Minimum, Maximum, and Average. If the aggregation type is null, the value is treated as Average
+        /// </summary>
         [Input("metricAggregationType")]
         public Input<string>? MetricAggregationType { get; set; }
 
+        /// <summary>
+        /// The minimum value to scale by when the adjustment type is PercentChangeInCapacity.
+        /// </summary>
         [Input("minAdjustmentMagnitude")]
         public Input<int>? MinAdjustmentMagnitude { get; set; }
 
         [Input("stepAdjustments")]
         private InputList<Inputs.ScalingPolicyStepAdjustmentArgs>? _stepAdjustments;
+
+        /// <summary>
+        /// A set of adjustments that enable you to scale based on the size of the alarm breach.
+        /// </summary>
         public InputList<Inputs.ScalingPolicyStepAdjustmentArgs> StepAdjustments
         {
             get => _stepAdjustments ?? (_stepAdjustments = new InputList<Inputs.ScalingPolicyStepAdjustmentArgs>());

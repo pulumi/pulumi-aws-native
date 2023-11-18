@@ -114,6 +114,10 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly ImmutableArray<string> EnableCloudwatchLogsExports;
         /// <summary>
+        /// Specifies whether to enable this DB cluster to forward write operations to the primary cluster of a global cluster (Aurora global database). By default, write operations are not allowed on Aurora DB clusters that are secondary clusters in an Aurora global database.
+        /// </summary>
+        public readonly bool? EnableGlobalWriteForwarding;
+        /// <summary>
         /// A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
         /// </summary>
         public readonly bool? EnableHttpEndpoint;
@@ -244,6 +248,8 @@ namespace Pulumi.AwsNative.Rds
 
             ImmutableArray<string> enableCloudwatchLogsExports,
 
+            bool? enableGlobalWriteForwarding,
+
             bool? enableHttpEndpoint,
 
             bool? enableIamDatabaseAuthentication,
@@ -310,6 +316,7 @@ namespace Pulumi.AwsNative.Rds
             Domain = domain;
             DomainIamRoleName = domainIamRoleName;
             EnableCloudwatchLogsExports = enableCloudwatchLogsExports;
+            EnableGlobalWriteForwarding = enableGlobalWriteForwarding;
             EnableHttpEndpoint = enableHttpEndpoint;
             EnableIamDatabaseAuthentication = enableIamDatabaseAuthentication;
             Endpoint = endpoint;

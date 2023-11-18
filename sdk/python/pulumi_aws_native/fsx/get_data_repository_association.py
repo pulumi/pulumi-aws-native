@@ -40,25 +40,20 @@ class GetDataRepositoryAssociationResult:
     @property
     @pulumi.getter(name="associationId")
     def association_id(self) -> Optional[str]:
-        """
-        The system-generated, unique ID of the data repository association.
-        """
         return pulumi.get(self, "association_id")
 
     @property
     @pulumi.getter(name="importedFileChunkSize")
     def imported_file_chunk_size(self) -> Optional[int]:
         """
-        For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
+        For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system or cache.
+         The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
         """
         return pulumi.get(self, "imported_file_chunk_size")
 
     @property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> Optional[str]:
-        """
-        The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services resources. We require an ARN when you need to specify a resource unambiguously across all of Amazon Web Services. For more information, see Amazon Resource Names (ARNs) in the Amazon Web Services General Reference.
-        """
         return pulumi.get(self, "resource_arn")
 
     @property
@@ -73,7 +68,8 @@ class GetDataRepositoryAssociationResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.DataRepositoryAssociationTag']]:
         """
-        A list of Tag values, with a maximum of 50 elements.
+        An array of key-value pairs to apply to this resource.
+         For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         """
         return pulumi.get(self, "tags")
 
@@ -94,10 +90,8 @@ class AwaitableGetDataRepositoryAssociationResult(GetDataRepositoryAssociationRe
 def get_data_repository_association(association_id: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataRepositoryAssociationResult:
     """
-    Resource Type definition for AWS::FSx::DataRepositoryAssociation
-
-
-    :param str association_id: The system-generated, unique ID of the data repository association.
+    Creates an Amazon FSx for Lustre data repository association (DRA). A data repository association is a link between a directory on the file system and an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository associations on a file system. Data repository associations are supported on all FSx for Lustre 2.12 and newer file systems, excluding ``scratch_1`` deployment type.
+     Each data repository association must have a unique Amazon FSx file system directory and a unique S3 bucket or prefix associated with it. You can configure a data repository association for automatic import only, for automatic export only, or for both. To learn more about linking a data repository to your file system, see [Linking your file system to an S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html).
     """
     __args__ = dict()
     __args__['associationId'] = association_id
@@ -116,9 +110,7 @@ def get_data_repository_association(association_id: Optional[str] = None,
 def get_data_repository_association_output(association_id: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataRepositoryAssociationResult]:
     """
-    Resource Type definition for AWS::FSx::DataRepositoryAssociation
-
-
-    :param str association_id: The system-generated, unique ID of the data repository association.
+    Creates an Amazon FSx for Lustre data repository association (DRA). A data repository association is a link between a directory on the file system and an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository associations on a file system. Data repository associations are supported on all FSx for Lustre 2.12 and newer file systems, excluding ``scratch_1`` deployment type.
+     Each data repository association must have a unique Amazon FSx file system directory and a unique S3 bucket or prefix associated with it. You can configure a data repository association for automatic import only, for automatic export only, or for both. To learn more about linking a data repository to your file system, see [Linking your file system to an S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html).
     """
     ...

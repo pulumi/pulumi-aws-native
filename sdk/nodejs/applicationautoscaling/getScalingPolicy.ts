@@ -14,18 +14,44 @@ export function getScalingPolicy(args: GetScalingPolicyArgs, opts?: pulumi.Invok
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:applicationautoscaling:getScalingPolicy", {
-        "id": args.id,
+        "arn": args.arn,
+        "scalableDimension": args.scalableDimension,
     }, opts);
 }
 
 export interface GetScalingPolicyArgs {
-    id: string;
+    /**
+     * ARN is a read only property for the resource.
+     */
+    arn: string;
+    /**
+     * The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
+     */
+    scalableDimension: string;
 }
 
 export interface GetScalingPolicyResult {
-    readonly id?: string;
+    /**
+     * ARN is a read only property for the resource.
+     */
+    readonly arn?: string;
+    /**
+     * The scaling policy type.
+     *
+     * The following policy types are supported:
+     *
+     * TargetTrackingScaling Not supported for Amazon EMR
+     *
+     * StepScaling Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
+     */
     readonly policyType?: string;
+    /**
+     * A step scaling policy.
+     */
     readonly stepScalingPolicyConfiguration?: outputs.applicationautoscaling.ScalingPolicyStepScalingPolicyConfiguration;
+    /**
+     * A target tracking scaling policy.
+     */
     readonly targetTrackingScalingPolicyConfiguration?: outputs.applicationautoscaling.ScalingPolicyTargetTrackingScalingPolicyConfiguration;
 }
 /**
@@ -36,5 +62,12 @@ export function getScalingPolicyOutput(args: GetScalingPolicyOutputArgs, opts?: 
 }
 
 export interface GetScalingPolicyOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * ARN is a read only property for the resource.
+     */
+    arn: pulumi.Input<string>;
+    /**
+     * The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
+     */
+    scalableDimension: pulumi.Input<string>;
 }

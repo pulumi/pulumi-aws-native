@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 90 to 2555 days (about three months to up to seven years).
+ * A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 7 to 2557 or 3653 days (about seven or ten years) depending on the selected BillingMode.
  */
 export function getEventDataStore(args: GetEventDataStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetEventDataStoreResult> {
 
@@ -31,6 +31,10 @@ export interface GetEventDataStoreResult {
      */
     readonly advancedEventSelectors?: outputs.cloudtrail.EventDataStoreAdvancedEventSelector[];
     /**
+     * The mode that the event data store will use to charge for event storage.
+     */
+    readonly billingMode?: string;
+    /**
      * The timestamp of the event data store's creation.
      */
     readonly createdTimestamp?: string;
@@ -42,6 +46,14 @@ export interface GetEventDataStoreResult {
      * Indicates whether the event data store is ingesting events.
      */
     readonly ingestionEnabled?: boolean;
+    /**
+     * Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
+     */
+    readonly insightSelectors?: outputs.cloudtrail.EventDataStoreInsightSelector[];
+    /**
+     * Specifies the ARN of the event data store that will collect Insights events. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store
+     */
+    readonly insightsDestination?: string;
     /**
      * Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      */
@@ -77,7 +89,7 @@ export interface GetEventDataStoreResult {
     readonly updatedTimestamp?: string;
 }
 /**
- * A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 90 to 2555 days (about three months to up to seven years).
+ * A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 7 to 2557 or 3653 days (about seven or ten years) depending on the selected BillingMode.
  */
 export function getEventDataStoreOutput(args: GetEventDataStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventDataStoreResult> {
     return pulumi.output(args).apply((a: any) => getEventDataStore(a, opts))

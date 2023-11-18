@@ -361,6 +361,142 @@ func (o ApplicationAutoStopConfigurationPtrOutput) IdleTimeoutMinutes() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+// Configuration for a JobRun.
+type ApplicationConfigurationObject struct {
+	// String with a maximum length of 1024.
+	Classification string                           `pulumi:"classification"`
+	Configurations []ApplicationConfigurationObject `pulumi:"configurations"`
+	Properties     interface{}                      `pulumi:"properties"`
+}
+
+// ApplicationConfigurationObjectInput is an input type that accepts ApplicationConfigurationObjectArgs and ApplicationConfigurationObjectOutput values.
+// You can construct a concrete instance of `ApplicationConfigurationObjectInput` via:
+//
+//	ApplicationConfigurationObjectArgs{...}
+type ApplicationConfigurationObjectInput interface {
+	pulumi.Input
+
+	ToApplicationConfigurationObjectOutput() ApplicationConfigurationObjectOutput
+	ToApplicationConfigurationObjectOutputWithContext(context.Context) ApplicationConfigurationObjectOutput
+}
+
+// Configuration for a JobRun.
+type ApplicationConfigurationObjectArgs struct {
+	// String with a maximum length of 1024.
+	Classification pulumi.StringInput                       `pulumi:"classification"`
+	Configurations ApplicationConfigurationObjectArrayInput `pulumi:"configurations"`
+	Properties     pulumi.Input                             `pulumi:"properties"`
+}
+
+func (ApplicationConfigurationObjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationConfigurationObject)(nil)).Elem()
+}
+
+func (i ApplicationConfigurationObjectArgs) ToApplicationConfigurationObjectOutput() ApplicationConfigurationObjectOutput {
+	return i.ToApplicationConfigurationObjectOutputWithContext(context.Background())
+}
+
+func (i ApplicationConfigurationObjectArgs) ToApplicationConfigurationObjectOutputWithContext(ctx context.Context) ApplicationConfigurationObjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationConfigurationObjectOutput)
+}
+
+func (i ApplicationConfigurationObjectArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationConfigurationObject] {
+	return pulumix.Output[ApplicationConfigurationObject]{
+		OutputState: i.ToApplicationConfigurationObjectOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ApplicationConfigurationObjectArrayInput is an input type that accepts ApplicationConfigurationObjectArray and ApplicationConfigurationObjectArrayOutput values.
+// You can construct a concrete instance of `ApplicationConfigurationObjectArrayInput` via:
+//
+//	ApplicationConfigurationObjectArray{ ApplicationConfigurationObjectArgs{...} }
+type ApplicationConfigurationObjectArrayInput interface {
+	pulumi.Input
+
+	ToApplicationConfigurationObjectArrayOutput() ApplicationConfigurationObjectArrayOutput
+	ToApplicationConfigurationObjectArrayOutputWithContext(context.Context) ApplicationConfigurationObjectArrayOutput
+}
+
+type ApplicationConfigurationObjectArray []ApplicationConfigurationObjectInput
+
+func (ApplicationConfigurationObjectArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationConfigurationObject)(nil)).Elem()
+}
+
+func (i ApplicationConfigurationObjectArray) ToApplicationConfigurationObjectArrayOutput() ApplicationConfigurationObjectArrayOutput {
+	return i.ToApplicationConfigurationObjectArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationConfigurationObjectArray) ToApplicationConfigurationObjectArrayOutputWithContext(ctx context.Context) ApplicationConfigurationObjectArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationConfigurationObjectArrayOutput)
+}
+
+func (i ApplicationConfigurationObjectArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationConfigurationObject] {
+	return pulumix.Output[[]ApplicationConfigurationObject]{
+		OutputState: i.ToApplicationConfigurationObjectArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Configuration for a JobRun.
+type ApplicationConfigurationObjectOutput struct{ *pulumi.OutputState }
+
+func (ApplicationConfigurationObjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationConfigurationObject)(nil)).Elem()
+}
+
+func (o ApplicationConfigurationObjectOutput) ToApplicationConfigurationObjectOutput() ApplicationConfigurationObjectOutput {
+	return o
+}
+
+func (o ApplicationConfigurationObjectOutput) ToApplicationConfigurationObjectOutputWithContext(ctx context.Context) ApplicationConfigurationObjectOutput {
+	return o
+}
+
+func (o ApplicationConfigurationObjectOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationConfigurationObject] {
+	return pulumix.Output[ApplicationConfigurationObject]{
+		OutputState: o.OutputState,
+	}
+}
+
+// String with a maximum length of 1024.
+func (o ApplicationConfigurationObjectOutput) Classification() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationConfigurationObject) string { return v.Classification }).(pulumi.StringOutput)
+}
+
+func (o ApplicationConfigurationObjectOutput) Configurations() ApplicationConfigurationObjectArrayOutput {
+	return o.ApplyT(func(v ApplicationConfigurationObject) []ApplicationConfigurationObject { return v.Configurations }).(ApplicationConfigurationObjectArrayOutput)
+}
+
+func (o ApplicationConfigurationObjectOutput) Properties() pulumi.AnyOutput {
+	return o.ApplyT(func(v ApplicationConfigurationObject) interface{} { return v.Properties }).(pulumi.AnyOutput)
+}
+
+type ApplicationConfigurationObjectArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationConfigurationObjectArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationConfigurationObject)(nil)).Elem()
+}
+
+func (o ApplicationConfigurationObjectArrayOutput) ToApplicationConfigurationObjectArrayOutput() ApplicationConfigurationObjectArrayOutput {
+	return o
+}
+
+func (o ApplicationConfigurationObjectArrayOutput) ToApplicationConfigurationObjectArrayOutputWithContext(ctx context.Context) ApplicationConfigurationObjectArrayOutput {
+	return o
+}
+
+func (o ApplicationConfigurationObjectArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationConfigurationObject] {
+	return pulumix.Output[[]ApplicationConfigurationObject]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ApplicationConfigurationObjectArrayOutput) Index(i pulumi.IntInput) ApplicationConfigurationObjectOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationConfigurationObject {
+		return vs[0].([]ApplicationConfigurationObject)[vs[1].(int)]
+	}).(ApplicationConfigurationObjectOutput)
+}
+
 // The image configuration.
 type ApplicationImageConfigurationInput struct {
 	// The URI of an image in the Amazon ECR registry. This field is required when you create a new application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.
@@ -722,6 +858,186 @@ func (o ApplicationInitialCapacityConfigKeyValuePairArrayOutput) Index(i pulumi.
 	}).(ApplicationInitialCapacityConfigKeyValuePairOutput)
 }
 
+type ApplicationManagedPersistenceMonitoringConfiguration struct {
+	// If set to false, managed logging will be turned off. Defaults to true.
+	Enabled *bool `pulumi:"enabled"`
+	// KMS key ARN to encrypt the logs stored in managed persistence
+	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
+}
+
+// ApplicationManagedPersistenceMonitoringConfigurationInput is an input type that accepts ApplicationManagedPersistenceMonitoringConfigurationArgs and ApplicationManagedPersistenceMonitoringConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationManagedPersistenceMonitoringConfigurationInput` via:
+//
+//	ApplicationManagedPersistenceMonitoringConfigurationArgs{...}
+type ApplicationManagedPersistenceMonitoringConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationManagedPersistenceMonitoringConfigurationOutput() ApplicationManagedPersistenceMonitoringConfigurationOutput
+	ToApplicationManagedPersistenceMonitoringConfigurationOutputWithContext(context.Context) ApplicationManagedPersistenceMonitoringConfigurationOutput
+}
+
+type ApplicationManagedPersistenceMonitoringConfigurationArgs struct {
+	// If set to false, managed logging will be turned off. Defaults to true.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// KMS key ARN to encrypt the logs stored in managed persistence
+	EncryptionKeyArn pulumi.StringPtrInput `pulumi:"encryptionKeyArn"`
+}
+
+func (ApplicationManagedPersistenceMonitoringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationManagedPersistenceMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationManagedPersistenceMonitoringConfigurationArgs) ToApplicationManagedPersistenceMonitoringConfigurationOutput() ApplicationManagedPersistenceMonitoringConfigurationOutput {
+	return i.ToApplicationManagedPersistenceMonitoringConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationManagedPersistenceMonitoringConfigurationArgs) ToApplicationManagedPersistenceMonitoringConfigurationOutputWithContext(ctx context.Context) ApplicationManagedPersistenceMonitoringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationManagedPersistenceMonitoringConfigurationOutput)
+}
+
+func (i ApplicationManagedPersistenceMonitoringConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationManagedPersistenceMonitoringConfiguration] {
+	return pulumix.Output[ApplicationManagedPersistenceMonitoringConfiguration]{
+		OutputState: i.ToApplicationManagedPersistenceMonitoringConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ApplicationManagedPersistenceMonitoringConfigurationArgs) ToApplicationManagedPersistenceMonitoringConfigurationPtrOutput() ApplicationManagedPersistenceMonitoringConfigurationPtrOutput {
+	return i.ToApplicationManagedPersistenceMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationManagedPersistenceMonitoringConfigurationArgs) ToApplicationManagedPersistenceMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationManagedPersistenceMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationManagedPersistenceMonitoringConfigurationOutput).ToApplicationManagedPersistenceMonitoringConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationManagedPersistenceMonitoringConfigurationPtrInput is an input type that accepts ApplicationManagedPersistenceMonitoringConfigurationArgs, ApplicationManagedPersistenceMonitoringConfigurationPtr and ApplicationManagedPersistenceMonitoringConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationManagedPersistenceMonitoringConfigurationPtrInput` via:
+//
+//	        ApplicationManagedPersistenceMonitoringConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationManagedPersistenceMonitoringConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationManagedPersistenceMonitoringConfigurationPtrOutput() ApplicationManagedPersistenceMonitoringConfigurationPtrOutput
+	ToApplicationManagedPersistenceMonitoringConfigurationPtrOutputWithContext(context.Context) ApplicationManagedPersistenceMonitoringConfigurationPtrOutput
+}
+
+type applicationManagedPersistenceMonitoringConfigurationPtrType ApplicationManagedPersistenceMonitoringConfigurationArgs
+
+func ApplicationManagedPersistenceMonitoringConfigurationPtr(v *ApplicationManagedPersistenceMonitoringConfigurationArgs) ApplicationManagedPersistenceMonitoringConfigurationPtrInput {
+	return (*applicationManagedPersistenceMonitoringConfigurationPtrType)(v)
+}
+
+func (*applicationManagedPersistenceMonitoringConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationManagedPersistenceMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i *applicationManagedPersistenceMonitoringConfigurationPtrType) ToApplicationManagedPersistenceMonitoringConfigurationPtrOutput() ApplicationManagedPersistenceMonitoringConfigurationPtrOutput {
+	return i.ToApplicationManagedPersistenceMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationManagedPersistenceMonitoringConfigurationPtrType) ToApplicationManagedPersistenceMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationManagedPersistenceMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationManagedPersistenceMonitoringConfigurationPtrOutput)
+}
+
+func (i *applicationManagedPersistenceMonitoringConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationManagedPersistenceMonitoringConfiguration] {
+	return pulumix.Output[*ApplicationManagedPersistenceMonitoringConfiguration]{
+		OutputState: i.ToApplicationManagedPersistenceMonitoringConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ApplicationManagedPersistenceMonitoringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationManagedPersistenceMonitoringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationManagedPersistenceMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationManagedPersistenceMonitoringConfigurationOutput) ToApplicationManagedPersistenceMonitoringConfigurationOutput() ApplicationManagedPersistenceMonitoringConfigurationOutput {
+	return o
+}
+
+func (o ApplicationManagedPersistenceMonitoringConfigurationOutput) ToApplicationManagedPersistenceMonitoringConfigurationOutputWithContext(ctx context.Context) ApplicationManagedPersistenceMonitoringConfigurationOutput {
+	return o
+}
+
+func (o ApplicationManagedPersistenceMonitoringConfigurationOutput) ToApplicationManagedPersistenceMonitoringConfigurationPtrOutput() ApplicationManagedPersistenceMonitoringConfigurationPtrOutput {
+	return o.ToApplicationManagedPersistenceMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationManagedPersistenceMonitoringConfigurationOutput) ToApplicationManagedPersistenceMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationManagedPersistenceMonitoringConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationManagedPersistenceMonitoringConfiguration) *ApplicationManagedPersistenceMonitoringConfiguration {
+		return &v
+	}).(ApplicationManagedPersistenceMonitoringConfigurationPtrOutput)
+}
+
+func (o ApplicationManagedPersistenceMonitoringConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationManagedPersistenceMonitoringConfiguration] {
+	return pulumix.Output[ApplicationManagedPersistenceMonitoringConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// If set to false, managed logging will be turned off. Defaults to true.
+func (o ApplicationManagedPersistenceMonitoringConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationManagedPersistenceMonitoringConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// KMS key ARN to encrypt the logs stored in managed persistence
+func (o ApplicationManagedPersistenceMonitoringConfigurationOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationManagedPersistenceMonitoringConfiguration) *string { return v.EncryptionKeyArn }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationManagedPersistenceMonitoringConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationManagedPersistenceMonitoringConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationManagedPersistenceMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationManagedPersistenceMonitoringConfigurationPtrOutput) ToApplicationManagedPersistenceMonitoringConfigurationPtrOutput() ApplicationManagedPersistenceMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationManagedPersistenceMonitoringConfigurationPtrOutput) ToApplicationManagedPersistenceMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationManagedPersistenceMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationManagedPersistenceMonitoringConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationManagedPersistenceMonitoringConfiguration] {
+	return pulumix.Output[*ApplicationManagedPersistenceMonitoringConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ApplicationManagedPersistenceMonitoringConfigurationPtrOutput) Elem() ApplicationManagedPersistenceMonitoringConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationManagedPersistenceMonitoringConfiguration) ApplicationManagedPersistenceMonitoringConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationManagedPersistenceMonitoringConfiguration
+		return ret
+	}).(ApplicationManagedPersistenceMonitoringConfigurationOutput)
+}
+
+// If set to false, managed logging will be turned off. Defaults to true.
+func (o ApplicationManagedPersistenceMonitoringConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationManagedPersistenceMonitoringConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// KMS key ARN to encrypt the logs stored in managed persistence
+func (o ApplicationManagedPersistenceMonitoringConfigurationPtrOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationManagedPersistenceMonitoringConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type ApplicationMaximumAllowedResources struct {
 	// Per worker CPU resource. vCPU is the only supported unit and specifying vCPU is optional.
 	Cpu string `pulumi:"cpu"`
@@ -921,6 +1237,193 @@ func (o ApplicationMaximumAllowedResourcesPtrOutput) Memory() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Monitoring configuration for batch and interactive JobRun.
+type ApplicationMonitoringConfiguration struct {
+	// Managed log persistence configurations for a JobRun.
+	ManagedPersistenceMonitoringConfiguration *ApplicationManagedPersistenceMonitoringConfiguration `pulumi:"managedPersistenceMonitoringConfiguration"`
+	// S3 monitoring configurations for a JobRun.
+	S3MonitoringConfiguration *ApplicationS3MonitoringConfiguration `pulumi:"s3MonitoringConfiguration"`
+}
+
+// ApplicationMonitoringConfigurationInput is an input type that accepts ApplicationMonitoringConfigurationArgs and ApplicationMonitoringConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationMonitoringConfigurationInput` via:
+//
+//	ApplicationMonitoringConfigurationArgs{...}
+type ApplicationMonitoringConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationMonitoringConfigurationOutput() ApplicationMonitoringConfigurationOutput
+	ToApplicationMonitoringConfigurationOutputWithContext(context.Context) ApplicationMonitoringConfigurationOutput
+}
+
+// Monitoring configuration for batch and interactive JobRun.
+type ApplicationMonitoringConfigurationArgs struct {
+	// Managed log persistence configurations for a JobRun.
+	ManagedPersistenceMonitoringConfiguration ApplicationManagedPersistenceMonitoringConfigurationPtrInput `pulumi:"managedPersistenceMonitoringConfiguration"`
+	// S3 monitoring configurations for a JobRun.
+	S3MonitoringConfiguration ApplicationS3MonitoringConfigurationPtrInput `pulumi:"s3MonitoringConfiguration"`
+}
+
+func (ApplicationMonitoringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationMonitoringConfigurationArgs) ToApplicationMonitoringConfigurationOutput() ApplicationMonitoringConfigurationOutput {
+	return i.ToApplicationMonitoringConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationMonitoringConfigurationArgs) ToApplicationMonitoringConfigurationOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMonitoringConfigurationOutput)
+}
+
+func (i ApplicationMonitoringConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationMonitoringConfiguration] {
+	return pulumix.Output[ApplicationMonitoringConfiguration]{
+		OutputState: i.ToApplicationMonitoringConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ApplicationMonitoringConfigurationArgs) ToApplicationMonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationPtrOutput {
+	return i.ToApplicationMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationMonitoringConfigurationArgs) ToApplicationMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMonitoringConfigurationOutput).ToApplicationMonitoringConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationMonitoringConfigurationPtrInput is an input type that accepts ApplicationMonitoringConfigurationArgs, ApplicationMonitoringConfigurationPtr and ApplicationMonitoringConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationMonitoringConfigurationPtrInput` via:
+//
+//	        ApplicationMonitoringConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationMonitoringConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationMonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationPtrOutput
+	ToApplicationMonitoringConfigurationPtrOutputWithContext(context.Context) ApplicationMonitoringConfigurationPtrOutput
+}
+
+type applicationMonitoringConfigurationPtrType ApplicationMonitoringConfigurationArgs
+
+func ApplicationMonitoringConfigurationPtr(v *ApplicationMonitoringConfigurationArgs) ApplicationMonitoringConfigurationPtrInput {
+	return (*applicationMonitoringConfigurationPtrType)(v)
+}
+
+func (*applicationMonitoringConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i *applicationMonitoringConfigurationPtrType) ToApplicationMonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationPtrOutput {
+	return i.ToApplicationMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationMonitoringConfigurationPtrType) ToApplicationMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMonitoringConfigurationPtrOutput)
+}
+
+func (i *applicationMonitoringConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMonitoringConfiguration] {
+	return pulumix.Output[*ApplicationMonitoringConfiguration]{
+		OutputState: i.ToApplicationMonitoringConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Monitoring configuration for batch and interactive JobRun.
+type ApplicationMonitoringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationMonitoringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationMonitoringConfigurationOutput) ToApplicationMonitoringConfigurationOutput() ApplicationMonitoringConfigurationOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationOutput) ToApplicationMonitoringConfigurationOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationOutput) ToApplicationMonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationPtrOutput {
+	return o.ToApplicationMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationMonitoringConfigurationOutput) ToApplicationMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationMonitoringConfiguration) *ApplicationMonitoringConfiguration {
+		return &v
+	}).(ApplicationMonitoringConfigurationPtrOutput)
+}
+
+func (o ApplicationMonitoringConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationMonitoringConfiguration] {
+	return pulumix.Output[ApplicationMonitoringConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Managed log persistence configurations for a JobRun.
+func (o ApplicationMonitoringConfigurationOutput) ManagedPersistenceMonitoringConfiguration() ApplicationManagedPersistenceMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v ApplicationMonitoringConfiguration) *ApplicationManagedPersistenceMonitoringConfiguration {
+		return v.ManagedPersistenceMonitoringConfiguration
+	}).(ApplicationManagedPersistenceMonitoringConfigurationPtrOutput)
+}
+
+// S3 monitoring configurations for a JobRun.
+func (o ApplicationMonitoringConfigurationOutput) S3MonitoringConfiguration() ApplicationS3MonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v ApplicationMonitoringConfiguration) *ApplicationS3MonitoringConfiguration {
+		return v.S3MonitoringConfiguration
+	}).(ApplicationS3MonitoringConfigurationPtrOutput)
+}
+
+type ApplicationMonitoringConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationMonitoringConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationMonitoringConfigurationPtrOutput) ToApplicationMonitoringConfigurationPtrOutput() ApplicationMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationPtrOutput) ToApplicationMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationMonitoringConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMonitoringConfiguration] {
+	return pulumix.Output[*ApplicationMonitoringConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ApplicationMonitoringConfigurationPtrOutput) Elem() ApplicationMonitoringConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfiguration) ApplicationMonitoringConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationMonitoringConfiguration
+		return ret
+	}).(ApplicationMonitoringConfigurationOutput)
+}
+
+// Managed log persistence configurations for a JobRun.
+func (o ApplicationMonitoringConfigurationPtrOutput) ManagedPersistenceMonitoringConfiguration() ApplicationManagedPersistenceMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfiguration) *ApplicationManagedPersistenceMonitoringConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedPersistenceMonitoringConfiguration
+	}).(ApplicationManagedPersistenceMonitoringConfigurationPtrOutput)
+}
+
+// S3 monitoring configurations for a JobRun.
+func (o ApplicationMonitoringConfigurationPtrOutput) S3MonitoringConfiguration() ApplicationS3MonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfiguration) *ApplicationS3MonitoringConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.S3MonitoringConfiguration
+	}).(ApplicationS3MonitoringConfigurationPtrOutput)
+}
+
 type ApplicationNetworkConfiguration struct {
 	// The ID of the security groups in the VPC to which you want to connect your job or application.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -1099,6 +1602,182 @@ func (o ApplicationNetworkConfigurationPtrOutput) SubnetIds() pulumi.StringArray
 		}
 		return v.SubnetIds
 	}).(pulumi.StringArrayOutput)
+}
+
+type ApplicationS3MonitoringConfiguration struct {
+	// KMS key ARN to encrypt the logs stored in given s3
+	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
+	LogUri           *string `pulumi:"logUri"`
+}
+
+// ApplicationS3MonitoringConfigurationInput is an input type that accepts ApplicationS3MonitoringConfigurationArgs and ApplicationS3MonitoringConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationS3MonitoringConfigurationInput` via:
+//
+//	ApplicationS3MonitoringConfigurationArgs{...}
+type ApplicationS3MonitoringConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationS3MonitoringConfigurationOutput() ApplicationS3MonitoringConfigurationOutput
+	ToApplicationS3MonitoringConfigurationOutputWithContext(context.Context) ApplicationS3MonitoringConfigurationOutput
+}
+
+type ApplicationS3MonitoringConfigurationArgs struct {
+	// KMS key ARN to encrypt the logs stored in given s3
+	EncryptionKeyArn pulumi.StringPtrInput `pulumi:"encryptionKeyArn"`
+	LogUri           pulumi.StringPtrInput `pulumi:"logUri"`
+}
+
+func (ApplicationS3MonitoringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationS3MonitoringConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationS3MonitoringConfigurationArgs) ToApplicationS3MonitoringConfigurationOutput() ApplicationS3MonitoringConfigurationOutput {
+	return i.ToApplicationS3MonitoringConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationS3MonitoringConfigurationArgs) ToApplicationS3MonitoringConfigurationOutputWithContext(ctx context.Context) ApplicationS3MonitoringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationS3MonitoringConfigurationOutput)
+}
+
+func (i ApplicationS3MonitoringConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationS3MonitoringConfiguration] {
+	return pulumix.Output[ApplicationS3MonitoringConfiguration]{
+		OutputState: i.ToApplicationS3MonitoringConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ApplicationS3MonitoringConfigurationArgs) ToApplicationS3MonitoringConfigurationPtrOutput() ApplicationS3MonitoringConfigurationPtrOutput {
+	return i.ToApplicationS3MonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationS3MonitoringConfigurationArgs) ToApplicationS3MonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationS3MonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationS3MonitoringConfigurationOutput).ToApplicationS3MonitoringConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationS3MonitoringConfigurationPtrInput is an input type that accepts ApplicationS3MonitoringConfigurationArgs, ApplicationS3MonitoringConfigurationPtr and ApplicationS3MonitoringConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationS3MonitoringConfigurationPtrInput` via:
+//
+//	        ApplicationS3MonitoringConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationS3MonitoringConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationS3MonitoringConfigurationPtrOutput() ApplicationS3MonitoringConfigurationPtrOutput
+	ToApplicationS3MonitoringConfigurationPtrOutputWithContext(context.Context) ApplicationS3MonitoringConfigurationPtrOutput
+}
+
+type applicationS3MonitoringConfigurationPtrType ApplicationS3MonitoringConfigurationArgs
+
+func ApplicationS3MonitoringConfigurationPtr(v *ApplicationS3MonitoringConfigurationArgs) ApplicationS3MonitoringConfigurationPtrInput {
+	return (*applicationS3MonitoringConfigurationPtrType)(v)
+}
+
+func (*applicationS3MonitoringConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationS3MonitoringConfiguration)(nil)).Elem()
+}
+
+func (i *applicationS3MonitoringConfigurationPtrType) ToApplicationS3MonitoringConfigurationPtrOutput() ApplicationS3MonitoringConfigurationPtrOutput {
+	return i.ToApplicationS3MonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationS3MonitoringConfigurationPtrType) ToApplicationS3MonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationS3MonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationS3MonitoringConfigurationPtrOutput)
+}
+
+func (i *applicationS3MonitoringConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationS3MonitoringConfiguration] {
+	return pulumix.Output[*ApplicationS3MonitoringConfiguration]{
+		OutputState: i.ToApplicationS3MonitoringConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ApplicationS3MonitoringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationS3MonitoringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationS3MonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationS3MonitoringConfigurationOutput) ToApplicationS3MonitoringConfigurationOutput() ApplicationS3MonitoringConfigurationOutput {
+	return o
+}
+
+func (o ApplicationS3MonitoringConfigurationOutput) ToApplicationS3MonitoringConfigurationOutputWithContext(ctx context.Context) ApplicationS3MonitoringConfigurationOutput {
+	return o
+}
+
+func (o ApplicationS3MonitoringConfigurationOutput) ToApplicationS3MonitoringConfigurationPtrOutput() ApplicationS3MonitoringConfigurationPtrOutput {
+	return o.ToApplicationS3MonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationS3MonitoringConfigurationOutput) ToApplicationS3MonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationS3MonitoringConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationS3MonitoringConfiguration) *ApplicationS3MonitoringConfiguration {
+		return &v
+	}).(ApplicationS3MonitoringConfigurationPtrOutput)
+}
+
+func (o ApplicationS3MonitoringConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationS3MonitoringConfiguration] {
+	return pulumix.Output[ApplicationS3MonitoringConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// KMS key ARN to encrypt the logs stored in given s3
+func (o ApplicationS3MonitoringConfigurationOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationS3MonitoringConfiguration) *string { return v.EncryptionKeyArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationS3MonitoringConfigurationOutput) LogUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationS3MonitoringConfiguration) *string { return v.LogUri }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationS3MonitoringConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationS3MonitoringConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationS3MonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationS3MonitoringConfigurationPtrOutput) ToApplicationS3MonitoringConfigurationPtrOutput() ApplicationS3MonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationS3MonitoringConfigurationPtrOutput) ToApplicationS3MonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationS3MonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationS3MonitoringConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationS3MonitoringConfiguration] {
+	return pulumix.Output[*ApplicationS3MonitoringConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ApplicationS3MonitoringConfigurationPtrOutput) Elem() ApplicationS3MonitoringConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationS3MonitoringConfiguration) ApplicationS3MonitoringConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationS3MonitoringConfiguration
+		return ret
+	}).(ApplicationS3MonitoringConfigurationOutput)
+}
+
+// KMS key ARN to encrypt the logs stored in given s3
+func (o ApplicationS3MonitoringConfigurationPtrOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationS3MonitoringConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApplicationS3MonitoringConfigurationPtrOutput) LogUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationS3MonitoringConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogUri
+	}).(pulumi.StringPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -1463,15 +2142,23 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAutoStartConfigurationPtrInput)(nil)).Elem(), ApplicationAutoStartConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAutoStopConfigurationInput)(nil)).Elem(), ApplicationAutoStopConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAutoStopConfigurationPtrInput)(nil)).Elem(), ApplicationAutoStopConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationConfigurationObjectInput)(nil)).Elem(), ApplicationConfigurationObjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationConfigurationObjectArrayInput)(nil)).Elem(), ApplicationConfigurationObjectArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationImageConfigurationInputInput)(nil)).Elem(), ApplicationImageConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationImageConfigurationInputPtrInput)(nil)).Elem(), ApplicationImageConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInitialCapacityConfigInput)(nil)).Elem(), ApplicationInitialCapacityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInitialCapacityConfigKeyValuePairInput)(nil)).Elem(), ApplicationInitialCapacityConfigKeyValuePairArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInitialCapacityConfigKeyValuePairArrayInput)(nil)).Elem(), ApplicationInitialCapacityConfigKeyValuePairArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationManagedPersistenceMonitoringConfigurationInput)(nil)).Elem(), ApplicationManagedPersistenceMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationManagedPersistenceMonitoringConfigurationPtrInput)(nil)).Elem(), ApplicationManagedPersistenceMonitoringConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMaximumAllowedResourcesInput)(nil)).Elem(), ApplicationMaximumAllowedResourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMaximumAllowedResourcesPtrInput)(nil)).Elem(), ApplicationMaximumAllowedResourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMonitoringConfigurationInput)(nil)).Elem(), ApplicationMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMonitoringConfigurationPtrInput)(nil)).Elem(), ApplicationMonitoringConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationNetworkConfigurationInput)(nil)).Elem(), ApplicationNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationNetworkConfigurationPtrInput)(nil)).Elem(), ApplicationNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationS3MonitoringConfigurationInput)(nil)).Elem(), ApplicationS3MonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationS3MonitoringConfigurationPtrInput)(nil)).Elem(), ApplicationS3MonitoringConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagInput)(nil)).Elem(), ApplicationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagArrayInput)(nil)).Elem(), ApplicationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationWorkerConfigurationInput)(nil)).Elem(), ApplicationWorkerConfigurationArgs{})
@@ -1481,15 +2168,23 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationAutoStartConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationAutoStopConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationAutoStopConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationConfigurationObjectOutput{})
+	pulumi.RegisterOutputType(ApplicationConfigurationObjectArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationImageConfigurationInputOutput{})
 	pulumi.RegisterOutputType(ApplicationImageConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationInitialCapacityConfigOutput{})
 	pulumi.RegisterOutputType(ApplicationInitialCapacityConfigKeyValuePairOutput{})
 	pulumi.RegisterOutputType(ApplicationInitialCapacityConfigKeyValuePairArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationManagedPersistenceMonitoringConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationManagedPersistenceMonitoringConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationMaximumAllowedResourcesOutput{})
 	pulumi.RegisterOutputType(ApplicationMaximumAllowedResourcesPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationMonitoringConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationMonitoringConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationS3MonitoringConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationS3MonitoringConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationTagOutput{})
 	pulumi.RegisterOutputType(ApplicationTagArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationWorkerConfigurationOutput{})

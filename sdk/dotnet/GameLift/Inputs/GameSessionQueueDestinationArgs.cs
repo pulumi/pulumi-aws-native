@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GameLift.Inputs
 {
 
+    /// <summary>
+    /// A fleet or alias designated in a game session queue.
+    /// </summary>
     public sealed class GameSessionQueueDestinationArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinationArn")]

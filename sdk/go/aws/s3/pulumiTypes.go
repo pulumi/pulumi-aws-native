@@ -12146,6 +12146,419 @@ func (o StorageLensEncryptionPtrOutput) Elem() StorageLensEncryptionOutput {
 	}).(StorageLensEncryptionOutput)
 }
 
+// The Storage Lens group will include objects that match all of the specified filter values.
+type StorageLensGroupAnd struct {
+	MatchAnyPrefix  []string                         `pulumi:"matchAnyPrefix"`
+	MatchAnySuffix  []string                         `pulumi:"matchAnySuffix"`
+	MatchAnyTag     []StorageLensGroupTag            `pulumi:"matchAnyTag"`
+	MatchObjectAge  *StorageLensGroupMatchObjectAge  `pulumi:"matchObjectAge"`
+	MatchObjectSize *StorageLensGroupMatchObjectSize `pulumi:"matchObjectSize"`
+}
+
+// StorageLensGroupAndInput is an input type that accepts StorageLensGroupAndArgs and StorageLensGroupAndOutput values.
+// You can construct a concrete instance of `StorageLensGroupAndInput` via:
+//
+//	StorageLensGroupAndArgs{...}
+type StorageLensGroupAndInput interface {
+	pulumi.Input
+
+	ToStorageLensGroupAndOutput() StorageLensGroupAndOutput
+	ToStorageLensGroupAndOutputWithContext(context.Context) StorageLensGroupAndOutput
+}
+
+// The Storage Lens group will include objects that match all of the specified filter values.
+type StorageLensGroupAndArgs struct {
+	MatchAnyPrefix  pulumi.StringArrayInput                 `pulumi:"matchAnyPrefix"`
+	MatchAnySuffix  pulumi.StringArrayInput                 `pulumi:"matchAnySuffix"`
+	MatchAnyTag     StorageLensGroupTagArrayInput           `pulumi:"matchAnyTag"`
+	MatchObjectAge  StorageLensGroupMatchObjectAgePtrInput  `pulumi:"matchObjectAge"`
+	MatchObjectSize StorageLensGroupMatchObjectSizePtrInput `pulumi:"matchObjectSize"`
+}
+
+func (StorageLensGroupAndArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensGroupAnd)(nil)).Elem()
+}
+
+func (i StorageLensGroupAndArgs) ToStorageLensGroupAndOutput() StorageLensGroupAndOutput {
+	return i.ToStorageLensGroupAndOutputWithContext(context.Background())
+}
+
+func (i StorageLensGroupAndArgs) ToStorageLensGroupAndOutputWithContext(ctx context.Context) StorageLensGroupAndOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupAndOutput)
+}
+
+func (i StorageLensGroupAndArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupAnd] {
+	return pulumix.Output[StorageLensGroupAnd]{
+		OutputState: i.ToStorageLensGroupAndOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i StorageLensGroupAndArgs) ToStorageLensGroupAndPtrOutput() StorageLensGroupAndPtrOutput {
+	return i.ToStorageLensGroupAndPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensGroupAndArgs) ToStorageLensGroupAndPtrOutputWithContext(ctx context.Context) StorageLensGroupAndPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupAndOutput).ToStorageLensGroupAndPtrOutputWithContext(ctx)
+}
+
+// StorageLensGroupAndPtrInput is an input type that accepts StorageLensGroupAndArgs, StorageLensGroupAndPtr and StorageLensGroupAndPtrOutput values.
+// You can construct a concrete instance of `StorageLensGroupAndPtrInput` via:
+//
+//	        StorageLensGroupAndArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensGroupAndPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensGroupAndPtrOutput() StorageLensGroupAndPtrOutput
+	ToStorageLensGroupAndPtrOutputWithContext(context.Context) StorageLensGroupAndPtrOutput
+}
+
+type storageLensGroupAndPtrType StorageLensGroupAndArgs
+
+func StorageLensGroupAndPtr(v *StorageLensGroupAndArgs) StorageLensGroupAndPtrInput {
+	return (*storageLensGroupAndPtrType)(v)
+}
+
+func (*storageLensGroupAndPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensGroupAnd)(nil)).Elem()
+}
+
+func (i *storageLensGroupAndPtrType) ToStorageLensGroupAndPtrOutput() StorageLensGroupAndPtrOutput {
+	return i.ToStorageLensGroupAndPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensGroupAndPtrType) ToStorageLensGroupAndPtrOutputWithContext(ctx context.Context) StorageLensGroupAndPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupAndPtrOutput)
+}
+
+func (i *storageLensGroupAndPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupAnd] {
+	return pulumix.Output[*StorageLensGroupAnd]{
+		OutputState: i.ToStorageLensGroupAndPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The Storage Lens group will include objects that match all of the specified filter values.
+type StorageLensGroupAndOutput struct{ *pulumi.OutputState }
+
+func (StorageLensGroupAndOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensGroupAnd)(nil)).Elem()
+}
+
+func (o StorageLensGroupAndOutput) ToStorageLensGroupAndOutput() StorageLensGroupAndOutput {
+	return o
+}
+
+func (o StorageLensGroupAndOutput) ToStorageLensGroupAndOutputWithContext(ctx context.Context) StorageLensGroupAndOutput {
+	return o
+}
+
+func (o StorageLensGroupAndOutput) ToStorageLensGroupAndPtrOutput() StorageLensGroupAndPtrOutput {
+	return o.ToStorageLensGroupAndPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensGroupAndOutput) ToStorageLensGroupAndPtrOutputWithContext(ctx context.Context) StorageLensGroupAndPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensGroupAnd) *StorageLensGroupAnd {
+		return &v
+	}).(StorageLensGroupAndPtrOutput)
+}
+
+func (o StorageLensGroupAndOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupAnd] {
+	return pulumix.Output[StorageLensGroupAnd]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o StorageLensGroupAndOutput) MatchAnyPrefix() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StorageLensGroupAnd) []string { return v.MatchAnyPrefix }).(pulumi.StringArrayOutput)
+}
+
+func (o StorageLensGroupAndOutput) MatchAnySuffix() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StorageLensGroupAnd) []string { return v.MatchAnySuffix }).(pulumi.StringArrayOutput)
+}
+
+func (o StorageLensGroupAndOutput) MatchAnyTag() StorageLensGroupTagArrayOutput {
+	return o.ApplyT(func(v StorageLensGroupAnd) []StorageLensGroupTag { return v.MatchAnyTag }).(StorageLensGroupTagArrayOutput)
+}
+
+func (o StorageLensGroupAndOutput) MatchObjectAge() StorageLensGroupMatchObjectAgePtrOutput {
+	return o.ApplyT(func(v StorageLensGroupAnd) *StorageLensGroupMatchObjectAge { return v.MatchObjectAge }).(StorageLensGroupMatchObjectAgePtrOutput)
+}
+
+func (o StorageLensGroupAndOutput) MatchObjectSize() StorageLensGroupMatchObjectSizePtrOutput {
+	return o.ApplyT(func(v StorageLensGroupAnd) *StorageLensGroupMatchObjectSize { return v.MatchObjectSize }).(StorageLensGroupMatchObjectSizePtrOutput)
+}
+
+type StorageLensGroupAndPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensGroupAndPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensGroupAnd)(nil)).Elem()
+}
+
+func (o StorageLensGroupAndPtrOutput) ToStorageLensGroupAndPtrOutput() StorageLensGroupAndPtrOutput {
+	return o
+}
+
+func (o StorageLensGroupAndPtrOutput) ToStorageLensGroupAndPtrOutputWithContext(ctx context.Context) StorageLensGroupAndPtrOutput {
+	return o
+}
+
+func (o StorageLensGroupAndPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupAnd] {
+	return pulumix.Output[*StorageLensGroupAnd]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o StorageLensGroupAndPtrOutput) Elem() StorageLensGroupAndOutput {
+	return o.ApplyT(func(v *StorageLensGroupAnd) StorageLensGroupAnd {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensGroupAnd
+		return ret
+	}).(StorageLensGroupAndOutput)
+}
+
+func (o StorageLensGroupAndPtrOutput) MatchAnyPrefix() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StorageLensGroupAnd) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchAnyPrefix
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o StorageLensGroupAndPtrOutput) MatchAnySuffix() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StorageLensGroupAnd) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchAnySuffix
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o StorageLensGroupAndPtrOutput) MatchAnyTag() StorageLensGroupTagArrayOutput {
+	return o.ApplyT(func(v *StorageLensGroupAnd) []StorageLensGroupTag {
+		if v == nil {
+			return nil
+		}
+		return v.MatchAnyTag
+	}).(StorageLensGroupTagArrayOutput)
+}
+
+func (o StorageLensGroupAndPtrOutput) MatchObjectAge() StorageLensGroupMatchObjectAgePtrOutput {
+	return o.ApplyT(func(v *StorageLensGroupAnd) *StorageLensGroupMatchObjectAge {
+		if v == nil {
+			return nil
+		}
+		return v.MatchObjectAge
+	}).(StorageLensGroupMatchObjectAgePtrOutput)
+}
+
+func (o StorageLensGroupAndPtrOutput) MatchObjectSize() StorageLensGroupMatchObjectSizePtrOutput {
+	return o.ApplyT(func(v *StorageLensGroupAnd) *StorageLensGroupMatchObjectSize {
+		if v == nil {
+			return nil
+		}
+		return v.MatchObjectSize
+	}).(StorageLensGroupMatchObjectSizePtrOutput)
+}
+
+// Sets the Storage Lens Group filter.
+type StorageLensGroupFilter struct {
+	And             *StorageLensGroupAnd             `pulumi:"and"`
+	MatchAnyPrefix  []string                         `pulumi:"matchAnyPrefix"`
+	MatchAnySuffix  []string                         `pulumi:"matchAnySuffix"`
+	MatchAnyTag     []StorageLensGroupTag            `pulumi:"matchAnyTag"`
+	MatchObjectAge  *StorageLensGroupMatchObjectAge  `pulumi:"matchObjectAge"`
+	MatchObjectSize *StorageLensGroupMatchObjectSize `pulumi:"matchObjectSize"`
+	Or              *StorageLensGroupOr              `pulumi:"or"`
+}
+
+// StorageLensGroupFilterInput is an input type that accepts StorageLensGroupFilterArgs and StorageLensGroupFilterOutput values.
+// You can construct a concrete instance of `StorageLensGroupFilterInput` via:
+//
+//	StorageLensGroupFilterArgs{...}
+type StorageLensGroupFilterInput interface {
+	pulumi.Input
+
+	ToStorageLensGroupFilterOutput() StorageLensGroupFilterOutput
+	ToStorageLensGroupFilterOutputWithContext(context.Context) StorageLensGroupFilterOutput
+}
+
+// Sets the Storage Lens Group filter.
+type StorageLensGroupFilterArgs struct {
+	And             StorageLensGroupAndPtrInput             `pulumi:"and"`
+	MatchAnyPrefix  pulumi.StringArrayInput                 `pulumi:"matchAnyPrefix"`
+	MatchAnySuffix  pulumi.StringArrayInput                 `pulumi:"matchAnySuffix"`
+	MatchAnyTag     StorageLensGroupTagArrayInput           `pulumi:"matchAnyTag"`
+	MatchObjectAge  StorageLensGroupMatchObjectAgePtrInput  `pulumi:"matchObjectAge"`
+	MatchObjectSize StorageLensGroupMatchObjectSizePtrInput `pulumi:"matchObjectSize"`
+	Or              StorageLensGroupOrPtrInput              `pulumi:"or"`
+}
+
+func (StorageLensGroupFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensGroupFilter)(nil)).Elem()
+}
+
+func (i StorageLensGroupFilterArgs) ToStorageLensGroupFilterOutput() StorageLensGroupFilterOutput {
+	return i.ToStorageLensGroupFilterOutputWithContext(context.Background())
+}
+
+func (i StorageLensGroupFilterArgs) ToStorageLensGroupFilterOutputWithContext(ctx context.Context) StorageLensGroupFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupFilterOutput)
+}
+
+func (i StorageLensGroupFilterArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupFilter] {
+	return pulumix.Output[StorageLensGroupFilter]{
+		OutputState: i.ToStorageLensGroupFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Sets the Storage Lens Group filter.
+type StorageLensGroupFilterOutput struct{ *pulumi.OutputState }
+
+func (StorageLensGroupFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensGroupFilter)(nil)).Elem()
+}
+
+func (o StorageLensGroupFilterOutput) ToStorageLensGroupFilterOutput() StorageLensGroupFilterOutput {
+	return o
+}
+
+func (o StorageLensGroupFilterOutput) ToStorageLensGroupFilterOutputWithContext(ctx context.Context) StorageLensGroupFilterOutput {
+	return o
+}
+
+func (o StorageLensGroupFilterOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupFilter] {
+	return pulumix.Output[StorageLensGroupFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o StorageLensGroupFilterOutput) And() StorageLensGroupAndPtrOutput {
+	return o.ApplyT(func(v StorageLensGroupFilter) *StorageLensGroupAnd { return v.And }).(StorageLensGroupAndPtrOutput)
+}
+
+func (o StorageLensGroupFilterOutput) MatchAnyPrefix() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StorageLensGroupFilter) []string { return v.MatchAnyPrefix }).(pulumi.StringArrayOutput)
+}
+
+func (o StorageLensGroupFilterOutput) MatchAnySuffix() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StorageLensGroupFilter) []string { return v.MatchAnySuffix }).(pulumi.StringArrayOutput)
+}
+
+func (o StorageLensGroupFilterOutput) MatchAnyTag() StorageLensGroupTagArrayOutput {
+	return o.ApplyT(func(v StorageLensGroupFilter) []StorageLensGroupTag { return v.MatchAnyTag }).(StorageLensGroupTagArrayOutput)
+}
+
+func (o StorageLensGroupFilterOutput) MatchObjectAge() StorageLensGroupMatchObjectAgePtrOutput {
+	return o.ApplyT(func(v StorageLensGroupFilter) *StorageLensGroupMatchObjectAge { return v.MatchObjectAge }).(StorageLensGroupMatchObjectAgePtrOutput)
+}
+
+func (o StorageLensGroupFilterOutput) MatchObjectSize() StorageLensGroupMatchObjectSizePtrOutput {
+	return o.ApplyT(func(v StorageLensGroupFilter) *StorageLensGroupMatchObjectSize { return v.MatchObjectSize }).(StorageLensGroupMatchObjectSizePtrOutput)
+}
+
+func (o StorageLensGroupFilterOutput) Or() StorageLensGroupOrPtrOutput {
+	return o.ApplyT(func(v StorageLensGroupFilter) *StorageLensGroupOr { return v.Or }).(StorageLensGroupOrPtrOutput)
+}
+
+type StorageLensGroupFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensGroupFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensGroupFilter)(nil)).Elem()
+}
+
+func (o StorageLensGroupFilterPtrOutput) ToStorageLensGroupFilterPtrOutput() StorageLensGroupFilterPtrOutput {
+	return o
+}
+
+func (o StorageLensGroupFilterPtrOutput) ToStorageLensGroupFilterPtrOutputWithContext(ctx context.Context) StorageLensGroupFilterPtrOutput {
+	return o
+}
+
+func (o StorageLensGroupFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupFilter] {
+	return pulumix.Output[*StorageLensGroupFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o StorageLensGroupFilterPtrOutput) Elem() StorageLensGroupFilterOutput {
+	return o.ApplyT(func(v *StorageLensGroupFilter) StorageLensGroupFilter {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensGroupFilter
+		return ret
+	}).(StorageLensGroupFilterOutput)
+}
+
+func (o StorageLensGroupFilterPtrOutput) And() StorageLensGroupAndPtrOutput {
+	return o.ApplyT(func(v *StorageLensGroupFilter) *StorageLensGroupAnd {
+		if v == nil {
+			return nil
+		}
+		return v.And
+	}).(StorageLensGroupAndPtrOutput)
+}
+
+func (o StorageLensGroupFilterPtrOutput) MatchAnyPrefix() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StorageLensGroupFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchAnyPrefix
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o StorageLensGroupFilterPtrOutput) MatchAnySuffix() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StorageLensGroupFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchAnySuffix
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o StorageLensGroupFilterPtrOutput) MatchAnyTag() StorageLensGroupTagArrayOutput {
+	return o.ApplyT(func(v *StorageLensGroupFilter) []StorageLensGroupTag {
+		if v == nil {
+			return nil
+		}
+		return v.MatchAnyTag
+	}).(StorageLensGroupTagArrayOutput)
+}
+
+func (o StorageLensGroupFilterPtrOutput) MatchObjectAge() StorageLensGroupMatchObjectAgePtrOutput {
+	return o.ApplyT(func(v *StorageLensGroupFilter) *StorageLensGroupMatchObjectAge {
+		if v == nil {
+			return nil
+		}
+		return v.MatchObjectAge
+	}).(StorageLensGroupMatchObjectAgePtrOutput)
+}
+
+func (o StorageLensGroupFilterPtrOutput) MatchObjectSize() StorageLensGroupMatchObjectSizePtrOutput {
+	return o.ApplyT(func(v *StorageLensGroupFilter) *StorageLensGroupMatchObjectSize {
+		if v == nil {
+			return nil
+		}
+		return v.MatchObjectSize
+	}).(StorageLensGroupMatchObjectSizePtrOutput)
+}
+
+func (o StorageLensGroupFilterPtrOutput) Or() StorageLensGroupOrPtrOutput {
+	return o.ApplyT(func(v *StorageLensGroupFilter) *StorageLensGroupOr {
+		if v == nil {
+			return nil
+		}
+		return v.Or
+	}).(StorageLensGroupOrPtrOutput)
+}
+
 // Specifies the details of Amazon S3 Storage Lens Group configuration.
 type StorageLensGroupLevel struct {
 	StorageLensGroupSelectionCriteria *StorageLensGroupSelectionCriteria `pulumi:"storageLensGroupSelectionCriteria"`
@@ -12306,6 +12719,592 @@ func (o StorageLensGroupLevelPtrOutput) StorageLensGroupSelectionCriteria() Stor
 		}
 		return v.StorageLensGroupSelectionCriteria
 	}).(StorageLensGroupSelectionCriteriaPtrOutput)
+}
+
+// Filter to match all of the specified values for the minimum and maximum object age.
+type StorageLensGroupMatchObjectAge struct {
+	// Minimum object age to which the rule applies.
+	DaysGreaterThan *int `pulumi:"daysGreaterThan"`
+	// Maximum object age to which the rule applies.
+	DaysLessThan *int `pulumi:"daysLessThan"`
+}
+
+// StorageLensGroupMatchObjectAgeInput is an input type that accepts StorageLensGroupMatchObjectAgeArgs and StorageLensGroupMatchObjectAgeOutput values.
+// You can construct a concrete instance of `StorageLensGroupMatchObjectAgeInput` via:
+//
+//	StorageLensGroupMatchObjectAgeArgs{...}
+type StorageLensGroupMatchObjectAgeInput interface {
+	pulumi.Input
+
+	ToStorageLensGroupMatchObjectAgeOutput() StorageLensGroupMatchObjectAgeOutput
+	ToStorageLensGroupMatchObjectAgeOutputWithContext(context.Context) StorageLensGroupMatchObjectAgeOutput
+}
+
+// Filter to match all of the specified values for the minimum and maximum object age.
+type StorageLensGroupMatchObjectAgeArgs struct {
+	// Minimum object age to which the rule applies.
+	DaysGreaterThan pulumi.IntPtrInput `pulumi:"daysGreaterThan"`
+	// Maximum object age to which the rule applies.
+	DaysLessThan pulumi.IntPtrInput `pulumi:"daysLessThan"`
+}
+
+func (StorageLensGroupMatchObjectAgeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensGroupMatchObjectAge)(nil)).Elem()
+}
+
+func (i StorageLensGroupMatchObjectAgeArgs) ToStorageLensGroupMatchObjectAgeOutput() StorageLensGroupMatchObjectAgeOutput {
+	return i.ToStorageLensGroupMatchObjectAgeOutputWithContext(context.Background())
+}
+
+func (i StorageLensGroupMatchObjectAgeArgs) ToStorageLensGroupMatchObjectAgeOutputWithContext(ctx context.Context) StorageLensGroupMatchObjectAgeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupMatchObjectAgeOutput)
+}
+
+func (i StorageLensGroupMatchObjectAgeArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupMatchObjectAge] {
+	return pulumix.Output[StorageLensGroupMatchObjectAge]{
+		OutputState: i.ToStorageLensGroupMatchObjectAgeOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i StorageLensGroupMatchObjectAgeArgs) ToStorageLensGroupMatchObjectAgePtrOutput() StorageLensGroupMatchObjectAgePtrOutput {
+	return i.ToStorageLensGroupMatchObjectAgePtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensGroupMatchObjectAgeArgs) ToStorageLensGroupMatchObjectAgePtrOutputWithContext(ctx context.Context) StorageLensGroupMatchObjectAgePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupMatchObjectAgeOutput).ToStorageLensGroupMatchObjectAgePtrOutputWithContext(ctx)
+}
+
+// StorageLensGroupMatchObjectAgePtrInput is an input type that accepts StorageLensGroupMatchObjectAgeArgs, StorageLensGroupMatchObjectAgePtr and StorageLensGroupMatchObjectAgePtrOutput values.
+// You can construct a concrete instance of `StorageLensGroupMatchObjectAgePtrInput` via:
+//
+//	        StorageLensGroupMatchObjectAgeArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensGroupMatchObjectAgePtrInput interface {
+	pulumi.Input
+
+	ToStorageLensGroupMatchObjectAgePtrOutput() StorageLensGroupMatchObjectAgePtrOutput
+	ToStorageLensGroupMatchObjectAgePtrOutputWithContext(context.Context) StorageLensGroupMatchObjectAgePtrOutput
+}
+
+type storageLensGroupMatchObjectAgePtrType StorageLensGroupMatchObjectAgeArgs
+
+func StorageLensGroupMatchObjectAgePtr(v *StorageLensGroupMatchObjectAgeArgs) StorageLensGroupMatchObjectAgePtrInput {
+	return (*storageLensGroupMatchObjectAgePtrType)(v)
+}
+
+func (*storageLensGroupMatchObjectAgePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensGroupMatchObjectAge)(nil)).Elem()
+}
+
+func (i *storageLensGroupMatchObjectAgePtrType) ToStorageLensGroupMatchObjectAgePtrOutput() StorageLensGroupMatchObjectAgePtrOutput {
+	return i.ToStorageLensGroupMatchObjectAgePtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensGroupMatchObjectAgePtrType) ToStorageLensGroupMatchObjectAgePtrOutputWithContext(ctx context.Context) StorageLensGroupMatchObjectAgePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupMatchObjectAgePtrOutput)
+}
+
+func (i *storageLensGroupMatchObjectAgePtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupMatchObjectAge] {
+	return pulumix.Output[*StorageLensGroupMatchObjectAge]{
+		OutputState: i.ToStorageLensGroupMatchObjectAgePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Filter to match all of the specified values for the minimum and maximum object age.
+type StorageLensGroupMatchObjectAgeOutput struct{ *pulumi.OutputState }
+
+func (StorageLensGroupMatchObjectAgeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensGroupMatchObjectAge)(nil)).Elem()
+}
+
+func (o StorageLensGroupMatchObjectAgeOutput) ToStorageLensGroupMatchObjectAgeOutput() StorageLensGroupMatchObjectAgeOutput {
+	return o
+}
+
+func (o StorageLensGroupMatchObjectAgeOutput) ToStorageLensGroupMatchObjectAgeOutputWithContext(ctx context.Context) StorageLensGroupMatchObjectAgeOutput {
+	return o
+}
+
+func (o StorageLensGroupMatchObjectAgeOutput) ToStorageLensGroupMatchObjectAgePtrOutput() StorageLensGroupMatchObjectAgePtrOutput {
+	return o.ToStorageLensGroupMatchObjectAgePtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensGroupMatchObjectAgeOutput) ToStorageLensGroupMatchObjectAgePtrOutputWithContext(ctx context.Context) StorageLensGroupMatchObjectAgePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensGroupMatchObjectAge) *StorageLensGroupMatchObjectAge {
+		return &v
+	}).(StorageLensGroupMatchObjectAgePtrOutput)
+}
+
+func (o StorageLensGroupMatchObjectAgeOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupMatchObjectAge] {
+	return pulumix.Output[StorageLensGroupMatchObjectAge]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Minimum object age to which the rule applies.
+func (o StorageLensGroupMatchObjectAgeOutput) DaysGreaterThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StorageLensGroupMatchObjectAge) *int { return v.DaysGreaterThan }).(pulumi.IntPtrOutput)
+}
+
+// Maximum object age to which the rule applies.
+func (o StorageLensGroupMatchObjectAgeOutput) DaysLessThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StorageLensGroupMatchObjectAge) *int { return v.DaysLessThan }).(pulumi.IntPtrOutput)
+}
+
+type StorageLensGroupMatchObjectAgePtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensGroupMatchObjectAgePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensGroupMatchObjectAge)(nil)).Elem()
+}
+
+func (o StorageLensGroupMatchObjectAgePtrOutput) ToStorageLensGroupMatchObjectAgePtrOutput() StorageLensGroupMatchObjectAgePtrOutput {
+	return o
+}
+
+func (o StorageLensGroupMatchObjectAgePtrOutput) ToStorageLensGroupMatchObjectAgePtrOutputWithContext(ctx context.Context) StorageLensGroupMatchObjectAgePtrOutput {
+	return o
+}
+
+func (o StorageLensGroupMatchObjectAgePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupMatchObjectAge] {
+	return pulumix.Output[*StorageLensGroupMatchObjectAge]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o StorageLensGroupMatchObjectAgePtrOutput) Elem() StorageLensGroupMatchObjectAgeOutput {
+	return o.ApplyT(func(v *StorageLensGroupMatchObjectAge) StorageLensGroupMatchObjectAge {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensGroupMatchObjectAge
+		return ret
+	}).(StorageLensGroupMatchObjectAgeOutput)
+}
+
+// Minimum object age to which the rule applies.
+func (o StorageLensGroupMatchObjectAgePtrOutput) DaysGreaterThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StorageLensGroupMatchObjectAge) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DaysGreaterThan
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum object age to which the rule applies.
+func (o StorageLensGroupMatchObjectAgePtrOutput) DaysLessThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StorageLensGroupMatchObjectAge) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DaysLessThan
+	}).(pulumi.IntPtrOutput)
+}
+
+// Filter to match all of the specified values for the minimum and maximum object size.
+type StorageLensGroupMatchObjectSize struct {
+	// Minimum object size to which the rule applies.
+	BytesGreaterThan *int `pulumi:"bytesGreaterThan"`
+	// Maximum object size to which the rule applies.
+	BytesLessThan *int `pulumi:"bytesLessThan"`
+}
+
+// StorageLensGroupMatchObjectSizeInput is an input type that accepts StorageLensGroupMatchObjectSizeArgs and StorageLensGroupMatchObjectSizeOutput values.
+// You can construct a concrete instance of `StorageLensGroupMatchObjectSizeInput` via:
+//
+//	StorageLensGroupMatchObjectSizeArgs{...}
+type StorageLensGroupMatchObjectSizeInput interface {
+	pulumi.Input
+
+	ToStorageLensGroupMatchObjectSizeOutput() StorageLensGroupMatchObjectSizeOutput
+	ToStorageLensGroupMatchObjectSizeOutputWithContext(context.Context) StorageLensGroupMatchObjectSizeOutput
+}
+
+// Filter to match all of the specified values for the minimum and maximum object size.
+type StorageLensGroupMatchObjectSizeArgs struct {
+	// Minimum object size to which the rule applies.
+	BytesGreaterThan pulumi.IntPtrInput `pulumi:"bytesGreaterThan"`
+	// Maximum object size to which the rule applies.
+	BytesLessThan pulumi.IntPtrInput `pulumi:"bytesLessThan"`
+}
+
+func (StorageLensGroupMatchObjectSizeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensGroupMatchObjectSize)(nil)).Elem()
+}
+
+func (i StorageLensGroupMatchObjectSizeArgs) ToStorageLensGroupMatchObjectSizeOutput() StorageLensGroupMatchObjectSizeOutput {
+	return i.ToStorageLensGroupMatchObjectSizeOutputWithContext(context.Background())
+}
+
+func (i StorageLensGroupMatchObjectSizeArgs) ToStorageLensGroupMatchObjectSizeOutputWithContext(ctx context.Context) StorageLensGroupMatchObjectSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupMatchObjectSizeOutput)
+}
+
+func (i StorageLensGroupMatchObjectSizeArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupMatchObjectSize] {
+	return pulumix.Output[StorageLensGroupMatchObjectSize]{
+		OutputState: i.ToStorageLensGroupMatchObjectSizeOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i StorageLensGroupMatchObjectSizeArgs) ToStorageLensGroupMatchObjectSizePtrOutput() StorageLensGroupMatchObjectSizePtrOutput {
+	return i.ToStorageLensGroupMatchObjectSizePtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensGroupMatchObjectSizeArgs) ToStorageLensGroupMatchObjectSizePtrOutputWithContext(ctx context.Context) StorageLensGroupMatchObjectSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupMatchObjectSizeOutput).ToStorageLensGroupMatchObjectSizePtrOutputWithContext(ctx)
+}
+
+// StorageLensGroupMatchObjectSizePtrInput is an input type that accepts StorageLensGroupMatchObjectSizeArgs, StorageLensGroupMatchObjectSizePtr and StorageLensGroupMatchObjectSizePtrOutput values.
+// You can construct a concrete instance of `StorageLensGroupMatchObjectSizePtrInput` via:
+//
+//	        StorageLensGroupMatchObjectSizeArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensGroupMatchObjectSizePtrInput interface {
+	pulumi.Input
+
+	ToStorageLensGroupMatchObjectSizePtrOutput() StorageLensGroupMatchObjectSizePtrOutput
+	ToStorageLensGroupMatchObjectSizePtrOutputWithContext(context.Context) StorageLensGroupMatchObjectSizePtrOutput
+}
+
+type storageLensGroupMatchObjectSizePtrType StorageLensGroupMatchObjectSizeArgs
+
+func StorageLensGroupMatchObjectSizePtr(v *StorageLensGroupMatchObjectSizeArgs) StorageLensGroupMatchObjectSizePtrInput {
+	return (*storageLensGroupMatchObjectSizePtrType)(v)
+}
+
+func (*storageLensGroupMatchObjectSizePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensGroupMatchObjectSize)(nil)).Elem()
+}
+
+func (i *storageLensGroupMatchObjectSizePtrType) ToStorageLensGroupMatchObjectSizePtrOutput() StorageLensGroupMatchObjectSizePtrOutput {
+	return i.ToStorageLensGroupMatchObjectSizePtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensGroupMatchObjectSizePtrType) ToStorageLensGroupMatchObjectSizePtrOutputWithContext(ctx context.Context) StorageLensGroupMatchObjectSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupMatchObjectSizePtrOutput)
+}
+
+func (i *storageLensGroupMatchObjectSizePtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupMatchObjectSize] {
+	return pulumix.Output[*StorageLensGroupMatchObjectSize]{
+		OutputState: i.ToStorageLensGroupMatchObjectSizePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Filter to match all of the specified values for the minimum and maximum object size.
+type StorageLensGroupMatchObjectSizeOutput struct{ *pulumi.OutputState }
+
+func (StorageLensGroupMatchObjectSizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensGroupMatchObjectSize)(nil)).Elem()
+}
+
+func (o StorageLensGroupMatchObjectSizeOutput) ToStorageLensGroupMatchObjectSizeOutput() StorageLensGroupMatchObjectSizeOutput {
+	return o
+}
+
+func (o StorageLensGroupMatchObjectSizeOutput) ToStorageLensGroupMatchObjectSizeOutputWithContext(ctx context.Context) StorageLensGroupMatchObjectSizeOutput {
+	return o
+}
+
+func (o StorageLensGroupMatchObjectSizeOutput) ToStorageLensGroupMatchObjectSizePtrOutput() StorageLensGroupMatchObjectSizePtrOutput {
+	return o.ToStorageLensGroupMatchObjectSizePtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensGroupMatchObjectSizeOutput) ToStorageLensGroupMatchObjectSizePtrOutputWithContext(ctx context.Context) StorageLensGroupMatchObjectSizePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensGroupMatchObjectSize) *StorageLensGroupMatchObjectSize {
+		return &v
+	}).(StorageLensGroupMatchObjectSizePtrOutput)
+}
+
+func (o StorageLensGroupMatchObjectSizeOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupMatchObjectSize] {
+	return pulumix.Output[StorageLensGroupMatchObjectSize]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Minimum object size to which the rule applies.
+func (o StorageLensGroupMatchObjectSizeOutput) BytesGreaterThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StorageLensGroupMatchObjectSize) *int { return v.BytesGreaterThan }).(pulumi.IntPtrOutput)
+}
+
+// Maximum object size to which the rule applies.
+func (o StorageLensGroupMatchObjectSizeOutput) BytesLessThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StorageLensGroupMatchObjectSize) *int { return v.BytesLessThan }).(pulumi.IntPtrOutput)
+}
+
+type StorageLensGroupMatchObjectSizePtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensGroupMatchObjectSizePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensGroupMatchObjectSize)(nil)).Elem()
+}
+
+func (o StorageLensGroupMatchObjectSizePtrOutput) ToStorageLensGroupMatchObjectSizePtrOutput() StorageLensGroupMatchObjectSizePtrOutput {
+	return o
+}
+
+func (o StorageLensGroupMatchObjectSizePtrOutput) ToStorageLensGroupMatchObjectSizePtrOutputWithContext(ctx context.Context) StorageLensGroupMatchObjectSizePtrOutput {
+	return o
+}
+
+func (o StorageLensGroupMatchObjectSizePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupMatchObjectSize] {
+	return pulumix.Output[*StorageLensGroupMatchObjectSize]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o StorageLensGroupMatchObjectSizePtrOutput) Elem() StorageLensGroupMatchObjectSizeOutput {
+	return o.ApplyT(func(v *StorageLensGroupMatchObjectSize) StorageLensGroupMatchObjectSize {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensGroupMatchObjectSize
+		return ret
+	}).(StorageLensGroupMatchObjectSizeOutput)
+}
+
+// Minimum object size to which the rule applies.
+func (o StorageLensGroupMatchObjectSizePtrOutput) BytesGreaterThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StorageLensGroupMatchObjectSize) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BytesGreaterThan
+	}).(pulumi.IntPtrOutput)
+}
+
+// Maximum object size to which the rule applies.
+func (o StorageLensGroupMatchObjectSizePtrOutput) BytesLessThan() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StorageLensGroupMatchObjectSize) *int {
+		if v == nil {
+			return nil
+		}
+		return v.BytesLessThan
+	}).(pulumi.IntPtrOutput)
+}
+
+// The Storage Lens group will include objects that match any of the specified filter values.
+type StorageLensGroupOr struct {
+	MatchAnyPrefix  []string                         `pulumi:"matchAnyPrefix"`
+	MatchAnySuffix  []string                         `pulumi:"matchAnySuffix"`
+	MatchAnyTag     []StorageLensGroupTag            `pulumi:"matchAnyTag"`
+	MatchObjectAge  *StorageLensGroupMatchObjectAge  `pulumi:"matchObjectAge"`
+	MatchObjectSize *StorageLensGroupMatchObjectSize `pulumi:"matchObjectSize"`
+}
+
+// StorageLensGroupOrInput is an input type that accepts StorageLensGroupOrArgs and StorageLensGroupOrOutput values.
+// You can construct a concrete instance of `StorageLensGroupOrInput` via:
+//
+//	StorageLensGroupOrArgs{...}
+type StorageLensGroupOrInput interface {
+	pulumi.Input
+
+	ToStorageLensGroupOrOutput() StorageLensGroupOrOutput
+	ToStorageLensGroupOrOutputWithContext(context.Context) StorageLensGroupOrOutput
+}
+
+// The Storage Lens group will include objects that match any of the specified filter values.
+type StorageLensGroupOrArgs struct {
+	MatchAnyPrefix  pulumi.StringArrayInput                 `pulumi:"matchAnyPrefix"`
+	MatchAnySuffix  pulumi.StringArrayInput                 `pulumi:"matchAnySuffix"`
+	MatchAnyTag     StorageLensGroupTagArrayInput           `pulumi:"matchAnyTag"`
+	MatchObjectAge  StorageLensGroupMatchObjectAgePtrInput  `pulumi:"matchObjectAge"`
+	MatchObjectSize StorageLensGroupMatchObjectSizePtrInput `pulumi:"matchObjectSize"`
+}
+
+func (StorageLensGroupOrArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensGroupOr)(nil)).Elem()
+}
+
+func (i StorageLensGroupOrArgs) ToStorageLensGroupOrOutput() StorageLensGroupOrOutput {
+	return i.ToStorageLensGroupOrOutputWithContext(context.Background())
+}
+
+func (i StorageLensGroupOrArgs) ToStorageLensGroupOrOutputWithContext(ctx context.Context) StorageLensGroupOrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupOrOutput)
+}
+
+func (i StorageLensGroupOrArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupOr] {
+	return pulumix.Output[StorageLensGroupOr]{
+		OutputState: i.ToStorageLensGroupOrOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i StorageLensGroupOrArgs) ToStorageLensGroupOrPtrOutput() StorageLensGroupOrPtrOutput {
+	return i.ToStorageLensGroupOrPtrOutputWithContext(context.Background())
+}
+
+func (i StorageLensGroupOrArgs) ToStorageLensGroupOrPtrOutputWithContext(ctx context.Context) StorageLensGroupOrPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupOrOutput).ToStorageLensGroupOrPtrOutputWithContext(ctx)
+}
+
+// StorageLensGroupOrPtrInput is an input type that accepts StorageLensGroupOrArgs, StorageLensGroupOrPtr and StorageLensGroupOrPtrOutput values.
+// You can construct a concrete instance of `StorageLensGroupOrPtrInput` via:
+//
+//	        StorageLensGroupOrArgs{...}
+//
+//	or:
+//
+//	        nil
+type StorageLensGroupOrPtrInput interface {
+	pulumi.Input
+
+	ToStorageLensGroupOrPtrOutput() StorageLensGroupOrPtrOutput
+	ToStorageLensGroupOrPtrOutputWithContext(context.Context) StorageLensGroupOrPtrOutput
+}
+
+type storageLensGroupOrPtrType StorageLensGroupOrArgs
+
+func StorageLensGroupOrPtr(v *StorageLensGroupOrArgs) StorageLensGroupOrPtrInput {
+	return (*storageLensGroupOrPtrType)(v)
+}
+
+func (*storageLensGroupOrPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensGroupOr)(nil)).Elem()
+}
+
+func (i *storageLensGroupOrPtrType) ToStorageLensGroupOrPtrOutput() StorageLensGroupOrPtrOutput {
+	return i.ToStorageLensGroupOrPtrOutputWithContext(context.Background())
+}
+
+func (i *storageLensGroupOrPtrType) ToStorageLensGroupOrPtrOutputWithContext(ctx context.Context) StorageLensGroupOrPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupOrPtrOutput)
+}
+
+func (i *storageLensGroupOrPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupOr] {
+	return pulumix.Output[*StorageLensGroupOr]{
+		OutputState: i.ToStorageLensGroupOrPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The Storage Lens group will include objects that match any of the specified filter values.
+type StorageLensGroupOrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensGroupOrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensGroupOr)(nil)).Elem()
+}
+
+func (o StorageLensGroupOrOutput) ToStorageLensGroupOrOutput() StorageLensGroupOrOutput {
+	return o
+}
+
+func (o StorageLensGroupOrOutput) ToStorageLensGroupOrOutputWithContext(ctx context.Context) StorageLensGroupOrOutput {
+	return o
+}
+
+func (o StorageLensGroupOrOutput) ToStorageLensGroupOrPtrOutput() StorageLensGroupOrPtrOutput {
+	return o.ToStorageLensGroupOrPtrOutputWithContext(context.Background())
+}
+
+func (o StorageLensGroupOrOutput) ToStorageLensGroupOrPtrOutputWithContext(ctx context.Context) StorageLensGroupOrPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensGroupOr) *StorageLensGroupOr {
+		return &v
+	}).(StorageLensGroupOrPtrOutput)
+}
+
+func (o StorageLensGroupOrOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupOr] {
+	return pulumix.Output[StorageLensGroupOr]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o StorageLensGroupOrOutput) MatchAnyPrefix() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StorageLensGroupOr) []string { return v.MatchAnyPrefix }).(pulumi.StringArrayOutput)
+}
+
+func (o StorageLensGroupOrOutput) MatchAnySuffix() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StorageLensGroupOr) []string { return v.MatchAnySuffix }).(pulumi.StringArrayOutput)
+}
+
+func (o StorageLensGroupOrOutput) MatchAnyTag() StorageLensGroupTagArrayOutput {
+	return o.ApplyT(func(v StorageLensGroupOr) []StorageLensGroupTag { return v.MatchAnyTag }).(StorageLensGroupTagArrayOutput)
+}
+
+func (o StorageLensGroupOrOutput) MatchObjectAge() StorageLensGroupMatchObjectAgePtrOutput {
+	return o.ApplyT(func(v StorageLensGroupOr) *StorageLensGroupMatchObjectAge { return v.MatchObjectAge }).(StorageLensGroupMatchObjectAgePtrOutput)
+}
+
+func (o StorageLensGroupOrOutput) MatchObjectSize() StorageLensGroupMatchObjectSizePtrOutput {
+	return o.ApplyT(func(v StorageLensGroupOr) *StorageLensGroupMatchObjectSize { return v.MatchObjectSize }).(StorageLensGroupMatchObjectSizePtrOutput)
+}
+
+type StorageLensGroupOrPtrOutput struct{ *pulumi.OutputState }
+
+func (StorageLensGroupOrPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StorageLensGroupOr)(nil)).Elem()
+}
+
+func (o StorageLensGroupOrPtrOutput) ToStorageLensGroupOrPtrOutput() StorageLensGroupOrPtrOutput {
+	return o
+}
+
+func (o StorageLensGroupOrPtrOutput) ToStorageLensGroupOrPtrOutputWithContext(ctx context.Context) StorageLensGroupOrPtrOutput {
+	return o
+}
+
+func (o StorageLensGroupOrPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupOr] {
+	return pulumix.Output[*StorageLensGroupOr]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o StorageLensGroupOrPtrOutput) Elem() StorageLensGroupOrOutput {
+	return o.ApplyT(func(v *StorageLensGroupOr) StorageLensGroupOr {
+		if v != nil {
+			return *v
+		}
+		var ret StorageLensGroupOr
+		return ret
+	}).(StorageLensGroupOrOutput)
+}
+
+func (o StorageLensGroupOrPtrOutput) MatchAnyPrefix() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StorageLensGroupOr) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchAnyPrefix
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o StorageLensGroupOrPtrOutput) MatchAnySuffix() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StorageLensGroupOr) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchAnySuffix
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o StorageLensGroupOrPtrOutput) MatchAnyTag() StorageLensGroupTagArrayOutput {
+	return o.ApplyT(func(v *StorageLensGroupOr) []StorageLensGroupTag {
+		if v == nil {
+			return nil
+		}
+		return v.MatchAnyTag
+	}).(StorageLensGroupTagArrayOutput)
+}
+
+func (o StorageLensGroupOrPtrOutput) MatchObjectAge() StorageLensGroupMatchObjectAgePtrOutput {
+	return o.ApplyT(func(v *StorageLensGroupOr) *StorageLensGroupMatchObjectAge {
+		if v == nil {
+			return nil
+		}
+		return v.MatchObjectAge
+	}).(StorageLensGroupMatchObjectAgePtrOutput)
+}
+
+func (o StorageLensGroupOrPtrOutput) MatchObjectSize() StorageLensGroupMatchObjectSizePtrOutput {
+	return o.ApplyT(func(v *StorageLensGroupOr) *StorageLensGroupMatchObjectSize {
+		if v == nil {
+			return nil
+		}
+		return v.MatchObjectSize
+	}).(StorageLensGroupMatchObjectSizePtrOutput)
 }
 
 // Selection criteria for Storage Lens Group level metrics
@@ -12481,6 +13480,130 @@ func (o StorageLensGroupSelectionCriteriaPtrOutput) Include() pulumi.StringArray
 		}
 		return v.Include
 	}).(pulumi.StringArrayOutput)
+}
+
+type StorageLensGroupTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// StorageLensGroupTagInput is an input type that accepts StorageLensGroupTagArgs and StorageLensGroupTagOutput values.
+// You can construct a concrete instance of `StorageLensGroupTagInput` via:
+//
+//	StorageLensGroupTagArgs{...}
+type StorageLensGroupTagInput interface {
+	pulumi.Input
+
+	ToStorageLensGroupTagOutput() StorageLensGroupTagOutput
+	ToStorageLensGroupTagOutputWithContext(context.Context) StorageLensGroupTagOutput
+}
+
+type StorageLensGroupTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (StorageLensGroupTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensGroupTag)(nil)).Elem()
+}
+
+func (i StorageLensGroupTagArgs) ToStorageLensGroupTagOutput() StorageLensGroupTagOutput {
+	return i.ToStorageLensGroupTagOutputWithContext(context.Background())
+}
+
+func (i StorageLensGroupTagArgs) ToStorageLensGroupTagOutputWithContext(ctx context.Context) StorageLensGroupTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupTagOutput)
+}
+
+func (i StorageLensGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupTag] {
+	return pulumix.Output[StorageLensGroupTag]{
+		OutputState: i.ToStorageLensGroupTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// StorageLensGroupTagArrayInput is an input type that accepts StorageLensGroupTagArray and StorageLensGroupTagArrayOutput values.
+// You can construct a concrete instance of `StorageLensGroupTagArrayInput` via:
+//
+//	StorageLensGroupTagArray{ StorageLensGroupTagArgs{...} }
+type StorageLensGroupTagArrayInput interface {
+	pulumi.Input
+
+	ToStorageLensGroupTagArrayOutput() StorageLensGroupTagArrayOutput
+	ToStorageLensGroupTagArrayOutputWithContext(context.Context) StorageLensGroupTagArrayOutput
+}
+
+type StorageLensGroupTagArray []StorageLensGroupTagInput
+
+func (StorageLensGroupTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageLensGroupTag)(nil)).Elem()
+}
+
+func (i StorageLensGroupTagArray) ToStorageLensGroupTagArrayOutput() StorageLensGroupTagArrayOutput {
+	return i.ToStorageLensGroupTagArrayOutputWithContext(context.Background())
+}
+
+func (i StorageLensGroupTagArray) ToStorageLensGroupTagArrayOutputWithContext(ctx context.Context) StorageLensGroupTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupTagArrayOutput)
+}
+
+func (i StorageLensGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]StorageLensGroupTag] {
+	return pulumix.Output[[]StorageLensGroupTag]{
+		OutputState: i.ToStorageLensGroupTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type StorageLensGroupTagOutput struct{ *pulumi.OutputState }
+
+func (StorageLensGroupTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageLensGroupTag)(nil)).Elem()
+}
+
+func (o StorageLensGroupTagOutput) ToStorageLensGroupTagOutput() StorageLensGroupTagOutput {
+	return o
+}
+
+func (o StorageLensGroupTagOutput) ToStorageLensGroupTagOutputWithContext(ctx context.Context) StorageLensGroupTagOutput {
+	return o
+}
+
+func (o StorageLensGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupTag] {
+	return pulumix.Output[StorageLensGroupTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o StorageLensGroupTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageLensGroupTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o StorageLensGroupTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageLensGroupTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type StorageLensGroupTagArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageLensGroupTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageLensGroupTag)(nil)).Elem()
+}
+
+func (o StorageLensGroupTagArrayOutput) ToStorageLensGroupTagArrayOutput() StorageLensGroupTagArrayOutput {
+	return o
+}
+
+func (o StorageLensGroupTagArrayOutput) ToStorageLensGroupTagArrayOutputWithContext(ctx context.Context) StorageLensGroupTagArrayOutput {
+	return o
+}
+
+func (o StorageLensGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StorageLensGroupTag] {
+	return pulumix.Output[[]StorageLensGroupTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o StorageLensGroupTagArrayOutput) Index(i pulumi.IntInput) StorageLensGroupTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageLensGroupTag {
+		return vs[0].([]StorageLensGroupTag)[vs[1].(int)]
+	}).(StorageLensGroupTagOutput)
 }
 
 // Prefix-level metrics configurations.
@@ -13546,10 +14669,21 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensDetailedStatusCodesMetricsPtrInput)(nil)).Elem(), StorageLensDetailedStatusCodesMetricsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensEncryptionInput)(nil)).Elem(), StorageLensEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensEncryptionPtrInput)(nil)).Elem(), StorageLensEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensGroupAndInput)(nil)).Elem(), StorageLensGroupAndArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensGroupAndPtrInput)(nil)).Elem(), StorageLensGroupAndArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensGroupFilterInput)(nil)).Elem(), StorageLensGroupFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensGroupLevelInput)(nil)).Elem(), StorageLensGroupLevelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensGroupLevelPtrInput)(nil)).Elem(), StorageLensGroupLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensGroupMatchObjectAgeInput)(nil)).Elem(), StorageLensGroupMatchObjectAgeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensGroupMatchObjectAgePtrInput)(nil)).Elem(), StorageLensGroupMatchObjectAgeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensGroupMatchObjectSizeInput)(nil)).Elem(), StorageLensGroupMatchObjectSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensGroupMatchObjectSizePtrInput)(nil)).Elem(), StorageLensGroupMatchObjectSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensGroupOrInput)(nil)).Elem(), StorageLensGroupOrArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensGroupOrPtrInput)(nil)).Elem(), StorageLensGroupOrArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensGroupSelectionCriteriaInput)(nil)).Elem(), StorageLensGroupSelectionCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensGroupSelectionCriteriaPtrInput)(nil)).Elem(), StorageLensGroupSelectionCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensGroupTagInput)(nil)).Elem(), StorageLensGroupTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensGroupTagArrayInput)(nil)).Elem(), StorageLensGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensPrefixLevelInput)(nil)).Elem(), StorageLensPrefixLevelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensPrefixLevelPtrInput)(nil)).Elem(), StorageLensPrefixLevelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensPrefixLevelStorageMetricsInput)(nil)).Elem(), StorageLensPrefixLevelStorageMetricsArgs{})
@@ -13705,10 +14839,22 @@ func init() {
 	pulumi.RegisterOutputType(StorageLensDetailedStatusCodesMetricsPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensEncryptionOutput{})
 	pulumi.RegisterOutputType(StorageLensEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensGroupAndOutput{})
+	pulumi.RegisterOutputType(StorageLensGroupAndPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensGroupFilterOutput{})
+	pulumi.RegisterOutputType(StorageLensGroupFilterPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensGroupLevelOutput{})
 	pulumi.RegisterOutputType(StorageLensGroupLevelPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensGroupMatchObjectAgeOutput{})
+	pulumi.RegisterOutputType(StorageLensGroupMatchObjectAgePtrOutput{})
+	pulumi.RegisterOutputType(StorageLensGroupMatchObjectSizeOutput{})
+	pulumi.RegisterOutputType(StorageLensGroupMatchObjectSizePtrOutput{})
+	pulumi.RegisterOutputType(StorageLensGroupOrOutput{})
+	pulumi.RegisterOutputType(StorageLensGroupOrPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensGroupSelectionCriteriaOutput{})
 	pulumi.RegisterOutputType(StorageLensGroupSelectionCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(StorageLensGroupTagOutput{})
+	pulumi.RegisterOutputType(StorageLensGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(StorageLensPrefixLevelOutput{})
 	pulumi.RegisterOutputType(StorageLensPrefixLevelPtrOutput{})
 	pulumi.RegisterOutputType(StorageLensPrefixLevelStorageMetricsOutput{})

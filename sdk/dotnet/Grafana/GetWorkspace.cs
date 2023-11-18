@@ -109,6 +109,10 @@ namespace Pulumi.AwsNative.Grafana
         public readonly ImmutableArray<string> OrganizationalUnits;
         public readonly Pulumi.AwsNative.Grafana.WorkspacePermissionType? PermissionType;
         /// <summary>
+        /// Allow workspace admins to install plugins
+        /// </summary>
+        public readonly bool? PluginAdminEnabled;
+        /// <summary>
         /// IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
         /// </summary>
         public readonly string? RoleArn;
@@ -157,6 +161,8 @@ namespace Pulumi.AwsNative.Grafana
 
             Pulumi.AwsNative.Grafana.WorkspacePermissionType? permissionType,
 
+            bool? pluginAdminEnabled,
+
             string? roleArn,
 
             Outputs.WorkspaceSamlConfiguration? samlConfiguration,
@@ -186,6 +192,7 @@ namespace Pulumi.AwsNative.Grafana
             OrganizationRoleName = organizationRoleName;
             OrganizationalUnits = organizationalUnits;
             PermissionType = permissionType;
+            PluginAdminEnabled = pluginAdminEnabled;
             RoleArn = roleArn;
             SamlConfiguration = samlConfiguration;
             SamlConfigurationStatus = samlConfigurationStatus;

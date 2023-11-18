@@ -25,6 +25,11 @@ export const getCollection: typeof import("./getCollection").getCollection = nul
 export const getCollectionOutput: typeof import("./getCollection").getCollectionOutput = null as any;
 utilities.lazyLoad(exports, ["getCollection","getCollectionOutput"], () => require("./getCollection"));
 
+export { GetLifecyclePolicyArgs, GetLifecyclePolicyResult, GetLifecyclePolicyOutputArgs } from "./getLifecyclePolicy";
+export const getLifecyclePolicy: typeof import("./getLifecyclePolicy").getLifecyclePolicy = null as any;
+export const getLifecyclePolicyOutput: typeof import("./getLifecyclePolicy").getLifecyclePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getLifecyclePolicy","getLifecyclePolicyOutput"], () => require("./getLifecyclePolicy"));
+
 export { GetSecurityConfigArgs, GetSecurityConfigResult, GetSecurityConfigOutputArgs } from "./getSecurityConfig";
 export const getSecurityConfig: typeof import("./getSecurityConfig").getSecurityConfig = null as any;
 export const getSecurityConfigOutput: typeof import("./getSecurityConfig").getSecurityConfigOutput = null as any;
@@ -39,6 +44,11 @@ export { GetVpcEndpointArgs, GetVpcEndpointResult, GetVpcEndpointOutputArgs } fr
 export const getVpcEndpoint: typeof import("./getVpcEndpoint").getVpcEndpoint = null as any;
 export const getVpcEndpointOutput: typeof import("./getVpcEndpoint").getVpcEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getVpcEndpoint","getVpcEndpointOutput"], () => require("./getVpcEndpoint"));
+
+export { LifecyclePolicyArgs } from "./lifecyclePolicy";
+export type LifecyclePolicy = import("./lifecyclePolicy").LifecyclePolicy;
+export const LifecyclePolicy: typeof import("./lifecyclePolicy").LifecyclePolicy = null as any;
+utilities.lazyLoad(exports, ["LifecyclePolicy"], () => require("./lifecyclePolicy"));
 
 export { SecurityConfigArgs } from "./securityConfig";
 export type SecurityConfig = import("./securityConfig").SecurityConfig;
@@ -67,6 +77,8 @@ const _module = {
                 return new AccessPolicy(name, <any>undefined, { urn })
             case "aws-native:opensearchserverless:Collection":
                 return new Collection(name, <any>undefined, { urn })
+            case "aws-native:opensearchserverless:LifecyclePolicy":
+                return new LifecyclePolicy(name, <any>undefined, { urn })
             case "aws-native:opensearchserverless:SecurityConfig":
                 return new SecurityConfig(name, <any>undefined, { urn })
             case "aws-native:opensearchserverless:SecurityPolicy":

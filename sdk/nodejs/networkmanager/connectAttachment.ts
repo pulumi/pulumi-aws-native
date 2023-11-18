@@ -50,7 +50,7 @@ export class ConnectAttachment extends pulumi.CustomResource {
      */
     public /*out*/ readonly attachmentType!: pulumi.Output<string>;
     /**
-     * The ARN of a core network for the VPC attachment.
+     * The ARN of a core network.
      */
     public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
     /**

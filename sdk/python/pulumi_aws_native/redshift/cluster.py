@@ -49,6 +49,7 @@ class ClusterArgs:
                  logging_properties: Optional[pulumi.Input['ClusterLoggingPropertiesArgs']] = None,
                  maintenance_track_name: Optional[pulumi.Input[str]] = None,
                  manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
+                 multi_az: Optional[pulumi.Input[bool]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
                  owner_account: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -107,11 +108,12 @@ class ClusterArgs:
         :param pulumi.Input[int] manual_snapshot_retention_period: The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
                
                The value must be either -1 or an integer between 1 and 3,653.
+        :param pulumi.Input[bool] multi_az: A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
         :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
         :param pulumi.Input[bool] publicly_accessible: If true, the cluster can be accessed from a public network.
-        :param pulumi.Input[str] resource_action: The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster APIs
+        :param pulumi.Input[str] resource_action: The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster, failover-primary-compute APIs
         :param pulumi.Input[str] revision_target: The identifier of the database revision. You can retrieve this value from the response to the DescribeClusterDbRevisions request.
         :param pulumi.Input[bool] rotate_encryption_key: A boolean indicating if we want to rotate Encryption Keys.
         :param pulumi.Input[str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
@@ -187,6 +189,8 @@ class ClusterArgs:
             pulumi.set(__self__, "maintenance_track_name", maintenance_track_name)
         if manual_snapshot_retention_period is not None:
             pulumi.set(__self__, "manual_snapshot_retention_period", manual_snapshot_retention_period)
+        if multi_az is not None:
+            pulumi.set(__self__, "multi_az", multi_az)
         if number_of_nodes is not None:
             pulumi.set(__self__, "number_of_nodes", number_of_nodes)
         if owner_account is not None:
@@ -619,6 +623,18 @@ class ClusterArgs:
         pulumi.set(self, "manual_snapshot_retention_period", value)
 
     @property
+    @pulumi.getter(name="multiAz")
+    def multi_az(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
+        """
+        return pulumi.get(self, "multi_az")
+
+    @multi_az.setter
+    def multi_az(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "multi_az", value)
+
+    @property
     @pulumi.getter(name="numberOfNodes")
     def number_of_nodes(self) -> Optional[pulumi.Input[int]]:
         """
@@ -679,7 +695,7 @@ class ClusterArgs:
     @pulumi.getter(name="resourceAction")
     def resource_action(self) -> Optional[pulumi.Input[str]]:
         """
-        The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster APIs
+        The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster, failover-primary-compute APIs
         """
         return pulumi.get(self, "resource_action")
 
@@ -837,6 +853,7 @@ class Cluster(pulumi.CustomResource):
                  manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  master_user_password: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
+                 multi_az: Optional[pulumi.Input[bool]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
                  owner_account: Optional[pulumi.Input[str]] = None,
@@ -899,12 +916,13 @@ class Cluster(pulumi.CustomResource):
                The value must be either -1 or an integer between 1 and 3,653.
         :param pulumi.Input[str] master_user_password: The password associated with the master user account for the cluster that is being created. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
         :param pulumi.Input[str] master_username: The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.
+        :param pulumi.Input[bool] multi_az: A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
         :param pulumi.Input[str] node_type: The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
         :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
         :param pulumi.Input[bool] publicly_accessible: If true, the cluster can be accessed from a public network.
-        :param pulumi.Input[str] resource_action: The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster APIs
+        :param pulumi.Input[str] resource_action: The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster, failover-primary-compute APIs
         :param pulumi.Input[str] revision_target: The identifier of the database revision. You can retrieve this value from the response to the DescribeClusterDbRevisions request.
         :param pulumi.Input[bool] rotate_encryption_key: A boolean indicating if we want to rotate Encryption Keys.
         :param pulumi.Input[str] snapshot_cluster_identifier: The name of the cluster the source snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
@@ -975,6 +993,7 @@ class Cluster(pulumi.CustomResource):
                  manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  master_user_password: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
+                 multi_az: Optional[pulumi.Input[bool]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
                  owner_account: Optional[pulumi.Input[str]] = None,
@@ -1040,6 +1059,7 @@ class Cluster(pulumi.CustomResource):
             if master_username is None and not opts.urn:
                 raise TypeError("Missing required property 'master_username'")
             __props__.__dict__["master_username"] = master_username
+            __props__.__dict__["multi_az"] = multi_az
             if node_type is None and not opts.urn:
                 raise TypeError("Missing required property 'node_type'")
             __props__.__dict__["node_type"] = node_type
@@ -1116,6 +1136,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["manual_snapshot_retention_period"] = None
         __props__.__dict__["master_user_password"] = None
         __props__.__dict__["master_username"] = None
+        __props__.__dict__["multi_az"] = None
         __props__.__dict__["node_type"] = None
         __props__.__dict__["number_of_nodes"] = None
         __props__.__dict__["owner_account"] = None
@@ -1403,6 +1424,14 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "master_username")
 
     @property
+    @pulumi.getter(name="multiAz")
+    def multi_az(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
+        """
+        return pulumi.get(self, "multi_az")
+
+    @property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> pulumi.Output[str]:
         """
@@ -1451,7 +1480,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="resourceAction")
     def resource_action(self) -> pulumi.Output[Optional[str]]:
         """
-        The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster APIs
+        The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster, failover-primary-compute APIs
         """
         return pulumi.get(self, "resource_action")
 

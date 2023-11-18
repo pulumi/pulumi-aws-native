@@ -48,6 +48,9 @@ namespace Pulumi.AwsNative.AutoScaling
         [Output("instanceId")]
         public Output<string?> InstanceId { get; private set; } = null!;
 
+        [Output("instanceMaintenancePolicy")]
+        public Output<Outputs.AutoScalingGroupInstanceMaintenancePolicy?> InstanceMaintenancePolicy { get; private set; } = null!;
+
         [Output("launchConfigurationName")]
         public Output<string?> LaunchConfigurationName { get; private set; } = null!;
 
@@ -189,6 +192,9 @@ namespace Pulumi.AwsNative.AutoScaling
 
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
+
+        [Input("instanceMaintenancePolicy")]
+        public Input<Inputs.AutoScalingGroupInstanceMaintenancePolicyArgs>? InstanceMaintenancePolicy { get; set; }
 
         [Input("launchConfigurationName")]
         public Input<string>? LaunchConfigurationName { get; set; }

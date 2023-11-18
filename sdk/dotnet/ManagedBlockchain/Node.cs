@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.ManagedBlockchain
         public Output<string> Arn { get; private set; } = null!;
 
         [Output("memberId")]
-        public Output<string> MemberId { get; private set; } = null!;
+        public Output<string?> MemberId { get; private set; } = null!;
 
         [Output("networkId")]
         public Output<string> NetworkId { get; private set; } = null!;
@@ -76,8 +76,8 @@ namespace Pulumi.AwsNative.ManagedBlockchain
 
     public sealed class NodeArgs : global::Pulumi.ResourceArgs
     {
-        [Input("memberId", required: true)]
-        public Input<string> MemberId { get; set; } = null!;
+        [Input("memberId")]
+        public Input<string>? MemberId { get; set; }
 
         [Input("networkId", required: true)]
         public Input<string> NetworkId { get; set; } = null!;

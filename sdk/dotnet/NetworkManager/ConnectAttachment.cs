@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.NetworkManager
         public Output<string> AttachmentType { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of a core network for the VPC attachment.
+        /// The ARN of a core network.
         /// </summary>
         [Output("coreNetworkArn")]
         public Output<string> CoreNetworkArn { get; private set; } = null!;

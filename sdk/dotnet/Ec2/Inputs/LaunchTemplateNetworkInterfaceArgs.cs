@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         [Input("deviceIndex")]
         public Input<int>? DeviceIndex { get; set; }
 
+        [Input("enaSrdSpecification")]
+        public Input<Inputs.LaunchTemplateEnaSrdSpecificationArgs>? EnaSrdSpecification { get; set; }
+
         [Input("groups")]
         private InputList<string>? _groups;
 

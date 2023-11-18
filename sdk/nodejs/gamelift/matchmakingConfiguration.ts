@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::GameLift::MatchmakingConfiguration
- *
- * @deprecated MatchmakingConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * The AWS::GameLift::MatchmakingConfiguration resource creates an Amazon GameLift (GameLift) matchmaking configuration.
  */
 export class MatchmakingConfiguration extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): MatchmakingConfiguration {
-        pulumi.log.warn("MatchmakingConfiguration is deprecated: MatchmakingConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new MatchmakingConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,21 +37,77 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === MatchmakingConfiguration.__pulumiType;
     }
 
+    /**
+     * A flag that indicates whether a match that was created with this configuration must be accepted by the matched players
+     */
     public readonly acceptanceRequired!: pulumi.Output<boolean>;
+    /**
+     * The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
+     */
     public readonly acceptanceTimeoutSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * The number of player slots in a match to keep open for future players.
+     */
     public readonly additionalPlayerCount!: pulumi.Output<number | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift matchmaking configuration resource and uniquely identifies it.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly backfillMode!: pulumi.Output<string | undefined>;
+    /**
+     * The method used to backfill game sessions created with this matchmaking configuration.
+     */
+    public readonly backfillMode!: pulumi.Output<enums.gamelift.MatchmakingConfigurationBackfillMode | undefined>;
+    /**
+     * A time stamp indicating when this data object was created.
+     */
+    public readonly creationTime!: pulumi.Output<string | undefined>;
+    /**
+     * Information to attach to all events related to the matchmaking configuration.
+     */
     public readonly customEventData!: pulumi.Output<string | undefined>;
+    /**
+     * A descriptive label that is associated with matchmaking configuration.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly flexMatchMode!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates whether this matchmaking configuration is being used with Amazon GameLift hosting or as a standalone matchmaking solution.
+     */
+    public readonly flexMatchMode!: pulumi.Output<enums.gamelift.MatchmakingConfigurationFlexMatchMode | undefined>;
+    /**
+     * A set of custom properties for a game session, formatted as key:value pairs.
+     */
     public readonly gameProperties!: pulumi.Output<outputs.gamelift.MatchmakingConfigurationGameProperty[] | undefined>;
+    /**
+     * A set of custom game session properties, formatted as a single string value.
+     */
     public readonly gameSessionData!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it.
+     */
     public readonly gameSessionQueueArns!: pulumi.Output<string[] | undefined>;
+    /**
+     * A unique identifier for the matchmaking configuration.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * An SNS topic ARN that is set up to receive matchmaking notifications.
+     */
     public readonly notificationTarget!: pulumi.Output<string | undefined>;
+    /**
+     * The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
+     */
     public readonly requestTimeoutSeconds!: pulumi.Output<number>;
+    /**
+     * The Amazon Resource Name (ARN) associated with the GameLift matchmaking rule set resource that this configuration uses.
+     */
+    public readonly ruleSetArn!: pulumi.Output<string | undefined>;
+    /**
+     * A unique identifier for the matchmaking rule set to use with this configuration.
+     */
     public readonly ruleSetName!: pulumi.Output<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     public readonly tags!: pulumi.Output<outputs.gamelift.MatchmakingConfigurationTag[] | undefined>;
 
     /**
@@ -64,9 +117,7 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated MatchmakingConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: MatchmakingConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("MatchmakingConfiguration is deprecated: MatchmakingConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -83,6 +134,7 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
             resourceInputs["acceptanceTimeoutSeconds"] = args ? args.acceptanceTimeoutSeconds : undefined;
             resourceInputs["additionalPlayerCount"] = args ? args.additionalPlayerCount : undefined;
             resourceInputs["backfillMode"] = args ? args.backfillMode : undefined;
+            resourceInputs["creationTime"] = args ? args.creationTime : undefined;
             resourceInputs["customEventData"] = args ? args.customEventData : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["flexMatchMode"] = args ? args.flexMatchMode : undefined;
@@ -92,6 +144,7 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["notificationTarget"] = args ? args.notificationTarget : undefined;
             resourceInputs["requestTimeoutSeconds"] = args ? args.requestTimeoutSeconds : undefined;
+            resourceInputs["ruleSetArn"] = args ? args.ruleSetArn : undefined;
             resourceInputs["ruleSetName"] = args ? args.ruleSetName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -101,6 +154,7 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
             resourceInputs["additionalPlayerCount"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["backfillMode"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["customEventData"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["flexMatchMode"] = undefined /*out*/;
@@ -110,6 +164,7 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["notificationTarget"] = undefined /*out*/;
             resourceInputs["requestTimeoutSeconds"] = undefined /*out*/;
+            resourceInputs["ruleSetArn"] = undefined /*out*/;
             resourceInputs["ruleSetName"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -124,19 +179,72 @@ export class MatchmakingConfiguration extends pulumi.CustomResource {
  * The set of arguments for constructing a MatchmakingConfiguration resource.
  */
 export interface MatchmakingConfigurationArgs {
+    /**
+     * A flag that indicates whether a match that was created with this configuration must be accepted by the matched players
+     */
     acceptanceRequired: pulumi.Input<boolean>;
+    /**
+     * The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
+     */
     acceptanceTimeoutSeconds?: pulumi.Input<number>;
+    /**
+     * The number of player slots in a match to keep open for future players.
+     */
     additionalPlayerCount?: pulumi.Input<number>;
-    backfillMode?: pulumi.Input<string>;
+    /**
+     * The method used to backfill game sessions created with this matchmaking configuration.
+     */
+    backfillMode?: pulumi.Input<enums.gamelift.MatchmakingConfigurationBackfillMode>;
+    /**
+     * A time stamp indicating when this data object was created.
+     */
+    creationTime?: pulumi.Input<string>;
+    /**
+     * Information to attach to all events related to the matchmaking configuration.
+     */
     customEventData?: pulumi.Input<string>;
+    /**
+     * A descriptive label that is associated with matchmaking configuration.
+     */
     description?: pulumi.Input<string>;
-    flexMatchMode?: pulumi.Input<string>;
+    /**
+     * Indicates whether this matchmaking configuration is being used with Amazon GameLift hosting or as a standalone matchmaking solution.
+     */
+    flexMatchMode?: pulumi.Input<enums.gamelift.MatchmakingConfigurationFlexMatchMode>;
+    /**
+     * A set of custom properties for a game session, formatted as key:value pairs.
+     */
     gameProperties?: pulumi.Input<pulumi.Input<inputs.gamelift.MatchmakingConfigurationGamePropertyArgs>[]>;
+    /**
+     * A set of custom game session properties, formatted as a single string value.
+     */
     gameSessionData?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it.
+     */
     gameSessionQueueArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A unique identifier for the matchmaking configuration.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * An SNS topic ARN that is set up to receive matchmaking notifications.
+     */
     notificationTarget?: pulumi.Input<string>;
+    /**
+     * The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
+     */
     requestTimeoutSeconds: pulumi.Input<number>;
+    /**
+     * The Amazon Resource Name (ARN) associated with the GameLift matchmaking rule set resource that this configuration uses.
+     */
+    ruleSetArn?: pulumi.Input<string>;
+    /**
+     * A unique identifier for the matchmaking rule set to use with this configuration.
+     */
     ruleSetName: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.gamelift.MatchmakingConfigurationTagArgs>[]>;
 }

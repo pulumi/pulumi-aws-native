@@ -24,15 +24,15 @@ func LookupThreatIntelSet(ctx *pulumi.Context, args *LookupThreatIntelSetArgs, o
 }
 
 type LookupThreatIntelSetArgs struct {
-	Id string `pulumi:"id"`
+	DetectorId string `pulumi:"detectorId"`
+	Id         string `pulumi:"id"`
 }
 
 type LookupThreatIntelSetResult struct {
-	Activate *bool               `pulumi:"activate"`
-	Id       *string             `pulumi:"id"`
-	Location *string             `pulumi:"location"`
-	Name     *string             `pulumi:"name"`
-	Tags     []ThreatIntelSetTag `pulumi:"tags"`
+	Id       *string                 `pulumi:"id"`
+	Location *string                 `pulumi:"location"`
+	Name     *string                 `pulumi:"name"`
+	Tags     []ThreatIntelSetTagItem `pulumi:"tags"`
 }
 
 func LookupThreatIntelSetOutput(ctx *pulumi.Context, args LookupThreatIntelSetOutputArgs, opts ...pulumi.InvokeOption) LookupThreatIntelSetResultOutput {
@@ -49,7 +49,8 @@ func LookupThreatIntelSetOutput(ctx *pulumi.Context, args LookupThreatIntelSetOu
 }
 
 type LookupThreatIntelSetOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	DetectorId pulumi.StringInput `pulumi:"detectorId"`
+	Id         pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupThreatIntelSetOutputArgs) ElementType() reflect.Type {
@@ -76,10 +77,6 @@ func (o LookupThreatIntelSetResultOutput) ToOutput(ctx context.Context) pulumix.
 	}
 }
 
-func (o LookupThreatIntelSetResultOutput) Activate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupThreatIntelSetResult) *bool { return v.Activate }).(pulumi.BoolPtrOutput)
-}
-
 func (o LookupThreatIntelSetResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThreatIntelSetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -92,8 +89,8 @@ func (o LookupThreatIntelSetResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThreatIntelSetResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupThreatIntelSetResultOutput) Tags() ThreatIntelSetTagArrayOutput {
-	return o.ApplyT(func(v LookupThreatIntelSetResult) []ThreatIntelSetTag { return v.Tags }).(ThreatIntelSetTagArrayOutput)
+func (o LookupThreatIntelSetResultOutput) Tags() ThreatIntelSetTagItemArrayOutput {
+	return o.ApplyT(func(v LookupThreatIntelSetResult) []ThreatIntelSetTagItem { return v.Tags }).(ThreatIntelSetTagItemArrayOutput)
 }
 
 func init() {

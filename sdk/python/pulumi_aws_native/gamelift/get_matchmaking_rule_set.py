@@ -19,13 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetMatchmakingRuleSetResult:
-    def __init__(__self__, arn=None, id=None, tags=None):
+    def __init__(__self__, arn=None, creation_time=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        pulumi.set(__self__, "creation_time", creation_time)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -33,16 +33,25 @@ class GetMatchmakingRuleSetResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift matchmaking rule set resource and uniquely identifies it.
+        """
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> Optional[str]:
+        """
+        A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds.
+        """
+        return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.MatchmakingRuleSetTag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -53,30 +62,36 @@ class AwaitableGetMatchmakingRuleSetResult(GetMatchmakingRuleSetResult):
             yield self
         return GetMatchmakingRuleSetResult(
             arn=self.arn,
-            id=self.id,
+            creation_time=self.creation_time,
             tags=self.tags)
 
 
-def get_matchmaking_rule_set(id: Optional[str] = None,
+def get_matchmaking_rule_set(name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMatchmakingRuleSetResult:
     """
-    Resource Type definition for AWS::GameLift::MatchmakingRuleSet
+    The AWS::GameLift::MatchmakingRuleSet resource creates an Amazon GameLift (GameLift) matchmaking rule set.
+
+
+    :param str name: A unique identifier for the matchmaking rule set.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:gamelift:getMatchmakingRuleSet', __args__, opts=opts, typ=GetMatchmakingRuleSetResult).value
 
     return AwaitableGetMatchmakingRuleSetResult(
         arn=pulumi.get(__ret__, 'arn'),
-        id=pulumi.get(__ret__, 'id'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
         tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_matchmaking_rule_set)
-def get_matchmaking_rule_set_output(id: Optional[pulumi.Input[str]] = None,
+def get_matchmaking_rule_set_output(name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMatchmakingRuleSetResult]:
     """
-    Resource Type definition for AWS::GameLift::MatchmakingRuleSet
+    The AWS::GameLift::MatchmakingRuleSet resource creates an Amazon GameLift (GameLift) matchmaking rule set.
+
+
+    :param str name: A unique identifier for the matchmaking rule set.
     """
     ...

@@ -57,6 +57,7 @@ namespace Pulumi.AwsNative.Eks
     [OutputType]
     public sealed class GetClusterResult
     {
+        public readonly Outputs.ClusterAccessConfig? AccessConfig;
         /// <summary>
         /// The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
         /// </summary>
@@ -98,6 +99,8 @@ namespace Pulumi.AwsNative.Eks
 
         [OutputConstructor]
         private GetClusterResult(
+            Outputs.ClusterAccessConfig? accessConfig,
+
             string? arn,
 
             string? certificateAuthorityData,
@@ -120,6 +123,7 @@ namespace Pulumi.AwsNative.Eks
 
             string? version)
         {
+            AccessConfig = accessConfig;
             Arn = arn;
             CertificateAuthorityData = certificateAuthorityData;
             ClusterSecurityGroupId = clusterSecurityGroupId;

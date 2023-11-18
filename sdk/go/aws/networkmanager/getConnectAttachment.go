@@ -35,7 +35,7 @@ type LookupConnectAttachmentResult struct {
 	AttachmentPolicyRuleNumber *int `pulumi:"attachmentPolicyRuleNumber"`
 	// The type of attachment.
 	AttachmentType *string `pulumi:"attachmentType"`
-	// The ARN of a core network for the VPC attachment.
+	// The ARN of a core network.
 	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
 	// Creation time of the attachment.
 	CreatedAt *string `pulumi:"createdAt"`
@@ -112,7 +112,7 @@ func (o LookupConnectAttachmentResultOutput) AttachmentType() pulumi.StringPtrOu
 	return o.ApplyT(func(v LookupConnectAttachmentResult) *string { return v.AttachmentType }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of a core network for the VPC attachment.
+// The ARN of a core network.
 func (o LookupConnectAttachmentResultOutput) CoreNetworkArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectAttachmentResult) *string { return v.CoreNetworkArn }).(pulumi.StringPtrOutput)
 }

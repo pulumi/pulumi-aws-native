@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.GameLift
     public static class GetMatchmakingRuleSet
     {
         /// <summary>
-        /// Resource Type definition for AWS::GameLift::MatchmakingRuleSet
+        /// The AWS::GameLift::MatchmakingRuleSet resource creates an Amazon GameLift (GameLift) matchmaking rule set.
         /// </summary>
         public static Task<GetMatchmakingRuleSetResult> InvokeAsync(GetMatchmakingRuleSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMatchmakingRuleSetResult>("aws-native:gamelift:getMatchmakingRuleSet", args ?? new GetMatchmakingRuleSetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::GameLift::MatchmakingRuleSet
+        /// The AWS::GameLift::MatchmakingRuleSet resource creates an Amazon GameLift (GameLift) matchmaking rule set.
         /// </summary>
         public static Output<GetMatchmakingRuleSetResult> Invoke(GetMatchmakingRuleSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMatchmakingRuleSetResult>("aws-native:gamelift:getMatchmakingRuleSet", args ?? new GetMatchmakingRuleSetInvokeArgs(), options.WithDefaults());
@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.GameLift
 
     public sealed class GetMatchmakingRuleSetArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// A unique identifier for the matchmaking rule set.
+        /// </summary>
+        [Input("name", required: true)]
+        public string Name { get; set; } = null!;
 
         public GetMatchmakingRuleSetArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.GameLift
 
     public sealed class GetMatchmakingRuleSetInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// A unique identifier for the matchmaking rule set.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         public GetMatchmakingRuleSetInvokeArgs()
         {
@@ -51,20 +57,29 @@ namespace Pulumi.AwsNative.GameLift
     [OutputType]
     public sealed class GetMatchmakingRuleSetResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift matchmaking rule set resource and uniquely identifies it.
+        /// </summary>
         public readonly string? Arn;
-        public readonly string? Id;
+        /// <summary>
+        /// A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds.
+        /// </summary>
+        public readonly string? CreationTime;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public readonly ImmutableArray<Outputs.MatchmakingRuleSetTag> Tags;
 
         [OutputConstructor]
         private GetMatchmakingRuleSetResult(
             string? arn,
 
-            string? id,
+            string? creationTime,
 
             ImmutableArray<Outputs.MatchmakingRuleSetTag> tags)
         {
             Arn = arn;
-            Id = id;
+            CreationTime = creationTime;
             Tags = tags;
         }
     }

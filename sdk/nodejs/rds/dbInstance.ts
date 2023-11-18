@@ -155,6 +155,10 @@ export class DbInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly dbiResourceId!: pulumi.Output<string>;
     /**
+     * Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
+     */
+    public readonly dedicatedLogVolume!: pulumi.Output<boolean | undefined>;
+    /**
      * A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
      */
     public readonly deleteAutomatedBackups!: pulumi.Output<boolean | undefined>;
@@ -400,6 +404,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["dbSecurityGroups"] = args ? args.dbSecurityGroups : undefined;
             resourceInputs["dbSnapshotIdentifier"] = args ? args.dbSnapshotIdentifier : undefined;
             resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
+            resourceInputs["dedicatedLogVolume"] = args ? args.dedicatedLogVolume : undefined;
             resourceInputs["deleteAutomatedBackups"] = args ? args.deleteAutomatedBackups : undefined;
             resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
             resourceInputs["domain"] = args ? args.domain : undefined;
@@ -482,6 +487,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["dbSubnetGroupName"] = undefined /*out*/;
             resourceInputs["dbSystemId"] = undefined /*out*/;
             resourceInputs["dbiResourceId"] = undefined /*out*/;
+            resourceInputs["dedicatedLogVolume"] = undefined /*out*/;
             resourceInputs["deleteAutomatedBackups"] = undefined /*out*/;
             resourceInputs["deletionProtection"] = undefined /*out*/;
             resourceInputs["domain"] = undefined /*out*/;
@@ -652,6 +658,10 @@ export interface DbInstanceArgs {
      * A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
      */
     dbSubnetGroupName?: pulumi.Input<string>;
+    /**
+     * Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
+     */
+    dedicatedLogVolume?: pulumi.Input<boolean>;
     /**
      * A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
      */

@@ -1103,6 +1103,244 @@ func (in *pipeEcsResourceRequirementTypePtr) ToOutput(ctx context.Context) pulum
 	}
 }
 
+type PipeIncludeExecutionDataOption string
+
+const (
+	PipeIncludeExecutionDataOptionAll = PipeIncludeExecutionDataOption("ALL")
+)
+
+func (PipeIncludeExecutionDataOption) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeIncludeExecutionDataOption)(nil)).Elem()
+}
+
+func (e PipeIncludeExecutionDataOption) ToPipeIncludeExecutionDataOptionOutput() PipeIncludeExecutionDataOptionOutput {
+	return pulumi.ToOutput(e).(PipeIncludeExecutionDataOptionOutput)
+}
+
+func (e PipeIncludeExecutionDataOption) ToPipeIncludeExecutionDataOptionOutputWithContext(ctx context.Context) PipeIncludeExecutionDataOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PipeIncludeExecutionDataOptionOutput)
+}
+
+func (e PipeIncludeExecutionDataOption) ToPipeIncludeExecutionDataOptionPtrOutput() PipeIncludeExecutionDataOptionPtrOutput {
+	return e.ToPipeIncludeExecutionDataOptionPtrOutputWithContext(context.Background())
+}
+
+func (e PipeIncludeExecutionDataOption) ToPipeIncludeExecutionDataOptionPtrOutputWithContext(ctx context.Context) PipeIncludeExecutionDataOptionPtrOutput {
+	return PipeIncludeExecutionDataOption(e).ToPipeIncludeExecutionDataOptionOutputWithContext(ctx).ToPipeIncludeExecutionDataOptionPtrOutputWithContext(ctx)
+}
+
+func (e PipeIncludeExecutionDataOption) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PipeIncludeExecutionDataOption) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PipeIncludeExecutionDataOption) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PipeIncludeExecutionDataOption) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PipeIncludeExecutionDataOptionOutput struct{ *pulumi.OutputState }
+
+func (PipeIncludeExecutionDataOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeIncludeExecutionDataOption)(nil)).Elem()
+}
+
+func (o PipeIncludeExecutionDataOptionOutput) ToPipeIncludeExecutionDataOptionOutput() PipeIncludeExecutionDataOptionOutput {
+	return o
+}
+
+func (o PipeIncludeExecutionDataOptionOutput) ToPipeIncludeExecutionDataOptionOutputWithContext(ctx context.Context) PipeIncludeExecutionDataOptionOutput {
+	return o
+}
+
+func (o PipeIncludeExecutionDataOptionOutput) ToPipeIncludeExecutionDataOptionPtrOutput() PipeIncludeExecutionDataOptionPtrOutput {
+	return o.ToPipeIncludeExecutionDataOptionPtrOutputWithContext(context.Background())
+}
+
+func (o PipeIncludeExecutionDataOptionOutput) ToPipeIncludeExecutionDataOptionPtrOutputWithContext(ctx context.Context) PipeIncludeExecutionDataOptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeIncludeExecutionDataOption) *PipeIncludeExecutionDataOption {
+		return &v
+	}).(PipeIncludeExecutionDataOptionPtrOutput)
+}
+
+func (o PipeIncludeExecutionDataOptionOutput) ToOutput(ctx context.Context) pulumix.Output[PipeIncludeExecutionDataOption] {
+	return pulumix.Output[PipeIncludeExecutionDataOption]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipeIncludeExecutionDataOptionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PipeIncludeExecutionDataOptionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipeIncludeExecutionDataOption) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PipeIncludeExecutionDataOptionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PipeIncludeExecutionDataOptionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipeIncludeExecutionDataOption) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PipeIncludeExecutionDataOptionPtrOutput struct{ *pulumi.OutputState }
+
+func (PipeIncludeExecutionDataOptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeIncludeExecutionDataOption)(nil)).Elem()
+}
+
+func (o PipeIncludeExecutionDataOptionPtrOutput) ToPipeIncludeExecutionDataOptionPtrOutput() PipeIncludeExecutionDataOptionPtrOutput {
+	return o
+}
+
+func (o PipeIncludeExecutionDataOptionPtrOutput) ToPipeIncludeExecutionDataOptionPtrOutputWithContext(ctx context.Context) PipeIncludeExecutionDataOptionPtrOutput {
+	return o
+}
+
+func (o PipeIncludeExecutionDataOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeIncludeExecutionDataOption] {
+	return pulumix.Output[*PipeIncludeExecutionDataOption]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipeIncludeExecutionDataOptionPtrOutput) Elem() PipeIncludeExecutionDataOptionOutput {
+	return o.ApplyT(func(v *PipeIncludeExecutionDataOption) PipeIncludeExecutionDataOption {
+		if v != nil {
+			return *v
+		}
+		var ret PipeIncludeExecutionDataOption
+		return ret
+	}).(PipeIncludeExecutionDataOptionOutput)
+}
+
+func (o PipeIncludeExecutionDataOptionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PipeIncludeExecutionDataOptionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PipeIncludeExecutionDataOption) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PipeIncludeExecutionDataOptionInput is an input type that accepts PipeIncludeExecutionDataOptionArgs and PipeIncludeExecutionDataOptionOutput values.
+// You can construct a concrete instance of `PipeIncludeExecutionDataOptionInput` via:
+//
+//	PipeIncludeExecutionDataOptionArgs{...}
+type PipeIncludeExecutionDataOptionInput interface {
+	pulumi.Input
+
+	ToPipeIncludeExecutionDataOptionOutput() PipeIncludeExecutionDataOptionOutput
+	ToPipeIncludeExecutionDataOptionOutputWithContext(context.Context) PipeIncludeExecutionDataOptionOutput
+}
+
+var pipeIncludeExecutionDataOptionPtrType = reflect.TypeOf((**PipeIncludeExecutionDataOption)(nil)).Elem()
+
+type PipeIncludeExecutionDataOptionPtrInput interface {
+	pulumi.Input
+
+	ToPipeIncludeExecutionDataOptionPtrOutput() PipeIncludeExecutionDataOptionPtrOutput
+	ToPipeIncludeExecutionDataOptionPtrOutputWithContext(context.Context) PipeIncludeExecutionDataOptionPtrOutput
+}
+
+type pipeIncludeExecutionDataOptionPtr string
+
+func PipeIncludeExecutionDataOptionPtr(v string) PipeIncludeExecutionDataOptionPtrInput {
+	return (*pipeIncludeExecutionDataOptionPtr)(&v)
+}
+
+func (*pipeIncludeExecutionDataOptionPtr) ElementType() reflect.Type {
+	return pipeIncludeExecutionDataOptionPtrType
+}
+
+func (in *pipeIncludeExecutionDataOptionPtr) ToPipeIncludeExecutionDataOptionPtrOutput() PipeIncludeExecutionDataOptionPtrOutput {
+	return pulumi.ToOutput(in).(PipeIncludeExecutionDataOptionPtrOutput)
+}
+
+func (in *pipeIncludeExecutionDataOptionPtr) ToPipeIncludeExecutionDataOptionPtrOutputWithContext(ctx context.Context) PipeIncludeExecutionDataOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PipeIncludeExecutionDataOptionPtrOutput)
+}
+
+func (in *pipeIncludeExecutionDataOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*PipeIncludeExecutionDataOption] {
+	return pulumix.Output[*PipeIncludeExecutionDataOption]{
+		OutputState: in.ToPipeIncludeExecutionDataOptionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// PipeIncludeExecutionDataOptionArrayInput is an input type that accepts PipeIncludeExecutionDataOptionArray and PipeIncludeExecutionDataOptionArrayOutput values.
+// You can construct a concrete instance of `PipeIncludeExecutionDataOptionArrayInput` via:
+//
+//	PipeIncludeExecutionDataOptionArray{ PipeIncludeExecutionDataOptionArgs{...} }
+type PipeIncludeExecutionDataOptionArrayInput interface {
+	pulumi.Input
+
+	ToPipeIncludeExecutionDataOptionArrayOutput() PipeIncludeExecutionDataOptionArrayOutput
+	ToPipeIncludeExecutionDataOptionArrayOutputWithContext(context.Context) PipeIncludeExecutionDataOptionArrayOutput
+}
+
+type PipeIncludeExecutionDataOptionArray []PipeIncludeExecutionDataOption
+
+func (PipeIncludeExecutionDataOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipeIncludeExecutionDataOption)(nil)).Elem()
+}
+
+func (i PipeIncludeExecutionDataOptionArray) ToPipeIncludeExecutionDataOptionArrayOutput() PipeIncludeExecutionDataOptionArrayOutput {
+	return i.ToPipeIncludeExecutionDataOptionArrayOutputWithContext(context.Background())
+}
+
+func (i PipeIncludeExecutionDataOptionArray) ToPipeIncludeExecutionDataOptionArrayOutputWithContext(ctx context.Context) PipeIncludeExecutionDataOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeIncludeExecutionDataOptionArrayOutput)
+}
+
+func (i PipeIncludeExecutionDataOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]PipeIncludeExecutionDataOption] {
+	return pulumix.Output[[]PipeIncludeExecutionDataOption]{
+		OutputState: i.ToPipeIncludeExecutionDataOptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type PipeIncludeExecutionDataOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (PipeIncludeExecutionDataOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipeIncludeExecutionDataOption)(nil)).Elem()
+}
+
+func (o PipeIncludeExecutionDataOptionArrayOutput) ToPipeIncludeExecutionDataOptionArrayOutput() PipeIncludeExecutionDataOptionArrayOutput {
+	return o
+}
+
+func (o PipeIncludeExecutionDataOptionArrayOutput) ToPipeIncludeExecutionDataOptionArrayOutputWithContext(ctx context.Context) PipeIncludeExecutionDataOptionArrayOutput {
+	return o
+}
+
+func (o PipeIncludeExecutionDataOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PipeIncludeExecutionDataOption] {
+	return pulumix.Output[[]PipeIncludeExecutionDataOption]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipeIncludeExecutionDataOptionArrayOutput) Index(i pulumi.IntInput) PipeIncludeExecutionDataOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipeIncludeExecutionDataOption {
+		return vs[0].([]PipeIncludeExecutionDataOption)[vs[1].(int)]
+	}).(PipeIncludeExecutionDataOptionOutput)
+}
+
 type PipeKinesisStreamStartPosition string
 
 const (
@@ -1466,6 +1704,190 @@ func (in *pipeLaunchTypePtr) ToPipeLaunchTypePtrOutputWithContext(ctx context.Co
 func (in *pipeLaunchTypePtr) ToOutput(ctx context.Context) pulumix.Output[*PipeLaunchType] {
 	return pulumix.Output[*PipeLaunchType]{
 		OutputState: in.ToPipeLaunchTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type PipeLogLevel string
+
+const (
+	PipeLogLevelOff   = PipeLogLevel("OFF")
+	PipeLogLevelError = PipeLogLevel("ERROR")
+	PipeLogLevelInfo  = PipeLogLevel("INFO")
+	PipeLogLevelTrace = PipeLogLevel("TRACE")
+)
+
+func (PipeLogLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeLogLevel)(nil)).Elem()
+}
+
+func (e PipeLogLevel) ToPipeLogLevelOutput() PipeLogLevelOutput {
+	return pulumi.ToOutput(e).(PipeLogLevelOutput)
+}
+
+func (e PipeLogLevel) ToPipeLogLevelOutputWithContext(ctx context.Context) PipeLogLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PipeLogLevelOutput)
+}
+
+func (e PipeLogLevel) ToPipeLogLevelPtrOutput() PipeLogLevelPtrOutput {
+	return e.ToPipeLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (e PipeLogLevel) ToPipeLogLevelPtrOutputWithContext(ctx context.Context) PipeLogLevelPtrOutput {
+	return PipeLogLevel(e).ToPipeLogLevelOutputWithContext(ctx).ToPipeLogLevelPtrOutputWithContext(ctx)
+}
+
+func (e PipeLogLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PipeLogLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PipeLogLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PipeLogLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PipeLogLevelOutput struct{ *pulumi.OutputState }
+
+func (PipeLogLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeLogLevel)(nil)).Elem()
+}
+
+func (o PipeLogLevelOutput) ToPipeLogLevelOutput() PipeLogLevelOutput {
+	return o
+}
+
+func (o PipeLogLevelOutput) ToPipeLogLevelOutputWithContext(ctx context.Context) PipeLogLevelOutput {
+	return o
+}
+
+func (o PipeLogLevelOutput) ToPipeLogLevelPtrOutput() PipeLogLevelPtrOutput {
+	return o.ToPipeLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (o PipeLogLevelOutput) ToPipeLogLevelPtrOutputWithContext(ctx context.Context) PipeLogLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeLogLevel) *PipeLogLevel {
+		return &v
+	}).(PipeLogLevelPtrOutput)
+}
+
+func (o PipeLogLevelOutput) ToOutput(ctx context.Context) pulumix.Output[PipeLogLevel] {
+	return pulumix.Output[PipeLogLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipeLogLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PipeLogLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipeLogLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PipeLogLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PipeLogLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipeLogLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PipeLogLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (PipeLogLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeLogLevel)(nil)).Elem()
+}
+
+func (o PipeLogLevelPtrOutput) ToPipeLogLevelPtrOutput() PipeLogLevelPtrOutput {
+	return o
+}
+
+func (o PipeLogLevelPtrOutput) ToPipeLogLevelPtrOutputWithContext(ctx context.Context) PipeLogLevelPtrOutput {
+	return o
+}
+
+func (o PipeLogLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeLogLevel] {
+	return pulumix.Output[*PipeLogLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipeLogLevelPtrOutput) Elem() PipeLogLevelOutput {
+	return o.ApplyT(func(v *PipeLogLevel) PipeLogLevel {
+		if v != nil {
+			return *v
+		}
+		var ret PipeLogLevel
+		return ret
+	}).(PipeLogLevelOutput)
+}
+
+func (o PipeLogLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PipeLogLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PipeLogLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PipeLogLevelInput is an input type that accepts PipeLogLevelArgs and PipeLogLevelOutput values.
+// You can construct a concrete instance of `PipeLogLevelInput` via:
+//
+//	PipeLogLevelArgs{...}
+type PipeLogLevelInput interface {
+	pulumi.Input
+
+	ToPipeLogLevelOutput() PipeLogLevelOutput
+	ToPipeLogLevelOutputWithContext(context.Context) PipeLogLevelOutput
+}
+
+var pipeLogLevelPtrType = reflect.TypeOf((**PipeLogLevel)(nil)).Elem()
+
+type PipeLogLevelPtrInput interface {
+	pulumi.Input
+
+	ToPipeLogLevelPtrOutput() PipeLogLevelPtrOutput
+	ToPipeLogLevelPtrOutputWithContext(context.Context) PipeLogLevelPtrOutput
+}
+
+type pipeLogLevelPtr string
+
+func PipeLogLevelPtr(v string) PipeLogLevelPtrInput {
+	return (*pipeLogLevelPtr)(&v)
+}
+
+func (*pipeLogLevelPtr) ElementType() reflect.Type {
+	return pipeLogLevelPtrType
+}
+
+func (in *pipeLogLevelPtr) ToPipeLogLevelPtrOutput() PipeLogLevelPtrOutput {
+	return pulumi.ToOutput(in).(PipeLogLevelPtrOutput)
+}
+
+func (in *pipeLogLevelPtr) ToPipeLogLevelPtrOutputWithContext(ctx context.Context) PipeLogLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PipeLogLevelPtrOutput)
+}
+
+func (in *pipeLogLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*PipeLogLevel] {
+	return pulumix.Output[*PipeLogLevel]{
+		OutputState: in.ToPipeLogLevelPtrOutputWithContext(ctx).OutputState,
 	}
 }
 
@@ -2560,6 +2982,189 @@ func (in *pipeRequestedPipeStatePtr) ToOutput(ctx context.Context) pulumix.Outpu
 	}
 }
 
+type PipeS3OutputFormat string
+
+const (
+	PipeS3OutputFormatJson  = PipeS3OutputFormat("json")
+	PipeS3OutputFormatPlain = PipeS3OutputFormat("plain")
+	PipeS3OutputFormatW3c   = PipeS3OutputFormat("w3c")
+)
+
+func (PipeS3OutputFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeS3OutputFormat)(nil)).Elem()
+}
+
+func (e PipeS3OutputFormat) ToPipeS3OutputFormatOutput() PipeS3OutputFormatOutput {
+	return pulumi.ToOutput(e).(PipeS3OutputFormatOutput)
+}
+
+func (e PipeS3OutputFormat) ToPipeS3OutputFormatOutputWithContext(ctx context.Context) PipeS3OutputFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PipeS3OutputFormatOutput)
+}
+
+func (e PipeS3OutputFormat) ToPipeS3OutputFormatPtrOutput() PipeS3OutputFormatPtrOutput {
+	return e.ToPipeS3OutputFormatPtrOutputWithContext(context.Background())
+}
+
+func (e PipeS3OutputFormat) ToPipeS3OutputFormatPtrOutputWithContext(ctx context.Context) PipeS3OutputFormatPtrOutput {
+	return PipeS3OutputFormat(e).ToPipeS3OutputFormatOutputWithContext(ctx).ToPipeS3OutputFormatPtrOutputWithContext(ctx)
+}
+
+func (e PipeS3OutputFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PipeS3OutputFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PipeS3OutputFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PipeS3OutputFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PipeS3OutputFormatOutput struct{ *pulumi.OutputState }
+
+func (PipeS3OutputFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeS3OutputFormat)(nil)).Elem()
+}
+
+func (o PipeS3OutputFormatOutput) ToPipeS3OutputFormatOutput() PipeS3OutputFormatOutput {
+	return o
+}
+
+func (o PipeS3OutputFormatOutput) ToPipeS3OutputFormatOutputWithContext(ctx context.Context) PipeS3OutputFormatOutput {
+	return o
+}
+
+func (o PipeS3OutputFormatOutput) ToPipeS3OutputFormatPtrOutput() PipeS3OutputFormatPtrOutput {
+	return o.ToPipeS3OutputFormatPtrOutputWithContext(context.Background())
+}
+
+func (o PipeS3OutputFormatOutput) ToPipeS3OutputFormatPtrOutputWithContext(ctx context.Context) PipeS3OutputFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeS3OutputFormat) *PipeS3OutputFormat {
+		return &v
+	}).(PipeS3OutputFormatPtrOutput)
+}
+
+func (o PipeS3OutputFormatOutput) ToOutput(ctx context.Context) pulumix.Output[PipeS3OutputFormat] {
+	return pulumix.Output[PipeS3OutputFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipeS3OutputFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PipeS3OutputFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipeS3OutputFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PipeS3OutputFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PipeS3OutputFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipeS3OutputFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PipeS3OutputFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (PipeS3OutputFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeS3OutputFormat)(nil)).Elem()
+}
+
+func (o PipeS3OutputFormatPtrOutput) ToPipeS3OutputFormatPtrOutput() PipeS3OutputFormatPtrOutput {
+	return o
+}
+
+func (o PipeS3OutputFormatPtrOutput) ToPipeS3OutputFormatPtrOutputWithContext(ctx context.Context) PipeS3OutputFormatPtrOutput {
+	return o
+}
+
+func (o PipeS3OutputFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeS3OutputFormat] {
+	return pulumix.Output[*PipeS3OutputFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipeS3OutputFormatPtrOutput) Elem() PipeS3OutputFormatOutput {
+	return o.ApplyT(func(v *PipeS3OutputFormat) PipeS3OutputFormat {
+		if v != nil {
+			return *v
+		}
+		var ret PipeS3OutputFormat
+		return ret
+	}).(PipeS3OutputFormatOutput)
+}
+
+func (o PipeS3OutputFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PipeS3OutputFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PipeS3OutputFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PipeS3OutputFormatInput is an input type that accepts PipeS3OutputFormatArgs and PipeS3OutputFormatOutput values.
+// You can construct a concrete instance of `PipeS3OutputFormatInput` via:
+//
+//	PipeS3OutputFormatArgs{...}
+type PipeS3OutputFormatInput interface {
+	pulumi.Input
+
+	ToPipeS3OutputFormatOutput() PipeS3OutputFormatOutput
+	ToPipeS3OutputFormatOutputWithContext(context.Context) PipeS3OutputFormatOutput
+}
+
+var pipeS3OutputFormatPtrType = reflect.TypeOf((**PipeS3OutputFormat)(nil)).Elem()
+
+type PipeS3OutputFormatPtrInput interface {
+	pulumi.Input
+
+	ToPipeS3OutputFormatPtrOutput() PipeS3OutputFormatPtrOutput
+	ToPipeS3OutputFormatPtrOutputWithContext(context.Context) PipeS3OutputFormatPtrOutput
+}
+
+type pipeS3OutputFormatPtr string
+
+func PipeS3OutputFormatPtr(v string) PipeS3OutputFormatPtrInput {
+	return (*pipeS3OutputFormatPtr)(&v)
+}
+
+func (*pipeS3OutputFormatPtr) ElementType() reflect.Type {
+	return pipeS3OutputFormatPtrType
+}
+
+func (in *pipeS3OutputFormatPtr) ToPipeS3OutputFormatPtrOutput() PipeS3OutputFormatPtrOutput {
+	return pulumi.ToOutput(in).(PipeS3OutputFormatPtrOutput)
+}
+
+func (in *pipeS3OutputFormatPtr) ToPipeS3OutputFormatPtrOutputWithContext(ctx context.Context) PipeS3OutputFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PipeS3OutputFormatPtrOutput)
+}
+
+func (in *pipeS3OutputFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*PipeS3OutputFormat] {
+	return pulumix.Output[*PipeS3OutputFormat]{
+		OutputState: in.ToPipeS3OutputFormatPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipeSelfManagedKafkaStartPosition string
 
 const (
@@ -2745,17 +3350,21 @@ func (in *pipeSelfManagedKafkaStartPositionPtr) ToOutput(ctx context.Context) pu
 type PipeStateEnum string
 
 const (
-	PipeStateEnumRunning      = PipeStateEnum("RUNNING")
-	PipeStateEnumStopped      = PipeStateEnum("STOPPED")
-	PipeStateEnumCreating     = PipeStateEnum("CREATING")
-	PipeStateEnumUpdating     = PipeStateEnum("UPDATING")
-	PipeStateEnumDeleting     = PipeStateEnum("DELETING")
-	PipeStateEnumStarting     = PipeStateEnum("STARTING")
-	PipeStateEnumStopping     = PipeStateEnum("STOPPING")
-	PipeStateEnumCreateFailed = PipeStateEnum("CREATE_FAILED")
-	PipeStateEnumUpdateFailed = PipeStateEnum("UPDATE_FAILED")
-	PipeStateEnumStartFailed  = PipeStateEnum("START_FAILED")
-	PipeStateEnumStopFailed   = PipeStateEnum("STOP_FAILED")
+	PipeStateEnumRunning              = PipeStateEnum("RUNNING")
+	PipeStateEnumStopped              = PipeStateEnum("STOPPED")
+	PipeStateEnumCreating             = PipeStateEnum("CREATING")
+	PipeStateEnumUpdating             = PipeStateEnum("UPDATING")
+	PipeStateEnumDeleting             = PipeStateEnum("DELETING")
+	PipeStateEnumStarting             = PipeStateEnum("STARTING")
+	PipeStateEnumStopping             = PipeStateEnum("STOPPING")
+	PipeStateEnumCreateFailed         = PipeStateEnum("CREATE_FAILED")
+	PipeStateEnumUpdateFailed         = PipeStateEnum("UPDATE_FAILED")
+	PipeStateEnumStartFailed          = PipeStateEnum("START_FAILED")
+	PipeStateEnumStopFailed           = PipeStateEnum("STOP_FAILED")
+	PipeStateEnumDeleteFailed         = PipeStateEnum("DELETE_FAILED")
+	PipeStateEnumCreateRollbackFailed = PipeStateEnum("CREATE_ROLLBACK_FAILED")
+	PipeStateEnumDeleteRollbackFailed = PipeStateEnum("DELETE_ROLLBACK_FAILED")
+	PipeStateEnumUpdateRollbackFailed = PipeStateEnum("UPDATE_ROLLBACK_FAILED")
 )
 
 type PipeStateEnumOutput struct{ *pulumi.OutputState }
@@ -3048,10 +3657,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeEcsEnvironmentFileTypePtrInput)(nil)).Elem(), PipeEcsEnvironmentFileType("s3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeEcsResourceRequirementTypeInput)(nil)).Elem(), PipeEcsResourceRequirementType("GPU"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeEcsResourceRequirementTypePtrInput)(nil)).Elem(), PipeEcsResourceRequirementType("GPU"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeIncludeExecutionDataOptionInput)(nil)).Elem(), PipeIncludeExecutionDataOption("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeIncludeExecutionDataOptionPtrInput)(nil)).Elem(), PipeIncludeExecutionDataOption("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeIncludeExecutionDataOptionArrayInput)(nil)).Elem(), PipeIncludeExecutionDataOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeKinesisStreamStartPositionInput)(nil)).Elem(), PipeKinesisStreamStartPosition("TRIM_HORIZON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeKinesisStreamStartPositionPtrInput)(nil)).Elem(), PipeKinesisStreamStartPosition("TRIM_HORIZON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeLaunchTypeInput)(nil)).Elem(), PipeLaunchType("EC2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeLaunchTypePtrInput)(nil)).Elem(), PipeLaunchType("EC2"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeLogLevelInput)(nil)).Elem(), PipeLogLevel("OFF"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeLogLevelPtrInput)(nil)).Elem(), PipeLogLevel("OFF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeMskStartPositionInput)(nil)).Elem(), PipeMskStartPosition("TRIM_HORIZON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeMskStartPositionPtrInput)(nil)).Elem(), PipeMskStartPosition("TRIM_HORIZON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeOnPartialBatchItemFailureStreamsInput)(nil)).Elem(), PipeOnPartialBatchItemFailureStreams("AUTOMATIC_BISECT"))
@@ -3064,6 +3678,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipePropagateTagsPtrInput)(nil)).Elem(), PipePropagateTags("TASK_DEFINITION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeRequestedPipeStateInput)(nil)).Elem(), PipeRequestedPipeState("RUNNING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeRequestedPipeStatePtrInput)(nil)).Elem(), PipeRequestedPipeState("RUNNING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeS3OutputFormatInput)(nil)).Elem(), PipeS3OutputFormat("json"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeS3OutputFormatPtrInput)(nil)).Elem(), PipeS3OutputFormat("json"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSelfManagedKafkaStartPositionInput)(nil)).Elem(), PipeSelfManagedKafkaStartPosition("TRIM_HORIZON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSelfManagedKafkaStartPositionPtrInput)(nil)).Elem(), PipeSelfManagedKafkaStartPosition("TRIM_HORIZON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeTargetInvocationTypeInput)(nil)).Elem(), PipeTargetInvocationType("REQUEST_RESPONSE"))
@@ -3080,10 +3696,15 @@ func init() {
 	pulumi.RegisterOutputType(PipeEcsEnvironmentFileTypePtrOutput{})
 	pulumi.RegisterOutputType(PipeEcsResourceRequirementTypeOutput{})
 	pulumi.RegisterOutputType(PipeEcsResourceRequirementTypePtrOutput{})
+	pulumi.RegisterOutputType(PipeIncludeExecutionDataOptionOutput{})
+	pulumi.RegisterOutputType(PipeIncludeExecutionDataOptionPtrOutput{})
+	pulumi.RegisterOutputType(PipeIncludeExecutionDataOptionArrayOutput{})
 	pulumi.RegisterOutputType(PipeKinesisStreamStartPositionOutput{})
 	pulumi.RegisterOutputType(PipeKinesisStreamStartPositionPtrOutput{})
 	pulumi.RegisterOutputType(PipeLaunchTypeOutput{})
 	pulumi.RegisterOutputType(PipeLaunchTypePtrOutput{})
+	pulumi.RegisterOutputType(PipeLogLevelOutput{})
+	pulumi.RegisterOutputType(PipeLogLevelPtrOutput{})
 	pulumi.RegisterOutputType(PipeMskStartPositionOutput{})
 	pulumi.RegisterOutputType(PipeMskStartPositionPtrOutput{})
 	pulumi.RegisterOutputType(PipeOnPartialBatchItemFailureStreamsOutput{})
@@ -3096,6 +3717,8 @@ func init() {
 	pulumi.RegisterOutputType(PipePropagateTagsPtrOutput{})
 	pulumi.RegisterOutputType(PipeRequestedPipeStateOutput{})
 	pulumi.RegisterOutputType(PipeRequestedPipeStatePtrOutput{})
+	pulumi.RegisterOutputType(PipeS3OutputFormatOutput{})
+	pulumi.RegisterOutputType(PipeS3OutputFormatPtrOutput{})
 	pulumi.RegisterOutputType(PipeSelfManagedKafkaStartPositionOutput{})
 	pulumi.RegisterOutputType(PipeSelfManagedKafkaStartPositionPtrOutput{})
 	pulumi.RegisterOutputType(PipeStateEnumOutput{})

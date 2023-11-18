@@ -13558,6 +13558,351 @@ func (o LaunchTemplateElasticInferenceAcceleratorArrayOutput) Index(i pulumi.Int
 	}).(LaunchTemplateElasticInferenceAcceleratorOutput)
 }
 
+// Allows customer to specify ENA-SRD options
+type LaunchTemplateEnaSrdSpecification struct {
+	// Enables TCP ENA-SRD
+	EnaSrdEnabled          *bool                                 `pulumi:"enaSrdEnabled"`
+	EnaSrdUdpSpecification *LaunchTemplateEnaSrdUdpSpecification `pulumi:"enaSrdUdpSpecification"`
+}
+
+// LaunchTemplateEnaSrdSpecificationInput is an input type that accepts LaunchTemplateEnaSrdSpecificationArgs and LaunchTemplateEnaSrdSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateEnaSrdSpecificationInput` via:
+//
+//	LaunchTemplateEnaSrdSpecificationArgs{...}
+type LaunchTemplateEnaSrdSpecificationInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateEnaSrdSpecificationOutput() LaunchTemplateEnaSrdSpecificationOutput
+	ToLaunchTemplateEnaSrdSpecificationOutputWithContext(context.Context) LaunchTemplateEnaSrdSpecificationOutput
+}
+
+// Allows customer to specify ENA-SRD options
+type LaunchTemplateEnaSrdSpecificationArgs struct {
+	// Enables TCP ENA-SRD
+	EnaSrdEnabled          pulumi.BoolPtrInput                          `pulumi:"enaSrdEnabled"`
+	EnaSrdUdpSpecification LaunchTemplateEnaSrdUdpSpecificationPtrInput `pulumi:"enaSrdUdpSpecification"`
+}
+
+func (LaunchTemplateEnaSrdSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateEnaSrdSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateEnaSrdSpecificationArgs) ToLaunchTemplateEnaSrdSpecificationOutput() LaunchTemplateEnaSrdSpecificationOutput {
+	return i.ToLaunchTemplateEnaSrdSpecificationOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateEnaSrdSpecificationArgs) ToLaunchTemplateEnaSrdSpecificationOutputWithContext(ctx context.Context) LaunchTemplateEnaSrdSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEnaSrdSpecificationOutput)
+}
+
+func (i LaunchTemplateEnaSrdSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchTemplateEnaSrdSpecification] {
+	return pulumix.Output[LaunchTemplateEnaSrdSpecification]{
+		OutputState: i.ToLaunchTemplateEnaSrdSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i LaunchTemplateEnaSrdSpecificationArgs) ToLaunchTemplateEnaSrdSpecificationPtrOutput() LaunchTemplateEnaSrdSpecificationPtrOutput {
+	return i.ToLaunchTemplateEnaSrdSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateEnaSrdSpecificationArgs) ToLaunchTemplateEnaSrdSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateEnaSrdSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEnaSrdSpecificationOutput).ToLaunchTemplateEnaSrdSpecificationPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateEnaSrdSpecificationPtrInput is an input type that accepts LaunchTemplateEnaSrdSpecificationArgs, LaunchTemplateEnaSrdSpecificationPtr and LaunchTemplateEnaSrdSpecificationPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateEnaSrdSpecificationPtrInput` via:
+//
+//	        LaunchTemplateEnaSrdSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LaunchTemplateEnaSrdSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateEnaSrdSpecificationPtrOutput() LaunchTemplateEnaSrdSpecificationPtrOutput
+	ToLaunchTemplateEnaSrdSpecificationPtrOutputWithContext(context.Context) LaunchTemplateEnaSrdSpecificationPtrOutput
+}
+
+type launchTemplateEnaSrdSpecificationPtrType LaunchTemplateEnaSrdSpecificationArgs
+
+func LaunchTemplateEnaSrdSpecificationPtr(v *LaunchTemplateEnaSrdSpecificationArgs) LaunchTemplateEnaSrdSpecificationPtrInput {
+	return (*launchTemplateEnaSrdSpecificationPtrType)(v)
+}
+
+func (*launchTemplateEnaSrdSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateEnaSrdSpecification)(nil)).Elem()
+}
+
+func (i *launchTemplateEnaSrdSpecificationPtrType) ToLaunchTemplateEnaSrdSpecificationPtrOutput() LaunchTemplateEnaSrdSpecificationPtrOutput {
+	return i.ToLaunchTemplateEnaSrdSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateEnaSrdSpecificationPtrType) ToLaunchTemplateEnaSrdSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateEnaSrdSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEnaSrdSpecificationPtrOutput)
+}
+
+func (i *launchTemplateEnaSrdSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LaunchTemplateEnaSrdSpecification] {
+	return pulumix.Output[*LaunchTemplateEnaSrdSpecification]{
+		OutputState: i.ToLaunchTemplateEnaSrdSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Allows customer to specify ENA-SRD options
+type LaunchTemplateEnaSrdSpecificationOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateEnaSrdSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateEnaSrdSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateEnaSrdSpecificationOutput) ToLaunchTemplateEnaSrdSpecificationOutput() LaunchTemplateEnaSrdSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateEnaSrdSpecificationOutput) ToLaunchTemplateEnaSrdSpecificationOutputWithContext(ctx context.Context) LaunchTemplateEnaSrdSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateEnaSrdSpecificationOutput) ToLaunchTemplateEnaSrdSpecificationPtrOutput() LaunchTemplateEnaSrdSpecificationPtrOutput {
+	return o.ToLaunchTemplateEnaSrdSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateEnaSrdSpecificationOutput) ToLaunchTemplateEnaSrdSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateEnaSrdSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateEnaSrdSpecification) *LaunchTemplateEnaSrdSpecification {
+		return &v
+	}).(LaunchTemplateEnaSrdSpecificationPtrOutput)
+}
+
+func (o LaunchTemplateEnaSrdSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchTemplateEnaSrdSpecification] {
+	return pulumix.Output[LaunchTemplateEnaSrdSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Enables TCP ENA-SRD
+func (o LaunchTemplateEnaSrdSpecificationOutput) EnaSrdEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEnaSrdSpecification) *bool { return v.EnaSrdEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplateEnaSrdSpecificationOutput) EnaSrdUdpSpecification() LaunchTemplateEnaSrdUdpSpecificationPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEnaSrdSpecification) *LaunchTemplateEnaSrdUdpSpecification {
+		return v.EnaSrdUdpSpecification
+	}).(LaunchTemplateEnaSrdUdpSpecificationPtrOutput)
+}
+
+type LaunchTemplateEnaSrdSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateEnaSrdSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateEnaSrdSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateEnaSrdSpecificationPtrOutput) ToLaunchTemplateEnaSrdSpecificationPtrOutput() LaunchTemplateEnaSrdSpecificationPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateEnaSrdSpecificationPtrOutput) ToLaunchTemplateEnaSrdSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateEnaSrdSpecificationPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateEnaSrdSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchTemplateEnaSrdSpecification] {
+	return pulumix.Output[*LaunchTemplateEnaSrdSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LaunchTemplateEnaSrdSpecificationPtrOutput) Elem() LaunchTemplateEnaSrdSpecificationOutput {
+	return o.ApplyT(func(v *LaunchTemplateEnaSrdSpecification) LaunchTemplateEnaSrdSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateEnaSrdSpecification
+		return ret
+	}).(LaunchTemplateEnaSrdSpecificationOutput)
+}
+
+// Enables TCP ENA-SRD
+func (o LaunchTemplateEnaSrdSpecificationPtrOutput) EnaSrdEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEnaSrdSpecification) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnaSrdEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplateEnaSrdSpecificationPtrOutput) EnaSrdUdpSpecification() LaunchTemplateEnaSrdUdpSpecificationPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEnaSrdSpecification) *LaunchTemplateEnaSrdUdpSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.EnaSrdUdpSpecification
+	}).(LaunchTemplateEnaSrdUdpSpecificationPtrOutput)
+}
+
+// Allows customer to specify ENA-SRD (UDP) options
+type LaunchTemplateEnaSrdUdpSpecification struct {
+	// Enables UDP ENA-SRD
+	EnaSrdUdpEnabled *bool `pulumi:"enaSrdUdpEnabled"`
+}
+
+// LaunchTemplateEnaSrdUdpSpecificationInput is an input type that accepts LaunchTemplateEnaSrdUdpSpecificationArgs and LaunchTemplateEnaSrdUdpSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateEnaSrdUdpSpecificationInput` via:
+//
+//	LaunchTemplateEnaSrdUdpSpecificationArgs{...}
+type LaunchTemplateEnaSrdUdpSpecificationInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateEnaSrdUdpSpecificationOutput() LaunchTemplateEnaSrdUdpSpecificationOutput
+	ToLaunchTemplateEnaSrdUdpSpecificationOutputWithContext(context.Context) LaunchTemplateEnaSrdUdpSpecificationOutput
+}
+
+// Allows customer to specify ENA-SRD (UDP) options
+type LaunchTemplateEnaSrdUdpSpecificationArgs struct {
+	// Enables UDP ENA-SRD
+	EnaSrdUdpEnabled pulumi.BoolPtrInput `pulumi:"enaSrdUdpEnabled"`
+}
+
+func (LaunchTemplateEnaSrdUdpSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateEnaSrdUdpSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateEnaSrdUdpSpecificationArgs) ToLaunchTemplateEnaSrdUdpSpecificationOutput() LaunchTemplateEnaSrdUdpSpecificationOutput {
+	return i.ToLaunchTemplateEnaSrdUdpSpecificationOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateEnaSrdUdpSpecificationArgs) ToLaunchTemplateEnaSrdUdpSpecificationOutputWithContext(ctx context.Context) LaunchTemplateEnaSrdUdpSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEnaSrdUdpSpecificationOutput)
+}
+
+func (i LaunchTemplateEnaSrdUdpSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchTemplateEnaSrdUdpSpecification] {
+	return pulumix.Output[LaunchTemplateEnaSrdUdpSpecification]{
+		OutputState: i.ToLaunchTemplateEnaSrdUdpSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i LaunchTemplateEnaSrdUdpSpecificationArgs) ToLaunchTemplateEnaSrdUdpSpecificationPtrOutput() LaunchTemplateEnaSrdUdpSpecificationPtrOutput {
+	return i.ToLaunchTemplateEnaSrdUdpSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateEnaSrdUdpSpecificationArgs) ToLaunchTemplateEnaSrdUdpSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateEnaSrdUdpSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEnaSrdUdpSpecificationOutput).ToLaunchTemplateEnaSrdUdpSpecificationPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateEnaSrdUdpSpecificationPtrInput is an input type that accepts LaunchTemplateEnaSrdUdpSpecificationArgs, LaunchTemplateEnaSrdUdpSpecificationPtr and LaunchTemplateEnaSrdUdpSpecificationPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateEnaSrdUdpSpecificationPtrInput` via:
+//
+//	        LaunchTemplateEnaSrdUdpSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LaunchTemplateEnaSrdUdpSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateEnaSrdUdpSpecificationPtrOutput() LaunchTemplateEnaSrdUdpSpecificationPtrOutput
+	ToLaunchTemplateEnaSrdUdpSpecificationPtrOutputWithContext(context.Context) LaunchTemplateEnaSrdUdpSpecificationPtrOutput
+}
+
+type launchTemplateEnaSrdUdpSpecificationPtrType LaunchTemplateEnaSrdUdpSpecificationArgs
+
+func LaunchTemplateEnaSrdUdpSpecificationPtr(v *LaunchTemplateEnaSrdUdpSpecificationArgs) LaunchTemplateEnaSrdUdpSpecificationPtrInput {
+	return (*launchTemplateEnaSrdUdpSpecificationPtrType)(v)
+}
+
+func (*launchTemplateEnaSrdUdpSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateEnaSrdUdpSpecification)(nil)).Elem()
+}
+
+func (i *launchTemplateEnaSrdUdpSpecificationPtrType) ToLaunchTemplateEnaSrdUdpSpecificationPtrOutput() LaunchTemplateEnaSrdUdpSpecificationPtrOutput {
+	return i.ToLaunchTemplateEnaSrdUdpSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateEnaSrdUdpSpecificationPtrType) ToLaunchTemplateEnaSrdUdpSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateEnaSrdUdpSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateEnaSrdUdpSpecificationPtrOutput)
+}
+
+func (i *launchTemplateEnaSrdUdpSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LaunchTemplateEnaSrdUdpSpecification] {
+	return pulumix.Output[*LaunchTemplateEnaSrdUdpSpecification]{
+		OutputState: i.ToLaunchTemplateEnaSrdUdpSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Allows customer to specify ENA-SRD (UDP) options
+type LaunchTemplateEnaSrdUdpSpecificationOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateEnaSrdUdpSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateEnaSrdUdpSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateEnaSrdUdpSpecificationOutput) ToLaunchTemplateEnaSrdUdpSpecificationOutput() LaunchTemplateEnaSrdUdpSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateEnaSrdUdpSpecificationOutput) ToLaunchTemplateEnaSrdUdpSpecificationOutputWithContext(ctx context.Context) LaunchTemplateEnaSrdUdpSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateEnaSrdUdpSpecificationOutput) ToLaunchTemplateEnaSrdUdpSpecificationPtrOutput() LaunchTemplateEnaSrdUdpSpecificationPtrOutput {
+	return o.ToLaunchTemplateEnaSrdUdpSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateEnaSrdUdpSpecificationOutput) ToLaunchTemplateEnaSrdUdpSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateEnaSrdUdpSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateEnaSrdUdpSpecification) *LaunchTemplateEnaSrdUdpSpecification {
+		return &v
+	}).(LaunchTemplateEnaSrdUdpSpecificationPtrOutput)
+}
+
+func (o LaunchTemplateEnaSrdUdpSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchTemplateEnaSrdUdpSpecification] {
+	return pulumix.Output[LaunchTemplateEnaSrdUdpSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Enables UDP ENA-SRD
+func (o LaunchTemplateEnaSrdUdpSpecificationOutput) EnaSrdUdpEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateEnaSrdUdpSpecification) *bool { return v.EnaSrdUdpEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type LaunchTemplateEnaSrdUdpSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateEnaSrdUdpSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateEnaSrdUdpSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateEnaSrdUdpSpecificationPtrOutput) ToLaunchTemplateEnaSrdUdpSpecificationPtrOutput() LaunchTemplateEnaSrdUdpSpecificationPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateEnaSrdUdpSpecificationPtrOutput) ToLaunchTemplateEnaSrdUdpSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateEnaSrdUdpSpecificationPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateEnaSrdUdpSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchTemplateEnaSrdUdpSpecification] {
+	return pulumix.Output[*LaunchTemplateEnaSrdUdpSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LaunchTemplateEnaSrdUdpSpecificationPtrOutput) Elem() LaunchTemplateEnaSrdUdpSpecificationOutput {
+	return o.ApplyT(func(v *LaunchTemplateEnaSrdUdpSpecification) LaunchTemplateEnaSrdUdpSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateEnaSrdUdpSpecification
+		return ret
+	}).(LaunchTemplateEnaSrdUdpSpecificationOutput)
+}
+
+// Enables UDP ENA-SRD
+func (o LaunchTemplateEnaSrdUdpSpecificationPtrOutput) EnaSrdUdpEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateEnaSrdUdpSpecification) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnaSrdUdpEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Indicates whether the instance is enabled for AWS Nitro Enclaves.
 type LaunchTemplateEnclaveOptions struct {
 	// If this parameter is set to true, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.
@@ -16418,7 +16763,8 @@ type LaunchTemplateNetworkInterface struct {
 	// A description for the network interface.
 	Description *string `pulumi:"description"`
 	// The device index for the network interface attachment.
-	DeviceIndex *int `pulumi:"deviceIndex"`
+	DeviceIndex         *int                               `pulumi:"deviceIndex"`
+	EnaSrdSpecification *LaunchTemplateEnaSrdSpecification `pulumi:"enaSrdSpecification"`
 	// The IDs of one or more security groups.
 	Groups []string `pulumi:"groups"`
 	// The type of network interface.
@@ -16473,7 +16819,8 @@ type LaunchTemplateNetworkInterfaceArgs struct {
 	// A description for the network interface.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The device index for the network interface attachment.
-	DeviceIndex pulumi.IntPtrInput `pulumi:"deviceIndex"`
+	DeviceIndex         pulumi.IntPtrInput                        `pulumi:"deviceIndex"`
+	EnaSrdSpecification LaunchTemplateEnaSrdSpecificationPtrInput `pulumi:"enaSrdSpecification"`
 	// The IDs of one or more security groups.
 	Groups pulumi.StringArrayInput `pulumi:"groups"`
 	// The type of network interface.
@@ -16599,6 +16946,12 @@ func (o LaunchTemplateNetworkInterfaceOutput) Description() pulumi.StringPtrOutp
 // The device index for the network interface attachment.
 func (o LaunchTemplateNetworkInterfaceOutput) DeviceIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.DeviceIndex }).(pulumi.IntPtrOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) EnaSrdSpecification() LaunchTemplateEnaSrdSpecificationPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *LaunchTemplateEnaSrdSpecification {
+		return v.EnaSrdSpecification
+	}).(LaunchTemplateEnaSrdSpecificationPtrOutput)
 }
 
 // The IDs of one or more security groups.
@@ -36482,6 +36835,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateElasticGpuSpecificationArrayInput)(nil)).Elem(), LaunchTemplateElasticGpuSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateElasticInferenceAcceleratorInput)(nil)).Elem(), LaunchTemplateElasticInferenceAcceleratorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateElasticInferenceAcceleratorArrayInput)(nil)).Elem(), LaunchTemplateElasticInferenceAcceleratorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateEnaSrdSpecificationInput)(nil)).Elem(), LaunchTemplateEnaSrdSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateEnaSrdSpecificationPtrInput)(nil)).Elem(), LaunchTemplateEnaSrdSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateEnaSrdUdpSpecificationInput)(nil)).Elem(), LaunchTemplateEnaSrdUdpSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateEnaSrdUdpSpecificationPtrInput)(nil)).Elem(), LaunchTemplateEnaSrdUdpSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateEnclaveOptionsInput)(nil)).Elem(), LaunchTemplateEnclaveOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateEnclaveOptionsPtrInput)(nil)).Elem(), LaunchTemplateEnclaveOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateHibernationOptionsInput)(nil)).Elem(), LaunchTemplateHibernationOptionsArgs{})
@@ -36899,6 +37256,10 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateElasticGpuSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateElasticInferenceAcceleratorOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateElasticInferenceAcceleratorArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateEnaSrdSpecificationOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateEnaSrdSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateEnaSrdUdpSpecificationOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateEnaSrdUdpSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateEnclaveOptionsOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateEnclaveOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateHibernationOptionsOutput{})

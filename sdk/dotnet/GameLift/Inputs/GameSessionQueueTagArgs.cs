@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GameLift.Inputs
 {
 
+    /// <summary>
+    /// A key-value pair to associate with a resource.
+    /// </summary>
     public sealed class GameSessionQueueTagArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPipeResult:
-    def __init__(__self__, arn=None, creation_time=None, current_state=None, description=None, desired_state=None, enrichment=None, enrichment_parameters=None, last_modified_time=None, role_arn=None, state_reason=None, tags=None, target=None):
+    def __init__(__self__, arn=None, creation_time=None, current_state=None, description=None, desired_state=None, enrichment=None, enrichment_parameters=None, last_modified_time=None, log_configuration=None, role_arn=None, state_reason=None, tags=None, target=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -45,6 +45,9 @@ class GetPipeResult:
         if last_modified_time and not isinstance(last_modified_time, str):
             raise TypeError("Expected argument 'last_modified_time' to be a str")
         pulumi.set(__self__, "last_modified_time", last_modified_time)
+        if log_configuration and not isinstance(log_configuration, dict):
+            raise TypeError("Expected argument 'log_configuration' to be a dict")
+        pulumi.set(__self__, "log_configuration", log_configuration)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -99,6 +102,11 @@ class GetPipeResult:
         return pulumi.get(self, "last_modified_time")
 
     @property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> Optional['outputs.PipeLogConfiguration']:
+        return pulumi.get(self, "log_configuration")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
         return pulumi.get(self, "role_arn")
@@ -133,6 +141,7 @@ class AwaitableGetPipeResult(GetPipeResult):
             enrichment=self.enrichment,
             enrichment_parameters=self.enrichment_parameters,
             last_modified_time=self.last_modified_time,
+            log_configuration=self.log_configuration,
             role_arn=self.role_arn,
             state_reason=self.state_reason,
             tags=self.tags,
@@ -158,6 +167,7 @@ def get_pipe(name: Optional[str] = None,
         enrichment=pulumi.get(__ret__, 'enrichment'),
         enrichment_parameters=pulumi.get(__ret__, 'enrichment_parameters'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        log_configuration=pulumi.get(__ret__, 'log_configuration'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         state_reason=pulumi.get(__ret__, 'state_reason'),
         tags=pulumi.get(__ret__, 'tags'),

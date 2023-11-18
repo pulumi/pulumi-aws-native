@@ -51,14 +51,14 @@ namespace Pulumi.AwsNative.ResourceExplorer2
     [OutputType]
     public sealed class GetViewResult
     {
-        public readonly Outputs.ViewFilters? Filters;
+        public readonly Outputs.ViewSearchFilter? Filters;
         public readonly ImmutableArray<Outputs.ViewIncludedProperty> IncludedProperties;
         public readonly Outputs.ViewTagMap? Tags;
         public readonly string? ViewArn;
 
         [OutputConstructor]
         private GetViewResult(
-            Outputs.ViewFilters? filters,
+            Outputs.ViewSearchFilter? filters,
 
             ImmutableArray<Outputs.ViewIncludedProperty> includedProperties,
 

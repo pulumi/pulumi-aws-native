@@ -13,6 +13,17 @@ export const AddonResolveConflicts = {
  */
 export type AddonResolveConflicts = (typeof AddonResolveConflicts)[keyof typeof AddonResolveConflicts];
 
+export const ClusterAccessConfigAuthenticationMode = {
+    ConfigMap: "CONFIG_MAP",
+    ApiAndConfigMap: "API_AND_CONFIG_MAP",
+    Api: "API",
+} as const;
+
+/**
+ * Specify the authentication mode that should be used to create your cluster.
+ */
+export type ClusterAccessConfigAuthenticationMode = (typeof ClusterAccessConfigAuthenticationMode)[keyof typeof ClusterAccessConfigAuthenticationMode];
+
 export const ClusterKubernetesNetworkConfigIpFamily = {
     Ipv4: "ipv4",
     Ipv6: "ipv6",

@@ -78,6 +78,10 @@ export interface GetWorkspaceResult {
     readonly organizationalUnits?: string[];
     readonly permissionType?: enums.grafana.WorkspacePermissionType;
     /**
+     * Allow workspace admins to install plugins
+     */
+    readonly pluginAdminEnabled?: boolean;
+    /**
      * IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
      */
     readonly roleArn?: string;

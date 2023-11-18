@@ -10,24 +10,50 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GameLift
 {
     /// <summary>
-    /// Resource Type definition for AWS::GameLift::Script
+    /// The AWS::GameLift::Script resource creates a new script record for your Realtime Servers script. Realtime scripts are JavaScript that provide configuration settings and optional custom game logic for your game. The script is deployed when you create a Realtime Servers fleet to host your game sessions. Script logic is executed during an active game session.
     /// </summary>
-    [Obsolete(@"Script is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:gamelift:Script")]
     public partial class Script : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift script resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift script ARN, the resource ID matches the Id value.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// A descriptive label that is associated with a script. Script names do not need to be unique.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The file size of the uploaded Realtime script, expressed in bytes. When files are uploaded from an S3 location, this value remains at "0".
+        /// </summary>
+        [Output("sizeOnDisk")]
+        public Output<int> SizeOnDisk { get; private set; } = null!;
+
+        /// <summary>
+        /// The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the ObjectVersion parameter to specify an earlier version.
+        /// </summary>
         [Output("storageLocation")]
         public Output<Outputs.ScriptS3Location> StorageLocation { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.ScriptTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The version that is associated with a script. Version strings do not need to be unique.
+        /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
 
@@ -76,20 +102,33 @@ namespace Pulumi.AwsNative.GameLift
 
     public sealed class ScriptArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A descriptive label that is associated with a script. Script names do not need to be unique.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the ObjectVersion parameter to specify an earlier version.
+        /// </summary>
         [Input("storageLocation", required: true)]
         public Input<Inputs.ScriptS3LocationArgs> StorageLocation { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.ScriptTagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public InputList<Inputs.ScriptTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.ScriptTagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The version that is associated with a script. Version strings do not need to be unique.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

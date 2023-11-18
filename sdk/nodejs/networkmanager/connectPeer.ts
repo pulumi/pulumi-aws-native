@@ -82,6 +82,10 @@ export class ConnectPeer extends pulumi.CustomResource {
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
+     * The subnet ARN for the connect peer.
+     */
+    public readonly subnetArn!: pulumi.Output<string | undefined>;
+    /**
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.networkmanager.ConnectPeerTag[] | undefined>;
@@ -108,6 +112,7 @@ export class ConnectPeer extends pulumi.CustomResource {
             resourceInputs["coreNetworkAddress"] = args ? args.coreNetworkAddress : undefined;
             resourceInputs["insideCidrBlocks"] = args ? args.insideCidrBlocks : undefined;
             resourceInputs["peerAddress"] = args ? args.peerAddress : undefined;
+            resourceInputs["subnetArn"] = args ? args.subnetArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["configuration"] = undefined /*out*/;
             resourceInputs["connectPeerId"] = undefined /*out*/;
@@ -127,10 +132,11 @@ export class ConnectPeer extends pulumi.CustomResource {
             resourceInputs["insideCidrBlocks"] = undefined /*out*/;
             resourceInputs["peerAddress"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["subnetArn"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["bgpOptions", "connectAttachmentId", "coreNetworkAddress", "insideCidrBlocks[*]", "peerAddress"] };
+        const replaceOnChanges = { replaceOnChanges: ["bgpOptions", "connectAttachmentId", "coreNetworkAddress", "insideCidrBlocks[*]", "peerAddress", "subnetArn"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ConnectPeer.__pulumiType, name, resourceInputs, opts);
     }
@@ -160,6 +166,10 @@ export interface ConnectPeerArgs {
      * The IP address of the Connect peer.
      */
     peerAddress: pulumi.Input<string>;
+    /**
+     * The subnet ARN for the connect peer.
+     */
+    subnetArn?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

@@ -16,6 +16,11 @@ __all__ = [
     'ImagePipelineStatus',
     'ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType',
     'InfrastructureConfigurationInstanceMetadataOptionsHttpTokens',
+    'LifecyclePolicyActionType',
+    'LifecyclePolicyFilterType',
+    'LifecyclePolicyResourceType',
+    'LifecyclePolicyStatus',
+    'LifecyclePolicyTimeUnit',
 ]
 
 
@@ -112,3 +117,46 @@ class InfrastructureConfigurationInstanceMetadataOptionsHttpTokens(str, Enum):
     """
     REQUIRED = "required"
     OPTIONAL = "optional"
+
+
+class LifecyclePolicyActionType(str, Enum):
+    """
+    The action type of the policy detail.
+    """
+    DELETE = "DELETE"
+    DEPRECATE = "DEPRECATE"
+    DISABLE = "DISABLE"
+
+
+class LifecyclePolicyFilterType(str, Enum):
+    """
+    The filter type.
+    """
+    AGE = "AGE"
+    COUNT = "COUNT"
+
+
+class LifecyclePolicyResourceType(str, Enum):
+    """
+    The resource type of the lifecycle policy.
+    """
+    AMI_IMAGE = "AMI_IMAGE"
+    CONTAINER_IMAGE = "CONTAINER_IMAGE"
+
+
+class LifecyclePolicyStatus(str, Enum):
+    """
+    The status of the lifecycle policy.
+    """
+    DISABLED = "DISABLED"
+    ENABLED = "ENABLED"
+
+
+class LifecyclePolicyTimeUnit(str, Enum):
+    """
+    A time unit.
+    """
+    DAYS = "DAYS"
+    WEEKS = "WEEKS"
+    MONTHS = "MONTHS"
+    YEARS = "YEARS"

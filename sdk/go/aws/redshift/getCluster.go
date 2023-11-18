@@ -92,6 +92,8 @@ type LookupClusterResult struct {
 	//
 	// The value must be either -1 or an integer between 1 and 3,653.
 	ManualSnapshotRetentionPeriod *int `pulumi:"manualSnapshotRetentionPeriod"`
+	// A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
+	MultiAz *bool `pulumi:"multiAz"`
 	// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
 	NodeType *string `pulumi:"nodeType"`
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
@@ -102,7 +104,7 @@ type LookupClusterResult struct {
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// If true, the cluster can be accessed from a public network.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
-	// The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster APIs
+	// The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster, failover-primary-compute APIs
 	ResourceAction *string `pulumi:"resourceAction"`
 	// The identifier of the database revision. You can retrieve this value from the response to the DescribeClusterDbRevisions request.
 	RevisionTarget *string `pulumi:"revisionTarget"`
@@ -313,6 +315,11 @@ func (o LookupClusterResultOutput) ManualSnapshotRetentionPeriod() pulumi.IntPtr
 	return o.ApplyT(func(v LookupClusterResult) *int { return v.ManualSnapshotRetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
+// A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
+func (o LookupClusterResultOutput) MultiAz() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *bool { return v.MultiAz }).(pulumi.BoolPtrOutput)
+}
+
 // The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
 func (o LookupClusterResultOutput) NodeType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.NodeType }).(pulumi.StringPtrOutput)
@@ -338,7 +345,7 @@ func (o LookupClusterResultOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *bool { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
 }
 
-// The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster APIs
+// The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster, failover-primary-compute APIs
 func (o LookupClusterResultOutput) ResourceAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.ResourceAction }).(pulumi.StringPtrOutput)
 }

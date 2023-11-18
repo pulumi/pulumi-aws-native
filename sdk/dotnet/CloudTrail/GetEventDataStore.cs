@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.CloudTrail
     public static class GetEventDataStore
     {
         /// <summary>
-        /// A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 90 to 2555 days (about three months to up to seven years).
+        /// A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 7 to 2557 or 3653 days (about seven or ten years) depending on the selected BillingMode.
         /// </summary>
         public static Task<GetEventDataStoreResult> InvokeAsync(GetEventDataStoreArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventDataStoreResult>("aws-native:cloudtrail:getEventDataStore", args ?? new GetEventDataStoreArgs(), options.WithDefaults());
 
         /// <summary>
-        /// A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 90 to 2555 days (about three months to up to seven years).
+        /// A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 7 to 2557 or 3653 days (about seven or ten years) depending on the selected BillingMode.
         /// </summary>
         public static Output<GetEventDataStoreResult> Invoke(GetEventDataStoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventDataStoreResult>("aws-native:cloudtrail:getEventDataStore", args ?? new GetEventDataStoreInvokeArgs(), options.WithDefaults());
@@ -62,6 +62,10 @@ namespace Pulumi.AwsNative.CloudTrail
         /// </summary>
         public readonly ImmutableArray<Outputs.EventDataStoreAdvancedEventSelector> AdvancedEventSelectors;
         /// <summary>
+        /// The mode that the event data store will use to charge for event storage.
+        /// </summary>
+        public readonly string? BillingMode;
+        /// <summary>
         /// The timestamp of the event data store's creation.
         /// </summary>
         public readonly string? CreatedTimestamp;
@@ -73,6 +77,14 @@ namespace Pulumi.AwsNative.CloudTrail
         /// Indicates whether the event data store is ingesting events.
         /// </summary>
         public readonly bool? IngestionEnabled;
+        /// <summary>
+        /// Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EventDataStoreInsightSelector> InsightSelectors;
+        /// <summary>
+        /// Specifies the ARN of the event data store that will collect Insights events. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store
+        /// </summary>
+        public readonly string? InsightsDestination;
         /// <summary>
         /// Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         /// </summary>
@@ -111,11 +123,17 @@ namespace Pulumi.AwsNative.CloudTrail
         private GetEventDataStoreResult(
             ImmutableArray<Outputs.EventDataStoreAdvancedEventSelector> advancedEventSelectors,
 
+            string? billingMode,
+
             string? createdTimestamp,
 
             string? eventDataStoreArn,
 
             bool? ingestionEnabled,
+
+            ImmutableArray<Outputs.EventDataStoreInsightSelector> insightSelectors,
+
+            string? insightsDestination,
 
             string? kmsKeyId,
 
@@ -136,9 +154,12 @@ namespace Pulumi.AwsNative.CloudTrail
             string? updatedTimestamp)
         {
             AdvancedEventSelectors = advancedEventSelectors;
+            BillingMode = billingMode;
             CreatedTimestamp = createdTimestamp;
             EventDataStoreArn = eventDataStoreArn;
             IngestionEnabled = ingestionEnabled;
+            InsightSelectors = insightSelectors;
+            InsightsDestination = insightsDestination;
             KmsKeyId = kmsKeyId;
             MultiRegionEnabled = multiRegionEnabled;
             Name = name;

@@ -36,6 +36,7 @@ __all__ = [
     'JobTemplateRateIncreaseCriteriaArgs',
     'JobTemplateRetryCriteriaArgs',
     'JobTemplateTagArgs',
+    'MetricsExportConfigPropertiesArgs',
     'MitigationActionActionParamsArgs',
     'MitigationActionAddThingsToThingGroupParamsArgs',
     'MitigationActionEnableIoTLoggingParamsArgs',
@@ -1125,6 +1126,44 @@ class JobTemplateTagArgs:
 
 
 @pulumi.input_type
+class MetricsExportConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 mqtt_topic: pulumi.Input[str],
+                 role_arn: pulumi.Input[str]):
+        """
+        A structure containing the mqtt topic for metrics export.
+        :param pulumi.Input[str] mqtt_topic: The topic for metrics export.
+        :param pulumi.Input[str] role_arn: The ARN of the role that grants permission to publish to mqtt topic.
+        """
+        pulumi.set(__self__, "mqtt_topic", mqtt_topic)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="mqttTopic")
+    def mqtt_topic(self) -> pulumi.Input[str]:
+        """
+        The topic for metrics export.
+        """
+        return pulumi.get(self, "mqtt_topic")
+
+    @mqtt_topic.setter
+    def mqtt_topic(self, value: pulumi.Input[str]):
+        pulumi.set(self, "mqtt_topic", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the role that grants permission to publish to mqtt topic.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+
+@pulumi.input_type
 class MitigationActionActionParamsArgs:
     def __init__(__self__, *,
                  add_things_to_thing_group_params: Optional[pulumi.Input['MitigationActionAddThingsToThingGroupParamsArgs']] = None,
@@ -1702,6 +1741,7 @@ class SecurityProfileBehaviorArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  criteria: Optional[pulumi.Input['SecurityProfileBehaviorCriteriaArgs']] = None,
+                 export_metric: Optional[pulumi.Input[bool]] = None,
                  metric: Optional[pulumi.Input[str]] = None,
                  metric_dimension: Optional[pulumi.Input['SecurityProfileMetricDimensionArgs']] = None,
                  suppress_alerts: Optional[pulumi.Input[bool]] = None):
@@ -1714,6 +1754,8 @@ class SecurityProfileBehaviorArgs:
         pulumi.set(__self__, "name", name)
         if criteria is not None:
             pulumi.set(__self__, "criteria", criteria)
+        if export_metric is not None:
+            pulumi.set(__self__, "export_metric", export_metric)
         if metric is not None:
             pulumi.set(__self__, "metric", metric)
         if metric_dimension is not None:
@@ -1741,6 +1783,15 @@ class SecurityProfileBehaviorArgs:
     @criteria.setter
     def criteria(self, value: Optional[pulumi.Input['SecurityProfileBehaviorCriteriaArgs']]):
         pulumi.set(self, "criteria", value)
+
+    @property
+    @pulumi.getter(name="exportMetric")
+    def export_metric(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "export_metric")
+
+    @export_metric.setter
+    def export_metric(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "export_metric", value)
 
     @property
     @pulumi.getter
@@ -1843,12 +1894,15 @@ class SecurityProfileMetricDimensionArgs:
 class SecurityProfileMetricToRetainArgs:
     def __init__(__self__, *,
                  metric: pulumi.Input[str],
+                 export_metric: Optional[pulumi.Input[bool]] = None,
                  metric_dimension: Optional[pulumi.Input['SecurityProfileMetricDimensionArgs']] = None):
         """
         The metric you want to retain. Dimensions are optional.
         :param pulumi.Input[str] metric: What is measured by the behavior.
         """
         pulumi.set(__self__, "metric", metric)
+        if export_metric is not None:
+            pulumi.set(__self__, "export_metric", export_metric)
         if metric_dimension is not None:
             pulumi.set(__self__, "metric_dimension", metric_dimension)
 
@@ -1863,6 +1917,15 @@ class SecurityProfileMetricToRetainArgs:
     @metric.setter
     def metric(self, value: pulumi.Input[str]):
         pulumi.set(self, "metric", value)
+
+    @property
+    @pulumi.getter(name="exportMetric")
+    def export_metric(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "export_metric")
+
+    @export_metric.setter
+    def export_metric(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "export_metric", value)
 
     @property
     @pulumi.getter(name="metricDimension")

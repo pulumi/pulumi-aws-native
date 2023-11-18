@@ -35,6 +35,8 @@ type LookupSecurityProfileResult struct {
 	AlertTargets interface{} `pulumi:"alertTargets"`
 	// Specifies the behaviors that, when violated by a device (thing), cause an alert.
 	Behaviors []SecurityProfileBehavior `pulumi:"behaviors"`
+	// A structure containing the mqtt topic for metrics export.
+	MetricsExportConfig *MetricsExportConfigProperties `pulumi:"metricsExportConfig"`
 	// The ARN (Amazon resource name) of the created security profile.
 	SecurityProfileArn *string `pulumi:"securityProfileArn"`
 	// A description of the security profile.
@@ -102,6 +104,11 @@ func (o LookupSecurityProfileResultOutput) AlertTargets() pulumi.AnyOutput {
 // Specifies the behaviors that, when violated by a device (thing), cause an alert.
 func (o LookupSecurityProfileResultOutput) Behaviors() SecurityProfileBehaviorArrayOutput {
 	return o.ApplyT(func(v LookupSecurityProfileResult) []SecurityProfileBehavior { return v.Behaviors }).(SecurityProfileBehaviorArrayOutput)
+}
+
+// A structure containing the mqtt topic for metrics export.
+func (o LookupSecurityProfileResultOutput) MetricsExportConfig() MetricsExportConfigPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupSecurityProfileResult) *MetricsExportConfigProperties { return v.MetricsExportConfig }).(MetricsExportConfigPropertiesPtrOutput)
 }
 
 // The ARN (Amazon resource name) of the created security profile.

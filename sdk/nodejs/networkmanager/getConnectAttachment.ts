@@ -39,7 +39,7 @@ export interface GetConnectAttachmentResult {
      */
     readonly attachmentType?: string;
     /**
-     * The ARN of a core network for the VPC attachment.
+     * The ARN of a core network.
      */
     readonly coreNetworkArn?: string;
     /**

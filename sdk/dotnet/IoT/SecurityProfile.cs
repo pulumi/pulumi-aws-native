@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.IoT
         public Output<ImmutableArray<Outputs.SecurityProfileBehavior>> Behaviors { get; private set; } = null!;
 
         /// <summary>
+        /// A structure containing the mqtt topic for metrics export.
+        /// </summary>
+        [Output("metricsExportConfig")]
+        public Output<Outputs.MetricsExportConfigProperties?> MetricsExportConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN (Amazon resource name) of the created security profile.
         /// </summary>
         [Output("securityProfileArn")]
@@ -141,6 +147,12 @@ namespace Pulumi.AwsNative.IoT
             get => _behaviors ?? (_behaviors = new InputList<Inputs.SecurityProfileBehaviorArgs>());
             set => _behaviors = value;
         }
+
+        /// <summary>
+        /// A structure containing the mqtt topic for metrics export.
+        /// </summary>
+        [Input("metricsExportConfig")]
+        public Input<Inputs.MetricsExportConfigPropertiesArgs>? MetricsExportConfig { get; set; }
 
         /// <summary>
         /// A description of the security profile.

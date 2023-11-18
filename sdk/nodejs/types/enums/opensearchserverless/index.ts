@@ -22,6 +22,15 @@ export const CollectionType = {
  */
 export type CollectionType = (typeof CollectionType)[keyof typeof CollectionType];
 
+export const LifecyclePolicyType = {
+    Retention: "retention",
+} as const;
+
+/**
+ * The type of lifecycle policy
+ */
+export type LifecyclePolicyType = (typeof LifecyclePolicyType)[keyof typeof LifecyclePolicyType];
+
 export const SecurityConfigType = {
     Saml: "saml",
 } as const;

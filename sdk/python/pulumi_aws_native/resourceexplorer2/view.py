@@ -16,8 +16,9 @@ __all__ = ['ViewArgs', 'View']
 @pulumi.input_type
 class ViewArgs:
     def __init__(__self__, *,
-                 filters: Optional[pulumi.Input['ViewFiltersArgs']] = None,
+                 filters: Optional[pulumi.Input['ViewSearchFilterArgs']] = None,
                  included_properties: Optional[pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input['ViewTagMapArgs']] = None,
                  view_name: Optional[pulumi.Input[str]] = None):
         """
@@ -27,6 +28,8 @@ class ViewArgs:
             pulumi.set(__self__, "filters", filters)
         if included_properties is not None:
             pulumi.set(__self__, "included_properties", included_properties)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if view_name is not None:
@@ -34,11 +37,11 @@ class ViewArgs:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input['ViewFiltersArgs']]:
+    def filters(self) -> Optional[pulumi.Input['ViewSearchFilterArgs']]:
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input['ViewFiltersArgs']]):
+    def filters(self, value: Optional[pulumi.Input['ViewSearchFilterArgs']]):
         pulumi.set(self, "filters", value)
 
     @property
@@ -49,6 +52,15 @@ class ViewArgs:
     @included_properties.setter
     def included_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]]]):
         pulumi.set(self, "included_properties", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
 
     @property
     @pulumi.getter
@@ -74,8 +86,9 @@ class View(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filters: Optional[pulumi.Input[pulumi.InputType['ViewFiltersArgs']]] = None,
+                 filters: Optional[pulumi.Input[pulumi.InputType['ViewSearchFilterArgs']]] = None,
                  included_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewIncludedPropertyArgs']]]]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['ViewTagMapArgs']]] = None,
                  view_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -109,8 +122,9 @@ class View(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filters: Optional[pulumi.Input[pulumi.InputType['ViewFiltersArgs']]] = None,
+                 filters: Optional[pulumi.Input[pulumi.InputType['ViewSearchFilterArgs']]] = None,
                  included_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ViewIncludedPropertyArgs']]]]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[pulumi.InputType['ViewTagMapArgs']]] = None,
                  view_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -124,10 +138,11 @@ class View(pulumi.CustomResource):
 
             __props__.__dict__["filters"] = filters
             __props__.__dict__["included_properties"] = included_properties
+            __props__.__dict__["scope"] = scope
             __props__.__dict__["tags"] = tags
             __props__.__dict__["view_name"] = view_name
             __props__.__dict__["view_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["view_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["scope", "view_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(View, __self__).__init__(
             'aws-native:resourceexplorer2:View',
@@ -153,6 +168,7 @@ class View(pulumi.CustomResource):
 
         __props__.__dict__["filters"] = None
         __props__.__dict__["included_properties"] = None
+        __props__.__dict__["scope"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["view_arn"] = None
         __props__.__dict__["view_name"] = None
@@ -160,13 +176,18 @@ class View(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def filters(self) -> pulumi.Output[Optional['outputs.ViewFilters']]:
+    def filters(self) -> pulumi.Output[Optional['outputs.ViewSearchFilter']]:
         return pulumi.get(self, "filters")
 
     @property
     @pulumi.getter(name="includedProperties")
     def included_properties(self) -> pulumi.Output[Optional[Sequence['outputs.ViewIncludedProperty']]]:
         return pulumi.get(self, "included_properties")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "scope")
 
     @property
     @pulumi.getter

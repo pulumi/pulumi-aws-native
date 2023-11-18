@@ -14,13 +14,13 @@ namespace Pulumi.AwsNative.GameLift.Outputs
     public sealed class GameSessionQueuePriorityConfiguration
     {
         public readonly ImmutableArray<string> LocationOrder;
-        public readonly ImmutableArray<string> PriorityOrder;
+        public readonly ImmutableArray<Pulumi.AwsNative.GameLift.GameSessionQueuePriorityOrderItem> PriorityOrder;
 
         [OutputConstructor]
         private GameSessionQueuePriorityConfiguration(
             ImmutableArray<string> locationOrder,
 
-            ImmutableArray<string> priorityOrder)
+            ImmutableArray<Pulumi.AwsNative.GameLift.GameSessionQueuePriorityOrderItem> priorityOrder)
         {
             LocationOrder = locationOrder;
             PriorityOrder = priorityOrder;

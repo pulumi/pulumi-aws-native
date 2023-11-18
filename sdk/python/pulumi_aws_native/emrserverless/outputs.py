@@ -14,11 +14,15 @@ from ._enums import *
 __all__ = [
     'ApplicationAutoStartConfiguration',
     'ApplicationAutoStopConfiguration',
+    'ApplicationConfigurationObject',
     'ApplicationImageConfigurationInput',
     'ApplicationInitialCapacityConfig',
     'ApplicationInitialCapacityConfigKeyValuePair',
+    'ApplicationManagedPersistenceMonitoringConfiguration',
     'ApplicationMaximumAllowedResources',
+    'ApplicationMonitoringConfiguration',
     'ApplicationNetworkConfiguration',
+    'ApplicationS3MonitoringConfiguration',
     'ApplicationTag',
     'ApplicationWorkerConfiguration',
     'ApplicationWorkerTypeSpecificationInputMap',
@@ -97,6 +101,44 @@ class ApplicationAutoStopConfiguration(dict):
         The amount of time [in minutes] to wait before auto stopping the Application when idle. Defaults to 15 minutes.
         """
         return pulumi.get(self, "idle_timeout_minutes")
+
+
+@pulumi.output_type
+class ApplicationConfigurationObject(dict):
+    """
+    Configuration for a JobRun.
+    """
+    def __init__(__self__, *,
+                 classification: str,
+                 configurations: Optional[Sequence['outputs.ApplicationConfigurationObject']] = None,
+                 properties: Optional[Any] = None):
+        """
+        Configuration for a JobRun.
+        :param str classification: String with a maximum length of 1024.
+        """
+        pulumi.set(__self__, "classification", classification)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def classification(self) -> str:
+        """
+        String with a maximum length of 1024.
+        """
+        return pulumi.get(self, "classification")
+
+    @property
+    @pulumi.getter
+    def configurations(self) -> Optional[Sequence['outputs.ApplicationConfigurationObject']]:
+        return pulumi.get(self, "configurations")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Any]:
+        return pulumi.get(self, "properties")
 
 
 @pulumi.output_type
@@ -209,6 +251,54 @@ class ApplicationInitialCapacityConfigKeyValuePair(dict):
 
 
 @pulumi.output_type
+class ApplicationManagedPersistenceMonitoringConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionKeyArn":
+            suggest = "encryption_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationManagedPersistenceMonitoringConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationManagedPersistenceMonitoringConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationManagedPersistenceMonitoringConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 encryption_key_arn: Optional[str] = None):
+        """
+        :param bool enabled: If set to false, managed logging will be turned off. Defaults to true.
+        :param str encryption_key_arn: KMS key ARN to encrypt the logs stored in managed persistence
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if encryption_key_arn is not None:
+            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        If set to false, managed logging will be turned off. Defaults to true.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> Optional[str]:
+        """
+        KMS key ARN to encrypt the logs stored in managed persistence
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+
+@pulumi.output_type
 class ApplicationMaximumAllowedResources(dict):
     def __init__(__self__, *,
                  cpu: str,
@@ -247,6 +337,60 @@ class ApplicationMaximumAllowedResources(dict):
         Per worker Disk resource. GB is the only supported unit and specifying GB is optional
         """
         return pulumi.get(self, "disk")
+
+
+@pulumi.output_type
+class ApplicationMonitoringConfiguration(dict):
+    """
+    Monitoring configuration for batch and interactive JobRun.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedPersistenceMonitoringConfiguration":
+            suggest = "managed_persistence_monitoring_configuration"
+        elif key == "s3MonitoringConfiguration":
+            suggest = "s3_monitoring_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationMonitoringConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationMonitoringConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationMonitoringConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_persistence_monitoring_configuration: Optional['outputs.ApplicationManagedPersistenceMonitoringConfiguration'] = None,
+                 s3_monitoring_configuration: Optional['outputs.ApplicationS3MonitoringConfiguration'] = None):
+        """
+        Monitoring configuration for batch and interactive JobRun.
+        :param 'ApplicationManagedPersistenceMonitoringConfiguration' managed_persistence_monitoring_configuration: Managed log persistence configurations for a JobRun.
+        :param 'ApplicationS3MonitoringConfiguration' s3_monitoring_configuration: S3 monitoring configurations for a JobRun.
+        """
+        if managed_persistence_monitoring_configuration is not None:
+            pulumi.set(__self__, "managed_persistence_monitoring_configuration", managed_persistence_monitoring_configuration)
+        if s3_monitoring_configuration is not None:
+            pulumi.set(__self__, "s3_monitoring_configuration", s3_monitoring_configuration)
+
+    @property
+    @pulumi.getter(name="managedPersistenceMonitoringConfiguration")
+    def managed_persistence_monitoring_configuration(self) -> Optional['outputs.ApplicationManagedPersistenceMonitoringConfiguration']:
+        """
+        Managed log persistence configurations for a JobRun.
+        """
+        return pulumi.get(self, "managed_persistence_monitoring_configuration")
+
+    @property
+    @pulumi.getter(name="s3MonitoringConfiguration")
+    def s3_monitoring_configuration(self) -> Optional['outputs.ApplicationS3MonitoringConfiguration']:
+        """
+        S3 monitoring configurations for a JobRun.
+        """
+        return pulumi.get(self, "s3_monitoring_configuration")
 
 
 @pulumi.output_type
@@ -297,6 +441,52 @@ class ApplicationNetworkConfiguration(dict):
         The ID of the subnets in the VPC to which you want to connect your job or application.
         """
         return pulumi.get(self, "subnet_ids")
+
+
+@pulumi.output_type
+class ApplicationS3MonitoringConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionKeyArn":
+            suggest = "encryption_key_arn"
+        elif key == "logUri":
+            suggest = "log_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationS3MonitoringConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationS3MonitoringConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationS3MonitoringConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_key_arn: Optional[str] = None,
+                 log_uri: Optional[str] = None):
+        """
+        :param str encryption_key_arn: KMS key ARN to encrypt the logs stored in given s3
+        """
+        if encryption_key_arn is not None:
+            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
+        if log_uri is not None:
+            pulumi.set(__self__, "log_uri", log_uri)
+
+    @property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> Optional[str]:
+        """
+        KMS key ARN to encrypt the logs stored in given s3
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+    @property
+    @pulumi.getter(name="logUri")
+    def log_uri(self) -> Optional[str]:
+        return pulumi.get(self, "log_uri")
 
 
 @pulumi.output_type

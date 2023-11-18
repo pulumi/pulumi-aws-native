@@ -37,6 +37,7 @@ __all__ = [
     'FunctionEphemeralStorage',
     'FunctionFileSystemConfig',
     'FunctionImageConfig',
+    'FunctionLoggingConfig',
     'FunctionRuntimeManagementConfig',
     'FunctionSnapStart',
     'FunctionSnapStartResponse',
@@ -965,6 +966,88 @@ class FunctionImageConfig(dict):
         WorkingDirectory.
         """
         return pulumi.get(self, "working_directory")
+
+
+@pulumi.output_type
+class FunctionLoggingConfig(dict):
+    """
+    The function's logging configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationLogLevel":
+            suggest = "application_log_level"
+        elif key == "logFormat":
+            suggest = "log_format"
+        elif key == "logGroup":
+            suggest = "log_group"
+        elif key == "systemLogLevel":
+            suggest = "system_log_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionLoggingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionLoggingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionLoggingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_log_level: Optional['FunctionLoggingConfigApplicationLogLevel'] = None,
+                 log_format: Optional['FunctionLoggingConfigLogFormat'] = None,
+                 log_group: Optional[str] = None,
+                 system_log_level: Optional['FunctionLoggingConfigSystemLogLevel'] = None):
+        """
+        The function's logging configuration.
+        :param 'FunctionLoggingConfigApplicationLogLevel' application_log_level: Application log granularity level, can only be used when LogFormat is set to JSON
+        :param 'FunctionLoggingConfigLogFormat' log_format: Log delivery format for the lambda function
+        :param str log_group: The log group name.
+        :param 'FunctionLoggingConfigSystemLogLevel' system_log_level: System log granularity level, can only be used when LogFormat is set to JSON
+        """
+        if application_log_level is not None:
+            pulumi.set(__self__, "application_log_level", application_log_level)
+        if log_format is not None:
+            pulumi.set(__self__, "log_format", log_format)
+        if log_group is not None:
+            pulumi.set(__self__, "log_group", log_group)
+        if system_log_level is not None:
+            pulumi.set(__self__, "system_log_level", system_log_level)
+
+    @property
+    @pulumi.getter(name="applicationLogLevel")
+    def application_log_level(self) -> Optional['FunctionLoggingConfigApplicationLogLevel']:
+        """
+        Application log granularity level, can only be used when LogFormat is set to JSON
+        """
+        return pulumi.get(self, "application_log_level")
+
+    @property
+    @pulumi.getter(name="logFormat")
+    def log_format(self) -> Optional['FunctionLoggingConfigLogFormat']:
+        """
+        Log delivery format for the lambda function
+        """
+        return pulumi.get(self, "log_format")
+
+    @property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> Optional[str]:
+        """
+        The log group name.
+        """
+        return pulumi.get(self, "log_group")
+
+    @property
+    @pulumi.getter(name="systemLogLevel")
+    def system_log_level(self) -> Optional['FunctionLoggingConfigSystemLogLevel']:
+        """
+        System log granularity level, can only be used when LogFormat is set to JSON
+        """
+        return pulumi.get(self, "system_log_level")
 
 
 @pulumi.output_type

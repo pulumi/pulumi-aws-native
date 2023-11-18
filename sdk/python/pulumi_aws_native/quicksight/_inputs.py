@@ -19,6 +19,7 @@ __all__ = [
     'AnalysisArcAxisDisplayRangeArgs',
     'AnalysisArcConfigurationArgs',
     'AnalysisArcOptionsArgs',
+    'AnalysisAssetOptionsArgs',
     'AnalysisAttributeAggregationFunctionArgs',
     'AnalysisAxisDataOptionsArgs',
     'AnalysisAxisDisplayDataDrivenRangeArgs',
@@ -491,6 +492,7 @@ __all__ = [
     'DashboardArcAxisDisplayRangeArgs',
     'DashboardArcConfigurationArgs',
     'DashboardArcOptionsArgs',
+    'DashboardAssetOptionsArgs',
     'DashboardAttributeAggregationFunctionArgs',
     'DashboardAxisDataOptionsArgs',
     'DashboardAxisDisplayDataDrivenRangeArgs',
@@ -739,6 +741,7 @@ __all__ = [
     'DashboardLineChartSortConfigurationArgs',
     'DashboardLineChartVisualArgs',
     'DashboardLineSeriesAxisDisplayOptionsArgs',
+    'DashboardLinkSharingConfigurationArgs',
     'DashboardListControlDisplayOptionsArgs',
     'DashboardListControlSearchOptionsArgs',
     'DashboardListControlSelectAllOptionsArgs',
@@ -1014,8 +1017,10 @@ __all__ = [
     'DataSourceSparkParametersArgs',
     'DataSourceSqlServerParametersArgs',
     'DataSourceSslPropertiesArgs',
+    'DataSourceStarburstParametersArgs',
     'DataSourceTagArgs',
     'DataSourceTeradataParametersArgs',
+    'DataSourceTrinoParametersArgs',
     'DataSourceVpcConnectionPropertiesArgs',
     'RefreshScheduleMapScheduleFrequencyPropertiesRefreshOnDayPropertiesArgs',
     'RefreshScheduleMapScheduleFrequencyPropertiesArgs',
@@ -1029,6 +1034,7 @@ __all__ = [
     'TemplateArcAxisDisplayRangeArgs',
     'TemplateArcConfigurationArgs',
     'TemplateArcOptionsArgs',
+    'TemplateAssetOptionsArgs',
     'TemplateAttributeAggregationFunctionArgs',
     'TemplateAxisDataOptionsArgs',
     'TemplateAxisDisplayDataDrivenRangeArgs',
@@ -1762,6 +1768,35 @@ class AnalysisArcOptionsArgs:
     @arc_thickness.setter
     def arc_thickness(self, value: Optional[pulumi.Input['AnalysisArcThickness']]):
         pulumi.set(self, "arc_thickness", value)
+
+
+@pulumi.input_type
+class AnalysisAssetOptionsArgs:
+    def __init__(__self__, *,
+                 timezone: Optional[pulumi.Input[str]] = None,
+                 week_start: Optional[pulumi.Input['AnalysisDayOfTheWeek']] = None):
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+        if week_start is not None:
+            pulumi.set(__self__, "week_start", week_start)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timezone", value)
+
+    @property
+    @pulumi.getter(name="weekStart")
+    def week_start(self) -> Optional[pulumi.Input['AnalysisDayOfTheWeek']]:
+        return pulumi.get(self, "week_start")
+
+    @week_start.setter
+    def week_start(self, value: Optional[pulumi.Input['AnalysisDayOfTheWeek']]):
+        pulumi.set(self, "week_start", value)
 
 
 @pulumi.input_type
@@ -6335,6 +6370,7 @@ class AnalysisDefinitionArgs:
                  calculated_fields: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisCalculatedFieldArgs']]]] = None,
                  column_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisColumnConfigurationArgs']]]] = None,
                  filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisFilterGroupArgs']]]] = None,
+                 options: Optional[pulumi.Input['AnalysisAssetOptionsArgs']] = None,
                  parameter_declarations: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisParameterDeclarationArgs']]]] = None,
                  sheets: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisSheetDefinitionArgs']]]] = None):
         pulumi.set(__self__, "data_set_identifier_declarations", data_set_identifier_declarations)
@@ -6346,6 +6382,8 @@ class AnalysisDefinitionArgs:
             pulumi.set(__self__, "column_configurations", column_configurations)
         if filter_groups is not None:
             pulumi.set(__self__, "filter_groups", filter_groups)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
         if parameter_declarations is not None:
             pulumi.set(__self__, "parameter_declarations", parameter_declarations)
         if sheets is not None:
@@ -6395,6 +6433,15 @@ class AnalysisDefinitionArgs:
     @filter_groups.setter
     def filter_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisFilterGroupArgs']]]]):
         pulumi.set(self, "filter_groups", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['AnalysisAssetOptionsArgs']]:
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['AnalysisAssetOptionsArgs']]):
+        pulumi.set(self, "options", value)
 
     @property
     @pulumi.getter(name="parameterDeclarations")
@@ -22494,6 +22541,35 @@ class DashboardArcOptionsArgs:
 
 
 @pulumi.input_type
+class DashboardAssetOptionsArgs:
+    def __init__(__self__, *,
+                 timezone: Optional[pulumi.Input[str]] = None,
+                 week_start: Optional[pulumi.Input['DashboardDayOfTheWeek']] = None):
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+        if week_start is not None:
+            pulumi.set(__self__, "week_start", week_start)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timezone", value)
+
+    @property
+    @pulumi.getter(name="weekStart")
+    def week_start(self) -> Optional[pulumi.Input['DashboardDayOfTheWeek']]:
+        return pulumi.get(self, "week_start")
+
+    @week_start.setter
+    def week_start(self, value: Optional[pulumi.Input['DashboardDayOfTheWeek']]):
+        pulumi.set(self, "week_start", value)
+
+
+@pulumi.input_type
 class DashboardAttributeAggregationFunctionArgs:
     def __init__(__self__, *,
                  simple_attribute_aggregation: Optional[pulumi.Input['DashboardSimpleAttributeAggregationFunction']] = None,
@@ -33169,6 +33245,23 @@ class DashboardLineSeriesAxisDisplayOptionsArgs:
 
 
 @pulumi.input_type
+class DashboardLinkSharingConfigurationArgs:
+    def __init__(__self__, *,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardResourcePermissionArgs']]]] = None):
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DashboardResourcePermissionArgs']]]]:
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardResourcePermissionArgs']]]]):
+        pulumi.set(self, "permissions", value)
+
+
+@pulumi.input_type
 class DashboardListControlDisplayOptionsArgs:
     def __init__(__self__, *,
                  info_icon_label_options: Optional[pulumi.Input['DashboardSheetControlInfoIconLabelOptionsArgs']] = None,
@@ -41985,6 +42078,7 @@ class DashboardVersionDefinitionArgs:
                  calculated_fields: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardCalculatedFieldArgs']]]] = None,
                  column_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardColumnConfigurationArgs']]]] = None,
                  filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardFilterGroupArgs']]]] = None,
+                 options: Optional[pulumi.Input['DashboardAssetOptionsArgs']] = None,
                  parameter_declarations: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardParameterDeclarationArgs']]]] = None,
                  sheets: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardSheetDefinitionArgs']]]] = None):
         pulumi.set(__self__, "data_set_identifier_declarations", data_set_identifier_declarations)
@@ -41996,6 +42090,8 @@ class DashboardVersionDefinitionArgs:
             pulumi.set(__self__, "column_configurations", column_configurations)
         if filter_groups is not None:
             pulumi.set(__self__, "filter_groups", filter_groups)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
         if parameter_declarations is not None:
             pulumi.set(__self__, "parameter_declarations", parameter_declarations)
         if sheets is not None:
@@ -42045,6 +42141,15 @@ class DashboardVersionDefinitionArgs:
     @filter_groups.setter
     def filter_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DashboardFilterGroupArgs']]]]):
         pulumi.set(self, "filter_groups", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['DashboardAssetOptionsArgs']]:
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['DashboardAssetOptionsArgs']]):
+        pulumi.set(self, "options", value)
 
     @property
     @pulumi.getter(name="parameterDeclarations")
@@ -44860,7 +44965,9 @@ class DataSourceParametersArgs:
                  snowflake_parameters: Optional[pulumi.Input['DataSourceSnowflakeParametersArgs']] = None,
                  spark_parameters: Optional[pulumi.Input['DataSourceSparkParametersArgs']] = None,
                  sql_server_parameters: Optional[pulumi.Input['DataSourceSqlServerParametersArgs']] = None,
-                 teradata_parameters: Optional[pulumi.Input['DataSourceTeradataParametersArgs']] = None):
+                 starburst_parameters: Optional[pulumi.Input['DataSourceStarburstParametersArgs']] = None,
+                 teradata_parameters: Optional[pulumi.Input['DataSourceTeradataParametersArgs']] = None,
+                 trino_parameters: Optional[pulumi.Input['DataSourceTrinoParametersArgs']] = None):
         """
         <p>The parameters that Amazon QuickSight uses to connect to your underlying data source.
                     This is a variant type structure. For this structure to be valid, only one of the
@@ -44900,8 +45007,12 @@ class DataSourceParametersArgs:
             pulumi.set(__self__, "spark_parameters", spark_parameters)
         if sql_server_parameters is not None:
             pulumi.set(__self__, "sql_server_parameters", sql_server_parameters)
+        if starburst_parameters is not None:
+            pulumi.set(__self__, "starburst_parameters", starburst_parameters)
         if teradata_parameters is not None:
             pulumi.set(__self__, "teradata_parameters", teradata_parameters)
+        if trino_parameters is not None:
+            pulumi.set(__self__, "trino_parameters", trino_parameters)
 
     @property
     @pulumi.getter(name="amazonElasticsearchParameters")
@@ -45057,6 +45168,15 @@ class DataSourceParametersArgs:
         pulumi.set(self, "sql_server_parameters", value)
 
     @property
+    @pulumi.getter(name="starburstParameters")
+    def starburst_parameters(self) -> Optional[pulumi.Input['DataSourceStarburstParametersArgs']]:
+        return pulumi.get(self, "starburst_parameters")
+
+    @starburst_parameters.setter
+    def starburst_parameters(self, value: Optional[pulumi.Input['DataSourceStarburstParametersArgs']]):
+        pulumi.set(self, "starburst_parameters", value)
+
+    @property
     @pulumi.getter(name="teradataParameters")
     def teradata_parameters(self) -> Optional[pulumi.Input['DataSourceTeradataParametersArgs']]:
         return pulumi.get(self, "teradata_parameters")
@@ -45064,6 +45184,15 @@ class DataSourceParametersArgs:
     @teradata_parameters.setter
     def teradata_parameters(self, value: Optional[pulumi.Input['DataSourceTeradataParametersArgs']]):
         pulumi.set(self, "teradata_parameters", value)
+
+    @property
+    @pulumi.getter(name="trinoParameters")
+    def trino_parameters(self) -> Optional[pulumi.Input['DataSourceTrinoParametersArgs']]:
+        return pulumi.get(self, "trino_parameters")
+
+    @trino_parameters.setter
+    def trino_parameters(self, value: Optional[pulumi.Input['DataSourceTrinoParametersArgs']]):
+        pulumi.set(self, "trino_parameters", value)
 
 
 @pulumi.input_type
@@ -45556,6 +45685,71 @@ class DataSourceSslPropertiesArgs:
 
 
 @pulumi.input_type
+class DataSourceStarburstParametersArgs:
+    def __init__(__self__, *,
+                 catalog: pulumi.Input[str],
+                 host: pulumi.Input[str],
+                 port: pulumi.Input[float],
+                 product_type: Optional[pulumi.Input['DataSourceStarburstProductType']] = None):
+        """
+        <p>Starburst parameters.</p>
+        :param pulumi.Input[str] catalog: <p>Catalog.</p>
+        :param pulumi.Input[str] host: <p>Host.</p>
+        :param pulumi.Input[float] port: <p>Port.</p>
+        """
+        pulumi.set(__self__, "catalog", catalog)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "port", port)
+        if product_type is not None:
+            pulumi.set(__self__, "product_type", product_type)
+
+    @property
+    @pulumi.getter
+    def catalog(self) -> pulumi.Input[str]:
+        """
+        <p>Catalog.</p>
+        """
+        return pulumi.get(self, "catalog")
+
+    @catalog.setter
+    def catalog(self, value: pulumi.Input[str]):
+        pulumi.set(self, "catalog", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> pulumi.Input[str]:
+        """
+        <p>Host.</p>
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[float]:
+        """
+        <p>Port.</p>
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[float]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="productType")
+    def product_type(self) -> Optional[pulumi.Input['DataSourceStarburstProductType']]:
+        return pulumi.get(self, "product_type")
+
+    @product_type.setter
+    def product_type(self, value: Optional[pulumi.Input['DataSourceStarburstProductType']]):
+        pulumi.set(self, "product_type", value)
+
+
+@pulumi.input_type
 class DataSourceTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -45621,6 +45815,59 @@ class DataSourceTeradataParametersArgs:
     @database.setter
     def database(self, value: pulumi.Input[str]):
         pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> pulumi.Input[str]:
+        """
+        <p>Host.</p>
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[float]:
+        """
+        <p>Port.</p>
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[float]):
+        pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class DataSourceTrinoParametersArgs:
+    def __init__(__self__, *,
+                 catalog: pulumi.Input[str],
+                 host: pulumi.Input[str],
+                 port: pulumi.Input[float]):
+        """
+        <p>Trino parameters.</p>
+        :param pulumi.Input[str] catalog: <p>Catalog.</p>
+        :param pulumi.Input[str] host: <p>Host.</p>
+        :param pulumi.Input[float] port: <p>Port.</p>
+        """
+        pulumi.set(__self__, "catalog", catalog)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def catalog(self) -> pulumi.Input[str]:
+        """
+        <p>Catalog.</p>
+        """
+        return pulumi.get(self, "catalog")
+
+    @catalog.setter
+    def catalog(self, value: pulumi.Input[str]):
+        pulumi.set(self, "catalog", value)
 
     @property
     @pulumi.getter
@@ -46086,6 +46333,35 @@ class TemplateArcOptionsArgs:
     @arc_thickness.setter
     def arc_thickness(self, value: Optional[pulumi.Input['TemplateArcThickness']]):
         pulumi.set(self, "arc_thickness", value)
+
+
+@pulumi.input_type
+class TemplateAssetOptionsArgs:
+    def __init__(__self__, *,
+                 timezone: Optional[pulumi.Input[str]] = None,
+                 week_start: Optional[pulumi.Input['TemplateDayOfTheWeek']] = None):
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+        if week_start is not None:
+            pulumi.set(__self__, "week_start", week_start)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timezone", value)
+
+    @property
+    @pulumi.getter(name="weekStart")
+    def week_start(self) -> Optional[pulumi.Input['TemplateDayOfTheWeek']]:
+        return pulumi.get(self, "week_start")
+
+    @week_start.setter
+    def week_start(self, value: Optional[pulumi.Input['TemplateDayOfTheWeek']]):
+        pulumi.set(self, "week_start", value)
 
 
 @pulumi.input_type
@@ -65292,6 +65568,7 @@ class TemplateVersionDefinitionArgs:
                  calculated_fields: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateCalculatedFieldArgs']]]] = None,
                  column_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateColumnConfigurationArgs']]]] = None,
                  filter_groups: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateFilterGroupArgs']]]] = None,
+                 options: Optional[pulumi.Input['TemplateAssetOptionsArgs']] = None,
                  parameter_declarations: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateParameterDeclarationArgs']]]] = None,
                  sheets: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateSheetDefinitionArgs']]]] = None):
         pulumi.set(__self__, "data_set_configurations", data_set_configurations)
@@ -65303,6 +65580,8 @@ class TemplateVersionDefinitionArgs:
             pulumi.set(__self__, "column_configurations", column_configurations)
         if filter_groups is not None:
             pulumi.set(__self__, "filter_groups", filter_groups)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
         if parameter_declarations is not None:
             pulumi.set(__self__, "parameter_declarations", parameter_declarations)
         if sheets is not None:
@@ -65352,6 +65631,15 @@ class TemplateVersionDefinitionArgs:
     @filter_groups.setter
     def filter_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplateFilterGroupArgs']]]]):
         pulumi.set(self, "filter_groups", value)
+
+    @property
+    @pulumi.getter
+    def options(self) -> Optional[pulumi.Input['TemplateAssetOptionsArgs']]:
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: Optional[pulumi.Input['TemplateAssetOptionsArgs']]):
+        pulumi.set(self, "options", value)
 
     @property
     @pulumi.getter(name="parameterDeclarations")

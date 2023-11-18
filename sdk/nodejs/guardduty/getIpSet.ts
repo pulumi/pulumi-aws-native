@@ -14,20 +14,21 @@ export function getIpSet(args: GetIpSetArgs, opts?: pulumi.InvokeOptions): Promi
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:guardduty:getIpSet", {
+        "detectorId": args.detectorId,
         "id": args.id,
     }, opts);
 }
 
 export interface GetIpSetArgs {
+    detectorId: string;
     id: string;
 }
 
 export interface GetIpSetResult {
-    readonly activate?: boolean;
     readonly id?: string;
     readonly location?: string;
     readonly name?: string;
-    readonly tags?: outputs.guardduty.IpSetTag[];
+    readonly tags?: outputs.guardduty.IpSetTagItem[];
 }
 /**
  * Resource Type definition for AWS::GuardDuty::IPSet
@@ -37,5 +38,6 @@ export function getIpSetOutput(args: GetIpSetOutputArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetIpSetOutputArgs {
+    detectorId: pulumi.Input<string>;
     id: pulumi.Input<string>;
 }

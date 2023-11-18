@@ -145,7 +145,7 @@ class AwaitableGetOriginEndpointResult(GetOriginEndpointResult):
 def get_origin_endpoint(arn: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOriginEndpointResult:
     """
-    Definition of AWS::MediaPackageV2::OriginEndpoint Resource Type
+    <p>Represents an origin endpoint that is associated with a channel, offering a dynamically repackaged version of its content through various streaming media protocols. The content can be efficiently disseminated to end-users via a Content Delivery Network (CDN), like Amazon CloudFront.</p>
 
 
     :param str arn: <p>The Amazon Resource Name (ARN) associated with the resource.</p>
@@ -172,7 +172,7 @@ def get_origin_endpoint(arn: Optional[str] = None,
 def get_origin_endpoint_output(arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginEndpointResult]:
     """
-    Definition of AWS::MediaPackageV2::OriginEndpoint Resource Type
+    <p>Represents an origin endpoint that is associated with a channel, offering a dynamically repackaged version of its content through various streaming media protocols. The content can be efficiently disseminated to end-users via a Content Delivery Network (CDN), like Amazon CloudFront.</p>
 
 
     :param str arn: <p>The Amazon Resource Name (ARN) associated with the resource.</p>

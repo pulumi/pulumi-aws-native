@@ -8,10 +8,10 @@
   },
   "handlers" : {
     "read" : {
-      "permissions" : [ "controltower:ListEnabledControls" ]
+      "permissions" : [ "controltower:ListEnabledControls", "controltower:GetEnabledControl" ]
     },
     "create" : {
-      "permissions" : [ "controltower:ListEnabledControls", "controltower:GetControlOperation", "controltower:EnableControl", "organizations:UpdatePolicy", "organizations:CreatePolicy", "organizations:AttachPolicy", "organizations:DetachPolicy", "organizations:ListPoliciesForTarget", "organizations:ListTargetsForPolicy", "organizations:DescribePolicy" ]
+      "permissions" : [ "controltower:ListEnabledControls", "controltower:GetControlOperation", "controltower:GetEnabledControl", "controltower:EnableControl", "organizations:UpdatePolicy", "organizations:CreatePolicy", "organizations:AttachPolicy", "organizations:DetachPolicy", "organizations:ListPoliciesForTarget", "organizations:ListTargetsForPolicy", "organizations:DescribePolicy" ]
     },
     "list" : {
       "permissions" : [ "controltower:ListEnabledControls" ],

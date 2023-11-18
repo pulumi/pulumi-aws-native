@@ -68,8 +68,14 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("sqlServerParameters")]
         public Input<Inputs.DataSourceSqlServerParametersArgs>? SqlServerParameters { get; set; }
 
+        [Input("starburstParameters")]
+        public Input<Inputs.DataSourceStarburstParametersArgs>? StarburstParameters { get; set; }
+
         [Input("teradataParameters")]
         public Input<Inputs.DataSourceTeradataParametersArgs>? TeradataParameters { get; set; }
+
+        [Input("trinoParameters")]
+        public Input<Inputs.DataSourceTrinoParametersArgs>? TrinoParameters { get; set; }
 
         public DataSourceParametersArgs()
         {

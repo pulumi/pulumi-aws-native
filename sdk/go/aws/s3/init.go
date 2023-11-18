@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MultiRegionAccessPointPolicy{}
 	case "aws-native:s3:StorageLens":
 		r = &StorageLens{}
+	case "aws-native:s3:StorageLensGroup":
+		r = &StorageLensGroup{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

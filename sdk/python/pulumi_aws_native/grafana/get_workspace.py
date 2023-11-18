@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetWorkspaceResult:
-    def __init__(__self__, account_access_type=None, authentication_providers=None, creation_timestamp=None, data_sources=None, description=None, endpoint=None, grafana_version=None, id=None, modification_timestamp=None, name=None, network_access_control=None, notification_destinations=None, organization_role_name=None, organizational_units=None, permission_type=None, role_arn=None, saml_configuration=None, saml_configuration_status=None, sso_client_id=None, stack_set_name=None, status=None, vpc_configuration=None):
+    def __init__(__self__, account_access_type=None, authentication_providers=None, creation_timestamp=None, data_sources=None, description=None, endpoint=None, grafana_version=None, id=None, modification_timestamp=None, name=None, network_access_control=None, notification_destinations=None, organization_role_name=None, organizational_units=None, permission_type=None, plugin_admin_enabled=None, role_arn=None, saml_configuration=None, saml_configuration_status=None, sso_client_id=None, stack_set_name=None, status=None, vpc_configuration=None):
         if account_access_type and not isinstance(account_access_type, str):
             raise TypeError("Expected argument 'account_access_type' to be a str")
         pulumi.set(__self__, "account_access_type", account_access_type)
@@ -66,6 +66,9 @@ class GetWorkspaceResult:
         if permission_type and not isinstance(permission_type, str):
             raise TypeError("Expected argument 'permission_type' to be a str")
         pulumi.set(__self__, "permission_type", permission_type)
+        if plugin_admin_enabled and not isinstance(plugin_admin_enabled, bool):
+            raise TypeError("Expected argument 'plugin_admin_enabled' to be a bool")
+        pulumi.set(__self__, "plugin_admin_enabled", plugin_admin_enabled)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -200,6 +203,14 @@ class GetWorkspaceResult:
         return pulumi.get(self, "permission_type")
 
     @property
+    @pulumi.getter(name="pluginAdminEnabled")
+    def plugin_admin_enabled(self) -> Optional[bool]:
+        """
+        Allow workspace admins to install plugins
+        """
+        return pulumi.get(self, "plugin_admin_enabled")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
         """
@@ -265,6 +276,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             organization_role_name=self.organization_role_name,
             organizational_units=self.organizational_units,
             permission_type=self.permission_type,
+            plugin_admin_enabled=self.plugin_admin_enabled,
             role_arn=self.role_arn,
             saml_configuration=self.saml_configuration,
             saml_configuration_status=self.saml_configuration_status,
@@ -303,6 +315,7 @@ def get_workspace(id: Optional[str] = None,
         organization_role_name=pulumi.get(__ret__, 'organization_role_name'),
         organizational_units=pulumi.get(__ret__, 'organizational_units'),
         permission_type=pulumi.get(__ret__, 'permission_type'),
+        plugin_admin_enabled=pulumi.get(__ret__, 'plugin_admin_enabled'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         saml_configuration=pulumi.get(__ret__, 'saml_configuration'),
         saml_configuration_status=pulumi.get(__ret__, 'saml_configuration_status'),

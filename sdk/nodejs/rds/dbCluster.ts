@@ -118,6 +118,10 @@ export class DbCluster extends pulumi.CustomResource {
      */
     public readonly enableCloudwatchLogsExports!: pulumi.Output<string[] | undefined>;
     /**
+     * Specifies whether to enable this DB cluster to forward write operations to the primary cluster of a global cluster (Aurora global database). By default, write operations are not allowed on Aurora DB clusters that are secondary clusters in an Aurora global database.
+     */
+    public readonly enableGlobalWriteForwarding!: pulumi.Output<boolean | undefined>;
+    /**
      * A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
      */
     public readonly enableHttpEndpoint!: pulumi.Output<boolean | undefined>;
@@ -296,6 +300,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["domainIamRoleName"] = args ? args.domainIamRoleName : undefined;
             resourceInputs["enableCloudwatchLogsExports"] = args ? args.enableCloudwatchLogsExports : undefined;
+            resourceInputs["enableGlobalWriteForwarding"] = args ? args.enableGlobalWriteForwarding : undefined;
             resourceInputs["enableHttpEndpoint"] = args ? args.enableHttpEndpoint : undefined;
             resourceInputs["enableIamDatabaseAuthentication"] = args ? args.enableIamDatabaseAuthentication : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
@@ -356,6 +361,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["domain"] = undefined /*out*/;
             resourceInputs["domainIamRoleName"] = undefined /*out*/;
             resourceInputs["enableCloudwatchLogsExports"] = undefined /*out*/;
+            resourceInputs["enableGlobalWriteForwarding"] = undefined /*out*/;
             resourceInputs["enableHttpEndpoint"] = undefined /*out*/;
             resourceInputs["enableIamDatabaseAuthentication"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
@@ -477,6 +483,10 @@ export interface DbClusterArgs {
      * The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
      */
     enableCloudwatchLogsExports?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies whether to enable this DB cluster to forward write operations to the primary cluster of a global cluster (Aurora global database). By default, write operations are not allowed on Aurora DB clusters that are secondary clusters in an Aurora global database.
+     */
+    enableGlobalWriteForwarding?: pulumi.Input<boolean>;
     /**
      * A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
      */

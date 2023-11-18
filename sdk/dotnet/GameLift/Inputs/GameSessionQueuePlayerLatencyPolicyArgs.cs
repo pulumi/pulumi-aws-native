@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GameLift.Inputs
 {
 
+    /// <summary>
+    /// Sets a latency cap for individual players when placing a game session.
+    /// </summary>
     public sealed class GameSessionQueuePlayerLatencyPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum latency value that is allowed for any player, in milliseconds. All policies must have a value set for this property.
+        /// </summary>
         [Input("maximumIndividualPlayerLatencyMilliseconds")]
         public Input<int>? MaximumIndividualPlayerLatencyMilliseconds { get; set; }
 
+        /// <summary>
+        /// The length of time, in seconds, that the policy is enforced while placing a new game session.
+        /// </summary>
         [Input("policyDurationSeconds")]
         public Input<int>? PolicyDurationSeconds { get; set; }
 

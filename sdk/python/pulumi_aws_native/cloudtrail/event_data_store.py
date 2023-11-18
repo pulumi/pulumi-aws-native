@@ -17,7 +17,10 @@ __all__ = ['EventDataStoreArgs', 'EventDataStore']
 class EventDataStoreArgs:
     def __init__(__self__, *,
                  advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]] = None,
+                 billing_mode: Optional[pulumi.Input[str]] = None,
                  ingestion_enabled: Optional[pulumi.Input[bool]] = None,
+                 insight_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreInsightSelectorArgs']]]] = None,
+                 insights_destination: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  multi_region_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -28,7 +31,10 @@ class EventDataStoreArgs:
         """
         The set of arguments for constructing a EventDataStore resource.
         :param pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]] advanced_event_selectors: The advanced event selectors that were used to select events for the data store.
+        :param pulumi.Input[str] billing_mode: The mode that the event data store will use to charge for event storage.
         :param pulumi.Input[bool] ingestion_enabled: Indicates whether the event data store is ingesting events.
+        :param pulumi.Input[Sequence[pulumi.Input['EventDataStoreInsightSelectorArgs']]] insight_selectors: Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
+        :param pulumi.Input[str] insights_destination: Specifies the ARN of the event data store that will collect Insights events. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store
         :param pulumi.Input[str] kms_key_id: Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         :param pulumi.Input[bool] multi_region_enabled: Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
         :param pulumi.Input[str] name: The name of the event data store.
@@ -38,8 +44,14 @@ class EventDataStoreArgs:
         """
         if advanced_event_selectors is not None:
             pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
+        if billing_mode is not None:
+            pulumi.set(__self__, "billing_mode", billing_mode)
         if ingestion_enabled is not None:
             pulumi.set(__self__, "ingestion_enabled", ingestion_enabled)
+        if insight_selectors is not None:
+            pulumi.set(__self__, "insight_selectors", insight_selectors)
+        if insights_destination is not None:
+            pulumi.set(__self__, "insights_destination", insights_destination)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if multi_region_enabled is not None:
@@ -68,6 +80,18 @@ class EventDataStoreArgs:
         pulumi.set(self, "advanced_event_selectors", value)
 
     @property
+    @pulumi.getter(name="billingMode")
+    def billing_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The mode that the event data store will use to charge for event storage.
+        """
+        return pulumi.get(self, "billing_mode")
+
+    @billing_mode.setter
+    def billing_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "billing_mode", value)
+
+    @property
     @pulumi.getter(name="ingestionEnabled")
     def ingestion_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -78,6 +102,30 @@ class EventDataStoreArgs:
     @ingestion_enabled.setter
     def ingestion_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "ingestion_enabled", value)
+
+    @property
+    @pulumi.getter(name="insightSelectors")
+    def insight_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreInsightSelectorArgs']]]]:
+        """
+        Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
+        """
+        return pulumi.get(self, "insight_selectors")
+
+    @insight_selectors.setter
+    def insight_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreInsightSelectorArgs']]]]):
+        pulumi.set(self, "insight_selectors", value)
+
+    @property
+    @pulumi.getter(name="insightsDestination")
+    def insights_destination(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ARN of the event data store that will collect Insights events. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store
+        """
+        return pulumi.get(self, "insights_destination")
+
+    @insights_destination.setter
+    def insights_destination(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "insights_destination", value)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -167,7 +215,10 @@ class EventDataStore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDataStoreAdvancedEventSelectorArgs']]]]] = None,
+                 billing_mode: Optional[pulumi.Input[str]] = None,
                  ingestion_enabled: Optional[pulumi.Input[bool]] = None,
+                 insight_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDataStoreInsightSelectorArgs']]]]] = None,
+                 insights_destination: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  multi_region_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -177,12 +228,15 @@ class EventDataStore(pulumi.CustomResource):
                  termination_protection_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 90 to 2555 days (about three months to up to seven years).
+        A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 7 to 2557 or 3653 days (about seven or ten years) depending on the selected BillingMode.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDataStoreAdvancedEventSelectorArgs']]]] advanced_event_selectors: The advanced event selectors that were used to select events for the data store.
+        :param pulumi.Input[str] billing_mode: The mode that the event data store will use to charge for event storage.
         :param pulumi.Input[bool] ingestion_enabled: Indicates whether the event data store is ingesting events.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDataStoreInsightSelectorArgs']]]] insight_selectors: Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
+        :param pulumi.Input[str] insights_destination: Specifies the ARN of the event data store that will collect Insights events. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store
         :param pulumi.Input[str] kms_key_id: Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         :param pulumi.Input[bool] multi_region_enabled: Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
         :param pulumi.Input[str] name: The name of the event data store.
@@ -197,7 +251,7 @@ class EventDataStore(pulumi.CustomResource):
                  args: Optional[EventDataStoreArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 90 to 2555 days (about three months to up to seven years).
+        A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 7 to 2557 or 3653 days (about seven or ten years) depending on the selected BillingMode.
 
         :param str resource_name: The name of the resource.
         :param EventDataStoreArgs args: The arguments to use to populate this resource's properties.
@@ -215,7 +269,10 @@ class EventDataStore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDataStoreAdvancedEventSelectorArgs']]]]] = None,
+                 billing_mode: Optional[pulumi.Input[str]] = None,
                  ingestion_enabled: Optional[pulumi.Input[bool]] = None,
+                 insight_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDataStoreInsightSelectorArgs']]]]] = None,
+                 insights_destination: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  multi_region_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -233,7 +290,10 @@ class EventDataStore(pulumi.CustomResource):
             __props__ = EventDataStoreArgs.__new__(EventDataStoreArgs)
 
             __props__.__dict__["advanced_event_selectors"] = advanced_event_selectors
+            __props__.__dict__["billing_mode"] = billing_mode
             __props__.__dict__["ingestion_enabled"] = ingestion_enabled
+            __props__.__dict__["insight_selectors"] = insight_selectors
+            __props__.__dict__["insights_destination"] = insights_destination
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["multi_region_enabled"] = multi_region_enabled
             __props__.__dict__["name"] = name
@@ -268,9 +328,12 @@ class EventDataStore(pulumi.CustomResource):
         __props__ = EventDataStoreArgs.__new__(EventDataStoreArgs)
 
         __props__.__dict__["advanced_event_selectors"] = None
+        __props__.__dict__["billing_mode"] = None
         __props__.__dict__["created_timestamp"] = None
         __props__.__dict__["event_data_store_arn"] = None
         __props__.__dict__["ingestion_enabled"] = None
+        __props__.__dict__["insight_selectors"] = None
+        __props__.__dict__["insights_destination"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["multi_region_enabled"] = None
         __props__.__dict__["name"] = None
@@ -289,6 +352,14 @@ class EventDataStore(pulumi.CustomResource):
         The advanced event selectors that were used to select events for the data store.
         """
         return pulumi.get(self, "advanced_event_selectors")
+
+    @property
+    @pulumi.getter(name="billingMode")
+    def billing_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        The mode that the event data store will use to charge for event storage.
+        """
+        return pulumi.get(self, "billing_mode")
 
     @property
     @pulumi.getter(name="createdTimestamp")
@@ -313,6 +384,22 @@ class EventDataStore(pulumi.CustomResource):
         Indicates whether the event data store is ingesting events.
         """
         return pulumi.get(self, "ingestion_enabled")
+
+    @property
+    @pulumi.getter(name="insightSelectors")
+    def insight_selectors(self) -> pulumi.Output[Optional[Sequence['outputs.EventDataStoreInsightSelector']]]:
+        """
+        Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
+        """
+        return pulumi.get(self, "insight_selectors")
+
+    @property
+    @pulumi.getter(name="insightsDestination")
+    def insights_destination(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the ARN of the event data store that will collect Insights events. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store
+        """
+        return pulumi.get(self, "insights_destination")
 
     @property
     @pulumi.getter(name="kmsKeyId")

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 90 to 2555 days (about three months to up to seven years).
+ * A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 7 to 2557 or 3653 days (about seven or ten years) depending on the selected BillingMode.
  */
 export class EventDataStore extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class EventDataStore extends pulumi.CustomResource {
      */
     public readonly advancedEventSelectors!: pulumi.Output<outputs.cloudtrail.EventDataStoreAdvancedEventSelector[] | undefined>;
     /**
+     * The mode that the event data store will use to charge for event storage.
+     */
+    public readonly billingMode!: pulumi.Output<string | undefined>;
+    /**
      * The timestamp of the event data store's creation.
      */
     public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
@@ -53,6 +57,14 @@ export class EventDataStore extends pulumi.CustomResource {
      * Indicates whether the event data store is ingesting events.
      */
     public readonly ingestionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
+     */
+    public readonly insightSelectors!: pulumi.Output<outputs.cloudtrail.EventDataStoreInsightSelector[] | undefined>;
+    /**
+     * Specifies the ARN of the event data store that will collect Insights events. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store
+     */
+    public readonly insightsDestination!: pulumi.Output<string | undefined>;
     /**
      * Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      */
@@ -99,7 +111,10 @@ export class EventDataStore extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["advancedEventSelectors"] = args ? args.advancedEventSelectors : undefined;
+            resourceInputs["billingMode"] = args ? args.billingMode : undefined;
             resourceInputs["ingestionEnabled"] = args ? args.ingestionEnabled : undefined;
+            resourceInputs["insightSelectors"] = args ? args.insightSelectors : undefined;
+            resourceInputs["insightsDestination"] = args ? args.insightsDestination : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["multiRegionEnabled"] = args ? args.multiRegionEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -113,9 +128,12 @@ export class EventDataStore extends pulumi.CustomResource {
             resourceInputs["updatedTimestamp"] = undefined /*out*/;
         } else {
             resourceInputs["advancedEventSelectors"] = undefined /*out*/;
+            resourceInputs["billingMode"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["eventDataStoreArn"] = undefined /*out*/;
             resourceInputs["ingestionEnabled"] = undefined /*out*/;
+            resourceInputs["insightSelectors"] = undefined /*out*/;
+            resourceInputs["insightsDestination"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["multiRegionEnabled"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -140,9 +158,21 @@ export interface EventDataStoreArgs {
      */
     advancedEventSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.EventDataStoreAdvancedEventSelectorArgs>[]>;
     /**
+     * The mode that the event data store will use to charge for event storage.
+     */
+    billingMode?: pulumi.Input<string>;
+    /**
      * Indicates whether the event data store is ingesting events.
      */
     ingestionEnabled?: pulumi.Input<boolean>;
+    /**
+     * Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
+     */
+    insightSelectors?: pulumi.Input<pulumi.Input<inputs.cloudtrail.EventDataStoreInsightSelectorArgs>[]>;
+    /**
+     * Specifies the ARN of the event data store that will collect Insights events. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store
+     */
+    insightsDestination?: pulumi.Input<string>;
     /**
      * Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
      */

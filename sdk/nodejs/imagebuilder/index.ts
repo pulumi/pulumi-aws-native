@@ -55,6 +55,11 @@ export const getInfrastructureConfiguration: typeof import("./getInfrastructureC
 export const getInfrastructureConfigurationOutput: typeof import("./getInfrastructureConfiguration").getInfrastructureConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getInfrastructureConfiguration","getInfrastructureConfigurationOutput"], () => require("./getInfrastructureConfiguration"));
 
+export { GetLifecyclePolicyArgs, GetLifecyclePolicyResult, GetLifecyclePolicyOutputArgs } from "./getLifecyclePolicy";
+export const getLifecyclePolicy: typeof import("./getLifecyclePolicy").getLifecyclePolicy = null as any;
+export const getLifecyclePolicyOutput: typeof import("./getLifecyclePolicy").getLifecyclePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getLifecyclePolicy","getLifecyclePolicyOutput"], () => require("./getLifecyclePolicy"));
+
 export { ImageArgs } from "./image";
 export type Image = import("./image").Image;
 export const Image: typeof import("./image").Image = null as any;
@@ -74,6 +79,11 @@ export { InfrastructureConfigurationArgs } from "./infrastructureConfiguration";
 export type InfrastructureConfiguration = import("./infrastructureConfiguration").InfrastructureConfiguration;
 export const InfrastructureConfiguration: typeof import("./infrastructureConfiguration").InfrastructureConfiguration = null as any;
 utilities.lazyLoad(exports, ["InfrastructureConfiguration"], () => require("./infrastructureConfiguration"));
+
+export { LifecyclePolicyArgs } from "./lifecyclePolicy";
+export type LifecyclePolicy = import("./lifecyclePolicy").LifecyclePolicy;
+export const LifecyclePolicy: typeof import("./lifecyclePolicy").LifecyclePolicy = null as any;
+utilities.lazyLoad(exports, ["LifecyclePolicy"], () => require("./lifecyclePolicy"));
 
 
 // Export enums:
@@ -97,6 +107,8 @@ const _module = {
                 return new ImageRecipe(name, <any>undefined, { urn })
             case "aws-native:imagebuilder:InfrastructureConfiguration":
                 return new InfrastructureConfiguration(name, <any>undefined, { urn })
+            case "aws-native:imagebuilder:LifecyclePolicy":
+                return new LifecyclePolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

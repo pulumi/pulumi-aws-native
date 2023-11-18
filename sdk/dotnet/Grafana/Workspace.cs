@@ -97,6 +97,12 @@ namespace Pulumi.AwsNative.Grafana
         public Output<Pulumi.AwsNative.Grafana.WorkspacePermissionType> PermissionType { get; private set; } = null!;
 
         /// <summary>
+        /// Allow workspace admins to install plugins
+        /// </summary>
+        [Output("pluginAdminEnabled")]
+        public Output<bool?> PluginAdminEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
         /// </summary>
         [Output("roleArn")]
@@ -261,6 +267,12 @@ namespace Pulumi.AwsNative.Grafana
 
         [Input("permissionType", required: true)]
         public Input<Pulumi.AwsNative.Grafana.WorkspacePermissionType> PermissionType { get; set; } = null!;
+
+        /// <summary>
+        /// Allow workspace admins to install plugins
+        /// </summary>
+        [Input("pluginAdminEnabled")]
+        public Input<bool>? PluginAdminEnabled { get; set; }
 
         /// <summary>
         /// IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.

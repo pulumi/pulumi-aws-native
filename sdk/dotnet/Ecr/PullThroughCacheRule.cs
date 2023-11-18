@@ -16,10 +16,22 @@ namespace Pulumi.AwsNative.Ecr
     public partial class PullThroughCacheRule : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that identifies the credentials to authenticate to the upstream registry.
+        /// </summary>
+        [Output("credentialArn")]
+        public Output<string?> CredentialArn { get; private set; } = null!;
+
+        /// <summary>
         /// The ECRRepositoryPrefix is a custom alias for upstream registry url.
         /// </summary>
         [Output("ecrRepositoryPrefix")]
         public Output<string?> EcrRepositoryPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the upstream registry.
+        /// </summary>
+        [Output("upstreamRegistry")]
+        public Output<string?> UpstreamRegistry { get; private set; } = null!;
 
         /// <summary>
         /// The upstreamRegistryUrl is the endpoint of upstream registry url of the public repository to be cached
@@ -52,7 +64,9 @@ namespace Pulumi.AwsNative.Ecr
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "credentialArn",
                     "ecrRepositoryPrefix",
+                    "upstreamRegistry",
                     "upstreamRegistryUrl",
                 },
             };
@@ -78,10 +92,22 @@ namespace Pulumi.AwsNative.Ecr
     public sealed class PullThroughCacheRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that identifies the credentials to authenticate to the upstream registry.
+        /// </summary>
+        [Input("credentialArn")]
+        public Input<string>? CredentialArn { get; set; }
+
+        /// <summary>
         /// The ECRRepositoryPrefix is a custom alias for upstream registry url.
         /// </summary>
         [Input("ecrRepositoryPrefix")]
         public Input<string>? EcrRepositoryPrefix { get; set; }
+
+        /// <summary>
+        /// The name of the upstream registry.
+        /// </summary>
+        [Input("upstreamRegistry")]
+        public Input<string>? UpstreamRegistry { get; set; }
 
         /// <summary>
         /// The upstreamRegistryUrl is the endpoint of upstream registry url of the public repository to be cached

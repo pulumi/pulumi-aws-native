@@ -36,6 +36,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// The device index for the network interface attachment.
         /// </summary>
         public readonly int? DeviceIndex;
+        public readonly Outputs.LaunchTemplateEnaSrdSpecification? EnaSrdSpecification;
         /// <summary>
         /// The IDs of one or more security groups.
         /// </summary>
@@ -109,6 +110,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             int? deviceIndex,
 
+            Outputs.LaunchTemplateEnaSrdSpecification? enaSrdSpecification,
+
             ImmutableArray<string> groups,
 
             string? interfaceType,
@@ -144,6 +147,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
             DeleteOnTermination = deleteOnTermination;
             Description = description;
             DeviceIndex = deviceIndex;
+            EnaSrdSpecification = enaSrdSpecification;
             Groups = groups;
             InterfaceType = interfaceType;
             Ipv4PrefixCount = ipv4PrefixCount;

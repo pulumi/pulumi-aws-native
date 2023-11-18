@@ -39,6 +39,7 @@ class FleetArgs:
                  peer_vpc_id: Optional[pulumi.Input[str]] = None,
                  resource_creation_limit_policy: Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']] = None,
                  runtime_configuration: Optional[pulumi.Input['FleetRuntimeConfigurationArgs']] = None,
+                 scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input['FleetScalingPolicyArgs']]]] = None,
                  script_id: Optional[pulumi.Input[str]] = None,
                  server_launch_parameters: Optional[pulumi.Input[str]] = None,
                  server_launch_path: Optional[pulumi.Input[str]] = None):
@@ -67,6 +68,7 @@ class FleetArgs:
         :param pulumi.Input['FleetRuntimeConfigurationArgs'] runtime_configuration: Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime script. The runtime configuration defines the server executables or launch script file, launch parameters, and the number of processes to run concurrently on each instance. When creating a fleet, the runtime configuration must have at least one server process configuration; otherwise the request fails with an invalid request exception.
                
                This parameter is required unless the parameters ServerLaunchPath and ServerLaunchParameters are defined. Runtime configuration has replaced these parameters, but fleets that use them will continue to work.
+        :param pulumi.Input[Sequence[pulumi.Input['FleetScalingPolicyArgs']]] scaling_policies: A list of rules that control how a fleet is scaled.
         :param pulumi.Input[str] script_id: A unique identifier for a Realtime script to be deployed on a new Realtime Servers fleet. The script must have been successfully uploaded to Amazon GameLift. This fleet setting cannot be changed once the fleet is created.
                
                Note: It is not currently possible to use the !Ref command to reference a script created with a CloudFormation template for the fleet property ScriptId. Instead, use Fn::GetAtt Script.Arn or Fn::GetAtt Script.Id to retrieve either of these properties as input for ScriptId. Alternatively, enter a ScriptId string manually.
@@ -117,6 +119,8 @@ class FleetArgs:
             pulumi.set(__self__, "resource_creation_limit_policy", resource_creation_limit_policy)
         if runtime_configuration is not None:
             pulumi.set(__self__, "runtime_configuration", runtime_configuration)
+        if scaling_policies is not None:
+            pulumi.set(__self__, "scaling_policies", scaling_policies)
         if script_id is not None:
             pulumi.set(__self__, "script_id", script_id)
         if server_launch_parameters is not None:
@@ -388,6 +392,18 @@ class FleetArgs:
         pulumi.set(self, "runtime_configuration", value)
 
     @property
+    @pulumi.getter(name="scalingPolicies")
+    def scaling_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetScalingPolicyArgs']]]]:
+        """
+        A list of rules that control how a fleet is scaled.
+        """
+        return pulumi.get(self, "scaling_policies")
+
+    @scaling_policies.setter
+    def scaling_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetScalingPolicyArgs']]]]):
+        pulumi.set(self, "scaling_policies", value)
+
+    @property
     @pulumi.getter(name="scriptId")
     def script_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -453,6 +469,7 @@ class Fleet(pulumi.CustomResource):
                  peer_vpc_id: Optional[pulumi.Input[str]] = None,
                  resource_creation_limit_policy: Optional[pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArgs']]] = None,
                  runtime_configuration: Optional[pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArgs']]] = None,
+                 scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetScalingPolicyArgs']]]]] = None,
                  script_id: Optional[pulumi.Input[str]] = None,
                  server_launch_parameters: Optional[pulumi.Input[str]] = None,
                  server_launch_path: Optional[pulumi.Input[str]] = None,
@@ -485,6 +502,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArgs']] runtime_configuration: Instructions for launching server processes on each instance in the fleet. Server processes run either a custom game build executable or a Realtime script. The runtime configuration defines the server executables or launch script file, launch parameters, and the number of processes to run concurrently on each instance. When creating a fleet, the runtime configuration must have at least one server process configuration; otherwise the request fails with an invalid request exception.
                
                This parameter is required unless the parameters ServerLaunchPath and ServerLaunchParameters are defined. Runtime configuration has replaced these parameters, but fleets that use them will continue to work.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetScalingPolicyArgs']]]] scaling_policies: A list of rules that control how a fleet is scaled.
         :param pulumi.Input[str] script_id: A unique identifier for a Realtime script to be deployed on a new Realtime Servers fleet. The script must have been successfully uploaded to Amazon GameLift. This fleet setting cannot be changed once the fleet is created.
                
                Note: It is not currently possible to use the !Ref command to reference a script created with a CloudFormation template for the fleet property ScriptId. Instead, use Fn::GetAtt Script.Arn or Fn::GetAtt Script.Id to retrieve either of these properties as input for ScriptId. Alternatively, enter a ScriptId string manually.
@@ -537,6 +555,7 @@ class Fleet(pulumi.CustomResource):
                  peer_vpc_id: Optional[pulumi.Input[str]] = None,
                  resource_creation_limit_policy: Optional[pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArgs']]] = None,
                  runtime_configuration: Optional[pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArgs']]] = None,
+                 scaling_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetScalingPolicyArgs']]]]] = None,
                  script_id: Optional[pulumi.Input[str]] = None,
                  server_launch_parameters: Optional[pulumi.Input[str]] = None,
                  server_launch_path: Optional[pulumi.Input[str]] = None,
@@ -571,6 +590,7 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["peer_vpc_id"] = peer_vpc_id
             __props__.__dict__["resource_creation_limit_policy"] = resource_creation_limit_policy
             __props__.__dict__["runtime_configuration"] = runtime_configuration
+            __props__.__dict__["scaling_policies"] = scaling_policies
             __props__.__dict__["script_id"] = script_id
             __props__.__dict__["server_launch_parameters"] = server_launch_parameters
             __props__.__dict__["server_launch_path"] = server_launch_path
@@ -622,6 +642,7 @@ class Fleet(pulumi.CustomResource):
         __props__.__dict__["peer_vpc_id"] = None
         __props__.__dict__["resource_creation_limit_policy"] = None
         __props__.__dict__["runtime_configuration"] = None
+        __props__.__dict__["scaling_policies"] = None
         __props__.__dict__["script_id"] = None
         __props__.__dict__["server_launch_parameters"] = None
         __props__.__dict__["server_launch_path"] = None
@@ -809,6 +830,14 @@ class Fleet(pulumi.CustomResource):
         This parameter is required unless the parameters ServerLaunchPath and ServerLaunchParameters are defined. Runtime configuration has replaced these parameters, but fleets that use them will continue to work.
         """
         return pulumi.get(self, "runtime_configuration")
+
+    @property
+    @pulumi.getter(name="scalingPolicies")
+    def scaling_policies(self) -> pulumi.Output[Optional[Sequence['outputs.FleetScalingPolicy']]]:
+        """
+        A list of rules that control how a fleet is scaled.
+        """
+        return pulumi.get(self, "scaling_policies")
 
     @property
     @pulumi.getter(name="scriptId")

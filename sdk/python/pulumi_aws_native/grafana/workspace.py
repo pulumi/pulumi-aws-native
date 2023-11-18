@@ -29,6 +29,7 @@ class WorkspaceArgs:
                  notification_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]]] = None,
                  organization_role_name: Optional[pulumi.Input[str]] = None,
                  organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 plugin_admin_enabled: Optional[pulumi.Input[bool]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  saml_configuration: Optional[pulumi.Input['WorkspaceSamlConfigurationArgs']] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
@@ -44,6 +45,7 @@ class WorkspaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]] notification_destinations: List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
         :param pulumi.Input[str] organization_role_name: The name of an IAM role that already exists to use with AWS Organizations to access AWS data sources and notification channels in other accounts in an organization.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_units: List of Organizational Units containing AWS accounts the Grafana workspace can pull data from.
+        :param pulumi.Input[bool] plugin_admin_enabled: Allow workspace admins to install plugins
         :param pulumi.Input[str] role_arn: IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
         :param pulumi.Input[str] stack_set_name: The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
         """
@@ -68,6 +70,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "organization_role_name", organization_role_name)
         if organizational_units is not None:
             pulumi.set(__self__, "organizational_units", organizational_units)
+        if plugin_admin_enabled is not None:
+            pulumi.set(__self__, "plugin_admin_enabled", plugin_admin_enabled)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if saml_configuration is not None:
@@ -213,6 +217,18 @@ class WorkspaceArgs:
         pulumi.set(self, "organizational_units", value)
 
     @property
+    @pulumi.getter(name="pluginAdminEnabled")
+    def plugin_admin_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow workspace admins to install plugins
+        """
+        return pulumi.get(self, "plugin_admin_enabled")
+
+    @plugin_admin_enabled.setter
+    def plugin_admin_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "plugin_admin_enabled", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -272,6 +288,7 @@ class Workspace(pulumi.CustomResource):
                  organization_role_name: Optional[pulumi.Input[str]] = None,
                  organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  permission_type: Optional[pulumi.Input['WorkspacePermissionType']] = None,
+                 plugin_admin_enabled: Optional[pulumi.Input[bool]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  saml_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceSamlConfigurationArgs']]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
@@ -291,6 +308,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceNotificationDestinationType']]] notification_destinations: List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
         :param pulumi.Input[str] organization_role_name: The name of an IAM role that already exists to use with AWS Organizations to access AWS data sources and notification channels in other accounts in an organization.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_units: List of Organizational Units containing AWS accounts the Grafana workspace can pull data from.
+        :param pulumi.Input[bool] plugin_admin_enabled: Allow workspace admins to install plugins
         :param pulumi.Input[str] role_arn: IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
         :param pulumi.Input[str] stack_set_name: The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
         """
@@ -330,6 +348,7 @@ class Workspace(pulumi.CustomResource):
                  organization_role_name: Optional[pulumi.Input[str]] = None,
                  organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  permission_type: Optional[pulumi.Input['WorkspacePermissionType']] = None,
+                 plugin_admin_enabled: Optional[pulumi.Input[bool]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  saml_configuration: Optional[pulumi.Input[pulumi.InputType['WorkspaceSamlConfigurationArgs']]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
@@ -361,6 +380,7 @@ class Workspace(pulumi.CustomResource):
             if permission_type is None and not opts.urn:
                 raise TypeError("Missing required property 'permission_type'")
             __props__.__dict__["permission_type"] = permission_type
+            __props__.__dict__["plugin_admin_enabled"] = plugin_admin_enabled
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["saml_configuration"] = saml_configuration
             __props__.__dict__["stack_set_name"] = stack_set_name
@@ -410,6 +430,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["organization_role_name"] = None
         __props__.__dict__["organizational_units"] = None
         __props__.__dict__["permission_type"] = None
+        __props__.__dict__["plugin_admin_enabled"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["saml_configuration"] = None
         __props__.__dict__["saml_configuration_status"] = None
@@ -529,6 +550,14 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="permissionType")
     def permission_type(self) -> pulumi.Output['WorkspacePermissionType']:
         return pulumi.get(self, "permission_type")
+
+    @property
+    @pulumi.getter(name="pluginAdminEnabled")
+    def plugin_admin_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Allow workspace admins to install plugins
+        """
+        return pulumi.get(self, "plugin_admin_enabled")
 
     @property
     @pulumi.getter(name="roleArn")

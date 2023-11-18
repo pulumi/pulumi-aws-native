@@ -10,14 +10,35 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApplicationAutoScaling.Outputs
 {
 
+    /// <summary>
+    /// A target tracking scaling policy.
+    /// </summary>
     [OutputType]
     public sealed class ScalingPolicyTargetTrackingScalingPolicyConfiguration
     {
+        /// <summary>
+        /// A customized metric. You can specify either a predefined metric or a customized metric.
+        /// </summary>
         public readonly Outputs.ScalingPolicyCustomizedMetricSpecification? CustomizedMetricSpecification;
+        /// <summary>
+        /// Indicates whether scale in by the target tracking scaling policy is disabled. If the value is true, scale in is disabled and the target tracking scaling policy won't remove capacity from the scalable target. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable target. The default value is false.
+        /// </summary>
         public readonly bool? DisableScaleIn;
+        /// <summary>
+        /// A predefined metric. You can specify either a predefined metric or a customized metric.
+        /// </summary>
         public readonly Outputs.ScalingPolicyPredefinedMetricSpecification? PredefinedMetricSpecification;
+        /// <summary>
+        /// The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
+        /// </summary>
         public readonly int? ScaleInCooldown;
+        /// <summary>
+        /// The amount of time, in seconds, to wait for a previous scale-out activity to take effect.
+        /// </summary>
         public readonly int? ScaleOutCooldown;
+        /// <summary>
+        /// The target value for the metric. Although this property accepts numbers of type Double, it won't accept values that are either too small or too large. Values must be in the range of -2^360 to 2^360. The value must be a valid number based on the choice of metric. For example, if the metric is CPU utilization, then the target value is a percent value that represents how much of the CPU can be used before scaling out.
+        /// </summary>
         public readonly double TargetValue;
 
         [OutputConstructor]

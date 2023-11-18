@@ -5700,6 +5700,1369 @@ func (o InfrastructureConfigurationS3LogsPtrOutput) S3KeyPrefix() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The action of the policy detail.
+type LifecyclePolicyAction struct {
+	IncludeResources *LifecyclePolicyIncludeResources `pulumi:"includeResources"`
+	// The action type of the policy detail.
+	Type LifecyclePolicyActionType `pulumi:"type"`
+}
+
+// LifecyclePolicyActionInput is an input type that accepts LifecyclePolicyActionArgs and LifecyclePolicyActionOutput values.
+// You can construct a concrete instance of `LifecyclePolicyActionInput` via:
+//
+//	LifecyclePolicyActionArgs{...}
+type LifecyclePolicyActionInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyActionOutput() LifecyclePolicyActionOutput
+	ToLifecyclePolicyActionOutputWithContext(context.Context) LifecyclePolicyActionOutput
+}
+
+// The action of the policy detail.
+type LifecyclePolicyActionArgs struct {
+	IncludeResources LifecyclePolicyIncludeResourcesPtrInput `pulumi:"includeResources"`
+	// The action type of the policy detail.
+	Type LifecyclePolicyActionTypeInput `pulumi:"type"`
+}
+
+func (LifecyclePolicyActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyAction)(nil)).Elem()
+}
+
+func (i LifecyclePolicyActionArgs) ToLifecyclePolicyActionOutput() LifecyclePolicyActionOutput {
+	return i.ToLifecyclePolicyActionOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyActionArgs) ToLifecyclePolicyActionOutputWithContext(ctx context.Context) LifecyclePolicyActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyActionOutput)
+}
+
+func (i LifecyclePolicyActionArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyAction] {
+	return pulumix.Output[LifecyclePolicyAction]{
+		OutputState: i.ToLifecyclePolicyActionOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The action of the policy detail.
+type LifecyclePolicyActionOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyAction)(nil)).Elem()
+}
+
+func (o LifecyclePolicyActionOutput) ToLifecyclePolicyActionOutput() LifecyclePolicyActionOutput {
+	return o
+}
+
+func (o LifecyclePolicyActionOutput) ToLifecyclePolicyActionOutputWithContext(ctx context.Context) LifecyclePolicyActionOutput {
+	return o
+}
+
+func (o LifecyclePolicyActionOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyAction] {
+	return pulumix.Output[LifecyclePolicyAction]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LifecyclePolicyActionOutput) IncludeResources() LifecyclePolicyIncludeResourcesPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyAction) *LifecyclePolicyIncludeResources { return v.IncludeResources }).(LifecyclePolicyIncludeResourcesPtrOutput)
+}
+
+// The action type of the policy detail.
+func (o LifecyclePolicyActionOutput) Type() LifecyclePolicyActionTypeOutput {
+	return o.ApplyT(func(v LifecyclePolicyAction) LifecyclePolicyActionType { return v.Type }).(LifecyclePolicyActionTypeOutput)
+}
+
+// The AMI exclusion rules for the policy detail.
+type LifecyclePolicyAmiExclusionRules struct {
+	// Use to apply lifecycle policy actions on whether the AMI is public.
+	IsPublic *bool `pulumi:"isPublic"`
+	// Use to apply lifecycle policy actions on AMIs launched before a certain time.
+	LastLaunched *LifecyclePolicyLastLaunched `pulumi:"lastLaunched"`
+	// Use to apply lifecycle policy actions on AMIs distributed to a set of regions.
+	Regions []string `pulumi:"regions"`
+	// Use to apply lifecycle policy actions on AMIs shared with a set of regions.
+	SharedAccounts []string `pulumi:"sharedAccounts"`
+	// The AMIs to select by tag.
+	TagMap interface{} `pulumi:"tagMap"`
+}
+
+// LifecyclePolicyAmiExclusionRulesInput is an input type that accepts LifecyclePolicyAmiExclusionRulesArgs and LifecyclePolicyAmiExclusionRulesOutput values.
+// You can construct a concrete instance of `LifecyclePolicyAmiExclusionRulesInput` via:
+//
+//	LifecyclePolicyAmiExclusionRulesArgs{...}
+type LifecyclePolicyAmiExclusionRulesInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyAmiExclusionRulesOutput() LifecyclePolicyAmiExclusionRulesOutput
+	ToLifecyclePolicyAmiExclusionRulesOutputWithContext(context.Context) LifecyclePolicyAmiExclusionRulesOutput
+}
+
+// The AMI exclusion rules for the policy detail.
+type LifecyclePolicyAmiExclusionRulesArgs struct {
+	// Use to apply lifecycle policy actions on whether the AMI is public.
+	IsPublic pulumi.BoolPtrInput `pulumi:"isPublic"`
+	// Use to apply lifecycle policy actions on AMIs launched before a certain time.
+	LastLaunched LifecyclePolicyLastLaunchedPtrInput `pulumi:"lastLaunched"`
+	// Use to apply lifecycle policy actions on AMIs distributed to a set of regions.
+	Regions pulumi.StringArrayInput `pulumi:"regions"`
+	// Use to apply lifecycle policy actions on AMIs shared with a set of regions.
+	SharedAccounts pulumi.StringArrayInput `pulumi:"sharedAccounts"`
+	// The AMIs to select by tag.
+	TagMap pulumi.Input `pulumi:"tagMap"`
+}
+
+func (LifecyclePolicyAmiExclusionRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyAmiExclusionRules)(nil)).Elem()
+}
+
+func (i LifecyclePolicyAmiExclusionRulesArgs) ToLifecyclePolicyAmiExclusionRulesOutput() LifecyclePolicyAmiExclusionRulesOutput {
+	return i.ToLifecyclePolicyAmiExclusionRulesOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyAmiExclusionRulesArgs) ToLifecyclePolicyAmiExclusionRulesOutputWithContext(ctx context.Context) LifecyclePolicyAmiExclusionRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyAmiExclusionRulesOutput)
+}
+
+func (i LifecyclePolicyAmiExclusionRulesArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyAmiExclusionRules] {
+	return pulumix.Output[LifecyclePolicyAmiExclusionRules]{
+		OutputState: i.ToLifecyclePolicyAmiExclusionRulesOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i LifecyclePolicyAmiExclusionRulesArgs) ToLifecyclePolicyAmiExclusionRulesPtrOutput() LifecyclePolicyAmiExclusionRulesPtrOutput {
+	return i.ToLifecyclePolicyAmiExclusionRulesPtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyAmiExclusionRulesArgs) ToLifecyclePolicyAmiExclusionRulesPtrOutputWithContext(ctx context.Context) LifecyclePolicyAmiExclusionRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyAmiExclusionRulesOutput).ToLifecyclePolicyAmiExclusionRulesPtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyAmiExclusionRulesPtrInput is an input type that accepts LifecyclePolicyAmiExclusionRulesArgs, LifecyclePolicyAmiExclusionRulesPtr and LifecyclePolicyAmiExclusionRulesPtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyAmiExclusionRulesPtrInput` via:
+//
+//	        LifecyclePolicyAmiExclusionRulesArgs{...}
+//
+//	or:
+//
+//	        nil
+type LifecyclePolicyAmiExclusionRulesPtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyAmiExclusionRulesPtrOutput() LifecyclePolicyAmiExclusionRulesPtrOutput
+	ToLifecyclePolicyAmiExclusionRulesPtrOutputWithContext(context.Context) LifecyclePolicyAmiExclusionRulesPtrOutput
+}
+
+type lifecyclePolicyAmiExclusionRulesPtrType LifecyclePolicyAmiExclusionRulesArgs
+
+func LifecyclePolicyAmiExclusionRulesPtr(v *LifecyclePolicyAmiExclusionRulesArgs) LifecyclePolicyAmiExclusionRulesPtrInput {
+	return (*lifecyclePolicyAmiExclusionRulesPtrType)(v)
+}
+
+func (*lifecyclePolicyAmiExclusionRulesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyAmiExclusionRules)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyAmiExclusionRulesPtrType) ToLifecyclePolicyAmiExclusionRulesPtrOutput() LifecyclePolicyAmiExclusionRulesPtrOutput {
+	return i.ToLifecyclePolicyAmiExclusionRulesPtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyAmiExclusionRulesPtrType) ToLifecyclePolicyAmiExclusionRulesPtrOutputWithContext(ctx context.Context) LifecyclePolicyAmiExclusionRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyAmiExclusionRulesPtrOutput)
+}
+
+func (i *lifecyclePolicyAmiExclusionRulesPtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyAmiExclusionRules] {
+	return pulumix.Output[*LifecyclePolicyAmiExclusionRules]{
+		OutputState: i.ToLifecyclePolicyAmiExclusionRulesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The AMI exclusion rules for the policy detail.
+type LifecyclePolicyAmiExclusionRulesOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyAmiExclusionRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyAmiExclusionRules)(nil)).Elem()
+}
+
+func (o LifecyclePolicyAmiExclusionRulesOutput) ToLifecyclePolicyAmiExclusionRulesOutput() LifecyclePolicyAmiExclusionRulesOutput {
+	return o
+}
+
+func (o LifecyclePolicyAmiExclusionRulesOutput) ToLifecyclePolicyAmiExclusionRulesOutputWithContext(ctx context.Context) LifecyclePolicyAmiExclusionRulesOutput {
+	return o
+}
+
+func (o LifecyclePolicyAmiExclusionRulesOutput) ToLifecyclePolicyAmiExclusionRulesPtrOutput() LifecyclePolicyAmiExclusionRulesPtrOutput {
+	return o.ToLifecyclePolicyAmiExclusionRulesPtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyAmiExclusionRulesOutput) ToLifecyclePolicyAmiExclusionRulesPtrOutputWithContext(ctx context.Context) LifecyclePolicyAmiExclusionRulesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyAmiExclusionRules) *LifecyclePolicyAmiExclusionRules {
+		return &v
+	}).(LifecyclePolicyAmiExclusionRulesPtrOutput)
+}
+
+func (o LifecyclePolicyAmiExclusionRulesOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyAmiExclusionRules] {
+	return pulumix.Output[LifecyclePolicyAmiExclusionRules]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Use to apply lifecycle policy actions on whether the AMI is public.
+func (o LifecyclePolicyAmiExclusionRulesOutput) IsPublic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyAmiExclusionRules) *bool { return v.IsPublic }).(pulumi.BoolPtrOutput)
+}
+
+// Use to apply lifecycle policy actions on AMIs launched before a certain time.
+func (o LifecyclePolicyAmiExclusionRulesOutput) LastLaunched() LifecyclePolicyLastLaunchedPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyAmiExclusionRules) *LifecyclePolicyLastLaunched { return v.LastLaunched }).(LifecyclePolicyLastLaunchedPtrOutput)
+}
+
+// Use to apply lifecycle policy actions on AMIs distributed to a set of regions.
+func (o LifecyclePolicyAmiExclusionRulesOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LifecyclePolicyAmiExclusionRules) []string { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+// Use to apply lifecycle policy actions on AMIs shared with a set of regions.
+func (o LifecyclePolicyAmiExclusionRulesOutput) SharedAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LifecyclePolicyAmiExclusionRules) []string { return v.SharedAccounts }).(pulumi.StringArrayOutput)
+}
+
+// The AMIs to select by tag.
+func (o LifecyclePolicyAmiExclusionRulesOutput) TagMap() pulumi.AnyOutput {
+	return o.ApplyT(func(v LifecyclePolicyAmiExclusionRules) interface{} { return v.TagMap }).(pulumi.AnyOutput)
+}
+
+type LifecyclePolicyAmiExclusionRulesPtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyAmiExclusionRulesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyAmiExclusionRules)(nil)).Elem()
+}
+
+func (o LifecyclePolicyAmiExclusionRulesPtrOutput) ToLifecyclePolicyAmiExclusionRulesPtrOutput() LifecyclePolicyAmiExclusionRulesPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyAmiExclusionRulesPtrOutput) ToLifecyclePolicyAmiExclusionRulesPtrOutputWithContext(ctx context.Context) LifecyclePolicyAmiExclusionRulesPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyAmiExclusionRulesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyAmiExclusionRules] {
+	return pulumix.Output[*LifecyclePolicyAmiExclusionRules]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LifecyclePolicyAmiExclusionRulesPtrOutput) Elem() LifecyclePolicyAmiExclusionRulesOutput {
+	return o.ApplyT(func(v *LifecyclePolicyAmiExclusionRules) LifecyclePolicyAmiExclusionRules {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyAmiExclusionRules
+		return ret
+	}).(LifecyclePolicyAmiExclusionRulesOutput)
+}
+
+// Use to apply lifecycle policy actions on whether the AMI is public.
+func (o LifecyclePolicyAmiExclusionRulesPtrOutput) IsPublic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyAmiExclusionRules) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsPublic
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Use to apply lifecycle policy actions on AMIs launched before a certain time.
+func (o LifecyclePolicyAmiExclusionRulesPtrOutput) LastLaunched() LifecyclePolicyLastLaunchedPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyAmiExclusionRules) *LifecyclePolicyLastLaunched {
+		if v == nil {
+			return nil
+		}
+		return v.LastLaunched
+	}).(LifecyclePolicyLastLaunchedPtrOutput)
+}
+
+// Use to apply lifecycle policy actions on AMIs distributed to a set of regions.
+func (o LifecyclePolicyAmiExclusionRulesPtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LifecyclePolicyAmiExclusionRules) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
+}
+
+// Use to apply lifecycle policy actions on AMIs shared with a set of regions.
+func (o LifecyclePolicyAmiExclusionRulesPtrOutput) SharedAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LifecyclePolicyAmiExclusionRules) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SharedAccounts
+	}).(pulumi.StringArrayOutput)
+}
+
+// The AMIs to select by tag.
+func (o LifecyclePolicyAmiExclusionRulesPtrOutput) TagMap() pulumi.AnyOutput {
+	return o.ApplyT(func(v *LifecyclePolicyAmiExclusionRules) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.TagMap
+	}).(pulumi.AnyOutput)
+}
+
+// The exclusion rules to apply of the policy detail.
+type LifecyclePolicyExclusionRules struct {
+	Amis *LifecyclePolicyAmiExclusionRules `pulumi:"amis"`
+	// The Image Builder tags to filter on.
+	TagMap interface{} `pulumi:"tagMap"`
+}
+
+// LifecyclePolicyExclusionRulesInput is an input type that accepts LifecyclePolicyExclusionRulesArgs and LifecyclePolicyExclusionRulesOutput values.
+// You can construct a concrete instance of `LifecyclePolicyExclusionRulesInput` via:
+//
+//	LifecyclePolicyExclusionRulesArgs{...}
+type LifecyclePolicyExclusionRulesInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyExclusionRulesOutput() LifecyclePolicyExclusionRulesOutput
+	ToLifecyclePolicyExclusionRulesOutputWithContext(context.Context) LifecyclePolicyExclusionRulesOutput
+}
+
+// The exclusion rules to apply of the policy detail.
+type LifecyclePolicyExclusionRulesArgs struct {
+	Amis LifecyclePolicyAmiExclusionRulesPtrInput `pulumi:"amis"`
+	// The Image Builder tags to filter on.
+	TagMap pulumi.Input `pulumi:"tagMap"`
+}
+
+func (LifecyclePolicyExclusionRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyExclusionRules)(nil)).Elem()
+}
+
+func (i LifecyclePolicyExclusionRulesArgs) ToLifecyclePolicyExclusionRulesOutput() LifecyclePolicyExclusionRulesOutput {
+	return i.ToLifecyclePolicyExclusionRulesOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyExclusionRulesArgs) ToLifecyclePolicyExclusionRulesOutputWithContext(ctx context.Context) LifecyclePolicyExclusionRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyExclusionRulesOutput)
+}
+
+func (i LifecyclePolicyExclusionRulesArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyExclusionRules] {
+	return pulumix.Output[LifecyclePolicyExclusionRules]{
+		OutputState: i.ToLifecyclePolicyExclusionRulesOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i LifecyclePolicyExclusionRulesArgs) ToLifecyclePolicyExclusionRulesPtrOutput() LifecyclePolicyExclusionRulesPtrOutput {
+	return i.ToLifecyclePolicyExclusionRulesPtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyExclusionRulesArgs) ToLifecyclePolicyExclusionRulesPtrOutputWithContext(ctx context.Context) LifecyclePolicyExclusionRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyExclusionRulesOutput).ToLifecyclePolicyExclusionRulesPtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyExclusionRulesPtrInput is an input type that accepts LifecyclePolicyExclusionRulesArgs, LifecyclePolicyExclusionRulesPtr and LifecyclePolicyExclusionRulesPtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyExclusionRulesPtrInput` via:
+//
+//	        LifecyclePolicyExclusionRulesArgs{...}
+//
+//	or:
+//
+//	        nil
+type LifecyclePolicyExclusionRulesPtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyExclusionRulesPtrOutput() LifecyclePolicyExclusionRulesPtrOutput
+	ToLifecyclePolicyExclusionRulesPtrOutputWithContext(context.Context) LifecyclePolicyExclusionRulesPtrOutput
+}
+
+type lifecyclePolicyExclusionRulesPtrType LifecyclePolicyExclusionRulesArgs
+
+func LifecyclePolicyExclusionRulesPtr(v *LifecyclePolicyExclusionRulesArgs) LifecyclePolicyExclusionRulesPtrInput {
+	return (*lifecyclePolicyExclusionRulesPtrType)(v)
+}
+
+func (*lifecyclePolicyExclusionRulesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyExclusionRules)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyExclusionRulesPtrType) ToLifecyclePolicyExclusionRulesPtrOutput() LifecyclePolicyExclusionRulesPtrOutput {
+	return i.ToLifecyclePolicyExclusionRulesPtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyExclusionRulesPtrType) ToLifecyclePolicyExclusionRulesPtrOutputWithContext(ctx context.Context) LifecyclePolicyExclusionRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyExclusionRulesPtrOutput)
+}
+
+func (i *lifecyclePolicyExclusionRulesPtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyExclusionRules] {
+	return pulumix.Output[*LifecyclePolicyExclusionRules]{
+		OutputState: i.ToLifecyclePolicyExclusionRulesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The exclusion rules to apply of the policy detail.
+type LifecyclePolicyExclusionRulesOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyExclusionRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyExclusionRules)(nil)).Elem()
+}
+
+func (o LifecyclePolicyExclusionRulesOutput) ToLifecyclePolicyExclusionRulesOutput() LifecyclePolicyExclusionRulesOutput {
+	return o
+}
+
+func (o LifecyclePolicyExclusionRulesOutput) ToLifecyclePolicyExclusionRulesOutputWithContext(ctx context.Context) LifecyclePolicyExclusionRulesOutput {
+	return o
+}
+
+func (o LifecyclePolicyExclusionRulesOutput) ToLifecyclePolicyExclusionRulesPtrOutput() LifecyclePolicyExclusionRulesPtrOutput {
+	return o.ToLifecyclePolicyExclusionRulesPtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyExclusionRulesOutput) ToLifecyclePolicyExclusionRulesPtrOutputWithContext(ctx context.Context) LifecyclePolicyExclusionRulesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyExclusionRules) *LifecyclePolicyExclusionRules {
+		return &v
+	}).(LifecyclePolicyExclusionRulesPtrOutput)
+}
+
+func (o LifecyclePolicyExclusionRulesOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyExclusionRules] {
+	return pulumix.Output[LifecyclePolicyExclusionRules]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LifecyclePolicyExclusionRulesOutput) Amis() LifecyclePolicyAmiExclusionRulesPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyExclusionRules) *LifecyclePolicyAmiExclusionRules { return v.Amis }).(LifecyclePolicyAmiExclusionRulesPtrOutput)
+}
+
+// The Image Builder tags to filter on.
+func (o LifecyclePolicyExclusionRulesOutput) TagMap() pulumi.AnyOutput {
+	return o.ApplyT(func(v LifecyclePolicyExclusionRules) interface{} { return v.TagMap }).(pulumi.AnyOutput)
+}
+
+type LifecyclePolicyExclusionRulesPtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyExclusionRulesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyExclusionRules)(nil)).Elem()
+}
+
+func (o LifecyclePolicyExclusionRulesPtrOutput) ToLifecyclePolicyExclusionRulesPtrOutput() LifecyclePolicyExclusionRulesPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyExclusionRulesPtrOutput) ToLifecyclePolicyExclusionRulesPtrOutputWithContext(ctx context.Context) LifecyclePolicyExclusionRulesPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyExclusionRulesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyExclusionRules] {
+	return pulumix.Output[*LifecyclePolicyExclusionRules]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LifecyclePolicyExclusionRulesPtrOutput) Elem() LifecyclePolicyExclusionRulesOutput {
+	return o.ApplyT(func(v *LifecyclePolicyExclusionRules) LifecyclePolicyExclusionRules {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyExclusionRules
+		return ret
+	}).(LifecyclePolicyExclusionRulesOutput)
+}
+
+func (o LifecyclePolicyExclusionRulesPtrOutput) Amis() LifecyclePolicyAmiExclusionRulesPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyExclusionRules) *LifecyclePolicyAmiExclusionRules {
+		if v == nil {
+			return nil
+		}
+		return v.Amis
+	}).(LifecyclePolicyAmiExclusionRulesPtrOutput)
+}
+
+// The Image Builder tags to filter on.
+func (o LifecyclePolicyExclusionRulesPtrOutput) TagMap() pulumi.AnyOutput {
+	return o.ApplyT(func(v *LifecyclePolicyExclusionRules) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.TagMap
+	}).(pulumi.AnyOutput)
+}
+
+// The filters to apply of the policy detail.
+type LifecyclePolicyFilter struct {
+	// The minimum number of Image Builder resources to retain.
+	RetainAtLeast *int `pulumi:"retainAtLeast"`
+	// The filter type.
+	Type LifecyclePolicyFilterType `pulumi:"type"`
+	// The value's time unit.
+	Unit *LifecyclePolicyTimeUnit `pulumi:"unit"`
+	// The filter value.
+	Value int `pulumi:"value"`
+}
+
+// LifecyclePolicyFilterInput is an input type that accepts LifecyclePolicyFilterArgs and LifecyclePolicyFilterOutput values.
+// You can construct a concrete instance of `LifecyclePolicyFilterInput` via:
+//
+//	LifecyclePolicyFilterArgs{...}
+type LifecyclePolicyFilterInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyFilterOutput() LifecyclePolicyFilterOutput
+	ToLifecyclePolicyFilterOutputWithContext(context.Context) LifecyclePolicyFilterOutput
+}
+
+// The filters to apply of the policy detail.
+type LifecyclePolicyFilterArgs struct {
+	// The minimum number of Image Builder resources to retain.
+	RetainAtLeast pulumi.IntPtrInput `pulumi:"retainAtLeast"`
+	// The filter type.
+	Type LifecyclePolicyFilterTypeInput `pulumi:"type"`
+	// The value's time unit.
+	Unit LifecyclePolicyTimeUnitPtrInput `pulumi:"unit"`
+	// The filter value.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (LifecyclePolicyFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyFilter)(nil)).Elem()
+}
+
+func (i LifecyclePolicyFilterArgs) ToLifecyclePolicyFilterOutput() LifecyclePolicyFilterOutput {
+	return i.ToLifecyclePolicyFilterOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyFilterArgs) ToLifecyclePolicyFilterOutputWithContext(ctx context.Context) LifecyclePolicyFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyFilterOutput)
+}
+
+func (i LifecyclePolicyFilterArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyFilter] {
+	return pulumix.Output[LifecyclePolicyFilter]{
+		OutputState: i.ToLifecyclePolicyFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The filters to apply of the policy detail.
+type LifecyclePolicyFilterOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyFilter)(nil)).Elem()
+}
+
+func (o LifecyclePolicyFilterOutput) ToLifecyclePolicyFilterOutput() LifecyclePolicyFilterOutput {
+	return o
+}
+
+func (o LifecyclePolicyFilterOutput) ToLifecyclePolicyFilterOutputWithContext(ctx context.Context) LifecyclePolicyFilterOutput {
+	return o
+}
+
+func (o LifecyclePolicyFilterOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyFilter] {
+	return pulumix.Output[LifecyclePolicyFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The minimum number of Image Builder resources to retain.
+func (o LifecyclePolicyFilterOutput) RetainAtLeast() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyFilter) *int { return v.RetainAtLeast }).(pulumi.IntPtrOutput)
+}
+
+// The filter type.
+func (o LifecyclePolicyFilterOutput) Type() LifecyclePolicyFilterTypeOutput {
+	return o.ApplyT(func(v LifecyclePolicyFilter) LifecyclePolicyFilterType { return v.Type }).(LifecyclePolicyFilterTypeOutput)
+}
+
+// The value's time unit.
+func (o LifecyclePolicyFilterOutput) Unit() LifecyclePolicyTimeUnitPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyFilter) *LifecyclePolicyTimeUnit { return v.Unit }).(LifecyclePolicyTimeUnitPtrOutput)
+}
+
+// The filter value.
+func (o LifecyclePolicyFilterOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v LifecyclePolicyFilter) int { return v.Value }).(pulumi.IntOutput)
+}
+
+// The included resources of the policy detail.
+type LifecyclePolicyIncludeResources struct {
+	// Use to configure lifecycle actions on AMIs.
+	Amis *bool `pulumi:"amis"`
+	// Use to configure lifecycle actions on containers.
+	Containers *bool `pulumi:"containers"`
+	// Use to configure lifecycle actions on snapshots.
+	Snapshots *bool `pulumi:"snapshots"`
+}
+
+// LifecyclePolicyIncludeResourcesInput is an input type that accepts LifecyclePolicyIncludeResourcesArgs and LifecyclePolicyIncludeResourcesOutput values.
+// You can construct a concrete instance of `LifecyclePolicyIncludeResourcesInput` via:
+//
+//	LifecyclePolicyIncludeResourcesArgs{...}
+type LifecyclePolicyIncludeResourcesInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyIncludeResourcesOutput() LifecyclePolicyIncludeResourcesOutput
+	ToLifecyclePolicyIncludeResourcesOutputWithContext(context.Context) LifecyclePolicyIncludeResourcesOutput
+}
+
+// The included resources of the policy detail.
+type LifecyclePolicyIncludeResourcesArgs struct {
+	// Use to configure lifecycle actions on AMIs.
+	Amis pulumi.BoolPtrInput `pulumi:"amis"`
+	// Use to configure lifecycle actions on containers.
+	Containers pulumi.BoolPtrInput `pulumi:"containers"`
+	// Use to configure lifecycle actions on snapshots.
+	Snapshots pulumi.BoolPtrInput `pulumi:"snapshots"`
+}
+
+func (LifecyclePolicyIncludeResourcesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyIncludeResources)(nil)).Elem()
+}
+
+func (i LifecyclePolicyIncludeResourcesArgs) ToLifecyclePolicyIncludeResourcesOutput() LifecyclePolicyIncludeResourcesOutput {
+	return i.ToLifecyclePolicyIncludeResourcesOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyIncludeResourcesArgs) ToLifecyclePolicyIncludeResourcesOutputWithContext(ctx context.Context) LifecyclePolicyIncludeResourcesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyIncludeResourcesOutput)
+}
+
+func (i LifecyclePolicyIncludeResourcesArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyIncludeResources] {
+	return pulumix.Output[LifecyclePolicyIncludeResources]{
+		OutputState: i.ToLifecyclePolicyIncludeResourcesOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i LifecyclePolicyIncludeResourcesArgs) ToLifecyclePolicyIncludeResourcesPtrOutput() LifecyclePolicyIncludeResourcesPtrOutput {
+	return i.ToLifecyclePolicyIncludeResourcesPtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyIncludeResourcesArgs) ToLifecyclePolicyIncludeResourcesPtrOutputWithContext(ctx context.Context) LifecyclePolicyIncludeResourcesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyIncludeResourcesOutput).ToLifecyclePolicyIncludeResourcesPtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyIncludeResourcesPtrInput is an input type that accepts LifecyclePolicyIncludeResourcesArgs, LifecyclePolicyIncludeResourcesPtr and LifecyclePolicyIncludeResourcesPtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyIncludeResourcesPtrInput` via:
+//
+//	        LifecyclePolicyIncludeResourcesArgs{...}
+//
+//	or:
+//
+//	        nil
+type LifecyclePolicyIncludeResourcesPtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyIncludeResourcesPtrOutput() LifecyclePolicyIncludeResourcesPtrOutput
+	ToLifecyclePolicyIncludeResourcesPtrOutputWithContext(context.Context) LifecyclePolicyIncludeResourcesPtrOutput
+}
+
+type lifecyclePolicyIncludeResourcesPtrType LifecyclePolicyIncludeResourcesArgs
+
+func LifecyclePolicyIncludeResourcesPtr(v *LifecyclePolicyIncludeResourcesArgs) LifecyclePolicyIncludeResourcesPtrInput {
+	return (*lifecyclePolicyIncludeResourcesPtrType)(v)
+}
+
+func (*lifecyclePolicyIncludeResourcesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyIncludeResources)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyIncludeResourcesPtrType) ToLifecyclePolicyIncludeResourcesPtrOutput() LifecyclePolicyIncludeResourcesPtrOutput {
+	return i.ToLifecyclePolicyIncludeResourcesPtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyIncludeResourcesPtrType) ToLifecyclePolicyIncludeResourcesPtrOutputWithContext(ctx context.Context) LifecyclePolicyIncludeResourcesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyIncludeResourcesPtrOutput)
+}
+
+func (i *lifecyclePolicyIncludeResourcesPtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyIncludeResources] {
+	return pulumix.Output[*LifecyclePolicyIncludeResources]{
+		OutputState: i.ToLifecyclePolicyIncludeResourcesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The included resources of the policy detail.
+type LifecyclePolicyIncludeResourcesOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyIncludeResourcesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyIncludeResources)(nil)).Elem()
+}
+
+func (o LifecyclePolicyIncludeResourcesOutput) ToLifecyclePolicyIncludeResourcesOutput() LifecyclePolicyIncludeResourcesOutput {
+	return o
+}
+
+func (o LifecyclePolicyIncludeResourcesOutput) ToLifecyclePolicyIncludeResourcesOutputWithContext(ctx context.Context) LifecyclePolicyIncludeResourcesOutput {
+	return o
+}
+
+func (o LifecyclePolicyIncludeResourcesOutput) ToLifecyclePolicyIncludeResourcesPtrOutput() LifecyclePolicyIncludeResourcesPtrOutput {
+	return o.ToLifecyclePolicyIncludeResourcesPtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyIncludeResourcesOutput) ToLifecyclePolicyIncludeResourcesPtrOutputWithContext(ctx context.Context) LifecyclePolicyIncludeResourcesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyIncludeResources) *LifecyclePolicyIncludeResources {
+		return &v
+	}).(LifecyclePolicyIncludeResourcesPtrOutput)
+}
+
+func (o LifecyclePolicyIncludeResourcesOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyIncludeResources] {
+	return pulumix.Output[LifecyclePolicyIncludeResources]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Use to configure lifecycle actions on AMIs.
+func (o LifecyclePolicyIncludeResourcesOutput) Amis() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyIncludeResources) *bool { return v.Amis }).(pulumi.BoolPtrOutput)
+}
+
+// Use to configure lifecycle actions on containers.
+func (o LifecyclePolicyIncludeResourcesOutput) Containers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyIncludeResources) *bool { return v.Containers }).(pulumi.BoolPtrOutput)
+}
+
+// Use to configure lifecycle actions on snapshots.
+func (o LifecyclePolicyIncludeResourcesOutput) Snapshots() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyIncludeResources) *bool { return v.Snapshots }).(pulumi.BoolPtrOutput)
+}
+
+type LifecyclePolicyIncludeResourcesPtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyIncludeResourcesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyIncludeResources)(nil)).Elem()
+}
+
+func (o LifecyclePolicyIncludeResourcesPtrOutput) ToLifecyclePolicyIncludeResourcesPtrOutput() LifecyclePolicyIncludeResourcesPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyIncludeResourcesPtrOutput) ToLifecyclePolicyIncludeResourcesPtrOutputWithContext(ctx context.Context) LifecyclePolicyIncludeResourcesPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyIncludeResourcesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyIncludeResources] {
+	return pulumix.Output[*LifecyclePolicyIncludeResources]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LifecyclePolicyIncludeResourcesPtrOutput) Elem() LifecyclePolicyIncludeResourcesOutput {
+	return o.ApplyT(func(v *LifecyclePolicyIncludeResources) LifecyclePolicyIncludeResources {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyIncludeResources
+		return ret
+	}).(LifecyclePolicyIncludeResourcesOutput)
+}
+
+// Use to configure lifecycle actions on AMIs.
+func (o LifecyclePolicyIncludeResourcesPtrOutput) Amis() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyIncludeResources) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Amis
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Use to configure lifecycle actions on containers.
+func (o LifecyclePolicyIncludeResourcesPtrOutput) Containers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyIncludeResources) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Containers
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Use to configure lifecycle actions on snapshots.
+func (o LifecyclePolicyIncludeResourcesPtrOutput) Snapshots() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyIncludeResources) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Snapshots
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The last launched time of a resource.
+type LifecyclePolicyLastLaunched struct {
+	// The value's time unit.
+	Unit LifecyclePolicyTimeUnit `pulumi:"unit"`
+	// The last launched value.
+	Value int `pulumi:"value"`
+}
+
+// LifecyclePolicyLastLaunchedInput is an input type that accepts LifecyclePolicyLastLaunchedArgs and LifecyclePolicyLastLaunchedOutput values.
+// You can construct a concrete instance of `LifecyclePolicyLastLaunchedInput` via:
+//
+//	LifecyclePolicyLastLaunchedArgs{...}
+type LifecyclePolicyLastLaunchedInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyLastLaunchedOutput() LifecyclePolicyLastLaunchedOutput
+	ToLifecyclePolicyLastLaunchedOutputWithContext(context.Context) LifecyclePolicyLastLaunchedOutput
+}
+
+// The last launched time of a resource.
+type LifecyclePolicyLastLaunchedArgs struct {
+	// The value's time unit.
+	Unit LifecyclePolicyTimeUnitInput `pulumi:"unit"`
+	// The last launched value.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (LifecyclePolicyLastLaunchedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyLastLaunched)(nil)).Elem()
+}
+
+func (i LifecyclePolicyLastLaunchedArgs) ToLifecyclePolicyLastLaunchedOutput() LifecyclePolicyLastLaunchedOutput {
+	return i.ToLifecyclePolicyLastLaunchedOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyLastLaunchedArgs) ToLifecyclePolicyLastLaunchedOutputWithContext(ctx context.Context) LifecyclePolicyLastLaunchedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyLastLaunchedOutput)
+}
+
+func (i LifecyclePolicyLastLaunchedArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyLastLaunched] {
+	return pulumix.Output[LifecyclePolicyLastLaunched]{
+		OutputState: i.ToLifecyclePolicyLastLaunchedOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i LifecyclePolicyLastLaunchedArgs) ToLifecyclePolicyLastLaunchedPtrOutput() LifecyclePolicyLastLaunchedPtrOutput {
+	return i.ToLifecyclePolicyLastLaunchedPtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyLastLaunchedArgs) ToLifecyclePolicyLastLaunchedPtrOutputWithContext(ctx context.Context) LifecyclePolicyLastLaunchedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyLastLaunchedOutput).ToLifecyclePolicyLastLaunchedPtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyLastLaunchedPtrInput is an input type that accepts LifecyclePolicyLastLaunchedArgs, LifecyclePolicyLastLaunchedPtr and LifecyclePolicyLastLaunchedPtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyLastLaunchedPtrInput` via:
+//
+//	        LifecyclePolicyLastLaunchedArgs{...}
+//
+//	or:
+//
+//	        nil
+type LifecyclePolicyLastLaunchedPtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyLastLaunchedPtrOutput() LifecyclePolicyLastLaunchedPtrOutput
+	ToLifecyclePolicyLastLaunchedPtrOutputWithContext(context.Context) LifecyclePolicyLastLaunchedPtrOutput
+}
+
+type lifecyclePolicyLastLaunchedPtrType LifecyclePolicyLastLaunchedArgs
+
+func LifecyclePolicyLastLaunchedPtr(v *LifecyclePolicyLastLaunchedArgs) LifecyclePolicyLastLaunchedPtrInput {
+	return (*lifecyclePolicyLastLaunchedPtrType)(v)
+}
+
+func (*lifecyclePolicyLastLaunchedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyLastLaunched)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyLastLaunchedPtrType) ToLifecyclePolicyLastLaunchedPtrOutput() LifecyclePolicyLastLaunchedPtrOutput {
+	return i.ToLifecyclePolicyLastLaunchedPtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyLastLaunchedPtrType) ToLifecyclePolicyLastLaunchedPtrOutputWithContext(ctx context.Context) LifecyclePolicyLastLaunchedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyLastLaunchedPtrOutput)
+}
+
+func (i *lifecyclePolicyLastLaunchedPtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyLastLaunched] {
+	return pulumix.Output[*LifecyclePolicyLastLaunched]{
+		OutputState: i.ToLifecyclePolicyLastLaunchedPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The last launched time of a resource.
+type LifecyclePolicyLastLaunchedOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyLastLaunchedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyLastLaunched)(nil)).Elem()
+}
+
+func (o LifecyclePolicyLastLaunchedOutput) ToLifecyclePolicyLastLaunchedOutput() LifecyclePolicyLastLaunchedOutput {
+	return o
+}
+
+func (o LifecyclePolicyLastLaunchedOutput) ToLifecyclePolicyLastLaunchedOutputWithContext(ctx context.Context) LifecyclePolicyLastLaunchedOutput {
+	return o
+}
+
+func (o LifecyclePolicyLastLaunchedOutput) ToLifecyclePolicyLastLaunchedPtrOutput() LifecyclePolicyLastLaunchedPtrOutput {
+	return o.ToLifecyclePolicyLastLaunchedPtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyLastLaunchedOutput) ToLifecyclePolicyLastLaunchedPtrOutputWithContext(ctx context.Context) LifecyclePolicyLastLaunchedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyLastLaunched) *LifecyclePolicyLastLaunched {
+		return &v
+	}).(LifecyclePolicyLastLaunchedPtrOutput)
+}
+
+func (o LifecyclePolicyLastLaunchedOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyLastLaunched] {
+	return pulumix.Output[LifecyclePolicyLastLaunched]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The value's time unit.
+func (o LifecyclePolicyLastLaunchedOutput) Unit() LifecyclePolicyTimeUnitOutput {
+	return o.ApplyT(func(v LifecyclePolicyLastLaunched) LifecyclePolicyTimeUnit { return v.Unit }).(LifecyclePolicyTimeUnitOutput)
+}
+
+// The last launched value.
+func (o LifecyclePolicyLastLaunchedOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v LifecyclePolicyLastLaunched) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type LifecyclePolicyLastLaunchedPtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyLastLaunchedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyLastLaunched)(nil)).Elem()
+}
+
+func (o LifecyclePolicyLastLaunchedPtrOutput) ToLifecyclePolicyLastLaunchedPtrOutput() LifecyclePolicyLastLaunchedPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyLastLaunchedPtrOutput) ToLifecyclePolicyLastLaunchedPtrOutputWithContext(ctx context.Context) LifecyclePolicyLastLaunchedPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyLastLaunchedPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyLastLaunched] {
+	return pulumix.Output[*LifecyclePolicyLastLaunched]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LifecyclePolicyLastLaunchedPtrOutput) Elem() LifecyclePolicyLastLaunchedOutput {
+	return o.ApplyT(func(v *LifecyclePolicyLastLaunched) LifecyclePolicyLastLaunched {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyLastLaunched
+		return ret
+	}).(LifecyclePolicyLastLaunchedOutput)
+}
+
+// The value's time unit.
+func (o LifecyclePolicyLastLaunchedPtrOutput) Unit() LifecyclePolicyTimeUnitPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyLastLaunched) *LifecyclePolicyTimeUnit {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(LifecyclePolicyTimeUnitPtrOutput)
+}
+
+// The last launched value.
+func (o LifecyclePolicyLastLaunchedPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyLastLaunched) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+// The policy detail of the lifecycle policy.
+type LifecyclePolicyPolicyDetail struct {
+	Action         LifecyclePolicyAction          `pulumi:"action"`
+	ExclusionRules *LifecyclePolicyExclusionRules `pulumi:"exclusionRules"`
+	Filter         LifecyclePolicyFilter          `pulumi:"filter"`
+}
+
+// LifecyclePolicyPolicyDetailInput is an input type that accepts LifecyclePolicyPolicyDetailArgs and LifecyclePolicyPolicyDetailOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailInput` via:
+//
+//	LifecyclePolicyPolicyDetailArgs{...}
+type LifecyclePolicyPolicyDetailInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailOutput() LifecyclePolicyPolicyDetailOutput
+	ToLifecyclePolicyPolicyDetailOutputWithContext(context.Context) LifecyclePolicyPolicyDetailOutput
+}
+
+// The policy detail of the lifecycle policy.
+type LifecyclePolicyPolicyDetailArgs struct {
+	Action         LifecyclePolicyActionInput            `pulumi:"action"`
+	ExclusionRules LifecyclePolicyExclusionRulesPtrInput `pulumi:"exclusionRules"`
+	Filter         LifecyclePolicyFilterInput            `pulumi:"filter"`
+}
+
+func (LifecyclePolicyPolicyDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetail)(nil)).Elem()
+}
+
+func (i LifecyclePolicyPolicyDetailArgs) ToLifecyclePolicyPolicyDetailOutput() LifecyclePolicyPolicyDetailOutput {
+	return i.ToLifecyclePolicyPolicyDetailOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailArgs) ToLifecyclePolicyPolicyDetailOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailOutput)
+}
+
+func (i LifecyclePolicyPolicyDetailArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetail] {
+	return pulumix.Output[LifecyclePolicyPolicyDetail]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailOutputWithContext(ctx).OutputState,
+	}
+}
+
+// LifecyclePolicyPolicyDetailArrayInput is an input type that accepts LifecyclePolicyPolicyDetailArray and LifecyclePolicyPolicyDetailArrayOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailArrayInput` via:
+//
+//	LifecyclePolicyPolicyDetailArray{ LifecyclePolicyPolicyDetailArgs{...} }
+type LifecyclePolicyPolicyDetailArrayInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailArrayOutput() LifecyclePolicyPolicyDetailArrayOutput
+	ToLifecyclePolicyPolicyDetailArrayOutputWithContext(context.Context) LifecyclePolicyPolicyDetailArrayOutput
+}
+
+type LifecyclePolicyPolicyDetailArray []LifecyclePolicyPolicyDetailInput
+
+func (LifecyclePolicyPolicyDetailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LifecyclePolicyPolicyDetail)(nil)).Elem()
+}
+
+func (i LifecyclePolicyPolicyDetailArray) ToLifecyclePolicyPolicyDetailArrayOutput() LifecyclePolicyPolicyDetailArrayOutput {
+	return i.ToLifecyclePolicyPolicyDetailArrayOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailArray) ToLifecyclePolicyPolicyDetailArrayOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailArrayOutput)
+}
+
+func (i LifecyclePolicyPolicyDetailArray) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicyPolicyDetail] {
+	return pulumix.Output[[]LifecyclePolicyPolicyDetail]{
+		OutputState: i.ToLifecyclePolicyPolicyDetailArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The policy detail of the lifecycle policy.
+type LifecyclePolicyPolicyDetailOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetail)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailOutput) ToLifecyclePolicyPolicyDetailOutput() LifecyclePolicyPolicyDetailOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailOutput) ToLifecyclePolicyPolicyDetailOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyPolicyDetail] {
+	return pulumix.Output[LifecyclePolicyPolicyDetail]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LifecyclePolicyPolicyDetailOutput) Action() LifecyclePolicyActionOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetail) LifecyclePolicyAction { return v.Action }).(LifecyclePolicyActionOutput)
+}
+
+func (o LifecyclePolicyPolicyDetailOutput) ExclusionRules() LifecyclePolicyExclusionRulesPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetail) *LifecyclePolicyExclusionRules { return v.ExclusionRules }).(LifecyclePolicyExclusionRulesPtrOutput)
+}
+
+func (o LifecyclePolicyPolicyDetailOutput) Filter() LifecyclePolicyFilterOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetail) LifecyclePolicyFilter { return v.Filter }).(LifecyclePolicyFilterOutput)
+}
+
+type LifecyclePolicyPolicyDetailArrayOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LifecyclePolicyPolicyDetail)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailArrayOutput) ToLifecyclePolicyPolicyDetailArrayOutput() LifecyclePolicyPolicyDetailArrayOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailArrayOutput) ToLifecyclePolicyPolicyDetailArrayOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailArrayOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicyPolicyDetail] {
+	return pulumix.Output[[]LifecyclePolicyPolicyDetail]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LifecyclePolicyPolicyDetailArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyPolicyDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LifecyclePolicyPolicyDetail {
+		return vs[0].([]LifecyclePolicyPolicyDetail)[vs[1].(int)]
+	}).(LifecyclePolicyPolicyDetailOutput)
+}
+
+// The recipe to apply the lifecycle policy for.
+type LifecyclePolicyRecipeSelection struct {
+	// The recipe name.
+	Name string `pulumi:"name"`
+	// The recipe version.
+	SemanticVersion *string `pulumi:"semanticVersion"`
+}
+
+// LifecyclePolicyRecipeSelectionInput is an input type that accepts LifecyclePolicyRecipeSelectionArgs and LifecyclePolicyRecipeSelectionOutput values.
+// You can construct a concrete instance of `LifecyclePolicyRecipeSelectionInput` via:
+//
+//	LifecyclePolicyRecipeSelectionArgs{...}
+type LifecyclePolicyRecipeSelectionInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyRecipeSelectionOutput() LifecyclePolicyRecipeSelectionOutput
+	ToLifecyclePolicyRecipeSelectionOutputWithContext(context.Context) LifecyclePolicyRecipeSelectionOutput
+}
+
+// The recipe to apply the lifecycle policy for.
+type LifecyclePolicyRecipeSelectionArgs struct {
+	// The recipe name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The recipe version.
+	SemanticVersion pulumi.StringPtrInput `pulumi:"semanticVersion"`
+}
+
+func (LifecyclePolicyRecipeSelectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyRecipeSelection)(nil)).Elem()
+}
+
+func (i LifecyclePolicyRecipeSelectionArgs) ToLifecyclePolicyRecipeSelectionOutput() LifecyclePolicyRecipeSelectionOutput {
+	return i.ToLifecyclePolicyRecipeSelectionOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyRecipeSelectionArgs) ToLifecyclePolicyRecipeSelectionOutputWithContext(ctx context.Context) LifecyclePolicyRecipeSelectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyRecipeSelectionOutput)
+}
+
+func (i LifecyclePolicyRecipeSelectionArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyRecipeSelection] {
+	return pulumix.Output[LifecyclePolicyRecipeSelection]{
+		OutputState: i.ToLifecyclePolicyRecipeSelectionOutputWithContext(ctx).OutputState,
+	}
+}
+
+// LifecyclePolicyRecipeSelectionArrayInput is an input type that accepts LifecyclePolicyRecipeSelectionArray and LifecyclePolicyRecipeSelectionArrayOutput values.
+// You can construct a concrete instance of `LifecyclePolicyRecipeSelectionArrayInput` via:
+//
+//	LifecyclePolicyRecipeSelectionArray{ LifecyclePolicyRecipeSelectionArgs{...} }
+type LifecyclePolicyRecipeSelectionArrayInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyRecipeSelectionArrayOutput() LifecyclePolicyRecipeSelectionArrayOutput
+	ToLifecyclePolicyRecipeSelectionArrayOutputWithContext(context.Context) LifecyclePolicyRecipeSelectionArrayOutput
+}
+
+type LifecyclePolicyRecipeSelectionArray []LifecyclePolicyRecipeSelectionInput
+
+func (LifecyclePolicyRecipeSelectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LifecyclePolicyRecipeSelection)(nil)).Elem()
+}
+
+func (i LifecyclePolicyRecipeSelectionArray) ToLifecyclePolicyRecipeSelectionArrayOutput() LifecyclePolicyRecipeSelectionArrayOutput {
+	return i.ToLifecyclePolicyRecipeSelectionArrayOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyRecipeSelectionArray) ToLifecyclePolicyRecipeSelectionArrayOutputWithContext(ctx context.Context) LifecyclePolicyRecipeSelectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyRecipeSelectionArrayOutput)
+}
+
+func (i LifecyclePolicyRecipeSelectionArray) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicyRecipeSelection] {
+	return pulumix.Output[[]LifecyclePolicyRecipeSelection]{
+		OutputState: i.ToLifecyclePolicyRecipeSelectionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The recipe to apply the lifecycle policy for.
+type LifecyclePolicyRecipeSelectionOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyRecipeSelectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyRecipeSelection)(nil)).Elem()
+}
+
+func (o LifecyclePolicyRecipeSelectionOutput) ToLifecyclePolicyRecipeSelectionOutput() LifecyclePolicyRecipeSelectionOutput {
+	return o
+}
+
+func (o LifecyclePolicyRecipeSelectionOutput) ToLifecyclePolicyRecipeSelectionOutputWithContext(ctx context.Context) LifecyclePolicyRecipeSelectionOutput {
+	return o
+}
+
+func (o LifecyclePolicyRecipeSelectionOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyRecipeSelection] {
+	return pulumix.Output[LifecyclePolicyRecipeSelection]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The recipe name.
+func (o LifecyclePolicyRecipeSelectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LifecyclePolicyRecipeSelection) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The recipe version.
+func (o LifecyclePolicyRecipeSelectionOutput) SemanticVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyRecipeSelection) *string { return v.SemanticVersion }).(pulumi.StringPtrOutput)
+}
+
+type LifecyclePolicyRecipeSelectionArrayOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyRecipeSelectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LifecyclePolicyRecipeSelection)(nil)).Elem()
+}
+
+func (o LifecyclePolicyRecipeSelectionArrayOutput) ToLifecyclePolicyRecipeSelectionArrayOutput() LifecyclePolicyRecipeSelectionArrayOutput {
+	return o
+}
+
+func (o LifecyclePolicyRecipeSelectionArrayOutput) ToLifecyclePolicyRecipeSelectionArrayOutputWithContext(ctx context.Context) LifecyclePolicyRecipeSelectionArrayOutput {
+	return o
+}
+
+func (o LifecyclePolicyRecipeSelectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LifecyclePolicyRecipeSelection] {
+	return pulumix.Output[[]LifecyclePolicyRecipeSelection]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LifecyclePolicyRecipeSelectionArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyRecipeSelectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LifecyclePolicyRecipeSelection {
+		return vs[0].([]LifecyclePolicyRecipeSelection)[vs[1].(int)]
+	}).(LifecyclePolicyRecipeSelectionOutput)
+}
+
+// The resource selection for the lifecycle policy.
+type LifecyclePolicyResourceSelection struct {
+	// The recipes to select.
+	Recipes []LifecyclePolicyRecipeSelection `pulumi:"recipes"`
+	// The Image Builder resources to select by tag.
+	TagMap interface{} `pulumi:"tagMap"`
+}
+
+// LifecyclePolicyResourceSelectionInput is an input type that accepts LifecyclePolicyResourceSelectionArgs and LifecyclePolicyResourceSelectionOutput values.
+// You can construct a concrete instance of `LifecyclePolicyResourceSelectionInput` via:
+//
+//	LifecyclePolicyResourceSelectionArgs{...}
+type LifecyclePolicyResourceSelectionInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyResourceSelectionOutput() LifecyclePolicyResourceSelectionOutput
+	ToLifecyclePolicyResourceSelectionOutputWithContext(context.Context) LifecyclePolicyResourceSelectionOutput
+}
+
+// The resource selection for the lifecycle policy.
+type LifecyclePolicyResourceSelectionArgs struct {
+	// The recipes to select.
+	Recipes LifecyclePolicyRecipeSelectionArrayInput `pulumi:"recipes"`
+	// The Image Builder resources to select by tag.
+	TagMap pulumi.Input `pulumi:"tagMap"`
+}
+
+func (LifecyclePolicyResourceSelectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyResourceSelection)(nil)).Elem()
+}
+
+func (i LifecyclePolicyResourceSelectionArgs) ToLifecyclePolicyResourceSelectionOutput() LifecyclePolicyResourceSelectionOutput {
+	return i.ToLifecyclePolicyResourceSelectionOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyResourceSelectionArgs) ToLifecyclePolicyResourceSelectionOutputWithContext(ctx context.Context) LifecyclePolicyResourceSelectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyResourceSelectionOutput)
+}
+
+func (i LifecyclePolicyResourceSelectionArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyResourceSelection] {
+	return pulumix.Output[LifecyclePolicyResourceSelection]{
+		OutputState: i.ToLifecyclePolicyResourceSelectionOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The resource selection for the lifecycle policy.
+type LifecyclePolicyResourceSelectionOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyResourceSelectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyResourceSelection)(nil)).Elem()
+}
+
+func (o LifecyclePolicyResourceSelectionOutput) ToLifecyclePolicyResourceSelectionOutput() LifecyclePolicyResourceSelectionOutput {
+	return o
+}
+
+func (o LifecyclePolicyResourceSelectionOutput) ToLifecyclePolicyResourceSelectionOutputWithContext(ctx context.Context) LifecyclePolicyResourceSelectionOutput {
+	return o
+}
+
+func (o LifecyclePolicyResourceSelectionOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyResourceSelection] {
+	return pulumix.Output[LifecyclePolicyResourceSelection]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The recipes to select.
+func (o LifecyclePolicyResourceSelectionOutput) Recipes() LifecyclePolicyRecipeSelectionArrayOutput {
+	return o.ApplyT(func(v LifecyclePolicyResourceSelection) []LifecyclePolicyRecipeSelection { return v.Recipes }).(LifecyclePolicyRecipeSelectionArrayOutput)
+}
+
+// The Image Builder resources to select by tag.
+func (o LifecyclePolicyResourceSelectionOutput) TagMap() pulumi.AnyOutput {
+	return o.ApplyT(func(v LifecyclePolicyResourceSelection) interface{} { return v.TagMap }).(pulumi.AnyOutput)
+}
+
+type LifecyclePolicyResourceSelectionPtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyResourceSelectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyResourceSelection)(nil)).Elem()
+}
+
+func (o LifecyclePolicyResourceSelectionPtrOutput) ToLifecyclePolicyResourceSelectionPtrOutput() LifecyclePolicyResourceSelectionPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyResourceSelectionPtrOutput) ToLifecyclePolicyResourceSelectionPtrOutputWithContext(ctx context.Context) LifecyclePolicyResourceSelectionPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyResourceSelectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyResourceSelection] {
+	return pulumix.Output[*LifecyclePolicyResourceSelection]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LifecyclePolicyResourceSelectionPtrOutput) Elem() LifecyclePolicyResourceSelectionOutput {
+	return o.ApplyT(func(v *LifecyclePolicyResourceSelection) LifecyclePolicyResourceSelection {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyResourceSelection
+		return ret
+	}).(LifecyclePolicyResourceSelectionOutput)
+}
+
+// The recipes to select.
+func (o LifecyclePolicyResourceSelectionPtrOutput) Recipes() LifecyclePolicyRecipeSelectionArrayOutput {
+	return o.ApplyT(func(v *LifecyclePolicyResourceSelection) []LifecyclePolicyRecipeSelection {
+		if v == nil {
+			return nil
+		}
+		return v.Recipes
+	}).(LifecyclePolicyRecipeSelectionArrayOutput)
+}
+
+// The Image Builder resources to select by tag.
+func (o LifecyclePolicyResourceSelectionPtrOutput) TagMap() pulumi.AnyOutput {
+	return o.ApplyT(func(v *LifecyclePolicyResourceSelection) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.TagMap
+	}).(pulumi.AnyOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeComponentConfigurationInput)(nil)).Elem(), ContainerRecipeComponentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerRecipeComponentConfigurationArrayInput)(nil)).Elem(), ContainerRecipeComponentConfigurationArray{})
@@ -5763,6 +7126,21 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationLoggingPtrInput)(nil)).Elem(), InfrastructureConfigurationLoggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationS3LogsInput)(nil)).Elem(), InfrastructureConfigurationS3LogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationS3LogsPtrInput)(nil)).Elem(), InfrastructureConfigurationS3LogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyActionInput)(nil)).Elem(), LifecyclePolicyActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyAmiExclusionRulesInput)(nil)).Elem(), LifecyclePolicyAmiExclusionRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyAmiExclusionRulesPtrInput)(nil)).Elem(), LifecyclePolicyAmiExclusionRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyExclusionRulesInput)(nil)).Elem(), LifecyclePolicyExclusionRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyExclusionRulesPtrInput)(nil)).Elem(), LifecyclePolicyExclusionRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyFilterInput)(nil)).Elem(), LifecyclePolicyFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyIncludeResourcesInput)(nil)).Elem(), LifecyclePolicyIncludeResourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyIncludeResourcesPtrInput)(nil)).Elem(), LifecyclePolicyIncludeResourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyLastLaunchedInput)(nil)).Elem(), LifecyclePolicyLastLaunchedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyLastLaunchedPtrInput)(nil)).Elem(), LifecyclePolicyLastLaunchedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailInput)(nil)).Elem(), LifecyclePolicyPolicyDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailArrayInput)(nil)).Elem(), LifecyclePolicyPolicyDetailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyRecipeSelectionInput)(nil)).Elem(), LifecyclePolicyRecipeSelectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyRecipeSelectionArrayInput)(nil)).Elem(), LifecyclePolicyRecipeSelectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyResourceSelectionInput)(nil)).Elem(), LifecyclePolicyResourceSelectionArgs{})
 	pulumi.RegisterOutputType(ContainerRecipeComponentConfigurationOutput{})
 	pulumi.RegisterOutputType(ContainerRecipeComponentConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ContainerRecipeComponentParameterOutput{})
@@ -5825,4 +7203,20 @@ func init() {
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingPtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationS3LogsOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationS3LogsPtrOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyActionOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyAmiExclusionRulesOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyAmiExclusionRulesPtrOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyExclusionRulesOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyExclusionRulesPtrOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyFilterOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyIncludeResourcesOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyIncludeResourcesPtrOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyLastLaunchedOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyLastLaunchedPtrOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailArrayOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyRecipeSelectionOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyRecipeSelectionArrayOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyResourceSelectionOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyResourceSelectionPtrOutput{})
 }

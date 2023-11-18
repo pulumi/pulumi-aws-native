@@ -377,6 +377,188 @@ func (in *collectionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*Colle
 	}
 }
 
+// The type of lifecycle policy
+type LifecyclePolicyType string
+
+const (
+	LifecyclePolicyTypeRetention = LifecyclePolicyType("retention")
+)
+
+func (LifecyclePolicyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyType)(nil)).Elem()
+}
+
+func (e LifecyclePolicyType) ToLifecyclePolicyTypeOutput() LifecyclePolicyTypeOutput {
+	return pulumi.ToOutput(e).(LifecyclePolicyTypeOutput)
+}
+
+func (e LifecyclePolicyType) ToLifecyclePolicyTypeOutputWithContext(ctx context.Context) LifecyclePolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LifecyclePolicyTypeOutput)
+}
+
+func (e LifecyclePolicyType) ToLifecyclePolicyTypePtrOutput() LifecyclePolicyTypePtrOutput {
+	return e.ToLifecyclePolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (e LifecyclePolicyType) ToLifecyclePolicyTypePtrOutputWithContext(ctx context.Context) LifecyclePolicyTypePtrOutput {
+	return LifecyclePolicyType(e).ToLifecyclePolicyTypeOutputWithContext(ctx).ToLifecyclePolicyTypePtrOutputWithContext(ctx)
+}
+
+func (e LifecyclePolicyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LifecyclePolicyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LifecyclePolicyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LifecyclePolicyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LifecyclePolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyType)(nil)).Elem()
+}
+
+func (o LifecyclePolicyTypeOutput) ToLifecyclePolicyTypeOutput() LifecyclePolicyTypeOutput {
+	return o
+}
+
+func (o LifecyclePolicyTypeOutput) ToLifecyclePolicyTypeOutputWithContext(ctx context.Context) LifecyclePolicyTypeOutput {
+	return o
+}
+
+func (o LifecyclePolicyTypeOutput) ToLifecyclePolicyTypePtrOutput() LifecyclePolicyTypePtrOutput {
+	return o.ToLifecyclePolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyTypeOutput) ToLifecyclePolicyTypePtrOutputWithContext(ctx context.Context) LifecyclePolicyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyType) *LifecyclePolicyType {
+		return &v
+	}).(LifecyclePolicyTypePtrOutput)
+}
+
+func (o LifecyclePolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyType] {
+	return pulumix.Output[LifecyclePolicyType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LifecyclePolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LifecyclePolicyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LifecyclePolicyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LifecyclePolicyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LifecyclePolicyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyType)(nil)).Elem()
+}
+
+func (o LifecyclePolicyTypePtrOutput) ToLifecyclePolicyTypePtrOutput() LifecyclePolicyTypePtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyTypePtrOutput) ToLifecyclePolicyTypePtrOutputWithContext(ctx context.Context) LifecyclePolicyTypePtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyType] {
+	return pulumix.Output[*LifecyclePolicyType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LifecyclePolicyTypePtrOutput) Elem() LifecyclePolicyTypeOutput {
+	return o.ApplyT(func(v *LifecyclePolicyType) LifecyclePolicyType {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyType
+		return ret
+	}).(LifecyclePolicyTypeOutput)
+}
+
+func (o LifecyclePolicyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LifecyclePolicyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LifecyclePolicyTypeInput is an input type that accepts LifecyclePolicyTypeArgs and LifecyclePolicyTypeOutput values.
+// You can construct a concrete instance of `LifecyclePolicyTypeInput` via:
+//
+//	LifecyclePolicyTypeArgs{...}
+type LifecyclePolicyTypeInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyTypeOutput() LifecyclePolicyTypeOutput
+	ToLifecyclePolicyTypeOutputWithContext(context.Context) LifecyclePolicyTypeOutput
+}
+
+var lifecyclePolicyTypePtrType = reflect.TypeOf((**LifecyclePolicyType)(nil)).Elem()
+
+type LifecyclePolicyTypePtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyTypePtrOutput() LifecyclePolicyTypePtrOutput
+	ToLifecyclePolicyTypePtrOutputWithContext(context.Context) LifecyclePolicyTypePtrOutput
+}
+
+type lifecyclePolicyTypePtr string
+
+func LifecyclePolicyTypePtr(v string) LifecyclePolicyTypePtrInput {
+	return (*lifecyclePolicyTypePtr)(&v)
+}
+
+func (*lifecyclePolicyTypePtr) ElementType() reflect.Type {
+	return lifecyclePolicyTypePtrType
+}
+
+func (in *lifecyclePolicyTypePtr) ToLifecyclePolicyTypePtrOutput() LifecyclePolicyTypePtrOutput {
+	return pulumi.ToOutput(in).(LifecyclePolicyTypePtrOutput)
+}
+
+func (in *lifecyclePolicyTypePtr) ToLifecyclePolicyTypePtrOutputWithContext(ctx context.Context) LifecyclePolicyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LifecyclePolicyTypePtrOutput)
+}
+
+func (in *lifecyclePolicyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyType] {
+	return pulumix.Output[*LifecyclePolicyType]{
+		OutputState: in.ToLifecyclePolicyTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Config type for security config
 type SecurityConfigType string
 
@@ -747,6 +929,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPolicyTypePtrInput)(nil)).Elem(), AccessPolicyType("data"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionTypeInput)(nil)).Elem(), CollectionType("SEARCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollectionTypePtrInput)(nil)).Elem(), CollectionType("SEARCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyTypeInput)(nil)).Elem(), LifecyclePolicyType("retention"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyTypePtrInput)(nil)).Elem(), LifecyclePolicyType("retention"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigTypeInput)(nil)).Elem(), SecurityConfigType("saml"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigTypePtrInput)(nil)).Elem(), SecurityConfigType("saml"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityPolicyTypeInput)(nil)).Elem(), SecurityPolicyType("encryption"))
@@ -755,6 +939,8 @@ func init() {
 	pulumi.RegisterOutputType(AccessPolicyTypePtrOutput{})
 	pulumi.RegisterOutputType(CollectionTypeOutput{})
 	pulumi.RegisterOutputType(CollectionTypePtrOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyTypeOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyTypePtrOutput{})
 	pulumi.RegisterOutputType(SecurityConfigTypeOutput{})
 	pulumi.RegisterOutputType(SecurityConfigTypePtrOutput{})
 	pulumi.RegisterOutputType(SecurityPolicyTypeOutput{})

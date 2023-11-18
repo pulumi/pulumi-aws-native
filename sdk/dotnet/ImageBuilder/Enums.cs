@@ -354,4 +354,162 @@ namespace Pulumi.AwsNative.ImageBuilder
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The action type of the policy detail.
+    /// </summary>
+    [EnumType]
+    public readonly struct LifecyclePolicyActionType : IEquatable<LifecyclePolicyActionType>
+    {
+        private readonly string _value;
+
+        private LifecyclePolicyActionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LifecyclePolicyActionType Delete { get; } = new LifecyclePolicyActionType("DELETE");
+        public static LifecyclePolicyActionType Deprecate { get; } = new LifecyclePolicyActionType("DEPRECATE");
+        public static LifecyclePolicyActionType Disable { get; } = new LifecyclePolicyActionType("DISABLE");
+
+        public static bool operator ==(LifecyclePolicyActionType left, LifecyclePolicyActionType right) => left.Equals(right);
+        public static bool operator !=(LifecyclePolicyActionType left, LifecyclePolicyActionType right) => !left.Equals(right);
+
+        public static explicit operator string(LifecyclePolicyActionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LifecyclePolicyActionType other && Equals(other);
+        public bool Equals(LifecyclePolicyActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The filter type.
+    /// </summary>
+    [EnumType]
+    public readonly struct LifecyclePolicyFilterType : IEquatable<LifecyclePolicyFilterType>
+    {
+        private readonly string _value;
+
+        private LifecyclePolicyFilterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LifecyclePolicyFilterType Age { get; } = new LifecyclePolicyFilterType("AGE");
+        public static LifecyclePolicyFilterType Count { get; } = new LifecyclePolicyFilterType("COUNT");
+
+        public static bool operator ==(LifecyclePolicyFilterType left, LifecyclePolicyFilterType right) => left.Equals(right);
+        public static bool operator !=(LifecyclePolicyFilterType left, LifecyclePolicyFilterType right) => !left.Equals(right);
+
+        public static explicit operator string(LifecyclePolicyFilterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LifecyclePolicyFilterType other && Equals(other);
+        public bool Equals(LifecyclePolicyFilterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The resource type of the lifecycle policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct LifecyclePolicyResourceType : IEquatable<LifecyclePolicyResourceType>
+    {
+        private readonly string _value;
+
+        private LifecyclePolicyResourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LifecyclePolicyResourceType AmiImage { get; } = new LifecyclePolicyResourceType("AMI_IMAGE");
+        public static LifecyclePolicyResourceType ContainerImage { get; } = new LifecyclePolicyResourceType("CONTAINER_IMAGE");
+
+        public static bool operator ==(LifecyclePolicyResourceType left, LifecyclePolicyResourceType right) => left.Equals(right);
+        public static bool operator !=(LifecyclePolicyResourceType left, LifecyclePolicyResourceType right) => !left.Equals(right);
+
+        public static explicit operator string(LifecyclePolicyResourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LifecyclePolicyResourceType other && Equals(other);
+        public bool Equals(LifecyclePolicyResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the lifecycle policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct LifecyclePolicyStatus : IEquatable<LifecyclePolicyStatus>
+    {
+        private readonly string _value;
+
+        private LifecyclePolicyStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LifecyclePolicyStatus Disabled { get; } = new LifecyclePolicyStatus("DISABLED");
+        public static LifecyclePolicyStatus Enabled { get; } = new LifecyclePolicyStatus("ENABLED");
+
+        public static bool operator ==(LifecyclePolicyStatus left, LifecyclePolicyStatus right) => left.Equals(right);
+        public static bool operator !=(LifecyclePolicyStatus left, LifecyclePolicyStatus right) => !left.Equals(right);
+
+        public static explicit operator string(LifecyclePolicyStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LifecyclePolicyStatus other && Equals(other);
+        public bool Equals(LifecyclePolicyStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A time unit.
+    /// </summary>
+    [EnumType]
+    public readonly struct LifecyclePolicyTimeUnit : IEquatable<LifecyclePolicyTimeUnit>
+    {
+        private readonly string _value;
+
+        private LifecyclePolicyTimeUnit(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LifecyclePolicyTimeUnit Days { get; } = new LifecyclePolicyTimeUnit("DAYS");
+        public static LifecyclePolicyTimeUnit Weeks { get; } = new LifecyclePolicyTimeUnit("WEEKS");
+        public static LifecyclePolicyTimeUnit Months { get; } = new LifecyclePolicyTimeUnit("MONTHS");
+        public static LifecyclePolicyTimeUnit Years { get; } = new LifecyclePolicyTimeUnit("YEARS");
+
+        public static bool operator ==(LifecyclePolicyTimeUnit left, LifecyclePolicyTimeUnit right) => left.Equals(right);
+        public static bool operator !=(LifecyclePolicyTimeUnit left, LifecyclePolicyTimeUnit right) => !left.Equals(right);
+
+        public static explicit operator string(LifecyclePolicyTimeUnit value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LifecyclePolicyTimeUnit other && Equals(other);
+        public bool Equals(LifecyclePolicyTimeUnit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

@@ -530,12 +530,20 @@ func (o ScalableTargetSuspendedStatePtrOutput) ScheduledScalingSuspended() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Represents a CloudWatch metric of your choosing for a target tracking scaling policy to use with Application Auto Scaling.
 type ScalingPolicyCustomizedMetricSpecification struct {
+	// The dimensions of the metric.
 	Dimensions []ScalingPolicyMetricDimension `pulumi:"dimensions"`
-	MetricName string                         `pulumi:"metricName"`
-	Namespace  string                         `pulumi:"namespace"`
-	Statistic  string                         `pulumi:"statistic"`
-	Unit       *string                        `pulumi:"unit"`
+	// The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the Metric object that is returned by a call to ListMetrics.
+	MetricName *string `pulumi:"metricName"`
+	// The metrics to include in the target tracking scaling policy, as a metric data query. This can include both raw metric and metric math expressions.
+	Metrics []ScalingPolicyTargetTrackingMetricDataQuery `pulumi:"metrics"`
+	// The namespace of the metric.
+	Namespace *string `pulumi:"namespace"`
+	// The statistic of the metric.
+	Statistic *string `pulumi:"statistic"`
+	// The unit of the metric. For a complete list of the units that CloudWatch supports, see the MetricDatum data type in the Amazon CloudWatch API Reference.
+	Unit *string `pulumi:"unit"`
 }
 
 // ScalingPolicyCustomizedMetricSpecificationInput is an input type that accepts ScalingPolicyCustomizedMetricSpecificationArgs and ScalingPolicyCustomizedMetricSpecificationOutput values.
@@ -549,12 +557,20 @@ type ScalingPolicyCustomizedMetricSpecificationInput interface {
 	ToScalingPolicyCustomizedMetricSpecificationOutputWithContext(context.Context) ScalingPolicyCustomizedMetricSpecificationOutput
 }
 
+// Represents a CloudWatch metric of your choosing for a target tracking scaling policy to use with Application Auto Scaling.
 type ScalingPolicyCustomizedMetricSpecificationArgs struct {
+	// The dimensions of the metric.
 	Dimensions ScalingPolicyMetricDimensionArrayInput `pulumi:"dimensions"`
-	MetricName pulumi.StringInput                     `pulumi:"metricName"`
-	Namespace  pulumi.StringInput                     `pulumi:"namespace"`
-	Statistic  pulumi.StringInput                     `pulumi:"statistic"`
-	Unit       pulumi.StringPtrInput                  `pulumi:"unit"`
+	// The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the Metric object that is returned by a call to ListMetrics.
+	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
+	// The metrics to include in the target tracking scaling policy, as a metric data query. This can include both raw metric and metric math expressions.
+	Metrics ScalingPolicyTargetTrackingMetricDataQueryArrayInput `pulumi:"metrics"`
+	// The namespace of the metric.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+	// The statistic of the metric.
+	Statistic pulumi.StringPtrInput `pulumi:"statistic"`
+	// The unit of the metric. For a complete list of the units that CloudWatch supports, see the MetricDatum data type in the Amazon CloudWatch API Reference.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
 }
 
 func (ScalingPolicyCustomizedMetricSpecificationArgs) ElementType() reflect.Type {
@@ -622,6 +638,7 @@ func (i *scalingPolicyCustomizedMetricSpecificationPtrType) ToOutput(ctx context
 	}
 }
 
+// Represents a CloudWatch metric of your choosing for a target tracking scaling policy to use with Application Auto Scaling.
 type ScalingPolicyCustomizedMetricSpecificationOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyCustomizedMetricSpecificationOutput) ElementType() reflect.Type {
@@ -652,22 +669,34 @@ func (o ScalingPolicyCustomizedMetricSpecificationOutput) ToOutput(ctx context.C
 	}
 }
 
+// The dimensions of the metric.
 func (o ScalingPolicyCustomizedMetricSpecificationOutput) Dimensions() ScalingPolicyMetricDimensionArrayOutput {
 	return o.ApplyT(func(v ScalingPolicyCustomizedMetricSpecification) []ScalingPolicyMetricDimension { return v.Dimensions }).(ScalingPolicyMetricDimensionArrayOutput)
 }
 
-func (o ScalingPolicyCustomizedMetricSpecificationOutput) MetricName() pulumi.StringOutput {
-	return o.ApplyT(func(v ScalingPolicyCustomizedMetricSpecification) string { return v.MetricName }).(pulumi.StringOutput)
+// The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the Metric object that is returned by a call to ListMetrics.
+func (o ScalingPolicyCustomizedMetricSpecificationOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyCustomizedMetricSpecification) *string { return v.MetricName }).(pulumi.StringPtrOutput)
 }
 
-func (o ScalingPolicyCustomizedMetricSpecificationOutput) Namespace() pulumi.StringOutput {
-	return o.ApplyT(func(v ScalingPolicyCustomizedMetricSpecification) string { return v.Namespace }).(pulumi.StringOutput)
+// The metrics to include in the target tracking scaling policy, as a metric data query. This can include both raw metric and metric math expressions.
+func (o ScalingPolicyCustomizedMetricSpecificationOutput) Metrics() ScalingPolicyTargetTrackingMetricDataQueryArrayOutput {
+	return o.ApplyT(func(v ScalingPolicyCustomizedMetricSpecification) []ScalingPolicyTargetTrackingMetricDataQuery {
+		return v.Metrics
+	}).(ScalingPolicyTargetTrackingMetricDataQueryArrayOutput)
 }
 
-func (o ScalingPolicyCustomizedMetricSpecificationOutput) Statistic() pulumi.StringOutput {
-	return o.ApplyT(func(v ScalingPolicyCustomizedMetricSpecification) string { return v.Statistic }).(pulumi.StringOutput)
+// The namespace of the metric.
+func (o ScalingPolicyCustomizedMetricSpecificationOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyCustomizedMetricSpecification) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
+// The statistic of the metric.
+func (o ScalingPolicyCustomizedMetricSpecificationOutput) Statistic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyCustomizedMetricSpecification) *string { return v.Statistic }).(pulumi.StringPtrOutput)
+}
+
+// The unit of the metric. For a complete list of the units that CloudWatch supports, see the MetricDatum data type in the Amazon CloudWatch API Reference.
 func (o ScalingPolicyCustomizedMetricSpecificationOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyCustomizedMetricSpecification) *string { return v.Unit }).(pulumi.StringPtrOutput)
 }
@@ -702,6 +731,7 @@ func (o ScalingPolicyCustomizedMetricSpecificationPtrOutput) Elem() ScalingPolic
 	}).(ScalingPolicyCustomizedMetricSpecificationOutput)
 }
 
+// The dimensions of the metric.
 func (o ScalingPolicyCustomizedMetricSpecificationPtrOutput) Dimensions() ScalingPolicyMetricDimensionArrayOutput {
 	return o.ApplyT(func(v *ScalingPolicyCustomizedMetricSpecification) []ScalingPolicyMetricDimension {
 		if v == nil {
@@ -711,33 +741,47 @@ func (o ScalingPolicyCustomizedMetricSpecificationPtrOutput) Dimensions() Scalin
 	}).(ScalingPolicyMetricDimensionArrayOutput)
 }
 
+// The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the Metric object that is returned by a call to ListMetrics.
 func (o ScalingPolicyCustomizedMetricSpecificationPtrOutput) MetricName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicyCustomizedMetricSpecification) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.MetricName
+		return v.MetricName
 	}).(pulumi.StringPtrOutput)
 }
 
+// The metrics to include in the target tracking scaling policy, as a metric data query. This can include both raw metric and metric math expressions.
+func (o ScalingPolicyCustomizedMetricSpecificationPtrOutput) Metrics() ScalingPolicyTargetTrackingMetricDataQueryArrayOutput {
+	return o.ApplyT(func(v *ScalingPolicyCustomizedMetricSpecification) []ScalingPolicyTargetTrackingMetricDataQuery {
+		if v == nil {
+			return nil
+		}
+		return v.Metrics
+	}).(ScalingPolicyTargetTrackingMetricDataQueryArrayOutput)
+}
+
+// The namespace of the metric.
 func (o ScalingPolicyCustomizedMetricSpecificationPtrOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicyCustomizedMetricSpecification) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Namespace
+		return v.Namespace
 	}).(pulumi.StringPtrOutput)
 }
 
+// The statistic of the metric.
 func (o ScalingPolicyCustomizedMetricSpecificationPtrOutput) Statistic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicyCustomizedMetricSpecification) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Statistic
+		return v.Statistic
 	}).(pulumi.StringPtrOutput)
 }
 
+// The unit of the metric. For a complete list of the units that CloudWatch supports, see the MetricDatum data type in the Amazon CloudWatch API Reference.
 func (o ScalingPolicyCustomizedMetricSpecificationPtrOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicyCustomizedMetricSpecification) *string {
 		if v == nil {
@@ -747,8 +791,11 @@ func (o ScalingPolicyCustomizedMetricSpecificationPtrOutput) Unit() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes the dimension names and values associated with a metric.
 type ScalingPolicyMetricDimension struct {
-	Name  string `pulumi:"name"`
+	// The name of the dimension.
+	Name string `pulumi:"name"`
+	// The value of the dimension.
 	Value string `pulumi:"value"`
 }
 
@@ -763,8 +810,11 @@ type ScalingPolicyMetricDimensionInput interface {
 	ToScalingPolicyMetricDimensionOutputWithContext(context.Context) ScalingPolicyMetricDimensionOutput
 }
 
+// Describes the dimension names and values associated with a metric.
 type ScalingPolicyMetricDimensionArgs struct {
-	Name  pulumi.StringInput `pulumi:"name"`
+	// The name of the dimension.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the dimension.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -817,6 +867,7 @@ func (i ScalingPolicyMetricDimensionArray) ToOutput(ctx context.Context) pulumix
 	}
 }
 
+// Describes the dimension names and values associated with a metric.
 type ScalingPolicyMetricDimensionOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyMetricDimensionOutput) ElementType() reflect.Type {
@@ -837,10 +888,12 @@ func (o ScalingPolicyMetricDimensionOutput) ToOutput(ctx context.Context) pulumi
 	}
 }
 
+// The name of the dimension.
 func (o ScalingPolicyMetricDimensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalingPolicyMetricDimension) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The value of the dimension.
 func (o ScalingPolicyMetricDimensionOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalingPolicyMetricDimension) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -871,9 +924,12 @@ func (o ScalingPolicyMetricDimensionArrayOutput) Index(i pulumi.IntInput) Scalin
 	}).(ScalingPolicyMetricDimensionOutput)
 }
 
+// Represents a predefined metric for a target tracking scaling policy to use with Application Auto Scaling.
 type ScalingPolicyPredefinedMetricSpecification struct {
-	PredefinedMetricType string  `pulumi:"predefinedMetricType"`
-	ResourceLabel        *string `pulumi:"resourceLabel"`
+	// The metric type. The ALBRequestCountPerTarget metric type applies only to Spot Fleets and ECS services.
+	PredefinedMetricType string `pulumi:"predefinedMetricType"`
+	// Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ALBRequestCountPerTarget and there is a target group attached to the Spot Fleet or ECS service.
+	ResourceLabel *string `pulumi:"resourceLabel"`
 }
 
 // ScalingPolicyPredefinedMetricSpecificationInput is an input type that accepts ScalingPolicyPredefinedMetricSpecificationArgs and ScalingPolicyPredefinedMetricSpecificationOutput values.
@@ -887,9 +943,12 @@ type ScalingPolicyPredefinedMetricSpecificationInput interface {
 	ToScalingPolicyPredefinedMetricSpecificationOutputWithContext(context.Context) ScalingPolicyPredefinedMetricSpecificationOutput
 }
 
+// Represents a predefined metric for a target tracking scaling policy to use with Application Auto Scaling.
 type ScalingPolicyPredefinedMetricSpecificationArgs struct {
-	PredefinedMetricType pulumi.StringInput    `pulumi:"predefinedMetricType"`
-	ResourceLabel        pulumi.StringPtrInput `pulumi:"resourceLabel"`
+	// The metric type. The ALBRequestCountPerTarget metric type applies only to Spot Fleets and ECS services.
+	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
+	// Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ALBRequestCountPerTarget and there is a target group attached to the Spot Fleet or ECS service.
+	ResourceLabel pulumi.StringPtrInput `pulumi:"resourceLabel"`
 }
 
 func (ScalingPolicyPredefinedMetricSpecificationArgs) ElementType() reflect.Type {
@@ -957,6 +1016,7 @@ func (i *scalingPolicyPredefinedMetricSpecificationPtrType) ToOutput(ctx context
 	}
 }
 
+// Represents a predefined metric for a target tracking scaling policy to use with Application Auto Scaling.
 type ScalingPolicyPredefinedMetricSpecificationOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyPredefinedMetricSpecificationOutput) ElementType() reflect.Type {
@@ -987,10 +1047,12 @@ func (o ScalingPolicyPredefinedMetricSpecificationOutput) ToOutput(ctx context.C
 	}
 }
 
+// The metric type. The ALBRequestCountPerTarget metric type applies only to Spot Fleets and ECS services.
 func (o ScalingPolicyPredefinedMetricSpecificationOutput) PredefinedMetricType() pulumi.StringOutput {
 	return o.ApplyT(func(v ScalingPolicyPredefinedMetricSpecification) string { return v.PredefinedMetricType }).(pulumi.StringOutput)
 }
 
+// Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ALBRequestCountPerTarget and there is a target group attached to the Spot Fleet or ECS service.
 func (o ScalingPolicyPredefinedMetricSpecificationOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyPredefinedMetricSpecification) *string { return v.ResourceLabel }).(pulumi.StringPtrOutput)
 }
@@ -1025,6 +1087,7 @@ func (o ScalingPolicyPredefinedMetricSpecificationPtrOutput) Elem() ScalingPolic
 	}).(ScalingPolicyPredefinedMetricSpecificationOutput)
 }
 
+// The metric type. The ALBRequestCountPerTarget metric type applies only to Spot Fleets and ECS services.
 func (o ScalingPolicyPredefinedMetricSpecificationPtrOutput) PredefinedMetricType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicyPredefinedMetricSpecification) *string {
 		if v == nil {
@@ -1034,6 +1097,7 @@ func (o ScalingPolicyPredefinedMetricSpecificationPtrOutput) PredefinedMetricTyp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ALBRequestCountPerTarget and there is a target group attached to the Spot Fleet or ECS service.
 func (o ScalingPolicyPredefinedMetricSpecificationPtrOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicyPredefinedMetricSpecification) *string {
 		if v == nil {
@@ -1043,10 +1107,14 @@ func (o ScalingPolicyPredefinedMetricSpecificationPtrOutput) ResourceLabel() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+// Represents a step adjustment for a StepScalingPolicyConfiguration. Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm.
 type ScalingPolicyStepAdjustment struct {
+	// The lower bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the lower bound is inclusive (the metric must be greater than or equal to the threshold plus the lower bound). Otherwise, it is exclusive (the metric must be greater than the threshold plus the lower bound). A null value indicates negative infinity.
 	MetricIntervalLowerBound *float64 `pulumi:"metricIntervalLowerBound"`
+	// The upper bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the upper bound is exclusive (the metric must be less than the threshold plus the upper bound). Otherwise, it is inclusive (the metric must be less than or equal to the threshold plus the upper bound). A null value indicates positive infinity.
 	MetricIntervalUpperBound *float64 `pulumi:"metricIntervalUpperBound"`
-	ScalingAdjustment        int      `pulumi:"scalingAdjustment"`
+	// The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value.
+	ScalingAdjustment int `pulumi:"scalingAdjustment"`
 }
 
 // ScalingPolicyStepAdjustmentInput is an input type that accepts ScalingPolicyStepAdjustmentArgs and ScalingPolicyStepAdjustmentOutput values.
@@ -1060,10 +1128,14 @@ type ScalingPolicyStepAdjustmentInput interface {
 	ToScalingPolicyStepAdjustmentOutputWithContext(context.Context) ScalingPolicyStepAdjustmentOutput
 }
 
+// Represents a step adjustment for a StepScalingPolicyConfiguration. Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm.
 type ScalingPolicyStepAdjustmentArgs struct {
+	// The lower bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the lower bound is inclusive (the metric must be greater than or equal to the threshold plus the lower bound). Otherwise, it is exclusive (the metric must be greater than the threshold plus the lower bound). A null value indicates negative infinity.
 	MetricIntervalLowerBound pulumi.Float64PtrInput `pulumi:"metricIntervalLowerBound"`
+	// The upper bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the upper bound is exclusive (the metric must be less than the threshold plus the upper bound). Otherwise, it is inclusive (the metric must be less than or equal to the threshold plus the upper bound). A null value indicates positive infinity.
 	MetricIntervalUpperBound pulumi.Float64PtrInput `pulumi:"metricIntervalUpperBound"`
-	ScalingAdjustment        pulumi.IntInput        `pulumi:"scalingAdjustment"`
+	// The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value.
+	ScalingAdjustment pulumi.IntInput `pulumi:"scalingAdjustment"`
 }
 
 func (ScalingPolicyStepAdjustmentArgs) ElementType() reflect.Type {
@@ -1115,6 +1187,7 @@ func (i ScalingPolicyStepAdjustmentArray) ToOutput(ctx context.Context) pulumix.
 	}
 }
 
+// Represents a step adjustment for a StepScalingPolicyConfiguration. Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm.
 type ScalingPolicyStepAdjustmentOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyStepAdjustmentOutput) ElementType() reflect.Type {
@@ -1135,14 +1208,17 @@ func (o ScalingPolicyStepAdjustmentOutput) ToOutput(ctx context.Context) pulumix
 	}
 }
 
+// The lower bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the lower bound is inclusive (the metric must be greater than or equal to the threshold plus the lower bound). Otherwise, it is exclusive (the metric must be greater than the threshold plus the lower bound). A null value indicates negative infinity.
 func (o ScalingPolicyStepAdjustmentOutput) MetricIntervalLowerBound() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ScalingPolicyStepAdjustment) *float64 { return v.MetricIntervalLowerBound }).(pulumi.Float64PtrOutput)
 }
 
+// The upper bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the upper bound is exclusive (the metric must be less than the threshold plus the upper bound). Otherwise, it is inclusive (the metric must be less than or equal to the threshold plus the upper bound). A null value indicates positive infinity.
 func (o ScalingPolicyStepAdjustmentOutput) MetricIntervalUpperBound() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ScalingPolicyStepAdjustment) *float64 { return v.MetricIntervalUpperBound }).(pulumi.Float64PtrOutput)
 }
 
+// The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value.
 func (o ScalingPolicyStepAdjustmentOutput) ScalingAdjustment() pulumi.IntOutput {
 	return o.ApplyT(func(v ScalingPolicyStepAdjustment) int { return v.ScalingAdjustment }).(pulumi.IntOutput)
 }
@@ -1173,12 +1249,18 @@ func (o ScalingPolicyStepAdjustmentArrayOutput) Index(i pulumi.IntInput) Scaling
 	}).(ScalingPolicyStepAdjustmentOutput)
 }
 
+// A step scaling policy.
 type ScalingPolicyStepScalingPolicyConfiguration struct {
-	AdjustmentType         *string                       `pulumi:"adjustmentType"`
-	Cooldown               *int                          `pulumi:"cooldown"`
-	MetricAggregationType  *string                       `pulumi:"metricAggregationType"`
-	MinAdjustmentMagnitude *int                          `pulumi:"minAdjustmentMagnitude"`
-	StepAdjustments        []ScalingPolicyStepAdjustment `pulumi:"stepAdjustments"`
+	// Specifies how the ScalingAdjustment value in a StepAdjustment is interpreted.
+	AdjustmentType *string `pulumi:"adjustmentType"`
+	// The amount of time, in seconds, to wait for a previous scaling activity to take effect.
+	Cooldown *int `pulumi:"cooldown"`
+	// The aggregation type for the CloudWatch metrics. Valid values are Minimum, Maximum, and Average. If the aggregation type is null, the value is treated as Average
+	MetricAggregationType *string `pulumi:"metricAggregationType"`
+	// The minimum value to scale by when the adjustment type is PercentChangeInCapacity.
+	MinAdjustmentMagnitude *int `pulumi:"minAdjustmentMagnitude"`
+	// A set of adjustments that enable you to scale based on the size of the alarm breach.
+	StepAdjustments []ScalingPolicyStepAdjustment `pulumi:"stepAdjustments"`
 }
 
 // ScalingPolicyStepScalingPolicyConfigurationInput is an input type that accepts ScalingPolicyStepScalingPolicyConfigurationArgs and ScalingPolicyStepScalingPolicyConfigurationOutput values.
@@ -1192,12 +1274,18 @@ type ScalingPolicyStepScalingPolicyConfigurationInput interface {
 	ToScalingPolicyStepScalingPolicyConfigurationOutputWithContext(context.Context) ScalingPolicyStepScalingPolicyConfigurationOutput
 }
 
+// A step scaling policy.
 type ScalingPolicyStepScalingPolicyConfigurationArgs struct {
-	AdjustmentType         pulumi.StringPtrInput                 `pulumi:"adjustmentType"`
-	Cooldown               pulumi.IntPtrInput                    `pulumi:"cooldown"`
-	MetricAggregationType  pulumi.StringPtrInput                 `pulumi:"metricAggregationType"`
-	MinAdjustmentMagnitude pulumi.IntPtrInput                    `pulumi:"minAdjustmentMagnitude"`
-	StepAdjustments        ScalingPolicyStepAdjustmentArrayInput `pulumi:"stepAdjustments"`
+	// Specifies how the ScalingAdjustment value in a StepAdjustment is interpreted.
+	AdjustmentType pulumi.StringPtrInput `pulumi:"adjustmentType"`
+	// The amount of time, in seconds, to wait for a previous scaling activity to take effect.
+	Cooldown pulumi.IntPtrInput `pulumi:"cooldown"`
+	// The aggregation type for the CloudWatch metrics. Valid values are Minimum, Maximum, and Average. If the aggregation type is null, the value is treated as Average
+	MetricAggregationType pulumi.StringPtrInput `pulumi:"metricAggregationType"`
+	// The minimum value to scale by when the adjustment type is PercentChangeInCapacity.
+	MinAdjustmentMagnitude pulumi.IntPtrInput `pulumi:"minAdjustmentMagnitude"`
+	// A set of adjustments that enable you to scale based on the size of the alarm breach.
+	StepAdjustments ScalingPolicyStepAdjustmentArrayInput `pulumi:"stepAdjustments"`
 }
 
 func (ScalingPolicyStepScalingPolicyConfigurationArgs) ElementType() reflect.Type {
@@ -1265,6 +1353,7 @@ func (i *scalingPolicyStepScalingPolicyConfigurationPtrType) ToOutput(ctx contex
 	}
 }
 
+// A step scaling policy.
 type ScalingPolicyStepScalingPolicyConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyStepScalingPolicyConfigurationOutput) ElementType() reflect.Type {
@@ -1295,22 +1384,27 @@ func (o ScalingPolicyStepScalingPolicyConfigurationOutput) ToOutput(ctx context.
 	}
 }
 
+// Specifies how the ScalingAdjustment value in a StepAdjustment is interpreted.
 func (o ScalingPolicyStepScalingPolicyConfigurationOutput) AdjustmentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyStepScalingPolicyConfiguration) *string { return v.AdjustmentType }).(pulumi.StringPtrOutput)
 }
 
+// The amount of time, in seconds, to wait for a previous scaling activity to take effect.
 func (o ScalingPolicyStepScalingPolicyConfigurationOutput) Cooldown() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyStepScalingPolicyConfiguration) *int { return v.Cooldown }).(pulumi.IntPtrOutput)
 }
 
+// The aggregation type for the CloudWatch metrics. Valid values are Minimum, Maximum, and Average. If the aggregation type is null, the value is treated as Average
 func (o ScalingPolicyStepScalingPolicyConfigurationOutput) MetricAggregationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyStepScalingPolicyConfiguration) *string { return v.MetricAggregationType }).(pulumi.StringPtrOutput)
 }
 
+// The minimum value to scale by when the adjustment type is PercentChangeInCapacity.
 func (o ScalingPolicyStepScalingPolicyConfigurationOutput) MinAdjustmentMagnitude() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyStepScalingPolicyConfiguration) *int { return v.MinAdjustmentMagnitude }).(pulumi.IntPtrOutput)
 }
 
+// A set of adjustments that enable you to scale based on the size of the alarm breach.
 func (o ScalingPolicyStepScalingPolicyConfigurationOutput) StepAdjustments() ScalingPolicyStepAdjustmentArrayOutput {
 	return o.ApplyT(func(v ScalingPolicyStepScalingPolicyConfiguration) []ScalingPolicyStepAdjustment {
 		return v.StepAdjustments
@@ -1347,6 +1441,7 @@ func (o ScalingPolicyStepScalingPolicyConfigurationPtrOutput) Elem() ScalingPoli
 	}).(ScalingPolicyStepScalingPolicyConfigurationOutput)
 }
 
+// Specifies how the ScalingAdjustment value in a StepAdjustment is interpreted.
 func (o ScalingPolicyStepScalingPolicyConfigurationPtrOutput) AdjustmentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicyStepScalingPolicyConfiguration) *string {
 		if v == nil {
@@ -1356,6 +1451,7 @@ func (o ScalingPolicyStepScalingPolicyConfigurationPtrOutput) AdjustmentType() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// The amount of time, in seconds, to wait for a previous scaling activity to take effect.
 func (o ScalingPolicyStepScalingPolicyConfigurationPtrOutput) Cooldown() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicyStepScalingPolicyConfiguration) *int {
 		if v == nil {
@@ -1365,6 +1461,7 @@ func (o ScalingPolicyStepScalingPolicyConfigurationPtrOutput) Cooldown() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// The aggregation type for the CloudWatch metrics. Valid values are Minimum, Maximum, and Average. If the aggregation type is null, the value is treated as Average
 func (o ScalingPolicyStepScalingPolicyConfigurationPtrOutput) MetricAggregationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicyStepScalingPolicyConfiguration) *string {
 		if v == nil {
@@ -1374,6 +1471,7 @@ func (o ScalingPolicyStepScalingPolicyConfigurationPtrOutput) MetricAggregationT
 	}).(pulumi.StringPtrOutput)
 }
 
+// The minimum value to scale by when the adjustment type is PercentChangeInCapacity.
 func (o ScalingPolicyStepScalingPolicyConfigurationPtrOutput) MinAdjustmentMagnitude() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicyStepScalingPolicyConfiguration) *int {
 		if v == nil {
@@ -1383,6 +1481,7 @@ func (o ScalingPolicyStepScalingPolicyConfigurationPtrOutput) MinAdjustmentMagni
 	}).(pulumi.IntPtrOutput)
 }
 
+// A set of adjustments that enable you to scale based on the size of the alarm breach.
 func (o ScalingPolicyStepScalingPolicyConfigurationPtrOutput) StepAdjustments() ScalingPolicyStepAdjustmentArrayOutput {
 	return o.ApplyT(func(v *ScalingPolicyStepScalingPolicyConfiguration) []ScalingPolicyStepAdjustment {
 		if v == nil {
@@ -1392,13 +1491,721 @@ func (o ScalingPolicyStepScalingPolicyConfigurationPtrOutput) StepAdjustments() 
 	}).(ScalingPolicyStepAdjustmentArrayOutput)
 }
 
+// Represents a specific metric.
+type ScalingPolicyTargetTrackingMetric struct {
+	// The dimensions for the metric.
+	Dimensions []ScalingPolicyTargetTrackingMetricDimension `pulumi:"dimensions"`
+	// The name of the metric.
+	MetricName *string `pulumi:"metricName"`
+	// The namespace of the metric.
+	Namespace *string `pulumi:"namespace"`
+}
+
+// ScalingPolicyTargetTrackingMetricInput is an input type that accepts ScalingPolicyTargetTrackingMetricArgs and ScalingPolicyTargetTrackingMetricOutput values.
+// You can construct a concrete instance of `ScalingPolicyTargetTrackingMetricInput` via:
+//
+//	ScalingPolicyTargetTrackingMetricArgs{...}
+type ScalingPolicyTargetTrackingMetricInput interface {
+	pulumi.Input
+
+	ToScalingPolicyTargetTrackingMetricOutput() ScalingPolicyTargetTrackingMetricOutput
+	ToScalingPolicyTargetTrackingMetricOutputWithContext(context.Context) ScalingPolicyTargetTrackingMetricOutput
+}
+
+// Represents a specific metric.
+type ScalingPolicyTargetTrackingMetricArgs struct {
+	// The dimensions for the metric.
+	Dimensions ScalingPolicyTargetTrackingMetricDimensionArrayInput `pulumi:"dimensions"`
+	// The name of the metric.
+	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
+	// The namespace of the metric.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+}
+
+func (ScalingPolicyTargetTrackingMetricArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyTargetTrackingMetric)(nil)).Elem()
+}
+
+func (i ScalingPolicyTargetTrackingMetricArgs) ToScalingPolicyTargetTrackingMetricOutput() ScalingPolicyTargetTrackingMetricOutput {
+	return i.ToScalingPolicyTargetTrackingMetricOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyTargetTrackingMetricArgs) ToScalingPolicyTargetTrackingMetricOutputWithContext(ctx context.Context) ScalingPolicyTargetTrackingMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyTargetTrackingMetricOutput)
+}
+
+func (i ScalingPolicyTargetTrackingMetricArgs) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyTargetTrackingMetric] {
+	return pulumix.Output[ScalingPolicyTargetTrackingMetric]{
+		OutputState: i.ToScalingPolicyTargetTrackingMetricOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ScalingPolicyTargetTrackingMetricArgs) ToScalingPolicyTargetTrackingMetricPtrOutput() ScalingPolicyTargetTrackingMetricPtrOutput {
+	return i.ToScalingPolicyTargetTrackingMetricPtrOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyTargetTrackingMetricArgs) ToScalingPolicyTargetTrackingMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyTargetTrackingMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyTargetTrackingMetricOutput).ToScalingPolicyTargetTrackingMetricPtrOutputWithContext(ctx)
+}
+
+// ScalingPolicyTargetTrackingMetricPtrInput is an input type that accepts ScalingPolicyTargetTrackingMetricArgs, ScalingPolicyTargetTrackingMetricPtr and ScalingPolicyTargetTrackingMetricPtrOutput values.
+// You can construct a concrete instance of `ScalingPolicyTargetTrackingMetricPtrInput` via:
+//
+//	        ScalingPolicyTargetTrackingMetricArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScalingPolicyTargetTrackingMetricPtrInput interface {
+	pulumi.Input
+
+	ToScalingPolicyTargetTrackingMetricPtrOutput() ScalingPolicyTargetTrackingMetricPtrOutput
+	ToScalingPolicyTargetTrackingMetricPtrOutputWithContext(context.Context) ScalingPolicyTargetTrackingMetricPtrOutput
+}
+
+type scalingPolicyTargetTrackingMetricPtrType ScalingPolicyTargetTrackingMetricArgs
+
+func ScalingPolicyTargetTrackingMetricPtr(v *ScalingPolicyTargetTrackingMetricArgs) ScalingPolicyTargetTrackingMetricPtrInput {
+	return (*scalingPolicyTargetTrackingMetricPtrType)(v)
+}
+
+func (*scalingPolicyTargetTrackingMetricPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalingPolicyTargetTrackingMetric)(nil)).Elem()
+}
+
+func (i *scalingPolicyTargetTrackingMetricPtrType) ToScalingPolicyTargetTrackingMetricPtrOutput() ScalingPolicyTargetTrackingMetricPtrOutput {
+	return i.ToScalingPolicyTargetTrackingMetricPtrOutputWithContext(context.Background())
+}
+
+func (i *scalingPolicyTargetTrackingMetricPtrType) ToScalingPolicyTargetTrackingMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyTargetTrackingMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyTargetTrackingMetricPtrOutput)
+}
+
+func (i *scalingPolicyTargetTrackingMetricPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyTargetTrackingMetric] {
+	return pulumix.Output[*ScalingPolicyTargetTrackingMetric]{
+		OutputState: i.ToScalingPolicyTargetTrackingMetricPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Represents a specific metric.
+type ScalingPolicyTargetTrackingMetricOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyTargetTrackingMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyTargetTrackingMetric)(nil)).Elem()
+}
+
+func (o ScalingPolicyTargetTrackingMetricOutput) ToScalingPolicyTargetTrackingMetricOutput() ScalingPolicyTargetTrackingMetricOutput {
+	return o
+}
+
+func (o ScalingPolicyTargetTrackingMetricOutput) ToScalingPolicyTargetTrackingMetricOutputWithContext(ctx context.Context) ScalingPolicyTargetTrackingMetricOutput {
+	return o
+}
+
+func (o ScalingPolicyTargetTrackingMetricOutput) ToScalingPolicyTargetTrackingMetricPtrOutput() ScalingPolicyTargetTrackingMetricPtrOutput {
+	return o.ToScalingPolicyTargetTrackingMetricPtrOutputWithContext(context.Background())
+}
+
+func (o ScalingPolicyTargetTrackingMetricOutput) ToScalingPolicyTargetTrackingMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyTargetTrackingMetricPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalingPolicyTargetTrackingMetric) *ScalingPolicyTargetTrackingMetric {
+		return &v
+	}).(ScalingPolicyTargetTrackingMetricPtrOutput)
+}
+
+func (o ScalingPolicyTargetTrackingMetricOutput) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyTargetTrackingMetric] {
+	return pulumix.Output[ScalingPolicyTargetTrackingMetric]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The dimensions for the metric.
+func (o ScalingPolicyTargetTrackingMetricOutput) Dimensions() ScalingPolicyTargetTrackingMetricDimensionArrayOutput {
+	return o.ApplyT(func(v ScalingPolicyTargetTrackingMetric) []ScalingPolicyTargetTrackingMetricDimension {
+		return v.Dimensions
+	}).(ScalingPolicyTargetTrackingMetricDimensionArrayOutput)
+}
+
+// The name of the metric.
+func (o ScalingPolicyTargetTrackingMetricOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyTargetTrackingMetric) *string { return v.MetricName }).(pulumi.StringPtrOutput)
+}
+
+// The namespace of the metric.
+func (o ScalingPolicyTargetTrackingMetricOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyTargetTrackingMetric) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+type ScalingPolicyTargetTrackingMetricPtrOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyTargetTrackingMetricPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalingPolicyTargetTrackingMetric)(nil)).Elem()
+}
+
+func (o ScalingPolicyTargetTrackingMetricPtrOutput) ToScalingPolicyTargetTrackingMetricPtrOutput() ScalingPolicyTargetTrackingMetricPtrOutput {
+	return o
+}
+
+func (o ScalingPolicyTargetTrackingMetricPtrOutput) ToScalingPolicyTargetTrackingMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyTargetTrackingMetricPtrOutput {
+	return o
+}
+
+func (o ScalingPolicyTargetTrackingMetricPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyTargetTrackingMetric] {
+	return pulumix.Output[*ScalingPolicyTargetTrackingMetric]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ScalingPolicyTargetTrackingMetricPtrOutput) Elem() ScalingPolicyTargetTrackingMetricOutput {
+	return o.ApplyT(func(v *ScalingPolicyTargetTrackingMetric) ScalingPolicyTargetTrackingMetric {
+		if v != nil {
+			return *v
+		}
+		var ret ScalingPolicyTargetTrackingMetric
+		return ret
+	}).(ScalingPolicyTargetTrackingMetricOutput)
+}
+
+// The dimensions for the metric.
+func (o ScalingPolicyTargetTrackingMetricPtrOutput) Dimensions() ScalingPolicyTargetTrackingMetricDimensionArrayOutput {
+	return o.ApplyT(func(v *ScalingPolicyTargetTrackingMetric) []ScalingPolicyTargetTrackingMetricDimension {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(ScalingPolicyTargetTrackingMetricDimensionArrayOutput)
+}
+
+// The name of the metric.
+func (o ScalingPolicyTargetTrackingMetricPtrOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicyTargetTrackingMetric) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MetricName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The namespace of the metric.
+func (o ScalingPolicyTargetTrackingMetricPtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicyTargetTrackingMetric) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// The metric data to return. Also defines whether this call is returning data for one metric only, or whether it is performing a math expression on the values of returned metric statistics to create a new time series. A time series is a series of data points, each of which is associated with a timestamp.
+type ScalingPolicyTargetTrackingMetricDataQuery struct {
+	// The math expression to perform on the returned data, if this object is performing a math expression.
+	Expression *string `pulumi:"expression"`
+	// A short name that identifies the object's results in the response.
+	Id *string `pulumi:"id"`
+	// A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.
+	Label *string `pulumi:"label"`
+	// Information about the metric data to return.
+	MetricStat *ScalingPolicyTargetTrackingMetricStat `pulumi:"metricStat"`
+	// Indicates whether to return the timestamps and raw data values of this metric.
+	ReturnData *bool `pulumi:"returnData"`
+}
+
+// ScalingPolicyTargetTrackingMetricDataQueryInput is an input type that accepts ScalingPolicyTargetTrackingMetricDataQueryArgs and ScalingPolicyTargetTrackingMetricDataQueryOutput values.
+// You can construct a concrete instance of `ScalingPolicyTargetTrackingMetricDataQueryInput` via:
+//
+//	ScalingPolicyTargetTrackingMetricDataQueryArgs{...}
+type ScalingPolicyTargetTrackingMetricDataQueryInput interface {
+	pulumi.Input
+
+	ToScalingPolicyTargetTrackingMetricDataQueryOutput() ScalingPolicyTargetTrackingMetricDataQueryOutput
+	ToScalingPolicyTargetTrackingMetricDataQueryOutputWithContext(context.Context) ScalingPolicyTargetTrackingMetricDataQueryOutput
+}
+
+// The metric data to return. Also defines whether this call is returning data for one metric only, or whether it is performing a math expression on the values of returned metric statistics to create a new time series. A time series is a series of data points, each of which is associated with a timestamp.
+type ScalingPolicyTargetTrackingMetricDataQueryArgs struct {
+	// The math expression to perform on the returned data, if this object is performing a math expression.
+	Expression pulumi.StringPtrInput `pulumi:"expression"`
+	// A short name that identifies the object's results in the response.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Information about the metric data to return.
+	MetricStat ScalingPolicyTargetTrackingMetricStatPtrInput `pulumi:"metricStat"`
+	// Indicates whether to return the timestamps and raw data values of this metric.
+	ReturnData pulumi.BoolPtrInput `pulumi:"returnData"`
+}
+
+func (ScalingPolicyTargetTrackingMetricDataQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyTargetTrackingMetricDataQuery)(nil)).Elem()
+}
+
+func (i ScalingPolicyTargetTrackingMetricDataQueryArgs) ToScalingPolicyTargetTrackingMetricDataQueryOutput() ScalingPolicyTargetTrackingMetricDataQueryOutput {
+	return i.ToScalingPolicyTargetTrackingMetricDataQueryOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyTargetTrackingMetricDataQueryArgs) ToScalingPolicyTargetTrackingMetricDataQueryOutputWithContext(ctx context.Context) ScalingPolicyTargetTrackingMetricDataQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyTargetTrackingMetricDataQueryOutput)
+}
+
+func (i ScalingPolicyTargetTrackingMetricDataQueryArgs) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyTargetTrackingMetricDataQuery] {
+	return pulumix.Output[ScalingPolicyTargetTrackingMetricDataQuery]{
+		OutputState: i.ToScalingPolicyTargetTrackingMetricDataQueryOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ScalingPolicyTargetTrackingMetricDataQueryArrayInput is an input type that accepts ScalingPolicyTargetTrackingMetricDataQueryArray and ScalingPolicyTargetTrackingMetricDataQueryArrayOutput values.
+// You can construct a concrete instance of `ScalingPolicyTargetTrackingMetricDataQueryArrayInput` via:
+//
+//	ScalingPolicyTargetTrackingMetricDataQueryArray{ ScalingPolicyTargetTrackingMetricDataQueryArgs{...} }
+type ScalingPolicyTargetTrackingMetricDataQueryArrayInput interface {
+	pulumi.Input
+
+	ToScalingPolicyTargetTrackingMetricDataQueryArrayOutput() ScalingPolicyTargetTrackingMetricDataQueryArrayOutput
+	ToScalingPolicyTargetTrackingMetricDataQueryArrayOutputWithContext(context.Context) ScalingPolicyTargetTrackingMetricDataQueryArrayOutput
+}
+
+type ScalingPolicyTargetTrackingMetricDataQueryArray []ScalingPolicyTargetTrackingMetricDataQueryInput
+
+func (ScalingPolicyTargetTrackingMetricDataQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScalingPolicyTargetTrackingMetricDataQuery)(nil)).Elem()
+}
+
+func (i ScalingPolicyTargetTrackingMetricDataQueryArray) ToScalingPolicyTargetTrackingMetricDataQueryArrayOutput() ScalingPolicyTargetTrackingMetricDataQueryArrayOutput {
+	return i.ToScalingPolicyTargetTrackingMetricDataQueryArrayOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyTargetTrackingMetricDataQueryArray) ToScalingPolicyTargetTrackingMetricDataQueryArrayOutputWithContext(ctx context.Context) ScalingPolicyTargetTrackingMetricDataQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyTargetTrackingMetricDataQueryArrayOutput)
+}
+
+func (i ScalingPolicyTargetTrackingMetricDataQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]ScalingPolicyTargetTrackingMetricDataQuery] {
+	return pulumix.Output[[]ScalingPolicyTargetTrackingMetricDataQuery]{
+		OutputState: i.ToScalingPolicyTargetTrackingMetricDataQueryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The metric data to return. Also defines whether this call is returning data for one metric only, or whether it is performing a math expression on the values of returned metric statistics to create a new time series. A time series is a series of data points, each of which is associated with a timestamp.
+type ScalingPolicyTargetTrackingMetricDataQueryOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyTargetTrackingMetricDataQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyTargetTrackingMetricDataQuery)(nil)).Elem()
+}
+
+func (o ScalingPolicyTargetTrackingMetricDataQueryOutput) ToScalingPolicyTargetTrackingMetricDataQueryOutput() ScalingPolicyTargetTrackingMetricDataQueryOutput {
+	return o
+}
+
+func (o ScalingPolicyTargetTrackingMetricDataQueryOutput) ToScalingPolicyTargetTrackingMetricDataQueryOutputWithContext(ctx context.Context) ScalingPolicyTargetTrackingMetricDataQueryOutput {
+	return o
+}
+
+func (o ScalingPolicyTargetTrackingMetricDataQueryOutput) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyTargetTrackingMetricDataQuery] {
+	return pulumix.Output[ScalingPolicyTargetTrackingMetricDataQuery]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The math expression to perform on the returned data, if this object is performing a math expression.
+func (o ScalingPolicyTargetTrackingMetricDataQueryOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyTargetTrackingMetricDataQuery) *string { return v.Expression }).(pulumi.StringPtrOutput)
+}
+
+// A short name that identifies the object's results in the response.
+func (o ScalingPolicyTargetTrackingMetricDataQueryOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyTargetTrackingMetricDataQuery) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.
+func (o ScalingPolicyTargetTrackingMetricDataQueryOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyTargetTrackingMetricDataQuery) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// Information about the metric data to return.
+func (o ScalingPolicyTargetTrackingMetricDataQueryOutput) MetricStat() ScalingPolicyTargetTrackingMetricStatPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyTargetTrackingMetricDataQuery) *ScalingPolicyTargetTrackingMetricStat {
+		return v.MetricStat
+	}).(ScalingPolicyTargetTrackingMetricStatPtrOutput)
+}
+
+// Indicates whether to return the timestamps and raw data values of this metric.
+func (o ScalingPolicyTargetTrackingMetricDataQueryOutput) ReturnData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyTargetTrackingMetricDataQuery) *bool { return v.ReturnData }).(pulumi.BoolPtrOutput)
+}
+
+type ScalingPolicyTargetTrackingMetricDataQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyTargetTrackingMetricDataQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScalingPolicyTargetTrackingMetricDataQuery)(nil)).Elem()
+}
+
+func (o ScalingPolicyTargetTrackingMetricDataQueryArrayOutput) ToScalingPolicyTargetTrackingMetricDataQueryArrayOutput() ScalingPolicyTargetTrackingMetricDataQueryArrayOutput {
+	return o
+}
+
+func (o ScalingPolicyTargetTrackingMetricDataQueryArrayOutput) ToScalingPolicyTargetTrackingMetricDataQueryArrayOutputWithContext(ctx context.Context) ScalingPolicyTargetTrackingMetricDataQueryArrayOutput {
+	return o
+}
+
+func (o ScalingPolicyTargetTrackingMetricDataQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalingPolicyTargetTrackingMetricDataQuery] {
+	return pulumix.Output[[]ScalingPolicyTargetTrackingMetricDataQuery]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ScalingPolicyTargetTrackingMetricDataQueryArrayOutput) Index(i pulumi.IntInput) ScalingPolicyTargetTrackingMetricDataQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScalingPolicyTargetTrackingMetricDataQuery {
+		return vs[0].([]ScalingPolicyTargetTrackingMetricDataQuery)[vs[1].(int)]
+	}).(ScalingPolicyTargetTrackingMetricDataQueryOutput)
+}
+
+// Describes the dimension of a metric.
+type ScalingPolicyTargetTrackingMetricDimension struct {
+	// The name of the dimension.
+	Name *string `pulumi:"name"`
+	// The value of the dimension.
+	Value *string `pulumi:"value"`
+}
+
+// ScalingPolicyTargetTrackingMetricDimensionInput is an input type that accepts ScalingPolicyTargetTrackingMetricDimensionArgs and ScalingPolicyTargetTrackingMetricDimensionOutput values.
+// You can construct a concrete instance of `ScalingPolicyTargetTrackingMetricDimensionInput` via:
+//
+//	ScalingPolicyTargetTrackingMetricDimensionArgs{...}
+type ScalingPolicyTargetTrackingMetricDimensionInput interface {
+	pulumi.Input
+
+	ToScalingPolicyTargetTrackingMetricDimensionOutput() ScalingPolicyTargetTrackingMetricDimensionOutput
+	ToScalingPolicyTargetTrackingMetricDimensionOutputWithContext(context.Context) ScalingPolicyTargetTrackingMetricDimensionOutput
+}
+
+// Describes the dimension of a metric.
+type ScalingPolicyTargetTrackingMetricDimensionArgs struct {
+	// The name of the dimension.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The value of the dimension.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ScalingPolicyTargetTrackingMetricDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyTargetTrackingMetricDimension)(nil)).Elem()
+}
+
+func (i ScalingPolicyTargetTrackingMetricDimensionArgs) ToScalingPolicyTargetTrackingMetricDimensionOutput() ScalingPolicyTargetTrackingMetricDimensionOutput {
+	return i.ToScalingPolicyTargetTrackingMetricDimensionOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyTargetTrackingMetricDimensionArgs) ToScalingPolicyTargetTrackingMetricDimensionOutputWithContext(ctx context.Context) ScalingPolicyTargetTrackingMetricDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyTargetTrackingMetricDimensionOutput)
+}
+
+func (i ScalingPolicyTargetTrackingMetricDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyTargetTrackingMetricDimension] {
+	return pulumix.Output[ScalingPolicyTargetTrackingMetricDimension]{
+		OutputState: i.ToScalingPolicyTargetTrackingMetricDimensionOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ScalingPolicyTargetTrackingMetricDimensionArrayInput is an input type that accepts ScalingPolicyTargetTrackingMetricDimensionArray and ScalingPolicyTargetTrackingMetricDimensionArrayOutput values.
+// You can construct a concrete instance of `ScalingPolicyTargetTrackingMetricDimensionArrayInput` via:
+//
+//	ScalingPolicyTargetTrackingMetricDimensionArray{ ScalingPolicyTargetTrackingMetricDimensionArgs{...} }
+type ScalingPolicyTargetTrackingMetricDimensionArrayInput interface {
+	pulumi.Input
+
+	ToScalingPolicyTargetTrackingMetricDimensionArrayOutput() ScalingPolicyTargetTrackingMetricDimensionArrayOutput
+	ToScalingPolicyTargetTrackingMetricDimensionArrayOutputWithContext(context.Context) ScalingPolicyTargetTrackingMetricDimensionArrayOutput
+}
+
+type ScalingPolicyTargetTrackingMetricDimensionArray []ScalingPolicyTargetTrackingMetricDimensionInput
+
+func (ScalingPolicyTargetTrackingMetricDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScalingPolicyTargetTrackingMetricDimension)(nil)).Elem()
+}
+
+func (i ScalingPolicyTargetTrackingMetricDimensionArray) ToScalingPolicyTargetTrackingMetricDimensionArrayOutput() ScalingPolicyTargetTrackingMetricDimensionArrayOutput {
+	return i.ToScalingPolicyTargetTrackingMetricDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyTargetTrackingMetricDimensionArray) ToScalingPolicyTargetTrackingMetricDimensionArrayOutputWithContext(ctx context.Context) ScalingPolicyTargetTrackingMetricDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyTargetTrackingMetricDimensionArrayOutput)
+}
+
+func (i ScalingPolicyTargetTrackingMetricDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]ScalingPolicyTargetTrackingMetricDimension] {
+	return pulumix.Output[[]ScalingPolicyTargetTrackingMetricDimension]{
+		OutputState: i.ToScalingPolicyTargetTrackingMetricDimensionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Describes the dimension of a metric.
+type ScalingPolicyTargetTrackingMetricDimensionOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyTargetTrackingMetricDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyTargetTrackingMetricDimension)(nil)).Elem()
+}
+
+func (o ScalingPolicyTargetTrackingMetricDimensionOutput) ToScalingPolicyTargetTrackingMetricDimensionOutput() ScalingPolicyTargetTrackingMetricDimensionOutput {
+	return o
+}
+
+func (o ScalingPolicyTargetTrackingMetricDimensionOutput) ToScalingPolicyTargetTrackingMetricDimensionOutputWithContext(ctx context.Context) ScalingPolicyTargetTrackingMetricDimensionOutput {
+	return o
+}
+
+func (o ScalingPolicyTargetTrackingMetricDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyTargetTrackingMetricDimension] {
+	return pulumix.Output[ScalingPolicyTargetTrackingMetricDimension]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The name of the dimension.
+func (o ScalingPolicyTargetTrackingMetricDimensionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyTargetTrackingMetricDimension) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The value of the dimension.
+func (o ScalingPolicyTargetTrackingMetricDimensionOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyTargetTrackingMetricDimension) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ScalingPolicyTargetTrackingMetricDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyTargetTrackingMetricDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScalingPolicyTargetTrackingMetricDimension)(nil)).Elem()
+}
+
+func (o ScalingPolicyTargetTrackingMetricDimensionArrayOutput) ToScalingPolicyTargetTrackingMetricDimensionArrayOutput() ScalingPolicyTargetTrackingMetricDimensionArrayOutput {
+	return o
+}
+
+func (o ScalingPolicyTargetTrackingMetricDimensionArrayOutput) ToScalingPolicyTargetTrackingMetricDimensionArrayOutputWithContext(ctx context.Context) ScalingPolicyTargetTrackingMetricDimensionArrayOutput {
+	return o
+}
+
+func (o ScalingPolicyTargetTrackingMetricDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalingPolicyTargetTrackingMetricDimension] {
+	return pulumix.Output[[]ScalingPolicyTargetTrackingMetricDimension]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ScalingPolicyTargetTrackingMetricDimensionArrayOutput) Index(i pulumi.IntInput) ScalingPolicyTargetTrackingMetricDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScalingPolicyTargetTrackingMetricDimension {
+		return vs[0].([]ScalingPolicyTargetTrackingMetricDimension)[vs[1].(int)]
+	}).(ScalingPolicyTargetTrackingMetricDimensionOutput)
+}
+
+// This structure defines the CloudWatch metric to return, along with the statistic, period, and unit.
+type ScalingPolicyTargetTrackingMetricStat struct {
+	// The CloudWatch metric to return, including the metric name, namespace, and dimensions.
+	Metric *ScalingPolicyTargetTrackingMetric `pulumi:"metric"`
+	// The statistic to return. It can include any CloudWatch statistic or extended statistic.
+	Stat *string `pulumi:"stat"`
+	// The unit to use for the returned data points.
+	Unit *string `pulumi:"unit"`
+}
+
+// ScalingPolicyTargetTrackingMetricStatInput is an input type that accepts ScalingPolicyTargetTrackingMetricStatArgs and ScalingPolicyTargetTrackingMetricStatOutput values.
+// You can construct a concrete instance of `ScalingPolicyTargetTrackingMetricStatInput` via:
+//
+//	ScalingPolicyTargetTrackingMetricStatArgs{...}
+type ScalingPolicyTargetTrackingMetricStatInput interface {
+	pulumi.Input
+
+	ToScalingPolicyTargetTrackingMetricStatOutput() ScalingPolicyTargetTrackingMetricStatOutput
+	ToScalingPolicyTargetTrackingMetricStatOutputWithContext(context.Context) ScalingPolicyTargetTrackingMetricStatOutput
+}
+
+// This structure defines the CloudWatch metric to return, along with the statistic, period, and unit.
+type ScalingPolicyTargetTrackingMetricStatArgs struct {
+	// The CloudWatch metric to return, including the metric name, namespace, and dimensions.
+	Metric ScalingPolicyTargetTrackingMetricPtrInput `pulumi:"metric"`
+	// The statistic to return. It can include any CloudWatch statistic or extended statistic.
+	Stat pulumi.StringPtrInput `pulumi:"stat"`
+	// The unit to use for the returned data points.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (ScalingPolicyTargetTrackingMetricStatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyTargetTrackingMetricStat)(nil)).Elem()
+}
+
+func (i ScalingPolicyTargetTrackingMetricStatArgs) ToScalingPolicyTargetTrackingMetricStatOutput() ScalingPolicyTargetTrackingMetricStatOutput {
+	return i.ToScalingPolicyTargetTrackingMetricStatOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyTargetTrackingMetricStatArgs) ToScalingPolicyTargetTrackingMetricStatOutputWithContext(ctx context.Context) ScalingPolicyTargetTrackingMetricStatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyTargetTrackingMetricStatOutput)
+}
+
+func (i ScalingPolicyTargetTrackingMetricStatArgs) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyTargetTrackingMetricStat] {
+	return pulumix.Output[ScalingPolicyTargetTrackingMetricStat]{
+		OutputState: i.ToScalingPolicyTargetTrackingMetricStatOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ScalingPolicyTargetTrackingMetricStatArgs) ToScalingPolicyTargetTrackingMetricStatPtrOutput() ScalingPolicyTargetTrackingMetricStatPtrOutput {
+	return i.ToScalingPolicyTargetTrackingMetricStatPtrOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyTargetTrackingMetricStatArgs) ToScalingPolicyTargetTrackingMetricStatPtrOutputWithContext(ctx context.Context) ScalingPolicyTargetTrackingMetricStatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyTargetTrackingMetricStatOutput).ToScalingPolicyTargetTrackingMetricStatPtrOutputWithContext(ctx)
+}
+
+// ScalingPolicyTargetTrackingMetricStatPtrInput is an input type that accepts ScalingPolicyTargetTrackingMetricStatArgs, ScalingPolicyTargetTrackingMetricStatPtr and ScalingPolicyTargetTrackingMetricStatPtrOutput values.
+// You can construct a concrete instance of `ScalingPolicyTargetTrackingMetricStatPtrInput` via:
+//
+//	        ScalingPolicyTargetTrackingMetricStatArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScalingPolicyTargetTrackingMetricStatPtrInput interface {
+	pulumi.Input
+
+	ToScalingPolicyTargetTrackingMetricStatPtrOutput() ScalingPolicyTargetTrackingMetricStatPtrOutput
+	ToScalingPolicyTargetTrackingMetricStatPtrOutputWithContext(context.Context) ScalingPolicyTargetTrackingMetricStatPtrOutput
+}
+
+type scalingPolicyTargetTrackingMetricStatPtrType ScalingPolicyTargetTrackingMetricStatArgs
+
+func ScalingPolicyTargetTrackingMetricStatPtr(v *ScalingPolicyTargetTrackingMetricStatArgs) ScalingPolicyTargetTrackingMetricStatPtrInput {
+	return (*scalingPolicyTargetTrackingMetricStatPtrType)(v)
+}
+
+func (*scalingPolicyTargetTrackingMetricStatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalingPolicyTargetTrackingMetricStat)(nil)).Elem()
+}
+
+func (i *scalingPolicyTargetTrackingMetricStatPtrType) ToScalingPolicyTargetTrackingMetricStatPtrOutput() ScalingPolicyTargetTrackingMetricStatPtrOutput {
+	return i.ToScalingPolicyTargetTrackingMetricStatPtrOutputWithContext(context.Background())
+}
+
+func (i *scalingPolicyTargetTrackingMetricStatPtrType) ToScalingPolicyTargetTrackingMetricStatPtrOutputWithContext(ctx context.Context) ScalingPolicyTargetTrackingMetricStatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyTargetTrackingMetricStatPtrOutput)
+}
+
+func (i *scalingPolicyTargetTrackingMetricStatPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyTargetTrackingMetricStat] {
+	return pulumix.Output[*ScalingPolicyTargetTrackingMetricStat]{
+		OutputState: i.ToScalingPolicyTargetTrackingMetricStatPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// This structure defines the CloudWatch metric to return, along with the statistic, period, and unit.
+type ScalingPolicyTargetTrackingMetricStatOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyTargetTrackingMetricStatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyTargetTrackingMetricStat)(nil)).Elem()
+}
+
+func (o ScalingPolicyTargetTrackingMetricStatOutput) ToScalingPolicyTargetTrackingMetricStatOutput() ScalingPolicyTargetTrackingMetricStatOutput {
+	return o
+}
+
+func (o ScalingPolicyTargetTrackingMetricStatOutput) ToScalingPolicyTargetTrackingMetricStatOutputWithContext(ctx context.Context) ScalingPolicyTargetTrackingMetricStatOutput {
+	return o
+}
+
+func (o ScalingPolicyTargetTrackingMetricStatOutput) ToScalingPolicyTargetTrackingMetricStatPtrOutput() ScalingPolicyTargetTrackingMetricStatPtrOutput {
+	return o.ToScalingPolicyTargetTrackingMetricStatPtrOutputWithContext(context.Background())
+}
+
+func (o ScalingPolicyTargetTrackingMetricStatOutput) ToScalingPolicyTargetTrackingMetricStatPtrOutputWithContext(ctx context.Context) ScalingPolicyTargetTrackingMetricStatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalingPolicyTargetTrackingMetricStat) *ScalingPolicyTargetTrackingMetricStat {
+		return &v
+	}).(ScalingPolicyTargetTrackingMetricStatPtrOutput)
+}
+
+func (o ScalingPolicyTargetTrackingMetricStatOutput) ToOutput(ctx context.Context) pulumix.Output[ScalingPolicyTargetTrackingMetricStat] {
+	return pulumix.Output[ScalingPolicyTargetTrackingMetricStat]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The CloudWatch metric to return, including the metric name, namespace, and dimensions.
+func (o ScalingPolicyTargetTrackingMetricStatOutput) Metric() ScalingPolicyTargetTrackingMetricPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyTargetTrackingMetricStat) *ScalingPolicyTargetTrackingMetric { return v.Metric }).(ScalingPolicyTargetTrackingMetricPtrOutput)
+}
+
+// The statistic to return. It can include any CloudWatch statistic or extended statistic.
+func (o ScalingPolicyTargetTrackingMetricStatOutput) Stat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyTargetTrackingMetricStat) *string { return v.Stat }).(pulumi.StringPtrOutput)
+}
+
+// The unit to use for the returned data points.
+func (o ScalingPolicyTargetTrackingMetricStatOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyTargetTrackingMetricStat) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type ScalingPolicyTargetTrackingMetricStatPtrOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyTargetTrackingMetricStatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalingPolicyTargetTrackingMetricStat)(nil)).Elem()
+}
+
+func (o ScalingPolicyTargetTrackingMetricStatPtrOutput) ToScalingPolicyTargetTrackingMetricStatPtrOutput() ScalingPolicyTargetTrackingMetricStatPtrOutput {
+	return o
+}
+
+func (o ScalingPolicyTargetTrackingMetricStatPtrOutput) ToScalingPolicyTargetTrackingMetricStatPtrOutputWithContext(ctx context.Context) ScalingPolicyTargetTrackingMetricStatPtrOutput {
+	return o
+}
+
+func (o ScalingPolicyTargetTrackingMetricStatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScalingPolicyTargetTrackingMetricStat] {
+	return pulumix.Output[*ScalingPolicyTargetTrackingMetricStat]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ScalingPolicyTargetTrackingMetricStatPtrOutput) Elem() ScalingPolicyTargetTrackingMetricStatOutput {
+	return o.ApplyT(func(v *ScalingPolicyTargetTrackingMetricStat) ScalingPolicyTargetTrackingMetricStat {
+		if v != nil {
+			return *v
+		}
+		var ret ScalingPolicyTargetTrackingMetricStat
+		return ret
+	}).(ScalingPolicyTargetTrackingMetricStatOutput)
+}
+
+// The CloudWatch metric to return, including the metric name, namespace, and dimensions.
+func (o ScalingPolicyTargetTrackingMetricStatPtrOutput) Metric() ScalingPolicyTargetTrackingMetricPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicyTargetTrackingMetricStat) *ScalingPolicyTargetTrackingMetric {
+		if v == nil {
+			return nil
+		}
+		return v.Metric
+	}).(ScalingPolicyTargetTrackingMetricPtrOutput)
+}
+
+// The statistic to return. It can include any CloudWatch statistic or extended statistic.
+func (o ScalingPolicyTargetTrackingMetricStatPtrOutput) Stat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicyTargetTrackingMetricStat) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Stat
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unit to use for the returned data points.
+func (o ScalingPolicyTargetTrackingMetricStatPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicyTargetTrackingMetricStat) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// A target tracking scaling policy.
 type ScalingPolicyTargetTrackingScalingPolicyConfiguration struct {
+	// A customized metric. You can specify either a predefined metric or a customized metric.
 	CustomizedMetricSpecification *ScalingPolicyCustomizedMetricSpecification `pulumi:"customizedMetricSpecification"`
-	DisableScaleIn                *bool                                       `pulumi:"disableScaleIn"`
+	// Indicates whether scale in by the target tracking scaling policy is disabled. If the value is true, scale in is disabled and the target tracking scaling policy won't remove capacity from the scalable target. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable target. The default value is false.
+	DisableScaleIn *bool `pulumi:"disableScaleIn"`
+	// A predefined metric. You can specify either a predefined metric or a customized metric.
 	PredefinedMetricSpecification *ScalingPolicyPredefinedMetricSpecification `pulumi:"predefinedMetricSpecification"`
-	ScaleInCooldown               *int                                        `pulumi:"scaleInCooldown"`
-	ScaleOutCooldown              *int                                        `pulumi:"scaleOutCooldown"`
-	TargetValue                   float64                                     `pulumi:"targetValue"`
+	// The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
+	ScaleInCooldown *int `pulumi:"scaleInCooldown"`
+	// The amount of time, in seconds, to wait for a previous scale-out activity to take effect.
+	ScaleOutCooldown *int `pulumi:"scaleOutCooldown"`
+	// The target value for the metric. Although this property accepts numbers of type Double, it won't accept values that are either too small or too large. Values must be in the range of -2^360 to 2^360. The value must be a valid number based on the choice of metric. For example, if the metric is CPU utilization, then the target value is a percent value that represents how much of the CPU can be used before scaling out.
+	TargetValue float64 `pulumi:"targetValue"`
 }
 
 // ScalingPolicyTargetTrackingScalingPolicyConfigurationInput is an input type that accepts ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs and ScalingPolicyTargetTrackingScalingPolicyConfigurationOutput values.
@@ -1412,13 +2219,20 @@ type ScalingPolicyTargetTrackingScalingPolicyConfigurationInput interface {
 	ToScalingPolicyTargetTrackingScalingPolicyConfigurationOutputWithContext(context.Context) ScalingPolicyTargetTrackingScalingPolicyConfigurationOutput
 }
 
+// A target tracking scaling policy.
 type ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs struct {
+	// A customized metric. You can specify either a predefined metric or a customized metric.
 	CustomizedMetricSpecification ScalingPolicyCustomizedMetricSpecificationPtrInput `pulumi:"customizedMetricSpecification"`
-	DisableScaleIn                pulumi.BoolPtrInput                                `pulumi:"disableScaleIn"`
+	// Indicates whether scale in by the target tracking scaling policy is disabled. If the value is true, scale in is disabled and the target tracking scaling policy won't remove capacity from the scalable target. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable target. The default value is false.
+	DisableScaleIn pulumi.BoolPtrInput `pulumi:"disableScaleIn"`
+	// A predefined metric. You can specify either a predefined metric or a customized metric.
 	PredefinedMetricSpecification ScalingPolicyPredefinedMetricSpecificationPtrInput `pulumi:"predefinedMetricSpecification"`
-	ScaleInCooldown               pulumi.IntPtrInput                                 `pulumi:"scaleInCooldown"`
-	ScaleOutCooldown              pulumi.IntPtrInput                                 `pulumi:"scaleOutCooldown"`
-	TargetValue                   pulumi.Float64Input                                `pulumi:"targetValue"`
+	// The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
+	ScaleInCooldown pulumi.IntPtrInput `pulumi:"scaleInCooldown"`
+	// The amount of time, in seconds, to wait for a previous scale-out activity to take effect.
+	ScaleOutCooldown pulumi.IntPtrInput `pulumi:"scaleOutCooldown"`
+	// The target value for the metric. Although this property accepts numbers of type Double, it won't accept values that are either too small or too large. Values must be in the range of -2^360 to 2^360. The value must be a valid number based on the choice of metric. For example, if the metric is CPU utilization, then the target value is a percent value that represents how much of the CPU can be used before scaling out.
+	TargetValue pulumi.Float64Input `pulumi:"targetValue"`
 }
 
 func (ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs) ElementType() reflect.Type {
@@ -1486,6 +2300,7 @@ func (i *scalingPolicyTargetTrackingScalingPolicyConfigurationPtrType) ToOutput(
 	}
 }
 
+// A target tracking scaling policy.
 type ScalingPolicyTargetTrackingScalingPolicyConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ScalingPolicyTargetTrackingScalingPolicyConfigurationOutput) ElementType() reflect.Type {
@@ -1516,30 +2331,36 @@ func (o ScalingPolicyTargetTrackingScalingPolicyConfigurationOutput) ToOutput(ct
 	}
 }
 
+// A customized metric. You can specify either a predefined metric or a customized metric.
 func (o ScalingPolicyTargetTrackingScalingPolicyConfigurationOutput) CustomizedMetricSpecification() ScalingPolicyCustomizedMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyTargetTrackingScalingPolicyConfiguration) *ScalingPolicyCustomizedMetricSpecification {
 		return v.CustomizedMetricSpecification
 	}).(ScalingPolicyCustomizedMetricSpecificationPtrOutput)
 }
 
+// Indicates whether scale in by the target tracking scaling policy is disabled. If the value is true, scale in is disabled and the target tracking scaling policy won't remove capacity from the scalable target. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable target. The default value is false.
 func (o ScalingPolicyTargetTrackingScalingPolicyConfigurationOutput) DisableScaleIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyTargetTrackingScalingPolicyConfiguration) *bool { return v.DisableScaleIn }).(pulumi.BoolPtrOutput)
 }
 
+// A predefined metric. You can specify either a predefined metric or a customized metric.
 func (o ScalingPolicyTargetTrackingScalingPolicyConfigurationOutput) PredefinedMetricSpecification() ScalingPolicyPredefinedMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyTargetTrackingScalingPolicyConfiguration) *ScalingPolicyPredefinedMetricSpecification {
 		return v.PredefinedMetricSpecification
 	}).(ScalingPolicyPredefinedMetricSpecificationPtrOutput)
 }
 
+// The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
 func (o ScalingPolicyTargetTrackingScalingPolicyConfigurationOutput) ScaleInCooldown() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyTargetTrackingScalingPolicyConfiguration) *int { return v.ScaleInCooldown }).(pulumi.IntPtrOutput)
 }
 
+// The amount of time, in seconds, to wait for a previous scale-out activity to take effect.
 func (o ScalingPolicyTargetTrackingScalingPolicyConfigurationOutput) ScaleOutCooldown() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyTargetTrackingScalingPolicyConfiguration) *int { return v.ScaleOutCooldown }).(pulumi.IntPtrOutput)
 }
 
+// The target value for the metric. Although this property accepts numbers of type Double, it won't accept values that are either too small or too large. Values must be in the range of -2^360 to 2^360. The value must be a valid number based on the choice of metric. For example, if the metric is CPU utilization, then the target value is a percent value that represents how much of the CPU can be used before scaling out.
 func (o ScalingPolicyTargetTrackingScalingPolicyConfigurationOutput) TargetValue() pulumi.Float64Output {
 	return o.ApplyT(func(v ScalingPolicyTargetTrackingScalingPolicyConfiguration) float64 { return v.TargetValue }).(pulumi.Float64Output)
 }
@@ -1574,6 +2395,7 @@ func (o ScalingPolicyTargetTrackingScalingPolicyConfigurationPtrOutput) Elem() S
 	}).(ScalingPolicyTargetTrackingScalingPolicyConfigurationOutput)
 }
 
+// A customized metric. You can specify either a predefined metric or a customized metric.
 func (o ScalingPolicyTargetTrackingScalingPolicyConfigurationPtrOutput) CustomizedMetricSpecification() ScalingPolicyCustomizedMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicyTargetTrackingScalingPolicyConfiguration) *ScalingPolicyCustomizedMetricSpecification {
 		if v == nil {
@@ -1583,6 +2405,7 @@ func (o ScalingPolicyTargetTrackingScalingPolicyConfigurationPtrOutput) Customiz
 	}).(ScalingPolicyCustomizedMetricSpecificationPtrOutput)
 }
 
+// Indicates whether scale in by the target tracking scaling policy is disabled. If the value is true, scale in is disabled and the target tracking scaling policy won't remove capacity from the scalable target. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable target. The default value is false.
 func (o ScalingPolicyTargetTrackingScalingPolicyConfigurationPtrOutput) DisableScaleIn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicyTargetTrackingScalingPolicyConfiguration) *bool {
 		if v == nil {
@@ -1592,6 +2415,7 @@ func (o ScalingPolicyTargetTrackingScalingPolicyConfigurationPtrOutput) DisableS
 	}).(pulumi.BoolPtrOutput)
 }
 
+// A predefined metric. You can specify either a predefined metric or a customized metric.
 func (o ScalingPolicyTargetTrackingScalingPolicyConfigurationPtrOutput) PredefinedMetricSpecification() ScalingPolicyPredefinedMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicyTargetTrackingScalingPolicyConfiguration) *ScalingPolicyPredefinedMetricSpecification {
 		if v == nil {
@@ -1601,6 +2425,7 @@ func (o ScalingPolicyTargetTrackingScalingPolicyConfigurationPtrOutput) Predefin
 	}).(ScalingPolicyPredefinedMetricSpecificationPtrOutput)
 }
 
+// The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
 func (o ScalingPolicyTargetTrackingScalingPolicyConfigurationPtrOutput) ScaleInCooldown() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicyTargetTrackingScalingPolicyConfiguration) *int {
 		if v == nil {
@@ -1610,6 +2435,7 @@ func (o ScalingPolicyTargetTrackingScalingPolicyConfigurationPtrOutput) ScaleInC
 	}).(pulumi.IntPtrOutput)
 }
 
+// The amount of time, in seconds, to wait for a previous scale-out activity to take effect.
 func (o ScalingPolicyTargetTrackingScalingPolicyConfigurationPtrOutput) ScaleOutCooldown() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicyTargetTrackingScalingPolicyConfiguration) *int {
 		if v == nil {
@@ -1619,6 +2445,7 @@ func (o ScalingPolicyTargetTrackingScalingPolicyConfigurationPtrOutput) ScaleOut
 	}).(pulumi.IntPtrOutput)
 }
 
+// The target value for the metric. Although this property accepts numbers of type Double, it won't accept values that are either too small or too large. Values must be in the range of -2^360 to 2^360. The value must be a valid number based on the choice of metric. For example, if the metric is CPU utilization, then the target value is a percent value that represents how much of the CPU can be used before scaling out.
 func (o ScalingPolicyTargetTrackingScalingPolicyConfigurationPtrOutput) TargetValue() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *ScalingPolicyTargetTrackingScalingPolicyConfiguration) *float64 {
 		if v == nil {
@@ -1645,6 +2472,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyStepAdjustmentArrayInput)(nil)).Elem(), ScalingPolicyStepAdjustmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyStepScalingPolicyConfigurationInput)(nil)).Elem(), ScalingPolicyStepScalingPolicyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyStepScalingPolicyConfigurationPtrInput)(nil)).Elem(), ScalingPolicyStepScalingPolicyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyTargetTrackingMetricInput)(nil)).Elem(), ScalingPolicyTargetTrackingMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyTargetTrackingMetricPtrInput)(nil)).Elem(), ScalingPolicyTargetTrackingMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyTargetTrackingMetricDataQueryInput)(nil)).Elem(), ScalingPolicyTargetTrackingMetricDataQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyTargetTrackingMetricDataQueryArrayInput)(nil)).Elem(), ScalingPolicyTargetTrackingMetricDataQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyTargetTrackingMetricDimensionInput)(nil)).Elem(), ScalingPolicyTargetTrackingMetricDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyTargetTrackingMetricDimensionArrayInput)(nil)).Elem(), ScalingPolicyTargetTrackingMetricDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyTargetTrackingMetricStatInput)(nil)).Elem(), ScalingPolicyTargetTrackingMetricStatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyTargetTrackingMetricStatPtrInput)(nil)).Elem(), ScalingPolicyTargetTrackingMetricStatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyTargetTrackingScalingPolicyConfigurationInput)(nil)).Elem(), ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyTargetTrackingScalingPolicyConfigurationPtrInput)(nil)).Elem(), ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs{})
 	pulumi.RegisterOutputType(ScalableTargetActionOutput{})
@@ -1663,6 +2498,14 @@ func init() {
 	pulumi.RegisterOutputType(ScalingPolicyStepAdjustmentArrayOutput{})
 	pulumi.RegisterOutputType(ScalingPolicyStepScalingPolicyConfigurationOutput{})
 	pulumi.RegisterOutputType(ScalingPolicyStepScalingPolicyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyTargetTrackingMetricOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyTargetTrackingMetricPtrOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyTargetTrackingMetricDataQueryOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyTargetTrackingMetricDataQueryArrayOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyTargetTrackingMetricDimensionOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyTargetTrackingMetricDimensionArrayOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyTargetTrackingMetricStatOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyTargetTrackingMetricStatPtrOutput{})
 	pulumi.RegisterOutputType(ScalingPolicyTargetTrackingScalingPolicyConfigurationOutput{})
 	pulumi.RegisterOutputType(ScalingPolicyTargetTrackingScalingPolicyConfigurationPtrOutput{})
 }

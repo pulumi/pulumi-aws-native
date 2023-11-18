@@ -4150,6 +4150,189 @@ func (o JobTemplateTagArrayOutput) Index(i pulumi.IntInput) JobTemplateTagOutput
 	}).(JobTemplateTagOutput)
 }
 
+// A structure containing the mqtt topic for metrics export.
+type MetricsExportConfigProperties struct {
+	// The topic for metrics export.
+	MqttTopic string `pulumi:"mqttTopic"`
+	// The ARN of the role that grants permission to publish to mqtt topic.
+	RoleArn string `pulumi:"roleArn"`
+}
+
+// MetricsExportConfigPropertiesInput is an input type that accepts MetricsExportConfigPropertiesArgs and MetricsExportConfigPropertiesOutput values.
+// You can construct a concrete instance of `MetricsExportConfigPropertiesInput` via:
+//
+//	MetricsExportConfigPropertiesArgs{...}
+type MetricsExportConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToMetricsExportConfigPropertiesOutput() MetricsExportConfigPropertiesOutput
+	ToMetricsExportConfigPropertiesOutputWithContext(context.Context) MetricsExportConfigPropertiesOutput
+}
+
+// A structure containing the mqtt topic for metrics export.
+type MetricsExportConfigPropertiesArgs struct {
+	// The topic for metrics export.
+	MqttTopic pulumi.StringInput `pulumi:"mqttTopic"`
+	// The ARN of the role that grants permission to publish to mqtt topic.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+}
+
+func (MetricsExportConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricsExportConfigProperties)(nil)).Elem()
+}
+
+func (i MetricsExportConfigPropertiesArgs) ToMetricsExportConfigPropertiesOutput() MetricsExportConfigPropertiesOutput {
+	return i.ToMetricsExportConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i MetricsExportConfigPropertiesArgs) ToMetricsExportConfigPropertiesOutputWithContext(ctx context.Context) MetricsExportConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricsExportConfigPropertiesOutput)
+}
+
+func (i MetricsExportConfigPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[MetricsExportConfigProperties] {
+	return pulumix.Output[MetricsExportConfigProperties]{
+		OutputState: i.ToMetricsExportConfigPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i MetricsExportConfigPropertiesArgs) ToMetricsExportConfigPropertiesPtrOutput() MetricsExportConfigPropertiesPtrOutput {
+	return i.ToMetricsExportConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i MetricsExportConfigPropertiesArgs) ToMetricsExportConfigPropertiesPtrOutputWithContext(ctx context.Context) MetricsExportConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricsExportConfigPropertiesOutput).ToMetricsExportConfigPropertiesPtrOutputWithContext(ctx)
+}
+
+// MetricsExportConfigPropertiesPtrInput is an input type that accepts MetricsExportConfigPropertiesArgs, MetricsExportConfigPropertiesPtr and MetricsExportConfigPropertiesPtrOutput values.
+// You can construct a concrete instance of `MetricsExportConfigPropertiesPtrInput` via:
+//
+//	        MetricsExportConfigPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type MetricsExportConfigPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToMetricsExportConfigPropertiesPtrOutput() MetricsExportConfigPropertiesPtrOutput
+	ToMetricsExportConfigPropertiesPtrOutputWithContext(context.Context) MetricsExportConfigPropertiesPtrOutput
+}
+
+type metricsExportConfigPropertiesPtrType MetricsExportConfigPropertiesArgs
+
+func MetricsExportConfigPropertiesPtr(v *MetricsExportConfigPropertiesArgs) MetricsExportConfigPropertiesPtrInput {
+	return (*metricsExportConfigPropertiesPtrType)(v)
+}
+
+func (*metricsExportConfigPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricsExportConfigProperties)(nil)).Elem()
+}
+
+func (i *metricsExportConfigPropertiesPtrType) ToMetricsExportConfigPropertiesPtrOutput() MetricsExportConfigPropertiesPtrOutput {
+	return i.ToMetricsExportConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *metricsExportConfigPropertiesPtrType) ToMetricsExportConfigPropertiesPtrOutputWithContext(ctx context.Context) MetricsExportConfigPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricsExportConfigPropertiesPtrOutput)
+}
+
+func (i *metricsExportConfigPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*MetricsExportConfigProperties] {
+	return pulumix.Output[*MetricsExportConfigProperties]{
+		OutputState: i.ToMetricsExportConfigPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A structure containing the mqtt topic for metrics export.
+type MetricsExportConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (MetricsExportConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricsExportConfigProperties)(nil)).Elem()
+}
+
+func (o MetricsExportConfigPropertiesOutput) ToMetricsExportConfigPropertiesOutput() MetricsExportConfigPropertiesOutput {
+	return o
+}
+
+func (o MetricsExportConfigPropertiesOutput) ToMetricsExportConfigPropertiesOutputWithContext(ctx context.Context) MetricsExportConfigPropertiesOutput {
+	return o
+}
+
+func (o MetricsExportConfigPropertiesOutput) ToMetricsExportConfigPropertiesPtrOutput() MetricsExportConfigPropertiesPtrOutput {
+	return o.ToMetricsExportConfigPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o MetricsExportConfigPropertiesOutput) ToMetricsExportConfigPropertiesPtrOutputWithContext(ctx context.Context) MetricsExportConfigPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricsExportConfigProperties) *MetricsExportConfigProperties {
+		return &v
+	}).(MetricsExportConfigPropertiesPtrOutput)
+}
+
+func (o MetricsExportConfigPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[MetricsExportConfigProperties] {
+	return pulumix.Output[MetricsExportConfigProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The topic for metrics export.
+func (o MetricsExportConfigPropertiesOutput) MqttTopic() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricsExportConfigProperties) string { return v.MqttTopic }).(pulumi.StringOutput)
+}
+
+// The ARN of the role that grants permission to publish to mqtt topic.
+func (o MetricsExportConfigPropertiesOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricsExportConfigProperties) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+type MetricsExportConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (MetricsExportConfigPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricsExportConfigProperties)(nil)).Elem()
+}
+
+func (o MetricsExportConfigPropertiesPtrOutput) ToMetricsExportConfigPropertiesPtrOutput() MetricsExportConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o MetricsExportConfigPropertiesPtrOutput) ToMetricsExportConfigPropertiesPtrOutputWithContext(ctx context.Context) MetricsExportConfigPropertiesPtrOutput {
+	return o
+}
+
+func (o MetricsExportConfigPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MetricsExportConfigProperties] {
+	return pulumix.Output[*MetricsExportConfigProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o MetricsExportConfigPropertiesPtrOutput) Elem() MetricsExportConfigPropertiesOutput {
+	return o.ApplyT(func(v *MetricsExportConfigProperties) MetricsExportConfigProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MetricsExportConfigProperties
+		return ret
+	}).(MetricsExportConfigPropertiesOutput)
+}
+
+// The topic for metrics export.
+func (o MetricsExportConfigPropertiesPtrOutput) MqttTopic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricsExportConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MqttTopic
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the role that grants permission to publish to mqtt topic.
+func (o MetricsExportConfigPropertiesPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricsExportConfigProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
 type MitigationActionActionParams struct {
 	AddThingsToThingGroupParams       *MitigationActionAddThingsToThingGroupParams       `pulumi:"addThingsToThingGroupParams"`
@@ -6354,7 +6537,8 @@ func (o ScheduledAuditTagArrayOutput) Index(i pulumi.IntInput) ScheduledAuditTag
 
 // A security profile behavior.
 type SecurityProfileBehavior struct {
-	Criteria *SecurityProfileBehaviorCriteria `pulumi:"criteria"`
+	Criteria     *SecurityProfileBehaviorCriteria `pulumi:"criteria"`
+	ExportMetric *bool                            `pulumi:"exportMetric"`
 	// What is measured by the behavior.
 	Metric          *string                         `pulumi:"metric"`
 	MetricDimension *SecurityProfileMetricDimension `pulumi:"metricDimension"`
@@ -6377,7 +6561,8 @@ type SecurityProfileBehaviorInput interface {
 
 // A security profile behavior.
 type SecurityProfileBehaviorArgs struct {
-	Criteria SecurityProfileBehaviorCriteriaPtrInput `pulumi:"criteria"`
+	Criteria     SecurityProfileBehaviorCriteriaPtrInput `pulumi:"criteria"`
+	ExportMetric pulumi.BoolPtrInput                     `pulumi:"exportMetric"`
 	// What is measured by the behavior.
 	Metric          pulumi.StringPtrInput                  `pulumi:"metric"`
 	MetricDimension SecurityProfileMetricDimensionPtrInput `pulumi:"metricDimension"`
@@ -6459,6 +6644,10 @@ func (o SecurityProfileBehaviorOutput) ToOutput(ctx context.Context) pulumix.Out
 
 func (o SecurityProfileBehaviorOutput) Criteria() SecurityProfileBehaviorCriteriaPtrOutput {
 	return o.ApplyT(func(v SecurityProfileBehavior) *SecurityProfileBehaviorCriteria { return v.Criteria }).(SecurityProfileBehaviorCriteriaPtrOutput)
+}
+
+func (o SecurityProfileBehaviorOutput) ExportMetric() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecurityProfileBehavior) *bool { return v.ExportMetric }).(pulumi.BoolPtrOutput)
 }
 
 // What is measured by the behavior.
@@ -7129,6 +7318,7 @@ func (o SecurityProfileMetricDimensionPtrOutput) Operator() SecurityProfileMetri
 
 // The metric you want to retain. Dimensions are optional.
 type SecurityProfileMetricToRetain struct {
+	ExportMetric *bool `pulumi:"exportMetric"`
 	// What is measured by the behavior.
 	Metric          string                          `pulumi:"metric"`
 	MetricDimension *SecurityProfileMetricDimension `pulumi:"metricDimension"`
@@ -7147,6 +7337,7 @@ type SecurityProfileMetricToRetainInput interface {
 
 // The metric you want to retain. Dimensions are optional.
 type SecurityProfileMetricToRetainArgs struct {
+	ExportMetric pulumi.BoolPtrInput `pulumi:"exportMetric"`
 	// What is measured by the behavior.
 	Metric          pulumi.StringInput                     `pulumi:"metric"`
 	MetricDimension SecurityProfileMetricDimensionPtrInput `pulumi:"metricDimension"`
@@ -7220,6 +7411,10 @@ func (o SecurityProfileMetricToRetainOutput) ToOutput(ctx context.Context) pulum
 	return pulumix.Output[SecurityProfileMetricToRetain]{
 		OutputState: o.OutputState,
 	}
+}
+
+func (o SecurityProfileMetricToRetainOutput) ExportMetric() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecurityProfileMetricToRetain) *bool { return v.ExportMetric }).(pulumi.BoolPtrOutput)
 }
 
 // What is measured by the behavior.
@@ -16996,6 +17191,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateRetryCriteriaArrayInput)(nil)).Elem(), JobTemplateRetryCriteriaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateTagInput)(nil)).Elem(), JobTemplateTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobTemplateTagArrayInput)(nil)).Elem(), JobTemplateTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricsExportConfigPropertiesInput)(nil)).Elem(), MetricsExportConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricsExportConfigPropertiesPtrInput)(nil)).Elem(), MetricsExportConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionActionParamsInput)(nil)).Elem(), MitigationActionActionParamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionAddThingsToThingGroupParamsInput)(nil)).Elem(), MitigationActionAddThingsToThingGroupParamsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MitigationActionAddThingsToThingGroupParamsPtrInput)(nil)).Elem(), MitigationActionAddThingsToThingGroupParamsArgs{})
@@ -17191,6 +17388,8 @@ func init() {
 	pulumi.RegisterOutputType(JobTemplateRetryCriteriaArrayOutput{})
 	pulumi.RegisterOutputType(JobTemplateTagOutput{})
 	pulumi.RegisterOutputType(JobTemplateTagArrayOutput{})
+	pulumi.RegisterOutputType(MetricsExportConfigPropertiesOutput{})
+	pulumi.RegisterOutputType(MetricsExportConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionActionParamsOutput{})
 	pulumi.RegisterOutputType(MitigationActionActionParamsPtrOutput{})
 	pulumi.RegisterOutputType(MitigationActionAddThingsToThingGroupParamsOutput{})

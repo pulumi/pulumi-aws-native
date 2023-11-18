@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbInstanceResult:
-    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, automatic_backup_replication_region=None, availability_zone=None, backup_retention_period=None, ca_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, db_cluster_snapshot_identifier=None, db_instance_arn=None, db_instance_class=None, db_parameter_group_name=None, db_security_groups=None, db_system_id=None, dbi_resource_id=None, deletion_protection=None, domain=None, domain_auth_secret_arn=None, domain_dns_ips=None, domain_fqdn=None, domain_iam_role_name=None, domain_ou=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, source_db_cluster_identifier=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, vpc_security_groups=None):
+    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, automatic_backup_replication_region=None, availability_zone=None, backup_retention_period=None, ca_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, db_cluster_snapshot_identifier=None, db_instance_arn=None, db_instance_class=None, db_parameter_group_name=None, db_security_groups=None, db_system_id=None, dbi_resource_id=None, dedicated_log_volume=None, deletion_protection=None, domain=None, domain_auth_secret_arn=None, domain_dns_ips=None, domain_fqdn=None, domain_iam_role_name=None, domain_ou=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, source_db_cluster_identifier=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, vpc_security_groups=None):
         if allocated_storage and not isinstance(allocated_storage, str):
             raise TypeError("Expected argument 'allocated_storage' to be a str")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -69,6 +69,9 @@ class GetDbInstanceResult:
         if dbi_resource_id and not isinstance(dbi_resource_id, str):
             raise TypeError("Expected argument 'dbi_resource_id' to be a str")
         pulumi.set(__self__, "dbi_resource_id", dbi_resource_id)
+        if dedicated_log_volume and not isinstance(dedicated_log_volume, bool):
+            raise TypeError("Expected argument 'dedicated_log_volume' to be a bool")
+        pulumi.set(__self__, "dedicated_log_volume", dedicated_log_volume)
         if deletion_protection and not isinstance(deletion_protection, bool):
             raise TypeError("Expected argument 'deletion_protection' to be a bool")
         pulumi.set(__self__, "deletion_protection", deletion_protection)
@@ -316,6 +319,14 @@ class GetDbInstanceResult:
         The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
         """
         return pulumi.get(self, "dbi_resource_id")
+
+    @property
+    @pulumi.getter(name="dedicatedLogVolume")
+    def dedicated_log_volume(self) -> Optional[bool]:
+        """
+        Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
+        """
+        return pulumi.get(self, "dedicated_log_volume")
 
     @property
     @pulumi.getter(name="deletionProtection")
@@ -636,6 +647,7 @@ class AwaitableGetDbInstanceResult(GetDbInstanceResult):
             db_security_groups=self.db_security_groups,
             db_system_id=self.db_system_id,
             dbi_resource_id=self.dbi_resource_id,
+            dedicated_log_volume=self.dedicated_log_volume,
             deletion_protection=self.deletion_protection,
             domain=self.domain,
             domain_auth_secret_arn=self.domain_auth_secret_arn,
@@ -705,6 +717,7 @@ def get_db_instance(db_instance_identifier: Optional[str] = None,
         db_security_groups=pulumi.get(__ret__, 'db_security_groups'),
         db_system_id=pulumi.get(__ret__, 'db_system_id'),
         dbi_resource_id=pulumi.get(__ret__, 'dbi_resource_id'),
+        dedicated_log_volume=pulumi.get(__ret__, 'dedicated_log_volume'),
         deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
         domain=pulumi.get(__ret__, 'domain'),
         domain_auth_secret_arn=pulumi.get(__ret__, 'domain_auth_secret_arn'),

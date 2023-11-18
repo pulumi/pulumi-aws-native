@@ -13,6 +13,7 @@ from ._enums import *
 
 __all__ = [
     'AddonTag',
+    'ClusterAccessConfig',
     'ClusterControlPlanePlacement',
     'ClusterEncryptionConfig',
     'ClusterKubernetesNetworkConfig',
@@ -67,6 +68,60 @@ class AddonTag(dict):
         The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ClusterAccessConfig(dict):
+    """
+    An object representing the Access Config to use for the cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationMode":
+            suggest = "authentication_mode"
+        elif key == "bootstrapClusterCreatorAdminPermissions":
+            suggest = "bootstrap_cluster_creator_admin_permissions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterAccessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterAccessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterAccessConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_mode: Optional['ClusterAccessConfigAuthenticationMode'] = None,
+                 bootstrap_cluster_creator_admin_permissions: Optional[bool] = None):
+        """
+        An object representing the Access Config to use for the cluster.
+        :param 'ClusterAccessConfigAuthenticationMode' authentication_mode: Specify the authentication mode that should be used to create your cluster.
+        :param bool bootstrap_cluster_creator_admin_permissions: Set this value to false to avoid creating a default cluster admin Access Entry using the IAM principal used to create the cluster.
+        """
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
+        if bootstrap_cluster_creator_admin_permissions is not None:
+            pulumi.set(__self__, "bootstrap_cluster_creator_admin_permissions", bootstrap_cluster_creator_admin_permissions)
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional['ClusterAccessConfigAuthenticationMode']:
+        """
+        Specify the authentication mode that should be used to create your cluster.
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @property
+    @pulumi.getter(name="bootstrapClusterCreatorAdminPermissions")
+    def bootstrap_cluster_creator_admin_permissions(self) -> Optional[bool]:
+        """
+        Set this value to false to avoid creating a default cluster admin Access Entry using the IAM principal used to create the cluster.
+        """
+        return pulumi.get(self, "bootstrap_cluster_creator_admin_permissions")
 
 
 @pulumi.output_type

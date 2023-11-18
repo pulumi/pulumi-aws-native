@@ -35,24 +35,28 @@ export const Ec2FleetExcessCapacityTerminationPolicy = {
 export type Ec2FleetExcessCapacityTerminationPolicy = (typeof Ec2FleetExcessCapacityTerminationPolicy)[keyof typeof Ec2FleetExcessCapacityTerminationPolicy];
 
 export const Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem = {
-    Nvidia: "nvidia",
-    Amd: "amd",
     AmazonWebServices: "amazon-web-services",
+    Amd: "amd",
+    Habana: "habana",
+    Nvidia: "nvidia",
     Xilinx: "xilinx",
 } as const;
 
 export type Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem = (typeof Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem)[keyof typeof Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem];
 
 export const Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem = {
+    A10g: "a10g",
     A100: "a100",
-    V100: "v100",
-    K80: "k80",
-    T4: "t4",
-    M60: "m60",
-    RadeonProV520: "radeon-pro-v520",
-    Vu9p: "vu9p",
+    H100: "h100",
     Inferentia: "inferentia",
     K520: "k520",
+    K80: "k80",
+    M60: "m60",
+    RadeonProV520: "radeon-pro-v520",
+    T4: "t4",
+    T4g: "t4g",
+    Vu9p: "vu9p",
+    V100: "v100",
 } as const;
 
 export type Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem = (typeof Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem)[keyof typeof Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem];
@@ -400,24 +404,28 @@ export const SpotFleetEbsBlockDeviceVolumeType = {
 export type SpotFleetEbsBlockDeviceVolumeType = (typeof SpotFleetEbsBlockDeviceVolumeType)[keyof typeof SpotFleetEbsBlockDeviceVolumeType];
 
 export const SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem = {
-    Nvidia: "nvidia",
-    Amd: "amd",
     AmazonWebServices: "amazon-web-services",
+    Amd: "amd",
+    Habana: "habana",
+    Nvidia: "nvidia",
     Xilinx: "xilinx",
 } as const;
 
 export type SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem = (typeof SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem)[keyof typeof SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem];
 
 export const SpotFleetInstanceRequirementsRequestAcceleratorNamesItem = {
+    A10g: "a10g",
     A100: "a100",
-    V100: "v100",
-    K80: "k80",
-    T4: "t4",
-    M60: "m60",
-    RadeonProV520: "radeon-pro-v520",
-    Vu9p: "vu9p",
+    H100: "h100",
     Inferentia: "inferentia",
     K520: "k520",
+    K80: "k80",
+    M60: "m60",
+    RadeonProV520: "radeon-pro-v520",
+    T4: "t4",
+    T4g: "t4g",
+    Vu9p: "vu9p",
+    V100: "v100",
 } as const;
 
 export type SpotFleetInstanceRequirementsRequestAcceleratorNamesItem = (typeof SpotFleetInstanceRequirementsRequestAcceleratorNamesItem)[keyof typeof SpotFleetInstanceRequirementsRequestAcceleratorNamesItem];

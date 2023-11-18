@@ -41,7 +41,7 @@ export class Node extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    public readonly memberId!: pulumi.Output<string>;
+    public readonly memberId!: pulumi.Output<string | undefined>;
     public readonly networkId!: pulumi.Output<string>;
     public readonly nodeConfiguration!: pulumi.Output<outputs.managedblockchain.NodeConfiguration>;
     public /*out*/ readonly nodeId!: pulumi.Output<string>;
@@ -59,9 +59,6 @@ export class Node extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.memberId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'memberId'");
-            }
             if ((!args || args.networkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkId'");
             }
@@ -89,7 +86,7 @@ export class Node extends pulumi.CustomResource {
  * The set of arguments for constructing a Node resource.
  */
 export interface NodeArgs {
-    memberId: pulumi.Input<string>;
+    memberId?: pulumi.Input<string>;
     networkId: pulumi.Input<string>;
     nodeConfiguration: pulumi.Input<inputs.managedblockchain.NodeConfigurationArgs>;
 }

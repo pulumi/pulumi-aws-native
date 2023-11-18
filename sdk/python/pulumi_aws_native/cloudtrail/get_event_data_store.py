@@ -19,10 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetEventDataStoreResult:
-    def __init__(__self__, advanced_event_selectors=None, created_timestamp=None, event_data_store_arn=None, ingestion_enabled=None, kms_key_id=None, multi_region_enabled=None, name=None, organization_enabled=None, retention_period=None, status=None, tags=None, termination_protection_enabled=None, updated_timestamp=None):
+    def __init__(__self__, advanced_event_selectors=None, billing_mode=None, created_timestamp=None, event_data_store_arn=None, ingestion_enabled=None, insight_selectors=None, insights_destination=None, kms_key_id=None, multi_region_enabled=None, name=None, organization_enabled=None, retention_period=None, status=None, tags=None, termination_protection_enabled=None, updated_timestamp=None):
         if advanced_event_selectors and not isinstance(advanced_event_selectors, list):
             raise TypeError("Expected argument 'advanced_event_selectors' to be a list")
         pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
+        if billing_mode and not isinstance(billing_mode, str):
+            raise TypeError("Expected argument 'billing_mode' to be a str")
+        pulumi.set(__self__, "billing_mode", billing_mode)
         if created_timestamp and not isinstance(created_timestamp, str):
             raise TypeError("Expected argument 'created_timestamp' to be a str")
         pulumi.set(__self__, "created_timestamp", created_timestamp)
@@ -32,6 +35,12 @@ class GetEventDataStoreResult:
         if ingestion_enabled and not isinstance(ingestion_enabled, bool):
             raise TypeError("Expected argument 'ingestion_enabled' to be a bool")
         pulumi.set(__self__, "ingestion_enabled", ingestion_enabled)
+        if insight_selectors and not isinstance(insight_selectors, list):
+            raise TypeError("Expected argument 'insight_selectors' to be a list")
+        pulumi.set(__self__, "insight_selectors", insight_selectors)
+        if insights_destination and not isinstance(insights_destination, str):
+            raise TypeError("Expected argument 'insights_destination' to be a str")
+        pulumi.set(__self__, "insights_destination", insights_destination)
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
         pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -69,6 +78,14 @@ class GetEventDataStoreResult:
         return pulumi.get(self, "advanced_event_selectors")
 
     @property
+    @pulumi.getter(name="billingMode")
+    def billing_mode(self) -> Optional[str]:
+        """
+        The mode that the event data store will use to charge for event storage.
+        """
+        return pulumi.get(self, "billing_mode")
+
+    @property
     @pulumi.getter(name="createdTimestamp")
     def created_timestamp(self) -> Optional[str]:
         """
@@ -91,6 +108,22 @@ class GetEventDataStoreResult:
         Indicates whether the event data store is ingesting events.
         """
         return pulumi.get(self, "ingestion_enabled")
+
+    @property
+    @pulumi.getter(name="insightSelectors")
+    def insight_selectors(self) -> Optional[Sequence['outputs.EventDataStoreInsightSelector']]:
+        """
+        Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
+        """
+        return pulumi.get(self, "insight_selectors")
+
+    @property
+    @pulumi.getter(name="insightsDestination")
+    def insights_destination(self) -> Optional[str]:
+        """
+        Specifies the ARN of the event data store that will collect Insights events. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store
+        """
+        return pulumi.get(self, "insights_destination")
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -169,9 +202,12 @@ class AwaitableGetEventDataStoreResult(GetEventDataStoreResult):
             yield self
         return GetEventDataStoreResult(
             advanced_event_selectors=self.advanced_event_selectors,
+            billing_mode=self.billing_mode,
             created_timestamp=self.created_timestamp,
             event_data_store_arn=self.event_data_store_arn,
             ingestion_enabled=self.ingestion_enabled,
+            insight_selectors=self.insight_selectors,
+            insights_destination=self.insights_destination,
             kms_key_id=self.kms_key_id,
             multi_region_enabled=self.multi_region_enabled,
             name=self.name,
@@ -186,7 +222,7 @@ class AwaitableGetEventDataStoreResult(GetEventDataStoreResult):
 def get_event_data_store(event_data_store_arn: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventDataStoreResult:
     """
-    A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 90 to 2555 days (about three months to up to seven years).
+    A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 7 to 2557 or 3653 days (about seven or ten years) depending on the selected BillingMode.
 
 
     :param str event_data_store_arn: The ARN of the event data store.
@@ -198,9 +234,12 @@ def get_event_data_store(event_data_store_arn: Optional[str] = None,
 
     return AwaitableGetEventDataStoreResult(
         advanced_event_selectors=pulumi.get(__ret__, 'advanced_event_selectors'),
+        billing_mode=pulumi.get(__ret__, 'billing_mode'),
         created_timestamp=pulumi.get(__ret__, 'created_timestamp'),
         event_data_store_arn=pulumi.get(__ret__, 'event_data_store_arn'),
         ingestion_enabled=pulumi.get(__ret__, 'ingestion_enabled'),
+        insight_selectors=pulumi.get(__ret__, 'insight_selectors'),
+        insights_destination=pulumi.get(__ret__, 'insights_destination'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         multi_region_enabled=pulumi.get(__ret__, 'multi_region_enabled'),
         name=pulumi.get(__ret__, 'name'),
@@ -216,7 +255,7 @@ def get_event_data_store(event_data_store_arn: Optional[str] = None,
 def get_event_data_store_output(event_data_store_arn: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventDataStoreResult]:
     """
-    A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 90 to 2555 days (about three months to up to seven years).
+    A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 7 to 2557 or 3653 days (about seven or ten years) depending on the selected BillingMode.
 
 
     :param str event_data_store_arn: The ARN of the event data store.

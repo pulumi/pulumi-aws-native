@@ -31,6 +31,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Framework{}
 	case "aws-native:backup:ReportPlan":
 		r = &ReportPlan{}
+	case "aws-native:backup:RestoreTestingPlan":
+		r = &RestoreTestingPlan{}
+	case "aws-native:backup:RestoreTestingSelection":
+		r = &RestoreTestingSelection{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

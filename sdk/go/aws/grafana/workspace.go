@@ -44,6 +44,8 @@ type Workspace struct {
 	// List of Organizational Units containing AWS accounts the Grafana workspace can pull data from.
 	OrganizationalUnits pulumi.StringArrayOutput      `pulumi:"organizationalUnits"`
 	PermissionType      WorkspacePermissionTypeOutput `pulumi:"permissionType"`
+	// Allow workspace admins to install plugins
+	PluginAdminEnabled pulumi.BoolPtrOutput `pulumi:"pluginAdminEnabled"`
 	// IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
 	RoleArn                 pulumi.StringPtrOutput                 `pulumi:"roleArn"`
 	SamlConfiguration       WorkspaceSamlConfigurationPtrOutput    `pulumi:"samlConfiguration"`
@@ -130,6 +132,8 @@ type workspaceArgs struct {
 	// List of Organizational Units containing AWS accounts the Grafana workspace can pull data from.
 	OrganizationalUnits []string                `pulumi:"organizationalUnits"`
 	PermissionType      WorkspacePermissionType `pulumi:"permissionType"`
+	// Allow workspace admins to install plugins
+	PluginAdminEnabled *bool `pulumi:"pluginAdminEnabled"`
 	// IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
 	RoleArn           *string                     `pulumi:"roleArn"`
 	SamlConfiguration *WorkspaceSamlConfiguration `pulumi:"samlConfiguration"`
@@ -161,6 +165,8 @@ type WorkspaceArgs struct {
 	// List of Organizational Units containing AWS accounts the Grafana workspace can pull data from.
 	OrganizationalUnits pulumi.StringArrayInput
 	PermissionType      WorkspacePermissionTypeInput
+	// Allow workspace admins to install plugins
+	PluginAdminEnabled pulumi.BoolPtrInput
 	// IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
 	RoleArn           pulumi.StringPtrInput
 	SamlConfiguration WorkspaceSamlConfigurationPtrInput
@@ -288,6 +294,11 @@ func (o WorkspaceOutput) OrganizationalUnits() pulumi.StringArrayOutput {
 
 func (o WorkspaceOutput) PermissionType() WorkspacePermissionTypeOutput {
 	return o.ApplyT(func(v *Workspace) WorkspacePermissionTypeOutput { return v.PermissionType }).(WorkspacePermissionTypeOutput)
+}
+
+// Allow workspace admins to install plugins
+func (o WorkspaceOutput) PluginAdminEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.BoolPtrOutput { return v.PluginAdminEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.

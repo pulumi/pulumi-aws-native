@@ -16,6 +16,7 @@ __all__ = [
     'ChannelTag',
     'EventDataStoreAdvancedEventSelector',
     'EventDataStoreAdvancedFieldSelector',
+    'EventDataStoreInsightSelector',
     'EventDataStoreTag',
     'TrailAdvancedEventSelector',
     'TrailAdvancedFieldSelector',
@@ -259,6 +260,46 @@ class EventDataStoreAdvancedFieldSelector(dict):
         An operator that includes events that match the first few characters of the event record field specified as the value of Field.
         """
         return pulumi.get(self, "starts_with")
+
+
+@pulumi.output_type
+class EventDataStoreInsightSelector(dict):
+    """
+    A string that contains Insights types that are logged on an event data store.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "insightType":
+            suggest = "insight_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventDataStoreInsightSelector. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventDataStoreInsightSelector.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventDataStoreInsightSelector.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 insight_type: Optional[str] = None):
+        """
+        A string that contains Insights types that are logged on an event data store.
+        :param str insight_type: The type of Insights to log on an event data store.
+        """
+        if insight_type is not None:
+            pulumi.set(__self__, "insight_type", insight_type)
+
+    @property
+    @pulumi.getter(name="insightType")
+    def insight_type(self) -> Optional[str]:
+        """
+        The type of Insights to log on an event data store.
+        """
+        return pulumi.get(self, "insight_type")
 
 
 @pulumi.output_type

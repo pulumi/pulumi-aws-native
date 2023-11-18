@@ -44,6 +44,8 @@ type Function struct {
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
 	Layers pulumi.StringArrayOutput `pulumi:"layers"`
+	// The logging configuration of your function
+	LoggingConfig FunctionLoggingConfigPtrOutput `pulumi:"loggingConfig"`
 	// The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
 	MemorySize pulumi.IntPtrOutput `pulumi:"memorySize"`
 	// PackageType.
@@ -147,6 +149,8 @@ type functionArgs struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
 	Layers []string `pulumi:"layers"`
+	// The logging configuration of your function
+	LoggingConfig *FunctionLoggingConfig `pulumi:"loggingConfig"`
 	// The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
 	MemorySize *int `pulumi:"memorySize"`
 	// PackageType.
@@ -200,6 +204,8 @@ type FunctionArgs struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
 	Layers pulumi.StringArrayInput
+	// The logging configuration of your function
+	LoggingConfig FunctionLoggingConfigPtrInput
 	// The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
 	MemorySize pulumi.IntPtrInput
 	// PackageType.
@@ -342,6 +348,11 @@ func (o FunctionOutput) KmsKeyArn() pulumi.StringPtrOutput {
 // A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
 func (o FunctionOutput) Layers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringArrayOutput { return v.Layers }).(pulumi.StringArrayOutput)
+}
+
+// The logging configuration of your function
+func (o FunctionOutput) LoggingConfig() FunctionLoggingConfigPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionLoggingConfigPtrOutput { return v.LoggingConfig }).(FunctionLoggingConfigPtrOutput)
 }
 
 // The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.

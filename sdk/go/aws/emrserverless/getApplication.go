@@ -42,11 +42,13 @@ type LookupApplicationResult struct {
 	// Initial capacity initialized when an Application is started.
 	InitialCapacity []ApplicationInitialCapacityConfigKeyValuePair `pulumi:"initialCapacity"`
 	// Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
-	MaximumCapacity *ApplicationMaximumAllowedResources `pulumi:"maximumCapacity"`
+	MaximumCapacity         *ApplicationMaximumAllowedResources `pulumi:"maximumCapacity"`
+	MonitoringConfiguration *ApplicationMonitoringConfiguration `pulumi:"monitoringConfiguration"`
 	// Network Configuration for customer VPC connectivity.
 	NetworkConfiguration *ApplicationNetworkConfiguration `pulumi:"networkConfiguration"`
 	// EMR release label.
-	ReleaseLabel *string `pulumi:"releaseLabel"`
+	ReleaseLabel         *string                          `pulumi:"releaseLabel"`
+	RuntimeConfiguration []ApplicationConfigurationObject `pulumi:"runtimeConfiguration"`
 	// Tag map with key and value
 	Tags []ApplicationTag `pulumi:"tags"`
 	// The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
@@ -135,6 +137,10 @@ func (o LookupApplicationResultOutput) MaximumCapacity() ApplicationMaximumAllow
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationMaximumAllowedResources { return v.MaximumCapacity }).(ApplicationMaximumAllowedResourcesPtrOutput)
 }
 
+func (o LookupApplicationResultOutput) MonitoringConfiguration() ApplicationMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *ApplicationMonitoringConfiguration { return v.MonitoringConfiguration }).(ApplicationMonitoringConfigurationPtrOutput)
+}
+
 // Network Configuration for customer VPC connectivity.
 func (o LookupApplicationResultOutput) NetworkConfiguration() ApplicationNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationNetworkConfiguration { return v.NetworkConfiguration }).(ApplicationNetworkConfigurationPtrOutput)
@@ -143,6 +149,10 @@ func (o LookupApplicationResultOutput) NetworkConfiguration() ApplicationNetwork
 // EMR release label.
 func (o LookupApplicationResultOutput) ReleaseLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.ReleaseLabel }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupApplicationResultOutput) RuntimeConfiguration() ApplicationConfigurationObjectArrayOutput {
+	return o.ApplyT(func(v LookupApplicationResult) []ApplicationConfigurationObject { return v.RuntimeConfiguration }).(ApplicationConfigurationObjectArrayOutput)
 }
 
 // Tag map with key and value

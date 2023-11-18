@@ -1043,6 +1043,560 @@ func (o FunctionArchitecturesItemArrayOutput) Index(i pulumi.IntInput) FunctionA
 	}).(FunctionArchitecturesItemOutput)
 }
 
+// Application log granularity level, can only be used when LogFormat is set to JSON
+type FunctionLoggingConfigApplicationLogLevel string
+
+const (
+	FunctionLoggingConfigApplicationLogLevelTrace = FunctionLoggingConfigApplicationLogLevel("TRACE")
+	FunctionLoggingConfigApplicationLogLevelDebug = FunctionLoggingConfigApplicationLogLevel("DEBUG")
+	FunctionLoggingConfigApplicationLogLevelInfo  = FunctionLoggingConfigApplicationLogLevel("INFO")
+	FunctionLoggingConfigApplicationLogLevelWarn  = FunctionLoggingConfigApplicationLogLevel("WARN")
+	FunctionLoggingConfigApplicationLogLevelError = FunctionLoggingConfigApplicationLogLevel("ERROR")
+	FunctionLoggingConfigApplicationLogLevelFatal = FunctionLoggingConfigApplicationLogLevel("FATAL")
+)
+
+func (FunctionLoggingConfigApplicationLogLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionLoggingConfigApplicationLogLevel)(nil)).Elem()
+}
+
+func (e FunctionLoggingConfigApplicationLogLevel) ToFunctionLoggingConfigApplicationLogLevelOutput() FunctionLoggingConfigApplicationLogLevelOutput {
+	return pulumi.ToOutput(e).(FunctionLoggingConfigApplicationLogLevelOutput)
+}
+
+func (e FunctionLoggingConfigApplicationLogLevel) ToFunctionLoggingConfigApplicationLogLevelOutputWithContext(ctx context.Context) FunctionLoggingConfigApplicationLogLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FunctionLoggingConfigApplicationLogLevelOutput)
+}
+
+func (e FunctionLoggingConfigApplicationLogLevel) ToFunctionLoggingConfigApplicationLogLevelPtrOutput() FunctionLoggingConfigApplicationLogLevelPtrOutput {
+	return e.ToFunctionLoggingConfigApplicationLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (e FunctionLoggingConfigApplicationLogLevel) ToFunctionLoggingConfigApplicationLogLevelPtrOutputWithContext(ctx context.Context) FunctionLoggingConfigApplicationLogLevelPtrOutput {
+	return FunctionLoggingConfigApplicationLogLevel(e).ToFunctionLoggingConfigApplicationLogLevelOutputWithContext(ctx).ToFunctionLoggingConfigApplicationLogLevelPtrOutputWithContext(ctx)
+}
+
+func (e FunctionLoggingConfigApplicationLogLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FunctionLoggingConfigApplicationLogLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FunctionLoggingConfigApplicationLogLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FunctionLoggingConfigApplicationLogLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FunctionLoggingConfigApplicationLogLevelOutput struct{ *pulumi.OutputState }
+
+func (FunctionLoggingConfigApplicationLogLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionLoggingConfigApplicationLogLevel)(nil)).Elem()
+}
+
+func (o FunctionLoggingConfigApplicationLogLevelOutput) ToFunctionLoggingConfigApplicationLogLevelOutput() FunctionLoggingConfigApplicationLogLevelOutput {
+	return o
+}
+
+func (o FunctionLoggingConfigApplicationLogLevelOutput) ToFunctionLoggingConfigApplicationLogLevelOutputWithContext(ctx context.Context) FunctionLoggingConfigApplicationLogLevelOutput {
+	return o
+}
+
+func (o FunctionLoggingConfigApplicationLogLevelOutput) ToFunctionLoggingConfigApplicationLogLevelPtrOutput() FunctionLoggingConfigApplicationLogLevelPtrOutput {
+	return o.ToFunctionLoggingConfigApplicationLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionLoggingConfigApplicationLogLevelOutput) ToFunctionLoggingConfigApplicationLogLevelPtrOutputWithContext(ctx context.Context) FunctionLoggingConfigApplicationLogLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionLoggingConfigApplicationLogLevel) *FunctionLoggingConfigApplicationLogLevel {
+		return &v
+	}).(FunctionLoggingConfigApplicationLogLevelPtrOutput)
+}
+
+func (o FunctionLoggingConfigApplicationLogLevelOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionLoggingConfigApplicationLogLevel] {
+	return pulumix.Output[FunctionLoggingConfigApplicationLogLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FunctionLoggingConfigApplicationLogLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FunctionLoggingConfigApplicationLogLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FunctionLoggingConfigApplicationLogLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FunctionLoggingConfigApplicationLogLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionLoggingConfigApplicationLogLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FunctionLoggingConfigApplicationLogLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FunctionLoggingConfigApplicationLogLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionLoggingConfigApplicationLogLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionLoggingConfigApplicationLogLevel)(nil)).Elem()
+}
+
+func (o FunctionLoggingConfigApplicationLogLevelPtrOutput) ToFunctionLoggingConfigApplicationLogLevelPtrOutput() FunctionLoggingConfigApplicationLogLevelPtrOutput {
+	return o
+}
+
+func (o FunctionLoggingConfigApplicationLogLevelPtrOutput) ToFunctionLoggingConfigApplicationLogLevelPtrOutputWithContext(ctx context.Context) FunctionLoggingConfigApplicationLogLevelPtrOutput {
+	return o
+}
+
+func (o FunctionLoggingConfigApplicationLogLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionLoggingConfigApplicationLogLevel] {
+	return pulumix.Output[*FunctionLoggingConfigApplicationLogLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FunctionLoggingConfigApplicationLogLevelPtrOutput) Elem() FunctionLoggingConfigApplicationLogLevelOutput {
+	return o.ApplyT(func(v *FunctionLoggingConfigApplicationLogLevel) FunctionLoggingConfigApplicationLogLevel {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionLoggingConfigApplicationLogLevel
+		return ret
+	}).(FunctionLoggingConfigApplicationLogLevelOutput)
+}
+
+func (o FunctionLoggingConfigApplicationLogLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionLoggingConfigApplicationLogLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FunctionLoggingConfigApplicationLogLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FunctionLoggingConfigApplicationLogLevelInput is an input type that accepts FunctionLoggingConfigApplicationLogLevelArgs and FunctionLoggingConfigApplicationLogLevelOutput values.
+// You can construct a concrete instance of `FunctionLoggingConfigApplicationLogLevelInput` via:
+//
+//	FunctionLoggingConfigApplicationLogLevelArgs{...}
+type FunctionLoggingConfigApplicationLogLevelInput interface {
+	pulumi.Input
+
+	ToFunctionLoggingConfigApplicationLogLevelOutput() FunctionLoggingConfigApplicationLogLevelOutput
+	ToFunctionLoggingConfigApplicationLogLevelOutputWithContext(context.Context) FunctionLoggingConfigApplicationLogLevelOutput
+}
+
+var functionLoggingConfigApplicationLogLevelPtrType = reflect.TypeOf((**FunctionLoggingConfigApplicationLogLevel)(nil)).Elem()
+
+type FunctionLoggingConfigApplicationLogLevelPtrInput interface {
+	pulumi.Input
+
+	ToFunctionLoggingConfigApplicationLogLevelPtrOutput() FunctionLoggingConfigApplicationLogLevelPtrOutput
+	ToFunctionLoggingConfigApplicationLogLevelPtrOutputWithContext(context.Context) FunctionLoggingConfigApplicationLogLevelPtrOutput
+}
+
+type functionLoggingConfigApplicationLogLevelPtr string
+
+func FunctionLoggingConfigApplicationLogLevelPtr(v string) FunctionLoggingConfigApplicationLogLevelPtrInput {
+	return (*functionLoggingConfigApplicationLogLevelPtr)(&v)
+}
+
+func (*functionLoggingConfigApplicationLogLevelPtr) ElementType() reflect.Type {
+	return functionLoggingConfigApplicationLogLevelPtrType
+}
+
+func (in *functionLoggingConfigApplicationLogLevelPtr) ToFunctionLoggingConfigApplicationLogLevelPtrOutput() FunctionLoggingConfigApplicationLogLevelPtrOutput {
+	return pulumi.ToOutput(in).(FunctionLoggingConfigApplicationLogLevelPtrOutput)
+}
+
+func (in *functionLoggingConfigApplicationLogLevelPtr) ToFunctionLoggingConfigApplicationLogLevelPtrOutputWithContext(ctx context.Context) FunctionLoggingConfigApplicationLogLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FunctionLoggingConfigApplicationLogLevelPtrOutput)
+}
+
+func (in *functionLoggingConfigApplicationLogLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*FunctionLoggingConfigApplicationLogLevel] {
+	return pulumix.Output[*FunctionLoggingConfigApplicationLogLevel]{
+		OutputState: in.ToFunctionLoggingConfigApplicationLogLevelPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Log delivery format for the lambda function
+type FunctionLoggingConfigLogFormat string
+
+const (
+	FunctionLoggingConfigLogFormatText = FunctionLoggingConfigLogFormat("Text")
+	FunctionLoggingConfigLogFormatJson = FunctionLoggingConfigLogFormat("JSON")
+)
+
+func (FunctionLoggingConfigLogFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionLoggingConfigLogFormat)(nil)).Elem()
+}
+
+func (e FunctionLoggingConfigLogFormat) ToFunctionLoggingConfigLogFormatOutput() FunctionLoggingConfigLogFormatOutput {
+	return pulumi.ToOutput(e).(FunctionLoggingConfigLogFormatOutput)
+}
+
+func (e FunctionLoggingConfigLogFormat) ToFunctionLoggingConfigLogFormatOutputWithContext(ctx context.Context) FunctionLoggingConfigLogFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FunctionLoggingConfigLogFormatOutput)
+}
+
+func (e FunctionLoggingConfigLogFormat) ToFunctionLoggingConfigLogFormatPtrOutput() FunctionLoggingConfigLogFormatPtrOutput {
+	return e.ToFunctionLoggingConfigLogFormatPtrOutputWithContext(context.Background())
+}
+
+func (e FunctionLoggingConfigLogFormat) ToFunctionLoggingConfigLogFormatPtrOutputWithContext(ctx context.Context) FunctionLoggingConfigLogFormatPtrOutput {
+	return FunctionLoggingConfigLogFormat(e).ToFunctionLoggingConfigLogFormatOutputWithContext(ctx).ToFunctionLoggingConfigLogFormatPtrOutputWithContext(ctx)
+}
+
+func (e FunctionLoggingConfigLogFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FunctionLoggingConfigLogFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FunctionLoggingConfigLogFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FunctionLoggingConfigLogFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FunctionLoggingConfigLogFormatOutput struct{ *pulumi.OutputState }
+
+func (FunctionLoggingConfigLogFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionLoggingConfigLogFormat)(nil)).Elem()
+}
+
+func (o FunctionLoggingConfigLogFormatOutput) ToFunctionLoggingConfigLogFormatOutput() FunctionLoggingConfigLogFormatOutput {
+	return o
+}
+
+func (o FunctionLoggingConfigLogFormatOutput) ToFunctionLoggingConfigLogFormatOutputWithContext(ctx context.Context) FunctionLoggingConfigLogFormatOutput {
+	return o
+}
+
+func (o FunctionLoggingConfigLogFormatOutput) ToFunctionLoggingConfigLogFormatPtrOutput() FunctionLoggingConfigLogFormatPtrOutput {
+	return o.ToFunctionLoggingConfigLogFormatPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionLoggingConfigLogFormatOutput) ToFunctionLoggingConfigLogFormatPtrOutputWithContext(ctx context.Context) FunctionLoggingConfigLogFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionLoggingConfigLogFormat) *FunctionLoggingConfigLogFormat {
+		return &v
+	}).(FunctionLoggingConfigLogFormatPtrOutput)
+}
+
+func (o FunctionLoggingConfigLogFormatOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionLoggingConfigLogFormat] {
+	return pulumix.Output[FunctionLoggingConfigLogFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FunctionLoggingConfigLogFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FunctionLoggingConfigLogFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FunctionLoggingConfigLogFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FunctionLoggingConfigLogFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionLoggingConfigLogFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FunctionLoggingConfigLogFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FunctionLoggingConfigLogFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionLoggingConfigLogFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionLoggingConfigLogFormat)(nil)).Elem()
+}
+
+func (o FunctionLoggingConfigLogFormatPtrOutput) ToFunctionLoggingConfigLogFormatPtrOutput() FunctionLoggingConfigLogFormatPtrOutput {
+	return o
+}
+
+func (o FunctionLoggingConfigLogFormatPtrOutput) ToFunctionLoggingConfigLogFormatPtrOutputWithContext(ctx context.Context) FunctionLoggingConfigLogFormatPtrOutput {
+	return o
+}
+
+func (o FunctionLoggingConfigLogFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionLoggingConfigLogFormat] {
+	return pulumix.Output[*FunctionLoggingConfigLogFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FunctionLoggingConfigLogFormatPtrOutput) Elem() FunctionLoggingConfigLogFormatOutput {
+	return o.ApplyT(func(v *FunctionLoggingConfigLogFormat) FunctionLoggingConfigLogFormat {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionLoggingConfigLogFormat
+		return ret
+	}).(FunctionLoggingConfigLogFormatOutput)
+}
+
+func (o FunctionLoggingConfigLogFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionLoggingConfigLogFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FunctionLoggingConfigLogFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FunctionLoggingConfigLogFormatInput is an input type that accepts FunctionLoggingConfigLogFormatArgs and FunctionLoggingConfigLogFormatOutput values.
+// You can construct a concrete instance of `FunctionLoggingConfigLogFormatInput` via:
+//
+//	FunctionLoggingConfigLogFormatArgs{...}
+type FunctionLoggingConfigLogFormatInput interface {
+	pulumi.Input
+
+	ToFunctionLoggingConfigLogFormatOutput() FunctionLoggingConfigLogFormatOutput
+	ToFunctionLoggingConfigLogFormatOutputWithContext(context.Context) FunctionLoggingConfigLogFormatOutput
+}
+
+var functionLoggingConfigLogFormatPtrType = reflect.TypeOf((**FunctionLoggingConfigLogFormat)(nil)).Elem()
+
+type FunctionLoggingConfigLogFormatPtrInput interface {
+	pulumi.Input
+
+	ToFunctionLoggingConfigLogFormatPtrOutput() FunctionLoggingConfigLogFormatPtrOutput
+	ToFunctionLoggingConfigLogFormatPtrOutputWithContext(context.Context) FunctionLoggingConfigLogFormatPtrOutput
+}
+
+type functionLoggingConfigLogFormatPtr string
+
+func FunctionLoggingConfigLogFormatPtr(v string) FunctionLoggingConfigLogFormatPtrInput {
+	return (*functionLoggingConfigLogFormatPtr)(&v)
+}
+
+func (*functionLoggingConfigLogFormatPtr) ElementType() reflect.Type {
+	return functionLoggingConfigLogFormatPtrType
+}
+
+func (in *functionLoggingConfigLogFormatPtr) ToFunctionLoggingConfigLogFormatPtrOutput() FunctionLoggingConfigLogFormatPtrOutput {
+	return pulumi.ToOutput(in).(FunctionLoggingConfigLogFormatPtrOutput)
+}
+
+func (in *functionLoggingConfigLogFormatPtr) ToFunctionLoggingConfigLogFormatPtrOutputWithContext(ctx context.Context) FunctionLoggingConfigLogFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FunctionLoggingConfigLogFormatPtrOutput)
+}
+
+func (in *functionLoggingConfigLogFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*FunctionLoggingConfigLogFormat] {
+	return pulumix.Output[*FunctionLoggingConfigLogFormat]{
+		OutputState: in.ToFunctionLoggingConfigLogFormatPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// System log granularity level, can only be used when LogFormat is set to JSON
+type FunctionLoggingConfigSystemLogLevel string
+
+const (
+	FunctionLoggingConfigSystemLogLevelDebug = FunctionLoggingConfigSystemLogLevel("DEBUG")
+	FunctionLoggingConfigSystemLogLevelInfo  = FunctionLoggingConfigSystemLogLevel("INFO")
+	FunctionLoggingConfigSystemLogLevelWarn  = FunctionLoggingConfigSystemLogLevel("WARN")
+)
+
+func (FunctionLoggingConfigSystemLogLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionLoggingConfigSystemLogLevel)(nil)).Elem()
+}
+
+func (e FunctionLoggingConfigSystemLogLevel) ToFunctionLoggingConfigSystemLogLevelOutput() FunctionLoggingConfigSystemLogLevelOutput {
+	return pulumi.ToOutput(e).(FunctionLoggingConfigSystemLogLevelOutput)
+}
+
+func (e FunctionLoggingConfigSystemLogLevel) ToFunctionLoggingConfigSystemLogLevelOutputWithContext(ctx context.Context) FunctionLoggingConfigSystemLogLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FunctionLoggingConfigSystemLogLevelOutput)
+}
+
+func (e FunctionLoggingConfigSystemLogLevel) ToFunctionLoggingConfigSystemLogLevelPtrOutput() FunctionLoggingConfigSystemLogLevelPtrOutput {
+	return e.ToFunctionLoggingConfigSystemLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (e FunctionLoggingConfigSystemLogLevel) ToFunctionLoggingConfigSystemLogLevelPtrOutputWithContext(ctx context.Context) FunctionLoggingConfigSystemLogLevelPtrOutput {
+	return FunctionLoggingConfigSystemLogLevel(e).ToFunctionLoggingConfigSystemLogLevelOutputWithContext(ctx).ToFunctionLoggingConfigSystemLogLevelPtrOutputWithContext(ctx)
+}
+
+func (e FunctionLoggingConfigSystemLogLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FunctionLoggingConfigSystemLogLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FunctionLoggingConfigSystemLogLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FunctionLoggingConfigSystemLogLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FunctionLoggingConfigSystemLogLevelOutput struct{ *pulumi.OutputState }
+
+func (FunctionLoggingConfigSystemLogLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionLoggingConfigSystemLogLevel)(nil)).Elem()
+}
+
+func (o FunctionLoggingConfigSystemLogLevelOutput) ToFunctionLoggingConfigSystemLogLevelOutput() FunctionLoggingConfigSystemLogLevelOutput {
+	return o
+}
+
+func (o FunctionLoggingConfigSystemLogLevelOutput) ToFunctionLoggingConfigSystemLogLevelOutputWithContext(ctx context.Context) FunctionLoggingConfigSystemLogLevelOutput {
+	return o
+}
+
+func (o FunctionLoggingConfigSystemLogLevelOutput) ToFunctionLoggingConfigSystemLogLevelPtrOutput() FunctionLoggingConfigSystemLogLevelPtrOutput {
+	return o.ToFunctionLoggingConfigSystemLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionLoggingConfigSystemLogLevelOutput) ToFunctionLoggingConfigSystemLogLevelPtrOutputWithContext(ctx context.Context) FunctionLoggingConfigSystemLogLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionLoggingConfigSystemLogLevel) *FunctionLoggingConfigSystemLogLevel {
+		return &v
+	}).(FunctionLoggingConfigSystemLogLevelPtrOutput)
+}
+
+func (o FunctionLoggingConfigSystemLogLevelOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionLoggingConfigSystemLogLevel] {
+	return pulumix.Output[FunctionLoggingConfigSystemLogLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FunctionLoggingConfigSystemLogLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FunctionLoggingConfigSystemLogLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FunctionLoggingConfigSystemLogLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FunctionLoggingConfigSystemLogLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionLoggingConfigSystemLogLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FunctionLoggingConfigSystemLogLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FunctionLoggingConfigSystemLogLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionLoggingConfigSystemLogLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionLoggingConfigSystemLogLevel)(nil)).Elem()
+}
+
+func (o FunctionLoggingConfigSystemLogLevelPtrOutput) ToFunctionLoggingConfigSystemLogLevelPtrOutput() FunctionLoggingConfigSystemLogLevelPtrOutput {
+	return o
+}
+
+func (o FunctionLoggingConfigSystemLogLevelPtrOutput) ToFunctionLoggingConfigSystemLogLevelPtrOutputWithContext(ctx context.Context) FunctionLoggingConfigSystemLogLevelPtrOutput {
+	return o
+}
+
+func (o FunctionLoggingConfigSystemLogLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionLoggingConfigSystemLogLevel] {
+	return pulumix.Output[*FunctionLoggingConfigSystemLogLevel]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FunctionLoggingConfigSystemLogLevelPtrOutput) Elem() FunctionLoggingConfigSystemLogLevelOutput {
+	return o.ApplyT(func(v *FunctionLoggingConfigSystemLogLevel) FunctionLoggingConfigSystemLogLevel {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionLoggingConfigSystemLogLevel
+		return ret
+	}).(FunctionLoggingConfigSystemLogLevelOutput)
+}
+
+func (o FunctionLoggingConfigSystemLogLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionLoggingConfigSystemLogLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FunctionLoggingConfigSystemLogLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FunctionLoggingConfigSystemLogLevelInput is an input type that accepts FunctionLoggingConfigSystemLogLevelArgs and FunctionLoggingConfigSystemLogLevelOutput values.
+// You can construct a concrete instance of `FunctionLoggingConfigSystemLogLevelInput` via:
+//
+//	FunctionLoggingConfigSystemLogLevelArgs{...}
+type FunctionLoggingConfigSystemLogLevelInput interface {
+	pulumi.Input
+
+	ToFunctionLoggingConfigSystemLogLevelOutput() FunctionLoggingConfigSystemLogLevelOutput
+	ToFunctionLoggingConfigSystemLogLevelOutputWithContext(context.Context) FunctionLoggingConfigSystemLogLevelOutput
+}
+
+var functionLoggingConfigSystemLogLevelPtrType = reflect.TypeOf((**FunctionLoggingConfigSystemLogLevel)(nil)).Elem()
+
+type FunctionLoggingConfigSystemLogLevelPtrInput interface {
+	pulumi.Input
+
+	ToFunctionLoggingConfigSystemLogLevelPtrOutput() FunctionLoggingConfigSystemLogLevelPtrOutput
+	ToFunctionLoggingConfigSystemLogLevelPtrOutputWithContext(context.Context) FunctionLoggingConfigSystemLogLevelPtrOutput
+}
+
+type functionLoggingConfigSystemLogLevelPtr string
+
+func FunctionLoggingConfigSystemLogLevelPtr(v string) FunctionLoggingConfigSystemLogLevelPtrInput {
+	return (*functionLoggingConfigSystemLogLevelPtr)(&v)
+}
+
+func (*functionLoggingConfigSystemLogLevelPtr) ElementType() reflect.Type {
+	return functionLoggingConfigSystemLogLevelPtrType
+}
+
+func (in *functionLoggingConfigSystemLogLevelPtr) ToFunctionLoggingConfigSystemLogLevelPtrOutput() FunctionLoggingConfigSystemLogLevelPtrOutput {
+	return pulumi.ToOutput(in).(FunctionLoggingConfigSystemLogLevelPtrOutput)
+}
+
+func (in *functionLoggingConfigSystemLogLevelPtr) ToFunctionLoggingConfigSystemLogLevelPtrOutputWithContext(ctx context.Context) FunctionLoggingConfigSystemLogLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FunctionLoggingConfigSystemLogLevelPtrOutput)
+}
+
+func (in *functionLoggingConfigSystemLogLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*FunctionLoggingConfigSystemLogLevel] {
+	return pulumix.Output[*FunctionLoggingConfigSystemLogLevel]{
+		OutputState: in.ToFunctionLoggingConfigSystemLogLevelPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PackageType.
 type FunctionPackageType string
 
@@ -2788,6 +3342,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArchitecturesItemInput)(nil)).Elem(), FunctionArchitecturesItem("x86_64"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArchitecturesItemPtrInput)(nil)).Elem(), FunctionArchitecturesItem("x86_64"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArchitecturesItemArrayInput)(nil)).Elem(), FunctionArchitecturesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLoggingConfigApplicationLogLevelInput)(nil)).Elem(), FunctionLoggingConfigApplicationLogLevel("TRACE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLoggingConfigApplicationLogLevelPtrInput)(nil)).Elem(), FunctionLoggingConfigApplicationLogLevel("TRACE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLoggingConfigLogFormatInput)(nil)).Elem(), FunctionLoggingConfigLogFormat("Text"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLoggingConfigLogFormatPtrInput)(nil)).Elem(), FunctionLoggingConfigLogFormat("Text"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLoggingConfigSystemLogLevelInput)(nil)).Elem(), FunctionLoggingConfigSystemLogLevel("DEBUG"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLoggingConfigSystemLogLevelPtrInput)(nil)).Elem(), FunctionLoggingConfigSystemLogLevel("DEBUG"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionPackageTypeInput)(nil)).Elem(), FunctionPackageType("Image"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionPackageTypePtrInput)(nil)).Elem(), FunctionPackageType("Image"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRuntimeManagementConfigUpdateRuntimeOnInput)(nil)).Elem(), FunctionRuntimeManagementConfigUpdateRuntimeOn("Auto"))
@@ -2817,6 +3377,12 @@ func init() {
 	pulumi.RegisterOutputType(FunctionArchitecturesItemOutput{})
 	pulumi.RegisterOutputType(FunctionArchitecturesItemPtrOutput{})
 	pulumi.RegisterOutputType(FunctionArchitecturesItemArrayOutput{})
+	pulumi.RegisterOutputType(FunctionLoggingConfigApplicationLogLevelOutput{})
+	pulumi.RegisterOutputType(FunctionLoggingConfigApplicationLogLevelPtrOutput{})
+	pulumi.RegisterOutputType(FunctionLoggingConfigLogFormatOutput{})
+	pulumi.RegisterOutputType(FunctionLoggingConfigLogFormatPtrOutput{})
+	pulumi.RegisterOutputType(FunctionLoggingConfigSystemLogLevelOutput{})
+	pulumi.RegisterOutputType(FunctionLoggingConfigSystemLogLevelPtrOutput{})
 	pulumi.RegisterOutputType(FunctionPackageTypeOutput{})
 	pulumi.RegisterOutputType(FunctionPackageTypePtrOutput{})
 	pulumi.RegisterOutputType(FunctionRuntimeManagementConfigUpdateRuntimeOnOutput{})

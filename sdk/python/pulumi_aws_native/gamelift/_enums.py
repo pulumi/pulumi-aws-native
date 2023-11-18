@@ -12,10 +12,19 @@ __all__ = [
     'FleetInstanceRoleCredentialsProvider',
     'FleetIpPermissionProtocol',
     'FleetNewGameSessionProtectionPolicy',
+    'FleetScalingPolicyComparisonOperator',
+    'FleetScalingPolicyMetricName',
+    'FleetScalingPolicyPolicyType',
+    'FleetScalingPolicyScalingAdjustmentType',
+    'FleetScalingPolicyStatus',
+    'FleetScalingPolicyUpdateStatus',
     'FleetType',
     'GameServerGroupBalancingStrategy',
     'GameServerGroupDeleteOption',
     'GameServerGroupGameServerProtectionPolicy',
+    'GameSessionQueuePriorityOrderItem',
+    'MatchmakingConfigurationBackfillMode',
+    'MatchmakingConfigurationFlexMatchMode',
 ]
 
 
@@ -74,6 +83,71 @@ class FleetNewGameSessionProtectionPolicy(str, Enum):
     NO_PROTECTION = "NoProtection"
 
 
+class FleetScalingPolicyComparisonOperator(str, Enum):
+    """
+    Comparison operator to use when measuring a metric against the threshold value.
+    """
+    GREATER_THAN_OR_EQUAL_TO_THRESHOLD = "GreaterThanOrEqualToThreshold"
+    GREATER_THAN_THRESHOLD = "GreaterThanThreshold"
+    LESS_THAN_THRESHOLD = "LessThanThreshold"
+    LESS_THAN_OR_EQUAL_TO_THRESHOLD = "LessThanOrEqualToThreshold"
+
+
+class FleetScalingPolicyMetricName(str, Enum):
+    """
+    Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+    """
+    ACTIVATING_GAME_SESSIONS = "ActivatingGameSessions"
+    ACTIVE_GAME_SESSIONS = "ActiveGameSessions"
+    ACTIVE_INSTANCES = "ActiveInstances"
+    AVAILABLE_GAME_SESSIONS = "AvailableGameSessions"
+    AVAILABLE_PLAYER_SESSIONS = "AvailablePlayerSessions"
+    CURRENT_PLAYER_SESSIONS = "CurrentPlayerSessions"
+    IDLE_INSTANCES = "IdleInstances"
+    PERCENT_AVAILABLE_GAME_SESSIONS = "PercentAvailableGameSessions"
+    PERCENT_IDLE_INSTANCES = "PercentIdleInstances"
+    QUEUE_DEPTH = "QueueDepth"
+    WAIT_TIME = "WaitTime"
+    CONCURRENT_ACTIVATABLE_GAME_SESSIONS = "ConcurrentActivatableGameSessions"
+
+
+class FleetScalingPolicyPolicyType(str, Enum):
+    """
+    The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
+    """
+    RULE_BASED = "RuleBased"
+    TARGET_BASED = "TargetBased"
+
+
+class FleetScalingPolicyScalingAdjustmentType(str, Enum):
+    """
+    The type of adjustment to make to a fleet's instance count.
+    """
+    CHANGE_IN_CAPACITY = "ChangeInCapacity"
+    EXACT_CAPACITY = "ExactCapacity"
+    PERCENT_CHANGE_IN_CAPACITY = "PercentChangeInCapacity"
+
+
+class FleetScalingPolicyStatus(str, Enum):
+    """
+    Current status of the scaling policy. The scaling policy can be in force only when in an ACTIVE status. Scaling policies can be suspended for individual fleets. If the policy is suspended for a fleet, the policy status does not change.
+    """
+    ACTIVE = "ACTIVE"
+    UPDATE_REQUESTED = "UPDATE_REQUESTED"
+    UPDATING = "UPDATING"
+    DELETE_REQUESTED = "DELETE_REQUESTED"
+    DELETING = "DELETING"
+    DELETED = "DELETED"
+    ERROR = "ERROR"
+
+
+class FleetScalingPolicyUpdateStatus(str, Enum):
+    """
+    The current status of the fleet's scaling policies in a requested fleet location. The status PENDING_UPDATE indicates that an update was requested for the fleet but has not yet been completed for the location.
+    """
+    PENDING_UPDATE = "PENDING_UPDATE"
+
+
 class FleetType(str, Enum):
     """
     Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
@@ -106,3 +180,26 @@ class GameServerGroupGameServerProtectionPolicy(str, Enum):
     """
     NO_PROTECTION = "NO_PROTECTION"
     FULL_PROTECTION = "FULL_PROTECTION"
+
+
+class GameSessionQueuePriorityOrderItem(str, Enum):
+    LATENCY = "LATENCY"
+    COST = "COST"
+    DESTINATION = "DESTINATION"
+    LOCATION = "LOCATION"
+
+
+class MatchmakingConfigurationBackfillMode(str, Enum):
+    """
+    The method used to backfill game sessions created with this matchmaking configuration.
+    """
+    AUTOMATIC = "AUTOMATIC"
+    MANUAL = "MANUAL"
+
+
+class MatchmakingConfigurationFlexMatchMode(str, Enum):
+    """
+    Indicates whether this matchmaking configuration is being used with Amazon GameLift hosting or as a standalone matchmaking solution.
+    """
+    STANDALONE = "STANDALONE"
+    WITH_QUEUE = "WITH_QUEUE"

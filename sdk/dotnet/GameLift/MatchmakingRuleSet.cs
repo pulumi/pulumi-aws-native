@@ -10,21 +10,38 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GameLift
 {
     /// <summary>
-    /// Resource Type definition for AWS::GameLift::MatchmakingRuleSet
+    /// The AWS::GameLift::MatchmakingRuleSet resource creates an Amazon GameLift (GameLift) matchmaking rule set.
     /// </summary>
-    [Obsolete(@"MatchmakingRuleSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:gamelift:MatchmakingRuleSet")]
     public partial class MatchmakingRuleSet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift matchmaking rule set resource and uniquely identifies it.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// A unique identifier for the matchmaking rule set.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A collection of matchmaking rules, formatted as a JSON string.
+        /// </summary>
         [Output("ruleSetBody")]
         public Output<string> RuleSetBody { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.MatchmakingRuleSetTag>> Tags { get; private set; } = null!;
 
@@ -78,14 +95,24 @@ namespace Pulumi.AwsNative.GameLift
 
     public sealed class MatchmakingRuleSetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A unique identifier for the matchmaking rule set.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// A collection of matchmaking rules, formatted as a JSON string.
+        /// </summary>
         [Input("ruleSetBody", required: true)]
         public Input<string> RuleSetBody { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.MatchmakingRuleSetTagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public InputList<Inputs.MatchmakingRuleSetTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.MatchmakingRuleSetTagArgs>());

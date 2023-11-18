@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.IoT.Inputs
         [Input("criteria")]
         public Input<Inputs.SecurityProfileBehaviorCriteriaArgs>? Criteria { get; set; }
 
+        [Input("exportMetric")]
+        public Input<bool>? ExportMetric { get; set; }
+
         /// <summary>
         /// What is measured by the behavior.
         /// </summary>

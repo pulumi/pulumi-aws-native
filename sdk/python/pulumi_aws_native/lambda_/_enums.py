@@ -10,6 +10,9 @@ __all__ = [
     'EventSourceMappingFunctionResponseTypesItem',
     'EventSourceMappingSourceAccessConfigurationType',
     'FunctionArchitecturesItem',
+    'FunctionLoggingConfigApplicationLogLevel',
+    'FunctionLoggingConfigLogFormat',
+    'FunctionLoggingConfigSystemLogLevel',
     'FunctionPackageType',
     'FunctionRuntimeManagementConfigUpdateRuntimeOn',
     'FunctionSnapStartApplyOn',
@@ -60,6 +63,35 @@ class EventSourceMappingSourceAccessConfigurationType(str, Enum):
 class FunctionArchitecturesItem(str, Enum):
     X8664 = "x86_64"
     ARM64 = "arm64"
+
+
+class FunctionLoggingConfigApplicationLogLevel(str, Enum):
+    """
+    Application log granularity level, can only be used when LogFormat is set to JSON
+    """
+    TRACE = "TRACE"
+    DEBUG = "DEBUG"
+    INFO = "INFO"
+    WARN = "WARN"
+    ERROR = "ERROR"
+    FATAL = "FATAL"
+
+
+class FunctionLoggingConfigLogFormat(str, Enum):
+    """
+    Log delivery format for the lambda function
+    """
+    TEXT = "Text"
+    JSON = "JSON"
+
+
+class FunctionLoggingConfigSystemLogLevel(str, Enum):
+    """
+    System log granularity level, can only be used when LogFormat is set to JSON
+    """
+    DEBUG = "DEBUG"
+    INFO = "INFO"
+    WARN = "WARN"
 
 
 class FunctionPackageType(str, Enum):

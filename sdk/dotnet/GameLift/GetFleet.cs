@@ -108,6 +108,10 @@ namespace Pulumi.AwsNative.GameLift
         /// This parameter is required unless the parameters ServerLaunchPath and ServerLaunchParameters are defined. Runtime configuration has replaced these parameters, but fleets that use them will continue to work.
         /// </summary>
         public readonly Outputs.FleetRuntimeConfiguration? RuntimeConfiguration;
+        /// <summary>
+        /// A list of rules that control how a fleet is scaled.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FleetScalingPolicy> ScalingPolicies;
 
         [OutputConstructor]
         private GetFleetResult(
@@ -135,7 +139,9 @@ namespace Pulumi.AwsNative.GameLift
 
             Outputs.FleetResourceCreationLimitPolicy? resourceCreationLimitPolicy,
 
-            Outputs.FleetRuntimeConfiguration? runtimeConfiguration)
+            Outputs.FleetRuntimeConfiguration? runtimeConfiguration,
+
+            ImmutableArray<Outputs.FleetScalingPolicy> scalingPolicies)
         {
             AnywhereConfiguration = anywhereConfiguration;
             Description = description;
@@ -150,6 +156,7 @@ namespace Pulumi.AwsNative.GameLift
             NewGameSessionProtectionPolicy = newGameSessionProtectionPolicy;
             ResourceCreationLimitPolicy = resourceCreationLimitPolicy;
             RuntimeConfiguration = runtimeConfiguration;
+            ScalingPolicies = scalingPolicies;
         }
     }
 }

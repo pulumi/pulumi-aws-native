@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .backup_plan import *
 from .backup_selection import *
 from .backup_vault import *
@@ -14,6 +15,10 @@ from .get_backup_selection import *
 from .get_backup_vault import *
 from .get_framework import *
 from .get_report_plan import *
+from .get_restore_testing_plan import *
+from .get_restore_testing_selection import *
 from .report_plan import *
+from .restore_testing_plan import *
+from .restore_testing_selection import *
 from ._inputs import *
 from . import outputs

@@ -129,6 +129,10 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly runtimeConfiguration!: pulumi.Output<outputs.gamelift.FleetRuntimeConfiguration | undefined>;
     /**
+     * A list of rules that control how a fleet is scaled.
+     */
+    public readonly scalingPolicies!: pulumi.Output<outputs.gamelift.FleetScalingPolicy[] | undefined>;
+    /**
      * A unique identifier for a Realtime script to be deployed on a new Realtime Servers fleet. The script must have been successfully uploaded to Amazon GameLift. This fleet setting cannot be changed once the fleet is created.
      *
      * Note: It is not currently possible to use the !Ref command to reference a script created with a CloudFormation template for the fleet property ScriptId. Instead, use Fn::GetAtt Script.Arn or Fn::GetAtt Script.Id to retrieve either of these properties as input for ScriptId. Alternatively, enter a ScriptId string manually.
@@ -176,6 +180,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["peerVpcId"] = args ? args.peerVpcId : undefined;
             resourceInputs["resourceCreationLimitPolicy"] = args ? args.resourceCreationLimitPolicy : undefined;
             resourceInputs["runtimeConfiguration"] = args ? args.runtimeConfiguration : undefined;
+            resourceInputs["scalingPolicies"] = args ? args.scalingPolicies : undefined;
             resourceInputs["scriptId"] = args ? args.scriptId : undefined;
             resourceInputs["serverLaunchParameters"] = args ? args.serverLaunchParameters : undefined;
             resourceInputs["serverLaunchPath"] = args ? args.serverLaunchPath : undefined;
@@ -204,6 +209,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["peerVpcId"] = undefined /*out*/;
             resourceInputs["resourceCreationLimitPolicy"] = undefined /*out*/;
             resourceInputs["runtimeConfiguration"] = undefined /*out*/;
+            resourceInputs["scalingPolicies"] = undefined /*out*/;
             resourceInputs["scriptId"] = undefined /*out*/;
             resourceInputs["serverLaunchParameters"] = undefined /*out*/;
             resourceInputs["serverLaunchPath"] = undefined /*out*/;
@@ -306,6 +312,10 @@ export interface FleetArgs {
      * This parameter is required unless the parameters ServerLaunchPath and ServerLaunchParameters are defined. Runtime configuration has replaced these parameters, but fleets that use them will continue to work.
      */
     runtimeConfiguration?: pulumi.Input<inputs.gamelift.FleetRuntimeConfigurationArgs>;
+    /**
+     * A list of rules that control how a fleet is scaled.
+     */
+    scalingPolicies?: pulumi.Input<pulumi.Input<inputs.gamelift.FleetScalingPolicyArgs>[]>;
     /**
      * A unique identifier for a Realtime script to be deployed on a new Realtime Servers fleet. The script must have been successfully uploaded to Amazon GameLift. This fleet setting cannot be changed once the fleet is created.
      *

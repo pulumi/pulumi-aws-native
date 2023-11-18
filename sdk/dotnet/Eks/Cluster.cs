@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Eks
     [AwsNativeResourceType("aws-native:eks:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {
+        [Output("accessConfig")]
+        public Output<Outputs.ClusterAccessConfig?> AccessConfig { get; private set; } = null!;
+
         /// <summary>
         /// The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
         /// </summary>
@@ -115,6 +118,7 @@ namespace Pulumi.AwsNative.Eks
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "accessConfig.bootstrapClusterCreatorAdminPermissions",
                     "encryptionConfig[*]",
                     "kubernetesNetworkConfig",
                     "name",
@@ -143,6 +147,9 @@ namespace Pulumi.AwsNative.Eks
 
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
+        [Input("accessConfig")]
+        public Input<Inputs.ClusterAccessConfigArgs>? AccessConfig { get; set; }
+
         [Input("encryptionConfig")]
         private InputList<Inputs.ClusterEncryptionConfigArgs>? _encryptionConfig;
         public InputList<Inputs.ClusterEncryptionConfigArgs> EncryptionConfig

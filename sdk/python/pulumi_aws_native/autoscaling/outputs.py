@@ -14,6 +14,7 @@ __all__ = [
     'AutoScalingGroupAcceleratorCountRequest',
     'AutoScalingGroupAcceleratorTotalMemoryMiBRequest',
     'AutoScalingGroupBaselineEbsBandwidthMbpsRequest',
+    'AutoScalingGroupInstanceMaintenancePolicy',
     'AutoScalingGroupInstanceRequirements',
     'AutoScalingGroupInstancesDistribution',
     'AutoScalingGroupLaunchTemplate',
@@ -113,6 +114,46 @@ class AutoScalingGroupBaselineEbsBandwidthMbpsRequest(dict):
     @pulumi.getter
     def min(self) -> Optional[int]:
         return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class AutoScalingGroupInstanceMaintenancePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxHealthyPercentage":
+            suggest = "max_healthy_percentage"
+        elif key == "minHealthyPercentage":
+            suggest = "min_healthy_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoScalingGroupInstanceMaintenancePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoScalingGroupInstanceMaintenancePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoScalingGroupInstanceMaintenancePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_healthy_percentage: Optional[int] = None,
+                 min_healthy_percentage: Optional[int] = None):
+        if max_healthy_percentage is not None:
+            pulumi.set(__self__, "max_healthy_percentage", max_healthy_percentage)
+        if min_healthy_percentage is not None:
+            pulumi.set(__self__, "min_healthy_percentage", min_healthy_percentage)
+
+    @property
+    @pulumi.getter(name="maxHealthyPercentage")
+    def max_healthy_percentage(self) -> Optional[int]:
+        return pulumi.get(self, "max_healthy_percentage")
+
+    @property
+    @pulumi.getter(name="minHealthyPercentage")
+    def min_healthy_percentage(self) -> Optional[int]:
+        return pulumi.get(self, "min_healthy_percentage")
 
 
 @pulumi.output_type

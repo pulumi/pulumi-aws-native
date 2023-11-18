@@ -25,8 +25,10 @@ class ApplicationArgs:
                  image_configuration: Optional[pulumi.Input['ApplicationImageConfigurationInputArgs']] = None,
                  initial_capacity: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityConfigKeyValuePairArgs']]]] = None,
                  maximum_capacity: Optional[pulumi.Input['ApplicationMaximumAllowedResourcesArgs']] = None,
+                 monitoring_configuration: Optional[pulumi.Input['ApplicationMonitoringConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input['ApplicationNetworkConfigurationArgs']] = None,
+                 runtime_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationConfigurationObjectArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationTagArgs']]]] = None,
                  worker_type_specifications: Optional[pulumi.Input['ApplicationWorkerTypeSpecificationInputMapArgs']] = None):
         """
@@ -56,10 +58,14 @@ class ApplicationArgs:
             pulumi.set(__self__, "initial_capacity", initial_capacity)
         if maximum_capacity is not None:
             pulumi.set(__self__, "maximum_capacity", maximum_capacity)
+        if monitoring_configuration is not None:
+            pulumi.set(__self__, "monitoring_configuration", monitoring_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_configuration is not None:
             pulumi.set(__self__, "network_configuration", network_configuration)
+        if runtime_configuration is not None:
+            pulumi.set(__self__, "runtime_configuration", runtime_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if worker_type_specifications is not None:
@@ -156,6 +162,15 @@ class ApplicationArgs:
         pulumi.set(self, "maximum_capacity", value)
 
     @property
+    @pulumi.getter(name="monitoringConfiguration")
+    def monitoring_configuration(self) -> Optional[pulumi.Input['ApplicationMonitoringConfigurationArgs']]:
+        return pulumi.get(self, "monitoring_configuration")
+
+    @monitoring_configuration.setter
+    def monitoring_configuration(self, value: Optional[pulumi.Input['ApplicationMonitoringConfigurationArgs']]):
+        pulumi.set(self, "monitoring_configuration", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -178,6 +193,15 @@ class ApplicationArgs:
     @network_configuration.setter
     def network_configuration(self, value: Optional[pulumi.Input['ApplicationNetworkConfigurationArgs']]):
         pulumi.set(self, "network_configuration", value)
+
+    @property
+    @pulumi.getter(name="runtimeConfiguration")
+    def runtime_configuration(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationConfigurationObjectArgs']]]]:
+        return pulumi.get(self, "runtime_configuration")
+
+    @runtime_configuration.setter
+    def runtime_configuration(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationConfigurationObjectArgs']]]]):
+        pulumi.set(self, "runtime_configuration", value)
 
     @property
     @pulumi.getter
@@ -215,9 +239,11 @@ class Application(pulumi.CustomResource):
                  image_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationImageConfigurationInputArgs']]] = None,
                  initial_capacity: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationInitialCapacityConfigKeyValuePairArgs']]]]] = None,
                  maximum_capacity: Optional[pulumi.Input[pulumi.InputType['ApplicationMaximumAllowedResourcesArgs']]] = None,
+                 monitoring_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationMonitoringConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationNetworkConfigurationArgs']]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
+                 runtime_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationConfigurationObjectArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  worker_type_specifications: Optional[pulumi.Input[pulumi.InputType['ApplicationWorkerTypeSpecificationInputMapArgs']]] = None,
@@ -268,9 +294,11 @@ class Application(pulumi.CustomResource):
                  image_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationImageConfigurationInputArgs']]] = None,
                  initial_capacity: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationInitialCapacityConfigKeyValuePairArgs']]]]] = None,
                  maximum_capacity: Optional[pulumi.Input[pulumi.InputType['ApplicationMaximumAllowedResourcesArgs']]] = None,
+                 monitoring_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationMonitoringConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationNetworkConfigurationArgs']]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
+                 runtime_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationConfigurationObjectArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationTagArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  worker_type_specifications: Optional[pulumi.Input[pulumi.InputType['ApplicationWorkerTypeSpecificationInputMapArgs']]] = None,
@@ -289,11 +317,13 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["image_configuration"] = image_configuration
             __props__.__dict__["initial_capacity"] = initial_capacity
             __props__.__dict__["maximum_capacity"] = maximum_capacity
+            __props__.__dict__["monitoring_configuration"] = monitoring_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["network_configuration"] = network_configuration
             if release_label is None and not opts.urn:
                 raise TypeError("Missing required property 'release_label'")
             __props__.__dict__["release_label"] = release_label
+            __props__.__dict__["runtime_configuration"] = runtime_configuration
             __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -333,9 +363,11 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["image_configuration"] = None
         __props__.__dict__["initial_capacity"] = None
         __props__.__dict__["maximum_capacity"] = None
+        __props__.__dict__["monitoring_configuration"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_configuration"] = None
         __props__.__dict__["release_label"] = None
+        __props__.__dict__["runtime_configuration"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["worker_type_specifications"] = None
@@ -400,6 +432,11 @@ class Application(pulumi.CustomResource):
         return pulumi.get(self, "maximum_capacity")
 
     @property
+    @pulumi.getter(name="monitoringConfiguration")
+    def monitoring_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationMonitoringConfiguration']]:
+        return pulumi.get(self, "monitoring_configuration")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
         """
@@ -422,6 +459,11 @@ class Application(pulumi.CustomResource):
         EMR release label.
         """
         return pulumi.get(self, "release_label")
+
+    @property
+    @pulumi.getter(name="runtimeConfiguration")
+    def runtime_configuration(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationConfigurationObject']]]:
+        return pulumi.get(self, "runtime_configuration")
 
     @property
     @pulumi.getter

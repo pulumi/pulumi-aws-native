@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly ImmutableArray<Outputs.DashboardColumnConfiguration> ColumnConfigurations;
         public readonly ImmutableArray<Outputs.DashboardDataSetIdentifierDeclaration> DataSetIdentifierDeclarations;
         public readonly ImmutableArray<Outputs.DashboardFilterGroup> FilterGroups;
+        public readonly Outputs.DashboardAssetOptions? Options;
         public readonly ImmutableArray<Outputs.DashboardParameterDeclaration> ParameterDeclarations;
         public readonly ImmutableArray<Outputs.DashboardSheetDefinition> Sheets;
 
@@ -33,6 +34,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             ImmutableArray<Outputs.DashboardFilterGroup> filterGroups,
 
+            Outputs.DashboardAssetOptions? options,
+
             ImmutableArray<Outputs.DashboardParameterDeclaration> parameterDeclarations,
 
             ImmutableArray<Outputs.DashboardSheetDefinition> sheets)
@@ -42,6 +45,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ColumnConfigurations = columnConfigurations;
             DataSetIdentifierDeclarations = dataSetIdentifierDeclarations;
             FilterGroups = filterGroups;
+            Options = options;
             ParameterDeclarations = parameterDeclarations;
             Sheets = sheets;
         }

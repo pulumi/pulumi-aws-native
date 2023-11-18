@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class SecurityProfileMetricToRetain
     {
+        public readonly bool? ExportMetric;
         /// <summary>
         /// What is measured by the behavior.
         /// </summary>
@@ -24,10 +25,13 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private SecurityProfileMetricToRetain(
+            bool? exportMetric,
+
             string metric,
 
             Outputs.SecurityProfileMetricDimension? metricDimension)
         {
+            ExportMetric = exportMetric;
             Metric = metric;
             MetricDimension = metricDimension;
         }

@@ -12,31 +12,68 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
     /// <summary>
     /// Resource Type definition for AWS::ApplicationAutoScaling::ScalingPolicy
     /// </summary>
-    [Obsolete(@"ScalingPolicy is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:applicationautoscaling:ScalingPolicy")]
     public partial class ScalingPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN is a read only property for the resource.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the scaling policy.
+        /// 
+        /// Updates to the name of a target tracking scaling policy are not supported, unless you also update the metric used for scaling. To change only a target tracking scaling policy's name, first delete the policy by removing the existing AWS::ApplicationAutoScaling::ScalingPolicy resource from the template and updating the stack. Then, recreate the resource with the same settings and a different name.
+        /// </summary>
         [Output("policyName")]
         public Output<string> PolicyName { get; private set; } = null!;
 
+        /// <summary>
+        /// The scaling policy type.
+        /// 
+        /// The following policy types are supported:
+        /// 
+        /// TargetTrackingScaling Not supported for Amazon EMR
+        /// 
+        /// StepScaling Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
+        /// </summary>
         [Output("policyType")]
         public Output<string> PolicyType { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
+        /// </summary>
         [Output("resourceId")]
         public Output<string?> ResourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
+        /// </summary>
         [Output("scalableDimension")]
         public Output<string?> ScalableDimension { get; private set; } = null!;
 
+        /// <summary>
+        /// The CloudFormation-generated ID of an Application Auto Scaling scalable target. For more information about the ID, see the Return Value section of the AWS::ApplicationAutoScaling::ScalableTarget resource.
+        /// </summary>
         [Output("scalingTargetId")]
         public Output<string?> ScalingTargetId { get; private set; } = null!;
 
+        /// <summary>
+        /// The namespace of the AWS service that provides the resource, or a custom-resource.
+        /// </summary>
         [Output("serviceNamespace")]
         public Output<string?> ServiceNamespace { get; private set; } = null!;
 
+        /// <summary>
+        /// A step scaling policy.
+        /// </summary>
         [Output("stepScalingPolicyConfiguration")]
         public Output<Outputs.ScalingPolicyStepScalingPolicyConfiguration?> StepScalingPolicyConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// A target tracking scaling policy.
+        /// </summary>
         [Output("targetTrackingScalingPolicyConfiguration")]
         public Output<Outputs.ScalingPolicyTargetTrackingScalingPolicyConfiguration?> TargetTrackingScalingPolicyConfiguration { get; private set; } = null!;
 
@@ -93,27 +130,59 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
 
     public sealed class ScalingPolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the scaling policy.
+        /// 
+        /// Updates to the name of a target tracking scaling policy are not supported, unless you also update the metric used for scaling. To change only a target tracking scaling policy's name, first delete the policy by removing the existing AWS::ApplicationAutoScaling::ScalingPolicy resource from the template and updating the stack. Then, recreate the resource with the same settings and a different name.
+        /// </summary>
         [Input("policyName", required: true)]
         public Input<string> PolicyName { get; set; } = null!;
 
+        /// <summary>
+        /// The scaling policy type.
+        /// 
+        /// The following policy types are supported:
+        /// 
+        /// TargetTrackingScaling Not supported for Amazon EMR
+        /// 
+        /// StepScaling Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
+        /// </summary>
         [Input("policyType", required: true)]
         public Input<string> PolicyType { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
+        /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
 
+        /// <summary>
+        /// The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
+        /// </summary>
         [Input("scalableDimension")]
         public Input<string>? ScalableDimension { get; set; }
 
+        /// <summary>
+        /// The CloudFormation-generated ID of an Application Auto Scaling scalable target. For more information about the ID, see the Return Value section of the AWS::ApplicationAutoScaling::ScalableTarget resource.
+        /// </summary>
         [Input("scalingTargetId")]
         public Input<string>? ScalingTargetId { get; set; }
 
+        /// <summary>
+        /// The namespace of the AWS service that provides the resource, or a custom-resource.
+        /// </summary>
         [Input("serviceNamespace")]
         public Input<string>? ServiceNamespace { get; set; }
 
+        /// <summary>
+        /// A step scaling policy.
+        /// </summary>
         [Input("stepScalingPolicyConfiguration")]
         public Input<Inputs.ScalingPolicyStepScalingPolicyConfigurationArgs>? StepScalingPolicyConfiguration { get; set; }
 
+        /// <summary>
+        /// A target tracking scaling policy.
+        /// </summary>
         [Input("targetTrackingScalingPolicyConfiguration")]
         public Input<Inputs.ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs>? TargetTrackingScalingPolicyConfiguration { get; set; }
 

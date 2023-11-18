@@ -77,6 +77,10 @@ export interface GetFleetResult {
      * This parameter is required unless the parameters ServerLaunchPath and ServerLaunchParameters are defined. Runtime configuration has replaced these parameters, but fleets that use them will continue to work.
      */
     readonly runtimeConfiguration?: outputs.gamelift.FleetRuntimeConfiguration;
+    /**
+     * A list of rules that control how a fleet is scaled.
+     */
+    readonly scalingPolicies?: outputs.gamelift.FleetScalingPolicy[];
 }
 /**
  * The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers. A fleet is a set of EC2 or Anywhere instances, each of which can host multiple game sessions.

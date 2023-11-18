@@ -25,6 +25,16 @@ export const getInputSecurityGroup: typeof import("./getInputSecurityGroup").get
 export const getInputSecurityGroupOutput: typeof import("./getInputSecurityGroup").getInputSecurityGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getInputSecurityGroup","getInputSecurityGroupOutput"], () => require("./getInputSecurityGroup"));
 
+export { GetMultiplexArgs, GetMultiplexResult, GetMultiplexOutputArgs } from "./getMultiplex";
+export const getMultiplex: typeof import("./getMultiplex").getMultiplex = null as any;
+export const getMultiplexOutput: typeof import("./getMultiplex").getMultiplexOutput = null as any;
+utilities.lazyLoad(exports, ["getMultiplex","getMultiplexOutput"], () => require("./getMultiplex"));
+
+export { GetMultiplexprogramArgs, GetMultiplexprogramResult, GetMultiplexprogramOutputArgs } from "./getMultiplexprogram";
+export const getMultiplexprogram: typeof import("./getMultiplexprogram").getMultiplexprogram = null as any;
+export const getMultiplexprogramOutput: typeof import("./getMultiplexprogram").getMultiplexprogramOutput = null as any;
+utilities.lazyLoad(exports, ["getMultiplexprogram","getMultiplexprogramOutput"], () => require("./getMultiplexprogram"));
+
 export { InputArgs } from "./input";
 export type Input = import("./input").Input;
 export const Input: typeof import("./input").Input = null as any;
@@ -35,6 +45,19 @@ export type InputSecurityGroup = import("./inputSecurityGroup").InputSecurityGro
 export const InputSecurityGroup: typeof import("./inputSecurityGroup").InputSecurityGroup = null as any;
 utilities.lazyLoad(exports, ["InputSecurityGroup"], () => require("./inputSecurityGroup"));
 
+export { MultiplexArgs } from "./multiplex";
+export type Multiplex = import("./multiplex").Multiplex;
+export const Multiplex: typeof import("./multiplex").Multiplex = null as any;
+utilities.lazyLoad(exports, ["Multiplex"], () => require("./multiplex"));
+
+export { MultiplexprogramArgs } from "./multiplexprogram";
+export type Multiplexprogram = import("./multiplexprogram").Multiplexprogram;
+export const Multiplexprogram: typeof import("./multiplexprogram").Multiplexprogram = null as any;
+utilities.lazyLoad(exports, ["Multiplexprogram"], () => require("./multiplexprogram"));
+
+
+// Export enums:
+export * from "../types/enums/medialive";
 
 const _module = {
     version: utilities.getVersion(),
@@ -46,6 +69,10 @@ const _module = {
                 return new Input(name, <any>undefined, { urn })
             case "aws-native:medialive:InputSecurityGroup":
                 return new InputSecurityGroup(name, <any>undefined, { urn })
+            case "aws-native:medialive:Multiplex":
+                return new Multiplex(name, <any>undefined, { urn })
+            case "aws-native:medialive:Multiplexprogram":
+                return new Multiplexprogram(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

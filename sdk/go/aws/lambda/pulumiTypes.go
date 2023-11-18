@@ -3907,6 +3907,227 @@ func (o FunctionImageConfigPtrOutput) WorkingDirectory() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The function's logging configuration.
+type FunctionLoggingConfig struct {
+	// Application log granularity level, can only be used when LogFormat is set to JSON
+	ApplicationLogLevel *FunctionLoggingConfigApplicationLogLevel `pulumi:"applicationLogLevel"`
+	// Log delivery format for the lambda function
+	LogFormat *FunctionLoggingConfigLogFormat `pulumi:"logFormat"`
+	// The log group name.
+	LogGroup *string `pulumi:"logGroup"`
+	// System log granularity level, can only be used when LogFormat is set to JSON
+	SystemLogLevel *FunctionLoggingConfigSystemLogLevel `pulumi:"systemLogLevel"`
+}
+
+// FunctionLoggingConfigInput is an input type that accepts FunctionLoggingConfigArgs and FunctionLoggingConfigOutput values.
+// You can construct a concrete instance of `FunctionLoggingConfigInput` via:
+//
+//	FunctionLoggingConfigArgs{...}
+type FunctionLoggingConfigInput interface {
+	pulumi.Input
+
+	ToFunctionLoggingConfigOutput() FunctionLoggingConfigOutput
+	ToFunctionLoggingConfigOutputWithContext(context.Context) FunctionLoggingConfigOutput
+}
+
+// The function's logging configuration.
+type FunctionLoggingConfigArgs struct {
+	// Application log granularity level, can only be used when LogFormat is set to JSON
+	ApplicationLogLevel FunctionLoggingConfigApplicationLogLevelPtrInput `pulumi:"applicationLogLevel"`
+	// Log delivery format for the lambda function
+	LogFormat FunctionLoggingConfigLogFormatPtrInput `pulumi:"logFormat"`
+	// The log group name.
+	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
+	// System log granularity level, can only be used when LogFormat is set to JSON
+	SystemLogLevel FunctionLoggingConfigSystemLogLevelPtrInput `pulumi:"systemLogLevel"`
+}
+
+func (FunctionLoggingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionLoggingConfig)(nil)).Elem()
+}
+
+func (i FunctionLoggingConfigArgs) ToFunctionLoggingConfigOutput() FunctionLoggingConfigOutput {
+	return i.ToFunctionLoggingConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionLoggingConfigArgs) ToFunctionLoggingConfigOutputWithContext(ctx context.Context) FunctionLoggingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionLoggingConfigOutput)
+}
+
+func (i FunctionLoggingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionLoggingConfig] {
+	return pulumix.Output[FunctionLoggingConfig]{
+		OutputState: i.ToFunctionLoggingConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i FunctionLoggingConfigArgs) ToFunctionLoggingConfigPtrOutput() FunctionLoggingConfigPtrOutput {
+	return i.ToFunctionLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionLoggingConfigArgs) ToFunctionLoggingConfigPtrOutputWithContext(ctx context.Context) FunctionLoggingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionLoggingConfigOutput).ToFunctionLoggingConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionLoggingConfigPtrInput is an input type that accepts FunctionLoggingConfigArgs, FunctionLoggingConfigPtr and FunctionLoggingConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionLoggingConfigPtrInput` via:
+//
+//	        FunctionLoggingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionLoggingConfigPtrInput interface {
+	pulumi.Input
+
+	ToFunctionLoggingConfigPtrOutput() FunctionLoggingConfigPtrOutput
+	ToFunctionLoggingConfigPtrOutputWithContext(context.Context) FunctionLoggingConfigPtrOutput
+}
+
+type functionLoggingConfigPtrType FunctionLoggingConfigArgs
+
+func FunctionLoggingConfigPtr(v *FunctionLoggingConfigArgs) FunctionLoggingConfigPtrInput {
+	return (*functionLoggingConfigPtrType)(v)
+}
+
+func (*functionLoggingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionLoggingConfig)(nil)).Elem()
+}
+
+func (i *functionLoggingConfigPtrType) ToFunctionLoggingConfigPtrOutput() FunctionLoggingConfigPtrOutput {
+	return i.ToFunctionLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionLoggingConfigPtrType) ToFunctionLoggingConfigPtrOutputWithContext(ctx context.Context) FunctionLoggingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionLoggingConfigPtrOutput)
+}
+
+func (i *functionLoggingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionLoggingConfig] {
+	return pulumix.Output[*FunctionLoggingConfig]{
+		OutputState: i.ToFunctionLoggingConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The function's logging configuration.
+type FunctionLoggingConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionLoggingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionLoggingConfig)(nil)).Elem()
+}
+
+func (o FunctionLoggingConfigOutput) ToFunctionLoggingConfigOutput() FunctionLoggingConfigOutput {
+	return o
+}
+
+func (o FunctionLoggingConfigOutput) ToFunctionLoggingConfigOutputWithContext(ctx context.Context) FunctionLoggingConfigOutput {
+	return o
+}
+
+func (o FunctionLoggingConfigOutput) ToFunctionLoggingConfigPtrOutput() FunctionLoggingConfigPtrOutput {
+	return o.ToFunctionLoggingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionLoggingConfigOutput) ToFunctionLoggingConfigPtrOutputWithContext(ctx context.Context) FunctionLoggingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionLoggingConfig) *FunctionLoggingConfig {
+		return &v
+	}).(FunctionLoggingConfigPtrOutput)
+}
+
+func (o FunctionLoggingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionLoggingConfig] {
+	return pulumix.Output[FunctionLoggingConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Application log granularity level, can only be used when LogFormat is set to JSON
+func (o FunctionLoggingConfigOutput) ApplicationLogLevel() FunctionLoggingConfigApplicationLogLevelPtrOutput {
+	return o.ApplyT(func(v FunctionLoggingConfig) *FunctionLoggingConfigApplicationLogLevel { return v.ApplicationLogLevel }).(FunctionLoggingConfigApplicationLogLevelPtrOutput)
+}
+
+// Log delivery format for the lambda function
+func (o FunctionLoggingConfigOutput) LogFormat() FunctionLoggingConfigLogFormatPtrOutput {
+	return o.ApplyT(func(v FunctionLoggingConfig) *FunctionLoggingConfigLogFormat { return v.LogFormat }).(FunctionLoggingConfigLogFormatPtrOutput)
+}
+
+// The log group name.
+func (o FunctionLoggingConfigOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionLoggingConfig) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
+}
+
+// System log granularity level, can only be used when LogFormat is set to JSON
+func (o FunctionLoggingConfigOutput) SystemLogLevel() FunctionLoggingConfigSystemLogLevelPtrOutput {
+	return o.ApplyT(func(v FunctionLoggingConfig) *FunctionLoggingConfigSystemLogLevel { return v.SystemLogLevel }).(FunctionLoggingConfigSystemLogLevelPtrOutput)
+}
+
+type FunctionLoggingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionLoggingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionLoggingConfig)(nil)).Elem()
+}
+
+func (o FunctionLoggingConfigPtrOutput) ToFunctionLoggingConfigPtrOutput() FunctionLoggingConfigPtrOutput {
+	return o
+}
+
+func (o FunctionLoggingConfigPtrOutput) ToFunctionLoggingConfigPtrOutputWithContext(ctx context.Context) FunctionLoggingConfigPtrOutput {
+	return o
+}
+
+func (o FunctionLoggingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionLoggingConfig] {
+	return pulumix.Output[*FunctionLoggingConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FunctionLoggingConfigPtrOutput) Elem() FunctionLoggingConfigOutput {
+	return o.ApplyT(func(v *FunctionLoggingConfig) FunctionLoggingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionLoggingConfig
+		return ret
+	}).(FunctionLoggingConfigOutput)
+}
+
+// Application log granularity level, can only be used when LogFormat is set to JSON
+func (o FunctionLoggingConfigPtrOutput) ApplicationLogLevel() FunctionLoggingConfigApplicationLogLevelPtrOutput {
+	return o.ApplyT(func(v *FunctionLoggingConfig) *FunctionLoggingConfigApplicationLogLevel {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationLogLevel
+	}).(FunctionLoggingConfigApplicationLogLevelPtrOutput)
+}
+
+// Log delivery format for the lambda function
+func (o FunctionLoggingConfigPtrOutput) LogFormat() FunctionLoggingConfigLogFormatPtrOutput {
+	return o.ApplyT(func(v *FunctionLoggingConfig) *FunctionLoggingConfigLogFormat {
+		if v == nil {
+			return nil
+		}
+		return v.LogFormat
+	}).(FunctionLoggingConfigLogFormatPtrOutput)
+}
+
+// The log group name.
+func (o FunctionLoggingConfigPtrOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionLoggingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+// System log granularity level, can only be used when LogFormat is set to JSON
+func (o FunctionLoggingConfigPtrOutput) SystemLogLevel() FunctionLoggingConfigSystemLogLevelPtrOutput {
+	return o.ApplyT(func(v *FunctionLoggingConfig) *FunctionLoggingConfigSystemLogLevel {
+		if v == nil {
+			return nil
+		}
+		return v.SystemLogLevel
+	}).(FunctionLoggingConfigSystemLogLevelPtrOutput)
+}
+
 type FunctionRuntimeManagementConfig struct {
 	// Unique identifier for a runtime version arn
 	RuntimeVersionArn *string `pulumi:"runtimeVersionArn"`
@@ -5570,6 +5791,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionFileSystemConfigArrayInput)(nil)).Elem(), FunctionFileSystemConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionImageConfigInput)(nil)).Elem(), FunctionImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionImageConfigPtrInput)(nil)).Elem(), FunctionImageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLoggingConfigInput)(nil)).Elem(), FunctionLoggingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLoggingConfigPtrInput)(nil)).Elem(), FunctionLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRuntimeManagementConfigInput)(nil)).Elem(), FunctionRuntimeManagementConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRuntimeManagementConfigPtrInput)(nil)).Elem(), FunctionRuntimeManagementConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartInput)(nil)).Elem(), FunctionSnapStartArgs{})
@@ -5636,6 +5859,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionFileSystemConfigArrayOutput{})
 	pulumi.RegisterOutputType(FunctionImageConfigOutput{})
 	pulumi.RegisterOutputType(FunctionImageConfigPtrOutput{})
+	pulumi.RegisterOutputType(FunctionLoggingConfigOutput{})
+	pulumi.RegisterOutputType(FunctionLoggingConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionRuntimeManagementConfigOutput{})
 	pulumi.RegisterOutputType(FunctionRuntimeManagementConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionSnapStartOutput{})

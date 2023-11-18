@@ -13,28 +13,46 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::GameLift::MatchmakingConfiguration
-//
-// Deprecated: MatchmakingConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// The AWS::GameLift::MatchmakingConfiguration resource creates an Amazon GameLift (GameLift) matchmaking configuration.
 type MatchmakingConfiguration struct {
 	pulumi.CustomResourceState
 
-	AcceptanceRequired       pulumi.BoolOutput                               `pulumi:"acceptanceRequired"`
-	AcceptanceTimeoutSeconds pulumi.IntPtrOutput                             `pulumi:"acceptanceTimeoutSeconds"`
-	AdditionalPlayerCount    pulumi.IntPtrOutput                             `pulumi:"additionalPlayerCount"`
-	Arn                      pulumi.StringOutput                             `pulumi:"arn"`
-	BackfillMode             pulumi.StringPtrOutput                          `pulumi:"backfillMode"`
-	CustomEventData          pulumi.StringPtrOutput                          `pulumi:"customEventData"`
-	Description              pulumi.StringPtrOutput                          `pulumi:"description"`
-	FlexMatchMode            pulumi.StringPtrOutput                          `pulumi:"flexMatchMode"`
-	GameProperties           MatchmakingConfigurationGamePropertyArrayOutput `pulumi:"gameProperties"`
-	GameSessionData          pulumi.StringPtrOutput                          `pulumi:"gameSessionData"`
-	GameSessionQueueArns     pulumi.StringArrayOutput                        `pulumi:"gameSessionQueueArns"`
-	Name                     pulumi.StringOutput                             `pulumi:"name"`
-	NotificationTarget       pulumi.StringPtrOutput                          `pulumi:"notificationTarget"`
-	RequestTimeoutSeconds    pulumi.IntOutput                                `pulumi:"requestTimeoutSeconds"`
-	RuleSetName              pulumi.StringOutput                             `pulumi:"ruleSetName"`
-	Tags                     MatchmakingConfigurationTagArrayOutput          `pulumi:"tags"`
+	// A flag that indicates whether a match that was created with this configuration must be accepted by the matched players
+	AcceptanceRequired pulumi.BoolOutput `pulumi:"acceptanceRequired"`
+	// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
+	AcceptanceTimeoutSeconds pulumi.IntPtrOutput `pulumi:"acceptanceTimeoutSeconds"`
+	// The number of player slots in a match to keep open for future players.
+	AdditionalPlayerCount pulumi.IntPtrOutput `pulumi:"additionalPlayerCount"`
+	// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift matchmaking configuration resource and uniquely identifies it.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The method used to backfill game sessions created with this matchmaking configuration.
+	BackfillMode MatchmakingConfigurationBackfillModePtrOutput `pulumi:"backfillMode"`
+	// A time stamp indicating when this data object was created.
+	CreationTime pulumi.StringPtrOutput `pulumi:"creationTime"`
+	// Information to attach to all events related to the matchmaking configuration.
+	CustomEventData pulumi.StringPtrOutput `pulumi:"customEventData"`
+	// A descriptive label that is associated with matchmaking configuration.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Indicates whether this matchmaking configuration is being used with Amazon GameLift hosting or as a standalone matchmaking solution.
+	FlexMatchMode MatchmakingConfigurationFlexMatchModePtrOutput `pulumi:"flexMatchMode"`
+	// A set of custom properties for a game session, formatted as key:value pairs.
+	GameProperties MatchmakingConfigurationGamePropertyArrayOutput `pulumi:"gameProperties"`
+	// A set of custom game session properties, formatted as a single string value.
+	GameSessionData pulumi.StringPtrOutput `pulumi:"gameSessionData"`
+	// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it.
+	GameSessionQueueArns pulumi.StringArrayOutput `pulumi:"gameSessionQueueArns"`
+	// A unique identifier for the matchmaking configuration.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// An SNS topic ARN that is set up to receive matchmaking notifications.
+	NotificationTarget pulumi.StringPtrOutput `pulumi:"notificationTarget"`
+	// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
+	RequestTimeoutSeconds pulumi.IntOutput `pulumi:"requestTimeoutSeconds"`
+	// The Amazon Resource Name (ARN) associated with the GameLift matchmaking rule set resource that this configuration uses.
+	RuleSetArn pulumi.StringPtrOutput `pulumi:"ruleSetArn"`
+	// A unique identifier for the matchmaking rule set to use with this configuration.
+	RuleSetName pulumi.StringOutput `pulumi:"ruleSetName"`
+	// An array of key-value pairs to apply to this resource.
+	Tags MatchmakingConfigurationTagArrayOutput `pulumi:"tags"`
 }
 
 // NewMatchmakingConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -90,40 +108,78 @@ func (MatchmakingConfigurationState) ElementType() reflect.Type {
 }
 
 type matchmakingConfigurationArgs struct {
-	AcceptanceRequired       bool                                   `pulumi:"acceptanceRequired"`
-	AcceptanceTimeoutSeconds *int                                   `pulumi:"acceptanceTimeoutSeconds"`
-	AdditionalPlayerCount    *int                                   `pulumi:"additionalPlayerCount"`
-	BackfillMode             *string                                `pulumi:"backfillMode"`
-	CustomEventData          *string                                `pulumi:"customEventData"`
-	Description              *string                                `pulumi:"description"`
-	FlexMatchMode            *string                                `pulumi:"flexMatchMode"`
-	GameProperties           []MatchmakingConfigurationGameProperty `pulumi:"gameProperties"`
-	GameSessionData          *string                                `pulumi:"gameSessionData"`
-	GameSessionQueueArns     []string                               `pulumi:"gameSessionQueueArns"`
-	Name                     *string                                `pulumi:"name"`
-	NotificationTarget       *string                                `pulumi:"notificationTarget"`
-	RequestTimeoutSeconds    int                                    `pulumi:"requestTimeoutSeconds"`
-	RuleSetName              string                                 `pulumi:"ruleSetName"`
-	Tags                     []MatchmakingConfigurationTag          `pulumi:"tags"`
+	// A flag that indicates whether a match that was created with this configuration must be accepted by the matched players
+	AcceptanceRequired bool `pulumi:"acceptanceRequired"`
+	// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
+	AcceptanceTimeoutSeconds *int `pulumi:"acceptanceTimeoutSeconds"`
+	// The number of player slots in a match to keep open for future players.
+	AdditionalPlayerCount *int `pulumi:"additionalPlayerCount"`
+	// The method used to backfill game sessions created with this matchmaking configuration.
+	BackfillMode *MatchmakingConfigurationBackfillMode `pulumi:"backfillMode"`
+	// A time stamp indicating when this data object was created.
+	CreationTime *string `pulumi:"creationTime"`
+	// Information to attach to all events related to the matchmaking configuration.
+	CustomEventData *string `pulumi:"customEventData"`
+	// A descriptive label that is associated with matchmaking configuration.
+	Description *string `pulumi:"description"`
+	// Indicates whether this matchmaking configuration is being used with Amazon GameLift hosting or as a standalone matchmaking solution.
+	FlexMatchMode *MatchmakingConfigurationFlexMatchMode `pulumi:"flexMatchMode"`
+	// A set of custom properties for a game session, formatted as key:value pairs.
+	GameProperties []MatchmakingConfigurationGameProperty `pulumi:"gameProperties"`
+	// A set of custom game session properties, formatted as a single string value.
+	GameSessionData *string `pulumi:"gameSessionData"`
+	// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it.
+	GameSessionQueueArns []string `pulumi:"gameSessionQueueArns"`
+	// A unique identifier for the matchmaking configuration.
+	Name *string `pulumi:"name"`
+	// An SNS topic ARN that is set up to receive matchmaking notifications.
+	NotificationTarget *string `pulumi:"notificationTarget"`
+	// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
+	RequestTimeoutSeconds int `pulumi:"requestTimeoutSeconds"`
+	// The Amazon Resource Name (ARN) associated with the GameLift matchmaking rule set resource that this configuration uses.
+	RuleSetArn *string `pulumi:"ruleSetArn"`
+	// A unique identifier for the matchmaking rule set to use with this configuration.
+	RuleSetName string `pulumi:"ruleSetName"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []MatchmakingConfigurationTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MatchmakingConfiguration resource.
 type MatchmakingConfigurationArgs struct {
-	AcceptanceRequired       pulumi.BoolInput
+	// A flag that indicates whether a match that was created with this configuration must be accepted by the matched players
+	AcceptanceRequired pulumi.BoolInput
+	// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
 	AcceptanceTimeoutSeconds pulumi.IntPtrInput
-	AdditionalPlayerCount    pulumi.IntPtrInput
-	BackfillMode             pulumi.StringPtrInput
-	CustomEventData          pulumi.StringPtrInput
-	Description              pulumi.StringPtrInput
-	FlexMatchMode            pulumi.StringPtrInput
-	GameProperties           MatchmakingConfigurationGamePropertyArrayInput
-	GameSessionData          pulumi.StringPtrInput
-	GameSessionQueueArns     pulumi.StringArrayInput
-	Name                     pulumi.StringPtrInput
-	NotificationTarget       pulumi.StringPtrInput
-	RequestTimeoutSeconds    pulumi.IntInput
-	RuleSetName              pulumi.StringInput
-	Tags                     MatchmakingConfigurationTagArrayInput
+	// The number of player slots in a match to keep open for future players.
+	AdditionalPlayerCount pulumi.IntPtrInput
+	// The method used to backfill game sessions created with this matchmaking configuration.
+	BackfillMode MatchmakingConfigurationBackfillModePtrInput
+	// A time stamp indicating when this data object was created.
+	CreationTime pulumi.StringPtrInput
+	// Information to attach to all events related to the matchmaking configuration.
+	CustomEventData pulumi.StringPtrInput
+	// A descriptive label that is associated with matchmaking configuration.
+	Description pulumi.StringPtrInput
+	// Indicates whether this matchmaking configuration is being used with Amazon GameLift hosting or as a standalone matchmaking solution.
+	FlexMatchMode MatchmakingConfigurationFlexMatchModePtrInput
+	// A set of custom properties for a game session, formatted as key:value pairs.
+	GameProperties MatchmakingConfigurationGamePropertyArrayInput
+	// A set of custom game session properties, formatted as a single string value.
+	GameSessionData pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it.
+	GameSessionQueueArns pulumi.StringArrayInput
+	// A unique identifier for the matchmaking configuration.
+	Name pulumi.StringPtrInput
+	// An SNS topic ARN that is set up to receive matchmaking notifications.
+	NotificationTarget pulumi.StringPtrInput
+	// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
+	RequestTimeoutSeconds pulumi.IntInput
+	// The Amazon Resource Name (ARN) associated with the GameLift matchmaking rule set resource that this configuration uses.
+	RuleSetArn pulumi.StringPtrInput
+	// A unique identifier for the matchmaking rule set to use with this configuration.
+	RuleSetName pulumi.StringInput
+	// An array of key-value pairs to apply to this resource.
+	Tags MatchmakingConfigurationTagArrayInput
 }
 
 func (MatchmakingConfigurationArgs) ElementType() reflect.Type {
@@ -175,68 +231,96 @@ func (o MatchmakingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Ou
 	}
 }
 
+// A flag that indicates whether a match that was created with this configuration must be accepted by the matched players
 func (o MatchmakingConfigurationOutput) AcceptanceRequired() pulumi.BoolOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.BoolOutput { return v.AcceptanceRequired }).(pulumi.BoolOutput)
 }
 
+// The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
 func (o MatchmakingConfigurationOutput) AcceptanceTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.IntPtrOutput { return v.AcceptanceTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The number of player slots in a match to keep open for future players.
 func (o MatchmakingConfigurationOutput) AdditionalPlayerCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.IntPtrOutput { return v.AdditionalPlayerCount }).(pulumi.IntPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift matchmaking configuration resource and uniquely identifies it.
 func (o MatchmakingConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-func (o MatchmakingConfigurationOutput) BackfillMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringPtrOutput { return v.BackfillMode }).(pulumi.StringPtrOutput)
+// The method used to backfill game sessions created with this matchmaking configuration.
+func (o MatchmakingConfigurationOutput) BackfillMode() MatchmakingConfigurationBackfillModePtrOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) MatchmakingConfigurationBackfillModePtrOutput { return v.BackfillMode }).(MatchmakingConfigurationBackfillModePtrOutput)
 }
 
+// A time stamp indicating when this data object was created.
+func (o MatchmakingConfigurationOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringPtrOutput { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// Information to attach to all events related to the matchmaking configuration.
 func (o MatchmakingConfigurationOutput) CustomEventData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringPtrOutput { return v.CustomEventData }).(pulumi.StringPtrOutput)
 }
 
+// A descriptive label that is associated with matchmaking configuration.
 func (o MatchmakingConfigurationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o MatchmakingConfigurationOutput) FlexMatchMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringPtrOutput { return v.FlexMatchMode }).(pulumi.StringPtrOutput)
+// Indicates whether this matchmaking configuration is being used with Amazon GameLift hosting or as a standalone matchmaking solution.
+func (o MatchmakingConfigurationOutput) FlexMatchMode() MatchmakingConfigurationFlexMatchModePtrOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) MatchmakingConfigurationFlexMatchModePtrOutput {
+		return v.FlexMatchMode
+	}).(MatchmakingConfigurationFlexMatchModePtrOutput)
 }
 
+// A set of custom properties for a game session, formatted as key:value pairs.
 func (o MatchmakingConfigurationOutput) GameProperties() MatchmakingConfigurationGamePropertyArrayOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) MatchmakingConfigurationGamePropertyArrayOutput {
 		return v.GameProperties
 	}).(MatchmakingConfigurationGamePropertyArrayOutput)
 }
 
+// A set of custom game session properties, formatted as a single string value.
 func (o MatchmakingConfigurationOutput) GameSessionData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringPtrOutput { return v.GameSessionData }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it.
 func (o MatchmakingConfigurationOutput) GameSessionQueueArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringArrayOutput { return v.GameSessionQueueArns }).(pulumi.StringArrayOutput)
 }
 
+// A unique identifier for the matchmaking configuration.
 func (o MatchmakingConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// An SNS topic ARN that is set up to receive matchmaking notifications.
 func (o MatchmakingConfigurationOutput) NotificationTarget() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringPtrOutput { return v.NotificationTarget }).(pulumi.StringPtrOutput)
 }
 
+// The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
 func (o MatchmakingConfigurationOutput) RequestTimeoutSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.IntOutput { return v.RequestTimeoutSeconds }).(pulumi.IntOutput)
 }
 
+// The Amazon Resource Name (ARN) associated with the GameLift matchmaking rule set resource that this configuration uses.
+func (o MatchmakingConfigurationOutput) RuleSetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringPtrOutput { return v.RuleSetArn }).(pulumi.StringPtrOutput)
+}
+
+// A unique identifier for the matchmaking rule set to use with this configuration.
 func (o MatchmakingConfigurationOutput) RuleSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) pulumi.StringOutput { return v.RuleSetName }).(pulumi.StringOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
 func (o MatchmakingConfigurationOutput) Tags() MatchmakingConfigurationTagArrayOutput {
 	return o.ApplyT(func(v *MatchmakingConfiguration) MatchmakingConfigurationTagArrayOutput { return v.Tags }).(MatchmakingConfigurationTagArrayOutput)
 }

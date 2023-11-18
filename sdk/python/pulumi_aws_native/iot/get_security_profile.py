@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetSecurityProfileResult:
-    def __init__(__self__, additional_metrics_to_retain_v2=None, alert_targets=None, behaviors=None, security_profile_arn=None, security_profile_description=None, tags=None, target_arns=None):
+    def __init__(__self__, additional_metrics_to_retain_v2=None, alert_targets=None, behaviors=None, metrics_export_config=None, security_profile_arn=None, security_profile_description=None, tags=None, target_arns=None):
         if additional_metrics_to_retain_v2 and not isinstance(additional_metrics_to_retain_v2, list):
             raise TypeError("Expected argument 'additional_metrics_to_retain_v2' to be a list")
         pulumi.set(__self__, "additional_metrics_to_retain_v2", additional_metrics_to_retain_v2)
@@ -30,6 +30,9 @@ class GetSecurityProfileResult:
         if behaviors and not isinstance(behaviors, list):
             raise TypeError("Expected argument 'behaviors' to be a list")
         pulumi.set(__self__, "behaviors", behaviors)
+        if metrics_export_config and not isinstance(metrics_export_config, dict):
+            raise TypeError("Expected argument 'metrics_export_config' to be a dict")
+        pulumi.set(__self__, "metrics_export_config", metrics_export_config)
         if security_profile_arn and not isinstance(security_profile_arn, str):
             raise TypeError("Expected argument 'security_profile_arn' to be a str")
         pulumi.set(__self__, "security_profile_arn", security_profile_arn)
@@ -66,6 +69,14 @@ class GetSecurityProfileResult:
         Specifies the behaviors that, when violated by a device (thing), cause an alert.
         """
         return pulumi.get(self, "behaviors")
+
+    @property
+    @pulumi.getter(name="metricsExportConfig")
+    def metrics_export_config(self) -> Optional['outputs.MetricsExportConfigProperties']:
+        """
+        A structure containing the mqtt topic for metrics export.
+        """
+        return pulumi.get(self, "metrics_export_config")
 
     @property
     @pulumi.getter(name="securityProfileArn")
@@ -109,6 +120,7 @@ class AwaitableGetSecurityProfileResult(GetSecurityProfileResult):
             additional_metrics_to_retain_v2=self.additional_metrics_to_retain_v2,
             alert_targets=self.alert_targets,
             behaviors=self.behaviors,
+            metrics_export_config=self.metrics_export_config,
             security_profile_arn=self.security_profile_arn,
             security_profile_description=self.security_profile_description,
             tags=self.tags,
@@ -132,6 +144,7 @@ def get_security_profile(security_profile_name: Optional[str] = None,
         additional_metrics_to_retain_v2=pulumi.get(__ret__, 'additional_metrics_to_retain_v2'),
         alert_targets=pulumi.get(__ret__, 'alert_targets'),
         behaviors=pulumi.get(__ret__, 'behaviors'),
+        metrics_export_config=pulumi.get(__ret__, 'metrics_export_config'),
         security_profile_arn=pulumi.get(__ret__, 'security_profile_arn'),
         security_profile_description=pulumi.get(__ret__, 'security_profile_description'),
         tags=pulumi.get(__ret__, 'tags'),

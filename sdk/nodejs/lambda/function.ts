@@ -91,6 +91,10 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly layers!: pulumi.Output<string[] | undefined>;
     /**
+     * The logging configuration of your function
+     */
+    public readonly loggingConfig!: pulumi.Output<outputs.lambda.FunctionLoggingConfig | undefined>;
+    /**
      * The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
      */
     public readonly memorySize!: pulumi.Output<number | undefined>;
@@ -173,6 +177,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["imageConfig"] = args ? args.imageConfig : undefined;
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["layers"] = args ? args.layers : undefined;
+            resourceInputs["loggingConfig"] = args ? args.loggingConfig : undefined;
             resourceInputs["memorySize"] = args ? args.memorySize : undefined;
             resourceInputs["packageType"] = args ? args.packageType : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
@@ -202,6 +207,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["imageConfig"] = undefined /*out*/;
             resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["layers"] = undefined /*out*/;
+            resourceInputs["loggingConfig"] = undefined /*out*/;
             resourceInputs["memorySize"] = undefined /*out*/;
             resourceInputs["packageType"] = undefined /*out*/;
             resourceInputs["policy"] = undefined /*out*/;
@@ -276,6 +282,10 @@ export interface FunctionArgs {
      * A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
      */
     layers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The logging configuration of your function
+     */
+    loggingConfig?: pulumi.Input<inputs.lambda.FunctionLoggingConfigArgs>;
     /**
      * The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
      */

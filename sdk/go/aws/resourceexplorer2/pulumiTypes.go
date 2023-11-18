@@ -156,163 +156,6 @@ func (o IndexTagMapPtrOutput) Elem() IndexTagMapOutput {
 	}).(IndexTagMapOutput)
 }
 
-type ViewFilters struct {
-	FilterString string `pulumi:"filterString"`
-}
-
-// ViewFiltersInput is an input type that accepts ViewFiltersArgs and ViewFiltersOutput values.
-// You can construct a concrete instance of `ViewFiltersInput` via:
-//
-//	ViewFiltersArgs{...}
-type ViewFiltersInput interface {
-	pulumi.Input
-
-	ToViewFiltersOutput() ViewFiltersOutput
-	ToViewFiltersOutputWithContext(context.Context) ViewFiltersOutput
-}
-
-type ViewFiltersArgs struct {
-	FilterString pulumi.StringInput `pulumi:"filterString"`
-}
-
-func (ViewFiltersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ViewFilters)(nil)).Elem()
-}
-
-func (i ViewFiltersArgs) ToViewFiltersOutput() ViewFiltersOutput {
-	return i.ToViewFiltersOutputWithContext(context.Background())
-}
-
-func (i ViewFiltersArgs) ToViewFiltersOutputWithContext(ctx context.Context) ViewFiltersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ViewFiltersOutput)
-}
-
-func (i ViewFiltersArgs) ToOutput(ctx context.Context) pulumix.Output[ViewFilters] {
-	return pulumix.Output[ViewFilters]{
-		OutputState: i.ToViewFiltersOutputWithContext(ctx).OutputState,
-	}
-}
-
-func (i ViewFiltersArgs) ToViewFiltersPtrOutput() ViewFiltersPtrOutput {
-	return i.ToViewFiltersPtrOutputWithContext(context.Background())
-}
-
-func (i ViewFiltersArgs) ToViewFiltersPtrOutputWithContext(ctx context.Context) ViewFiltersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ViewFiltersOutput).ToViewFiltersPtrOutputWithContext(ctx)
-}
-
-// ViewFiltersPtrInput is an input type that accepts ViewFiltersArgs, ViewFiltersPtr and ViewFiltersPtrOutput values.
-// You can construct a concrete instance of `ViewFiltersPtrInput` via:
-//
-//	        ViewFiltersArgs{...}
-//
-//	or:
-//
-//	        nil
-type ViewFiltersPtrInput interface {
-	pulumi.Input
-
-	ToViewFiltersPtrOutput() ViewFiltersPtrOutput
-	ToViewFiltersPtrOutputWithContext(context.Context) ViewFiltersPtrOutput
-}
-
-type viewFiltersPtrType ViewFiltersArgs
-
-func ViewFiltersPtr(v *ViewFiltersArgs) ViewFiltersPtrInput {
-	return (*viewFiltersPtrType)(v)
-}
-
-func (*viewFiltersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ViewFilters)(nil)).Elem()
-}
-
-func (i *viewFiltersPtrType) ToViewFiltersPtrOutput() ViewFiltersPtrOutput {
-	return i.ToViewFiltersPtrOutputWithContext(context.Background())
-}
-
-func (i *viewFiltersPtrType) ToViewFiltersPtrOutputWithContext(ctx context.Context) ViewFiltersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ViewFiltersPtrOutput)
-}
-
-func (i *viewFiltersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ViewFilters] {
-	return pulumix.Output[*ViewFilters]{
-		OutputState: i.ToViewFiltersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
-type ViewFiltersOutput struct{ *pulumi.OutputState }
-
-func (ViewFiltersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ViewFilters)(nil)).Elem()
-}
-
-func (o ViewFiltersOutput) ToViewFiltersOutput() ViewFiltersOutput {
-	return o
-}
-
-func (o ViewFiltersOutput) ToViewFiltersOutputWithContext(ctx context.Context) ViewFiltersOutput {
-	return o
-}
-
-func (o ViewFiltersOutput) ToViewFiltersPtrOutput() ViewFiltersPtrOutput {
-	return o.ToViewFiltersPtrOutputWithContext(context.Background())
-}
-
-func (o ViewFiltersOutput) ToViewFiltersPtrOutputWithContext(ctx context.Context) ViewFiltersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ViewFilters) *ViewFilters {
-		return &v
-	}).(ViewFiltersPtrOutput)
-}
-
-func (o ViewFiltersOutput) ToOutput(ctx context.Context) pulumix.Output[ViewFilters] {
-	return pulumix.Output[ViewFilters]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o ViewFiltersOutput) FilterString() pulumi.StringOutput {
-	return o.ApplyT(func(v ViewFilters) string { return v.FilterString }).(pulumi.StringOutput)
-}
-
-type ViewFiltersPtrOutput struct{ *pulumi.OutputState }
-
-func (ViewFiltersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ViewFilters)(nil)).Elem()
-}
-
-func (o ViewFiltersPtrOutput) ToViewFiltersPtrOutput() ViewFiltersPtrOutput {
-	return o
-}
-
-func (o ViewFiltersPtrOutput) ToViewFiltersPtrOutputWithContext(ctx context.Context) ViewFiltersPtrOutput {
-	return o
-}
-
-func (o ViewFiltersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ViewFilters] {
-	return pulumix.Output[*ViewFilters]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o ViewFiltersPtrOutput) Elem() ViewFiltersOutput {
-	return o.ApplyT(func(v *ViewFilters) ViewFilters {
-		if v != nil {
-			return *v
-		}
-		var ret ViewFilters
-		return ret
-	}).(ViewFiltersOutput)
-}
-
-func (o ViewFiltersPtrOutput) FilterString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ViewFilters) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FilterString
-	}).(pulumi.StringPtrOutput)
-}
-
 type ViewIncludedProperty struct {
 	Name string `pulumi:"name"`
 }
@@ -429,6 +272,163 @@ func (o ViewIncludedPropertyArrayOutput) Index(i pulumi.IntInput) ViewIncludedPr
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ViewIncludedProperty {
 		return vs[0].([]ViewIncludedProperty)[vs[1].(int)]
 	}).(ViewIncludedPropertyOutput)
+}
+
+type ViewSearchFilter struct {
+	FilterString string `pulumi:"filterString"`
+}
+
+// ViewSearchFilterInput is an input type that accepts ViewSearchFilterArgs and ViewSearchFilterOutput values.
+// You can construct a concrete instance of `ViewSearchFilterInput` via:
+//
+//	ViewSearchFilterArgs{...}
+type ViewSearchFilterInput interface {
+	pulumi.Input
+
+	ToViewSearchFilterOutput() ViewSearchFilterOutput
+	ToViewSearchFilterOutputWithContext(context.Context) ViewSearchFilterOutput
+}
+
+type ViewSearchFilterArgs struct {
+	FilterString pulumi.StringInput `pulumi:"filterString"`
+}
+
+func (ViewSearchFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewSearchFilter)(nil)).Elem()
+}
+
+func (i ViewSearchFilterArgs) ToViewSearchFilterOutput() ViewSearchFilterOutput {
+	return i.ToViewSearchFilterOutputWithContext(context.Background())
+}
+
+func (i ViewSearchFilterArgs) ToViewSearchFilterOutputWithContext(ctx context.Context) ViewSearchFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewSearchFilterOutput)
+}
+
+func (i ViewSearchFilterArgs) ToOutput(ctx context.Context) pulumix.Output[ViewSearchFilter] {
+	return pulumix.Output[ViewSearchFilter]{
+		OutputState: i.ToViewSearchFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ViewSearchFilterArgs) ToViewSearchFilterPtrOutput() ViewSearchFilterPtrOutput {
+	return i.ToViewSearchFilterPtrOutputWithContext(context.Background())
+}
+
+func (i ViewSearchFilterArgs) ToViewSearchFilterPtrOutputWithContext(ctx context.Context) ViewSearchFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewSearchFilterOutput).ToViewSearchFilterPtrOutputWithContext(ctx)
+}
+
+// ViewSearchFilterPtrInput is an input type that accepts ViewSearchFilterArgs, ViewSearchFilterPtr and ViewSearchFilterPtrOutput values.
+// You can construct a concrete instance of `ViewSearchFilterPtrInput` via:
+//
+//	        ViewSearchFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type ViewSearchFilterPtrInput interface {
+	pulumi.Input
+
+	ToViewSearchFilterPtrOutput() ViewSearchFilterPtrOutput
+	ToViewSearchFilterPtrOutputWithContext(context.Context) ViewSearchFilterPtrOutput
+}
+
+type viewSearchFilterPtrType ViewSearchFilterArgs
+
+func ViewSearchFilterPtr(v *ViewSearchFilterArgs) ViewSearchFilterPtrInput {
+	return (*viewSearchFilterPtrType)(v)
+}
+
+func (*viewSearchFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ViewSearchFilter)(nil)).Elem()
+}
+
+func (i *viewSearchFilterPtrType) ToViewSearchFilterPtrOutput() ViewSearchFilterPtrOutput {
+	return i.ToViewSearchFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *viewSearchFilterPtrType) ToViewSearchFilterPtrOutputWithContext(ctx context.Context) ViewSearchFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ViewSearchFilterPtrOutput)
+}
+
+func (i *viewSearchFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*ViewSearchFilter] {
+	return pulumix.Output[*ViewSearchFilter]{
+		OutputState: i.ToViewSearchFilterPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ViewSearchFilterOutput struct{ *pulumi.OutputState }
+
+func (ViewSearchFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ViewSearchFilter)(nil)).Elem()
+}
+
+func (o ViewSearchFilterOutput) ToViewSearchFilterOutput() ViewSearchFilterOutput {
+	return o
+}
+
+func (o ViewSearchFilterOutput) ToViewSearchFilterOutputWithContext(ctx context.Context) ViewSearchFilterOutput {
+	return o
+}
+
+func (o ViewSearchFilterOutput) ToViewSearchFilterPtrOutput() ViewSearchFilterPtrOutput {
+	return o.ToViewSearchFilterPtrOutputWithContext(context.Background())
+}
+
+func (o ViewSearchFilterOutput) ToViewSearchFilterPtrOutputWithContext(ctx context.Context) ViewSearchFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ViewSearchFilter) *ViewSearchFilter {
+		return &v
+	}).(ViewSearchFilterPtrOutput)
+}
+
+func (o ViewSearchFilterOutput) ToOutput(ctx context.Context) pulumix.Output[ViewSearchFilter] {
+	return pulumix.Output[ViewSearchFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ViewSearchFilterOutput) FilterString() pulumi.StringOutput {
+	return o.ApplyT(func(v ViewSearchFilter) string { return v.FilterString }).(pulumi.StringOutput)
+}
+
+type ViewSearchFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (ViewSearchFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ViewSearchFilter)(nil)).Elem()
+}
+
+func (o ViewSearchFilterPtrOutput) ToViewSearchFilterPtrOutput() ViewSearchFilterPtrOutput {
+	return o
+}
+
+func (o ViewSearchFilterPtrOutput) ToViewSearchFilterPtrOutputWithContext(ctx context.Context) ViewSearchFilterPtrOutput {
+	return o
+}
+
+func (o ViewSearchFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ViewSearchFilter] {
+	return pulumix.Output[*ViewSearchFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ViewSearchFilterPtrOutput) Elem() ViewSearchFilterOutput {
+	return o.ApplyT(func(v *ViewSearchFilter) ViewSearchFilter {
+		if v != nil {
+			return *v
+		}
+		var ret ViewSearchFilter
+		return ret
+	}).(ViewSearchFilterOutput)
+}
+
+func (o ViewSearchFilterPtrOutput) FilterString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ViewSearchFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FilterString
+	}).(pulumi.StringPtrOutput)
 }
 
 type ViewTagMap struct {
@@ -576,18 +576,18 @@ func (o ViewTagMapPtrOutput) Elem() ViewTagMapOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexTagMapInput)(nil)).Elem(), IndexTagMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexTagMapPtrInput)(nil)).Elem(), IndexTagMapArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ViewFiltersInput)(nil)).Elem(), ViewFiltersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ViewFiltersPtrInput)(nil)).Elem(), ViewFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewIncludedPropertyInput)(nil)).Elem(), ViewIncludedPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewIncludedPropertyArrayInput)(nil)).Elem(), ViewIncludedPropertyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewSearchFilterInput)(nil)).Elem(), ViewSearchFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ViewSearchFilterPtrInput)(nil)).Elem(), ViewSearchFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewTagMapInput)(nil)).Elem(), ViewTagMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewTagMapPtrInput)(nil)).Elem(), ViewTagMapArgs{})
 	pulumi.RegisterOutputType(IndexTagMapOutput{})
 	pulumi.RegisterOutputType(IndexTagMapPtrOutput{})
-	pulumi.RegisterOutputType(ViewFiltersOutput{})
-	pulumi.RegisterOutputType(ViewFiltersPtrOutput{})
 	pulumi.RegisterOutputType(ViewIncludedPropertyOutput{})
 	pulumi.RegisterOutputType(ViewIncludedPropertyArrayOutput{})
+	pulumi.RegisterOutputType(ViewSearchFilterOutput{})
+	pulumi.RegisterOutputType(ViewSearchFilterPtrOutput{})
 	pulumi.RegisterOutputType(ViewTagMapOutput{})
 	pulumi.RegisterOutputType(ViewTagMapPtrOutput{})
 }

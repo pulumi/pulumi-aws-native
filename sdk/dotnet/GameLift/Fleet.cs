@@ -153,6 +153,12 @@ namespace Pulumi.AwsNative.GameLift
         public Output<Outputs.FleetRuntimeConfiguration?> RuntimeConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// A list of rules that control how a fleet is scaled.
+        /// </summary>
+        [Output("scalingPolicies")]
+        public Output<ImmutableArray<Outputs.FleetScalingPolicy>> ScalingPolicies { get; private set; } = null!;
+
+        /// <summary>
         /// A unique identifier for a Realtime script to be deployed on a new Realtime Servers fleet. The script must have been successfully uploaded to Amazon GameLift. This fleet setting cannot be changed once the fleet is created.
         /// 
         /// Note: It is not currently possible to use the !Ref command to reference a script created with a CloudFormation template for the fleet property ScriptId. Instead, use Fn::GetAtt Script.Arn or Fn::GetAtt Script.Id to retrieve either of these properties as input for ScriptId. Alternatively, enter a ScriptId string manually.
@@ -386,6 +392,18 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         [Input("runtimeConfiguration")]
         public Input<Inputs.FleetRuntimeConfigurationArgs>? RuntimeConfiguration { get; set; }
+
+        [Input("scalingPolicies")]
+        private InputList<Inputs.FleetScalingPolicyArgs>? _scalingPolicies;
+
+        /// <summary>
+        /// A list of rules that control how a fleet is scaled.
+        /// </summary>
+        public InputList<Inputs.FleetScalingPolicyArgs> ScalingPolicies
+        {
+            get => _scalingPolicies ?? (_scalingPolicies = new InputList<Inputs.FleetScalingPolicyArgs>());
+            set => _scalingPolicies = value;
+        }
 
         /// <summary>
         /// A unique identifier for a Realtime script to be deployed on a new Realtime Servers fleet. The script must have been successfully uploaded to Amazon GameLift. This fleet setting cannot be changed once the fleet is created.

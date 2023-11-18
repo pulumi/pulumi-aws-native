@@ -20,6 +20,7 @@ __all__ = [
     'PipeBatchResourceRequirementArgs',
     'PipeBatchRetryStrategyArgs',
     'PipeCapacityProviderStrategyItemArgs',
+    'PipeCloudwatchLogsLogDestinationArgs',
     'PipeDeadLetterConfigArgs',
     'PipeEcsContainerOverrideArgs',
     'PipeEcsEnvironmentFileArgs',
@@ -32,7 +33,9 @@ __all__ = [
     'PipeEnrichmentParametersArgs',
     'PipeFilterCriteriaArgs',
     'PipeFilterArgs',
+    'PipeFirehoseLogDestinationArgs',
     'PipeHeaderParametersMapArgs',
+    'PipeLogConfigurationArgs',
     'PipeMqBrokerAccessCredentialsPropertiesArgs',
     'PipeMskAccessCredentials0PropertiesArgs',
     'PipeMskAccessCredentials1PropertiesArgs',
@@ -40,6 +43,7 @@ __all__ = [
     'PipePlacementConstraintArgs',
     'PipePlacementStrategyArgs',
     'PipeQueryStringParametersMapArgs',
+    'PipeS3LogDestinationArgs',
     'PipeSageMakerPipelineParameterArgs',
     'PipeSelfManagedKafkaAccessConfigurationCredentials0PropertiesArgs',
     'PipeSelfManagedKafkaAccessConfigurationCredentials1PropertiesArgs',
@@ -326,6 +330,23 @@ class PipeCapacityProviderStrategyItemArgs:
     @weight.setter
     def weight(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "weight", value)
+
+
+@pulumi.input_type
+class PipeCloudwatchLogsLogDestinationArgs:
+    def __init__(__self__, *,
+                 log_group_arn: Optional[pulumi.Input[str]] = None):
+        if log_group_arn is not None:
+            pulumi.set(__self__, "log_group_arn", log_group_arn)
+
+    @property
+    @pulumi.getter(name="logGroupArn")
+    def log_group_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "log_group_arn")
+
+    @log_group_arn.setter
+    def log_group_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_group_arn", value)
 
 
 @pulumi.input_type
@@ -768,9 +789,91 @@ class PipeFilterArgs:
 
 
 @pulumi.input_type
+class PipeFirehoseLogDestinationArgs:
+    def __init__(__self__, *,
+                 delivery_stream_arn: Optional[pulumi.Input[str]] = None):
+        if delivery_stream_arn is not None:
+            pulumi.set(__self__, "delivery_stream_arn", delivery_stream_arn)
+
+    @property
+    @pulumi.getter(name="deliveryStreamArn")
+    def delivery_stream_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "delivery_stream_arn")
+
+    @delivery_stream_arn.setter
+    def delivery_stream_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delivery_stream_arn", value)
+
+
+@pulumi.input_type
 class PipeHeaderParametersMapArgs:
     def __init__(__self__):
         pass
+
+
+@pulumi.input_type
+class PipeLogConfigurationArgs:
+    def __init__(__self__, *,
+                 cloudwatch_logs_log_destination: Optional[pulumi.Input['PipeCloudwatchLogsLogDestinationArgs']] = None,
+                 firehose_log_destination: Optional[pulumi.Input['PipeFirehoseLogDestinationArgs']] = None,
+                 include_execution_data: Optional[pulumi.Input[Sequence[pulumi.Input['PipeIncludeExecutionDataOption']]]] = None,
+                 level: Optional[pulumi.Input['PipeLogLevel']] = None,
+                 s3_log_destination: Optional[pulumi.Input['PipeS3LogDestinationArgs']] = None):
+        if cloudwatch_logs_log_destination is not None:
+            pulumi.set(__self__, "cloudwatch_logs_log_destination", cloudwatch_logs_log_destination)
+        if firehose_log_destination is not None:
+            pulumi.set(__self__, "firehose_log_destination", firehose_log_destination)
+        if include_execution_data is not None:
+            pulumi.set(__self__, "include_execution_data", include_execution_data)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if s3_log_destination is not None:
+            pulumi.set(__self__, "s3_log_destination", s3_log_destination)
+
+    @property
+    @pulumi.getter(name="cloudwatchLogsLogDestination")
+    def cloudwatch_logs_log_destination(self) -> Optional[pulumi.Input['PipeCloudwatchLogsLogDestinationArgs']]:
+        return pulumi.get(self, "cloudwatch_logs_log_destination")
+
+    @cloudwatch_logs_log_destination.setter
+    def cloudwatch_logs_log_destination(self, value: Optional[pulumi.Input['PipeCloudwatchLogsLogDestinationArgs']]):
+        pulumi.set(self, "cloudwatch_logs_log_destination", value)
+
+    @property
+    @pulumi.getter(name="firehoseLogDestination")
+    def firehose_log_destination(self) -> Optional[pulumi.Input['PipeFirehoseLogDestinationArgs']]:
+        return pulumi.get(self, "firehose_log_destination")
+
+    @firehose_log_destination.setter
+    def firehose_log_destination(self, value: Optional[pulumi.Input['PipeFirehoseLogDestinationArgs']]):
+        pulumi.set(self, "firehose_log_destination", value)
+
+    @property
+    @pulumi.getter(name="includeExecutionData")
+    def include_execution_data(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipeIncludeExecutionDataOption']]]]:
+        return pulumi.get(self, "include_execution_data")
+
+    @include_execution_data.setter
+    def include_execution_data(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipeIncludeExecutionDataOption']]]]):
+        pulumi.set(self, "include_execution_data", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input['PipeLogLevel']]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input['PipeLogLevel']]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter(name="s3LogDestination")
+    def s3_log_destination(self) -> Optional[pulumi.Input['PipeS3LogDestinationArgs']]:
+        return pulumi.get(self, "s3_log_destination")
+
+    @s3_log_destination.setter
+    def s3_log_destination(self, value: Optional[pulumi.Input['PipeS3LogDestinationArgs']]):
+        pulumi.set(self, "s3_log_destination", value)
 
 
 @pulumi.input_type
@@ -918,6 +1021,59 @@ class PipePlacementStrategyArgs:
 class PipeQueryStringParametersMapArgs:
     def __init__(__self__):
         pass
+
+
+@pulumi.input_type
+class PipeS3LogDestinationArgs:
+    def __init__(__self__, *,
+                 bucket_name: Optional[pulumi.Input[str]] = None,
+                 bucket_owner: Optional[pulumi.Input[str]] = None,
+                 output_format: Optional[pulumi.Input['PipeS3OutputFormat']] = None,
+                 prefix: Optional[pulumi.Input[str]] = None):
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
+        if bucket_owner is not None:
+            pulumi.set(__self__, "bucket_owner", bucket_owner)
+        if output_format is not None:
+            pulumi.set(__self__, "output_format", output_format)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_name", value)
+
+    @property
+    @pulumi.getter(name="bucketOwner")
+    def bucket_owner(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "bucket_owner")
+
+    @bucket_owner.setter
+    def bucket_owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_owner", value)
+
+    @property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> Optional[pulumi.Input['PipeS3OutputFormat']]:
+        return pulumi.get(self, "output_format")
+
+    @output_format.setter
+    def output_format(self, value: Optional[pulumi.Input['PipeS3OutputFormat']]):
+        pulumi.set(self, "output_format", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix", value)
 
 
 @pulumi.input_type

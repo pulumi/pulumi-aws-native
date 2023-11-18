@@ -83,6 +83,8 @@ type DbInstance struct {
 	DbSystemId pulumi.StringOutput `pulumi:"dbSystemId"`
 	// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
 	DbiResourceId pulumi.StringOutput `pulumi:"dbiResourceId"`
+	// Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
+	DedicatedLogVolume pulumi.BoolPtrOutput `pulumi:"dedicatedLogVolume"`
 	// A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
 	DeleteAutomatedBackups pulumi.BoolPtrOutput `pulumi:"deleteAutomatedBackups"`
 	// A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
@@ -308,6 +310,8 @@ type dbInstanceArgs struct {
 	DbSnapshotIdentifier *string `pulumi:"dbSnapshotIdentifier"`
 	// A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
+	// Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
+	DedicatedLogVolume *bool `pulumi:"dedicatedLogVolume"`
 	// A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
 	DeleteAutomatedBackups *bool `pulumi:"deleteAutomatedBackups"`
 	// A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
@@ -479,6 +483,8 @@ type DbInstanceArgs struct {
 	DbSnapshotIdentifier pulumi.StringPtrInput
 	// A DB subnet group to associate with the DB instance. If you update this value, the new subnet group must be a subnet group in a new VPC.
 	DbSubnetGroupName pulumi.StringPtrInput
+	// Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
+	DedicatedLogVolume pulumi.BoolPtrInput
 	// A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
 	DeleteAutomatedBackups pulumi.BoolPtrInput
 	// A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
@@ -776,6 +782,11 @@ func (o DbInstanceOutput) DbSystemId() pulumi.StringOutput {
 // The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
 func (o DbInstanceOutput) DbiResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringOutput { return v.DbiResourceId }).(pulumi.StringOutput)
+}
+
+// Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
+func (o DbInstanceOutput) DedicatedLogVolume() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.BoolPtrOutput { return v.DedicatedLogVolume }).(pulumi.BoolPtrOutput)
 }
 
 // A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.

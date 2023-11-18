@@ -4223,6 +4223,193 @@ func (in *analysisDateAggregationFunctionPtr) ToOutput(ctx context.Context) pulu
 	}
 }
 
+type AnalysisDayOfTheWeek string
+
+const (
+	AnalysisDayOfTheWeekSunday    = AnalysisDayOfTheWeek("SUNDAY")
+	AnalysisDayOfTheWeekMonday    = AnalysisDayOfTheWeek("MONDAY")
+	AnalysisDayOfTheWeekTuesday   = AnalysisDayOfTheWeek("TUESDAY")
+	AnalysisDayOfTheWeekWednesday = AnalysisDayOfTheWeek("WEDNESDAY")
+	AnalysisDayOfTheWeekThursday  = AnalysisDayOfTheWeek("THURSDAY")
+	AnalysisDayOfTheWeekFriday    = AnalysisDayOfTheWeek("FRIDAY")
+	AnalysisDayOfTheWeekSaturday  = AnalysisDayOfTheWeek("SATURDAY")
+)
+
+func (AnalysisDayOfTheWeek) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisDayOfTheWeek)(nil)).Elem()
+}
+
+func (e AnalysisDayOfTheWeek) ToAnalysisDayOfTheWeekOutput() AnalysisDayOfTheWeekOutput {
+	return pulumi.ToOutput(e).(AnalysisDayOfTheWeekOutput)
+}
+
+func (e AnalysisDayOfTheWeek) ToAnalysisDayOfTheWeekOutputWithContext(ctx context.Context) AnalysisDayOfTheWeekOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisDayOfTheWeekOutput)
+}
+
+func (e AnalysisDayOfTheWeek) ToAnalysisDayOfTheWeekPtrOutput() AnalysisDayOfTheWeekPtrOutput {
+	return e.ToAnalysisDayOfTheWeekPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisDayOfTheWeek) ToAnalysisDayOfTheWeekPtrOutputWithContext(ctx context.Context) AnalysisDayOfTheWeekPtrOutput {
+	return AnalysisDayOfTheWeek(e).ToAnalysisDayOfTheWeekOutputWithContext(ctx).ToAnalysisDayOfTheWeekPtrOutputWithContext(ctx)
+}
+
+func (e AnalysisDayOfTheWeek) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisDayOfTheWeek) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisDayOfTheWeek) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisDayOfTheWeek) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisDayOfTheWeekOutput struct{ *pulumi.OutputState }
+
+func (AnalysisDayOfTheWeekOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisDayOfTheWeek)(nil)).Elem()
+}
+
+func (o AnalysisDayOfTheWeekOutput) ToAnalysisDayOfTheWeekOutput() AnalysisDayOfTheWeekOutput {
+	return o
+}
+
+func (o AnalysisDayOfTheWeekOutput) ToAnalysisDayOfTheWeekOutputWithContext(ctx context.Context) AnalysisDayOfTheWeekOutput {
+	return o
+}
+
+func (o AnalysisDayOfTheWeekOutput) ToAnalysisDayOfTheWeekPtrOutput() AnalysisDayOfTheWeekPtrOutput {
+	return o.ToAnalysisDayOfTheWeekPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisDayOfTheWeekOutput) ToAnalysisDayOfTheWeekPtrOutputWithContext(ctx context.Context) AnalysisDayOfTheWeekPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisDayOfTheWeek) *AnalysisDayOfTheWeek {
+		return &v
+	}).(AnalysisDayOfTheWeekPtrOutput)
+}
+
+func (o AnalysisDayOfTheWeekOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisDayOfTheWeek] {
+	return pulumix.Output[AnalysisDayOfTheWeek]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AnalysisDayOfTheWeekOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisDayOfTheWeekOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisDayOfTheWeek) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisDayOfTheWeekOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisDayOfTheWeekOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisDayOfTheWeek) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisDayOfTheWeekPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisDayOfTheWeekPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisDayOfTheWeek)(nil)).Elem()
+}
+
+func (o AnalysisDayOfTheWeekPtrOutput) ToAnalysisDayOfTheWeekPtrOutput() AnalysisDayOfTheWeekPtrOutput {
+	return o
+}
+
+func (o AnalysisDayOfTheWeekPtrOutput) ToAnalysisDayOfTheWeekPtrOutputWithContext(ctx context.Context) AnalysisDayOfTheWeekPtrOutput {
+	return o
+}
+
+func (o AnalysisDayOfTheWeekPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisDayOfTheWeek] {
+	return pulumix.Output[*AnalysisDayOfTheWeek]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AnalysisDayOfTheWeekPtrOutput) Elem() AnalysisDayOfTheWeekOutput {
+	return o.ApplyT(func(v *AnalysisDayOfTheWeek) AnalysisDayOfTheWeek {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisDayOfTheWeek
+		return ret
+	}).(AnalysisDayOfTheWeekOutput)
+}
+
+func (o AnalysisDayOfTheWeekPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisDayOfTheWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisDayOfTheWeek) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisDayOfTheWeekInput is an input type that accepts AnalysisDayOfTheWeekArgs and AnalysisDayOfTheWeekOutput values.
+// You can construct a concrete instance of `AnalysisDayOfTheWeekInput` via:
+//
+//	AnalysisDayOfTheWeekArgs{...}
+type AnalysisDayOfTheWeekInput interface {
+	pulumi.Input
+
+	ToAnalysisDayOfTheWeekOutput() AnalysisDayOfTheWeekOutput
+	ToAnalysisDayOfTheWeekOutputWithContext(context.Context) AnalysisDayOfTheWeekOutput
+}
+
+var analysisDayOfTheWeekPtrType = reflect.TypeOf((**AnalysisDayOfTheWeek)(nil)).Elem()
+
+type AnalysisDayOfTheWeekPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisDayOfTheWeekPtrOutput() AnalysisDayOfTheWeekPtrOutput
+	ToAnalysisDayOfTheWeekPtrOutputWithContext(context.Context) AnalysisDayOfTheWeekPtrOutput
+}
+
+type analysisDayOfTheWeekPtr string
+
+func AnalysisDayOfTheWeekPtr(v string) AnalysisDayOfTheWeekPtrInput {
+	return (*analysisDayOfTheWeekPtr)(&v)
+}
+
+func (*analysisDayOfTheWeekPtr) ElementType() reflect.Type {
+	return analysisDayOfTheWeekPtrType
+}
+
+func (in *analysisDayOfTheWeekPtr) ToAnalysisDayOfTheWeekPtrOutput() AnalysisDayOfTheWeekPtrOutput {
+	return pulumi.ToOutput(in).(AnalysisDayOfTheWeekPtrOutput)
+}
+
+func (in *analysisDayOfTheWeekPtr) ToAnalysisDayOfTheWeekPtrOutputWithContext(ctx context.Context) AnalysisDayOfTheWeekPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisDayOfTheWeekPtrOutput)
+}
+
+func (in *analysisDayOfTheWeekPtr) ToOutput(ctx context.Context) pulumix.Output[*AnalysisDayOfTheWeek] {
+	return pulumix.Output[*AnalysisDayOfTheWeek]{
+		OutputState: in.ToAnalysisDayOfTheWeekPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AnalysisErrorType string
 
 const (
@@ -25206,6 +25393,193 @@ func (in *dashboardDateAggregationFunctionPtr) ToOutput(ctx context.Context) pul
 	}
 }
 
+type DashboardDayOfTheWeek string
+
+const (
+	DashboardDayOfTheWeekSunday    = DashboardDayOfTheWeek("SUNDAY")
+	DashboardDayOfTheWeekMonday    = DashboardDayOfTheWeek("MONDAY")
+	DashboardDayOfTheWeekTuesday   = DashboardDayOfTheWeek("TUESDAY")
+	DashboardDayOfTheWeekWednesday = DashboardDayOfTheWeek("WEDNESDAY")
+	DashboardDayOfTheWeekThursday  = DashboardDayOfTheWeek("THURSDAY")
+	DashboardDayOfTheWeekFriday    = DashboardDayOfTheWeek("FRIDAY")
+	DashboardDayOfTheWeekSaturday  = DashboardDayOfTheWeek("SATURDAY")
+)
+
+func (DashboardDayOfTheWeek) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardDayOfTheWeek)(nil)).Elem()
+}
+
+func (e DashboardDayOfTheWeek) ToDashboardDayOfTheWeekOutput() DashboardDayOfTheWeekOutput {
+	return pulumi.ToOutput(e).(DashboardDayOfTheWeekOutput)
+}
+
+func (e DashboardDayOfTheWeek) ToDashboardDayOfTheWeekOutputWithContext(ctx context.Context) DashboardDayOfTheWeekOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardDayOfTheWeekOutput)
+}
+
+func (e DashboardDayOfTheWeek) ToDashboardDayOfTheWeekPtrOutput() DashboardDayOfTheWeekPtrOutput {
+	return e.ToDashboardDayOfTheWeekPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardDayOfTheWeek) ToDashboardDayOfTheWeekPtrOutputWithContext(ctx context.Context) DashboardDayOfTheWeekPtrOutput {
+	return DashboardDayOfTheWeek(e).ToDashboardDayOfTheWeekOutputWithContext(ctx).ToDashboardDayOfTheWeekPtrOutputWithContext(ctx)
+}
+
+func (e DashboardDayOfTheWeek) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardDayOfTheWeek) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardDayOfTheWeek) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardDayOfTheWeek) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardDayOfTheWeekOutput struct{ *pulumi.OutputState }
+
+func (DashboardDayOfTheWeekOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardDayOfTheWeek)(nil)).Elem()
+}
+
+func (o DashboardDayOfTheWeekOutput) ToDashboardDayOfTheWeekOutput() DashboardDayOfTheWeekOutput {
+	return o
+}
+
+func (o DashboardDayOfTheWeekOutput) ToDashboardDayOfTheWeekOutputWithContext(ctx context.Context) DashboardDayOfTheWeekOutput {
+	return o
+}
+
+func (o DashboardDayOfTheWeekOutput) ToDashboardDayOfTheWeekPtrOutput() DashboardDayOfTheWeekPtrOutput {
+	return o.ToDashboardDayOfTheWeekPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardDayOfTheWeekOutput) ToDashboardDayOfTheWeekPtrOutputWithContext(ctx context.Context) DashboardDayOfTheWeekPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardDayOfTheWeek) *DashboardDayOfTheWeek {
+		return &v
+	}).(DashboardDayOfTheWeekPtrOutput)
+}
+
+func (o DashboardDayOfTheWeekOutput) ToOutput(ctx context.Context) pulumix.Output[DashboardDayOfTheWeek] {
+	return pulumix.Output[DashboardDayOfTheWeek]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DashboardDayOfTheWeekOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardDayOfTheWeekOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardDayOfTheWeek) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardDayOfTheWeekOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardDayOfTheWeekOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardDayOfTheWeek) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardDayOfTheWeekPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardDayOfTheWeekPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardDayOfTheWeek)(nil)).Elem()
+}
+
+func (o DashboardDayOfTheWeekPtrOutput) ToDashboardDayOfTheWeekPtrOutput() DashboardDayOfTheWeekPtrOutput {
+	return o
+}
+
+func (o DashboardDayOfTheWeekPtrOutput) ToDashboardDayOfTheWeekPtrOutputWithContext(ctx context.Context) DashboardDayOfTheWeekPtrOutput {
+	return o
+}
+
+func (o DashboardDayOfTheWeekPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DashboardDayOfTheWeek] {
+	return pulumix.Output[*DashboardDayOfTheWeek]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DashboardDayOfTheWeekPtrOutput) Elem() DashboardDayOfTheWeekOutput {
+	return o.ApplyT(func(v *DashboardDayOfTheWeek) DashboardDayOfTheWeek {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardDayOfTheWeek
+		return ret
+	}).(DashboardDayOfTheWeekOutput)
+}
+
+func (o DashboardDayOfTheWeekPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardDayOfTheWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardDayOfTheWeek) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardDayOfTheWeekInput is an input type that accepts DashboardDayOfTheWeekArgs and DashboardDayOfTheWeekOutput values.
+// You can construct a concrete instance of `DashboardDayOfTheWeekInput` via:
+//
+//	DashboardDayOfTheWeekArgs{...}
+type DashboardDayOfTheWeekInput interface {
+	pulumi.Input
+
+	ToDashboardDayOfTheWeekOutput() DashboardDayOfTheWeekOutput
+	ToDashboardDayOfTheWeekOutputWithContext(context.Context) DashboardDayOfTheWeekOutput
+}
+
+var dashboardDayOfTheWeekPtrType = reflect.TypeOf((**DashboardDayOfTheWeek)(nil)).Elem()
+
+type DashboardDayOfTheWeekPtrInput interface {
+	pulumi.Input
+
+	ToDashboardDayOfTheWeekPtrOutput() DashboardDayOfTheWeekPtrOutput
+	ToDashboardDayOfTheWeekPtrOutputWithContext(context.Context) DashboardDayOfTheWeekPtrOutput
+}
+
+type dashboardDayOfTheWeekPtr string
+
+func DashboardDayOfTheWeekPtr(v string) DashboardDayOfTheWeekPtrInput {
+	return (*dashboardDayOfTheWeekPtr)(&v)
+}
+
+func (*dashboardDayOfTheWeekPtr) ElementType() reflect.Type {
+	return dashboardDayOfTheWeekPtrType
+}
+
+func (in *dashboardDayOfTheWeekPtr) ToDashboardDayOfTheWeekPtrOutput() DashboardDayOfTheWeekPtrOutput {
+	return pulumi.ToOutput(in).(DashboardDayOfTheWeekPtrOutput)
+}
+
+func (in *dashboardDayOfTheWeekPtr) ToDashboardDayOfTheWeekPtrOutputWithContext(ctx context.Context) DashboardDayOfTheWeekPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardDayOfTheWeekPtrOutput)
+}
+
+func (in *dashboardDayOfTheWeekPtr) ToOutput(ctx context.Context) pulumix.Output[*DashboardDayOfTheWeek] {
+	return pulumix.Output[*DashboardDayOfTheWeek]{
+		OutputState: in.ToDashboardDayOfTheWeekPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DashboardErrorType string
 
 const (
@@ -42001,6 +42375,108 @@ func (o DataSetColumnDataTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
+type DataSetColumnSubDataType string
+
+const (
+	DataSetColumnSubDataTypeFixed = DataSetColumnSubDataType("FIXED")
+	DataSetColumnSubDataTypeFloat = DataSetColumnSubDataType("FLOAT")
+)
+
+type DataSetColumnSubDataTypeOutput struct{ *pulumi.OutputState }
+
+func (DataSetColumnSubDataTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetColumnSubDataType)(nil)).Elem()
+}
+
+func (o DataSetColumnSubDataTypeOutput) ToDataSetColumnSubDataTypeOutput() DataSetColumnSubDataTypeOutput {
+	return o
+}
+
+func (o DataSetColumnSubDataTypeOutput) ToDataSetColumnSubDataTypeOutputWithContext(ctx context.Context) DataSetColumnSubDataTypeOutput {
+	return o
+}
+
+func (o DataSetColumnSubDataTypeOutput) ToDataSetColumnSubDataTypePtrOutput() DataSetColumnSubDataTypePtrOutput {
+	return o.ToDataSetColumnSubDataTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataSetColumnSubDataTypeOutput) ToDataSetColumnSubDataTypePtrOutputWithContext(ctx context.Context) DataSetColumnSubDataTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetColumnSubDataType) *DataSetColumnSubDataType {
+		return &v
+	}).(DataSetColumnSubDataTypePtrOutput)
+}
+
+func (o DataSetColumnSubDataTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSetColumnSubDataType] {
+	return pulumix.Output[DataSetColumnSubDataType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DataSetColumnSubDataTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSetColumnSubDataTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetColumnSubDataType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSetColumnSubDataTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetColumnSubDataTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetColumnSubDataType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSetColumnSubDataTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetColumnSubDataTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetColumnSubDataType)(nil)).Elem()
+}
+
+func (o DataSetColumnSubDataTypePtrOutput) ToDataSetColumnSubDataTypePtrOutput() DataSetColumnSubDataTypePtrOutput {
+	return o
+}
+
+func (o DataSetColumnSubDataTypePtrOutput) ToDataSetColumnSubDataTypePtrOutputWithContext(ctx context.Context) DataSetColumnSubDataTypePtrOutput {
+	return o
+}
+
+func (o DataSetColumnSubDataTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSetColumnSubDataType] {
+	return pulumix.Output[*DataSetColumnSubDataType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DataSetColumnSubDataTypePtrOutput) Elem() DataSetColumnSubDataTypeOutput {
+	return o.ApplyT(func(v *DataSetColumnSubDataType) DataSetColumnSubDataType {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetColumnSubDataType
+		return ret
+	}).(DataSetColumnSubDataTypeOutput)
+}
+
+func (o DataSetColumnSubDataTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetColumnSubDataTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSetColumnSubDataType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // <p>Every parameter value could be either a single value or multi value which helps to validate before evaluation.</p>
 type DataSetDatasetParameterValueType string
 
@@ -43760,6 +44236,188 @@ func (o DataSourceResourceStatusPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
+type DataSourceStarburstProductType string
+
+const (
+	DataSourceStarburstProductTypeGalaxy     = DataSourceStarburstProductType("GALAXY")
+	DataSourceStarburstProductTypeEnterprise = DataSourceStarburstProductType("ENTERPRISE")
+)
+
+func (DataSourceStarburstProductType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceStarburstProductType)(nil)).Elem()
+}
+
+func (e DataSourceStarburstProductType) ToDataSourceStarburstProductTypeOutput() DataSourceStarburstProductTypeOutput {
+	return pulumi.ToOutput(e).(DataSourceStarburstProductTypeOutput)
+}
+
+func (e DataSourceStarburstProductType) ToDataSourceStarburstProductTypeOutputWithContext(ctx context.Context) DataSourceStarburstProductTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceStarburstProductTypeOutput)
+}
+
+func (e DataSourceStarburstProductType) ToDataSourceStarburstProductTypePtrOutput() DataSourceStarburstProductTypePtrOutput {
+	return e.ToDataSourceStarburstProductTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceStarburstProductType) ToDataSourceStarburstProductTypePtrOutputWithContext(ctx context.Context) DataSourceStarburstProductTypePtrOutput {
+	return DataSourceStarburstProductType(e).ToDataSourceStarburstProductTypeOutputWithContext(ctx).ToDataSourceStarburstProductTypePtrOutputWithContext(ctx)
+}
+
+func (e DataSourceStarburstProductType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceStarburstProductType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceStarburstProductType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceStarburstProductType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceStarburstProductTypeOutput struct{ *pulumi.OutputState }
+
+func (DataSourceStarburstProductTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceStarburstProductType)(nil)).Elem()
+}
+
+func (o DataSourceStarburstProductTypeOutput) ToDataSourceStarburstProductTypeOutput() DataSourceStarburstProductTypeOutput {
+	return o
+}
+
+func (o DataSourceStarburstProductTypeOutput) ToDataSourceStarburstProductTypeOutputWithContext(ctx context.Context) DataSourceStarburstProductTypeOutput {
+	return o
+}
+
+func (o DataSourceStarburstProductTypeOutput) ToDataSourceStarburstProductTypePtrOutput() DataSourceStarburstProductTypePtrOutput {
+	return o.ToDataSourceStarburstProductTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceStarburstProductTypeOutput) ToDataSourceStarburstProductTypePtrOutputWithContext(ctx context.Context) DataSourceStarburstProductTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceStarburstProductType) *DataSourceStarburstProductType {
+		return &v
+	}).(DataSourceStarburstProductTypePtrOutput)
+}
+
+func (o DataSourceStarburstProductTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataSourceStarburstProductType] {
+	return pulumix.Output[DataSourceStarburstProductType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DataSourceStarburstProductTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceStarburstProductTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceStarburstProductType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceStarburstProductTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceStarburstProductTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceStarburstProductType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceStarburstProductTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceStarburstProductTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceStarburstProductType)(nil)).Elem()
+}
+
+func (o DataSourceStarburstProductTypePtrOutput) ToDataSourceStarburstProductTypePtrOutput() DataSourceStarburstProductTypePtrOutput {
+	return o
+}
+
+func (o DataSourceStarburstProductTypePtrOutput) ToDataSourceStarburstProductTypePtrOutputWithContext(ctx context.Context) DataSourceStarburstProductTypePtrOutput {
+	return o
+}
+
+func (o DataSourceStarburstProductTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataSourceStarburstProductType] {
+	return pulumix.Output[*DataSourceStarburstProductType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DataSourceStarburstProductTypePtrOutput) Elem() DataSourceStarburstProductTypeOutput {
+	return o.ApplyT(func(v *DataSourceStarburstProductType) DataSourceStarburstProductType {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceStarburstProductType
+		return ret
+	}).(DataSourceStarburstProductTypeOutput)
+}
+
+func (o DataSourceStarburstProductTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceStarburstProductTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceStarburstProductType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceStarburstProductTypeInput is an input type that accepts DataSourceStarburstProductTypeArgs and DataSourceStarburstProductTypeOutput values.
+// You can construct a concrete instance of `DataSourceStarburstProductTypeInput` via:
+//
+//	DataSourceStarburstProductTypeArgs{...}
+type DataSourceStarburstProductTypeInput interface {
+	pulumi.Input
+
+	ToDataSourceStarburstProductTypeOutput() DataSourceStarburstProductTypeOutput
+	ToDataSourceStarburstProductTypeOutputWithContext(context.Context) DataSourceStarburstProductTypeOutput
+}
+
+var dataSourceStarburstProductTypePtrType = reflect.TypeOf((**DataSourceStarburstProductType)(nil)).Elem()
+
+type DataSourceStarburstProductTypePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceStarburstProductTypePtrOutput() DataSourceStarburstProductTypePtrOutput
+	ToDataSourceStarburstProductTypePtrOutputWithContext(context.Context) DataSourceStarburstProductTypePtrOutput
+}
+
+type dataSourceStarburstProductTypePtr string
+
+func DataSourceStarburstProductTypePtr(v string) DataSourceStarburstProductTypePtrInput {
+	return (*dataSourceStarburstProductTypePtr)(&v)
+}
+
+func (*dataSourceStarburstProductTypePtr) ElementType() reflect.Type {
+	return dataSourceStarburstProductTypePtrType
+}
+
+func (in *dataSourceStarburstProductTypePtr) ToDataSourceStarburstProductTypePtrOutput() DataSourceStarburstProductTypePtrOutput {
+	return pulumi.ToOutput(in).(DataSourceStarburstProductTypePtrOutput)
+}
+
+func (in *dataSourceStarburstProductTypePtr) ToDataSourceStarburstProductTypePtrOutputWithContext(ctx context.Context) DataSourceStarburstProductTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceStarburstProductTypePtrOutput)
+}
+
+func (in *dataSourceStarburstProductTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DataSourceStarburstProductType] {
+	return pulumix.Output[*DataSourceStarburstProductType]{
+		OutputState: in.ToDataSourceStarburstProductTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataSourceType string
 
 const (
@@ -43788,6 +44446,8 @@ const (
 	DataSourceTypeTeradata            = DataSourceType("TERADATA")
 	DataSourceTypeTwitter             = DataSourceType("TWITTER")
 	DataSourceTypeTimestream          = DataSourceType("TIMESTREAM")
+	DataSourceTypeStarburst           = DataSourceType("STARBURST")
+	DataSourceTypeTrino               = DataSourceType("TRINO")
 )
 
 func (DataSourceType) ElementType() reflect.Type {
@@ -48729,6 +49389,193 @@ func (in *templateDateAggregationFunctionPtr) ToTemplateDateAggregationFunctionP
 func (in *templateDateAggregationFunctionPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateDateAggregationFunction] {
 	return pulumix.Output[*TemplateDateAggregationFunction]{
 		OutputState: in.ToTemplateDateAggregationFunctionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TemplateDayOfTheWeek string
+
+const (
+	TemplateDayOfTheWeekSunday    = TemplateDayOfTheWeek("SUNDAY")
+	TemplateDayOfTheWeekMonday    = TemplateDayOfTheWeek("MONDAY")
+	TemplateDayOfTheWeekTuesday   = TemplateDayOfTheWeek("TUESDAY")
+	TemplateDayOfTheWeekWednesday = TemplateDayOfTheWeek("WEDNESDAY")
+	TemplateDayOfTheWeekThursday  = TemplateDayOfTheWeek("THURSDAY")
+	TemplateDayOfTheWeekFriday    = TemplateDayOfTheWeek("FRIDAY")
+	TemplateDayOfTheWeekSaturday  = TemplateDayOfTheWeek("SATURDAY")
+)
+
+func (TemplateDayOfTheWeek) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateDayOfTheWeek)(nil)).Elem()
+}
+
+func (e TemplateDayOfTheWeek) ToTemplateDayOfTheWeekOutput() TemplateDayOfTheWeekOutput {
+	return pulumi.ToOutput(e).(TemplateDayOfTheWeekOutput)
+}
+
+func (e TemplateDayOfTheWeek) ToTemplateDayOfTheWeekOutputWithContext(ctx context.Context) TemplateDayOfTheWeekOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateDayOfTheWeekOutput)
+}
+
+func (e TemplateDayOfTheWeek) ToTemplateDayOfTheWeekPtrOutput() TemplateDayOfTheWeekPtrOutput {
+	return e.ToTemplateDayOfTheWeekPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateDayOfTheWeek) ToTemplateDayOfTheWeekPtrOutputWithContext(ctx context.Context) TemplateDayOfTheWeekPtrOutput {
+	return TemplateDayOfTheWeek(e).ToTemplateDayOfTheWeekOutputWithContext(ctx).ToTemplateDayOfTheWeekPtrOutputWithContext(ctx)
+}
+
+func (e TemplateDayOfTheWeek) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateDayOfTheWeek) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateDayOfTheWeek) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateDayOfTheWeek) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateDayOfTheWeekOutput struct{ *pulumi.OutputState }
+
+func (TemplateDayOfTheWeekOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateDayOfTheWeek)(nil)).Elem()
+}
+
+func (o TemplateDayOfTheWeekOutput) ToTemplateDayOfTheWeekOutput() TemplateDayOfTheWeekOutput {
+	return o
+}
+
+func (o TemplateDayOfTheWeekOutput) ToTemplateDayOfTheWeekOutputWithContext(ctx context.Context) TemplateDayOfTheWeekOutput {
+	return o
+}
+
+func (o TemplateDayOfTheWeekOutput) ToTemplateDayOfTheWeekPtrOutput() TemplateDayOfTheWeekPtrOutput {
+	return o.ToTemplateDayOfTheWeekPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateDayOfTheWeekOutput) ToTemplateDayOfTheWeekPtrOutputWithContext(ctx context.Context) TemplateDayOfTheWeekPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateDayOfTheWeek) *TemplateDayOfTheWeek {
+		return &v
+	}).(TemplateDayOfTheWeekPtrOutput)
+}
+
+func (o TemplateDayOfTheWeekOutput) ToOutput(ctx context.Context) pulumix.Output[TemplateDayOfTheWeek] {
+	return pulumix.Output[TemplateDayOfTheWeek]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TemplateDayOfTheWeekOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateDayOfTheWeekOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateDayOfTheWeek) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateDayOfTheWeekOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateDayOfTheWeekOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateDayOfTheWeek) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateDayOfTheWeekPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateDayOfTheWeekPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateDayOfTheWeek)(nil)).Elem()
+}
+
+func (o TemplateDayOfTheWeekPtrOutput) ToTemplateDayOfTheWeekPtrOutput() TemplateDayOfTheWeekPtrOutput {
+	return o
+}
+
+func (o TemplateDayOfTheWeekPtrOutput) ToTemplateDayOfTheWeekPtrOutputWithContext(ctx context.Context) TemplateDayOfTheWeekPtrOutput {
+	return o
+}
+
+func (o TemplateDayOfTheWeekPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateDayOfTheWeek] {
+	return pulumix.Output[*TemplateDayOfTheWeek]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TemplateDayOfTheWeekPtrOutput) Elem() TemplateDayOfTheWeekOutput {
+	return o.ApplyT(func(v *TemplateDayOfTheWeek) TemplateDayOfTheWeek {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateDayOfTheWeek
+		return ret
+	}).(TemplateDayOfTheWeekOutput)
+}
+
+func (o TemplateDayOfTheWeekPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateDayOfTheWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateDayOfTheWeek) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateDayOfTheWeekInput is an input type that accepts TemplateDayOfTheWeekArgs and TemplateDayOfTheWeekOutput values.
+// You can construct a concrete instance of `TemplateDayOfTheWeekInput` via:
+//
+//	TemplateDayOfTheWeekArgs{...}
+type TemplateDayOfTheWeekInput interface {
+	pulumi.Input
+
+	ToTemplateDayOfTheWeekOutput() TemplateDayOfTheWeekOutput
+	ToTemplateDayOfTheWeekOutputWithContext(context.Context) TemplateDayOfTheWeekOutput
+}
+
+var templateDayOfTheWeekPtrType = reflect.TypeOf((**TemplateDayOfTheWeek)(nil)).Elem()
+
+type TemplateDayOfTheWeekPtrInput interface {
+	pulumi.Input
+
+	ToTemplateDayOfTheWeekPtrOutput() TemplateDayOfTheWeekPtrOutput
+	ToTemplateDayOfTheWeekPtrOutputWithContext(context.Context) TemplateDayOfTheWeekPtrOutput
+}
+
+type templateDayOfTheWeekPtr string
+
+func TemplateDayOfTheWeekPtr(v string) TemplateDayOfTheWeekPtrInput {
+	return (*templateDayOfTheWeekPtr)(&v)
+}
+
+func (*templateDayOfTheWeekPtr) ElementType() reflect.Type {
+	return templateDayOfTheWeekPtrType
+}
+
+func (in *templateDayOfTheWeekPtr) ToTemplateDayOfTheWeekPtrOutput() TemplateDayOfTheWeekPtrOutput {
+	return pulumi.ToOutput(in).(TemplateDayOfTheWeekPtrOutput)
+}
+
+func (in *templateDayOfTheWeekPtr) ToTemplateDayOfTheWeekPtrOutputWithContext(ctx context.Context) TemplateDayOfTheWeekPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateDayOfTheWeekPtrOutput)
+}
+
+func (in *templateDayOfTheWeekPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateDayOfTheWeek] {
+	return pulumix.Output[*TemplateDayOfTheWeek]{
+		OutputState: in.ToTemplateDayOfTheWeekPtrOutputWithContext(ctx).OutputState,
 	}
 }
 
@@ -69575,6 +70422,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDataLabelPositionPtrInput)(nil)).Elem(), AnalysisDataLabelPosition("INSIDE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDateAggregationFunctionInput)(nil)).Elem(), AnalysisDateAggregationFunction("COUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDateAggregationFunctionPtrInput)(nil)).Elem(), AnalysisDateAggregationFunction("COUNT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDayOfTheWeekInput)(nil)).Elem(), AnalysisDayOfTheWeek("SUNDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisDayOfTheWeekPtrInput)(nil)).Elem(), AnalysisDayOfTheWeek("SUNDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisFilterNullOptionInput)(nil)).Elem(), AnalysisFilterNullOption("ALL_VALUES"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisFilterNullOptionPtrInput)(nil)).Elem(), AnalysisFilterNullOption("ALL_VALUES"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisFilterVisualScopeInput)(nil)).Elem(), AnalysisFilterVisualScope("ALL_VISUALS"))
@@ -69803,6 +70652,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDataLabelPositionPtrInput)(nil)).Elem(), DashboardDataLabelPosition("INSIDE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDateAggregationFunctionInput)(nil)).Elem(), DashboardDateAggregationFunction("COUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDateAggregationFunctionPtrInput)(nil)).Elem(), DashboardDateAggregationFunction("COUNT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDayOfTheWeekInput)(nil)).Elem(), DashboardDayOfTheWeek("SUNDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDayOfTheWeekPtrInput)(nil)).Elem(), DashboardDayOfTheWeek("SUNDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardFilterNullOptionInput)(nil)).Elem(), DashboardFilterNullOption("ALL_VALUES"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardFilterNullOptionPtrInput)(nil)).Elem(), DashboardFilterNullOption("ALL_VALUES"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardFilterVisualScopeInput)(nil)).Elem(), DashboardFilterVisualScope("ALL_VISUALS"))
@@ -70001,6 +70852,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetTimeGranularityPtrInput)(nil)).Elem(), DataSetTimeGranularity("YEAR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceErrorInfoTypeInput)(nil)).Elem(), DataSourceErrorInfoType("ACCESS_DENIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceErrorInfoTypePtrInput)(nil)).Elem(), DataSourceErrorInfoType("ACCESS_DENIED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceStarburstProductTypeInput)(nil)).Elem(), DataSourceStarburstProductType("GALAXY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceStarburstProductTypePtrInput)(nil)).Elem(), DataSourceStarburstProductType("GALAXY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTypeInput)(nil)).Elem(), DataSourceType("ADOBE_ANALYTICS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceTypePtrInput)(nil)).Elem(), DataSourceType("ADOBE_ANALYTICS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapRefreshTypeInput)(nil)).Elem(), RefreshScheduleMapRefreshType("FULL_REFRESH"))
@@ -70055,6 +70908,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDataLabelPositionPtrInput)(nil)).Elem(), TemplateDataLabelPosition("INSIDE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDateAggregationFunctionInput)(nil)).Elem(), TemplateDateAggregationFunction("COUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDateAggregationFunctionPtrInput)(nil)).Elem(), TemplateDateAggregationFunction("COUNT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDayOfTheWeekInput)(nil)).Elem(), TemplateDayOfTheWeek("SUNDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateDayOfTheWeekPtrInput)(nil)).Elem(), TemplateDayOfTheWeek("SUNDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterNullOptionInput)(nil)).Elem(), TemplateFilterNullOption("ALL_VALUES"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterNullOptionPtrInput)(nil)).Elem(), TemplateFilterNullOption("ALL_VALUES"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterVisualScopeInput)(nil)).Elem(), TemplateFilterVisualScope("ALL_VISUALS"))
@@ -70320,6 +71175,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisDataLabelPositionPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisDateAggregationFunctionOutput{})
 	pulumi.RegisterOutputType(AnalysisDateAggregationFunctionPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisDayOfTheWeekOutput{})
+	pulumi.RegisterOutputType(AnalysisDayOfTheWeekPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisErrorTypeOutput{})
 	pulumi.RegisterOutputType(AnalysisErrorTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisFilterNullOptionOutput{})
@@ -70550,6 +71407,8 @@ func init() {
 	pulumi.RegisterOutputType(DashboardDataLabelPositionPtrOutput{})
 	pulumi.RegisterOutputType(DashboardDateAggregationFunctionOutput{})
 	pulumi.RegisterOutputType(DashboardDateAggregationFunctionPtrOutput{})
+	pulumi.RegisterOutputType(DashboardDayOfTheWeekOutput{})
+	pulumi.RegisterOutputType(DashboardDayOfTheWeekPtrOutput{})
 	pulumi.RegisterOutputType(DashboardErrorTypeOutput{})
 	pulumi.RegisterOutputType(DashboardErrorTypePtrOutput{})
 	pulumi.RegisterOutputType(DashboardFilterNullOptionOutput{})
@@ -70736,6 +71595,8 @@ func init() {
 	pulumi.RegisterOutputType(DashboardWordCloudWordScalingPtrOutput{})
 	pulumi.RegisterOutputType(DataSetColumnDataTypeOutput{})
 	pulumi.RegisterOutputType(DataSetColumnDataTypePtrOutput{})
+	pulumi.RegisterOutputType(DataSetColumnSubDataTypeOutput{})
+	pulumi.RegisterOutputType(DataSetColumnSubDataTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSetDatasetParameterValueTypeOutput{})
 	pulumi.RegisterOutputType(DataSetDatasetParameterValueTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSetGeoSpatialCountryCodeOutput{})
@@ -70756,6 +71617,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceErrorInfoTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceResourceStatusOutput{})
 	pulumi.RegisterOutputType(DataSourceResourceStatusPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceStarburstProductTypeOutput{})
+	pulumi.RegisterOutputType(DataSourceStarburstProductTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceTypeOutput{})
 	pulumi.RegisterOutputType(DataSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(RefreshScheduleMapRefreshTypeOutput{})
@@ -70810,6 +71673,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplateDataLabelPositionPtrOutput{})
 	pulumi.RegisterOutputType(TemplateDateAggregationFunctionOutput{})
 	pulumi.RegisterOutputType(TemplateDateAggregationFunctionPtrOutput{})
+	pulumi.RegisterOutputType(TemplateDayOfTheWeekOutput{})
+	pulumi.RegisterOutputType(TemplateDayOfTheWeekPtrOutput{})
 	pulumi.RegisterOutputType(TemplateErrorTypeOutput{})
 	pulumi.RegisterOutputType(TemplateErrorTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplateFilterNullOptionOutput{})

@@ -14,8 +14,16 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// Specifies the type of updated objects (new, changed, deleted) that will be automatically exported from your file system to the linked S3 bucket.
+// Describes a data repository association's automatic export policy. The “AutoExportPolicy“ defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
+//
+//	The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
 type DataRepositoryAssociationAutoExportPolicy struct {
+	// The ``AutoExportPolicy`` can have the following event values:
+	//   +   ``NEW`` - New files and directories are automatically exported to the data repository as they are added to the file system.
+	//   +   ``CHANGED`` - Changes to files and directories on the file system are automatically exported to the data repository.
+	//   +   ``DELETED`` - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
+	//
+	//  You can define any combination of event types for your ``AutoExportPolicy``.
 	Events []DataRepositoryAssociationEventType `pulumi:"events"`
 }
 
@@ -30,8 +38,16 @@ type DataRepositoryAssociationAutoExportPolicyInput interface {
 	ToDataRepositoryAssociationAutoExportPolicyOutputWithContext(context.Context) DataRepositoryAssociationAutoExportPolicyOutput
 }
 
-// Specifies the type of updated objects (new, changed, deleted) that will be automatically exported from your file system to the linked S3 bucket.
+// Describes a data repository association's automatic export policy. The “AutoExportPolicy“ defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
+//
+//	The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
 type DataRepositoryAssociationAutoExportPolicyArgs struct {
+	// The ``AutoExportPolicy`` can have the following event values:
+	//   +   ``NEW`` - New files and directories are automatically exported to the data repository as they are added to the file system.
+	//   +   ``CHANGED`` - Changes to files and directories on the file system are automatically exported to the data repository.
+	//   +   ``DELETED`` - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
+	//
+	//  You can define any combination of event types for your ``AutoExportPolicy``.
 	Events DataRepositoryAssociationEventTypeArrayInput `pulumi:"events"`
 }
 
@@ -100,7 +116,9 @@ func (i *dataRepositoryAssociationAutoExportPolicyPtrType) ToOutput(ctx context.
 	}
 }
 
-// Specifies the type of updated objects (new, changed, deleted) that will be automatically exported from your file system to the linked S3 bucket.
+// Describes a data repository association's automatic export policy. The “AutoExportPolicy“ defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
+//
+//	The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
 type DataRepositoryAssociationAutoExportPolicyOutput struct{ *pulumi.OutputState }
 
 func (DataRepositoryAssociationAutoExportPolicyOutput) ElementType() reflect.Type {
@@ -131,6 +149,15 @@ func (o DataRepositoryAssociationAutoExportPolicyOutput) ToOutput(ctx context.Co
 	}
 }
 
+// The “AutoExportPolicy“ can have the following event values:
+//
+//   - “NEW“ - New files and directories are automatically exported to the data repository as they are added to the file system.
+//
+//   - “CHANGED“ - Changes to files and directories on the file system are automatically exported to the data repository.
+//
+//   - “DELETED“ - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
+//
+//     You can define any combination of event types for your “AutoExportPolicy“.
 func (o DataRepositoryAssociationAutoExportPolicyOutput) Events() DataRepositoryAssociationEventTypeArrayOutput {
 	return o.ApplyT(func(v DataRepositoryAssociationAutoExportPolicy) []DataRepositoryAssociationEventType {
 		return v.Events
@@ -167,6 +194,15 @@ func (o DataRepositoryAssociationAutoExportPolicyPtrOutput) Elem() DataRepositor
 	}).(DataRepositoryAssociationAutoExportPolicyOutput)
 }
 
+// The “AutoExportPolicy“ can have the following event values:
+//
+//   - “NEW“ - New files and directories are automatically exported to the data repository as they are added to the file system.
+//
+//   - “CHANGED“ - Changes to files and directories on the file system are automatically exported to the data repository.
+//
+//   - “DELETED“ - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
+//
+//     You can define any combination of event types for your “AutoExportPolicy“.
 func (o DataRepositoryAssociationAutoExportPolicyPtrOutput) Events() DataRepositoryAssociationEventTypeArrayOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociationAutoExportPolicy) []DataRepositoryAssociationEventType {
 		if v == nil {
@@ -176,8 +212,16 @@ func (o DataRepositoryAssociationAutoExportPolicyPtrOutput) Events() DataReposit
 	}).(DataRepositoryAssociationEventTypeArrayOutput)
 }
 
-// Specifies the type of updated objects (new, changed, deleted) that will be automatically imported from the linked S3 bucket to your file system.
+// Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
+//
+//	The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
 type DataRepositoryAssociationAutoImportPolicy struct {
+	// The ``AutoImportPolicy`` can have the following event values:
+	//   +   ``NEW`` - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
+	//   +   ``CHANGED`` - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.
+	//   +   ``DELETED`` - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
+	//
+	//  You can define any combination of event types for your ``AutoImportPolicy``.
 	Events []DataRepositoryAssociationEventType `pulumi:"events"`
 }
 
@@ -192,8 +236,16 @@ type DataRepositoryAssociationAutoImportPolicyInput interface {
 	ToDataRepositoryAssociationAutoImportPolicyOutputWithContext(context.Context) DataRepositoryAssociationAutoImportPolicyOutput
 }
 
-// Specifies the type of updated objects (new, changed, deleted) that will be automatically imported from the linked S3 bucket to your file system.
+// Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
+//
+//	The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
 type DataRepositoryAssociationAutoImportPolicyArgs struct {
+	// The ``AutoImportPolicy`` can have the following event values:
+	//   +   ``NEW`` - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
+	//   +   ``CHANGED`` - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.
+	//   +   ``DELETED`` - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
+	//
+	//  You can define any combination of event types for your ``AutoImportPolicy``.
 	Events DataRepositoryAssociationEventTypeArrayInput `pulumi:"events"`
 }
 
@@ -262,7 +314,9 @@ func (i *dataRepositoryAssociationAutoImportPolicyPtrType) ToOutput(ctx context.
 	}
 }
 
-// Specifies the type of updated objects (new, changed, deleted) that will be automatically imported from the linked S3 bucket to your file system.
+// Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
+//
+//	The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
 type DataRepositoryAssociationAutoImportPolicyOutput struct{ *pulumi.OutputState }
 
 func (DataRepositoryAssociationAutoImportPolicyOutput) ElementType() reflect.Type {
@@ -293,6 +347,15 @@ func (o DataRepositoryAssociationAutoImportPolicyOutput) ToOutput(ctx context.Co
 	}
 }
 
+// The “AutoImportPolicy“ can have the following event values:
+//
+//   - “NEW“ - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
+//
+//   - “CHANGED“ - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.
+//
+//   - “DELETED“ - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
+//
+//     You can define any combination of event types for your “AutoImportPolicy“.
 func (o DataRepositoryAssociationAutoImportPolicyOutput) Events() DataRepositoryAssociationEventTypeArrayOutput {
 	return o.ApplyT(func(v DataRepositoryAssociationAutoImportPolicy) []DataRepositoryAssociationEventType {
 		return v.Events
@@ -329,6 +392,15 @@ func (o DataRepositoryAssociationAutoImportPolicyPtrOutput) Elem() DataRepositor
 	}).(DataRepositoryAssociationAutoImportPolicyOutput)
 }
 
+// The “AutoImportPolicy“ can have the following event values:
+//
+//   - “NEW“ - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
+//
+//   - “CHANGED“ - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.
+//
+//   - “DELETED“ - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
+//
+//     You can define any combination of event types for your “AutoImportPolicy“.
 func (o DataRepositoryAssociationAutoImportPolicyPtrOutput) Events() DataRepositoryAssociationEventTypeArrayOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociationAutoImportPolicy) []DataRepositoryAssociationEventType {
 		if v == nil {
@@ -340,7 +412,11 @@ func (o DataRepositoryAssociationAutoImportPolicyPtrOutput) Events() DataReposit
 
 // The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 type DataRepositoryAssociationS3 struct {
+	// Describes a data repository association's automatic export policy. The ``AutoExportPolicy`` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
+	//  The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
 	AutoExportPolicy *DataRepositoryAssociationAutoExportPolicy `pulumi:"autoExportPolicy"`
+	// Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
+	//  The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
 	AutoImportPolicy *DataRepositoryAssociationAutoImportPolicy `pulumi:"autoImportPolicy"`
 }
 
@@ -357,7 +433,11 @@ type DataRepositoryAssociationS3Input interface {
 
 // The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 type DataRepositoryAssociationS3Args struct {
+	// Describes a data repository association's automatic export policy. The ``AutoExportPolicy`` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
+	//  The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
 	AutoExportPolicy DataRepositoryAssociationAutoExportPolicyPtrInput `pulumi:"autoExportPolicy"`
+	// Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
+	//  The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
 	AutoImportPolicy DataRepositoryAssociationAutoImportPolicyPtrInput `pulumi:"autoImportPolicy"`
 }
 
@@ -457,12 +537,18 @@ func (o DataRepositoryAssociationS3Output) ToOutput(ctx context.Context) pulumix
 	}
 }
 
+// Describes a data repository association's automatic export policy. The “AutoExportPolicy“ defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
+//
+//	The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
 func (o DataRepositoryAssociationS3Output) AutoExportPolicy() DataRepositoryAssociationAutoExportPolicyPtrOutput {
 	return o.ApplyT(func(v DataRepositoryAssociationS3) *DataRepositoryAssociationAutoExportPolicy {
 		return v.AutoExportPolicy
 	}).(DataRepositoryAssociationAutoExportPolicyPtrOutput)
 }
 
+// Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
+//
+//	The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
 func (o DataRepositoryAssociationS3Output) AutoImportPolicy() DataRepositoryAssociationAutoImportPolicyPtrOutput {
 	return o.ApplyT(func(v DataRepositoryAssociationS3) *DataRepositoryAssociationAutoImportPolicy {
 		return v.AutoImportPolicy
@@ -499,6 +585,9 @@ func (o DataRepositoryAssociationS3PtrOutput) Elem() DataRepositoryAssociationS3
 	}).(DataRepositoryAssociationS3Output)
 }
 
+// Describes a data repository association's automatic export policy. The “AutoExportPolicy“ defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
+//
+//	The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
 func (o DataRepositoryAssociationS3PtrOutput) AutoExportPolicy() DataRepositoryAssociationAutoExportPolicyPtrOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociationS3) *DataRepositoryAssociationAutoExportPolicy {
 		if v == nil {
@@ -508,6 +597,9 @@ func (o DataRepositoryAssociationS3PtrOutput) AutoExportPolicy() DataRepositoryA
 	}).(DataRepositoryAssociationAutoExportPolicyPtrOutput)
 }
 
+// Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
+//
+//	The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
 func (o DataRepositoryAssociationS3PtrOutput) AutoImportPolicy() DataRepositoryAssociationAutoImportPolicyPtrOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociationS3) *DataRepositoryAssociationAutoImportPolicy {
 		if v == nil {
@@ -517,11 +609,11 @@ func (o DataRepositoryAssociationS3PtrOutput) AutoImportPolicy() DataRepositoryA
 	}).(DataRepositoryAssociationAutoImportPolicyPtrOutput)
 }
 
-// A key-value pair to associate with a resource.
+// Specifies a key-value pair for a resource tag.
 type DataRepositoryAssociationTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// A value that specifies the ``TagKey``, the name of the tag. Tag keys must be unique for the resource to which they are attached.
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// A value that specifies the ``TagValue``, the value assigned to the corresponding tag key. Tag values can be null and don't have to be unique in a tag set. For example, you can have a key-value pair in a tag set of ``finances : April`` and also of ``payroll : April``.
 	Value string `pulumi:"value"`
 }
 
@@ -536,11 +628,11 @@ type DataRepositoryAssociationTagInput interface {
 	ToDataRepositoryAssociationTagOutputWithContext(context.Context) DataRepositoryAssociationTagOutput
 }
 
-// A key-value pair to associate with a resource.
+// Specifies a key-value pair for a resource tag.
 type DataRepositoryAssociationTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// A value that specifies the ``TagKey``, the name of the tag. Tag keys must be unique for the resource to which they are attached.
 	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// A value that specifies the ``TagValue``, the value assigned to the corresponding tag key. Tag values can be null and don't have to be unique in a tag set. For example, you can have a key-value pair in a tag set of ``finances : April`` and also of ``payroll : April``.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -593,7 +685,7 @@ func (i DataRepositoryAssociationTagArray) ToOutput(ctx context.Context) pulumix
 	}
 }
 
-// A key-value pair to associate with a resource.
+// Specifies a key-value pair for a resource tag.
 type DataRepositoryAssociationTagOutput struct{ *pulumi.OutputState }
 
 func (DataRepositoryAssociationTagOutput) ElementType() reflect.Type {
@@ -614,12 +706,12 @@ func (o DataRepositoryAssociationTagOutput) ToOutput(ctx context.Context) pulumi
 	}
 }
 
-// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+// A value that specifies the “TagKey“, the name of the tag. Tag keys must be unique for the resource to which they are attached.
 func (o DataRepositoryAssociationTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v DataRepositoryAssociationTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+// A value that specifies the “TagValue“, the value assigned to the corresponding tag key. Tag values can be null and don't have to be unique in a tag set. For example, you can have a key-value pair in a tag set of “finances : April“ and also of “payroll : April“.
 func (o DataRepositoryAssociationTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v DataRepositoryAssociationTag) string { return v.Value }).(pulumi.StringOutput)
 }

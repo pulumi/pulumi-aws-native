@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::GameLift::GameSessionQueue
- *
- * @deprecated GameSessionQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * The AWS::GameLift::GameSessionQueue resource creates an Amazon GameLift (GameLift) game session queue.
  */
 export class GameSessionQueue extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class GameSessionQueue extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GameSessionQueue {
-        pulumi.log.warn("GameSessionQueue is deprecated: GameSessionQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new GameSessionQueue(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,15 +37,45 @@ export class GameSessionQueue extends pulumi.CustomResource {
         return obj['__pulumiType'] === GameSessionQueue.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Information that is added to all events that are related to this game session queue.
+     */
     public readonly customEventData!: pulumi.Output<string | undefined>;
+    /**
+     * A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.
+     */
     public readonly destinations!: pulumi.Output<outputs.gamelift.GameSessionQueueDestination[] | undefined>;
+    /**
+     * A list of locations where a queue is allowed to place new game sessions.
+     */
     public readonly filterConfiguration!: pulumi.Output<outputs.gamelift.GameSessionQueueFilterConfiguration | undefined>;
+    /**
+     * A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * An SNS topic ARN that is set up to receive game session placement notifications.
+     */
     public readonly notificationTarget!: pulumi.Output<string | undefined>;
+    /**
+     * A set of policies that act as a sliding cap on player latency.
+     */
     public readonly playerLatencyPolicies!: pulumi.Output<outputs.gamelift.GameSessionQueuePlayerLatencyPolicy[] | undefined>;
+    /**
+     * Custom settings to use when prioritizing destinations and locations for game session placements.
+     */
     public readonly priorityConfiguration!: pulumi.Output<outputs.gamelift.GameSessionQueuePriorityConfiguration | undefined>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     public readonly tags!: pulumi.Output<outputs.gamelift.GameSessionQueueTag[] | undefined>;
+    /**
+     * The maximum time, in seconds, that a new game session placement request remains in the queue.
+     */
     public readonly timeoutInSeconds!: pulumi.Output<number | undefined>;
 
     /**
@@ -58,9 +85,7 @@ export class GameSessionQueue extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated GameSessionQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: GameSessionQueueArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("GameSessionQueue is deprecated: GameSessionQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -97,13 +122,40 @@ export class GameSessionQueue extends pulumi.CustomResource {
  * The set of arguments for constructing a GameSessionQueue resource.
  */
 export interface GameSessionQueueArgs {
+    /**
+     * Information that is added to all events that are related to this game session queue.
+     */
     customEventData?: pulumi.Input<string>;
+    /**
+     * A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.
+     */
     destinations?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueueDestinationArgs>[]>;
+    /**
+     * A list of locations where a queue is allowed to place new game sessions.
+     */
     filterConfiguration?: pulumi.Input<inputs.gamelift.GameSessionQueueFilterConfigurationArgs>;
+    /**
+     * A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * An SNS topic ARN that is set up to receive game session placement notifications.
+     */
     notificationTarget?: pulumi.Input<string>;
+    /**
+     * A set of policies that act as a sliding cap on player latency.
+     */
     playerLatencyPolicies?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueuePlayerLatencyPolicyArgs>[]>;
+    /**
+     * Custom settings to use when prioritizing destinations and locations for game session placements.
+     */
     priorityConfiguration?: pulumi.Input<inputs.gamelift.GameSessionQueuePriorityConfigurationArgs>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.gamelift.GameSessionQueueTagArgs>[]>;
+    /**
+     * The maximum time, in seconds, that a new game session placement request remains in the queue.
+     */
     timeoutInSeconds?: pulumi.Input<number>;
 }

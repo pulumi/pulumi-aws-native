@@ -70,6 +70,36 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     }
 
     /// <summary>
+    /// The type of lifecycle policy
+    /// </summary>
+    [EnumType]
+    public readonly struct LifecyclePolicyType : IEquatable<LifecyclePolicyType>
+    {
+        private readonly string _value;
+
+        private LifecyclePolicyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LifecyclePolicyType Retention { get; } = new LifecyclePolicyType("retention");
+
+        public static bool operator ==(LifecyclePolicyType left, LifecyclePolicyType right) => left.Equals(right);
+        public static bool operator !=(LifecyclePolicyType left, LifecyclePolicyType right) => !left.Equals(right);
+
+        public static explicit operator string(LifecyclePolicyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LifecyclePolicyType other && Equals(other);
+        public bool Equals(LifecyclePolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Config type for security config
     /// </summary>
     [EnumType]

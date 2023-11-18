@@ -30,13 +30,15 @@ type Application struct {
 	// Initial capacity initialized when an Application is started.
 	InitialCapacity ApplicationInitialCapacityConfigKeyValuePairArrayOutput `pulumi:"initialCapacity"`
 	// Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
-	MaximumCapacity ApplicationMaximumAllowedResourcesPtrOutput `pulumi:"maximumCapacity"`
+	MaximumCapacity         ApplicationMaximumAllowedResourcesPtrOutput `pulumi:"maximumCapacity"`
+	MonitoringConfiguration ApplicationMonitoringConfigurationPtrOutput `pulumi:"monitoringConfiguration"`
 	// User friendly Application name.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Network Configuration for customer VPC connectivity.
 	NetworkConfiguration ApplicationNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
 	// EMR release label.
-	ReleaseLabel pulumi.StringOutput `pulumi:"releaseLabel"`
+	ReleaseLabel         pulumi.StringOutput                       `pulumi:"releaseLabel"`
+	RuntimeConfiguration ApplicationConfigurationObjectArrayOutput `pulumi:"runtimeConfiguration"`
 	// Tag map with key and value
 	Tags ApplicationTagArrayOutput `pulumi:"tags"`
 	// The type of the application
@@ -105,13 +107,15 @@ type applicationArgs struct {
 	// Initial capacity initialized when an Application is started.
 	InitialCapacity []ApplicationInitialCapacityConfigKeyValuePair `pulumi:"initialCapacity"`
 	// Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
-	MaximumCapacity *ApplicationMaximumAllowedResources `pulumi:"maximumCapacity"`
+	MaximumCapacity         *ApplicationMaximumAllowedResources `pulumi:"maximumCapacity"`
+	MonitoringConfiguration *ApplicationMonitoringConfiguration `pulumi:"monitoringConfiguration"`
 	// User friendly Application name.
 	Name *string `pulumi:"name"`
 	// Network Configuration for customer VPC connectivity.
 	NetworkConfiguration *ApplicationNetworkConfiguration `pulumi:"networkConfiguration"`
 	// EMR release label.
-	ReleaseLabel string `pulumi:"releaseLabel"`
+	ReleaseLabel         string                           `pulumi:"releaseLabel"`
+	RuntimeConfiguration []ApplicationConfigurationObject `pulumi:"runtimeConfiguration"`
 	// Tag map with key and value
 	Tags []ApplicationTag `pulumi:"tags"`
 	// The type of the application
@@ -131,13 +135,15 @@ type ApplicationArgs struct {
 	// Initial capacity initialized when an Application is started.
 	InitialCapacity ApplicationInitialCapacityConfigKeyValuePairArrayInput
 	// Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
-	MaximumCapacity ApplicationMaximumAllowedResourcesPtrInput
+	MaximumCapacity         ApplicationMaximumAllowedResourcesPtrInput
+	MonitoringConfiguration ApplicationMonitoringConfigurationPtrInput
 	// User friendly Application name.
 	Name pulumi.StringPtrInput
 	// Network Configuration for customer VPC connectivity.
 	NetworkConfiguration ApplicationNetworkConfigurationPtrInput
 	// EMR release label.
-	ReleaseLabel pulumi.StringInput
+	ReleaseLabel         pulumi.StringInput
+	RuntimeConfiguration ApplicationConfigurationObjectArrayInput
 	// Tag map with key and value
 	Tags ApplicationTagArrayInput
 	// The type of the application
@@ -233,6 +239,10 @@ func (o ApplicationOutput) MaximumCapacity() ApplicationMaximumAllowedResourcesP
 	return o.ApplyT(func(v *Application) ApplicationMaximumAllowedResourcesPtrOutput { return v.MaximumCapacity }).(ApplicationMaximumAllowedResourcesPtrOutput)
 }
 
+func (o ApplicationOutput) MonitoringConfiguration() ApplicationMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationMonitoringConfigurationPtrOutput { return v.MonitoringConfiguration }).(ApplicationMonitoringConfigurationPtrOutput)
+}
+
 // User friendly Application name.
 func (o ApplicationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
@@ -246,6 +256,10 @@ func (o ApplicationOutput) NetworkConfiguration() ApplicationNetworkConfiguratio
 // EMR release label.
 func (o ApplicationOutput) ReleaseLabel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ReleaseLabel }).(pulumi.StringOutput)
+}
+
+func (o ApplicationOutput) RuntimeConfiguration() ApplicationConfigurationObjectArrayOutput {
+	return o.ApplyT(func(v *Application) ApplicationConfigurationObjectArrayOutput { return v.RuntimeConfiguration }).(ApplicationConfigurationObjectArrayOutput)
 }
 
 // Tag map with key and value

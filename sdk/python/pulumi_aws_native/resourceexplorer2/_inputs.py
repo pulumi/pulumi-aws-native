@@ -12,8 +12,8 @@ from ._enums import *
 
 __all__ = [
     'IndexTagMapArgs',
-    'ViewFiltersArgs',
     'ViewIncludedPropertyArgs',
+    'ViewSearchFilterArgs',
     'ViewTagMapArgs',
 ]
 
@@ -21,22 +21,6 @@ __all__ = [
 class IndexTagMapArgs:
     def __init__(__self__):
         pass
-
-
-@pulumi.input_type
-class ViewFiltersArgs:
-    def __init__(__self__, *,
-                 filter_string: pulumi.Input[str]):
-        pulumi.set(__self__, "filter_string", filter_string)
-
-    @property
-    @pulumi.getter(name="filterString")
-    def filter_string(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "filter_string")
-
-    @filter_string.setter
-    def filter_string(self, value: pulumi.Input[str]):
-        pulumi.set(self, "filter_string", value)
 
 
 @pulumi.input_type
@@ -53,6 +37,22 @@ class ViewIncludedPropertyArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class ViewSearchFilterArgs:
+    def __init__(__self__, *,
+                 filter_string: pulumi.Input[str]):
+        pulumi.set(__self__, "filter_string", filter_string)
+
+    @property
+    @pulumi.getter(name="filterString")
+    def filter_string(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "filter_string")
+
+    @filter_string.setter
+    def filter_string(self, value: pulumi.Input[str]):
+        pulumi.set(self, "filter_string", value)
 
 
 @pulumi.input_type

@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         public readonly string? AttachmentType;
         /// <summary>
-        /// The ARN of a core network for the VPC attachment.
+        /// The ARN of a core network.
         /// </summary>
         public readonly string? CoreNetworkArn;
         /// <summary>

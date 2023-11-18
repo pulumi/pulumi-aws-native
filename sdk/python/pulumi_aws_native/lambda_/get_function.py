@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFunctionResult:
-    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storage=None, file_system_configs=None, handler=None, image_config=None, kms_key_arn=None, layers=None, memory_size=None, package_type=None, reserved_concurrent_executions=None, role=None, runtime=None, runtime_management_config=None, snap_start_response=None, tags=None, timeout=None, tracing_config=None, vpc_config=None):
+    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storage=None, file_system_configs=None, handler=None, image_config=None, kms_key_arn=None, layers=None, logging_config=None, memory_size=None, package_type=None, reserved_concurrent_executions=None, role=None, runtime=None, runtime_management_config=None, snap_start_response=None, tags=None, timeout=None, tracing_config=None, vpc_config=None):
         if architectures and not isinstance(architectures, list):
             raise TypeError("Expected argument 'architectures' to be a list")
         pulumi.set(__self__, "architectures", architectures)
@@ -57,6 +57,9 @@ class GetFunctionResult:
         if layers and not isinstance(layers, list):
             raise TypeError("Expected argument 'layers' to be a list")
         pulumi.set(__self__, "layers", layers)
+        if logging_config and not isinstance(logging_config, dict):
+            raise TypeError("Expected argument 'logging_config' to be a dict")
+        pulumi.set(__self__, "logging_config", logging_config)
         if memory_size and not isinstance(memory_size, int):
             raise TypeError("Expected argument 'memory_size' to be a int")
         pulumi.set(__self__, "memory_size", memory_size)
@@ -185,6 +188,14 @@ class GetFunctionResult:
         return pulumi.get(self, "layers")
 
     @property
+    @pulumi.getter(name="loggingConfig")
+    def logging_config(self) -> Optional['outputs.FunctionLoggingConfig']:
+        """
+        The logging configuration of your function
+        """
+        return pulumi.get(self, "logging_config")
+
+    @property
     @pulumi.getter(name="memorySize")
     def memory_size(self) -> Optional[int]:
         """
@@ -291,6 +302,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             image_config=self.image_config,
             kms_key_arn=self.kms_key_arn,
             layers=self.layers,
+            logging_config=self.logging_config,
             memory_size=self.memory_size,
             package_type=self.package_type,
             reserved_concurrent_executions=self.reserved_concurrent_executions,
@@ -330,6 +342,7 @@ def get_function(function_name: Optional[str] = None,
         image_config=pulumi.get(__ret__, 'image_config'),
         kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         layers=pulumi.get(__ret__, 'layers'),
+        logging_config=pulumi.get(__ret__, 'logging_config'),
         memory_size=pulumi.get(__ret__, 'memory_size'),
         package_type=pulumi.get(__ret__, 'package_type'),
         reserved_concurrent_executions=pulumi.get(__ret__, 'reserved_concurrent_executions'),

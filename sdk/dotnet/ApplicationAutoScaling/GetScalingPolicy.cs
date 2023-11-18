@@ -27,8 +27,17 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
 
     public sealed class GetScalingPolicyArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// ARN is a read only property for the resource.
+        /// </summary>
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
+
+        /// <summary>
+        /// The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
+        /// </summary>
+        [Input("scalableDimension", required: true)]
+        public string ScalableDimension { get; set; } = null!;
 
         public GetScalingPolicyArgs()
         {
@@ -38,8 +47,17 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
 
     public sealed class GetScalingPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// ARN is a read only property for the resource.
+        /// </summary>
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
+
+        /// <summary>
+        /// The scalable dimension. This string consists of the service namespace, resource type, and scaling property.
+        /// </summary>
+        [Input("scalableDimension", required: true)]
+        public Input<string> ScalableDimension { get; set; } = null!;
 
         public GetScalingPolicyInvokeArgs()
         {
@@ -51,14 +69,32 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
     [OutputType]
     public sealed class GetScalingPolicyResult
     {
-        public readonly string? Id;
+        /// <summary>
+        /// ARN is a read only property for the resource.
+        /// </summary>
+        public readonly string? Arn;
+        /// <summary>
+        /// The scaling policy type.
+        /// 
+        /// The following policy types are supported:
+        /// 
+        /// TargetTrackingScaling Not supported for Amazon EMR
+        /// 
+        /// StepScaling Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
+        /// </summary>
         public readonly string? PolicyType;
+        /// <summary>
+        /// A step scaling policy.
+        /// </summary>
         public readonly Outputs.ScalingPolicyStepScalingPolicyConfiguration? StepScalingPolicyConfiguration;
+        /// <summary>
+        /// A target tracking scaling policy.
+        /// </summary>
         public readonly Outputs.ScalingPolicyTargetTrackingScalingPolicyConfiguration? TargetTrackingScalingPolicyConfiguration;
 
         [OutputConstructor]
         private GetScalingPolicyResult(
-            string? id,
+            string? arn,
 
             string? policyType,
 
@@ -66,7 +102,7 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
 
             Outputs.ScalingPolicyTargetTrackingScalingPolicyConfiguration? targetTrackingScalingPolicyConfiguration)
         {
-            Id = id;
+            Arn = arn;
             PolicyType = policyType;
             StepScalingPolicyConfiguration = stepScalingPolicyConfiguration;
             TargetTrackingScalingPolicyConfiguration = targetTrackingScalingPolicyConfiguration;

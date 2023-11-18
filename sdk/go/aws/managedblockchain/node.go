@@ -20,7 +20,7 @@ type Node struct {
 	pulumi.CustomResourceState
 
 	Arn               pulumi.StringOutput     `pulumi:"arn"`
-	MemberId          pulumi.StringOutput     `pulumi:"memberId"`
+	MemberId          pulumi.StringPtrOutput  `pulumi:"memberId"`
 	NetworkId         pulumi.StringOutput     `pulumi:"networkId"`
 	NodeConfiguration NodeConfigurationOutput `pulumi:"nodeConfiguration"`
 	NodeId            pulumi.StringOutput     `pulumi:"nodeId"`
@@ -33,9 +33,6 @@ func NewNode(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.MemberId == nil {
-		return nil, errors.New("invalid value for required argument 'MemberId'")
-	}
 	if args.NetworkId == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkId'")
 	}
@@ -75,14 +72,14 @@ func (NodeState) ElementType() reflect.Type {
 }
 
 type nodeArgs struct {
-	MemberId          string            `pulumi:"memberId"`
+	MemberId          *string           `pulumi:"memberId"`
 	NetworkId         string            `pulumi:"networkId"`
 	NodeConfiguration NodeConfiguration `pulumi:"nodeConfiguration"`
 }
 
 // The set of arguments for constructing a Node resource.
 type NodeArgs struct {
-	MemberId          pulumi.StringInput
+	MemberId          pulumi.StringPtrInput
 	NetworkId         pulumi.StringInput
 	NodeConfiguration NodeConfigurationInput
 }
@@ -140,8 +137,8 @@ func (o NodeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Node) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-func (o NodeOutput) MemberId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Node) pulumi.StringOutput { return v.MemberId }).(pulumi.StringOutput)
+func (o NodeOutput) MemberId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Node) pulumi.StringPtrOutput { return v.MemberId }).(pulumi.StringPtrOutput)
 }
 
 func (o NodeOutput) NetworkId() pulumi.StringOutput {

@@ -16,10 +16,13 @@ namespace Pulumi.AwsNative.ResourceExplorer2
     public partial class View : global::Pulumi.CustomResource
     {
         [Output("filters")]
-        public Output<Outputs.ViewFilters?> Filters { get; private set; } = null!;
+        public Output<Outputs.ViewSearchFilter?> Filters { get; private set; } = null!;
 
         [Output("includedProperties")]
         public Output<ImmutableArray<Outputs.ViewIncludedProperty>> IncludedProperties { get; private set; } = null!;
+
+        [Output("scope")]
+        public Output<string?> Scope { get; private set; } = null!;
 
         [Output("tags")]
         public Output<Outputs.ViewTagMap?> Tags { get; private set; } = null!;
@@ -55,6 +58,7 @@ namespace Pulumi.AwsNative.ResourceExplorer2
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "scope",
                     "viewName",
                 },
             };
@@ -80,7 +84,7 @@ namespace Pulumi.AwsNative.ResourceExplorer2
     public sealed class ViewArgs : global::Pulumi.ResourceArgs
     {
         [Input("filters")]
-        public Input<Inputs.ViewFiltersArgs>? Filters { get; set; }
+        public Input<Inputs.ViewSearchFilterArgs>? Filters { get; set; }
 
         [Input("includedProperties")]
         private InputList<Inputs.ViewIncludedPropertyArgs>? _includedProperties;
@@ -89,6 +93,9 @@ namespace Pulumi.AwsNative.ResourceExplorer2
             get => _includedProperties ?? (_includedProperties = new InputList<Inputs.ViewIncludedPropertyArgs>());
             set => _includedProperties = value;
         }
+
+        [Input("scope")]
+        public Input<string>? Scope { get; set; }
 
         [Input("tags")]
         public Input<Inputs.ViewTagMapArgs>? Tags { get; set; }

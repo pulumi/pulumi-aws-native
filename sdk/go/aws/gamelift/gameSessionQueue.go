@@ -12,22 +12,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::GameLift::GameSessionQueue
-//
-// Deprecated: GameSessionQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// The AWS::GameLift::GameSessionQueue resource creates an Amazon GameLift (GameLift) game session queue.
 type GameSessionQueue struct {
 	pulumi.CustomResourceState
 
-	Arn                   pulumi.StringOutput                            `pulumi:"arn"`
-	CustomEventData       pulumi.StringPtrOutput                         `pulumi:"customEventData"`
-	Destinations          GameSessionQueueDestinationArrayOutput         `pulumi:"destinations"`
-	FilterConfiguration   GameSessionQueueFilterConfigurationPtrOutput   `pulumi:"filterConfiguration"`
-	Name                  pulumi.StringOutput                            `pulumi:"name"`
-	NotificationTarget    pulumi.StringPtrOutput                         `pulumi:"notificationTarget"`
+	// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Information that is added to all events that are related to this game session queue.
+	CustomEventData pulumi.StringPtrOutput `pulumi:"customEventData"`
+	// A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.
+	Destinations GameSessionQueueDestinationArrayOutput `pulumi:"destinations"`
+	// A list of locations where a queue is allowed to place new game sessions.
+	FilterConfiguration GameSessionQueueFilterConfigurationPtrOutput `pulumi:"filterConfiguration"`
+	// A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// An SNS topic ARN that is set up to receive game session placement notifications.
+	NotificationTarget pulumi.StringPtrOutput `pulumi:"notificationTarget"`
+	// A set of policies that act as a sliding cap on player latency.
 	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPolicyArrayOutput `pulumi:"playerLatencyPolicies"`
+	// Custom settings to use when prioritizing destinations and locations for game session placements.
 	PriorityConfiguration GameSessionQueuePriorityConfigurationPtrOutput `pulumi:"priorityConfiguration"`
-	Tags                  GameSessionQueueTagArrayOutput                 `pulumi:"tags"`
-	TimeoutInSeconds      pulumi.IntPtrOutput                            `pulumi:"timeoutInSeconds"`
+	// An array of key-value pairs to apply to this resource.
+	Tags GameSessionQueueTagArrayOutput `pulumi:"tags"`
+	// The maximum time, in seconds, that a new game session placement request remains in the queue.
+	TimeoutInSeconds pulumi.IntPtrOutput `pulumi:"timeoutInSeconds"`
 }
 
 // NewGameSessionQueue registers a new resource with the given unique name, arguments, and options.
@@ -74,28 +82,46 @@ func (GameSessionQueueState) ElementType() reflect.Type {
 }
 
 type gameSessionQueueArgs struct {
-	CustomEventData       *string                                `pulumi:"customEventData"`
-	Destinations          []GameSessionQueueDestination          `pulumi:"destinations"`
-	FilterConfiguration   *GameSessionQueueFilterConfiguration   `pulumi:"filterConfiguration"`
-	Name                  *string                                `pulumi:"name"`
-	NotificationTarget    *string                                `pulumi:"notificationTarget"`
-	PlayerLatencyPolicies []GameSessionQueuePlayerLatencyPolicy  `pulumi:"playerLatencyPolicies"`
+	// Information that is added to all events that are related to this game session queue.
+	CustomEventData *string `pulumi:"customEventData"`
+	// A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.
+	Destinations []GameSessionQueueDestination `pulumi:"destinations"`
+	// A list of locations where a queue is allowed to place new game sessions.
+	FilterConfiguration *GameSessionQueueFilterConfiguration `pulumi:"filterConfiguration"`
+	// A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
+	Name *string `pulumi:"name"`
+	// An SNS topic ARN that is set up to receive game session placement notifications.
+	NotificationTarget *string `pulumi:"notificationTarget"`
+	// A set of policies that act as a sliding cap on player latency.
+	PlayerLatencyPolicies []GameSessionQueuePlayerLatencyPolicy `pulumi:"playerLatencyPolicies"`
+	// Custom settings to use when prioritizing destinations and locations for game session placements.
 	PriorityConfiguration *GameSessionQueuePriorityConfiguration `pulumi:"priorityConfiguration"`
-	Tags                  []GameSessionQueueTag                  `pulumi:"tags"`
-	TimeoutInSeconds      *int                                   `pulumi:"timeoutInSeconds"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []GameSessionQueueTag `pulumi:"tags"`
+	// The maximum time, in seconds, that a new game session placement request remains in the queue.
+	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
 }
 
 // The set of arguments for constructing a GameSessionQueue resource.
 type GameSessionQueueArgs struct {
-	CustomEventData       pulumi.StringPtrInput
-	Destinations          GameSessionQueueDestinationArrayInput
-	FilterConfiguration   GameSessionQueueFilterConfigurationPtrInput
-	Name                  pulumi.StringPtrInput
-	NotificationTarget    pulumi.StringPtrInput
+	// Information that is added to all events that are related to this game session queue.
+	CustomEventData pulumi.StringPtrInput
+	// A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.
+	Destinations GameSessionQueueDestinationArrayInput
+	// A list of locations where a queue is allowed to place new game sessions.
+	FilterConfiguration GameSessionQueueFilterConfigurationPtrInput
+	// A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
+	Name pulumi.StringPtrInput
+	// An SNS topic ARN that is set up to receive game session placement notifications.
+	NotificationTarget pulumi.StringPtrInput
+	// A set of policies that act as a sliding cap on player latency.
 	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPolicyArrayInput
+	// Custom settings to use when prioritizing destinations and locations for game session placements.
 	PriorityConfiguration GameSessionQueuePriorityConfigurationPtrInput
-	Tags                  GameSessionQueueTagArrayInput
-	TimeoutInSeconds      pulumi.IntPtrInput
+	// An array of key-value pairs to apply to this resource.
+	Tags GameSessionQueueTagArrayInput
+	// The maximum time, in seconds, that a new game session placement request remains in the queue.
+	TimeoutInSeconds pulumi.IntPtrInput
 }
 
 func (GameSessionQueueArgs) ElementType() reflect.Type {
@@ -147,46 +173,56 @@ func (o GameSessionQueueOutput) ToOutput(ctx context.Context) pulumix.Output[*Ga
 	}
 }
 
+// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it.
 func (o GameSessionQueueOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Information that is added to all events that are related to this game session queue.
 func (o GameSessionQueueOutput) CustomEventData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringPtrOutput { return v.CustomEventData }).(pulumi.StringPtrOutput)
 }
 
+// A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.
 func (o GameSessionQueueOutput) Destinations() GameSessionQueueDestinationArrayOutput {
 	return o.ApplyT(func(v *GameSessionQueue) GameSessionQueueDestinationArrayOutput { return v.Destinations }).(GameSessionQueueDestinationArrayOutput)
 }
 
+// A list of locations where a queue is allowed to place new game sessions.
 func (o GameSessionQueueOutput) FilterConfiguration() GameSessionQueueFilterConfigurationPtrOutput {
 	return o.ApplyT(func(v *GameSessionQueue) GameSessionQueueFilterConfigurationPtrOutput { return v.FilterConfiguration }).(GameSessionQueueFilterConfigurationPtrOutput)
 }
 
+// A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
 func (o GameSessionQueueOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// An SNS topic ARN that is set up to receive game session placement notifications.
 func (o GameSessionQueueOutput) NotificationTarget() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringPtrOutput { return v.NotificationTarget }).(pulumi.StringPtrOutput)
 }
 
+// A set of policies that act as a sliding cap on player latency.
 func (o GameSessionQueueOutput) PlayerLatencyPolicies() GameSessionQueuePlayerLatencyPolicyArrayOutput {
 	return o.ApplyT(func(v *GameSessionQueue) GameSessionQueuePlayerLatencyPolicyArrayOutput {
 		return v.PlayerLatencyPolicies
 	}).(GameSessionQueuePlayerLatencyPolicyArrayOutput)
 }
 
+// Custom settings to use when prioritizing destinations and locations for game session placements.
 func (o GameSessionQueueOutput) PriorityConfiguration() GameSessionQueuePriorityConfigurationPtrOutput {
 	return o.ApplyT(func(v *GameSessionQueue) GameSessionQueuePriorityConfigurationPtrOutput {
 		return v.PriorityConfiguration
 	}).(GameSessionQueuePriorityConfigurationPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
 func (o GameSessionQueueOutput) Tags() GameSessionQueueTagArrayOutput {
 	return o.ApplyT(func(v *GameSessionQueue) GameSessionQueueTagArrayOutput { return v.Tags }).(GameSessionQueueTagArrayOutput)
 }
 
+// The maximum time, in seconds, that a new game session placement request remains in the queue.
 func (o GameSessionQueueOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GameSessionQueue) pulumi.IntPtrOutput { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
 }

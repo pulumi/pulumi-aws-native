@@ -2494,44 +2494,211 @@ export namespace applicationautoscaling {
         scheduledScalingSuspended?: boolean;
     }
 
+    /**
+     * Represents a CloudWatch metric of your choosing for a target tracking scaling policy to use with Application Auto Scaling.
+     */
     export interface ScalingPolicyCustomizedMetricSpecification {
+        /**
+         * The dimensions of the metric.
+         */
         dimensions?: outputs.applicationautoscaling.ScalingPolicyMetricDimension[];
-        metricName: string;
-        namespace: string;
-        statistic: string;
+        /**
+         * The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the Metric object that is returned by a call to ListMetrics.
+         */
+        metricName?: string;
+        /**
+         * The metrics to include in the target tracking scaling policy, as a metric data query. This can include both raw metric and metric math expressions.
+         */
+        metrics?: outputs.applicationautoscaling.ScalingPolicyTargetTrackingMetricDataQuery[];
+        /**
+         * The namespace of the metric.
+         */
+        namespace?: string;
+        /**
+         * The statistic of the metric.
+         */
+        statistic?: string;
+        /**
+         * The unit of the metric. For a complete list of the units that CloudWatch supports, see the MetricDatum data type in the Amazon CloudWatch API Reference.
+         */
         unit?: string;
     }
 
+    /**
+     * Describes the dimension names and values associated with a metric.
+     */
     export interface ScalingPolicyMetricDimension {
+        /**
+         * The name of the dimension.
+         */
         name: string;
+        /**
+         * The value of the dimension.
+         */
         value: string;
     }
 
+    /**
+     * Represents a predefined metric for a target tracking scaling policy to use with Application Auto Scaling.
+     */
     export interface ScalingPolicyPredefinedMetricSpecification {
+        /**
+         * The metric type. The ALBRequestCountPerTarget metric type applies only to Spot Fleets and ECS services.
+         */
         predefinedMetricType: string;
+        /**
+         * Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ALBRequestCountPerTarget and there is a target group attached to the Spot Fleet or ECS service.
+         */
         resourceLabel?: string;
     }
 
+    /**
+     * Represents a step adjustment for a StepScalingPolicyConfiguration. Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm.
+     */
     export interface ScalingPolicyStepAdjustment {
+        /**
+         * The lower bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the lower bound is inclusive (the metric must be greater than or equal to the threshold plus the lower bound). Otherwise, it is exclusive (the metric must be greater than the threshold plus the lower bound). A null value indicates negative infinity.
+         */
         metricIntervalLowerBound?: number;
+        /**
+         * The upper bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the upper bound is exclusive (the metric must be less than the threshold plus the upper bound). Otherwise, it is inclusive (the metric must be less than or equal to the threshold plus the upper bound). A null value indicates positive infinity.
+         */
         metricIntervalUpperBound?: number;
+        /**
+         * The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value.
+         */
         scalingAdjustment: number;
     }
 
+    /**
+     * A step scaling policy.
+     */
     export interface ScalingPolicyStepScalingPolicyConfiguration {
+        /**
+         * Specifies how the ScalingAdjustment value in a StepAdjustment is interpreted.
+         */
         adjustmentType?: string;
+        /**
+         * The amount of time, in seconds, to wait for a previous scaling activity to take effect.
+         */
         cooldown?: number;
+        /**
+         * The aggregation type for the CloudWatch metrics. Valid values are Minimum, Maximum, and Average. If the aggregation type is null, the value is treated as Average
+         */
         metricAggregationType?: string;
+        /**
+         * The minimum value to scale by when the adjustment type is PercentChangeInCapacity.
+         */
         minAdjustmentMagnitude?: number;
+        /**
+         * A set of adjustments that enable you to scale based on the size of the alarm breach.
+         */
         stepAdjustments?: outputs.applicationautoscaling.ScalingPolicyStepAdjustment[];
     }
 
+    /**
+     * Represents a specific metric.
+     */
+    export interface ScalingPolicyTargetTrackingMetric {
+        /**
+         * The dimensions for the metric.
+         */
+        dimensions?: outputs.applicationautoscaling.ScalingPolicyTargetTrackingMetricDimension[];
+        /**
+         * The name of the metric.
+         */
+        metricName?: string;
+        /**
+         * The namespace of the metric.
+         */
+        namespace?: string;
+    }
+
+    /**
+     * The metric data to return. Also defines whether this call is returning data for one metric only, or whether it is performing a math expression on the values of returned metric statistics to create a new time series. A time series is a series of data points, each of which is associated with a timestamp.
+     */
+    export interface ScalingPolicyTargetTrackingMetricDataQuery {
+        /**
+         * The math expression to perform on the returned data, if this object is performing a math expression.
+         */
+        expression?: string;
+        /**
+         * A short name that identifies the object's results in the response.
+         */
+        id?: string;
+        /**
+         * A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.
+         */
+        label?: string;
+        /**
+         * Information about the metric data to return.
+         */
+        metricStat?: outputs.applicationautoscaling.ScalingPolicyTargetTrackingMetricStat;
+        /**
+         * Indicates whether to return the timestamps and raw data values of this metric.
+         */
+        returnData?: boolean;
+    }
+
+    /**
+     * Describes the dimension of a metric.
+     */
+    export interface ScalingPolicyTargetTrackingMetricDimension {
+        /**
+         * The name of the dimension.
+         */
+        name?: string;
+        /**
+         * The value of the dimension.
+         */
+        value?: string;
+    }
+
+    /**
+     * This structure defines the CloudWatch metric to return, along with the statistic, period, and unit.
+     */
+    export interface ScalingPolicyTargetTrackingMetricStat {
+        /**
+         * The CloudWatch metric to return, including the metric name, namespace, and dimensions. 
+         */
+        metric?: outputs.applicationautoscaling.ScalingPolicyTargetTrackingMetric;
+        /**
+         * The statistic to return. It can include any CloudWatch statistic or extended statistic.
+         */
+        stat?: string;
+        /**
+         * The unit to use for the returned data points.
+         */
+        unit?: string;
+    }
+
+    /**
+     * A target tracking scaling policy.
+     */
     export interface ScalingPolicyTargetTrackingScalingPolicyConfiguration {
+        /**
+         * A customized metric. You can specify either a predefined metric or a customized metric.
+         */
         customizedMetricSpecification?: outputs.applicationautoscaling.ScalingPolicyCustomizedMetricSpecification;
+        /**
+         * Indicates whether scale in by the target tracking scaling policy is disabled. If the value is true, scale in is disabled and the target tracking scaling policy won't remove capacity from the scalable target. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable target. The default value is false.
+         */
         disableScaleIn?: boolean;
+        /**
+         * A predefined metric. You can specify either a predefined metric or a customized metric.
+         */
         predefinedMetricSpecification?: outputs.applicationautoscaling.ScalingPolicyPredefinedMetricSpecification;
+        /**
+         * The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
+         */
         scaleInCooldown?: number;
+        /**
+         * The amount of time, in seconds, to wait for a previous scale-out activity to take effect.
+         */
         scaleOutCooldown?: number;
+        /**
+         * The target value for the metric. Although this property accepts numbers of type Double, it won't accept values that are either too small or too large. Values must be in the range of -2^360 to 2^360. The value must be a valid number based on the choice of metric. For example, if the metric is CPU utilization, then the target value is a percent value that represents how much of the CPU can be used before scaling out.
+         */
         targetValue: number;
     }
 
@@ -4167,25 +4334,52 @@ export namespace appsync {
     }
 
     export interface ResolverAppSyncRuntime {
+        /**
+         * The name of the runtime to use.
+         */
         name: string;
+        /**
+         * The version of the runtime to use.
+         */
         runtimeVersion: string;
     }
 
     export interface ResolverCachingConfig {
+        /**
+         * The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+         */
         cachingKeys?: string[];
+        /**
+         * The TTL in seconds for a resolver that has caching activated. Valid values are 1-36.00 seconds.
+         */
         ttl: number;
     }
 
+    /**
+     * The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
+     */
     export interface ResolverLambdaConflictHandlerConfig {
+        /**
+         * The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+         */
         lambdaConflictHandlerArn?: string;
     }
 
     export interface ResolverPipelineConfig {
+        /**
+         * A list of Function objects.
+         */
         functions?: string[];
     }
 
     export interface ResolverSyncConfig {
+        /**
+         * The Conflict Detection strategy to use.
+         */
         conflictDetection: string;
+        /**
+         * The Conflict Resolution strategy to perform in the event of a conflict.
+         */
         conflictHandler?: string;
         lambdaConflictHandlerConfig?: outputs.appsync.ResolverLambdaConflictHandlerConfig;
     }
@@ -4467,6 +4661,11 @@ export namespace autoscaling {
     export interface AutoScalingGroupBaselineEbsBandwidthMbpsRequest {
         max?: number;
         min?: number;
+    }
+
+    export interface AutoScalingGroupInstanceMaintenancePolicy {
+        maxHealthyPercentage?: number;
+        minHealthyPercentage?: number;
     }
 
     export interface AutoScalingGroupInstanceRequirements {
@@ -5011,6 +5210,38 @@ export namespace backup {
          * Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
          */
         reportTemplate: string;
+    }
+
+    export interface RestoreTestingPlanRestoreTestingRecoveryPointSelection {
+        algorithm: enums.backup.RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm;
+        excludeVaults?: string[];
+        includeVaults: string[];
+        recoveryPointTypes: enums.backup.RestoreTestingPlanRestoreTestingRecoveryPointType[];
+        selectionWindowDays?: number;
+    }
+
+    export interface RestoreTestingPlanTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    export interface RestoreTestingSelectionKeyValue {
+        key: string;
+        value: string;
+    }
+
+    export interface RestoreTestingSelectionProtectedResourceConditions {
+        stringEquals?: outputs.backup.RestoreTestingSelectionKeyValue[];
+        stringNotEquals?: outputs.backup.RestoreTestingSelectionKeyValue[];
+    }
+
+    export interface RestoreTestingSelectionSensitiveStringMap {
     }
 
 }
@@ -6443,6 +6674,16 @@ export namespace cloudtrail {
          * An operator that includes events that match the first few characters of the event record field specified as the value of Field.
          */
         startsWith?: string[];
+    }
+
+    /**
+     * A string that contains Insights types that are logged on an event data store.
+     */
+    export interface EventDataStoreInsightSelector {
+        /**
+         * The type of Insights to log on an event data store.
+         */
+        insightType?: string;
     }
 
     /**
@@ -12862,6 +13103,27 @@ export namespace ec2 {
     }
 
     /**
+     * Allows customer to specify ENA-SRD options
+     */
+    export interface LaunchTemplateEnaSrdSpecification {
+        /**
+         * Enables TCP ENA-SRD
+         */
+        enaSrdEnabled?: boolean;
+        enaSrdUdpSpecification?: outputs.ec2.LaunchTemplateEnaSrdUdpSpecification;
+    }
+
+    /**
+     * Allows customer to specify ENA-SRD (UDP) options
+     */
+    export interface LaunchTemplateEnaSrdUdpSpecification {
+        /**
+         * Enables UDP ENA-SRD
+         */
+        enaSrdUdpEnabled?: boolean;
+    }
+
+    /**
      * Indicates whether the instance is enabled for AWS Nitro Enclaves.
      */
     export interface LaunchTemplateEnclaveOptions {
@@ -13120,6 +13382,7 @@ export namespace ec2 {
          * The device index for the network interface attachment.
          */
         deviceIndex?: number;
+        enaSrdSpecification?: outputs.ec2.LaunchTemplateEnaSrdSpecification;
         /**
          * The IDs of one or more security groups.
          */
@@ -15092,6 +15355,20 @@ export namespace eks {
     }
 
     /**
+     * An object representing the Access Config to use for the cluster.
+     */
+    export interface ClusterAccessConfig {
+        /**
+         * Specify the authentication mode that should be used to create your cluster.
+         */
+        authenticationMode?: enums.eks.ClusterAccessConfigAuthenticationMode;
+        /**
+         * Set this value to false to avoid creating a default cluster admin Access Entry using the IAM principal used to create the cluster.
+         */
+        bootstrapClusterCreatorAdminPermissions?: boolean;
+    }
+
+    /**
      * Specify the placement group of the control plane machines for your cluster.
      */
     export interface ClusterControlPlanePlacement {
@@ -16495,6 +16772,18 @@ export namespace emrserverless {
     }
 
     /**
+     * Configuration for a JobRun.
+     */
+    export interface ApplicationConfigurationObject {
+        /**
+         * String with a maximum length of 1024.
+         */
+        classification: string;
+        configurations?: outputs.emrserverless.ApplicationConfigurationObject[];
+        properties?: any;
+    }
+
+    /**
      * The image configuration.
      */
     export interface ApplicationImageConfigurationInput {
@@ -16520,6 +16809,17 @@ export namespace emrserverless {
         value: outputs.emrserverless.ApplicationInitialCapacityConfig;
     }
 
+    export interface ApplicationManagedPersistenceMonitoringConfiguration {
+        /**
+         * If set to false, managed logging will be turned off. Defaults to true.
+         */
+        enabled?: boolean;
+        /**
+         * KMS key ARN to encrypt the logs stored in managed persistence
+         */
+        encryptionKeyArn?: string;
+    }
+
     export interface ApplicationMaximumAllowedResources {
         /**
          * Per worker CPU resource. vCPU is the only supported unit and specifying vCPU is optional.
@@ -16535,6 +16835,20 @@ export namespace emrserverless {
         memory: string;
     }
 
+    /**
+     * Monitoring configuration for batch and interactive JobRun.
+     */
+    export interface ApplicationMonitoringConfiguration {
+        /**
+         * Managed log persistence configurations for a JobRun.
+         */
+        managedPersistenceMonitoringConfiguration?: outputs.emrserverless.ApplicationManagedPersistenceMonitoringConfiguration;
+        /**
+         * S3 monitoring configurations for a JobRun.
+         */
+        s3MonitoringConfiguration?: outputs.emrserverless.ApplicationS3MonitoringConfiguration;
+    }
+
     export interface ApplicationNetworkConfiguration {
         /**
          * The ID of the security groups in the VPC to which you want to connect your job or application.
@@ -16544,6 +16858,14 @@ export namespace emrserverless {
          * The ID of the subnets in the VPC to which you want to connect your job or application.
          */
         subnetIds?: string[];
+    }
+
+    export interface ApplicationS3MonitoringConfiguration {
+        /**
+         * KMS key ARN to encrypt the logs stored in given s3
+         */
+        encryptionKeyArn?: string;
+        logUri?: string;
     }
 
     /**
@@ -17682,16 +18004,34 @@ export namespace frauddetector {
 
 export namespace fsx {
     /**
-     * Specifies the type of updated objects (new, changed, deleted) that will be automatically exported from your file system to the linked S3 bucket.
+     * Describes a data repository association's automatic export policy. The ``AutoExportPolicy`` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
+     *  The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
      */
     export interface DataRepositoryAssociationAutoExportPolicy {
+        /**
+         * The ``AutoExportPolicy`` can have the following event values:
+         *   +   ``NEW`` - New files and directories are automatically exported to the data repository as they are added to the file system.
+         *   +   ``CHANGED`` - Changes to files and directories on the file system are automatically exported to the data repository.
+         *   +   ``DELETED`` - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
+         *   
+         *  You can define any combination of event types for your ``AutoExportPolicy``.
+         */
         events: enums.fsx.DataRepositoryAssociationEventType[];
     }
 
     /**
-     * Specifies the type of updated objects (new, changed, deleted) that will be automatically imported from the linked S3 bucket to your file system.
+     * Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
+     *  The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
      */
     export interface DataRepositoryAssociationAutoImportPolicy {
+        /**
+         * The ``AutoImportPolicy`` can have the following event values:
+         *   +   ``NEW`` - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
+         *   +   ``CHANGED`` - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.
+         *   +   ``DELETED`` - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
+         *   
+         *  You can define any combination of event types for your ``AutoImportPolicy``.
+         */
         events: enums.fsx.DataRepositoryAssociationEventType[];
     }
 
@@ -17699,20 +18039,28 @@ export namespace fsx {
      * The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
      */
     export interface DataRepositoryAssociationS3 {
+        /**
+         * Describes a data repository association's automatic export policy. The ``AutoExportPolicy`` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
+         *  The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+         */
         autoExportPolicy?: outputs.fsx.DataRepositoryAssociationAutoExportPolicy;
+        /**
+         * Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
+         *  The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+         */
         autoImportPolicy?: outputs.fsx.DataRepositoryAssociationAutoImportPolicy;
     }
 
     /**
-     * A key-value pair to associate with a resource.
+     * Specifies a key-value pair for a resource tag.
      */
     export interface DataRepositoryAssociationTag {
         /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         * A value that specifies the ``TagKey``, the name of the tag. Tag keys must be unique for the resource to which they are attached.
          */
         key: string;
         /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         * A value that specifies the ``TagValue``, the value assigned to the corresponding tag key. Tag values can be null and don't have to be unique in a tag set. For example, you can have a key-value pair in a tag set of ``finances : April`` and also of ``payroll : April``.
          */
         value: string;
     }
@@ -18072,6 +18420,57 @@ export namespace gamelift {
     }
 
     /**
+     * Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.
+     */
+    export interface FleetScalingPolicy {
+        /**
+         * Comparison operator to use when measuring a metric against the threshold value.
+         */
+        comparisonOperator?: enums.gamelift.FleetScalingPolicyComparisonOperator;
+        /**
+         * Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
+         */
+        evaluationPeriods?: number;
+        location?: string;
+        /**
+         * Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+         */
+        metricName: enums.gamelift.FleetScalingPolicyMetricName;
+        /**
+         * A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
+         */
+        name: string;
+        /**
+         * The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
+         */
+        policyType?: enums.gamelift.FleetScalingPolicyPolicyType;
+        /**
+         * Amount of adjustment to make, based on the scaling adjustment type.
+         */
+        scalingAdjustment?: number;
+        /**
+         * The type of adjustment to make to a fleet's instance count.
+         */
+        scalingAdjustmentType?: enums.gamelift.FleetScalingPolicyScalingAdjustmentType;
+        /**
+         * Current status of the scaling policy. The scaling policy can be in force only when in an ACTIVE status. Scaling policies can be suspended for individual fleets. If the policy is suspended for a fleet, the policy status does not change.
+         */
+        status?: enums.gamelift.FleetScalingPolicyStatus;
+        /**
+         * An object that contains settings for a target-based scaling policy.
+         */
+        targetConfiguration?: outputs.gamelift.FleetTargetConfiguration;
+        /**
+         * Metric value used to trigger a scaling event.
+         */
+        threshold?: number;
+        /**
+         * The current status of the fleet's scaling policies in a requested fleet location. The status PENDING_UPDATE indicates that an update was requested for the fleet but has not yet been completed for the location.
+         */
+        updateStatus?: enums.gamelift.FleetScalingPolicyUpdateStatus;
+    }
+
+    /**
      * A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's RuntimeConfiguration.
      */
     export interface FleetServerProcess {
@@ -18091,6 +18490,16 @@ export namespace gamelift {
          * An optional list of parameters to pass to the server executable or Realtime script on launch.
          */
         parameters?: string;
+    }
+
+    /**
+     * Settings for a target-based scaling policy. A target-based policy tracks a particular fleet metric specifies a target value for the metric. As player usage changes, the policy triggers Amazon GameLift to adjust capacity so that the metric returns to the target value. The target configuration specifies settings as needed for the target based policy, including the target value.
+     */
+    export interface FleetTargetConfiguration {
+        /**
+         * Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet's buffer (the percent of capacity that should be idle and ready for new game sessions).
+         */
+        targetValue: number;
     }
 
     /**
@@ -18136,6 +18545,9 @@ export namespace gamelift {
         targetValue: number;
     }
 
+    /**
+     * A fleet or alias designated in a game session queue.
+     */
     export interface GameSessionQueueDestination {
         destinationArn?: string;
     }
@@ -18144,18 +18556,36 @@ export namespace gamelift {
         allowedLocations?: string[];
     }
 
+    /**
+     * Sets a latency cap for individual players when placing a game session.
+     */
     export interface GameSessionQueuePlayerLatencyPolicy {
+        /**
+         * The maximum latency value that is allowed for any player, in milliseconds. All policies must have a value set for this property.
+         */
         maximumIndividualPlayerLatencyMilliseconds?: number;
+        /**
+         * The length of time, in seconds, that the policy is enforced while placing a new game session.
+         */
         policyDurationSeconds?: number;
     }
 
     export interface GameSessionQueuePriorityConfiguration {
         locationOrder?: string[];
-        priorityOrder?: string[];
+        priorityOrder?: enums.gamelift.GameSessionQueuePriorityOrderItem[];
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface GameSessionQueueTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+         */
         key: string;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
+         */
         value: string;
     }
 
@@ -18173,30 +18603,78 @@ export namespace gamelift {
         value: string;
     }
 
+    /**
+     * A key-value pair that contains information about a game session.
+     */
     export interface MatchmakingConfigurationGameProperty {
+        /**
+         * The game property identifier.
+         */
         key: string;
+        /**
+         * The game property value.
+         */
         value: string;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface MatchmakingConfigurationTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+         */
         key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
+         */
         value: string;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface MatchmakingRuleSetTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+         */
         key: string;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
+         */
         value: string;
     }
 
     export interface ScriptS3Location {
+        /**
+         * An Amazon S3 bucket identifier. This is the name of the S3 bucket.
+         */
         bucket: string;
+        /**
+         * The name of the zip file that contains the script files.
+         */
         key: string;
+        /**
+         * The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter.
+         */
         objectVersion?: string;
+        /**
+         * The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+         */
         roleArn: string;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface ScriptTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+         */
         key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
+         */
         value: string;
     }
 
@@ -19508,12 +19986,12 @@ export namespace guardduty {
         value: string;
     }
 
-    export interface IpSetTag {
+    export interface IpSetTagItem {
         key: string;
         value: string;
     }
 
-    export interface ThreatIntelSetTag {
+    export interface ThreatIntelSetTagItem {
         key: string;
         value: string;
     }
@@ -20305,6 +20783,145 @@ export namespace imagebuilder {
         s3KeyPrefix?: string;
     }
 
+    /**
+     * The action of the policy detail.
+     */
+    export interface LifecyclePolicyAction {
+        includeResources?: outputs.imagebuilder.LifecyclePolicyIncludeResources;
+        /**
+         * The action type of the policy detail.
+         */
+        type: enums.imagebuilder.LifecyclePolicyActionType;
+    }
+
+    /**
+     * The AMI exclusion rules for the policy detail.
+     */
+    export interface LifecyclePolicyAmiExclusionRules {
+        /**
+         * Use to apply lifecycle policy actions on whether the AMI is public.
+         */
+        isPublic?: boolean;
+        /**
+         * Use to apply lifecycle policy actions on AMIs launched before a certain time.
+         */
+        lastLaunched?: outputs.imagebuilder.LifecyclePolicyLastLaunched;
+        /**
+         * Use to apply lifecycle policy actions on AMIs distributed to a set of regions.
+         */
+        regions?: string[];
+        /**
+         * Use to apply lifecycle policy actions on AMIs shared with a set of regions.
+         */
+        sharedAccounts?: string[];
+        /**
+         * The AMIs to select by tag.
+         */
+        tagMap?: any;
+    }
+
+    /**
+     * The exclusion rules to apply of the policy detail.
+     */
+    export interface LifecyclePolicyExclusionRules {
+        amis?: outputs.imagebuilder.LifecyclePolicyAmiExclusionRules;
+        /**
+         * The Image Builder tags to filter on.
+         */
+        tagMap?: any;
+    }
+
+    /**
+     * The filters to apply of the policy detail.
+     */
+    export interface LifecyclePolicyFilter {
+        /**
+         * The minimum number of Image Builder resources to retain.
+         */
+        retainAtLeast?: number;
+        /**
+         * The filter type.
+         */
+        type: enums.imagebuilder.LifecyclePolicyFilterType;
+        /**
+         * The value's time unit.
+         */
+        unit?: enums.imagebuilder.LifecyclePolicyTimeUnit;
+        /**
+         * The filter value.
+         */
+        value: number;
+    }
+
+    /**
+     * The included resources of the policy detail.
+     */
+    export interface LifecyclePolicyIncludeResources {
+        /**
+         * Use to configure lifecycle actions on AMIs.
+         */
+        amis?: boolean;
+        /**
+         * Use to configure lifecycle actions on containers.
+         */
+        containers?: boolean;
+        /**
+         * Use to configure lifecycle actions on snapshots.
+         */
+        snapshots?: boolean;
+    }
+
+    /**
+     * The last launched time of a resource.
+     */
+    export interface LifecyclePolicyLastLaunched {
+        /**
+         * The value's time unit.
+         */
+        unit: enums.imagebuilder.LifecyclePolicyTimeUnit;
+        /**
+         * The last launched value.
+         */
+        value: number;
+    }
+
+    /**
+     * The policy detail of the lifecycle policy.
+     */
+    export interface LifecyclePolicyPolicyDetail {
+        action: outputs.imagebuilder.LifecyclePolicyAction;
+        exclusionRules?: outputs.imagebuilder.LifecyclePolicyExclusionRules;
+        filter: outputs.imagebuilder.LifecyclePolicyFilter;
+    }
+
+    /**
+     * The recipe to apply the lifecycle policy for.
+     */
+    export interface LifecyclePolicyRecipeSelection {
+        /**
+         * The recipe name.
+         */
+        name: string;
+        /**
+         * The recipe version.
+         */
+        semanticVersion?: string;
+    }
+
+    /**
+     * The resource selection for the lifecycle policy.
+     */
+    export interface LifecyclePolicyResourceSelection {
+        /**
+         * The recipes to select.
+         */
+        recipes?: outputs.imagebuilder.LifecyclePolicyRecipeSelection[];
+        /**
+         * The Image Builder resources to select by tag.
+         */
+        tagMap?: any;
+    }
+
 }
 
 export namespace inspector {
@@ -20701,6 +21318,20 @@ export namespace iot {
     }
 
     /**
+     * A structure containing the mqtt topic for metrics export.
+     */
+    export interface MetricsExportConfigProperties {
+        /**
+         * The topic for metrics export.
+         */
+        mqttTopic: string;
+        /**
+         * The ARN of the role that grants permission to publish to mqtt topic.
+         */
+        roleArn: string;
+    }
+
+    /**
      * The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
      */
     export interface MitigationActionActionParams {
@@ -20841,6 +21472,7 @@ export namespace iot {
      */
     export interface SecurityProfileBehavior {
         criteria?: outputs.iot.SecurityProfileBehaviorCriteria;
+        exportMetric?: boolean;
         /**
          * What is measured by the behavior.
          */
@@ -20909,6 +21541,7 @@ export namespace iot {
      * The metric you want to retain. Dimensions are optional.
      */
     export interface SecurityProfileMetricToRetain {
+        exportMetric?: boolean;
         /**
          * What is measured by the behavior.
          */
@@ -25796,6 +26429,28 @@ export namespace lambda {
         workingDirectory?: string;
     }
 
+    /**
+     * The function's logging configuration.
+     */
+    export interface FunctionLoggingConfig {
+        /**
+         * Application log granularity level, can only be used when LogFormat is set to JSON
+         */
+        applicationLogLevel?: enums.lambda.FunctionLoggingConfigApplicationLogLevel;
+        /**
+         * Log delivery format for the lambda function
+         */
+        logFormat?: enums.lambda.FunctionLoggingConfigLogFormat;
+        /**
+         * The log group name.
+         */
+        logGroup?: string;
+        /**
+         * System log granularity level, can only be used when LogFormat is set to JSON
+         */
+        systemLogLevel?: enums.lambda.FunctionLoggingConfigSystemLogLevel;
+    }
+
     export interface FunctionRuntimeManagementConfig {
         /**
          * Unique identifier for a runtime version arn
@@ -30042,6 +30697,128 @@ export namespace medialive {
         subnetIds?: string[];
     }
 
+    /**
+     * Multiplex MediaConnect output destination settings.
+     */
+    export interface MultiplexOutputDestination {
+        /**
+         * Multiplex MediaConnect output destination settings.
+         */
+        multiplexMediaConnectOutputDestinationSettings?: outputs.medialive.MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsProperties;
+    }
+
+    /**
+     * Multiplex MediaConnect output destination settings.
+     */
+    export interface MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsProperties {
+        /**
+         * The MediaConnect entitlement ARN available as a Flow source.
+         */
+        entitlementArn?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface MultiplexSettings {
+        /**
+         * Maximum video buffer delay in milliseconds.
+         */
+        maximumVideoBufferDelayMilliseconds?: number;
+        /**
+         * Transport stream bit rate.
+         */
+        transportStreamBitrate: number;
+        /**
+         * Transport stream ID.
+         */
+        transportStreamId: number;
+        /**
+         * Transport stream reserved bit rate.
+         */
+        transportStreamReservedBitrate?: number;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface MultiplexTags {
+        key?: string;
+        value?: string;
+    }
+
+    /**
+     * Packet identifiers map for a given Multiplex program.
+     */
+    export interface MultiplexprogramMultiplexProgramPacketIdentifiersMap {
+        audioPids?: number[];
+        dvbSubPids?: number[];
+        dvbTeletextPid?: number;
+        etvPlatformPid?: number;
+        etvSignalPid?: number;
+        klvDataPids?: number[];
+        pcrPid?: number;
+        pmtPid?: number;
+        privateMetadataPid?: number;
+        scte27Pids?: number[];
+        scte35Pid?: number;
+        timedMetadataPid?: number;
+        videoPid?: number;
+    }
+
+    /**
+     * The current source for one of the pipelines in the multiplex.
+     */
+    export interface MultiplexprogramMultiplexProgramPipelineDetail {
+        /**
+         * Identifies the channel pipeline that is currently active for the pipeline (identified by PipelineId) in the multiplex.
+         */
+        activeChannelPipeline?: string;
+        /**
+         * Identifies a specific pipeline in the multiplex.
+         */
+        pipelineId?: string;
+    }
+
+    /**
+     * Transport stream service descriptor configuration for the Multiplex program.
+     */
+    export interface MultiplexprogramMultiplexProgramServiceDescriptor {
+        /**
+         * Name of the provider.
+         */
+        providerName: string;
+        /**
+         * Name of the service.
+         */
+        serviceName: string;
+    }
+
+    /**
+     * Multiplex Program settings configuration.
+     */
+    export interface MultiplexprogramMultiplexProgramSettings {
+        preferredChannelPipeline?: enums.medialive.MultiplexprogramPreferredChannelPipeline;
+        /**
+         * Unique program number.
+         */
+        programNumber: number;
+        /**
+         * Transport stream service descriptor configuration for the Multiplex program.
+         */
+        serviceDescriptor?: outputs.medialive.MultiplexprogramMultiplexProgramServiceDescriptor;
+        /**
+         * Program video settings configuration.
+         */
+        videoSettings?: outputs.medialive.MultiplexprogramMultiplexVideoSettings;
+    }
+
+    /**
+     * The video configuration for each program in a multiplex.
+     */
+    export interface MultiplexprogramMultiplexVideoSettings {
+    }
+
 }
 
 export namespace mediapackage {
@@ -30728,6 +31505,28 @@ export namespace mediapackagev2 {
     }
 
     /**
+     * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+     */
+    export interface OriginEndpointFilterConfiguration {
+        /**
+         * <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+         */
+        end?: string;
+        /**
+         * <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+         */
+        manifestFilter?: string;
+        /**
+         * <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+         */
+        start?: string;
+        /**
+         * <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+         */
+        timeDelaySeconds?: number;
+    }
+
+    /**
      * <p>Retrieve the HTTP live streaming (HLS) manifest configuration.</p>
      */
     export interface OriginEndpointHlsManifestConfiguration {
@@ -30735,6 +31534,7 @@ export namespace mediapackagev2 {
          * <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
          */
         childManifestName?: string;
+        filterConfiguration?: outputs.mediapackagev2.OriginEndpointFilterConfiguration;
         /**
          * <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
          */
@@ -30766,6 +31566,7 @@ export namespace mediapackagev2 {
          * <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
          */
         childManifestName?: string;
+        filterConfiguration?: outputs.mediapackagev2.OriginEndpointFilterConfiguration;
         /**
          * <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
          */
@@ -34030,6 +34831,10 @@ export namespace pipes {
         weight?: number;
     }
 
+    export interface PipeCloudwatchLogsLogDestination {
+        logGroupArn?: string;
+    }
+
     export interface PipeDeadLetterConfig {
         arn?: string;
     }
@@ -34098,7 +34903,19 @@ export namespace pipes {
         filters?: outputs.pipes.PipeFilter[];
     }
 
+    export interface PipeFirehoseLogDestination {
+        deliveryStreamArn?: string;
+    }
+
     export interface PipeHeaderParametersMap {
+    }
+
+    export interface PipeLogConfiguration {
+        cloudwatchLogsLogDestination?: outputs.pipes.PipeCloudwatchLogsLogDestination;
+        firehoseLogDestination?: outputs.pipes.PipeFirehoseLogDestination;
+        includeExecutionData?: enums.pipes.PipeIncludeExecutionDataOption[];
+        level?: enums.pipes.PipeLogLevel;
+        s3LogDestination?: outputs.pipes.PipeS3LogDestination;
     }
 
     export interface PipeMqBrokerAccessCredentialsProperties {
@@ -34137,6 +34954,13 @@ export namespace pipes {
     }
 
     export interface PipeQueryStringParametersMap {
+    }
+
+    export interface PipeS3LogDestination {
+        bucketName?: string;
+        bucketOwner?: string;
+        outputFormat?: enums.pipes.PipeS3OutputFormat;
+        prefix?: string;
     }
 
     export interface PipeSageMakerPipelineParameter {
@@ -34489,6 +35313,11 @@ export namespace quicksight {
 
     export interface AnalysisArcOptions {
         arcThickness?: enums.quicksight.AnalysisArcThickness;
+    }
+
+    export interface AnalysisAssetOptions {
+        timezone?: string;
+        weekStart?: enums.quicksight.AnalysisDayOfTheWeek;
     }
 
     export interface AnalysisAttributeAggregationFunction {
@@ -35173,6 +36002,7 @@ export namespace quicksight {
         columnConfigurations?: outputs.quicksight.AnalysisColumnConfiguration[];
         dataSetIdentifierDeclarations: outputs.quicksight.AnalysisDataSetIdentifierDeclaration[];
         filterGroups?: outputs.quicksight.AnalysisFilterGroup[];
+        options?: outputs.quicksight.AnalysisAssetOptions;
         parameterDeclarations?: outputs.quicksight.AnalysisParameterDeclaration[];
         sheets?: outputs.quicksight.AnalysisSheetDefinition[];
     }
@@ -37532,6 +38362,11 @@ export namespace quicksight {
         arcThickness?: enums.quicksight.DashboardArcThickness;
     }
 
+    export interface DashboardAssetOptions {
+        timezone?: string;
+        weekStart?: enums.quicksight.DashboardDayOfTheWeek;
+    }
+
     export interface DashboardAttributeAggregationFunction {
         simpleAttributeAggregation?: enums.quicksight.DashboardSimpleAttributeAggregationFunction;
         valueForMultipleValues?: string;
@@ -39114,6 +39949,10 @@ export namespace quicksight {
         missingDataConfigurations?: outputs.quicksight.DashboardMissingDataConfiguration[];
     }
 
+    export interface DashboardLinkSharingConfiguration {
+        permissions?: outputs.quicksight.DashboardResourcePermission[];
+    }
+
     export interface DashboardListControlDisplayOptions {
         infoIconLabelOptions?: outputs.quicksight.DashboardSheetControlInfoIconLabelOptions;
         searchOptions?: outputs.quicksight.DashboardListControlSearchOptions;
@@ -40425,6 +41264,7 @@ export namespace quicksight {
         columnConfigurations?: outputs.quicksight.DashboardColumnConfiguration[];
         dataSetIdentifierDeclarations: outputs.quicksight.DashboardDataSetIdentifierDeclaration[];
         filterGroups?: outputs.quicksight.DashboardFilterGroup[];
+        options?: outputs.quicksight.DashboardAssetOptions;
         parameterDeclarations?: outputs.quicksight.DashboardParameterDeclaration[];
         sheets?: outputs.quicksight.DashboardSheetDefinition[];
     }
@@ -40745,6 +41585,7 @@ export namespace quicksight {
          * <p>A display name for the dataset.</p>
          */
         name?: string;
+        subType?: enums.quicksight.DataSetColumnSubDataType;
         type?: enums.quicksight.DataSetColumnDataType;
     }
 
@@ -41113,7 +41954,9 @@ export namespace quicksight {
         snowflakeParameters?: outputs.quicksight.DataSourceSnowflakeParameters;
         sparkParameters?: outputs.quicksight.DataSourceSparkParameters;
         sqlServerParameters?: outputs.quicksight.DataSourceSqlServerParameters;
+        starburstParameters?: outputs.quicksight.DataSourceStarburstParameters;
         teradataParameters?: outputs.quicksight.DataSourceTeradataParameters;
+        trinoParameters?: outputs.quicksight.DataSourceTrinoParameters;
     }
 
     /**
@@ -41292,6 +42135,25 @@ export namespace quicksight {
     }
 
     /**
+     * <p>Starburst parameters.</p>
+     */
+    export interface DataSourceStarburstParameters {
+        /**
+         * <p>Catalog.</p>
+         */
+        catalog: string;
+        /**
+         * <p>Host.</p>
+         */
+        host: string;
+        /**
+         * <p>Port.</p>
+         */
+        port: number;
+        productType?: enums.quicksight.DataSourceStarburstProductType;
+    }
+
+    /**
      * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
      *             resource.</p>
      */
@@ -41314,6 +42176,24 @@ export namespace quicksight {
          * <p>Database.</p>
          */
         database: string;
+        /**
+         * <p>Host.</p>
+         */
+        host: string;
+        /**
+         * <p>Port.</p>
+         */
+        port: number;
+    }
+
+    /**
+     * <p>Trino parameters.</p>
+     */
+    export interface DataSourceTrinoParameters {
+        /**
+         * <p>Catalog.</p>
+         */
+        catalog: string;
         /**
          * <p>Host.</p>
          */
@@ -41422,6 +42302,11 @@ export namespace quicksight {
 
     export interface TemplateArcOptions {
         arcThickness?: enums.quicksight.TemplateArcThickness;
+    }
+
+    export interface TemplateAssetOptions {
+        timezone?: string;
+        weekStart?: enums.quicksight.TemplateDayOfTheWeek;
     }
 
     export interface TemplateAttributeAggregationFunction {
@@ -44268,6 +45153,7 @@ export namespace quicksight {
         columnConfigurations?: outputs.quicksight.TemplateColumnConfiguration[];
         dataSetConfigurations: outputs.quicksight.TemplateDataSetConfiguration[];
         filterGroups?: outputs.quicksight.TemplateFilterGroup[];
+        options?: outputs.quicksight.TemplateAssetOptions;
         parameterDeclarations?: outputs.quicksight.TemplateParameterDeclaration[];
         sheets?: outputs.quicksight.TemplateSheetDefinition[];
     }
@@ -45634,12 +46520,12 @@ export namespace resourceexplorer2 {
     export interface IndexTagMap {
     }
 
-    export interface ViewFilters {
-        filterString: string;
-    }
-
     export interface ViewIncludedProperty {
         name: string;
+    }
+
+    export interface ViewSearchFilter {
+        filterString: string;
     }
 
     export interface ViewTagMap {
@@ -47354,10 +48240,73 @@ export namespace s3 {
     }
 
     /**
+     * The Storage Lens group will include objects that match all of the specified filter values.
+     */
+    export interface StorageLensGroupAnd {
+        matchAnyPrefix?: string[];
+        matchAnySuffix?: string[];
+        matchAnyTag?: outputs.s3.StorageLensGroupTag[];
+        matchObjectAge?: outputs.s3.StorageLensGroupMatchObjectAge;
+        matchObjectSize?: outputs.s3.StorageLensGroupMatchObjectSize;
+    }
+
+    /**
+     * Sets the Storage Lens Group filter.
+     */
+    export interface StorageLensGroupFilter {
+        and?: outputs.s3.StorageLensGroupAnd;
+        matchAnyPrefix?: string[];
+        matchAnySuffix?: string[];
+        matchAnyTag?: outputs.s3.StorageLensGroupTag[];
+        matchObjectAge?: outputs.s3.StorageLensGroupMatchObjectAge;
+        matchObjectSize?: outputs.s3.StorageLensGroupMatchObjectSize;
+        or?: outputs.s3.StorageLensGroupOr;
+    }
+
+    /**
      * Specifies the details of Amazon S3 Storage Lens Group configuration.
      */
     export interface StorageLensGroupLevel {
         storageLensGroupSelectionCriteria?: outputs.s3.StorageLensGroupSelectionCriteria;
+    }
+
+    /**
+     * Filter to match all of the specified values for the minimum and maximum object age.
+     */
+    export interface StorageLensGroupMatchObjectAge {
+        /**
+         * Minimum object age to which the rule applies.
+         */
+        daysGreaterThan?: number;
+        /**
+         * Maximum object age to which the rule applies.
+         */
+        daysLessThan?: number;
+    }
+
+    /**
+     * Filter to match all of the specified values for the minimum and maximum object size.
+     */
+    export interface StorageLensGroupMatchObjectSize {
+        /**
+         * Minimum object size to which the rule applies.
+         */
+        bytesGreaterThan?: number;
+        /**
+         * Maximum object size to which the rule applies.
+         */
+        bytesLessThan?: number;
+    }
+
+    /**
+     * The Storage Lens group will include objects that match any of the specified filter values.
+     */
+    export interface StorageLensGroupOr {
+        matchAnyPrefix?: string[];
+        matchAnySuffix?: string[];
+        matchAnyTag?: outputs.s3.StorageLensGroupTag[];
+        matchObjectAge?: outputs.s3.StorageLensGroupMatchObjectAge;
+        matchObjectSize?: outputs.s3.StorageLensGroupMatchObjectSize;
     }
 
     /**
@@ -47366,6 +48315,11 @@ export namespace s3 {
     export interface StorageLensGroupSelectionCriteria {
         exclude?: string[];
         include?: string[];
+    }
+
+    export interface StorageLensGroupTag {
+        key: string;
+        value: string;
     }
 
     /**

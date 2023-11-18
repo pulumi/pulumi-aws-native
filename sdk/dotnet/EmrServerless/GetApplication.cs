@@ -83,6 +83,7 @@ namespace Pulumi.AwsNative.EmrServerless
         /// Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
         /// </summary>
         public readonly Outputs.ApplicationMaximumAllowedResources? MaximumCapacity;
+        public readonly Outputs.ApplicationMonitoringConfiguration? MonitoringConfiguration;
         /// <summary>
         /// Network Configuration for customer VPC connectivity.
         /// </summary>
@@ -91,6 +92,7 @@ namespace Pulumi.AwsNative.EmrServerless
         /// EMR release label.
         /// </summary>
         public readonly string? ReleaseLabel;
+        public readonly ImmutableArray<Outputs.ApplicationConfigurationObject> RuntimeConfiguration;
         /// <summary>
         /// Tag map with key and value
         /// </summary>
@@ -118,9 +120,13 @@ namespace Pulumi.AwsNative.EmrServerless
 
             Outputs.ApplicationMaximumAllowedResources? maximumCapacity,
 
+            Outputs.ApplicationMonitoringConfiguration? monitoringConfiguration,
+
             Outputs.ApplicationNetworkConfiguration? networkConfiguration,
 
             string? releaseLabel,
+
+            ImmutableArray<Outputs.ApplicationConfigurationObject> runtimeConfiguration,
 
             ImmutableArray<Outputs.ApplicationTag> tags,
 
@@ -134,8 +140,10 @@ namespace Pulumi.AwsNative.EmrServerless
             ImageConfiguration = imageConfiguration;
             InitialCapacity = initialCapacity;
             MaximumCapacity = maximumCapacity;
+            MonitoringConfiguration = monitoringConfiguration;
             NetworkConfiguration = networkConfiguration;
             ReleaseLabel = releaseLabel;
+            RuntimeConfiguration = runtimeConfiguration;
             Tags = tags;
             WorkerTypeSpecifications = workerTypeSpecifications;
         }

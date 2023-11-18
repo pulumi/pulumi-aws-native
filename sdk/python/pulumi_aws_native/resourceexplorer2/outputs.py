@@ -12,8 +12,8 @@ from ._enums import *
 
 __all__ = [
     'IndexTagMap',
-    'ViewFilters',
     'ViewIncludedProperty',
+    'ViewSearchFilter',
     'ViewTagMap',
 ]
 
@@ -21,35 +21,6 @@ __all__ = [
 class IndexTagMap(dict):
     def __init__(__self__):
         pass
-
-
-@pulumi.output_type
-class ViewFilters(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "filterString":
-            suggest = "filter_string"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ViewFilters. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ViewFilters.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ViewFilters.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 filter_string: str):
-        pulumi.set(__self__, "filter_string", filter_string)
-
-    @property
-    @pulumi.getter(name="filterString")
-    def filter_string(self) -> str:
-        return pulumi.get(self, "filter_string")
 
 
 @pulumi.output_type
@@ -62,6 +33,35 @@ class ViewIncludedProperty(dict):
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ViewSearchFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterString":
+            suggest = "filter_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ViewSearchFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ViewSearchFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ViewSearchFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter_string: str):
+        pulumi.set(__self__, "filter_string", filter_string)
+
+    @property
+    @pulumi.getter(name="filterString")
+    def filter_string(self) -> str:
+        return pulumi.get(self, "filter_string")
 
 
 @pulumi.output_type

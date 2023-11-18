@@ -37,22 +37,73 @@ export class Resolver extends pulumi.CustomResource {
         return obj['__pulumiType'] === Resolver.__pulumiType;
     }
 
+    /**
+     * The AWS AppSync GraphQL API to which you want to attach this resolver.
+     */
     public readonly apiId!: pulumi.Output<string>;
+    /**
+     * The caching configuration for the resolver.
+     */
     public readonly cachingConfig!: pulumi.Output<outputs.appsync.ResolverCachingConfig | undefined>;
+    /**
+     * The resolver code that contains the request and response functions. When code is used, the runtime is required.
+     */
     public readonly code!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon S3 endpoint.
+     */
     public readonly codeS3Location!: pulumi.Output<string | undefined>;
+    /**
+     * The resolver data source name.
+     */
     public readonly dataSourceName!: pulumi.Output<string | undefined>;
+    /**
+     * The GraphQL field on a type that invokes the resolver.
+     */
     public readonly fieldName!: pulumi.Output<string>;
+    /**
+     * The resolver type.
+     */
     public readonly kind!: pulumi.Output<string | undefined>;
+    /**
+     * The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
+     */
     public readonly maxBatchSize!: pulumi.Output<number | undefined>;
+    /**
+     * Functions linked with the pipeline resolver.
+     */
     public readonly pipelineConfig!: pulumi.Output<outputs.appsync.ResolverPipelineConfig | undefined>;
+    /**
+     * Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
+     */
     public readonly requestMappingTemplate!: pulumi.Output<string | undefined>;
+    /**
+     * The location of a request mapping template in an Amazon S3 bucket. Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
+     */
     public readonly requestMappingTemplateS3Location!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) for the resolver.
+     */
     public /*out*/ readonly resolverArn!: pulumi.Output<string>;
+    /**
+     * The response mapping template.
+     */
     public readonly responseMappingTemplate!: pulumi.Output<string | undefined>;
+    /**
+     * The location of a response mapping template in an Amazon S3 bucket. Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
+     */
     public readonly responseMappingTemplateS3Location!: pulumi.Output<string | undefined>;
+    /**
+     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+     */
     public readonly runtime!: pulumi.Output<outputs.appsync.ResolverAppSyncRuntime | undefined>;
+    /**
+     * The SyncConfig for a resolver attached to a versioned data source.
+     */
     public readonly syncConfig!: pulumi.Output<outputs.appsync.ResolverSyncConfig | undefined>;
+    /**
+     * The GraphQL type that invokes this resolver.
+     */
     public readonly typeName!: pulumi.Output<string>;
 
     /**
@@ -122,20 +173,68 @@ export class Resolver extends pulumi.CustomResource {
  * The set of arguments for constructing a Resolver resource.
  */
 export interface ResolverArgs {
+    /**
+     * The AWS AppSync GraphQL API to which you want to attach this resolver.
+     */
     apiId: pulumi.Input<string>;
+    /**
+     * The caching configuration for the resolver.
+     */
     cachingConfig?: pulumi.Input<inputs.appsync.ResolverCachingConfigArgs>;
+    /**
+     * The resolver code that contains the request and response functions. When code is used, the runtime is required.
+     */
     code?: pulumi.Input<string>;
+    /**
+     * The Amazon S3 endpoint.
+     */
     codeS3Location?: pulumi.Input<string>;
+    /**
+     * The resolver data source name.
+     */
     dataSourceName?: pulumi.Input<string>;
+    /**
+     * The GraphQL field on a type that invokes the resolver.
+     */
     fieldName: pulumi.Input<string>;
+    /**
+     * The resolver type.
+     */
     kind?: pulumi.Input<string>;
+    /**
+     * The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a BatchInvoke operation.
+     */
     maxBatchSize?: pulumi.Input<number>;
+    /**
+     * Functions linked with the pipeline resolver.
+     */
     pipelineConfig?: pulumi.Input<inputs.appsync.ResolverPipelineConfigArgs>;
+    /**
+     * Request mapping templates are optional when using a Lambda data source. For all other data sources, a request mapping template is required.
+     */
     requestMappingTemplate?: pulumi.Input<string>;
+    /**
+     * The location of a request mapping template in an Amazon S3 bucket. Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
+     */
     requestMappingTemplateS3Location?: pulumi.Input<string>;
+    /**
+     * The response mapping template.
+     */
     responseMappingTemplate?: pulumi.Input<string>;
+    /**
+     * The location of a response mapping template in an Amazon S3 bucket. Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
+     */
     responseMappingTemplateS3Location?: pulumi.Input<string>;
+    /**
+     * Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+     */
     runtime?: pulumi.Input<inputs.appsync.ResolverAppSyncRuntimeArgs>;
+    /**
+     * The SyncConfig for a resolver attached to a versioned data source.
+     */
     syncConfig?: pulumi.Input<inputs.appsync.ResolverSyncConfigArgs>;
+    /**
+     * The GraphQL type that invokes this resolver.
+     */
     typeName: pulumi.Input<string>;
 }

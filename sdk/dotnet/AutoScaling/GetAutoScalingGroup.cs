@@ -60,6 +60,7 @@ namespace Pulumi.AwsNative.AutoScaling
         public readonly string? DesiredCapacityType;
         public readonly int? HealthCheckGracePeriod;
         public readonly string? HealthCheckType;
+        public readonly Outputs.AutoScalingGroupInstanceMaintenancePolicy? InstanceMaintenancePolicy;
         public readonly string? LaunchConfigurationName;
         public readonly Outputs.AutoScalingGroupLaunchTemplateSpecification? LaunchTemplate;
         public readonly ImmutableArray<Outputs.AutoScalingGroupLifecycleHookSpecification> LifecycleHookSpecificationList;
@@ -98,6 +99,8 @@ namespace Pulumi.AwsNative.AutoScaling
             int? healthCheckGracePeriod,
 
             string? healthCheckType,
+
+            Outputs.AutoScalingGroupInstanceMaintenancePolicy? instanceMaintenancePolicy,
 
             string? launchConfigurationName,
 
@@ -144,6 +147,7 @@ namespace Pulumi.AwsNative.AutoScaling
             DesiredCapacityType = desiredCapacityType;
             HealthCheckGracePeriod = healthCheckGracePeriod;
             HealthCheckType = healthCheckType;
+            InstanceMaintenancePolicy = instanceMaintenancePolicy;
             LaunchConfigurationName = launchConfigurationName;
             LaunchTemplate = launchTemplate;
             LifecycleHookSpecificationList = lifecycleHookSpecificationList;

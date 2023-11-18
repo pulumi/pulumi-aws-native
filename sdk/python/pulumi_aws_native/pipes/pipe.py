@@ -24,6 +24,7 @@ class PipeArgs:
                  desired_state: Optional[pulumi.Input['PipeRequestedPipeState']] = None,
                  enrichment: Optional[pulumi.Input[str]] = None,
                  enrichment_parameters: Optional[pulumi.Input['PipeEnrichmentParametersArgs']] = None,
+                 log_configuration: Optional[pulumi.Input['PipeLogConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source_parameters: Optional[pulumi.Input['PipeSourceParametersArgs']] = None,
                  tags: Optional[pulumi.Input['PipeTagMapArgs']] = None,
@@ -42,6 +43,8 @@ class PipeArgs:
             pulumi.set(__self__, "enrichment", enrichment)
         if enrichment_parameters is not None:
             pulumi.set(__self__, "enrichment_parameters", enrichment_parameters)
+        if log_configuration is not None:
+            pulumi.set(__self__, "log_configuration", log_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if source_parameters is not None:
@@ -115,6 +118,15 @@ class PipeArgs:
         pulumi.set(self, "enrichment_parameters", value)
 
     @property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> Optional[pulumi.Input['PipeLogConfigurationArgs']]:
+        return pulumi.get(self, "log_configuration")
+
+    @log_configuration.setter
+    def log_configuration(self, value: Optional[pulumi.Input['PipeLogConfigurationArgs']]):
+        pulumi.set(self, "log_configuration", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "name")
@@ -160,6 +172,7 @@ class Pipe(pulumi.CustomResource):
                  desired_state: Optional[pulumi.Input['PipeRequestedPipeState']] = None,
                  enrichment: Optional[pulumi.Input[str]] = None,
                  enrichment_parameters: Optional[pulumi.Input[pulumi.InputType['PipeEnrichmentParametersArgs']]] = None,
+                 log_configuration: Optional[pulumi.Input[pulumi.InputType['PipeLogConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
@@ -202,6 +215,7 @@ class Pipe(pulumi.CustomResource):
                  desired_state: Optional[pulumi.Input['PipeRequestedPipeState']] = None,
                  enrichment: Optional[pulumi.Input[str]] = None,
                  enrichment_parameters: Optional[pulumi.Input[pulumi.InputType['PipeEnrichmentParametersArgs']]] = None,
+                 log_configuration: Optional[pulumi.Input[pulumi.InputType['PipeLogConfigurationArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
@@ -222,6 +236,7 @@ class Pipe(pulumi.CustomResource):
             __props__.__dict__["desired_state"] = desired_state
             __props__.__dict__["enrichment"] = enrichment
             __props__.__dict__["enrichment_parameters"] = enrichment_parameters
+            __props__.__dict__["log_configuration"] = log_configuration
             __props__.__dict__["name"] = name
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
@@ -272,6 +287,7 @@ class Pipe(pulumi.CustomResource):
         __props__.__dict__["enrichment"] = None
         __props__.__dict__["enrichment_parameters"] = None
         __props__.__dict__["last_modified_time"] = None
+        __props__.__dict__["log_configuration"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["source"] = None
@@ -321,6 +337,11 @@ class Pipe(pulumi.CustomResource):
     @pulumi.getter(name="lastModifiedTime")
     def last_modified_time(self) -> pulumi.Output[str]:
         return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> pulumi.Output[Optional['outputs.PipeLogConfiguration']]:
+        return pulumi.get(self, "log_configuration")
 
     @property
     @pulumi.getter

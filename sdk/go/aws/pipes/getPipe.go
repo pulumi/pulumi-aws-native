@@ -36,6 +36,7 @@ type LookupPipeResult struct {
 	Enrichment           *string                   `pulumi:"enrichment"`
 	EnrichmentParameters *PipeEnrichmentParameters `pulumi:"enrichmentParameters"`
 	LastModifiedTime     *string                   `pulumi:"lastModifiedTime"`
+	LogConfiguration     *PipeLogConfiguration     `pulumi:"logConfiguration"`
 	RoleArn              *string                   `pulumi:"roleArn"`
 	StateReason          *string                   `pulumi:"stateReason"`
 	Tags                 *PipeTagMap               `pulumi:"tags"`
@@ -113,6 +114,10 @@ func (o LookupPipeResultOutput) EnrichmentParameters() PipeEnrichmentParametersP
 
 func (o LookupPipeResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPipeResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupPipeResultOutput) LogConfiguration() PipeLogConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupPipeResult) *PipeLogConfiguration { return v.LogConfiguration }).(PipeLogConfigurationPtrOutput)
 }
 
 func (o LookupPipeResultOutput) RoleArn() pulumi.StringPtrOutput {

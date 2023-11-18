@@ -13,27 +13,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::FSx::DataRepositoryAssociation
+// Creates an Amazon FSx for Lustre data repository association (DRA). A data repository association is a link between a directory on the file system and an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository associations on a file system. Data repository associations are supported on all FSx for Lustre 2.12 and newer file systems, excluding “scratch_1“ deployment type.
+//
+//	Each data repository association must have a unique Amazon FSx file system directory and a unique S3 bucket or prefix associated with it. You can configure a data repository association for automatic import only, for automatic export only, or for both. To learn more about linking a data repository to your file system, see [Linking your file system to an S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html).
 type DataRepositoryAssociation struct {
 	pulumi.CustomResourceState
 
-	// The system-generated, unique ID of the data repository association.
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
-	// A boolean flag indicating whether an import data repository task to import metadata should run after the data repository association is created. The task runs if this flag is set to true.
+	// A boolean flag indicating whether an import data repository task to import metadata should run after the data repository association is created. The task runs if this flag is set to ``true``.
 	BatchImportMetaDataOnCreate pulumi.BoolPtrOutput `pulumi:"batchImportMetaDataOnCreate"`
-	// The path to the Amazon S3 data repository that will be linked to the file system. The path can be an S3 bucket or prefix in the format s3://myBucket/myPrefix/ . This path specifies where in the S3 data repository files will be imported from or exported to.
+	// The path to the Amazon S3 data repository that will be linked to the file system. The path can be an S3 bucket or prefix in the format ``s3://myBucket/myPrefix/``. This path specifies where in the S3 data repository files will be imported from or exported to.
 	DataRepositoryPath pulumi.StringOutput `pulumi:"dataRepositoryPath"`
-	// The globally unique ID of the file system, assigned by Amazon FSx.
+	// The ID of the file system on which the data repository association is configured.
 	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
-	// This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
+	// A path on the Amazon FSx for Lustre file system that points to a high-level directory (such as ``/ns1/``) or subdirectory (such as ``/ns1/subdir/``) that will be mapped 1-1 with ``DataRepositoryPath``. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path ``/ns1/``, then you cannot link another data repository with file system path ``/ns1/ns2``.
+	//  This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
+	//   If you specify only a forward slash (``/``) as the file system path, you can link only one data repository to the file system. You can only specify "/" as the file system path for the first data repository associated with a file system.
 	FileSystemPath pulumi.StringOutput `pulumi:"fileSystemPath"`
-	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
+	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system or cache.
+	//  The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
 	ImportedFileChunkSize pulumi.IntPtrOutput `pulumi:"importedFileChunkSize"`
-	// The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services resources. We require an ARN when you need to specify a resource unambiguously across all of Amazon Web Services. For more information, see Amazon Resource Names (ARNs) in the Amazon Web Services General Reference.
-	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
+	ResourceArn           pulumi.StringOutput `pulumi:"resourceArn"`
 	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 	S3 DataRepositoryAssociationS3PtrOutput `pulumi:"s3"`
-	// A list of Tag values, with a maximum of 50 elements.
+	// An array of key-value pairs to apply to this resource.
+	//  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 	Tags DataRepositoryAssociationTagArrayOutput `pulumi:"tags"`
 }
 
@@ -93,37 +97,45 @@ func (DataRepositoryAssociationState) ElementType() reflect.Type {
 }
 
 type dataRepositoryAssociationArgs struct {
-	// A boolean flag indicating whether an import data repository task to import metadata should run after the data repository association is created. The task runs if this flag is set to true.
+	// A boolean flag indicating whether an import data repository task to import metadata should run after the data repository association is created. The task runs if this flag is set to ``true``.
 	BatchImportMetaDataOnCreate *bool `pulumi:"batchImportMetaDataOnCreate"`
-	// The path to the Amazon S3 data repository that will be linked to the file system. The path can be an S3 bucket or prefix in the format s3://myBucket/myPrefix/ . This path specifies where in the S3 data repository files will be imported from or exported to.
+	// The path to the Amazon S3 data repository that will be linked to the file system. The path can be an S3 bucket or prefix in the format ``s3://myBucket/myPrefix/``. This path specifies where in the S3 data repository files will be imported from or exported to.
 	DataRepositoryPath string `pulumi:"dataRepositoryPath"`
-	// The globally unique ID of the file system, assigned by Amazon FSx.
+	// The ID of the file system on which the data repository association is configured.
 	FileSystemId string `pulumi:"fileSystemId"`
-	// This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
+	// A path on the Amazon FSx for Lustre file system that points to a high-level directory (such as ``/ns1/``) or subdirectory (such as ``/ns1/subdir/``) that will be mapped 1-1 with ``DataRepositoryPath``. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path ``/ns1/``, then you cannot link another data repository with file system path ``/ns1/ns2``.
+	//  This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
+	//   If you specify only a forward slash (``/``) as the file system path, you can link only one data repository to the file system. You can only specify "/" as the file system path for the first data repository associated with a file system.
 	FileSystemPath string `pulumi:"fileSystemPath"`
-	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
+	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system or cache.
+	//  The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
 	ImportedFileChunkSize *int `pulumi:"importedFileChunkSize"`
 	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 	S3 *DataRepositoryAssociationS3 `pulumi:"s3"`
-	// A list of Tag values, with a maximum of 50 elements.
+	// An array of key-value pairs to apply to this resource.
+	//  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 	Tags []DataRepositoryAssociationTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DataRepositoryAssociation resource.
 type DataRepositoryAssociationArgs struct {
-	// A boolean flag indicating whether an import data repository task to import metadata should run after the data repository association is created. The task runs if this flag is set to true.
+	// A boolean flag indicating whether an import data repository task to import metadata should run after the data repository association is created. The task runs if this flag is set to ``true``.
 	BatchImportMetaDataOnCreate pulumi.BoolPtrInput
-	// The path to the Amazon S3 data repository that will be linked to the file system. The path can be an S3 bucket or prefix in the format s3://myBucket/myPrefix/ . This path specifies where in the S3 data repository files will be imported from or exported to.
+	// The path to the Amazon S3 data repository that will be linked to the file system. The path can be an S3 bucket or prefix in the format ``s3://myBucket/myPrefix/``. This path specifies where in the S3 data repository files will be imported from or exported to.
 	DataRepositoryPath pulumi.StringInput
-	// The globally unique ID of the file system, assigned by Amazon FSx.
+	// The ID of the file system on which the data repository association is configured.
 	FileSystemId pulumi.StringInput
-	// This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
+	// A path on the Amazon FSx for Lustre file system that points to a high-level directory (such as ``/ns1/``) or subdirectory (such as ``/ns1/subdir/``) that will be mapped 1-1 with ``DataRepositoryPath``. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path ``/ns1/``, then you cannot link another data repository with file system path ``/ns1/ns2``.
+	//  This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
+	//   If you specify only a forward slash (``/``) as the file system path, you can link only one data repository to the file system. You can only specify "/" as the file system path for the first data repository associated with a file system.
 	FileSystemPath pulumi.StringInput
-	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
+	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system or cache.
+	//  The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
 	ImportedFileChunkSize pulumi.IntPtrInput
 	// The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
 	S3 DataRepositoryAssociationS3PtrInput
-	// A list of Tag values, with a maximum of 50 elements.
+	// An array of key-value pairs to apply to this resource.
+	//  For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 	Tags DataRepositoryAssociationTagArrayInput
 }
 
@@ -176,37 +188,40 @@ func (o DataRepositoryAssociationOutput) ToOutput(ctx context.Context) pulumix.O
 	}
 }
 
-// The system-generated, unique ID of the data repository association.
 func (o DataRepositoryAssociationOutput) AssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringOutput { return v.AssociationId }).(pulumi.StringOutput)
 }
 
-// A boolean flag indicating whether an import data repository task to import metadata should run after the data repository association is created. The task runs if this flag is set to true.
+// A boolean flag indicating whether an import data repository task to import metadata should run after the data repository association is created. The task runs if this flag is set to “true“.
 func (o DataRepositoryAssociationOutput) BatchImportMetaDataOnCreate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.BoolPtrOutput { return v.BatchImportMetaDataOnCreate }).(pulumi.BoolPtrOutput)
 }
 
-// The path to the Amazon S3 data repository that will be linked to the file system. The path can be an S3 bucket or prefix in the format s3://myBucket/myPrefix/ . This path specifies where in the S3 data repository files will be imported from or exported to.
+// The path to the Amazon S3 data repository that will be linked to the file system. The path can be an S3 bucket or prefix in the format “s3://myBucket/myPrefix/“. This path specifies where in the S3 data repository files will be imported from or exported to.
 func (o DataRepositoryAssociationOutput) DataRepositoryPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringOutput { return v.DataRepositoryPath }).(pulumi.StringOutput)
 }
 
-// The globally unique ID of the file system, assigned by Amazon FSx.
+// The ID of the file system on which the data repository association is configured.
 func (o DataRepositoryAssociationOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringOutput { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
-// This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
+// A path on the Amazon FSx for Lustre file system that points to a high-level directory (such as “/ns1/“) or subdirectory (such as “/ns1/subdir/“) that will be mapped 1-1 with “DataRepositoryPath“. The leading forward slash in the name is required. Two data repository associations cannot have overlapping file system paths. For example, if a data repository is associated with file system path “/ns1/“, then you cannot link another data repository with file system path “/ns1/ns2“.
+//
+//	This path specifies where in your file system files will be exported from or imported to. This file system directory can be linked to only one Amazon S3 bucket, and no other S3 bucket can be linked to the directory.
+//	 If you specify only a forward slash (``/``) as the file system path, you can link only one data repository to the file system. You can only specify "/" as the file system path for the first data repository associated with a file system.
 func (o DataRepositoryAssociationOutput) FileSystemPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringOutput { return v.FileSystemPath }).(pulumi.StringOutput)
 }
 
-// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system.
+// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk. The maximum number of disks that a single file can be striped across is limited by the total number of disks that make up the file system or cache.
+//
+//	The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500 GiB). Amazon S3 objects have a maximum size of 5 TB.
 func (o DataRepositoryAssociationOutput) ImportedFileChunkSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.IntPtrOutput { return v.ImportedFileChunkSize }).(pulumi.IntPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services resources. We require an ARN when you need to specify a resource unambiguously across all of Amazon Web Services. For more information, see Amazon Resource Names (ARNs) in the Amazon Web Services General Reference.
 func (o DataRepositoryAssociationOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }
@@ -216,7 +231,9 @@ func (o DataRepositoryAssociationOutput) S3() DataRepositoryAssociationS3PtrOutp
 	return o.ApplyT(func(v *DataRepositoryAssociation) DataRepositoryAssociationS3PtrOutput { return v.S3 }).(DataRepositoryAssociationS3PtrOutput)
 }
 
-// A list of Tag values, with a maximum of 50 elements.
+// An array of key-value pairs to apply to this resource.
+//
+//	For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 func (o DataRepositoryAssociationOutput) Tags() DataRepositoryAssociationTagArrayOutput {
 	return o.ApplyT(func(v *DataRepositoryAssociation) DataRepositoryAssociationTagArrayOutput { return v.Tags }).(DataRepositoryAssociationTagArrayOutput)
 }

@@ -13,11 +13,15 @@ from ._enums import *
 __all__ = [
     'ApplicationAutoStartConfigurationArgs',
     'ApplicationAutoStopConfigurationArgs',
+    'ApplicationConfigurationObjectArgs',
     'ApplicationImageConfigurationInputArgs',
     'ApplicationInitialCapacityConfigKeyValuePairArgs',
     'ApplicationInitialCapacityConfigArgs',
+    'ApplicationManagedPersistenceMonitoringConfigurationArgs',
     'ApplicationMaximumAllowedResourcesArgs',
+    'ApplicationMonitoringConfigurationArgs',
     'ApplicationNetworkConfigurationArgs',
+    'ApplicationS3MonitoringConfigurationArgs',
     'ApplicationTagArgs',
     'ApplicationWorkerConfigurationArgs',
     'ApplicationWorkerTypeSpecificationInputMapArgs',
@@ -85,6 +89,53 @@ class ApplicationAutoStopConfigurationArgs:
     @idle_timeout_minutes.setter
     def idle_timeout_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "idle_timeout_minutes", value)
+
+
+@pulumi.input_type
+class ApplicationConfigurationObjectArgs:
+    def __init__(__self__, *,
+                 classification: pulumi.Input[str],
+                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationConfigurationObjectArgs']]]] = None,
+                 properties: Optional[Any] = None):
+        """
+        Configuration for a JobRun.
+        :param pulumi.Input[str] classification: String with a maximum length of 1024.
+        """
+        pulumi.set(__self__, "classification", classification)
+        if configurations is not None:
+            pulumi.set(__self__, "configurations", configurations)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def classification(self) -> pulumi.Input[str]:
+        """
+        String with a maximum length of 1024.
+        """
+        return pulumi.get(self, "classification")
+
+    @classification.setter
+    def classification(self, value: pulumi.Input[str]):
+        pulumi.set(self, "classification", value)
+
+    @property
+    @pulumi.getter
+    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationConfigurationObjectArgs']]]]:
+        return pulumi.get(self, "configurations")
+
+    @configurations.setter
+    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationConfigurationObjectArgs']]]]):
+        pulumi.set(self, "configurations", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[Any]:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[Any]):
+        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type
@@ -178,6 +229,45 @@ class ApplicationInitialCapacityConfigArgs:
 
 
 @pulumi.input_type
+class ApplicationManagedPersistenceMonitoringConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 encryption_key_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: If set to false, managed logging will be turned off. Defaults to true.
+        :param pulumi.Input[str] encryption_key_arn: KMS key ARN to encrypt the logs stored in managed persistence
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if encryption_key_arn is not None:
+            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to false, managed logging will be turned off. Defaults to true.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        KMS key ARN to encrypt the logs stored in managed persistence
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+    @encryption_key_arn.setter
+    def encryption_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_key_arn", value)
+
+
+@pulumi.input_type
 class ApplicationMaximumAllowedResourcesArgs:
     def __init__(__self__, *,
                  cpu: pulumi.Input[str],
@@ -231,6 +321,46 @@ class ApplicationMaximumAllowedResourcesArgs:
 
 
 @pulumi.input_type
+class ApplicationMonitoringConfigurationArgs:
+    def __init__(__self__, *,
+                 managed_persistence_monitoring_configuration: Optional[pulumi.Input['ApplicationManagedPersistenceMonitoringConfigurationArgs']] = None,
+                 s3_monitoring_configuration: Optional[pulumi.Input['ApplicationS3MonitoringConfigurationArgs']] = None):
+        """
+        Monitoring configuration for batch and interactive JobRun.
+        :param pulumi.Input['ApplicationManagedPersistenceMonitoringConfigurationArgs'] managed_persistence_monitoring_configuration: Managed log persistence configurations for a JobRun.
+        :param pulumi.Input['ApplicationS3MonitoringConfigurationArgs'] s3_monitoring_configuration: S3 monitoring configurations for a JobRun.
+        """
+        if managed_persistence_monitoring_configuration is not None:
+            pulumi.set(__self__, "managed_persistence_monitoring_configuration", managed_persistence_monitoring_configuration)
+        if s3_monitoring_configuration is not None:
+            pulumi.set(__self__, "s3_monitoring_configuration", s3_monitoring_configuration)
+
+    @property
+    @pulumi.getter(name="managedPersistenceMonitoringConfiguration")
+    def managed_persistence_monitoring_configuration(self) -> Optional[pulumi.Input['ApplicationManagedPersistenceMonitoringConfigurationArgs']]:
+        """
+        Managed log persistence configurations for a JobRun.
+        """
+        return pulumi.get(self, "managed_persistence_monitoring_configuration")
+
+    @managed_persistence_monitoring_configuration.setter
+    def managed_persistence_monitoring_configuration(self, value: Optional[pulumi.Input['ApplicationManagedPersistenceMonitoringConfigurationArgs']]):
+        pulumi.set(self, "managed_persistence_monitoring_configuration", value)
+
+    @property
+    @pulumi.getter(name="s3MonitoringConfiguration")
+    def s3_monitoring_configuration(self) -> Optional[pulumi.Input['ApplicationS3MonitoringConfigurationArgs']]:
+        """
+        S3 monitoring configurations for a JobRun.
+        """
+        return pulumi.get(self, "s3_monitoring_configuration")
+
+    @s3_monitoring_configuration.setter
+    def s3_monitoring_configuration(self, value: Optional[pulumi.Input['ApplicationS3MonitoringConfigurationArgs']]):
+        pulumi.set(self, "s3_monitoring_configuration", value)
+
+
+@pulumi.input_type
 class ApplicationNetworkConfigurationArgs:
     def __init__(__self__, *,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -267,6 +397,41 @@ class ApplicationNetworkConfigurationArgs:
     @subnet_ids.setter
     def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "subnet_ids", value)
+
+
+@pulumi.input_type
+class ApplicationS3MonitoringConfigurationArgs:
+    def __init__(__self__, *,
+                 encryption_key_arn: Optional[pulumi.Input[str]] = None,
+                 log_uri: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] encryption_key_arn: KMS key ARN to encrypt the logs stored in given s3
+        """
+        if encryption_key_arn is not None:
+            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
+        if log_uri is not None:
+            pulumi.set(__self__, "log_uri", log_uri)
+
+    @property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        KMS key ARN to encrypt the logs stored in given s3
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+    @encryption_key_arn.setter
+    def encryption_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_key_arn", value)
+
+    @property
+    @pulumi.getter(name="logUri")
+    def log_uri(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "log_uri")
+
+    @log_uri.setter
+    def log_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_uri", value)
 
 
 @pulumi.input_type

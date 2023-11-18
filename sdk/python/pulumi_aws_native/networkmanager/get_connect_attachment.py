@@ -85,7 +85,7 @@ class GetConnectAttachmentResult:
     @pulumi.getter(name="coreNetworkArn")
     def core_network_arn(self) -> Optional[str]:
         """
-        The ARN of a core network for the VPC attachment.
+        The ARN of a core network.
         """
         return pulumi.get(self, "core_network_arn")
 

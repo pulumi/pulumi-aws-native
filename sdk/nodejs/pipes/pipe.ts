@@ -45,6 +45,7 @@ export class Pipe extends pulumi.CustomResource {
     public readonly enrichment!: pulumi.Output<string | undefined>;
     public readonly enrichmentParameters!: pulumi.Output<outputs.pipes.PipeEnrichmentParameters | undefined>;
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    public readonly logConfiguration!: pulumi.Output<outputs.pipes.PipeLogConfiguration | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly roleArn!: pulumi.Output<string>;
     public readonly source!: pulumi.Output<string>;
@@ -78,6 +79,7 @@ export class Pipe extends pulumi.CustomResource {
             resourceInputs["desiredState"] = args ? args.desiredState : undefined;
             resourceInputs["enrichment"] = args ? args.enrichment : undefined;
             resourceInputs["enrichmentParameters"] = args ? args.enrichmentParameters : undefined;
+            resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
@@ -99,6 +101,7 @@ export class Pipe extends pulumi.CustomResource {
             resourceInputs["enrichment"] = undefined /*out*/;
             resourceInputs["enrichmentParameters"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["logConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["source"] = undefined /*out*/;
@@ -123,6 +126,7 @@ export interface PipeArgs {
     desiredState?: pulumi.Input<enums.pipes.PipeRequestedPipeState>;
     enrichment?: pulumi.Input<string>;
     enrichmentParameters?: pulumi.Input<inputs.pipes.PipeEnrichmentParametersArgs>;
+    logConfiguration?: pulumi.Input<inputs.pipes.PipeLogConfigurationArgs>;
     name?: pulumi.Input<string>;
     roleArn: pulumi.Input<string>;
     source: pulumi.Input<string>;

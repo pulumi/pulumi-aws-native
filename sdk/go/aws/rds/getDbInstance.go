@@ -69,6 +69,8 @@ type LookupDbInstanceResult struct {
 	DbSystemId *string `pulumi:"dbSystemId"`
 	// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
 	DbiResourceId *string `pulumi:"dbiResourceId"`
+	// Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
+	DedicatedLogVolume *bool `pulumi:"dedicatedLogVolume"`
 	// A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// The Active Directory directory ID to create the DB instance in. Currently, only MySQL, Microsoft SQL Server, Oracle, and PostgreSQL DB instances can be created in an Active Directory Domain.
@@ -273,6 +275,11 @@ func (o LookupDbInstanceResultOutput) DbSystemId() pulumi.StringPtrOutput {
 // The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
 func (o LookupDbInstanceResultOutput) DbiResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.DbiResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
+func (o LookupDbInstanceResultOutput) DedicatedLogVolume() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDbInstanceResult) *bool { return v.DedicatedLogVolume }).(pulumi.BoolPtrOutput)
 }
 
 // A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.

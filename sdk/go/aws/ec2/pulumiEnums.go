@@ -921,9 +921,10 @@ func (in *ec2FleetExcessCapacityTerminationPolicyPtr) ToOutput(ctx context.Conte
 type Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem string
 
 const (
-	Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemNvidia            = Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("nvidia")
-	Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemAmd               = Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("amd")
 	Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemAmazonWebServices = Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("amazon-web-services")
+	Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemAmd               = Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("amd")
+	Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemHabana            = Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("habana")
+	Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemNvidia            = Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("nvidia")
 	Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemXilinx            = Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("xilinx")
 )
 
@@ -1162,15 +1163,18 @@ func (o Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOutp
 type Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem string
 
 const (
+	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemA10g          = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("a10g")
 	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemA100          = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("a100")
-	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemV100          = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("v100")
-	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemK80           = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("k80")
-	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemT4            = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("t4")
-	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemM60           = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("m60")
-	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemRadeonProV520 = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("radeon-pro-v520")
-	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemVu9p          = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("vu9p")
+	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemH100          = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("h100")
 	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemInferentia    = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("inferentia")
 	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemK520          = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("k520")
+	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemK80           = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("k80")
+	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemM60           = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("m60")
+	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemRadeonProV520 = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("radeon-pro-v520")
+	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemT4            = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("t4")
+	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemT4g           = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("t4g")
+	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemVu9p          = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("vu9p")
+	Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemV100          = Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("v100")
 )
 
 func (Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem) ElementType() reflect.Type {
@@ -7304,9 +7308,10 @@ func (in *spotFleetEbsBlockDeviceVolumeTypePtr) ToOutput(ctx context.Context) pu
 type SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem string
 
 const (
-	SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemNvidia            = SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("nvidia")
-	SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemAmd               = SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("amd")
 	SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemAmazonWebServices = SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("amazon-web-services")
+	SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemAmd               = SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("amd")
+	SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemHabana            = SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("habana")
+	SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemNvidia            = SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("nvidia")
 	SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemXilinx            = SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("xilinx")
 )
 
@@ -7545,15 +7550,18 @@ func (o SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayOut
 type SpotFleetInstanceRequirementsRequestAcceleratorNamesItem string
 
 const (
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemA10g          = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("a10g")
 	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemA100          = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("a100")
-	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemV100          = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("v100")
-	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemK80           = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("k80")
-	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemT4            = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("t4")
-	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemM60           = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("m60")
-	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemRadeonProV520 = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("radeon-pro-v520")
-	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemVu9p          = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("vu9p")
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemH100          = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("h100")
 	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemInferentia    = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("inferentia")
 	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemK520          = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("k520")
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemK80           = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("k80")
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemM60           = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("m60")
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemRadeonProV520 = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("radeon-pro-v520")
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemT4            = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("t4")
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemT4g           = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("t4g")
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemVu9p          = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("vu9p")
+	SpotFleetInstanceRequirementsRequestAcceleratorNamesItemV100          = SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("v100")
 )
 
 func (SpotFleetInstanceRequirementsRequestAcceleratorNamesItem) ElementType() reflect.Type {
@@ -10996,11 +11004,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetCapacityReservationOptionsRequestUsageStrategyPtrInput)(nil)).Elem(), Ec2FleetCapacityReservationOptionsRequestUsageStrategy("use-capacity-reservations-first"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetExcessCapacityTerminationPolicyInput)(nil)).Elem(), Ec2FleetExcessCapacityTerminationPolicy("termination"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetExcessCapacityTerminationPolicyPtrInput)(nil)).Elem(), Ec2FleetExcessCapacityTerminationPolicy("termination"))
-	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("nvidia"))
-	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("nvidia"))
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("amazon-web-services"))
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("amazon-web-services"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItemArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("a100"))
-	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("a100"))
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("a10g"))
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemPtrInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("a10g"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestAcceleratorNamesItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem("gpu"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemPtrInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem("gpu"))
@@ -11061,11 +11069,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListAddressFamilyPtrInput)(nil)).Elem(), PrefixListAddressFamily("IPv4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetEbsBlockDeviceVolumeTypeInput)(nil)).Elem(), SpotFleetEbsBlockDeviceVolumeType("gp2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetEbsBlockDeviceVolumeTypePtrInput)(nil)).Elem(), SpotFleetEbsBlockDeviceVolumeType("gp2"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemInput)(nil)).Elem(), SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("nvidia"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrInput)(nil)).Elem(), SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("nvidia"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemInput)(nil)).Elem(), SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("amazon-web-services"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemPtrInput)(nil)).Elem(), SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("amazon-web-services"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArrayInput)(nil)).Elem(), SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetInstanceRequirementsRequestAcceleratorNamesItemInput)(nil)).Elem(), SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("a100"))
-	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrInput)(nil)).Elem(), SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("a100"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetInstanceRequirementsRequestAcceleratorNamesItemInput)(nil)).Elem(), SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("a10g"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetInstanceRequirementsRequestAcceleratorNamesItemPtrInput)(nil)).Elem(), SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("a10g"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArrayInput)(nil)).Elem(), SpotFleetInstanceRequirementsRequestAcceleratorNamesItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetInstanceRequirementsRequestAcceleratorTypesItemInput)(nil)).Elem(), SpotFleetInstanceRequirementsRequestAcceleratorTypesItem("gpu"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetInstanceRequirementsRequestAcceleratorTypesItemPtrInput)(nil)).Elem(), SpotFleetInstanceRequirementsRequestAcceleratorTypesItem("gpu"))

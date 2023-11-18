@@ -171,6 +171,10 @@ namespace Pulumi.AwsNative.Redshift
         /// </summary>
         public readonly int? ManualSnapshotRetentionPeriod;
         /// <summary>
+        /// A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
+        /// </summary>
+        public readonly bool? MultiAz;
+        /// <summary>
         /// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
         /// </summary>
         public readonly string? NodeType;
@@ -191,7 +195,7 @@ namespace Pulumi.AwsNative.Redshift
         /// </summary>
         public readonly bool? PubliclyAccessible;
         /// <summary>
-        /// The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster APIs
+        /// The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster, failover-primary-compute APIs
         /// </summary>
         public readonly string? ResourceAction;
         /// <summary>
@@ -285,6 +289,8 @@ namespace Pulumi.AwsNative.Redshift
 
             int? manualSnapshotRetentionPeriod,
 
+            bool? multiAz,
+
             string? nodeType,
 
             int? numberOfNodes,
@@ -339,6 +345,7 @@ namespace Pulumi.AwsNative.Redshift
             LoggingProperties = loggingProperties;
             MaintenanceTrackName = maintenanceTrackName;
             ManualSnapshotRetentionPeriod = manualSnapshotRetentionPeriod;
+            MultiAz = multiAz;
             NodeType = nodeType;
             NumberOfNodes = numberOfNodes;
             Port = port;

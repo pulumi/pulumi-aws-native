@@ -11,14 +11,17 @@ __all__ = [
     'PipeDynamoDbStreamStartPosition',
     'PipeEcsEnvironmentFileType',
     'PipeEcsResourceRequirementType',
+    'PipeIncludeExecutionDataOption',
     'PipeKinesisStreamStartPosition',
     'PipeLaunchType',
+    'PipeLogLevel',
     'PipeMskStartPosition',
     'PipeOnPartialBatchItemFailureStreams',
     'PipePlacementConstraintType',
     'PipePlacementStrategyType',
     'PipePropagateTags',
     'PipeRequestedPipeState',
+    'PipeS3OutputFormat',
     'PipeSelfManagedKafkaStartPosition',
     'PipeState',
     'PipeTargetInvocationType',
@@ -55,6 +58,10 @@ class PipeEcsResourceRequirementType(str, Enum):
     INFERENCE_ACCELERATOR = "InferenceAccelerator"
 
 
+class PipeIncludeExecutionDataOption(str, Enum):
+    ALL = "ALL"
+
+
 class PipeKinesisStreamStartPosition(str, Enum):
     TRIM_HORIZON = "TRIM_HORIZON"
     LATEST = "LATEST"
@@ -65,6 +72,13 @@ class PipeLaunchType(str, Enum):
     EC2 = "EC2"
     FARGATE = "FARGATE"
     EXTERNAL = "EXTERNAL"
+
+
+class PipeLogLevel(str, Enum):
+    OFF = "OFF"
+    ERROR = "ERROR"
+    INFO = "INFO"
+    TRACE = "TRACE"
 
 
 class PipeMskStartPosition(str, Enum):
@@ -96,6 +110,12 @@ class PipeRequestedPipeState(str, Enum):
     STOPPED = "STOPPED"
 
 
+class PipeS3OutputFormat(str, Enum):
+    JSON = "json"
+    PLAIN = "plain"
+    W3C = "w3c"
+
+
 class PipeSelfManagedKafkaStartPosition(str, Enum):
     TRIM_HORIZON = "TRIM_HORIZON"
     LATEST = "LATEST"
@@ -113,6 +133,10 @@ class PipeState(str, Enum):
     UPDATE_FAILED = "UPDATE_FAILED"
     START_FAILED = "START_FAILED"
     STOP_FAILED = "STOP_FAILED"
+    DELETE_FAILED = "DELETE_FAILED"
+    CREATE_ROLLBACK_FAILED = "CREATE_ROLLBACK_FAILED"
+    DELETE_ROLLBACK_FAILED = "DELETE_ROLLBACK_FAILED"
+    UPDATE_ROLLBACK_FAILED = "UPDATE_ROLLBACK_FAILED"
 
 
 class PipeTargetInvocationType(str, Enum):

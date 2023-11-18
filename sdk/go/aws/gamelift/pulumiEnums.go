@@ -1293,6 +1293,1121 @@ func (in *fleetNewGameSessionProtectionPolicyPtr) ToOutput(ctx context.Context) 
 	}
 }
 
+// Comparison operator to use when measuring a metric against the threshold value.
+type FleetScalingPolicyComparisonOperator string
+
+const (
+	FleetScalingPolicyComparisonOperatorGreaterThanOrEqualToThreshold = FleetScalingPolicyComparisonOperator("GreaterThanOrEqualToThreshold")
+	FleetScalingPolicyComparisonOperatorGreaterThanThreshold          = FleetScalingPolicyComparisonOperator("GreaterThanThreshold")
+	FleetScalingPolicyComparisonOperatorLessThanThreshold             = FleetScalingPolicyComparisonOperator("LessThanThreshold")
+	FleetScalingPolicyComparisonOperatorLessThanOrEqualToThreshold    = FleetScalingPolicyComparisonOperator("LessThanOrEqualToThreshold")
+)
+
+func (FleetScalingPolicyComparisonOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetScalingPolicyComparisonOperator)(nil)).Elem()
+}
+
+func (e FleetScalingPolicyComparisonOperator) ToFleetScalingPolicyComparisonOperatorOutput() FleetScalingPolicyComparisonOperatorOutput {
+	return pulumi.ToOutput(e).(FleetScalingPolicyComparisonOperatorOutput)
+}
+
+func (e FleetScalingPolicyComparisonOperator) ToFleetScalingPolicyComparisonOperatorOutputWithContext(ctx context.Context) FleetScalingPolicyComparisonOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetScalingPolicyComparisonOperatorOutput)
+}
+
+func (e FleetScalingPolicyComparisonOperator) ToFleetScalingPolicyComparisonOperatorPtrOutput() FleetScalingPolicyComparisonOperatorPtrOutput {
+	return e.ToFleetScalingPolicyComparisonOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e FleetScalingPolicyComparisonOperator) ToFleetScalingPolicyComparisonOperatorPtrOutputWithContext(ctx context.Context) FleetScalingPolicyComparisonOperatorPtrOutput {
+	return FleetScalingPolicyComparisonOperator(e).ToFleetScalingPolicyComparisonOperatorOutputWithContext(ctx).ToFleetScalingPolicyComparisonOperatorPtrOutputWithContext(ctx)
+}
+
+func (e FleetScalingPolicyComparisonOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetScalingPolicyComparisonOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetScalingPolicyComparisonOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetScalingPolicyComparisonOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetScalingPolicyComparisonOperatorOutput struct{ *pulumi.OutputState }
+
+func (FleetScalingPolicyComparisonOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetScalingPolicyComparisonOperator)(nil)).Elem()
+}
+
+func (o FleetScalingPolicyComparisonOperatorOutput) ToFleetScalingPolicyComparisonOperatorOutput() FleetScalingPolicyComparisonOperatorOutput {
+	return o
+}
+
+func (o FleetScalingPolicyComparisonOperatorOutput) ToFleetScalingPolicyComparisonOperatorOutputWithContext(ctx context.Context) FleetScalingPolicyComparisonOperatorOutput {
+	return o
+}
+
+func (o FleetScalingPolicyComparisonOperatorOutput) ToFleetScalingPolicyComparisonOperatorPtrOutput() FleetScalingPolicyComparisonOperatorPtrOutput {
+	return o.ToFleetScalingPolicyComparisonOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyComparisonOperatorOutput) ToFleetScalingPolicyComparisonOperatorPtrOutputWithContext(ctx context.Context) FleetScalingPolicyComparisonOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetScalingPolicyComparisonOperator) *FleetScalingPolicyComparisonOperator {
+		return &v
+	}).(FleetScalingPolicyComparisonOperatorPtrOutput)
+}
+
+func (o FleetScalingPolicyComparisonOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[FleetScalingPolicyComparisonOperator] {
+	return pulumix.Output[FleetScalingPolicyComparisonOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FleetScalingPolicyComparisonOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyComparisonOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetScalingPolicyComparisonOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetScalingPolicyComparisonOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyComparisonOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetScalingPolicyComparisonOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetScalingPolicyComparisonOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetScalingPolicyComparisonOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetScalingPolicyComparisonOperator)(nil)).Elem()
+}
+
+func (o FleetScalingPolicyComparisonOperatorPtrOutput) ToFleetScalingPolicyComparisonOperatorPtrOutput() FleetScalingPolicyComparisonOperatorPtrOutput {
+	return o
+}
+
+func (o FleetScalingPolicyComparisonOperatorPtrOutput) ToFleetScalingPolicyComparisonOperatorPtrOutputWithContext(ctx context.Context) FleetScalingPolicyComparisonOperatorPtrOutput {
+	return o
+}
+
+func (o FleetScalingPolicyComparisonOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyComparisonOperator] {
+	return pulumix.Output[*FleetScalingPolicyComparisonOperator]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FleetScalingPolicyComparisonOperatorPtrOutput) Elem() FleetScalingPolicyComparisonOperatorOutput {
+	return o.ApplyT(func(v *FleetScalingPolicyComparisonOperator) FleetScalingPolicyComparisonOperator {
+		if v != nil {
+			return *v
+		}
+		var ret FleetScalingPolicyComparisonOperator
+		return ret
+	}).(FleetScalingPolicyComparisonOperatorOutput)
+}
+
+func (o FleetScalingPolicyComparisonOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyComparisonOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetScalingPolicyComparisonOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetScalingPolicyComparisonOperatorInput is an input type that accepts FleetScalingPolicyComparisonOperatorArgs and FleetScalingPolicyComparisonOperatorOutput values.
+// You can construct a concrete instance of `FleetScalingPolicyComparisonOperatorInput` via:
+//
+//	FleetScalingPolicyComparisonOperatorArgs{...}
+type FleetScalingPolicyComparisonOperatorInput interface {
+	pulumi.Input
+
+	ToFleetScalingPolicyComparisonOperatorOutput() FleetScalingPolicyComparisonOperatorOutput
+	ToFleetScalingPolicyComparisonOperatorOutputWithContext(context.Context) FleetScalingPolicyComparisonOperatorOutput
+}
+
+var fleetScalingPolicyComparisonOperatorPtrType = reflect.TypeOf((**FleetScalingPolicyComparisonOperator)(nil)).Elem()
+
+type FleetScalingPolicyComparisonOperatorPtrInput interface {
+	pulumi.Input
+
+	ToFleetScalingPolicyComparisonOperatorPtrOutput() FleetScalingPolicyComparisonOperatorPtrOutput
+	ToFleetScalingPolicyComparisonOperatorPtrOutputWithContext(context.Context) FleetScalingPolicyComparisonOperatorPtrOutput
+}
+
+type fleetScalingPolicyComparisonOperatorPtr string
+
+func FleetScalingPolicyComparisonOperatorPtr(v string) FleetScalingPolicyComparisonOperatorPtrInput {
+	return (*fleetScalingPolicyComparisonOperatorPtr)(&v)
+}
+
+func (*fleetScalingPolicyComparisonOperatorPtr) ElementType() reflect.Type {
+	return fleetScalingPolicyComparisonOperatorPtrType
+}
+
+func (in *fleetScalingPolicyComparisonOperatorPtr) ToFleetScalingPolicyComparisonOperatorPtrOutput() FleetScalingPolicyComparisonOperatorPtrOutput {
+	return pulumi.ToOutput(in).(FleetScalingPolicyComparisonOperatorPtrOutput)
+}
+
+func (in *fleetScalingPolicyComparisonOperatorPtr) ToFleetScalingPolicyComparisonOperatorPtrOutputWithContext(ctx context.Context) FleetScalingPolicyComparisonOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetScalingPolicyComparisonOperatorPtrOutput)
+}
+
+func (in *fleetScalingPolicyComparisonOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyComparisonOperator] {
+	return pulumix.Output[*FleetScalingPolicyComparisonOperator]{
+		OutputState: in.ToFleetScalingPolicyComparisonOperatorPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+type FleetScalingPolicyMetricName string
+
+const (
+	FleetScalingPolicyMetricNameActivatingGameSessions            = FleetScalingPolicyMetricName("ActivatingGameSessions")
+	FleetScalingPolicyMetricNameActiveGameSessions                = FleetScalingPolicyMetricName("ActiveGameSessions")
+	FleetScalingPolicyMetricNameActiveInstances                   = FleetScalingPolicyMetricName("ActiveInstances")
+	FleetScalingPolicyMetricNameAvailableGameSessions             = FleetScalingPolicyMetricName("AvailableGameSessions")
+	FleetScalingPolicyMetricNameAvailablePlayerSessions           = FleetScalingPolicyMetricName("AvailablePlayerSessions")
+	FleetScalingPolicyMetricNameCurrentPlayerSessions             = FleetScalingPolicyMetricName("CurrentPlayerSessions")
+	FleetScalingPolicyMetricNameIdleInstances                     = FleetScalingPolicyMetricName("IdleInstances")
+	FleetScalingPolicyMetricNamePercentAvailableGameSessions      = FleetScalingPolicyMetricName("PercentAvailableGameSessions")
+	FleetScalingPolicyMetricNamePercentIdleInstances              = FleetScalingPolicyMetricName("PercentIdleInstances")
+	FleetScalingPolicyMetricNameQueueDepth                        = FleetScalingPolicyMetricName("QueueDepth")
+	FleetScalingPolicyMetricNameWaitTime                          = FleetScalingPolicyMetricName("WaitTime")
+	FleetScalingPolicyMetricNameConcurrentActivatableGameSessions = FleetScalingPolicyMetricName("ConcurrentActivatableGameSessions")
+)
+
+func (FleetScalingPolicyMetricName) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetScalingPolicyMetricName)(nil)).Elem()
+}
+
+func (e FleetScalingPolicyMetricName) ToFleetScalingPolicyMetricNameOutput() FleetScalingPolicyMetricNameOutput {
+	return pulumi.ToOutput(e).(FleetScalingPolicyMetricNameOutput)
+}
+
+func (e FleetScalingPolicyMetricName) ToFleetScalingPolicyMetricNameOutputWithContext(ctx context.Context) FleetScalingPolicyMetricNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetScalingPolicyMetricNameOutput)
+}
+
+func (e FleetScalingPolicyMetricName) ToFleetScalingPolicyMetricNamePtrOutput() FleetScalingPolicyMetricNamePtrOutput {
+	return e.ToFleetScalingPolicyMetricNamePtrOutputWithContext(context.Background())
+}
+
+func (e FleetScalingPolicyMetricName) ToFleetScalingPolicyMetricNamePtrOutputWithContext(ctx context.Context) FleetScalingPolicyMetricNamePtrOutput {
+	return FleetScalingPolicyMetricName(e).ToFleetScalingPolicyMetricNameOutputWithContext(ctx).ToFleetScalingPolicyMetricNamePtrOutputWithContext(ctx)
+}
+
+func (e FleetScalingPolicyMetricName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetScalingPolicyMetricName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetScalingPolicyMetricName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetScalingPolicyMetricName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetScalingPolicyMetricNameOutput struct{ *pulumi.OutputState }
+
+func (FleetScalingPolicyMetricNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetScalingPolicyMetricName)(nil)).Elem()
+}
+
+func (o FleetScalingPolicyMetricNameOutput) ToFleetScalingPolicyMetricNameOutput() FleetScalingPolicyMetricNameOutput {
+	return o
+}
+
+func (o FleetScalingPolicyMetricNameOutput) ToFleetScalingPolicyMetricNameOutputWithContext(ctx context.Context) FleetScalingPolicyMetricNameOutput {
+	return o
+}
+
+func (o FleetScalingPolicyMetricNameOutput) ToFleetScalingPolicyMetricNamePtrOutput() FleetScalingPolicyMetricNamePtrOutput {
+	return o.ToFleetScalingPolicyMetricNamePtrOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyMetricNameOutput) ToFleetScalingPolicyMetricNamePtrOutputWithContext(ctx context.Context) FleetScalingPolicyMetricNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetScalingPolicyMetricName) *FleetScalingPolicyMetricName {
+		return &v
+	}).(FleetScalingPolicyMetricNamePtrOutput)
+}
+
+func (o FleetScalingPolicyMetricNameOutput) ToOutput(ctx context.Context) pulumix.Output[FleetScalingPolicyMetricName] {
+	return pulumix.Output[FleetScalingPolicyMetricName]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FleetScalingPolicyMetricNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyMetricNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetScalingPolicyMetricName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetScalingPolicyMetricNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyMetricNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetScalingPolicyMetricName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetScalingPolicyMetricNamePtrOutput struct{ *pulumi.OutputState }
+
+func (FleetScalingPolicyMetricNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetScalingPolicyMetricName)(nil)).Elem()
+}
+
+func (o FleetScalingPolicyMetricNamePtrOutput) ToFleetScalingPolicyMetricNamePtrOutput() FleetScalingPolicyMetricNamePtrOutput {
+	return o
+}
+
+func (o FleetScalingPolicyMetricNamePtrOutput) ToFleetScalingPolicyMetricNamePtrOutputWithContext(ctx context.Context) FleetScalingPolicyMetricNamePtrOutput {
+	return o
+}
+
+func (o FleetScalingPolicyMetricNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyMetricName] {
+	return pulumix.Output[*FleetScalingPolicyMetricName]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FleetScalingPolicyMetricNamePtrOutput) Elem() FleetScalingPolicyMetricNameOutput {
+	return o.ApplyT(func(v *FleetScalingPolicyMetricName) FleetScalingPolicyMetricName {
+		if v != nil {
+			return *v
+		}
+		var ret FleetScalingPolicyMetricName
+		return ret
+	}).(FleetScalingPolicyMetricNameOutput)
+}
+
+func (o FleetScalingPolicyMetricNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyMetricNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetScalingPolicyMetricName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetScalingPolicyMetricNameInput is an input type that accepts FleetScalingPolicyMetricNameArgs and FleetScalingPolicyMetricNameOutput values.
+// You can construct a concrete instance of `FleetScalingPolicyMetricNameInput` via:
+//
+//	FleetScalingPolicyMetricNameArgs{...}
+type FleetScalingPolicyMetricNameInput interface {
+	pulumi.Input
+
+	ToFleetScalingPolicyMetricNameOutput() FleetScalingPolicyMetricNameOutput
+	ToFleetScalingPolicyMetricNameOutputWithContext(context.Context) FleetScalingPolicyMetricNameOutput
+}
+
+var fleetScalingPolicyMetricNamePtrType = reflect.TypeOf((**FleetScalingPolicyMetricName)(nil)).Elem()
+
+type FleetScalingPolicyMetricNamePtrInput interface {
+	pulumi.Input
+
+	ToFleetScalingPolicyMetricNamePtrOutput() FleetScalingPolicyMetricNamePtrOutput
+	ToFleetScalingPolicyMetricNamePtrOutputWithContext(context.Context) FleetScalingPolicyMetricNamePtrOutput
+}
+
+type fleetScalingPolicyMetricNamePtr string
+
+func FleetScalingPolicyMetricNamePtr(v string) FleetScalingPolicyMetricNamePtrInput {
+	return (*fleetScalingPolicyMetricNamePtr)(&v)
+}
+
+func (*fleetScalingPolicyMetricNamePtr) ElementType() reflect.Type {
+	return fleetScalingPolicyMetricNamePtrType
+}
+
+func (in *fleetScalingPolicyMetricNamePtr) ToFleetScalingPolicyMetricNamePtrOutput() FleetScalingPolicyMetricNamePtrOutput {
+	return pulumi.ToOutput(in).(FleetScalingPolicyMetricNamePtrOutput)
+}
+
+func (in *fleetScalingPolicyMetricNamePtr) ToFleetScalingPolicyMetricNamePtrOutputWithContext(ctx context.Context) FleetScalingPolicyMetricNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetScalingPolicyMetricNamePtrOutput)
+}
+
+func (in *fleetScalingPolicyMetricNamePtr) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyMetricName] {
+	return pulumix.Output[*FleetScalingPolicyMetricName]{
+		OutputState: in.ToFleetScalingPolicyMetricNamePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
+type FleetScalingPolicyPolicyType string
+
+const (
+	FleetScalingPolicyPolicyTypeRuleBased   = FleetScalingPolicyPolicyType("RuleBased")
+	FleetScalingPolicyPolicyTypeTargetBased = FleetScalingPolicyPolicyType("TargetBased")
+)
+
+func (FleetScalingPolicyPolicyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetScalingPolicyPolicyType)(nil)).Elem()
+}
+
+func (e FleetScalingPolicyPolicyType) ToFleetScalingPolicyPolicyTypeOutput() FleetScalingPolicyPolicyTypeOutput {
+	return pulumi.ToOutput(e).(FleetScalingPolicyPolicyTypeOutput)
+}
+
+func (e FleetScalingPolicyPolicyType) ToFleetScalingPolicyPolicyTypeOutputWithContext(ctx context.Context) FleetScalingPolicyPolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetScalingPolicyPolicyTypeOutput)
+}
+
+func (e FleetScalingPolicyPolicyType) ToFleetScalingPolicyPolicyTypePtrOutput() FleetScalingPolicyPolicyTypePtrOutput {
+	return e.ToFleetScalingPolicyPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (e FleetScalingPolicyPolicyType) ToFleetScalingPolicyPolicyTypePtrOutputWithContext(ctx context.Context) FleetScalingPolicyPolicyTypePtrOutput {
+	return FleetScalingPolicyPolicyType(e).ToFleetScalingPolicyPolicyTypeOutputWithContext(ctx).ToFleetScalingPolicyPolicyTypePtrOutputWithContext(ctx)
+}
+
+func (e FleetScalingPolicyPolicyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetScalingPolicyPolicyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetScalingPolicyPolicyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetScalingPolicyPolicyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetScalingPolicyPolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (FleetScalingPolicyPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetScalingPolicyPolicyType)(nil)).Elem()
+}
+
+func (o FleetScalingPolicyPolicyTypeOutput) ToFleetScalingPolicyPolicyTypeOutput() FleetScalingPolicyPolicyTypeOutput {
+	return o
+}
+
+func (o FleetScalingPolicyPolicyTypeOutput) ToFleetScalingPolicyPolicyTypeOutputWithContext(ctx context.Context) FleetScalingPolicyPolicyTypeOutput {
+	return o
+}
+
+func (o FleetScalingPolicyPolicyTypeOutput) ToFleetScalingPolicyPolicyTypePtrOutput() FleetScalingPolicyPolicyTypePtrOutput {
+	return o.ToFleetScalingPolicyPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyPolicyTypeOutput) ToFleetScalingPolicyPolicyTypePtrOutputWithContext(ctx context.Context) FleetScalingPolicyPolicyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetScalingPolicyPolicyType) *FleetScalingPolicyPolicyType {
+		return &v
+	}).(FleetScalingPolicyPolicyTypePtrOutput)
+}
+
+func (o FleetScalingPolicyPolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FleetScalingPolicyPolicyType] {
+	return pulumix.Output[FleetScalingPolicyPolicyType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FleetScalingPolicyPolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyPolicyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetScalingPolicyPolicyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetScalingPolicyPolicyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyPolicyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetScalingPolicyPolicyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetScalingPolicyPolicyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FleetScalingPolicyPolicyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetScalingPolicyPolicyType)(nil)).Elem()
+}
+
+func (o FleetScalingPolicyPolicyTypePtrOutput) ToFleetScalingPolicyPolicyTypePtrOutput() FleetScalingPolicyPolicyTypePtrOutput {
+	return o
+}
+
+func (o FleetScalingPolicyPolicyTypePtrOutput) ToFleetScalingPolicyPolicyTypePtrOutputWithContext(ctx context.Context) FleetScalingPolicyPolicyTypePtrOutput {
+	return o
+}
+
+func (o FleetScalingPolicyPolicyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyPolicyType] {
+	return pulumix.Output[*FleetScalingPolicyPolicyType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FleetScalingPolicyPolicyTypePtrOutput) Elem() FleetScalingPolicyPolicyTypeOutput {
+	return o.ApplyT(func(v *FleetScalingPolicyPolicyType) FleetScalingPolicyPolicyType {
+		if v != nil {
+			return *v
+		}
+		var ret FleetScalingPolicyPolicyType
+		return ret
+	}).(FleetScalingPolicyPolicyTypeOutput)
+}
+
+func (o FleetScalingPolicyPolicyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyPolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetScalingPolicyPolicyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetScalingPolicyPolicyTypeInput is an input type that accepts FleetScalingPolicyPolicyTypeArgs and FleetScalingPolicyPolicyTypeOutput values.
+// You can construct a concrete instance of `FleetScalingPolicyPolicyTypeInput` via:
+//
+//	FleetScalingPolicyPolicyTypeArgs{...}
+type FleetScalingPolicyPolicyTypeInput interface {
+	pulumi.Input
+
+	ToFleetScalingPolicyPolicyTypeOutput() FleetScalingPolicyPolicyTypeOutput
+	ToFleetScalingPolicyPolicyTypeOutputWithContext(context.Context) FleetScalingPolicyPolicyTypeOutput
+}
+
+var fleetScalingPolicyPolicyTypePtrType = reflect.TypeOf((**FleetScalingPolicyPolicyType)(nil)).Elem()
+
+type FleetScalingPolicyPolicyTypePtrInput interface {
+	pulumi.Input
+
+	ToFleetScalingPolicyPolicyTypePtrOutput() FleetScalingPolicyPolicyTypePtrOutput
+	ToFleetScalingPolicyPolicyTypePtrOutputWithContext(context.Context) FleetScalingPolicyPolicyTypePtrOutput
+}
+
+type fleetScalingPolicyPolicyTypePtr string
+
+func FleetScalingPolicyPolicyTypePtr(v string) FleetScalingPolicyPolicyTypePtrInput {
+	return (*fleetScalingPolicyPolicyTypePtr)(&v)
+}
+
+func (*fleetScalingPolicyPolicyTypePtr) ElementType() reflect.Type {
+	return fleetScalingPolicyPolicyTypePtrType
+}
+
+func (in *fleetScalingPolicyPolicyTypePtr) ToFleetScalingPolicyPolicyTypePtrOutput() FleetScalingPolicyPolicyTypePtrOutput {
+	return pulumi.ToOutput(in).(FleetScalingPolicyPolicyTypePtrOutput)
+}
+
+func (in *fleetScalingPolicyPolicyTypePtr) ToFleetScalingPolicyPolicyTypePtrOutputWithContext(ctx context.Context) FleetScalingPolicyPolicyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetScalingPolicyPolicyTypePtrOutput)
+}
+
+func (in *fleetScalingPolicyPolicyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyPolicyType] {
+	return pulumix.Output[*FleetScalingPolicyPolicyType]{
+		OutputState: in.ToFleetScalingPolicyPolicyTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The type of adjustment to make to a fleet's instance count.
+type FleetScalingPolicyScalingAdjustmentType string
+
+const (
+	FleetScalingPolicyScalingAdjustmentTypeChangeInCapacity        = FleetScalingPolicyScalingAdjustmentType("ChangeInCapacity")
+	FleetScalingPolicyScalingAdjustmentTypeExactCapacity           = FleetScalingPolicyScalingAdjustmentType("ExactCapacity")
+	FleetScalingPolicyScalingAdjustmentTypePercentChangeInCapacity = FleetScalingPolicyScalingAdjustmentType("PercentChangeInCapacity")
+)
+
+func (FleetScalingPolicyScalingAdjustmentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetScalingPolicyScalingAdjustmentType)(nil)).Elem()
+}
+
+func (e FleetScalingPolicyScalingAdjustmentType) ToFleetScalingPolicyScalingAdjustmentTypeOutput() FleetScalingPolicyScalingAdjustmentTypeOutput {
+	return pulumi.ToOutput(e).(FleetScalingPolicyScalingAdjustmentTypeOutput)
+}
+
+func (e FleetScalingPolicyScalingAdjustmentType) ToFleetScalingPolicyScalingAdjustmentTypeOutputWithContext(ctx context.Context) FleetScalingPolicyScalingAdjustmentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetScalingPolicyScalingAdjustmentTypeOutput)
+}
+
+func (e FleetScalingPolicyScalingAdjustmentType) ToFleetScalingPolicyScalingAdjustmentTypePtrOutput() FleetScalingPolicyScalingAdjustmentTypePtrOutput {
+	return e.ToFleetScalingPolicyScalingAdjustmentTypePtrOutputWithContext(context.Background())
+}
+
+func (e FleetScalingPolicyScalingAdjustmentType) ToFleetScalingPolicyScalingAdjustmentTypePtrOutputWithContext(ctx context.Context) FleetScalingPolicyScalingAdjustmentTypePtrOutput {
+	return FleetScalingPolicyScalingAdjustmentType(e).ToFleetScalingPolicyScalingAdjustmentTypeOutputWithContext(ctx).ToFleetScalingPolicyScalingAdjustmentTypePtrOutputWithContext(ctx)
+}
+
+func (e FleetScalingPolicyScalingAdjustmentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetScalingPolicyScalingAdjustmentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetScalingPolicyScalingAdjustmentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetScalingPolicyScalingAdjustmentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetScalingPolicyScalingAdjustmentTypeOutput struct{ *pulumi.OutputState }
+
+func (FleetScalingPolicyScalingAdjustmentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetScalingPolicyScalingAdjustmentType)(nil)).Elem()
+}
+
+func (o FleetScalingPolicyScalingAdjustmentTypeOutput) ToFleetScalingPolicyScalingAdjustmentTypeOutput() FleetScalingPolicyScalingAdjustmentTypeOutput {
+	return o
+}
+
+func (o FleetScalingPolicyScalingAdjustmentTypeOutput) ToFleetScalingPolicyScalingAdjustmentTypeOutputWithContext(ctx context.Context) FleetScalingPolicyScalingAdjustmentTypeOutput {
+	return o
+}
+
+func (o FleetScalingPolicyScalingAdjustmentTypeOutput) ToFleetScalingPolicyScalingAdjustmentTypePtrOutput() FleetScalingPolicyScalingAdjustmentTypePtrOutput {
+	return o.ToFleetScalingPolicyScalingAdjustmentTypePtrOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyScalingAdjustmentTypeOutput) ToFleetScalingPolicyScalingAdjustmentTypePtrOutputWithContext(ctx context.Context) FleetScalingPolicyScalingAdjustmentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetScalingPolicyScalingAdjustmentType) *FleetScalingPolicyScalingAdjustmentType {
+		return &v
+	}).(FleetScalingPolicyScalingAdjustmentTypePtrOutput)
+}
+
+func (o FleetScalingPolicyScalingAdjustmentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FleetScalingPolicyScalingAdjustmentType] {
+	return pulumix.Output[FleetScalingPolicyScalingAdjustmentType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FleetScalingPolicyScalingAdjustmentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyScalingAdjustmentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetScalingPolicyScalingAdjustmentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetScalingPolicyScalingAdjustmentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyScalingAdjustmentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetScalingPolicyScalingAdjustmentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetScalingPolicyScalingAdjustmentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FleetScalingPolicyScalingAdjustmentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetScalingPolicyScalingAdjustmentType)(nil)).Elem()
+}
+
+func (o FleetScalingPolicyScalingAdjustmentTypePtrOutput) ToFleetScalingPolicyScalingAdjustmentTypePtrOutput() FleetScalingPolicyScalingAdjustmentTypePtrOutput {
+	return o
+}
+
+func (o FleetScalingPolicyScalingAdjustmentTypePtrOutput) ToFleetScalingPolicyScalingAdjustmentTypePtrOutputWithContext(ctx context.Context) FleetScalingPolicyScalingAdjustmentTypePtrOutput {
+	return o
+}
+
+func (o FleetScalingPolicyScalingAdjustmentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyScalingAdjustmentType] {
+	return pulumix.Output[*FleetScalingPolicyScalingAdjustmentType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FleetScalingPolicyScalingAdjustmentTypePtrOutput) Elem() FleetScalingPolicyScalingAdjustmentTypeOutput {
+	return o.ApplyT(func(v *FleetScalingPolicyScalingAdjustmentType) FleetScalingPolicyScalingAdjustmentType {
+		if v != nil {
+			return *v
+		}
+		var ret FleetScalingPolicyScalingAdjustmentType
+		return ret
+	}).(FleetScalingPolicyScalingAdjustmentTypeOutput)
+}
+
+func (o FleetScalingPolicyScalingAdjustmentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyScalingAdjustmentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetScalingPolicyScalingAdjustmentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetScalingPolicyScalingAdjustmentTypeInput is an input type that accepts FleetScalingPolicyScalingAdjustmentTypeArgs and FleetScalingPolicyScalingAdjustmentTypeOutput values.
+// You can construct a concrete instance of `FleetScalingPolicyScalingAdjustmentTypeInput` via:
+//
+//	FleetScalingPolicyScalingAdjustmentTypeArgs{...}
+type FleetScalingPolicyScalingAdjustmentTypeInput interface {
+	pulumi.Input
+
+	ToFleetScalingPolicyScalingAdjustmentTypeOutput() FleetScalingPolicyScalingAdjustmentTypeOutput
+	ToFleetScalingPolicyScalingAdjustmentTypeOutputWithContext(context.Context) FleetScalingPolicyScalingAdjustmentTypeOutput
+}
+
+var fleetScalingPolicyScalingAdjustmentTypePtrType = reflect.TypeOf((**FleetScalingPolicyScalingAdjustmentType)(nil)).Elem()
+
+type FleetScalingPolicyScalingAdjustmentTypePtrInput interface {
+	pulumi.Input
+
+	ToFleetScalingPolicyScalingAdjustmentTypePtrOutput() FleetScalingPolicyScalingAdjustmentTypePtrOutput
+	ToFleetScalingPolicyScalingAdjustmentTypePtrOutputWithContext(context.Context) FleetScalingPolicyScalingAdjustmentTypePtrOutput
+}
+
+type fleetScalingPolicyScalingAdjustmentTypePtr string
+
+func FleetScalingPolicyScalingAdjustmentTypePtr(v string) FleetScalingPolicyScalingAdjustmentTypePtrInput {
+	return (*fleetScalingPolicyScalingAdjustmentTypePtr)(&v)
+}
+
+func (*fleetScalingPolicyScalingAdjustmentTypePtr) ElementType() reflect.Type {
+	return fleetScalingPolicyScalingAdjustmentTypePtrType
+}
+
+func (in *fleetScalingPolicyScalingAdjustmentTypePtr) ToFleetScalingPolicyScalingAdjustmentTypePtrOutput() FleetScalingPolicyScalingAdjustmentTypePtrOutput {
+	return pulumi.ToOutput(in).(FleetScalingPolicyScalingAdjustmentTypePtrOutput)
+}
+
+func (in *fleetScalingPolicyScalingAdjustmentTypePtr) ToFleetScalingPolicyScalingAdjustmentTypePtrOutputWithContext(ctx context.Context) FleetScalingPolicyScalingAdjustmentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetScalingPolicyScalingAdjustmentTypePtrOutput)
+}
+
+func (in *fleetScalingPolicyScalingAdjustmentTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyScalingAdjustmentType] {
+	return pulumix.Output[*FleetScalingPolicyScalingAdjustmentType]{
+		OutputState: in.ToFleetScalingPolicyScalingAdjustmentTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Current status of the scaling policy. The scaling policy can be in force only when in an ACTIVE status. Scaling policies can be suspended for individual fleets. If the policy is suspended for a fleet, the policy status does not change.
+type FleetScalingPolicyStatus string
+
+const (
+	FleetScalingPolicyStatusActive          = FleetScalingPolicyStatus("ACTIVE")
+	FleetScalingPolicyStatusUpdateRequested = FleetScalingPolicyStatus("UPDATE_REQUESTED")
+	FleetScalingPolicyStatusUpdating        = FleetScalingPolicyStatus("UPDATING")
+	FleetScalingPolicyStatusDeleteRequested = FleetScalingPolicyStatus("DELETE_REQUESTED")
+	FleetScalingPolicyStatusDeleting        = FleetScalingPolicyStatus("DELETING")
+	FleetScalingPolicyStatusDeleted         = FleetScalingPolicyStatus("DELETED")
+	FleetScalingPolicyStatusError           = FleetScalingPolicyStatus("ERROR")
+)
+
+func (FleetScalingPolicyStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetScalingPolicyStatus)(nil)).Elem()
+}
+
+func (e FleetScalingPolicyStatus) ToFleetScalingPolicyStatusOutput() FleetScalingPolicyStatusOutput {
+	return pulumi.ToOutput(e).(FleetScalingPolicyStatusOutput)
+}
+
+func (e FleetScalingPolicyStatus) ToFleetScalingPolicyStatusOutputWithContext(ctx context.Context) FleetScalingPolicyStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetScalingPolicyStatusOutput)
+}
+
+func (e FleetScalingPolicyStatus) ToFleetScalingPolicyStatusPtrOutput() FleetScalingPolicyStatusPtrOutput {
+	return e.ToFleetScalingPolicyStatusPtrOutputWithContext(context.Background())
+}
+
+func (e FleetScalingPolicyStatus) ToFleetScalingPolicyStatusPtrOutputWithContext(ctx context.Context) FleetScalingPolicyStatusPtrOutput {
+	return FleetScalingPolicyStatus(e).ToFleetScalingPolicyStatusOutputWithContext(ctx).ToFleetScalingPolicyStatusPtrOutputWithContext(ctx)
+}
+
+func (e FleetScalingPolicyStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetScalingPolicyStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetScalingPolicyStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetScalingPolicyStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetScalingPolicyStatusOutput struct{ *pulumi.OutputState }
+
+func (FleetScalingPolicyStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetScalingPolicyStatus)(nil)).Elem()
+}
+
+func (o FleetScalingPolicyStatusOutput) ToFleetScalingPolicyStatusOutput() FleetScalingPolicyStatusOutput {
+	return o
+}
+
+func (o FleetScalingPolicyStatusOutput) ToFleetScalingPolicyStatusOutputWithContext(ctx context.Context) FleetScalingPolicyStatusOutput {
+	return o
+}
+
+func (o FleetScalingPolicyStatusOutput) ToFleetScalingPolicyStatusPtrOutput() FleetScalingPolicyStatusPtrOutput {
+	return o.ToFleetScalingPolicyStatusPtrOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyStatusOutput) ToFleetScalingPolicyStatusPtrOutputWithContext(ctx context.Context) FleetScalingPolicyStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetScalingPolicyStatus) *FleetScalingPolicyStatus {
+		return &v
+	}).(FleetScalingPolicyStatusPtrOutput)
+}
+
+func (o FleetScalingPolicyStatusOutput) ToOutput(ctx context.Context) pulumix.Output[FleetScalingPolicyStatus] {
+	return pulumix.Output[FleetScalingPolicyStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FleetScalingPolicyStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetScalingPolicyStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetScalingPolicyStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetScalingPolicyStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetScalingPolicyStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetScalingPolicyStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetScalingPolicyStatus)(nil)).Elem()
+}
+
+func (o FleetScalingPolicyStatusPtrOutput) ToFleetScalingPolicyStatusPtrOutput() FleetScalingPolicyStatusPtrOutput {
+	return o
+}
+
+func (o FleetScalingPolicyStatusPtrOutput) ToFleetScalingPolicyStatusPtrOutputWithContext(ctx context.Context) FleetScalingPolicyStatusPtrOutput {
+	return o
+}
+
+func (o FleetScalingPolicyStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyStatus] {
+	return pulumix.Output[*FleetScalingPolicyStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FleetScalingPolicyStatusPtrOutput) Elem() FleetScalingPolicyStatusOutput {
+	return o.ApplyT(func(v *FleetScalingPolicyStatus) FleetScalingPolicyStatus {
+		if v != nil {
+			return *v
+		}
+		var ret FleetScalingPolicyStatus
+		return ret
+	}).(FleetScalingPolicyStatusOutput)
+}
+
+func (o FleetScalingPolicyStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetScalingPolicyStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetScalingPolicyStatusInput is an input type that accepts FleetScalingPolicyStatusArgs and FleetScalingPolicyStatusOutput values.
+// You can construct a concrete instance of `FleetScalingPolicyStatusInput` via:
+//
+//	FleetScalingPolicyStatusArgs{...}
+type FleetScalingPolicyStatusInput interface {
+	pulumi.Input
+
+	ToFleetScalingPolicyStatusOutput() FleetScalingPolicyStatusOutput
+	ToFleetScalingPolicyStatusOutputWithContext(context.Context) FleetScalingPolicyStatusOutput
+}
+
+var fleetScalingPolicyStatusPtrType = reflect.TypeOf((**FleetScalingPolicyStatus)(nil)).Elem()
+
+type FleetScalingPolicyStatusPtrInput interface {
+	pulumi.Input
+
+	ToFleetScalingPolicyStatusPtrOutput() FleetScalingPolicyStatusPtrOutput
+	ToFleetScalingPolicyStatusPtrOutputWithContext(context.Context) FleetScalingPolicyStatusPtrOutput
+}
+
+type fleetScalingPolicyStatusPtr string
+
+func FleetScalingPolicyStatusPtr(v string) FleetScalingPolicyStatusPtrInput {
+	return (*fleetScalingPolicyStatusPtr)(&v)
+}
+
+func (*fleetScalingPolicyStatusPtr) ElementType() reflect.Type {
+	return fleetScalingPolicyStatusPtrType
+}
+
+func (in *fleetScalingPolicyStatusPtr) ToFleetScalingPolicyStatusPtrOutput() FleetScalingPolicyStatusPtrOutput {
+	return pulumi.ToOutput(in).(FleetScalingPolicyStatusPtrOutput)
+}
+
+func (in *fleetScalingPolicyStatusPtr) ToFleetScalingPolicyStatusPtrOutputWithContext(ctx context.Context) FleetScalingPolicyStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetScalingPolicyStatusPtrOutput)
+}
+
+func (in *fleetScalingPolicyStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyStatus] {
+	return pulumix.Output[*FleetScalingPolicyStatus]{
+		OutputState: in.ToFleetScalingPolicyStatusPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The current status of the fleet's scaling policies in a requested fleet location. The status PENDING_UPDATE indicates that an update was requested for the fleet but has not yet been completed for the location.
+type FleetScalingPolicyUpdateStatus string
+
+const (
+	FleetScalingPolicyUpdateStatusPendingUpdate = FleetScalingPolicyUpdateStatus("PENDING_UPDATE")
+)
+
+func (FleetScalingPolicyUpdateStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetScalingPolicyUpdateStatus)(nil)).Elem()
+}
+
+func (e FleetScalingPolicyUpdateStatus) ToFleetScalingPolicyUpdateStatusOutput() FleetScalingPolicyUpdateStatusOutput {
+	return pulumi.ToOutput(e).(FleetScalingPolicyUpdateStatusOutput)
+}
+
+func (e FleetScalingPolicyUpdateStatus) ToFleetScalingPolicyUpdateStatusOutputWithContext(ctx context.Context) FleetScalingPolicyUpdateStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetScalingPolicyUpdateStatusOutput)
+}
+
+func (e FleetScalingPolicyUpdateStatus) ToFleetScalingPolicyUpdateStatusPtrOutput() FleetScalingPolicyUpdateStatusPtrOutput {
+	return e.ToFleetScalingPolicyUpdateStatusPtrOutputWithContext(context.Background())
+}
+
+func (e FleetScalingPolicyUpdateStatus) ToFleetScalingPolicyUpdateStatusPtrOutputWithContext(ctx context.Context) FleetScalingPolicyUpdateStatusPtrOutput {
+	return FleetScalingPolicyUpdateStatus(e).ToFleetScalingPolicyUpdateStatusOutputWithContext(ctx).ToFleetScalingPolicyUpdateStatusPtrOutputWithContext(ctx)
+}
+
+func (e FleetScalingPolicyUpdateStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetScalingPolicyUpdateStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetScalingPolicyUpdateStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetScalingPolicyUpdateStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetScalingPolicyUpdateStatusOutput struct{ *pulumi.OutputState }
+
+func (FleetScalingPolicyUpdateStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetScalingPolicyUpdateStatus)(nil)).Elem()
+}
+
+func (o FleetScalingPolicyUpdateStatusOutput) ToFleetScalingPolicyUpdateStatusOutput() FleetScalingPolicyUpdateStatusOutput {
+	return o
+}
+
+func (o FleetScalingPolicyUpdateStatusOutput) ToFleetScalingPolicyUpdateStatusOutputWithContext(ctx context.Context) FleetScalingPolicyUpdateStatusOutput {
+	return o
+}
+
+func (o FleetScalingPolicyUpdateStatusOutput) ToFleetScalingPolicyUpdateStatusPtrOutput() FleetScalingPolicyUpdateStatusPtrOutput {
+	return o.ToFleetScalingPolicyUpdateStatusPtrOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyUpdateStatusOutput) ToFleetScalingPolicyUpdateStatusPtrOutputWithContext(ctx context.Context) FleetScalingPolicyUpdateStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetScalingPolicyUpdateStatus) *FleetScalingPolicyUpdateStatus {
+		return &v
+	}).(FleetScalingPolicyUpdateStatusPtrOutput)
+}
+
+func (o FleetScalingPolicyUpdateStatusOutput) ToOutput(ctx context.Context) pulumix.Output[FleetScalingPolicyUpdateStatus] {
+	return pulumix.Output[FleetScalingPolicyUpdateStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FleetScalingPolicyUpdateStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyUpdateStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetScalingPolicyUpdateStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetScalingPolicyUpdateStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyUpdateStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetScalingPolicyUpdateStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetScalingPolicyUpdateStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetScalingPolicyUpdateStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetScalingPolicyUpdateStatus)(nil)).Elem()
+}
+
+func (o FleetScalingPolicyUpdateStatusPtrOutput) ToFleetScalingPolicyUpdateStatusPtrOutput() FleetScalingPolicyUpdateStatusPtrOutput {
+	return o
+}
+
+func (o FleetScalingPolicyUpdateStatusPtrOutput) ToFleetScalingPolicyUpdateStatusPtrOutputWithContext(ctx context.Context) FleetScalingPolicyUpdateStatusPtrOutput {
+	return o
+}
+
+func (o FleetScalingPolicyUpdateStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyUpdateStatus] {
+	return pulumix.Output[*FleetScalingPolicyUpdateStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FleetScalingPolicyUpdateStatusPtrOutput) Elem() FleetScalingPolicyUpdateStatusOutput {
+	return o.ApplyT(func(v *FleetScalingPolicyUpdateStatus) FleetScalingPolicyUpdateStatus {
+		if v != nil {
+			return *v
+		}
+		var ret FleetScalingPolicyUpdateStatus
+		return ret
+	}).(FleetScalingPolicyUpdateStatusOutput)
+}
+
+func (o FleetScalingPolicyUpdateStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetScalingPolicyUpdateStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetScalingPolicyUpdateStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetScalingPolicyUpdateStatusInput is an input type that accepts FleetScalingPolicyUpdateStatusArgs and FleetScalingPolicyUpdateStatusOutput values.
+// You can construct a concrete instance of `FleetScalingPolicyUpdateStatusInput` via:
+//
+//	FleetScalingPolicyUpdateStatusArgs{...}
+type FleetScalingPolicyUpdateStatusInput interface {
+	pulumi.Input
+
+	ToFleetScalingPolicyUpdateStatusOutput() FleetScalingPolicyUpdateStatusOutput
+	ToFleetScalingPolicyUpdateStatusOutputWithContext(context.Context) FleetScalingPolicyUpdateStatusOutput
+}
+
+var fleetScalingPolicyUpdateStatusPtrType = reflect.TypeOf((**FleetScalingPolicyUpdateStatus)(nil)).Elem()
+
+type FleetScalingPolicyUpdateStatusPtrInput interface {
+	pulumi.Input
+
+	ToFleetScalingPolicyUpdateStatusPtrOutput() FleetScalingPolicyUpdateStatusPtrOutput
+	ToFleetScalingPolicyUpdateStatusPtrOutputWithContext(context.Context) FleetScalingPolicyUpdateStatusPtrOutput
+}
+
+type fleetScalingPolicyUpdateStatusPtr string
+
+func FleetScalingPolicyUpdateStatusPtr(v string) FleetScalingPolicyUpdateStatusPtrInput {
+	return (*fleetScalingPolicyUpdateStatusPtr)(&v)
+}
+
+func (*fleetScalingPolicyUpdateStatusPtr) ElementType() reflect.Type {
+	return fleetScalingPolicyUpdateStatusPtrType
+}
+
+func (in *fleetScalingPolicyUpdateStatusPtr) ToFleetScalingPolicyUpdateStatusPtrOutput() FleetScalingPolicyUpdateStatusPtrOutput {
+	return pulumi.ToOutput(in).(FleetScalingPolicyUpdateStatusPtrOutput)
+}
+
+func (in *fleetScalingPolicyUpdateStatusPtr) ToFleetScalingPolicyUpdateStatusPtrOutputWithContext(ctx context.Context) FleetScalingPolicyUpdateStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetScalingPolicyUpdateStatusPtrOutput)
+}
+
+func (in *fleetScalingPolicyUpdateStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyUpdateStatus] {
+	return pulumix.Output[*FleetScalingPolicyUpdateStatus]{
+		OutputState: in.ToFleetScalingPolicyUpdateStatusPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
 type FleetType string
 
@@ -2027,6 +3142,613 @@ func (in *gameServerGroupGameServerProtectionPolicyPtr) ToOutput(ctx context.Con
 	}
 }
 
+type GameSessionQueuePriorityOrderItem string
+
+const (
+	GameSessionQueuePriorityOrderItemLatency     = GameSessionQueuePriorityOrderItem("LATENCY")
+	GameSessionQueuePriorityOrderItemCost        = GameSessionQueuePriorityOrderItem("COST")
+	GameSessionQueuePriorityOrderItemDestination = GameSessionQueuePriorityOrderItem("DESTINATION")
+	GameSessionQueuePriorityOrderItemLocation    = GameSessionQueuePriorityOrderItem("LOCATION")
+)
+
+func (GameSessionQueuePriorityOrderItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameSessionQueuePriorityOrderItem)(nil)).Elem()
+}
+
+func (e GameSessionQueuePriorityOrderItem) ToGameSessionQueuePriorityOrderItemOutput() GameSessionQueuePriorityOrderItemOutput {
+	return pulumi.ToOutput(e).(GameSessionQueuePriorityOrderItemOutput)
+}
+
+func (e GameSessionQueuePriorityOrderItem) ToGameSessionQueuePriorityOrderItemOutputWithContext(ctx context.Context) GameSessionQueuePriorityOrderItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GameSessionQueuePriorityOrderItemOutput)
+}
+
+func (e GameSessionQueuePriorityOrderItem) ToGameSessionQueuePriorityOrderItemPtrOutput() GameSessionQueuePriorityOrderItemPtrOutput {
+	return e.ToGameSessionQueuePriorityOrderItemPtrOutputWithContext(context.Background())
+}
+
+func (e GameSessionQueuePriorityOrderItem) ToGameSessionQueuePriorityOrderItemPtrOutputWithContext(ctx context.Context) GameSessionQueuePriorityOrderItemPtrOutput {
+	return GameSessionQueuePriorityOrderItem(e).ToGameSessionQueuePriorityOrderItemOutputWithContext(ctx).ToGameSessionQueuePriorityOrderItemPtrOutputWithContext(ctx)
+}
+
+func (e GameSessionQueuePriorityOrderItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GameSessionQueuePriorityOrderItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GameSessionQueuePriorityOrderItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GameSessionQueuePriorityOrderItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GameSessionQueuePriorityOrderItemOutput struct{ *pulumi.OutputState }
+
+func (GameSessionQueuePriorityOrderItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GameSessionQueuePriorityOrderItem)(nil)).Elem()
+}
+
+func (o GameSessionQueuePriorityOrderItemOutput) ToGameSessionQueuePriorityOrderItemOutput() GameSessionQueuePriorityOrderItemOutput {
+	return o
+}
+
+func (o GameSessionQueuePriorityOrderItemOutput) ToGameSessionQueuePriorityOrderItemOutputWithContext(ctx context.Context) GameSessionQueuePriorityOrderItemOutput {
+	return o
+}
+
+func (o GameSessionQueuePriorityOrderItemOutput) ToGameSessionQueuePriorityOrderItemPtrOutput() GameSessionQueuePriorityOrderItemPtrOutput {
+	return o.ToGameSessionQueuePriorityOrderItemPtrOutputWithContext(context.Background())
+}
+
+func (o GameSessionQueuePriorityOrderItemOutput) ToGameSessionQueuePriorityOrderItemPtrOutputWithContext(ctx context.Context) GameSessionQueuePriorityOrderItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GameSessionQueuePriorityOrderItem) *GameSessionQueuePriorityOrderItem {
+		return &v
+	}).(GameSessionQueuePriorityOrderItemPtrOutput)
+}
+
+func (o GameSessionQueuePriorityOrderItemOutput) ToOutput(ctx context.Context) pulumix.Output[GameSessionQueuePriorityOrderItem] {
+	return pulumix.Output[GameSessionQueuePriorityOrderItem]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GameSessionQueuePriorityOrderItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GameSessionQueuePriorityOrderItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GameSessionQueuePriorityOrderItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GameSessionQueuePriorityOrderItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GameSessionQueuePriorityOrderItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GameSessionQueuePriorityOrderItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GameSessionQueuePriorityOrderItemPtrOutput struct{ *pulumi.OutputState }
+
+func (GameSessionQueuePriorityOrderItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GameSessionQueuePriorityOrderItem)(nil)).Elem()
+}
+
+func (o GameSessionQueuePriorityOrderItemPtrOutput) ToGameSessionQueuePriorityOrderItemPtrOutput() GameSessionQueuePriorityOrderItemPtrOutput {
+	return o
+}
+
+func (o GameSessionQueuePriorityOrderItemPtrOutput) ToGameSessionQueuePriorityOrderItemPtrOutputWithContext(ctx context.Context) GameSessionQueuePriorityOrderItemPtrOutput {
+	return o
+}
+
+func (o GameSessionQueuePriorityOrderItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GameSessionQueuePriorityOrderItem] {
+	return pulumix.Output[*GameSessionQueuePriorityOrderItem]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GameSessionQueuePriorityOrderItemPtrOutput) Elem() GameSessionQueuePriorityOrderItemOutput {
+	return o.ApplyT(func(v *GameSessionQueuePriorityOrderItem) GameSessionQueuePriorityOrderItem {
+		if v != nil {
+			return *v
+		}
+		var ret GameSessionQueuePriorityOrderItem
+		return ret
+	}).(GameSessionQueuePriorityOrderItemOutput)
+}
+
+func (o GameSessionQueuePriorityOrderItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GameSessionQueuePriorityOrderItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GameSessionQueuePriorityOrderItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GameSessionQueuePriorityOrderItemInput is an input type that accepts GameSessionQueuePriorityOrderItemArgs and GameSessionQueuePriorityOrderItemOutput values.
+// You can construct a concrete instance of `GameSessionQueuePriorityOrderItemInput` via:
+//
+//	GameSessionQueuePriorityOrderItemArgs{...}
+type GameSessionQueuePriorityOrderItemInput interface {
+	pulumi.Input
+
+	ToGameSessionQueuePriorityOrderItemOutput() GameSessionQueuePriorityOrderItemOutput
+	ToGameSessionQueuePriorityOrderItemOutputWithContext(context.Context) GameSessionQueuePriorityOrderItemOutput
+}
+
+var gameSessionQueuePriorityOrderItemPtrType = reflect.TypeOf((**GameSessionQueuePriorityOrderItem)(nil)).Elem()
+
+type GameSessionQueuePriorityOrderItemPtrInput interface {
+	pulumi.Input
+
+	ToGameSessionQueuePriorityOrderItemPtrOutput() GameSessionQueuePriorityOrderItemPtrOutput
+	ToGameSessionQueuePriorityOrderItemPtrOutputWithContext(context.Context) GameSessionQueuePriorityOrderItemPtrOutput
+}
+
+type gameSessionQueuePriorityOrderItemPtr string
+
+func GameSessionQueuePriorityOrderItemPtr(v string) GameSessionQueuePriorityOrderItemPtrInput {
+	return (*gameSessionQueuePriorityOrderItemPtr)(&v)
+}
+
+func (*gameSessionQueuePriorityOrderItemPtr) ElementType() reflect.Type {
+	return gameSessionQueuePriorityOrderItemPtrType
+}
+
+func (in *gameSessionQueuePriorityOrderItemPtr) ToGameSessionQueuePriorityOrderItemPtrOutput() GameSessionQueuePriorityOrderItemPtrOutput {
+	return pulumi.ToOutput(in).(GameSessionQueuePriorityOrderItemPtrOutput)
+}
+
+func (in *gameSessionQueuePriorityOrderItemPtr) ToGameSessionQueuePriorityOrderItemPtrOutputWithContext(ctx context.Context) GameSessionQueuePriorityOrderItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GameSessionQueuePriorityOrderItemPtrOutput)
+}
+
+func (in *gameSessionQueuePriorityOrderItemPtr) ToOutput(ctx context.Context) pulumix.Output[*GameSessionQueuePriorityOrderItem] {
+	return pulumix.Output[*GameSessionQueuePriorityOrderItem]{
+		OutputState: in.ToGameSessionQueuePriorityOrderItemPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// GameSessionQueuePriorityOrderItemArrayInput is an input type that accepts GameSessionQueuePriorityOrderItemArray and GameSessionQueuePriorityOrderItemArrayOutput values.
+// You can construct a concrete instance of `GameSessionQueuePriorityOrderItemArrayInput` via:
+//
+//	GameSessionQueuePriorityOrderItemArray{ GameSessionQueuePriorityOrderItemArgs{...} }
+type GameSessionQueuePriorityOrderItemArrayInput interface {
+	pulumi.Input
+
+	ToGameSessionQueuePriorityOrderItemArrayOutput() GameSessionQueuePriorityOrderItemArrayOutput
+	ToGameSessionQueuePriorityOrderItemArrayOutputWithContext(context.Context) GameSessionQueuePriorityOrderItemArrayOutput
+}
+
+type GameSessionQueuePriorityOrderItemArray []GameSessionQueuePriorityOrderItem
+
+func (GameSessionQueuePriorityOrderItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GameSessionQueuePriorityOrderItem)(nil)).Elem()
+}
+
+func (i GameSessionQueuePriorityOrderItemArray) ToGameSessionQueuePriorityOrderItemArrayOutput() GameSessionQueuePriorityOrderItemArrayOutput {
+	return i.ToGameSessionQueuePriorityOrderItemArrayOutputWithContext(context.Background())
+}
+
+func (i GameSessionQueuePriorityOrderItemArray) ToGameSessionQueuePriorityOrderItemArrayOutputWithContext(ctx context.Context) GameSessionQueuePriorityOrderItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueuePriorityOrderItemArrayOutput)
+}
+
+func (i GameSessionQueuePriorityOrderItemArray) ToOutput(ctx context.Context) pulumix.Output[[]GameSessionQueuePriorityOrderItem] {
+	return pulumix.Output[[]GameSessionQueuePriorityOrderItem]{
+		OutputState: i.ToGameSessionQueuePriorityOrderItemArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type GameSessionQueuePriorityOrderItemArrayOutput struct{ *pulumi.OutputState }
+
+func (GameSessionQueuePriorityOrderItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GameSessionQueuePriorityOrderItem)(nil)).Elem()
+}
+
+func (o GameSessionQueuePriorityOrderItemArrayOutput) ToGameSessionQueuePriorityOrderItemArrayOutput() GameSessionQueuePriorityOrderItemArrayOutput {
+	return o
+}
+
+func (o GameSessionQueuePriorityOrderItemArrayOutput) ToGameSessionQueuePriorityOrderItemArrayOutputWithContext(ctx context.Context) GameSessionQueuePriorityOrderItemArrayOutput {
+	return o
+}
+
+func (o GameSessionQueuePriorityOrderItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GameSessionQueuePriorityOrderItem] {
+	return pulumix.Output[[]GameSessionQueuePriorityOrderItem]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o GameSessionQueuePriorityOrderItemArrayOutput) Index(i pulumi.IntInput) GameSessionQueuePriorityOrderItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GameSessionQueuePriorityOrderItem {
+		return vs[0].([]GameSessionQueuePriorityOrderItem)[vs[1].(int)]
+	}).(GameSessionQueuePriorityOrderItemOutput)
+}
+
+// The method used to backfill game sessions created with this matchmaking configuration.
+type MatchmakingConfigurationBackfillMode string
+
+const (
+	MatchmakingConfigurationBackfillModeAutomatic = MatchmakingConfigurationBackfillMode("AUTOMATIC")
+	MatchmakingConfigurationBackfillModeManual    = MatchmakingConfigurationBackfillMode("MANUAL")
+)
+
+func (MatchmakingConfigurationBackfillMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchmakingConfigurationBackfillMode)(nil)).Elem()
+}
+
+func (e MatchmakingConfigurationBackfillMode) ToMatchmakingConfigurationBackfillModeOutput() MatchmakingConfigurationBackfillModeOutput {
+	return pulumi.ToOutput(e).(MatchmakingConfigurationBackfillModeOutput)
+}
+
+func (e MatchmakingConfigurationBackfillMode) ToMatchmakingConfigurationBackfillModeOutputWithContext(ctx context.Context) MatchmakingConfigurationBackfillModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MatchmakingConfigurationBackfillModeOutput)
+}
+
+func (e MatchmakingConfigurationBackfillMode) ToMatchmakingConfigurationBackfillModePtrOutput() MatchmakingConfigurationBackfillModePtrOutput {
+	return e.ToMatchmakingConfigurationBackfillModePtrOutputWithContext(context.Background())
+}
+
+func (e MatchmakingConfigurationBackfillMode) ToMatchmakingConfigurationBackfillModePtrOutputWithContext(ctx context.Context) MatchmakingConfigurationBackfillModePtrOutput {
+	return MatchmakingConfigurationBackfillMode(e).ToMatchmakingConfigurationBackfillModeOutputWithContext(ctx).ToMatchmakingConfigurationBackfillModePtrOutputWithContext(ctx)
+}
+
+func (e MatchmakingConfigurationBackfillMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MatchmakingConfigurationBackfillMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MatchmakingConfigurationBackfillMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MatchmakingConfigurationBackfillMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MatchmakingConfigurationBackfillModeOutput struct{ *pulumi.OutputState }
+
+func (MatchmakingConfigurationBackfillModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchmakingConfigurationBackfillMode)(nil)).Elem()
+}
+
+func (o MatchmakingConfigurationBackfillModeOutput) ToMatchmakingConfigurationBackfillModeOutput() MatchmakingConfigurationBackfillModeOutput {
+	return o
+}
+
+func (o MatchmakingConfigurationBackfillModeOutput) ToMatchmakingConfigurationBackfillModeOutputWithContext(ctx context.Context) MatchmakingConfigurationBackfillModeOutput {
+	return o
+}
+
+func (o MatchmakingConfigurationBackfillModeOutput) ToMatchmakingConfigurationBackfillModePtrOutput() MatchmakingConfigurationBackfillModePtrOutput {
+	return o.ToMatchmakingConfigurationBackfillModePtrOutputWithContext(context.Background())
+}
+
+func (o MatchmakingConfigurationBackfillModeOutput) ToMatchmakingConfigurationBackfillModePtrOutputWithContext(ctx context.Context) MatchmakingConfigurationBackfillModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MatchmakingConfigurationBackfillMode) *MatchmakingConfigurationBackfillMode {
+		return &v
+	}).(MatchmakingConfigurationBackfillModePtrOutput)
+}
+
+func (o MatchmakingConfigurationBackfillModeOutput) ToOutput(ctx context.Context) pulumix.Output[MatchmakingConfigurationBackfillMode] {
+	return pulumix.Output[MatchmakingConfigurationBackfillMode]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o MatchmakingConfigurationBackfillModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MatchmakingConfigurationBackfillModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MatchmakingConfigurationBackfillMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MatchmakingConfigurationBackfillModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MatchmakingConfigurationBackfillModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MatchmakingConfigurationBackfillMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MatchmakingConfigurationBackfillModePtrOutput struct{ *pulumi.OutputState }
+
+func (MatchmakingConfigurationBackfillModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MatchmakingConfigurationBackfillMode)(nil)).Elem()
+}
+
+func (o MatchmakingConfigurationBackfillModePtrOutput) ToMatchmakingConfigurationBackfillModePtrOutput() MatchmakingConfigurationBackfillModePtrOutput {
+	return o
+}
+
+func (o MatchmakingConfigurationBackfillModePtrOutput) ToMatchmakingConfigurationBackfillModePtrOutputWithContext(ctx context.Context) MatchmakingConfigurationBackfillModePtrOutput {
+	return o
+}
+
+func (o MatchmakingConfigurationBackfillModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MatchmakingConfigurationBackfillMode] {
+	return pulumix.Output[*MatchmakingConfigurationBackfillMode]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o MatchmakingConfigurationBackfillModePtrOutput) Elem() MatchmakingConfigurationBackfillModeOutput {
+	return o.ApplyT(func(v *MatchmakingConfigurationBackfillMode) MatchmakingConfigurationBackfillMode {
+		if v != nil {
+			return *v
+		}
+		var ret MatchmakingConfigurationBackfillMode
+		return ret
+	}).(MatchmakingConfigurationBackfillModeOutput)
+}
+
+func (o MatchmakingConfigurationBackfillModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MatchmakingConfigurationBackfillModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MatchmakingConfigurationBackfillMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MatchmakingConfigurationBackfillModeInput is an input type that accepts MatchmakingConfigurationBackfillModeArgs and MatchmakingConfigurationBackfillModeOutput values.
+// You can construct a concrete instance of `MatchmakingConfigurationBackfillModeInput` via:
+//
+//	MatchmakingConfigurationBackfillModeArgs{...}
+type MatchmakingConfigurationBackfillModeInput interface {
+	pulumi.Input
+
+	ToMatchmakingConfigurationBackfillModeOutput() MatchmakingConfigurationBackfillModeOutput
+	ToMatchmakingConfigurationBackfillModeOutputWithContext(context.Context) MatchmakingConfigurationBackfillModeOutput
+}
+
+var matchmakingConfigurationBackfillModePtrType = reflect.TypeOf((**MatchmakingConfigurationBackfillMode)(nil)).Elem()
+
+type MatchmakingConfigurationBackfillModePtrInput interface {
+	pulumi.Input
+
+	ToMatchmakingConfigurationBackfillModePtrOutput() MatchmakingConfigurationBackfillModePtrOutput
+	ToMatchmakingConfigurationBackfillModePtrOutputWithContext(context.Context) MatchmakingConfigurationBackfillModePtrOutput
+}
+
+type matchmakingConfigurationBackfillModePtr string
+
+func MatchmakingConfigurationBackfillModePtr(v string) MatchmakingConfigurationBackfillModePtrInput {
+	return (*matchmakingConfigurationBackfillModePtr)(&v)
+}
+
+func (*matchmakingConfigurationBackfillModePtr) ElementType() reflect.Type {
+	return matchmakingConfigurationBackfillModePtrType
+}
+
+func (in *matchmakingConfigurationBackfillModePtr) ToMatchmakingConfigurationBackfillModePtrOutput() MatchmakingConfigurationBackfillModePtrOutput {
+	return pulumi.ToOutput(in).(MatchmakingConfigurationBackfillModePtrOutput)
+}
+
+func (in *matchmakingConfigurationBackfillModePtr) ToMatchmakingConfigurationBackfillModePtrOutputWithContext(ctx context.Context) MatchmakingConfigurationBackfillModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MatchmakingConfigurationBackfillModePtrOutput)
+}
+
+func (in *matchmakingConfigurationBackfillModePtr) ToOutput(ctx context.Context) pulumix.Output[*MatchmakingConfigurationBackfillMode] {
+	return pulumix.Output[*MatchmakingConfigurationBackfillMode]{
+		OutputState: in.ToMatchmakingConfigurationBackfillModePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Indicates whether this matchmaking configuration is being used with Amazon GameLift hosting or as a standalone matchmaking solution.
+type MatchmakingConfigurationFlexMatchMode string
+
+const (
+	MatchmakingConfigurationFlexMatchModeStandalone = MatchmakingConfigurationFlexMatchMode("STANDALONE")
+	MatchmakingConfigurationFlexMatchModeWithQueue  = MatchmakingConfigurationFlexMatchMode("WITH_QUEUE")
+)
+
+func (MatchmakingConfigurationFlexMatchMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchmakingConfigurationFlexMatchMode)(nil)).Elem()
+}
+
+func (e MatchmakingConfigurationFlexMatchMode) ToMatchmakingConfigurationFlexMatchModeOutput() MatchmakingConfigurationFlexMatchModeOutput {
+	return pulumi.ToOutput(e).(MatchmakingConfigurationFlexMatchModeOutput)
+}
+
+func (e MatchmakingConfigurationFlexMatchMode) ToMatchmakingConfigurationFlexMatchModeOutputWithContext(ctx context.Context) MatchmakingConfigurationFlexMatchModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MatchmakingConfigurationFlexMatchModeOutput)
+}
+
+func (e MatchmakingConfigurationFlexMatchMode) ToMatchmakingConfigurationFlexMatchModePtrOutput() MatchmakingConfigurationFlexMatchModePtrOutput {
+	return e.ToMatchmakingConfigurationFlexMatchModePtrOutputWithContext(context.Background())
+}
+
+func (e MatchmakingConfigurationFlexMatchMode) ToMatchmakingConfigurationFlexMatchModePtrOutputWithContext(ctx context.Context) MatchmakingConfigurationFlexMatchModePtrOutput {
+	return MatchmakingConfigurationFlexMatchMode(e).ToMatchmakingConfigurationFlexMatchModeOutputWithContext(ctx).ToMatchmakingConfigurationFlexMatchModePtrOutputWithContext(ctx)
+}
+
+func (e MatchmakingConfigurationFlexMatchMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MatchmakingConfigurationFlexMatchMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MatchmakingConfigurationFlexMatchMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MatchmakingConfigurationFlexMatchMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MatchmakingConfigurationFlexMatchModeOutput struct{ *pulumi.OutputState }
+
+func (MatchmakingConfigurationFlexMatchModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MatchmakingConfigurationFlexMatchMode)(nil)).Elem()
+}
+
+func (o MatchmakingConfigurationFlexMatchModeOutput) ToMatchmakingConfigurationFlexMatchModeOutput() MatchmakingConfigurationFlexMatchModeOutput {
+	return o
+}
+
+func (o MatchmakingConfigurationFlexMatchModeOutput) ToMatchmakingConfigurationFlexMatchModeOutputWithContext(ctx context.Context) MatchmakingConfigurationFlexMatchModeOutput {
+	return o
+}
+
+func (o MatchmakingConfigurationFlexMatchModeOutput) ToMatchmakingConfigurationFlexMatchModePtrOutput() MatchmakingConfigurationFlexMatchModePtrOutput {
+	return o.ToMatchmakingConfigurationFlexMatchModePtrOutputWithContext(context.Background())
+}
+
+func (o MatchmakingConfigurationFlexMatchModeOutput) ToMatchmakingConfigurationFlexMatchModePtrOutputWithContext(ctx context.Context) MatchmakingConfigurationFlexMatchModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MatchmakingConfigurationFlexMatchMode) *MatchmakingConfigurationFlexMatchMode {
+		return &v
+	}).(MatchmakingConfigurationFlexMatchModePtrOutput)
+}
+
+func (o MatchmakingConfigurationFlexMatchModeOutput) ToOutput(ctx context.Context) pulumix.Output[MatchmakingConfigurationFlexMatchMode] {
+	return pulumix.Output[MatchmakingConfigurationFlexMatchMode]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o MatchmakingConfigurationFlexMatchModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MatchmakingConfigurationFlexMatchModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MatchmakingConfigurationFlexMatchMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MatchmakingConfigurationFlexMatchModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MatchmakingConfigurationFlexMatchModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MatchmakingConfigurationFlexMatchMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MatchmakingConfigurationFlexMatchModePtrOutput struct{ *pulumi.OutputState }
+
+func (MatchmakingConfigurationFlexMatchModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MatchmakingConfigurationFlexMatchMode)(nil)).Elem()
+}
+
+func (o MatchmakingConfigurationFlexMatchModePtrOutput) ToMatchmakingConfigurationFlexMatchModePtrOutput() MatchmakingConfigurationFlexMatchModePtrOutput {
+	return o
+}
+
+func (o MatchmakingConfigurationFlexMatchModePtrOutput) ToMatchmakingConfigurationFlexMatchModePtrOutputWithContext(ctx context.Context) MatchmakingConfigurationFlexMatchModePtrOutput {
+	return o
+}
+
+func (o MatchmakingConfigurationFlexMatchModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MatchmakingConfigurationFlexMatchMode] {
+	return pulumix.Output[*MatchmakingConfigurationFlexMatchMode]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o MatchmakingConfigurationFlexMatchModePtrOutput) Elem() MatchmakingConfigurationFlexMatchModeOutput {
+	return o.ApplyT(func(v *MatchmakingConfigurationFlexMatchMode) MatchmakingConfigurationFlexMatchMode {
+		if v != nil {
+			return *v
+		}
+		var ret MatchmakingConfigurationFlexMatchMode
+		return ret
+	}).(MatchmakingConfigurationFlexMatchModeOutput)
+}
+
+func (o MatchmakingConfigurationFlexMatchModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MatchmakingConfigurationFlexMatchModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MatchmakingConfigurationFlexMatchMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MatchmakingConfigurationFlexMatchModeInput is an input type that accepts MatchmakingConfigurationFlexMatchModeArgs and MatchmakingConfigurationFlexMatchModeOutput values.
+// You can construct a concrete instance of `MatchmakingConfigurationFlexMatchModeInput` via:
+//
+//	MatchmakingConfigurationFlexMatchModeArgs{...}
+type MatchmakingConfigurationFlexMatchModeInput interface {
+	pulumi.Input
+
+	ToMatchmakingConfigurationFlexMatchModeOutput() MatchmakingConfigurationFlexMatchModeOutput
+	ToMatchmakingConfigurationFlexMatchModeOutputWithContext(context.Context) MatchmakingConfigurationFlexMatchModeOutput
+}
+
+var matchmakingConfigurationFlexMatchModePtrType = reflect.TypeOf((**MatchmakingConfigurationFlexMatchMode)(nil)).Elem()
+
+type MatchmakingConfigurationFlexMatchModePtrInput interface {
+	pulumi.Input
+
+	ToMatchmakingConfigurationFlexMatchModePtrOutput() MatchmakingConfigurationFlexMatchModePtrOutput
+	ToMatchmakingConfigurationFlexMatchModePtrOutputWithContext(context.Context) MatchmakingConfigurationFlexMatchModePtrOutput
+}
+
+type matchmakingConfigurationFlexMatchModePtr string
+
+func MatchmakingConfigurationFlexMatchModePtr(v string) MatchmakingConfigurationFlexMatchModePtrInput {
+	return (*matchmakingConfigurationFlexMatchModePtr)(&v)
+}
+
+func (*matchmakingConfigurationFlexMatchModePtr) ElementType() reflect.Type {
+	return matchmakingConfigurationFlexMatchModePtrType
+}
+
+func (in *matchmakingConfigurationFlexMatchModePtr) ToMatchmakingConfigurationFlexMatchModePtrOutput() MatchmakingConfigurationFlexMatchModePtrOutput {
+	return pulumi.ToOutput(in).(MatchmakingConfigurationFlexMatchModePtrOutput)
+}
+
+func (in *matchmakingConfigurationFlexMatchModePtr) ToMatchmakingConfigurationFlexMatchModePtrOutputWithContext(ctx context.Context) MatchmakingConfigurationFlexMatchModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MatchmakingConfigurationFlexMatchModePtrOutput)
+}
+
+func (in *matchmakingConfigurationFlexMatchModePtr) ToOutput(ctx context.Context) pulumix.Output[*MatchmakingConfigurationFlexMatchMode] {
+	return pulumix.Output[*MatchmakingConfigurationFlexMatchMode]{
+		OutputState: in.ToMatchmakingConfigurationFlexMatchModePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingStrategyTypeInput)(nil)).Elem(), AliasRoutingStrategyType("SIMPLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingStrategyTypePtrInput)(nil)).Elem(), AliasRoutingStrategyType("SIMPLE"))
@@ -2042,6 +3764,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetIpPermissionProtocolPtrInput)(nil)).Elem(), FleetIpPermissionProtocol("TCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetNewGameSessionProtectionPolicyInput)(nil)).Elem(), FleetNewGameSessionProtectionPolicy("FullProtection"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetNewGameSessionProtectionPolicyPtrInput)(nil)).Elem(), FleetNewGameSessionProtectionPolicy("FullProtection"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingPolicyComparisonOperatorInput)(nil)).Elem(), FleetScalingPolicyComparisonOperator("GreaterThanOrEqualToThreshold"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingPolicyComparisonOperatorPtrInput)(nil)).Elem(), FleetScalingPolicyComparisonOperator("GreaterThanOrEqualToThreshold"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingPolicyMetricNameInput)(nil)).Elem(), FleetScalingPolicyMetricName("ActivatingGameSessions"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingPolicyMetricNamePtrInput)(nil)).Elem(), FleetScalingPolicyMetricName("ActivatingGameSessions"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingPolicyPolicyTypeInput)(nil)).Elem(), FleetScalingPolicyPolicyType("RuleBased"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingPolicyPolicyTypePtrInput)(nil)).Elem(), FleetScalingPolicyPolicyType("RuleBased"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingPolicyScalingAdjustmentTypeInput)(nil)).Elem(), FleetScalingPolicyScalingAdjustmentType("ChangeInCapacity"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingPolicyScalingAdjustmentTypePtrInput)(nil)).Elem(), FleetScalingPolicyScalingAdjustmentType("ChangeInCapacity"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingPolicyStatusInput)(nil)).Elem(), FleetScalingPolicyStatus("ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingPolicyStatusPtrInput)(nil)).Elem(), FleetScalingPolicyStatus("ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingPolicyUpdateStatusInput)(nil)).Elem(), FleetScalingPolicyUpdateStatus("PENDING_UPDATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingPolicyUpdateStatusPtrInput)(nil)).Elem(), FleetScalingPolicyUpdateStatus("PENDING_UPDATE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetTypeInput)(nil)).Elem(), FleetType("ON_DEMAND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetTypePtrInput)(nil)).Elem(), FleetType("ON_DEMAND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupBalancingStrategyInput)(nil)).Elem(), GameServerGroupBalancingStrategy("SPOT_ONLY"))
@@ -2050,6 +3784,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupDeleteOptionPtrInput)(nil)).Elem(), GameServerGroupDeleteOption("SAFE_DELETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupGameServerProtectionPolicyInput)(nil)).Elem(), GameServerGroupGameServerProtectionPolicy("NO_PROTECTION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GameServerGroupGameServerProtectionPolicyPtrInput)(nil)).Elem(), GameServerGroupGameServerProtectionPolicy("NO_PROTECTION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueuePriorityOrderItemInput)(nil)).Elem(), GameSessionQueuePriorityOrderItem("LATENCY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueuePriorityOrderItemPtrInput)(nil)).Elem(), GameSessionQueuePriorityOrderItem("LATENCY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueuePriorityOrderItemArrayInput)(nil)).Elem(), GameSessionQueuePriorityOrderItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingConfigurationBackfillModeInput)(nil)).Elem(), MatchmakingConfigurationBackfillMode("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingConfigurationBackfillModePtrInput)(nil)).Elem(), MatchmakingConfigurationBackfillMode("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingConfigurationFlexMatchModeInput)(nil)).Elem(), MatchmakingConfigurationFlexMatchMode("STANDALONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MatchmakingConfigurationFlexMatchModePtrInput)(nil)).Elem(), MatchmakingConfigurationFlexMatchMode("STANDALONE"))
 	pulumi.RegisterOutputType(AliasRoutingStrategyTypeOutput{})
 	pulumi.RegisterOutputType(AliasRoutingStrategyTypePtrOutput{})
 	pulumi.RegisterOutputType(BuildOperatingSystemOutput{})
@@ -2064,6 +3805,18 @@ func init() {
 	pulumi.RegisterOutputType(FleetIpPermissionProtocolPtrOutput{})
 	pulumi.RegisterOutputType(FleetNewGameSessionProtectionPolicyOutput{})
 	pulumi.RegisterOutputType(FleetNewGameSessionProtectionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(FleetScalingPolicyComparisonOperatorOutput{})
+	pulumi.RegisterOutputType(FleetScalingPolicyComparisonOperatorPtrOutput{})
+	pulumi.RegisterOutputType(FleetScalingPolicyMetricNameOutput{})
+	pulumi.RegisterOutputType(FleetScalingPolicyMetricNamePtrOutput{})
+	pulumi.RegisterOutputType(FleetScalingPolicyPolicyTypeOutput{})
+	pulumi.RegisterOutputType(FleetScalingPolicyPolicyTypePtrOutput{})
+	pulumi.RegisterOutputType(FleetScalingPolicyScalingAdjustmentTypeOutput{})
+	pulumi.RegisterOutputType(FleetScalingPolicyScalingAdjustmentTypePtrOutput{})
+	pulumi.RegisterOutputType(FleetScalingPolicyStatusOutput{})
+	pulumi.RegisterOutputType(FleetScalingPolicyStatusPtrOutput{})
+	pulumi.RegisterOutputType(FleetScalingPolicyUpdateStatusOutput{})
+	pulumi.RegisterOutputType(FleetScalingPolicyUpdateStatusPtrOutput{})
 	pulumi.RegisterOutputType(FleetTypeOutput{})
 	pulumi.RegisterOutputType(FleetTypePtrOutput{})
 	pulumi.RegisterOutputType(GameServerGroupBalancingStrategyOutput{})
@@ -2072,4 +3825,11 @@ func init() {
 	pulumi.RegisterOutputType(GameServerGroupDeleteOptionPtrOutput{})
 	pulumi.RegisterOutputType(GameServerGroupGameServerProtectionPolicyOutput{})
 	pulumi.RegisterOutputType(GameServerGroupGameServerProtectionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(GameSessionQueuePriorityOrderItemOutput{})
+	pulumi.RegisterOutputType(GameSessionQueuePriorityOrderItemPtrOutput{})
+	pulumi.RegisterOutputType(GameSessionQueuePriorityOrderItemArrayOutput{})
+	pulumi.RegisterOutputType(MatchmakingConfigurationBackfillModeOutput{})
+	pulumi.RegisterOutputType(MatchmakingConfigurationBackfillModePtrOutput{})
+	pulumi.RegisterOutputType(MatchmakingConfigurationFlexMatchModeOutput{})
+	pulumi.RegisterOutputType(MatchmakingConfigurationFlexMatchModePtrOutput{})
 }

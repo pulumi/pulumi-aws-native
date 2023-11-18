@@ -17,23 +17,24 @@ import (
 type Dashboard struct {
 	pulumi.CustomResourceState
 
-	Arn                     pulumi.StringOutput                    `pulumi:"arn"`
-	AwsAccountId            pulumi.StringOutput                    `pulumi:"awsAccountId"`
-	CreatedTime             pulumi.StringOutput                    `pulumi:"createdTime"`
-	DashboardId             pulumi.StringOutput                    `pulumi:"dashboardId"`
-	DashboardPublishOptions DashboardPublishOptionsPtrOutput       `pulumi:"dashboardPublishOptions"`
-	Definition              DashboardVersionDefinitionPtrOutput    `pulumi:"definition"`
-	LastPublishedTime       pulumi.StringOutput                    `pulumi:"lastPublishedTime"`
-	LastUpdatedTime         pulumi.StringOutput                    `pulumi:"lastUpdatedTime"`
-	Name                    pulumi.StringOutput                    `pulumi:"name"`
-	Parameters              DashboardParametersPtrOutput           `pulumi:"parameters"`
-	Permissions             DashboardResourcePermissionArrayOutput `pulumi:"permissions"`
-	SourceEntity            DashboardSourceEntityPtrOutput         `pulumi:"sourceEntity"`
-	Tags                    DashboardTagArrayOutput                `pulumi:"tags"`
-	ThemeArn                pulumi.StringPtrOutput                 `pulumi:"themeArn"`
-	ValidationStrategy      DashboardValidationStrategyPtrOutput   `pulumi:"validationStrategy"`
-	Version                 DashboardVersionOutput                 `pulumi:"version"`
-	VersionDescription      pulumi.StringPtrOutput                 `pulumi:"versionDescription"`
+	Arn                      pulumi.StringOutput                        `pulumi:"arn"`
+	AwsAccountId             pulumi.StringOutput                        `pulumi:"awsAccountId"`
+	CreatedTime              pulumi.StringOutput                        `pulumi:"createdTime"`
+	DashboardId              pulumi.StringOutput                        `pulumi:"dashboardId"`
+	DashboardPublishOptions  DashboardPublishOptionsPtrOutput           `pulumi:"dashboardPublishOptions"`
+	Definition               DashboardVersionDefinitionPtrOutput        `pulumi:"definition"`
+	LastPublishedTime        pulumi.StringOutput                        `pulumi:"lastPublishedTime"`
+	LastUpdatedTime          pulumi.StringOutput                        `pulumi:"lastUpdatedTime"`
+	LinkSharingConfiguration DashboardLinkSharingConfigurationPtrOutput `pulumi:"linkSharingConfiguration"`
+	Name                     pulumi.StringOutput                        `pulumi:"name"`
+	Parameters               DashboardParametersPtrOutput               `pulumi:"parameters"`
+	Permissions              DashboardResourcePermissionArrayOutput     `pulumi:"permissions"`
+	SourceEntity             DashboardSourceEntityPtrOutput             `pulumi:"sourceEntity"`
+	Tags                     DashboardTagArrayOutput                    `pulumi:"tags"`
+	ThemeArn                 pulumi.StringPtrOutput                     `pulumi:"themeArn"`
+	ValidationStrategy       DashboardValidationStrategyPtrOutput       `pulumi:"validationStrategy"`
+	Version                  DashboardVersionOutput                     `pulumi:"version"`
+	VersionDescription       pulumi.StringPtrOutput                     `pulumi:"versionDescription"`
 }
 
 // NewDashboard registers a new resource with the given unique name, arguments, and options.
@@ -87,34 +88,36 @@ func (DashboardState) ElementType() reflect.Type {
 }
 
 type dashboardArgs struct {
-	AwsAccountId            string                        `pulumi:"awsAccountId"`
-	DashboardId             string                        `pulumi:"dashboardId"`
-	DashboardPublishOptions *DashboardPublishOptions      `pulumi:"dashboardPublishOptions"`
-	Definition              *DashboardVersionDefinition   `pulumi:"definition"`
-	Name                    *string                       `pulumi:"name"`
-	Parameters              *DashboardParameters          `pulumi:"parameters"`
-	Permissions             []DashboardResourcePermission `pulumi:"permissions"`
-	SourceEntity            *DashboardSourceEntity        `pulumi:"sourceEntity"`
-	Tags                    []DashboardTag                `pulumi:"tags"`
-	ThemeArn                *string                       `pulumi:"themeArn"`
-	ValidationStrategy      *DashboardValidationStrategy  `pulumi:"validationStrategy"`
-	VersionDescription      *string                       `pulumi:"versionDescription"`
+	AwsAccountId             string                             `pulumi:"awsAccountId"`
+	DashboardId              string                             `pulumi:"dashboardId"`
+	DashboardPublishOptions  *DashboardPublishOptions           `pulumi:"dashboardPublishOptions"`
+	Definition               *DashboardVersionDefinition        `pulumi:"definition"`
+	LinkSharingConfiguration *DashboardLinkSharingConfiguration `pulumi:"linkSharingConfiguration"`
+	Name                     *string                            `pulumi:"name"`
+	Parameters               *DashboardParameters               `pulumi:"parameters"`
+	Permissions              []DashboardResourcePermission      `pulumi:"permissions"`
+	SourceEntity             *DashboardSourceEntity             `pulumi:"sourceEntity"`
+	Tags                     []DashboardTag                     `pulumi:"tags"`
+	ThemeArn                 *string                            `pulumi:"themeArn"`
+	ValidationStrategy       *DashboardValidationStrategy       `pulumi:"validationStrategy"`
+	VersionDescription       *string                            `pulumi:"versionDescription"`
 }
 
 // The set of arguments for constructing a Dashboard resource.
 type DashboardArgs struct {
-	AwsAccountId            pulumi.StringInput
-	DashboardId             pulumi.StringInput
-	DashboardPublishOptions DashboardPublishOptionsPtrInput
-	Definition              DashboardVersionDefinitionPtrInput
-	Name                    pulumi.StringPtrInput
-	Parameters              DashboardParametersPtrInput
-	Permissions             DashboardResourcePermissionArrayInput
-	SourceEntity            DashboardSourceEntityPtrInput
-	Tags                    DashboardTagArrayInput
-	ThemeArn                pulumi.StringPtrInput
-	ValidationStrategy      DashboardValidationStrategyPtrInput
-	VersionDescription      pulumi.StringPtrInput
+	AwsAccountId             pulumi.StringInput
+	DashboardId              pulumi.StringInput
+	DashboardPublishOptions  DashboardPublishOptionsPtrInput
+	Definition               DashboardVersionDefinitionPtrInput
+	LinkSharingConfiguration DashboardLinkSharingConfigurationPtrInput
+	Name                     pulumi.StringPtrInput
+	Parameters               DashboardParametersPtrInput
+	Permissions              DashboardResourcePermissionArrayInput
+	SourceEntity             DashboardSourceEntityPtrInput
+	Tags                     DashboardTagArrayInput
+	ThemeArn                 pulumi.StringPtrInput
+	ValidationStrategy       DashboardValidationStrategyPtrInput
+	VersionDescription       pulumi.StringPtrInput
 }
 
 func (DashboardArgs) ElementType() reflect.Type {
@@ -196,6 +199,10 @@ func (o DashboardOutput) LastPublishedTime() pulumi.StringOutput {
 
 func (o DashboardOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+}
+
+func (o DashboardOutput) LinkSharingConfiguration() DashboardLinkSharingConfigurationPtrOutput {
+	return o.ApplyT(func(v *Dashboard) DashboardLinkSharingConfigurationPtrOutput { return v.LinkSharingConfiguration }).(DashboardLinkSharingConfigurationPtrOutput)
 }
 
 func (o DashboardOutput) Name() pulumi.StringOutput {

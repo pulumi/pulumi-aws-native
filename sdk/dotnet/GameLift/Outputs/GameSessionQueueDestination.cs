@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GameLift.Outputs
 {
 
+    /// <summary>
+    /// A fleet or alias designated in a game session queue.
+    /// </summary>
     [OutputType]
     public sealed class GameSessionQueueDestination
     {

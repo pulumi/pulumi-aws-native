@@ -21,6 +21,7 @@ class ConnectPeerArgs:
                  bgp_options: Optional[pulumi.Input['ConnectPeerBgpOptionsArgs']] = None,
                  core_network_address: Optional[pulumi.Input[str]] = None,
                  inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 subnet_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerTagArgs']]]] = None):
         """
         The set of arguments for constructing a ConnectPeer resource.
@@ -29,6 +30,7 @@ class ConnectPeerArgs:
         :param pulumi.Input['ConnectPeerBgpOptionsArgs'] bgp_options: Bgp options for connect peer.
         :param pulumi.Input[str] core_network_address: The IP address of a core network.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inside_cidr_blocks: The inside IP addresses used for a Connect peer configuration.
+        :param pulumi.Input[str] subnet_arn: The subnet ARN for the connect peer.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectPeerTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "connect_attachment_id", connect_attachment_id)
@@ -39,6 +41,8 @@ class ConnectPeerArgs:
             pulumi.set(__self__, "core_network_address", core_network_address)
         if inside_cidr_blocks is not None:
             pulumi.set(__self__, "inside_cidr_blocks", inside_cidr_blocks)
+        if subnet_arn is not None:
+            pulumi.set(__self__, "subnet_arn", subnet_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -103,6 +107,18 @@ class ConnectPeerArgs:
         pulumi.set(self, "inside_cidr_blocks", value)
 
     @property
+    @pulumi.getter(name="subnetArn")
+    def subnet_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet ARN for the connect peer.
+        """
+        return pulumi.get(self, "subnet_arn")
+
+    @subnet_arn.setter
+    def subnet_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_arn", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerTagArgs']]]]:
         """
@@ -125,6 +141,7 @@ class ConnectPeer(pulumi.CustomResource):
                  core_network_address: Optional[pulumi.Input[str]] = None,
                  inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  peer_address: Optional[pulumi.Input[str]] = None,
+                 subnet_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectPeerTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -137,6 +154,7 @@ class ConnectPeer(pulumi.CustomResource):
         :param pulumi.Input[str] core_network_address: The IP address of a core network.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inside_cidr_blocks: The inside IP addresses used for a Connect peer configuration.
         :param pulumi.Input[str] peer_address: The IP address of the Connect peer.
+        :param pulumi.Input[str] subnet_arn: The subnet ARN for the connect peer.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectPeerTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -168,6 +186,7 @@ class ConnectPeer(pulumi.CustomResource):
                  core_network_address: Optional[pulumi.Input[str]] = None,
                  inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  peer_address: Optional[pulumi.Input[str]] = None,
+                 subnet_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectPeerTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -187,6 +206,7 @@ class ConnectPeer(pulumi.CustomResource):
             if peer_address is None and not opts.urn:
                 raise TypeError("Missing required property 'peer_address'")
             __props__.__dict__["peer_address"] = peer_address
+            __props__.__dict__["subnet_arn"] = subnet_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["configuration"] = None
             __props__.__dict__["connect_peer_id"] = None
@@ -194,7 +214,7 @@ class ConnectPeer(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["edge_location"] = None
             __props__.__dict__["state"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bgp_options", "connect_attachment_id", "core_network_address", "inside_cidr_blocks[*]", "peer_address"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["bgp_options", "connect_attachment_id", "core_network_address", "inside_cidr_blocks[*]", "peer_address", "subnet_arn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ConnectPeer, __self__).__init__(
             'aws-native:networkmanager:ConnectPeer',
@@ -229,6 +249,7 @@ class ConnectPeer(pulumi.CustomResource):
         __props__.__dict__["inside_cidr_blocks"] = None
         __props__.__dict__["peer_address"] = None
         __props__.__dict__["state"] = None
+        __props__.__dict__["subnet_arn"] = None
         __props__.__dict__["tags"] = None
         return ConnectPeer(resource_name, opts=opts, __props__=__props__)
 
@@ -319,6 +340,14 @@ class ConnectPeer(pulumi.CustomResource):
         State of the connect peer.
         """
         return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="subnetArn")
+    def subnet_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The subnet ARN for the connect peer.
+        """
+        return pulumi.get(self, "subnet_arn")
 
     @property
     @pulumi.getter

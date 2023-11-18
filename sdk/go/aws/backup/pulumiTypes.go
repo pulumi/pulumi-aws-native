@@ -2713,6 +2713,742 @@ func (o ReportSettingPropertiesPtrOutput) ReportTemplate() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+type RestoreTestingPlanRestoreTestingRecoveryPointSelection struct {
+	Algorithm           RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm `pulumi:"algorithm"`
+	ExcludeVaults       []string                                                        `pulumi:"excludeVaults"`
+	IncludeVaults       []string                                                        `pulumi:"includeVaults"`
+	RecoveryPointTypes  []RestoreTestingPlanRestoreTestingRecoveryPointType             `pulumi:"recoveryPointTypes"`
+	SelectionWindowDays *int                                                            `pulumi:"selectionWindowDays"`
+}
+
+// RestoreTestingPlanRestoreTestingRecoveryPointSelectionInput is an input type that accepts RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs and RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput values.
+// You can construct a concrete instance of `RestoreTestingPlanRestoreTestingRecoveryPointSelectionInput` via:
+//
+//	RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs{...}
+type RestoreTestingPlanRestoreTestingRecoveryPointSelectionInput interface {
+	pulumi.Input
+
+	ToRestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput() RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput
+	ToRestoreTestingPlanRestoreTestingRecoveryPointSelectionOutputWithContext(context.Context) RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput
+}
+
+type RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs struct {
+	Algorithm           RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmInput `pulumi:"algorithm"`
+	ExcludeVaults       pulumi.StringArrayInput                                              `pulumi:"excludeVaults"`
+	IncludeVaults       pulumi.StringArrayInput                                              `pulumi:"includeVaults"`
+	RecoveryPointTypes  RestoreTestingPlanRestoreTestingRecoveryPointTypeArrayInput          `pulumi:"recoveryPointTypes"`
+	SelectionWindowDays pulumi.IntPtrInput                                                   `pulumi:"selectionWindowDays"`
+}
+
+func (RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreTestingPlanRestoreTestingRecoveryPointSelection)(nil)).Elem()
+}
+
+func (i RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs) ToRestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput() RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput {
+	return i.ToRestoreTestingPlanRestoreTestingRecoveryPointSelectionOutputWithContext(context.Background())
+}
+
+func (i RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs) ToRestoreTestingPlanRestoreTestingRecoveryPointSelectionOutputWithContext(ctx context.Context) RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput)
+}
+
+func (i RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs) ToOutput(ctx context.Context) pulumix.Output[RestoreTestingPlanRestoreTestingRecoveryPointSelection] {
+	return pulumix.Output[RestoreTestingPlanRestoreTestingRecoveryPointSelection]{
+		OutputState: i.ToRestoreTestingPlanRestoreTestingRecoveryPointSelectionOutputWithContext(ctx).OutputState,
+	}
+}
+
+type RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput struct{ *pulumi.OutputState }
+
+func (RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreTestingPlanRestoreTestingRecoveryPointSelection)(nil)).Elem()
+}
+
+func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput) ToRestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput() RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput {
+	return o
+}
+
+func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput) ToRestoreTestingPlanRestoreTestingRecoveryPointSelectionOutputWithContext(ctx context.Context) RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput {
+	return o
+}
+
+func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput) ToOutput(ctx context.Context) pulumix.Output[RestoreTestingPlanRestoreTestingRecoveryPointSelection] {
+	return pulumix.Output[RestoreTestingPlanRestoreTestingRecoveryPointSelection]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput) Algorithm() RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmOutput {
+	return o.ApplyT(func(v RestoreTestingPlanRestoreTestingRecoveryPointSelection) RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm {
+		return v.Algorithm
+	}).(RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmOutput)
+}
+
+func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput) ExcludeVaults() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RestoreTestingPlanRestoreTestingRecoveryPointSelection) []string { return v.ExcludeVaults }).(pulumi.StringArrayOutput)
+}
+
+func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput) IncludeVaults() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RestoreTestingPlanRestoreTestingRecoveryPointSelection) []string { return v.IncludeVaults }).(pulumi.StringArrayOutput)
+}
+
+func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput) RecoveryPointTypes() RestoreTestingPlanRestoreTestingRecoveryPointTypeArrayOutput {
+	return o.ApplyT(func(v RestoreTestingPlanRestoreTestingRecoveryPointSelection) []RestoreTestingPlanRestoreTestingRecoveryPointType {
+		return v.RecoveryPointTypes
+	}).(RestoreTestingPlanRestoreTestingRecoveryPointTypeArrayOutput)
+}
+
+func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput) SelectionWindowDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RestoreTestingPlanRestoreTestingRecoveryPointSelection) *int { return v.SelectionWindowDays }).(pulumi.IntPtrOutput)
+}
+
+type RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput struct{ *pulumi.OutputState }
+
+func (RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestoreTestingPlanRestoreTestingRecoveryPointSelection)(nil)).Elem()
+}
+
+func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput) ToRestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput() RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput {
+	return o
+}
+
+func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput) ToRestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutputWithContext(ctx context.Context) RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput {
+	return o
+}
+
+func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RestoreTestingPlanRestoreTestingRecoveryPointSelection] {
+	return pulumix.Output[*RestoreTestingPlanRestoreTestingRecoveryPointSelection]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput) Elem() RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput {
+	return o.ApplyT(func(v *RestoreTestingPlanRestoreTestingRecoveryPointSelection) RestoreTestingPlanRestoreTestingRecoveryPointSelection {
+		if v != nil {
+			return *v
+		}
+		var ret RestoreTestingPlanRestoreTestingRecoveryPointSelection
+		return ret
+	}).(RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput)
+}
+
+func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput) Algorithm() RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmPtrOutput {
+	return o.ApplyT(func(v *RestoreTestingPlanRestoreTestingRecoveryPointSelection) *RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm {
+		if v == nil {
+			return nil
+		}
+		return &v.Algorithm
+	}).(RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithmPtrOutput)
+}
+
+func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput) ExcludeVaults() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RestoreTestingPlanRestoreTestingRecoveryPointSelection) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeVaults
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput) IncludeVaults() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RestoreTestingPlanRestoreTestingRecoveryPointSelection) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeVaults
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput) RecoveryPointTypes() RestoreTestingPlanRestoreTestingRecoveryPointTypeArrayOutput {
+	return o.ApplyT(func(v *RestoreTestingPlanRestoreTestingRecoveryPointSelection) []RestoreTestingPlanRestoreTestingRecoveryPointType {
+		if v == nil {
+			return nil
+		}
+		return v.RecoveryPointTypes
+	}).(RestoreTestingPlanRestoreTestingRecoveryPointTypeArrayOutput)
+}
+
+func (o RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput) SelectionWindowDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RestoreTestingPlanRestoreTestingRecoveryPointSelection) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SelectionWindowDays
+	}).(pulumi.IntPtrOutput)
+}
+
+type RestoreTestingPlanTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// RestoreTestingPlanTagInput is an input type that accepts RestoreTestingPlanTagArgs and RestoreTestingPlanTagOutput values.
+// You can construct a concrete instance of `RestoreTestingPlanTagInput` via:
+//
+//	RestoreTestingPlanTagArgs{...}
+type RestoreTestingPlanTagInput interface {
+	pulumi.Input
+
+	ToRestoreTestingPlanTagOutput() RestoreTestingPlanTagOutput
+	ToRestoreTestingPlanTagOutputWithContext(context.Context) RestoreTestingPlanTagOutput
+}
+
+type RestoreTestingPlanTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RestoreTestingPlanTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreTestingPlanTag)(nil)).Elem()
+}
+
+func (i RestoreTestingPlanTagArgs) ToRestoreTestingPlanTagOutput() RestoreTestingPlanTagOutput {
+	return i.ToRestoreTestingPlanTagOutputWithContext(context.Background())
+}
+
+func (i RestoreTestingPlanTagArgs) ToRestoreTestingPlanTagOutputWithContext(ctx context.Context) RestoreTestingPlanTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingPlanTagOutput)
+}
+
+func (i RestoreTestingPlanTagArgs) ToOutput(ctx context.Context) pulumix.Output[RestoreTestingPlanTag] {
+	return pulumix.Output[RestoreTestingPlanTag]{
+		OutputState: i.ToRestoreTestingPlanTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// RestoreTestingPlanTagArrayInput is an input type that accepts RestoreTestingPlanTagArray and RestoreTestingPlanTagArrayOutput values.
+// You can construct a concrete instance of `RestoreTestingPlanTagArrayInput` via:
+//
+//	RestoreTestingPlanTagArray{ RestoreTestingPlanTagArgs{...} }
+type RestoreTestingPlanTagArrayInput interface {
+	pulumi.Input
+
+	ToRestoreTestingPlanTagArrayOutput() RestoreTestingPlanTagArrayOutput
+	ToRestoreTestingPlanTagArrayOutputWithContext(context.Context) RestoreTestingPlanTagArrayOutput
+}
+
+type RestoreTestingPlanTagArray []RestoreTestingPlanTagInput
+
+func (RestoreTestingPlanTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RestoreTestingPlanTag)(nil)).Elem()
+}
+
+func (i RestoreTestingPlanTagArray) ToRestoreTestingPlanTagArrayOutput() RestoreTestingPlanTagArrayOutput {
+	return i.ToRestoreTestingPlanTagArrayOutputWithContext(context.Background())
+}
+
+func (i RestoreTestingPlanTagArray) ToRestoreTestingPlanTagArrayOutputWithContext(ctx context.Context) RestoreTestingPlanTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingPlanTagArrayOutput)
+}
+
+func (i RestoreTestingPlanTagArray) ToOutput(ctx context.Context) pulumix.Output[[]RestoreTestingPlanTag] {
+	return pulumix.Output[[]RestoreTestingPlanTag]{
+		OutputState: i.ToRestoreTestingPlanTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type RestoreTestingPlanTagOutput struct{ *pulumi.OutputState }
+
+func (RestoreTestingPlanTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreTestingPlanTag)(nil)).Elem()
+}
+
+func (o RestoreTestingPlanTagOutput) ToRestoreTestingPlanTagOutput() RestoreTestingPlanTagOutput {
+	return o
+}
+
+func (o RestoreTestingPlanTagOutput) ToRestoreTestingPlanTagOutputWithContext(ctx context.Context) RestoreTestingPlanTagOutput {
+	return o
+}
+
+func (o RestoreTestingPlanTagOutput) ToOutput(ctx context.Context) pulumix.Output[RestoreTestingPlanTag] {
+	return pulumix.Output[RestoreTestingPlanTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o RestoreTestingPlanTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v RestoreTestingPlanTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o RestoreTestingPlanTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RestoreTestingPlanTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RestoreTestingPlanTagArrayOutput struct{ *pulumi.OutputState }
+
+func (RestoreTestingPlanTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RestoreTestingPlanTag)(nil)).Elem()
+}
+
+func (o RestoreTestingPlanTagArrayOutput) ToRestoreTestingPlanTagArrayOutput() RestoreTestingPlanTagArrayOutput {
+	return o
+}
+
+func (o RestoreTestingPlanTagArrayOutput) ToRestoreTestingPlanTagArrayOutputWithContext(ctx context.Context) RestoreTestingPlanTagArrayOutput {
+	return o
+}
+
+func (o RestoreTestingPlanTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RestoreTestingPlanTag] {
+	return pulumix.Output[[]RestoreTestingPlanTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RestoreTestingPlanTagArrayOutput) Index(i pulumi.IntInput) RestoreTestingPlanTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RestoreTestingPlanTag {
+		return vs[0].([]RestoreTestingPlanTag)[vs[1].(int)]
+	}).(RestoreTestingPlanTagOutput)
+}
+
+type RestoreTestingSelectionKeyValue struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// RestoreTestingSelectionKeyValueInput is an input type that accepts RestoreTestingSelectionKeyValueArgs and RestoreTestingSelectionKeyValueOutput values.
+// You can construct a concrete instance of `RestoreTestingSelectionKeyValueInput` via:
+//
+//	RestoreTestingSelectionKeyValueArgs{...}
+type RestoreTestingSelectionKeyValueInput interface {
+	pulumi.Input
+
+	ToRestoreTestingSelectionKeyValueOutput() RestoreTestingSelectionKeyValueOutput
+	ToRestoreTestingSelectionKeyValueOutputWithContext(context.Context) RestoreTestingSelectionKeyValueOutput
+}
+
+type RestoreTestingSelectionKeyValueArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RestoreTestingSelectionKeyValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreTestingSelectionKeyValue)(nil)).Elem()
+}
+
+func (i RestoreTestingSelectionKeyValueArgs) ToRestoreTestingSelectionKeyValueOutput() RestoreTestingSelectionKeyValueOutput {
+	return i.ToRestoreTestingSelectionKeyValueOutputWithContext(context.Background())
+}
+
+func (i RestoreTestingSelectionKeyValueArgs) ToRestoreTestingSelectionKeyValueOutputWithContext(ctx context.Context) RestoreTestingSelectionKeyValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionKeyValueOutput)
+}
+
+func (i RestoreTestingSelectionKeyValueArgs) ToOutput(ctx context.Context) pulumix.Output[RestoreTestingSelectionKeyValue] {
+	return pulumix.Output[RestoreTestingSelectionKeyValue]{
+		OutputState: i.ToRestoreTestingSelectionKeyValueOutputWithContext(ctx).OutputState,
+	}
+}
+
+// RestoreTestingSelectionKeyValueArrayInput is an input type that accepts RestoreTestingSelectionKeyValueArray and RestoreTestingSelectionKeyValueArrayOutput values.
+// You can construct a concrete instance of `RestoreTestingSelectionKeyValueArrayInput` via:
+//
+//	RestoreTestingSelectionKeyValueArray{ RestoreTestingSelectionKeyValueArgs{...} }
+type RestoreTestingSelectionKeyValueArrayInput interface {
+	pulumi.Input
+
+	ToRestoreTestingSelectionKeyValueArrayOutput() RestoreTestingSelectionKeyValueArrayOutput
+	ToRestoreTestingSelectionKeyValueArrayOutputWithContext(context.Context) RestoreTestingSelectionKeyValueArrayOutput
+}
+
+type RestoreTestingSelectionKeyValueArray []RestoreTestingSelectionKeyValueInput
+
+func (RestoreTestingSelectionKeyValueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RestoreTestingSelectionKeyValue)(nil)).Elem()
+}
+
+func (i RestoreTestingSelectionKeyValueArray) ToRestoreTestingSelectionKeyValueArrayOutput() RestoreTestingSelectionKeyValueArrayOutput {
+	return i.ToRestoreTestingSelectionKeyValueArrayOutputWithContext(context.Background())
+}
+
+func (i RestoreTestingSelectionKeyValueArray) ToRestoreTestingSelectionKeyValueArrayOutputWithContext(ctx context.Context) RestoreTestingSelectionKeyValueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionKeyValueArrayOutput)
+}
+
+func (i RestoreTestingSelectionKeyValueArray) ToOutput(ctx context.Context) pulumix.Output[[]RestoreTestingSelectionKeyValue] {
+	return pulumix.Output[[]RestoreTestingSelectionKeyValue]{
+		OutputState: i.ToRestoreTestingSelectionKeyValueArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type RestoreTestingSelectionKeyValueOutput struct{ *pulumi.OutputState }
+
+func (RestoreTestingSelectionKeyValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreTestingSelectionKeyValue)(nil)).Elem()
+}
+
+func (o RestoreTestingSelectionKeyValueOutput) ToRestoreTestingSelectionKeyValueOutput() RestoreTestingSelectionKeyValueOutput {
+	return o
+}
+
+func (o RestoreTestingSelectionKeyValueOutput) ToRestoreTestingSelectionKeyValueOutputWithContext(ctx context.Context) RestoreTestingSelectionKeyValueOutput {
+	return o
+}
+
+func (o RestoreTestingSelectionKeyValueOutput) ToOutput(ctx context.Context) pulumix.Output[RestoreTestingSelectionKeyValue] {
+	return pulumix.Output[RestoreTestingSelectionKeyValue]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RestoreTestingSelectionKeyValueOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v RestoreTestingSelectionKeyValue) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o RestoreTestingSelectionKeyValueOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RestoreTestingSelectionKeyValue) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RestoreTestingSelectionKeyValueArrayOutput struct{ *pulumi.OutputState }
+
+func (RestoreTestingSelectionKeyValueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RestoreTestingSelectionKeyValue)(nil)).Elem()
+}
+
+func (o RestoreTestingSelectionKeyValueArrayOutput) ToRestoreTestingSelectionKeyValueArrayOutput() RestoreTestingSelectionKeyValueArrayOutput {
+	return o
+}
+
+func (o RestoreTestingSelectionKeyValueArrayOutput) ToRestoreTestingSelectionKeyValueArrayOutputWithContext(ctx context.Context) RestoreTestingSelectionKeyValueArrayOutput {
+	return o
+}
+
+func (o RestoreTestingSelectionKeyValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RestoreTestingSelectionKeyValue] {
+	return pulumix.Output[[]RestoreTestingSelectionKeyValue]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RestoreTestingSelectionKeyValueArrayOutput) Index(i pulumi.IntInput) RestoreTestingSelectionKeyValueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RestoreTestingSelectionKeyValue {
+		return vs[0].([]RestoreTestingSelectionKeyValue)[vs[1].(int)]
+	}).(RestoreTestingSelectionKeyValueOutput)
+}
+
+type RestoreTestingSelectionProtectedResourceConditions struct {
+	StringEquals    []RestoreTestingSelectionKeyValue `pulumi:"stringEquals"`
+	StringNotEquals []RestoreTestingSelectionKeyValue `pulumi:"stringNotEquals"`
+}
+
+// RestoreTestingSelectionProtectedResourceConditionsInput is an input type that accepts RestoreTestingSelectionProtectedResourceConditionsArgs and RestoreTestingSelectionProtectedResourceConditionsOutput values.
+// You can construct a concrete instance of `RestoreTestingSelectionProtectedResourceConditionsInput` via:
+//
+//	RestoreTestingSelectionProtectedResourceConditionsArgs{...}
+type RestoreTestingSelectionProtectedResourceConditionsInput interface {
+	pulumi.Input
+
+	ToRestoreTestingSelectionProtectedResourceConditionsOutput() RestoreTestingSelectionProtectedResourceConditionsOutput
+	ToRestoreTestingSelectionProtectedResourceConditionsOutputWithContext(context.Context) RestoreTestingSelectionProtectedResourceConditionsOutput
+}
+
+type RestoreTestingSelectionProtectedResourceConditionsArgs struct {
+	StringEquals    RestoreTestingSelectionKeyValueArrayInput `pulumi:"stringEquals"`
+	StringNotEquals RestoreTestingSelectionKeyValueArrayInput `pulumi:"stringNotEquals"`
+}
+
+func (RestoreTestingSelectionProtectedResourceConditionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreTestingSelectionProtectedResourceConditions)(nil)).Elem()
+}
+
+func (i RestoreTestingSelectionProtectedResourceConditionsArgs) ToRestoreTestingSelectionProtectedResourceConditionsOutput() RestoreTestingSelectionProtectedResourceConditionsOutput {
+	return i.ToRestoreTestingSelectionProtectedResourceConditionsOutputWithContext(context.Background())
+}
+
+func (i RestoreTestingSelectionProtectedResourceConditionsArgs) ToRestoreTestingSelectionProtectedResourceConditionsOutputWithContext(ctx context.Context) RestoreTestingSelectionProtectedResourceConditionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionProtectedResourceConditionsOutput)
+}
+
+func (i RestoreTestingSelectionProtectedResourceConditionsArgs) ToOutput(ctx context.Context) pulumix.Output[RestoreTestingSelectionProtectedResourceConditions] {
+	return pulumix.Output[RestoreTestingSelectionProtectedResourceConditions]{
+		OutputState: i.ToRestoreTestingSelectionProtectedResourceConditionsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i RestoreTestingSelectionProtectedResourceConditionsArgs) ToRestoreTestingSelectionProtectedResourceConditionsPtrOutput() RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
+	return i.ToRestoreTestingSelectionProtectedResourceConditionsPtrOutputWithContext(context.Background())
+}
+
+func (i RestoreTestingSelectionProtectedResourceConditionsArgs) ToRestoreTestingSelectionProtectedResourceConditionsPtrOutputWithContext(ctx context.Context) RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionProtectedResourceConditionsOutput).ToRestoreTestingSelectionProtectedResourceConditionsPtrOutputWithContext(ctx)
+}
+
+// RestoreTestingSelectionProtectedResourceConditionsPtrInput is an input type that accepts RestoreTestingSelectionProtectedResourceConditionsArgs, RestoreTestingSelectionProtectedResourceConditionsPtr and RestoreTestingSelectionProtectedResourceConditionsPtrOutput values.
+// You can construct a concrete instance of `RestoreTestingSelectionProtectedResourceConditionsPtrInput` via:
+//
+//	        RestoreTestingSelectionProtectedResourceConditionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RestoreTestingSelectionProtectedResourceConditionsPtrInput interface {
+	pulumi.Input
+
+	ToRestoreTestingSelectionProtectedResourceConditionsPtrOutput() RestoreTestingSelectionProtectedResourceConditionsPtrOutput
+	ToRestoreTestingSelectionProtectedResourceConditionsPtrOutputWithContext(context.Context) RestoreTestingSelectionProtectedResourceConditionsPtrOutput
+}
+
+type restoreTestingSelectionProtectedResourceConditionsPtrType RestoreTestingSelectionProtectedResourceConditionsArgs
+
+func RestoreTestingSelectionProtectedResourceConditionsPtr(v *RestoreTestingSelectionProtectedResourceConditionsArgs) RestoreTestingSelectionProtectedResourceConditionsPtrInput {
+	return (*restoreTestingSelectionProtectedResourceConditionsPtrType)(v)
+}
+
+func (*restoreTestingSelectionProtectedResourceConditionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestoreTestingSelectionProtectedResourceConditions)(nil)).Elem()
+}
+
+func (i *restoreTestingSelectionProtectedResourceConditionsPtrType) ToRestoreTestingSelectionProtectedResourceConditionsPtrOutput() RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
+	return i.ToRestoreTestingSelectionProtectedResourceConditionsPtrOutputWithContext(context.Background())
+}
+
+func (i *restoreTestingSelectionProtectedResourceConditionsPtrType) ToRestoreTestingSelectionProtectedResourceConditionsPtrOutputWithContext(ctx context.Context) RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionProtectedResourceConditionsPtrOutput)
+}
+
+func (i *restoreTestingSelectionProtectedResourceConditionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*RestoreTestingSelectionProtectedResourceConditions] {
+	return pulumix.Output[*RestoreTestingSelectionProtectedResourceConditions]{
+		OutputState: i.ToRestoreTestingSelectionProtectedResourceConditionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type RestoreTestingSelectionProtectedResourceConditionsOutput struct{ *pulumi.OutputState }
+
+func (RestoreTestingSelectionProtectedResourceConditionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreTestingSelectionProtectedResourceConditions)(nil)).Elem()
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsOutput) ToRestoreTestingSelectionProtectedResourceConditionsOutput() RestoreTestingSelectionProtectedResourceConditionsOutput {
+	return o
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsOutput) ToRestoreTestingSelectionProtectedResourceConditionsOutputWithContext(ctx context.Context) RestoreTestingSelectionProtectedResourceConditionsOutput {
+	return o
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsOutput) ToRestoreTestingSelectionProtectedResourceConditionsPtrOutput() RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
+	return o.ToRestoreTestingSelectionProtectedResourceConditionsPtrOutputWithContext(context.Background())
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsOutput) ToRestoreTestingSelectionProtectedResourceConditionsPtrOutputWithContext(ctx context.Context) RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RestoreTestingSelectionProtectedResourceConditions) *RestoreTestingSelectionProtectedResourceConditions {
+		return &v
+	}).(RestoreTestingSelectionProtectedResourceConditionsPtrOutput)
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsOutput) ToOutput(ctx context.Context) pulumix.Output[RestoreTestingSelectionProtectedResourceConditions] {
+	return pulumix.Output[RestoreTestingSelectionProtectedResourceConditions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsOutput) StringEquals() RestoreTestingSelectionKeyValueArrayOutput {
+	return o.ApplyT(func(v RestoreTestingSelectionProtectedResourceConditions) []RestoreTestingSelectionKeyValue {
+		return v.StringEquals
+	}).(RestoreTestingSelectionKeyValueArrayOutput)
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsOutput) StringNotEquals() RestoreTestingSelectionKeyValueArrayOutput {
+	return o.ApplyT(func(v RestoreTestingSelectionProtectedResourceConditions) []RestoreTestingSelectionKeyValue {
+		return v.StringNotEquals
+	}).(RestoreTestingSelectionKeyValueArrayOutput)
+}
+
+type RestoreTestingSelectionProtectedResourceConditionsPtrOutput struct{ *pulumi.OutputState }
+
+func (RestoreTestingSelectionProtectedResourceConditionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestoreTestingSelectionProtectedResourceConditions)(nil)).Elem()
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) ToRestoreTestingSelectionProtectedResourceConditionsPtrOutput() RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
+	return o
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) ToRestoreTestingSelectionProtectedResourceConditionsPtrOutputWithContext(ctx context.Context) RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
+	return o
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RestoreTestingSelectionProtectedResourceConditions] {
+	return pulumix.Output[*RestoreTestingSelectionProtectedResourceConditions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) Elem() RestoreTestingSelectionProtectedResourceConditionsOutput {
+	return o.ApplyT(func(v *RestoreTestingSelectionProtectedResourceConditions) RestoreTestingSelectionProtectedResourceConditions {
+		if v != nil {
+			return *v
+		}
+		var ret RestoreTestingSelectionProtectedResourceConditions
+		return ret
+	}).(RestoreTestingSelectionProtectedResourceConditionsOutput)
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) StringEquals() RestoreTestingSelectionKeyValueArrayOutput {
+	return o.ApplyT(func(v *RestoreTestingSelectionProtectedResourceConditions) []RestoreTestingSelectionKeyValue {
+		if v == nil {
+			return nil
+		}
+		return v.StringEquals
+	}).(RestoreTestingSelectionKeyValueArrayOutput)
+}
+
+func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) StringNotEquals() RestoreTestingSelectionKeyValueArrayOutput {
+	return o.ApplyT(func(v *RestoreTestingSelectionProtectedResourceConditions) []RestoreTestingSelectionKeyValue {
+		if v == nil {
+			return nil
+		}
+		return v.StringNotEquals
+	}).(RestoreTestingSelectionKeyValueArrayOutput)
+}
+
+type RestoreTestingSelectionSensitiveStringMap struct {
+}
+
+// RestoreTestingSelectionSensitiveStringMapInput is an input type that accepts RestoreTestingSelectionSensitiveStringMap and RestoreTestingSelectionSensitiveStringMapOutput values.
+// You can construct a concrete instance of `RestoreTestingSelectionSensitiveStringMapInput` via:
+//
+//	RestoreTestingSelectionSensitiveStringMap{ "key": RestoreTestingSelectionSensitiveStringArgs{...} }
+type RestoreTestingSelectionSensitiveStringMapInput interface {
+	pulumi.Input
+
+	ToRestoreTestingSelectionSensitiveStringMapOutput() RestoreTestingSelectionSensitiveStringMapOutput
+	ToRestoreTestingSelectionSensitiveStringMapOutputWithContext(context.Context) RestoreTestingSelectionSensitiveStringMapOutput
+}
+
+type RestoreTestingSelectionSensitiveStringMapArgs struct {
+}
+
+func (RestoreTestingSelectionSensitiveStringMapArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreTestingSelectionSensitiveStringMap)(nil)).Elem()
+}
+
+func (i RestoreTestingSelectionSensitiveStringMapArgs) ToRestoreTestingSelectionSensitiveStringMapOutput() RestoreTestingSelectionSensitiveStringMapOutput {
+	return i.ToRestoreTestingSelectionSensitiveStringMapOutputWithContext(context.Background())
+}
+
+func (i RestoreTestingSelectionSensitiveStringMapArgs) ToRestoreTestingSelectionSensitiveStringMapOutputWithContext(ctx context.Context) RestoreTestingSelectionSensitiveStringMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionSensitiveStringMapOutput)
+}
+
+func (i RestoreTestingSelectionSensitiveStringMapArgs) ToOutput(ctx context.Context) pulumix.Output[RestoreTestingSelectionSensitiveStringMap] {
+	return pulumix.Output[RestoreTestingSelectionSensitiveStringMap]{
+		OutputState: i.ToRestoreTestingSelectionSensitiveStringMapOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i RestoreTestingSelectionSensitiveStringMapArgs) ToRestoreTestingSelectionSensitiveStringMapPtrOutput() RestoreTestingSelectionSensitiveStringMapPtrOutput {
+	return i.ToRestoreTestingSelectionSensitiveStringMapPtrOutputWithContext(context.Background())
+}
+
+func (i RestoreTestingSelectionSensitiveStringMapArgs) ToRestoreTestingSelectionSensitiveStringMapPtrOutputWithContext(ctx context.Context) RestoreTestingSelectionSensitiveStringMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionSensitiveStringMapOutput).ToRestoreTestingSelectionSensitiveStringMapPtrOutputWithContext(ctx)
+}
+
+// RestoreTestingSelectionSensitiveStringMapPtrInput is an input type that accepts RestoreTestingSelectionSensitiveStringMapArgs, RestoreTestingSelectionSensitiveStringMapPtr and RestoreTestingSelectionSensitiveStringMapPtrOutput values.
+// You can construct a concrete instance of `RestoreTestingSelectionSensitiveStringMapPtrInput` via:
+//
+//	        RestoreTestingSelectionSensitiveStringMapArgs{...}
+//
+//	or:
+//
+//	        nil
+type RestoreTestingSelectionSensitiveStringMapPtrInput interface {
+	pulumi.Input
+
+	ToRestoreTestingSelectionSensitiveStringMapPtrOutput() RestoreTestingSelectionSensitiveStringMapPtrOutput
+	ToRestoreTestingSelectionSensitiveStringMapPtrOutputWithContext(context.Context) RestoreTestingSelectionSensitiveStringMapPtrOutput
+}
+
+type restoreTestingSelectionSensitiveStringMapPtrType RestoreTestingSelectionSensitiveStringMapArgs
+
+func RestoreTestingSelectionSensitiveStringMapPtr(v *RestoreTestingSelectionSensitiveStringMapArgs) RestoreTestingSelectionSensitiveStringMapPtrInput {
+	return (*restoreTestingSelectionSensitiveStringMapPtrType)(v)
+}
+
+func (*restoreTestingSelectionSensitiveStringMapPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestoreTestingSelectionSensitiveStringMap)(nil)).Elem()
+}
+
+func (i *restoreTestingSelectionSensitiveStringMapPtrType) ToRestoreTestingSelectionSensitiveStringMapPtrOutput() RestoreTestingSelectionSensitiveStringMapPtrOutput {
+	return i.ToRestoreTestingSelectionSensitiveStringMapPtrOutputWithContext(context.Background())
+}
+
+func (i *restoreTestingSelectionSensitiveStringMapPtrType) ToRestoreTestingSelectionSensitiveStringMapPtrOutputWithContext(ctx context.Context) RestoreTestingSelectionSensitiveStringMapPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingSelectionSensitiveStringMapPtrOutput)
+}
+
+func (i *restoreTestingSelectionSensitiveStringMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*RestoreTestingSelectionSensitiveStringMap] {
+	return pulumix.Output[*RestoreTestingSelectionSensitiveStringMap]{
+		OutputState: i.ToRestoreTestingSelectionSensitiveStringMapPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type RestoreTestingSelectionSensitiveStringMapOutput struct{ *pulumi.OutputState }
+
+func (RestoreTestingSelectionSensitiveStringMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RestoreTestingSelectionSensitiveStringMap)(nil)).Elem()
+}
+
+func (o RestoreTestingSelectionSensitiveStringMapOutput) ToRestoreTestingSelectionSensitiveStringMapOutput() RestoreTestingSelectionSensitiveStringMapOutput {
+	return o
+}
+
+func (o RestoreTestingSelectionSensitiveStringMapOutput) ToRestoreTestingSelectionSensitiveStringMapOutputWithContext(ctx context.Context) RestoreTestingSelectionSensitiveStringMapOutput {
+	return o
+}
+
+func (o RestoreTestingSelectionSensitiveStringMapOutput) ToRestoreTestingSelectionSensitiveStringMapPtrOutput() RestoreTestingSelectionSensitiveStringMapPtrOutput {
+	return o.ToRestoreTestingSelectionSensitiveStringMapPtrOutputWithContext(context.Background())
+}
+
+func (o RestoreTestingSelectionSensitiveStringMapOutput) ToRestoreTestingSelectionSensitiveStringMapPtrOutputWithContext(ctx context.Context) RestoreTestingSelectionSensitiveStringMapPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RestoreTestingSelectionSensitiveStringMap) *RestoreTestingSelectionSensitiveStringMap {
+		return &v
+	}).(RestoreTestingSelectionSensitiveStringMapPtrOutput)
+}
+
+func (o RestoreTestingSelectionSensitiveStringMapOutput) ToOutput(ctx context.Context) pulumix.Output[RestoreTestingSelectionSensitiveStringMap] {
+	return pulumix.Output[RestoreTestingSelectionSensitiveStringMap]{
+		OutputState: o.OutputState,
+	}
+}
+
+type RestoreTestingSelectionSensitiveStringMapPtrOutput struct{ *pulumi.OutputState }
+
+func (RestoreTestingSelectionSensitiveStringMapPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RestoreTestingSelectionSensitiveStringMap)(nil)).Elem()
+}
+
+func (o RestoreTestingSelectionSensitiveStringMapPtrOutput) ToRestoreTestingSelectionSensitiveStringMapPtrOutput() RestoreTestingSelectionSensitiveStringMapPtrOutput {
+	return o
+}
+
+func (o RestoreTestingSelectionSensitiveStringMapPtrOutput) ToRestoreTestingSelectionSensitiveStringMapPtrOutputWithContext(ctx context.Context) RestoreTestingSelectionSensitiveStringMapPtrOutput {
+	return o
+}
+
+func (o RestoreTestingSelectionSensitiveStringMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RestoreTestingSelectionSensitiveStringMap] {
+	return pulumix.Output[*RestoreTestingSelectionSensitiveStringMap]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RestoreTestingSelectionSensitiveStringMapPtrOutput) Elem() RestoreTestingSelectionSensitiveStringMapOutput {
+	return o.ApplyT(func(v *RestoreTestingSelectionSensitiveStringMap) RestoreTestingSelectionSensitiveStringMap {
+		if v != nil {
+			return *v
+		}
+		var ret RestoreTestingSelectionSensitiveStringMap
+		return ret
+	}).(RestoreTestingSelectionSensitiveStringMapOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanAdvancedBackupSettingResourceTypeInput)(nil)).Elem(), BackupPlanAdvancedBackupSettingResourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPlanAdvancedBackupSettingResourceTypeArrayInput)(nil)).Elem(), BackupPlanAdvancedBackupSettingResourceTypeArray{})
@@ -2746,6 +3482,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportPlanTagInput)(nil)).Elem(), ReportPlanTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportPlanTagArrayInput)(nil)).Elem(), ReportPlanTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportSettingPropertiesInput)(nil)).Elem(), ReportSettingPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingPlanRestoreTestingRecoveryPointSelectionInput)(nil)).Elem(), RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingPlanTagInput)(nil)).Elem(), RestoreTestingPlanTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingPlanTagArrayInput)(nil)).Elem(), RestoreTestingPlanTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionKeyValueInput)(nil)).Elem(), RestoreTestingSelectionKeyValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionKeyValueArrayInput)(nil)).Elem(), RestoreTestingSelectionKeyValueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionProtectedResourceConditionsInput)(nil)).Elem(), RestoreTestingSelectionProtectedResourceConditionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionProtectedResourceConditionsPtrInput)(nil)).Elem(), RestoreTestingSelectionProtectedResourceConditionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionSensitiveStringMapInput)(nil)).Elem(), RestoreTestingSelectionSensitiveStringMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingSelectionSensitiveStringMapPtrInput)(nil)).Elem(), RestoreTestingSelectionSensitiveStringMapArgs{})
 	pulumi.RegisterOutputType(BackupPlanAdvancedBackupSettingResourceTypeOutput{})
 	pulumi.RegisterOutputType(BackupPlanAdvancedBackupSettingResourceTypeArrayOutput{})
 	pulumi.RegisterOutputType(BackupPlanBackupRuleResourceTypeOutput{})
@@ -2781,4 +3526,14 @@ func init() {
 	pulumi.RegisterOutputType(ReportPlanTagArrayOutput{})
 	pulumi.RegisterOutputType(ReportSettingPropertiesOutput{})
 	pulumi.RegisterOutputType(ReportSettingPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput{})
+	pulumi.RegisterOutputType(RestoreTestingPlanRestoreTestingRecoveryPointSelectionPtrOutput{})
+	pulumi.RegisterOutputType(RestoreTestingPlanTagOutput{})
+	pulumi.RegisterOutputType(RestoreTestingPlanTagArrayOutput{})
+	pulumi.RegisterOutputType(RestoreTestingSelectionKeyValueOutput{})
+	pulumi.RegisterOutputType(RestoreTestingSelectionKeyValueArrayOutput{})
+	pulumi.RegisterOutputType(RestoreTestingSelectionProtectedResourceConditionsOutput{})
+	pulumi.RegisterOutputType(RestoreTestingSelectionProtectedResourceConditionsPtrOutput{})
+	pulumi.RegisterOutputType(RestoreTestingSelectionSensitiveStringMapOutput{})
+	pulumi.RegisterOutputType(RestoreTestingSelectionSensitiveStringMapPtrOutput{})
 }

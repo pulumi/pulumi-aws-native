@@ -11,6 +11,7 @@ import * as apprunner from "./apprunner";
 import * as appsync from "./appsync";
 import * as athena from "./athena";
 import * as auditmanager from "./auditmanager";
+import * as backup from "./backup";
 import * as batch from "./batch";
 import * as billingconductor from "./billingconductor";
 import * as budgets from "./budgets";
@@ -87,6 +88,7 @@ import * as m2 from "./m2";
 import * as macie from "./macie";
 import * as managedblockchain from "./managedblockchain";
 import * as mediaconnect from "./mediaconnect";
+import * as medialive from "./medialive";
 import * as mediapackage from "./mediapackage";
 import * as mediapackagev2 from "./mediapackagev2";
 import * as mediatailor from "./mediatailor";
@@ -154,6 +156,7 @@ export {
     appsync,
     athena,
     auditmanager,
+    backup,
     batch,
     billingconductor,
     budgets,
@@ -230,6 +233,7 @@ export {
     macie,
     managedblockchain,
     mediaconnect,
+    medialive,
     mediapackage,
     mediapackagev2,
     mediatailor,

@@ -31,6 +31,7 @@ class FunctionArgs:
                  image_config: Optional[pulumi.Input['FunctionImageConfigArgs']] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 logging_config: Optional[pulumi.Input['FunctionLoggingConfigArgs']] = None,
                  memory_size: Optional[pulumi.Input[int]] = None,
                  package_type: Optional[pulumi.Input['FunctionPackageType']] = None,
                  policy: Optional[Any] = None,
@@ -57,6 +58,7 @@ class FunctionArgs:
         :param pulumi.Input['FunctionImageConfigArgs'] image_config: ImageConfig
         :param pulumi.Input[str] kms_key_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
+        :param pulumi.Input['FunctionLoggingConfigArgs'] logging_config: The logging configuration of your function
         :param pulumi.Input[int] memory_size: The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
         :param pulumi.Input['FunctionPackageType'] package_type: PackageType.
         :param Any policy: The resource policy of your function
@@ -95,6 +97,8 @@ class FunctionArgs:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if layers is not None:
             pulumi.set(__self__, "layers", layers)
+        if logging_config is not None:
+            pulumi.set(__self__, "logging_config", logging_config)
         if memory_size is not None:
             pulumi.set(__self__, "memory_size", memory_size)
         if package_type is not None:
@@ -284,6 +288,18 @@ class FunctionArgs:
         pulumi.set(self, "layers", value)
 
     @property
+    @pulumi.getter(name="loggingConfig")
+    def logging_config(self) -> Optional[pulumi.Input['FunctionLoggingConfigArgs']]:
+        """
+        The logging configuration of your function
+        """
+        return pulumi.get(self, "logging_config")
+
+    @logging_config.setter
+    def logging_config(self, value: Optional[pulumi.Input['FunctionLoggingConfigArgs']]):
+        pulumi.set(self, "logging_config", value)
+
+    @property
     @pulumi.getter(name="memorySize")
     def memory_size(self) -> Optional[pulumi.Input[int]]:
         """
@@ -434,6 +450,7 @@ class Function(pulumi.CustomResource):
                  image_config: Optional[pulumi.Input[pulumi.InputType['FunctionImageConfigArgs']]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 logging_config: Optional[pulumi.Input[pulumi.InputType['FunctionLoggingConfigArgs']]] = None,
                  memory_size: Optional[pulumi.Input[int]] = None,
                  package_type: Optional[pulumi.Input['FunctionPackageType']] = None,
                  policy: Optional[Any] = None,
@@ -464,6 +481,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FunctionImageConfigArgs']] image_config: ImageConfig
         :param pulumi.Input[str] kms_key_arn: The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] layers: A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
+        :param pulumi.Input[pulumi.InputType['FunctionLoggingConfigArgs']] logging_config: The logging configuration of your function
         :param pulumi.Input[int] memory_size: The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
         :param pulumi.Input['FunctionPackageType'] package_type: PackageType.
         :param Any policy: The resource policy of your function
@@ -514,6 +532,7 @@ class Function(pulumi.CustomResource):
                  image_config: Optional[pulumi.Input[pulumi.InputType['FunctionImageConfigArgs']]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  layers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 logging_config: Optional[pulumi.Input[pulumi.InputType['FunctionLoggingConfigArgs']]] = None,
                  memory_size: Optional[pulumi.Input[int]] = None,
                  package_type: Optional[pulumi.Input['FunctionPackageType']] = None,
                  policy: Optional[Any] = None,
@@ -550,6 +569,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["image_config"] = image_config
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["layers"] = layers
+            __props__.__dict__["logging_config"] = logging_config
             __props__.__dict__["memory_size"] = memory_size
             __props__.__dict__["package_type"] = package_type
             __props__.__dict__["policy"] = policy
@@ -604,6 +624,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["image_config"] = None
         __props__.__dict__["kms_key_arn"] = None
         __props__.__dict__["layers"] = None
+        __props__.__dict__["logging_config"] = None
         __props__.__dict__["memory_size"] = None
         __props__.__dict__["package_type"] = None
         __props__.__dict__["policy"] = None
@@ -727,6 +748,14 @@ class Function(pulumi.CustomResource):
         A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
         """
         return pulumi.get(self, "layers")
+
+    @property
+    @pulumi.getter(name="loggingConfig")
+    def logging_config(self) -> pulumi.Output[Optional['outputs.FunctionLoggingConfig']]:
+        """
+        The logging configuration of your function
+        """
+        return pulumi.get(self, "logging_config")
 
     @property
     @pulumi.getter(name="memorySize")

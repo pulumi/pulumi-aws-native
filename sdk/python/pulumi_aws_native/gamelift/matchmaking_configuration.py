@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['MatchmakingConfigurationArgs', 'MatchmakingConfiguration']
@@ -21,18 +22,37 @@ class MatchmakingConfigurationArgs:
                  rule_set_name: pulumi.Input[str],
                  acceptance_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  additional_player_count: Optional[pulumi.Input[int]] = None,
-                 backfill_mode: Optional[pulumi.Input[str]] = None,
+                 backfill_mode: Optional[pulumi.Input['MatchmakingConfigurationBackfillMode']] = None,
+                 creation_time: Optional[pulumi.Input[str]] = None,
                  custom_event_data: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 flex_match_mode: Optional[pulumi.Input[str]] = None,
+                 flex_match_mode: Optional[pulumi.Input['MatchmakingConfigurationFlexMatchMode']] = None,
                  game_properties: Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationGamePropertyArgs']]]] = None,
                  game_session_data: Optional[pulumi.Input[str]] = None,
                  game_session_queue_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_target: Optional[pulumi.Input[str]] = None,
+                 rule_set_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationTagArgs']]]] = None):
         """
         The set of arguments for constructing a MatchmakingConfiguration resource.
+        :param pulumi.Input[bool] acceptance_required: A flag that indicates whether a match that was created with this configuration must be accepted by the matched players
+        :param pulumi.Input[int] request_timeout_seconds: The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
+        :param pulumi.Input[str] rule_set_name: A unique identifier for the matchmaking rule set to use with this configuration.
+        :param pulumi.Input[int] acceptance_timeout_seconds: The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
+        :param pulumi.Input[int] additional_player_count: The number of player slots in a match to keep open for future players.
+        :param pulumi.Input['MatchmakingConfigurationBackfillMode'] backfill_mode: The method used to backfill game sessions created with this matchmaking configuration.
+        :param pulumi.Input[str] creation_time: A time stamp indicating when this data object was created.
+        :param pulumi.Input[str] custom_event_data: Information to attach to all events related to the matchmaking configuration.
+        :param pulumi.Input[str] description: A descriptive label that is associated with matchmaking configuration.
+        :param pulumi.Input['MatchmakingConfigurationFlexMatchMode'] flex_match_mode: Indicates whether this matchmaking configuration is being used with Amazon GameLift hosting or as a standalone matchmaking solution.
+        :param pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationGamePropertyArgs']]] game_properties: A set of custom properties for a game session, formatted as key:value pairs.
+        :param pulumi.Input[str] game_session_data: A set of custom game session properties, formatted as a single string value.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] game_session_queue_arns: The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it.
+        :param pulumi.Input[str] name: A unique identifier for the matchmaking configuration.
+        :param pulumi.Input[str] notification_target: An SNS topic ARN that is set up to receive matchmaking notifications.
+        :param pulumi.Input[str] rule_set_arn: The Amazon Resource Name (ARN) associated with the GameLift matchmaking rule set resource that this configuration uses.
+        :param pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "acceptance_required", acceptance_required)
         pulumi.set(__self__, "request_timeout_seconds", request_timeout_seconds)
@@ -43,6 +63,8 @@ class MatchmakingConfigurationArgs:
             pulumi.set(__self__, "additional_player_count", additional_player_count)
         if backfill_mode is not None:
             pulumi.set(__self__, "backfill_mode", backfill_mode)
+        if creation_time is not None:
+            pulumi.set(__self__, "creation_time", creation_time)
         if custom_event_data is not None:
             pulumi.set(__self__, "custom_event_data", custom_event_data)
         if description is not None:
@@ -59,12 +81,17 @@ class MatchmakingConfigurationArgs:
             pulumi.set(__self__, "name", name)
         if notification_target is not None:
             pulumi.set(__self__, "notification_target", notification_target)
+        if rule_set_arn is not None:
+            pulumi.set(__self__, "rule_set_arn", rule_set_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="acceptanceRequired")
     def acceptance_required(self) -> pulumi.Input[bool]:
+        """
+        A flag that indicates whether a match that was created with this configuration must be accepted by the matched players
+        """
         return pulumi.get(self, "acceptance_required")
 
     @acceptance_required.setter
@@ -74,6 +101,9 @@ class MatchmakingConfigurationArgs:
     @property
     @pulumi.getter(name="requestTimeoutSeconds")
     def request_timeout_seconds(self) -> pulumi.Input[int]:
+        """
+        The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
+        """
         return pulumi.get(self, "request_timeout_seconds")
 
     @request_timeout_seconds.setter
@@ -83,6 +113,9 @@ class MatchmakingConfigurationArgs:
     @property
     @pulumi.getter(name="ruleSetName")
     def rule_set_name(self) -> pulumi.Input[str]:
+        """
+        A unique identifier for the matchmaking rule set to use with this configuration.
+        """
         return pulumi.get(self, "rule_set_name")
 
     @rule_set_name.setter
@@ -92,6 +125,9 @@ class MatchmakingConfigurationArgs:
     @property
     @pulumi.getter(name="acceptanceTimeoutSeconds")
     def acceptance_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
+        """
         return pulumi.get(self, "acceptance_timeout_seconds")
 
     @acceptance_timeout_seconds.setter
@@ -101,6 +137,9 @@ class MatchmakingConfigurationArgs:
     @property
     @pulumi.getter(name="additionalPlayerCount")
     def additional_player_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of player slots in a match to keep open for future players.
+        """
         return pulumi.get(self, "additional_player_count")
 
     @additional_player_count.setter
@@ -109,16 +148,34 @@ class MatchmakingConfigurationArgs:
 
     @property
     @pulumi.getter(name="backfillMode")
-    def backfill_mode(self) -> Optional[pulumi.Input[str]]:
+    def backfill_mode(self) -> Optional[pulumi.Input['MatchmakingConfigurationBackfillMode']]:
+        """
+        The method used to backfill game sessions created with this matchmaking configuration.
+        """
         return pulumi.get(self, "backfill_mode")
 
     @backfill_mode.setter
-    def backfill_mode(self, value: Optional[pulumi.Input[str]]):
+    def backfill_mode(self, value: Optional[pulumi.Input['MatchmakingConfigurationBackfillMode']]):
         pulumi.set(self, "backfill_mode", value)
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        A time stamp indicating when this data object was created.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @creation_time.setter
+    def creation_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "creation_time", value)
 
     @property
     @pulumi.getter(name="customEventData")
     def custom_event_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Information to attach to all events related to the matchmaking configuration.
+        """
         return pulumi.get(self, "custom_event_data")
 
     @custom_event_data.setter
@@ -128,6 +185,9 @@ class MatchmakingConfigurationArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A descriptive label that is associated with matchmaking configuration.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -136,16 +196,22 @@ class MatchmakingConfigurationArgs:
 
     @property
     @pulumi.getter(name="flexMatchMode")
-    def flex_match_mode(self) -> Optional[pulumi.Input[str]]:
+    def flex_match_mode(self) -> Optional[pulumi.Input['MatchmakingConfigurationFlexMatchMode']]:
+        """
+        Indicates whether this matchmaking configuration is being used with Amazon GameLift hosting or as a standalone matchmaking solution.
+        """
         return pulumi.get(self, "flex_match_mode")
 
     @flex_match_mode.setter
-    def flex_match_mode(self, value: Optional[pulumi.Input[str]]):
+    def flex_match_mode(self, value: Optional[pulumi.Input['MatchmakingConfigurationFlexMatchMode']]):
         pulumi.set(self, "flex_match_mode", value)
 
     @property
     @pulumi.getter(name="gameProperties")
     def game_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationGamePropertyArgs']]]]:
+        """
+        A set of custom properties for a game session, formatted as key:value pairs.
+        """
         return pulumi.get(self, "game_properties")
 
     @game_properties.setter
@@ -155,6 +221,9 @@ class MatchmakingConfigurationArgs:
     @property
     @pulumi.getter(name="gameSessionData")
     def game_session_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        A set of custom game session properties, formatted as a single string value.
+        """
         return pulumi.get(self, "game_session_data")
 
     @game_session_data.setter
@@ -164,6 +233,9 @@ class MatchmakingConfigurationArgs:
     @property
     @pulumi.getter(name="gameSessionQueueArns")
     def game_session_queue_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it.
+        """
         return pulumi.get(self, "game_session_queue_arns")
 
     @game_session_queue_arns.setter
@@ -173,6 +245,9 @@ class MatchmakingConfigurationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique identifier for the matchmaking configuration.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -182,6 +257,9 @@ class MatchmakingConfigurationArgs:
     @property
     @pulumi.getter(name="notificationTarget")
     def notification_target(self) -> Optional[pulumi.Input[str]]:
+        """
+        An SNS topic ARN that is set up to receive matchmaking notifications.
+        """
         return pulumi.get(self, "notification_target")
 
     @notification_target.setter
@@ -189,8 +267,23 @@ class MatchmakingConfigurationArgs:
         pulumi.set(self, "notification_target", value)
 
     @property
+    @pulumi.getter(name="ruleSetArn")
+    def rule_set_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) associated with the GameLift matchmaking rule set resource that this configuration uses.
+        """
+        return pulumi.get(self, "rule_set_arn")
+
+    @rule_set_arn.setter
+    def rule_set_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rule_set_arn", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingConfigurationTagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -198,12 +291,7 @@ class MatchmakingConfigurationArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""MatchmakingConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class MatchmakingConfiguration(pulumi.CustomResource):
-    warnings.warn("""MatchmakingConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -211,24 +299,43 @@ class MatchmakingConfiguration(pulumi.CustomResource):
                  acceptance_required: Optional[pulumi.Input[bool]] = None,
                  acceptance_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  additional_player_count: Optional[pulumi.Input[int]] = None,
-                 backfill_mode: Optional[pulumi.Input[str]] = None,
+                 backfill_mode: Optional[pulumi.Input['MatchmakingConfigurationBackfillMode']] = None,
+                 creation_time: Optional[pulumi.Input[str]] = None,
                  custom_event_data: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 flex_match_mode: Optional[pulumi.Input[str]] = None,
+                 flex_match_mode: Optional[pulumi.Input['MatchmakingConfigurationFlexMatchMode']] = None,
                  game_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchmakingConfigurationGamePropertyArgs']]]]] = None,
                  game_session_data: Optional[pulumi.Input[str]] = None,
                  game_session_queue_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_target: Optional[pulumi.Input[str]] = None,
                  request_timeout_seconds: Optional[pulumi.Input[int]] = None,
+                 rule_set_arn: Optional[pulumi.Input[str]] = None,
                  rule_set_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchmakingConfigurationTagArgs']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::GameLift::MatchmakingConfiguration
+        The AWS::GameLift::MatchmakingConfiguration resource creates an Amazon GameLift (GameLift) matchmaking configuration.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] acceptance_required: A flag that indicates whether a match that was created with this configuration must be accepted by the matched players
+        :param pulumi.Input[int] acceptance_timeout_seconds: The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
+        :param pulumi.Input[int] additional_player_count: The number of player slots in a match to keep open for future players.
+        :param pulumi.Input['MatchmakingConfigurationBackfillMode'] backfill_mode: The method used to backfill game sessions created with this matchmaking configuration.
+        :param pulumi.Input[str] creation_time: A time stamp indicating when this data object was created.
+        :param pulumi.Input[str] custom_event_data: Information to attach to all events related to the matchmaking configuration.
+        :param pulumi.Input[str] description: A descriptive label that is associated with matchmaking configuration.
+        :param pulumi.Input['MatchmakingConfigurationFlexMatchMode'] flex_match_mode: Indicates whether this matchmaking configuration is being used with Amazon GameLift hosting or as a standalone matchmaking solution.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchmakingConfigurationGamePropertyArgs']]]] game_properties: A set of custom properties for a game session, formatted as key:value pairs.
+        :param pulumi.Input[str] game_session_data: A set of custom game session properties, formatted as a single string value.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] game_session_queue_arns: The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it.
+        :param pulumi.Input[str] name: A unique identifier for the matchmaking configuration.
+        :param pulumi.Input[str] notification_target: An SNS topic ARN that is set up to receive matchmaking notifications.
+        :param pulumi.Input[int] request_timeout_seconds: The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
+        :param pulumi.Input[str] rule_set_arn: The Amazon Resource Name (ARN) associated with the GameLift matchmaking rule set resource that this configuration uses.
+        :param pulumi.Input[str] rule_set_name: A unique identifier for the matchmaking rule set to use with this configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchmakingConfigurationTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -237,7 +344,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
                  args: MatchmakingConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::GameLift::MatchmakingConfiguration
+        The AWS::GameLift::MatchmakingConfiguration resource creates an Amazon GameLift (GameLift) matchmaking configuration.
 
         :param str resource_name: The name of the resource.
         :param MatchmakingConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -257,20 +364,21 @@ class MatchmakingConfiguration(pulumi.CustomResource):
                  acceptance_required: Optional[pulumi.Input[bool]] = None,
                  acceptance_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  additional_player_count: Optional[pulumi.Input[int]] = None,
-                 backfill_mode: Optional[pulumi.Input[str]] = None,
+                 backfill_mode: Optional[pulumi.Input['MatchmakingConfigurationBackfillMode']] = None,
+                 creation_time: Optional[pulumi.Input[str]] = None,
                  custom_event_data: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 flex_match_mode: Optional[pulumi.Input[str]] = None,
+                 flex_match_mode: Optional[pulumi.Input['MatchmakingConfigurationFlexMatchMode']] = None,
                  game_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchmakingConfigurationGamePropertyArgs']]]]] = None,
                  game_session_data: Optional[pulumi.Input[str]] = None,
                  game_session_queue_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification_target: Optional[pulumi.Input[str]] = None,
                  request_timeout_seconds: Optional[pulumi.Input[int]] = None,
+                 rule_set_arn: Optional[pulumi.Input[str]] = None,
                  rule_set_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchmakingConfigurationTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""MatchmakingConfiguration is deprecated: MatchmakingConfiguration is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -285,6 +393,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
             __props__.__dict__["acceptance_timeout_seconds"] = acceptance_timeout_seconds
             __props__.__dict__["additional_player_count"] = additional_player_count
             __props__.__dict__["backfill_mode"] = backfill_mode
+            __props__.__dict__["creation_time"] = creation_time
             __props__.__dict__["custom_event_data"] = custom_event_data
             __props__.__dict__["description"] = description
             __props__.__dict__["flex_match_mode"] = flex_match_mode
@@ -296,6 +405,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
             if request_timeout_seconds is None and not opts.urn:
                 raise TypeError("Missing required property 'request_timeout_seconds'")
             __props__.__dict__["request_timeout_seconds"] = request_timeout_seconds
+            __props__.__dict__["rule_set_arn"] = rule_set_arn
             if rule_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_set_name'")
             __props__.__dict__["rule_set_name"] = rule_set_name
@@ -330,6 +440,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
         __props__.__dict__["additional_player_count"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["backfill_mode"] = None
+        __props__.__dict__["creation_time"] = None
         __props__.__dict__["custom_event_data"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["flex_match_mode"] = None
@@ -339,6 +450,7 @@ class MatchmakingConfiguration(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["notification_target"] = None
         __props__.__dict__["request_timeout_seconds"] = None
+        __props__.__dict__["rule_set_arn"] = None
         __props__.__dict__["rule_set_name"] = None
         __props__.__dict__["tags"] = None
         return MatchmakingConfiguration(resource_name, opts=opts, __props__=__props__)
@@ -346,80 +458,144 @@ class MatchmakingConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="acceptanceRequired")
     def acceptance_required(self) -> pulumi.Output[bool]:
+        """
+        A flag that indicates whether a match that was created with this configuration must be accepted by the matched players
+        """
         return pulumi.get(self, "acceptance_required")
 
     @property
     @pulumi.getter(name="acceptanceTimeoutSeconds")
     def acceptance_timeout_seconds(self) -> pulumi.Output[Optional[int]]:
+        """
+        The length of time (in seconds) to wait for players to accept a proposed match, if acceptance is required.
+        """
         return pulumi.get(self, "acceptance_timeout_seconds")
 
     @property
     @pulumi.getter(name="additionalPlayerCount")
     def additional_player_count(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of player slots in a match to keep open for future players.
+        """
         return pulumi.get(self, "additional_player_count")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift matchmaking configuration resource and uniquely identifies it.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="backfillMode")
-    def backfill_mode(self) -> pulumi.Output[Optional[str]]:
+    def backfill_mode(self) -> pulumi.Output[Optional['MatchmakingConfigurationBackfillMode']]:
+        """
+        The method used to backfill game sessions created with this matchmaking configuration.
+        """
         return pulumi.get(self, "backfill_mode")
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> pulumi.Output[Optional[str]]:
+        """
+        A time stamp indicating when this data object was created.
+        """
+        return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter(name="customEventData")
     def custom_event_data(self) -> pulumi.Output[Optional[str]]:
+        """
+        Information to attach to all events related to the matchmaking configuration.
+        """
         return pulumi.get(self, "custom_event_data")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A descriptive label that is associated with matchmaking configuration.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="flexMatchMode")
-    def flex_match_mode(self) -> pulumi.Output[Optional[str]]:
+    def flex_match_mode(self) -> pulumi.Output[Optional['MatchmakingConfigurationFlexMatchMode']]:
+        """
+        Indicates whether this matchmaking configuration is being used with Amazon GameLift hosting or as a standalone matchmaking solution.
+        """
         return pulumi.get(self, "flex_match_mode")
 
     @property
     @pulumi.getter(name="gameProperties")
     def game_properties(self) -> pulumi.Output[Optional[Sequence['outputs.MatchmakingConfigurationGameProperty']]]:
+        """
+        A set of custom properties for a game session, formatted as key:value pairs.
+        """
         return pulumi.get(self, "game_properties")
 
     @property
     @pulumi.getter(name="gameSessionData")
     def game_session_data(self) -> pulumi.Output[Optional[str]]:
+        """
+        A set of custom game session properties, formatted as a single string value.
+        """
         return pulumi.get(self, "game_session_data")
 
     @property
     @pulumi.getter(name="gameSessionQueueArns")
     def game_session_queue_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it.
+        """
         return pulumi.get(self, "game_session_queue_arns")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A unique identifier for the matchmaking configuration.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="notificationTarget")
     def notification_target(self) -> pulumi.Output[Optional[str]]:
+        """
+        An SNS topic ARN that is set up to receive matchmaking notifications.
+        """
         return pulumi.get(self, "notification_target")
 
     @property
     @pulumi.getter(name="requestTimeoutSeconds")
     def request_timeout_seconds(self) -> pulumi.Output[int]:
+        """
+        The maximum duration, in seconds, that a matchmaking ticket can remain in process before timing out.
+        """
         return pulumi.get(self, "request_timeout_seconds")
+
+    @property
+    @pulumi.getter(name="ruleSetArn")
+    def rule_set_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) associated with the GameLift matchmaking rule set resource that this configuration uses.
+        """
+        return pulumi.get(self, "rule_set_arn")
 
     @property
     @pulumi.getter(name="ruleSetName")
     def rule_set_name(self) -> pulumi.Output[str]:
+        """
+        A unique identifier for the matchmaking rule set to use with this configuration.
+        """
         return pulumi.get(self, "rule_set_name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.MatchmakingConfigurationTag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 

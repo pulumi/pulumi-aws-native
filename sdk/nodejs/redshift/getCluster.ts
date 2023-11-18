@@ -140,6 +140,10 @@ export interface GetClusterResult {
      */
     readonly manualSnapshotRetentionPeriod?: number;
     /**
+     * A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
+     */
+    readonly multiAz?: boolean;
+    /**
      * The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
      */
     readonly nodeType?: string;
@@ -160,7 +164,7 @@ export interface GetClusterResult {
      */
     readonly publiclyAccessible?: boolean;
     /**
-     * The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster APIs
+     * The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster, failover-primary-compute APIs
      */
     readonly resourceAction?: string;
     /**

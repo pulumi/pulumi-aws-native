@@ -34,6 +34,7 @@ class DbClusterArgs:
                  domain: Optional[pulumi.Input[str]] = None,
                  domain_iam_role_name: Optional[pulumi.Input[str]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
@@ -90,6 +91,7 @@ class DbClusterArgs:
         :param pulumi.Input[str] domain: The Active Directory directory ID to create the DB cluster in.
         :param pulumi.Input[str] domain_iam_role_name: Specify the name of the IAM role to be used when making API calls to the Directory Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
+        :param pulumi.Input[bool] enable_global_write_forwarding: Specifies whether to enable this DB cluster to forward write operations to the primary cluster of a global cluster (Aurora global database). By default, write operations are not allowed on Aurora DB clusters that are secondary clusters in an Aurora global database.
         :param pulumi.Input[bool] enable_http_endpoint: A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
         :param pulumi.Input[bool] enable_iam_database_authentication: A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
         :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
@@ -169,6 +171,8 @@ class DbClusterArgs:
             pulumi.set(__self__, "domain_iam_role_name", domain_iam_role_name)
         if enable_cloudwatch_logs_exports is not None:
             pulumi.set(__self__, "enable_cloudwatch_logs_exports", enable_cloudwatch_logs_exports)
+        if enable_global_write_forwarding is not None:
+            pulumi.set(__self__, "enable_global_write_forwarding", enable_global_write_forwarding)
         if enable_http_endpoint is not None:
             pulumi.set(__self__, "enable_http_endpoint", enable_http_endpoint)
         if enable_iam_database_authentication is not None:
@@ -457,6 +461,18 @@ class DbClusterArgs:
     @enable_cloudwatch_logs_exports.setter
     def enable_cloudwatch_logs_exports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "enable_cloudwatch_logs_exports", value)
+
+    @property
+    @pulumi.getter(name="enableGlobalWriteForwarding")
+    def enable_global_write_forwarding(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to enable this DB cluster to forward write operations to the primary cluster of a global cluster (Aurora global database). By default, write operations are not allowed on Aurora DB clusters that are secondary clusters in an Aurora global database.
+        """
+        return pulumi.get(self, "enable_global_write_forwarding")
+
+    @enable_global_write_forwarding.setter
+    def enable_global_write_forwarding(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_global_write_forwarding", value)
 
     @property
     @pulumi.getter(name="enableHttpEndpoint")
@@ -918,6 +934,7 @@ class DbCluster(pulumi.CustomResource):
                  domain: Optional[pulumi.Input[str]] = None,
                  domain_iam_role_name: Optional[pulumi.Input[str]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
@@ -978,6 +995,7 @@ class DbCluster(pulumi.CustomResource):
         :param pulumi.Input[str] domain: The Active Directory directory ID to create the DB cluster in.
         :param pulumi.Input[str] domain_iam_role_name: Specify the name of the IAM role to be used when making API calls to the Directory Service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enable_cloudwatch_logs_exports: The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
+        :param pulumi.Input[bool] enable_global_write_forwarding: Specifies whether to enable this DB cluster to forward write operations to the primary cluster of a global cluster (Aurora global database). By default, write operations are not allowed on Aurora DB clusters that are secondary clusters in an Aurora global database.
         :param pulumi.Input[bool] enable_http_endpoint: A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless DB cluster. By default, the HTTP endpoint is disabled.
         :param pulumi.Input[bool] enable_iam_database_authentication: A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
         :param pulumi.Input[str] engine: The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
@@ -1063,6 +1081,7 @@ class DbCluster(pulumi.CustomResource):
                  domain: Optional[pulumi.Input[str]] = None,
                  domain_iam_role_name: Optional[pulumi.Input[str]] = None,
                  enable_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
                  enable_iam_database_authentication: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
@@ -1126,6 +1145,7 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["domain"] = domain
             __props__.__dict__["domain_iam_role_name"] = domain_iam_role_name
             __props__.__dict__["enable_cloudwatch_logs_exports"] = enable_cloudwatch_logs_exports
+            __props__.__dict__["enable_global_write_forwarding"] = enable_global_write_forwarding
             __props__.__dict__["enable_http_endpoint"] = enable_http_endpoint
             __props__.__dict__["enable_iam_database_authentication"] = enable_iam_database_authentication
             __props__.__dict__["engine"] = engine
@@ -1209,6 +1229,7 @@ class DbCluster(pulumi.CustomResource):
         __props__.__dict__["domain"] = None
         __props__.__dict__["domain_iam_role_name"] = None
         __props__.__dict__["enable_cloudwatch_logs_exports"] = None
+        __props__.__dict__["enable_global_write_forwarding"] = None
         __props__.__dict__["enable_http_endpoint"] = None
         __props__.__dict__["enable_iam_database_authentication"] = None
         __props__.__dict__["endpoint"] = None
@@ -1407,6 +1428,14 @@ class DbCluster(pulumi.CustomResource):
         The list of log types that need to be enabled for exporting to CloudWatch Logs. The values in the list depend on the DB engine being used. For more information, see Publishing Database Logs to Amazon CloudWatch Logs in the Amazon Aurora User Guide.
         """
         return pulumi.get(self, "enable_cloudwatch_logs_exports")
+
+    @property
+    @pulumi.getter(name="enableGlobalWriteForwarding")
+    def enable_global_write_forwarding(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether to enable this DB cluster to forward write operations to the primary cluster of a global cluster (Aurora global database). By default, write operations are not allowed on Aurora DB clusters that are secondary clusters in an Aurora global database.
+        """
+        return pulumi.get(self, "enable_global_write_forwarding")
 
     @property
     @pulumi.getter(name="enableHttpEndpoint")

@@ -37,8 +37,9 @@ export class View extends pulumi.CustomResource {
         return obj['__pulumiType'] === View.__pulumiType;
     }
 
-    public readonly filters!: pulumi.Output<outputs.resourceexplorer2.ViewFilters | undefined>;
+    public readonly filters!: pulumi.Output<outputs.resourceexplorer2.ViewSearchFilter | undefined>;
     public readonly includedProperties!: pulumi.Output<outputs.resourceexplorer2.ViewIncludedProperty[] | undefined>;
+    public readonly scope!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.resourceexplorer2.ViewTagMap | undefined>;
     public /*out*/ readonly viewArn!: pulumi.Output<string>;
     public readonly viewName!: pulumi.Output<string>;
@@ -56,18 +57,20 @@ export class View extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["filters"] = args ? args.filters : undefined;
             resourceInputs["includedProperties"] = args ? args.includedProperties : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["viewName"] = args ? args.viewName : undefined;
             resourceInputs["viewArn"] = undefined /*out*/;
         } else {
             resourceInputs["filters"] = undefined /*out*/;
             resourceInputs["includedProperties"] = undefined /*out*/;
+            resourceInputs["scope"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["viewArn"] = undefined /*out*/;
             resourceInputs["viewName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["viewName"] };
+        const replaceOnChanges = { replaceOnChanges: ["scope", "viewName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(View.__pulumiType, name, resourceInputs, opts);
     }
@@ -77,8 +80,9 @@ export class View extends pulumi.CustomResource {
  * The set of arguments for constructing a View resource.
  */
 export interface ViewArgs {
-    filters?: pulumi.Input<inputs.resourceexplorer2.ViewFiltersArgs>;
+    filters?: pulumi.Input<inputs.resourceexplorer2.ViewSearchFilterArgs>;
     includedProperties?: pulumi.Input<pulumi.Input<inputs.resourceexplorer2.ViewIncludedPropertyArgs>[]>;
+    scope?: pulumi.Input<string>;
     tags?: pulumi.Input<inputs.resourceexplorer2.ViewTagMapArgs>;
     viewName?: pulumi.Input<string>;
 }

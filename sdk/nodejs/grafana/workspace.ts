@@ -89,6 +89,10 @@ export class Workspace extends pulumi.CustomResource {
     public readonly organizationalUnits!: pulumi.Output<string[] | undefined>;
     public readonly permissionType!: pulumi.Output<enums.grafana.WorkspacePermissionType>;
     /**
+     * Allow workspace admins to install plugins
+     */
+    public readonly pluginAdminEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
@@ -137,6 +141,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["organizationRoleName"] = args ? args.organizationRoleName : undefined;
             resourceInputs["organizationalUnits"] = args ? args.organizationalUnits : undefined;
             resourceInputs["permissionType"] = args ? args.permissionType : undefined;
+            resourceInputs["pluginAdminEnabled"] = args ? args.pluginAdminEnabled : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["samlConfiguration"] = args ? args.samlConfiguration : undefined;
             resourceInputs["stackSetName"] = args ? args.stackSetName : undefined;
@@ -163,6 +168,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["organizationRoleName"] = undefined /*out*/;
             resourceInputs["organizationalUnits"] = undefined /*out*/;
             resourceInputs["permissionType"] = undefined /*out*/;
+            resourceInputs["pluginAdminEnabled"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["samlConfiguration"] = undefined /*out*/;
             resourceInputs["samlConfigurationStatus"] = undefined /*out*/;
@@ -221,6 +227,10 @@ export interface WorkspaceArgs {
      */
     organizationalUnits?: pulumi.Input<pulumi.Input<string>[]>;
     permissionType: pulumi.Input<enums.grafana.WorkspacePermissionType>;
+    /**
+     * Allow workspace admins to install plugins
+     */
+    pluginAdminEnabled?: pulumi.Input<boolean>;
     /**
      * IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
      */

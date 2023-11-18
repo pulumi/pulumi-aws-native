@@ -224,6 +224,209 @@ namespace Pulumi.AwsNative.GameLift
     }
 
     /// <summary>
+    /// Comparison operator to use when measuring a metric against the threshold value.
+    /// </summary>
+    [EnumType]
+    public readonly struct FleetScalingPolicyComparisonOperator : IEquatable<FleetScalingPolicyComparisonOperator>
+    {
+        private readonly string _value;
+
+        private FleetScalingPolicyComparisonOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetScalingPolicyComparisonOperator GreaterThanOrEqualToThreshold { get; } = new FleetScalingPolicyComparisonOperator("GreaterThanOrEqualToThreshold");
+        public static FleetScalingPolicyComparisonOperator GreaterThanThreshold { get; } = new FleetScalingPolicyComparisonOperator("GreaterThanThreshold");
+        public static FleetScalingPolicyComparisonOperator LessThanThreshold { get; } = new FleetScalingPolicyComparisonOperator("LessThanThreshold");
+        public static FleetScalingPolicyComparisonOperator LessThanOrEqualToThreshold { get; } = new FleetScalingPolicyComparisonOperator("LessThanOrEqualToThreshold");
+
+        public static bool operator ==(FleetScalingPolicyComparisonOperator left, FleetScalingPolicyComparisonOperator right) => left.Equals(right);
+        public static bool operator !=(FleetScalingPolicyComparisonOperator left, FleetScalingPolicyComparisonOperator right) => !left.Equals(right);
+
+        public static explicit operator string(FleetScalingPolicyComparisonOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetScalingPolicyComparisonOperator other && Equals(other);
+        public bool Equals(FleetScalingPolicyComparisonOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+    /// </summary>
+    [EnumType]
+    public readonly struct FleetScalingPolicyMetricName : IEquatable<FleetScalingPolicyMetricName>
+    {
+        private readonly string _value;
+
+        private FleetScalingPolicyMetricName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetScalingPolicyMetricName ActivatingGameSessions { get; } = new FleetScalingPolicyMetricName("ActivatingGameSessions");
+        public static FleetScalingPolicyMetricName ActiveGameSessions { get; } = new FleetScalingPolicyMetricName("ActiveGameSessions");
+        public static FleetScalingPolicyMetricName ActiveInstances { get; } = new FleetScalingPolicyMetricName("ActiveInstances");
+        public static FleetScalingPolicyMetricName AvailableGameSessions { get; } = new FleetScalingPolicyMetricName("AvailableGameSessions");
+        public static FleetScalingPolicyMetricName AvailablePlayerSessions { get; } = new FleetScalingPolicyMetricName("AvailablePlayerSessions");
+        public static FleetScalingPolicyMetricName CurrentPlayerSessions { get; } = new FleetScalingPolicyMetricName("CurrentPlayerSessions");
+        public static FleetScalingPolicyMetricName IdleInstances { get; } = new FleetScalingPolicyMetricName("IdleInstances");
+        public static FleetScalingPolicyMetricName PercentAvailableGameSessions { get; } = new FleetScalingPolicyMetricName("PercentAvailableGameSessions");
+        public static FleetScalingPolicyMetricName PercentIdleInstances { get; } = new FleetScalingPolicyMetricName("PercentIdleInstances");
+        public static FleetScalingPolicyMetricName QueueDepth { get; } = new FleetScalingPolicyMetricName("QueueDepth");
+        public static FleetScalingPolicyMetricName WaitTime { get; } = new FleetScalingPolicyMetricName("WaitTime");
+        public static FleetScalingPolicyMetricName ConcurrentActivatableGameSessions { get; } = new FleetScalingPolicyMetricName("ConcurrentActivatableGameSessions");
+
+        public static bool operator ==(FleetScalingPolicyMetricName left, FleetScalingPolicyMetricName right) => left.Equals(right);
+        public static bool operator !=(FleetScalingPolicyMetricName left, FleetScalingPolicyMetricName right) => !left.Equals(right);
+
+        public static explicit operator string(FleetScalingPolicyMetricName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetScalingPolicyMetricName other && Equals(other);
+        public bool Equals(FleetScalingPolicyMetricName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
+    /// </summary>
+    [EnumType]
+    public readonly struct FleetScalingPolicyPolicyType : IEquatable<FleetScalingPolicyPolicyType>
+    {
+        private readonly string _value;
+
+        private FleetScalingPolicyPolicyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetScalingPolicyPolicyType RuleBased { get; } = new FleetScalingPolicyPolicyType("RuleBased");
+        public static FleetScalingPolicyPolicyType TargetBased { get; } = new FleetScalingPolicyPolicyType("TargetBased");
+
+        public static bool operator ==(FleetScalingPolicyPolicyType left, FleetScalingPolicyPolicyType right) => left.Equals(right);
+        public static bool operator !=(FleetScalingPolicyPolicyType left, FleetScalingPolicyPolicyType right) => !left.Equals(right);
+
+        public static explicit operator string(FleetScalingPolicyPolicyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetScalingPolicyPolicyType other && Equals(other);
+        public bool Equals(FleetScalingPolicyPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of adjustment to make to a fleet's instance count.
+    /// </summary>
+    [EnumType]
+    public readonly struct FleetScalingPolicyScalingAdjustmentType : IEquatable<FleetScalingPolicyScalingAdjustmentType>
+    {
+        private readonly string _value;
+
+        private FleetScalingPolicyScalingAdjustmentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetScalingPolicyScalingAdjustmentType ChangeInCapacity { get; } = new FleetScalingPolicyScalingAdjustmentType("ChangeInCapacity");
+        public static FleetScalingPolicyScalingAdjustmentType ExactCapacity { get; } = new FleetScalingPolicyScalingAdjustmentType("ExactCapacity");
+        public static FleetScalingPolicyScalingAdjustmentType PercentChangeInCapacity { get; } = new FleetScalingPolicyScalingAdjustmentType("PercentChangeInCapacity");
+
+        public static bool operator ==(FleetScalingPolicyScalingAdjustmentType left, FleetScalingPolicyScalingAdjustmentType right) => left.Equals(right);
+        public static bool operator !=(FleetScalingPolicyScalingAdjustmentType left, FleetScalingPolicyScalingAdjustmentType right) => !left.Equals(right);
+
+        public static explicit operator string(FleetScalingPolicyScalingAdjustmentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetScalingPolicyScalingAdjustmentType other && Equals(other);
+        public bool Equals(FleetScalingPolicyScalingAdjustmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Current status of the scaling policy. The scaling policy can be in force only when in an ACTIVE status. Scaling policies can be suspended for individual fleets. If the policy is suspended for a fleet, the policy status does not change.
+    /// </summary>
+    [EnumType]
+    public readonly struct FleetScalingPolicyStatus : IEquatable<FleetScalingPolicyStatus>
+    {
+        private readonly string _value;
+
+        private FleetScalingPolicyStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetScalingPolicyStatus Active { get; } = new FleetScalingPolicyStatus("ACTIVE");
+        public static FleetScalingPolicyStatus UpdateRequested { get; } = new FleetScalingPolicyStatus("UPDATE_REQUESTED");
+        public static FleetScalingPolicyStatus Updating { get; } = new FleetScalingPolicyStatus("UPDATING");
+        public static FleetScalingPolicyStatus DeleteRequested { get; } = new FleetScalingPolicyStatus("DELETE_REQUESTED");
+        public static FleetScalingPolicyStatus Deleting { get; } = new FleetScalingPolicyStatus("DELETING");
+        public static FleetScalingPolicyStatus Deleted { get; } = new FleetScalingPolicyStatus("DELETED");
+        public static FleetScalingPolicyStatus Error { get; } = new FleetScalingPolicyStatus("ERROR");
+
+        public static bool operator ==(FleetScalingPolicyStatus left, FleetScalingPolicyStatus right) => left.Equals(right);
+        public static bool operator !=(FleetScalingPolicyStatus left, FleetScalingPolicyStatus right) => !left.Equals(right);
+
+        public static explicit operator string(FleetScalingPolicyStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetScalingPolicyStatus other && Equals(other);
+        public bool Equals(FleetScalingPolicyStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current status of the fleet's scaling policies in a requested fleet location. The status PENDING_UPDATE indicates that an update was requested for the fleet but has not yet been completed for the location.
+    /// </summary>
+    [EnumType]
+    public readonly struct FleetScalingPolicyUpdateStatus : IEquatable<FleetScalingPolicyUpdateStatus>
+    {
+        private readonly string _value;
+
+        private FleetScalingPolicyUpdateStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetScalingPolicyUpdateStatus PendingUpdate { get; } = new FleetScalingPolicyUpdateStatus("PENDING_UPDATE");
+
+        public static bool operator ==(FleetScalingPolicyUpdateStatus left, FleetScalingPolicyUpdateStatus right) => left.Equals(right);
+        public static bool operator !=(FleetScalingPolicyUpdateStatus left, FleetScalingPolicyUpdateStatus right) => !left.Equals(right);
+
+        public static explicit operator string(FleetScalingPolicyUpdateStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetScalingPolicyUpdateStatus other && Equals(other);
+        public bool Equals(FleetScalingPolicyUpdateStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
     /// </summary>
     [EnumType]
@@ -342,6 +545,98 @@ namespace Pulumi.AwsNative.GameLift
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is GameServerGroupGameServerProtectionPolicy other && Equals(other);
         public bool Equals(GameServerGroupGameServerProtectionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct GameSessionQueuePriorityOrderItem : IEquatable<GameSessionQueuePriorityOrderItem>
+    {
+        private readonly string _value;
+
+        private GameSessionQueuePriorityOrderItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GameSessionQueuePriorityOrderItem Latency { get; } = new GameSessionQueuePriorityOrderItem("LATENCY");
+        public static GameSessionQueuePriorityOrderItem Cost { get; } = new GameSessionQueuePriorityOrderItem("COST");
+        public static GameSessionQueuePriorityOrderItem Destination { get; } = new GameSessionQueuePriorityOrderItem("DESTINATION");
+        public static GameSessionQueuePriorityOrderItem Location { get; } = new GameSessionQueuePriorityOrderItem("LOCATION");
+
+        public static bool operator ==(GameSessionQueuePriorityOrderItem left, GameSessionQueuePriorityOrderItem right) => left.Equals(right);
+        public static bool operator !=(GameSessionQueuePriorityOrderItem left, GameSessionQueuePriorityOrderItem right) => !left.Equals(right);
+
+        public static explicit operator string(GameSessionQueuePriorityOrderItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GameSessionQueuePriorityOrderItem other && Equals(other);
+        public bool Equals(GameSessionQueuePriorityOrderItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The method used to backfill game sessions created with this matchmaking configuration.
+    /// </summary>
+    [EnumType]
+    public readonly struct MatchmakingConfigurationBackfillMode : IEquatable<MatchmakingConfigurationBackfillMode>
+    {
+        private readonly string _value;
+
+        private MatchmakingConfigurationBackfillMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MatchmakingConfigurationBackfillMode Automatic { get; } = new MatchmakingConfigurationBackfillMode("AUTOMATIC");
+        public static MatchmakingConfigurationBackfillMode Manual { get; } = new MatchmakingConfigurationBackfillMode("MANUAL");
+
+        public static bool operator ==(MatchmakingConfigurationBackfillMode left, MatchmakingConfigurationBackfillMode right) => left.Equals(right);
+        public static bool operator !=(MatchmakingConfigurationBackfillMode left, MatchmakingConfigurationBackfillMode right) => !left.Equals(right);
+
+        public static explicit operator string(MatchmakingConfigurationBackfillMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MatchmakingConfigurationBackfillMode other && Equals(other);
+        public bool Equals(MatchmakingConfigurationBackfillMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether this matchmaking configuration is being used with Amazon GameLift hosting or as a standalone matchmaking solution.
+    /// </summary>
+    [EnumType]
+    public readonly struct MatchmakingConfigurationFlexMatchMode : IEquatable<MatchmakingConfigurationFlexMatchMode>
+    {
+        private readonly string _value;
+
+        private MatchmakingConfigurationFlexMatchMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MatchmakingConfigurationFlexMatchMode Standalone { get; } = new MatchmakingConfigurationFlexMatchMode("STANDALONE");
+        public static MatchmakingConfigurationFlexMatchMode WithQueue { get; } = new MatchmakingConfigurationFlexMatchMode("WITH_QUEUE");
+
+        public static bool operator ==(MatchmakingConfigurationFlexMatchMode left, MatchmakingConfigurationFlexMatchMode right) => left.Equals(right);
+        public static bool operator !=(MatchmakingConfigurationFlexMatchMode left, MatchmakingConfigurationFlexMatchMode right) => !left.Equals(right);
+
+        public static explicit operator string(MatchmakingConfigurationFlexMatchMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MatchmakingConfigurationFlexMatchMode other && Equals(other);
+        public bool Equals(MatchmakingConfigurationFlexMatchMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

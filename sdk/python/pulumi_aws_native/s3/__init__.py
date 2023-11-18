@@ -14,8 +14,10 @@ from .get_bucket import *
 from .get_bucket_policy import *
 from .get_multi_region_access_point import *
 from .get_multi_region_access_point_policy import *
+from .get_storage_lens_group import *
 from .multi_region_access_point import *
 from .multi_region_access_point_policy import *
 from .storage_lens import *
+from .storage_lens_group import *
 from ._inputs import *
 from . import outputs

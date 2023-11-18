@@ -51,13 +51,11 @@
     },
     "delete" : {
       "permissions" : [ "athena:DeleteNamedQuery" ]
-    },
-    "update" : {
-      "permissions" : [ ]
     }
   },
   "readOnlyProperties" : [ "/properties/NamedQueryId" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/Database", "/properties/Description", "/properties/QueryString", "/properties/WorkGroup" ],
   "primaryIdentifier" : [ "/properties/NamedQueryId" ],
-  "additionalProperties" : false
+  "additionalProperties" : false,
+  "taggable" : false
 }

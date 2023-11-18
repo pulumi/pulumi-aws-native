@@ -14,20 +14,21 @@ export function getThreatIntelSet(args: GetThreatIntelSetArgs, opts?: pulumi.Inv
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:guardduty:getThreatIntelSet", {
+        "detectorId": args.detectorId,
         "id": args.id,
     }, opts);
 }
 
 export interface GetThreatIntelSetArgs {
+    detectorId: string;
     id: string;
 }
 
 export interface GetThreatIntelSetResult {
-    readonly activate?: boolean;
     readonly id?: string;
     readonly location?: string;
     readonly name?: string;
-    readonly tags?: outputs.guardduty.ThreatIntelSetTag[];
+    readonly tags?: outputs.guardduty.ThreatIntelSetTagItem[];
 }
 /**
  * Resource Type definition for AWS::GuardDuty::ThreatIntelSet
@@ -37,5 +38,6 @@ export function getThreatIntelSetOutput(args: GetThreatIntelSetOutputArgs, opts?
 }
 
 export interface GetThreatIntelSetOutputArgs {
+    detectorId: pulumi.Input<string>;
     id: pulumi.Input<string>;
 }

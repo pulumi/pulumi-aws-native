@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GameLift.Inputs
 {
 
+    /// <summary>
+    /// A key-value pair that contains information about a game session.
+    /// </summary>
     public sealed class MatchmakingConfigurationGamePropertyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The game property identifier.
+        /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
+        /// <summary>
+        /// The game property value.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

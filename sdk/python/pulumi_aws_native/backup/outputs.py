@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'BackupPlanAdvancedBackupSettingResourceType',
@@ -29,6 +30,11 @@ __all__ = [
     'ReportDeliveryChannelProperties',
     'ReportPlanTag',
     'ReportSettingProperties',
+    'RestoreTestingPlanRestoreTestingRecoveryPointSelection',
+    'RestoreTestingPlanTag',
+    'RestoreTestingSelectionKeyValue',
+    'RestoreTestingSelectionProtectedResourceConditions',
+    'RestoreTestingSelectionSensitiveStringMap',
 ]
 
 @pulumi.output_type
@@ -1009,5 +1015,164 @@ class ReportSettingProperties(dict):
         The list of AWS regions that a report covers.
         """
         return pulumi.get(self, "regions")
+
+
+@pulumi.output_type
+class RestoreTestingPlanRestoreTestingRecoveryPointSelection(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeVaults":
+            suggest = "include_vaults"
+        elif key == "recoveryPointTypes":
+            suggest = "recovery_point_types"
+        elif key == "excludeVaults":
+            suggest = "exclude_vaults"
+        elif key == "selectionWindowDays":
+            suggest = "selection_window_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RestoreTestingPlanRestoreTestingRecoveryPointSelection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RestoreTestingPlanRestoreTestingRecoveryPointSelection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RestoreTestingPlanRestoreTestingRecoveryPointSelection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 algorithm: 'RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm',
+                 include_vaults: Sequence[str],
+                 recovery_point_types: Sequence['RestoreTestingPlanRestoreTestingRecoveryPointType'],
+                 exclude_vaults: Optional[Sequence[str]] = None,
+                 selection_window_days: Optional[int] = None):
+        pulumi.set(__self__, "algorithm", algorithm)
+        pulumi.set(__self__, "include_vaults", include_vaults)
+        pulumi.set(__self__, "recovery_point_types", recovery_point_types)
+        if exclude_vaults is not None:
+            pulumi.set(__self__, "exclude_vaults", exclude_vaults)
+        if selection_window_days is not None:
+            pulumi.set(__self__, "selection_window_days", selection_window_days)
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> 'RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm':
+        return pulumi.get(self, "algorithm")
+
+    @property
+    @pulumi.getter(name="includeVaults")
+    def include_vaults(self) -> Sequence[str]:
+        return pulumi.get(self, "include_vaults")
+
+    @property
+    @pulumi.getter(name="recoveryPointTypes")
+    def recovery_point_types(self) -> Sequence['RestoreTestingPlanRestoreTestingRecoveryPointType']:
+        return pulumi.get(self, "recovery_point_types")
+
+    @property
+    @pulumi.getter(name="excludeVaults")
+    def exclude_vaults(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "exclude_vaults")
+
+    @property
+    @pulumi.getter(name="selectionWindowDays")
+    def selection_window_days(self) -> Optional[int]:
+        return pulumi.get(self, "selection_window_days")
+
+
+@pulumi.output_type
+class RestoreTestingPlanTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RestoreTestingSelectionKeyValue(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RestoreTestingSelectionProtectedResourceConditions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stringEquals":
+            suggest = "string_equals"
+        elif key == "stringNotEquals":
+            suggest = "string_not_equals"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RestoreTestingSelectionProtectedResourceConditions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RestoreTestingSelectionProtectedResourceConditions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RestoreTestingSelectionProtectedResourceConditions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 string_equals: Optional[Sequence['outputs.RestoreTestingSelectionKeyValue']] = None,
+                 string_not_equals: Optional[Sequence['outputs.RestoreTestingSelectionKeyValue']] = None):
+        if string_equals is not None:
+            pulumi.set(__self__, "string_equals", string_equals)
+        if string_not_equals is not None:
+            pulumi.set(__self__, "string_not_equals", string_not_equals)
+
+    @property
+    @pulumi.getter(name="stringEquals")
+    def string_equals(self) -> Optional[Sequence['outputs.RestoreTestingSelectionKeyValue']]:
+        return pulumi.get(self, "string_equals")
+
+    @property
+    @pulumi.getter(name="stringNotEquals")
+    def string_not_equals(self) -> Optional[Sequence['outputs.RestoreTestingSelectionKeyValue']]:
+        return pulumi.get(self, "string_not_equals")
+
+
+@pulumi.output_type
+class RestoreTestingSelectionSensitiveStringMap(dict):
+    def __init__(__self__):
+        pass
 
 

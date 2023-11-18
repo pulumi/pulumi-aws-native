@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAutoScalingGroupResult:
-    def __init__(__self__, availability_zones=None, capacity_rebalance=None, context=None, cooldown=None, default_instance_warmup=None, desired_capacity=None, desired_capacity_type=None, health_check_grace_period=None, health_check_type=None, launch_configuration_name=None, launch_template=None, lifecycle_hook_specification_list=None, load_balancer_names=None, max_instance_lifetime=None, max_size=None, metrics_collection=None, min_size=None, mixed_instances_policy=None, new_instances_protected_from_scale_in=None, notification_configuration=None, notification_configurations=None, placement_group=None, service_linked_role_arn=None, tags=None, target_group_arns=None, termination_policies=None, vpc_zone_identifier=None):
+    def __init__(__self__, availability_zones=None, capacity_rebalance=None, context=None, cooldown=None, default_instance_warmup=None, desired_capacity=None, desired_capacity_type=None, health_check_grace_period=None, health_check_type=None, instance_maintenance_policy=None, launch_configuration_name=None, launch_template=None, lifecycle_hook_specification_list=None, load_balancer_names=None, max_instance_lifetime=None, max_size=None, metrics_collection=None, min_size=None, mixed_instances_policy=None, new_instances_protected_from_scale_in=None, notification_configuration=None, notification_configurations=None, placement_group=None, service_linked_role_arn=None, tags=None, target_group_arns=None, termination_policies=None, vpc_zone_identifier=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -47,6 +47,9 @@ class GetAutoScalingGroupResult:
         if health_check_type and not isinstance(health_check_type, str):
             raise TypeError("Expected argument 'health_check_type' to be a str")
         pulumi.set(__self__, "health_check_type", health_check_type)
+        if instance_maintenance_policy and not isinstance(instance_maintenance_policy, dict):
+            raise TypeError("Expected argument 'instance_maintenance_policy' to be a dict")
+        pulumi.set(__self__, "instance_maintenance_policy", instance_maintenance_policy)
         if launch_configuration_name and not isinstance(launch_configuration_name, str):
             raise TypeError("Expected argument 'launch_configuration_name' to be a str")
         pulumi.set(__self__, "launch_configuration_name", launch_configuration_name)
@@ -146,6 +149,11 @@ class GetAutoScalingGroupResult:
     @pulumi.getter(name="healthCheckType")
     def health_check_type(self) -> Optional[str]:
         return pulumi.get(self, "health_check_type")
+
+    @property
+    @pulumi.getter(name="instanceMaintenancePolicy")
+    def instance_maintenance_policy(self) -> Optional['outputs.AutoScalingGroupInstanceMaintenancePolicy']:
+        return pulumi.get(self, "instance_maintenance_policy")
 
     @property
     @pulumi.getter(name="launchConfigurationName")
@@ -253,6 +261,7 @@ class AwaitableGetAutoScalingGroupResult(GetAutoScalingGroupResult):
             desired_capacity_type=self.desired_capacity_type,
             health_check_grace_period=self.health_check_grace_period,
             health_check_type=self.health_check_type,
+            instance_maintenance_policy=self.instance_maintenance_policy,
             launch_configuration_name=self.launch_configuration_name,
             launch_template=self.launch_template,
             lifecycle_hook_specification_list=self.lifecycle_hook_specification_list,
@@ -293,6 +302,7 @@ def get_auto_scaling_group(auto_scaling_group_name: Optional[str] = None,
         desired_capacity_type=pulumi.get(__ret__, 'desired_capacity_type'),
         health_check_grace_period=pulumi.get(__ret__, 'health_check_grace_period'),
         health_check_type=pulumi.get(__ret__, 'health_check_type'),
+        instance_maintenance_policy=pulumi.get(__ret__, 'instance_maintenance_policy'),
         launch_configuration_name=pulumi.get(__ret__, 'launch_configuration_name'),
         launch_template=pulumi.get(__ret__, 'launch_template'),
         lifecycle_hook_specification_list=pulumi.get(__ret__, 'lifecycle_hook_specification_list'),

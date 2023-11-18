@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::GameLift::Script
- *
- * @deprecated Script is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+ * The AWS::GameLift::Script resource creates a new script record for your Realtime Servers script. Realtime scripts are JavaScript that provide configuration settings and optional custom game logic for your game. The script is deployed when you create a Realtime Servers fleet to host your game sessions. Script logic is executed during an active game session.
  */
 export class Script extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Script extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Script {
-        pulumi.log.warn("Script is deprecated: Script is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Script(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,10 +37,33 @@ export class Script extends pulumi.CustomResource {
         return obj['__pulumiType'] === Script.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift script resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift script ARN, the resource ID matches the Id value.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+     */
+    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * A descriptive label that is associated with a script. Script names do not need to be unique.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The file size of the uploaded Realtime script, expressed in bytes. When files are uploaded from an S3 location, this value remains at "0".
+     */
+    public /*out*/ readonly sizeOnDisk!: pulumi.Output<number>;
+    /**
+     * The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the ObjectVersion parameter to specify an earlier version.
+     */
     public readonly storageLocation!: pulumi.Output<outputs.gamelift.ScriptS3Location>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     public readonly tags!: pulumi.Output<outputs.gamelift.ScriptTag[] | undefined>;
+    /**
+     * The version that is associated with a script. Version strings do not need to be unique.
+     */
     public readonly version!: pulumi.Output<string | undefined>;
 
     /**
@@ -53,9 +73,7 @@ export class Script extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Script is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: ScriptArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Script is deprecated: Script is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -67,9 +85,13 @@ export class Script extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["sizeOnDisk"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sizeOnDisk"] = undefined /*out*/;
             resourceInputs["storageLocation"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
@@ -83,8 +105,20 @@ export class Script extends pulumi.CustomResource {
  * The set of arguments for constructing a Script resource.
  */
 export interface ScriptArgs {
+    /**
+     * A descriptive label that is associated with a script. Script names do not need to be unique.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The location of the Amazon S3 bucket where a zipped file containing your Realtime scripts is stored. The storage location must specify the Amazon S3 bucket name, the zip file name (the "key"), and a role ARN that allows Amazon GameLift to access the Amazon S3 storage location. The S3 bucket must be in the same Region where you want to create a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the ObjectVersion parameter to specify an earlier version.
+     */
     storageLocation: pulumi.Input<inputs.gamelift.ScriptS3LocationArgs>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.gamelift.ScriptTagArgs>[]>;
+    /**
+     * The version that is associated with a script. Version strings do not need to be unique.
+     */
     version?: pulumi.Input<string>;
 }

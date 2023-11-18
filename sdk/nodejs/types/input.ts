@@ -3187,44 +3187,211 @@ export namespace applicationautoscaling {
         scheduledScalingSuspended?: pulumi.Input<boolean>;
     }
 
+    /**
+     * Represents a CloudWatch metric of your choosing for a target tracking scaling policy to use with Application Auto Scaling.
+     */
     export interface ScalingPolicyCustomizedMetricSpecificationArgs {
+        /**
+         * The dimensions of the metric.
+         */
         dimensions?: pulumi.Input<pulumi.Input<inputs.applicationautoscaling.ScalingPolicyMetricDimensionArgs>[]>;
-        metricName: pulumi.Input<string>;
-        namespace: pulumi.Input<string>;
-        statistic: pulumi.Input<string>;
+        /**
+         * The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the Metric object that is returned by a call to ListMetrics.
+         */
+        metricName?: pulumi.Input<string>;
+        /**
+         * The metrics to include in the target tracking scaling policy, as a metric data query. This can include both raw metric and metric math expressions.
+         */
+        metrics?: pulumi.Input<pulumi.Input<inputs.applicationautoscaling.ScalingPolicyTargetTrackingMetricDataQueryArgs>[]>;
+        /**
+         * The namespace of the metric.
+         */
+        namespace?: pulumi.Input<string>;
+        /**
+         * The statistic of the metric.
+         */
+        statistic?: pulumi.Input<string>;
+        /**
+         * The unit of the metric. For a complete list of the units that CloudWatch supports, see the MetricDatum data type in the Amazon CloudWatch API Reference.
+         */
         unit?: pulumi.Input<string>;
     }
 
+    /**
+     * Describes the dimension names and values associated with a metric.
+     */
     export interface ScalingPolicyMetricDimensionArgs {
+        /**
+         * The name of the dimension.
+         */
         name: pulumi.Input<string>;
+        /**
+         * The value of the dimension.
+         */
         value: pulumi.Input<string>;
     }
 
+    /**
+     * Represents a predefined metric for a target tracking scaling policy to use with Application Auto Scaling.
+     */
     export interface ScalingPolicyPredefinedMetricSpecificationArgs {
+        /**
+         * The metric type. The ALBRequestCountPerTarget metric type applies only to Spot Fleets and ECS services.
+         */
         predefinedMetricType: pulumi.Input<string>;
+        /**
+         * Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is ALBRequestCountPerTarget and there is a target group attached to the Spot Fleet or ECS service.
+         */
         resourceLabel?: pulumi.Input<string>;
     }
 
+    /**
+     * Represents a step adjustment for a StepScalingPolicyConfiguration. Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm.
+     */
     export interface ScalingPolicyStepAdjustmentArgs {
+        /**
+         * The lower bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the lower bound is inclusive (the metric must be greater than or equal to the threshold plus the lower bound). Otherwise, it is exclusive (the metric must be greater than the threshold plus the lower bound). A null value indicates negative infinity.
+         */
         metricIntervalLowerBound?: pulumi.Input<number>;
+        /**
+         * The upper bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the upper bound is exclusive (the metric must be less than the threshold plus the upper bound). Otherwise, it is inclusive (the metric must be less than or equal to the threshold plus the upper bound). A null value indicates positive infinity.
+         */
         metricIntervalUpperBound?: pulumi.Input<number>;
+        /**
+         * The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value.
+         */
         scalingAdjustment: pulumi.Input<number>;
     }
 
+    /**
+     * A step scaling policy.
+     */
     export interface ScalingPolicyStepScalingPolicyConfigurationArgs {
+        /**
+         * Specifies how the ScalingAdjustment value in a StepAdjustment is interpreted.
+         */
         adjustmentType?: pulumi.Input<string>;
+        /**
+         * The amount of time, in seconds, to wait for a previous scaling activity to take effect.
+         */
         cooldown?: pulumi.Input<number>;
+        /**
+         * The aggregation type for the CloudWatch metrics. Valid values are Minimum, Maximum, and Average. If the aggregation type is null, the value is treated as Average
+         */
         metricAggregationType?: pulumi.Input<string>;
+        /**
+         * The minimum value to scale by when the adjustment type is PercentChangeInCapacity.
+         */
         minAdjustmentMagnitude?: pulumi.Input<number>;
+        /**
+         * A set of adjustments that enable you to scale based on the size of the alarm breach.
+         */
         stepAdjustments?: pulumi.Input<pulumi.Input<inputs.applicationautoscaling.ScalingPolicyStepAdjustmentArgs>[]>;
     }
 
+    /**
+     * Represents a specific metric.
+     */
+    export interface ScalingPolicyTargetTrackingMetricArgs {
+        /**
+         * The dimensions for the metric.
+         */
+        dimensions?: pulumi.Input<pulumi.Input<inputs.applicationautoscaling.ScalingPolicyTargetTrackingMetricDimensionArgs>[]>;
+        /**
+         * The name of the metric.
+         */
+        metricName?: pulumi.Input<string>;
+        /**
+         * The namespace of the metric.
+         */
+        namespace?: pulumi.Input<string>;
+    }
+
+    /**
+     * The metric data to return. Also defines whether this call is returning data for one metric only, or whether it is performing a math expression on the values of returned metric statistics to create a new time series. A time series is a series of data points, each of which is associated with a timestamp.
+     */
+    export interface ScalingPolicyTargetTrackingMetricDataQueryArgs {
+        /**
+         * The math expression to perform on the returned data, if this object is performing a math expression.
+         */
+        expression?: pulumi.Input<string>;
+        /**
+         * A short name that identifies the object's results in the response.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.
+         */
+        label?: pulumi.Input<string>;
+        /**
+         * Information about the metric data to return.
+         */
+        metricStat?: pulumi.Input<inputs.applicationautoscaling.ScalingPolicyTargetTrackingMetricStatArgs>;
+        /**
+         * Indicates whether to return the timestamps and raw data values of this metric.
+         */
+        returnData?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Describes the dimension of a metric.
+     */
+    export interface ScalingPolicyTargetTrackingMetricDimensionArgs {
+        /**
+         * The name of the dimension.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The value of the dimension.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
+     * This structure defines the CloudWatch metric to return, along with the statistic, period, and unit.
+     */
+    export interface ScalingPolicyTargetTrackingMetricStatArgs {
+        /**
+         * The CloudWatch metric to return, including the metric name, namespace, and dimensions. 
+         */
+        metric?: pulumi.Input<inputs.applicationautoscaling.ScalingPolicyTargetTrackingMetricArgs>;
+        /**
+         * The statistic to return. It can include any CloudWatch statistic or extended statistic.
+         */
+        stat?: pulumi.Input<string>;
+        /**
+         * The unit to use for the returned data points.
+         */
+        unit?: pulumi.Input<string>;
+    }
+
+    /**
+     * A target tracking scaling policy.
+     */
     export interface ScalingPolicyTargetTrackingScalingPolicyConfigurationArgs {
+        /**
+         * A customized metric. You can specify either a predefined metric or a customized metric.
+         */
         customizedMetricSpecification?: pulumi.Input<inputs.applicationautoscaling.ScalingPolicyCustomizedMetricSpecificationArgs>;
+        /**
+         * Indicates whether scale in by the target tracking scaling policy is disabled. If the value is true, scale in is disabled and the target tracking scaling policy won't remove capacity from the scalable target. Otherwise, scale in is enabled and the target tracking scaling policy can remove capacity from the scalable target. The default value is false.
+         */
         disableScaleIn?: pulumi.Input<boolean>;
+        /**
+         * A predefined metric. You can specify either a predefined metric or a customized metric.
+         */
         predefinedMetricSpecification?: pulumi.Input<inputs.applicationautoscaling.ScalingPolicyPredefinedMetricSpecificationArgs>;
+        /**
+         * The amount of time, in seconds, after a scale-in activity completes before another scale-in activity can start.
+         */
         scaleInCooldown?: pulumi.Input<number>;
+        /**
+         * The amount of time, in seconds, to wait for a previous scale-out activity to take effect.
+         */
         scaleOutCooldown?: pulumi.Input<number>;
+        /**
+         * The target value for the metric. Although this property accepts numbers of type Double, it won't accept values that are either too small or too large. Values must be in the range of -2^360 to 2^360. The value must be a valid number based on the choice of metric. For example, if the metric is CPU utilization, then the target value is a percent value that represents how much of the CPU can be used before scaling out.
+         */
         targetValue: pulumi.Input<number>;
     }
 }
@@ -4855,25 +5022,52 @@ export namespace appsync {
     }
 
     export interface ResolverAppSyncRuntimeArgs {
+        /**
+         * The name of the runtime to use.
+         */
         name: pulumi.Input<string>;
+        /**
+         * The version of the runtime to use.
+         */
         runtimeVersion: pulumi.Input<string>;
     }
 
     export interface ResolverCachingConfigArgs {
+        /**
+         * The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+         */
         cachingKeys?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The TTL in seconds for a resolver that has caching activated. Valid values are 1-36.00 seconds.
+         */
         ttl: pulumi.Input<number>;
     }
 
+    /**
+     * The LambdaConflictHandlerConfig when configuring LAMBDA as the Conflict Handler.
+     */
     export interface ResolverLambdaConflictHandlerConfigArgs {
+        /**
+         * The Amazon Resource Name (ARN) for the Lambda function to use as the Conflict Handler.
+         */
         lambdaConflictHandlerArn?: pulumi.Input<string>;
     }
 
     export interface ResolverPipelineConfigArgs {
+        /**
+         * A list of Function objects.
+         */
         functions?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ResolverSyncConfigArgs {
+        /**
+         * The Conflict Detection strategy to use.
+         */
         conflictDetection: pulumi.Input<string>;
+        /**
+         * The Conflict Resolution strategy to perform in the event of a conflict.
+         */
         conflictHandler?: pulumi.Input<string>;
         lambdaConflictHandlerConfig?: pulumi.Input<inputs.appsync.ResolverLambdaConflictHandlerConfigArgs>;
     }
@@ -5150,6 +5344,11 @@ export namespace autoscaling {
     export interface AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs {
         max?: pulumi.Input<number>;
         min?: pulumi.Input<number>;
+    }
+
+    export interface AutoScalingGroupInstanceMaintenancePolicyArgs {
+        maxHealthyPercentage?: pulumi.Input<number>;
+        minHealthyPercentage?: pulumi.Input<number>;
     }
 
     export interface AutoScalingGroupInstanceRequirementsArgs {
@@ -5692,6 +5891,38 @@ export namespace backup {
          * Identifies the report template for the report. Reports are built using a report template. The report templates are: `BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT`
          */
         reportTemplate: pulumi.Input<string>;
+    }
+
+    export interface RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs {
+        algorithm: pulumi.Input<enums.backup.RestoreTestingPlanRestoreTestingRecoveryPointSelectionAlgorithm>;
+        excludeVaults?: pulumi.Input<pulumi.Input<string>[]>;
+        includeVaults: pulumi.Input<pulumi.Input<string>[]>;
+        recoveryPointTypes: pulumi.Input<pulumi.Input<enums.backup.RestoreTestingPlanRestoreTestingRecoveryPointType>[]>;
+        selectionWindowDays?: pulumi.Input<number>;
+    }
+
+    export interface RestoreTestingPlanTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface RestoreTestingSelectionKeyValueArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface RestoreTestingSelectionProtectedResourceConditionsArgs {
+        stringEquals?: pulumi.Input<pulumi.Input<inputs.backup.RestoreTestingSelectionKeyValueArgs>[]>;
+        stringNotEquals?: pulumi.Input<pulumi.Input<inputs.backup.RestoreTestingSelectionKeyValueArgs>[]>;
+    }
+
+    export interface RestoreTestingSelectionSensitiveStringMapArgs {
     }
 }
 
@@ -7101,6 +7332,16 @@ export namespace cloudtrail {
          * An operator that includes events that match the first few characters of the event record field specified as the value of Field.
          */
         startsWith?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * A string that contains Insights types that are logged on an event data store.
+     */
+    export interface EventDataStoreInsightSelectorArgs {
+        /**
+         * The type of Insights to log on an event data store.
+         */
+        insightType?: pulumi.Input<string>;
     }
 
     /**
@@ -12755,6 +12996,27 @@ export namespace ec2 {
     }
 
     /**
+     * Allows customer to specify ENA-SRD options
+     */
+    export interface LaunchTemplateEnaSrdSpecificationArgs {
+        /**
+         * Enables TCP ENA-SRD
+         */
+        enaSrdEnabled?: pulumi.Input<boolean>;
+        enaSrdUdpSpecification?: pulumi.Input<inputs.ec2.LaunchTemplateEnaSrdUdpSpecificationArgs>;
+    }
+
+    /**
+     * Allows customer to specify ENA-SRD (UDP) options
+     */
+    export interface LaunchTemplateEnaSrdUdpSpecificationArgs {
+        /**
+         * Enables UDP ENA-SRD
+         */
+        enaSrdUdpEnabled?: pulumi.Input<boolean>;
+    }
+
+    /**
      * Indicates whether the instance is enabled for AWS Nitro Enclaves.
      */
     export interface LaunchTemplateEnclaveOptionsArgs {
@@ -13013,6 +13275,7 @@ export namespace ec2 {
          * The device index for the network interface attachment.
          */
         deviceIndex?: pulumi.Input<number>;
+        enaSrdSpecification?: pulumi.Input<inputs.ec2.LaunchTemplateEnaSrdSpecificationArgs>;
         /**
          * The IDs of one or more security groups.
          */
@@ -14812,6 +15075,20 @@ export namespace eks {
     }
 
     /**
+     * An object representing the Access Config to use for the cluster.
+     */
+    export interface ClusterAccessConfigArgs {
+        /**
+         * Specify the authentication mode that should be used to create your cluster.
+         */
+        authenticationMode?: pulumi.Input<enums.eks.ClusterAccessConfigAuthenticationMode>;
+        /**
+         * Set this value to false to avoid creating a default cluster admin Access Entry using the IAM principal used to create the cluster.
+         */
+        bootstrapClusterCreatorAdminPermissions?: pulumi.Input<boolean>;
+    }
+
+    /**
      * Specify the placement group of the control plane machines for your cluster.
      */
     export interface ClusterControlPlanePlacementArgs {
@@ -16207,6 +16484,18 @@ export namespace emrserverless {
     }
 
     /**
+     * Configuration for a JobRun.
+     */
+    export interface ApplicationConfigurationObjectArgs {
+        /**
+         * String with a maximum length of 1024.
+         */
+        classification: pulumi.Input<string>;
+        configurations?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationConfigurationObjectArgs>[]>;
+        properties?: any;
+    }
+
+    /**
      * The image configuration.
      */
     export interface ApplicationImageConfigurationInputArgs {
@@ -16232,6 +16521,17 @@ export namespace emrserverless {
         value: pulumi.Input<inputs.emrserverless.ApplicationInitialCapacityConfigArgs>;
     }
 
+    export interface ApplicationManagedPersistenceMonitoringConfigurationArgs {
+        /**
+         * If set to false, managed logging will be turned off. Defaults to true.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * KMS key ARN to encrypt the logs stored in managed persistence
+         */
+        encryptionKeyArn?: pulumi.Input<string>;
+    }
+
     export interface ApplicationMaximumAllowedResourcesArgs {
         /**
          * Per worker CPU resource. vCPU is the only supported unit and specifying vCPU is optional.
@@ -16247,6 +16547,20 @@ export namespace emrserverless {
         memory: pulumi.Input<string>;
     }
 
+    /**
+     * Monitoring configuration for batch and interactive JobRun.
+     */
+    export interface ApplicationMonitoringConfigurationArgs {
+        /**
+         * Managed log persistence configurations for a JobRun.
+         */
+        managedPersistenceMonitoringConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationManagedPersistenceMonitoringConfigurationArgs>;
+        /**
+         * S3 monitoring configurations for a JobRun.
+         */
+        s3MonitoringConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationS3MonitoringConfigurationArgs>;
+    }
+
     export interface ApplicationNetworkConfigurationArgs {
         /**
          * The ID of the security groups in the VPC to which you want to connect your job or application.
@@ -16256,6 +16570,14 @@ export namespace emrserverless {
          * The ID of the subnets in the VPC to which you want to connect your job or application.
          */
         subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ApplicationS3MonitoringConfigurationArgs {
+        /**
+         * KMS key ARN to encrypt the logs stored in given s3
+         */
+        encryptionKeyArn?: pulumi.Input<string>;
+        logUri?: pulumi.Input<string>;
     }
 
     /**
@@ -17384,16 +17706,34 @@ export namespace frauddetector {
 
 export namespace fsx {
     /**
-     * Specifies the type of updated objects (new, changed, deleted) that will be automatically exported from your file system to the linked S3 bucket.
+     * Describes a data repository association's automatic export policy. The ``AutoExportPolicy`` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
+     *  The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
      */
     export interface DataRepositoryAssociationAutoExportPolicyArgs {
+        /**
+         * The ``AutoExportPolicy`` can have the following event values:
+         *   +   ``NEW`` - New files and directories are automatically exported to the data repository as they are added to the file system.
+         *   +   ``CHANGED`` - Changes to files and directories on the file system are automatically exported to the data repository.
+         *   +   ``DELETED`` - Files and directories are automatically deleted on the data repository when they are deleted on the file system.
+         *   
+         *  You can define any combination of event types for your ``AutoExportPolicy``.
+         */
         events: pulumi.Input<pulumi.Input<enums.fsx.DataRepositoryAssociationEventType>[]>;
     }
 
     /**
-     * Specifies the type of updated objects (new, changed, deleted) that will be automatically imported from the linked S3 bucket to your file system.
+     * Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
+     *  The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
      */
     export interface DataRepositoryAssociationAutoImportPolicyArgs {
+        /**
+         * The ``AutoImportPolicy`` can have the following event values:
+         *   +   ``NEW`` - Amazon FSx automatically imports metadata of files added to the linked S3 bucket that do not currently exist in the FSx file system.
+         *   +   ``CHANGED`` - Amazon FSx automatically updates file metadata and invalidates existing file content on the file system as files change in the data repository.
+         *   +   ``DELETED`` - Amazon FSx automatically deletes files on the file system as corresponding files are deleted in the data repository.
+         *   
+         *  You can define any combination of event types for your ``AutoImportPolicy``.
+         */
         events: pulumi.Input<pulumi.Input<enums.fsx.DataRepositoryAssociationEventType>[]>;
     }
 
@@ -17401,20 +17741,28 @@ export namespace fsx {
      * The configuration for an Amazon S3 data repository linked to an Amazon FSx Lustre file system with a data repository association. The configuration defines which file events (new, changed, or deleted files or directories) are automatically imported from the linked data repository to the file system or automatically exported from the file system to the data repository.
      */
     export interface DataRepositoryAssociationS3Args {
+        /**
+         * Describes a data repository association's automatic export policy. The ``AutoExportPolicy`` defines the types of updated objects on the file system that will be automatically exported to the data repository. As you create, modify, or delete files, Amazon FSx for Lustre automatically exports the defined changes asynchronously once your application finishes modifying the file.
+         *  The ``AutoExportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+         */
         autoExportPolicy?: pulumi.Input<inputs.fsx.DataRepositoryAssociationAutoExportPolicyArgs>;
+        /**
+         * Describes the data repository association's automatic import policy. The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory listings up to date by importing changes to your Amazon FSx for Lustre file system as you modify objects in a linked S3 bucket.
+         *  The ``AutoImportPolicy`` is only supported on Amazon FSx for Lustre file systems with a data repository association.
+         */
         autoImportPolicy?: pulumi.Input<inputs.fsx.DataRepositoryAssociationAutoImportPolicyArgs>;
     }
 
     /**
-     * A key-value pair to associate with a resource.
+     * Specifies a key-value pair for a resource tag.
      */
     export interface DataRepositoryAssociationTagArgs {
         /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         * A value that specifies the ``TagKey``, the name of the tag. Tag keys must be unique for the resource to which they are attached.
          */
         key: pulumi.Input<string>;
         /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         * A value that specifies the ``TagValue``, the value assigned to the corresponding tag key. Tag values can be null and don't have to be unique in a tag set. For example, you can have a key-value pair in a tag set of ``finances : April`` and also of ``payroll : April``.
          */
         value: pulumi.Input<string>;
     }
@@ -17773,6 +18121,57 @@ export namespace gamelift {
     }
 
     /**
+     * Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.
+     */
+    export interface FleetScalingPolicyArgs {
+        /**
+         * Comparison operator to use when measuring a metric against the threshold value.
+         */
+        comparisonOperator?: pulumi.Input<enums.gamelift.FleetScalingPolicyComparisonOperator>;
+        /**
+         * Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
+         */
+        evaluationPeriods?: pulumi.Input<number>;
+        location?: pulumi.Input<string>;
+        /**
+         * Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+         */
+        metricName: pulumi.Input<enums.gamelift.FleetScalingPolicyMetricName>;
+        /**
+         * A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
+         */
+        policyType?: pulumi.Input<enums.gamelift.FleetScalingPolicyPolicyType>;
+        /**
+         * Amount of adjustment to make, based on the scaling adjustment type.
+         */
+        scalingAdjustment?: pulumi.Input<number>;
+        /**
+         * The type of adjustment to make to a fleet's instance count.
+         */
+        scalingAdjustmentType?: pulumi.Input<enums.gamelift.FleetScalingPolicyScalingAdjustmentType>;
+        /**
+         * Current status of the scaling policy. The scaling policy can be in force only when in an ACTIVE status. Scaling policies can be suspended for individual fleets. If the policy is suspended for a fleet, the policy status does not change.
+         */
+        status?: pulumi.Input<enums.gamelift.FleetScalingPolicyStatus>;
+        /**
+         * An object that contains settings for a target-based scaling policy.
+         */
+        targetConfiguration?: pulumi.Input<inputs.gamelift.FleetTargetConfigurationArgs>;
+        /**
+         * Metric value used to trigger a scaling event.
+         */
+        threshold?: pulumi.Input<number>;
+        /**
+         * The current status of the fleet's scaling policies in a requested fleet location. The status PENDING_UPDATE indicates that an update was requested for the fleet but has not yet been completed for the location.
+         */
+        updateStatus?: pulumi.Input<enums.gamelift.FleetScalingPolicyUpdateStatus>;
+    }
+
+    /**
      * A set of instructions for launching server processes on each instance in a fleet. Each instruction set identifies the location of the server executable, optional launch parameters, and the number of server processes with this configuration to maintain concurrently on the instance. Server process configurations make up a fleet's RuntimeConfiguration.
      */
     export interface FleetServerProcessArgs {
@@ -17792,6 +18191,16 @@ export namespace gamelift {
          * An optional list of parameters to pass to the server executable or Realtime script on launch.
          */
         parameters?: pulumi.Input<string>;
+    }
+
+    /**
+     * Settings for a target-based scaling policy. A target-based policy tracks a particular fleet metric specifies a target value for the metric. As player usage changes, the policy triggers Amazon GameLift to adjust capacity so that the metric returns to the target value. The target configuration specifies settings as needed for the target based policy, including the target value.
+     */
+    export interface FleetTargetConfigurationArgs {
+        /**
+         * Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet's buffer (the percent of capacity that should be idle and ready for new game sessions).
+         */
+        targetValue: pulumi.Input<number>;
     }
 
     /**
@@ -17837,6 +18246,9 @@ export namespace gamelift {
         targetValue: pulumi.Input<number>;
     }
 
+    /**
+     * A fleet or alias designated in a game session queue.
+     */
     export interface GameSessionQueueDestinationArgs {
         destinationArn?: pulumi.Input<string>;
     }
@@ -17845,18 +18257,36 @@ export namespace gamelift {
         allowedLocations?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    /**
+     * Sets a latency cap for individual players when placing a game session.
+     */
     export interface GameSessionQueuePlayerLatencyPolicyArgs {
+        /**
+         * The maximum latency value that is allowed for any player, in milliseconds. All policies must have a value set for this property.
+         */
         maximumIndividualPlayerLatencyMilliseconds?: pulumi.Input<number>;
+        /**
+         * The length of time, in seconds, that the policy is enforced while placing a new game session.
+         */
         policyDurationSeconds?: pulumi.Input<number>;
     }
 
     export interface GameSessionQueuePriorityConfigurationArgs {
         locationOrder?: pulumi.Input<pulumi.Input<string>[]>;
-        priorityOrder?: pulumi.Input<pulumi.Input<string>[]>;
+        priorityOrder?: pulumi.Input<pulumi.Input<enums.gamelift.GameSessionQueuePriorityOrderItem>[]>;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface GameSessionQueueTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
+         */
         value: pulumi.Input<string>;
     }
 
@@ -17874,30 +18304,78 @@ export namespace gamelift {
         value: pulumi.Input<string>;
     }
 
+    /**
+     * A key-value pair that contains information about a game session.
+     */
     export interface MatchmakingConfigurationGamePropertyArgs {
+        /**
+         * The game property identifier.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The game property value.
+         */
         value: pulumi.Input<string>;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface MatchmakingConfigurationTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
+         */
         value: pulumi.Input<string>;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface MatchmakingRuleSetTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
+         */
         value: pulumi.Input<string>;
     }
 
     export interface ScriptS3LocationArgs {
+        /**
+         * An Amazon S3 bucket identifier. This is the name of the S3 bucket.
+         */
         bucket: pulumi.Input<string>;
+        /**
+         * The name of the zip file that contains the script files.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter.
+         */
         objectVersion?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+         */
         roleArn: pulumi.Input<string>;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
     export interface ScriptTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+         */
         key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
+         */
         value: pulumi.Input<string>;
     }
 }
@@ -19202,12 +19680,12 @@ export namespace guardduty {
         value: pulumi.Input<string>;
     }
 
-    export interface IpSetTagArgs {
+    export interface IpSetTagItemArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
 
-    export interface ThreatIntelSetTagArgs {
+    export interface ThreatIntelSetTagItemArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
     }
@@ -19979,6 +20457,145 @@ export namespace imagebuilder {
          */
         s3KeyPrefix?: pulumi.Input<string>;
     }
+
+    /**
+     * The action of the policy detail.
+     */
+    export interface LifecyclePolicyActionArgs {
+        includeResources?: pulumi.Input<inputs.imagebuilder.LifecyclePolicyIncludeResourcesArgs>;
+        /**
+         * The action type of the policy detail.
+         */
+        type: pulumi.Input<enums.imagebuilder.LifecyclePolicyActionType>;
+    }
+
+    /**
+     * The AMI exclusion rules for the policy detail.
+     */
+    export interface LifecyclePolicyAmiExclusionRulesArgs {
+        /**
+         * Use to apply lifecycle policy actions on whether the AMI is public.
+         */
+        isPublic?: pulumi.Input<boolean>;
+        /**
+         * Use to apply lifecycle policy actions on AMIs launched before a certain time.
+         */
+        lastLaunched?: pulumi.Input<inputs.imagebuilder.LifecyclePolicyLastLaunchedArgs>;
+        /**
+         * Use to apply lifecycle policy actions on AMIs distributed to a set of regions.
+         */
+        regions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Use to apply lifecycle policy actions on AMIs shared with a set of regions.
+         */
+        sharedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The AMIs to select by tag.
+         */
+        tagMap?: any;
+    }
+
+    /**
+     * The exclusion rules to apply of the policy detail.
+     */
+    export interface LifecyclePolicyExclusionRulesArgs {
+        amis?: pulumi.Input<inputs.imagebuilder.LifecyclePolicyAmiExclusionRulesArgs>;
+        /**
+         * The Image Builder tags to filter on.
+         */
+        tagMap?: any;
+    }
+
+    /**
+     * The filters to apply of the policy detail.
+     */
+    export interface LifecyclePolicyFilterArgs {
+        /**
+         * The minimum number of Image Builder resources to retain.
+         */
+        retainAtLeast?: pulumi.Input<number>;
+        /**
+         * The filter type.
+         */
+        type: pulumi.Input<enums.imagebuilder.LifecyclePolicyFilterType>;
+        /**
+         * The value's time unit.
+         */
+        unit?: pulumi.Input<enums.imagebuilder.LifecyclePolicyTimeUnit>;
+        /**
+         * The filter value.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    /**
+     * The included resources of the policy detail.
+     */
+    export interface LifecyclePolicyIncludeResourcesArgs {
+        /**
+         * Use to configure lifecycle actions on AMIs.
+         */
+        amis?: pulumi.Input<boolean>;
+        /**
+         * Use to configure lifecycle actions on containers.
+         */
+        containers?: pulumi.Input<boolean>;
+        /**
+         * Use to configure lifecycle actions on snapshots.
+         */
+        snapshots?: pulumi.Input<boolean>;
+    }
+
+    /**
+     * The last launched time of a resource.
+     */
+    export interface LifecyclePolicyLastLaunchedArgs {
+        /**
+         * The value's time unit.
+         */
+        unit: pulumi.Input<enums.imagebuilder.LifecyclePolicyTimeUnit>;
+        /**
+         * The last launched value.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    /**
+     * The policy detail of the lifecycle policy.
+     */
+    export interface LifecyclePolicyPolicyDetailArgs {
+        action: pulumi.Input<inputs.imagebuilder.LifecyclePolicyActionArgs>;
+        exclusionRules?: pulumi.Input<inputs.imagebuilder.LifecyclePolicyExclusionRulesArgs>;
+        filter: pulumi.Input<inputs.imagebuilder.LifecyclePolicyFilterArgs>;
+    }
+
+    /**
+     * The recipe to apply the lifecycle policy for.
+     */
+    export interface LifecyclePolicyRecipeSelectionArgs {
+        /**
+         * The recipe name.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The recipe version.
+         */
+        semanticVersion?: pulumi.Input<string>;
+    }
+
+    /**
+     * The resource selection for the lifecycle policy.
+     */
+    export interface LifecyclePolicyResourceSelectionArgs {
+        /**
+         * The recipes to select.
+         */
+        recipes?: pulumi.Input<pulumi.Input<inputs.imagebuilder.LifecyclePolicyRecipeSelectionArgs>[]>;
+        /**
+         * The Image Builder resources to select by tag.
+         */
+        tagMap?: any;
+    }
 }
 
 export namespace inspector {
@@ -20366,6 +20983,20 @@ export namespace iot {
     }
 
     /**
+     * A structure containing the mqtt topic for metrics export.
+     */
+    export interface MetricsExportConfigPropertiesArgs {
+        /**
+         * The topic for metrics export.
+         */
+        mqttTopic: pulumi.Input<string>;
+        /**
+         * The ARN of the role that grants permission to publish to mqtt topic.
+         */
+        roleArn: pulumi.Input<string>;
+    }
+
+    /**
      * The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
      */
     export interface MitigationActionActionParamsArgs {
@@ -20506,6 +21137,7 @@ export namespace iot {
      */
     export interface SecurityProfileBehaviorArgs {
         criteria?: pulumi.Input<inputs.iot.SecurityProfileBehaviorCriteriaArgs>;
+        exportMetric?: pulumi.Input<boolean>;
         /**
          * What is measured by the behavior.
          */
@@ -20574,6 +21206,7 @@ export namespace iot {
      * The metric you want to retain. Dimensions are optional.
      */
     export interface SecurityProfileMetricToRetainArgs {
+        exportMetric?: pulumi.Input<boolean>;
         /**
          * What is measured by the behavior.
          */
@@ -25413,6 +26046,28 @@ export namespace lambda {
         workingDirectory?: pulumi.Input<string>;
     }
 
+    /**
+     * The function's logging configuration.
+     */
+    export interface FunctionLoggingConfigArgs {
+        /**
+         * Application log granularity level, can only be used when LogFormat is set to JSON
+         */
+        applicationLogLevel?: pulumi.Input<enums.lambda.FunctionLoggingConfigApplicationLogLevel>;
+        /**
+         * Log delivery format for the lambda function
+         */
+        logFormat?: pulumi.Input<enums.lambda.FunctionLoggingConfigLogFormat>;
+        /**
+         * The log group name.
+         */
+        logGroup?: pulumi.Input<string>;
+        /**
+         * System log granularity level, can only be used when LogFormat is set to JSON
+         */
+        systemLogLevel?: pulumi.Input<enums.lambda.FunctionLoggingConfigSystemLogLevel>;
+    }
+
     export interface FunctionRuntimeManagementConfigArgs {
         /**
          * Unique identifier for a runtime version arn
@@ -29631,6 +30286,128 @@ export namespace medialive {
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
         subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
+
+    /**
+     * Multiplex MediaConnect output destination settings.
+     */
+    export interface MultiplexOutputDestinationArgs {
+        /**
+         * Multiplex MediaConnect output destination settings.
+         */
+        multiplexMediaConnectOutputDestinationSettings?: pulumi.Input<inputs.medialive.MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs>;
+    }
+
+    /**
+     * Multiplex MediaConnect output destination settings.
+     */
+    export interface MultiplexOutputDestinationMultiplexMediaConnectOutputDestinationSettingsPropertiesArgs {
+        /**
+         * The MediaConnect entitlement ARN available as a Flow source.
+         */
+        entitlementArn?: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface MultiplexSettingsArgs {
+        /**
+         * Maximum video buffer delay in milliseconds.
+         */
+        maximumVideoBufferDelayMilliseconds?: pulumi.Input<number>;
+        /**
+         * Transport stream bit rate.
+         */
+        transportStreamBitrate: pulumi.Input<number>;
+        /**
+         * Transport stream ID.
+         */
+        transportStreamId: pulumi.Input<number>;
+        /**
+         * Transport stream reserved bit rate.
+         */
+        transportStreamReservedBitrate?: pulumi.Input<number>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface MultiplexTagsArgs {
+        key?: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
+    }
+
+    /**
+     * Packet identifiers map for a given Multiplex program.
+     */
+    export interface MultiplexprogramMultiplexProgramPacketIdentifiersMapArgs {
+        audioPids?: pulumi.Input<pulumi.Input<number>[]>;
+        dvbSubPids?: pulumi.Input<pulumi.Input<number>[]>;
+        dvbTeletextPid?: pulumi.Input<number>;
+        etvPlatformPid?: pulumi.Input<number>;
+        etvSignalPid?: pulumi.Input<number>;
+        klvDataPids?: pulumi.Input<pulumi.Input<number>[]>;
+        pcrPid?: pulumi.Input<number>;
+        pmtPid?: pulumi.Input<number>;
+        privateMetadataPid?: pulumi.Input<number>;
+        scte27Pids?: pulumi.Input<pulumi.Input<number>[]>;
+        scte35Pid?: pulumi.Input<number>;
+        timedMetadataPid?: pulumi.Input<number>;
+        videoPid?: pulumi.Input<number>;
+    }
+
+    /**
+     * The current source for one of the pipelines in the multiplex.
+     */
+    export interface MultiplexprogramMultiplexProgramPipelineDetailArgs {
+        /**
+         * Identifies the channel pipeline that is currently active for the pipeline (identified by PipelineId) in the multiplex.
+         */
+        activeChannelPipeline?: pulumi.Input<string>;
+        /**
+         * Identifies a specific pipeline in the multiplex.
+         */
+        pipelineId?: pulumi.Input<string>;
+    }
+
+    /**
+     * Transport stream service descriptor configuration for the Multiplex program.
+     */
+    export interface MultiplexprogramMultiplexProgramServiceDescriptorArgs {
+        /**
+         * Name of the provider.
+         */
+        providerName: pulumi.Input<string>;
+        /**
+         * Name of the service.
+         */
+        serviceName: pulumi.Input<string>;
+    }
+
+    /**
+     * Multiplex Program settings configuration.
+     */
+    export interface MultiplexprogramMultiplexProgramSettingsArgs {
+        preferredChannelPipeline?: pulumi.Input<enums.medialive.MultiplexprogramPreferredChannelPipeline>;
+        /**
+         * Unique program number.
+         */
+        programNumber: pulumi.Input<number>;
+        /**
+         * Transport stream service descriptor configuration for the Multiplex program.
+         */
+        serviceDescriptor?: pulumi.Input<inputs.medialive.MultiplexprogramMultiplexProgramServiceDescriptorArgs>;
+        /**
+         * Program video settings configuration.
+         */
+        videoSettings?: pulumi.Input<inputs.medialive.MultiplexprogramMultiplexVideoSettingsArgs>;
+    }
+
+    /**
+     * The video configuration for each program in a multiplex.
+     */
+    export interface MultiplexprogramMultiplexVideoSettingsArgs {
+    }
 }
 
 export namespace mediapackage {
@@ -30311,6 +31088,28 @@ export namespace mediapackagev2 {
     }
 
     /**
+     * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+     */
+    export interface OriginEndpointFilterConfigurationArgs {
+        /**
+         * <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+         */
+        end?: pulumi.Input<string>;
+        /**
+         * <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+         */
+        manifestFilter?: pulumi.Input<string>;
+        /**
+         * <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+         */
+        start?: pulumi.Input<string>;
+        /**
+         * <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+         */
+        timeDelaySeconds?: pulumi.Input<number>;
+    }
+
+    /**
      * <p>Retrieve the HTTP live streaming (HLS) manifest configuration.</p>
      */
     export interface OriginEndpointHlsManifestConfigurationArgs {
@@ -30318,6 +31117,7 @@ export namespace mediapackagev2 {
          * <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
          */
         childManifestName?: pulumi.Input<string>;
+        filterConfiguration?: pulumi.Input<inputs.mediapackagev2.OriginEndpointFilterConfigurationArgs>;
         /**
          * <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
          */
@@ -30349,6 +31149,7 @@ export namespace mediapackagev2 {
          * <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
          */
         childManifestName?: pulumi.Input<string>;
+        filterConfiguration?: pulumi.Input<inputs.mediapackagev2.OriginEndpointFilterConfigurationArgs>;
         /**
          * <p>A short short string that's appended to the endpoint URL. The manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default manifest name, index. MediaPackage automatically inserts the format extension, such as .m3u8. You can't use the same manifest name if you use HLS manifest and low-latency HLS manifest. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
          */
@@ -33494,6 +34295,10 @@ export namespace pipes {
         weight?: pulumi.Input<number>;
     }
 
+    export interface PipeCloudwatchLogsLogDestinationArgs {
+        logGroupArn?: pulumi.Input<string>;
+    }
+
     export interface PipeDeadLetterConfigArgs {
         arn?: pulumi.Input<string>;
     }
@@ -33562,7 +34367,19 @@ export namespace pipes {
         filters?: pulumi.Input<pulumi.Input<inputs.pipes.PipeFilterArgs>[]>;
     }
 
+    export interface PipeFirehoseLogDestinationArgs {
+        deliveryStreamArn?: pulumi.Input<string>;
+    }
+
     export interface PipeHeaderParametersMapArgs {
+    }
+
+    export interface PipeLogConfigurationArgs {
+        cloudwatchLogsLogDestination?: pulumi.Input<inputs.pipes.PipeCloudwatchLogsLogDestinationArgs>;
+        firehoseLogDestination?: pulumi.Input<inputs.pipes.PipeFirehoseLogDestinationArgs>;
+        includeExecutionData?: pulumi.Input<pulumi.Input<enums.pipes.PipeIncludeExecutionDataOption>[]>;
+        level?: pulumi.Input<enums.pipes.PipeLogLevel>;
+        s3LogDestination?: pulumi.Input<inputs.pipes.PipeS3LogDestinationArgs>;
     }
 
     export interface PipeMqBrokerAccessCredentialsPropertiesArgs {
@@ -33601,6 +34418,13 @@ export namespace pipes {
     }
 
     export interface PipeQueryStringParametersMapArgs {
+    }
+
+    export interface PipeS3LogDestinationArgs {
+        bucketName?: pulumi.Input<string>;
+        bucketOwner?: pulumi.Input<string>;
+        outputFormat?: pulumi.Input<enums.pipes.PipeS3OutputFormat>;
+        prefix?: pulumi.Input<string>;
     }
 
     export interface PipeSageMakerPipelineParameterArgs {
@@ -33950,6 +34774,11 @@ export namespace quicksight {
 
     export interface AnalysisArcOptionsArgs {
         arcThickness?: pulumi.Input<enums.quicksight.AnalysisArcThickness>;
+    }
+
+    export interface AnalysisAssetOptionsArgs {
+        timezone?: pulumi.Input<string>;
+        weekStart?: pulumi.Input<enums.quicksight.AnalysisDayOfTheWeek>;
     }
 
     export interface AnalysisAttributeAggregationFunctionArgs {
@@ -34634,6 +35463,7 @@ export namespace quicksight {
         columnConfigurations?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisColumnConfigurationArgs>[]>;
         dataSetIdentifierDeclarations: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisDataSetIdentifierDeclarationArgs>[]>;
         filterGroups?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisFilterGroupArgs>[]>;
+        options?: pulumi.Input<inputs.quicksight.AnalysisAssetOptionsArgs>;
         parameterDeclarations?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisParameterDeclarationArgs>[]>;
         sheets?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisSheetDefinitionArgs>[]>;
     }
@@ -36978,6 +37808,11 @@ export namespace quicksight {
         arcThickness?: pulumi.Input<enums.quicksight.DashboardArcThickness>;
     }
 
+    export interface DashboardAssetOptionsArgs {
+        timezone?: pulumi.Input<string>;
+        weekStart?: pulumi.Input<enums.quicksight.DashboardDayOfTheWeek>;
+    }
+
     export interface DashboardAttributeAggregationFunctionArgs {
         simpleAttributeAggregation?: pulumi.Input<enums.quicksight.DashboardSimpleAttributeAggregationFunction>;
         valueForMultipleValues?: pulumi.Input<string>;
@@ -38550,6 +39385,10 @@ export namespace quicksight {
         missingDataConfigurations?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardMissingDataConfigurationArgs>[]>;
     }
 
+    export interface DashboardLinkSharingConfigurationArgs {
+        permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardResourcePermissionArgs>[]>;
+    }
+
     export interface DashboardListControlDisplayOptionsArgs {
         infoIconLabelOptions?: pulumi.Input<inputs.quicksight.DashboardSheetControlInfoIconLabelOptionsArgs>;
         searchOptions?: pulumi.Input<inputs.quicksight.DashboardListControlSearchOptionsArgs>;
@@ -39843,6 +40682,7 @@ export namespace quicksight {
         columnConfigurations?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardColumnConfigurationArgs>[]>;
         dataSetIdentifierDeclarations: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardDataSetIdentifierDeclarationArgs>[]>;
         filterGroups?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardFilterGroupArgs>[]>;
+        options?: pulumi.Input<inputs.quicksight.DashboardAssetOptionsArgs>;
         parameterDeclarations?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardParameterDeclarationArgs>[]>;
         sheets?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardSheetDefinitionArgs>[]>;
     }
@@ -40516,7 +41356,9 @@ export namespace quicksight {
         snowflakeParameters?: pulumi.Input<inputs.quicksight.DataSourceSnowflakeParametersArgs>;
         sparkParameters?: pulumi.Input<inputs.quicksight.DataSourceSparkParametersArgs>;
         sqlServerParameters?: pulumi.Input<inputs.quicksight.DataSourceSqlServerParametersArgs>;
+        starburstParameters?: pulumi.Input<inputs.quicksight.DataSourceStarburstParametersArgs>;
         teradataParameters?: pulumi.Input<inputs.quicksight.DataSourceTeradataParametersArgs>;
+        trinoParameters?: pulumi.Input<inputs.quicksight.DataSourceTrinoParametersArgs>;
     }
 
     /**
@@ -40695,6 +41537,25 @@ export namespace quicksight {
     }
 
     /**
+     * <p>Starburst parameters.</p>
+     */
+    export interface DataSourceStarburstParametersArgs {
+        /**
+         * <p>Catalog.</p>
+         */
+        catalog: pulumi.Input<string>;
+        /**
+         * <p>Host.</p>
+         */
+        host: pulumi.Input<string>;
+        /**
+         * <p>Port.</p>
+         */
+        port: pulumi.Input<number>;
+        productType?: pulumi.Input<enums.quicksight.DataSourceStarburstProductType>;
+    }
+
+    /**
      * <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
      *             resource.</p>
      */
@@ -40717,6 +41578,24 @@ export namespace quicksight {
          * <p>Database.</p>
          */
         database: pulumi.Input<string>;
+        /**
+         * <p>Host.</p>
+         */
+        host: pulumi.Input<string>;
+        /**
+         * <p>Port.</p>
+         */
+        port: pulumi.Input<number>;
+    }
+
+    /**
+     * <p>Trino parameters.</p>
+     */
+    export interface DataSourceTrinoParametersArgs {
+        /**
+         * <p>Catalog.</p>
+         */
+        catalog: pulumi.Input<string>;
         /**
          * <p>Host.</p>
          */
@@ -40825,6 +41704,11 @@ export namespace quicksight {
 
     export interface TemplateArcOptionsArgs {
         arcThickness?: pulumi.Input<enums.quicksight.TemplateArcThickness>;
+    }
+
+    export interface TemplateAssetOptionsArgs {
+        timezone?: pulumi.Input<string>;
+        weekStart?: pulumi.Input<enums.quicksight.TemplateDayOfTheWeek>;
     }
 
     export interface TemplateAttributeAggregationFunctionArgs {
@@ -43644,6 +44528,7 @@ export namespace quicksight {
         columnConfigurations?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateColumnConfigurationArgs>[]>;
         dataSetConfigurations: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateDataSetConfigurationArgs>[]>;
         filterGroups?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateFilterGroupArgs>[]>;
+        options?: pulumi.Input<inputs.quicksight.TemplateAssetOptionsArgs>;
         parameterDeclarations?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateParameterDeclarationArgs>[]>;
         sheets?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateSheetDefinitionArgs>[]>;
     }
@@ -44866,12 +45751,12 @@ export namespace resourceexplorer2 {
     export interface IndexTagMapArgs {
     }
 
-    export interface ViewFiltersArgs {
-        filterString: pulumi.Input<string>;
-    }
-
     export interface ViewIncludedPropertyArgs {
         name: pulumi.Input<string>;
+    }
+
+    export interface ViewSearchFilterArgs {
+        filterString: pulumi.Input<string>;
     }
 
     export interface ViewTagMapArgs {
@@ -46562,10 +47447,73 @@ export namespace s3 {
     }
 
     /**
+     * The Storage Lens group will include objects that match all of the specified filter values.
+     */
+    export interface StorageLensGroupAndArgs {
+        matchAnyPrefix?: pulumi.Input<pulumi.Input<string>[]>;
+        matchAnySuffix?: pulumi.Input<pulumi.Input<string>[]>;
+        matchAnyTag?: pulumi.Input<pulumi.Input<inputs.s3.StorageLensGroupTagArgs>[]>;
+        matchObjectAge?: pulumi.Input<inputs.s3.StorageLensGroupMatchObjectAgeArgs>;
+        matchObjectSize?: pulumi.Input<inputs.s3.StorageLensGroupMatchObjectSizeArgs>;
+    }
+
+    /**
+     * Sets the Storage Lens Group filter.
+     */
+    export interface StorageLensGroupFilterArgs {
+        and?: pulumi.Input<inputs.s3.StorageLensGroupAndArgs>;
+        matchAnyPrefix?: pulumi.Input<pulumi.Input<string>[]>;
+        matchAnySuffix?: pulumi.Input<pulumi.Input<string>[]>;
+        matchAnyTag?: pulumi.Input<pulumi.Input<inputs.s3.StorageLensGroupTagArgs>[]>;
+        matchObjectAge?: pulumi.Input<inputs.s3.StorageLensGroupMatchObjectAgeArgs>;
+        matchObjectSize?: pulumi.Input<inputs.s3.StorageLensGroupMatchObjectSizeArgs>;
+        or?: pulumi.Input<inputs.s3.StorageLensGroupOrArgs>;
+    }
+
+    /**
      * Specifies the details of Amazon S3 Storage Lens Group configuration.
      */
     export interface StorageLensGroupLevelArgs {
         storageLensGroupSelectionCriteria?: pulumi.Input<inputs.s3.StorageLensGroupSelectionCriteriaArgs>;
+    }
+
+    /**
+     * Filter to match all of the specified values for the minimum and maximum object age.
+     */
+    export interface StorageLensGroupMatchObjectAgeArgs {
+        /**
+         * Minimum object age to which the rule applies.
+         */
+        daysGreaterThan?: pulumi.Input<number>;
+        /**
+         * Maximum object age to which the rule applies.
+         */
+        daysLessThan?: pulumi.Input<number>;
+    }
+
+    /**
+     * Filter to match all of the specified values for the minimum and maximum object size.
+     */
+    export interface StorageLensGroupMatchObjectSizeArgs {
+        /**
+         * Minimum object size to which the rule applies.
+         */
+        bytesGreaterThan?: pulumi.Input<number>;
+        /**
+         * Maximum object size to which the rule applies.
+         */
+        bytesLessThan?: pulumi.Input<number>;
+    }
+
+    /**
+     * The Storage Lens group will include objects that match any of the specified filter values.
+     */
+    export interface StorageLensGroupOrArgs {
+        matchAnyPrefix?: pulumi.Input<pulumi.Input<string>[]>;
+        matchAnySuffix?: pulumi.Input<pulumi.Input<string>[]>;
+        matchAnyTag?: pulumi.Input<pulumi.Input<inputs.s3.StorageLensGroupTagArgs>[]>;
+        matchObjectAge?: pulumi.Input<inputs.s3.StorageLensGroupMatchObjectAgeArgs>;
+        matchObjectSize?: pulumi.Input<inputs.s3.StorageLensGroupMatchObjectSizeArgs>;
     }
 
     /**
@@ -46574,6 +47522,11 @@ export namespace s3 {
     export interface StorageLensGroupSelectionCriteriaArgs {
         exclude?: pulumi.Input<pulumi.Input<string>[]>;
         include?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface StorageLensGroupTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 
     /**

@@ -16,8 +16,9 @@ import (
 type View struct {
 	pulumi.CustomResourceState
 
-	Filters            ViewFiltersPtrOutput            `pulumi:"filters"`
+	Filters            ViewSearchFilterPtrOutput       `pulumi:"filters"`
 	IncludedProperties ViewIncludedPropertyArrayOutput `pulumi:"includedProperties"`
+	Scope              pulumi.StringPtrOutput          `pulumi:"scope"`
 	Tags               ViewTagMapPtrOutput             `pulumi:"tags"`
 	ViewArn            pulumi.StringOutput             `pulumi:"viewArn"`
 	ViewName           pulumi.StringOutput             `pulumi:"viewName"`
@@ -31,6 +32,7 @@ func NewView(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"scope",
 		"viewName",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -67,16 +69,18 @@ func (ViewState) ElementType() reflect.Type {
 }
 
 type viewArgs struct {
-	Filters            *ViewFilters           `pulumi:"filters"`
+	Filters            *ViewSearchFilter      `pulumi:"filters"`
 	IncludedProperties []ViewIncludedProperty `pulumi:"includedProperties"`
+	Scope              *string                `pulumi:"scope"`
 	Tags               *ViewTagMap            `pulumi:"tags"`
 	ViewName           *string                `pulumi:"viewName"`
 }
 
 // The set of arguments for constructing a View resource.
 type ViewArgs struct {
-	Filters            ViewFiltersPtrInput
+	Filters            ViewSearchFilterPtrInput
 	IncludedProperties ViewIncludedPropertyArrayInput
+	Scope              pulumi.StringPtrInput
 	Tags               ViewTagMapPtrInput
 	ViewName           pulumi.StringPtrInput
 }
@@ -130,12 +134,16 @@ func (o ViewOutput) ToOutput(ctx context.Context) pulumix.Output[*View] {
 	}
 }
 
-func (o ViewOutput) Filters() ViewFiltersPtrOutput {
-	return o.ApplyT(func(v *View) ViewFiltersPtrOutput { return v.Filters }).(ViewFiltersPtrOutput)
+func (o ViewOutput) Filters() ViewSearchFilterPtrOutput {
+	return o.ApplyT(func(v *View) ViewSearchFilterPtrOutput { return v.Filters }).(ViewSearchFilterPtrOutput)
 }
 
 func (o ViewOutput) IncludedProperties() ViewIncludedPropertyArrayOutput {
 	return o.ApplyT(func(v *View) ViewIncludedPropertyArrayOutput { return v.IncludedProperties }).(ViewIncludedPropertyArrayOutput)
+}
+
+func (o ViewOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
 }
 
 func (o ViewOutput) Tags() ViewTagMapPtrOutput {

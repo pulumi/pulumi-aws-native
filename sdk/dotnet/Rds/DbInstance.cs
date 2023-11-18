@@ -183,6 +183,12 @@ namespace Pulumi.AwsNative.Rds
         public Output<string> DbiResourceId { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
+        /// </summary>
+        [Output("dedicatedLogVolume")]
+        public Output<bool?> DedicatedLogVolume { get; private set; } = null!;
+
+        /// <summary>
         /// A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
         /// </summary>
         [Output("deleteAutomatedBackups")]
@@ -721,6 +727,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("dbSubnetGroupName")]
         public Input<string>? DbSubnetGroupName { get; set; }
+
+        /// <summary>
+        /// Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
+        /// </summary>
+        [Input("dedicatedLogVolume")]
+        public Input<bool>? DedicatedLogVolume { get; set; }
 
         /// <summary>
         /// A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.

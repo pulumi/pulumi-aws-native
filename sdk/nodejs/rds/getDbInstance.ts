@@ -99,6 +99,10 @@ export interface GetDbInstanceResult {
      */
     readonly dbiResourceId?: string;
     /**
+     * Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
+     */
+    readonly dedicatedLogVolume?: boolean;
+    /**
      * A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
      */
     readonly deletionProtection?: boolean;

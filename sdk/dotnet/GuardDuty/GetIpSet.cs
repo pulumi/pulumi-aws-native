@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class GetIpSetArgs : global::Pulumi.InvokeArgs
     {
+        [Input("detectorId", required: true)]
+        public string DetectorId { get; set; } = null!;
+
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.GuardDuty
 
     public sealed class GetIpSetInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("detectorId", required: true)]
+        public Input<string> DetectorId { get; set; } = null!;
+
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,25 +57,21 @@ namespace Pulumi.AwsNative.GuardDuty
     [OutputType]
     public sealed class GetIpSetResult
     {
-        public readonly bool? Activate;
         public readonly string? Id;
         public readonly string? Location;
         public readonly string? Name;
-        public readonly ImmutableArray<Outputs.IpSetTag> Tags;
+        public readonly ImmutableArray<Outputs.IpSetTagItem> Tags;
 
         [OutputConstructor]
         private GetIpSetResult(
-            bool? activate,
-
             string? id,
 
             string? location,
 
             string? name,
 
-            ImmutableArray<Outputs.IpSetTag> tags)
+            ImmutableArray<Outputs.IpSetTagItem> tags)
         {
-            Activate = activate;
             Id = id;
             Location = location;
             Name = name;

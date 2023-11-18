@@ -63,6 +63,7 @@ export class Application extends pulumi.CustomResource {
      * Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
      */
     public readonly maximumCapacity!: pulumi.Output<outputs.emrserverless.ApplicationMaximumAllowedResources | undefined>;
+    public readonly monitoringConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationMonitoringConfiguration | undefined>;
     /**
      * User friendly Application name.
      */
@@ -75,6 +76,7 @@ export class Application extends pulumi.CustomResource {
      * EMR release label.
      */
     public readonly releaseLabel!: pulumi.Output<string>;
+    public readonly runtimeConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationConfigurationObject[] | undefined>;
     /**
      * Tag map with key and value
      */
@@ -111,9 +113,11 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["imageConfiguration"] = args ? args.imageConfiguration : undefined;
             resourceInputs["initialCapacity"] = args ? args.initialCapacity : undefined;
             resourceInputs["maximumCapacity"] = args ? args.maximumCapacity : undefined;
+            resourceInputs["monitoringConfiguration"] = args ? args.monitoringConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
             resourceInputs["releaseLabel"] = args ? args.releaseLabel : undefined;
+            resourceInputs["runtimeConfiguration"] = args ? args.runtimeConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["workerTypeSpecifications"] = args ? args.workerTypeSpecifications : undefined;
@@ -128,9 +132,11 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["imageConfiguration"] = undefined /*out*/;
             resourceInputs["initialCapacity"] = undefined /*out*/;
             resourceInputs["maximumCapacity"] = undefined /*out*/;
+            resourceInputs["monitoringConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkConfiguration"] = undefined /*out*/;
             resourceInputs["releaseLabel"] = undefined /*out*/;
+            resourceInputs["runtimeConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["workerTypeSpecifications"] = undefined /*out*/;
@@ -164,6 +170,7 @@ export interface ApplicationArgs {
      * Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
      */
     maximumCapacity?: pulumi.Input<inputs.emrserverless.ApplicationMaximumAllowedResourcesArgs>;
+    monitoringConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationMonitoringConfigurationArgs>;
     /**
      * User friendly Application name.
      */
@@ -176,6 +183,7 @@ export interface ApplicationArgs {
      * EMR release label.
      */
     releaseLabel: pulumi.Input<string>;
+    runtimeConfiguration?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationConfigurationObjectArgs>[]>;
     /**
      * Tag map with key and value
      */

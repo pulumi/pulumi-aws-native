@@ -218,6 +218,12 @@ namespace Pulumi.AwsNative.Redshift
         public Output<string> MasterUsername { get; private set; } = null!;
 
         /// <summary>
+        /// A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
+        /// </summary>
+        [Output("multiAz")]
+        public Output<bool?> MultiAz { get; private set; } = null!;
+
+        /// <summary>
         /// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
         /// </summary>
         [Output("nodeType")]
@@ -251,7 +257,7 @@ namespace Pulumi.AwsNative.Redshift
         public Output<bool?> PubliclyAccessible { get; private set; } = null!;
 
         /// <summary>
-        /// The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster APIs
+        /// The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster, failover-primary-compute APIs
         /// </summary>
         [Output("resourceAction")]
         public Output<string?> ResourceAction { get; private set; } = null!;
@@ -578,6 +584,12 @@ namespace Pulumi.AwsNative.Redshift
         public Input<string> MasterUsername { get; set; } = null!;
 
         /// <summary>
+        /// A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
+        /// </summary>
+        [Input("multiAz")]
+        public Input<bool>? MultiAz { get; set; }
+
+        /// <summary>
         /// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
         /// </summary>
         [Input("nodeType", required: true)]
@@ -611,7 +623,7 @@ namespace Pulumi.AwsNative.Redshift
         public Input<bool>? PubliclyAccessible { get; set; }
 
         /// <summary>
-        /// The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster APIs
+        /// The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster, failover-primary-compute APIs
         /// </summary>
         [Input("resourceAction")]
         public Input<string>? ResourceAction { get; set; }

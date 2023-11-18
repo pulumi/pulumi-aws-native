@@ -28,7 +28,7 @@ type LookupViewArgs struct {
 }
 
 type LookupViewResult struct {
-	Filters            *ViewFilters           `pulumi:"filters"`
+	Filters            *ViewSearchFilter      `pulumi:"filters"`
 	IncludedProperties []ViewIncludedProperty `pulumi:"includedProperties"`
 	Tags               *ViewTagMap            `pulumi:"tags"`
 	ViewArn            *string                `pulumi:"viewArn"`
@@ -75,8 +75,8 @@ func (o LookupViewResultOutput) ToOutput(ctx context.Context) pulumix.Output[Loo
 	}
 }
 
-func (o LookupViewResultOutput) Filters() ViewFiltersPtrOutput {
-	return o.ApplyT(func(v LookupViewResult) *ViewFilters { return v.Filters }).(ViewFiltersPtrOutput)
+func (o LookupViewResultOutput) Filters() ViewSearchFilterPtrOutput {
+	return o.ApplyT(func(v LookupViewResult) *ViewSearchFilter { return v.Filters }).(ViewSearchFilterPtrOutput)
 }
 
 func (o LookupViewResultOutput) IncludedProperties() ViewIncludedPropertyArrayOutput {

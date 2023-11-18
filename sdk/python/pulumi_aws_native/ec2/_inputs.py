@@ -95,6 +95,8 @@ __all__ = [
     'LaunchTemplateEbsArgs',
     'LaunchTemplateElasticGpuSpecificationArgs',
     'LaunchTemplateElasticInferenceAcceleratorArgs',
+    'LaunchTemplateEnaSrdSpecificationArgs',
+    'LaunchTemplateEnaSrdUdpSpecificationArgs',
     'LaunchTemplateEnclaveOptionsArgs',
     'LaunchTemplateHibernationOptionsArgs',
     'LaunchTemplateIamInstanceProfileArgs',
@@ -4054,6 +4056,66 @@ class LaunchTemplateElasticInferenceAcceleratorArgs:
 
 
 @pulumi.input_type
+class LaunchTemplateEnaSrdSpecificationArgs:
+    def __init__(__self__, *,
+                 ena_srd_enabled: Optional[pulumi.Input[bool]] = None,
+                 ena_srd_udp_specification: Optional[pulumi.Input['LaunchTemplateEnaSrdUdpSpecificationArgs']] = None):
+        """
+        Allows customer to specify ENA-SRD options
+        :param pulumi.Input[bool] ena_srd_enabled: Enables TCP ENA-SRD
+        """
+        if ena_srd_enabled is not None:
+            pulumi.set(__self__, "ena_srd_enabled", ena_srd_enabled)
+        if ena_srd_udp_specification is not None:
+            pulumi.set(__self__, "ena_srd_udp_specification", ena_srd_udp_specification)
+
+    @property
+    @pulumi.getter(name="enaSrdEnabled")
+    def ena_srd_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables TCP ENA-SRD
+        """
+        return pulumi.get(self, "ena_srd_enabled")
+
+    @ena_srd_enabled.setter
+    def ena_srd_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ena_srd_enabled", value)
+
+    @property
+    @pulumi.getter(name="enaSrdUdpSpecification")
+    def ena_srd_udp_specification(self) -> Optional[pulumi.Input['LaunchTemplateEnaSrdUdpSpecificationArgs']]:
+        return pulumi.get(self, "ena_srd_udp_specification")
+
+    @ena_srd_udp_specification.setter
+    def ena_srd_udp_specification(self, value: Optional[pulumi.Input['LaunchTemplateEnaSrdUdpSpecificationArgs']]):
+        pulumi.set(self, "ena_srd_udp_specification", value)
+
+
+@pulumi.input_type
+class LaunchTemplateEnaSrdUdpSpecificationArgs:
+    def __init__(__self__, *,
+                 ena_srd_udp_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Allows customer to specify ENA-SRD (UDP) options
+        :param pulumi.Input[bool] ena_srd_udp_enabled: Enables UDP ENA-SRD
+        """
+        if ena_srd_udp_enabled is not None:
+            pulumi.set(__self__, "ena_srd_udp_enabled", ena_srd_udp_enabled)
+
+    @property
+    @pulumi.getter(name="enaSrdUdpEnabled")
+    def ena_srd_udp_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables UDP ENA-SRD
+        """
+        return pulumi.get(self, "ena_srd_udp_enabled")
+
+    @ena_srd_udp_enabled.setter
+    def ena_srd_udp_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ena_srd_udp_enabled", value)
+
+
+@pulumi.input_type
 class LaunchTemplateEnclaveOptionsArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None):
@@ -4897,6 +4959,7 @@ class LaunchTemplateNetworkInterfaceArgs:
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  device_index: Optional[pulumi.Input[int]] = None,
+                 ena_srd_specification: Optional[pulumi.Input['LaunchTemplateEnaSrdSpecificationArgs']] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  interface_type: Optional[pulumi.Input[str]] = None,
                  ipv4_prefix_count: Optional[pulumi.Input[int]] = None,
@@ -4945,6 +5008,8 @@ class LaunchTemplateNetworkInterfaceArgs:
             pulumi.set(__self__, "description", description)
         if device_index is not None:
             pulumi.set(__self__, "device_index", device_index)
+        if ena_srd_specification is not None:
+            pulumi.set(__self__, "ena_srd_specification", ena_srd_specification)
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if interface_type is not None:
@@ -5035,6 +5100,15 @@ class LaunchTemplateNetworkInterfaceArgs:
     @device_index.setter
     def device_index(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "device_index", value)
+
+    @property
+    @pulumi.getter(name="enaSrdSpecification")
+    def ena_srd_specification(self) -> Optional[pulumi.Input['LaunchTemplateEnaSrdSpecificationArgs']]:
+        return pulumi.get(self, "ena_srd_specification")
+
+    @ena_srd_specification.setter
+    def ena_srd_specification(self, value: Optional[pulumi.Input['LaunchTemplateEnaSrdSpecificationArgs']]):
+        pulumi.set(self, "ena_srd_specification", value)
 
     @property
     @pulumi.getter

@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly ImmutableArray<Outputs.AnalysisColumnConfiguration> ColumnConfigurations;
         public readonly ImmutableArray<Outputs.AnalysisDataSetIdentifierDeclaration> DataSetIdentifierDeclarations;
         public readonly ImmutableArray<Outputs.AnalysisFilterGroup> FilterGroups;
+        public readonly Outputs.AnalysisAssetOptions? Options;
         public readonly ImmutableArray<Outputs.AnalysisParameterDeclaration> ParameterDeclarations;
         public readonly ImmutableArray<Outputs.AnalysisSheetDefinition> Sheets;
 
@@ -33,6 +34,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             ImmutableArray<Outputs.AnalysisFilterGroup> filterGroups,
 
+            Outputs.AnalysisAssetOptions? options,
+
             ImmutableArray<Outputs.AnalysisParameterDeclaration> parameterDeclarations,
 
             ImmutableArray<Outputs.AnalysisSheetDefinition> sheets)
@@ -42,6 +45,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ColumnConfigurations = columnConfigurations;
             DataSetIdentifierDeclarations = dataSetIdentifierDeclarations;
             FilterGroups = filterGroups;
+            Options = options;
             ParameterDeclarations = parameterDeclarations;
             Sheets = sheets;
         }

@@ -14,17 +14,15 @@ import (
 )
 
 // Resource Type definition for AWS::GuardDuty::IPSet
-//
-// Deprecated: IpSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type IpSet struct {
 	pulumi.CustomResourceState
 
-	Activate   pulumi.BoolOutput      `pulumi:"activate"`
-	DetectorId pulumi.StringOutput    `pulumi:"detectorId"`
-	Format     pulumi.StringOutput    `pulumi:"format"`
-	Location   pulumi.StringOutput    `pulumi:"location"`
-	Name       pulumi.StringPtrOutput `pulumi:"name"`
-	Tags       IpSetTagArrayOutput    `pulumi:"tags"`
+	Activate   pulumi.BoolPtrOutput    `pulumi:"activate"`
+	DetectorId pulumi.StringPtrOutput  `pulumi:"detectorId"`
+	Format     pulumi.StringOutput     `pulumi:"format"`
+	Location   pulumi.StringOutput     `pulumi:"location"`
+	Name       pulumi.StringOutput     `pulumi:"name"`
+	Tags       IpSetTagItemArrayOutput `pulumi:"tags"`
 }
 
 // NewIpSet registers a new resource with the given unique name, arguments, and options.
@@ -34,12 +32,6 @@ func NewIpSet(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Activate == nil {
-		return nil, errors.New("invalid value for required argument 'Activate'")
-	}
-	if args.DetectorId == nil {
-		return nil, errors.New("invalid value for required argument 'DetectorId'")
-	}
 	if args.Format == nil {
 		return nil, errors.New("invalid value for required argument 'Format'")
 	}
@@ -84,22 +76,22 @@ func (IpSetState) ElementType() reflect.Type {
 }
 
 type ipSetArgs struct {
-	Activate   bool       `pulumi:"activate"`
-	DetectorId string     `pulumi:"detectorId"`
-	Format     string     `pulumi:"format"`
-	Location   string     `pulumi:"location"`
-	Name       *string    `pulumi:"name"`
-	Tags       []IpSetTag `pulumi:"tags"`
+	Activate   *bool          `pulumi:"activate"`
+	DetectorId *string        `pulumi:"detectorId"`
+	Format     string         `pulumi:"format"`
+	Location   string         `pulumi:"location"`
+	Name       *string        `pulumi:"name"`
+	Tags       []IpSetTagItem `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IpSet resource.
 type IpSetArgs struct {
-	Activate   pulumi.BoolInput
-	DetectorId pulumi.StringInput
+	Activate   pulumi.BoolPtrInput
+	DetectorId pulumi.StringPtrInput
 	Format     pulumi.StringInput
 	Location   pulumi.StringInput
 	Name       pulumi.StringPtrInput
-	Tags       IpSetTagArrayInput
+	Tags       IpSetTagItemArrayInput
 }
 
 func (IpSetArgs) ElementType() reflect.Type {
@@ -151,12 +143,12 @@ func (o IpSetOutput) ToOutput(ctx context.Context) pulumix.Output[*IpSet] {
 	}
 }
 
-func (o IpSetOutput) Activate() pulumi.BoolOutput {
-	return o.ApplyT(func(v *IpSet) pulumi.BoolOutput { return v.Activate }).(pulumi.BoolOutput)
+func (o IpSetOutput) Activate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IpSet) pulumi.BoolPtrOutput { return v.Activate }).(pulumi.BoolPtrOutput)
 }
 
-func (o IpSetOutput) DetectorId() pulumi.StringOutput {
-	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.DetectorId }).(pulumi.StringOutput)
+func (o IpSetOutput) DetectorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpSet) pulumi.StringPtrOutput { return v.DetectorId }).(pulumi.StringPtrOutput)
 }
 
 func (o IpSetOutput) Format() pulumi.StringOutput {
@@ -167,12 +159,12 @@ func (o IpSetOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-func (o IpSetOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IpSet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o IpSetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o IpSetOutput) Tags() IpSetTagArrayOutput {
-	return o.ApplyT(func(v *IpSet) IpSetTagArrayOutput { return v.Tags }).(IpSetTagArrayOutput)
+func (o IpSetOutput) Tags() IpSetTagItemArrayOutput {
+	return o.ApplyT(func(v *IpSet) IpSetTagItemArrayOutput { return v.Tags }).(IpSetTagItemArrayOutput)
 }
 
 func init() {

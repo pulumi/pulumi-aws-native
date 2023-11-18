@@ -82,6 +82,12 @@ namespace Pulumi.AwsNative.NetworkManager
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
+        /// The subnet ARN for the connect peer.
+        /// </summary>
+        [Output("subnetArn")]
+        public Output<string?> SubnetArn { get; private set; } = null!;
+
+        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
@@ -117,6 +123,7 @@ namespace Pulumi.AwsNative.NetworkManager
                     "coreNetworkAddress",
                     "insideCidrBlocks[*]",
                     "peerAddress",
+                    "subnetArn",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -175,6 +182,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         [Input("peerAddress", required: true)]
         public Input<string> PeerAddress { get; set; } = null!;
+
+        /// <summary>
+        /// The subnet ARN for the connect peer.
+        /// </summary>
+        [Input("subnetArn")]
+        public Input<string>? SubnetArn { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.ConnectPeerTagArgs>? _tags;

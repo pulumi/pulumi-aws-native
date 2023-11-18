@@ -13,16 +13,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::GameLift::MatchmakingRuleSet
-//
-// Deprecated: MatchmakingRuleSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// The AWS::GameLift::MatchmakingRuleSet resource creates an Amazon GameLift (GameLift) matchmaking rule set.
 type MatchmakingRuleSet struct {
 	pulumi.CustomResourceState
 
-	Arn         pulumi.StringOutput              `pulumi:"arn"`
-	Name        pulumi.StringOutput              `pulumi:"name"`
-	RuleSetBody pulumi.StringOutput              `pulumi:"ruleSetBody"`
-	Tags        MatchmakingRuleSetTagArrayOutput `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift matchmaking rule set resource and uniquely identifies it.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds.
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// A unique identifier for the matchmaking rule set.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A collection of matchmaking rules, formatted as a JSON string.
+	RuleSetBody pulumi.StringOutput `pulumi:"ruleSetBody"`
+	// An array of key-value pairs to apply to this resource.
+	Tags MatchmakingRuleSetTagArrayOutput `pulumi:"tags"`
 }
 
 // NewMatchmakingRuleSet registers a new resource with the given unique name, arguments, and options.
@@ -73,16 +77,22 @@ func (MatchmakingRuleSetState) ElementType() reflect.Type {
 }
 
 type matchmakingRuleSetArgs struct {
-	Name        *string                 `pulumi:"name"`
-	RuleSetBody string                  `pulumi:"ruleSetBody"`
-	Tags        []MatchmakingRuleSetTag `pulumi:"tags"`
+	// A unique identifier for the matchmaking rule set.
+	Name *string `pulumi:"name"`
+	// A collection of matchmaking rules, formatted as a JSON string.
+	RuleSetBody string `pulumi:"ruleSetBody"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []MatchmakingRuleSetTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MatchmakingRuleSet resource.
 type MatchmakingRuleSetArgs struct {
-	Name        pulumi.StringPtrInput
+	// A unique identifier for the matchmaking rule set.
+	Name pulumi.StringPtrInput
+	// A collection of matchmaking rules, formatted as a JSON string.
 	RuleSetBody pulumi.StringInput
-	Tags        MatchmakingRuleSetTagArrayInput
+	// An array of key-value pairs to apply to this resource.
+	Tags MatchmakingRuleSetTagArrayInput
 }
 
 func (MatchmakingRuleSetArgs) ElementType() reflect.Type {
@@ -134,18 +144,27 @@ func (o MatchmakingRuleSetOutput) ToOutput(ctx context.Context) pulumix.Output[*
 	}
 }
 
+// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift matchmaking rule set resource and uniquely identifies it.
 func (o MatchmakingRuleSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MatchmakingRuleSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds.
+func (o MatchmakingRuleSetOutput) CreationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *MatchmakingRuleSet) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
+}
+
+// A unique identifier for the matchmaking rule set.
 func (o MatchmakingRuleSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MatchmakingRuleSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// A collection of matchmaking rules, formatted as a JSON string.
 func (o MatchmakingRuleSetOutput) RuleSetBody() pulumi.StringOutput {
 	return o.ApplyT(func(v *MatchmakingRuleSet) pulumi.StringOutput { return v.RuleSetBody }).(pulumi.StringOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
 func (o MatchmakingRuleSetOutput) Tags() MatchmakingRuleSetTagArrayOutput {
 	return o.ApplyT(func(v *MatchmakingRuleSet) MatchmakingRuleSetTagArrayOutput { return v.Tags }).(MatchmakingRuleSetTagArrayOutput)
 }

@@ -625,7 +625,7 @@
           "uniqueItems" : false,
           "items" : {
             "type" : "string",
-            "enum" : [ "nvidia", "amd", "amazon-web-services", "xilinx" ]
+            "enum" : [ "amazon-web-services", "amd", "habana", "nvidia", "xilinx" ]
           }
         },
         "AcceleratorNames" : {
@@ -633,7 +633,7 @@
           "uniqueItems" : false,
           "items" : {
             "type" : "string",
-            "enum" : [ "a100", "v100", "k80", "t4", "m60", "radeon-pro-v520", "vu9p", "inferentia", "k520" ]
+            "enum" : [ "a10g", "a100", "h100", "inferentia", "k520", "k80", "m60", "radeon-pro-v520", "t4", "t4g", "vu9p", "v100" ]
           }
         },
         "AcceleratorTotalMemoryMiB" : {

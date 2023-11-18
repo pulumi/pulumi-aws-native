@@ -174,6 +174,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly masterUsername!: pulumi.Output<string>;
     /**
+     * A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
+     */
+    public readonly multiAz!: pulumi.Output<boolean | undefined>;
+    /**
      * The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
      */
     public readonly nodeType!: pulumi.Output<string>;
@@ -195,7 +199,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
     /**
-     * The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster APIs
+     * The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster, failover-primary-compute APIs
      */
     public readonly resourceAction!: pulumi.Output<string | undefined>;
     /**
@@ -297,6 +301,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["manualSnapshotRetentionPeriod"] = args ? args.manualSnapshotRetentionPeriod : undefined;
             resourceInputs["masterUserPassword"] = args ? args.masterUserPassword : undefined;
             resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
+            resourceInputs["multiAz"] = args ? args.multiAz : undefined;
             resourceInputs["nodeType"] = args ? args.nodeType : undefined;
             resourceInputs["numberOfNodes"] = args ? args.numberOfNodes : undefined;
             resourceInputs["ownerAccount"] = args ? args.ownerAccount : undefined;
@@ -348,6 +353,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["manualSnapshotRetentionPeriod"] = undefined /*out*/;
             resourceInputs["masterUserPassword"] = undefined /*out*/;
             resourceInputs["masterUsername"] = undefined /*out*/;
+            resourceInputs["multiAz"] = undefined /*out*/;
             resourceInputs["nodeType"] = undefined /*out*/;
             resourceInputs["numberOfNodes"] = undefined /*out*/;
             resourceInputs["ownerAccount"] = undefined /*out*/;
@@ -509,6 +515,10 @@ export interface ClusterArgs {
      */
     masterUsername: pulumi.Input<string>;
     /**
+     * A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
+     */
+    multiAz?: pulumi.Input<boolean>;
+    /**
      * The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
      */
     nodeType: pulumi.Input<string>;
@@ -530,7 +540,7 @@ export interface ClusterArgs {
      */
     publiclyAccessible?: pulumi.Input<boolean>;
     /**
-     * The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster APIs
+     * The Redshift operation to be performed. Resource Action supports pause-cluster, resume-cluster, failover-primary-compute APIs
      */
     resourceAction?: pulumi.Input<string>;
     /**

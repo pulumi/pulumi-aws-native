@@ -21,10 +21,10 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         }
 
         [Input("priorityOrder")]
-        private InputList<string>? _priorityOrder;
-        public InputList<string> PriorityOrder
+        private InputList<Pulumi.AwsNative.GameLift.GameSessionQueuePriorityOrderItem>? _priorityOrder;
+        public InputList<Pulumi.AwsNative.GameLift.GameSessionQueuePriorityOrderItem> PriorityOrder
         {
-            get => _priorityOrder ?? (_priorityOrder = new InputList<string>());
+            get => _priorityOrder ?? (_priorityOrder = new InputList<Pulumi.AwsNative.GameLift.GameSessionQueuePriorityOrderItem>());
             set => _priorityOrder = value;
         }
 

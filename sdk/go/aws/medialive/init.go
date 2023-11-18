@@ -27,6 +27,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Input{}
 	case "aws-native:medialive:InputSecurityGroup":
 		r = &InputSecurityGroup{}
+	case "aws-native:medialive:Multiplex":
+		r = &Multiplex{}
+	case "aws-native:medialive:Multiplexprogram":
+		r = &Multiplexprogram{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

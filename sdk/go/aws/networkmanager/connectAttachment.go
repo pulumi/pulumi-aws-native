@@ -23,7 +23,7 @@ type ConnectAttachment struct {
 	AttachmentPolicyRuleNumber pulumi.IntOutput `pulumi:"attachmentPolicyRuleNumber"`
 	// The type of attachment.
 	AttachmentType pulumi.StringOutput `pulumi:"attachmentType"`
-	// The ARN of a core network for the VPC attachment.
+	// The ARN of a core network.
 	CoreNetworkArn pulumi.StringOutput `pulumi:"coreNetworkArn"`
 	// ID of the CoreNetwork that the attachment will be attached to.
 	CoreNetworkId pulumi.StringOutput `pulumi:"coreNetworkId"`
@@ -204,7 +204,7 @@ func (o ConnectAttachmentOutput) AttachmentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.AttachmentType }).(pulumi.StringOutput)
 }
 
-// The ARN of a core network for the VPC attachment.
+// The ARN of a core network.
 func (o ConnectAttachmentOutput) CoreNetworkArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectAttachment) pulumi.StringOutput { return v.CoreNetworkArn }).(pulumi.StringOutput)
 }

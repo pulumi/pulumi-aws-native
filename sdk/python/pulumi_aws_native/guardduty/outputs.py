@@ -24,8 +24,8 @@ __all__ = [
     'FilterCondition',
     'FilterFindingCriteria',
     'FilterTag',
-    'IpSetTag',
-    'ThreatIntelSetTag',
+    'IpSetTagItem',
+    'ThreatIntelSetTagItem',
 ]
 
 @pulumi.output_type
@@ -457,7 +457,7 @@ class FilterTag(dict):
 
 
 @pulumi.output_type
-class IpSetTag(dict):
+class IpSetTagItem(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -476,7 +476,7 @@ class IpSetTag(dict):
 
 
 @pulumi.output_type
-class ThreatIntelSetTag(dict):
+class ThreatIntelSetTagItem(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):

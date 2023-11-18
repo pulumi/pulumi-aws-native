@@ -97,6 +97,12 @@ namespace Pulumi.AwsNative.Lambda
         public Output<ImmutableArray<string>> Layers { get; private set; } = null!;
 
         /// <summary>
+        /// The logging configuration of your function
+        /// </summary>
+        [Output("loggingConfig")]
+        public Output<Outputs.FunctionLoggingConfig?> LoggingConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
         /// </summary>
         [Output("memorySize")]
@@ -314,6 +320,12 @@ namespace Pulumi.AwsNative.Lambda
             get => _layers ?? (_layers = new InputList<string>());
             set => _layers = value;
         }
+
+        /// <summary>
+        /// The logging configuration of your function
+        /// </summary>
+        [Input("loggingConfig")]
+        public Input<Inputs.FunctionLoggingConfigArgs>? LoggingConfig { get; set; }
 
         /// <summary>
         /// The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.

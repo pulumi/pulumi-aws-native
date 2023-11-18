@@ -23,8 +23,8 @@ __all__ = [
     'FilterConditionArgs',
     'FilterFindingCriteriaArgs',
     'FilterTagArgs',
-    'IpSetTagArgs',
-    'ThreatIntelSetTagArgs',
+    'IpSetTagItemArgs',
+    'ThreatIntelSetTagItemArgs',
 ]
 
 @pulumi.input_type
@@ -451,7 +451,7 @@ class FilterTagArgs:
 
 
 @pulumi.input_type
-class IpSetTagArgs:
+class IpSetTagItemArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -478,7 +478,7 @@ class IpSetTagArgs:
 
 
 @pulumi.input_type
-class ThreatIntelSetTagArgs:
+class ThreatIntelSetTagItemArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):

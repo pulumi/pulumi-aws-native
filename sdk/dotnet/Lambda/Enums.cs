@@ -162,6 +162,104 @@ namespace Pulumi.AwsNative.Lambda
     }
 
     /// <summary>
+    /// Application log granularity level, can only be used when LogFormat is set to JSON
+    /// </summary>
+    [EnumType]
+    public readonly struct FunctionLoggingConfigApplicationLogLevel : IEquatable<FunctionLoggingConfigApplicationLogLevel>
+    {
+        private readonly string _value;
+
+        private FunctionLoggingConfigApplicationLogLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FunctionLoggingConfigApplicationLogLevel Trace { get; } = new FunctionLoggingConfigApplicationLogLevel("TRACE");
+        public static FunctionLoggingConfigApplicationLogLevel Debug { get; } = new FunctionLoggingConfigApplicationLogLevel("DEBUG");
+        public static FunctionLoggingConfigApplicationLogLevel Info { get; } = new FunctionLoggingConfigApplicationLogLevel("INFO");
+        public static FunctionLoggingConfigApplicationLogLevel Warn { get; } = new FunctionLoggingConfigApplicationLogLevel("WARN");
+        public static FunctionLoggingConfigApplicationLogLevel Error { get; } = new FunctionLoggingConfigApplicationLogLevel("ERROR");
+        public static FunctionLoggingConfigApplicationLogLevel Fatal { get; } = new FunctionLoggingConfigApplicationLogLevel("FATAL");
+
+        public static bool operator ==(FunctionLoggingConfigApplicationLogLevel left, FunctionLoggingConfigApplicationLogLevel right) => left.Equals(right);
+        public static bool operator !=(FunctionLoggingConfigApplicationLogLevel left, FunctionLoggingConfigApplicationLogLevel right) => !left.Equals(right);
+
+        public static explicit operator string(FunctionLoggingConfigApplicationLogLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FunctionLoggingConfigApplicationLogLevel other && Equals(other);
+        public bool Equals(FunctionLoggingConfigApplicationLogLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Log delivery format for the lambda function
+    /// </summary>
+    [EnumType]
+    public readonly struct FunctionLoggingConfigLogFormat : IEquatable<FunctionLoggingConfigLogFormat>
+    {
+        private readonly string _value;
+
+        private FunctionLoggingConfigLogFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FunctionLoggingConfigLogFormat Text { get; } = new FunctionLoggingConfigLogFormat("Text");
+        public static FunctionLoggingConfigLogFormat Json { get; } = new FunctionLoggingConfigLogFormat("JSON");
+
+        public static bool operator ==(FunctionLoggingConfigLogFormat left, FunctionLoggingConfigLogFormat right) => left.Equals(right);
+        public static bool operator !=(FunctionLoggingConfigLogFormat left, FunctionLoggingConfigLogFormat right) => !left.Equals(right);
+
+        public static explicit operator string(FunctionLoggingConfigLogFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FunctionLoggingConfigLogFormat other && Equals(other);
+        public bool Equals(FunctionLoggingConfigLogFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// System log granularity level, can only be used when LogFormat is set to JSON
+    /// </summary>
+    [EnumType]
+    public readonly struct FunctionLoggingConfigSystemLogLevel : IEquatable<FunctionLoggingConfigSystemLogLevel>
+    {
+        private readonly string _value;
+
+        private FunctionLoggingConfigSystemLogLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FunctionLoggingConfigSystemLogLevel Debug { get; } = new FunctionLoggingConfigSystemLogLevel("DEBUG");
+        public static FunctionLoggingConfigSystemLogLevel Info { get; } = new FunctionLoggingConfigSystemLogLevel("INFO");
+        public static FunctionLoggingConfigSystemLogLevel Warn { get; } = new FunctionLoggingConfigSystemLogLevel("WARN");
+
+        public static bool operator ==(FunctionLoggingConfigSystemLogLevel left, FunctionLoggingConfigSystemLogLevel right) => left.Equals(right);
+        public static bool operator !=(FunctionLoggingConfigSystemLogLevel left, FunctionLoggingConfigSystemLogLevel right) => !left.Equals(right);
+
+        public static explicit operator string(FunctionLoggingConfigSystemLogLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FunctionLoggingConfigSystemLogLevel other && Equals(other);
+        public bool Equals(FunctionLoggingConfigSystemLogLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// PackageType.
     /// </summary>
     [EnumType]

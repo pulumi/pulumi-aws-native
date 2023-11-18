@@ -98,7 +98,7 @@
   "writeOnlyProperties" : [ "/properties/Ipv4IpamPoolId", "/properties/Ipv4NetmaskLength" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ec2:CreateVpc", "ec2:DescribeVpcs", "ec2:ModifyVpcAttribute" ]
+      "permissions" : [ "ec2:CreateVpc", "ec2:DescribeVpcs", "ec2:ModifyVpcAttribute", "ec2:CreateTags" ]
     },
     "read" : {
       "permissions" : [ "ec2:DescribeVpcs", "ec2:DescribeSecurityGroups", "ec2:DescribeNetworkAcls", "ec2:DescribeVpcAttribute" ]

@@ -89,22 +89,26 @@ class Ec2FleetExcessCapacityTerminationPolicy(str, Enum):
 
 
 class Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem(str, Enum):
-    NVIDIA = "nvidia"
-    AMD = "amd"
     AMAZON_WEB_SERVICES = "amazon-web-services"
+    AMD = "amd"
+    HABANA = "habana"
+    NVIDIA = "nvidia"
     XILINX = "xilinx"
 
 
 class Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem(str, Enum):
+    A10G = "a10g"
     A100 = "a100"
-    V100 = "v100"
-    K80 = "k80"
-    T4 = "t4"
-    M60 = "m60"
-    RADEON_PRO_V520 = "radeon-pro-v520"
-    VU9P = "vu9p"
+    H100 = "h100"
     INFERENTIA = "inferentia"
     K520 = "k520"
+    K80 = "k80"
+    M60 = "m60"
+    RADEON_PRO_V520 = "radeon-pro-v520"
+    T4 = "t4"
+    T4G = "t4g"
+    VU9P = "vu9p"
+    V100 = "v100"
 
 
 class Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem(str, Enum):
@@ -384,22 +388,26 @@ class SpotFleetEbsBlockDeviceVolumeType(str, Enum):
 
 
 class SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem(str, Enum):
-    NVIDIA = "nvidia"
-    AMD = "amd"
     AMAZON_WEB_SERVICES = "amazon-web-services"
+    AMD = "amd"
+    HABANA = "habana"
+    NVIDIA = "nvidia"
     XILINX = "xilinx"
 
 
 class SpotFleetInstanceRequirementsRequestAcceleratorNamesItem(str, Enum):
+    A10G = "a10g"
     A100 = "a100"
-    V100 = "v100"
-    K80 = "k80"
-    T4 = "t4"
-    M60 = "m60"
-    RADEON_PRO_V520 = "radeon-pro-v520"
-    VU9P = "vu9p"
+    H100 = "h100"
     INFERENTIA = "inferentia"
     K520 = "k520"
+    K80 = "k80"
+    M60 = "m60"
+    RADEON_PRO_V520 = "radeon-pro-v520"
+    T4 = "t4"
+    T4G = "t4g"
+    VU9P = "vu9p"
+    V100 = "v100"
 
 
 class SpotFleetInstanceRequirementsRequestAcceleratorTypesItem(str, Enum):

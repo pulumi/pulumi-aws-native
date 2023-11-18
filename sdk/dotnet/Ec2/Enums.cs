@@ -154,9 +154,10 @@ namespace Pulumi.AwsNative.Ec2
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem Nvidia { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("nvidia");
-        public static Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem Amd { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("amd");
         public static Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem AmazonWebServices { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("amazon-web-services");
+        public static Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem Amd { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("amd");
+        public static Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem Habana { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("habana");
+        public static Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem Nvidia { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("nvidia");
         public static Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem Xilinx { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem("xilinx");
 
         public static bool operator ==(Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem left, Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem right) => left.Equals(right);
@@ -184,15 +185,18 @@ namespace Pulumi.AwsNative.Ec2
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem A10g { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("a10g");
         public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem A100 { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("a100");
-        public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem V100 { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("v100");
-        public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem K80 { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("k80");
-        public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem T4 { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("t4");
-        public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem M60 { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("m60");
-        public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem RadeonProV520 { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("radeon-pro-v520");
-        public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem Vu9p { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("vu9p");
+        public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem H100 { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("h100");
         public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem Inferentia { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("inferentia");
         public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem K520 { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("k520");
+        public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem K80 { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("k80");
+        public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem M60 { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("m60");
+        public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem RadeonProV520 { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("radeon-pro-v520");
+        public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem T4 { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("t4");
+        public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem T4g { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("t4g");
+        public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem Vu9p { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("vu9p");
+        public static Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem V100 { get; } = new Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem("v100");
 
         public static bool operator ==(Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem left, Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem right) => left.Equals(right);
         public static bool operator !=(Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem left, Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem right) => !left.Equals(right);
@@ -1254,9 +1258,10 @@ namespace Pulumi.AwsNative.Ec2
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem Nvidia { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("nvidia");
-        public static SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem Amd { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("amd");
         public static SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem AmazonWebServices { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("amazon-web-services");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem Amd { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("amd");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem Habana { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("habana");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem Nvidia { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("nvidia");
         public static SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem Xilinx { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("xilinx");
 
         public static bool operator ==(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem left, SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem right) => left.Equals(right);
@@ -1284,15 +1289,18 @@ namespace Pulumi.AwsNative.Ec2
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem A10g { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("a10g");
         public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem A100 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("a100");
-        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem V100 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("v100");
-        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem K80 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("k80");
-        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem T4 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("t4");
-        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem M60 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("m60");
-        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem RadeonProV520 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("radeon-pro-v520");
-        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem Vu9p { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("vu9p");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem H100 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("h100");
         public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem Inferentia { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("inferentia");
         public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem K520 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("k520");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem K80 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("k80");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem M60 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("m60");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem RadeonProV520 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("radeon-pro-v520");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem T4 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("t4");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem T4g { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("t4g");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem Vu9p { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("vu9p");
+        public static SpotFleetInstanceRequirementsRequestAcceleratorNamesItem V100 { get; } = new SpotFleetInstanceRequirementsRequestAcceleratorNamesItem("v100");
 
         public static bool operator ==(SpotFleetInstanceRequirementsRequestAcceleratorNamesItem left, SpotFleetInstanceRequirementsRequestAcceleratorNamesItem right) => left.Equals(right);
         public static bool operator !=(SpotFleetInstanceRequirementsRequestAcceleratorNamesItem left, SpotFleetInstanceRequirementsRequestAcceleratorNamesItem right) => !left.Equals(right);

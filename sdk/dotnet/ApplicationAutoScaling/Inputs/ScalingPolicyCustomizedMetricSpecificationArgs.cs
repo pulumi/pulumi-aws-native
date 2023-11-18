@@ -10,25 +10,56 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
 {
 
+    /// <summary>
+    /// Represents a CloudWatch metric of your choosing for a target tracking scaling policy to use with Application Auto Scaling.
+    /// </summary>
     public sealed class ScalingPolicyCustomizedMetricSpecificationArgs : global::Pulumi.ResourceArgs
     {
         [Input("dimensions")]
         private InputList<Inputs.ScalingPolicyMetricDimensionArgs>? _dimensions;
+
+        /// <summary>
+        /// The dimensions of the metric.
+        /// </summary>
         public InputList<Inputs.ScalingPolicyMetricDimensionArgs> Dimensions
         {
             get => _dimensions ?? (_dimensions = new InputList<Inputs.ScalingPolicyMetricDimensionArgs>());
             set => _dimensions = value;
         }
 
-        [Input("metricName", required: true)]
-        public Input<string> MetricName { get; set; } = null!;
+        /// <summary>
+        /// The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the Metric object that is returned by a call to ListMetrics.
+        /// </summary>
+        [Input("metricName")]
+        public Input<string>? MetricName { get; set; }
 
-        [Input("namespace", required: true)]
-        public Input<string> Namespace { get; set; } = null!;
+        [Input("metrics")]
+        private InputList<Inputs.ScalingPolicyTargetTrackingMetricDataQueryArgs>? _metrics;
 
-        [Input("statistic", required: true)]
-        public Input<string> Statistic { get; set; } = null!;
+        /// <summary>
+        /// The metrics to include in the target tracking scaling policy, as a metric data query. This can include both raw metric and metric math expressions.
+        /// </summary>
+        public InputList<Inputs.ScalingPolicyTargetTrackingMetricDataQueryArgs> Metrics
+        {
+            get => _metrics ?? (_metrics = new InputList<Inputs.ScalingPolicyTargetTrackingMetricDataQueryArgs>());
+            set => _metrics = value;
+        }
 
+        /// <summary>
+        /// The namespace of the metric.
+        /// </summary>
+        [Input("namespace")]
+        public Input<string>? Namespace { get; set; }
+
+        /// <summary>
+        /// The statistic of the metric.
+        /// </summary>
+        [Input("statistic")]
+        public Input<string>? Statistic { get; set; }
+
+        /// <summary>
+        /// The unit of the metric. For a complete list of the units that CloudWatch supports, see the MetricDatum data type in the Amazon CloudWatch API Reference.
+        /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }
 

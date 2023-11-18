@@ -12,18 +12,24 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 90 to 2555 days (about three months to up to seven years).
+// A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 7 to 2557 or 3653 days (about seven or ten years) depending on the selected BillingMode.
 type EventDataStore struct {
 	pulumi.CustomResourceState
 
 	// The advanced event selectors that were used to select events for the data store.
 	AdvancedEventSelectors EventDataStoreAdvancedEventSelectorArrayOutput `pulumi:"advancedEventSelectors"`
+	// The mode that the event data store will use to charge for event storage.
+	BillingMode pulumi.StringPtrOutput `pulumi:"billingMode"`
 	// The timestamp of the event data store's creation.
 	CreatedTimestamp pulumi.StringOutput `pulumi:"createdTimestamp"`
 	// The ARN of the event data store.
 	EventDataStoreArn pulumi.StringOutput `pulumi:"eventDataStoreArn"`
 	// Indicates whether the event data store is ingesting events.
 	IngestionEnabled pulumi.BoolPtrOutput `pulumi:"ingestionEnabled"`
+	// Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
+	InsightSelectors EventDataStoreInsightSelectorArrayOutput `pulumi:"insightSelectors"`
+	// Specifies the ARN of the event data store that will collect Insights events. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store
+	InsightsDestination pulumi.StringPtrOutput `pulumi:"insightsDestination"`
 	// Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
@@ -85,8 +91,14 @@ func (EventDataStoreState) ElementType() reflect.Type {
 type eventDataStoreArgs struct {
 	// The advanced event selectors that were used to select events for the data store.
 	AdvancedEventSelectors []EventDataStoreAdvancedEventSelector `pulumi:"advancedEventSelectors"`
+	// The mode that the event data store will use to charge for event storage.
+	BillingMode *string `pulumi:"billingMode"`
 	// Indicates whether the event data store is ingesting events.
 	IngestionEnabled *bool `pulumi:"ingestionEnabled"`
+	// Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
+	InsightSelectors []EventDataStoreInsightSelector `pulumi:"insightSelectors"`
+	// Specifies the ARN of the event data store that will collect Insights events. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store
+	InsightsDestination *string `pulumi:"insightsDestination"`
 	// Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
@@ -106,8 +118,14 @@ type eventDataStoreArgs struct {
 type EventDataStoreArgs struct {
 	// The advanced event selectors that were used to select events for the data store.
 	AdvancedEventSelectors EventDataStoreAdvancedEventSelectorArrayInput
+	// The mode that the event data store will use to charge for event storage.
+	BillingMode pulumi.StringPtrInput
 	// Indicates whether the event data store is ingesting events.
 	IngestionEnabled pulumi.BoolPtrInput
+	// Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
+	InsightSelectors EventDataStoreInsightSelectorArrayInput
+	// Specifies the ARN of the event data store that will collect Insights events. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store
+	InsightsDestination pulumi.StringPtrInput
 	// Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
 	KmsKeyId pulumi.StringPtrInput
 	// Indicates whether the event data store includes events from all regions, or only from the region in which it was created.
@@ -179,6 +197,11 @@ func (o EventDataStoreOutput) AdvancedEventSelectors() EventDataStoreAdvancedEve
 	}).(EventDataStoreAdvancedEventSelectorArrayOutput)
 }
 
+// The mode that the event data store will use to charge for event storage.
+func (o EventDataStoreOutput) BillingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventDataStore) pulumi.StringPtrOutput { return v.BillingMode }).(pulumi.StringPtrOutput)
+}
+
 // The timestamp of the event data store's creation.
 func (o EventDataStoreOutput) CreatedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventDataStore) pulumi.StringOutput { return v.CreatedTimestamp }).(pulumi.StringOutput)
@@ -192,6 +215,16 @@ func (o EventDataStoreOutput) EventDataStoreArn() pulumi.StringOutput {
 // Indicates whether the event data store is ingesting events.
 func (o EventDataStoreOutput) IngestionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EventDataStore) pulumi.BoolPtrOutput { return v.IngestionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
+func (o EventDataStoreOutput) InsightSelectors() EventDataStoreInsightSelectorArrayOutput {
+	return o.ApplyT(func(v *EventDataStore) EventDataStoreInsightSelectorArrayOutput { return v.InsightSelectors }).(EventDataStoreInsightSelectorArrayOutput)
+}
+
+// Specifies the ARN of the event data store that will collect Insights events. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store
+func (o EventDataStoreOutput) InsightsDestination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventDataStore) pulumi.StringPtrOutput { return v.InsightsDestination }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.

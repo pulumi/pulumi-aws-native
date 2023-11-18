@@ -59,6 +59,7 @@ namespace Pulumi.AwsNative.Pipes
         public readonly string? Enrichment;
         public readonly Outputs.PipeEnrichmentParameters? EnrichmentParameters;
         public readonly string? LastModifiedTime;
+        public readonly Outputs.PipeLogConfiguration? LogConfiguration;
         public readonly string? RoleArn;
         public readonly string? StateReason;
         public readonly Outputs.PipeTagMap? Tags;
@@ -82,6 +83,8 @@ namespace Pulumi.AwsNative.Pipes
 
             string? lastModifiedTime,
 
+            Outputs.PipeLogConfiguration? logConfiguration,
+
             string? roleArn,
 
             string? stateReason,
@@ -98,6 +101,7 @@ namespace Pulumi.AwsNative.Pipes
             Enrichment = enrichment;
             EnrichmentParameters = enrichmentParameters;
             LastModifiedTime = lastModifiedTime;
+            LogConfiguration = logConfiguration;
             RoleArn = roleArn;
             StateReason = stateReason;
             Tags = tags;

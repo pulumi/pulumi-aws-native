@@ -39,6 +39,8 @@ type ConnectPeer struct {
 	PeerAddress pulumi.StringOutput `pulumi:"peerAddress"`
 	// State of the connect peer.
 	State pulumi.StringOutput `pulumi:"state"`
+	// The subnet ARN for the connect peer.
+	SubnetArn pulumi.StringPtrOutput `pulumi:"subnetArn"`
 	// An array of key-value pairs to apply to this resource.
 	Tags ConnectPeerTagArrayOutput `pulumi:"tags"`
 }
@@ -62,6 +64,7 @@ func NewConnectPeer(ctx *pulumi.Context,
 		"coreNetworkAddress",
 		"insideCidrBlocks[*]",
 		"peerAddress",
+		"subnetArn",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -107,6 +110,8 @@ type connectPeerArgs struct {
 	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
 	// The IP address of the Connect peer.
 	PeerAddress string `pulumi:"peerAddress"`
+	// The subnet ARN for the connect peer.
+	SubnetArn *string `pulumi:"subnetArn"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []ConnectPeerTag `pulumi:"tags"`
 }
@@ -123,6 +128,8 @@ type ConnectPeerArgs struct {
 	InsideCidrBlocks pulumi.StringArrayInput
 	// The IP address of the Connect peer.
 	PeerAddress pulumi.StringInput
+	// The subnet ARN for the connect peer.
+	SubnetArn pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags ConnectPeerTagArrayInput
 }
@@ -229,6 +236,11 @@ func (o ConnectPeerOutput) PeerAddress() pulumi.StringOutput {
 // State of the connect peer.
 func (o ConnectPeerOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectPeer) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The subnet ARN for the connect peer.
+func (o ConnectPeerOutput) SubnetArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectPeer) pulumi.StringPtrOutput { return v.SubnetArn }).(pulumi.StringPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

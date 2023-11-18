@@ -50,11 +50,34 @@ export const getReportPlan: typeof import("./getReportPlan").getReportPlan = nul
 export const getReportPlanOutput: typeof import("./getReportPlan").getReportPlanOutput = null as any;
 utilities.lazyLoad(exports, ["getReportPlan","getReportPlanOutput"], () => require("./getReportPlan"));
 
+export { GetRestoreTestingPlanArgs, GetRestoreTestingPlanResult, GetRestoreTestingPlanOutputArgs } from "./getRestoreTestingPlan";
+export const getRestoreTestingPlan: typeof import("./getRestoreTestingPlan").getRestoreTestingPlan = null as any;
+export const getRestoreTestingPlanOutput: typeof import("./getRestoreTestingPlan").getRestoreTestingPlanOutput = null as any;
+utilities.lazyLoad(exports, ["getRestoreTestingPlan","getRestoreTestingPlanOutput"], () => require("./getRestoreTestingPlan"));
+
+export { GetRestoreTestingSelectionArgs, GetRestoreTestingSelectionResult, GetRestoreTestingSelectionOutputArgs } from "./getRestoreTestingSelection";
+export const getRestoreTestingSelection: typeof import("./getRestoreTestingSelection").getRestoreTestingSelection = null as any;
+export const getRestoreTestingSelectionOutput: typeof import("./getRestoreTestingSelection").getRestoreTestingSelectionOutput = null as any;
+utilities.lazyLoad(exports, ["getRestoreTestingSelection","getRestoreTestingSelectionOutput"], () => require("./getRestoreTestingSelection"));
+
 export { ReportPlanArgs } from "./reportPlan";
 export type ReportPlan = import("./reportPlan").ReportPlan;
 export const ReportPlan: typeof import("./reportPlan").ReportPlan = null as any;
 utilities.lazyLoad(exports, ["ReportPlan"], () => require("./reportPlan"));
 
+export { RestoreTestingPlanArgs } from "./restoreTestingPlan";
+export type RestoreTestingPlan = import("./restoreTestingPlan").RestoreTestingPlan;
+export const RestoreTestingPlan: typeof import("./restoreTestingPlan").RestoreTestingPlan = null as any;
+utilities.lazyLoad(exports, ["RestoreTestingPlan"], () => require("./restoreTestingPlan"));
+
+export { RestoreTestingSelectionArgs } from "./restoreTestingSelection";
+export type RestoreTestingSelection = import("./restoreTestingSelection").RestoreTestingSelection;
+export const RestoreTestingSelection: typeof import("./restoreTestingSelection").RestoreTestingSelection = null as any;
+utilities.lazyLoad(exports, ["RestoreTestingSelection"], () => require("./restoreTestingSelection"));
+
+
+// Export enums:
+export * from "../types/enums/backup";
 
 const _module = {
     version: utilities.getVersion(),
@@ -70,6 +93,10 @@ const _module = {
                 return new Framework(name, <any>undefined, { urn })
             case "aws-native:backup:ReportPlan":
                 return new ReportPlan(name, <any>undefined, { urn })
+            case "aws-native:backup:RestoreTestingPlan":
+                return new RestoreTestingPlan(name, <any>undefined, { urn })
+            case "aws-native:backup:RestoreTestingSelection":
+                return new RestoreTestingSelection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

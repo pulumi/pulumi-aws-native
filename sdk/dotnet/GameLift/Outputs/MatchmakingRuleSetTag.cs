@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GameLift.Outputs
 {
 
+    /// <summary>
+    /// A key-value pair to associate with a resource.
+    /// </summary>
     [OutputType]
     public sealed class MatchmakingRuleSetTag
     {
+        /// <summary>
+        /// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+        /// </summary>
         public readonly string Key;
+        /// <summary>
+        /// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

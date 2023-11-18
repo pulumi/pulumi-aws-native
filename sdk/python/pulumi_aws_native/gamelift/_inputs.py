@@ -20,7 +20,9 @@ __all__ = [
     'FleetLocationConfigurationArgs',
     'FleetResourceCreationLimitPolicyArgs',
     'FleetRuntimeConfigurationArgs',
+    'FleetScalingPolicyArgs',
     'FleetServerProcessArgs',
+    'FleetTargetConfigurationArgs',
     'GameServerGroupAutoScalingPolicyArgs',
     'GameServerGroupInstanceDefinitionArgs',
     'GameServerGroupLaunchTemplateArgs',
@@ -458,6 +460,200 @@ class FleetRuntimeConfigurationArgs:
 
 
 @pulumi.input_type
+class FleetScalingPolicyArgs:
+    def __init__(__self__, *,
+                 metric_name: pulumi.Input['FleetScalingPolicyMetricName'],
+                 name: pulumi.Input[str],
+                 comparison_operator: Optional[pulumi.Input['FleetScalingPolicyComparisonOperator']] = None,
+                 evaluation_periods: Optional[pulumi.Input[int]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
+                 policy_type: Optional[pulumi.Input['FleetScalingPolicyPolicyType']] = None,
+                 scaling_adjustment: Optional[pulumi.Input[int]] = None,
+                 scaling_adjustment_type: Optional[pulumi.Input['FleetScalingPolicyScalingAdjustmentType']] = None,
+                 status: Optional[pulumi.Input['FleetScalingPolicyStatus']] = None,
+                 target_configuration: Optional[pulumi.Input['FleetTargetConfigurationArgs']] = None,
+                 threshold: Optional[pulumi.Input[float]] = None,
+                 update_status: Optional[pulumi.Input['FleetScalingPolicyUpdateStatus']] = None):
+        """
+        Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.
+        :param pulumi.Input['FleetScalingPolicyMetricName'] metric_name: Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+        :param pulumi.Input[str] name: A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
+        :param pulumi.Input['FleetScalingPolicyComparisonOperator'] comparison_operator: Comparison operator to use when measuring a metric against the threshold value.
+        :param pulumi.Input[int] evaluation_periods: Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
+        :param pulumi.Input['FleetScalingPolicyPolicyType'] policy_type: The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
+        :param pulumi.Input[int] scaling_adjustment: Amount of adjustment to make, based on the scaling adjustment type.
+        :param pulumi.Input['FleetScalingPolicyScalingAdjustmentType'] scaling_adjustment_type: The type of adjustment to make to a fleet's instance count.
+        :param pulumi.Input['FleetScalingPolicyStatus'] status: Current status of the scaling policy. The scaling policy can be in force only when in an ACTIVE status. Scaling policies can be suspended for individual fleets. If the policy is suspended for a fleet, the policy status does not change.
+        :param pulumi.Input['FleetTargetConfigurationArgs'] target_configuration: An object that contains settings for a target-based scaling policy.
+        :param pulumi.Input[float] threshold: Metric value used to trigger a scaling event.
+        :param pulumi.Input['FleetScalingPolicyUpdateStatus'] update_status: The current status of the fleet's scaling policies in a requested fleet location. The status PENDING_UPDATE indicates that an update was requested for the fleet but has not yet been completed for the location.
+        """
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "name", name)
+        if comparison_operator is not None:
+            pulumi.set(__self__, "comparison_operator", comparison_operator)
+        if evaluation_periods is not None:
+            pulumi.set(__self__, "evaluation_periods", evaluation_periods)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if policy_type is not None:
+            pulumi.set(__self__, "policy_type", policy_type)
+        if scaling_adjustment is not None:
+            pulumi.set(__self__, "scaling_adjustment", scaling_adjustment)
+        if scaling_adjustment_type is not None:
+            pulumi.set(__self__, "scaling_adjustment_type", scaling_adjustment_type)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if target_configuration is not None:
+            pulumi.set(__self__, "target_configuration", target_configuration)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+        if update_status is not None:
+            pulumi.set(__self__, "update_status", update_status)
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> pulumi.Input['FleetScalingPolicyMetricName']:
+        """
+        Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @metric_name.setter
+    def metric_name(self, value: pulumi.Input['FleetScalingPolicyMetricName']):
+        pulumi.set(self, "metric_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="comparisonOperator")
+    def comparison_operator(self) -> Optional[pulumi.Input['FleetScalingPolicyComparisonOperator']]:
+        """
+        Comparison operator to use when measuring a metric against the threshold value.
+        """
+        return pulumi.get(self, "comparison_operator")
+
+    @comparison_operator.setter
+    def comparison_operator(self, value: Optional[pulumi.Input['FleetScalingPolicyComparisonOperator']]):
+        pulumi.set(self, "comparison_operator", value)
+
+    @property
+    @pulumi.getter(name="evaluationPeriods")
+    def evaluation_periods(self) -> Optional[pulumi.Input[int]]:
+        """
+        Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
+        """
+        return pulumi.get(self, "evaluation_periods")
+
+    @evaluation_periods.setter
+    def evaluation_periods(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "evaluation_periods", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> Optional[pulumi.Input['FleetScalingPolicyPolicyType']]:
+        """
+        The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
+        """
+        return pulumi.get(self, "policy_type")
+
+    @policy_type.setter
+    def policy_type(self, value: Optional[pulumi.Input['FleetScalingPolicyPolicyType']]):
+        pulumi.set(self, "policy_type", value)
+
+    @property
+    @pulumi.getter(name="scalingAdjustment")
+    def scaling_adjustment(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount of adjustment to make, based on the scaling adjustment type.
+        """
+        return pulumi.get(self, "scaling_adjustment")
+
+    @scaling_adjustment.setter
+    def scaling_adjustment(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "scaling_adjustment", value)
+
+    @property
+    @pulumi.getter(name="scalingAdjustmentType")
+    def scaling_adjustment_type(self) -> Optional[pulumi.Input['FleetScalingPolicyScalingAdjustmentType']]:
+        """
+        The type of adjustment to make to a fleet's instance count.
+        """
+        return pulumi.get(self, "scaling_adjustment_type")
+
+    @scaling_adjustment_type.setter
+    def scaling_adjustment_type(self, value: Optional[pulumi.Input['FleetScalingPolicyScalingAdjustmentType']]):
+        pulumi.set(self, "scaling_adjustment_type", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['FleetScalingPolicyStatus']]:
+        """
+        Current status of the scaling policy. The scaling policy can be in force only when in an ACTIVE status. Scaling policies can be suspended for individual fleets. If the policy is suspended for a fleet, the policy status does not change.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['FleetScalingPolicyStatus']]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="targetConfiguration")
+    def target_configuration(self) -> Optional[pulumi.Input['FleetTargetConfigurationArgs']]:
+        """
+        An object that contains settings for a target-based scaling policy.
+        """
+        return pulumi.get(self, "target_configuration")
+
+    @target_configuration.setter
+    def target_configuration(self, value: Optional[pulumi.Input['FleetTargetConfigurationArgs']]):
+        pulumi.set(self, "target_configuration", value)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[pulumi.Input[float]]:
+        """
+        Metric value used to trigger a scaling event.
+        """
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "threshold", value)
+
+    @property
+    @pulumi.getter(name="updateStatus")
+    def update_status(self) -> Optional[pulumi.Input['FleetScalingPolicyUpdateStatus']]:
+        """
+        The current status of the fleet's scaling policies in a requested fleet location. The status PENDING_UPDATE indicates that an update was requested for the fleet but has not yet been completed for the location.
+        """
+        return pulumi.get(self, "update_status")
+
+    @update_status.setter
+    def update_status(self, value: Optional[pulumi.Input['FleetScalingPolicyUpdateStatus']]):
+        pulumi.set(self, "update_status", value)
+
+
+@pulumi.input_type
 class FleetServerProcessArgs:
     def __init__(__self__, *,
                  concurrent_executions: pulumi.Input[int],
@@ -517,6 +713,29 @@ class FleetServerProcessArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class FleetTargetConfigurationArgs:
+    def __init__(__self__, *,
+                 target_value: pulumi.Input[float]):
+        """
+        Settings for a target-based scaling policy. A target-based policy tracks a particular fleet metric specifies a target value for the metric. As player usage changes, the policy triggers Amazon GameLift to adjust capacity so that the metric returns to the target value. The target configuration specifies settings as needed for the target based policy, including the target value.
+        :param pulumi.Input[float] target_value: Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet's buffer (the percent of capacity that should be idle and ready for new game sessions).
+        """
+        pulumi.set(__self__, "target_value", target_value)
+
+    @property
+    @pulumi.getter(name="targetValue")
+    def target_value(self) -> pulumi.Input[float]:
+        """
+        Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet's buffer (the percent of capacity that should be idle and ready for new game sessions).
+        """
+        return pulumi.get(self, "target_value")
+
+    @target_value.setter
+    def target_value(self, value: pulumi.Input[float]):
+        pulumi.set(self, "target_value", value)
 
 
 @pulumi.input_type
@@ -687,6 +906,9 @@ class GameServerGroupTargetTrackingConfigurationArgs:
 class GameSessionQueueDestinationArgs:
     def __init__(__self__, *,
                  destination_arn: Optional[pulumi.Input[str]] = None):
+        """
+        A fleet or alias designated in a game session queue.
+        """
         if destination_arn is not None:
             pulumi.set(__self__, "destination_arn", destination_arn)
 
@@ -722,6 +944,11 @@ class GameSessionQueuePlayerLatencyPolicyArgs:
     def __init__(__self__, *,
                  maximum_individual_player_latency_milliseconds: Optional[pulumi.Input[int]] = None,
                  policy_duration_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        Sets a latency cap for individual players when placing a game session.
+        :param pulumi.Input[int] maximum_individual_player_latency_milliseconds: The maximum latency value that is allowed for any player, in milliseconds. All policies must have a value set for this property.
+        :param pulumi.Input[int] policy_duration_seconds: The length of time, in seconds, that the policy is enforced while placing a new game session.
+        """
         if maximum_individual_player_latency_milliseconds is not None:
             pulumi.set(__self__, "maximum_individual_player_latency_milliseconds", maximum_individual_player_latency_milliseconds)
         if policy_duration_seconds is not None:
@@ -730,6 +957,9 @@ class GameSessionQueuePlayerLatencyPolicyArgs:
     @property
     @pulumi.getter(name="maximumIndividualPlayerLatencyMilliseconds")
     def maximum_individual_player_latency_milliseconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum latency value that is allowed for any player, in milliseconds. All policies must have a value set for this property.
+        """
         return pulumi.get(self, "maximum_individual_player_latency_milliseconds")
 
     @maximum_individual_player_latency_milliseconds.setter
@@ -739,6 +969,9 @@ class GameSessionQueuePlayerLatencyPolicyArgs:
     @property
     @pulumi.getter(name="policyDurationSeconds")
     def policy_duration_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The length of time, in seconds, that the policy is enforced while placing a new game session.
+        """
         return pulumi.get(self, "policy_duration_seconds")
 
     @policy_duration_seconds.setter
@@ -750,7 +983,7 @@ class GameSessionQueuePlayerLatencyPolicyArgs:
 class GameSessionQueuePriorityConfigurationArgs:
     def __init__(__self__, *,
                  location_order: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 priority_order: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 priority_order: Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePriorityOrderItem']]]] = None):
         if location_order is not None:
             pulumi.set(__self__, "location_order", location_order)
         if priority_order is not None:
@@ -767,11 +1000,11 @@ class GameSessionQueuePriorityConfigurationArgs:
 
     @property
     @pulumi.getter(name="priorityOrder")
-    def priority_order(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def priority_order(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePriorityOrderItem']]]]:
         return pulumi.get(self, "priority_order")
 
     @priority_order.setter
-    def priority_order(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def priority_order(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GameSessionQueuePriorityOrderItem']]]]):
         pulumi.set(self, "priority_order", value)
 
 
@@ -780,12 +1013,20 @@ class GameSessionQueueTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -795,6 +1036,9 @@ class GameSessionQueueTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -845,12 +1089,20 @@ class MatchmakingConfigurationGamePropertyArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        A key-value pair that contains information about a game session.
+        :param pulumi.Input[str] key: The game property identifier.
+        :param pulumi.Input[str] value: The game property value.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The game property identifier.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -860,6 +1112,9 @@ class MatchmakingConfigurationGamePropertyArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The game property value.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -872,12 +1127,20 @@ class MatchmakingConfigurationTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -887,6 +1150,9 @@ class MatchmakingConfigurationTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -899,12 +1165,20 @@ class MatchmakingRuleSetTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -914,6 +1188,9 @@ class MatchmakingRuleSetTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -928,6 +1205,12 @@ class ScriptS3LocationArgs:
                  key: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  object_version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] bucket: An Amazon S3 bucket identifier. This is the name of the S3 bucket.
+        :param pulumi.Input[str] key: The name of the zip file that contains the script files.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+        :param pulumi.Input[str] object_version: The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter.
+        """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -937,6 +1220,9 @@ class ScriptS3LocationArgs:
     @property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[str]:
+        """
+        An Amazon S3 bucket identifier. This is the name of the S3 bucket.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -946,6 +1232,9 @@ class ScriptS3LocationArgs:
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The name of the zip file that contains the script files.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -955,6 +1244,9 @@ class ScriptS3LocationArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) for an IAM role that allows Amazon GameLift to access the S3 bucket.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -964,6 +1256,9 @@ class ScriptS3LocationArgs:
     @property
     @pulumi.getter(name="objectVersion")
     def object_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of the file, if object versioning is turned on for the bucket. Amazon GameLift uses this information when retrieving files from your S3 bucket. To retrieve a specific version of the file, provide an object version. To retrieve the latest version of the file, do not set this parameter.
+        """
         return pulumi.get(self, "object_version")
 
     @object_version.setter
@@ -976,12 +1271,20 @@ class ScriptTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
+        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -991,6 +1294,9 @@ class ScriptTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
+        """
         return pulumi.get(self, "value")
 
     @value.setter

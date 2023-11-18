@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.FSx.Outputs
 {
 
     /// <summary>
-    /// A key-value pair to associate with a resource.
+    /// Specifies a key-value pair for a resource tag.
     /// </summary>
     [OutputType]
     public sealed class DataRepositoryAssociationTag
     {
         /// <summary>
-        /// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        /// A value that specifies the ``TagKey``, the name of the tag. Tag keys must be unique for the resource to which they are attached.
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        /// A value that specifies the ``TagValue``, the value assigned to the corresponding tag key. Tag values can be null and don't have to be unique in a tag set. For example, you can have a key-value pair in a tag set of ``finances : April`` and also of ``payroll : April``.
         /// </summary>
         public readonly string Value;
 

@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::GuardDuty::IPSet
- *
- * @deprecated IpSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class IpSet extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class IpSet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IpSet {
-        pulumi.log.warn("IpSet is deprecated: IpSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new IpSet(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,12 +37,12 @@ export class IpSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === IpSet.__pulumiType;
     }
 
-    public readonly activate!: pulumi.Output<boolean>;
-    public readonly detectorId!: pulumi.Output<string>;
+    public readonly activate!: pulumi.Output<boolean | undefined>;
+    public readonly detectorId!: pulumi.Output<string | undefined>;
     public readonly format!: pulumi.Output<string>;
     public readonly location!: pulumi.Output<string>;
-    public readonly name!: pulumi.Output<string | undefined>;
-    public readonly tags!: pulumi.Output<outputs.guardduty.IpSetTag[] | undefined>;
+    public readonly name!: pulumi.Output<string>;
+    public readonly tags!: pulumi.Output<outputs.guardduty.IpSetTagItem[] | undefined>;
 
     /**
      * Create a IpSet resource with the given unique name, arguments, and options.
@@ -54,18 +51,10 @@ export class IpSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated IpSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: IpSetArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("IpSet is deprecated: IpSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.activate === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'activate'");
-            }
-            if ((!args || args.detectorId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'detectorId'");
-            }
             if ((!args || args.format === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'format'");
             }
@@ -97,10 +86,10 @@ export class IpSet extends pulumi.CustomResource {
  * The set of arguments for constructing a IpSet resource.
  */
 export interface IpSetArgs {
-    activate: pulumi.Input<boolean>;
-    detectorId: pulumi.Input<string>;
+    activate?: pulumi.Input<boolean>;
+    detectorId?: pulumi.Input<string>;
     format: pulumi.Input<string>;
     location: pulumi.Input<string>;
     name?: pulumi.Input<string>;
-    tags?: pulumi.Input<pulumi.Input<inputs.guardduty.IpSetTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.guardduty.IpSetTagItemArgs>[]>;
 }

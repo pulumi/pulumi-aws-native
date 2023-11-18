@@ -18,6 +18,7 @@ __all__ = [
     'OriginEndpointEncryption',
     'OriginEndpointEncryptionContractConfiguration',
     'OriginEndpointEncryptionMethod',
+    'OriginEndpointFilterConfiguration',
     'OriginEndpointHlsManifestConfiguration',
     'OriginEndpointLowLatencyHlsManifestConfiguration',
     'OriginEndpointScte',
@@ -257,6 +258,84 @@ class OriginEndpointEncryptionMethod(dict):
 
 
 @pulumi.output_type
+class OriginEndpointFilterConfiguration(dict):
+    """
+    <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "manifestFilter":
+            suggest = "manifest_filter"
+        elif key == "timeDelaySeconds":
+            suggest = "time_delay_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginEndpointFilterConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginEndpointFilterConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginEndpointFilterConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end: Optional[str] = None,
+                 manifest_filter: Optional[str] = None,
+                 start: Optional[str] = None,
+                 time_delay_seconds: Optional[int] = None):
+        """
+        <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+        :param str end: <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+        :param str manifest_filter: <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+        :param str start: <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+        :param int time_delay_seconds: <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+        """
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+        if manifest_filter is not None:
+            pulumi.set(__self__, "manifest_filter", manifest_filter)
+        if start is not None:
+            pulumi.set(__self__, "start", start)
+        if time_delay_seconds is not None:
+            pulumi.set(__self__, "time_delay_seconds", time_delay_seconds)
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional[str]:
+        """
+        <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+        """
+        return pulumi.get(self, "end")
+
+    @property
+    @pulumi.getter(name="manifestFilter")
+    def manifest_filter(self) -> Optional[str]:
+        """
+        <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+        """
+        return pulumi.get(self, "manifest_filter")
+
+    @property
+    @pulumi.getter
+    def start(self) -> Optional[str]:
+        """
+        <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+        """
+        return pulumi.get(self, "start")
+
+    @property
+    @pulumi.getter(name="timeDelaySeconds")
+    def time_delay_seconds(self) -> Optional[int]:
+        """
+        <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+        """
+        return pulumi.get(self, "time_delay_seconds")
+
+
+@pulumi.output_type
 class OriginEndpointHlsManifestConfiguration(dict):
     """
     <p>Retrieve the HTTP live streaming (HLS) manifest configuration.</p>
@@ -268,6 +347,8 @@ class OriginEndpointHlsManifestConfiguration(dict):
             suggest = "manifest_name"
         elif key == "childManifestName":
             suggest = "child_manifest_name"
+        elif key == "filterConfiguration":
+            suggest = "filter_configuration"
         elif key == "manifestWindowSeconds":
             suggest = "manifest_window_seconds"
         elif key == "programDateTimeIntervalSeconds":
@@ -289,6 +370,7 @@ class OriginEndpointHlsManifestConfiguration(dict):
     def __init__(__self__, *,
                  manifest_name: str,
                  child_manifest_name: Optional[str] = None,
+                 filter_configuration: Optional['outputs.OriginEndpointFilterConfiguration'] = None,
                  manifest_window_seconds: Optional[int] = None,
                  program_date_time_interval_seconds: Optional[int] = None,
                  scte_hls: Optional['outputs.OriginEndpointScteHls'] = None,
@@ -308,6 +390,8 @@ class OriginEndpointHlsManifestConfiguration(dict):
         pulumi.set(__self__, "manifest_name", manifest_name)
         if child_manifest_name is not None:
             pulumi.set(__self__, "child_manifest_name", child_manifest_name)
+        if filter_configuration is not None:
+            pulumi.set(__self__, "filter_configuration", filter_configuration)
         if manifest_window_seconds is not None:
             pulumi.set(__self__, "manifest_window_seconds", manifest_window_seconds)
         if program_date_time_interval_seconds is not None:
@@ -332,6 +416,11 @@ class OriginEndpointHlsManifestConfiguration(dict):
         <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
         """
         return pulumi.get(self, "child_manifest_name")
+
+    @property
+    @pulumi.getter(name="filterConfiguration")
+    def filter_configuration(self) -> Optional['outputs.OriginEndpointFilterConfiguration']:
+        return pulumi.get(self, "filter_configuration")
 
     @property
     @pulumi.getter(name="manifestWindowSeconds")
@@ -379,6 +468,8 @@ class OriginEndpointLowLatencyHlsManifestConfiguration(dict):
             suggest = "manifest_name"
         elif key == "childManifestName":
             suggest = "child_manifest_name"
+        elif key == "filterConfiguration":
+            suggest = "filter_configuration"
         elif key == "manifestWindowSeconds":
             suggest = "manifest_window_seconds"
         elif key == "programDateTimeIntervalSeconds":
@@ -400,6 +491,7 @@ class OriginEndpointLowLatencyHlsManifestConfiguration(dict):
     def __init__(__self__, *,
                  manifest_name: str,
                  child_manifest_name: Optional[str] = None,
+                 filter_configuration: Optional['outputs.OriginEndpointFilterConfiguration'] = None,
                  manifest_window_seconds: Optional[int] = None,
                  program_date_time_interval_seconds: Optional[int] = None,
                  scte_hls: Optional['outputs.OriginEndpointScteHls'] = None,
@@ -419,6 +511,8 @@ class OriginEndpointLowLatencyHlsManifestConfiguration(dict):
         pulumi.set(__self__, "manifest_name", manifest_name)
         if child_manifest_name is not None:
             pulumi.set(__self__, "child_manifest_name", child_manifest_name)
+        if filter_configuration is not None:
+            pulumi.set(__self__, "filter_configuration", filter_configuration)
         if manifest_window_seconds is not None:
             pulumi.set(__self__, "manifest_window_seconds", manifest_window_seconds)
         if program_date_time_interval_seconds is not None:
@@ -443,6 +537,11 @@ class OriginEndpointLowLatencyHlsManifestConfiguration(dict):
         <p>A short string that's appended to the endpoint URL. The child manifest name creates a unique path to this endpoint. If you don't enter a value, MediaPackage uses the default child manifest name, index_1. The manifestName on the HLSManifest object overrides the manifestName you provided on the originEndpoint object.</p>
         """
         return pulumi.get(self, "child_manifest_name")
+
+    @property
+    @pulumi.getter(name="filterConfiguration")
+    def filter_configuration(self) -> Optional['outputs.OriginEndpointFilterConfiguration']:
+        return pulumi.get(self, "filter_configuration")
 
     @property
     @pulumi.getter(name="manifestWindowSeconds")

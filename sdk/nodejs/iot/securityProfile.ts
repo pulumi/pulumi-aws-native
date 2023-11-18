@@ -50,6 +50,10 @@ export class SecurityProfile extends pulumi.CustomResource {
      */
     public readonly behaviors!: pulumi.Output<outputs.iot.SecurityProfileBehavior[] | undefined>;
     /**
+     * A structure containing the mqtt topic for metrics export.
+     */
+    public readonly metricsExportConfig!: pulumi.Output<outputs.iot.MetricsExportConfigProperties | undefined>;
+    /**
      * The ARN (Amazon resource name) of the created security profile.
      */
     public /*out*/ readonly securityProfileArn!: pulumi.Output<string>;
@@ -84,6 +88,7 @@ export class SecurityProfile extends pulumi.CustomResource {
             resourceInputs["additionalMetricsToRetainV2"] = args ? args.additionalMetricsToRetainV2 : undefined;
             resourceInputs["alertTargets"] = args ? args.alertTargets : undefined;
             resourceInputs["behaviors"] = args ? args.behaviors : undefined;
+            resourceInputs["metricsExportConfig"] = args ? args.metricsExportConfig : undefined;
             resourceInputs["securityProfileDescription"] = args ? args.securityProfileDescription : undefined;
             resourceInputs["securityProfileName"] = args ? args.securityProfileName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -93,6 +98,7 @@ export class SecurityProfile extends pulumi.CustomResource {
             resourceInputs["additionalMetricsToRetainV2"] = undefined /*out*/;
             resourceInputs["alertTargets"] = undefined /*out*/;
             resourceInputs["behaviors"] = undefined /*out*/;
+            resourceInputs["metricsExportConfig"] = undefined /*out*/;
             resourceInputs["securityProfileArn"] = undefined /*out*/;
             resourceInputs["securityProfileDescription"] = undefined /*out*/;
             resourceInputs["securityProfileName"] = undefined /*out*/;
@@ -122,6 +128,10 @@ export interface SecurityProfileArgs {
      * Specifies the behaviors that, when violated by a device (thing), cause an alert.
      */
     behaviors?: pulumi.Input<pulumi.Input<inputs.iot.SecurityProfileBehaviorArgs>[]>;
+    /**
+     * A structure containing the mqtt topic for metrics export.
+     */
+    metricsExportConfig?: pulumi.Input<inputs.iot.MetricsExportConfigPropertiesArgs>;
     /**
      * A description of the security profile.
      */

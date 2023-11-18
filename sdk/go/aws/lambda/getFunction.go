@@ -52,6 +52,8 @@ type LookupFunctionResult struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
 	Layers []string `pulumi:"layers"`
+	// The logging configuration of your function
+	LoggingConfig *FunctionLoggingConfig `pulumi:"loggingConfig"`
 	// The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.
 	MemorySize *int `pulumi:"memorySize"`
 	// PackageType.
@@ -175,6 +177,11 @@ func (o LookupFunctionResultOutput) KmsKeyArn() pulumi.StringPtrOutput {
 // A list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.
 func (o LookupFunctionResultOutput) Layers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupFunctionResult) []string { return v.Layers }).(pulumi.StringArrayOutput)
+}
+
+// The logging configuration of your function
+func (o LookupFunctionResultOutput) LoggingConfig() FunctionLoggingConfigPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *FunctionLoggingConfig { return v.LoggingConfig }).(FunctionLoggingConfigPtrOutput)
 }
 
 // The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.

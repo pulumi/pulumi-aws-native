@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'AccessPolicyType',
     'CollectionType',
+    'LifecyclePolicyType',
     'SecurityConfigType',
     'SecurityPolicyType',
 ]
@@ -26,6 +27,13 @@ class CollectionType(str, Enum):
     SEARCH = "SEARCH"
     TIMESERIES = "TIMESERIES"
     VECTORSEARCH = "VECTORSEARCH"
+
+
+class LifecyclePolicyType(str, Enum):
+    """
+    The type of lifecycle policy
+    """
+    RETENTION = "retention"
 
 
 class SecurityConfigType(str, Enum):

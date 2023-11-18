@@ -10,39 +10,68 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.GameLift
 {
     /// <summary>
-    /// Resource Type definition for AWS::GameLift::GameSessionQueue
+    /// The AWS::GameLift::GameSessionQueue resource creates an Amazon GameLift (GameLift) game session queue.
     /// </summary>
-    [Obsolete(@"GameSessionQueue is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:gamelift:GameSessionQueue")]
     public partial class GameSessionQueue : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Information that is added to all events that are related to this game session queue.
+        /// </summary>
         [Output("customEventData")]
         public Output<string?> CustomEventData { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.
+        /// </summary>
         [Output("destinations")]
         public Output<ImmutableArray<Outputs.GameSessionQueueDestination>> Destinations { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of locations where a queue is allowed to place new game sessions.
+        /// </summary>
         [Output("filterConfiguration")]
         public Output<Outputs.GameSessionQueueFilterConfiguration?> FilterConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// An SNS topic ARN that is set up to receive game session placement notifications.
+        /// </summary>
         [Output("notificationTarget")]
         public Output<string?> NotificationTarget { get; private set; } = null!;
 
+        /// <summary>
+        /// A set of policies that act as a sliding cap on player latency.
+        /// </summary>
         [Output("playerLatencyPolicies")]
         public Output<ImmutableArray<Outputs.GameSessionQueuePlayerLatencyPolicy>> PlayerLatencyPolicies { get; private set; } = null!;
 
+        /// <summary>
+        /// Custom settings to use when prioritizing destinations and locations for game session placements.
+        /// </summary>
         [Output("priorityConfiguration")]
         public Output<Outputs.GameSessionQueuePriorityConfiguration?> PriorityConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.GameSessionQueueTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The maximum time, in seconds, that a new game session placement request remains in the queue.
+        /// </summary>
         [Output("timeoutInSeconds")]
         public Output<int?> TimeoutInSeconds { get; private set; } = null!;
 
@@ -95,45 +124,75 @@ namespace Pulumi.AwsNative.GameLift
 
     public sealed class GameSessionQueueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Information that is added to all events that are related to this game session queue.
+        /// </summary>
         [Input("customEventData")]
         public Input<string>? CustomEventData { get; set; }
 
         [Input("destinations")]
         private InputList<Inputs.GameSessionQueueDestinationArgs>? _destinations;
+
+        /// <summary>
+        /// A list of fleets and/or fleet aliases that can be used to fulfill game session placement requests in the queue.
+        /// </summary>
         public InputList<Inputs.GameSessionQueueDestinationArgs> Destinations
         {
             get => _destinations ?? (_destinations = new InputList<Inputs.GameSessionQueueDestinationArgs>());
             set => _destinations = value;
         }
 
+        /// <summary>
+        /// A list of locations where a queue is allowed to place new game sessions.
+        /// </summary>
         [Input("filterConfiguration")]
         public Input<Inputs.GameSessionQueueFilterConfigurationArgs>? FilterConfiguration { get; set; }
 
+        /// <summary>
+        /// A descriptive label that is associated with game session queue. Queue names must be unique within each Region.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// An SNS topic ARN that is set up to receive game session placement notifications.
+        /// </summary>
         [Input("notificationTarget")]
         public Input<string>? NotificationTarget { get; set; }
 
         [Input("playerLatencyPolicies")]
         private InputList<Inputs.GameSessionQueuePlayerLatencyPolicyArgs>? _playerLatencyPolicies;
+
+        /// <summary>
+        /// A set of policies that act as a sliding cap on player latency.
+        /// </summary>
         public InputList<Inputs.GameSessionQueuePlayerLatencyPolicyArgs> PlayerLatencyPolicies
         {
             get => _playerLatencyPolicies ?? (_playerLatencyPolicies = new InputList<Inputs.GameSessionQueuePlayerLatencyPolicyArgs>());
             set => _playerLatencyPolicies = value;
         }
 
+        /// <summary>
+        /// Custom settings to use when prioritizing destinations and locations for game session placements.
+        /// </summary>
         [Input("priorityConfiguration")]
         public Input<Inputs.GameSessionQueuePriorityConfigurationArgs>? PriorityConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.GameSessionQueueTagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public InputList<Inputs.GameSessionQueueTagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.GameSessionQueueTagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The maximum time, in seconds, that a new game session placement request remains in the queue.
+        /// </summary>
         [Input("timeoutInSeconds")]
         public Input<int>? TimeoutInSeconds { get; set; }
 

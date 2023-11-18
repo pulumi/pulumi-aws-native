@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.EmrServerless
         [Output("maximumCapacity")]
         public Output<Outputs.ApplicationMaximumAllowedResources?> MaximumCapacity { get; private set; } = null!;
 
+        [Output("monitoringConfiguration")]
+        public Output<Outputs.ApplicationMonitoringConfiguration?> MonitoringConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// User friendly Application name.
         /// </summary>
@@ -74,6 +77,9 @@ namespace Pulumi.AwsNative.EmrServerless
         /// </summary>
         [Output("releaseLabel")]
         public Output<string> ReleaseLabel { get; private set; } = null!;
+
+        [Output("runtimeConfiguration")]
+        public Output<ImmutableArray<Outputs.ApplicationConfigurationObject>> RuntimeConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Tag map with key and value
@@ -179,6 +185,9 @@ namespace Pulumi.AwsNative.EmrServerless
         [Input("maximumCapacity")]
         public Input<Inputs.ApplicationMaximumAllowedResourcesArgs>? MaximumCapacity { get; set; }
 
+        [Input("monitoringConfiguration")]
+        public Input<Inputs.ApplicationMonitoringConfigurationArgs>? MonitoringConfiguration { get; set; }
+
         /// <summary>
         /// User friendly Application name.
         /// </summary>
@@ -196,6 +205,14 @@ namespace Pulumi.AwsNative.EmrServerless
         /// </summary>
         [Input("releaseLabel", required: true)]
         public Input<string> ReleaseLabel { get; set; } = null!;
+
+        [Input("runtimeConfiguration")]
+        private InputList<Inputs.ApplicationConfigurationObjectArgs>? _runtimeConfiguration;
+        public InputList<Inputs.ApplicationConfigurationObjectArgs> RuntimeConfiguration
+        {
+            get => _runtimeConfiguration ?? (_runtimeConfiguration = new InputList<Inputs.ApplicationConfigurationObjectArgs>());
+            set => _runtimeConfiguration = value;
+        }
 
         [Input("tags")]
         private InputList<Inputs.ApplicationTagArgs>? _tags;

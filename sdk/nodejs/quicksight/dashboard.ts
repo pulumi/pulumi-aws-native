@@ -45,6 +45,7 @@ export class Dashboard extends pulumi.CustomResource {
     public readonly definition!: pulumi.Output<outputs.quicksight.DashboardVersionDefinition | undefined>;
     public /*out*/ readonly lastPublishedTime!: pulumi.Output<string>;
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
+    public readonly linkSharingConfiguration!: pulumi.Output<outputs.quicksight.DashboardLinkSharingConfiguration | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly parameters!: pulumi.Output<outputs.quicksight.DashboardParameters | undefined>;
     public readonly permissions!: pulumi.Output<outputs.quicksight.DashboardResourcePermission[] | undefined>;
@@ -76,6 +77,7 @@ export class Dashboard extends pulumi.CustomResource {
             resourceInputs["dashboardId"] = args ? args.dashboardId : undefined;
             resourceInputs["dashboardPublishOptions"] = args ? args.dashboardPublishOptions : undefined;
             resourceInputs["definition"] = args ? args.definition : undefined;
+            resourceInputs["linkSharingConfiguration"] = args ? args.linkSharingConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
@@ -98,6 +100,7 @@ export class Dashboard extends pulumi.CustomResource {
             resourceInputs["definition"] = undefined /*out*/;
             resourceInputs["lastPublishedTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["linkSharingConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["permissions"] = undefined /*out*/;
@@ -123,6 +126,7 @@ export interface DashboardArgs {
     dashboardId: pulumi.Input<string>;
     dashboardPublishOptions?: pulumi.Input<inputs.quicksight.DashboardPublishOptionsArgs>;
     definition?: pulumi.Input<inputs.quicksight.DashboardVersionDefinitionArgs>;
+    linkSharingConfiguration?: pulumi.Input<inputs.quicksight.DashboardLinkSharingConfigurationArgs>;
     name?: pulumi.Input<string>;
     parameters?: pulumi.Input<inputs.quicksight.DashboardParametersArgs>;
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DashboardResourcePermissionArgs>[]>;

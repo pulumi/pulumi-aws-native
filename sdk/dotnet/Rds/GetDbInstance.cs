@@ -130,6 +130,10 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly string? DbiResourceId;
         /// <summary>
+        /// Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
+        /// </summary>
+        public readonly bool? DedicatedLogVolume;
+        /// <summary>
         /// A value that indicates whether the DB instance has deletion protection enabled. The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
         /// </summary>
         public readonly bool? DeletionProtection;
@@ -312,6 +316,8 @@ namespace Pulumi.AwsNative.Rds
 
             string? dbiResourceId,
 
+            bool? dedicatedLogVolume,
+
             bool? deletionProtection,
 
             string? domain,
@@ -402,6 +408,7 @@ namespace Pulumi.AwsNative.Rds
             DbSecurityGroups = dbSecurityGroups;
             DbSystemId = dbSystemId;
             DbiResourceId = dbiResourceId;
+            DedicatedLogVolume = dedicatedLogVolume;
             DeletionProtection = deletionProtection;
             Domain = domain;
             DomainAuthSecretArn = domainAuthSecretArn;

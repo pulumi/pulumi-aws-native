@@ -15,6 +15,7 @@ __all__ = [
     'ChannelTagArgs',
     'EventDataStoreAdvancedEventSelectorArgs',
     'EventDataStoreAdvancedFieldSelectorArgs',
+    'EventDataStoreInsightSelectorArgs',
     'EventDataStoreTagArgs',
     'TrailAdvancedEventSelectorArgs',
     'TrailAdvancedFieldSelectorArgs',
@@ -256,6 +257,30 @@ class EventDataStoreAdvancedFieldSelectorArgs:
     @starts_with.setter
     def starts_with(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "starts_with", value)
+
+
+@pulumi.input_type
+class EventDataStoreInsightSelectorArgs:
+    def __init__(__self__, *,
+                 insight_type: Optional[pulumi.Input[str]] = None):
+        """
+        A string that contains Insights types that are logged on an event data store.
+        :param pulumi.Input[str] insight_type: The type of Insights to log on an event data store.
+        """
+        if insight_type is not None:
+            pulumi.set(__self__, "insight_type", insight_type)
+
+    @property
+    @pulumi.getter(name="insightType")
+    def insight_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of Insights to log on an event data store.
+        """
+        return pulumi.get(self, "insight_type")
+
+    @insight_type.setter
+    def insight_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "insight_type", value)
 
 
 @pulumi.input_type

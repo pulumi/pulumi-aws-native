@@ -56,6 +56,8 @@ type LookupFleetResult struct {
 	//
 	// This parameter is required unless the parameters ServerLaunchPath and ServerLaunchParameters are defined. Runtime configuration has replaced these parameters, but fleets that use them will continue to work.
 	RuntimeConfiguration *FleetRuntimeConfiguration `pulumi:"runtimeConfiguration"`
+	// A list of rules that control how a fleet is scaled.
+	ScalingPolicies []FleetScalingPolicy `pulumi:"scalingPolicies"`
 }
 
 func LookupFleetOutput(ctx *pulumi.Context, args LookupFleetOutputArgs, opts ...pulumi.InvokeOption) LookupFleetResultOutput {
@@ -166,6 +168,11 @@ func (o LookupFleetResultOutput) ResourceCreationLimitPolicy() FleetResourceCrea
 // This parameter is required unless the parameters ServerLaunchPath and ServerLaunchParameters are defined. Runtime configuration has replaced these parameters, but fleets that use them will continue to work.
 func (o LookupFleetResultOutput) RuntimeConfiguration() FleetRuntimeConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *FleetRuntimeConfiguration { return v.RuntimeConfiguration }).(FleetRuntimeConfigurationPtrOutput)
+}
+
+// A list of rules that control how a fleet is scaled.
+func (o LookupFleetResultOutput) ScalingPolicies() FleetScalingPolicyArrayOutput {
+	return o.ApplyT(func(v LookupFleetResult) []FleetScalingPolicy { return v.ScalingPolicies }).(FleetScalingPolicyArrayOutput)
 }
 
 func init() {

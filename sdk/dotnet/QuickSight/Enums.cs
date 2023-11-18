@@ -678,6 +678,39 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct AnalysisDayOfTheWeek : IEquatable<AnalysisDayOfTheWeek>
+    {
+        private readonly string _value;
+
+        private AnalysisDayOfTheWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisDayOfTheWeek Sunday { get; } = new AnalysisDayOfTheWeek("SUNDAY");
+        public static AnalysisDayOfTheWeek Monday { get; } = new AnalysisDayOfTheWeek("MONDAY");
+        public static AnalysisDayOfTheWeek Tuesday { get; } = new AnalysisDayOfTheWeek("TUESDAY");
+        public static AnalysisDayOfTheWeek Wednesday { get; } = new AnalysisDayOfTheWeek("WEDNESDAY");
+        public static AnalysisDayOfTheWeek Thursday { get; } = new AnalysisDayOfTheWeek("THURSDAY");
+        public static AnalysisDayOfTheWeek Friday { get; } = new AnalysisDayOfTheWeek("FRIDAY");
+        public static AnalysisDayOfTheWeek Saturday { get; } = new AnalysisDayOfTheWeek("SATURDAY");
+
+        public static bool operator ==(AnalysisDayOfTheWeek left, AnalysisDayOfTheWeek right) => left.Equals(right);
+        public static bool operator !=(AnalysisDayOfTheWeek left, AnalysisDayOfTheWeek right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisDayOfTheWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisDayOfTheWeek other && Equals(other);
+        public bool Equals(AnalysisDayOfTheWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AnalysisErrorType : IEquatable<AnalysisErrorType>
     {
         private readonly string _value;
@@ -4031,6 +4064,39 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct DashboardDayOfTheWeek : IEquatable<DashboardDayOfTheWeek>
+    {
+        private readonly string _value;
+
+        private DashboardDayOfTheWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardDayOfTheWeek Sunday { get; } = new DashboardDayOfTheWeek("SUNDAY");
+        public static DashboardDayOfTheWeek Monday { get; } = new DashboardDayOfTheWeek("MONDAY");
+        public static DashboardDayOfTheWeek Tuesday { get; } = new DashboardDayOfTheWeek("TUESDAY");
+        public static DashboardDayOfTheWeek Wednesday { get; } = new DashboardDayOfTheWeek("WEDNESDAY");
+        public static DashboardDayOfTheWeek Thursday { get; } = new DashboardDayOfTheWeek("THURSDAY");
+        public static DashboardDayOfTheWeek Friday { get; } = new DashboardDayOfTheWeek("FRIDAY");
+        public static DashboardDayOfTheWeek Saturday { get; } = new DashboardDayOfTheWeek("SATURDAY");
+
+        public static bool operator ==(DashboardDayOfTheWeek left, DashboardDayOfTheWeek right) => left.Equals(right);
+        public static bool operator !=(DashboardDayOfTheWeek left, DashboardDayOfTheWeek right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardDayOfTheWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardDayOfTheWeek other && Equals(other);
+        public bool Equals(DashboardDayOfTheWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DashboardErrorType : IEquatable<DashboardErrorType>
     {
         private readonly string _value;
@@ -6743,6 +6809,34 @@ namespace Pulumi.AwsNative.QuickSight
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct DataSetColumnSubDataType : IEquatable<DataSetColumnSubDataType>
+    {
+        private readonly string _value;
+
+        private DataSetColumnSubDataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSetColumnSubDataType Fixed { get; } = new DataSetColumnSubDataType("FIXED");
+        public static DataSetColumnSubDataType Float { get; } = new DataSetColumnSubDataType("FLOAT");
+
+        public static bool operator ==(DataSetColumnSubDataType left, DataSetColumnSubDataType right) => left.Equals(right);
+        public static bool operator !=(DataSetColumnSubDataType left, DataSetColumnSubDataType right) => !left.Equals(right);
+
+        public static explicit operator string(DataSetColumnSubDataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSetColumnSubDataType other && Equals(other);
+        public bool Equals(DataSetColumnSubDataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// &lt;p&gt;Every parameter value could be either a single value or multi value which helps to validate before evaluation.&lt;/p&gt;
     /// </summary>
@@ -7045,6 +7139,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct DataSourceStarburstProductType : IEquatable<DataSourceStarburstProductType>
+    {
+        private readonly string _value;
+
+        private DataSourceStarburstProductType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceStarburstProductType Galaxy { get; } = new DataSourceStarburstProductType("GALAXY");
+        public static DataSourceStarburstProductType Enterprise { get; } = new DataSourceStarburstProductType("ENTERPRISE");
+
+        public static bool operator ==(DataSourceStarburstProductType left, DataSourceStarburstProductType right) => left.Equals(right);
+        public static bool operator !=(DataSourceStarburstProductType left, DataSourceStarburstProductType right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceStarburstProductType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceStarburstProductType other && Equals(other);
+        public bool Equals(DataSourceStarburstProductType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DataSourceType : IEquatable<DataSourceType>
     {
         private readonly string _value;
@@ -7079,6 +7201,8 @@ namespace Pulumi.AwsNative.QuickSight
         public static DataSourceType Teradata { get; } = new DataSourceType("TERADATA");
         public static DataSourceType Twitter { get; } = new DataSourceType("TWITTER");
         public static DataSourceType Timestream { get; } = new DataSourceType("TIMESTREAM");
+        public static DataSourceType Starburst { get; } = new DataSourceType("STARBURST");
+        public static DataSourceType Trino { get; } = new DataSourceType("TRINO");
 
         public static bool operator ==(DataSourceType left, DataSourceType right) => left.Equals(right);
         public static bool operator !=(DataSourceType left, DataSourceType right) => !left.Equals(right);
@@ -7851,6 +7975,39 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TemplateDateAggregationFunction other && Equals(other);
         public bool Equals(TemplateDateAggregationFunction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateDayOfTheWeek : IEquatable<TemplateDayOfTheWeek>
+    {
+        private readonly string _value;
+
+        private TemplateDayOfTheWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateDayOfTheWeek Sunday { get; } = new TemplateDayOfTheWeek("SUNDAY");
+        public static TemplateDayOfTheWeek Monday { get; } = new TemplateDayOfTheWeek("MONDAY");
+        public static TemplateDayOfTheWeek Tuesday { get; } = new TemplateDayOfTheWeek("TUESDAY");
+        public static TemplateDayOfTheWeek Wednesday { get; } = new TemplateDayOfTheWeek("WEDNESDAY");
+        public static TemplateDayOfTheWeek Thursday { get; } = new TemplateDayOfTheWeek("THURSDAY");
+        public static TemplateDayOfTheWeek Friday { get; } = new TemplateDayOfTheWeek("FRIDAY");
+        public static TemplateDayOfTheWeek Saturday { get; } = new TemplateDayOfTheWeek("SATURDAY");
+
+        public static bool operator ==(TemplateDayOfTheWeek left, TemplateDayOfTheWeek right) => left.Equals(right);
+        public static bool operator !=(TemplateDayOfTheWeek left, TemplateDayOfTheWeek right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateDayOfTheWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateDayOfTheWeek other && Equals(other);
+        public bool Equals(TemplateDayOfTheWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

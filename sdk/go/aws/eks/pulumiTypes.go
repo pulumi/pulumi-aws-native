@@ -147,6 +147,189 @@ func (o AddonTagArrayOutput) Index(i pulumi.IntInput) AddonTagOutput {
 	}).(AddonTagOutput)
 }
 
+// An object representing the Access Config to use for the cluster.
+type ClusterAccessConfig struct {
+	// Specify the authentication mode that should be used to create your cluster.
+	AuthenticationMode *ClusterAccessConfigAuthenticationMode `pulumi:"authenticationMode"`
+	// Set this value to false to avoid creating a default cluster admin Access Entry using the IAM principal used to create the cluster.
+	BootstrapClusterCreatorAdminPermissions *bool `pulumi:"bootstrapClusterCreatorAdminPermissions"`
+}
+
+// ClusterAccessConfigInput is an input type that accepts ClusterAccessConfigArgs and ClusterAccessConfigOutput values.
+// You can construct a concrete instance of `ClusterAccessConfigInput` via:
+//
+//	ClusterAccessConfigArgs{...}
+type ClusterAccessConfigInput interface {
+	pulumi.Input
+
+	ToClusterAccessConfigOutput() ClusterAccessConfigOutput
+	ToClusterAccessConfigOutputWithContext(context.Context) ClusterAccessConfigOutput
+}
+
+// An object representing the Access Config to use for the cluster.
+type ClusterAccessConfigArgs struct {
+	// Specify the authentication mode that should be used to create your cluster.
+	AuthenticationMode ClusterAccessConfigAuthenticationModePtrInput `pulumi:"authenticationMode"`
+	// Set this value to false to avoid creating a default cluster admin Access Entry using the IAM principal used to create the cluster.
+	BootstrapClusterCreatorAdminPermissions pulumi.BoolPtrInput `pulumi:"bootstrapClusterCreatorAdminPermissions"`
+}
+
+func (ClusterAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAccessConfig)(nil)).Elem()
+}
+
+func (i ClusterAccessConfigArgs) ToClusterAccessConfigOutput() ClusterAccessConfigOutput {
+	return i.ToClusterAccessConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterAccessConfigArgs) ToClusterAccessConfigOutputWithContext(ctx context.Context) ClusterAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAccessConfigOutput)
+}
+
+func (i ClusterAccessConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterAccessConfig] {
+	return pulumix.Output[ClusterAccessConfig]{
+		OutputState: i.ToClusterAccessConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ClusterAccessConfigArgs) ToClusterAccessConfigPtrOutput() ClusterAccessConfigPtrOutput {
+	return i.ToClusterAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterAccessConfigArgs) ToClusterAccessConfigPtrOutputWithContext(ctx context.Context) ClusterAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAccessConfigOutput).ToClusterAccessConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterAccessConfigPtrInput is an input type that accepts ClusterAccessConfigArgs, ClusterAccessConfigPtr and ClusterAccessConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterAccessConfigPtrInput` via:
+//
+//	        ClusterAccessConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterAccessConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterAccessConfigPtrOutput() ClusterAccessConfigPtrOutput
+	ToClusterAccessConfigPtrOutputWithContext(context.Context) ClusterAccessConfigPtrOutput
+}
+
+type clusterAccessConfigPtrType ClusterAccessConfigArgs
+
+func ClusterAccessConfigPtr(v *ClusterAccessConfigArgs) ClusterAccessConfigPtrInput {
+	return (*clusterAccessConfigPtrType)(v)
+}
+
+func (*clusterAccessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAccessConfig)(nil)).Elem()
+}
+
+func (i *clusterAccessConfigPtrType) ToClusterAccessConfigPtrOutput() ClusterAccessConfigPtrOutput {
+	return i.ToClusterAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterAccessConfigPtrType) ToClusterAccessConfigPtrOutputWithContext(ctx context.Context) ClusterAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAccessConfigPtrOutput)
+}
+
+func (i *clusterAccessConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterAccessConfig] {
+	return pulumix.Output[*ClusterAccessConfig]{
+		OutputState: i.ToClusterAccessConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// An object representing the Access Config to use for the cluster.
+type ClusterAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAccessConfig)(nil)).Elem()
+}
+
+func (o ClusterAccessConfigOutput) ToClusterAccessConfigOutput() ClusterAccessConfigOutput {
+	return o
+}
+
+func (o ClusterAccessConfigOutput) ToClusterAccessConfigOutputWithContext(ctx context.Context) ClusterAccessConfigOutput {
+	return o
+}
+
+func (o ClusterAccessConfigOutput) ToClusterAccessConfigPtrOutput() ClusterAccessConfigPtrOutput {
+	return o.ToClusterAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterAccessConfigOutput) ToClusterAccessConfigPtrOutputWithContext(ctx context.Context) ClusterAccessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterAccessConfig) *ClusterAccessConfig {
+		return &v
+	}).(ClusterAccessConfigPtrOutput)
+}
+
+func (o ClusterAccessConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterAccessConfig] {
+	return pulumix.Output[ClusterAccessConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Specify the authentication mode that should be used to create your cluster.
+func (o ClusterAccessConfigOutput) AuthenticationMode() ClusterAccessConfigAuthenticationModePtrOutput {
+	return o.ApplyT(func(v ClusterAccessConfig) *ClusterAccessConfigAuthenticationMode { return v.AuthenticationMode }).(ClusterAccessConfigAuthenticationModePtrOutput)
+}
+
+// Set this value to false to avoid creating a default cluster admin Access Entry using the IAM principal used to create the cluster.
+func (o ClusterAccessConfigOutput) BootstrapClusterCreatorAdminPermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterAccessConfig) *bool { return v.BootstrapClusterCreatorAdminPermissions }).(pulumi.BoolPtrOutput)
+}
+
+type ClusterAccessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterAccessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAccessConfig)(nil)).Elem()
+}
+
+func (o ClusterAccessConfigPtrOutput) ToClusterAccessConfigPtrOutput() ClusterAccessConfigPtrOutput {
+	return o
+}
+
+func (o ClusterAccessConfigPtrOutput) ToClusterAccessConfigPtrOutputWithContext(ctx context.Context) ClusterAccessConfigPtrOutput {
+	return o
+}
+
+func (o ClusterAccessConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterAccessConfig] {
+	return pulumix.Output[*ClusterAccessConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ClusterAccessConfigPtrOutput) Elem() ClusterAccessConfigOutput {
+	return o.ApplyT(func(v *ClusterAccessConfig) ClusterAccessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterAccessConfig
+		return ret
+	}).(ClusterAccessConfigOutput)
+}
+
+// Specify the authentication mode that should be used to create your cluster.
+func (o ClusterAccessConfigPtrOutput) AuthenticationMode() ClusterAccessConfigAuthenticationModePtrOutput {
+	return o.ApplyT(func(v *ClusterAccessConfig) *ClusterAccessConfigAuthenticationMode {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationMode
+	}).(ClusterAccessConfigAuthenticationModePtrOutput)
+}
+
+// Set this value to false to avoid creating a default cluster admin Access Entry using the IAM principal used to create the cluster.
+func (o ClusterAccessConfigPtrOutput) BootstrapClusterCreatorAdminPermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterAccessConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BootstrapClusterCreatorAdminPermissions
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Specify the placement group of the control plane machines for your cluster.
 type ClusterControlPlanePlacement struct {
 	// Specify the placement group name of the control place machines for your cluster.
@@ -3579,6 +3762,8 @@ func (o NodegroupUpdateConfigPtrOutput) MaxUnavailablePercentage() pulumi.Float6
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonTagInput)(nil)).Elem(), AddonTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonTagArrayInput)(nil)).Elem(), AddonTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAccessConfigInput)(nil)).Elem(), ClusterAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAccessConfigPtrInput)(nil)).Elem(), ClusterAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterControlPlanePlacementInput)(nil)).Elem(), ClusterControlPlanePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterControlPlanePlacementPtrInput)(nil)).Elem(), ClusterControlPlanePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionConfigInput)(nil)).Elem(), ClusterEncryptionConfigArgs{})
@@ -3622,6 +3807,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupUpdateConfigPtrInput)(nil)).Elem(), NodegroupUpdateConfigArgs{})
 	pulumi.RegisterOutputType(AddonTagOutput{})
 	pulumi.RegisterOutputType(AddonTagArrayOutput{})
+	pulumi.RegisterOutputType(ClusterAccessConfigOutput{})
+	pulumi.RegisterOutputType(ClusterAccessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterControlPlanePlacementOutput{})
 	pulumi.RegisterOutputType(ClusterControlPlanePlacementPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigOutput{})

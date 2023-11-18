@@ -63,6 +63,8 @@ type Fleet struct {
 	//
 	// This parameter is required unless the parameters ServerLaunchPath and ServerLaunchParameters are defined. Runtime configuration has replaced these parameters, but fleets that use them will continue to work.
 	RuntimeConfiguration FleetRuntimeConfigurationPtrOutput `pulumi:"runtimeConfiguration"`
+	// A list of rules that control how a fleet is scaled.
+	ScalingPolicies FleetScalingPolicyArrayOutput `pulumi:"scalingPolicies"`
 	// A unique identifier for a Realtime script to be deployed on a new Realtime Servers fleet. The script must have been successfully uploaded to Amazon GameLift. This fleet setting cannot be changed once the fleet is created.
 	//
 	// Note: It is not currently possible to use the !Ref command to reference a script created with a CloudFormation template for the fleet property ScriptId. Instead, use Fn::GetAtt Script.Arn or Fn::GetAtt Script.Id to retrieve either of these properties as input for ScriptId. Alternatively, enter a ScriptId string manually.
@@ -174,6 +176,8 @@ type fleetArgs struct {
 	//
 	// This parameter is required unless the parameters ServerLaunchPath and ServerLaunchParameters are defined. Runtime configuration has replaced these parameters, but fleets that use them will continue to work.
 	RuntimeConfiguration *FleetRuntimeConfiguration `pulumi:"runtimeConfiguration"`
+	// A list of rules that control how a fleet is scaled.
+	ScalingPolicies []FleetScalingPolicy `pulumi:"scalingPolicies"`
 	// A unique identifier for a Realtime script to be deployed on a new Realtime Servers fleet. The script must have been successfully uploaded to Amazon GameLift. This fleet setting cannot be changed once the fleet is created.
 	//
 	// Note: It is not currently possible to use the !Ref command to reference a script created with a CloudFormation template for the fleet property ScriptId. Instead, use Fn::GetAtt Script.Arn or Fn::GetAtt Script.Id to retrieve either of these properties as input for ScriptId. Alternatively, enter a ScriptId string manually.
@@ -231,6 +235,8 @@ type FleetArgs struct {
 	//
 	// This parameter is required unless the parameters ServerLaunchPath and ServerLaunchParameters are defined. Runtime configuration has replaced these parameters, but fleets that use them will continue to work.
 	RuntimeConfiguration FleetRuntimeConfigurationPtrInput
+	// A list of rules that control how a fleet is scaled.
+	ScalingPolicies FleetScalingPolicyArrayInput
 	// A unique identifier for a Realtime script to be deployed on a new Realtime Servers fleet. The script must have been successfully uploaded to Amazon GameLift. This fleet setting cannot be changed once the fleet is created.
 	//
 	// Note: It is not currently possible to use the !Ref command to reference a script created with a CloudFormation template for the fleet property ScriptId. Instead, use Fn::GetAtt Script.Arn or Fn::GetAtt Script.Id to retrieve either of these properties as input for ScriptId. Alternatively, enter a ScriptId string manually.
@@ -404,6 +410,11 @@ func (o FleetOutput) ResourceCreationLimitPolicy() FleetResourceCreationLimitPol
 // This parameter is required unless the parameters ServerLaunchPath and ServerLaunchParameters are defined. Runtime configuration has replaced these parameters, but fleets that use them will continue to work.
 func (o FleetOutput) RuntimeConfiguration() FleetRuntimeConfigurationPtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetRuntimeConfigurationPtrOutput { return v.RuntimeConfiguration }).(FleetRuntimeConfigurationPtrOutput)
+}
+
+// A list of rules that control how a fleet is scaled.
+func (o FleetOutput) ScalingPolicies() FleetScalingPolicyArrayOutput {
+	return o.ApplyT(func(v *Fleet) FleetScalingPolicyArrayOutput { return v.ScalingPolicies }).(FleetScalingPolicyArrayOutput)
 }
 
 // A unique identifier for a Realtime script to be deployed on a new Realtime Servers fleet. The script must have been successfully uploaded to Amazon GameLift. This fleet setting cannot be changed once the fleet is created.

@@ -24,6 +24,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// &lt;p&gt;A display name for the dataset.&lt;/p&gt;
         /// </summary>
         public readonly string? Name;
+        public readonly Pulumi.AwsNative.QuickSight.DataSetColumnSubDataType? SubType;
         public readonly Pulumi.AwsNative.QuickSight.DataSetColumnDataType? Type;
 
         [OutputConstructor]
@@ -32,10 +33,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string? name,
 
+            Pulumi.AwsNative.QuickSight.DataSetColumnSubDataType? subType,
+
             Pulumi.AwsNative.QuickSight.DataSetColumnDataType? type)
         {
             Description = description;
             Name = name;
+            SubType = subType;
             Type = type;
         }
     }

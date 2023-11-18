@@ -71,6 +71,83 @@ export const FleetNewGameSessionProtectionPolicy = {
  */
 export type FleetNewGameSessionProtectionPolicy = (typeof FleetNewGameSessionProtectionPolicy)[keyof typeof FleetNewGameSessionProtectionPolicy];
 
+export const FleetScalingPolicyComparisonOperator = {
+    GreaterThanOrEqualToThreshold: "GreaterThanOrEqualToThreshold",
+    GreaterThanThreshold: "GreaterThanThreshold",
+    LessThanThreshold: "LessThanThreshold",
+    LessThanOrEqualToThreshold: "LessThanOrEqualToThreshold",
+} as const;
+
+/**
+ * Comparison operator to use when measuring a metric against the threshold value.
+ */
+export type FleetScalingPolicyComparisonOperator = (typeof FleetScalingPolicyComparisonOperator)[keyof typeof FleetScalingPolicyComparisonOperator];
+
+export const FleetScalingPolicyMetricName = {
+    ActivatingGameSessions: "ActivatingGameSessions",
+    ActiveGameSessions: "ActiveGameSessions",
+    ActiveInstances: "ActiveInstances",
+    AvailableGameSessions: "AvailableGameSessions",
+    AvailablePlayerSessions: "AvailablePlayerSessions",
+    CurrentPlayerSessions: "CurrentPlayerSessions",
+    IdleInstances: "IdleInstances",
+    PercentAvailableGameSessions: "PercentAvailableGameSessions",
+    PercentIdleInstances: "PercentIdleInstances",
+    QueueDepth: "QueueDepth",
+    WaitTime: "WaitTime",
+    ConcurrentActivatableGameSessions: "ConcurrentActivatableGameSessions",
+} as const;
+
+/**
+ * Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+ */
+export type FleetScalingPolicyMetricName = (typeof FleetScalingPolicyMetricName)[keyof typeof FleetScalingPolicyMetricName];
+
+export const FleetScalingPolicyPolicyType = {
+    RuleBased: "RuleBased",
+    TargetBased: "TargetBased",
+} as const;
+
+/**
+ * The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
+ */
+export type FleetScalingPolicyPolicyType = (typeof FleetScalingPolicyPolicyType)[keyof typeof FleetScalingPolicyPolicyType];
+
+export const FleetScalingPolicyScalingAdjustmentType = {
+    ChangeInCapacity: "ChangeInCapacity",
+    ExactCapacity: "ExactCapacity",
+    PercentChangeInCapacity: "PercentChangeInCapacity",
+} as const;
+
+/**
+ * The type of adjustment to make to a fleet's instance count.
+ */
+export type FleetScalingPolicyScalingAdjustmentType = (typeof FleetScalingPolicyScalingAdjustmentType)[keyof typeof FleetScalingPolicyScalingAdjustmentType];
+
+export const FleetScalingPolicyStatus = {
+    Active: "ACTIVE",
+    UpdateRequested: "UPDATE_REQUESTED",
+    Updating: "UPDATING",
+    DeleteRequested: "DELETE_REQUESTED",
+    Deleting: "DELETING",
+    Deleted: "DELETED",
+    Error: "ERROR",
+} as const;
+
+/**
+ * Current status of the scaling policy. The scaling policy can be in force only when in an ACTIVE status. Scaling policies can be suspended for individual fleets. If the policy is suspended for a fleet, the policy status does not change.
+ */
+export type FleetScalingPolicyStatus = (typeof FleetScalingPolicyStatus)[keyof typeof FleetScalingPolicyStatus];
+
+export const FleetScalingPolicyUpdateStatus = {
+    PendingUpdate: "PENDING_UPDATE",
+} as const;
+
+/**
+ * The current status of the fleet's scaling policies in a requested fleet location. The status PENDING_UPDATE indicates that an update was requested for the fleet but has not yet been completed for the location.
+ */
+export type FleetScalingPolicyUpdateStatus = (typeof FleetScalingPolicyUpdateStatus)[keyof typeof FleetScalingPolicyUpdateStatus];
+
 export const FleetType = {
     OnDemand: "ON_DEMAND",
     Spot: "SPOT",
@@ -112,3 +189,32 @@ export const GameServerGroupGameServerProtectionPolicy = {
  * A flag that indicates whether instances in the game server group are protected from early termination.
  */
 export type GameServerGroupGameServerProtectionPolicy = (typeof GameServerGroupGameServerProtectionPolicy)[keyof typeof GameServerGroupGameServerProtectionPolicy];
+
+export const GameSessionQueuePriorityOrderItem = {
+    Latency: "LATENCY",
+    Cost: "COST",
+    Destination: "DESTINATION",
+    Location: "LOCATION",
+} as const;
+
+export type GameSessionQueuePriorityOrderItem = (typeof GameSessionQueuePriorityOrderItem)[keyof typeof GameSessionQueuePriorityOrderItem];
+
+export const MatchmakingConfigurationBackfillMode = {
+    Automatic: "AUTOMATIC",
+    Manual: "MANUAL",
+} as const;
+
+/**
+ * The method used to backfill game sessions created with this matchmaking configuration.
+ */
+export type MatchmakingConfigurationBackfillMode = (typeof MatchmakingConfigurationBackfillMode)[keyof typeof MatchmakingConfigurationBackfillMode];
+
+export const MatchmakingConfigurationFlexMatchMode = {
+    Standalone: "STANDALONE",
+    WithQueue: "WITH_QUEUE",
+} as const;
+
+/**
+ * Indicates whether this matchmaking configuration is being used with Amazon GameLift hosting or as a standalone matchmaking solution.
+ */
+export type MatchmakingConfigurationFlexMatchMode = (typeof MatchmakingConfigurationFlexMatchMode)[keyof typeof MatchmakingConfigurationFlexMatchMode];

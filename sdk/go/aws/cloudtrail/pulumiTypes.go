@@ -593,6 +593,130 @@ func (o EventDataStoreAdvancedFieldSelectorArrayOutput) Index(i pulumi.IntInput)
 	}).(EventDataStoreAdvancedFieldSelectorOutput)
 }
 
+// A string that contains Insights types that are logged on an event data store.
+type EventDataStoreInsightSelector struct {
+	// The type of Insights to log on an event data store.
+	InsightType *string `pulumi:"insightType"`
+}
+
+// EventDataStoreInsightSelectorInput is an input type that accepts EventDataStoreInsightSelectorArgs and EventDataStoreInsightSelectorOutput values.
+// You can construct a concrete instance of `EventDataStoreInsightSelectorInput` via:
+//
+//	EventDataStoreInsightSelectorArgs{...}
+type EventDataStoreInsightSelectorInput interface {
+	pulumi.Input
+
+	ToEventDataStoreInsightSelectorOutput() EventDataStoreInsightSelectorOutput
+	ToEventDataStoreInsightSelectorOutputWithContext(context.Context) EventDataStoreInsightSelectorOutput
+}
+
+// A string that contains Insights types that are logged on an event data store.
+type EventDataStoreInsightSelectorArgs struct {
+	// The type of Insights to log on an event data store.
+	InsightType pulumi.StringPtrInput `pulumi:"insightType"`
+}
+
+func (EventDataStoreInsightSelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventDataStoreInsightSelector)(nil)).Elem()
+}
+
+func (i EventDataStoreInsightSelectorArgs) ToEventDataStoreInsightSelectorOutput() EventDataStoreInsightSelectorOutput {
+	return i.ToEventDataStoreInsightSelectorOutputWithContext(context.Background())
+}
+
+func (i EventDataStoreInsightSelectorArgs) ToEventDataStoreInsightSelectorOutputWithContext(ctx context.Context) EventDataStoreInsightSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventDataStoreInsightSelectorOutput)
+}
+
+func (i EventDataStoreInsightSelectorArgs) ToOutput(ctx context.Context) pulumix.Output[EventDataStoreInsightSelector] {
+	return pulumix.Output[EventDataStoreInsightSelector]{
+		OutputState: i.ToEventDataStoreInsightSelectorOutputWithContext(ctx).OutputState,
+	}
+}
+
+// EventDataStoreInsightSelectorArrayInput is an input type that accepts EventDataStoreInsightSelectorArray and EventDataStoreInsightSelectorArrayOutput values.
+// You can construct a concrete instance of `EventDataStoreInsightSelectorArrayInput` via:
+//
+//	EventDataStoreInsightSelectorArray{ EventDataStoreInsightSelectorArgs{...} }
+type EventDataStoreInsightSelectorArrayInput interface {
+	pulumi.Input
+
+	ToEventDataStoreInsightSelectorArrayOutput() EventDataStoreInsightSelectorArrayOutput
+	ToEventDataStoreInsightSelectorArrayOutputWithContext(context.Context) EventDataStoreInsightSelectorArrayOutput
+}
+
+type EventDataStoreInsightSelectorArray []EventDataStoreInsightSelectorInput
+
+func (EventDataStoreInsightSelectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventDataStoreInsightSelector)(nil)).Elem()
+}
+
+func (i EventDataStoreInsightSelectorArray) ToEventDataStoreInsightSelectorArrayOutput() EventDataStoreInsightSelectorArrayOutput {
+	return i.ToEventDataStoreInsightSelectorArrayOutputWithContext(context.Background())
+}
+
+func (i EventDataStoreInsightSelectorArray) ToEventDataStoreInsightSelectorArrayOutputWithContext(ctx context.Context) EventDataStoreInsightSelectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventDataStoreInsightSelectorArrayOutput)
+}
+
+func (i EventDataStoreInsightSelectorArray) ToOutput(ctx context.Context) pulumix.Output[[]EventDataStoreInsightSelector] {
+	return pulumix.Output[[]EventDataStoreInsightSelector]{
+		OutputState: i.ToEventDataStoreInsightSelectorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A string that contains Insights types that are logged on an event data store.
+type EventDataStoreInsightSelectorOutput struct{ *pulumi.OutputState }
+
+func (EventDataStoreInsightSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventDataStoreInsightSelector)(nil)).Elem()
+}
+
+func (o EventDataStoreInsightSelectorOutput) ToEventDataStoreInsightSelectorOutput() EventDataStoreInsightSelectorOutput {
+	return o
+}
+
+func (o EventDataStoreInsightSelectorOutput) ToEventDataStoreInsightSelectorOutputWithContext(ctx context.Context) EventDataStoreInsightSelectorOutput {
+	return o
+}
+
+func (o EventDataStoreInsightSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[EventDataStoreInsightSelector] {
+	return pulumix.Output[EventDataStoreInsightSelector]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The type of Insights to log on an event data store.
+func (o EventDataStoreInsightSelectorOutput) InsightType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventDataStoreInsightSelector) *string { return v.InsightType }).(pulumi.StringPtrOutput)
+}
+
+type EventDataStoreInsightSelectorArrayOutput struct{ *pulumi.OutputState }
+
+func (EventDataStoreInsightSelectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventDataStoreInsightSelector)(nil)).Elem()
+}
+
+func (o EventDataStoreInsightSelectorArrayOutput) ToEventDataStoreInsightSelectorArrayOutput() EventDataStoreInsightSelectorArrayOutput {
+	return o
+}
+
+func (o EventDataStoreInsightSelectorArrayOutput) ToEventDataStoreInsightSelectorArrayOutputWithContext(ctx context.Context) EventDataStoreInsightSelectorArrayOutput {
+	return o
+}
+
+func (o EventDataStoreInsightSelectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventDataStoreInsightSelector] {
+	return pulumix.Output[[]EventDataStoreInsightSelector]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o EventDataStoreInsightSelectorArrayOutput) Index(i pulumi.IntInput) EventDataStoreInsightSelectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventDataStoreInsightSelector {
+		return vs[0].([]EventDataStoreInsightSelector)[vs[1].(int)]
+	}).(EventDataStoreInsightSelectorOutput)
+}
+
 // An arbitrary set of tags (key-value pairs) for this event data store.
 type EventDataStoreTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1584,6 +1708,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreAdvancedEventSelectorArrayInput)(nil)).Elem(), EventDataStoreAdvancedEventSelectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreAdvancedFieldSelectorInput)(nil)).Elem(), EventDataStoreAdvancedFieldSelectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreAdvancedFieldSelectorArrayInput)(nil)).Elem(), EventDataStoreAdvancedFieldSelectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreInsightSelectorInput)(nil)).Elem(), EventDataStoreInsightSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreInsightSelectorArrayInput)(nil)).Elem(), EventDataStoreInsightSelectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreTagInput)(nil)).Elem(), EventDataStoreTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreTagArrayInput)(nil)).Elem(), EventDataStoreTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailAdvancedEventSelectorInput)(nil)).Elem(), TrailAdvancedEventSelectorArgs{})
@@ -1606,6 +1732,8 @@ func init() {
 	pulumi.RegisterOutputType(EventDataStoreAdvancedEventSelectorArrayOutput{})
 	pulumi.RegisterOutputType(EventDataStoreAdvancedFieldSelectorOutput{})
 	pulumi.RegisterOutputType(EventDataStoreAdvancedFieldSelectorArrayOutput{})
+	pulumi.RegisterOutputType(EventDataStoreInsightSelectorOutput{})
+	pulumi.RegisterOutputType(EventDataStoreInsightSelectorArrayOutput{})
 	pulumi.RegisterOutputType(EventDataStoreTagOutput{})
 	pulumi.RegisterOutputType(EventDataStoreTagArrayOutput{})
 	pulumi.RegisterOutputType(TrailAdvancedEventSelectorOutput{})

@@ -21,6 +21,9 @@ class MatchmakingRuleSetArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingRuleSetTagArgs']]]] = None):
         """
         The set of arguments for constructing a MatchmakingRuleSet resource.
+        :param pulumi.Input[str] rule_set_body: A collection of matchmaking rules, formatted as a JSON string.
+        :param pulumi.Input[str] name: A unique identifier for the matchmaking rule set.
+        :param pulumi.Input[Sequence[pulumi.Input['MatchmakingRuleSetTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "rule_set_body", rule_set_body)
         if name is not None:
@@ -31,6 +34,9 @@ class MatchmakingRuleSetArgs:
     @property
     @pulumi.getter(name="ruleSetBody")
     def rule_set_body(self) -> pulumi.Input[str]:
+        """
+        A collection of matchmaking rules, formatted as a JSON string.
+        """
         return pulumi.get(self, "rule_set_body")
 
     @rule_set_body.setter
@@ -40,6 +46,9 @@ class MatchmakingRuleSetArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique identifier for the matchmaking rule set.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -49,6 +58,9 @@ class MatchmakingRuleSetArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MatchmakingRuleSetTagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -56,12 +68,7 @@ class MatchmakingRuleSetArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""MatchmakingRuleSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class MatchmakingRuleSet(pulumi.CustomResource):
-    warnings.warn("""MatchmakingRuleSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -71,10 +78,13 @@ class MatchmakingRuleSet(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchmakingRuleSetTagArgs']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::GameLift::MatchmakingRuleSet
+        The AWS::GameLift::MatchmakingRuleSet resource creates an Amazon GameLift (GameLift) matchmaking rule set.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: A unique identifier for the matchmaking rule set.
+        :param pulumi.Input[str] rule_set_body: A collection of matchmaking rules, formatted as a JSON string.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchmakingRuleSetTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -83,7 +93,7 @@ class MatchmakingRuleSet(pulumi.CustomResource):
                  args: MatchmakingRuleSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::GameLift::MatchmakingRuleSet
+        The AWS::GameLift::MatchmakingRuleSet resource creates an Amazon GameLift (GameLift) matchmaking rule set.
 
         :param str resource_name: The name of the resource.
         :param MatchmakingRuleSetArgs args: The arguments to use to populate this resource's properties.
@@ -104,7 +114,6 @@ class MatchmakingRuleSet(pulumi.CustomResource):
                  rule_set_body: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MatchmakingRuleSetTagArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""MatchmakingRuleSet is deprecated: MatchmakingRuleSet is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -119,6 +128,7 @@ class MatchmakingRuleSet(pulumi.CustomResource):
             __props__.__dict__["rule_set_body"] = rule_set_body
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["creation_time"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "rule_set_body"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(MatchmakingRuleSet, __self__).__init__(
@@ -144,6 +154,7 @@ class MatchmakingRuleSet(pulumi.CustomResource):
         __props__ = MatchmakingRuleSetArgs.__new__(MatchmakingRuleSetArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["creation_time"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["rule_set_body"] = None
         __props__.__dict__["tags"] = None
@@ -152,20 +163,40 @@ class MatchmakingRuleSet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift matchmaking rule set resource and uniquely identifies it.
+        """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> pulumi.Output[str]:
+        """
+        A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds.
+        """
+        return pulumi.get(self, "creation_time")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A unique identifier for the matchmaking rule set.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ruleSetBody")
     def rule_set_body(self) -> pulumi.Output[str]:
+        """
+        A collection of matchmaking rules, formatted as a JSON string.
+        """
         return pulumi.get(self, "rule_set_body")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.MatchmakingRuleSetTag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 

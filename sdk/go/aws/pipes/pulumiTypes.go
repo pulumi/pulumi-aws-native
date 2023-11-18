@@ -1361,6 +1361,163 @@ func (o PipeCapacityProviderStrategyItemArrayOutput) Index(i pulumi.IntInput) Pi
 	}).(PipeCapacityProviderStrategyItemOutput)
 }
 
+type PipeCloudwatchLogsLogDestination struct {
+	LogGroupArn *string `pulumi:"logGroupArn"`
+}
+
+// PipeCloudwatchLogsLogDestinationInput is an input type that accepts PipeCloudwatchLogsLogDestinationArgs and PipeCloudwatchLogsLogDestinationOutput values.
+// You can construct a concrete instance of `PipeCloudwatchLogsLogDestinationInput` via:
+//
+//	PipeCloudwatchLogsLogDestinationArgs{...}
+type PipeCloudwatchLogsLogDestinationInput interface {
+	pulumi.Input
+
+	ToPipeCloudwatchLogsLogDestinationOutput() PipeCloudwatchLogsLogDestinationOutput
+	ToPipeCloudwatchLogsLogDestinationOutputWithContext(context.Context) PipeCloudwatchLogsLogDestinationOutput
+}
+
+type PipeCloudwatchLogsLogDestinationArgs struct {
+	LogGroupArn pulumi.StringPtrInput `pulumi:"logGroupArn"`
+}
+
+func (PipeCloudwatchLogsLogDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeCloudwatchLogsLogDestination)(nil)).Elem()
+}
+
+func (i PipeCloudwatchLogsLogDestinationArgs) ToPipeCloudwatchLogsLogDestinationOutput() PipeCloudwatchLogsLogDestinationOutput {
+	return i.ToPipeCloudwatchLogsLogDestinationOutputWithContext(context.Background())
+}
+
+func (i PipeCloudwatchLogsLogDestinationArgs) ToPipeCloudwatchLogsLogDestinationOutputWithContext(ctx context.Context) PipeCloudwatchLogsLogDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeCloudwatchLogsLogDestinationOutput)
+}
+
+func (i PipeCloudwatchLogsLogDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[PipeCloudwatchLogsLogDestination] {
+	return pulumix.Output[PipeCloudwatchLogsLogDestination]{
+		OutputState: i.ToPipeCloudwatchLogsLogDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i PipeCloudwatchLogsLogDestinationArgs) ToPipeCloudwatchLogsLogDestinationPtrOutput() PipeCloudwatchLogsLogDestinationPtrOutput {
+	return i.ToPipeCloudwatchLogsLogDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i PipeCloudwatchLogsLogDestinationArgs) ToPipeCloudwatchLogsLogDestinationPtrOutputWithContext(ctx context.Context) PipeCloudwatchLogsLogDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeCloudwatchLogsLogDestinationOutput).ToPipeCloudwatchLogsLogDestinationPtrOutputWithContext(ctx)
+}
+
+// PipeCloudwatchLogsLogDestinationPtrInput is an input type that accepts PipeCloudwatchLogsLogDestinationArgs, PipeCloudwatchLogsLogDestinationPtr and PipeCloudwatchLogsLogDestinationPtrOutput values.
+// You can construct a concrete instance of `PipeCloudwatchLogsLogDestinationPtrInput` via:
+//
+//	        PipeCloudwatchLogsLogDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipeCloudwatchLogsLogDestinationPtrInput interface {
+	pulumi.Input
+
+	ToPipeCloudwatchLogsLogDestinationPtrOutput() PipeCloudwatchLogsLogDestinationPtrOutput
+	ToPipeCloudwatchLogsLogDestinationPtrOutputWithContext(context.Context) PipeCloudwatchLogsLogDestinationPtrOutput
+}
+
+type pipeCloudwatchLogsLogDestinationPtrType PipeCloudwatchLogsLogDestinationArgs
+
+func PipeCloudwatchLogsLogDestinationPtr(v *PipeCloudwatchLogsLogDestinationArgs) PipeCloudwatchLogsLogDestinationPtrInput {
+	return (*pipeCloudwatchLogsLogDestinationPtrType)(v)
+}
+
+func (*pipeCloudwatchLogsLogDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeCloudwatchLogsLogDestination)(nil)).Elem()
+}
+
+func (i *pipeCloudwatchLogsLogDestinationPtrType) ToPipeCloudwatchLogsLogDestinationPtrOutput() PipeCloudwatchLogsLogDestinationPtrOutput {
+	return i.ToPipeCloudwatchLogsLogDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *pipeCloudwatchLogsLogDestinationPtrType) ToPipeCloudwatchLogsLogDestinationPtrOutputWithContext(ctx context.Context) PipeCloudwatchLogsLogDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeCloudwatchLogsLogDestinationPtrOutput)
+}
+
+func (i *pipeCloudwatchLogsLogDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipeCloudwatchLogsLogDestination] {
+	return pulumix.Output[*PipeCloudwatchLogsLogDestination]{
+		OutputState: i.ToPipeCloudwatchLogsLogDestinationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type PipeCloudwatchLogsLogDestinationOutput struct{ *pulumi.OutputState }
+
+func (PipeCloudwatchLogsLogDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeCloudwatchLogsLogDestination)(nil)).Elem()
+}
+
+func (o PipeCloudwatchLogsLogDestinationOutput) ToPipeCloudwatchLogsLogDestinationOutput() PipeCloudwatchLogsLogDestinationOutput {
+	return o
+}
+
+func (o PipeCloudwatchLogsLogDestinationOutput) ToPipeCloudwatchLogsLogDestinationOutputWithContext(ctx context.Context) PipeCloudwatchLogsLogDestinationOutput {
+	return o
+}
+
+func (o PipeCloudwatchLogsLogDestinationOutput) ToPipeCloudwatchLogsLogDestinationPtrOutput() PipeCloudwatchLogsLogDestinationPtrOutput {
+	return o.ToPipeCloudwatchLogsLogDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o PipeCloudwatchLogsLogDestinationOutput) ToPipeCloudwatchLogsLogDestinationPtrOutputWithContext(ctx context.Context) PipeCloudwatchLogsLogDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeCloudwatchLogsLogDestination) *PipeCloudwatchLogsLogDestination {
+		return &v
+	}).(PipeCloudwatchLogsLogDestinationPtrOutput)
+}
+
+func (o PipeCloudwatchLogsLogDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[PipeCloudwatchLogsLogDestination] {
+	return pulumix.Output[PipeCloudwatchLogsLogDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipeCloudwatchLogsLogDestinationOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeCloudwatchLogsLogDestination) *string { return v.LogGroupArn }).(pulumi.StringPtrOutput)
+}
+
+type PipeCloudwatchLogsLogDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (PipeCloudwatchLogsLogDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeCloudwatchLogsLogDestination)(nil)).Elem()
+}
+
+func (o PipeCloudwatchLogsLogDestinationPtrOutput) ToPipeCloudwatchLogsLogDestinationPtrOutput() PipeCloudwatchLogsLogDestinationPtrOutput {
+	return o
+}
+
+func (o PipeCloudwatchLogsLogDestinationPtrOutput) ToPipeCloudwatchLogsLogDestinationPtrOutputWithContext(ctx context.Context) PipeCloudwatchLogsLogDestinationPtrOutput {
+	return o
+}
+
+func (o PipeCloudwatchLogsLogDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeCloudwatchLogsLogDestination] {
+	return pulumix.Output[*PipeCloudwatchLogsLogDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipeCloudwatchLogsLogDestinationPtrOutput) Elem() PipeCloudwatchLogsLogDestinationOutput {
+	return o.ApplyT(func(v *PipeCloudwatchLogsLogDestination) PipeCloudwatchLogsLogDestination {
+		if v != nil {
+			return *v
+		}
+		var ret PipeCloudwatchLogsLogDestination
+		return ret
+	}).(PipeCloudwatchLogsLogDestinationOutput)
+}
+
+func (o PipeCloudwatchLogsLogDestinationPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipeCloudwatchLogsLogDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type PipeDeadLetterConfig struct {
 	Arn *string `pulumi:"arn"`
 }
@@ -3214,6 +3371,163 @@ func (o PipeFilterCriteriaPtrOutput) Filters() PipeFilterArrayOutput {
 	}).(PipeFilterArrayOutput)
 }
 
+type PipeFirehoseLogDestination struct {
+	DeliveryStreamArn *string `pulumi:"deliveryStreamArn"`
+}
+
+// PipeFirehoseLogDestinationInput is an input type that accepts PipeFirehoseLogDestinationArgs and PipeFirehoseLogDestinationOutput values.
+// You can construct a concrete instance of `PipeFirehoseLogDestinationInput` via:
+//
+//	PipeFirehoseLogDestinationArgs{...}
+type PipeFirehoseLogDestinationInput interface {
+	pulumi.Input
+
+	ToPipeFirehoseLogDestinationOutput() PipeFirehoseLogDestinationOutput
+	ToPipeFirehoseLogDestinationOutputWithContext(context.Context) PipeFirehoseLogDestinationOutput
+}
+
+type PipeFirehoseLogDestinationArgs struct {
+	DeliveryStreamArn pulumi.StringPtrInput `pulumi:"deliveryStreamArn"`
+}
+
+func (PipeFirehoseLogDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeFirehoseLogDestination)(nil)).Elem()
+}
+
+func (i PipeFirehoseLogDestinationArgs) ToPipeFirehoseLogDestinationOutput() PipeFirehoseLogDestinationOutput {
+	return i.ToPipeFirehoseLogDestinationOutputWithContext(context.Background())
+}
+
+func (i PipeFirehoseLogDestinationArgs) ToPipeFirehoseLogDestinationOutputWithContext(ctx context.Context) PipeFirehoseLogDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeFirehoseLogDestinationOutput)
+}
+
+func (i PipeFirehoseLogDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[PipeFirehoseLogDestination] {
+	return pulumix.Output[PipeFirehoseLogDestination]{
+		OutputState: i.ToPipeFirehoseLogDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i PipeFirehoseLogDestinationArgs) ToPipeFirehoseLogDestinationPtrOutput() PipeFirehoseLogDestinationPtrOutput {
+	return i.ToPipeFirehoseLogDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i PipeFirehoseLogDestinationArgs) ToPipeFirehoseLogDestinationPtrOutputWithContext(ctx context.Context) PipeFirehoseLogDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeFirehoseLogDestinationOutput).ToPipeFirehoseLogDestinationPtrOutputWithContext(ctx)
+}
+
+// PipeFirehoseLogDestinationPtrInput is an input type that accepts PipeFirehoseLogDestinationArgs, PipeFirehoseLogDestinationPtr and PipeFirehoseLogDestinationPtrOutput values.
+// You can construct a concrete instance of `PipeFirehoseLogDestinationPtrInput` via:
+//
+//	        PipeFirehoseLogDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipeFirehoseLogDestinationPtrInput interface {
+	pulumi.Input
+
+	ToPipeFirehoseLogDestinationPtrOutput() PipeFirehoseLogDestinationPtrOutput
+	ToPipeFirehoseLogDestinationPtrOutputWithContext(context.Context) PipeFirehoseLogDestinationPtrOutput
+}
+
+type pipeFirehoseLogDestinationPtrType PipeFirehoseLogDestinationArgs
+
+func PipeFirehoseLogDestinationPtr(v *PipeFirehoseLogDestinationArgs) PipeFirehoseLogDestinationPtrInput {
+	return (*pipeFirehoseLogDestinationPtrType)(v)
+}
+
+func (*pipeFirehoseLogDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeFirehoseLogDestination)(nil)).Elem()
+}
+
+func (i *pipeFirehoseLogDestinationPtrType) ToPipeFirehoseLogDestinationPtrOutput() PipeFirehoseLogDestinationPtrOutput {
+	return i.ToPipeFirehoseLogDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *pipeFirehoseLogDestinationPtrType) ToPipeFirehoseLogDestinationPtrOutputWithContext(ctx context.Context) PipeFirehoseLogDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeFirehoseLogDestinationPtrOutput)
+}
+
+func (i *pipeFirehoseLogDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipeFirehoseLogDestination] {
+	return pulumix.Output[*PipeFirehoseLogDestination]{
+		OutputState: i.ToPipeFirehoseLogDestinationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type PipeFirehoseLogDestinationOutput struct{ *pulumi.OutputState }
+
+func (PipeFirehoseLogDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeFirehoseLogDestination)(nil)).Elem()
+}
+
+func (o PipeFirehoseLogDestinationOutput) ToPipeFirehoseLogDestinationOutput() PipeFirehoseLogDestinationOutput {
+	return o
+}
+
+func (o PipeFirehoseLogDestinationOutput) ToPipeFirehoseLogDestinationOutputWithContext(ctx context.Context) PipeFirehoseLogDestinationOutput {
+	return o
+}
+
+func (o PipeFirehoseLogDestinationOutput) ToPipeFirehoseLogDestinationPtrOutput() PipeFirehoseLogDestinationPtrOutput {
+	return o.ToPipeFirehoseLogDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o PipeFirehoseLogDestinationOutput) ToPipeFirehoseLogDestinationPtrOutputWithContext(ctx context.Context) PipeFirehoseLogDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeFirehoseLogDestination) *PipeFirehoseLogDestination {
+		return &v
+	}).(PipeFirehoseLogDestinationPtrOutput)
+}
+
+func (o PipeFirehoseLogDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[PipeFirehoseLogDestination] {
+	return pulumix.Output[PipeFirehoseLogDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipeFirehoseLogDestinationOutput) DeliveryStreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeFirehoseLogDestination) *string { return v.DeliveryStreamArn }).(pulumi.StringPtrOutput)
+}
+
+type PipeFirehoseLogDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (PipeFirehoseLogDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeFirehoseLogDestination)(nil)).Elem()
+}
+
+func (o PipeFirehoseLogDestinationPtrOutput) ToPipeFirehoseLogDestinationPtrOutput() PipeFirehoseLogDestinationPtrOutput {
+	return o
+}
+
+func (o PipeFirehoseLogDestinationPtrOutput) ToPipeFirehoseLogDestinationPtrOutputWithContext(ctx context.Context) PipeFirehoseLogDestinationPtrOutput {
+	return o
+}
+
+func (o PipeFirehoseLogDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeFirehoseLogDestination] {
+	return pulumix.Output[*PipeFirehoseLogDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipeFirehoseLogDestinationPtrOutput) Elem() PipeFirehoseLogDestinationOutput {
+	return o.ApplyT(func(v *PipeFirehoseLogDestination) PipeFirehoseLogDestination {
+		if v != nil {
+			return *v
+		}
+		var ret PipeFirehoseLogDestination
+		return ret
+	}).(PipeFirehoseLogDestinationOutput)
+}
+
+func (o PipeFirehoseLogDestinationPtrOutput) DeliveryStreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipeFirehoseLogDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeliveryStreamArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type PipeHeaderParametersMap struct {
 }
 
@@ -3354,6 +3668,223 @@ func (o PipeHeaderParametersMapPtrOutput) Elem() PipeHeaderParametersMapOutput {
 		var ret PipeHeaderParametersMap
 		return ret
 	}).(PipeHeaderParametersMapOutput)
+}
+
+type PipeLogConfiguration struct {
+	CloudwatchLogsLogDestination *PipeCloudwatchLogsLogDestination `pulumi:"cloudwatchLogsLogDestination"`
+	FirehoseLogDestination       *PipeFirehoseLogDestination       `pulumi:"firehoseLogDestination"`
+	IncludeExecutionData         []PipeIncludeExecutionDataOption  `pulumi:"includeExecutionData"`
+	Level                        *PipeLogLevel                     `pulumi:"level"`
+	S3LogDestination             *PipeS3LogDestination             `pulumi:"s3LogDestination"`
+}
+
+// PipeLogConfigurationInput is an input type that accepts PipeLogConfigurationArgs and PipeLogConfigurationOutput values.
+// You can construct a concrete instance of `PipeLogConfigurationInput` via:
+//
+//	PipeLogConfigurationArgs{...}
+type PipeLogConfigurationInput interface {
+	pulumi.Input
+
+	ToPipeLogConfigurationOutput() PipeLogConfigurationOutput
+	ToPipeLogConfigurationOutputWithContext(context.Context) PipeLogConfigurationOutput
+}
+
+type PipeLogConfigurationArgs struct {
+	CloudwatchLogsLogDestination PipeCloudwatchLogsLogDestinationPtrInput `pulumi:"cloudwatchLogsLogDestination"`
+	FirehoseLogDestination       PipeFirehoseLogDestinationPtrInput       `pulumi:"firehoseLogDestination"`
+	IncludeExecutionData         PipeIncludeExecutionDataOptionArrayInput `pulumi:"includeExecutionData"`
+	Level                        PipeLogLevelPtrInput                     `pulumi:"level"`
+	S3LogDestination             PipeS3LogDestinationPtrInput             `pulumi:"s3LogDestination"`
+}
+
+func (PipeLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeLogConfiguration)(nil)).Elem()
+}
+
+func (i PipeLogConfigurationArgs) ToPipeLogConfigurationOutput() PipeLogConfigurationOutput {
+	return i.ToPipeLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i PipeLogConfigurationArgs) ToPipeLogConfigurationOutputWithContext(ctx context.Context) PipeLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeLogConfigurationOutput)
+}
+
+func (i PipeLogConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PipeLogConfiguration] {
+	return pulumix.Output[PipeLogConfiguration]{
+		OutputState: i.ToPipeLogConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i PipeLogConfigurationArgs) ToPipeLogConfigurationPtrOutput() PipeLogConfigurationPtrOutput {
+	return i.ToPipeLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PipeLogConfigurationArgs) ToPipeLogConfigurationPtrOutputWithContext(ctx context.Context) PipeLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeLogConfigurationOutput).ToPipeLogConfigurationPtrOutputWithContext(ctx)
+}
+
+// PipeLogConfigurationPtrInput is an input type that accepts PipeLogConfigurationArgs, PipeLogConfigurationPtr and PipeLogConfigurationPtrOutput values.
+// You can construct a concrete instance of `PipeLogConfigurationPtrInput` via:
+//
+//	        PipeLogConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipeLogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPipeLogConfigurationPtrOutput() PipeLogConfigurationPtrOutput
+	ToPipeLogConfigurationPtrOutputWithContext(context.Context) PipeLogConfigurationPtrOutput
+}
+
+type pipeLogConfigurationPtrType PipeLogConfigurationArgs
+
+func PipeLogConfigurationPtr(v *PipeLogConfigurationArgs) PipeLogConfigurationPtrInput {
+	return (*pipeLogConfigurationPtrType)(v)
+}
+
+func (*pipeLogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeLogConfiguration)(nil)).Elem()
+}
+
+func (i *pipeLogConfigurationPtrType) ToPipeLogConfigurationPtrOutput() PipeLogConfigurationPtrOutput {
+	return i.ToPipeLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *pipeLogConfigurationPtrType) ToPipeLogConfigurationPtrOutputWithContext(ctx context.Context) PipeLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeLogConfigurationPtrOutput)
+}
+
+func (i *pipeLogConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipeLogConfiguration] {
+	return pulumix.Output[*PipeLogConfiguration]{
+		OutputState: i.ToPipeLogConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type PipeLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PipeLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeLogConfiguration)(nil)).Elem()
+}
+
+func (o PipeLogConfigurationOutput) ToPipeLogConfigurationOutput() PipeLogConfigurationOutput {
+	return o
+}
+
+func (o PipeLogConfigurationOutput) ToPipeLogConfigurationOutputWithContext(ctx context.Context) PipeLogConfigurationOutput {
+	return o
+}
+
+func (o PipeLogConfigurationOutput) ToPipeLogConfigurationPtrOutput() PipeLogConfigurationPtrOutput {
+	return o.ToPipeLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PipeLogConfigurationOutput) ToPipeLogConfigurationPtrOutputWithContext(ctx context.Context) PipeLogConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeLogConfiguration) *PipeLogConfiguration {
+		return &v
+	}).(PipeLogConfigurationPtrOutput)
+}
+
+func (o PipeLogConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PipeLogConfiguration] {
+	return pulumix.Output[PipeLogConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipeLogConfigurationOutput) CloudwatchLogsLogDestination() PipeCloudwatchLogsLogDestinationPtrOutput {
+	return o.ApplyT(func(v PipeLogConfiguration) *PipeCloudwatchLogsLogDestination { return v.CloudwatchLogsLogDestination }).(PipeCloudwatchLogsLogDestinationPtrOutput)
+}
+
+func (o PipeLogConfigurationOutput) FirehoseLogDestination() PipeFirehoseLogDestinationPtrOutput {
+	return o.ApplyT(func(v PipeLogConfiguration) *PipeFirehoseLogDestination { return v.FirehoseLogDestination }).(PipeFirehoseLogDestinationPtrOutput)
+}
+
+func (o PipeLogConfigurationOutput) IncludeExecutionData() PipeIncludeExecutionDataOptionArrayOutput {
+	return o.ApplyT(func(v PipeLogConfiguration) []PipeIncludeExecutionDataOption { return v.IncludeExecutionData }).(PipeIncludeExecutionDataOptionArrayOutput)
+}
+
+func (o PipeLogConfigurationOutput) Level() PipeLogLevelPtrOutput {
+	return o.ApplyT(func(v PipeLogConfiguration) *PipeLogLevel { return v.Level }).(PipeLogLevelPtrOutput)
+}
+
+func (o PipeLogConfigurationOutput) S3LogDestination() PipeS3LogDestinationPtrOutput {
+	return o.ApplyT(func(v PipeLogConfiguration) *PipeS3LogDestination { return v.S3LogDestination }).(PipeS3LogDestinationPtrOutput)
+}
+
+type PipeLogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PipeLogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeLogConfiguration)(nil)).Elem()
+}
+
+func (o PipeLogConfigurationPtrOutput) ToPipeLogConfigurationPtrOutput() PipeLogConfigurationPtrOutput {
+	return o
+}
+
+func (o PipeLogConfigurationPtrOutput) ToPipeLogConfigurationPtrOutputWithContext(ctx context.Context) PipeLogConfigurationPtrOutput {
+	return o
+}
+
+func (o PipeLogConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeLogConfiguration] {
+	return pulumix.Output[*PipeLogConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipeLogConfigurationPtrOutput) Elem() PipeLogConfigurationOutput {
+	return o.ApplyT(func(v *PipeLogConfiguration) PipeLogConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PipeLogConfiguration
+		return ret
+	}).(PipeLogConfigurationOutput)
+}
+
+func (o PipeLogConfigurationPtrOutput) CloudwatchLogsLogDestination() PipeCloudwatchLogsLogDestinationPtrOutput {
+	return o.ApplyT(func(v *PipeLogConfiguration) *PipeCloudwatchLogsLogDestination {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogsLogDestination
+	}).(PipeCloudwatchLogsLogDestinationPtrOutput)
+}
+
+func (o PipeLogConfigurationPtrOutput) FirehoseLogDestination() PipeFirehoseLogDestinationPtrOutput {
+	return o.ApplyT(func(v *PipeLogConfiguration) *PipeFirehoseLogDestination {
+		if v == nil {
+			return nil
+		}
+		return v.FirehoseLogDestination
+	}).(PipeFirehoseLogDestinationPtrOutput)
+}
+
+func (o PipeLogConfigurationPtrOutput) IncludeExecutionData() PipeIncludeExecutionDataOptionArrayOutput {
+	return o.ApplyT(func(v *PipeLogConfiguration) []PipeIncludeExecutionDataOption {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeExecutionData
+	}).(PipeIncludeExecutionDataOptionArrayOutput)
+}
+
+func (o PipeLogConfigurationPtrOutput) Level() PipeLogLevelPtrOutput {
+	return o.ApplyT(func(v *PipeLogConfiguration) *PipeLogLevel {
+		if v == nil {
+			return nil
+		}
+		return v.Level
+	}).(PipeLogLevelPtrOutput)
+}
+
+func (o PipeLogConfigurationPtrOutput) S3LogDestination() PipeS3LogDestinationPtrOutput {
+	return o.ApplyT(func(v *PipeLogConfiguration) *PipeS3LogDestination {
+		if v == nil {
+			return nil
+		}
+		return v.S3LogDestination
+	}).(PipeS3LogDestinationPtrOutput)
 }
 
 type PipeMqBrokerAccessCredentials0Properties struct {
@@ -4077,6 +4608,208 @@ func (o PipeQueryStringParametersMapPtrOutput) Elem() PipeQueryStringParametersM
 		var ret PipeQueryStringParametersMap
 		return ret
 	}).(PipeQueryStringParametersMapOutput)
+}
+
+type PipeS3LogDestination struct {
+	BucketName   *string             `pulumi:"bucketName"`
+	BucketOwner  *string             `pulumi:"bucketOwner"`
+	OutputFormat *PipeS3OutputFormat `pulumi:"outputFormat"`
+	Prefix       *string             `pulumi:"prefix"`
+}
+
+// PipeS3LogDestinationInput is an input type that accepts PipeS3LogDestinationArgs and PipeS3LogDestinationOutput values.
+// You can construct a concrete instance of `PipeS3LogDestinationInput` via:
+//
+//	PipeS3LogDestinationArgs{...}
+type PipeS3LogDestinationInput interface {
+	pulumi.Input
+
+	ToPipeS3LogDestinationOutput() PipeS3LogDestinationOutput
+	ToPipeS3LogDestinationOutputWithContext(context.Context) PipeS3LogDestinationOutput
+}
+
+type PipeS3LogDestinationArgs struct {
+	BucketName   pulumi.StringPtrInput      `pulumi:"bucketName"`
+	BucketOwner  pulumi.StringPtrInput      `pulumi:"bucketOwner"`
+	OutputFormat PipeS3OutputFormatPtrInput `pulumi:"outputFormat"`
+	Prefix       pulumi.StringPtrInput      `pulumi:"prefix"`
+}
+
+func (PipeS3LogDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeS3LogDestination)(nil)).Elem()
+}
+
+func (i PipeS3LogDestinationArgs) ToPipeS3LogDestinationOutput() PipeS3LogDestinationOutput {
+	return i.ToPipeS3LogDestinationOutputWithContext(context.Background())
+}
+
+func (i PipeS3LogDestinationArgs) ToPipeS3LogDestinationOutputWithContext(ctx context.Context) PipeS3LogDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeS3LogDestinationOutput)
+}
+
+func (i PipeS3LogDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[PipeS3LogDestination] {
+	return pulumix.Output[PipeS3LogDestination]{
+		OutputState: i.ToPipeS3LogDestinationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i PipeS3LogDestinationArgs) ToPipeS3LogDestinationPtrOutput() PipeS3LogDestinationPtrOutput {
+	return i.ToPipeS3LogDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i PipeS3LogDestinationArgs) ToPipeS3LogDestinationPtrOutputWithContext(ctx context.Context) PipeS3LogDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeS3LogDestinationOutput).ToPipeS3LogDestinationPtrOutputWithContext(ctx)
+}
+
+// PipeS3LogDestinationPtrInput is an input type that accepts PipeS3LogDestinationArgs, PipeS3LogDestinationPtr and PipeS3LogDestinationPtrOutput values.
+// You can construct a concrete instance of `PipeS3LogDestinationPtrInput` via:
+//
+//	        PipeS3LogDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipeS3LogDestinationPtrInput interface {
+	pulumi.Input
+
+	ToPipeS3LogDestinationPtrOutput() PipeS3LogDestinationPtrOutput
+	ToPipeS3LogDestinationPtrOutputWithContext(context.Context) PipeS3LogDestinationPtrOutput
+}
+
+type pipeS3LogDestinationPtrType PipeS3LogDestinationArgs
+
+func PipeS3LogDestinationPtr(v *PipeS3LogDestinationArgs) PipeS3LogDestinationPtrInput {
+	return (*pipeS3LogDestinationPtrType)(v)
+}
+
+func (*pipeS3LogDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeS3LogDestination)(nil)).Elem()
+}
+
+func (i *pipeS3LogDestinationPtrType) ToPipeS3LogDestinationPtrOutput() PipeS3LogDestinationPtrOutput {
+	return i.ToPipeS3LogDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *pipeS3LogDestinationPtrType) ToPipeS3LogDestinationPtrOutputWithContext(ctx context.Context) PipeS3LogDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipeS3LogDestinationPtrOutput)
+}
+
+func (i *pipeS3LogDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipeS3LogDestination] {
+	return pulumix.Output[*PipeS3LogDestination]{
+		OutputState: i.ToPipeS3LogDestinationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type PipeS3LogDestinationOutput struct{ *pulumi.OutputState }
+
+func (PipeS3LogDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipeS3LogDestination)(nil)).Elem()
+}
+
+func (o PipeS3LogDestinationOutput) ToPipeS3LogDestinationOutput() PipeS3LogDestinationOutput {
+	return o
+}
+
+func (o PipeS3LogDestinationOutput) ToPipeS3LogDestinationOutputWithContext(ctx context.Context) PipeS3LogDestinationOutput {
+	return o
+}
+
+func (o PipeS3LogDestinationOutput) ToPipeS3LogDestinationPtrOutput() PipeS3LogDestinationPtrOutput {
+	return o.ToPipeS3LogDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o PipeS3LogDestinationOutput) ToPipeS3LogDestinationPtrOutputWithContext(ctx context.Context) PipeS3LogDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipeS3LogDestination) *PipeS3LogDestination {
+		return &v
+	}).(PipeS3LogDestinationPtrOutput)
+}
+
+func (o PipeS3LogDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[PipeS3LogDestination] {
+	return pulumix.Output[PipeS3LogDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipeS3LogDestinationOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeS3LogDestination) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeS3LogDestinationOutput) BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeS3LogDestination) *string { return v.BucketOwner }).(pulumi.StringPtrOutput)
+}
+
+func (o PipeS3LogDestinationOutput) OutputFormat() PipeS3OutputFormatPtrOutput {
+	return o.ApplyT(func(v PipeS3LogDestination) *PipeS3OutputFormat { return v.OutputFormat }).(PipeS3OutputFormatPtrOutput)
+}
+
+func (o PipeS3LogDestinationOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipeS3LogDestination) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type PipeS3LogDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (PipeS3LogDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipeS3LogDestination)(nil)).Elem()
+}
+
+func (o PipeS3LogDestinationPtrOutput) ToPipeS3LogDestinationPtrOutput() PipeS3LogDestinationPtrOutput {
+	return o
+}
+
+func (o PipeS3LogDestinationPtrOutput) ToPipeS3LogDestinationPtrOutputWithContext(ctx context.Context) PipeS3LogDestinationPtrOutput {
+	return o
+}
+
+func (o PipeS3LogDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipeS3LogDestination] {
+	return pulumix.Output[*PipeS3LogDestination]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipeS3LogDestinationPtrOutput) Elem() PipeS3LogDestinationOutput {
+	return o.ApplyT(func(v *PipeS3LogDestination) PipeS3LogDestination {
+		if v != nil {
+			return *v
+		}
+		var ret PipeS3LogDestination
+		return ret
+	}).(PipeS3LogDestinationOutput)
+}
+
+func (o PipeS3LogDestinationPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipeS3LogDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PipeS3LogDestinationPtrOutput) BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipeS3LogDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PipeS3LogDestinationPtrOutput) OutputFormat() PipeS3OutputFormatPtrOutput {
+	return o.ApplyT(func(v *PipeS3LogDestination) *PipeS3OutputFormat {
+		if v == nil {
+			return nil
+		}
+		return v.OutputFormat
+	}).(PipeS3OutputFormatPtrOutput)
+}
+
+func (o PipeS3LogDestinationPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipeS3LogDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
 }
 
 type PipeSageMakerPipelineParameter struct {
@@ -9181,6 +9914,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeBatchRetryStrategyPtrInput)(nil)).Elem(), PipeBatchRetryStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeCapacityProviderStrategyItemInput)(nil)).Elem(), PipeCapacityProviderStrategyItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeCapacityProviderStrategyItemArrayInput)(nil)).Elem(), PipeCapacityProviderStrategyItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeCloudwatchLogsLogDestinationInput)(nil)).Elem(), PipeCloudwatchLogsLogDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeCloudwatchLogsLogDestinationPtrInput)(nil)).Elem(), PipeCloudwatchLogsLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeDeadLetterConfigInput)(nil)).Elem(), PipeDeadLetterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeDeadLetterConfigPtrInput)(nil)).Elem(), PipeDeadLetterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeEcsContainerOverrideInput)(nil)).Elem(), PipeEcsContainerOverrideArgs{})
@@ -9205,8 +9940,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeFilterArrayInput)(nil)).Elem(), PipeFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeFilterCriteriaInput)(nil)).Elem(), PipeFilterCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeFilterCriteriaPtrInput)(nil)).Elem(), PipeFilterCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeFirehoseLogDestinationInput)(nil)).Elem(), PipeFirehoseLogDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeFirehoseLogDestinationPtrInput)(nil)).Elem(), PipeFirehoseLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeHeaderParametersMapInput)(nil)).Elem(), PipeHeaderParametersMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeHeaderParametersMapPtrInput)(nil)).Elem(), PipeHeaderParametersMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeLogConfigurationInput)(nil)).Elem(), PipeLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeLogConfigurationPtrInput)(nil)).Elem(), PipeLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeMqBrokerAccessCredentialsPropertiesInput)(nil)).Elem(), PipeMqBrokerAccessCredentialsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeMqBrokerAccessCredentialsPropertiesPtrInput)(nil)).Elem(), PipeMqBrokerAccessCredentialsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeNetworkConfigurationInput)(nil)).Elem(), PipeNetworkConfigurationArgs{})
@@ -9217,6 +9956,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipePlacementStrategyArrayInput)(nil)).Elem(), PipePlacementStrategyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeQueryStringParametersMapInput)(nil)).Elem(), PipeQueryStringParametersMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeQueryStringParametersMapPtrInput)(nil)).Elem(), PipeQueryStringParametersMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeS3LogDestinationInput)(nil)).Elem(), PipeS3LogDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipeS3LogDestinationPtrInput)(nil)).Elem(), PipeS3LogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSageMakerPipelineParameterInput)(nil)).Elem(), PipeSageMakerPipelineParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSageMakerPipelineParameterArrayInput)(nil)).Elem(), PipeSageMakerPipelineParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipeSelfManagedKafkaAccessConfigurationVpcInput)(nil)).Elem(), PipeSelfManagedKafkaAccessConfigurationVpcArgs{})
@@ -9283,6 +10024,8 @@ func init() {
 	pulumi.RegisterOutputType(PipeBatchRetryStrategyPtrOutput{})
 	pulumi.RegisterOutputType(PipeCapacityProviderStrategyItemOutput{})
 	pulumi.RegisterOutputType(PipeCapacityProviderStrategyItemArrayOutput{})
+	pulumi.RegisterOutputType(PipeCloudwatchLogsLogDestinationOutput{})
+	pulumi.RegisterOutputType(PipeCloudwatchLogsLogDestinationPtrOutput{})
 	pulumi.RegisterOutputType(PipeDeadLetterConfigOutput{})
 	pulumi.RegisterOutputType(PipeDeadLetterConfigPtrOutput{})
 	pulumi.RegisterOutputType(PipeEcsContainerOverrideOutput{})
@@ -9307,8 +10050,12 @@ func init() {
 	pulumi.RegisterOutputType(PipeFilterArrayOutput{})
 	pulumi.RegisterOutputType(PipeFilterCriteriaOutput{})
 	pulumi.RegisterOutputType(PipeFilterCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(PipeFirehoseLogDestinationOutput{})
+	pulumi.RegisterOutputType(PipeFirehoseLogDestinationPtrOutput{})
 	pulumi.RegisterOutputType(PipeHeaderParametersMapOutput{})
 	pulumi.RegisterOutputType(PipeHeaderParametersMapPtrOutput{})
+	pulumi.RegisterOutputType(PipeLogConfigurationOutput{})
+	pulumi.RegisterOutputType(PipeLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PipeMqBrokerAccessCredentialsPropertiesOutput{})
 	pulumi.RegisterOutputType(PipeMqBrokerAccessCredentialsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PipeNetworkConfigurationOutput{})
@@ -9319,6 +10066,8 @@ func init() {
 	pulumi.RegisterOutputType(PipePlacementStrategyArrayOutput{})
 	pulumi.RegisterOutputType(PipeQueryStringParametersMapOutput{})
 	pulumi.RegisterOutputType(PipeQueryStringParametersMapPtrOutput{})
+	pulumi.RegisterOutputType(PipeS3LogDestinationOutput{})
+	pulumi.RegisterOutputType(PipeS3LogDestinationPtrOutput{})
 	pulumi.RegisterOutputType(PipeSageMakerPipelineParameterOutput{})
 	pulumi.RegisterOutputType(PipeSageMakerPipelineParameterArrayOutput{})
 	pulumi.RegisterOutputType(PipeSelfManagedKafkaAccessConfigurationVpcOutput{})

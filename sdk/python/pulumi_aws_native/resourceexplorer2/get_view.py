@@ -35,7 +35,7 @@ class GetViewResult:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional['outputs.ViewFilters']:
+    def filters(self) -> Optional['outputs.ViewSearchFilter']:
         return pulumi.get(self, "filters")
 
     @property
