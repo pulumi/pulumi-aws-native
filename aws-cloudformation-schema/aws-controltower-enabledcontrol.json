@@ -11,7 +11,10 @@
       "permissions" : [ "controltower:ListEnabledControls", "controltower:GetEnabledControl" ]
     },
     "create" : {
-      "permissions" : [ "controltower:ListEnabledControls", "controltower:GetControlOperation", "controltower:GetEnabledControl", "controltower:EnableControl", "organizations:UpdatePolicy", "organizations:CreatePolicy", "organizations:AttachPolicy", "organizations:DetachPolicy", "organizations:ListPoliciesForTarget", "organizations:ListTargetsForPolicy", "organizations:DescribePolicy" ]
+      "permissions" : [ "controltower:ListEnabledControls", "controltower:GetEnabledControl", "controltower:GetControlOperation", "controltower:EnableControl", "organizations:UpdatePolicy", "organizations:CreatePolicy", "organizations:AttachPolicy", "organizations:DetachPolicy", "organizations:ListPoliciesForTarget", "organizations:ListTargetsForPolicy", "organizations:DescribePolicy" ]
+    },
+    "update" : {
+      "permissions" : [ "controltower:ListEnabledControls", "controltower:GetEnabledControl", "controltower:GetControlOperation", "controltower:UpdateEnabledControl", "organizations:UpdatePolicy", "organizations:CreatePolicy", "organizations:AttachPolicy", "organizations:DetachPolicy", "organizations:ListPoliciesForTarget", "organizations:ListTargetsForPolicy", "organizations:DescribePolicy" ]
     },
     "list" : {
       "permissions" : [ "controltower:ListEnabledControls" ],
@@ -25,7 +28,7 @@
       }
     },
     "delete" : {
-      "permissions" : [ "controltower:GetControlOperation", "controltower:DisableControl" ]
+      "permissions" : [ "controltower:GetControlOperation", "controltower:DisableControl", "organizations:UpdatePolicy", "organizations:DeletePolicy", "organizations:CreatePolicy", "organizations:AttachPolicy", "organizations:DetachPolicy", "organizations:ListPoliciesForTarget", "organizations:ListTargetsForPolicy", "organizations:DescribePolicy" ]
     }
   },
   "typeName" : "AWS::ControlTower::EnabledControl",

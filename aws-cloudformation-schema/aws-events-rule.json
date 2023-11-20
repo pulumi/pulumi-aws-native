@@ -480,7 +480,7 @@
     "State" : {
       "description" : "The state of the rule.",
       "type" : "string",
-      "enum" : [ "DISABLED", "ENABLED" ]
+      "enum" : [ "DISABLED", "ENABLED", "ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS" ]
     },
     "Targets" : {
       "uniqueItems" : true,

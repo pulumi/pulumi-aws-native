@@ -63,7 +63,7 @@
       "permissions" : [ "servicecatalog:DescribeServiceAction" ]
     },
     "update" : {
-      "permissions" : [ "servicecatalog:UpdateServiceAction", "iam:GetRole" ]
+      "permissions" : [ "servicecatalog:UpdateServiceAction", "iam:GetRole", "ssm:DescribeDocument" ]
     },
     "delete" : {
       "permissions" : [ "servicecatalog:DeleteServiceAction" ]

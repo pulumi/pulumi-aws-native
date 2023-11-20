@@ -1,7 +1,7 @@
 {
   "typeName" : "AWS::ServiceCatalog::ServiceActionAssociation",
   "description" : "Resource Schema for AWS::ServiceCatalog::ServiceActionAssociation",
-  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-servicecatalog",
   "properties" : {
     "ProductId" : {
       "type" : "string",
@@ -28,15 +28,26 @@
   "primaryIdentifier" : [ "/properties/ProductId", "/properties/ProvisioningArtifactId", "/properties/ServiceActionId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "servicecatalog:AssociateServiceActionWithProvisioningArtifact" ]
+      "permissions" : [ "servicecatalog:AssociateServiceActionWithProvisioningArtifact", "servicecatalog:ListServiceActionsForProvisioningArtifact" ]
     },
     "read" : {
       "permissions" : [ "servicecatalog:ListServiceActionsForProvisioningArtifact" ]
     },
     "delete" : {
-      "permissions" : [ "servicecatalog:DisassociateServiceActionFromProvisioningArtifact" ]
+      "permissions" : [ "servicecatalog:DisassociateServiceActionFromProvisioningArtifact", "servicecatalog:ListServiceActionsForProvisioningArtifact" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "ProductId" : {
+            "$ref" : "resource-schema.json#/properties/ProductId"
+          },
+          "ProvisioningArtifactId" : {
+            "$ref" : "resource-schema.json#/properties/ProvisioningArtifactId"
+          }
+        },
+        "required" : [ "ProductId", "ProvisioningArtifactId" ]
+      },
       "permissions" : [ "servicecatalog:ListServiceActionsForProvisioningArtifact" ]
     }
   }
