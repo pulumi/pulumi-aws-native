@@ -13,7 +13,7 @@
     "EnvironmentStatus" : {
       "type" : "string",
       "description" : "The status of the environment.",
-      "enum" : [ "CREATING", "CREATE_FAILED", "AVAILABLE", "UPDATING", "DELETING", "DELETED", "UPDATE_FAILED", "UNAVAILABLE" ]
+      "enum" : [ "CREATING", "CREATE_FAILED", "AVAILABLE", "UPDATING", "DELETING", "DELETED", "UPDATE_FAILED", "UNAVAILABLE", "PENDING" ]
     },
     "UpdateStatus" : {
       "type" : "string",
@@ -302,6 +302,26 @@
       "type" : "string",
       "description" : "Choice for mode of webserver access including over public internet or via private VPC endpoint.",
       "enum" : [ "PRIVATE_ONLY", "PUBLIC_ONLY" ]
+    },
+    "EndpointManagement" : {
+      "type" : "string",
+      "description" : "Defines whether the VPC endpoints configured for the environment are created, and managed, by the customer or by Amazon MWAA.",
+      "enum" : [ "CUSTOMER", "SERVICE" ]
+    },
+    "CeleryExecutorQueue" : {
+      "type" : "string",
+      "description" : "The celery executor queue associated with the environment.",
+      "maxLength" : 1224
+    },
+    "DatabaseVpcEndpointService" : {
+      "type" : "string",
+      "description" : "The database VPC endpoint service name.",
+      "maxLength" : 1224
+    },
+    "WebserverVpcEndpointService" : {
+      "type" : "string",
+      "description" : "The webserver VPC endpoint service name, applicable if private webserver access mode selected.",
+      "maxLength" : 1224
     }
   },
   "properties" : {
@@ -378,12 +398,24 @@
     },
     "WebserverAccessMode" : {
       "$ref" : "#/definitions/WebserverAccessMode"
+    },
+    "EndpointManagement" : {
+      "$ref" : "#/definitions/EndpointManagement"
+    },
+    "CeleryExecutorQueue" : {
+      "$ref" : "#/definitions/CeleryExecutorQueue"
+    },
+    "DatabaseVpcEndpointService" : {
+      "$ref" : "#/definitions/DatabaseVpcEndpointService"
+    },
+    "WebserverVpcEndpointService" : {
+      "$ref" : "#/definitions/WebserverVpcEndpointService"
     }
   },
   "additionalProperties" : false,
   "required" : [ "Name" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/KmsKey", "/properties/NetworkConfiguration/SubnetIds" ],
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/WebserverUrl", "/properties/LoggingConfiguration/DagProcessingLogs/CloudWatchLogGroupArn", "/properties/LoggingConfiguration/SchedulerLogs/CloudWatchLogGroupArn", "/properties/LoggingConfiguration/WebserverLogs/CloudWatchLogGroupArn", "/properties/LoggingConfiguration/WorkerLogs/CloudWatchLogGroupArn", "/properties/LoggingConfiguration/TaskLogs/CloudWatchLogGroupArn" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/KmsKey", "/properties/NetworkConfiguration/SubnetIds", "/properties/EndpointManagement" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/CeleryExecutorQueue", "/properties/DatabaseVpcEndpointService", "/properties/WebserverVpcEndpointService", "/properties/WebserverUrl", "/properties/LoggingConfiguration/DagProcessingLogs/CloudWatchLogGroupArn", "/properties/LoggingConfiguration/SchedulerLogs/CloudWatchLogGroupArn", "/properties/LoggingConfiguration/WebserverLogs/CloudWatchLogGroupArn", "/properties/LoggingConfiguration/WorkerLogs/CloudWatchLogGroupArn", "/properties/LoggingConfiguration/TaskLogs/CloudWatchLogGroupArn" ],
   "taggable" : true,
   "primaryIdentifier" : [ "/properties/Name" ],
   "handlers" : {
