@@ -1,6 +1,8 @@
-## HEAD (Unreleased)
+## 0.86.0 (2023-11-21)
 
-(None)
+### Upstream breaking changes
+
+- Resource "aws-native:eks:Cluster" removed property "accessConfig"
 
 ## 0.85.0 (2023-11-18)
 
