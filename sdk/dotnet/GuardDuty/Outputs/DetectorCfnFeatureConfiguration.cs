@@ -14,14 +14,14 @@ namespace Pulumi.AwsNative.GuardDuty.Outputs
     public sealed class DetectorCfnFeatureConfiguration
     {
         public readonly ImmutableArray<Outputs.DetectorCfnFeatureAdditionalConfiguration> AdditionalConfiguration;
-        public readonly Pulumi.AwsNative.GuardDuty.DetectorCfnFeatureConfigurationName Name;
+        public readonly string Name;
         public readonly Pulumi.AwsNative.GuardDuty.DetectorCfnFeatureConfigurationStatus Status;
 
         [OutputConstructor]
         private DetectorCfnFeatureConfiguration(
             ImmutableArray<Outputs.DetectorCfnFeatureAdditionalConfiguration> additionalConfiguration,
 
-            Pulumi.AwsNative.GuardDuty.DetectorCfnFeatureConfigurationName name,
+            string name,
 
             Pulumi.AwsNative.GuardDuty.DetectorCfnFeatureConfigurationStatus status)
         {

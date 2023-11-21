@@ -28,7 +28,10 @@ type Environment struct {
 	AirflowConfigurationOptions  pulumi.AnyOutput                         `pulumi:"airflowConfigurationOptions"`
 	AirflowVersion               pulumi.StringPtrOutput                   `pulumi:"airflowVersion"`
 	Arn                          pulumi.StringOutput                      `pulumi:"arn"`
+	CeleryExecutorQueue          pulumi.StringOutput                      `pulumi:"celeryExecutorQueue"`
 	DagS3Path                    pulumi.StringPtrOutput                   `pulumi:"dagS3Path"`
+	DatabaseVpcEndpointService   pulumi.StringOutput                      `pulumi:"databaseVpcEndpointService"`
+	EndpointManagement           EnvironmentEndpointManagementPtrOutput   `pulumi:"endpointManagement"`
 	EnvironmentClass             pulumi.StringPtrOutput                   `pulumi:"environmentClass"`
 	ExecutionRoleArn             pulumi.StringPtrOutput                   `pulumi:"executionRoleArn"`
 	KmsKey                       pulumi.StringPtrOutput                   `pulumi:"kmsKey"`
@@ -49,6 +52,7 @@ type Environment struct {
 	Tags                         pulumi.AnyOutput                        `pulumi:"tags"`
 	WebserverAccessMode          EnvironmentWebserverAccessModePtrOutput `pulumi:"webserverAccessMode"`
 	WebserverUrl                 pulumi.StringOutput                     `pulumi:"webserverUrl"`
+	WebserverVpcEndpointService  pulumi.StringOutput                     `pulumi:"webserverVpcEndpointService"`
 	WeeklyMaintenanceWindowStart pulumi.StringPtrOutput                  `pulumi:"weeklyMaintenanceWindowStart"`
 }
 
@@ -60,6 +64,7 @@ func NewEnvironment(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"endpointManagement",
 		"kmsKey",
 		"name",
 		"networkConfiguration.subnetIds[*]",
@@ -110,6 +115,7 @@ type environmentArgs struct {
 	AirflowConfigurationOptions  interface{}                      `pulumi:"airflowConfigurationOptions"`
 	AirflowVersion               *string                          `pulumi:"airflowVersion"`
 	DagS3Path                    *string                          `pulumi:"dagS3Path"`
+	EndpointManagement           *EnvironmentEndpointManagement   `pulumi:"endpointManagement"`
 	EnvironmentClass             *string                          `pulumi:"environmentClass"`
 	ExecutionRoleArn             *string                          `pulumi:"executionRoleArn"`
 	KmsKey                       *string                          `pulumi:"kmsKey"`
@@ -146,6 +152,7 @@ type EnvironmentArgs struct {
 	AirflowConfigurationOptions  pulumi.Input
 	AirflowVersion               pulumi.StringPtrInput
 	DagS3Path                    pulumi.StringPtrInput
+	EndpointManagement           EnvironmentEndpointManagementPtrInput
 	EnvironmentClass             pulumi.StringPtrInput
 	ExecutionRoleArn             pulumi.StringPtrInput
 	KmsKey                       pulumi.StringPtrInput
@@ -239,8 +246,20 @@ func (o EnvironmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+func (o EnvironmentOutput) CeleryExecutorQueue() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.CeleryExecutorQueue }).(pulumi.StringOutput)
+}
+
 func (o EnvironmentOutput) DagS3Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.DagS3Path }).(pulumi.StringPtrOutput)
+}
+
+func (o EnvironmentOutput) DatabaseVpcEndpointService() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.DatabaseVpcEndpointService }).(pulumi.StringOutput)
+}
+
+func (o EnvironmentOutput) EndpointManagement() EnvironmentEndpointManagementPtrOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentEndpointManagementPtrOutput { return v.EndpointManagement }).(EnvironmentEndpointManagementPtrOutput)
 }
 
 func (o EnvironmentOutput) EnvironmentClass() pulumi.StringPtrOutput {
@@ -318,6 +337,10 @@ func (o EnvironmentOutput) WebserverAccessMode() EnvironmentWebserverAccessModeP
 
 func (o EnvironmentOutput) WebserverUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.WebserverUrl }).(pulumi.StringOutput)
+}
+
+func (o EnvironmentOutput) WebserverVpcEndpointService() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.WebserverVpcEndpointService }).(pulumi.StringOutput)
 }
 
 func (o EnvironmentOutput) WeeklyMaintenanceWindowStart() pulumi.StringPtrOutput {

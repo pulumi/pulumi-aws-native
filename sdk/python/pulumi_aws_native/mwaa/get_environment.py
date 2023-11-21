@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEnvironmentResult:
-    def __init__(__self__, airflow_configuration_options=None, airflow_version=None, arn=None, dag_s3_path=None, environment_class=None, execution_role_arn=None, logging_configuration=None, max_workers=None, min_workers=None, network_configuration=None, plugins_s3_object_version=None, plugins_s3_path=None, requirements_s3_object_version=None, requirements_s3_path=None, schedulers=None, source_bucket_arn=None, startup_script_s3_object_version=None, startup_script_s3_path=None, tags=None, webserver_access_mode=None, webserver_url=None, weekly_maintenance_window_start=None):
+    def __init__(__self__, airflow_configuration_options=None, airflow_version=None, arn=None, celery_executor_queue=None, dag_s3_path=None, database_vpc_endpoint_service=None, environment_class=None, execution_role_arn=None, logging_configuration=None, max_workers=None, min_workers=None, network_configuration=None, plugins_s3_object_version=None, plugins_s3_path=None, requirements_s3_object_version=None, requirements_s3_path=None, schedulers=None, source_bucket_arn=None, startup_script_s3_object_version=None, startup_script_s3_path=None, tags=None, webserver_access_mode=None, webserver_url=None, webserver_vpc_endpoint_service=None, weekly_maintenance_window_start=None):
         if airflow_configuration_options and not isinstance(airflow_configuration_options, dict):
             raise TypeError("Expected argument 'airflow_configuration_options' to be a dict")
         pulumi.set(__self__, "airflow_configuration_options", airflow_configuration_options)
@@ -30,9 +30,15 @@ class GetEnvironmentResult:
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if celery_executor_queue and not isinstance(celery_executor_queue, str):
+            raise TypeError("Expected argument 'celery_executor_queue' to be a str")
+        pulumi.set(__self__, "celery_executor_queue", celery_executor_queue)
         if dag_s3_path and not isinstance(dag_s3_path, str):
             raise TypeError("Expected argument 'dag_s3_path' to be a str")
         pulumi.set(__self__, "dag_s3_path", dag_s3_path)
+        if database_vpc_endpoint_service and not isinstance(database_vpc_endpoint_service, str):
+            raise TypeError("Expected argument 'database_vpc_endpoint_service' to be a str")
+        pulumi.set(__self__, "database_vpc_endpoint_service", database_vpc_endpoint_service)
         if environment_class and not isinstance(environment_class, str):
             raise TypeError("Expected argument 'environment_class' to be a str")
         pulumi.set(__self__, "environment_class", environment_class)
@@ -84,6 +90,9 @@ class GetEnvironmentResult:
         if webserver_url and not isinstance(webserver_url, str):
             raise TypeError("Expected argument 'webserver_url' to be a str")
         pulumi.set(__self__, "webserver_url", webserver_url)
+        if webserver_vpc_endpoint_service and not isinstance(webserver_vpc_endpoint_service, str):
+            raise TypeError("Expected argument 'webserver_vpc_endpoint_service' to be a str")
+        pulumi.set(__self__, "webserver_vpc_endpoint_service", webserver_vpc_endpoint_service)
         if weekly_maintenance_window_start and not isinstance(weekly_maintenance_window_start, str):
             raise TypeError("Expected argument 'weekly_maintenance_window_start' to be a str")
         pulumi.set(__self__, "weekly_maintenance_window_start", weekly_maintenance_window_start)
@@ -115,9 +124,19 @@ class GetEnvironmentResult:
         return pulumi.get(self, "arn")
 
     @property
+    @pulumi.getter(name="celeryExecutorQueue")
+    def celery_executor_queue(self) -> Optional[str]:
+        return pulumi.get(self, "celery_executor_queue")
+
+    @property
     @pulumi.getter(name="dagS3Path")
     def dag_s3_path(self) -> Optional[str]:
         return pulumi.get(self, "dag_s3_path")
+
+    @property
+    @pulumi.getter(name="databaseVpcEndpointService")
+    def database_vpc_endpoint_service(self) -> Optional[str]:
+        return pulumi.get(self, "database_vpc_endpoint_service")
 
     @property
     @pulumi.getter(name="environmentClass")
@@ -208,6 +227,11 @@ class GetEnvironmentResult:
         return pulumi.get(self, "webserver_url")
 
     @property
+    @pulumi.getter(name="webserverVpcEndpointService")
+    def webserver_vpc_endpoint_service(self) -> Optional[str]:
+        return pulumi.get(self, "webserver_vpc_endpoint_service")
+
+    @property
     @pulumi.getter(name="weeklyMaintenanceWindowStart")
     def weekly_maintenance_window_start(self) -> Optional[str]:
         return pulumi.get(self, "weekly_maintenance_window_start")
@@ -222,7 +246,9 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
             airflow_configuration_options=self.airflow_configuration_options,
             airflow_version=self.airflow_version,
             arn=self.arn,
+            celery_executor_queue=self.celery_executor_queue,
             dag_s3_path=self.dag_s3_path,
+            database_vpc_endpoint_service=self.database_vpc_endpoint_service,
             environment_class=self.environment_class,
             execution_role_arn=self.execution_role_arn,
             logging_configuration=self.logging_configuration,
@@ -240,6 +266,7 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
             tags=self.tags,
             webserver_access_mode=self.webserver_access_mode,
             webserver_url=self.webserver_url,
+            webserver_vpc_endpoint_service=self.webserver_vpc_endpoint_service,
             weekly_maintenance_window_start=self.weekly_maintenance_window_start)
 
 
@@ -257,7 +284,9 @@ def get_environment(name: Optional[str] = None,
         airflow_configuration_options=pulumi.get(__ret__, 'airflow_configuration_options'),
         airflow_version=pulumi.get(__ret__, 'airflow_version'),
         arn=pulumi.get(__ret__, 'arn'),
+        celery_executor_queue=pulumi.get(__ret__, 'celery_executor_queue'),
         dag_s3_path=pulumi.get(__ret__, 'dag_s3_path'),
+        database_vpc_endpoint_service=pulumi.get(__ret__, 'database_vpc_endpoint_service'),
         environment_class=pulumi.get(__ret__, 'environment_class'),
         execution_role_arn=pulumi.get(__ret__, 'execution_role_arn'),
         logging_configuration=pulumi.get(__ret__, 'logging_configuration'),
@@ -275,6 +304,7 @@ def get_environment(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         webserver_access_mode=pulumi.get(__ret__, 'webserver_access_mode'),
         webserver_url=pulumi.get(__ret__, 'webserver_url'),
+        webserver_vpc_endpoint_service=pulumi.get(__ret__, 'webserver_vpc_endpoint_service'),
         weekly_maintenance_window_start=pulumi.get(__ret__, 'weekly_maintenance_window_start'))
 
 

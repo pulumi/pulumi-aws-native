@@ -856,8 +856,9 @@ func (o EndpointStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 type RuleStateEnum string
 
 const (
-	RuleStateEnumDisabled = RuleStateEnum("DISABLED")
-	RuleStateEnumEnabled  = RuleStateEnum("ENABLED")
+	RuleStateEnumDisabled                                 = RuleStateEnum("DISABLED")
+	RuleStateEnumEnabled                                  = RuleStateEnum("ENABLED")
+	RuleStateEnumEnabledWithAllCloudtrailManagementEvents = RuleStateEnum("ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS")
 )
 
 func (RuleStateEnum) ElementType() reflect.Type {

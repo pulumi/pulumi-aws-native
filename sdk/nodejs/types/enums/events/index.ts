@@ -51,6 +51,7 @@ export type EndpointState = (typeof EndpointState)[keyof typeof EndpointState];
 export const RuleState = {
     Disabled: "DISABLED",
     Enabled: "ENABLED",
+    EnabledWithAllCloudtrailManagementEvents: "ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS",
 } as const;
 
 /**

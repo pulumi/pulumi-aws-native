@@ -30,6 +30,12 @@ namespace Pulumi.AwsNative.Route53Resolver.Inputs
         [Input("port")]
         public Input<string>? Port { get; set; }
 
+        /// <summary>
+        /// The protocol that you want to use to forward DNS queries. 
+        /// </summary>
+        [Input("protocol")]
+        public Input<Pulumi.AwsNative.Route53Resolver.ResolverRuleTargetAddressProtocol>? Protocol { get; set; }
+
         public ResolverRuleTargetAddressArgs()
         {
         }

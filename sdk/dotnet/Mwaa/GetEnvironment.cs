@@ -65,7 +65,9 @@ namespace Pulumi.AwsNative.Mwaa
         public readonly object? AirflowConfigurationOptions;
         public readonly string? AirflowVersion;
         public readonly string? Arn;
+        public readonly string? CeleryExecutorQueue;
         public readonly string? DagS3Path;
+        public readonly string? DatabaseVpcEndpointService;
         public readonly string? EnvironmentClass;
         public readonly string? ExecutionRoleArn;
         public readonly Outputs.EnvironmentLoggingConfiguration? LoggingConfiguration;
@@ -86,6 +88,7 @@ namespace Pulumi.AwsNative.Mwaa
         public readonly object? Tags;
         public readonly Pulumi.AwsNative.Mwaa.EnvironmentWebserverAccessMode? WebserverAccessMode;
         public readonly string? WebserverUrl;
+        public readonly string? WebserverVpcEndpointService;
         public readonly string? WeeklyMaintenanceWindowStart;
 
         [OutputConstructor]
@@ -96,7 +99,11 @@ namespace Pulumi.AwsNative.Mwaa
 
             string? arn,
 
+            string? celeryExecutorQueue,
+
             string? dagS3Path,
+
+            string? databaseVpcEndpointService,
 
             string? environmentClass,
 
@@ -132,12 +139,16 @@ namespace Pulumi.AwsNative.Mwaa
 
             string? webserverUrl,
 
+            string? webserverVpcEndpointService,
+
             string? weeklyMaintenanceWindowStart)
         {
             AirflowConfigurationOptions = airflowConfigurationOptions;
             AirflowVersion = airflowVersion;
             Arn = arn;
+            CeleryExecutorQueue = celeryExecutorQueue;
             DagS3Path = dagS3Path;
+            DatabaseVpcEndpointService = databaseVpcEndpointService;
             EnvironmentClass = environmentClass;
             ExecutionRoleArn = executionRoleArn;
             LoggingConfiguration = loggingConfiguration;
@@ -155,6 +166,7 @@ namespace Pulumi.AwsNative.Mwaa
             Tags = tags;
             WebserverAccessMode = webserverAccessMode;
             WebserverUrl = webserverUrl;
+            WebserverVpcEndpointService = webserverVpcEndpointService;
             WeeklyMaintenanceWindowStart = weeklyMaintenanceWindowStart;
         }
     }

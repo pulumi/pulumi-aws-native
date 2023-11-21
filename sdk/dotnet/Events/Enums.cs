@@ -173,6 +173,7 @@ namespace Pulumi.AwsNative.Events
 
         public static RuleState Disabled { get; } = new RuleState("DISABLED");
         public static RuleState Enabled { get; } = new RuleState("ENABLED");
+        public static RuleState EnabledWithAllCloudtrailManagementEvents { get; } = new RuleState("ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS");
 
         public static bool operator ==(RuleState left, RuleState right) => left.Equals(right);
         public static bool operator !=(RuleState left, RuleState right) => !left.Equals(right);

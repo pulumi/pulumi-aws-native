@@ -29,7 +29,6 @@ type LookupClusterArgs struct {
 }
 
 type LookupClusterResult struct {
-	AccessConfig *ClusterAccessConfig `pulumi:"accessConfig"`
 	// The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
 	Arn *string `pulumi:"arn"`
 	// The certificate-authority-data for your cluster.
@@ -92,10 +91,6 @@ func (o LookupClusterResultOutput) ToOutput(ctx context.Context) pulumix.Output[
 	return pulumix.Output[LookupClusterResult]{
 		OutputState: o.OutputState,
 	}
-}
-
-func (o LookupClusterResultOutput) AccessConfig() ClusterAccessConfigPtrOutput {
-	return o.ApplyT(func(v LookupClusterResult) *ClusterAccessConfig { return v.AccessConfig }).(ClusterAccessConfigPtrOutput)
 }
 
 // The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.

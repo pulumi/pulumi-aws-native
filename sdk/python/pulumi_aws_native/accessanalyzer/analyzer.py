@@ -22,7 +22,7 @@ class AnalyzerArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerTagArgs']]]] = None):
         """
         The set of arguments for constructing a Analyzer resource.
-        :param pulumi.Input[str] type: The type of the analyzer, must be ACCOUNT or ORGANIZATION
+        :param pulumi.Input[str] type: The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
         :param pulumi.Input[str] analyzer_name: Analyzer name
         :param pulumi.Input[Sequence[pulumi.Input['AnalyzerTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -38,7 +38,7 @@ class AnalyzerArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of the analyzer, must be ACCOUNT or ORGANIZATION
+        The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
         """
         return pulumi.get(self, "type")
 
@@ -97,7 +97,7 @@ class Analyzer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] analyzer_name: Analyzer name
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyzerTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
-        :param pulumi.Input[str] type: The type of the analyzer, must be ACCOUNT or ORGANIZATION
+        :param pulumi.Input[str] type: The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
         """
         ...
     @overload
@@ -207,7 +207,7 @@ class Analyzer(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the analyzer, must be ACCOUNT or ORGANIZATION
+        The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
         """
         return pulumi.get(self, "type")
 

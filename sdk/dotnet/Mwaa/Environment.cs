@@ -35,8 +35,17 @@ namespace Pulumi.AwsNative.Mwaa
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("celeryExecutorQueue")]
+        public Output<string> CeleryExecutorQueue { get; private set; } = null!;
+
         [Output("dagS3Path")]
         public Output<string?> DagS3Path { get; private set; } = null!;
+
+        [Output("databaseVpcEndpointService")]
+        public Output<string> DatabaseVpcEndpointService { get; private set; } = null!;
+
+        [Output("endpointManagement")]
+        public Output<Pulumi.AwsNative.Mwaa.EnvironmentEndpointManagement?> EndpointManagement { get; private set; } = null!;
 
         [Output("environmentClass")]
         public Output<string?> EnvironmentClass { get; private set; } = null!;
@@ -98,6 +107,9 @@ namespace Pulumi.AwsNative.Mwaa
         [Output("webserverUrl")]
         public Output<string> WebserverUrl { get; private set; } = null!;
 
+        [Output("webserverVpcEndpointService")]
+        public Output<string> WebserverVpcEndpointService { get; private set; } = null!;
+
         [Output("weeklyMaintenanceWindowStart")]
         public Output<string?> WeeklyMaintenanceWindowStart { get; private set; } = null!;
 
@@ -126,6 +138,7 @@ namespace Pulumi.AwsNative.Mwaa
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "endpointManagement",
                     "kmsKey",
                     "name",
                     "networkConfiguration.subnetIds[*]",
@@ -171,6 +184,9 @@ namespace Pulumi.AwsNative.Mwaa
 
         [Input("dagS3Path")]
         public Input<string>? DagS3Path { get; set; }
+
+        [Input("endpointManagement")]
+        public Input<Pulumi.AwsNative.Mwaa.EnvironmentEndpointManagement>? EndpointManagement { get; set; }
 
         [Input("environmentClass")]
         public Input<string>? EnvironmentClass { get; set; }

@@ -5,18 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'DetectorCfnFeatureConfigurationName',
     'DetectorCfnFeatureConfigurationStatus',
 ]
-
-
-class DetectorCfnFeatureConfigurationName(str, Enum):
-    S3_DATA_EVENTS = "S3_DATA_EVENTS"
-    EKS_AUDIT_LOGS = "EKS_AUDIT_LOGS"
-    EBS_MALWARE_PROTECTION = "EBS_MALWARE_PROTECTION"
-    RDS_LOGIN_EVENTS = "RDS_LOGIN_EVENTS"
-    LAMBDA_NETWORK_LOGS = "LAMBDA_NETWORK_LOGS"
-    EKS_RUNTIME_MONITORING = "EKS_RUNTIME_MONITORING"
 
 
 class DetectorCfnFeatureConfigurationStatus(str, Enum):

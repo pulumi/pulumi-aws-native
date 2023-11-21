@@ -51,7 +51,7 @@ export class Analyzer extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<outputs.accessanalyzer.AnalyzerTag[] | undefined>;
     /**
-     * The type of the analyzer, must be ACCOUNT or ORGANIZATION
+     * The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -102,7 +102,7 @@ export interface AnalyzerArgs {
      */
     tags?: pulumi.Input<pulumi.Input<inputs.accessanalyzer.AnalyzerTagArgs>[]>;
     /**
-     * The type of the analyzer, must be ACCOUNT or ORGANIZATION
+     * The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
      */
     type: pulumi.Input<string>;
 }

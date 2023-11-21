@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const EnvironmentEndpointManagement = {
+    Customer: "CUSTOMER",
+    Service: "SERVICE",
+} as const;
+
+/**
+ * Defines whether the VPC endpoints configured for the environment are created, and managed, by the customer or by Amazon MWAA.
+ */
+export type EnvironmentEndpointManagement = (typeof EnvironmentEndpointManagement)[keyof typeof EnvironmentEndpointManagement];
+
 export const EnvironmentLoggingLevel = {
     Critical: "CRITICAL",
     Error: "ERROR",

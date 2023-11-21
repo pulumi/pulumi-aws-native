@@ -90,6 +90,7 @@ __all__ = [
     'LaunchTemplateBlockDeviceMapping',
     'LaunchTemplateCapacityReservationSpecification',
     'LaunchTemplateCapacityReservationTarget',
+    'LaunchTemplateConnectionTrackingSpecification',
     'LaunchTemplateCpuOptions',
     'LaunchTemplateCreditSpecification',
     'LaunchTemplateData',
@@ -3388,6 +3389,74 @@ class LaunchTemplateCapacityReservationTarget(dict):
 
 
 @pulumi.output_type
+class LaunchTemplateConnectionTrackingSpecification(dict):
+    """
+    Allows customer to specify Connection Tracking options
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tcpEstablishedTimeout":
+            suggest = "tcp_established_timeout"
+        elif key == "udpStreamTimeout":
+            suggest = "udp_stream_timeout"
+        elif key == "udpTimeout":
+            suggest = "udp_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateConnectionTrackingSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateConnectionTrackingSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateConnectionTrackingSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tcp_established_timeout: Optional[int] = None,
+                 udp_stream_timeout: Optional[int] = None,
+                 udp_timeout: Optional[int] = None):
+        """
+        Allows customer to specify Connection Tracking options
+        :param int tcp_established_timeout: Integer value for TCP Established Timeout
+        :param int udp_stream_timeout: Integer value for UDP Stream Timeout
+        :param int udp_timeout: Integer value for UDP Timeout
+        """
+        if tcp_established_timeout is not None:
+            pulumi.set(__self__, "tcp_established_timeout", tcp_established_timeout)
+        if udp_stream_timeout is not None:
+            pulumi.set(__self__, "udp_stream_timeout", udp_stream_timeout)
+        if udp_timeout is not None:
+            pulumi.set(__self__, "udp_timeout", udp_timeout)
+
+    @property
+    @pulumi.getter(name="tcpEstablishedTimeout")
+    def tcp_established_timeout(self) -> Optional[int]:
+        """
+        Integer value for TCP Established Timeout
+        """
+        return pulumi.get(self, "tcp_established_timeout")
+
+    @property
+    @pulumi.getter(name="udpStreamTimeout")
+    def udp_stream_timeout(self) -> Optional[int]:
+        """
+        Integer value for UDP Stream Timeout
+        """
+        return pulumi.get(self, "udp_stream_timeout")
+
+    @property
+    @pulumi.getter(name="udpTimeout")
+    def udp_timeout(self) -> Optional[int]:
+        """
+        Integer value for UDP Timeout
+        """
+        return pulumi.get(self, "udp_timeout")
+
+
+@pulumi.output_type
 class LaunchTemplateCpuOptions(dict):
     """
     specifies the CPU options for an instance.
@@ -5038,6 +5107,8 @@ class LaunchTemplateNetworkInterface(dict):
             suggest = "associate_carrier_ip_address"
         elif key == "associatePublicIpAddress":
             suggest = "associate_public_ip_address"
+        elif key == "connectionTrackingSpecification":
+            suggest = "connection_tracking_specification"
         elif key == "deleteOnTermination":
             suggest = "delete_on_termination"
         elif key == "deviceIndex":
@@ -5087,6 +5158,7 @@ class LaunchTemplateNetworkInterface(dict):
     def __init__(__self__, *,
                  associate_carrier_ip_address: Optional[bool] = None,
                  associate_public_ip_address: Optional[bool] = None,
+                 connection_tracking_specification: Optional['outputs.LaunchTemplateConnectionTrackingSpecification'] = None,
                  delete_on_termination: Optional[bool] = None,
                  description: Optional[str] = None,
                  device_index: Optional[int] = None,
@@ -5133,6 +5205,8 @@ class LaunchTemplateNetworkInterface(dict):
             pulumi.set(__self__, "associate_carrier_ip_address", associate_carrier_ip_address)
         if associate_public_ip_address is not None:
             pulumi.set(__self__, "associate_public_ip_address", associate_public_ip_address)
+        if connection_tracking_specification is not None:
+            pulumi.set(__self__, "connection_tracking_specification", connection_tracking_specification)
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
         if description is not None:
@@ -5187,6 +5261,11 @@ class LaunchTemplateNetworkInterface(dict):
         Associates a public IPv4 address with eth0 for a new network interface.
         """
         return pulumi.get(self, "associate_public_ip_address")
+
+    @property
+    @pulumi.getter(name="connectionTrackingSpecification")
+    def connection_tracking_specification(self) -> Optional['outputs.LaunchTemplateConnectionTrackingSpecification']:
+        return pulumi.get(self, "connection_tracking_specification")
 
     @property
     @pulumi.getter(name="deleteOnTermination")

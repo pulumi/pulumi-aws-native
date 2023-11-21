@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
         /// The port at Ip that you want to forward DNS queries to. 
         /// </summary>
         public readonly string? Port;
+        /// <summary>
+        /// The protocol that you want to use to forward DNS queries. 
+        /// </summary>
+        public readonly Pulumi.AwsNative.Route53Resolver.ResolverRuleTargetAddressProtocol? Protocol;
 
         [OutputConstructor]
         private ResolverRuleTargetAddress(
@@ -32,11 +36,14 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
 
             string? ipv6,
 
-            string? port)
+            string? port,
+
+            Pulumi.AwsNative.Route53Resolver.ResolverRuleTargetAddressProtocol? protocol)
         {
             Ip = ip;
             Ipv6 = ipv6;
             Port = port;
+            Protocol = protocol;
         }
     }
 }

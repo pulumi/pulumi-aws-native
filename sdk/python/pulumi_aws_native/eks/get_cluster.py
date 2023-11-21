@@ -20,10 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, access_config=None, arn=None, certificate_authority_data=None, cluster_security_group_id=None, encryption_config_key_arn=None, endpoint=None, id=None, logging=None, open_id_connect_issuer_url=None, resources_vpc_config=None, tags=None, version=None):
-        if access_config and not isinstance(access_config, dict):
-            raise TypeError("Expected argument 'access_config' to be a dict")
-        pulumi.set(__self__, "access_config", access_config)
+    def __init__(__self__, arn=None, certificate_authority_data=None, cluster_security_group_id=None, encryption_config_key_arn=None, endpoint=None, id=None, logging=None, open_id_connect_issuer_url=None, resources_vpc_config=None, tags=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -57,11 +54,6 @@ class GetClusterResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
-
-    @property
-    @pulumi.getter(name="accessConfig")
-    def access_config(self) -> Optional['outputs.ClusterAccessConfig']:
-        return pulumi.get(self, "access_config")
 
     @property
     @pulumi.getter
@@ -152,7 +144,6 @@ class AwaitableGetClusterResult(GetClusterResult):
         if False:
             yield self
         return GetClusterResult(
-            access_config=self.access_config,
             arn=self.arn,
             certificate_authority_data=self.certificate_authority_data,
             cluster_security_group_id=self.cluster_security_group_id,
@@ -180,7 +171,6 @@ def get_cluster(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:eks:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        access_config=pulumi.get(__ret__, 'access_config'),
         arn=pulumi.get(__ret__, 'arn'),
         certificate_authority_data=pulumi.get(__ret__, 'certificate_authority_data'),
         cluster_security_group_id=pulumi.get(__ret__, 'cluster_security_group_id'),

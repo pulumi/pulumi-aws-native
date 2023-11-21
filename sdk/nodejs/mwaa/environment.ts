@@ -51,7 +51,10 @@ export class Environment extends pulumi.CustomResource {
     public readonly airflowConfigurationOptions!: pulumi.Output<any | undefined>;
     public readonly airflowVersion!: pulumi.Output<string | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly celeryExecutorQueue!: pulumi.Output<string>;
     public readonly dagS3Path!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly databaseVpcEndpointService!: pulumi.Output<string>;
+    public readonly endpointManagement!: pulumi.Output<enums.mwaa.EnvironmentEndpointManagement | undefined>;
     public readonly environmentClass!: pulumi.Output<string | undefined>;
     public readonly executionRoleArn!: pulumi.Output<string | undefined>;
     public readonly kmsKey!: pulumi.Output<string | undefined>;
@@ -74,6 +77,7 @@ export class Environment extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<any | undefined>;
     public readonly webserverAccessMode!: pulumi.Output<enums.mwaa.EnvironmentWebserverAccessMode | undefined>;
     public /*out*/ readonly webserverUrl!: pulumi.Output<string>;
+    public /*out*/ readonly webserverVpcEndpointService!: pulumi.Output<string>;
     public readonly weeklyMaintenanceWindowStart!: pulumi.Output<string | undefined>;
 
     /**
@@ -90,6 +94,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["airflowConfigurationOptions"] = args ? args.airflowConfigurationOptions : undefined;
             resourceInputs["airflowVersion"] = args ? args.airflowVersion : undefined;
             resourceInputs["dagS3Path"] = args ? args.dagS3Path : undefined;
+            resourceInputs["endpointManagement"] = args ? args.endpointManagement : undefined;
             resourceInputs["environmentClass"] = args ? args.environmentClass : undefined;
             resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
@@ -110,12 +115,18 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["webserverAccessMode"] = args ? args.webserverAccessMode : undefined;
             resourceInputs["weeklyMaintenanceWindowStart"] = args ? args.weeklyMaintenanceWindowStart : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["celeryExecutorQueue"] = undefined /*out*/;
+            resourceInputs["databaseVpcEndpointService"] = undefined /*out*/;
             resourceInputs["webserverUrl"] = undefined /*out*/;
+            resourceInputs["webserverVpcEndpointService"] = undefined /*out*/;
         } else {
             resourceInputs["airflowConfigurationOptions"] = undefined /*out*/;
             resourceInputs["airflowVersion"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["celeryExecutorQueue"] = undefined /*out*/;
             resourceInputs["dagS3Path"] = undefined /*out*/;
+            resourceInputs["databaseVpcEndpointService"] = undefined /*out*/;
+            resourceInputs["endpointManagement"] = undefined /*out*/;
             resourceInputs["environmentClass"] = undefined /*out*/;
             resourceInputs["executionRoleArn"] = undefined /*out*/;
             resourceInputs["kmsKey"] = undefined /*out*/;
@@ -135,10 +146,11 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["webserverAccessMode"] = undefined /*out*/;
             resourceInputs["webserverUrl"] = undefined /*out*/;
+            resourceInputs["webserverVpcEndpointService"] = undefined /*out*/;
             resourceInputs["weeklyMaintenanceWindowStart"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["kmsKey", "name", "networkConfiguration.subnetIds[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["endpointManagement", "kmsKey", "name", "networkConfiguration.subnetIds[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Environment.__pulumiType, name, resourceInputs, opts);
     }
@@ -162,6 +174,7 @@ export interface EnvironmentArgs {
     airflowConfigurationOptions?: any;
     airflowVersion?: pulumi.Input<string>;
     dagS3Path?: pulumi.Input<string>;
+    endpointManagement?: pulumi.Input<enums.mwaa.EnvironmentEndpointManagement>;
     environmentClass?: pulumi.Input<string>;
     executionRoleArn?: pulumi.Input<string>;
     kmsKey?: pulumi.Input<string>;

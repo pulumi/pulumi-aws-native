@@ -37,7 +37,9 @@ export interface GetEnvironmentResult {
     readonly airflowConfigurationOptions?: any;
     readonly airflowVersion?: string;
     readonly arn?: string;
+    readonly celeryExecutorQueue?: string;
     readonly dagS3Path?: string;
+    readonly databaseVpcEndpointService?: string;
     readonly environmentClass?: string;
     readonly executionRoleArn?: string;
     readonly loggingConfiguration?: outputs.mwaa.EnvironmentLoggingConfiguration;
@@ -58,6 +60,7 @@ export interface GetEnvironmentResult {
     readonly tags?: any;
     readonly webserverAccessMode?: enums.mwaa.EnvironmentWebserverAccessMode;
     readonly webserverUrl?: string;
+    readonly webserverVpcEndpointService?: string;
     readonly weeklyMaintenanceWindowStart?: string;
 }
 /**

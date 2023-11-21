@@ -100,7 +100,7 @@ class DetectorCfnFeatureAdditionalConfigurationArgs:
 @pulumi.input_type
 class DetectorCfnFeatureConfigurationArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input['DetectorCfnFeatureConfigurationName'],
+                 name: pulumi.Input[str],
                  status: pulumi.Input['DetectorCfnFeatureConfigurationStatus'],
                  additional_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorCfnFeatureAdditionalConfigurationArgs']]]] = None):
         pulumi.set(__self__, "name", name)
@@ -110,11 +110,11 @@ class DetectorCfnFeatureConfigurationArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input['DetectorCfnFeatureConfigurationName']:
+    def name(self) -> pulumi.Input[str]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input['DetectorCfnFeatureConfigurationName']):
+    def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
     @property

@@ -40,7 +40,9 @@ type LookupEnvironmentResult struct {
 	AirflowConfigurationOptions  interface{}                      `pulumi:"airflowConfigurationOptions"`
 	AirflowVersion               *string                          `pulumi:"airflowVersion"`
 	Arn                          *string                          `pulumi:"arn"`
+	CeleryExecutorQueue          *string                          `pulumi:"celeryExecutorQueue"`
 	DagS3Path                    *string                          `pulumi:"dagS3Path"`
+	DatabaseVpcEndpointService   *string                          `pulumi:"databaseVpcEndpointService"`
 	EnvironmentClass             *string                          `pulumi:"environmentClass"`
 	ExecutionRoleArn             *string                          `pulumi:"executionRoleArn"`
 	LoggingConfiguration         *EnvironmentLoggingConfiguration `pulumi:"loggingConfiguration"`
@@ -59,6 +61,7 @@ type LookupEnvironmentResult struct {
 	Tags                         interface{}                     `pulumi:"tags"`
 	WebserverAccessMode          *EnvironmentWebserverAccessMode `pulumi:"webserverAccessMode"`
 	WebserverUrl                 *string                         `pulumi:"webserverUrl"`
+	WebserverVpcEndpointService  *string                         `pulumi:"webserverVpcEndpointService"`
 	WeeklyMaintenanceWindowStart *string                         `pulumi:"weeklyMaintenanceWindowStart"`
 }
 
@@ -125,8 +128,16 @@ func (o LookupEnvironmentResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupEnvironmentResultOutput) CeleryExecutorQueue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.CeleryExecutorQueue }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupEnvironmentResultOutput) DagS3Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.DagS3Path }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupEnvironmentResultOutput) DatabaseVpcEndpointService() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.DatabaseVpcEndpointService }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupEnvironmentResultOutput) EnvironmentClass() pulumi.StringPtrOutput {
@@ -196,6 +207,10 @@ func (o LookupEnvironmentResultOutput) WebserverAccessMode() EnvironmentWebserve
 
 func (o LookupEnvironmentResultOutput) WebserverUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.WebserverUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupEnvironmentResultOutput) WebserverVpcEndpointService() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.WebserverVpcEndpointService }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupEnvironmentResultOutput) WeeklyMaintenanceWindowStart() pulumi.StringPtrOutput {

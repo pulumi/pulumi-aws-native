@@ -24,7 +24,7 @@ type Analyzer struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// An array of key-value pairs to apply to this resource.
 	Tags AnalyzerTagArrayOutput `pulumi:"tags"`
-	// The type of the analyzer, must be ACCOUNT or ORGANIZATION
+	// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -81,7 +81,7 @@ type analyzerArgs struct {
 	ArchiveRules []AnalyzerArchiveRule `pulumi:"archiveRules"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []AnalyzerTag `pulumi:"tags"`
-	// The type of the analyzer, must be ACCOUNT or ORGANIZATION
+	// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
 	Type string `pulumi:"type"`
 }
 
@@ -92,7 +92,7 @@ type AnalyzerArgs struct {
 	ArchiveRules AnalyzerArchiveRuleArrayInput
 	// An array of key-value pairs to apply to this resource.
 	Tags AnalyzerTagArrayInput
-	// The type of the analyzer, must be ACCOUNT or ORGANIZATION
+	// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
 	Type pulumi.StringInput
 }
 
@@ -164,7 +164,7 @@ func (o AnalyzerOutput) Tags() AnalyzerTagArrayOutput {
 	return o.ApplyT(func(v *Analyzer) AnalyzerTagArrayOutput { return v.Tags }).(AnalyzerTagArrayOutput)
 }
 
-// The type of the analyzer, must be ACCOUNT or ORGANIZATION
+// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
 func (o AnalyzerOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analyzer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

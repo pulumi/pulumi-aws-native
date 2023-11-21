@@ -2269,6 +2269,189 @@ func (in *resolverRuleRuleTypePtr) ToOutput(ctx context.Context) pulumix.Output[
 	}
 }
 
+// The protocol that you want to use to forward DNS queries.
+type ResolverRuleTargetAddressProtocol string
+
+const (
+	ResolverRuleTargetAddressProtocolDo53 = ResolverRuleTargetAddressProtocol("Do53")
+	ResolverRuleTargetAddressProtocolDoH  = ResolverRuleTargetAddressProtocol("DoH")
+)
+
+func (ResolverRuleTargetAddressProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverRuleTargetAddressProtocol)(nil)).Elem()
+}
+
+func (e ResolverRuleTargetAddressProtocol) ToResolverRuleTargetAddressProtocolOutput() ResolverRuleTargetAddressProtocolOutput {
+	return pulumi.ToOutput(e).(ResolverRuleTargetAddressProtocolOutput)
+}
+
+func (e ResolverRuleTargetAddressProtocol) ToResolverRuleTargetAddressProtocolOutputWithContext(ctx context.Context) ResolverRuleTargetAddressProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResolverRuleTargetAddressProtocolOutput)
+}
+
+func (e ResolverRuleTargetAddressProtocol) ToResolverRuleTargetAddressProtocolPtrOutput() ResolverRuleTargetAddressProtocolPtrOutput {
+	return e.ToResolverRuleTargetAddressProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e ResolverRuleTargetAddressProtocol) ToResolverRuleTargetAddressProtocolPtrOutputWithContext(ctx context.Context) ResolverRuleTargetAddressProtocolPtrOutput {
+	return ResolverRuleTargetAddressProtocol(e).ToResolverRuleTargetAddressProtocolOutputWithContext(ctx).ToResolverRuleTargetAddressProtocolPtrOutputWithContext(ctx)
+}
+
+func (e ResolverRuleTargetAddressProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResolverRuleTargetAddressProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResolverRuleTargetAddressProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResolverRuleTargetAddressProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ResolverRuleTargetAddressProtocolOutput struct{ *pulumi.OutputState }
+
+func (ResolverRuleTargetAddressProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResolverRuleTargetAddressProtocol)(nil)).Elem()
+}
+
+func (o ResolverRuleTargetAddressProtocolOutput) ToResolverRuleTargetAddressProtocolOutput() ResolverRuleTargetAddressProtocolOutput {
+	return o
+}
+
+func (o ResolverRuleTargetAddressProtocolOutput) ToResolverRuleTargetAddressProtocolOutputWithContext(ctx context.Context) ResolverRuleTargetAddressProtocolOutput {
+	return o
+}
+
+func (o ResolverRuleTargetAddressProtocolOutput) ToResolverRuleTargetAddressProtocolPtrOutput() ResolverRuleTargetAddressProtocolPtrOutput {
+	return o.ToResolverRuleTargetAddressProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverRuleTargetAddressProtocolOutput) ToResolverRuleTargetAddressProtocolPtrOutputWithContext(ctx context.Context) ResolverRuleTargetAddressProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverRuleTargetAddressProtocol) *ResolverRuleTargetAddressProtocol {
+		return &v
+	}).(ResolverRuleTargetAddressProtocolPtrOutput)
+}
+
+func (o ResolverRuleTargetAddressProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[ResolverRuleTargetAddressProtocol] {
+	return pulumix.Output[ResolverRuleTargetAddressProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ResolverRuleTargetAddressProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResolverRuleTargetAddressProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResolverRuleTargetAddressProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResolverRuleTargetAddressProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverRuleTargetAddressProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResolverRuleTargetAddressProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResolverRuleTargetAddressProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (ResolverRuleTargetAddressProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResolverRuleTargetAddressProtocol)(nil)).Elem()
+}
+
+func (o ResolverRuleTargetAddressProtocolPtrOutput) ToResolverRuleTargetAddressProtocolPtrOutput() ResolverRuleTargetAddressProtocolPtrOutput {
+	return o
+}
+
+func (o ResolverRuleTargetAddressProtocolPtrOutput) ToResolverRuleTargetAddressProtocolPtrOutputWithContext(ctx context.Context) ResolverRuleTargetAddressProtocolPtrOutput {
+	return o
+}
+
+func (o ResolverRuleTargetAddressProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverRuleTargetAddressProtocol] {
+	return pulumix.Output[*ResolverRuleTargetAddressProtocol]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ResolverRuleTargetAddressProtocolPtrOutput) Elem() ResolverRuleTargetAddressProtocolOutput {
+	return o.ApplyT(func(v *ResolverRuleTargetAddressProtocol) ResolverRuleTargetAddressProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret ResolverRuleTargetAddressProtocol
+		return ret
+	}).(ResolverRuleTargetAddressProtocolOutput)
+}
+
+func (o ResolverRuleTargetAddressProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResolverRuleTargetAddressProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResolverRuleTargetAddressProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResolverRuleTargetAddressProtocolInput is an input type that accepts ResolverRuleTargetAddressProtocolArgs and ResolverRuleTargetAddressProtocolOutput values.
+// You can construct a concrete instance of `ResolverRuleTargetAddressProtocolInput` via:
+//
+//	ResolverRuleTargetAddressProtocolArgs{...}
+type ResolverRuleTargetAddressProtocolInput interface {
+	pulumi.Input
+
+	ToResolverRuleTargetAddressProtocolOutput() ResolverRuleTargetAddressProtocolOutput
+	ToResolverRuleTargetAddressProtocolOutputWithContext(context.Context) ResolverRuleTargetAddressProtocolOutput
+}
+
+var resolverRuleTargetAddressProtocolPtrType = reflect.TypeOf((**ResolverRuleTargetAddressProtocol)(nil)).Elem()
+
+type ResolverRuleTargetAddressProtocolPtrInput interface {
+	pulumi.Input
+
+	ToResolverRuleTargetAddressProtocolPtrOutput() ResolverRuleTargetAddressProtocolPtrOutput
+	ToResolverRuleTargetAddressProtocolPtrOutputWithContext(context.Context) ResolverRuleTargetAddressProtocolPtrOutput
+}
+
+type resolverRuleTargetAddressProtocolPtr string
+
+func ResolverRuleTargetAddressProtocolPtr(v string) ResolverRuleTargetAddressProtocolPtrInput {
+	return (*resolverRuleTargetAddressProtocolPtr)(&v)
+}
+
+func (*resolverRuleTargetAddressProtocolPtr) ElementType() reflect.Type {
+	return resolverRuleTargetAddressProtocolPtrType
+}
+
+func (in *resolverRuleTargetAddressProtocolPtr) ToResolverRuleTargetAddressProtocolPtrOutput() ResolverRuleTargetAddressProtocolPtrOutput {
+	return pulumi.ToOutput(in).(ResolverRuleTargetAddressProtocolPtrOutput)
+}
+
+func (in *resolverRuleTargetAddressProtocolPtr) ToResolverRuleTargetAddressProtocolPtrOutputWithContext(ctx context.Context) ResolverRuleTargetAddressProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResolverRuleTargetAddressProtocolPtrOutput)
+}
+
+func (in *resolverRuleTargetAddressProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*ResolverRuleTargetAddressProtocol] {
+	return pulumix.Output[*ResolverRuleTargetAddressProtocol]{
+		OutputState: in.ToResolverRuleTargetAddressProtocolPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupAssociationMutationProtectionInput)(nil)).Elem(), FirewallRuleGroupAssociationMutationProtection("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupAssociationMutationProtectionPtrInput)(nil)).Elem(), FirewallRuleGroupAssociationMutationProtection("ENABLED"))
@@ -2282,6 +2465,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverConfigAutodefinedReverseFlagPtrInput)(nil)).Elem(), ResolverConfigAutodefinedReverseFlag("DISABLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleRuleTypeInput)(nil)).Elem(), ResolverRuleRuleType("FORWARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleRuleTypePtrInput)(nil)).Elem(), ResolverRuleRuleType("FORWARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleTargetAddressProtocolInput)(nil)).Elem(), ResolverRuleTargetAddressProtocol("Do53"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleTargetAddressProtocolPtrInput)(nil)).Elem(), ResolverRuleTargetAddressProtocol("Do53"))
 	pulumi.RegisterOutputType(FirewallDomainListStatusOutput{})
 	pulumi.RegisterOutputType(FirewallDomainListStatusPtrOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupAssociationMutationProtectionOutput{})
@@ -2316,4 +2501,6 @@ func init() {
 	pulumi.RegisterOutputType(ResolverQueryLoggingConfigStatusPtrOutput{})
 	pulumi.RegisterOutputType(ResolverRuleRuleTypeOutput{})
 	pulumi.RegisterOutputType(ResolverRuleRuleTypePtrOutput{})
+	pulumi.RegisterOutputType(ResolverRuleTargetAddressProtocolOutput{})
+	pulumi.RegisterOutputType(ResolverRuleTargetAddressProtocolPtrOutput{})
 }

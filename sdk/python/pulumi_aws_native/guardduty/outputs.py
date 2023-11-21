@@ -117,7 +117,7 @@ class DetectorCfnFeatureConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 name: 'DetectorCfnFeatureConfigurationName',
+                 name: str,
                  status: 'DetectorCfnFeatureConfigurationStatus',
                  additional_configuration: Optional[Sequence['outputs.DetectorCfnFeatureAdditionalConfiguration']] = None):
         pulumi.set(__self__, "name", name)
@@ -127,7 +127,7 @@ class DetectorCfnFeatureConfiguration(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> 'DetectorCfnFeatureConfigurationName':
+    def name(self) -> str:
         return pulumi.get(self, "name")
 
     @property

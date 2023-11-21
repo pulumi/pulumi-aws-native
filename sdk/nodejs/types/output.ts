@@ -12928,6 +12928,24 @@ export namespace ec2 {
     }
 
     /**
+     * Allows customer to specify Connection Tracking options
+     */
+    export interface LaunchTemplateConnectionTrackingSpecification {
+        /**
+         * Integer value for TCP Established Timeout
+         */
+        tcpEstablishedTimeout?: number;
+        /**
+         * Integer value for UDP Stream Timeout
+         */
+        udpStreamTimeout?: number;
+        /**
+         * Integer value for UDP Timeout
+         */
+        udpTimeout?: number;
+    }
+
+    /**
      * specifies the CPU options for an instance.
      */
     export interface LaunchTemplateCpuOptions {
@@ -13370,6 +13388,7 @@ export namespace ec2 {
          * Associates a public IPv4 address with eth0 for a new network interface.
          */
         associatePublicIpAddress?: boolean;
+        connectionTrackingSpecification?: outputs.ec2.LaunchTemplateConnectionTrackingSpecification;
         /**
          * Indicates whether the network interface is deleted when the instance is terminated.
          */
@@ -15352,20 +15371,6 @@ export namespace eks {
          * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
         value: string;
-    }
-
-    /**
-     * An object representing the Access Config to use for the cluster.
-     */
-    export interface ClusterAccessConfig {
-        /**
-         * Specify the authentication mode that should be used to create your cluster.
-         */
-        authenticationMode?: enums.eks.ClusterAccessConfigAuthenticationMode;
-        /**
-         * Set this value to false to avoid creating a default cluster admin Access Entry using the IAM principal used to create the cluster.
-         */
-        bootstrapClusterCreatorAdminPermissions?: boolean;
     }
 
     /**
@@ -19932,7 +19937,7 @@ export namespace guardduty {
 
     export interface DetectorCfnFeatureConfiguration {
         additionalConfiguration?: outputs.guardduty.DetectorCfnFeatureAdditionalConfiguration[];
-        name: enums.guardduty.DetectorCfnFeatureConfigurationName;
+        name: string;
         status: enums.guardduty.DetectorCfnFeatureConfigurationStatus;
     }
 
@@ -47182,6 +47187,10 @@ export namespace route53resolver {
          * The port at Ip that you want to forward DNS queries to. 
          */
         port?: string;
+        /**
+         * The protocol that you want to use to forward DNS queries. 
+         */
+        protocol?: enums.route53resolver.ResolverRuleTargetAddressProtocol;
     }
 
 }

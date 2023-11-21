@@ -19,7 +19,6 @@ class ClusterArgs:
     def __init__(__self__, *,
                  resources_vpc_config: pulumi.Input['ClusterResourcesVpcConfigArgs'],
                  role_arn: pulumi.Input[str],
-                 access_config: Optional[pulumi.Input['ClusterAccessConfigArgs']] = None,
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionConfigArgs']]]] = None,
                  kubernetes_network_config: Optional[pulumi.Input['ClusterKubernetesNetworkConfigArgs']] = None,
                  logging: Optional[pulumi.Input['LoggingArgs']] = None,
@@ -36,8 +35,6 @@ class ClusterArgs:
         """
         pulumi.set(__self__, "resources_vpc_config", resources_vpc_config)
         pulumi.set(__self__, "role_arn", role_arn)
-        if access_config is not None:
-            pulumi.set(__self__, "access_config", access_config)
         if encryption_config is not None:
             pulumi.set(__self__, "encryption_config", encryption_config)
         if kubernetes_network_config is not None:
@@ -73,15 +70,6 @@ class ClusterArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
-
-    @property
-    @pulumi.getter(name="accessConfig")
-    def access_config(self) -> Optional[pulumi.Input['ClusterAccessConfigArgs']]:
-        return pulumi.get(self, "access_config")
-
-    @access_config.setter
-    def access_config(self, value: Optional[pulumi.Input['ClusterAccessConfigArgs']]):
-        pulumi.set(self, "access_config", value)
 
     @property
     @pulumi.getter(name="encryptionConfig")
@@ -161,7 +149,6 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_config: Optional[pulumi.Input[pulumi.InputType['ClusterAccessConfigArgs']]] = None,
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterEncryptionConfigArgs']]]]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[pulumi.InputType['ClusterKubernetesNetworkConfigArgs']]] = None,
                  logging: Optional[pulumi.Input[pulumi.InputType['LoggingArgs']]] = None,
@@ -206,7 +193,6 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_config: Optional[pulumi.Input[pulumi.InputType['ClusterAccessConfigArgs']]] = None,
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterEncryptionConfigArgs']]]]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[pulumi.InputType['ClusterKubernetesNetworkConfigArgs']]] = None,
                  logging: Optional[pulumi.Input[pulumi.InputType['LoggingArgs']]] = None,
@@ -225,7 +211,6 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
-            __props__.__dict__["access_config"] = access_config
             __props__.__dict__["encryption_config"] = encryption_config
             __props__.__dict__["kubernetes_network_config"] = kubernetes_network_config
             __props__.__dict__["logging"] = logging
@@ -245,7 +230,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["encryption_config_key_arn"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["open_id_connect_issuer_url"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["access_config.bootstrap_cluster_creator_admin_permissions", "encryption_config[*]", "kubernetes_network_config", "name", "outpost_config", "role_arn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["encryption_config[*]", "kubernetes_network_config", "name", "outpost_config", "role_arn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Cluster, __self__).__init__(
             'aws-native:eks:Cluster',
@@ -269,7 +254,6 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = ClusterArgs.__new__(ClusterArgs)
 
-        __props__.__dict__["access_config"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["certificate_authority_data"] = None
         __props__.__dict__["cluster_security_group_id"] = None
@@ -286,11 +270,6 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["version"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="accessConfig")
-    def access_config(self) -> pulumi.Output[Optional['outputs.ClusterAccessConfig']]:
-        return pulumi.get(self, "access_config")
 
     @property
     @pulumi.getter

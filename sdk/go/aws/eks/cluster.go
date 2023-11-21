@@ -17,7 +17,6 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	AccessConfig ClusterAccessConfigPtrOutput `pulumi:"accessConfig"`
 	// The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The certificate-authority-data for your cluster.
@@ -59,7 +58,6 @@ func NewCluster(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"accessConfig.bootstrapClusterCreatorAdminPermissions",
 		"encryptionConfig[*]",
 		"kubernetesNetworkConfig",
 		"name",
@@ -100,7 +98,6 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	AccessConfig            *ClusterAccessConfig            `pulumi:"accessConfig"`
 	EncryptionConfig        []ClusterEncryptionConfig       `pulumi:"encryptionConfig"`
 	KubernetesNetworkConfig *ClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfig"`
 	Logging                 *Logging                        `pulumi:"logging"`
@@ -118,7 +115,6 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	AccessConfig            ClusterAccessConfigPtrInput
 	EncryptionConfig        ClusterEncryptionConfigArrayInput
 	KubernetesNetworkConfig ClusterKubernetesNetworkConfigPtrInput
 	Logging                 LoggingPtrInput
@@ -181,10 +177,6 @@ func (o ClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*Cluster] {
 	return pulumix.Output[*Cluster]{
 		OutputState: o.OutputState,
 	}
-}
-
-func (o ClusterOutput) AccessConfig() ClusterAccessConfigPtrOutput {
-	return o.ApplyT(func(v *Cluster) ClusterAccessConfigPtrOutput { return v.AccessConfig }).(ClusterAccessConfigPtrOutput)
 }
 
 // The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.

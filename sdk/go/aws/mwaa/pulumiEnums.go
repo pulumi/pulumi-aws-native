@@ -11,6 +11,189 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+// Defines whether the VPC endpoints configured for the environment are created, and managed, by the customer or by Amazon MWAA.
+type EnvironmentEndpointManagement string
+
+const (
+	EnvironmentEndpointManagementCustomer = EnvironmentEndpointManagement("CUSTOMER")
+	EnvironmentEndpointManagementService  = EnvironmentEndpointManagement("SERVICE")
+)
+
+func (EnvironmentEndpointManagement) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentEndpointManagement)(nil)).Elem()
+}
+
+func (e EnvironmentEndpointManagement) ToEnvironmentEndpointManagementOutput() EnvironmentEndpointManagementOutput {
+	return pulumi.ToOutput(e).(EnvironmentEndpointManagementOutput)
+}
+
+func (e EnvironmentEndpointManagement) ToEnvironmentEndpointManagementOutputWithContext(ctx context.Context) EnvironmentEndpointManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EnvironmentEndpointManagementOutput)
+}
+
+func (e EnvironmentEndpointManagement) ToEnvironmentEndpointManagementPtrOutput() EnvironmentEndpointManagementPtrOutput {
+	return e.ToEnvironmentEndpointManagementPtrOutputWithContext(context.Background())
+}
+
+func (e EnvironmentEndpointManagement) ToEnvironmentEndpointManagementPtrOutputWithContext(ctx context.Context) EnvironmentEndpointManagementPtrOutput {
+	return EnvironmentEndpointManagement(e).ToEnvironmentEndpointManagementOutputWithContext(ctx).ToEnvironmentEndpointManagementPtrOutputWithContext(ctx)
+}
+
+func (e EnvironmentEndpointManagement) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EnvironmentEndpointManagement) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EnvironmentEndpointManagement) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EnvironmentEndpointManagement) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EnvironmentEndpointManagementOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentEndpointManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentEndpointManagement)(nil)).Elem()
+}
+
+func (o EnvironmentEndpointManagementOutput) ToEnvironmentEndpointManagementOutput() EnvironmentEndpointManagementOutput {
+	return o
+}
+
+func (o EnvironmentEndpointManagementOutput) ToEnvironmentEndpointManagementOutputWithContext(ctx context.Context) EnvironmentEndpointManagementOutput {
+	return o
+}
+
+func (o EnvironmentEndpointManagementOutput) ToEnvironmentEndpointManagementPtrOutput() EnvironmentEndpointManagementPtrOutput {
+	return o.ToEnvironmentEndpointManagementPtrOutputWithContext(context.Background())
+}
+
+func (o EnvironmentEndpointManagementOutput) ToEnvironmentEndpointManagementPtrOutputWithContext(ctx context.Context) EnvironmentEndpointManagementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentEndpointManagement) *EnvironmentEndpointManagement {
+		return &v
+	}).(EnvironmentEndpointManagementPtrOutput)
+}
+
+func (o EnvironmentEndpointManagementOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentEndpointManagement] {
+	return pulumix.Output[EnvironmentEndpointManagement]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o EnvironmentEndpointManagementOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EnvironmentEndpointManagementOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnvironmentEndpointManagement) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EnvironmentEndpointManagementOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EnvironmentEndpointManagementOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnvironmentEndpointManagement) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EnvironmentEndpointManagementPtrOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentEndpointManagementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentEndpointManagement)(nil)).Elem()
+}
+
+func (o EnvironmentEndpointManagementPtrOutput) ToEnvironmentEndpointManagementPtrOutput() EnvironmentEndpointManagementPtrOutput {
+	return o
+}
+
+func (o EnvironmentEndpointManagementPtrOutput) ToEnvironmentEndpointManagementPtrOutputWithContext(ctx context.Context) EnvironmentEndpointManagementPtrOutput {
+	return o
+}
+
+func (o EnvironmentEndpointManagementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentEndpointManagement] {
+	return pulumix.Output[*EnvironmentEndpointManagement]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o EnvironmentEndpointManagementPtrOutput) Elem() EnvironmentEndpointManagementOutput {
+	return o.ApplyT(func(v *EnvironmentEndpointManagement) EnvironmentEndpointManagement {
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentEndpointManagement
+		return ret
+	}).(EnvironmentEndpointManagementOutput)
+}
+
+func (o EnvironmentEndpointManagementPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EnvironmentEndpointManagementPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EnvironmentEndpointManagement) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EnvironmentEndpointManagementInput is an input type that accepts EnvironmentEndpointManagementArgs and EnvironmentEndpointManagementOutput values.
+// You can construct a concrete instance of `EnvironmentEndpointManagementInput` via:
+//
+//	EnvironmentEndpointManagementArgs{...}
+type EnvironmentEndpointManagementInput interface {
+	pulumi.Input
+
+	ToEnvironmentEndpointManagementOutput() EnvironmentEndpointManagementOutput
+	ToEnvironmentEndpointManagementOutputWithContext(context.Context) EnvironmentEndpointManagementOutput
+}
+
+var environmentEndpointManagementPtrType = reflect.TypeOf((**EnvironmentEndpointManagement)(nil)).Elem()
+
+type EnvironmentEndpointManagementPtrInput interface {
+	pulumi.Input
+
+	ToEnvironmentEndpointManagementPtrOutput() EnvironmentEndpointManagementPtrOutput
+	ToEnvironmentEndpointManagementPtrOutputWithContext(context.Context) EnvironmentEndpointManagementPtrOutput
+}
+
+type environmentEndpointManagementPtr string
+
+func EnvironmentEndpointManagementPtr(v string) EnvironmentEndpointManagementPtrInput {
+	return (*environmentEndpointManagementPtr)(&v)
+}
+
+func (*environmentEndpointManagementPtr) ElementType() reflect.Type {
+	return environmentEndpointManagementPtrType
+}
+
+func (in *environmentEndpointManagementPtr) ToEnvironmentEndpointManagementPtrOutput() EnvironmentEndpointManagementPtrOutput {
+	return pulumi.ToOutput(in).(EnvironmentEndpointManagementPtrOutput)
+}
+
+func (in *environmentEndpointManagementPtr) ToEnvironmentEndpointManagementPtrOutputWithContext(ctx context.Context) EnvironmentEndpointManagementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentEndpointManagementPtrOutput)
+}
+
+func (in *environmentEndpointManagementPtr) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentEndpointManagement] {
+	return pulumix.Output[*EnvironmentEndpointManagement]{
+		OutputState: in.ToEnvironmentEndpointManagementPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EnvironmentLoggingLevel string
 
 const (
@@ -380,10 +563,14 @@ func (in *environmentWebserverAccessModePtr) ToOutput(ctx context.Context) pulum
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEndpointManagementInput)(nil)).Elem(), EnvironmentEndpointManagement("CUSTOMER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEndpointManagementPtrInput)(nil)).Elem(), EnvironmentEndpointManagement("CUSTOMER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentLoggingLevelInput)(nil)).Elem(), EnvironmentLoggingLevel("CRITICAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentLoggingLevelPtrInput)(nil)).Elem(), EnvironmentLoggingLevel("CRITICAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentWebserverAccessModeInput)(nil)).Elem(), EnvironmentWebserverAccessMode("PRIVATE_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentWebserverAccessModePtrInput)(nil)).Elem(), EnvironmentWebserverAccessMode("PRIVATE_ONLY"))
+	pulumi.RegisterOutputType(EnvironmentEndpointManagementOutput{})
+	pulumi.RegisterOutputType(EnvironmentEndpointManagementPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentLoggingLevelOutput{})
 	pulumi.RegisterOutputType(EnvironmentLoggingLevelPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentWebserverAccessModeOutput{})

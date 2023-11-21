@@ -560,4 +560,35 @@ namespace Pulumi.AwsNative.Route53Resolver
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The protocol that you want to use to forward DNS queries. 
+    /// </summary>
+    [EnumType]
+    public readonly struct ResolverRuleTargetAddressProtocol : IEquatable<ResolverRuleTargetAddressProtocol>
+    {
+        private readonly string _value;
+
+        private ResolverRuleTargetAddressProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResolverRuleTargetAddressProtocol Do53 { get; } = new ResolverRuleTargetAddressProtocol("Do53");
+        public static ResolverRuleTargetAddressProtocol DoH { get; } = new ResolverRuleTargetAddressProtocol("DoH");
+
+        public static bool operator ==(ResolverRuleTargetAddressProtocol left, ResolverRuleTargetAddressProtocol right) => left.Equals(right);
+        public static bool operator !=(ResolverRuleTargetAddressProtocol left, ResolverRuleTargetAddressProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(ResolverRuleTargetAddressProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResolverRuleTargetAddressProtocol other && Equals(other);
+        public bool Equals(ResolverRuleTargetAddressProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

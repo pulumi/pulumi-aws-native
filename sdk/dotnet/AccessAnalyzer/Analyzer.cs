@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.AccessAnalyzer
         public Output<ImmutableArray<Outputs.AnalyzerTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the analyzer, must be ACCOUNT or ORGANIZATION
+        /// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.AwsNative.AccessAnalyzer
         }
 
         /// <summary>
-        /// The type of the analyzer, must be ACCOUNT or ORGANIZATION
+        /// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

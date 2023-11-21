@@ -329,7 +329,7 @@ func (o DetectorCfnFeatureAdditionalConfigurationArrayOutput) Index(i pulumi.Int
 
 type DetectorCfnFeatureConfiguration struct {
 	AdditionalConfiguration []DetectorCfnFeatureAdditionalConfiguration `pulumi:"additionalConfiguration"`
-	Name                    DetectorCfnFeatureConfigurationName         `pulumi:"name"`
+	Name                    string                                      `pulumi:"name"`
 	Status                  DetectorCfnFeatureConfigurationStatus       `pulumi:"status"`
 }
 
@@ -346,7 +346,7 @@ type DetectorCfnFeatureConfigurationInput interface {
 
 type DetectorCfnFeatureConfigurationArgs struct {
 	AdditionalConfiguration DetectorCfnFeatureAdditionalConfigurationArrayInput `pulumi:"additionalConfiguration"`
-	Name                    DetectorCfnFeatureConfigurationNameInput            `pulumi:"name"`
+	Name                    pulumi.StringInput                                  `pulumi:"name"`
 	Status                  DetectorCfnFeatureConfigurationStatusInput          `pulumi:"status"`
 }
 
@@ -425,8 +425,8 @@ func (o DetectorCfnFeatureConfigurationOutput) AdditionalConfiguration() Detecto
 	}).(DetectorCfnFeatureAdditionalConfigurationArrayOutput)
 }
 
-func (o DetectorCfnFeatureConfigurationOutput) Name() DetectorCfnFeatureConfigurationNameOutput {
-	return o.ApplyT(func(v DetectorCfnFeatureConfiguration) DetectorCfnFeatureConfigurationName { return v.Name }).(DetectorCfnFeatureConfigurationNameOutput)
+func (o DetectorCfnFeatureConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DetectorCfnFeatureConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func (o DetectorCfnFeatureConfigurationOutput) Status() DetectorCfnFeatureConfigurationStatusOutput {

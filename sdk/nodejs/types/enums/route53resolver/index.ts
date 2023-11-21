@@ -198,3 +198,13 @@ export const ResolverRuleRuleType = {
  * When you want to forward DNS queries for specified domain name to resolvers on your network, specify FORWARD. When you have a forwarding rule to forward DNS queries for a domain to your network and you want Resolver to process queries for a subdomain of that domain, specify SYSTEM.
  */
 export type ResolverRuleRuleType = (typeof ResolverRuleRuleType)[keyof typeof ResolverRuleRuleType];
+
+export const ResolverRuleTargetAddressProtocol = {
+    Do53: "Do53",
+    DoH: "DoH",
+} as const;
+
+/**
+ * The protocol that you want to use to forward DNS queries. 
+ */
+export type ResolverRuleTargetAddressProtocol = (typeof ResolverRuleTargetAddressProtocol)[keyof typeof ResolverRuleTargetAddressProtocol];

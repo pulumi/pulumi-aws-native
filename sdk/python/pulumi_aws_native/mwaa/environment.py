@@ -20,6 +20,7 @@ class EnvironmentArgs:
                  airflow_configuration_options: Optional[Any] = None,
                  airflow_version: Optional[pulumi.Input[str]] = None,
                  dag_s3_path: Optional[pulumi.Input[str]] = None,
+                 endpoint_management: Optional[pulumi.Input['EnvironmentEndpointManagement']] = None,
                  environment_class: Optional[pulumi.Input[str]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  kms_key: Optional[pulumi.Input[str]] = None,
@@ -58,6 +59,8 @@ class EnvironmentArgs:
             pulumi.set(__self__, "airflow_version", airflow_version)
         if dag_s3_path is not None:
             pulumi.set(__self__, "dag_s3_path", dag_s3_path)
+        if endpoint_management is not None:
+            pulumi.set(__self__, "endpoint_management", endpoint_management)
         if environment_class is not None:
             pulumi.set(__self__, "environment_class", environment_class)
         if execution_role_arn is not None:
@@ -134,6 +137,15 @@ class EnvironmentArgs:
     @dag_s3_path.setter
     def dag_s3_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dag_s3_path", value)
+
+    @property
+    @pulumi.getter(name="endpointManagement")
+    def endpoint_management(self) -> Optional[pulumi.Input['EnvironmentEndpointManagement']]:
+        return pulumi.get(self, "endpoint_management")
+
+    @endpoint_management.setter
+    def endpoint_management(self, value: Optional[pulumi.Input['EnvironmentEndpointManagement']]):
+        pulumi.set(self, "endpoint_management", value)
 
     @property
     @pulumi.getter(name="environmentClass")
@@ -318,6 +330,7 @@ class Environment(pulumi.CustomResource):
                  airflow_configuration_options: Optional[Any] = None,
                  airflow_version: Optional[pulumi.Input[str]] = None,
                  dag_s3_path: Optional[pulumi.Input[str]] = None,
+                 endpoint_management: Optional[pulumi.Input['EnvironmentEndpointManagement']] = None,
                  environment_class: Optional[pulumi.Input[str]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  kms_key: Optional[pulumi.Input[str]] = None,
@@ -381,6 +394,7 @@ class Environment(pulumi.CustomResource):
                  airflow_configuration_options: Optional[Any] = None,
                  airflow_version: Optional[pulumi.Input[str]] = None,
                  dag_s3_path: Optional[pulumi.Input[str]] = None,
+                 endpoint_management: Optional[pulumi.Input['EnvironmentEndpointManagement']] = None,
                  environment_class: Optional[pulumi.Input[str]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  kms_key: Optional[pulumi.Input[str]] = None,
@@ -412,6 +426,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["airflow_configuration_options"] = airflow_configuration_options
             __props__.__dict__["airflow_version"] = airflow_version
             __props__.__dict__["dag_s3_path"] = dag_s3_path
+            __props__.__dict__["endpoint_management"] = endpoint_management
             __props__.__dict__["environment_class"] = environment_class
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["kms_key"] = kms_key
@@ -432,8 +447,11 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["webserver_access_mode"] = webserver_access_mode
             __props__.__dict__["weekly_maintenance_window_start"] = weekly_maintenance_window_start
             __props__.__dict__["arn"] = None
+            __props__.__dict__["celery_executor_queue"] = None
+            __props__.__dict__["database_vpc_endpoint_service"] = None
             __props__.__dict__["webserver_url"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kms_key", "name", "network_configuration.subnet_ids[*]"])
+            __props__.__dict__["webserver_vpc_endpoint_service"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["endpoint_management", "kms_key", "name", "network_configuration.subnet_ids[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Environment, __self__).__init__(
             'aws-native:mwaa:Environment',
@@ -460,7 +478,10 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["airflow_configuration_options"] = None
         __props__.__dict__["airflow_version"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["celery_executor_queue"] = None
         __props__.__dict__["dag_s3_path"] = None
+        __props__.__dict__["database_vpc_endpoint_service"] = None
+        __props__.__dict__["endpoint_management"] = None
         __props__.__dict__["environment_class"] = None
         __props__.__dict__["execution_role_arn"] = None
         __props__.__dict__["kms_key"] = None
@@ -480,6 +501,7 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["webserver_access_mode"] = None
         __props__.__dict__["webserver_url"] = None
+        __props__.__dict__["webserver_vpc_endpoint_service"] = None
         __props__.__dict__["weekly_maintenance_window_start"] = None
         return Environment(resource_name, opts=opts, __props__=__props__)
 
@@ -510,9 +532,24 @@ class Environment(pulumi.CustomResource):
         return pulumi.get(self, "arn")
 
     @property
+    @pulumi.getter(name="celeryExecutorQueue")
+    def celery_executor_queue(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "celery_executor_queue")
+
+    @property
     @pulumi.getter(name="dagS3Path")
     def dag_s3_path(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "dag_s3_path")
+
+    @property
+    @pulumi.getter(name="databaseVpcEndpointService")
+    def database_vpc_endpoint_service(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "database_vpc_endpoint_service")
+
+    @property
+    @pulumi.getter(name="endpointManagement")
+    def endpoint_management(self) -> pulumi.Output[Optional['EnvironmentEndpointManagement']]:
+        return pulumi.get(self, "endpoint_management")
 
     @property
     @pulumi.getter(name="environmentClass")
@@ -611,6 +648,11 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="webserverUrl")
     def webserver_url(self) -> pulumi.Output[str]:
         return pulumi.get(self, "webserver_url")
+
+    @property
+    @pulumi.getter(name="webserverVpcEndpointService")
+    def webserver_vpc_endpoint_service(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "webserver_vpc_endpoint_service")
 
     @property
     @pulumi.getter(name="weeklyMaintenanceWindowStart")

@@ -26,7 +26,6 @@ export interface GetClusterArgs {
 }
 
 export interface GetClusterResult {
-    readonly accessConfig?: outputs.eks.ClusterAccessConfig;
     /**
      * The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
      */

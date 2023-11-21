@@ -400,11 +400,13 @@ class ResolverRuleTargetAddressArgs:
     def __init__(__self__, *,
                  ip: Optional[pulumi.Input[str]] = None,
                  ipv6: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[str]] = None):
+                 port: Optional[pulumi.Input[str]] = None,
+                 protocol: Optional[pulumi.Input['ResolverRuleTargetAddressProtocol']] = None):
         """
         :param pulumi.Input[str] ip: One IP address that you want to forward DNS queries to. You can specify only IPv4 addresses. 
         :param pulumi.Input[str] ipv6: One IPv6 address that you want to forward DNS queries to. You can specify only IPv6 addresses. 
         :param pulumi.Input[str] port: The port at Ip that you want to forward DNS queries to. 
+        :param pulumi.Input['ResolverRuleTargetAddressProtocol'] protocol: The protocol that you want to use to forward DNS queries. 
         """
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
@@ -412,6 +414,8 @@ class ResolverRuleTargetAddressArgs:
             pulumi.set(__self__, "ipv6", ipv6)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
 
     @property
     @pulumi.getter
@@ -448,5 +452,17 @@ class ResolverRuleTargetAddressArgs:
     @port.setter
     def port(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input['ResolverRuleTargetAddressProtocol']]:
+        """
+        The protocol that you want to use to forward DNS queries. 
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input['ResolverRuleTargetAddressProtocol']]):
+        pulumi.set(self, "protocol", value)
 
 

@@ -24,6 +24,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// Associates a public IPv4 address with eth0 for a new network interface.
         /// </summary>
         public readonly bool? AssociatePublicIpAddress;
+        public readonly Outputs.LaunchTemplateConnectionTrackingSpecification? ConnectionTrackingSpecification;
         /// <summary>
         /// Indicates whether the network interface is deleted when the instance is terminated.
         /// </summary>
@@ -104,6 +105,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             bool? associatePublicIpAddress,
 
+            Outputs.LaunchTemplateConnectionTrackingSpecification? connectionTrackingSpecification,
+
             bool? deleteOnTermination,
 
             string? description,
@@ -144,6 +147,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         {
             AssociateCarrierIpAddress = associateCarrierIpAddress;
             AssociatePublicIpAddress = associatePublicIpAddress;
+            ConnectionTrackingSpecification = connectionTrackingSpecification;
             DeleteOnTermination = deleteOnTermination;
             Description = description;
             DeviceIndex = deviceIndex;

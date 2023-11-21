@@ -5,9 +5,18 @@
 from enum import Enum
 
 __all__ = [
+    'EnvironmentEndpointManagement',
     'EnvironmentLoggingLevel',
     'EnvironmentWebserverAccessMode',
 ]
+
+
+class EnvironmentEndpointManagement(str, Enum):
+    """
+    Defines whether the VPC endpoints configured for the environment are created, and managed, by the customer or by Amazon MWAA.
+    """
+    CUSTOMER = "CUSTOMER"
+    SERVICE = "SERVICE"
 
 
 class EnvironmentLoggingLevel(str, Enum):

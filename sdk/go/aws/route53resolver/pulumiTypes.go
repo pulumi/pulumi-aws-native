@@ -1119,6 +1119,8 @@ type ResolverRuleTargetAddress struct {
 	Ipv6 *string `pulumi:"ipv6"`
 	// The port at Ip that you want to forward DNS queries to.
 	Port *string `pulumi:"port"`
+	// The protocol that you want to use to forward DNS queries.
+	Protocol *ResolverRuleTargetAddressProtocol `pulumi:"protocol"`
 }
 
 // ResolverRuleTargetAddressInput is an input type that accepts ResolverRuleTargetAddressArgs and ResolverRuleTargetAddressOutput values.
@@ -1139,6 +1141,8 @@ type ResolverRuleTargetAddressArgs struct {
 	Ipv6 pulumi.StringPtrInput `pulumi:"ipv6"`
 	// The port at Ip that you want to forward DNS queries to.
 	Port pulumi.StringPtrInput `pulumi:"port"`
+	// The protocol that you want to use to forward DNS queries.
+	Protocol ResolverRuleTargetAddressProtocolPtrInput `pulumi:"protocol"`
 }
 
 func (ResolverRuleTargetAddressArgs) ElementType() reflect.Type {
@@ -1223,6 +1227,11 @@ func (o ResolverRuleTargetAddressOutput) Ipv6() pulumi.StringPtrOutput {
 // The port at Ip that you want to forward DNS queries to.
 func (o ResolverRuleTargetAddressOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResolverRuleTargetAddress) *string { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+// The protocol that you want to use to forward DNS queries.
+func (o ResolverRuleTargetAddressOutput) Protocol() ResolverRuleTargetAddressProtocolPtrOutput {
+	return o.ApplyT(func(v ResolverRuleTargetAddress) *ResolverRuleTargetAddressProtocol { return v.Protocol }).(ResolverRuleTargetAddressProtocolPtrOutput)
 }
 
 type ResolverRuleTargetAddressArrayOutput struct{ *pulumi.OutputState }

@@ -8,38 +8,6 @@ using Pulumi;
 namespace Pulumi.AwsNative.GuardDuty
 {
     [EnumType]
-    public readonly struct DetectorCfnFeatureConfigurationName : IEquatable<DetectorCfnFeatureConfigurationName>
-    {
-        private readonly string _value;
-
-        private DetectorCfnFeatureConfigurationName(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DetectorCfnFeatureConfigurationName S3DataEvents { get; } = new DetectorCfnFeatureConfigurationName("S3_DATA_EVENTS");
-        public static DetectorCfnFeatureConfigurationName EksAuditLogs { get; } = new DetectorCfnFeatureConfigurationName("EKS_AUDIT_LOGS");
-        public static DetectorCfnFeatureConfigurationName EbsMalwareProtection { get; } = new DetectorCfnFeatureConfigurationName("EBS_MALWARE_PROTECTION");
-        public static DetectorCfnFeatureConfigurationName RdsLoginEvents { get; } = new DetectorCfnFeatureConfigurationName("RDS_LOGIN_EVENTS");
-        public static DetectorCfnFeatureConfigurationName LambdaNetworkLogs { get; } = new DetectorCfnFeatureConfigurationName("LAMBDA_NETWORK_LOGS");
-        public static DetectorCfnFeatureConfigurationName EksRuntimeMonitoring { get; } = new DetectorCfnFeatureConfigurationName("EKS_RUNTIME_MONITORING");
-
-        public static bool operator ==(DetectorCfnFeatureConfigurationName left, DetectorCfnFeatureConfigurationName right) => left.Equals(right);
-        public static bool operator !=(DetectorCfnFeatureConfigurationName left, DetectorCfnFeatureConfigurationName right) => !left.Equals(right);
-
-        public static explicit operator string(DetectorCfnFeatureConfigurationName value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DetectorCfnFeatureConfigurationName other && Equals(other);
-        public bool Equals(DetectorCfnFeatureConfigurationName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
     public readonly struct DetectorCfnFeatureConfigurationStatus : IEquatable<DetectorCfnFeatureConfigurationStatus>
     {
         private readonly string _value;

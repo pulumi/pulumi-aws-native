@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.GuardDuty.Inputs
         }
 
         [Input("name", required: true)]
-        public Input<Pulumi.AwsNative.GuardDuty.DetectorCfnFeatureConfigurationName> Name { get; set; } = null!;
+        public Input<string> Name { get; set; } = null!;
 
         [Input("status", required: true)]
         public Input<Pulumi.AwsNative.GuardDuty.DetectorCfnFeatureConfigurationStatus> Status { get; set; } = null!;

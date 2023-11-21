@@ -12342,6 +12342,208 @@ func (o LaunchTemplateCapacityReservationTargetPtrOutput) CapacityReservationRes
 	}).(pulumi.StringPtrOutput)
 }
 
+// Allows customer to specify Connection Tracking options
+type LaunchTemplateConnectionTrackingSpecification struct {
+	// Integer value for TCP Established Timeout
+	TcpEstablishedTimeout *int `pulumi:"tcpEstablishedTimeout"`
+	// Integer value for UDP Stream Timeout
+	UdpStreamTimeout *int `pulumi:"udpStreamTimeout"`
+	// Integer value for UDP Timeout
+	UdpTimeout *int `pulumi:"udpTimeout"`
+}
+
+// LaunchTemplateConnectionTrackingSpecificationInput is an input type that accepts LaunchTemplateConnectionTrackingSpecificationArgs and LaunchTemplateConnectionTrackingSpecificationOutput values.
+// You can construct a concrete instance of `LaunchTemplateConnectionTrackingSpecificationInput` via:
+//
+//	LaunchTemplateConnectionTrackingSpecificationArgs{...}
+type LaunchTemplateConnectionTrackingSpecificationInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateConnectionTrackingSpecificationOutput() LaunchTemplateConnectionTrackingSpecificationOutput
+	ToLaunchTemplateConnectionTrackingSpecificationOutputWithContext(context.Context) LaunchTemplateConnectionTrackingSpecificationOutput
+}
+
+// Allows customer to specify Connection Tracking options
+type LaunchTemplateConnectionTrackingSpecificationArgs struct {
+	// Integer value for TCP Established Timeout
+	TcpEstablishedTimeout pulumi.IntPtrInput `pulumi:"tcpEstablishedTimeout"`
+	// Integer value for UDP Stream Timeout
+	UdpStreamTimeout pulumi.IntPtrInput `pulumi:"udpStreamTimeout"`
+	// Integer value for UDP Timeout
+	UdpTimeout pulumi.IntPtrInput `pulumi:"udpTimeout"`
+}
+
+func (LaunchTemplateConnectionTrackingSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateConnectionTrackingSpecification)(nil)).Elem()
+}
+
+func (i LaunchTemplateConnectionTrackingSpecificationArgs) ToLaunchTemplateConnectionTrackingSpecificationOutput() LaunchTemplateConnectionTrackingSpecificationOutput {
+	return i.ToLaunchTemplateConnectionTrackingSpecificationOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateConnectionTrackingSpecificationArgs) ToLaunchTemplateConnectionTrackingSpecificationOutputWithContext(ctx context.Context) LaunchTemplateConnectionTrackingSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateConnectionTrackingSpecificationOutput)
+}
+
+func (i LaunchTemplateConnectionTrackingSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchTemplateConnectionTrackingSpecification] {
+	return pulumix.Output[LaunchTemplateConnectionTrackingSpecification]{
+		OutputState: i.ToLaunchTemplateConnectionTrackingSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i LaunchTemplateConnectionTrackingSpecificationArgs) ToLaunchTemplateConnectionTrackingSpecificationPtrOutput() LaunchTemplateConnectionTrackingSpecificationPtrOutput {
+	return i.ToLaunchTemplateConnectionTrackingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateConnectionTrackingSpecificationArgs) ToLaunchTemplateConnectionTrackingSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateConnectionTrackingSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateConnectionTrackingSpecificationOutput).ToLaunchTemplateConnectionTrackingSpecificationPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateConnectionTrackingSpecificationPtrInput is an input type that accepts LaunchTemplateConnectionTrackingSpecificationArgs, LaunchTemplateConnectionTrackingSpecificationPtr and LaunchTemplateConnectionTrackingSpecificationPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateConnectionTrackingSpecificationPtrInput` via:
+//
+//	        LaunchTemplateConnectionTrackingSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type LaunchTemplateConnectionTrackingSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateConnectionTrackingSpecificationPtrOutput() LaunchTemplateConnectionTrackingSpecificationPtrOutput
+	ToLaunchTemplateConnectionTrackingSpecificationPtrOutputWithContext(context.Context) LaunchTemplateConnectionTrackingSpecificationPtrOutput
+}
+
+type launchTemplateConnectionTrackingSpecificationPtrType LaunchTemplateConnectionTrackingSpecificationArgs
+
+func LaunchTemplateConnectionTrackingSpecificationPtr(v *LaunchTemplateConnectionTrackingSpecificationArgs) LaunchTemplateConnectionTrackingSpecificationPtrInput {
+	return (*launchTemplateConnectionTrackingSpecificationPtrType)(v)
+}
+
+func (*launchTemplateConnectionTrackingSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateConnectionTrackingSpecification)(nil)).Elem()
+}
+
+func (i *launchTemplateConnectionTrackingSpecificationPtrType) ToLaunchTemplateConnectionTrackingSpecificationPtrOutput() LaunchTemplateConnectionTrackingSpecificationPtrOutput {
+	return i.ToLaunchTemplateConnectionTrackingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateConnectionTrackingSpecificationPtrType) ToLaunchTemplateConnectionTrackingSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateConnectionTrackingSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateConnectionTrackingSpecificationPtrOutput)
+}
+
+func (i *launchTemplateConnectionTrackingSpecificationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LaunchTemplateConnectionTrackingSpecification] {
+	return pulumix.Output[*LaunchTemplateConnectionTrackingSpecification]{
+		OutputState: i.ToLaunchTemplateConnectionTrackingSpecificationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Allows customer to specify Connection Tracking options
+type LaunchTemplateConnectionTrackingSpecificationOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateConnectionTrackingSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateConnectionTrackingSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateConnectionTrackingSpecificationOutput) ToLaunchTemplateConnectionTrackingSpecificationOutput() LaunchTemplateConnectionTrackingSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateConnectionTrackingSpecificationOutput) ToLaunchTemplateConnectionTrackingSpecificationOutputWithContext(ctx context.Context) LaunchTemplateConnectionTrackingSpecificationOutput {
+	return o
+}
+
+func (o LaunchTemplateConnectionTrackingSpecificationOutput) ToLaunchTemplateConnectionTrackingSpecificationPtrOutput() LaunchTemplateConnectionTrackingSpecificationPtrOutput {
+	return o.ToLaunchTemplateConnectionTrackingSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateConnectionTrackingSpecificationOutput) ToLaunchTemplateConnectionTrackingSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateConnectionTrackingSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateConnectionTrackingSpecification) *LaunchTemplateConnectionTrackingSpecification {
+		return &v
+	}).(LaunchTemplateConnectionTrackingSpecificationPtrOutput)
+}
+
+func (o LaunchTemplateConnectionTrackingSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchTemplateConnectionTrackingSpecification] {
+	return pulumix.Output[LaunchTemplateConnectionTrackingSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Integer value for TCP Established Timeout
+func (o LaunchTemplateConnectionTrackingSpecificationOutput) TcpEstablishedTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateConnectionTrackingSpecification) *int { return v.TcpEstablishedTimeout }).(pulumi.IntPtrOutput)
+}
+
+// Integer value for UDP Stream Timeout
+func (o LaunchTemplateConnectionTrackingSpecificationOutput) UdpStreamTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateConnectionTrackingSpecification) *int { return v.UdpStreamTimeout }).(pulumi.IntPtrOutput)
+}
+
+// Integer value for UDP Timeout
+func (o LaunchTemplateConnectionTrackingSpecificationOutput) UdpTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateConnectionTrackingSpecification) *int { return v.UdpTimeout }).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateConnectionTrackingSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateConnectionTrackingSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateConnectionTrackingSpecification)(nil)).Elem()
+}
+
+func (o LaunchTemplateConnectionTrackingSpecificationPtrOutput) ToLaunchTemplateConnectionTrackingSpecificationPtrOutput() LaunchTemplateConnectionTrackingSpecificationPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateConnectionTrackingSpecificationPtrOutput) ToLaunchTemplateConnectionTrackingSpecificationPtrOutputWithContext(ctx context.Context) LaunchTemplateConnectionTrackingSpecificationPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateConnectionTrackingSpecificationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchTemplateConnectionTrackingSpecification] {
+	return pulumix.Output[*LaunchTemplateConnectionTrackingSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LaunchTemplateConnectionTrackingSpecificationPtrOutput) Elem() LaunchTemplateConnectionTrackingSpecificationOutput {
+	return o.ApplyT(func(v *LaunchTemplateConnectionTrackingSpecification) LaunchTemplateConnectionTrackingSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateConnectionTrackingSpecification
+		return ret
+	}).(LaunchTemplateConnectionTrackingSpecificationOutput)
+}
+
+// Integer value for TCP Established Timeout
+func (o LaunchTemplateConnectionTrackingSpecificationPtrOutput) TcpEstablishedTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateConnectionTrackingSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TcpEstablishedTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// Integer value for UDP Stream Timeout
+func (o LaunchTemplateConnectionTrackingSpecificationPtrOutput) UdpStreamTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateConnectionTrackingSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UdpStreamTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// Integer value for UDP Timeout
+func (o LaunchTemplateConnectionTrackingSpecificationPtrOutput) UdpTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateConnectionTrackingSpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UdpTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
 // specifies the CPU options for an instance.
 type LaunchTemplateCpuOptions struct {
 	// Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported with M6a, R6a, and C6a instance types only.
@@ -16757,7 +16959,8 @@ type LaunchTemplateNetworkInterface struct {
 	// Indicates whether to associate a Carrier IP address with eth0 for a new network interface.
 	AssociateCarrierIpAddress *bool `pulumi:"associateCarrierIpAddress"`
 	// Associates a public IPv4 address with eth0 for a new network interface.
-	AssociatePublicIpAddress *bool `pulumi:"associatePublicIpAddress"`
+	AssociatePublicIpAddress        *bool                                          `pulumi:"associatePublicIpAddress"`
+	ConnectionTrackingSpecification *LaunchTemplateConnectionTrackingSpecification `pulumi:"connectionTrackingSpecification"`
 	// Indicates whether the network interface is deleted when the instance is terminated.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
 	// A description for the network interface.
@@ -16813,7 +17016,8 @@ type LaunchTemplateNetworkInterfaceArgs struct {
 	// Indicates whether to associate a Carrier IP address with eth0 for a new network interface.
 	AssociateCarrierIpAddress pulumi.BoolPtrInput `pulumi:"associateCarrierIpAddress"`
 	// Associates a public IPv4 address with eth0 for a new network interface.
-	AssociatePublicIpAddress pulumi.BoolPtrInput `pulumi:"associatePublicIpAddress"`
+	AssociatePublicIpAddress        pulumi.BoolPtrInput                                   `pulumi:"associatePublicIpAddress"`
+	ConnectionTrackingSpecification LaunchTemplateConnectionTrackingSpecificationPtrInput `pulumi:"connectionTrackingSpecification"`
 	// Indicates whether the network interface is deleted when the instance is terminated.
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
 	// A description for the network interface.
@@ -16931,6 +17135,12 @@ func (o LaunchTemplateNetworkInterfaceOutput) AssociateCarrierIpAddress() pulumi
 // Associates a public IPv4 address with eth0 for a new network interface.
 func (o LaunchTemplateNetworkInterfaceOutput) AssociatePublicIpAddress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *bool { return v.AssociatePublicIpAddress }).(pulumi.BoolPtrOutput)
+}
+
+func (o LaunchTemplateNetworkInterfaceOutput) ConnectionTrackingSpecification() LaunchTemplateConnectionTrackingSpecificationPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *LaunchTemplateConnectionTrackingSpecification {
+		return v.ConnectionTrackingSpecification
+	}).(LaunchTemplateConnectionTrackingSpecificationPtrOutput)
 }
 
 // Indicates whether the network interface is deleted when the instance is terminated.
@@ -36824,6 +37034,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCapacityReservationSpecificationPtrInput)(nil)).Elem(), LaunchTemplateCapacityReservationSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCapacityReservationTargetInput)(nil)).Elem(), LaunchTemplateCapacityReservationTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCapacityReservationTargetPtrInput)(nil)).Elem(), LaunchTemplateCapacityReservationTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateConnectionTrackingSpecificationInput)(nil)).Elem(), LaunchTemplateConnectionTrackingSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateConnectionTrackingSpecificationPtrInput)(nil)).Elem(), LaunchTemplateConnectionTrackingSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCpuOptionsInput)(nil)).Elem(), LaunchTemplateCpuOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCpuOptionsPtrInput)(nil)).Elem(), LaunchTemplateCpuOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCreditSpecificationInput)(nil)).Elem(), LaunchTemplateCreditSpecificationArgs{})
@@ -37245,6 +37457,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateCapacityReservationSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateCapacityReservationTargetOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateCapacityReservationTargetPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateConnectionTrackingSpecificationOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateConnectionTrackingSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateCpuOptionsOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateCpuOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateCreditSpecificationOutput{})

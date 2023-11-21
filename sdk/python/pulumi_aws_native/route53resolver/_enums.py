@@ -22,6 +22,7 @@ __all__ = [
     'ResolverQueryLoggingConfigShareStatus',
     'ResolverQueryLoggingConfigStatus',
     'ResolverRuleRuleType',
+    'ResolverRuleTargetAddressProtocol',
 ]
 
 
@@ -186,3 +187,11 @@ class ResolverRuleRuleType(str, Enum):
     FORWARD = "FORWARD"
     SYSTEM = "SYSTEM"
     RECURSIVE = "RECURSIVE"
+
+
+class ResolverRuleTargetAddressProtocol(str, Enum):
+    """
+    The protocol that you want to use to forward DNS queries. 
+    """
+    DO53 = "Do53"
+    DO_H = "DoH"

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         [Input("associatePublicIpAddress")]
         public Input<bool>? AssociatePublicIpAddress { get; set; }
 
+        [Input("connectionTrackingSpecification")]
+        public Input<Inputs.LaunchTemplateConnectionTrackingSpecificationArgs>? ConnectionTrackingSpecification { get; set; }
+
         /// <summary>
         /// Indicates whether the network interface is deleted when the instance is terminated.
         /// </summary>
