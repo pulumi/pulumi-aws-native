@@ -730,6 +730,9 @@ AWS::Route53Resolver::ResolverQueryLoggingConfig
 AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation
 AWS::Route53Resolver::ResolverRule
 AWS::Route53Resolver::ResolverRuleAssociation
+AWS::S3::AccessGrant
+AWS::S3::AccessGrantsInstance
+AWS::S3::AccessGrantsLocation
 AWS::S3::AccessPoint
 AWS::S3::Bucket
 AWS::S3::BucketPolicy
