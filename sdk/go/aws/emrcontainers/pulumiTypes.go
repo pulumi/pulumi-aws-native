@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -45,12 +44,6 @@ func (i VirtualClusterContainerInfoArgs) ToVirtualClusterContainerInfoOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterContainerInfoOutput)
 }
 
-func (i VirtualClusterContainerInfoArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualClusterContainerInfo] {
-	return pulumix.Output[VirtualClusterContainerInfo]{
-		OutputState: i.ToVirtualClusterContainerInfoOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualClusterContainerInfoOutput struct{ *pulumi.OutputState }
 
 func (VirtualClusterContainerInfoOutput) ElementType() reflect.Type {
@@ -63,12 +56,6 @@ func (o VirtualClusterContainerInfoOutput) ToVirtualClusterContainerInfoOutput()
 
 func (o VirtualClusterContainerInfoOutput) ToVirtualClusterContainerInfoOutputWithContext(ctx context.Context) VirtualClusterContainerInfoOutput {
 	return o
-}
-
-func (o VirtualClusterContainerInfoOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualClusterContainerInfo] {
-	return pulumix.Output[VirtualClusterContainerInfo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualClusterContainerInfoOutput) EksInfo() VirtualClusterEksInfoOutput {
@@ -114,12 +101,6 @@ func (i VirtualClusterContainerProviderArgs) ToVirtualClusterContainerProviderOu
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterContainerProviderOutput)
 }
 
-func (i VirtualClusterContainerProviderArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualClusterContainerProvider] {
-	return pulumix.Output[VirtualClusterContainerProvider]{
-		OutputState: i.ToVirtualClusterContainerProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualClusterContainerProviderOutput struct{ *pulumi.OutputState }
 
 func (VirtualClusterContainerProviderOutput) ElementType() reflect.Type {
@@ -132,12 +113,6 @@ func (o VirtualClusterContainerProviderOutput) ToVirtualClusterContainerProvider
 
 func (o VirtualClusterContainerProviderOutput) ToVirtualClusterContainerProviderOutputWithContext(ctx context.Context) VirtualClusterContainerProviderOutput {
 	return o
-}
-
-func (o VirtualClusterContainerProviderOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualClusterContainerProvider] {
-	return pulumix.Output[VirtualClusterContainerProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the container cluster
@@ -185,12 +160,6 @@ func (i VirtualClusterEksInfoArgs) ToVirtualClusterEksInfoOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterEksInfoOutput)
 }
 
-func (i VirtualClusterEksInfoArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualClusterEksInfo] {
-	return pulumix.Output[VirtualClusterEksInfo]{
-		OutputState: i.ToVirtualClusterEksInfoOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualClusterEksInfoOutput struct{ *pulumi.OutputState }
 
 func (VirtualClusterEksInfoOutput) ElementType() reflect.Type {
@@ -203,12 +172,6 @@ func (o VirtualClusterEksInfoOutput) ToVirtualClusterEksInfoOutput() VirtualClus
 
 func (o VirtualClusterEksInfoOutput) ToVirtualClusterEksInfoOutputWithContext(ctx context.Context) VirtualClusterEksInfoOutput {
 	return o
-}
-
-func (o VirtualClusterEksInfoOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualClusterEksInfo] {
-	return pulumix.Output[VirtualClusterEksInfo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualClusterEksInfoOutput) Namespace() pulumi.StringOutput {
@@ -254,12 +217,6 @@ func (i VirtualClusterTagArgs) ToVirtualClusterTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterTagOutput)
 }
 
-func (i VirtualClusterTagArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualClusterTag] {
-	return pulumix.Output[VirtualClusterTag]{
-		OutputState: i.ToVirtualClusterTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualClusterTagArrayInput is an input type that accepts VirtualClusterTagArray and VirtualClusterTagArrayOutput values.
 // You can construct a concrete instance of `VirtualClusterTagArrayInput` via:
 //
@@ -285,12 +242,6 @@ func (i VirtualClusterTagArray) ToVirtualClusterTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualClusterTagArrayOutput)
 }
 
-func (i VirtualClusterTagArray) ToOutput(ctx context.Context) pulumix.Output[[]VirtualClusterTag] {
-	return pulumix.Output[[]VirtualClusterTag]{
-		OutputState: i.ToVirtualClusterTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An arbitrary set of tags (key-value pairs) for this virtual cluster.
 type VirtualClusterTagOutput struct{ *pulumi.OutputState }
 
@@ -304,12 +255,6 @@ func (o VirtualClusterTagOutput) ToVirtualClusterTagOutput() VirtualClusterTagOu
 
 func (o VirtualClusterTagOutput) ToVirtualClusterTagOutputWithContext(ctx context.Context) VirtualClusterTagOutput {
 	return o
-}
-
-func (o VirtualClusterTagOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualClusterTag] {
-	return pulumix.Output[VirtualClusterTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -334,12 +279,6 @@ func (o VirtualClusterTagArrayOutput) ToVirtualClusterTagArrayOutput() VirtualCl
 
 func (o VirtualClusterTagArrayOutput) ToVirtualClusterTagArrayOutputWithContext(ctx context.Context) VirtualClusterTagArrayOutput {
 	return o
-}
-
-func (o VirtualClusterTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VirtualClusterTag] {
-	return pulumix.Output[[]VirtualClusterTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualClusterTagArrayOutput) Index(i pulumi.IntInput) VirtualClusterTagOutput {

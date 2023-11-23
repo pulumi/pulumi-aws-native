@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ElasticLoadBalancingV2::LoadBalancer
@@ -157,12 +156,6 @@ func (i *LoadBalancer) ToLoadBalancerOutputWithContext(ctx context.Context) Load
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerOutput)
 }
 
-func (i *LoadBalancer) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancer] {
-	return pulumix.Output[*LoadBalancer]{
-		OutputState: i.ToLoadBalancerOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LoadBalancerOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerOutput) ElementType() reflect.Type {
@@ -175,12 +168,6 @@ func (o LoadBalancerOutput) ToLoadBalancerOutput() LoadBalancerOutput {
 
 func (o LoadBalancerOutput) ToLoadBalancerOutputWithContext(ctx context.Context) LoadBalancerOutput {
 	return o
-}
-
-func (o LoadBalancerOutput) ToOutput(ctx context.Context) pulumix.Output[*LoadBalancer] {
-	return pulumix.Output[*LoadBalancer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Amazon Route 53 hosted zone associated with the load balancer.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGateway::UsagePlanKey“ resource associates an API key with a usage plan. This association determines which users the usage plan is applied to.
@@ -64,12 +63,6 @@ func (o LookupUsagePlanKeyResultOutput) ToLookupUsagePlanKeyResultOutput() Looku
 
 func (o LookupUsagePlanKeyResultOutput) ToLookupUsagePlanKeyResultOutputWithContext(ctx context.Context) LookupUsagePlanKeyResultOutput {
 	return o
-}
-
-func (o LookupUsagePlanKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupUsagePlanKeyResult] {
-	return pulumix.Output[LookupUsagePlanKeyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupUsagePlanKeyResultOutput) Id() pulumi.StringPtrOutput {

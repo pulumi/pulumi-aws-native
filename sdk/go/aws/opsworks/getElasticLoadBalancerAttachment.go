@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::OpsWorks::ElasticLoadBalancerAttachment
@@ -66,12 +65,6 @@ func (o LookupElasticLoadBalancerAttachmentResultOutput) ToLookupElasticLoadBala
 
 func (o LookupElasticLoadBalancerAttachmentResultOutput) ToLookupElasticLoadBalancerAttachmentResultOutputWithContext(ctx context.Context) LookupElasticLoadBalancerAttachmentResultOutput {
 	return o
-}
-
-func (o LookupElasticLoadBalancerAttachmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupElasticLoadBalancerAttachmentResult] {
-	return pulumix.Output[LookupElasticLoadBalancerAttachmentResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupElasticLoadBalancerAttachmentResultOutput) ElasticLoadBalancerName() pulumi.StringPtrOutput {

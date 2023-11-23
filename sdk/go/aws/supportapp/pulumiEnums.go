@@ -80,12 +80,6 @@ func (o SlackChannelConfigurationNotifyOnCaseSeverityOutput) ToSlackChannelConfi
 	}).(SlackChannelConfigurationNotifyOnCaseSeverityPtrOutput)
 }
 
-func (o SlackChannelConfigurationNotifyOnCaseSeverityOutput) ToOutput(ctx context.Context) pulumix.Output[SlackChannelConfigurationNotifyOnCaseSeverity] {
-	return pulumix.Output[SlackChannelConfigurationNotifyOnCaseSeverity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SlackChannelConfigurationNotifyOnCaseSeverityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o SlackChannelConfigurationNotifyOnCaseSeverityPtrOutput) ToSlackChannelCo
 
 func (o SlackChannelConfigurationNotifyOnCaseSeverityPtrOutput) ToSlackChannelConfigurationNotifyOnCaseSeverityPtrOutputWithContext(ctx context.Context) SlackChannelConfigurationNotifyOnCaseSeverityPtrOutput {
 	return o
-}
-
-func (o SlackChannelConfigurationNotifyOnCaseSeverityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SlackChannelConfigurationNotifyOnCaseSeverity] {
-	return pulumix.Output[*SlackChannelConfigurationNotifyOnCaseSeverity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SlackChannelConfigurationNotifyOnCaseSeverityPtrOutput) Elem() SlackChannelConfigurationNotifyOnCaseSeverityOutput {

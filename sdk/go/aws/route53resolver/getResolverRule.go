@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Route53Resolver::ResolverRule
@@ -79,12 +78,6 @@ func (o LookupResolverRuleResultOutput) ToLookupResolverRuleResultOutput() Looku
 
 func (o LookupResolverRuleResultOutput) ToLookupResolverRuleResultOutputWithContext(ctx context.Context) LookupResolverRuleResultOutput {
 	return o
-}
-
-func (o LookupResolverRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResolverRuleResult] {
-	return pulumix.Output[LookupResolverRuleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the resolver rule.

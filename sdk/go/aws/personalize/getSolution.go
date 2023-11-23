@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Personalize::Solution.
@@ -64,12 +63,6 @@ func (o LookupSolutionResultOutput) ToLookupSolutionResultOutput() LookupSolutio
 
 func (o LookupSolutionResultOutput) ToLookupSolutionResultOutputWithContext(ctx context.Context) LookupSolutionResultOutput {
 	return o
-}
-
-func (o LookupSolutionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSolutionResult] {
-	return pulumix.Output[LookupSolutionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupSolutionResultOutput) SolutionArn() pulumi.StringPtrOutput {

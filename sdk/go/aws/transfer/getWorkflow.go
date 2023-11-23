@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Transfer::Workflow
@@ -71,12 +70,6 @@ func (o LookupWorkflowResultOutput) ToLookupWorkflowResultOutput() LookupWorkflo
 
 func (o LookupWorkflowResultOutput) ToLookupWorkflowResultOutputWithContext(ctx context.Context) LookupWorkflowResultOutput {
 	return o
-}
-
-func (o LookupWorkflowResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupWorkflowResult] {
-	return pulumix.Output[LookupWorkflowResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the unique Amazon Resource Name (ARN) for the workflow.

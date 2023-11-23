@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i PipelineLogPublishingOptionsArgs) ToPipelineLogPublishingOptionsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineLogPublishingOptionsOutput)
 }
 
-func (i PipelineLogPublishingOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineLogPublishingOptions] {
-	return pulumix.Output[PipelineLogPublishingOptions]{
-		OutputState: i.ToPipelineLogPublishingOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PipelineLogPublishingOptionsArgs) ToPipelineLogPublishingOptionsPtrOutput() PipelineLogPublishingOptionsPtrOutput {
 	return i.ToPipelineLogPublishingOptionsPtrOutputWithContext(context.Background())
 }
@@ -100,12 +93,6 @@ func (i *pipelineLogPublishingOptionsPtrType) ToPipelineLogPublishingOptionsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineLogPublishingOptionsPtrOutput)
 }
 
-func (i *pipelineLogPublishingOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipelineLogPublishingOptions] {
-	return pulumix.Output[*PipelineLogPublishingOptions]{
-		OutputState: i.ToPipelineLogPublishingOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Key-value pairs to configure log publishing.
 type PipelineLogPublishingOptionsOutput struct{ *pulumi.OutputState }
 
@@ -129,12 +116,6 @@ func (o PipelineLogPublishingOptionsOutput) ToPipelineLogPublishingOptionsPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineLogPublishingOptions) *PipelineLogPublishingOptions {
 		return &v
 	}).(PipelineLogPublishingOptionsPtrOutput)
-}
-
-func (o PipelineLogPublishingOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineLogPublishingOptions] {
-	return pulumix.Output[PipelineLogPublishingOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
@@ -161,12 +142,6 @@ func (o PipelineLogPublishingOptionsPtrOutput) ToPipelineLogPublishingOptionsPtr
 
 func (o PipelineLogPublishingOptionsPtrOutput) ToPipelineLogPublishingOptionsPtrOutputWithContext(ctx context.Context) PipelineLogPublishingOptionsPtrOutput {
 	return o
-}
-
-func (o PipelineLogPublishingOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipelineLogPublishingOptions] {
-	return pulumix.Output[*PipelineLogPublishingOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipelineLogPublishingOptionsPtrOutput) Elem() PipelineLogPublishingOptionsOutput {
@@ -232,12 +207,6 @@ func (i PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs) ToPi
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesOutput)
 }
 
-func (i PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineLogPublishingOptionsCloudWatchLogDestinationProperties] {
-	return pulumix.Output[PipelineLogPublishingOptionsCloudWatchLogDestinationProperties]{
-		OutputState: i.ToPipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs) ToPipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesPtrOutput() PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesPtrOutput {
 	return i.ToPipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesPtrOutputWithContext(context.Background())
 }
@@ -279,12 +248,6 @@ func (i *pipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesPtrType) 
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesPtrOutput)
 }
 
-func (i *pipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipelineLogPublishingOptionsCloudWatchLogDestinationProperties] {
-	return pulumix.Output[*PipelineLogPublishingOptionsCloudWatchLogDestinationProperties]{
-		OutputState: i.ToPipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
 type PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -310,12 +273,6 @@ func (o PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesOutput) To
 	}).(PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesPtrOutput)
 }
 
-func (o PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineLogPublishingOptionsCloudWatchLogDestinationProperties] {
-	return pulumix.Output[PipelineLogPublishingOptionsCloudWatchLogDestinationProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesOutput) LogGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineLogPublishingOptionsCloudWatchLogDestinationProperties) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
 }
@@ -332,12 +289,6 @@ func (o PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesPtrOutput)
 
 func (o PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesPtrOutput) ToPipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesPtrOutputWithContext(ctx context.Context) PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesPtrOutput {
 	return o
-}
-
-func (o PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipelineLogPublishingOptionsCloudWatchLogDestinationProperties] {
-	return pulumix.Output[*PipelineLogPublishingOptionsCloudWatchLogDestinationProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesPtrOutput) Elem() PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesOutput {
@@ -398,12 +349,6 @@ func (i PipelineTagArgs) ToPipelineTagOutputWithContext(ctx context.Context) Pip
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineTagOutput)
 }
 
-func (i PipelineTagArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineTag] {
-	return pulumix.Output[PipelineTag]{
-		OutputState: i.ToPipelineTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PipelineTagArrayInput is an input type that accepts PipelineTagArray and PipelineTagArrayOutput values.
 // You can construct a concrete instance of `PipelineTagArrayInput` via:
 //
@@ -429,12 +374,6 @@ func (i PipelineTagArray) ToPipelineTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineTagArrayOutput)
 }
 
-func (i PipelineTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PipelineTag] {
-	return pulumix.Output[[]PipelineTag]{
-		OutputState: i.ToPipelineTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type PipelineTagOutput struct{ *pulumi.OutputState }
 
@@ -448,12 +387,6 @@ func (o PipelineTagOutput) ToPipelineTagOutput() PipelineTagOutput {
 
 func (o PipelineTagOutput) ToPipelineTagOutputWithContext(ctx context.Context) PipelineTagOutput {
 	return o
-}
-
-func (o PipelineTagOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineTag] {
-	return pulumix.Output[PipelineTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -478,12 +411,6 @@ func (o PipelineTagArrayOutput) ToPipelineTagArrayOutput() PipelineTagArrayOutpu
 
 func (o PipelineTagArrayOutput) ToPipelineTagArrayOutputWithContext(ctx context.Context) PipelineTagArrayOutput {
 	return o
-}
-
-func (o PipelineTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PipelineTag] {
-	return pulumix.Output[[]PipelineTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipelineTagArrayOutput) Index(i pulumi.IntInput) PipelineTagOutput {
@@ -516,12 +443,6 @@ func (o PipelineVpcEndpointOutput) ToPipelineVpcEndpointOutputWithContext(ctx co
 	return o
 }
 
-func (o PipelineVpcEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineVpcEndpoint] {
-	return pulumix.Output[PipelineVpcEndpoint]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The unique identifier of the endpoint.
 func (o PipelineVpcEndpointOutput) VpcEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PipelineVpcEndpoint) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
@@ -548,12 +469,6 @@ func (o PipelineVpcEndpointArrayOutput) ToPipelineVpcEndpointArrayOutput() Pipel
 
 func (o PipelineVpcEndpointArrayOutput) ToPipelineVpcEndpointArrayOutputWithContext(ctx context.Context) PipelineVpcEndpointArrayOutput {
 	return o
-}
-
-func (o PipelineVpcEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PipelineVpcEndpoint] {
-	return pulumix.Output[[]PipelineVpcEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipelineVpcEndpointArrayOutput) Index(i pulumi.IntInput) PipelineVpcEndpointOutput {
@@ -601,12 +516,6 @@ func (i PipelineVpcOptionsArgs) ToPipelineVpcOptionsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineVpcOptionsOutput)
 }
 
-func (i PipelineVpcOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineVpcOptions] {
-	return pulumix.Output[PipelineVpcOptions]{
-		OutputState: i.ToPipelineVpcOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PipelineVpcOptionsArgs) ToPipelineVpcOptionsPtrOutput() PipelineVpcOptionsPtrOutput {
 	return i.ToPipelineVpcOptionsPtrOutputWithContext(context.Background())
 }
@@ -648,12 +557,6 @@ func (i *pipelineVpcOptionsPtrType) ToPipelineVpcOptionsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineVpcOptionsPtrOutput)
 }
 
-func (i *pipelineVpcOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipelineVpcOptions] {
-	return pulumix.Output[*PipelineVpcOptions]{
-		OutputState: i.ToPipelineVpcOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion Service creates the pipeline with a public endpoint.
 type PipelineVpcOptionsOutput struct{ *pulumi.OutputState }
 
@@ -679,12 +582,6 @@ func (o PipelineVpcOptionsOutput) ToPipelineVpcOptionsPtrOutputWithContext(ctx c
 	}).(PipelineVpcOptionsPtrOutput)
 }
 
-func (o PipelineVpcOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineVpcOptions] {
-	return pulumix.Output[PipelineVpcOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A list of security groups associated with the VPC endpoint.
 func (o PipelineVpcOptionsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PipelineVpcOptions) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
@@ -707,12 +604,6 @@ func (o PipelineVpcOptionsPtrOutput) ToPipelineVpcOptionsPtrOutput() PipelineVpc
 
 func (o PipelineVpcOptionsPtrOutput) ToPipelineVpcOptionsPtrOutputWithContext(ctx context.Context) PipelineVpcOptionsPtrOutput {
 	return o
-}
-
-func (o PipelineVpcOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipelineVpcOptions] {
-	return pulumix.Output[*PipelineVpcOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PipelineVpcOptionsPtrOutput) Elem() PipelineVpcOptionsOutput {

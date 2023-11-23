@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IVS::StreamKey
@@ -71,12 +70,6 @@ func (o LookupStreamKeyResultOutput) ToLookupStreamKeyResultOutput() LookupStrea
 
 func (o LookupStreamKeyResultOutput) ToLookupStreamKeyResultOutputWithContext(ctx context.Context) LookupStreamKeyResultOutput {
 	return o
-}
-
-func (o LookupStreamKeyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStreamKeyResult] {
-	return pulumix.Output[LookupStreamKeyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Stream Key ARN is automatically generated on creation and assigned as the unique identifier.

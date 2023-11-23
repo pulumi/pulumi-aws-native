@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Omics::SequenceStore Resource Type
@@ -68,12 +67,6 @@ func (o LookupSequenceStoreResultOutput) ToLookupSequenceStoreResultOutput() Loo
 
 func (o LookupSequenceStoreResultOutput) ToLookupSequenceStoreResultOutputWithContext(ctx context.Context) LookupSequenceStoreResultOutput {
 	return o
-}
-
-func (o LookupSequenceStoreResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSequenceStoreResult] {
-	return pulumix.Output[LookupSequenceStoreResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The store's ARN.

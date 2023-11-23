@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for StateMachineAlias
@@ -111,12 +110,6 @@ func (i *StateMachineAlias) ToStateMachineAliasOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(StateMachineAliasOutput)
 }
 
-func (i *StateMachineAlias) ToOutput(ctx context.Context) pulumix.Output[*StateMachineAlias] {
-	return pulumix.Output[*StateMachineAlias]{
-		OutputState: i.ToStateMachineAliasOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StateMachineAliasOutput struct{ *pulumi.OutputState }
 
 func (StateMachineAliasOutput) ElementType() reflect.Type {
@@ -129,12 +122,6 @@ func (o StateMachineAliasOutput) ToStateMachineAliasOutput() StateMachineAliasOu
 
 func (o StateMachineAliasOutput) ToStateMachineAliasOutputWithContext(ctx context.Context) StateMachineAliasOutput {
 	return o
-}
-
-func (o StateMachineAliasOutput) ToOutput(ctx context.Context) pulumix.Output[*StateMachineAlias] {
-	return pulumix.Output[*StateMachineAlias]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the alias.

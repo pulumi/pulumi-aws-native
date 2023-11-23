@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -43,12 +42,6 @@ func (i GitHubRepositoryCodeArgs) ToGitHubRepositoryCodeOutput() GitHubRepositor
 
 func (i GitHubRepositoryCodeArgs) ToGitHubRepositoryCodeOutputWithContext(ctx context.Context) GitHubRepositoryCodeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GitHubRepositoryCodeOutput)
-}
-
-func (i GitHubRepositoryCodeArgs) ToOutput(ctx context.Context) pulumix.Output[GitHubRepositoryCode] {
-	return pulumix.Output[GitHubRepositoryCode]{
-		OutputState: i.ToGitHubRepositoryCodeOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i GitHubRepositoryCodeArgs) ToGitHubRepositoryCodePtrOutput() GitHubRepositoryCodePtrOutput {
@@ -92,12 +85,6 @@ func (i *gitHubRepositoryCodePtrType) ToGitHubRepositoryCodePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(GitHubRepositoryCodePtrOutput)
 }
 
-func (i *gitHubRepositoryCodePtrType) ToOutput(ctx context.Context) pulumix.Output[*GitHubRepositoryCode] {
-	return pulumix.Output[*GitHubRepositoryCode]{
-		OutputState: i.ToGitHubRepositoryCodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GitHubRepositoryCodeOutput struct{ *pulumi.OutputState }
 
 func (GitHubRepositoryCodeOutput) ElementType() reflect.Type {
@@ -122,12 +109,6 @@ func (o GitHubRepositoryCodeOutput) ToGitHubRepositoryCodePtrOutputWithContext(c
 	}).(GitHubRepositoryCodePtrOutput)
 }
 
-func (o GitHubRepositoryCodeOutput) ToOutput(ctx context.Context) pulumix.Output[GitHubRepositoryCode] {
-	return pulumix.Output[GitHubRepositoryCode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GitHubRepositoryCodeOutput) S3() GitHubRepositoryS3Output {
 	return o.ApplyT(func(v GitHubRepositoryCode) GitHubRepositoryS3 { return v.S3 }).(GitHubRepositoryS3Output)
 }
@@ -144,12 +125,6 @@ func (o GitHubRepositoryCodePtrOutput) ToGitHubRepositoryCodePtrOutput() GitHubR
 
 func (o GitHubRepositoryCodePtrOutput) ToGitHubRepositoryCodePtrOutputWithContext(ctx context.Context) GitHubRepositoryCodePtrOutput {
 	return o
-}
-
-func (o GitHubRepositoryCodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GitHubRepositoryCode] {
-	return pulumix.Output[*GitHubRepositoryCode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GitHubRepositoryCodePtrOutput) Elem() GitHubRepositoryCodeOutput {
@@ -206,12 +181,6 @@ func (i GitHubRepositoryS3Args) ToGitHubRepositoryS3OutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GitHubRepositoryS3Output)
 }
 
-func (i GitHubRepositoryS3Args) ToOutput(ctx context.Context) pulumix.Output[GitHubRepositoryS3] {
-	return pulumix.Output[GitHubRepositoryS3]{
-		OutputState: i.ToGitHubRepositoryS3OutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GitHubRepositoryS3Args) ToGitHubRepositoryS3PtrOutput() GitHubRepositoryS3PtrOutput {
 	return i.ToGitHubRepositoryS3PtrOutputWithContext(context.Background())
 }
@@ -253,12 +222,6 @@ func (i *gitHubRepositoryS3PtrType) ToGitHubRepositoryS3PtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(GitHubRepositoryS3PtrOutput)
 }
 
-func (i *gitHubRepositoryS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*GitHubRepositoryS3] {
-	return pulumix.Output[*GitHubRepositoryS3]{
-		OutputState: i.ToGitHubRepositoryS3PtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GitHubRepositoryS3Output struct{ *pulumi.OutputState }
 
 func (GitHubRepositoryS3Output) ElementType() reflect.Type {
@@ -281,12 +244,6 @@ func (o GitHubRepositoryS3Output) ToGitHubRepositoryS3PtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GitHubRepositoryS3) *GitHubRepositoryS3 {
 		return &v
 	}).(GitHubRepositoryS3PtrOutput)
-}
-
-func (o GitHubRepositoryS3Output) ToOutput(ctx context.Context) pulumix.Output[GitHubRepositoryS3] {
-	return pulumix.Output[GitHubRepositoryS3]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GitHubRepositoryS3Output) Bucket() pulumi.StringOutput {
@@ -313,12 +270,6 @@ func (o GitHubRepositoryS3PtrOutput) ToGitHubRepositoryS3PtrOutput() GitHubRepos
 
 func (o GitHubRepositoryS3PtrOutput) ToGitHubRepositoryS3PtrOutputWithContext(ctx context.Context) GitHubRepositoryS3PtrOutput {
 	return o
-}
-
-func (o GitHubRepositoryS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GitHubRepositoryS3] {
-	return pulumix.Output[*GitHubRepositoryS3]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GitHubRepositoryS3PtrOutput) Elem() GitHubRepositoryS3Output {

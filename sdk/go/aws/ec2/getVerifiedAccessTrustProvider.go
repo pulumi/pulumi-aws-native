@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::EC2::VerifiedAccessTrustProvider type describes a verified access trust provider
@@ -78,12 +77,6 @@ func (o LookupVerifiedAccessTrustProviderResultOutput) ToLookupVerifiedAccessTru
 
 func (o LookupVerifiedAccessTrustProviderResultOutput) ToLookupVerifiedAccessTrustProviderResultOutputWithContext(ctx context.Context) LookupVerifiedAccessTrustProviderResultOutput {
 	return o
-}
-
-func (o LookupVerifiedAccessTrustProviderResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVerifiedAccessTrustProviderResult] {
-	return pulumix.Output[LookupVerifiedAccessTrustProviderResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The creation time.

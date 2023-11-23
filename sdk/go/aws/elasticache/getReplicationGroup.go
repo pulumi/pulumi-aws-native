@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ElastiCache::ReplicationGroup
@@ -99,12 +98,6 @@ func (o LookupReplicationGroupResultOutput) ToLookupReplicationGroupResultOutput
 
 func (o LookupReplicationGroupResultOutput) ToLookupReplicationGroupResultOutputWithContext(ctx context.Context) LookupReplicationGroupResultOutput {
 	return o
-}
-
-func (o LookupReplicationGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupReplicationGroupResult] {
-	return pulumix.Output[LookupReplicationGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupReplicationGroupResultOutput) AuthToken() pulumi.StringPtrOutput {

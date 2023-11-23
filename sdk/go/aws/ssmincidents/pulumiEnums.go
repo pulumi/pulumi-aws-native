@@ -79,12 +79,6 @@ func (o ResponsePlanSsmAutomationTargetAccountOutput) ToResponsePlanSsmAutomatio
 	}).(ResponsePlanSsmAutomationTargetAccountPtrOutput)
 }
 
-func (o ResponsePlanSsmAutomationTargetAccountOutput) ToOutput(ctx context.Context) pulumix.Output[ResponsePlanSsmAutomationTargetAccount] {
-	return pulumix.Output[ResponsePlanSsmAutomationTargetAccount]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResponsePlanSsmAutomationTargetAccountOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o ResponsePlanSsmAutomationTargetAccountPtrOutput) ToResponsePlanSsmAutoma
 
 func (o ResponsePlanSsmAutomationTargetAccountPtrOutput) ToResponsePlanSsmAutomationTargetAccountPtrOutputWithContext(ctx context.Context) ResponsePlanSsmAutomationTargetAccountPtrOutput {
 	return o
-}
-
-func (o ResponsePlanSsmAutomationTargetAccountPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResponsePlanSsmAutomationTargetAccount] {
-	return pulumix.Output[*ResponsePlanSsmAutomationTargetAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResponsePlanSsmAutomationTargetAccountPtrOutput) Elem() ResponsePlanSsmAutomationTargetAccountOutput {
@@ -262,12 +250,6 @@ func (o ResponsePlanVariableTypeOutput) ToResponsePlanVariableTypePtrOutputWithC
 	}).(ResponsePlanVariableTypePtrOutput)
 }
 
-func (o ResponsePlanVariableTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ResponsePlanVariableType] {
-	return pulumix.Output[ResponsePlanVariableType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResponsePlanVariableTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +283,6 @@ func (o ResponsePlanVariableTypePtrOutput) ToResponsePlanVariableTypePtrOutput()
 
 func (o ResponsePlanVariableTypePtrOutput) ToResponsePlanVariableTypePtrOutputWithContext(ctx context.Context) ResponsePlanVariableTypePtrOutput {
 	return o
-}
-
-func (o ResponsePlanVariableTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResponsePlanVariableType] {
-	return pulumix.Output[*ResponsePlanVariableType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResponsePlanVariableTypePtrOutput) Elem() ResponsePlanVariableTypeOutput {

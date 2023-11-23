@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
@@ -115,12 +114,6 @@ func (i *ExtensionAssociation) ToExtensionAssociationOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionAssociationOutput)
 }
 
-func (i *ExtensionAssociation) ToOutput(ctx context.Context) pulumix.Output[*ExtensionAssociation] {
-	return pulumix.Output[*ExtensionAssociation]{
-		OutputState: i.ToExtensionAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ExtensionAssociationOutput struct{ *pulumi.OutputState }
 
 func (ExtensionAssociationOutput) ElementType() reflect.Type {
@@ -133,12 +126,6 @@ func (o ExtensionAssociationOutput) ToExtensionAssociationOutput() ExtensionAsso
 
 func (o ExtensionAssociationOutput) ToExtensionAssociationOutputWithContext(ctx context.Context) ExtensionAssociationOutput {
 	return o
-}
-
-func (o ExtensionAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ExtensionAssociation] {
-	return pulumix.Output[*ExtensionAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ExtensionAssociationOutput) Arn() pulumi.StringOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ServiceCatalog::LaunchTemplateConstraint
@@ -119,12 +118,6 @@ func (i *LaunchTemplateConstraint) ToLaunchTemplateConstraintOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateConstraintOutput)
 }
 
-func (i *LaunchTemplateConstraint) ToOutput(ctx context.Context) pulumix.Output[*LaunchTemplateConstraint] {
-	return pulumix.Output[*LaunchTemplateConstraint]{
-		OutputState: i.ToLaunchTemplateConstraintOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LaunchTemplateConstraintOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateConstraintOutput) ElementType() reflect.Type {
@@ -137,12 +130,6 @@ func (o LaunchTemplateConstraintOutput) ToLaunchTemplateConstraintOutput() Launc
 
 func (o LaunchTemplateConstraintOutput) ToLaunchTemplateConstraintOutputWithContext(ctx context.Context) LaunchTemplateConstraintOutput {
 	return o
-}
-
-func (o LaunchTemplateConstraintOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchTemplateConstraint] {
-	return pulumix.Output[*LaunchTemplateConstraint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LaunchTemplateConstraintOutput) AcceptLanguage() pulumi.StringPtrOutput {

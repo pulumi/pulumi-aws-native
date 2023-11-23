@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::CapacityReservationFleet
@@ -67,12 +66,6 @@ func (o LookupCapacityReservationFleetResultOutput) ToLookupCapacityReservationF
 
 func (o LookupCapacityReservationFleetResultOutput) ToLookupCapacityReservationFleetResultOutputWithContext(ctx context.Context) LookupCapacityReservationFleetResultOutput {
 	return o
-}
-
-func (o LookupCapacityReservationFleetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCapacityReservationFleetResult] {
-	return pulumix.Output[LookupCapacityReservationFleetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupCapacityReservationFleetResultOutput) CapacityReservationFleetId() pulumi.StringPtrOutput {

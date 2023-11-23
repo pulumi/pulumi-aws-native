@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ServiceCatalog::Portfolio
@@ -112,12 +111,6 @@ func (i *Portfolio) ToPortfolioOutputWithContext(ctx context.Context) PortfolioO
 	return pulumi.ToOutputWithContext(ctx, i).(PortfolioOutput)
 }
 
-func (i *Portfolio) ToOutput(ctx context.Context) pulumix.Output[*Portfolio] {
-	return pulumix.Output[*Portfolio]{
-		OutputState: i.ToPortfolioOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PortfolioOutput struct{ *pulumi.OutputState }
 
 func (PortfolioOutput) ElementType() reflect.Type {
@@ -130,12 +123,6 @@ func (o PortfolioOutput) ToPortfolioOutput() PortfolioOutput {
 
 func (o PortfolioOutput) ToPortfolioOutputWithContext(ctx context.Context) PortfolioOutput {
 	return o
-}
-
-func (o PortfolioOutput) ToOutput(ctx context.Context) pulumix.Output[*Portfolio] {
-	return pulumix.Output[*Portfolio]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PortfolioOutput) AcceptLanguage() pulumi.StringPtrOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for SQS QueueInlinePolicy
@@ -110,12 +109,6 @@ func (i *QueueInlinePolicy) ToQueueInlinePolicyOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(QueueInlinePolicyOutput)
 }
 
-func (i *QueueInlinePolicy) ToOutput(ctx context.Context) pulumix.Output[*QueueInlinePolicy] {
-	return pulumix.Output[*QueueInlinePolicy]{
-		OutputState: i.ToQueueInlinePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 type QueueInlinePolicyOutput struct{ *pulumi.OutputState }
 
 func (QueueInlinePolicyOutput) ElementType() reflect.Type {
@@ -128,12 +121,6 @@ func (o QueueInlinePolicyOutput) ToQueueInlinePolicyOutput() QueueInlinePolicyOu
 
 func (o QueueInlinePolicyOutput) ToQueueInlinePolicyOutputWithContext(ctx context.Context) QueueInlinePolicyOutput {
 	return o
-}
-
-func (o QueueInlinePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*QueueInlinePolicy] {
-	return pulumix.Output[*QueueInlinePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A policy document that contains permissions to add to the specified SQS queue

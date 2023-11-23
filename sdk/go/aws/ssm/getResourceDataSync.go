@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SSM::ResourceDataSync
@@ -64,12 +63,6 @@ func (o LookupResourceDataSyncResultOutput) ToLookupResourceDataSyncResultOutput
 
 func (o LookupResourceDataSyncResultOutput) ToLookupResourceDataSyncResultOutputWithContext(ctx context.Context) LookupResourceDataSyncResultOutput {
 	return o
-}
-
-func (o LookupResourceDataSyncResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResourceDataSyncResult] {
-	return pulumix.Output[LookupResourceDataSyncResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupResourceDataSyncResultOutput) SyncSource() ResourceDataSyncSyncSourcePtrOutput {

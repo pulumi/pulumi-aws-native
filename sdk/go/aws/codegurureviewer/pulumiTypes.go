@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i RepositoryAssociationTagArgs) ToRepositoryAssociationTagOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAssociationTagOutput)
 }
 
-func (i RepositoryAssociationTagArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryAssociationTag] {
-	return pulumix.Output[RepositoryAssociationTag]{
-		OutputState: i.ToRepositoryAssociationTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryAssociationTagArrayInput is an input type that accepts RepositoryAssociationTagArray and RepositoryAssociationTagArrayOutput values.
 // You can construct a concrete instance of `RepositoryAssociationTagArrayInput` via:
 //
@@ -84,12 +77,6 @@ func (i RepositoryAssociationTagArray) ToRepositoryAssociationTagArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryAssociationTagArrayOutput)
 }
 
-func (i RepositoryAssociationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryAssociationTag] {
-	return pulumix.Output[[]RepositoryAssociationTag]{
-		OutputState: i.ToRepositoryAssociationTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type RepositoryAssociationTagOutput struct{ *pulumi.OutputState }
 
@@ -103,12 +90,6 @@ func (o RepositoryAssociationTagOutput) ToRepositoryAssociationTagOutput() Repos
 
 func (o RepositoryAssociationTagOutput) ToRepositoryAssociationTagOutputWithContext(ctx context.Context) RepositoryAssociationTagOutput {
 	return o
-}
-
-func (o RepositoryAssociationTagOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryAssociationTag] {
-	return pulumix.Output[RepositoryAssociationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. The allowed characters across services are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.
@@ -133,12 +114,6 @@ func (o RepositoryAssociationTagArrayOutput) ToRepositoryAssociationTagArrayOutp
 
 func (o RepositoryAssociationTagArrayOutput) ToRepositoryAssociationTagArrayOutputWithContext(ctx context.Context) RepositoryAssociationTagArrayOutput {
 	return o
-}
-
-func (o RepositoryAssociationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryAssociationTag] {
-	return pulumix.Output[[]RepositoryAssociationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryAssociationTagArrayOutput) Index(i pulumi.IntInput) RepositoryAssociationTagOutput {

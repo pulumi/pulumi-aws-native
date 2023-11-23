@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for AWS Config ConfigRule
@@ -83,12 +82,6 @@ func (o LookupConfigRuleResultOutput) ToLookupConfigRuleResultOutput() LookupCon
 
 func (o LookupConfigRuleResultOutput) ToLookupConfigRuleResultOutputWithContext(ctx context.Context) LookupConfigRuleResultOutput {
 	return o
-}
-
-func (o LookupConfigRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConfigRuleResult] {
-	return pulumix.Output[LookupConfigRuleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN generated for the AWS Config rule

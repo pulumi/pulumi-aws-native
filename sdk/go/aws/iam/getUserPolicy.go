@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for IAM User Policy
@@ -71,12 +70,6 @@ func (o LookupUserPolicyResultOutput) ToLookupUserPolicyResultOutput() LookupUse
 
 func (o LookupUserPolicyResultOutput) ToLookupUserPolicyResultOutputWithContext(ctx context.Context) LookupUserPolicyResultOutput {
 	return o
-}
-
-func (o LookupUserPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupUserPolicyResult] {
-	return pulumix.Output[LookupUserPolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The policy document.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataSync::StorageSystem.
@@ -82,12 +81,6 @@ func (o LookupStorageSystemResultOutput) ToLookupStorageSystemResultOutput() Loo
 
 func (o LookupStorageSystemResultOutput) ToLookupStorageSystemResultOutputWithContext(ctx context.Context) LookupStorageSystemResultOutput {
 	return o
-}
-
-func (o LookupStorageSystemResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStorageSystemResult] {
-	return pulumix.Output[LookupStorageSystemResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the DataSync agent that connects to and reads from the on-premises storage system's management interface.

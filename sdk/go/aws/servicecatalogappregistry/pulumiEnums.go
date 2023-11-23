@@ -78,12 +78,6 @@ func (o ResourceAssociationResourceTypeOutput) ToResourceAssociationResourceType
 	}).(ResourceAssociationResourceTypePtrOutput)
 }
 
-func (o ResourceAssociationResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceAssociationResourceType] {
-	return pulumix.Output[ResourceAssociationResourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceAssociationResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o ResourceAssociationResourceTypePtrOutput) ToResourceAssociationResourceT
 
 func (o ResourceAssociationResourceTypePtrOutput) ToResourceAssociationResourceTypePtrOutputWithContext(ctx context.Context) ResourceAssociationResourceTypePtrOutput {
 	return o
-}
-
-func (o ResourceAssociationResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceAssociationResourceType] {
-	return pulumix.Output[*ResourceAssociationResourceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceAssociationResourceTypePtrOutput) Elem() ResourceAssociationResourceTypeOutput {

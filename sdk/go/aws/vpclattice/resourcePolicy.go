@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Retrieves information about the resource policy. The resource policy is an IAM policy created by AWS RAM on behalf of the resource owner when they share a resource.
@@ -104,12 +103,6 @@ func (i *ResourcePolicy) ToResourcePolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyOutput)
 }
 
-func (i *ResourcePolicy) ToOutput(ctx context.Context) pulumix.Output[*ResourcePolicy] {
-	return pulumix.Output[*ResourcePolicy]{
-		OutputState: i.ToResourcePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourcePolicyOutput struct{ *pulumi.OutputState }
 
 func (ResourcePolicyOutput) ElementType() reflect.Type {
@@ -122,12 +115,6 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutput() ResourcePolicyOutput {
 
 func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Context) ResourcePolicyOutput {
 	return o
-}
-
-func (o ResourcePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourcePolicy] {
-	return pulumix.Output[*ResourcePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourcePolicyOutput) Policy() pulumi.AnyOutput {

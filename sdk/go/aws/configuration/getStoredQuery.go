@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Config::StoredQuery
@@ -69,12 +68,6 @@ func (o LookupStoredQueryResultOutput) ToLookupStoredQueryResultOutput() LookupS
 
 func (o LookupStoredQueryResultOutput) ToLookupStoredQueryResultOutputWithContext(ctx context.Context) LookupStoredQueryResultOutput {
 	return o
-}
-
-func (o LookupStoredQueryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStoredQueryResult] {
-	return pulumix.Output[LookupStoredQueryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupStoredQueryResultOutput) QueryArn() pulumi.StringPtrOutput {

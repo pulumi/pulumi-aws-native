@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -59,12 +58,6 @@ func (i ListenerActionArgs) ToListenerActionOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerActionOutput)
 }
 
-func (i ListenerActionArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerAction] {
-	return pulumix.Output[ListenerAction]{
-		OutputState: i.ToListenerActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ListenerActionArrayInput is an input type that accepts ListenerActionArray and ListenerActionArrayOutput values.
 // You can construct a concrete instance of `ListenerActionArrayInput` via:
 //
@@ -90,12 +83,6 @@ func (i ListenerActionArray) ToListenerActionArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerActionArrayOutput)
 }
 
-func (i ListenerActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ListenerAction] {
-	return pulumix.Output[[]ListenerAction]{
-		OutputState: i.ToListenerActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerActionOutput struct{ *pulumi.OutputState }
 
 func (ListenerActionOutput) ElementType() reflect.Type {
@@ -108,12 +95,6 @@ func (o ListenerActionOutput) ToListenerActionOutput() ListenerActionOutput {
 
 func (o ListenerActionOutput) ToListenerActionOutputWithContext(ctx context.Context) ListenerActionOutput {
 	return o
-}
-
-func (o ListenerActionOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerAction] {
-	return pulumix.Output[ListenerAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerActionOutput) AuthenticateCognitoConfig() ListenerAuthenticateCognitoConfigPtrOutput {
@@ -160,12 +141,6 @@ func (o ListenerActionArrayOutput) ToListenerActionArrayOutput() ListenerActionA
 
 func (o ListenerActionArrayOutput) ToListenerActionArrayOutputWithContext(ctx context.Context) ListenerActionArrayOutput {
 	return o
-}
-
-func (o ListenerActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ListenerAction] {
-	return pulumix.Output[[]ListenerAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerActionArrayOutput) Index(i pulumi.IntInput) ListenerActionOutput {
@@ -219,12 +194,6 @@ func (i ListenerAuthenticateCognitoConfigArgs) ToListenerAuthenticateCognitoConf
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerAuthenticateCognitoConfigOutput)
 }
 
-func (i ListenerAuthenticateCognitoConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerAuthenticateCognitoConfig] {
-	return pulumix.Output[ListenerAuthenticateCognitoConfig]{
-		OutputState: i.ToListenerAuthenticateCognitoConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerAuthenticateCognitoConfigArgs) ToListenerAuthenticateCognitoConfigPtrOutput() ListenerAuthenticateCognitoConfigPtrOutput {
 	return i.ToListenerAuthenticateCognitoConfigPtrOutputWithContext(context.Background())
 }
@@ -266,12 +235,6 @@ func (i *listenerAuthenticateCognitoConfigPtrType) ToListenerAuthenticateCognito
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerAuthenticateCognitoConfigPtrOutput)
 }
 
-func (i *listenerAuthenticateCognitoConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerAuthenticateCognitoConfig] {
-	return pulumix.Output[*ListenerAuthenticateCognitoConfig]{
-		OutputState: i.ToListenerAuthenticateCognitoConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerAuthenticateCognitoConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerAuthenticateCognitoConfigOutput) ElementType() reflect.Type {
@@ -294,12 +257,6 @@ func (o ListenerAuthenticateCognitoConfigOutput) ToListenerAuthenticateCognitoCo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerAuthenticateCognitoConfig) *ListenerAuthenticateCognitoConfig {
 		return &v
 	}).(ListenerAuthenticateCognitoConfigPtrOutput)
-}
-
-func (o ListenerAuthenticateCognitoConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerAuthenticateCognitoConfig] {
-	return pulumix.Output[ListenerAuthenticateCognitoConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerAuthenticateCognitoConfigOutput) AuthenticationRequestExtraParams() pulumi.AnyOutput {
@@ -346,12 +303,6 @@ func (o ListenerAuthenticateCognitoConfigPtrOutput) ToListenerAuthenticateCognit
 
 func (o ListenerAuthenticateCognitoConfigPtrOutput) ToListenerAuthenticateCognitoConfigPtrOutputWithContext(ctx context.Context) ListenerAuthenticateCognitoConfigPtrOutput {
 	return o
-}
-
-func (o ListenerAuthenticateCognitoConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerAuthenticateCognitoConfig] {
-	return pulumix.Output[*ListenerAuthenticateCognitoConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerAuthenticateCognitoConfigPtrOutput) Elem() ListenerAuthenticateCognitoConfigOutput {
@@ -489,12 +440,6 @@ func (i ListenerAuthenticateOidcConfigArgs) ToListenerAuthenticateOidcConfigOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerAuthenticateOidcConfigOutput)
 }
 
-func (i ListenerAuthenticateOidcConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerAuthenticateOidcConfig] {
-	return pulumix.Output[ListenerAuthenticateOidcConfig]{
-		OutputState: i.ToListenerAuthenticateOidcConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerAuthenticateOidcConfigArgs) ToListenerAuthenticateOidcConfigPtrOutput() ListenerAuthenticateOidcConfigPtrOutput {
 	return i.ToListenerAuthenticateOidcConfigPtrOutputWithContext(context.Background())
 }
@@ -536,12 +481,6 @@ func (i *listenerAuthenticateOidcConfigPtrType) ToListenerAuthenticateOidcConfig
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerAuthenticateOidcConfigPtrOutput)
 }
 
-func (i *listenerAuthenticateOidcConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerAuthenticateOidcConfig] {
-	return pulumix.Output[*ListenerAuthenticateOidcConfig]{
-		OutputState: i.ToListenerAuthenticateOidcConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerAuthenticateOidcConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerAuthenticateOidcConfigOutput) ElementType() reflect.Type {
@@ -564,12 +503,6 @@ func (o ListenerAuthenticateOidcConfigOutput) ToListenerAuthenticateOidcConfigPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerAuthenticateOidcConfig) *ListenerAuthenticateOidcConfig {
 		return &v
 	}).(ListenerAuthenticateOidcConfigPtrOutput)
-}
-
-func (o ListenerAuthenticateOidcConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerAuthenticateOidcConfig] {
-	return pulumix.Output[ListenerAuthenticateOidcConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerAuthenticateOidcConfigOutput) AuthenticationRequestExtraParams() pulumi.AnyOutput {
@@ -632,12 +565,6 @@ func (o ListenerAuthenticateOidcConfigPtrOutput) ToListenerAuthenticateOidcConfi
 
 func (o ListenerAuthenticateOidcConfigPtrOutput) ToListenerAuthenticateOidcConfigPtrOutputWithContext(ctx context.Context) ListenerAuthenticateOidcConfigPtrOutput {
 	return o
-}
-
-func (o ListenerAuthenticateOidcConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerAuthenticateOidcConfig] {
-	return pulumix.Output[*ListenerAuthenticateOidcConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerAuthenticateOidcConfigPtrOutput) Elem() ListenerAuthenticateOidcConfigOutput {
@@ -789,12 +716,6 @@ func (i ListenerCertificateTypeArgs) ToListenerCertificateTypeOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificateTypeOutput)
 }
 
-func (i ListenerCertificateTypeArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerCertificateType] {
-	return pulumix.Output[ListenerCertificateType]{
-		OutputState: i.ToListenerCertificateTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ListenerCertificateTypeArrayInput is an input type that accepts ListenerCertificateTypeArray and ListenerCertificateTypeArrayOutput values.
 // You can construct a concrete instance of `ListenerCertificateTypeArrayInput` via:
 //
@@ -820,12 +741,6 @@ func (i ListenerCertificateTypeArray) ToListenerCertificateTypeArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificateTypeArrayOutput)
 }
 
-func (i ListenerCertificateTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]ListenerCertificateType] {
-	return pulumix.Output[[]ListenerCertificateType]{
-		OutputState: i.ToListenerCertificateTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerCertificateTypeOutput struct{ *pulumi.OutputState }
 
 func (ListenerCertificateTypeOutput) ElementType() reflect.Type {
@@ -838,12 +753,6 @@ func (o ListenerCertificateTypeOutput) ToListenerCertificateTypeOutput() Listene
 
 func (o ListenerCertificateTypeOutput) ToListenerCertificateTypeOutputWithContext(ctx context.Context) ListenerCertificateTypeOutput {
 	return o
-}
-
-func (o ListenerCertificateTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerCertificateType] {
-	return pulumix.Output[ListenerCertificateType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerCertificateTypeOutput) CertificateArn() pulumi.StringPtrOutput {
@@ -862,12 +771,6 @@ func (o ListenerCertificateTypeArrayOutput) ToListenerCertificateTypeArrayOutput
 
 func (o ListenerCertificateTypeArrayOutput) ToListenerCertificateTypeArrayOutputWithContext(ctx context.Context) ListenerCertificateTypeArrayOutput {
 	return o
-}
-
-func (o ListenerCertificateTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ListenerCertificateType] {
-	return pulumix.Output[[]ListenerCertificateType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerCertificateTypeArrayOutput) Index(i pulumi.IntInput) ListenerCertificateTypeOutput {
@@ -907,12 +810,6 @@ func (i ListenerCertificateCertificateArgs) ToListenerCertificateCertificateOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificateCertificateOutput)
 }
 
-func (i ListenerCertificateCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerCertificateCertificate] {
-	return pulumix.Output[ListenerCertificateCertificate]{
-		OutputState: i.ToListenerCertificateCertificateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ListenerCertificateCertificateArrayInput is an input type that accepts ListenerCertificateCertificateArray and ListenerCertificateCertificateArrayOutput values.
 // You can construct a concrete instance of `ListenerCertificateCertificateArrayInput` via:
 //
@@ -938,12 +835,6 @@ func (i ListenerCertificateCertificateArray) ToListenerCertificateCertificateArr
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerCertificateCertificateArrayOutput)
 }
 
-func (i ListenerCertificateCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]ListenerCertificateCertificate] {
-	return pulumix.Output[[]ListenerCertificateCertificate]{
-		OutputState: i.ToListenerCertificateCertificateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerCertificateCertificateOutput struct{ *pulumi.OutputState }
 
 func (ListenerCertificateCertificateOutput) ElementType() reflect.Type {
@@ -956,12 +847,6 @@ func (o ListenerCertificateCertificateOutput) ToListenerCertificateCertificateOu
 
 func (o ListenerCertificateCertificateOutput) ToListenerCertificateCertificateOutputWithContext(ctx context.Context) ListenerCertificateCertificateOutput {
 	return o
-}
-
-func (o ListenerCertificateCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerCertificateCertificate] {
-	return pulumix.Output[ListenerCertificateCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerCertificateCertificateOutput) CertificateArn() pulumi.StringPtrOutput {
@@ -980,12 +865,6 @@ func (o ListenerCertificateCertificateArrayOutput) ToListenerCertificateCertific
 
 func (o ListenerCertificateCertificateArrayOutput) ToListenerCertificateCertificateArrayOutputWithContext(ctx context.Context) ListenerCertificateCertificateArrayOutput {
 	return o
-}
-
-func (o ListenerCertificateCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ListenerCertificateCertificate] {
-	return pulumix.Output[[]ListenerCertificateCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerCertificateCertificateArrayOutput) Index(i pulumi.IntInput) ListenerCertificateCertificateOutput {
@@ -1029,12 +908,6 @@ func (i ListenerFixedResponseConfigArgs) ToListenerFixedResponseConfigOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerFixedResponseConfigOutput)
 }
 
-func (i ListenerFixedResponseConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerFixedResponseConfig] {
-	return pulumix.Output[ListenerFixedResponseConfig]{
-		OutputState: i.ToListenerFixedResponseConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerFixedResponseConfigArgs) ToListenerFixedResponseConfigPtrOutput() ListenerFixedResponseConfigPtrOutput {
 	return i.ToListenerFixedResponseConfigPtrOutputWithContext(context.Background())
 }
@@ -1076,12 +949,6 @@ func (i *listenerFixedResponseConfigPtrType) ToListenerFixedResponseConfigPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerFixedResponseConfigPtrOutput)
 }
 
-func (i *listenerFixedResponseConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerFixedResponseConfig] {
-	return pulumix.Output[*ListenerFixedResponseConfig]{
-		OutputState: i.ToListenerFixedResponseConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerFixedResponseConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerFixedResponseConfigOutput) ElementType() reflect.Type {
@@ -1104,12 +971,6 @@ func (o ListenerFixedResponseConfigOutput) ToListenerFixedResponseConfigPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerFixedResponseConfig) *ListenerFixedResponseConfig {
 		return &v
 	}).(ListenerFixedResponseConfigPtrOutput)
-}
-
-func (o ListenerFixedResponseConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerFixedResponseConfig] {
-	return pulumix.Output[ListenerFixedResponseConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerFixedResponseConfigOutput) ContentType() pulumi.StringPtrOutput {
@@ -1136,12 +997,6 @@ func (o ListenerFixedResponseConfigPtrOutput) ToListenerFixedResponseConfigPtrOu
 
 func (o ListenerFixedResponseConfigPtrOutput) ToListenerFixedResponseConfigPtrOutputWithContext(ctx context.Context) ListenerFixedResponseConfigPtrOutput {
 	return o
-}
-
-func (o ListenerFixedResponseConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerFixedResponseConfig] {
-	return pulumix.Output[*ListenerFixedResponseConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerFixedResponseConfigPtrOutput) Elem() ListenerFixedResponseConfigOutput {
@@ -1214,12 +1069,6 @@ func (i ListenerForwardConfigArgs) ToListenerForwardConfigOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerForwardConfigOutput)
 }
 
-func (i ListenerForwardConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerForwardConfig] {
-	return pulumix.Output[ListenerForwardConfig]{
-		OutputState: i.ToListenerForwardConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerForwardConfigArgs) ToListenerForwardConfigPtrOutput() ListenerForwardConfigPtrOutput {
 	return i.ToListenerForwardConfigPtrOutputWithContext(context.Background())
 }
@@ -1261,12 +1110,6 @@ func (i *listenerForwardConfigPtrType) ToListenerForwardConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerForwardConfigPtrOutput)
 }
 
-func (i *listenerForwardConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerForwardConfig] {
-	return pulumix.Output[*ListenerForwardConfig]{
-		OutputState: i.ToListenerForwardConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerForwardConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerForwardConfigOutput) ElementType() reflect.Type {
@@ -1291,12 +1134,6 @@ func (o ListenerForwardConfigOutput) ToListenerForwardConfigPtrOutputWithContext
 	}).(ListenerForwardConfigPtrOutput)
 }
 
-func (o ListenerForwardConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerForwardConfig] {
-	return pulumix.Output[ListenerForwardConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ListenerForwardConfigOutput) TargetGroupStickinessConfig() ListenerTargetGroupStickinessConfigPtrOutput {
 	return o.ApplyT(func(v ListenerForwardConfig) *ListenerTargetGroupStickinessConfig {
 		return v.TargetGroupStickinessConfig
@@ -1319,12 +1156,6 @@ func (o ListenerForwardConfigPtrOutput) ToListenerForwardConfigPtrOutput() Liste
 
 func (o ListenerForwardConfigPtrOutput) ToListenerForwardConfigPtrOutputWithContext(ctx context.Context) ListenerForwardConfigPtrOutput {
 	return o
-}
-
-func (o ListenerForwardConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerForwardConfig] {
-	return pulumix.Output[*ListenerForwardConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerForwardConfigPtrOutput) Elem() ListenerForwardConfigOutput {
@@ -1396,12 +1227,6 @@ func (i ListenerRedirectConfigArgs) ToListenerRedirectConfigOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRedirectConfigOutput)
 }
 
-func (i ListenerRedirectConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRedirectConfig] {
-	return pulumix.Output[ListenerRedirectConfig]{
-		OutputState: i.ToListenerRedirectConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerRedirectConfigArgs) ToListenerRedirectConfigPtrOutput() ListenerRedirectConfigPtrOutput {
 	return i.ToListenerRedirectConfigPtrOutputWithContext(context.Background())
 }
@@ -1443,12 +1268,6 @@ func (i *listenerRedirectConfigPtrType) ToListenerRedirectConfigPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRedirectConfigPtrOutput)
 }
 
-func (i *listenerRedirectConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerRedirectConfig] {
-	return pulumix.Output[*ListenerRedirectConfig]{
-		OutputState: i.ToListenerRedirectConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRedirectConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRedirectConfigOutput) ElementType() reflect.Type {
@@ -1471,12 +1290,6 @@ func (o ListenerRedirectConfigOutput) ToListenerRedirectConfigPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRedirectConfig) *ListenerRedirectConfig {
 		return &v
 	}).(ListenerRedirectConfigPtrOutput)
-}
-
-func (o ListenerRedirectConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRedirectConfig] {
-	return pulumix.Output[ListenerRedirectConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRedirectConfigOutput) Host() pulumi.StringPtrOutput {
@@ -1515,12 +1328,6 @@ func (o ListenerRedirectConfigPtrOutput) ToListenerRedirectConfigPtrOutput() Lis
 
 func (o ListenerRedirectConfigPtrOutput) ToListenerRedirectConfigPtrOutputWithContext(ctx context.Context) ListenerRedirectConfigPtrOutput {
 	return o
-}
-
-func (o ListenerRedirectConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerRedirectConfig] {
-	return pulumix.Output[*ListenerRedirectConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRedirectConfigPtrOutput) Elem() ListenerRedirectConfigOutput {
@@ -1632,12 +1439,6 @@ func (i ListenerRuleActionArgs) ToListenerRuleActionOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionOutput)
 }
 
-func (i ListenerRuleActionArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleAction] {
-	return pulumix.Output[ListenerRuleAction]{
-		OutputState: i.ToListenerRuleActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ListenerRuleActionArrayInput is an input type that accepts ListenerRuleActionArray and ListenerRuleActionArrayOutput values.
 // You can construct a concrete instance of `ListenerRuleActionArrayInput` via:
 //
@@ -1663,12 +1464,6 @@ func (i ListenerRuleActionArray) ToListenerRuleActionArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleActionArrayOutput)
 }
 
-func (i ListenerRuleActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ListenerRuleAction] {
-	return pulumix.Output[[]ListenerRuleAction]{
-		OutputState: i.ToListenerRuleActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleActionOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleActionOutput) ElementType() reflect.Type {
@@ -1681,12 +1476,6 @@ func (o ListenerRuleActionOutput) ToListenerRuleActionOutput() ListenerRuleActio
 
 func (o ListenerRuleActionOutput) ToListenerRuleActionOutputWithContext(ctx context.Context) ListenerRuleActionOutput {
 	return o
-}
-
-func (o ListenerRuleActionOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleAction] {
-	return pulumix.Output[ListenerRuleAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleActionOutput) AuthenticateCognitoConfig() ListenerRuleAuthenticateCognitoConfigPtrOutput {
@@ -1733,12 +1522,6 @@ func (o ListenerRuleActionArrayOutput) ToListenerRuleActionArrayOutput() Listene
 
 func (o ListenerRuleActionArrayOutput) ToListenerRuleActionArrayOutputWithContext(ctx context.Context) ListenerRuleActionArrayOutput {
 	return o
-}
-
-func (o ListenerRuleActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ListenerRuleAction] {
-	return pulumix.Output[[]ListenerRuleAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleActionArrayOutput) Index(i pulumi.IntInput) ListenerRuleActionOutput {
@@ -1792,12 +1575,6 @@ func (i ListenerRuleAuthenticateCognitoConfigArgs) ToListenerRuleAuthenticateCog
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleAuthenticateCognitoConfigOutput)
 }
 
-func (i ListenerRuleAuthenticateCognitoConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleAuthenticateCognitoConfig] {
-	return pulumix.Output[ListenerRuleAuthenticateCognitoConfig]{
-		OutputState: i.ToListenerRuleAuthenticateCognitoConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerRuleAuthenticateCognitoConfigArgs) ToListenerRuleAuthenticateCognitoConfigPtrOutput() ListenerRuleAuthenticateCognitoConfigPtrOutput {
 	return i.ToListenerRuleAuthenticateCognitoConfigPtrOutputWithContext(context.Background())
 }
@@ -1839,12 +1616,6 @@ func (i *listenerRuleAuthenticateCognitoConfigPtrType) ToListenerRuleAuthenticat
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleAuthenticateCognitoConfigPtrOutput)
 }
 
-func (i *listenerRuleAuthenticateCognitoConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleAuthenticateCognitoConfig] {
-	return pulumix.Output[*ListenerRuleAuthenticateCognitoConfig]{
-		OutputState: i.ToListenerRuleAuthenticateCognitoConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleAuthenticateCognitoConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleAuthenticateCognitoConfigOutput) ElementType() reflect.Type {
@@ -1867,12 +1638,6 @@ func (o ListenerRuleAuthenticateCognitoConfigOutput) ToListenerRuleAuthenticateC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleAuthenticateCognitoConfig) *ListenerRuleAuthenticateCognitoConfig {
 		return &v
 	}).(ListenerRuleAuthenticateCognitoConfigPtrOutput)
-}
-
-func (o ListenerRuleAuthenticateCognitoConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleAuthenticateCognitoConfig] {
-	return pulumix.Output[ListenerRuleAuthenticateCognitoConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleAuthenticateCognitoConfigOutput) AuthenticationRequestExtraParams() pulumi.AnyOutput {
@@ -1919,12 +1684,6 @@ func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) ToListenerRuleAuthentica
 
 func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) ToListenerRuleAuthenticateCognitoConfigPtrOutputWithContext(ctx context.Context) ListenerRuleAuthenticateCognitoConfigPtrOutput {
 	return o
-}
-
-func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleAuthenticateCognitoConfig] {
-	return pulumix.Output[*ListenerRuleAuthenticateCognitoConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleAuthenticateCognitoConfigPtrOutput) Elem() ListenerRuleAuthenticateCognitoConfigOutput {
@@ -2062,12 +1821,6 @@ func (i ListenerRuleAuthenticateOidcConfigArgs) ToListenerRuleAuthenticateOidcCo
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleAuthenticateOidcConfigOutput)
 }
 
-func (i ListenerRuleAuthenticateOidcConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleAuthenticateOidcConfig] {
-	return pulumix.Output[ListenerRuleAuthenticateOidcConfig]{
-		OutputState: i.ToListenerRuleAuthenticateOidcConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerRuleAuthenticateOidcConfigArgs) ToListenerRuleAuthenticateOidcConfigPtrOutput() ListenerRuleAuthenticateOidcConfigPtrOutput {
 	return i.ToListenerRuleAuthenticateOidcConfigPtrOutputWithContext(context.Background())
 }
@@ -2109,12 +1862,6 @@ func (i *listenerRuleAuthenticateOidcConfigPtrType) ToListenerRuleAuthenticateOi
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleAuthenticateOidcConfigPtrOutput)
 }
 
-func (i *listenerRuleAuthenticateOidcConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleAuthenticateOidcConfig] {
-	return pulumix.Output[*ListenerRuleAuthenticateOidcConfig]{
-		OutputState: i.ToListenerRuleAuthenticateOidcConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleAuthenticateOidcConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleAuthenticateOidcConfigOutput) ElementType() reflect.Type {
@@ -2137,12 +1884,6 @@ func (o ListenerRuleAuthenticateOidcConfigOutput) ToListenerRuleAuthenticateOidc
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleAuthenticateOidcConfig) *ListenerRuleAuthenticateOidcConfig {
 		return &v
 	}).(ListenerRuleAuthenticateOidcConfigPtrOutput)
-}
-
-func (o ListenerRuleAuthenticateOidcConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleAuthenticateOidcConfig] {
-	return pulumix.Output[ListenerRuleAuthenticateOidcConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleAuthenticateOidcConfigOutput) AuthenticationRequestExtraParams() pulumi.AnyOutput {
@@ -2205,12 +1946,6 @@ func (o ListenerRuleAuthenticateOidcConfigPtrOutput) ToListenerRuleAuthenticateO
 
 func (o ListenerRuleAuthenticateOidcConfigPtrOutput) ToListenerRuleAuthenticateOidcConfigPtrOutputWithContext(ctx context.Context) ListenerRuleAuthenticateOidcConfigPtrOutput {
 	return o
-}
-
-func (o ListenerRuleAuthenticateOidcConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleAuthenticateOidcConfig] {
-	return pulumix.Output[*ListenerRuleAuthenticateOidcConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleAuthenticateOidcConfigPtrOutput) Elem() ListenerRuleAuthenticateOidcConfigOutput {
@@ -2366,12 +2101,6 @@ func (i ListenerRuleFixedResponseConfigArgs) ToListenerRuleFixedResponseConfigOu
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleFixedResponseConfigOutput)
 }
 
-func (i ListenerRuleFixedResponseConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleFixedResponseConfig] {
-	return pulumix.Output[ListenerRuleFixedResponseConfig]{
-		OutputState: i.ToListenerRuleFixedResponseConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerRuleFixedResponseConfigArgs) ToListenerRuleFixedResponseConfigPtrOutput() ListenerRuleFixedResponseConfigPtrOutput {
 	return i.ToListenerRuleFixedResponseConfigPtrOutputWithContext(context.Background())
 }
@@ -2413,12 +2142,6 @@ func (i *listenerRuleFixedResponseConfigPtrType) ToListenerRuleFixedResponseConf
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleFixedResponseConfigPtrOutput)
 }
 
-func (i *listenerRuleFixedResponseConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleFixedResponseConfig] {
-	return pulumix.Output[*ListenerRuleFixedResponseConfig]{
-		OutputState: i.ToListenerRuleFixedResponseConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleFixedResponseConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleFixedResponseConfigOutput) ElementType() reflect.Type {
@@ -2441,12 +2164,6 @@ func (o ListenerRuleFixedResponseConfigOutput) ToListenerRuleFixedResponseConfig
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleFixedResponseConfig) *ListenerRuleFixedResponseConfig {
 		return &v
 	}).(ListenerRuleFixedResponseConfigPtrOutput)
-}
-
-func (o ListenerRuleFixedResponseConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleFixedResponseConfig] {
-	return pulumix.Output[ListenerRuleFixedResponseConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleFixedResponseConfigOutput) ContentType() pulumi.StringPtrOutput {
@@ -2473,12 +2190,6 @@ func (o ListenerRuleFixedResponseConfigPtrOutput) ToListenerRuleFixedResponseCon
 
 func (o ListenerRuleFixedResponseConfigPtrOutput) ToListenerRuleFixedResponseConfigPtrOutputWithContext(ctx context.Context) ListenerRuleFixedResponseConfigPtrOutput {
 	return o
-}
-
-func (o ListenerRuleFixedResponseConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleFixedResponseConfig] {
-	return pulumix.Output[*ListenerRuleFixedResponseConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleFixedResponseConfigPtrOutput) Elem() ListenerRuleFixedResponseConfigOutput {
@@ -2551,12 +2262,6 @@ func (i ListenerRuleForwardConfigArgs) ToListenerRuleForwardConfigOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleForwardConfigOutput)
 }
 
-func (i ListenerRuleForwardConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleForwardConfig] {
-	return pulumix.Output[ListenerRuleForwardConfig]{
-		OutputState: i.ToListenerRuleForwardConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerRuleForwardConfigArgs) ToListenerRuleForwardConfigPtrOutput() ListenerRuleForwardConfigPtrOutput {
 	return i.ToListenerRuleForwardConfigPtrOutputWithContext(context.Background())
 }
@@ -2598,12 +2303,6 @@ func (i *listenerRuleForwardConfigPtrType) ToListenerRuleForwardConfigPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleForwardConfigPtrOutput)
 }
 
-func (i *listenerRuleForwardConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleForwardConfig] {
-	return pulumix.Output[*ListenerRuleForwardConfig]{
-		OutputState: i.ToListenerRuleForwardConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleForwardConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleForwardConfigOutput) ElementType() reflect.Type {
@@ -2628,12 +2327,6 @@ func (o ListenerRuleForwardConfigOutput) ToListenerRuleForwardConfigPtrOutputWit
 	}).(ListenerRuleForwardConfigPtrOutput)
 }
 
-func (o ListenerRuleForwardConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleForwardConfig] {
-	return pulumix.Output[ListenerRuleForwardConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ListenerRuleForwardConfigOutput) TargetGroupStickinessConfig() ListenerRuleTargetGroupStickinessConfigPtrOutput {
 	return o.ApplyT(func(v ListenerRuleForwardConfig) *ListenerRuleTargetGroupStickinessConfig {
 		return v.TargetGroupStickinessConfig
@@ -2656,12 +2349,6 @@ func (o ListenerRuleForwardConfigPtrOutput) ToListenerRuleForwardConfigPtrOutput
 
 func (o ListenerRuleForwardConfigPtrOutput) ToListenerRuleForwardConfigPtrOutputWithContext(ctx context.Context) ListenerRuleForwardConfigPtrOutput {
 	return o
-}
-
-func (o ListenerRuleForwardConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleForwardConfig] {
-	return pulumix.Output[*ListenerRuleForwardConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleForwardConfigPtrOutput) Elem() ListenerRuleForwardConfigOutput {
@@ -2723,12 +2410,6 @@ func (i ListenerRuleHostHeaderConfigArgs) ToListenerRuleHostHeaderConfigOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleHostHeaderConfigOutput)
 }
 
-func (i ListenerRuleHostHeaderConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleHostHeaderConfig] {
-	return pulumix.Output[ListenerRuleHostHeaderConfig]{
-		OutputState: i.ToListenerRuleHostHeaderConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerRuleHostHeaderConfigArgs) ToListenerRuleHostHeaderConfigPtrOutput() ListenerRuleHostHeaderConfigPtrOutput {
 	return i.ToListenerRuleHostHeaderConfigPtrOutputWithContext(context.Background())
 }
@@ -2770,12 +2451,6 @@ func (i *listenerRuleHostHeaderConfigPtrType) ToListenerRuleHostHeaderConfigPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleHostHeaderConfigPtrOutput)
 }
 
-func (i *listenerRuleHostHeaderConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleHostHeaderConfig] {
-	return pulumix.Output[*ListenerRuleHostHeaderConfig]{
-		OutputState: i.ToListenerRuleHostHeaderConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleHostHeaderConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleHostHeaderConfigOutput) ElementType() reflect.Type {
@@ -2800,12 +2475,6 @@ func (o ListenerRuleHostHeaderConfigOutput) ToListenerRuleHostHeaderConfigPtrOut
 	}).(ListenerRuleHostHeaderConfigPtrOutput)
 }
 
-func (o ListenerRuleHostHeaderConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleHostHeaderConfig] {
-	return pulumix.Output[ListenerRuleHostHeaderConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ListenerRuleHostHeaderConfigOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleHostHeaderConfig) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2822,12 +2491,6 @@ func (o ListenerRuleHostHeaderConfigPtrOutput) ToListenerRuleHostHeaderConfigPtr
 
 func (o ListenerRuleHostHeaderConfigPtrOutput) ToListenerRuleHostHeaderConfigPtrOutputWithContext(ctx context.Context) ListenerRuleHostHeaderConfigPtrOutput {
 	return o
-}
-
-func (o ListenerRuleHostHeaderConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleHostHeaderConfig] {
-	return pulumix.Output[*ListenerRuleHostHeaderConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleHostHeaderConfigPtrOutput) Elem() ListenerRuleHostHeaderConfigOutput {
@@ -2882,12 +2545,6 @@ func (i ListenerRuleHttpHeaderConfigArgs) ToListenerRuleHttpHeaderConfigOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleHttpHeaderConfigOutput)
 }
 
-func (i ListenerRuleHttpHeaderConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleHttpHeaderConfig] {
-	return pulumix.Output[ListenerRuleHttpHeaderConfig]{
-		OutputState: i.ToListenerRuleHttpHeaderConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerRuleHttpHeaderConfigArgs) ToListenerRuleHttpHeaderConfigPtrOutput() ListenerRuleHttpHeaderConfigPtrOutput {
 	return i.ToListenerRuleHttpHeaderConfigPtrOutputWithContext(context.Background())
 }
@@ -2929,12 +2586,6 @@ func (i *listenerRuleHttpHeaderConfigPtrType) ToListenerRuleHttpHeaderConfigPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleHttpHeaderConfigPtrOutput)
 }
 
-func (i *listenerRuleHttpHeaderConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleHttpHeaderConfig] {
-	return pulumix.Output[*ListenerRuleHttpHeaderConfig]{
-		OutputState: i.ToListenerRuleHttpHeaderConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleHttpHeaderConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleHttpHeaderConfigOutput) ElementType() reflect.Type {
@@ -2959,12 +2610,6 @@ func (o ListenerRuleHttpHeaderConfigOutput) ToListenerRuleHttpHeaderConfigPtrOut
 	}).(ListenerRuleHttpHeaderConfigPtrOutput)
 }
 
-func (o ListenerRuleHttpHeaderConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleHttpHeaderConfig] {
-	return pulumix.Output[ListenerRuleHttpHeaderConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ListenerRuleHttpHeaderConfigOutput) HttpHeaderName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleHttpHeaderConfig) *string { return v.HttpHeaderName }).(pulumi.StringPtrOutput)
 }
@@ -2985,12 +2630,6 @@ func (o ListenerRuleHttpHeaderConfigPtrOutput) ToListenerRuleHttpHeaderConfigPtr
 
 func (o ListenerRuleHttpHeaderConfigPtrOutput) ToListenerRuleHttpHeaderConfigPtrOutputWithContext(ctx context.Context) ListenerRuleHttpHeaderConfigPtrOutput {
 	return o
-}
-
-func (o ListenerRuleHttpHeaderConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleHttpHeaderConfig] {
-	return pulumix.Output[*ListenerRuleHttpHeaderConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleHttpHeaderConfigPtrOutput) Elem() ListenerRuleHttpHeaderConfigOutput {
@@ -3052,12 +2691,6 @@ func (i ListenerRuleHttpRequestMethodConfigArgs) ToListenerRuleHttpRequestMethod
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleHttpRequestMethodConfigOutput)
 }
 
-func (i ListenerRuleHttpRequestMethodConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleHttpRequestMethodConfig] {
-	return pulumix.Output[ListenerRuleHttpRequestMethodConfig]{
-		OutputState: i.ToListenerRuleHttpRequestMethodConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerRuleHttpRequestMethodConfigArgs) ToListenerRuleHttpRequestMethodConfigPtrOutput() ListenerRuleHttpRequestMethodConfigPtrOutput {
 	return i.ToListenerRuleHttpRequestMethodConfigPtrOutputWithContext(context.Background())
 }
@@ -3099,12 +2732,6 @@ func (i *listenerRuleHttpRequestMethodConfigPtrType) ToListenerRuleHttpRequestMe
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleHttpRequestMethodConfigPtrOutput)
 }
 
-func (i *listenerRuleHttpRequestMethodConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleHttpRequestMethodConfig] {
-	return pulumix.Output[*ListenerRuleHttpRequestMethodConfig]{
-		OutputState: i.ToListenerRuleHttpRequestMethodConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleHttpRequestMethodConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleHttpRequestMethodConfigOutput) ElementType() reflect.Type {
@@ -3129,12 +2756,6 @@ func (o ListenerRuleHttpRequestMethodConfigOutput) ToListenerRuleHttpRequestMeth
 	}).(ListenerRuleHttpRequestMethodConfigPtrOutput)
 }
 
-func (o ListenerRuleHttpRequestMethodConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleHttpRequestMethodConfig] {
-	return pulumix.Output[ListenerRuleHttpRequestMethodConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ListenerRuleHttpRequestMethodConfigOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleHttpRequestMethodConfig) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3151,12 +2772,6 @@ func (o ListenerRuleHttpRequestMethodConfigPtrOutput) ToListenerRuleHttpRequestM
 
 func (o ListenerRuleHttpRequestMethodConfigPtrOutput) ToListenerRuleHttpRequestMethodConfigPtrOutputWithContext(ctx context.Context) ListenerRuleHttpRequestMethodConfigPtrOutput {
 	return o
-}
-
-func (o ListenerRuleHttpRequestMethodConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleHttpRequestMethodConfig] {
-	return pulumix.Output[*ListenerRuleHttpRequestMethodConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleHttpRequestMethodConfigPtrOutput) Elem() ListenerRuleHttpRequestMethodConfigOutput {
@@ -3209,12 +2824,6 @@ func (i ListenerRulePathPatternConfigArgs) ToListenerRulePathPatternConfigOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRulePathPatternConfigOutput)
 }
 
-func (i ListenerRulePathPatternConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRulePathPatternConfig] {
-	return pulumix.Output[ListenerRulePathPatternConfig]{
-		OutputState: i.ToListenerRulePathPatternConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerRulePathPatternConfigArgs) ToListenerRulePathPatternConfigPtrOutput() ListenerRulePathPatternConfigPtrOutput {
 	return i.ToListenerRulePathPatternConfigPtrOutputWithContext(context.Background())
 }
@@ -3256,12 +2865,6 @@ func (i *listenerRulePathPatternConfigPtrType) ToListenerRulePathPatternConfigPt
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRulePathPatternConfigPtrOutput)
 }
 
-func (i *listenerRulePathPatternConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerRulePathPatternConfig] {
-	return pulumix.Output[*ListenerRulePathPatternConfig]{
-		OutputState: i.ToListenerRulePathPatternConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRulePathPatternConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRulePathPatternConfigOutput) ElementType() reflect.Type {
@@ -3286,12 +2889,6 @@ func (o ListenerRulePathPatternConfigOutput) ToListenerRulePathPatternConfigPtrO
 	}).(ListenerRulePathPatternConfigPtrOutput)
 }
 
-func (o ListenerRulePathPatternConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRulePathPatternConfig] {
-	return pulumix.Output[ListenerRulePathPatternConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ListenerRulePathPatternConfigOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRulePathPatternConfig) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3308,12 +2905,6 @@ func (o ListenerRulePathPatternConfigPtrOutput) ToListenerRulePathPatternConfigP
 
 func (o ListenerRulePathPatternConfigPtrOutput) ToListenerRulePathPatternConfigPtrOutputWithContext(ctx context.Context) ListenerRulePathPatternConfigPtrOutput {
 	return o
-}
-
-func (o ListenerRulePathPatternConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerRulePathPatternConfig] {
-	return pulumix.Output[*ListenerRulePathPatternConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRulePathPatternConfigPtrOutput) Elem() ListenerRulePathPatternConfigOutput {
@@ -3366,12 +2957,6 @@ func (i ListenerRuleQueryStringConfigArgs) ToListenerRuleQueryStringConfigOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleQueryStringConfigOutput)
 }
 
-func (i ListenerRuleQueryStringConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleQueryStringConfig] {
-	return pulumix.Output[ListenerRuleQueryStringConfig]{
-		OutputState: i.ToListenerRuleQueryStringConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerRuleQueryStringConfigArgs) ToListenerRuleQueryStringConfigPtrOutput() ListenerRuleQueryStringConfigPtrOutput {
 	return i.ToListenerRuleQueryStringConfigPtrOutputWithContext(context.Background())
 }
@@ -3413,12 +2998,6 @@ func (i *listenerRuleQueryStringConfigPtrType) ToListenerRuleQueryStringConfigPt
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleQueryStringConfigPtrOutput)
 }
 
-func (i *listenerRuleQueryStringConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleQueryStringConfig] {
-	return pulumix.Output[*ListenerRuleQueryStringConfig]{
-		OutputState: i.ToListenerRuleQueryStringConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleQueryStringConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleQueryStringConfigOutput) ElementType() reflect.Type {
@@ -3443,12 +3022,6 @@ func (o ListenerRuleQueryStringConfigOutput) ToListenerRuleQueryStringConfigPtrO
 	}).(ListenerRuleQueryStringConfigPtrOutput)
 }
 
-func (o ListenerRuleQueryStringConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleQueryStringConfig] {
-	return pulumix.Output[ListenerRuleQueryStringConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ListenerRuleQueryStringConfigOutput) Values() ListenerRuleQueryStringKeyValueArrayOutput {
 	return o.ApplyT(func(v ListenerRuleQueryStringConfig) []ListenerRuleQueryStringKeyValue { return v.Values }).(ListenerRuleQueryStringKeyValueArrayOutput)
 }
@@ -3465,12 +3038,6 @@ func (o ListenerRuleQueryStringConfigPtrOutput) ToListenerRuleQueryStringConfigP
 
 func (o ListenerRuleQueryStringConfigPtrOutput) ToListenerRuleQueryStringConfigPtrOutputWithContext(ctx context.Context) ListenerRuleQueryStringConfigPtrOutput {
 	return o
-}
-
-func (o ListenerRuleQueryStringConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleQueryStringConfig] {
-	return pulumix.Output[*ListenerRuleQueryStringConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleQueryStringConfigPtrOutput) Elem() ListenerRuleQueryStringConfigOutput {
@@ -3525,12 +3092,6 @@ func (i ListenerRuleQueryStringKeyValueArgs) ToListenerRuleQueryStringKeyValueOu
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleQueryStringKeyValueOutput)
 }
 
-func (i ListenerRuleQueryStringKeyValueArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleQueryStringKeyValue] {
-	return pulumix.Output[ListenerRuleQueryStringKeyValue]{
-		OutputState: i.ToListenerRuleQueryStringKeyValueOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ListenerRuleQueryStringKeyValueArrayInput is an input type that accepts ListenerRuleQueryStringKeyValueArray and ListenerRuleQueryStringKeyValueArrayOutput values.
 // You can construct a concrete instance of `ListenerRuleQueryStringKeyValueArrayInput` via:
 //
@@ -3556,12 +3117,6 @@ func (i ListenerRuleQueryStringKeyValueArray) ToListenerRuleQueryStringKeyValueA
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleQueryStringKeyValueArrayOutput)
 }
 
-func (i ListenerRuleQueryStringKeyValueArray) ToOutput(ctx context.Context) pulumix.Output[[]ListenerRuleQueryStringKeyValue] {
-	return pulumix.Output[[]ListenerRuleQueryStringKeyValue]{
-		OutputState: i.ToListenerRuleQueryStringKeyValueArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleQueryStringKeyValueOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleQueryStringKeyValueOutput) ElementType() reflect.Type {
@@ -3574,12 +3129,6 @@ func (o ListenerRuleQueryStringKeyValueOutput) ToListenerRuleQueryStringKeyValue
 
 func (o ListenerRuleQueryStringKeyValueOutput) ToListenerRuleQueryStringKeyValueOutputWithContext(ctx context.Context) ListenerRuleQueryStringKeyValueOutput {
 	return o
-}
-
-func (o ListenerRuleQueryStringKeyValueOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleQueryStringKeyValue] {
-	return pulumix.Output[ListenerRuleQueryStringKeyValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleQueryStringKeyValueOutput) Key() pulumi.StringPtrOutput {
@@ -3602,12 +3151,6 @@ func (o ListenerRuleQueryStringKeyValueArrayOutput) ToListenerRuleQueryStringKey
 
 func (o ListenerRuleQueryStringKeyValueArrayOutput) ToListenerRuleQueryStringKeyValueArrayOutputWithContext(ctx context.Context) ListenerRuleQueryStringKeyValueArrayOutput {
 	return o
-}
-
-func (o ListenerRuleQueryStringKeyValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ListenerRuleQueryStringKeyValue] {
-	return pulumix.Output[[]ListenerRuleQueryStringKeyValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleQueryStringKeyValueArrayOutput) Index(i pulumi.IntInput) ListenerRuleQueryStringKeyValueOutput {
@@ -3657,12 +3200,6 @@ func (i ListenerRuleRedirectConfigArgs) ToListenerRuleRedirectConfigOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleRedirectConfigOutput)
 }
 
-func (i ListenerRuleRedirectConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleRedirectConfig] {
-	return pulumix.Output[ListenerRuleRedirectConfig]{
-		OutputState: i.ToListenerRuleRedirectConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerRuleRedirectConfigArgs) ToListenerRuleRedirectConfigPtrOutput() ListenerRuleRedirectConfigPtrOutput {
 	return i.ToListenerRuleRedirectConfigPtrOutputWithContext(context.Background())
 }
@@ -3704,12 +3241,6 @@ func (i *listenerRuleRedirectConfigPtrType) ToListenerRuleRedirectConfigPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleRedirectConfigPtrOutput)
 }
 
-func (i *listenerRuleRedirectConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleRedirectConfig] {
-	return pulumix.Output[*ListenerRuleRedirectConfig]{
-		OutputState: i.ToListenerRuleRedirectConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleRedirectConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleRedirectConfigOutput) ElementType() reflect.Type {
@@ -3732,12 +3263,6 @@ func (o ListenerRuleRedirectConfigOutput) ToListenerRuleRedirectConfigPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerRuleRedirectConfig) *ListenerRuleRedirectConfig {
 		return &v
 	}).(ListenerRuleRedirectConfigPtrOutput)
-}
-
-func (o ListenerRuleRedirectConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleRedirectConfig] {
-	return pulumix.Output[ListenerRuleRedirectConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleRedirectConfigOutput) Host() pulumi.StringPtrOutput {
@@ -3776,12 +3301,6 @@ func (o ListenerRuleRedirectConfigPtrOutput) ToListenerRuleRedirectConfigPtrOutp
 
 func (o ListenerRuleRedirectConfigPtrOutput) ToListenerRuleRedirectConfigPtrOutputWithContext(ctx context.Context) ListenerRuleRedirectConfigPtrOutput {
 	return o
-}
-
-func (o ListenerRuleRedirectConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleRedirectConfig] {
-	return pulumix.Output[*ListenerRuleRedirectConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleRedirectConfigPtrOutput) Elem() ListenerRuleRedirectConfigOutput {
@@ -3893,12 +3412,6 @@ func (i ListenerRuleRuleConditionArgs) ToListenerRuleRuleConditionOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleRuleConditionOutput)
 }
 
-func (i ListenerRuleRuleConditionArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleRuleCondition] {
-	return pulumix.Output[ListenerRuleRuleCondition]{
-		OutputState: i.ToListenerRuleRuleConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ListenerRuleRuleConditionArrayInput is an input type that accepts ListenerRuleRuleConditionArray and ListenerRuleRuleConditionArrayOutput values.
 // You can construct a concrete instance of `ListenerRuleRuleConditionArrayInput` via:
 //
@@ -3924,12 +3437,6 @@ func (i ListenerRuleRuleConditionArray) ToListenerRuleRuleConditionArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleRuleConditionArrayOutput)
 }
 
-func (i ListenerRuleRuleConditionArray) ToOutput(ctx context.Context) pulumix.Output[[]ListenerRuleRuleCondition] {
-	return pulumix.Output[[]ListenerRuleRuleCondition]{
-		OutputState: i.ToListenerRuleRuleConditionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleRuleConditionOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleRuleConditionOutput) ElementType() reflect.Type {
@@ -3942,12 +3449,6 @@ func (o ListenerRuleRuleConditionOutput) ToListenerRuleRuleConditionOutput() Lis
 
 func (o ListenerRuleRuleConditionOutput) ToListenerRuleRuleConditionOutputWithContext(ctx context.Context) ListenerRuleRuleConditionOutput {
 	return o
-}
-
-func (o ListenerRuleRuleConditionOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleRuleCondition] {
-	return pulumix.Output[ListenerRuleRuleCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleRuleConditionOutput) Field() pulumi.StringPtrOutput {
@@ -3998,12 +3499,6 @@ func (o ListenerRuleRuleConditionArrayOutput) ToListenerRuleRuleConditionArrayOu
 	return o
 }
 
-func (o ListenerRuleRuleConditionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ListenerRuleRuleCondition] {
-	return pulumix.Output[[]ListenerRuleRuleCondition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ListenerRuleRuleConditionArrayOutput) Index(i pulumi.IntInput) ListenerRuleRuleConditionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ListenerRuleRuleCondition {
 		return vs[0].([]ListenerRuleRuleCondition)[vs[1].(int)]
@@ -4039,12 +3534,6 @@ func (i ListenerRuleSourceIpConfigArgs) ToListenerRuleSourceIpConfigOutput() Lis
 
 func (i ListenerRuleSourceIpConfigArgs) ToListenerRuleSourceIpConfigOutputWithContext(ctx context.Context) ListenerRuleSourceIpConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleSourceIpConfigOutput)
-}
-
-func (i ListenerRuleSourceIpConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleSourceIpConfig] {
-	return pulumix.Output[ListenerRuleSourceIpConfig]{
-		OutputState: i.ToListenerRuleSourceIpConfigOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ListenerRuleSourceIpConfigArgs) ToListenerRuleSourceIpConfigPtrOutput() ListenerRuleSourceIpConfigPtrOutput {
@@ -4088,12 +3577,6 @@ func (i *listenerRuleSourceIpConfigPtrType) ToListenerRuleSourceIpConfigPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleSourceIpConfigPtrOutput)
 }
 
-func (i *listenerRuleSourceIpConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleSourceIpConfig] {
-	return pulumix.Output[*ListenerRuleSourceIpConfig]{
-		OutputState: i.ToListenerRuleSourceIpConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleSourceIpConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleSourceIpConfigOutput) ElementType() reflect.Type {
@@ -4118,12 +3601,6 @@ func (o ListenerRuleSourceIpConfigOutput) ToListenerRuleSourceIpConfigPtrOutputW
 	}).(ListenerRuleSourceIpConfigPtrOutput)
 }
 
-func (o ListenerRuleSourceIpConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleSourceIpConfig] {
-	return pulumix.Output[ListenerRuleSourceIpConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ListenerRuleSourceIpConfigOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ListenerRuleSourceIpConfig) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -4140,12 +3617,6 @@ func (o ListenerRuleSourceIpConfigPtrOutput) ToListenerRuleSourceIpConfigPtrOutp
 
 func (o ListenerRuleSourceIpConfigPtrOutput) ToListenerRuleSourceIpConfigPtrOutputWithContext(ctx context.Context) ListenerRuleSourceIpConfigPtrOutput {
 	return o
-}
-
-func (o ListenerRuleSourceIpConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleSourceIpConfig] {
-	return pulumix.Output[*ListenerRuleSourceIpConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleSourceIpConfigPtrOutput) Elem() ListenerRuleSourceIpConfigOutput {
@@ -4200,12 +3671,6 @@ func (i ListenerRuleTargetGroupStickinessConfigArgs) ToListenerRuleTargetGroupSt
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleTargetGroupStickinessConfigOutput)
 }
 
-func (i ListenerRuleTargetGroupStickinessConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleTargetGroupStickinessConfig] {
-	return pulumix.Output[ListenerRuleTargetGroupStickinessConfig]{
-		OutputState: i.ToListenerRuleTargetGroupStickinessConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ListenerRuleTargetGroupStickinessConfigArgs) ToListenerRuleTargetGroupStickinessConfigPtrOutput() ListenerRuleTargetGroupStickinessConfigPtrOutput {
 	return i.ToListenerRuleTargetGroupStickinessConfigPtrOutputWithContext(context.Background())
 }
@@ -4247,12 +3712,6 @@ func (i *listenerRuleTargetGroupStickinessConfigPtrType) ToListenerRuleTargetGro
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleTargetGroupStickinessConfigPtrOutput)
 }
 
-func (i *listenerRuleTargetGroupStickinessConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleTargetGroupStickinessConfig] {
-	return pulumix.Output[*ListenerRuleTargetGroupStickinessConfig]{
-		OutputState: i.ToListenerRuleTargetGroupStickinessConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleTargetGroupStickinessConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleTargetGroupStickinessConfigOutput) ElementType() reflect.Type {
@@ -4277,12 +3736,6 @@ func (o ListenerRuleTargetGroupStickinessConfigOutput) ToListenerRuleTargetGroup
 	}).(ListenerRuleTargetGroupStickinessConfigPtrOutput)
 }
 
-func (o ListenerRuleTargetGroupStickinessConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleTargetGroupStickinessConfig] {
-	return pulumix.Output[ListenerRuleTargetGroupStickinessConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ListenerRuleTargetGroupStickinessConfigOutput) DurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerRuleTargetGroupStickinessConfig) *int { return v.DurationSeconds }).(pulumi.IntPtrOutput)
 }
@@ -4303,12 +3756,6 @@ func (o ListenerRuleTargetGroupStickinessConfigPtrOutput) ToListenerRuleTargetGr
 
 func (o ListenerRuleTargetGroupStickinessConfigPtrOutput) ToListenerRuleTargetGroupStickinessConfigPtrOutputWithContext(ctx context.Context) ListenerRuleTargetGroupStickinessConfigPtrOutput {
 	return o
-}
-
-func (o ListenerRuleTargetGroupStickinessConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerRuleTargetGroupStickinessConfig] {
-	return pulumix.Output[*ListenerRuleTargetGroupStickinessConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleTargetGroupStickinessConfigPtrOutput) Elem() ListenerRuleTargetGroupStickinessConfigOutput {
@@ -4372,12 +3819,6 @@ func (i ListenerRuleTargetGroupTupleArgs) ToListenerRuleTargetGroupTupleOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleTargetGroupTupleOutput)
 }
 
-func (i ListenerRuleTargetGroupTupleArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleTargetGroupTuple] {
-	return pulumix.Output[ListenerRuleTargetGroupTuple]{
-		OutputState: i.ToListenerRuleTargetGroupTupleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ListenerRuleTargetGroupTupleArrayInput is an input type that accepts ListenerRuleTargetGroupTupleArray and ListenerRuleTargetGroupTupleArrayOutput values.
 // You can construct a concrete instance of `ListenerRuleTargetGroupTupleArrayInput` via:
 //
@@ -4403,12 +3844,6 @@ func (i ListenerRuleTargetGroupTupleArray) ToListenerRuleTargetGroupTupleArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerRuleTargetGroupTupleArrayOutput)
 }
 
-func (i ListenerRuleTargetGroupTupleArray) ToOutput(ctx context.Context) pulumix.Output[[]ListenerRuleTargetGroupTuple] {
-	return pulumix.Output[[]ListenerRuleTargetGroupTuple]{
-		OutputState: i.ToListenerRuleTargetGroupTupleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerRuleTargetGroupTupleOutput struct{ *pulumi.OutputState }
 
 func (ListenerRuleTargetGroupTupleOutput) ElementType() reflect.Type {
@@ -4421,12 +3856,6 @@ func (o ListenerRuleTargetGroupTupleOutput) ToListenerRuleTargetGroupTupleOutput
 
 func (o ListenerRuleTargetGroupTupleOutput) ToListenerRuleTargetGroupTupleOutputWithContext(ctx context.Context) ListenerRuleTargetGroupTupleOutput {
 	return o
-}
-
-func (o ListenerRuleTargetGroupTupleOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerRuleTargetGroupTuple] {
-	return pulumix.Output[ListenerRuleTargetGroupTuple]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleTargetGroupTupleOutput) TargetGroupArn() pulumi.StringPtrOutput {
@@ -4449,12 +3878,6 @@ func (o ListenerRuleTargetGroupTupleArrayOutput) ToListenerRuleTargetGroupTupleA
 
 func (o ListenerRuleTargetGroupTupleArrayOutput) ToListenerRuleTargetGroupTupleArrayOutputWithContext(ctx context.Context) ListenerRuleTargetGroupTupleArrayOutput {
 	return o
-}
-
-func (o ListenerRuleTargetGroupTupleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ListenerRuleTargetGroupTuple] {
-	return pulumix.Output[[]ListenerRuleTargetGroupTuple]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerRuleTargetGroupTupleArrayOutput) Index(i pulumi.IntInput) ListenerRuleTargetGroupTupleOutput {
@@ -4494,12 +3917,6 @@ func (i ListenerTargetGroupStickinessConfigArgs) ToListenerTargetGroupStickiness
 
 func (i ListenerTargetGroupStickinessConfigArgs) ToListenerTargetGroupStickinessConfigOutputWithContext(ctx context.Context) ListenerTargetGroupStickinessConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerTargetGroupStickinessConfigOutput)
-}
-
-func (i ListenerTargetGroupStickinessConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerTargetGroupStickinessConfig] {
-	return pulumix.Output[ListenerTargetGroupStickinessConfig]{
-		OutputState: i.ToListenerTargetGroupStickinessConfigOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ListenerTargetGroupStickinessConfigArgs) ToListenerTargetGroupStickinessConfigPtrOutput() ListenerTargetGroupStickinessConfigPtrOutput {
@@ -4543,12 +3960,6 @@ func (i *listenerTargetGroupStickinessConfigPtrType) ToListenerTargetGroupSticki
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerTargetGroupStickinessConfigPtrOutput)
 }
 
-func (i *listenerTargetGroupStickinessConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerTargetGroupStickinessConfig] {
-	return pulumix.Output[*ListenerTargetGroupStickinessConfig]{
-		OutputState: i.ToListenerTargetGroupStickinessConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerTargetGroupStickinessConfigOutput struct{ *pulumi.OutputState }
 
 func (ListenerTargetGroupStickinessConfigOutput) ElementType() reflect.Type {
@@ -4573,12 +3984,6 @@ func (o ListenerTargetGroupStickinessConfigOutput) ToListenerTargetGroupStickine
 	}).(ListenerTargetGroupStickinessConfigPtrOutput)
 }
 
-func (o ListenerTargetGroupStickinessConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerTargetGroupStickinessConfig] {
-	return pulumix.Output[ListenerTargetGroupStickinessConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ListenerTargetGroupStickinessConfigOutput) DurationSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ListenerTargetGroupStickinessConfig) *int { return v.DurationSeconds }).(pulumi.IntPtrOutput)
 }
@@ -4599,12 +4004,6 @@ func (o ListenerTargetGroupStickinessConfigPtrOutput) ToListenerTargetGroupStick
 
 func (o ListenerTargetGroupStickinessConfigPtrOutput) ToListenerTargetGroupStickinessConfigPtrOutputWithContext(ctx context.Context) ListenerTargetGroupStickinessConfigPtrOutput {
 	return o
-}
-
-func (o ListenerTargetGroupStickinessConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerTargetGroupStickinessConfig] {
-	return pulumix.Output[*ListenerTargetGroupStickinessConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerTargetGroupStickinessConfigPtrOutput) Elem() ListenerTargetGroupStickinessConfigOutput {
@@ -4668,12 +4067,6 @@ func (i ListenerTargetGroupTupleArgs) ToListenerTargetGroupTupleOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerTargetGroupTupleOutput)
 }
 
-func (i ListenerTargetGroupTupleArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerTargetGroupTuple] {
-	return pulumix.Output[ListenerTargetGroupTuple]{
-		OutputState: i.ToListenerTargetGroupTupleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ListenerTargetGroupTupleArrayInput is an input type that accepts ListenerTargetGroupTupleArray and ListenerTargetGroupTupleArrayOutput values.
 // You can construct a concrete instance of `ListenerTargetGroupTupleArrayInput` via:
 //
@@ -4699,12 +4092,6 @@ func (i ListenerTargetGroupTupleArray) ToListenerTargetGroupTupleArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ListenerTargetGroupTupleArrayOutput)
 }
 
-func (i ListenerTargetGroupTupleArray) ToOutput(ctx context.Context) pulumix.Output[[]ListenerTargetGroupTuple] {
-	return pulumix.Output[[]ListenerTargetGroupTuple]{
-		OutputState: i.ToListenerTargetGroupTupleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ListenerTargetGroupTupleOutput struct{ *pulumi.OutputState }
 
 func (ListenerTargetGroupTupleOutput) ElementType() reflect.Type {
@@ -4717,12 +4104,6 @@ func (o ListenerTargetGroupTupleOutput) ToListenerTargetGroupTupleOutput() Liste
 
 func (o ListenerTargetGroupTupleOutput) ToListenerTargetGroupTupleOutputWithContext(ctx context.Context) ListenerTargetGroupTupleOutput {
 	return o
-}
-
-func (o ListenerTargetGroupTupleOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerTargetGroupTuple] {
-	return pulumix.Output[ListenerTargetGroupTuple]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerTargetGroupTupleOutput) TargetGroupArn() pulumi.StringPtrOutput {
@@ -4745,12 +4126,6 @@ func (o ListenerTargetGroupTupleArrayOutput) ToListenerTargetGroupTupleArrayOutp
 
 func (o ListenerTargetGroupTupleArrayOutput) ToListenerTargetGroupTupleArrayOutputWithContext(ctx context.Context) ListenerTargetGroupTupleArrayOutput {
 	return o
-}
-
-func (o ListenerTargetGroupTupleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ListenerTargetGroupTuple] {
-	return pulumix.Output[[]ListenerTargetGroupTuple]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerTargetGroupTupleArrayOutput) Index(i pulumi.IntInput) ListenerTargetGroupTupleOutput {
@@ -4792,12 +4167,6 @@ func (i LoadBalancerAttributeArgs) ToLoadBalancerAttributeOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerAttributeOutput)
 }
 
-func (i LoadBalancerAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[LoadBalancerAttribute] {
-	return pulumix.Output[LoadBalancerAttribute]{
-		OutputState: i.ToLoadBalancerAttributeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LoadBalancerAttributeArrayInput is an input type that accepts LoadBalancerAttributeArray and LoadBalancerAttributeArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerAttributeArrayInput` via:
 //
@@ -4823,12 +4192,6 @@ func (i LoadBalancerAttributeArray) ToLoadBalancerAttributeArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerAttributeArrayOutput)
 }
 
-func (i LoadBalancerAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]LoadBalancerAttribute] {
-	return pulumix.Output[[]LoadBalancerAttribute]{
-		OutputState: i.ToLoadBalancerAttributeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LoadBalancerAttributeOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerAttributeOutput) ElementType() reflect.Type {
@@ -4841,12 +4204,6 @@ func (o LoadBalancerAttributeOutput) ToLoadBalancerAttributeOutput() LoadBalance
 
 func (o LoadBalancerAttributeOutput) ToLoadBalancerAttributeOutputWithContext(ctx context.Context) LoadBalancerAttributeOutput {
 	return o
-}
-
-func (o LoadBalancerAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[LoadBalancerAttribute] {
-	return pulumix.Output[LoadBalancerAttribute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoadBalancerAttributeOutput) Key() pulumi.StringPtrOutput {
@@ -4869,12 +4226,6 @@ func (o LoadBalancerAttributeArrayOutput) ToLoadBalancerAttributeArrayOutput() L
 
 func (o LoadBalancerAttributeArrayOutput) ToLoadBalancerAttributeArrayOutputWithContext(ctx context.Context) LoadBalancerAttributeArrayOutput {
 	return o
-}
-
-func (o LoadBalancerAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LoadBalancerAttribute] {
-	return pulumix.Output[[]LoadBalancerAttribute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoadBalancerAttributeArrayOutput) Index(i pulumi.IntInput) LoadBalancerAttributeOutput {
@@ -4920,12 +4271,6 @@ func (i LoadBalancerSubnetMappingArgs) ToLoadBalancerSubnetMappingOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerSubnetMappingOutput)
 }
 
-func (i LoadBalancerSubnetMappingArgs) ToOutput(ctx context.Context) pulumix.Output[LoadBalancerSubnetMapping] {
-	return pulumix.Output[LoadBalancerSubnetMapping]{
-		OutputState: i.ToLoadBalancerSubnetMappingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LoadBalancerSubnetMappingArrayInput is an input type that accepts LoadBalancerSubnetMappingArray and LoadBalancerSubnetMappingArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerSubnetMappingArrayInput` via:
 //
@@ -4951,12 +4296,6 @@ func (i LoadBalancerSubnetMappingArray) ToLoadBalancerSubnetMappingArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerSubnetMappingArrayOutput)
 }
 
-func (i LoadBalancerSubnetMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]LoadBalancerSubnetMapping] {
-	return pulumix.Output[[]LoadBalancerSubnetMapping]{
-		OutputState: i.ToLoadBalancerSubnetMappingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LoadBalancerSubnetMappingOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerSubnetMappingOutput) ElementType() reflect.Type {
@@ -4969,12 +4308,6 @@ func (o LoadBalancerSubnetMappingOutput) ToLoadBalancerSubnetMappingOutput() Loa
 
 func (o LoadBalancerSubnetMappingOutput) ToLoadBalancerSubnetMappingOutputWithContext(ctx context.Context) LoadBalancerSubnetMappingOutput {
 	return o
-}
-
-func (o LoadBalancerSubnetMappingOutput) ToOutput(ctx context.Context) pulumix.Output[LoadBalancerSubnetMapping] {
-	return pulumix.Output[LoadBalancerSubnetMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoadBalancerSubnetMappingOutput) AllocationId() pulumi.StringPtrOutput {
@@ -5005,12 +4338,6 @@ func (o LoadBalancerSubnetMappingArrayOutput) ToLoadBalancerSubnetMappingArrayOu
 
 func (o LoadBalancerSubnetMappingArrayOutput) ToLoadBalancerSubnetMappingArrayOutputWithContext(ctx context.Context) LoadBalancerSubnetMappingArrayOutput {
 	return o
-}
-
-func (o LoadBalancerSubnetMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LoadBalancerSubnetMapping] {
-	return pulumix.Output[[]LoadBalancerSubnetMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoadBalancerSubnetMappingArrayOutput) Index(i pulumi.IntInput) LoadBalancerSubnetMappingOutput {
@@ -5052,12 +4379,6 @@ func (i LoadBalancerTagArgs) ToLoadBalancerTagOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerTagOutput)
 }
 
-func (i LoadBalancerTagArgs) ToOutput(ctx context.Context) pulumix.Output[LoadBalancerTag] {
-	return pulumix.Output[LoadBalancerTag]{
-		OutputState: i.ToLoadBalancerTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LoadBalancerTagArrayInput is an input type that accepts LoadBalancerTagArray and LoadBalancerTagArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerTagArrayInput` via:
 //
@@ -5083,12 +4404,6 @@ func (i LoadBalancerTagArray) ToLoadBalancerTagArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerTagArrayOutput)
 }
 
-func (i LoadBalancerTagArray) ToOutput(ctx context.Context) pulumix.Output[[]LoadBalancerTag] {
-	return pulumix.Output[[]LoadBalancerTag]{
-		OutputState: i.ToLoadBalancerTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LoadBalancerTagOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerTagOutput) ElementType() reflect.Type {
@@ -5101,12 +4416,6 @@ func (o LoadBalancerTagOutput) ToLoadBalancerTagOutput() LoadBalancerTagOutput {
 
 func (o LoadBalancerTagOutput) ToLoadBalancerTagOutputWithContext(ctx context.Context) LoadBalancerTagOutput {
 	return o
-}
-
-func (o LoadBalancerTagOutput) ToOutput(ctx context.Context) pulumix.Output[LoadBalancerTag] {
-	return pulumix.Output[LoadBalancerTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoadBalancerTagOutput) Key() pulumi.StringOutput {
@@ -5129,12 +4438,6 @@ func (o LoadBalancerTagArrayOutput) ToLoadBalancerTagArrayOutput() LoadBalancerT
 
 func (o LoadBalancerTagArrayOutput) ToLoadBalancerTagArrayOutputWithContext(ctx context.Context) LoadBalancerTagArrayOutput {
 	return o
-}
-
-func (o LoadBalancerTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LoadBalancerTag] {
-	return pulumix.Output[[]LoadBalancerTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoadBalancerTagArrayOutput) Index(i pulumi.IntInput) LoadBalancerTagOutput {
@@ -5180,12 +4483,6 @@ func (i TargetGroupAttributeArgs) ToTargetGroupAttributeOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupAttributeOutput)
 }
 
-func (i TargetGroupAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[TargetGroupAttribute] {
-	return pulumix.Output[TargetGroupAttribute]{
-		OutputState: i.ToTargetGroupAttributeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TargetGroupAttributeArrayInput is an input type that accepts TargetGroupAttributeArray and TargetGroupAttributeArrayOutput values.
 // You can construct a concrete instance of `TargetGroupAttributeArrayInput` via:
 //
@@ -5211,12 +4508,6 @@ func (i TargetGroupAttributeArray) ToTargetGroupAttributeArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupAttributeArrayOutput)
 }
 
-func (i TargetGroupAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]TargetGroupAttribute] {
-	return pulumix.Output[[]TargetGroupAttribute]{
-		OutputState: i.ToTargetGroupAttributeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TargetGroupAttributeOutput struct{ *pulumi.OutputState }
 
 func (TargetGroupAttributeOutput) ElementType() reflect.Type {
@@ -5229,12 +4520,6 @@ func (o TargetGroupAttributeOutput) ToTargetGroupAttributeOutput() TargetGroupAt
 
 func (o TargetGroupAttributeOutput) ToTargetGroupAttributeOutputWithContext(ctx context.Context) TargetGroupAttributeOutput {
 	return o
-}
-
-func (o TargetGroupAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupAttribute] {
-	return pulumix.Output[TargetGroupAttribute]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The value of the attribute.
@@ -5259,12 +4544,6 @@ func (o TargetGroupAttributeArrayOutput) ToTargetGroupAttributeArrayOutput() Tar
 
 func (o TargetGroupAttributeArrayOutput) ToTargetGroupAttributeArrayOutputWithContext(ctx context.Context) TargetGroupAttributeArrayOutput {
 	return o
-}
-
-func (o TargetGroupAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TargetGroupAttribute] {
-	return pulumix.Output[[]TargetGroupAttribute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TargetGroupAttributeArrayOutput) Index(i pulumi.IntInput) TargetGroupAttributeOutput {
@@ -5310,12 +4589,6 @@ func (i TargetGroupMatcherArgs) ToTargetGroupMatcherOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupMatcherOutput)
 }
 
-func (i TargetGroupMatcherArgs) ToOutput(ctx context.Context) pulumix.Output[TargetGroupMatcher] {
-	return pulumix.Output[TargetGroupMatcher]{
-		OutputState: i.ToTargetGroupMatcherOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TargetGroupMatcherArgs) ToTargetGroupMatcherPtrOutput() TargetGroupMatcherPtrOutput {
 	return i.ToTargetGroupMatcherPtrOutputWithContext(context.Background())
 }
@@ -5357,12 +4630,6 @@ func (i *targetGroupMatcherPtrType) ToTargetGroupMatcherPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupMatcherPtrOutput)
 }
 
-func (i *targetGroupMatcherPtrType) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupMatcher] {
-	return pulumix.Output[*TargetGroupMatcher]{
-		OutputState: i.ToTargetGroupMatcherPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TargetGroupMatcherOutput struct{ *pulumi.OutputState }
 
 func (TargetGroupMatcherOutput) ElementType() reflect.Type {
@@ -5387,12 +4654,6 @@ func (o TargetGroupMatcherOutput) ToTargetGroupMatcherPtrOutputWithContext(ctx c
 	}).(TargetGroupMatcherPtrOutput)
 }
 
-func (o TargetGroupMatcherOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupMatcher] {
-	return pulumix.Output[TargetGroupMatcher]{
-		OutputState: o.OutputState,
-	}
-}
-
 // You can specify values between 0 and 99. You can specify multiple values, or a range of values. The default value is 12.
 func (o TargetGroupMatcherOutput) GrpcCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TargetGroupMatcher) *string { return v.GrpcCode }).(pulumi.StringPtrOutput)
@@ -5415,12 +4676,6 @@ func (o TargetGroupMatcherPtrOutput) ToTargetGroupMatcherPtrOutput() TargetGroup
 
 func (o TargetGroupMatcherPtrOutput) ToTargetGroupMatcherPtrOutputWithContext(ctx context.Context) TargetGroupMatcherPtrOutput {
 	return o
-}
-
-func (o TargetGroupMatcherPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetGroupMatcher] {
-	return pulumix.Output[*TargetGroupMatcher]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TargetGroupMatcherPtrOutput) Elem() TargetGroupMatcherOutput {
@@ -5490,12 +4745,6 @@ func (i TargetGroupTagArgs) ToTargetGroupTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTagOutput)
 }
 
-func (i TargetGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[TargetGroupTag] {
-	return pulumix.Output[TargetGroupTag]{
-		OutputState: i.ToTargetGroupTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TargetGroupTagArrayInput is an input type that accepts TargetGroupTagArray and TargetGroupTagArrayOutput values.
 // You can construct a concrete instance of `TargetGroupTagArrayInput` via:
 //
@@ -5521,12 +4770,6 @@ func (i TargetGroupTagArray) ToTargetGroupTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTagArrayOutput)
 }
 
-func (i TargetGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]TargetGroupTag] {
-	return pulumix.Output[[]TargetGroupTag]{
-		OutputState: i.ToTargetGroupTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TargetGroupTagOutput struct{ *pulumi.OutputState }
 
 func (TargetGroupTagOutput) ElementType() reflect.Type {
@@ -5539,12 +4782,6 @@ func (o TargetGroupTagOutput) ToTargetGroupTagOutput() TargetGroupTagOutput {
 
 func (o TargetGroupTagOutput) ToTargetGroupTagOutputWithContext(ctx context.Context) TargetGroupTagOutput {
 	return o
-}
-
-func (o TargetGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupTag] {
-	return pulumix.Output[TargetGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The value for the tag.
@@ -5569,12 +4806,6 @@ func (o TargetGroupTagArrayOutput) ToTargetGroupTagArrayOutput() TargetGroupTagA
 
 func (o TargetGroupTagArrayOutput) ToTargetGroupTagArrayOutputWithContext(ctx context.Context) TargetGroupTagArrayOutput {
 	return o
-}
-
-func (o TargetGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TargetGroupTag] {
-	return pulumix.Output[[]TargetGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TargetGroupTagArrayOutput) Index(i pulumi.IntInput) TargetGroupTagOutput {
@@ -5624,12 +4855,6 @@ func (i TargetGroupTargetDescriptionArgs) ToTargetGroupTargetDescriptionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTargetDescriptionOutput)
 }
 
-func (i TargetGroupTargetDescriptionArgs) ToOutput(ctx context.Context) pulumix.Output[TargetGroupTargetDescription] {
-	return pulumix.Output[TargetGroupTargetDescription]{
-		OutputState: i.ToTargetGroupTargetDescriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TargetGroupTargetDescriptionArrayInput is an input type that accepts TargetGroupTargetDescriptionArray and TargetGroupTargetDescriptionArrayOutput values.
 // You can construct a concrete instance of `TargetGroupTargetDescriptionArrayInput` via:
 //
@@ -5655,12 +4880,6 @@ func (i TargetGroupTargetDescriptionArray) ToTargetGroupTargetDescriptionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(TargetGroupTargetDescriptionArrayOutput)
 }
 
-func (i TargetGroupTargetDescriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]TargetGroupTargetDescription] {
-	return pulumix.Output[[]TargetGroupTargetDescription]{
-		OutputState: i.ToTargetGroupTargetDescriptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TargetGroupTargetDescriptionOutput struct{ *pulumi.OutputState }
 
 func (TargetGroupTargetDescriptionOutput) ElementType() reflect.Type {
@@ -5673,12 +4892,6 @@ func (o TargetGroupTargetDescriptionOutput) ToTargetGroupTargetDescriptionOutput
 
 func (o TargetGroupTargetDescriptionOutput) ToTargetGroupTargetDescriptionOutputWithContext(ctx context.Context) TargetGroupTargetDescriptionOutput {
 	return o
-}
-
-func (o TargetGroupTargetDescriptionOutput) ToOutput(ctx context.Context) pulumix.Output[TargetGroupTargetDescription] {
-	return pulumix.Output[TargetGroupTargetDescription]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An Availability Zone or all. This determines whether the target receives traffic from the load balancer nodes in the specified Availability Zone or from all enabled Availability Zones for the load balancer.
@@ -5708,12 +4921,6 @@ func (o TargetGroupTargetDescriptionArrayOutput) ToTargetGroupTargetDescriptionA
 
 func (o TargetGroupTargetDescriptionArrayOutput) ToTargetGroupTargetDescriptionArrayOutputWithContext(ctx context.Context) TargetGroupTargetDescriptionArrayOutput {
 	return o
-}
-
-func (o TargetGroupTargetDescriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TargetGroupTargetDescription] {
-	return pulumix.Output[[]TargetGroupTargetDescription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TargetGroupTargetDescriptionArrayOutput) Index(i pulumi.IntInput) TargetGroupTargetDescriptionOutput {

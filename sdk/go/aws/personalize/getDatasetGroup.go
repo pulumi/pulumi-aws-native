@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema for AWS::Personalize::DatasetGroup.
@@ -67,12 +66,6 @@ func (o LookupDatasetGroupResultOutput) ToLookupDatasetGroupResultOutput() Looku
 
 func (o LookupDatasetGroupResultOutput) ToLookupDatasetGroupResultOutputWithContext(ctx context.Context) LookupDatasetGroupResultOutput {
 	return o
-}
-
-func (o LookupDatasetGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDatasetGroupResult] {
-	return pulumix.Output[LookupDatasetGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the dataset group.

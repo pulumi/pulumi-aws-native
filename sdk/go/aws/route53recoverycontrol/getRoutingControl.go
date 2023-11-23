@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS Route53 Recovery Control Routing Control resource schema .
@@ -71,12 +70,6 @@ func (o LookupRoutingControlResultOutput) ToLookupRoutingControlResultOutput() L
 
 func (o LookupRoutingControlResultOutput) ToLookupRoutingControlResultOutputWithContext(ctx context.Context) LookupRoutingControlResultOutput {
 	return o
-}
-
-func (o LookupRoutingControlResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRoutingControlResult] {
-	return pulumix.Output[LookupRoutingControlResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the routing control. You can use any non-white space character in the name.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EventSchemas::Schema
@@ -70,12 +69,6 @@ func (o LookupSchemaResultOutput) ToLookupSchemaResultOutput() LookupSchemaResul
 
 func (o LookupSchemaResultOutput) ToLookupSchemaResultOutputWithContext(ctx context.Context) LookupSchemaResultOutput {
 	return o
-}
-
-func (o LookupSchemaResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSchemaResult] {
-	return pulumix.Output[LookupSchemaResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupSchemaResultOutput) Content() pulumi.StringPtrOutput {

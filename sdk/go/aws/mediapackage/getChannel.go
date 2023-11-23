@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::MediaPackage::Channel
@@ -75,12 +74,6 @@ func (o LookupChannelResultOutput) ToLookupChannelResultOutput() LookupChannelRe
 
 func (o LookupChannelResultOutput) ToLookupChannelResultOutputWithContext(ctx context.Context) LookupChannelResultOutput {
 	return o
-}
-
-func (o LookupChannelResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupChannelResult] {
-	return pulumix.Output[LookupChannelResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) assigned to the Channel.

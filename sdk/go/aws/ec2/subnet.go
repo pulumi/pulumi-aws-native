@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::Subnet
@@ -151,12 +150,6 @@ func (i *Subnet) ToSubnetOutputWithContext(ctx context.Context) SubnetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetOutput)
 }
 
-func (i *Subnet) ToOutput(ctx context.Context) pulumix.Output[*Subnet] {
-	return pulumix.Output[*Subnet]{
-		OutputState: i.ToSubnetOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SubnetOutput struct{ *pulumi.OutputState }
 
 func (SubnetOutput) ElementType() reflect.Type {
@@ -169,12 +162,6 @@ func (o SubnetOutput) ToSubnetOutput() SubnetOutput {
 
 func (o SubnetOutput) ToSubnetOutputWithContext(ctx context.Context) SubnetOutput {
 	return o
-}
-
-func (o SubnetOutput) ToOutput(ctx context.Context) pulumix.Output[*Subnet] {
-	return pulumix.Output[*Subnet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SubnetOutput) AssignIpv6AddressOnCreation() pulumi.BoolPtrOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGateway::GatewayResponse“ resource creates a gateway response for your API. For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide*.
@@ -70,12 +69,6 @@ func (o LookupGatewayResponseResultOutput) ToLookupGatewayResponseResultOutput()
 
 func (o LookupGatewayResponseResultOutput) ToLookupGatewayResponseResultOutputWithContext(ctx context.Context) LookupGatewayResponseResultOutput {
 	return o
-}
-
-func (o LookupGatewayResponseResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGatewayResponseResult] {
-	return pulumix.Output[LookupGatewayResponseResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupGatewayResponseResultOutput) Id() pulumi.StringPtrOutput {

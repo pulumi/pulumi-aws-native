@@ -80,12 +80,6 @@ func (o NotificationChannelInsightSeverityOutput) ToNotificationChannelInsightSe
 	}).(NotificationChannelInsightSeverityPtrOutput)
 }
 
-func (o NotificationChannelInsightSeverityOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationChannelInsightSeverity] {
-	return pulumix.Output[NotificationChannelInsightSeverity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NotificationChannelInsightSeverityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o NotificationChannelInsightSeverityPtrOutput) ToNotificationChannelInsigh
 
 func (o NotificationChannelInsightSeverityPtrOutput) ToNotificationChannelInsightSeverityPtrOutputWithContext(ctx context.Context) NotificationChannelInsightSeverityPtrOutput {
 	return o
-}
-
-func (o NotificationChannelInsightSeverityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NotificationChannelInsightSeverity] {
-	return pulumix.Output[*NotificationChannelInsightSeverity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationChannelInsightSeverityPtrOutput) Elem() NotificationChannelInsightSeverityOutput {
@@ -220,12 +208,6 @@ func (i NotificationChannelInsightSeverityArray) ToNotificationChannelInsightSev
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelInsightSeverityArrayOutput)
 }
 
-func (i NotificationChannelInsightSeverityArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationChannelInsightSeverity] {
-	return pulumix.Output[[]NotificationChannelInsightSeverity]{
-		OutputState: i.ToNotificationChannelInsightSeverityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationChannelInsightSeverityArrayOutput struct{ *pulumi.OutputState }
 
 func (NotificationChannelInsightSeverityArrayOutput) ElementType() reflect.Type {
@@ -238,12 +220,6 @@ func (o NotificationChannelInsightSeverityArrayOutput) ToNotificationChannelInsi
 
 func (o NotificationChannelInsightSeverityArrayOutput) ToNotificationChannelInsightSeverityArrayOutputWithContext(ctx context.Context) NotificationChannelInsightSeverityArrayOutput {
 	return o
-}
-
-func (o NotificationChannelInsightSeverityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationChannelInsightSeverity] {
-	return pulumix.Output[[]NotificationChannelInsightSeverity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationChannelInsightSeverityArrayOutput) Index(i pulumi.IntInput) NotificationChannelInsightSeverityOutput {
@@ -323,12 +299,6 @@ func (o NotificationChannelNotificationMessageTypeOutput) ToNotificationChannelN
 	}).(NotificationChannelNotificationMessageTypePtrOutput)
 }
 
-func (o NotificationChannelNotificationMessageTypeOutput) ToOutput(ctx context.Context) pulumix.Output[NotificationChannelNotificationMessageType] {
-	return pulumix.Output[NotificationChannelNotificationMessageType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NotificationChannelNotificationMessageTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -362,12 +332,6 @@ func (o NotificationChannelNotificationMessageTypePtrOutput) ToNotificationChann
 
 func (o NotificationChannelNotificationMessageTypePtrOutput) ToNotificationChannelNotificationMessageTypePtrOutputWithContext(ctx context.Context) NotificationChannelNotificationMessageTypePtrOutput {
 	return o
-}
-
-func (o NotificationChannelNotificationMessageTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NotificationChannelNotificationMessageType] {
-	return pulumix.Output[*NotificationChannelNotificationMessageType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationChannelNotificationMessageTypePtrOutput) Elem() NotificationChannelNotificationMessageTypeOutput {
@@ -463,12 +427,6 @@ func (i NotificationChannelNotificationMessageTypeArray) ToNotificationChannelNo
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationChannelNotificationMessageTypeArrayOutput)
 }
 
-func (i NotificationChannelNotificationMessageTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]NotificationChannelNotificationMessageType] {
-	return pulumix.Output[[]NotificationChannelNotificationMessageType]{
-		OutputState: i.ToNotificationChannelNotificationMessageTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationChannelNotificationMessageTypeArrayOutput struct{ *pulumi.OutputState }
 
 func (NotificationChannelNotificationMessageTypeArrayOutput) ElementType() reflect.Type {
@@ -481,12 +439,6 @@ func (o NotificationChannelNotificationMessageTypeArrayOutput) ToNotificationCha
 
 func (o NotificationChannelNotificationMessageTypeArrayOutput) ToNotificationChannelNotificationMessageTypeArrayOutputWithContext(ctx context.Context) NotificationChannelNotificationMessageTypeArrayOutput {
 	return o
-}
-
-func (o NotificationChannelNotificationMessageTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NotificationChannelNotificationMessageType] {
-	return pulumix.Output[[]NotificationChannelNotificationMessageType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationChannelNotificationMessageTypeArrayOutput) Index(i pulumi.IntInput) NotificationChannelNotificationMessageTypeOutput {
@@ -563,12 +515,6 @@ func (o ResourceCollectionTypeOutput) ToResourceCollectionTypePtrOutputWithConte
 	}).(ResourceCollectionTypePtrOutput)
 }
 
-func (o ResourceCollectionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceCollectionType] {
-	return pulumix.Output[ResourceCollectionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceCollectionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -602,12 +548,6 @@ func (o ResourceCollectionTypePtrOutput) ToResourceCollectionTypePtrOutput() Res
 
 func (o ResourceCollectionTypePtrOutput) ToResourceCollectionTypePtrOutputWithContext(ctx context.Context) ResourceCollectionTypePtrOutput {
 	return o
-}
-
-func (o ResourceCollectionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceCollectionType] {
-	return pulumix.Output[*ResourceCollectionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceCollectionTypePtrOutput) Elem() ResourceCollectionTypeOutput {

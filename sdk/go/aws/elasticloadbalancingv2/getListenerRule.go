@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ElasticLoadBalancingV2::ListenerRule
@@ -68,12 +67,6 @@ func (o LookupListenerRuleResultOutput) ToLookupListenerRuleResultOutput() Looku
 
 func (o LookupListenerRuleResultOutput) ToLookupListenerRuleResultOutputWithContext(ctx context.Context) LookupListenerRuleResultOutput {
 	return o
-}
-
-func (o LookupListenerRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupListenerRuleResult] {
-	return pulumix.Output[LookupListenerRuleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupListenerRuleResultOutput) Actions() ListenerRuleActionArrayOutput {

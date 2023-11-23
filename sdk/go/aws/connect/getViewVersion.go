@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::ViewVersion
@@ -69,12 +68,6 @@ func (o LookupViewVersionResultOutput) ToLookupViewVersionResultOutput() LookupV
 
 func (o LookupViewVersionResultOutput) ToLookupViewVersionResultOutputWithContext(ctx context.Context) LookupViewVersionResultOutput {
 	return o
-}
-
-func (o LookupViewVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupViewVersionResult] {
-	return pulumix.Output[LookupViewVersionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The version of the view.

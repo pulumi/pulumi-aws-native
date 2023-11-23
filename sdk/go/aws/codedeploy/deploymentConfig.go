@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CodeDeploy::DeploymentConfig
@@ -118,12 +117,6 @@ func (i *DeploymentConfig) ToDeploymentConfigOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigOutput)
 }
 
-func (i *DeploymentConfig) ToOutput(ctx context.Context) pulumix.Output[*DeploymentConfig] {
-	return pulumix.Output[*DeploymentConfig]{
-		OutputState: i.ToDeploymentConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeploymentConfigOutput struct{ *pulumi.OutputState }
 
 func (DeploymentConfigOutput) ElementType() reflect.Type {
@@ -136,12 +129,6 @@ func (o DeploymentConfigOutput) ToDeploymentConfigOutput() DeploymentConfigOutpu
 
 func (o DeploymentConfigOutput) ToDeploymentConfigOutputWithContext(ctx context.Context) DeploymentConfigOutput {
 	return o
-}
-
-func (o DeploymentConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentConfig] {
-	return pulumix.Output[*DeploymentConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The destination platform type for the deployment (Lambda, Server, or ECS).

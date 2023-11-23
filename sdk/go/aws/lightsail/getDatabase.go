@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Lightsail::Database
@@ -78,12 +77,6 @@ func (o LookupDatabaseResultOutput) ToLookupDatabaseResultOutput() LookupDatabas
 
 func (o LookupDatabaseResultOutput) ToLookupDatabaseResultOutputWithContext(ctx context.Context) LookupDatabaseResultOutput {
 	return o
-}
-
-func (o LookupDatabaseResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDatabaseResult] {
-	return pulumix.Output[LookupDatabaseResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When true, enables automated backup retention for your database. Updates are applied during the next maintenance window because this can result in an outage.

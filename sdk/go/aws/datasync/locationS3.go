@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataSync::LocationS3
@@ -129,12 +128,6 @@ func (i *LocationS3) ToLocationS3OutputWithContext(ctx context.Context) Location
 	return pulumi.ToOutputWithContext(ctx, i).(LocationS3Output)
 }
 
-func (i *LocationS3) ToOutput(ctx context.Context) pulumix.Output[*LocationS3] {
-	return pulumix.Output[*LocationS3]{
-		OutputState: i.ToLocationS3OutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocationS3Output struct{ *pulumi.OutputState }
 
 func (LocationS3Output) ElementType() reflect.Type {
@@ -147,12 +140,6 @@ func (o LocationS3Output) ToLocationS3Output() LocationS3Output {
 
 func (o LocationS3Output) ToLocationS3OutputWithContext(ctx context.Context) LocationS3Output {
 	return o
-}
-
-func (o LocationS3Output) ToOutput(ctx context.Context) pulumix.Output[*LocationS3] {
-	return pulumix.Output[*LocationS3]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the Amazon S3 bucket location.

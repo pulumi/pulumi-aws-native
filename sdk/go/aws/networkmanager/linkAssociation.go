@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::NetworkManager::LinkAssociation type associates a link to a device. The device and link must be in the same global network and the same site.
@@ -121,12 +120,6 @@ func (i *LinkAssociation) ToLinkAssociationOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(LinkAssociationOutput)
 }
 
-func (i *LinkAssociation) ToOutput(ctx context.Context) pulumix.Output[*LinkAssociation] {
-	return pulumix.Output[*LinkAssociation]{
-		OutputState: i.ToLinkAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkAssociationOutput struct{ *pulumi.OutputState }
 
 func (LinkAssociationOutput) ElementType() reflect.Type {
@@ -139,12 +132,6 @@ func (o LinkAssociationOutput) ToLinkAssociationOutput() LinkAssociationOutput {
 
 func (o LinkAssociationOutput) ToLinkAssociationOutputWithContext(ctx context.Context) LinkAssociationOutput {
 	return o
-}
-
-func (o LinkAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkAssociation] {
-	return pulumix.Output[*LinkAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the device

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Batch::JobQueue
@@ -121,12 +120,6 @@ func (i *JobQueue) ToJobQueueOutputWithContext(ctx context.Context) JobQueueOutp
 	return pulumi.ToOutputWithContext(ctx, i).(JobQueueOutput)
 }
 
-func (i *JobQueue) ToOutput(ctx context.Context) pulumix.Output[*JobQueue] {
-	return pulumix.Output[*JobQueue]{
-		OutputState: i.ToJobQueueOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobQueueOutput struct{ *pulumi.OutputState }
 
 func (JobQueueOutput) ElementType() reflect.Type {
@@ -139,12 +132,6 @@ func (o JobQueueOutput) ToJobQueueOutput() JobQueueOutput {
 
 func (o JobQueueOutput) ToJobQueueOutputWithContext(ctx context.Context) JobQueueOutput {
 	return o
-}
-
-func (o JobQueueOutput) ToOutput(ctx context.Context) pulumix.Output[*JobQueue] {
-	return pulumix.Output[*JobQueue]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobQueueOutput) ComputeEnvironmentOrder() JobQueueComputeEnvironmentOrderArrayOutput {

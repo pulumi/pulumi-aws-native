@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Route53Resolver::ResolverEndpoint
@@ -71,12 +70,6 @@ func (o LookupResolverEndpointResultOutput) ToLookupResolverEndpointResultOutput
 
 func (o LookupResolverEndpointResultOutput) ToLookupResolverEndpointResultOutputWithContext(ctx context.Context) LookupResolverEndpointResultOutput {
 	return o
-}
-
-func (o LookupResolverEndpointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResolverEndpointResult] {
-	return pulumix.Output[LookupResolverEndpointResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupResolverEndpointResultOutput) Arn() pulumi.StringPtrOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::RoboMaker::Robot resource creates an AWS RoboMaker Robot.
@@ -129,12 +128,6 @@ func (i *Robot) ToRobotOutputWithContext(ctx context.Context) RobotOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RobotOutput)
 }
 
-func (i *Robot) ToOutput(ctx context.Context) pulumix.Output[*Robot] {
-	return pulumix.Output[*Robot]{
-		OutputState: i.ToRobotOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RobotOutput struct{ *pulumi.OutputState }
 
 func (RobotOutput) ElementType() reflect.Type {
@@ -147,12 +140,6 @@ func (o RobotOutput) ToRobotOutput() RobotOutput {
 
 func (o RobotOutput) ToRobotOutputWithContext(ctx context.Context) RobotOutput {
 	return o
-}
-
-func (o RobotOutput) ToOutput(ctx context.Context) pulumix.Output[*Robot] {
-	return pulumix.Output[*Robot]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The target architecture of the robot.

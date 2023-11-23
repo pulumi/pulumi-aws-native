@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Athena::PreparedStatement
@@ -73,12 +72,6 @@ func (o LookupPreparedStatementResultOutput) ToLookupPreparedStatementResultOutp
 
 func (o LookupPreparedStatementResultOutput) ToLookupPreparedStatementResultOutputWithContext(ctx context.Context) LookupPreparedStatementResultOutput {
 	return o
-}
-
-func (o LookupPreparedStatementResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPreparedStatementResult] {
-	return pulumix.Output[LookupPreparedStatementResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the prepared statement.

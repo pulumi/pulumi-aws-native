@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ServiceCatalog::AcceptedPortfolioShare
@@ -64,12 +63,6 @@ func (o LookupAcceptedPortfolioShareResultOutput) ToLookupAcceptedPortfolioShare
 
 func (o LookupAcceptedPortfolioShareResultOutput) ToLookupAcceptedPortfolioShareResultOutputWithContext(ctx context.Context) LookupAcceptedPortfolioShareResultOutput {
 	return o
-}
-
-func (o LookupAcceptedPortfolioShareResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAcceptedPortfolioShareResult] {
-	return pulumix.Output[LookupAcceptedPortfolioShareResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupAcceptedPortfolioShareResultOutput) Id() pulumi.StringPtrOutput {

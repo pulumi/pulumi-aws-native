@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i EndpointDocDbSettingsArgs) ToEndpointDocDbSettingsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointDocDbSettingsOutput)
 }
 
-func (i EndpointDocDbSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointDocDbSettings] {
-	return pulumix.Output[EndpointDocDbSettings]{
-		OutputState: i.ToEndpointDocDbSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointDocDbSettingsArgs) ToEndpointDocDbSettingsPtrOutput() EndpointDocDbSettingsPtrOutput {
 	return i.ToEndpointDocDbSettingsPtrOutputWithContext(context.Background())
 }
@@ -100,12 +93,6 @@ func (i *endpointDocDbSettingsPtrType) ToEndpointDocDbSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointDocDbSettingsPtrOutput)
 }
 
-func (i *endpointDocDbSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointDocDbSettings] {
-	return pulumix.Output[*EndpointDocDbSettings]{
-		OutputState: i.ToEndpointDocDbSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointDocDbSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointDocDbSettingsOutput) ElementType() reflect.Type {
@@ -128,12 +115,6 @@ func (o EndpointDocDbSettingsOutput) ToEndpointDocDbSettingsPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointDocDbSettings) *EndpointDocDbSettings {
 		return &v
 	}).(EndpointDocDbSettingsPtrOutput)
-}
-
-func (o EndpointDocDbSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointDocDbSettings] {
-	return pulumix.Output[EndpointDocDbSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointDocDbSettingsOutput) DocsToInvestigate() pulumi.IntPtrOutput {
@@ -168,12 +149,6 @@ func (o EndpointDocDbSettingsPtrOutput) ToEndpointDocDbSettingsPtrOutput() Endpo
 
 func (o EndpointDocDbSettingsPtrOutput) ToEndpointDocDbSettingsPtrOutputWithContext(ctx context.Context) EndpointDocDbSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointDocDbSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointDocDbSettings] {
-	return pulumix.Output[*EndpointDocDbSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointDocDbSettingsPtrOutput) Elem() EndpointDocDbSettingsOutput {
@@ -262,12 +237,6 @@ func (i EndpointDynamoDbSettingsArgs) ToEndpointDynamoDbSettingsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointDynamoDbSettingsOutput)
 }
 
-func (i EndpointDynamoDbSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointDynamoDbSettings] {
-	return pulumix.Output[EndpointDynamoDbSettings]{
-		OutputState: i.ToEndpointDynamoDbSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointDynamoDbSettingsArgs) ToEndpointDynamoDbSettingsPtrOutput() EndpointDynamoDbSettingsPtrOutput {
 	return i.ToEndpointDynamoDbSettingsPtrOutputWithContext(context.Background())
 }
@@ -309,12 +278,6 @@ func (i *endpointDynamoDbSettingsPtrType) ToEndpointDynamoDbSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointDynamoDbSettingsPtrOutput)
 }
 
-func (i *endpointDynamoDbSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointDynamoDbSettings] {
-	return pulumix.Output[*EndpointDynamoDbSettings]{
-		OutputState: i.ToEndpointDynamoDbSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointDynamoDbSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointDynamoDbSettingsOutput) ElementType() reflect.Type {
@@ -339,12 +302,6 @@ func (o EndpointDynamoDbSettingsOutput) ToEndpointDynamoDbSettingsPtrOutputWithC
 	}).(EndpointDynamoDbSettingsPtrOutput)
 }
 
-func (o EndpointDynamoDbSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointDynamoDbSettings] {
-	return pulumix.Output[EndpointDynamoDbSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EndpointDynamoDbSettingsOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointDynamoDbSettings) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -361,12 +318,6 @@ func (o EndpointDynamoDbSettingsPtrOutput) ToEndpointDynamoDbSettingsPtrOutput()
 
 func (o EndpointDynamoDbSettingsPtrOutput) ToEndpointDynamoDbSettingsPtrOutputWithContext(ctx context.Context) EndpointDynamoDbSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointDynamoDbSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointDynamoDbSettings] {
-	return pulumix.Output[*EndpointDynamoDbSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointDynamoDbSettingsPtrOutput) Elem() EndpointDynamoDbSettingsOutput {
@@ -425,12 +376,6 @@ func (i EndpointElasticsearchSettingsArgs) ToEndpointElasticsearchSettingsOutput
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointElasticsearchSettingsOutput)
 }
 
-func (i EndpointElasticsearchSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointElasticsearchSettings] {
-	return pulumix.Output[EndpointElasticsearchSettings]{
-		OutputState: i.ToEndpointElasticsearchSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointElasticsearchSettingsArgs) ToEndpointElasticsearchSettingsPtrOutput() EndpointElasticsearchSettingsPtrOutput {
 	return i.ToEndpointElasticsearchSettingsPtrOutputWithContext(context.Background())
 }
@@ -472,12 +417,6 @@ func (i *endpointElasticsearchSettingsPtrType) ToEndpointElasticsearchSettingsPt
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointElasticsearchSettingsPtrOutput)
 }
 
-func (i *endpointElasticsearchSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointElasticsearchSettings] {
-	return pulumix.Output[*EndpointElasticsearchSettings]{
-		OutputState: i.ToEndpointElasticsearchSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointElasticsearchSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointElasticsearchSettingsOutput) ElementType() reflect.Type {
@@ -500,12 +439,6 @@ func (o EndpointElasticsearchSettingsOutput) ToEndpointElasticsearchSettingsPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointElasticsearchSettings) *EndpointElasticsearchSettings {
 		return &v
 	}).(EndpointElasticsearchSettingsPtrOutput)
-}
-
-func (o EndpointElasticsearchSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointElasticsearchSettings] {
-	return pulumix.Output[EndpointElasticsearchSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointElasticsearchSettingsOutput) EndpointUri() pulumi.StringPtrOutput {
@@ -536,12 +469,6 @@ func (o EndpointElasticsearchSettingsPtrOutput) ToEndpointElasticsearchSettingsP
 
 func (o EndpointElasticsearchSettingsPtrOutput) ToEndpointElasticsearchSettingsPtrOutputWithContext(ctx context.Context) EndpointElasticsearchSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointElasticsearchSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointElasticsearchSettings] {
-	return pulumix.Output[*EndpointElasticsearchSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointElasticsearchSettingsPtrOutput) Elem() EndpointElasticsearchSettingsOutput {
@@ -645,12 +572,6 @@ func (i EndpointGcpMySqlSettingsArgs) ToEndpointGcpMySqlSettingsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointGcpMySqlSettingsOutput)
 }
 
-func (i EndpointGcpMySqlSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointGcpMySqlSettings] {
-	return pulumix.Output[EndpointGcpMySqlSettings]{
-		OutputState: i.ToEndpointGcpMySqlSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointGcpMySqlSettingsArgs) ToEndpointGcpMySqlSettingsPtrOutput() EndpointGcpMySqlSettingsPtrOutput {
 	return i.ToEndpointGcpMySqlSettingsPtrOutputWithContext(context.Background())
 }
@@ -692,12 +613,6 @@ func (i *endpointGcpMySqlSettingsPtrType) ToEndpointGcpMySqlSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointGcpMySqlSettingsPtrOutput)
 }
 
-func (i *endpointGcpMySqlSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointGcpMySqlSettings] {
-	return pulumix.Output[*EndpointGcpMySqlSettings]{
-		OutputState: i.ToEndpointGcpMySqlSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointGcpMySqlSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointGcpMySqlSettingsOutput) ElementType() reflect.Type {
@@ -720,12 +635,6 @@ func (o EndpointGcpMySqlSettingsOutput) ToEndpointGcpMySqlSettingsPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointGcpMySqlSettings) *EndpointGcpMySqlSettings {
 		return &v
 	}).(EndpointGcpMySqlSettingsPtrOutput)
-}
-
-func (o EndpointGcpMySqlSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointGcpMySqlSettings] {
-	return pulumix.Output[EndpointGcpMySqlSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointGcpMySqlSettingsOutput) AfterConnectScript() pulumi.StringPtrOutput {
@@ -792,12 +701,6 @@ func (o EndpointGcpMySqlSettingsPtrOutput) ToEndpointGcpMySqlSettingsPtrOutput()
 
 func (o EndpointGcpMySqlSettingsPtrOutput) ToEndpointGcpMySqlSettingsPtrOutputWithContext(ctx context.Context) EndpointGcpMySqlSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointGcpMySqlSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointGcpMySqlSettings] {
-	return pulumix.Output[*EndpointGcpMySqlSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointGcpMySqlSettingsPtrOutput) Elem() EndpointGcpMySqlSettingsOutput {
@@ -966,12 +869,6 @@ func (i EndpointIbmDb2SettingsArgs) ToEndpointIbmDb2SettingsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointIbmDb2SettingsOutput)
 }
 
-func (i EndpointIbmDb2SettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointIbmDb2Settings] {
-	return pulumix.Output[EndpointIbmDb2Settings]{
-		OutputState: i.ToEndpointIbmDb2SettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointIbmDb2SettingsArgs) ToEndpointIbmDb2SettingsPtrOutput() EndpointIbmDb2SettingsPtrOutput {
 	return i.ToEndpointIbmDb2SettingsPtrOutputWithContext(context.Background())
 }
@@ -1013,12 +910,6 @@ func (i *endpointIbmDb2SettingsPtrType) ToEndpointIbmDb2SettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointIbmDb2SettingsPtrOutput)
 }
 
-func (i *endpointIbmDb2SettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointIbmDb2Settings] {
-	return pulumix.Output[*EndpointIbmDb2Settings]{
-		OutputState: i.ToEndpointIbmDb2SettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointIbmDb2SettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointIbmDb2SettingsOutput) ElementType() reflect.Type {
@@ -1041,12 +932,6 @@ func (o EndpointIbmDb2SettingsOutput) ToEndpointIbmDb2SettingsPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointIbmDb2Settings) *EndpointIbmDb2Settings {
 		return &v
 	}).(EndpointIbmDb2SettingsPtrOutput)
-}
-
-func (o EndpointIbmDb2SettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointIbmDb2Settings] {
-	return pulumix.Output[EndpointIbmDb2Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointIbmDb2SettingsOutput) CurrentLsn() pulumi.StringPtrOutput {
@@ -1081,12 +966,6 @@ func (o EndpointIbmDb2SettingsPtrOutput) ToEndpointIbmDb2SettingsPtrOutput() End
 
 func (o EndpointIbmDb2SettingsPtrOutput) ToEndpointIbmDb2SettingsPtrOutputWithContext(ctx context.Context) EndpointIbmDb2SettingsPtrOutput {
 	return o
-}
-
-func (o EndpointIbmDb2SettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointIbmDb2Settings] {
-	return pulumix.Output[*EndpointIbmDb2Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointIbmDb2SettingsPtrOutput) Elem() EndpointIbmDb2SettingsOutput {
@@ -1209,12 +1088,6 @@ func (i EndpointKafkaSettingsArgs) ToEndpointKafkaSettingsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointKafkaSettingsOutput)
 }
 
-func (i EndpointKafkaSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointKafkaSettings] {
-	return pulumix.Output[EndpointKafkaSettings]{
-		OutputState: i.ToEndpointKafkaSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointKafkaSettingsArgs) ToEndpointKafkaSettingsPtrOutput() EndpointKafkaSettingsPtrOutput {
 	return i.ToEndpointKafkaSettingsPtrOutputWithContext(context.Background())
 }
@@ -1256,12 +1129,6 @@ func (i *endpointKafkaSettingsPtrType) ToEndpointKafkaSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointKafkaSettingsPtrOutput)
 }
 
-func (i *endpointKafkaSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointKafkaSettings] {
-	return pulumix.Output[*EndpointKafkaSettings]{
-		OutputState: i.ToEndpointKafkaSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointKafkaSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointKafkaSettingsOutput) ElementType() reflect.Type {
@@ -1284,12 +1151,6 @@ func (o EndpointKafkaSettingsOutput) ToEndpointKafkaSettingsPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointKafkaSettings) *EndpointKafkaSettings {
 		return &v
 	}).(EndpointKafkaSettingsPtrOutput)
-}
-
-func (o EndpointKafkaSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointKafkaSettings] {
-	return pulumix.Output[EndpointKafkaSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointKafkaSettingsOutput) Broker() pulumi.StringPtrOutput {
@@ -1376,12 +1237,6 @@ func (o EndpointKafkaSettingsPtrOutput) ToEndpointKafkaSettingsPtrOutput() Endpo
 
 func (o EndpointKafkaSettingsPtrOutput) ToEndpointKafkaSettingsPtrOutputWithContext(ctx context.Context) EndpointKafkaSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointKafkaSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointKafkaSettings] {
-	return pulumix.Output[*EndpointKafkaSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointKafkaSettingsPtrOutput) Elem() EndpointKafkaSettingsOutput {
@@ -1605,12 +1460,6 @@ func (i EndpointKinesisSettingsArgs) ToEndpointKinesisSettingsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointKinesisSettingsOutput)
 }
 
-func (i EndpointKinesisSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointKinesisSettings] {
-	return pulumix.Output[EndpointKinesisSettings]{
-		OutputState: i.ToEndpointKinesisSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointKinesisSettingsArgs) ToEndpointKinesisSettingsPtrOutput() EndpointKinesisSettingsPtrOutput {
 	return i.ToEndpointKinesisSettingsPtrOutputWithContext(context.Background())
 }
@@ -1652,12 +1501,6 @@ func (i *endpointKinesisSettingsPtrType) ToEndpointKinesisSettingsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointKinesisSettingsPtrOutput)
 }
 
-func (i *endpointKinesisSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointKinesisSettings] {
-	return pulumix.Output[*EndpointKinesisSettings]{
-		OutputState: i.ToEndpointKinesisSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointKinesisSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointKinesisSettingsOutput) ElementType() reflect.Type {
@@ -1680,12 +1523,6 @@ func (o EndpointKinesisSettingsOutput) ToEndpointKinesisSettingsPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointKinesisSettings) *EndpointKinesisSettings {
 		return &v
 	}).(EndpointKinesisSettingsPtrOutput)
-}
-
-func (o EndpointKinesisSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointKinesisSettings] {
-	return pulumix.Output[EndpointKinesisSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointKinesisSettingsOutput) IncludeControlDetails() pulumi.BoolPtrOutput {
@@ -1740,12 +1577,6 @@ func (o EndpointKinesisSettingsPtrOutput) ToEndpointKinesisSettingsPtrOutput() E
 
 func (o EndpointKinesisSettingsPtrOutput) ToEndpointKinesisSettingsPtrOutputWithContext(ctx context.Context) EndpointKinesisSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointKinesisSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointKinesisSettings] {
-	return pulumix.Output[*EndpointKinesisSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointKinesisSettingsPtrOutput) Elem() EndpointKinesisSettingsOutput {
@@ -1911,12 +1742,6 @@ func (i EndpointMicrosoftSqlServerSettingsArgs) ToEndpointMicrosoftSqlServerSett
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointMicrosoftSqlServerSettingsOutput)
 }
 
-func (i EndpointMicrosoftSqlServerSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointMicrosoftSqlServerSettings] {
-	return pulumix.Output[EndpointMicrosoftSqlServerSettings]{
-		OutputState: i.ToEndpointMicrosoftSqlServerSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointMicrosoftSqlServerSettingsArgs) ToEndpointMicrosoftSqlServerSettingsPtrOutput() EndpointMicrosoftSqlServerSettingsPtrOutput {
 	return i.ToEndpointMicrosoftSqlServerSettingsPtrOutputWithContext(context.Background())
 }
@@ -1958,12 +1783,6 @@ func (i *endpointMicrosoftSqlServerSettingsPtrType) ToEndpointMicrosoftSqlServer
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointMicrosoftSqlServerSettingsPtrOutput)
 }
 
-func (i *endpointMicrosoftSqlServerSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointMicrosoftSqlServerSettings] {
-	return pulumix.Output[*EndpointMicrosoftSqlServerSettings]{
-		OutputState: i.ToEndpointMicrosoftSqlServerSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointMicrosoftSqlServerSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointMicrosoftSqlServerSettingsOutput) ElementType() reflect.Type {
@@ -1986,12 +1805,6 @@ func (o EndpointMicrosoftSqlServerSettingsOutput) ToEndpointMicrosoftSqlServerSe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointMicrosoftSqlServerSettings) *EndpointMicrosoftSqlServerSettings {
 		return &v
 	}).(EndpointMicrosoftSqlServerSettingsPtrOutput)
-}
-
-func (o EndpointMicrosoftSqlServerSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointMicrosoftSqlServerSettings] {
-	return pulumix.Output[EndpointMicrosoftSqlServerSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointMicrosoftSqlServerSettingsOutput) BcpPacketSize() pulumi.IntPtrOutput {
@@ -2074,12 +1887,6 @@ func (o EndpointMicrosoftSqlServerSettingsPtrOutput) ToEndpointMicrosoftSqlServe
 
 func (o EndpointMicrosoftSqlServerSettingsPtrOutput) ToEndpointMicrosoftSqlServerSettingsPtrOutputWithContext(ctx context.Context) EndpointMicrosoftSqlServerSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointMicrosoftSqlServerSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointMicrosoftSqlServerSettings] {
-	return pulumix.Output[*EndpointMicrosoftSqlServerSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointMicrosoftSqlServerSettingsPtrOutput) Elem() EndpointMicrosoftSqlServerSettingsOutput {
@@ -2300,12 +2107,6 @@ func (i EndpointMongoDbSettingsArgs) ToEndpointMongoDbSettingsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointMongoDbSettingsOutput)
 }
 
-func (i EndpointMongoDbSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointMongoDbSettings] {
-	return pulumix.Output[EndpointMongoDbSettings]{
-		OutputState: i.ToEndpointMongoDbSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointMongoDbSettingsArgs) ToEndpointMongoDbSettingsPtrOutput() EndpointMongoDbSettingsPtrOutput {
 	return i.ToEndpointMongoDbSettingsPtrOutputWithContext(context.Background())
 }
@@ -2347,12 +2148,6 @@ func (i *endpointMongoDbSettingsPtrType) ToEndpointMongoDbSettingsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointMongoDbSettingsPtrOutput)
 }
 
-func (i *endpointMongoDbSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointMongoDbSettings] {
-	return pulumix.Output[*EndpointMongoDbSettings]{
-		OutputState: i.ToEndpointMongoDbSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointMongoDbSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointMongoDbSettingsOutput) ElementType() reflect.Type {
@@ -2375,12 +2170,6 @@ func (o EndpointMongoDbSettingsOutput) ToEndpointMongoDbSettingsPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointMongoDbSettings) *EndpointMongoDbSettings {
 		return &v
 	}).(EndpointMongoDbSettingsPtrOutput)
-}
-
-func (o EndpointMongoDbSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointMongoDbSettings] {
-	return pulumix.Output[EndpointMongoDbSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointMongoDbSettingsOutput) AuthMechanism() pulumi.StringPtrOutput {
@@ -2447,12 +2236,6 @@ func (o EndpointMongoDbSettingsPtrOutput) ToEndpointMongoDbSettingsPtrOutput() E
 
 func (o EndpointMongoDbSettingsPtrOutput) ToEndpointMongoDbSettingsPtrOutputWithContext(ctx context.Context) EndpointMongoDbSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointMongoDbSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointMongoDbSettings] {
-	return pulumix.Output[*EndpointMongoDbSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointMongoDbSettingsPtrOutput) Elem() EndpointMongoDbSettingsOutput {
@@ -2629,12 +2412,6 @@ func (i EndpointMySqlSettingsArgs) ToEndpointMySqlSettingsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointMySqlSettingsOutput)
 }
 
-func (i EndpointMySqlSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointMySqlSettings] {
-	return pulumix.Output[EndpointMySqlSettings]{
-		OutputState: i.ToEndpointMySqlSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointMySqlSettingsArgs) ToEndpointMySqlSettingsPtrOutput() EndpointMySqlSettingsPtrOutput {
 	return i.ToEndpointMySqlSettingsPtrOutputWithContext(context.Background())
 }
@@ -2676,12 +2453,6 @@ func (i *endpointMySqlSettingsPtrType) ToEndpointMySqlSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointMySqlSettingsPtrOutput)
 }
 
-func (i *endpointMySqlSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointMySqlSettings] {
-	return pulumix.Output[*EndpointMySqlSettings]{
-		OutputState: i.ToEndpointMySqlSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointMySqlSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointMySqlSettingsOutput) ElementType() reflect.Type {
@@ -2704,12 +2475,6 @@ func (o EndpointMySqlSettingsOutput) ToEndpointMySqlSettingsPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointMySqlSettings) *EndpointMySqlSettings {
 		return &v
 	}).(EndpointMySqlSettingsPtrOutput)
-}
-
-func (o EndpointMySqlSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointMySqlSettings] {
-	return pulumix.Output[EndpointMySqlSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointMySqlSettingsOutput) AfterConnectScript() pulumi.StringPtrOutput {
@@ -2760,12 +2525,6 @@ func (o EndpointMySqlSettingsPtrOutput) ToEndpointMySqlSettingsPtrOutput() Endpo
 
 func (o EndpointMySqlSettingsPtrOutput) ToEndpointMySqlSettingsPtrOutputWithContext(ctx context.Context) EndpointMySqlSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointMySqlSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointMySqlSettings] {
-	return pulumix.Output[*EndpointMySqlSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointMySqlSettingsPtrOutput) Elem() EndpointMySqlSettingsOutput {
@@ -2902,12 +2661,6 @@ func (i EndpointNeptuneSettingsArgs) ToEndpointNeptuneSettingsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointNeptuneSettingsOutput)
 }
 
-func (i EndpointNeptuneSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointNeptuneSettings] {
-	return pulumix.Output[EndpointNeptuneSettings]{
-		OutputState: i.ToEndpointNeptuneSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointNeptuneSettingsArgs) ToEndpointNeptuneSettingsPtrOutput() EndpointNeptuneSettingsPtrOutput {
 	return i.ToEndpointNeptuneSettingsPtrOutputWithContext(context.Background())
 }
@@ -2949,12 +2702,6 @@ func (i *endpointNeptuneSettingsPtrType) ToEndpointNeptuneSettingsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointNeptuneSettingsPtrOutput)
 }
 
-func (i *endpointNeptuneSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointNeptuneSettings] {
-	return pulumix.Output[*EndpointNeptuneSettings]{
-		OutputState: i.ToEndpointNeptuneSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointNeptuneSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointNeptuneSettingsOutput) ElementType() reflect.Type {
@@ -2977,12 +2724,6 @@ func (o EndpointNeptuneSettingsOutput) ToEndpointNeptuneSettingsPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointNeptuneSettings) *EndpointNeptuneSettings {
 		return &v
 	}).(EndpointNeptuneSettingsPtrOutput)
-}
-
-func (o EndpointNeptuneSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointNeptuneSettings] {
-	return pulumix.Output[EndpointNeptuneSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointNeptuneSettingsOutput) ErrorRetryDuration() pulumi.IntPtrOutput {
@@ -3025,12 +2766,6 @@ func (o EndpointNeptuneSettingsPtrOutput) ToEndpointNeptuneSettingsPtrOutput() E
 
 func (o EndpointNeptuneSettingsPtrOutput) ToEndpointNeptuneSettingsPtrOutputWithContext(ctx context.Context) EndpointNeptuneSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointNeptuneSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointNeptuneSettings] {
-	return pulumix.Output[*EndpointNeptuneSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointNeptuneSettingsPtrOutput) Elem() EndpointNeptuneSettingsOutput {
@@ -3205,12 +2940,6 @@ func (i EndpointOracleSettingsArgs) ToEndpointOracleSettingsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointOracleSettingsOutput)
 }
 
-func (i EndpointOracleSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointOracleSettings] {
-	return pulumix.Output[EndpointOracleSettings]{
-		OutputState: i.ToEndpointOracleSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointOracleSettingsArgs) ToEndpointOracleSettingsPtrOutput() EndpointOracleSettingsPtrOutput {
 	return i.ToEndpointOracleSettingsPtrOutputWithContext(context.Background())
 }
@@ -3252,12 +2981,6 @@ func (i *endpointOracleSettingsPtrType) ToEndpointOracleSettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointOracleSettingsPtrOutput)
 }
 
-func (i *endpointOracleSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointOracleSettings] {
-	return pulumix.Output[*EndpointOracleSettings]{
-		OutputState: i.ToEndpointOracleSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointOracleSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointOracleSettingsOutput) ElementType() reflect.Type {
@@ -3280,12 +3003,6 @@ func (o EndpointOracleSettingsOutput) ToEndpointOracleSettingsPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointOracleSettings) *EndpointOracleSettings {
 		return &v
 	}).(EndpointOracleSettingsPtrOutput)
-}
-
-func (o EndpointOracleSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointOracleSettings] {
-	return pulumix.Output[EndpointOracleSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointOracleSettingsOutput) AccessAlternateDirectly() pulumi.BoolPtrOutput {
@@ -3440,12 +3157,6 @@ func (o EndpointOracleSettingsPtrOutput) ToEndpointOracleSettingsPtrOutput() End
 
 func (o EndpointOracleSettingsPtrOutput) ToEndpointOracleSettingsPtrOutputWithContext(ctx context.Context) EndpointOracleSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointOracleSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointOracleSettings] {
-	return pulumix.Output[*EndpointOracleSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointOracleSettingsPtrOutput) Elem() EndpointOracleSettingsOutput {
@@ -3834,12 +3545,6 @@ func (i EndpointPostgreSqlSettingsArgs) ToEndpointPostgreSqlSettingsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointPostgreSqlSettingsOutput)
 }
 
-func (i EndpointPostgreSqlSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointPostgreSqlSettings] {
-	return pulumix.Output[EndpointPostgreSqlSettings]{
-		OutputState: i.ToEndpointPostgreSqlSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointPostgreSqlSettingsArgs) ToEndpointPostgreSqlSettingsPtrOutput() EndpointPostgreSqlSettingsPtrOutput {
 	return i.ToEndpointPostgreSqlSettingsPtrOutputWithContext(context.Background())
 }
@@ -3881,12 +3586,6 @@ func (i *endpointPostgreSqlSettingsPtrType) ToEndpointPostgreSqlSettingsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointPostgreSqlSettingsPtrOutput)
 }
 
-func (i *endpointPostgreSqlSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointPostgreSqlSettings] {
-	return pulumix.Output[*EndpointPostgreSqlSettings]{
-		OutputState: i.ToEndpointPostgreSqlSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointPostgreSqlSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointPostgreSqlSettingsOutput) ElementType() reflect.Type {
@@ -3909,12 +3608,6 @@ func (o EndpointPostgreSqlSettingsOutput) ToEndpointPostgreSqlSettingsPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointPostgreSqlSettings) *EndpointPostgreSqlSettings {
 		return &v
 	}).(EndpointPostgreSqlSettingsPtrOutput)
-}
-
-func (o EndpointPostgreSqlSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointPostgreSqlSettings] {
-	return pulumix.Output[EndpointPostgreSqlSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointPostgreSqlSettingsOutput) AfterConnectScript() pulumi.StringPtrOutput {
@@ -3993,12 +3686,6 @@ func (o EndpointPostgreSqlSettingsPtrOutput) ToEndpointPostgreSqlSettingsPtrOutp
 
 func (o EndpointPostgreSqlSettingsPtrOutput) ToEndpointPostgreSqlSettingsPtrOutputWithContext(ctx context.Context) EndpointPostgreSqlSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointPostgreSqlSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointPostgreSqlSettings] {
-	return pulumix.Output[*EndpointPostgreSqlSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointPostgreSqlSettingsPtrOutput) Elem() EndpointPostgreSqlSettingsOutput {
@@ -4198,12 +3885,6 @@ func (i EndpointRedisSettingsArgs) ToEndpointRedisSettingsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointRedisSettingsOutput)
 }
 
-func (i EndpointRedisSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointRedisSettings] {
-	return pulumix.Output[EndpointRedisSettings]{
-		OutputState: i.ToEndpointRedisSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointRedisSettingsArgs) ToEndpointRedisSettingsPtrOutput() EndpointRedisSettingsPtrOutput {
 	return i.ToEndpointRedisSettingsPtrOutputWithContext(context.Background())
 }
@@ -4245,12 +3926,6 @@ func (i *endpointRedisSettingsPtrType) ToEndpointRedisSettingsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointRedisSettingsPtrOutput)
 }
 
-func (i *endpointRedisSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointRedisSettings] {
-	return pulumix.Output[*EndpointRedisSettings]{
-		OutputState: i.ToEndpointRedisSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointRedisSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointRedisSettingsOutput) ElementType() reflect.Type {
@@ -4273,12 +3948,6 @@ func (o EndpointRedisSettingsOutput) ToEndpointRedisSettingsPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointRedisSettings) *EndpointRedisSettings {
 		return &v
 	}).(EndpointRedisSettingsPtrOutput)
-}
-
-func (o EndpointRedisSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointRedisSettings] {
-	return pulumix.Output[EndpointRedisSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointRedisSettingsOutput) AuthPassword() pulumi.StringPtrOutput {
@@ -4321,12 +3990,6 @@ func (o EndpointRedisSettingsPtrOutput) ToEndpointRedisSettingsPtrOutput() Endpo
 
 func (o EndpointRedisSettingsPtrOutput) ToEndpointRedisSettingsPtrOutputWithContext(ctx context.Context) EndpointRedisSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointRedisSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointRedisSettings] {
-	return pulumix.Output[*EndpointRedisSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointRedisSettingsPtrOutput) Elem() EndpointRedisSettingsOutput {
@@ -4483,12 +4146,6 @@ func (i EndpointRedshiftSettingsArgs) ToEndpointRedshiftSettingsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointRedshiftSettingsOutput)
 }
 
-func (i EndpointRedshiftSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointRedshiftSettings] {
-	return pulumix.Output[EndpointRedshiftSettings]{
-		OutputState: i.ToEndpointRedshiftSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointRedshiftSettingsArgs) ToEndpointRedshiftSettingsPtrOutput() EndpointRedshiftSettingsPtrOutput {
 	return i.ToEndpointRedshiftSettingsPtrOutputWithContext(context.Background())
 }
@@ -4530,12 +4187,6 @@ func (i *endpointRedshiftSettingsPtrType) ToEndpointRedshiftSettingsPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointRedshiftSettingsPtrOutput)
 }
 
-func (i *endpointRedshiftSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointRedshiftSettings] {
-	return pulumix.Output[*EndpointRedshiftSettings]{
-		OutputState: i.ToEndpointRedshiftSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointRedshiftSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointRedshiftSettingsOutput) ElementType() reflect.Type {
@@ -4558,12 +4209,6 @@ func (o EndpointRedshiftSettingsOutput) ToEndpointRedshiftSettingsPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointRedshiftSettings) *EndpointRedshiftSettings {
 		return &v
 	}).(EndpointRedshiftSettingsPtrOutput)
-}
-
-func (o EndpointRedshiftSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointRedshiftSettings] {
-	return pulumix.Output[EndpointRedshiftSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointRedshiftSettingsOutput) AcceptAnyDate() pulumi.BoolPtrOutput {
@@ -4682,12 +4327,6 @@ func (o EndpointRedshiftSettingsPtrOutput) ToEndpointRedshiftSettingsPtrOutput()
 
 func (o EndpointRedshiftSettingsPtrOutput) ToEndpointRedshiftSettingsPtrOutputWithContext(ctx context.Context) EndpointRedshiftSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointRedshiftSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointRedshiftSettings] {
-	return pulumix.Output[*EndpointRedshiftSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointRedshiftSettingsPtrOutput) Elem() EndpointRedshiftSettingsOutput {
@@ -5039,12 +4678,6 @@ func (i EndpointS3SettingsArgs) ToEndpointS3SettingsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointS3SettingsOutput)
 }
 
-func (i EndpointS3SettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointS3Settings] {
-	return pulumix.Output[EndpointS3Settings]{
-		OutputState: i.ToEndpointS3SettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointS3SettingsArgs) ToEndpointS3SettingsPtrOutput() EndpointS3SettingsPtrOutput {
 	return i.ToEndpointS3SettingsPtrOutputWithContext(context.Background())
 }
@@ -5086,12 +4719,6 @@ func (i *endpointS3SettingsPtrType) ToEndpointS3SettingsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointS3SettingsPtrOutput)
 }
 
-func (i *endpointS3SettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointS3Settings] {
-	return pulumix.Output[*EndpointS3Settings]{
-		OutputState: i.ToEndpointS3SettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointS3SettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointS3SettingsOutput) ElementType() reflect.Type {
@@ -5114,12 +4741,6 @@ func (o EndpointS3SettingsOutput) ToEndpointS3SettingsPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointS3Settings) *EndpointS3Settings {
 		return &v
 	}).(EndpointS3SettingsPtrOutput)
-}
-
-func (o EndpointS3SettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointS3Settings] {
-	return pulumix.Output[EndpointS3Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointS3SettingsOutput) AddColumnName() pulumi.BoolPtrOutput {
@@ -5286,12 +4907,6 @@ func (o EndpointS3SettingsPtrOutput) ToEndpointS3SettingsPtrOutput() EndpointS3S
 
 func (o EndpointS3SettingsPtrOutput) ToEndpointS3SettingsPtrOutputWithContext(ctx context.Context) EndpointS3SettingsPtrOutput {
 	return o
-}
-
-func (o EndpointS3SettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointS3Settings] {
-	return pulumix.Output[*EndpointS3Settings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointS3SettingsPtrOutput) Elem() EndpointS3SettingsOutput {
@@ -5679,12 +5294,6 @@ func (i EndpointSybaseSettingsArgs) ToEndpointSybaseSettingsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointSybaseSettingsOutput)
 }
 
-func (i EndpointSybaseSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointSybaseSettings] {
-	return pulumix.Output[EndpointSybaseSettings]{
-		OutputState: i.ToEndpointSybaseSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointSybaseSettingsArgs) ToEndpointSybaseSettingsPtrOutput() EndpointSybaseSettingsPtrOutput {
 	return i.ToEndpointSybaseSettingsPtrOutputWithContext(context.Background())
 }
@@ -5726,12 +5335,6 @@ func (i *endpointSybaseSettingsPtrType) ToEndpointSybaseSettingsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointSybaseSettingsPtrOutput)
 }
 
-func (i *endpointSybaseSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointSybaseSettings] {
-	return pulumix.Output[*EndpointSybaseSettings]{
-		OutputState: i.ToEndpointSybaseSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointSybaseSettingsOutput struct{ *pulumi.OutputState }
 
 func (EndpointSybaseSettingsOutput) ElementType() reflect.Type {
@@ -5756,12 +5359,6 @@ func (o EndpointSybaseSettingsOutput) ToEndpointSybaseSettingsPtrOutputWithConte
 	}).(EndpointSybaseSettingsPtrOutput)
 }
 
-func (o EndpointSybaseSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointSybaseSettings] {
-	return pulumix.Output[EndpointSybaseSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EndpointSybaseSettingsOutput) SecretsManagerAccessRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointSybaseSettings) *string { return v.SecretsManagerAccessRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -5782,12 +5379,6 @@ func (o EndpointSybaseSettingsPtrOutput) ToEndpointSybaseSettingsPtrOutput() End
 
 func (o EndpointSybaseSettingsPtrOutput) ToEndpointSybaseSettingsPtrOutputWithContext(ctx context.Context) EndpointSybaseSettingsPtrOutput {
 	return o
-}
-
-func (o EndpointSybaseSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointSybaseSettings] {
-	return pulumix.Output[*EndpointSybaseSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointSybaseSettingsPtrOutput) Elem() EndpointSybaseSettingsOutput {
@@ -5851,12 +5442,6 @@ func (i EndpointTagArgs) ToEndpointTagOutputWithContext(ctx context.Context) End
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointTagOutput)
 }
 
-func (i EndpointTagArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointTag] {
-	return pulumix.Output[EndpointTag]{
-		OutputState: i.ToEndpointTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EndpointTagArrayInput is an input type that accepts EndpointTagArray and EndpointTagArrayOutput values.
 // You can construct a concrete instance of `EndpointTagArrayInput` via:
 //
@@ -5882,12 +5467,6 @@ func (i EndpointTagArray) ToEndpointTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointTagArrayOutput)
 }
 
-func (i EndpointTagArray) ToOutput(ctx context.Context) pulumix.Output[[]EndpointTag] {
-	return pulumix.Output[[]EndpointTag]{
-		OutputState: i.ToEndpointTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointTagOutput struct{ *pulumi.OutputState }
 
 func (EndpointTagOutput) ElementType() reflect.Type {
@@ -5900,12 +5479,6 @@ func (o EndpointTagOutput) ToEndpointTagOutput() EndpointTagOutput {
 
 func (o EndpointTagOutput) ToEndpointTagOutputWithContext(ctx context.Context) EndpointTagOutput {
 	return o
-}
-
-func (o EndpointTagOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointTag] {
-	return pulumix.Output[EndpointTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointTagOutput) Key() pulumi.StringOutput {
@@ -5928,12 +5501,6 @@ func (o EndpointTagArrayOutput) ToEndpointTagArrayOutput() EndpointTagArrayOutpu
 
 func (o EndpointTagArrayOutput) ToEndpointTagArrayOutputWithContext(ctx context.Context) EndpointTagArrayOutput {
 	return o
-}
-
-func (o EndpointTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EndpointTag] {
-	return pulumix.Output[[]EndpointTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointTagArrayOutput) Index(i pulumi.IntInput) EndpointTagOutput {
@@ -5975,12 +5542,6 @@ func (i EventSubscriptionTagArgs) ToEventSubscriptionTagOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionTagOutput)
 }
 
-func (i EventSubscriptionTagArgs) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionTag] {
-	return pulumix.Output[EventSubscriptionTag]{
-		OutputState: i.ToEventSubscriptionTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventSubscriptionTagArrayInput is an input type that accepts EventSubscriptionTagArray and EventSubscriptionTagArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionTagArrayInput` via:
 //
@@ -6006,12 +5567,6 @@ func (i EventSubscriptionTagArray) ToEventSubscriptionTagArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionTagArrayOutput)
 }
 
-func (i EventSubscriptionTagArray) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionTag] {
-	return pulumix.Output[[]EventSubscriptionTag]{
-		OutputState: i.ToEventSubscriptionTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventSubscriptionTagOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionTagOutput) ElementType() reflect.Type {
@@ -6024,12 +5579,6 @@ func (o EventSubscriptionTagOutput) ToEventSubscriptionTagOutput() EventSubscrip
 
 func (o EventSubscriptionTagOutput) ToEventSubscriptionTagOutputWithContext(ctx context.Context) EventSubscriptionTagOutput {
 	return o
-}
-
-func (o EventSubscriptionTagOutput) ToOutput(ctx context.Context) pulumix.Output[EventSubscriptionTag] {
-	return pulumix.Output[EventSubscriptionTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionTagOutput) Key() pulumi.StringOutput {
@@ -6052,12 +5601,6 @@ func (o EventSubscriptionTagArrayOutput) ToEventSubscriptionTagArrayOutput() Eve
 
 func (o EventSubscriptionTagArrayOutput) ToEventSubscriptionTagArrayOutputWithContext(ctx context.Context) EventSubscriptionTagArrayOutput {
 	return o
-}
-
-func (o EventSubscriptionTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventSubscriptionTag] {
-	return pulumix.Output[[]EventSubscriptionTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventSubscriptionTagArrayOutput) Index(i pulumi.IntInput) EventSubscriptionTagOutput {
@@ -6115,12 +5658,6 @@ func (i ReplicationConfigComputeConfigArgs) ToReplicationConfigComputeConfigOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigComputeConfigOutput)
 }
 
-func (i ReplicationConfigComputeConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigComputeConfig] {
-	return pulumix.Output[ReplicationConfigComputeConfig]{
-		OutputState: i.ToReplicationConfigComputeConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ReplicationConfigComputeConfigArgs) ToReplicationConfigComputeConfigPtrOutput() ReplicationConfigComputeConfigPtrOutput {
 	return i.ToReplicationConfigComputeConfigPtrOutputWithContext(context.Background())
 }
@@ -6162,12 +5699,6 @@ func (i *replicationConfigComputeConfigPtrType) ToReplicationConfigComputeConfig
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigComputeConfigPtrOutput)
 }
 
-func (i *replicationConfigComputeConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfigComputeConfig] {
-	return pulumix.Output[*ReplicationConfigComputeConfig]{
-		OutputState: i.ToReplicationConfigComputeConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Configuration parameters for provisioning a AWS DMS Serverless replication
 type ReplicationConfigComputeConfigOutput struct{ *pulumi.OutputState }
 
@@ -6191,12 +5722,6 @@ func (o ReplicationConfigComputeConfigOutput) ToReplicationConfigComputeConfigPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationConfigComputeConfig) *ReplicationConfigComputeConfig {
 		return &v
 	}).(ReplicationConfigComputeConfigPtrOutput)
-}
-
-func (o ReplicationConfigComputeConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigComputeConfig] {
-	return pulumix.Output[ReplicationConfigComputeConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationConfigComputeConfigOutput) AvailabilityZone() pulumi.StringPtrOutput {
@@ -6247,12 +5772,6 @@ func (o ReplicationConfigComputeConfigPtrOutput) ToReplicationConfigComputeConfi
 
 func (o ReplicationConfigComputeConfigPtrOutput) ToReplicationConfigComputeConfigPtrOutputWithContext(ctx context.Context) ReplicationConfigComputeConfigPtrOutput {
 	return o
-}
-
-func (o ReplicationConfigComputeConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfigComputeConfig] {
-	return pulumix.Output[*ReplicationConfigComputeConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationConfigComputeConfigPtrOutput) Elem() ReplicationConfigComputeConfigOutput {
@@ -6389,12 +5908,6 @@ func (i ReplicationConfigTagArgs) ToReplicationConfigTagOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigTagOutput)
 }
 
-func (i ReplicationConfigTagArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigTag] {
-	return pulumix.Output[ReplicationConfigTag]{
-		OutputState: i.ToReplicationConfigTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationConfigTagArrayInput is an input type that accepts ReplicationConfigTagArray and ReplicationConfigTagArrayOutput values.
 // You can construct a concrete instance of `ReplicationConfigTagArrayInput` via:
 //
@@ -6420,12 +5933,6 @@ func (i ReplicationConfigTagArray) ToReplicationConfigTagArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigTagArrayOutput)
 }
 
-func (i ReplicationConfigTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationConfigTag] {
-	return pulumix.Output[[]ReplicationConfigTag]{
-		OutputState: i.ToReplicationConfigTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>The key or keys of the key-value pairs for the resource tag or tags assigned to the
 //
 //	resource.</p>
@@ -6441,12 +5948,6 @@ func (o ReplicationConfigTagOutput) ToReplicationConfigTagOutput() ReplicationCo
 
 func (o ReplicationConfigTagOutput) ToReplicationConfigTagOutputWithContext(ctx context.Context) ReplicationConfigTagOutput {
 	return o
-}
-
-func (o ReplicationConfigTagOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigTag] {
-	return pulumix.Output[ReplicationConfigTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>Tag key.</p>
@@ -6471,12 +5972,6 @@ func (o ReplicationConfigTagArrayOutput) ToReplicationConfigTagArrayOutput() Rep
 
 func (o ReplicationConfigTagArrayOutput) ToReplicationConfigTagArrayOutputWithContext(ctx context.Context) ReplicationConfigTagArrayOutput {
 	return o
-}
-
-func (o ReplicationConfigTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationConfigTag] {
-	return pulumix.Output[[]ReplicationConfigTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationConfigTagArrayOutput) Index(i pulumi.IntInput) ReplicationConfigTagOutput {
@@ -6518,12 +6013,6 @@ func (i ReplicationInstanceTagArgs) ToReplicationInstanceTagOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstanceTagOutput)
 }
 
-func (i ReplicationInstanceTagArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationInstanceTag] {
-	return pulumix.Output[ReplicationInstanceTag]{
-		OutputState: i.ToReplicationInstanceTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationInstanceTagArrayInput is an input type that accepts ReplicationInstanceTagArray and ReplicationInstanceTagArrayOutput values.
 // You can construct a concrete instance of `ReplicationInstanceTagArrayInput` via:
 //
@@ -6549,12 +6038,6 @@ func (i ReplicationInstanceTagArray) ToReplicationInstanceTagArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationInstanceTagArrayOutput)
 }
 
-func (i ReplicationInstanceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationInstanceTag] {
-	return pulumix.Output[[]ReplicationInstanceTag]{
-		OutputState: i.ToReplicationInstanceTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationInstanceTagOutput struct{ *pulumi.OutputState }
 
 func (ReplicationInstanceTagOutput) ElementType() reflect.Type {
@@ -6567,12 +6050,6 @@ func (o ReplicationInstanceTagOutput) ToReplicationInstanceTagOutput() Replicati
 
 func (o ReplicationInstanceTagOutput) ToReplicationInstanceTagOutputWithContext(ctx context.Context) ReplicationInstanceTagOutput {
 	return o
-}
-
-func (o ReplicationInstanceTagOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationInstanceTag] {
-	return pulumix.Output[ReplicationInstanceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationInstanceTagOutput) Key() pulumi.StringOutput {
@@ -6595,12 +6072,6 @@ func (o ReplicationInstanceTagArrayOutput) ToReplicationInstanceTagArrayOutput()
 
 func (o ReplicationInstanceTagArrayOutput) ToReplicationInstanceTagArrayOutputWithContext(ctx context.Context) ReplicationInstanceTagArrayOutput {
 	return o
-}
-
-func (o ReplicationInstanceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationInstanceTag] {
-	return pulumix.Output[[]ReplicationInstanceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationInstanceTagArrayOutput) Index(i pulumi.IntInput) ReplicationInstanceTagOutput {
@@ -6642,12 +6113,6 @@ func (i ReplicationSubnetGroupTagArgs) ToReplicationSubnetGroupTagOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSubnetGroupTagOutput)
 }
 
-func (i ReplicationSubnetGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationSubnetGroupTag] {
-	return pulumix.Output[ReplicationSubnetGroupTag]{
-		OutputState: i.ToReplicationSubnetGroupTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationSubnetGroupTagArrayInput is an input type that accepts ReplicationSubnetGroupTagArray and ReplicationSubnetGroupTagArrayOutput values.
 // You can construct a concrete instance of `ReplicationSubnetGroupTagArrayInput` via:
 //
@@ -6673,12 +6138,6 @@ func (i ReplicationSubnetGroupTagArray) ToReplicationSubnetGroupTagArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSubnetGroupTagArrayOutput)
 }
 
-func (i ReplicationSubnetGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationSubnetGroupTag] {
-	return pulumix.Output[[]ReplicationSubnetGroupTag]{
-		OutputState: i.ToReplicationSubnetGroupTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationSubnetGroupTagOutput struct{ *pulumi.OutputState }
 
 func (ReplicationSubnetGroupTagOutput) ElementType() reflect.Type {
@@ -6691,12 +6150,6 @@ func (o ReplicationSubnetGroupTagOutput) ToReplicationSubnetGroupTagOutput() Rep
 
 func (o ReplicationSubnetGroupTagOutput) ToReplicationSubnetGroupTagOutputWithContext(ctx context.Context) ReplicationSubnetGroupTagOutput {
 	return o
-}
-
-func (o ReplicationSubnetGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationSubnetGroupTag] {
-	return pulumix.Output[ReplicationSubnetGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationSubnetGroupTagOutput) Key() pulumi.StringOutput {
@@ -6719,12 +6172,6 @@ func (o ReplicationSubnetGroupTagArrayOutput) ToReplicationSubnetGroupTagArrayOu
 
 func (o ReplicationSubnetGroupTagArrayOutput) ToReplicationSubnetGroupTagArrayOutputWithContext(ctx context.Context) ReplicationSubnetGroupTagArrayOutput {
 	return o
-}
-
-func (o ReplicationSubnetGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationSubnetGroupTag] {
-	return pulumix.Output[[]ReplicationSubnetGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationSubnetGroupTagArrayOutput) Index(i pulumi.IntInput) ReplicationSubnetGroupTagOutput {
@@ -6766,12 +6213,6 @@ func (i ReplicationTaskTagArgs) ToReplicationTaskTagOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationTaskTagOutput)
 }
 
-func (i ReplicationTaskTagArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationTaskTag] {
-	return pulumix.Output[ReplicationTaskTag]{
-		OutputState: i.ToReplicationTaskTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationTaskTagArrayInput is an input type that accepts ReplicationTaskTagArray and ReplicationTaskTagArrayOutput values.
 // You can construct a concrete instance of `ReplicationTaskTagArrayInput` via:
 //
@@ -6797,12 +6238,6 @@ func (i ReplicationTaskTagArray) ToReplicationTaskTagArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationTaskTagArrayOutput)
 }
 
-func (i ReplicationTaskTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationTaskTag] {
-	return pulumix.Output[[]ReplicationTaskTag]{
-		OutputState: i.ToReplicationTaskTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationTaskTagOutput struct{ *pulumi.OutputState }
 
 func (ReplicationTaskTagOutput) ElementType() reflect.Type {
@@ -6815,12 +6250,6 @@ func (o ReplicationTaskTagOutput) ToReplicationTaskTagOutput() ReplicationTaskTa
 
 func (o ReplicationTaskTagOutput) ToReplicationTaskTagOutputWithContext(ctx context.Context) ReplicationTaskTagOutput {
 	return o
-}
-
-func (o ReplicationTaskTagOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationTaskTag] {
-	return pulumix.Output[ReplicationTaskTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationTaskTagOutput) Key() pulumi.StringOutput {
@@ -6843,12 +6272,6 @@ func (o ReplicationTaskTagArrayOutput) ToReplicationTaskTagArrayOutput() Replica
 
 func (o ReplicationTaskTagArrayOutput) ToReplicationTaskTagArrayOutputWithContext(ctx context.Context) ReplicationTaskTagArrayOutput {
 	return o
-}
-
-func (o ReplicationTaskTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationTaskTag] {
-	return pulumix.Output[[]ReplicationTaskTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationTaskTagArrayOutput) Index(i pulumi.IntInput) ReplicationTaskTagOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IVS::PlaybackKeyPair
@@ -71,12 +70,6 @@ func (o LookupPlaybackKeyPairResultOutput) ToLookupPlaybackKeyPairResultOutput()
 
 func (o LookupPlaybackKeyPairResultOutput) ToLookupPlaybackKeyPairResultOutputWithContext(ctx context.Context) LookupPlaybackKeyPairResultOutput {
 	return o
-}
-
-func (o LookupPlaybackKeyPairResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPlaybackKeyPairResult] {
-	return pulumix.Output[LookupPlaybackKeyPairResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key-pair identifier.

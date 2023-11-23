@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Athena::NamedQuery
@@ -134,12 +133,6 @@ func (i *NamedQuery) ToNamedQueryOutputWithContext(ctx context.Context) NamedQue
 	return pulumi.ToOutputWithContext(ctx, i).(NamedQueryOutput)
 }
 
-func (i *NamedQuery) ToOutput(ctx context.Context) pulumix.Output[*NamedQuery] {
-	return pulumix.Output[*NamedQuery]{
-		OutputState: i.ToNamedQueryOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NamedQueryOutput struct{ *pulumi.OutputState }
 
 func (NamedQueryOutput) ElementType() reflect.Type {
@@ -152,12 +145,6 @@ func (o NamedQueryOutput) ToNamedQueryOutput() NamedQueryOutput {
 
 func (o NamedQueryOutput) ToNamedQueryOutputWithContext(ctx context.Context) NamedQueryOutput {
 	return o
-}
-
-func (o NamedQueryOutput) ToOutput(ctx context.Context) pulumix.Output[*NamedQuery] {
-	return pulumix.Output[*NamedQuery]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The database to which the query belongs.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
@@ -130,12 +129,6 @@ func (i *StudioSessionMapping) ToStudioSessionMappingOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(StudioSessionMappingOutput)
 }
 
-func (i *StudioSessionMapping) ToOutput(ctx context.Context) pulumix.Output[*StudioSessionMapping] {
-	return pulumix.Output[*StudioSessionMapping]{
-		OutputState: i.ToStudioSessionMappingOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StudioSessionMappingOutput struct{ *pulumi.OutputState }
 
 func (StudioSessionMappingOutput) ElementType() reflect.Type {
@@ -148,12 +141,6 @@ func (o StudioSessionMappingOutput) ToStudioSessionMappingOutput() StudioSession
 
 func (o StudioSessionMappingOutput) ToStudioSessionMappingOutputWithContext(ctx context.Context) StudioSessionMappingOutput {
 	return o
-}
-
-func (o StudioSessionMappingOutput) ToOutput(ctx context.Context) pulumix.Output[*StudioSessionMapping] {
-	return pulumix.Output[*StudioSessionMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the user or group. For more information, see UserName and DisplayName in the AWS SSO Identity Store API Reference. Either IdentityName or IdentityId must be specified.

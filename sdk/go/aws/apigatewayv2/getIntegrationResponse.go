@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGatewayV2::IntegrationResponse“ resource updates an integration response for an WebSocket API. For more information, see [Set up WebSocket API Integration Responses in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html) in the *API Gateway Developer Guide*.
@@ -88,12 +87,6 @@ func (o LookupIntegrationResponseResultOutput) ToLookupIntegrationResponseResult
 
 func (o LookupIntegrationResponseResultOutput) ToLookupIntegrationResponseResultOutputWithContext(ctx context.Context) LookupIntegrationResponseResultOutput {
 	return o
-}
-
-func (o LookupIntegrationResponseResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIntegrationResponseResult] {
-	return pulumix.Output[LookupIntegrationResponseResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Supported only for WebSocket APIs. Specifies how to handle response payload content type conversions. Supported values are “CONVERT_TO_BINARY“ and “CONVERT_TO_TEXT“, with the following behaviors:

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::Rekognition::Collection type creates an Amazon Rekognition Collection. A collection is a logical grouping of information about detected faces which can later be referenced for searches on the group
@@ -105,12 +104,6 @@ func (i *Collection) ToCollectionOutputWithContext(ctx context.Context) Collecti
 	return pulumi.ToOutputWithContext(ctx, i).(CollectionOutput)
 }
 
-func (i *Collection) ToOutput(ctx context.Context) pulumix.Output[*Collection] {
-	return pulumix.Output[*Collection]{
-		OutputState: i.ToCollectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CollectionOutput struct{ *pulumi.OutputState }
 
 func (CollectionOutput) ElementType() reflect.Type {
@@ -123,12 +116,6 @@ func (o CollectionOutput) ToCollectionOutput() CollectionOutput {
 
 func (o CollectionOutput) ToCollectionOutputWithContext(ctx context.Context) CollectionOutput {
 	return o
-}
-
-func (o CollectionOutput) ToOutput(ctx context.Context) pulumix.Output[*Collection] {
-	return pulumix.Output[*Collection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CollectionOutput) Arn() pulumi.StringOutput {

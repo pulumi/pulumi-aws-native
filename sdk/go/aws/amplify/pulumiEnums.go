@@ -81,12 +81,6 @@ func (o AppAutoBranchCreationConfigStageOutput) ToAppAutoBranchCreationConfigSta
 	}).(AppAutoBranchCreationConfigStagePtrOutput)
 }
 
-func (o AppAutoBranchCreationConfigStageOutput) ToOutput(ctx context.Context) pulumix.Output[AppAutoBranchCreationConfigStage] {
-	return pulumix.Output[AppAutoBranchCreationConfigStage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AppAutoBranchCreationConfigStageOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +114,6 @@ func (o AppAutoBranchCreationConfigStagePtrOutput) ToAppAutoBranchCreationConfig
 
 func (o AppAutoBranchCreationConfigStagePtrOutput) ToAppAutoBranchCreationConfigStagePtrOutputWithContext(ctx context.Context) AppAutoBranchCreationConfigStagePtrOutput {
 	return o
-}
-
-func (o AppAutoBranchCreationConfigStagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppAutoBranchCreationConfigStage] {
-	return pulumix.Output[*AppAutoBranchCreationConfigStage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppAutoBranchCreationConfigStagePtrOutput) Elem() AppAutoBranchCreationConfigStageOutput {
@@ -264,12 +252,6 @@ func (o AppPlatformOutput) ToAppPlatformPtrOutputWithContext(ctx context.Context
 	}).(AppPlatformPtrOutput)
 }
 
-func (o AppPlatformOutput) ToOutput(ctx context.Context) pulumix.Output[AppPlatform] {
-	return pulumix.Output[AppPlatform]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AppPlatformOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -303,12 +285,6 @@ func (o AppPlatformPtrOutput) ToAppPlatformPtrOutput() AppPlatformPtrOutput {
 
 func (o AppPlatformPtrOutput) ToAppPlatformPtrOutputWithContext(ctx context.Context) AppPlatformPtrOutput {
 	return o
-}
-
-func (o AppPlatformPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppPlatform] {
-	return pulumix.Output[*AppPlatform]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppPlatformPtrOutput) Elem() AppPlatformOutput {
@@ -449,12 +425,6 @@ func (o BranchStageOutput) ToBranchStagePtrOutputWithContext(ctx context.Context
 	}).(BranchStagePtrOutput)
 }
 
-func (o BranchStageOutput) ToOutput(ctx context.Context) pulumix.Output[BranchStage] {
-	return pulumix.Output[BranchStage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BranchStageOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -488,12 +458,6 @@ func (o BranchStagePtrOutput) ToBranchStagePtrOutput() BranchStagePtrOutput {
 
 func (o BranchStagePtrOutput) ToBranchStagePtrOutputWithContext(ctx context.Context) BranchStagePtrOutput {
 	return o
-}
-
-func (o BranchStagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BranchStage] {
-	return pulumix.Output[*BranchStage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BranchStagePtrOutput) Elem() BranchStageOutput {

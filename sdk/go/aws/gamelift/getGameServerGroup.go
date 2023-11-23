@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.
@@ -79,12 +78,6 @@ func (o LookupGameServerGroupResultOutput) ToLookupGameServerGroupResultOutput()
 
 func (o LookupGameServerGroupResultOutput) ToLookupGameServerGroupResultOutputWithContext(ctx context.Context) LookupGameServerGroupResultOutput {
 	return o
-}
-
-func (o LookupGameServerGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGameServerGroupResult] {
-	return pulumix.Output[LookupGameServerGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A generated unique ID for the EC2 Auto Scaling group that is associated with this game server group.

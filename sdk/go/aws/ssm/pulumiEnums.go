@@ -81,12 +81,6 @@ func (o AssociationComplianceSeverityOutput) ToAssociationComplianceSeverityPtrO
 	}).(AssociationComplianceSeverityPtrOutput)
 }
 
-func (o AssociationComplianceSeverityOutput) ToOutput(ctx context.Context) pulumix.Output[AssociationComplianceSeverity] {
-	return pulumix.Output[AssociationComplianceSeverity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssociationComplianceSeverityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +114,6 @@ func (o AssociationComplianceSeverityPtrOutput) ToAssociationComplianceSeverityP
 
 func (o AssociationComplianceSeverityPtrOutput) ToAssociationComplianceSeverityPtrOutputWithContext(ctx context.Context) AssociationComplianceSeverityPtrOutput {
 	return o
-}
-
-func (o AssociationComplianceSeverityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssociationComplianceSeverity] {
-	return pulumix.Output[*AssociationComplianceSeverity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssociationComplianceSeverityPtrOutput) Elem() AssociationComplianceSeverityOutput {
@@ -263,12 +251,6 @@ func (o AssociationSyncComplianceOutput) ToAssociationSyncCompliancePtrOutputWit
 	}).(AssociationSyncCompliancePtrOutput)
 }
 
-func (o AssociationSyncComplianceOutput) ToOutput(ctx context.Context) pulumix.Output[AssociationSyncCompliance] {
-	return pulumix.Output[AssociationSyncCompliance]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssociationSyncComplianceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -302,12 +284,6 @@ func (o AssociationSyncCompliancePtrOutput) ToAssociationSyncCompliancePtrOutput
 
 func (o AssociationSyncCompliancePtrOutput) ToAssociationSyncCompliancePtrOutputWithContext(ctx context.Context) AssociationSyncCompliancePtrOutput {
 	return o
-}
-
-func (o AssociationSyncCompliancePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssociationSyncCompliance] {
-	return pulumix.Output[*AssociationSyncCompliance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssociationSyncCompliancePtrOutput) Elem() AssociationSyncComplianceOutput {
@@ -447,12 +423,6 @@ func (o DocumentAttachmentsSourceKeyOutput) ToDocumentAttachmentsSourceKeyPtrOut
 	}).(DocumentAttachmentsSourceKeyPtrOutput)
 }
 
-func (o DocumentAttachmentsSourceKeyOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentAttachmentsSourceKey] {
-	return pulumix.Output[DocumentAttachmentsSourceKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentAttachmentsSourceKeyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -486,12 +456,6 @@ func (o DocumentAttachmentsSourceKeyPtrOutput) ToDocumentAttachmentsSourceKeyPtr
 
 func (o DocumentAttachmentsSourceKeyPtrOutput) ToDocumentAttachmentsSourceKeyPtrOutputWithContext(ctx context.Context) DocumentAttachmentsSourceKeyPtrOutput {
 	return o
-}
-
-func (o DocumentAttachmentsSourceKeyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentAttachmentsSourceKey] {
-	return pulumix.Output[*DocumentAttachmentsSourceKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentAttachmentsSourceKeyPtrOutput) Elem() DocumentAttachmentsSourceKeyOutput {
@@ -631,12 +595,6 @@ func (o DocumentFormatOutput) ToDocumentFormatPtrOutputWithContext(ctx context.C
 	}).(DocumentFormatPtrOutput)
 }
 
-func (o DocumentFormatOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentFormat] {
-	return pulumix.Output[DocumentFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -670,12 +628,6 @@ func (o DocumentFormatPtrOutput) ToDocumentFormatPtrOutput() DocumentFormatPtrOu
 
 func (o DocumentFormatPtrOutput) ToDocumentFormatPtrOutputWithContext(ctx context.Context) DocumentFormatPtrOutput {
 	return o
-}
-
-func (o DocumentFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentFormat] {
-	return pulumix.Output[*DocumentFormat]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentFormatPtrOutput) Elem() DocumentFormatOutput {
@@ -825,12 +777,6 @@ func (o DocumentTypeOutput) ToDocumentTypePtrOutputWithContext(ctx context.Conte
 	}).(DocumentTypePtrOutput)
 }
 
-func (o DocumentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentType] {
-	return pulumix.Output[DocumentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -864,12 +810,6 @@ func (o DocumentTypePtrOutput) ToDocumentTypePtrOutput() DocumentTypePtrOutput {
 
 func (o DocumentTypePtrOutput) ToDocumentTypePtrOutputWithContext(ctx context.Context) DocumentTypePtrOutput {
 	return o
-}
-
-func (o DocumentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentType] {
-	return pulumix.Output[*DocumentType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentTypePtrOutput) Elem() DocumentTypeOutput {
@@ -1008,12 +948,6 @@ func (o DocumentUpdateMethodOutput) ToDocumentUpdateMethodPtrOutputWithContext(c
 	}).(DocumentUpdateMethodPtrOutput)
 }
 
-func (o DocumentUpdateMethodOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentUpdateMethod] {
-	return pulumix.Output[DocumentUpdateMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentUpdateMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1047,12 +981,6 @@ func (o DocumentUpdateMethodPtrOutput) ToDocumentUpdateMethodPtrOutput() Documen
 
 func (o DocumentUpdateMethodPtrOutput) ToDocumentUpdateMethodPtrOutputWithContext(ctx context.Context) DocumentUpdateMethodPtrOutput {
 	return o
-}
-
-func (o DocumentUpdateMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentUpdateMethod] {
-	return pulumix.Output[*DocumentUpdateMethod]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentUpdateMethodPtrOutput) Elem() DocumentUpdateMethodOutput {
@@ -1191,12 +1119,6 @@ func (o ParameterDataTypeOutput) ToParameterDataTypePtrOutputWithContext(ctx con
 	}).(ParameterDataTypePtrOutput)
 }
 
-func (o ParameterDataTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ParameterDataType] {
-	return pulumix.Output[ParameterDataType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ParameterDataTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1230,12 +1152,6 @@ func (o ParameterDataTypePtrOutput) ToParameterDataTypePtrOutput() ParameterData
 
 func (o ParameterDataTypePtrOutput) ToParameterDataTypePtrOutputWithContext(ctx context.Context) ParameterDataTypePtrOutput {
 	return o
-}
-
-func (o ParameterDataTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ParameterDataType] {
-	return pulumix.Output[*ParameterDataType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ParameterDataTypePtrOutput) Elem() ParameterDataTypeOutput {
@@ -1375,12 +1291,6 @@ func (o ParameterTierOutput) ToParameterTierPtrOutputWithContext(ctx context.Con
 	}).(ParameterTierPtrOutput)
 }
 
-func (o ParameterTierOutput) ToOutput(ctx context.Context) pulumix.Output[ParameterTier] {
-	return pulumix.Output[ParameterTier]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ParameterTierOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1414,12 +1324,6 @@ func (o ParameterTierPtrOutput) ToParameterTierPtrOutput() ParameterTierPtrOutpu
 
 func (o ParameterTierPtrOutput) ToParameterTierPtrOutputWithContext(ctx context.Context) ParameterTierPtrOutput {
 	return o
-}
-
-func (o ParameterTierPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ParameterTier] {
-	return pulumix.Output[*ParameterTier]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ParameterTierPtrOutput) Elem() ParameterTierOutput {
@@ -1559,12 +1463,6 @@ func (o ParameterTypeOutput) ToParameterTypePtrOutputWithContext(ctx context.Con
 	}).(ParameterTypePtrOutput)
 }
 
-func (o ParameterTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ParameterType] {
-	return pulumix.Output[ParameterType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ParameterTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1598,12 +1496,6 @@ func (o ParameterTypePtrOutput) ToParameterTypePtrOutput() ParameterTypePtrOutpu
 
 func (o ParameterTypePtrOutput) ToParameterTypePtrOutputWithContext(ctx context.Context) ParameterTypePtrOutput {
 	return o
-}
-
-func (o ParameterTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ParameterType] {
-	return pulumix.Output[*ParameterType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ParameterTypePtrOutput) Elem() ParameterTypeOutput {

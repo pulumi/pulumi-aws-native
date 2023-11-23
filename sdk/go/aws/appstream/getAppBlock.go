@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppStream::AppBlock
@@ -65,12 +64,6 @@ func (o LookupAppBlockResultOutput) ToLookupAppBlockResultOutput() LookupAppBloc
 
 func (o LookupAppBlockResultOutput) ToLookupAppBlockResultOutputWithContext(ctx context.Context) LookupAppBlockResultOutput {
 	return o
-}
-
-func (o LookupAppBlockResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAppBlockResult] {
-	return pulumix.Output[LookupAppBlockResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupAppBlockResultOutput) Arn() pulumi.StringPtrOutput {

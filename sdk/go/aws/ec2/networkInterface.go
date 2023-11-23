@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::EC2::NetworkInterface resource creates network interface
@@ -191,12 +190,6 @@ func (i *NetworkInterface) ToNetworkInterfaceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceOutput)
 }
 
-func (i *NetworkInterface) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterface] {
-	return pulumix.Output[*NetworkInterface]{
-		OutputState: i.ToNetworkInterfaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceOutput) ElementType() reflect.Type {
@@ -209,12 +202,6 @@ func (o NetworkInterfaceOutput) ToNetworkInterfaceOutput() NetworkInterfaceOutpu
 
 func (o NetworkInterfaceOutput) ToNetworkInterfaceOutputWithContext(ctx context.Context) NetworkInterfaceOutput {
 	return o
-}
-
-func (o NetworkInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterface] {
-	return pulumix.Output[*NetworkInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description for the network interface.

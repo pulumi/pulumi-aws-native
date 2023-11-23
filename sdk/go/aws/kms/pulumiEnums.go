@@ -79,12 +79,6 @@ func (o KeyOriginOutput) ToKeyOriginPtrOutputWithContext(ctx context.Context) Ke
 	}).(KeyOriginPtrOutput)
 }
 
-func (o KeyOriginOutput) ToOutput(ctx context.Context) pulumix.Output[KeyOrigin] {
-	return pulumix.Output[KeyOrigin]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KeyOriginOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o KeyOriginPtrOutput) ToKeyOriginPtrOutput() KeyOriginPtrOutput {
 
 func (o KeyOriginPtrOutput) ToKeyOriginPtrOutputWithContext(ctx context.Context) KeyOriginPtrOutput {
 	return o
-}
-
-func (o KeyOriginPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KeyOrigin] {
-	return pulumix.Output[*KeyOrigin]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KeyOriginPtrOutput) Elem() KeyOriginOutput {
@@ -273,12 +261,6 @@ func (o KeySpecOutput) ToKeySpecPtrOutputWithContext(ctx context.Context) KeySpe
 	}).(KeySpecPtrOutput)
 }
 
-func (o KeySpecOutput) ToOutput(ctx context.Context) pulumix.Output[KeySpec] {
-	return pulumix.Output[KeySpec]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KeySpecOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -312,12 +294,6 @@ func (o KeySpecPtrOutput) ToKeySpecPtrOutput() KeySpecPtrOutput {
 
 func (o KeySpecPtrOutput) ToKeySpecPtrOutputWithContext(ctx context.Context) KeySpecPtrOutput {
 	return o
-}
-
-func (o KeySpecPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KeySpec] {
-	return pulumix.Output[*KeySpec]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KeySpecPtrOutput) Elem() KeySpecOutput {
@@ -457,12 +433,6 @@ func (o KeyUsageOutput) ToKeyUsagePtrOutputWithContext(ctx context.Context) KeyU
 	}).(KeyUsagePtrOutput)
 }
 
-func (o KeyUsageOutput) ToOutput(ctx context.Context) pulumix.Output[KeyUsage] {
-	return pulumix.Output[KeyUsage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KeyUsageOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -496,12 +466,6 @@ func (o KeyUsagePtrOutput) ToKeyUsagePtrOutput() KeyUsagePtrOutput {
 
 func (o KeyUsagePtrOutput) ToKeyUsagePtrOutputWithContext(ctx context.Context) KeyUsagePtrOutput {
 	return o
-}
-
-func (o KeyUsagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KeyUsage] {
-	return pulumix.Output[*KeyUsage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KeyUsagePtrOutput) Elem() KeyUsageOutput {

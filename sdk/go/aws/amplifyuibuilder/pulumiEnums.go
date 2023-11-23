@@ -78,12 +78,6 @@ func (o FormActionTypeOutput) ToFormActionTypePtrOutputWithContext(ctx context.C
 	}).(FormActionTypePtrOutput)
 }
 
-func (o FormActionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FormActionType] {
-	return pulumix.Output[FormActionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FormActionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o FormActionTypePtrOutput) ToFormActionTypePtrOutput() FormActionTypePtrOu
 
 func (o FormActionTypePtrOutput) ToFormActionTypePtrOutputWithContext(ctx context.Context) FormActionTypePtrOutput {
 	return o
-}
-
-func (o FormActionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FormActionType] {
-	return pulumix.Output[*FormActionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FormActionTypePtrOutput) Elem() FormActionTypeOutput {
@@ -261,12 +249,6 @@ func (o FormButtonsPositionOutput) ToFormButtonsPositionPtrOutputWithContext(ctx
 	}).(FormButtonsPositionPtrOutput)
 }
 
-func (o FormButtonsPositionOutput) ToOutput(ctx context.Context) pulumix.Output[FormButtonsPosition] {
-	return pulumix.Output[FormButtonsPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FormButtonsPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -300,12 +282,6 @@ func (o FormButtonsPositionPtrOutput) ToFormButtonsPositionPtrOutput() FormButto
 
 func (o FormButtonsPositionPtrOutput) ToFormButtonsPositionPtrOutputWithContext(ctx context.Context) FormButtonsPositionPtrOutput {
 	return o
-}
-
-func (o FormButtonsPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FormButtonsPosition] {
-	return pulumix.Output[*FormButtonsPosition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FormButtonsPositionPtrOutput) Elem() FormButtonsPositionOutput {
@@ -443,12 +419,6 @@ func (o FormDataSourceTypeOutput) ToFormDataSourceTypePtrOutputWithContext(ctx c
 	}).(FormDataSourceTypePtrOutput)
 }
 
-func (o FormDataSourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FormDataSourceType] {
-	return pulumix.Output[FormDataSourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FormDataSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -482,12 +452,6 @@ func (o FormDataSourceTypePtrOutput) ToFormDataSourceTypePtrOutput() FormDataSou
 
 func (o FormDataSourceTypePtrOutput) ToFormDataSourceTypePtrOutputWithContext(ctx context.Context) FormDataSourceTypePtrOutput {
 	return o
-}
-
-func (o FormDataSourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FormDataSourceType] {
-	return pulumix.Output[*FormDataSourceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FormDataSourceTypePtrOutput) Elem() FormDataSourceTypeOutput {
@@ -632,12 +596,6 @@ func (o FormLabelDecoratorOutput) ToFormLabelDecoratorPtrOutputWithContext(ctx c
 	}).(FormLabelDecoratorPtrOutput)
 }
 
-func (o FormLabelDecoratorOutput) ToOutput(ctx context.Context) pulumix.Output[FormLabelDecorator] {
-	return pulumix.Output[FormLabelDecorator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FormLabelDecoratorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -671,12 +629,6 @@ func (o FormLabelDecoratorPtrOutput) ToFormLabelDecoratorPtrOutput() FormLabelDe
 
 func (o FormLabelDecoratorPtrOutput) ToFormLabelDecoratorPtrOutputWithContext(ctx context.Context) FormLabelDecoratorPtrOutput {
 	return o
-}
-
-func (o FormLabelDecoratorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FormLabelDecorator] {
-	return pulumix.Output[*FormLabelDecorator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FormLabelDecoratorPtrOutput) Elem() FormLabelDecoratorOutput {

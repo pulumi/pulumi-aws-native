@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::VPCGatewayAttachment
@@ -75,12 +74,6 @@ func (o LookupVpcGatewayAttachmentResultOutput) ToLookupVpcGatewayAttachmentResu
 
 func (o LookupVpcGatewayAttachmentResultOutput) ToLookupVpcGatewayAttachmentResultOutputWithContext(ctx context.Context) LookupVpcGatewayAttachmentResultOutput {
 	return o
-}
-
-func (o LookupVpcGatewayAttachmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpcGatewayAttachmentResult] {
-	return pulumix.Output[LookupVpcGatewayAttachmentResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Used to identify if this resource is an Internet Gateway or Vpn Gateway Attachment

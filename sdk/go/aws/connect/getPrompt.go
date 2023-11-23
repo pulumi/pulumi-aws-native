@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::Prompt
@@ -75,12 +74,6 @@ func (o LookupPromptResultOutput) ToLookupPromptResultOutput() LookupPromptResul
 
 func (o LookupPromptResultOutput) ToLookupPromptResultOutputWithContext(ctx context.Context) LookupPromptResultOutput {
 	return o
-}
-
-func (o LookupPromptResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPromptResult] {
-	return pulumix.Output[LookupPromptResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the prompt.

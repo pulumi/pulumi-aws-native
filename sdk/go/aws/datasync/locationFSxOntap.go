@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataSync::LocationFSxONTAP.
@@ -134,12 +133,6 @@ func (i *LocationFSxOntap) ToLocationFSxOntapOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(LocationFSxOntapOutput)
 }
 
-func (i *LocationFSxOntap) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOntap] {
-	return pulumix.Output[*LocationFSxOntap]{
-		OutputState: i.ToLocationFSxOntapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocationFSxOntapOutput struct{ *pulumi.OutputState }
 
 func (LocationFSxOntapOutput) ElementType() reflect.Type {
@@ -152,12 +145,6 @@ func (o LocationFSxOntapOutput) ToLocationFSxOntapOutput() LocationFSxOntapOutpu
 
 func (o LocationFSxOntapOutput) ToLocationFSxOntapOutputWithContext(ctx context.Context) LocationFSxOntapOutput {
 	return o
-}
-
-func (o LocationFSxOntapOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOntap] {
-	return pulumix.Output[*LocationFSxOntap]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) for the FSx ONAP file system.

@@ -80,12 +80,6 @@ func (o MonitorConfigStateOutput) ToMonitorConfigStatePtrOutputWithContext(ctx c
 	}).(MonitorConfigStatePtrOutput)
 }
 
-func (o MonitorConfigStateOutput) ToOutput(ctx context.Context) pulumix.Output[MonitorConfigState] {
-	return pulumix.Output[MonitorConfigState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitorConfigStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o MonitorConfigStatePtrOutput) ToMonitorConfigStatePtrOutput() MonitorConf
 
 func (o MonitorConfigStatePtrOutput) ToMonitorConfigStatePtrOutputWithContext(ctx context.Context) MonitorConfigStatePtrOutput {
 	return o
-}
-
-func (o MonitorConfigStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitorConfigState] {
-	return pulumix.Output[*MonitorConfigState]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitorConfigStatePtrOutput) Elem() MonitorConfigStateOutput {
@@ -262,12 +250,6 @@ func (o MonitorLocalHealthEventsConfigStatusOutput) ToMonitorLocalHealthEventsCo
 	}).(MonitorLocalHealthEventsConfigStatusPtrOutput)
 }
 
-func (o MonitorLocalHealthEventsConfigStatusOutput) ToOutput(ctx context.Context) pulumix.Output[MonitorLocalHealthEventsConfigStatus] {
-	return pulumix.Output[MonitorLocalHealthEventsConfigStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitorLocalHealthEventsConfigStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +283,6 @@ func (o MonitorLocalHealthEventsConfigStatusPtrOutput) ToMonitorLocalHealthEvent
 
 func (o MonitorLocalHealthEventsConfigStatusPtrOutput) ToMonitorLocalHealthEventsConfigStatusPtrOutputWithContext(ctx context.Context) MonitorLocalHealthEventsConfigStatusPtrOutput {
 	return o
-}
-
-func (o MonitorLocalHealthEventsConfigStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitorLocalHealthEventsConfigStatus] {
-	return pulumix.Output[*MonitorLocalHealthEventsConfigStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitorLocalHealthEventsConfigStatusPtrOutput) Elem() MonitorLocalHealthEventsConfigStatusOutput {
@@ -412,12 +388,6 @@ func (o MonitorProcessingStatusCodeOutput) ToMonitorProcessingStatusCodePtrOutpu
 	}).(MonitorProcessingStatusCodePtrOutput)
 }
 
-func (o MonitorProcessingStatusCodeOutput) ToOutput(ctx context.Context) pulumix.Output[MonitorProcessingStatusCode] {
-	return pulumix.Output[MonitorProcessingStatusCode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitorProcessingStatusCodeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -451,12 +421,6 @@ func (o MonitorProcessingStatusCodePtrOutput) ToMonitorProcessingStatusCodePtrOu
 
 func (o MonitorProcessingStatusCodePtrOutput) ToMonitorProcessingStatusCodePtrOutputWithContext(ctx context.Context) MonitorProcessingStatusCodePtrOutput {
 	return o
-}
-
-func (o MonitorProcessingStatusCodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitorProcessingStatusCode] {
-	return pulumix.Output[*MonitorProcessingStatusCode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitorProcessingStatusCodePtrOutput) Elem() MonitorProcessingStatusCodeOutput {
@@ -550,12 +514,6 @@ func (o MonitorS3ConfigLogDeliveryStatusOutput) ToMonitorS3ConfigLogDeliveryStat
 	}).(MonitorS3ConfigLogDeliveryStatusPtrOutput)
 }
 
-func (o MonitorS3ConfigLogDeliveryStatusOutput) ToOutput(ctx context.Context) pulumix.Output[MonitorS3ConfigLogDeliveryStatus] {
-	return pulumix.Output[MonitorS3ConfigLogDeliveryStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitorS3ConfigLogDeliveryStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -589,12 +547,6 @@ func (o MonitorS3ConfigLogDeliveryStatusPtrOutput) ToMonitorS3ConfigLogDeliveryS
 
 func (o MonitorS3ConfigLogDeliveryStatusPtrOutput) ToMonitorS3ConfigLogDeliveryStatusPtrOutputWithContext(ctx context.Context) MonitorS3ConfigLogDeliveryStatusPtrOutput {
 	return o
-}
-
-func (o MonitorS3ConfigLogDeliveryStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitorS3ConfigLogDeliveryStatus] {
-	return pulumix.Output[*MonitorS3ConfigLogDeliveryStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitorS3ConfigLogDeliveryStatusPtrOutput) Elem() MonitorS3ConfigLogDeliveryStatusOutput {

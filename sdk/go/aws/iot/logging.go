@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Logging Options enable you to configure your IoT V2 logging role and default logging level so that you can monitor progress events logs as it passes from your devices through Iot core service.
@@ -119,12 +118,6 @@ func (i *Logging) ToLoggingOutputWithContext(ctx context.Context) LoggingOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingOutput)
 }
 
-func (i *Logging) ToOutput(ctx context.Context) pulumix.Output[*Logging] {
-	return pulumix.Output[*Logging]{
-		OutputState: i.ToLoggingOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LoggingOutput struct{ *pulumi.OutputState }
 
 func (LoggingOutput) ElementType() reflect.Type {
@@ -137,12 +130,6 @@ func (o LoggingOutput) ToLoggingOutput() LoggingOutput {
 
 func (o LoggingOutput) ToLoggingOutputWithContext(ctx context.Context) LoggingOutput {
 	return o
-}
-
-func (o LoggingOutput) ToOutput(ctx context.Context) pulumix.Output[*Logging] {
-	return pulumix.Output[*Logging]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).

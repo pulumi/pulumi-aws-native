@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IAM::ServerCertificate
@@ -67,12 +66,6 @@ func (o LookupServerCertificateResultOutput) ToLookupServerCertificateResultOutp
 
 func (o LookupServerCertificateResultOutput) ToLookupServerCertificateResultOutputWithContext(ctx context.Context) LookupServerCertificateResultOutput {
 	return o
-}
-
-func (o LookupServerCertificateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServerCertificateResult] {
-	return pulumix.Output[LookupServerCertificateResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the server certificate

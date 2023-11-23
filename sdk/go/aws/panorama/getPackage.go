@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for Package CloudFormation Resource
@@ -68,12 +67,6 @@ func (o LookupPackageResultOutput) ToLookupPackageResultOutput() LookupPackageRe
 
 func (o LookupPackageResultOutput) ToLookupPackageResultOutputWithContext(ctx context.Context) LookupPackageResultOutput {
 	return o
-}
-
-func (o LookupPackageResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPackageResult] {
-	return pulumix.Output[LookupPackageResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupPackageResultOutput) Arn() pulumi.StringPtrOutput {

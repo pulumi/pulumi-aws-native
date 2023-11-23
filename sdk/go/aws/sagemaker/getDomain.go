@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::Domain
@@ -84,12 +83,6 @@ func (o LookupDomainResultOutput) ToLookupDomainResultOutput() LookupDomainResul
 
 func (o LookupDomainResultOutput) ToLookupDomainResultOutputWithContext(ctx context.Context) LookupDomainResultOutput {
 	return o
-}
-
-func (o LookupDomainResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDomainResult] {
-	return pulumix.Output[LookupDomainResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.

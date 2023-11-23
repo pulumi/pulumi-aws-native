@@ -78,12 +78,6 @@ func (o AccountPolicyPolicyTypeOutput) ToAccountPolicyPolicyTypePtrOutputWithCon
 	}).(AccountPolicyPolicyTypePtrOutput)
 }
 
-func (o AccountPolicyPolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AccountPolicyPolicyType] {
-	return pulumix.Output[AccountPolicyPolicyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccountPolicyPolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o AccountPolicyPolicyTypePtrOutput) ToAccountPolicyPolicyTypePtrOutput() A
 
 func (o AccountPolicyPolicyTypePtrOutput) ToAccountPolicyPolicyTypePtrOutputWithContext(ctx context.Context) AccountPolicyPolicyTypePtrOutput {
 	return o
-}
-
-func (o AccountPolicyPolicyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountPolicyPolicyType] {
-	return pulumix.Output[*AccountPolicyPolicyType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountPolicyPolicyTypePtrOutput) Elem() AccountPolicyPolicyTypeOutput {
@@ -260,12 +248,6 @@ func (o AccountPolicyScopeOutput) ToAccountPolicyScopePtrOutputWithContext(ctx c
 	}).(AccountPolicyScopePtrOutput)
 }
 
-func (o AccountPolicyScopeOutput) ToOutput(ctx context.Context) pulumix.Output[AccountPolicyScope] {
-	return pulumix.Output[AccountPolicyScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccountPolicyScopeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -299,12 +281,6 @@ func (o AccountPolicyScopePtrOutput) ToAccountPolicyScopePtrOutput() AccountPoli
 
 func (o AccountPolicyScopePtrOutput) ToAccountPolicyScopePtrOutputWithContext(ctx context.Context) AccountPolicyScopePtrOutput {
 	return o
-}
-
-func (o AccountPolicyScopePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountPolicyScope] {
-	return pulumix.Output[*AccountPolicyScope]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountPolicyScopePtrOutput) Elem() AccountPolicyScopeOutput {
@@ -468,12 +444,6 @@ func (o MetricFilterMetricTransformationUnitOutput) ToMetricFilterMetricTransfor
 	}).(MetricFilterMetricTransformationUnitPtrOutput)
 }
 
-func (o MetricFilterMetricTransformationUnitOutput) ToOutput(ctx context.Context) pulumix.Output[MetricFilterMetricTransformationUnit] {
-	return pulumix.Output[MetricFilterMetricTransformationUnit]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MetricFilterMetricTransformationUnitOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -507,12 +477,6 @@ func (o MetricFilterMetricTransformationUnitPtrOutput) ToMetricFilterMetricTrans
 
 func (o MetricFilterMetricTransformationUnitPtrOutput) ToMetricFilterMetricTransformationUnitPtrOutputWithContext(ctx context.Context) MetricFilterMetricTransformationUnitPtrOutput {
 	return o
-}
-
-func (o MetricFilterMetricTransformationUnitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MetricFilterMetricTransformationUnit] {
-	return pulumix.Output[*MetricFilterMetricTransformationUnit]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MetricFilterMetricTransformationUnitPtrOutput) Elem() MetricFilterMetricTransformationUnitOutput {
@@ -651,12 +615,6 @@ func (o SubscriptionFilterDistributionOutput) ToSubscriptionFilterDistributionPt
 	}).(SubscriptionFilterDistributionPtrOutput)
 }
 
-func (o SubscriptionFilterDistributionOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionFilterDistribution] {
-	return pulumix.Output[SubscriptionFilterDistribution]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SubscriptionFilterDistributionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -690,12 +648,6 @@ func (o SubscriptionFilterDistributionPtrOutput) ToSubscriptionFilterDistributio
 
 func (o SubscriptionFilterDistributionPtrOutput) ToSubscriptionFilterDistributionPtrOutputWithContext(ctx context.Context) SubscriptionFilterDistributionPtrOutput {
 	return o
-}
-
-func (o SubscriptionFilterDistributionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionFilterDistribution] {
-	return pulumix.Output[*SubscriptionFilterDistribution]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SubscriptionFilterDistributionPtrOutput) Elem() SubscriptionFilterDistributionOutput {

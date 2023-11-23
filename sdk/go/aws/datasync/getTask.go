@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataSync::Task.
@@ -82,12 +81,6 @@ func (o LookupTaskResultOutput) ToLookupTaskResultOutput() LookupTaskResultOutpu
 
 func (o LookupTaskResultOutput) ToLookupTaskResultOutputWithContext(ctx context.Context) LookupTaskResultOutput {
 	return o
-}
-
-func (o LookupTaskResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTaskResult] {
-	return pulumix.Output[LookupTaskResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.

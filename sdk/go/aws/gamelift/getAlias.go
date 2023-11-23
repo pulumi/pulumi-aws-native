@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::GameLift::Alias resource creates an alias for an Amazon GameLift (GameLift) fleet destination.
@@ -73,12 +72,6 @@ func (o LookupAliasResultOutput) ToLookupAliasResultOutput() LookupAliasResultOu
 
 func (o LookupAliasResultOutput) ToLookupAliasResultOutputWithContext(ctx context.Context) LookupAliasResultOutput {
 	return o
-}
-
-func (o LookupAliasResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAliasResult] {
-	return pulumix.Output[LookupAliasResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique alias ID

@@ -82,12 +82,6 @@ func (o DatasetAttributesItemPropertiesAttributeTypeOutput) ToDatasetAttributesI
 	}).(DatasetAttributesItemPropertiesAttributeTypePtrOutput)
 }
 
-func (o DatasetAttributesItemPropertiesAttributeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetAttributesItemPropertiesAttributeType] {
-	return pulumix.Output[DatasetAttributesItemPropertiesAttributeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetAttributesItemPropertiesAttributeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -121,12 +115,6 @@ func (o DatasetAttributesItemPropertiesAttributeTypePtrOutput) ToDatasetAttribut
 
 func (o DatasetAttributesItemPropertiesAttributeTypePtrOutput) ToDatasetAttributesItemPropertiesAttributeTypePtrOutputWithContext(ctx context.Context) DatasetAttributesItemPropertiesAttributeTypePtrOutput {
 	return o
-}
-
-func (o DatasetAttributesItemPropertiesAttributeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetAttributesItemPropertiesAttributeType] {
-	return pulumix.Output[*DatasetAttributesItemPropertiesAttributeType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatasetAttributesItemPropertiesAttributeTypePtrOutput) Elem() DatasetAttributesItemPropertiesAttributeTypeOutput {
@@ -270,12 +258,6 @@ func (o DatasetDomainOutput) ToDatasetDomainPtrOutputWithContext(ctx context.Con
 	}).(DatasetDomainPtrOutput)
 }
 
-func (o DatasetDomainOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetDomain] {
-	return pulumix.Output[DatasetDomain]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetDomainOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -309,12 +291,6 @@ func (o DatasetDomainPtrOutput) ToDatasetDomainPtrOutput() DatasetDomainPtrOutpu
 
 func (o DatasetDomainPtrOutput) ToDatasetDomainPtrOutputWithContext(ctx context.Context) DatasetDomainPtrOutput {
 	return o
-}
-
-func (o DatasetDomainPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetDomain] {
-	return pulumix.Output[*DatasetDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatasetDomainPtrOutput) Elem() DatasetDomainOutput {
@@ -458,12 +434,6 @@ func (o DatasetGroupDomainOutput) ToDatasetGroupDomainPtrOutputWithContext(ctx c
 	}).(DatasetGroupDomainPtrOutput)
 }
 
-func (o DatasetGroupDomainOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetGroupDomain] {
-	return pulumix.Output[DatasetGroupDomain]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetGroupDomainOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -497,12 +467,6 @@ func (o DatasetGroupDomainPtrOutput) ToDatasetGroupDomainPtrOutput() DatasetGrou
 
 func (o DatasetGroupDomainPtrOutput) ToDatasetGroupDomainPtrOutputWithContext(ctx context.Context) DatasetGroupDomainPtrOutput {
 	return o
-}
-
-func (o DatasetGroupDomainPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetGroupDomain] {
-	return pulumix.Output[*DatasetGroupDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatasetGroupDomainPtrOutput) Elem() DatasetGroupDomainOutput {
@@ -642,12 +606,6 @@ func (o DatasetTypeOutput) ToDatasetTypePtrOutputWithContext(ctx context.Context
 	}).(DatasetTypePtrOutput)
 }
 
-func (o DatasetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetType] {
-	return pulumix.Output[DatasetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -681,12 +639,6 @@ func (o DatasetTypePtrOutput) ToDatasetTypePtrOutput() DatasetTypePtrOutput {
 
 func (o DatasetTypePtrOutput) ToDatasetTypePtrOutputWithContext(ctx context.Context) DatasetTypePtrOutput {
 	return o
-}
-
-func (o DatasetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetType] {
-	return pulumix.Output[*DatasetType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatasetTypePtrOutput) Elem() DatasetTypeOutput {

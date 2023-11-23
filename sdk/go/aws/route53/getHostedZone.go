@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Route53::HostedZone.
@@ -73,12 +72,6 @@ func (o LookupHostedZoneResultOutput) ToLookupHostedZoneResultOutput() LookupHos
 
 func (o LookupHostedZoneResultOutput) ToLookupHostedZoneResultOutputWithContext(ctx context.Context) LookupHostedZoneResultOutput {
 	return o
-}
-
-func (o LookupHostedZoneResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupHostedZoneResult] {
-	return pulumix.Output[LookupHostedZoneResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupHostedZoneResultOutput) HostedZoneConfig() HostedZoneConfigPtrOutput {

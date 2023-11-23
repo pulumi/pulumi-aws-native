@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ServiceCatalog::LaunchTemplateConstraint
@@ -67,12 +66,6 @@ func (o LookupLaunchTemplateConstraintResultOutput) ToLookupLaunchTemplateConstr
 
 func (o LookupLaunchTemplateConstraintResultOutput) ToLookupLaunchTemplateConstraintResultOutputWithContext(ctx context.Context) LookupLaunchTemplateConstraintResultOutput {
 	return o
-}
-
-func (o LookupLaunchTemplateConstraintResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLaunchTemplateConstraintResult] {
-	return pulumix.Output[LookupLaunchTemplateConstraintResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupLaunchTemplateConstraintResultOutput) AcceptLanguage() pulumi.StringPtrOutput {

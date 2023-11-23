@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::Rekognition::StreamProcessor type is used to create an Amazon Rekognition StreamProcessor that you can use to analyze streaming videos.
@@ -171,12 +170,6 @@ func (i *StreamProcessor) ToStreamProcessorOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(StreamProcessorOutput)
 }
 
-func (i *StreamProcessor) ToOutput(ctx context.Context) pulumix.Output[*StreamProcessor] {
-	return pulumix.Output[*StreamProcessor]{
-		OutputState: i.ToStreamProcessorOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamProcessorOutput struct{ *pulumi.OutputState }
 
 func (StreamProcessorOutput) ElementType() reflect.Type {
@@ -189,12 +182,6 @@ func (o StreamProcessorOutput) ToStreamProcessorOutput() StreamProcessorOutput {
 
 func (o StreamProcessorOutput) ToStreamProcessorOutputWithContext(ctx context.Context) StreamProcessorOutput {
 	return o
-}
-
-func (o StreamProcessorOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamProcessor] {
-	return pulumix.Output[*StreamProcessor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamProcessorOutput) Arn() pulumi.StringOutput {

@@ -77,12 +77,6 @@ func (o IdMappingWorkflowIdMappingTechniquesIdMappingTypeOutput) ToIdMappingWork
 	}).(IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput)
 }
 
-func (o IdMappingWorkflowIdMappingTechniquesIdMappingTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IdMappingWorkflowIdMappingTechniquesIdMappingType] {
-	return pulumix.Output[IdMappingWorkflowIdMappingTechniquesIdMappingType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IdMappingWorkflowIdMappingTechniquesIdMappingTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -116,12 +110,6 @@ func (o IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput) ToIdMappingW
 
 func (o IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput) ToIdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutputWithContext(ctx context.Context) IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput {
 	return o
-}
-
-func (o IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IdMappingWorkflowIdMappingTechniquesIdMappingType] {
-	return pulumix.Output[*IdMappingWorkflowIdMappingTechniquesIdMappingType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput) Elem() IdMappingWorkflowIdMappingTechniquesIdMappingTypeOutput {
@@ -260,12 +248,6 @@ func (o MatchingWorkflowResolutionTechniquesResolutionTypeOutput) ToMatchingWork
 	}).(MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput)
 }
 
-func (o MatchingWorkflowResolutionTechniquesResolutionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[MatchingWorkflowResolutionTechniquesResolutionType] {
-	return pulumix.Output[MatchingWorkflowResolutionTechniquesResolutionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MatchingWorkflowResolutionTechniquesResolutionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -299,12 +281,6 @@ func (o MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput) ToMatchingW
 
 func (o MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput) ToMatchingWorkflowResolutionTechniquesResolutionTypePtrOutputWithContext(ctx context.Context) MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput {
 	return o
-}
-
-func (o MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MatchingWorkflowResolutionTechniquesResolutionType] {
-	return pulumix.Output[*MatchingWorkflowResolutionTechniquesResolutionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MatchingWorkflowResolutionTechniquesResolutionTypePtrOutput) Elem() MatchingWorkflowResolutionTechniquesResolutionTypeOutput {
@@ -442,12 +418,6 @@ func (o MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelOutput) ToMatch
 	}).(MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelPtrOutput)
 }
 
-func (o MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelOutput) ToOutput(ctx context.Context) pulumix.Output[MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel] {
-	return pulumix.Output[MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -481,12 +451,6 @@ func (o MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelPtrOutput) ToMa
 
 func (o MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelPtrOutput) ToMatchingWorkflowRuleBasedPropertiesAttributeMatchingModelPtrOutputWithContext(ctx context.Context) MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelPtrOutput {
 	return o
-}
-
-func (o MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel] {
-	return pulumix.Output[*MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelPtrOutput) Elem() MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelOutput {
@@ -642,12 +606,6 @@ func (o SchemaMappingSchemaAttributeTypeOutput) ToSchemaMappingSchemaAttributeTy
 	}).(SchemaMappingSchemaAttributeTypePtrOutput)
 }
 
-func (o SchemaMappingSchemaAttributeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaMappingSchemaAttributeType] {
-	return pulumix.Output[SchemaMappingSchemaAttributeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchemaMappingSchemaAttributeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -681,12 +639,6 @@ func (o SchemaMappingSchemaAttributeTypePtrOutput) ToSchemaMappingSchemaAttribut
 
 func (o SchemaMappingSchemaAttributeTypePtrOutput) ToSchemaMappingSchemaAttributeTypePtrOutputWithContext(ctx context.Context) SchemaMappingSchemaAttributeTypePtrOutput {
 	return o
-}
-
-func (o SchemaMappingSchemaAttributeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaMappingSchemaAttributeType] {
-	return pulumix.Output[*SchemaMappingSchemaAttributeType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SchemaMappingSchemaAttributeTypePtrOutput) Elem() SchemaMappingSchemaAttributeTypeOutput {

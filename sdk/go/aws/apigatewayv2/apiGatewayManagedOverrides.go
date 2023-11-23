@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ApiGatewayV2::ApiGatewayManagedOverrides
@@ -109,12 +108,6 @@ func (i *ApiGatewayManagedOverrides) ToApiGatewayManagedOverridesOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ApiGatewayManagedOverridesOutput)
 }
 
-func (i *ApiGatewayManagedOverrides) ToOutput(ctx context.Context) pulumix.Output[*ApiGatewayManagedOverrides] {
-	return pulumix.Output[*ApiGatewayManagedOverrides]{
-		OutputState: i.ToApiGatewayManagedOverridesOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApiGatewayManagedOverridesOutput struct{ *pulumi.OutputState }
 
 func (ApiGatewayManagedOverridesOutput) ElementType() reflect.Type {
@@ -127,12 +120,6 @@ func (o ApiGatewayManagedOverridesOutput) ToApiGatewayManagedOverridesOutput() A
 
 func (o ApiGatewayManagedOverridesOutput) ToApiGatewayManagedOverridesOutputWithContext(ctx context.Context) ApiGatewayManagedOverridesOutput {
 	return o
-}
-
-func (o ApiGatewayManagedOverridesOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiGatewayManagedOverrides] {
-	return pulumix.Output[*ApiGatewayManagedOverrides]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApiGatewayManagedOverridesOutput) ApiId() pulumi.StringOutput {

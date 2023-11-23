@@ -90,12 +90,6 @@ func (o DevicePoolRuleAttributeOutput) ToDevicePoolRuleAttributePtrOutputWithCon
 	}).(DevicePoolRuleAttributePtrOutput)
 }
 
-func (o DevicePoolRuleAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[DevicePoolRuleAttribute] {
-	return pulumix.Output[DevicePoolRuleAttribute]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DevicePoolRuleAttributeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -129,12 +123,6 @@ func (o DevicePoolRuleAttributePtrOutput) ToDevicePoolRuleAttributePtrOutput() D
 
 func (o DevicePoolRuleAttributePtrOutput) ToDevicePoolRuleAttributePtrOutputWithContext(ctx context.Context) DevicePoolRuleAttributePtrOutput {
 	return o
-}
-
-func (o DevicePoolRuleAttributePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DevicePoolRuleAttribute] {
-	return pulumix.Output[*DevicePoolRuleAttribute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DevicePoolRuleAttributePtrOutput) Elem() DevicePoolRuleAttributeOutput {
@@ -279,12 +267,6 @@ func (o DevicePoolRuleOperatorOutput) ToDevicePoolRuleOperatorPtrOutputWithConte
 	}).(DevicePoolRuleOperatorPtrOutput)
 }
 
-func (o DevicePoolRuleOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[DevicePoolRuleOperator] {
-	return pulumix.Output[DevicePoolRuleOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DevicePoolRuleOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -318,12 +300,6 @@ func (o DevicePoolRuleOperatorPtrOutput) ToDevicePoolRuleOperatorPtrOutput() Dev
 
 func (o DevicePoolRuleOperatorPtrOutput) ToDevicePoolRuleOperatorPtrOutputWithContext(ctx context.Context) DevicePoolRuleOperatorPtrOutput {
 	return o
-}
-
-func (o DevicePoolRuleOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DevicePoolRuleOperator] {
-	return pulumix.Output[*DevicePoolRuleOperator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DevicePoolRuleOperatorPtrOutput) Elem() DevicePoolRuleOperatorOutput {

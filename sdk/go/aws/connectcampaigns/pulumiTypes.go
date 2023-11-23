@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i CampaignAgentlessDialerConfigArgs) ToCampaignAgentlessDialerConfigOutput
 
 func (i CampaignAgentlessDialerConfigArgs) ToCampaignAgentlessDialerConfigOutputWithContext(ctx context.Context) CampaignAgentlessDialerConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignAgentlessDialerConfigOutput)
-}
-
-func (i CampaignAgentlessDialerConfigArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignAgentlessDialerConfig] {
-	return pulumix.Output[CampaignAgentlessDialerConfig]{
-		OutputState: i.ToCampaignAgentlessDialerConfigOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i CampaignAgentlessDialerConfigArgs) ToCampaignAgentlessDialerConfigPtrOutput() CampaignAgentlessDialerConfigPtrOutput {
@@ -96,12 +89,6 @@ func (i *campaignAgentlessDialerConfigPtrType) ToCampaignAgentlessDialerConfigPt
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignAgentlessDialerConfigPtrOutput)
 }
 
-func (i *campaignAgentlessDialerConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignAgentlessDialerConfig] {
-	return pulumix.Output[*CampaignAgentlessDialerConfig]{
-		OutputState: i.ToCampaignAgentlessDialerConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Agentless Dialer config
 type CampaignAgentlessDialerConfigOutput struct{ *pulumi.OutputState }
 
@@ -127,12 +114,6 @@ func (o CampaignAgentlessDialerConfigOutput) ToCampaignAgentlessDialerConfigPtrO
 	}).(CampaignAgentlessDialerConfigPtrOutput)
 }
 
-func (o CampaignAgentlessDialerConfigOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignAgentlessDialerConfig] {
-	return pulumix.Output[CampaignAgentlessDialerConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Allocates dialing capacity for this campaign between multiple active campaigns.
 func (o CampaignAgentlessDialerConfigOutput) DialingCapacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CampaignAgentlessDialerConfig) *float64 { return v.DialingCapacity }).(pulumi.Float64PtrOutput)
@@ -150,12 +131,6 @@ func (o CampaignAgentlessDialerConfigPtrOutput) ToCampaignAgentlessDialerConfigP
 
 func (o CampaignAgentlessDialerConfigPtrOutput) ToCampaignAgentlessDialerConfigPtrOutputWithContext(ctx context.Context) CampaignAgentlessDialerConfigPtrOutput {
 	return o
-}
-
-func (o CampaignAgentlessDialerConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignAgentlessDialerConfig] {
-	return pulumix.Output[*CampaignAgentlessDialerConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignAgentlessDialerConfigPtrOutput) Elem() CampaignAgentlessDialerConfigOutput {
@@ -213,12 +188,6 @@ func (i CampaignAnswerMachineDetectionConfigArgs) ToCampaignAnswerMachineDetecti
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignAnswerMachineDetectionConfigOutput)
 }
 
-func (i CampaignAnswerMachineDetectionConfigArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignAnswerMachineDetectionConfig] {
-	return pulumix.Output[CampaignAnswerMachineDetectionConfig]{
-		OutputState: i.ToCampaignAnswerMachineDetectionConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignAnswerMachineDetectionConfigArgs) ToCampaignAnswerMachineDetectionConfigPtrOutput() CampaignAnswerMachineDetectionConfigPtrOutput {
 	return i.ToCampaignAnswerMachineDetectionConfigPtrOutputWithContext(context.Background())
 }
@@ -260,12 +229,6 @@ func (i *campaignAnswerMachineDetectionConfigPtrType) ToCampaignAnswerMachineDet
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignAnswerMachineDetectionConfigPtrOutput)
 }
 
-func (i *campaignAnswerMachineDetectionConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignAnswerMachineDetectionConfig] {
-	return pulumix.Output[*CampaignAnswerMachineDetectionConfig]{
-		OutputState: i.ToCampaignAnswerMachineDetectionConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The configuration used for answering machine detection during outbound calls
 type CampaignAnswerMachineDetectionConfigOutput struct{ *pulumi.OutputState }
 
@@ -291,12 +254,6 @@ func (o CampaignAnswerMachineDetectionConfigOutput) ToCampaignAnswerMachineDetec
 	}).(CampaignAnswerMachineDetectionConfigPtrOutput)
 }
 
-func (o CampaignAnswerMachineDetectionConfigOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignAnswerMachineDetectionConfig] {
-	return pulumix.Output[CampaignAnswerMachineDetectionConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Flag to decided whether outbound calls should have answering machine detection enabled or not
 func (o CampaignAnswerMachineDetectionConfigOutput) EnableAnswerMachineDetection() pulumi.BoolOutput {
 	return o.ApplyT(func(v CampaignAnswerMachineDetectionConfig) bool { return v.EnableAnswerMachineDetection }).(pulumi.BoolOutput)
@@ -314,12 +271,6 @@ func (o CampaignAnswerMachineDetectionConfigPtrOutput) ToCampaignAnswerMachineDe
 
 func (o CampaignAnswerMachineDetectionConfigPtrOutput) ToCampaignAnswerMachineDetectionConfigPtrOutputWithContext(ctx context.Context) CampaignAnswerMachineDetectionConfigPtrOutput {
 	return o
-}
-
-func (o CampaignAnswerMachineDetectionConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignAnswerMachineDetectionConfig] {
-	return pulumix.Output[*CampaignAnswerMachineDetectionConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignAnswerMachineDetectionConfigPtrOutput) Elem() CampaignAnswerMachineDetectionConfigOutput {
@@ -379,12 +330,6 @@ func (i CampaignDialerConfigArgs) ToCampaignDialerConfigOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignDialerConfigOutput)
 }
 
-func (i CampaignDialerConfigArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignDialerConfig] {
-	return pulumix.Output[CampaignDialerConfig]{
-		OutputState: i.ToCampaignDialerConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The possible types of dialer config parameters
 type CampaignDialerConfigOutput struct{ *pulumi.OutputState }
 
@@ -398,12 +343,6 @@ func (o CampaignDialerConfigOutput) ToCampaignDialerConfigOutput() CampaignDiale
 
 func (o CampaignDialerConfigOutput) ToCampaignDialerConfigOutputWithContext(ctx context.Context) CampaignDialerConfigOutput {
 	return o
-}
-
-func (o CampaignDialerConfigOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignDialerConfig] {
-	return pulumix.Output[CampaignDialerConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignDialerConfigOutput) AgentlessDialerConfig() CampaignAgentlessDialerConfigPtrOutput {
@@ -430,12 +369,6 @@ func (o CampaignDialerConfigPtrOutput) ToCampaignDialerConfigPtrOutput() Campaig
 
 func (o CampaignDialerConfigPtrOutput) ToCampaignDialerConfigPtrOutputWithContext(ctx context.Context) CampaignDialerConfigPtrOutput {
 	return o
-}
-
-func (o CampaignDialerConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignDialerConfig] {
-	return pulumix.Output[*CampaignDialerConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignDialerConfigPtrOutput) Elem() CampaignDialerConfigOutput {
@@ -520,12 +453,6 @@ func (i CampaignOutboundCallConfigArgs) ToCampaignOutboundCallConfigOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignOutboundCallConfigOutput)
 }
 
-func (i CampaignOutboundCallConfigArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignOutboundCallConfig] {
-	return pulumix.Output[CampaignOutboundCallConfig]{
-		OutputState: i.ToCampaignOutboundCallConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The configuration used for outbound calls.
 type CampaignOutboundCallConfigOutput struct{ *pulumi.OutputState }
 
@@ -539,12 +466,6 @@ func (o CampaignOutboundCallConfigOutput) ToCampaignOutboundCallConfigOutput() C
 
 func (o CampaignOutboundCallConfigOutput) ToCampaignOutboundCallConfigOutputWithContext(ctx context.Context) CampaignOutboundCallConfigOutput {
 	return o
-}
-
-func (o CampaignOutboundCallConfigOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignOutboundCallConfig] {
-	return pulumix.Output[CampaignOutboundCallConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignOutboundCallConfigOutput) AnswerMachineDetectionConfig() CampaignAnswerMachineDetectionConfigPtrOutput {
@@ -580,12 +501,6 @@ func (o CampaignOutboundCallConfigPtrOutput) ToCampaignOutboundCallConfigPtrOutp
 
 func (o CampaignOutboundCallConfigPtrOutput) ToCampaignOutboundCallConfigPtrOutputWithContext(ctx context.Context) CampaignOutboundCallConfigPtrOutput {
 	return o
-}
-
-func (o CampaignOutboundCallConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignOutboundCallConfig] {
-	return pulumix.Output[*CampaignOutboundCallConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignOutboundCallConfigPtrOutput) Elem() CampaignOutboundCallConfigOutput {
@@ -676,12 +591,6 @@ func (i CampaignPredictiveDialerConfigArgs) ToCampaignPredictiveDialerConfigOutp
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignPredictiveDialerConfigOutput)
 }
 
-func (i CampaignPredictiveDialerConfigArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignPredictiveDialerConfig] {
-	return pulumix.Output[CampaignPredictiveDialerConfig]{
-		OutputState: i.ToCampaignPredictiveDialerConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignPredictiveDialerConfigArgs) ToCampaignPredictiveDialerConfigPtrOutput() CampaignPredictiveDialerConfigPtrOutput {
 	return i.ToCampaignPredictiveDialerConfigPtrOutputWithContext(context.Background())
 }
@@ -723,12 +632,6 @@ func (i *campaignPredictiveDialerConfigPtrType) ToCampaignPredictiveDialerConfig
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignPredictiveDialerConfigPtrOutput)
 }
 
-func (i *campaignPredictiveDialerConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignPredictiveDialerConfig] {
-	return pulumix.Output[*CampaignPredictiveDialerConfig]{
-		OutputState: i.ToCampaignPredictiveDialerConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Predictive Dialer config
 type CampaignPredictiveDialerConfigOutput struct{ *pulumi.OutputState }
 
@@ -754,12 +657,6 @@ func (o CampaignPredictiveDialerConfigOutput) ToCampaignPredictiveDialerConfigPt
 	}).(CampaignPredictiveDialerConfigPtrOutput)
 }
 
-func (o CampaignPredictiveDialerConfigOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignPredictiveDialerConfig] {
-	return pulumix.Output[CampaignPredictiveDialerConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The bandwidth allocation of a queue resource.
 func (o CampaignPredictiveDialerConfigOutput) BandwidthAllocation() pulumi.Float64Output {
 	return o.ApplyT(func(v CampaignPredictiveDialerConfig) float64 { return v.BandwidthAllocation }).(pulumi.Float64Output)
@@ -782,12 +679,6 @@ func (o CampaignPredictiveDialerConfigPtrOutput) ToCampaignPredictiveDialerConfi
 
 func (o CampaignPredictiveDialerConfigPtrOutput) ToCampaignPredictiveDialerConfigPtrOutputWithContext(ctx context.Context) CampaignPredictiveDialerConfigPtrOutput {
 	return o
-}
-
-func (o CampaignPredictiveDialerConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignPredictiveDialerConfig] {
-	return pulumix.Output[*CampaignPredictiveDialerConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignPredictiveDialerConfigPtrOutput) Elem() CampaignPredictiveDialerConfigOutput {
@@ -859,12 +750,6 @@ func (i CampaignProgressiveDialerConfigArgs) ToCampaignProgressiveDialerConfigOu
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignProgressiveDialerConfigOutput)
 }
 
-func (i CampaignProgressiveDialerConfigArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignProgressiveDialerConfig] {
-	return pulumix.Output[CampaignProgressiveDialerConfig]{
-		OutputState: i.ToCampaignProgressiveDialerConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignProgressiveDialerConfigArgs) ToCampaignProgressiveDialerConfigPtrOutput() CampaignProgressiveDialerConfigPtrOutput {
 	return i.ToCampaignProgressiveDialerConfigPtrOutputWithContext(context.Background())
 }
@@ -906,12 +791,6 @@ func (i *campaignProgressiveDialerConfigPtrType) ToCampaignProgressiveDialerConf
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignProgressiveDialerConfigPtrOutput)
 }
 
-func (i *campaignProgressiveDialerConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignProgressiveDialerConfig] {
-	return pulumix.Output[*CampaignProgressiveDialerConfig]{
-		OutputState: i.ToCampaignProgressiveDialerConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Progressive Dialer config
 type CampaignProgressiveDialerConfigOutput struct{ *pulumi.OutputState }
 
@@ -937,12 +816,6 @@ func (o CampaignProgressiveDialerConfigOutput) ToCampaignProgressiveDialerConfig
 	}).(CampaignProgressiveDialerConfigPtrOutput)
 }
 
-func (o CampaignProgressiveDialerConfigOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignProgressiveDialerConfig] {
-	return pulumix.Output[CampaignProgressiveDialerConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The bandwidth allocation of a queue resource.
 func (o CampaignProgressiveDialerConfigOutput) BandwidthAllocation() pulumi.Float64Output {
 	return o.ApplyT(func(v CampaignProgressiveDialerConfig) float64 { return v.BandwidthAllocation }).(pulumi.Float64Output)
@@ -965,12 +838,6 @@ func (o CampaignProgressiveDialerConfigPtrOutput) ToCampaignProgressiveDialerCon
 
 func (o CampaignProgressiveDialerConfigPtrOutput) ToCampaignProgressiveDialerConfigPtrOutputWithContext(ctx context.Context) CampaignProgressiveDialerConfigPtrOutput {
 	return o
-}
-
-func (o CampaignProgressiveDialerConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignProgressiveDialerConfig] {
-	return pulumix.Output[*CampaignProgressiveDialerConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignProgressiveDialerConfigPtrOutput) Elem() CampaignProgressiveDialerConfigOutput {
@@ -1042,12 +909,6 @@ func (i CampaignTagArgs) ToCampaignTagOutputWithContext(ctx context.Context) Cam
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignTagOutput)
 }
 
-func (i CampaignTagArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignTag] {
-	return pulumix.Output[CampaignTag]{
-		OutputState: i.ToCampaignTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CampaignTagArrayInput is an input type that accepts CampaignTagArray and CampaignTagArrayOutput values.
 // You can construct a concrete instance of `CampaignTagArrayInput` via:
 //
@@ -1073,12 +934,6 @@ func (i CampaignTagArray) ToCampaignTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignTagArrayOutput)
 }
 
-func (i CampaignTagArray) ToOutput(ctx context.Context) pulumix.Output[[]CampaignTag] {
-	return pulumix.Output[[]CampaignTag]{
-		OutputState: i.ToCampaignTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type CampaignTagOutput struct{ *pulumi.OutputState }
 
@@ -1092,12 +947,6 @@ func (o CampaignTagOutput) ToCampaignTagOutput() CampaignTagOutput {
 
 func (o CampaignTagOutput) ToCampaignTagOutputWithContext(ctx context.Context) CampaignTagOutput {
 	return o
-}
-
-func (o CampaignTagOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignTag] {
-	return pulumix.Output[CampaignTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1122,12 +971,6 @@ func (o CampaignTagArrayOutput) ToCampaignTagArrayOutput() CampaignTagArrayOutpu
 
 func (o CampaignTagArrayOutput) ToCampaignTagArrayOutputWithContext(ctx context.Context) CampaignTagArrayOutput {
 	return o
-}
-
-func (o CampaignTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CampaignTag] {
-	return pulumix.Output[[]CampaignTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignTagArrayOutput) Index(i pulumi.IntInput) CampaignTagOutput {

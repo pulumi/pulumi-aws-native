@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -65,12 +64,6 @@ func (i AppAutoBranchCreationConfigArgs) ToAppAutoBranchCreationConfigOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AppAutoBranchCreationConfigOutput)
 }
 
-func (i AppAutoBranchCreationConfigArgs) ToOutput(ctx context.Context) pulumix.Output[AppAutoBranchCreationConfig] {
-	return pulumix.Output[AppAutoBranchCreationConfig]{
-		OutputState: i.ToAppAutoBranchCreationConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AppAutoBranchCreationConfigArgs) ToAppAutoBranchCreationConfigPtrOutput() AppAutoBranchCreationConfigPtrOutput {
 	return i.ToAppAutoBranchCreationConfigPtrOutputWithContext(context.Background())
 }
@@ -112,12 +105,6 @@ func (i *appAutoBranchCreationConfigPtrType) ToAppAutoBranchCreationConfigPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AppAutoBranchCreationConfigPtrOutput)
 }
 
-func (i *appAutoBranchCreationConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*AppAutoBranchCreationConfig] {
-	return pulumix.Output[*AppAutoBranchCreationConfig]{
-		OutputState: i.ToAppAutoBranchCreationConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppAutoBranchCreationConfigOutput struct{ *pulumi.OutputState }
 
 func (AppAutoBranchCreationConfigOutput) ElementType() reflect.Type {
@@ -140,12 +127,6 @@ func (o AppAutoBranchCreationConfigOutput) ToAppAutoBranchCreationConfigPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppAutoBranchCreationConfig) *AppAutoBranchCreationConfig {
 		return &v
 	}).(AppAutoBranchCreationConfigPtrOutput)
-}
-
-func (o AppAutoBranchCreationConfigOutput) ToOutput(ctx context.Context) pulumix.Output[AppAutoBranchCreationConfig] {
-	return pulumix.Output[AppAutoBranchCreationConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppAutoBranchCreationConfigOutput) AutoBranchCreationPatterns() pulumi.StringArrayOutput {
@@ -204,12 +185,6 @@ func (o AppAutoBranchCreationConfigPtrOutput) ToAppAutoBranchCreationConfigPtrOu
 
 func (o AppAutoBranchCreationConfigPtrOutput) ToAppAutoBranchCreationConfigPtrOutputWithContext(ctx context.Context) AppAutoBranchCreationConfigPtrOutput {
 	return o
-}
-
-func (o AppAutoBranchCreationConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppAutoBranchCreationConfig] {
-	return pulumix.Output[*AppAutoBranchCreationConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppAutoBranchCreationConfigPtrOutput) Elem() AppAutoBranchCreationConfigOutput {
@@ -356,12 +331,6 @@ func (i AppBasicAuthConfigArgs) ToAppBasicAuthConfigOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AppBasicAuthConfigOutput)
 }
 
-func (i AppBasicAuthConfigArgs) ToOutput(ctx context.Context) pulumix.Output[AppBasicAuthConfig] {
-	return pulumix.Output[AppBasicAuthConfig]{
-		OutputState: i.ToAppBasicAuthConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AppBasicAuthConfigArgs) ToAppBasicAuthConfigPtrOutput() AppBasicAuthConfigPtrOutput {
 	return i.ToAppBasicAuthConfigPtrOutputWithContext(context.Background())
 }
@@ -403,12 +372,6 @@ func (i *appBasicAuthConfigPtrType) ToAppBasicAuthConfigPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AppBasicAuthConfigPtrOutput)
 }
 
-func (i *appBasicAuthConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*AppBasicAuthConfig] {
-	return pulumix.Output[*AppBasicAuthConfig]{
-		OutputState: i.ToAppBasicAuthConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppBasicAuthConfigOutput struct{ *pulumi.OutputState }
 
 func (AppBasicAuthConfigOutput) ElementType() reflect.Type {
@@ -431,12 +394,6 @@ func (o AppBasicAuthConfigOutput) ToAppBasicAuthConfigPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AppBasicAuthConfig) *AppBasicAuthConfig {
 		return &v
 	}).(AppBasicAuthConfigPtrOutput)
-}
-
-func (o AppBasicAuthConfigOutput) ToOutput(ctx context.Context) pulumix.Output[AppBasicAuthConfig] {
-	return pulumix.Output[AppBasicAuthConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppBasicAuthConfigOutput) EnableBasicAuth() pulumi.BoolPtrOutput {
@@ -463,12 +420,6 @@ func (o AppBasicAuthConfigPtrOutput) ToAppBasicAuthConfigPtrOutput() AppBasicAut
 
 func (o AppBasicAuthConfigPtrOutput) ToAppBasicAuthConfigPtrOutputWithContext(ctx context.Context) AppBasicAuthConfigPtrOutput {
 	return o
-}
-
-func (o AppBasicAuthConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppBasicAuthConfig] {
-	return pulumix.Output[*AppBasicAuthConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppBasicAuthConfigPtrOutput) Elem() AppBasicAuthConfigOutput {
@@ -545,12 +496,6 @@ func (i AppCustomRuleArgs) ToAppCustomRuleOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AppCustomRuleOutput)
 }
 
-func (i AppCustomRuleArgs) ToOutput(ctx context.Context) pulumix.Output[AppCustomRule] {
-	return pulumix.Output[AppCustomRule]{
-		OutputState: i.ToAppCustomRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppCustomRuleArrayInput is an input type that accepts AppCustomRuleArray and AppCustomRuleArrayOutput values.
 // You can construct a concrete instance of `AppCustomRuleArrayInput` via:
 //
@@ -576,12 +521,6 @@ func (i AppCustomRuleArray) ToAppCustomRuleArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AppCustomRuleArrayOutput)
 }
 
-func (i AppCustomRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]AppCustomRule] {
-	return pulumix.Output[[]AppCustomRule]{
-		OutputState: i.ToAppCustomRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppCustomRuleOutput struct{ *pulumi.OutputState }
 
 func (AppCustomRuleOutput) ElementType() reflect.Type {
@@ -594,12 +533,6 @@ func (o AppCustomRuleOutput) ToAppCustomRuleOutput() AppCustomRuleOutput {
 
 func (o AppCustomRuleOutput) ToAppCustomRuleOutputWithContext(ctx context.Context) AppCustomRuleOutput {
 	return o
-}
-
-func (o AppCustomRuleOutput) ToOutput(ctx context.Context) pulumix.Output[AppCustomRule] {
-	return pulumix.Output[AppCustomRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppCustomRuleOutput) Condition() pulumi.StringPtrOutput {
@@ -630,12 +563,6 @@ func (o AppCustomRuleArrayOutput) ToAppCustomRuleArrayOutput() AppCustomRuleArra
 
 func (o AppCustomRuleArrayOutput) ToAppCustomRuleArrayOutputWithContext(ctx context.Context) AppCustomRuleArrayOutput {
 	return o
-}
-
-func (o AppCustomRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppCustomRule] {
-	return pulumix.Output[[]AppCustomRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppCustomRuleArrayOutput) Index(i pulumi.IntInput) AppCustomRuleOutput {
@@ -677,12 +604,6 @@ func (i AppEnvironmentVariableArgs) ToAppEnvironmentVariableOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AppEnvironmentVariableOutput)
 }
 
-func (i AppEnvironmentVariableArgs) ToOutput(ctx context.Context) pulumix.Output[AppEnvironmentVariable] {
-	return pulumix.Output[AppEnvironmentVariable]{
-		OutputState: i.ToAppEnvironmentVariableOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppEnvironmentVariableArrayInput is an input type that accepts AppEnvironmentVariableArray and AppEnvironmentVariableArrayOutput values.
 // You can construct a concrete instance of `AppEnvironmentVariableArrayInput` via:
 //
@@ -708,12 +629,6 @@ func (i AppEnvironmentVariableArray) ToAppEnvironmentVariableArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AppEnvironmentVariableArrayOutput)
 }
 
-func (i AppEnvironmentVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]AppEnvironmentVariable] {
-	return pulumix.Output[[]AppEnvironmentVariable]{
-		OutputState: i.ToAppEnvironmentVariableArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppEnvironmentVariableOutput struct{ *pulumi.OutputState }
 
 func (AppEnvironmentVariableOutput) ElementType() reflect.Type {
@@ -726,12 +641,6 @@ func (o AppEnvironmentVariableOutput) ToAppEnvironmentVariableOutput() AppEnviro
 
 func (o AppEnvironmentVariableOutput) ToAppEnvironmentVariableOutputWithContext(ctx context.Context) AppEnvironmentVariableOutput {
 	return o
-}
-
-func (o AppEnvironmentVariableOutput) ToOutput(ctx context.Context) pulumix.Output[AppEnvironmentVariable] {
-	return pulumix.Output[AppEnvironmentVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppEnvironmentVariableOutput) Name() pulumi.StringOutput {
@@ -754,12 +663,6 @@ func (o AppEnvironmentVariableArrayOutput) ToAppEnvironmentVariableArrayOutput()
 
 func (o AppEnvironmentVariableArrayOutput) ToAppEnvironmentVariableArrayOutputWithContext(ctx context.Context) AppEnvironmentVariableArrayOutput {
 	return o
-}
-
-func (o AppEnvironmentVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppEnvironmentVariable] {
-	return pulumix.Output[[]AppEnvironmentVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) AppEnvironmentVariableOutput {
@@ -801,12 +704,6 @@ func (i AppTagArgs) ToAppTagOutputWithContext(ctx context.Context) AppTagOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(AppTagOutput)
 }
 
-func (i AppTagArgs) ToOutput(ctx context.Context) pulumix.Output[AppTag] {
-	return pulumix.Output[AppTag]{
-		OutputState: i.ToAppTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AppTagArrayInput is an input type that accepts AppTagArray and AppTagArrayOutput values.
 // You can construct a concrete instance of `AppTagArrayInput` via:
 //
@@ -832,12 +729,6 @@ func (i AppTagArray) ToAppTagArrayOutputWithContext(ctx context.Context) AppTagA
 	return pulumi.ToOutputWithContext(ctx, i).(AppTagArrayOutput)
 }
 
-func (i AppTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AppTag] {
-	return pulumix.Output[[]AppTag]{
-		OutputState: i.ToAppTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppTagOutput struct{ *pulumi.OutputState }
 
 func (AppTagOutput) ElementType() reflect.Type {
@@ -850,12 +741,6 @@ func (o AppTagOutput) ToAppTagOutput() AppTagOutput {
 
 func (o AppTagOutput) ToAppTagOutputWithContext(ctx context.Context) AppTagOutput {
 	return o
-}
-
-func (o AppTagOutput) ToOutput(ctx context.Context) pulumix.Output[AppTag] {
-	return pulumix.Output[AppTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppTagOutput) Key() pulumi.StringOutput {
@@ -878,12 +763,6 @@ func (o AppTagArrayOutput) ToAppTagArrayOutput() AppTagArrayOutput {
 
 func (o AppTagArrayOutput) ToAppTagArrayOutputWithContext(ctx context.Context) AppTagArrayOutput {
 	return o
-}
-
-func (o AppTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppTag] {
-	return pulumix.Output[[]AppTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppTagArrayOutput) Index(i pulumi.IntInput) AppTagOutput {
@@ -921,12 +800,6 @@ func (i BranchBackendArgs) ToBranchBackendOutput() BranchBackendOutput {
 
 func (i BranchBackendArgs) ToBranchBackendOutputWithContext(ctx context.Context) BranchBackendOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchBackendOutput)
-}
-
-func (i BranchBackendArgs) ToOutput(ctx context.Context) pulumix.Output[BranchBackend] {
-	return pulumix.Output[BranchBackend]{
-		OutputState: i.ToBranchBackendOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i BranchBackendArgs) ToBranchBackendPtrOutput() BranchBackendPtrOutput {
@@ -970,12 +843,6 @@ func (i *branchBackendPtrType) ToBranchBackendPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(BranchBackendPtrOutput)
 }
 
-func (i *branchBackendPtrType) ToOutput(ctx context.Context) pulumix.Output[*BranchBackend] {
-	return pulumix.Output[*BranchBackend]{
-		OutputState: i.ToBranchBackendPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BranchBackendOutput struct{ *pulumi.OutputState }
 
 func (BranchBackendOutput) ElementType() reflect.Type {
@@ -1000,12 +867,6 @@ func (o BranchBackendOutput) ToBranchBackendPtrOutputWithContext(ctx context.Con
 	}).(BranchBackendPtrOutput)
 }
 
-func (o BranchBackendOutput) ToOutput(ctx context.Context) pulumix.Output[BranchBackend] {
-	return pulumix.Output[BranchBackend]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BranchBackendOutput) StackArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BranchBackend) *string { return v.StackArn }).(pulumi.StringPtrOutput)
 }
@@ -1022,12 +883,6 @@ func (o BranchBackendPtrOutput) ToBranchBackendPtrOutput() BranchBackendPtrOutpu
 
 func (o BranchBackendPtrOutput) ToBranchBackendPtrOutputWithContext(ctx context.Context) BranchBackendPtrOutput {
 	return o
-}
-
-func (o BranchBackendPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BranchBackend] {
-	return pulumix.Output[*BranchBackend]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BranchBackendPtrOutput) Elem() BranchBackendOutput {
@@ -1084,12 +939,6 @@ func (i BranchBasicAuthConfigArgs) ToBranchBasicAuthConfigOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(BranchBasicAuthConfigOutput)
 }
 
-func (i BranchBasicAuthConfigArgs) ToOutput(ctx context.Context) pulumix.Output[BranchBasicAuthConfig] {
-	return pulumix.Output[BranchBasicAuthConfig]{
-		OutputState: i.ToBranchBasicAuthConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BranchBasicAuthConfigArgs) ToBranchBasicAuthConfigPtrOutput() BranchBasicAuthConfigPtrOutput {
 	return i.ToBranchBasicAuthConfigPtrOutputWithContext(context.Background())
 }
@@ -1131,12 +980,6 @@ func (i *branchBasicAuthConfigPtrType) ToBranchBasicAuthConfigPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(BranchBasicAuthConfigPtrOutput)
 }
 
-func (i *branchBasicAuthConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*BranchBasicAuthConfig] {
-	return pulumix.Output[*BranchBasicAuthConfig]{
-		OutputState: i.ToBranchBasicAuthConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BranchBasicAuthConfigOutput struct{ *pulumi.OutputState }
 
 func (BranchBasicAuthConfigOutput) ElementType() reflect.Type {
@@ -1159,12 +1002,6 @@ func (o BranchBasicAuthConfigOutput) ToBranchBasicAuthConfigPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchBasicAuthConfig) *BranchBasicAuthConfig {
 		return &v
 	}).(BranchBasicAuthConfigPtrOutput)
-}
-
-func (o BranchBasicAuthConfigOutput) ToOutput(ctx context.Context) pulumix.Output[BranchBasicAuthConfig] {
-	return pulumix.Output[BranchBasicAuthConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BranchBasicAuthConfigOutput) EnableBasicAuth() pulumi.BoolPtrOutput {
@@ -1191,12 +1028,6 @@ func (o BranchBasicAuthConfigPtrOutput) ToBranchBasicAuthConfigPtrOutput() Branc
 
 func (o BranchBasicAuthConfigPtrOutput) ToBranchBasicAuthConfigPtrOutputWithContext(ctx context.Context) BranchBasicAuthConfigPtrOutput {
 	return o
-}
-
-func (o BranchBasicAuthConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BranchBasicAuthConfig] {
-	return pulumix.Output[*BranchBasicAuthConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BranchBasicAuthConfigPtrOutput) Elem() BranchBasicAuthConfigOutput {
@@ -1269,12 +1100,6 @@ func (i BranchEnvironmentVariableArgs) ToBranchEnvironmentVariableOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(BranchEnvironmentVariableOutput)
 }
 
-func (i BranchEnvironmentVariableArgs) ToOutput(ctx context.Context) pulumix.Output[BranchEnvironmentVariable] {
-	return pulumix.Output[BranchEnvironmentVariable]{
-		OutputState: i.ToBranchEnvironmentVariableOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BranchEnvironmentVariableArrayInput is an input type that accepts BranchEnvironmentVariableArray and BranchEnvironmentVariableArrayOutput values.
 // You can construct a concrete instance of `BranchEnvironmentVariableArrayInput` via:
 //
@@ -1300,12 +1125,6 @@ func (i BranchEnvironmentVariableArray) ToBranchEnvironmentVariableArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(BranchEnvironmentVariableArrayOutput)
 }
 
-func (i BranchEnvironmentVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]BranchEnvironmentVariable] {
-	return pulumix.Output[[]BranchEnvironmentVariable]{
-		OutputState: i.ToBranchEnvironmentVariableArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BranchEnvironmentVariableOutput struct{ *pulumi.OutputState }
 
 func (BranchEnvironmentVariableOutput) ElementType() reflect.Type {
@@ -1318,12 +1137,6 @@ func (o BranchEnvironmentVariableOutput) ToBranchEnvironmentVariableOutput() Bra
 
 func (o BranchEnvironmentVariableOutput) ToBranchEnvironmentVariableOutputWithContext(ctx context.Context) BranchEnvironmentVariableOutput {
 	return o
-}
-
-func (o BranchEnvironmentVariableOutput) ToOutput(ctx context.Context) pulumix.Output[BranchEnvironmentVariable] {
-	return pulumix.Output[BranchEnvironmentVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BranchEnvironmentVariableOutput) Name() pulumi.StringOutput {
@@ -1346,12 +1159,6 @@ func (o BranchEnvironmentVariableArrayOutput) ToBranchEnvironmentVariableArrayOu
 
 func (o BranchEnvironmentVariableArrayOutput) ToBranchEnvironmentVariableArrayOutputWithContext(ctx context.Context) BranchEnvironmentVariableArrayOutput {
 	return o
-}
-
-func (o BranchEnvironmentVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BranchEnvironmentVariable] {
-	return pulumix.Output[[]BranchEnvironmentVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BranchEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) BranchEnvironmentVariableOutput {
@@ -1393,12 +1200,6 @@ func (i BranchTagArgs) ToBranchTagOutputWithContext(ctx context.Context) BranchT
 	return pulumi.ToOutputWithContext(ctx, i).(BranchTagOutput)
 }
 
-func (i BranchTagArgs) ToOutput(ctx context.Context) pulumix.Output[BranchTag] {
-	return pulumix.Output[BranchTag]{
-		OutputState: i.ToBranchTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BranchTagArrayInput is an input type that accepts BranchTagArray and BranchTagArrayOutput values.
 // You can construct a concrete instance of `BranchTagArrayInput` via:
 //
@@ -1424,12 +1225,6 @@ func (i BranchTagArray) ToBranchTagArrayOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(BranchTagArrayOutput)
 }
 
-func (i BranchTagArray) ToOutput(ctx context.Context) pulumix.Output[[]BranchTag] {
-	return pulumix.Output[[]BranchTag]{
-		OutputState: i.ToBranchTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BranchTagOutput struct{ *pulumi.OutputState }
 
 func (BranchTagOutput) ElementType() reflect.Type {
@@ -1442,12 +1237,6 @@ func (o BranchTagOutput) ToBranchTagOutput() BranchTagOutput {
 
 func (o BranchTagOutput) ToBranchTagOutputWithContext(ctx context.Context) BranchTagOutput {
 	return o
-}
-
-func (o BranchTagOutput) ToOutput(ctx context.Context) pulumix.Output[BranchTag] {
-	return pulumix.Output[BranchTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BranchTagOutput) Key() pulumi.StringOutput {
@@ -1470,12 +1259,6 @@ func (o BranchTagArrayOutput) ToBranchTagArrayOutput() BranchTagArrayOutput {
 
 func (o BranchTagArrayOutput) ToBranchTagArrayOutputWithContext(ctx context.Context) BranchTagArrayOutput {
 	return o
-}
-
-func (o BranchTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BranchTag] {
-	return pulumix.Output[[]BranchTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BranchTagArrayOutput) Index(i pulumi.IntInput) BranchTagOutput {
@@ -1517,12 +1300,6 @@ func (i DomainSubDomainSettingArgs) ToDomainSubDomainSettingOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSubDomainSettingOutput)
 }
 
-func (i DomainSubDomainSettingArgs) ToOutput(ctx context.Context) pulumix.Output[DomainSubDomainSetting] {
-	return pulumix.Output[DomainSubDomainSetting]{
-		OutputState: i.ToDomainSubDomainSettingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DomainSubDomainSettingArrayInput is an input type that accepts DomainSubDomainSettingArray and DomainSubDomainSettingArrayOutput values.
 // You can construct a concrete instance of `DomainSubDomainSettingArrayInput` via:
 //
@@ -1548,12 +1325,6 @@ func (i DomainSubDomainSettingArray) ToDomainSubDomainSettingArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DomainSubDomainSettingArrayOutput)
 }
 
-func (i DomainSubDomainSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]DomainSubDomainSetting] {
-	return pulumix.Output[[]DomainSubDomainSetting]{
-		OutputState: i.ToDomainSubDomainSettingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DomainSubDomainSettingOutput struct{ *pulumi.OutputState }
 
 func (DomainSubDomainSettingOutput) ElementType() reflect.Type {
@@ -1566,12 +1337,6 @@ func (o DomainSubDomainSettingOutput) ToDomainSubDomainSettingOutput() DomainSub
 
 func (o DomainSubDomainSettingOutput) ToDomainSubDomainSettingOutputWithContext(ctx context.Context) DomainSubDomainSettingOutput {
 	return o
-}
-
-func (o DomainSubDomainSettingOutput) ToOutput(ctx context.Context) pulumix.Output[DomainSubDomainSetting] {
-	return pulumix.Output[DomainSubDomainSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainSubDomainSettingOutput) BranchName() pulumi.StringOutput {
@@ -1594,12 +1359,6 @@ func (o DomainSubDomainSettingArrayOutput) ToDomainSubDomainSettingArrayOutput()
 
 func (o DomainSubDomainSettingArrayOutput) ToDomainSubDomainSettingArrayOutputWithContext(ctx context.Context) DomainSubDomainSettingArrayOutput {
 	return o
-}
-
-func (o DomainSubDomainSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DomainSubDomainSetting] {
-	return pulumix.Output[[]DomainSubDomainSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainSubDomainSettingArrayOutput) Index(i pulumi.IntInput) DomainSubDomainSettingOutput {

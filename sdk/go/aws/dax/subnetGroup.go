@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::DAX::SubnetGroup
@@ -106,12 +105,6 @@ func (i *SubnetGroup) ToSubnetGroupOutputWithContext(ctx context.Context) Subnet
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetGroupOutput)
 }
 
-func (i *SubnetGroup) ToOutput(ctx context.Context) pulumix.Output[*SubnetGroup] {
-	return pulumix.Output[*SubnetGroup]{
-		OutputState: i.ToSubnetGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SubnetGroupOutput struct{ *pulumi.OutputState }
 
 func (SubnetGroupOutput) ElementType() reflect.Type {
@@ -124,12 +117,6 @@ func (o SubnetGroupOutput) ToSubnetGroupOutput() SubnetGroupOutput {
 
 func (o SubnetGroupOutput) ToSubnetGroupOutputWithContext(ctx context.Context) SubnetGroupOutput {
 	return o
-}
-
-func (o SubnetGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*SubnetGroup] {
-	return pulumix.Output[*SubnetGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SubnetGroupOutput) Description() pulumi.StringPtrOutput {

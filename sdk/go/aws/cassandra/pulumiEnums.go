@@ -92,12 +92,6 @@ func (o KeyspaceRegionListItemOutput) ToKeyspaceRegionListItemPtrOutputWithConte
 	}).(KeyspaceRegionListItemPtrOutput)
 }
 
-func (o KeyspaceRegionListItemOutput) ToOutput(ctx context.Context) pulumix.Output[KeyspaceRegionListItem] {
-	return pulumix.Output[KeyspaceRegionListItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KeyspaceRegionListItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -131,12 +125,6 @@ func (o KeyspaceRegionListItemPtrOutput) ToKeyspaceRegionListItemPtrOutput() Key
 
 func (o KeyspaceRegionListItemPtrOutput) ToKeyspaceRegionListItemPtrOutputWithContext(ctx context.Context) KeyspaceRegionListItemPtrOutput {
 	return o
-}
-
-func (o KeyspaceRegionListItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KeyspaceRegionListItem] {
-	return pulumix.Output[*KeyspaceRegionListItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KeyspaceRegionListItemPtrOutput) Elem() KeyspaceRegionListItemOutput {
@@ -232,12 +220,6 @@ func (i KeyspaceRegionListItemArray) ToKeyspaceRegionListItemArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(KeyspaceRegionListItemArrayOutput)
 }
 
-func (i KeyspaceRegionListItemArray) ToOutput(ctx context.Context) pulumix.Output[[]KeyspaceRegionListItem] {
-	return pulumix.Output[[]KeyspaceRegionListItem]{
-		OutputState: i.ToKeyspaceRegionListItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KeyspaceRegionListItemArrayOutput struct{ *pulumi.OutputState }
 
 func (KeyspaceRegionListItemArrayOutput) ElementType() reflect.Type {
@@ -250,12 +232,6 @@ func (o KeyspaceRegionListItemArrayOutput) ToKeyspaceRegionListItemArrayOutput()
 
 func (o KeyspaceRegionListItemArrayOutput) ToKeyspaceRegionListItemArrayOutputWithContext(ctx context.Context) KeyspaceRegionListItemArrayOutput {
 	return o
-}
-
-func (o KeyspaceRegionListItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KeyspaceRegionListItem] {
-	return pulumix.Output[[]KeyspaceRegionListItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KeyspaceRegionListItemArrayOutput) Index(i pulumi.IntInput) KeyspaceRegionListItemOutput {
@@ -331,12 +307,6 @@ func (o KeyspaceReplicationSpecificationReplicationStrategyOutput) ToKeyspaceRep
 	}).(KeyspaceReplicationSpecificationReplicationStrategyPtrOutput)
 }
 
-func (o KeyspaceReplicationSpecificationReplicationStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[KeyspaceReplicationSpecificationReplicationStrategy] {
-	return pulumix.Output[KeyspaceReplicationSpecificationReplicationStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KeyspaceReplicationSpecificationReplicationStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -370,12 +340,6 @@ func (o KeyspaceReplicationSpecificationReplicationStrategyPtrOutput) ToKeyspace
 
 func (o KeyspaceReplicationSpecificationReplicationStrategyPtrOutput) ToKeyspaceReplicationSpecificationReplicationStrategyPtrOutputWithContext(ctx context.Context) KeyspaceReplicationSpecificationReplicationStrategyPtrOutput {
 	return o
-}
-
-func (o KeyspaceReplicationSpecificationReplicationStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KeyspaceReplicationSpecificationReplicationStrategy] {
-	return pulumix.Output[*KeyspaceReplicationSpecificationReplicationStrategy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KeyspaceReplicationSpecificationReplicationStrategyPtrOutput) Elem() KeyspaceReplicationSpecificationReplicationStrategyOutput {
@@ -513,12 +477,6 @@ func (o TableClusteringKeyColumnOrderByOutput) ToTableClusteringKeyColumnOrderBy
 	}).(TableClusteringKeyColumnOrderByPtrOutput)
 }
 
-func (o TableClusteringKeyColumnOrderByOutput) ToOutput(ctx context.Context) pulumix.Output[TableClusteringKeyColumnOrderBy] {
-	return pulumix.Output[TableClusteringKeyColumnOrderBy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TableClusteringKeyColumnOrderByOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -552,12 +510,6 @@ func (o TableClusteringKeyColumnOrderByPtrOutput) ToTableClusteringKeyColumnOrde
 
 func (o TableClusteringKeyColumnOrderByPtrOutput) ToTableClusteringKeyColumnOrderByPtrOutputWithContext(ctx context.Context) TableClusteringKeyColumnOrderByPtrOutput {
 	return o
-}
-
-func (o TableClusteringKeyColumnOrderByPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableClusteringKeyColumnOrderBy] {
-	return pulumix.Output[*TableClusteringKeyColumnOrderBy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableClusteringKeyColumnOrderByPtrOutput) Elem() TableClusteringKeyColumnOrderByOutput {
@@ -696,12 +648,6 @@ func (o TableEncryptionTypeOutput) ToTableEncryptionTypePtrOutputWithContext(ctx
 	}).(TableEncryptionTypePtrOutput)
 }
 
-func (o TableEncryptionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TableEncryptionType] {
-	return pulumix.Output[TableEncryptionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TableEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -735,12 +681,6 @@ func (o TableEncryptionTypePtrOutput) ToTableEncryptionTypePtrOutput() TableEncr
 
 func (o TableEncryptionTypePtrOutput) ToTableEncryptionTypePtrOutputWithContext(ctx context.Context) TableEncryptionTypePtrOutput {
 	return o
-}
-
-func (o TableEncryptionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableEncryptionType] {
-	return pulumix.Output[*TableEncryptionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableEncryptionTypePtrOutput) Elem() TableEncryptionTypeOutput {
@@ -879,12 +819,6 @@ func (o TableModeOutput) ToTableModePtrOutputWithContext(ctx context.Context) Ta
 	}).(TableModePtrOutput)
 }
 
-func (o TableModeOutput) ToOutput(ctx context.Context) pulumix.Output[TableMode] {
-	return pulumix.Output[TableMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TableModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -918,12 +852,6 @@ func (o TableModePtrOutput) ToTableModePtrOutput() TableModePtrOutput {
 
 func (o TableModePtrOutput) ToTableModePtrOutputWithContext(ctx context.Context) TableModePtrOutput {
 	return o
-}
-
-func (o TableModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TableMode] {
-	return pulumix.Output[*TableMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableModePtrOutput) Elem() TableModeOutput {

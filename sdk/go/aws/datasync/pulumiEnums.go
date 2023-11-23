@@ -44,12 +44,6 @@ func (o AgentEndpointTypeOutput) ToAgentEndpointTypePtrOutputWithContext(ctx con
 	}).(AgentEndpointTypePtrOutput)
 }
 
-func (o AgentEndpointTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AgentEndpointType] {
-	return pulumix.Output[AgentEndpointType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AgentEndpointTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -83,12 +77,6 @@ func (o AgentEndpointTypePtrOutput) ToAgentEndpointTypePtrOutput() AgentEndpoint
 
 func (o AgentEndpointTypePtrOutput) ToAgentEndpointTypePtrOutputWithContext(ctx context.Context) AgentEndpointTypePtrOutput {
 	return o
-}
-
-func (o AgentEndpointTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AgentEndpointType] {
-	return pulumix.Output[*AgentEndpointType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AgentEndpointTypePtrOutput) Elem() AgentEndpointTypeOutput {
@@ -184,12 +172,6 @@ func (o LocationAzureBlobAzureAccessTierOutput) ToLocationAzureBlobAzureAccessTi
 	}).(LocationAzureBlobAzureAccessTierPtrOutput)
 }
 
-func (o LocationAzureBlobAzureAccessTierOutput) ToOutput(ctx context.Context) pulumix.Output[LocationAzureBlobAzureAccessTier] {
-	return pulumix.Output[LocationAzureBlobAzureAccessTier]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocationAzureBlobAzureAccessTierOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -223,12 +205,6 @@ func (o LocationAzureBlobAzureAccessTierPtrOutput) ToLocationAzureBlobAzureAcces
 
 func (o LocationAzureBlobAzureAccessTierPtrOutput) ToLocationAzureBlobAzureAccessTierPtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureAccessTierPtrOutput {
 	return o
-}
-
-func (o LocationAzureBlobAzureAccessTierPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationAzureBlobAzureAccessTier] {
-	return pulumix.Output[*LocationAzureBlobAzureAccessTier]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationAzureBlobAzureAccessTierPtrOutput) Elem() LocationAzureBlobAzureAccessTierOutput {
@@ -366,12 +342,6 @@ func (o LocationAzureBlobAzureBlobAuthenticationTypeOutput) ToLocationAzureBlobA
 	}).(LocationAzureBlobAzureBlobAuthenticationTypePtrOutput)
 }
 
-func (o LocationAzureBlobAzureBlobAuthenticationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LocationAzureBlobAzureBlobAuthenticationType] {
-	return pulumix.Output[LocationAzureBlobAzureBlobAuthenticationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocationAzureBlobAzureBlobAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -405,12 +375,6 @@ func (o LocationAzureBlobAzureBlobAuthenticationTypePtrOutput) ToLocationAzureBl
 
 func (o LocationAzureBlobAzureBlobAuthenticationTypePtrOutput) ToLocationAzureBlobAzureBlobAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureBlobAuthenticationTypePtrOutput {
 	return o
-}
-
-func (o LocationAzureBlobAzureBlobAuthenticationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationAzureBlobAzureBlobAuthenticationType] {
-	return pulumix.Output[*LocationAzureBlobAzureBlobAuthenticationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationAzureBlobAzureBlobAuthenticationTypePtrOutput) Elem() LocationAzureBlobAzureBlobAuthenticationTypeOutput {
@@ -548,12 +512,6 @@ func (o LocationAzureBlobAzureBlobTypeOutput) ToLocationAzureBlobAzureBlobTypePt
 	}).(LocationAzureBlobAzureBlobTypePtrOutput)
 }
 
-func (o LocationAzureBlobAzureBlobTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LocationAzureBlobAzureBlobType] {
-	return pulumix.Output[LocationAzureBlobAzureBlobType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocationAzureBlobAzureBlobTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -587,12 +545,6 @@ func (o LocationAzureBlobAzureBlobTypePtrOutput) ToLocationAzureBlobAzureBlobTyp
 
 func (o LocationAzureBlobAzureBlobTypePtrOutput) ToLocationAzureBlobAzureBlobTypePtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureBlobTypePtrOutput {
 	return o
-}
-
-func (o LocationAzureBlobAzureBlobTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationAzureBlobAzureBlobType] {
-	return pulumix.Output[*LocationAzureBlobAzureBlobType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationAzureBlobAzureBlobTypePtrOutput) Elem() LocationAzureBlobAzureBlobTypeOutput {
@@ -731,12 +683,6 @@ func (o LocationEfsInTransitEncryptionOutput) ToLocationEfsInTransitEncryptionPt
 	}).(LocationEfsInTransitEncryptionPtrOutput)
 }
 
-func (o LocationEfsInTransitEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationEfsInTransitEncryption] {
-	return pulumix.Output[LocationEfsInTransitEncryption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocationEfsInTransitEncryptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -770,12 +716,6 @@ func (o LocationEfsInTransitEncryptionPtrOutput) ToLocationEfsInTransitEncryptio
 
 func (o LocationEfsInTransitEncryptionPtrOutput) ToLocationEfsInTransitEncryptionPtrOutputWithContext(ctx context.Context) LocationEfsInTransitEncryptionPtrOutput {
 	return o
-}
-
-func (o LocationEfsInTransitEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationEfsInTransitEncryption] {
-	return pulumix.Output[*LocationEfsInTransitEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationEfsInTransitEncryptionPtrOutput) Elem() LocationEfsInTransitEncryptionOutput {
@@ -916,12 +856,6 @@ func (o LocationFSxOntapNfsMountOptionsVersionOutput) ToLocationFSxOntapNfsMount
 	}).(LocationFSxOntapNfsMountOptionsVersionPtrOutput)
 }
 
-func (o LocationFSxOntapNfsMountOptionsVersionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOntapNfsMountOptionsVersion] {
-	return pulumix.Output[LocationFSxOntapNfsMountOptionsVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocationFSxOntapNfsMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -955,12 +889,6 @@ func (o LocationFSxOntapNfsMountOptionsVersionPtrOutput) ToLocationFSxOntapNfsMo
 
 func (o LocationFSxOntapNfsMountOptionsVersionPtrOutput) ToLocationFSxOntapNfsMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOntapNfsMountOptionsVersionPtrOutput {
 	return o
-}
-
-func (o LocationFSxOntapNfsMountOptionsVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOntapNfsMountOptionsVersion] {
-	return pulumix.Output[*LocationFSxOntapNfsMountOptionsVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationFSxOntapNfsMountOptionsVersionPtrOutput) Elem() LocationFSxOntapNfsMountOptionsVersionOutput {
@@ -1100,12 +1028,6 @@ func (o LocationFSxOntapSmbMountOptionsVersionOutput) ToLocationFSxOntapSmbMount
 	}).(LocationFSxOntapSmbMountOptionsVersionPtrOutput)
 }
 
-func (o LocationFSxOntapSmbMountOptionsVersionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOntapSmbMountOptionsVersion] {
-	return pulumix.Output[LocationFSxOntapSmbMountOptionsVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocationFSxOntapSmbMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1139,12 +1061,6 @@ func (o LocationFSxOntapSmbMountOptionsVersionPtrOutput) ToLocationFSxOntapSmbMo
 
 func (o LocationFSxOntapSmbMountOptionsVersionPtrOutput) ToLocationFSxOntapSmbMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOntapSmbMountOptionsVersionPtrOutput {
 	return o
-}
-
-func (o LocationFSxOntapSmbMountOptionsVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOntapSmbMountOptionsVersion] {
-	return pulumix.Output[*LocationFSxOntapSmbMountOptionsVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationFSxOntapSmbMountOptionsVersionPtrOutput) Elem() LocationFSxOntapSmbMountOptionsVersionOutput {
@@ -1285,12 +1201,6 @@ func (o LocationFSxOpenZfsMountOptionsVersionOutput) ToLocationFSxOpenZfsMountOp
 	}).(LocationFSxOpenZfsMountOptionsVersionPtrOutput)
 }
 
-func (o LocationFSxOpenZfsMountOptionsVersionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationFSxOpenZfsMountOptionsVersion] {
-	return pulumix.Output[LocationFSxOpenZfsMountOptionsVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocationFSxOpenZfsMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1324,12 +1234,6 @@ func (o LocationFSxOpenZfsMountOptionsVersionPtrOutput) ToLocationFSxOpenZfsMoun
 
 func (o LocationFSxOpenZfsMountOptionsVersionPtrOutput) ToLocationFSxOpenZfsMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationFSxOpenZfsMountOptionsVersionPtrOutput {
 	return o
-}
-
-func (o LocationFSxOpenZfsMountOptionsVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationFSxOpenZfsMountOptionsVersion] {
-	return pulumix.Output[*LocationFSxOpenZfsMountOptionsVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationFSxOpenZfsMountOptionsVersionPtrOutput) Elem() LocationFSxOpenZfsMountOptionsVersionOutput {
@@ -1468,12 +1372,6 @@ func (o LocationHdfsAuthenticationTypeOutput) ToLocationHdfsAuthenticationTypePt
 	}).(LocationHdfsAuthenticationTypePtrOutput)
 }
 
-func (o LocationHdfsAuthenticationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LocationHdfsAuthenticationType] {
-	return pulumix.Output[LocationHdfsAuthenticationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocationHdfsAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1507,12 +1405,6 @@ func (o LocationHdfsAuthenticationTypePtrOutput) ToLocationHdfsAuthenticationTyp
 
 func (o LocationHdfsAuthenticationTypePtrOutput) ToLocationHdfsAuthenticationTypePtrOutputWithContext(ctx context.Context) LocationHdfsAuthenticationTypePtrOutput {
 	return o
-}
-
-func (o LocationHdfsAuthenticationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationHdfsAuthenticationType] {
-	return pulumix.Output[*LocationHdfsAuthenticationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationHdfsAuthenticationTypePtrOutput) Elem() LocationHdfsAuthenticationTypeOutput {
@@ -1653,12 +1545,6 @@ func (o LocationHdfsQopConfigurationDataTransferProtectionOutput) ToLocationHdfs
 	}).(LocationHdfsQopConfigurationDataTransferProtectionPtrOutput)
 }
 
-func (o LocationHdfsQopConfigurationDataTransferProtectionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationHdfsQopConfigurationDataTransferProtection] {
-	return pulumix.Output[LocationHdfsQopConfigurationDataTransferProtection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocationHdfsQopConfigurationDataTransferProtectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1692,12 +1578,6 @@ func (o LocationHdfsQopConfigurationDataTransferProtectionPtrOutput) ToLocationH
 
 func (o LocationHdfsQopConfigurationDataTransferProtectionPtrOutput) ToLocationHdfsQopConfigurationDataTransferProtectionPtrOutputWithContext(ctx context.Context) LocationHdfsQopConfigurationDataTransferProtectionPtrOutput {
 	return o
-}
-
-func (o LocationHdfsQopConfigurationDataTransferProtectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationHdfsQopConfigurationDataTransferProtection] {
-	return pulumix.Output[*LocationHdfsQopConfigurationDataTransferProtection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationHdfsQopConfigurationDataTransferProtectionPtrOutput) Elem() LocationHdfsQopConfigurationDataTransferProtectionOutput {
@@ -1838,12 +1718,6 @@ func (o LocationHdfsQopConfigurationRpcProtectionOutput) ToLocationHdfsQopConfig
 	}).(LocationHdfsQopConfigurationRpcProtectionPtrOutput)
 }
 
-func (o LocationHdfsQopConfigurationRpcProtectionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationHdfsQopConfigurationRpcProtection] {
-	return pulumix.Output[LocationHdfsQopConfigurationRpcProtection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocationHdfsQopConfigurationRpcProtectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1877,12 +1751,6 @@ func (o LocationHdfsQopConfigurationRpcProtectionPtrOutput) ToLocationHdfsQopCon
 
 func (o LocationHdfsQopConfigurationRpcProtectionPtrOutput) ToLocationHdfsQopConfigurationRpcProtectionPtrOutputWithContext(ctx context.Context) LocationHdfsQopConfigurationRpcProtectionPtrOutput {
 	return o
-}
-
-func (o LocationHdfsQopConfigurationRpcProtectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationHdfsQopConfigurationRpcProtection] {
-	return pulumix.Output[*LocationHdfsQopConfigurationRpcProtection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationHdfsQopConfigurationRpcProtectionPtrOutput) Elem() LocationHdfsQopConfigurationRpcProtectionOutput {
@@ -2023,12 +1891,6 @@ func (o LocationNfsMountOptionsVersionOutput) ToLocationNfsMountOptionsVersionPt
 	}).(LocationNfsMountOptionsVersionPtrOutput)
 }
 
-func (o LocationNfsMountOptionsVersionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationNfsMountOptionsVersion] {
-	return pulumix.Output[LocationNfsMountOptionsVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocationNfsMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2062,12 +1924,6 @@ func (o LocationNfsMountOptionsVersionPtrOutput) ToLocationNfsMountOptionsVersio
 
 func (o LocationNfsMountOptionsVersionPtrOutput) ToLocationNfsMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationNfsMountOptionsVersionPtrOutput {
 	return o
-}
-
-func (o LocationNfsMountOptionsVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationNfsMountOptionsVersion] {
-	return pulumix.Output[*LocationNfsMountOptionsVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationNfsMountOptionsVersionPtrOutput) Elem() LocationNfsMountOptionsVersionOutput {
@@ -2206,12 +2062,6 @@ func (o LocationObjectStorageServerProtocolOutput) ToLocationObjectStorageServer
 	}).(LocationObjectStorageServerProtocolPtrOutput)
 }
 
-func (o LocationObjectStorageServerProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[LocationObjectStorageServerProtocol] {
-	return pulumix.Output[LocationObjectStorageServerProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocationObjectStorageServerProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2245,12 +2095,6 @@ func (o LocationObjectStorageServerProtocolPtrOutput) ToLocationObjectStorageSer
 
 func (o LocationObjectStorageServerProtocolPtrOutput) ToLocationObjectStorageServerProtocolPtrOutputWithContext(ctx context.Context) LocationObjectStorageServerProtocolPtrOutput {
 	return o
-}
-
-func (o LocationObjectStorageServerProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationObjectStorageServerProtocol] {
-	return pulumix.Output[*LocationObjectStorageServerProtocol]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationObjectStorageServerProtocolPtrOutput) Elem() LocationObjectStorageServerProtocolOutput {
@@ -2394,12 +2238,6 @@ func (o LocationS3S3StorageClassOutput) ToLocationS3S3StorageClassPtrOutputWithC
 	}).(LocationS3S3StorageClassPtrOutput)
 }
 
-func (o LocationS3S3StorageClassOutput) ToOutput(ctx context.Context) pulumix.Output[LocationS3S3StorageClass] {
-	return pulumix.Output[LocationS3S3StorageClass]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocationS3S3StorageClassOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2433,12 +2271,6 @@ func (o LocationS3S3StorageClassPtrOutput) ToLocationS3S3StorageClassPtrOutput()
 
 func (o LocationS3S3StorageClassPtrOutput) ToLocationS3S3StorageClassPtrOutputWithContext(ctx context.Context) LocationS3S3StorageClassPtrOutput {
 	return o
-}
-
-func (o LocationS3S3StorageClassPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationS3S3StorageClass] {
-	return pulumix.Output[*LocationS3S3StorageClass]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationS3S3StorageClassPtrOutput) Elem() LocationS3S3StorageClassOutput {
@@ -2580,12 +2412,6 @@ func (o LocationSmbMountOptionsVersionOutput) ToLocationSmbMountOptionsVersionPt
 	}).(LocationSmbMountOptionsVersionPtrOutput)
 }
 
-func (o LocationSmbMountOptionsVersionOutput) ToOutput(ctx context.Context) pulumix.Output[LocationSmbMountOptionsVersion] {
-	return pulumix.Output[LocationSmbMountOptionsVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocationSmbMountOptionsVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2619,12 +2445,6 @@ func (o LocationSmbMountOptionsVersionPtrOutput) ToLocationSmbMountOptionsVersio
 
 func (o LocationSmbMountOptionsVersionPtrOutput) ToLocationSmbMountOptionsVersionPtrOutputWithContext(ctx context.Context) LocationSmbMountOptionsVersionPtrOutput {
 	return o
-}
-
-func (o LocationSmbMountOptionsVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationSmbMountOptionsVersion] {
-	return pulumix.Output[*LocationSmbMountOptionsVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocationSmbMountOptionsVersionPtrOutput) Elem() LocationSmbMountOptionsVersionOutput {
@@ -2728,12 +2548,6 @@ func (o StorageSystemConnectivityStatusOutput) ToStorageSystemConnectivityStatus
 	}).(StorageSystemConnectivityStatusPtrOutput)
 }
 
-func (o StorageSystemConnectivityStatusOutput) ToOutput(ctx context.Context) pulumix.Output[StorageSystemConnectivityStatus] {
-	return pulumix.Output[StorageSystemConnectivityStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StorageSystemConnectivityStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2767,12 +2581,6 @@ func (o StorageSystemConnectivityStatusPtrOutput) ToStorageSystemConnectivitySta
 
 func (o StorageSystemConnectivityStatusPtrOutput) ToStorageSystemConnectivityStatusPtrOutputWithContext(ctx context.Context) StorageSystemConnectivityStatusPtrOutput {
 	return o
-}
-
-func (o StorageSystemConnectivityStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageSystemConnectivityStatus] {
-	return pulumix.Output[*StorageSystemConnectivityStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageSystemConnectivityStatusPtrOutput) Elem() StorageSystemConnectivityStatusOutput {
@@ -2866,12 +2674,6 @@ func (o StorageSystemSystemTypeOutput) ToStorageSystemSystemTypePtrOutputWithCon
 	}).(StorageSystemSystemTypePtrOutput)
 }
 
-func (o StorageSystemSystemTypeOutput) ToOutput(ctx context.Context) pulumix.Output[StorageSystemSystemType] {
-	return pulumix.Output[StorageSystemSystemType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StorageSystemSystemTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2905,12 +2707,6 @@ func (o StorageSystemSystemTypePtrOutput) ToStorageSystemSystemTypePtrOutput() S
 
 func (o StorageSystemSystemTypePtrOutput) ToStorageSystemSystemTypePtrOutputWithContext(ctx context.Context) StorageSystemSystemTypePtrOutput {
 	return o
-}
-
-func (o StorageSystemSystemTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageSystemSystemType] {
-	return pulumix.Output[*StorageSystemSystemType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageSystemSystemTypePtrOutput) Elem() StorageSystemSystemTypeOutput {
@@ -3048,12 +2844,6 @@ func (o TaskFilterRuleFilterTypeOutput) ToTaskFilterRuleFilterTypePtrOutputWithC
 	}).(TaskFilterRuleFilterTypePtrOutput)
 }
 
-func (o TaskFilterRuleFilterTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskFilterRuleFilterType] {
-	return pulumix.Output[TaskFilterRuleFilterType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskFilterRuleFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3087,12 +2877,6 @@ func (o TaskFilterRuleFilterTypePtrOutput) ToTaskFilterRuleFilterTypePtrOutput()
 
 func (o TaskFilterRuleFilterTypePtrOutput) ToTaskFilterRuleFilterTypePtrOutputWithContext(ctx context.Context) TaskFilterRuleFilterTypePtrOutput {
 	return o
-}
-
-func (o TaskFilterRuleFilterTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskFilterRuleFilterType] {
-	return pulumix.Output[*TaskFilterRuleFilterType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskFilterRuleFilterTypePtrOutput) Elem() TaskFilterRuleFilterTypeOutput {
@@ -3231,12 +3015,6 @@ func (o TaskOptionsAtimeOutput) ToTaskOptionsAtimePtrOutputWithContext(ctx conte
 	}).(TaskOptionsAtimePtrOutput)
 }
 
-func (o TaskOptionsAtimeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsAtime] {
-	return pulumix.Output[TaskOptionsAtime]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskOptionsAtimeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3270,12 +3048,6 @@ func (o TaskOptionsAtimePtrOutput) ToTaskOptionsAtimePtrOutput() TaskOptionsAtim
 
 func (o TaskOptionsAtimePtrOutput) ToTaskOptionsAtimePtrOutputWithContext(ctx context.Context) TaskOptionsAtimePtrOutput {
 	return o
-}
-
-func (o TaskOptionsAtimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsAtime] {
-	return pulumix.Output[*TaskOptionsAtime]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskOptionsAtimePtrOutput) Elem() TaskOptionsAtimeOutput {
@@ -3416,12 +3188,6 @@ func (o TaskOptionsGidOutput) ToTaskOptionsGidPtrOutputWithContext(ctx context.C
 	}).(TaskOptionsGidPtrOutput)
 }
 
-func (o TaskOptionsGidOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsGid] {
-	return pulumix.Output[TaskOptionsGid]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskOptionsGidOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3455,12 +3221,6 @@ func (o TaskOptionsGidPtrOutput) ToTaskOptionsGidPtrOutput() TaskOptionsGidPtrOu
 
 func (o TaskOptionsGidPtrOutput) ToTaskOptionsGidPtrOutputWithContext(ctx context.Context) TaskOptionsGidPtrOutput {
 	return o
-}
-
-func (o TaskOptionsGidPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsGid] {
-	return pulumix.Output[*TaskOptionsGid]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskOptionsGidPtrOutput) Elem() TaskOptionsGidOutput {
@@ -3600,12 +3360,6 @@ func (o TaskOptionsLogLevelOutput) ToTaskOptionsLogLevelPtrOutputWithContext(ctx
 	}).(TaskOptionsLogLevelPtrOutput)
 }
 
-func (o TaskOptionsLogLevelOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsLogLevel] {
-	return pulumix.Output[TaskOptionsLogLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskOptionsLogLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3639,12 +3393,6 @@ func (o TaskOptionsLogLevelPtrOutput) ToTaskOptionsLogLevelPtrOutput() TaskOptio
 
 func (o TaskOptionsLogLevelPtrOutput) ToTaskOptionsLogLevelPtrOutputWithContext(ctx context.Context) TaskOptionsLogLevelPtrOutput {
 	return o
-}
-
-func (o TaskOptionsLogLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsLogLevel] {
-	return pulumix.Output[*TaskOptionsLogLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskOptionsLogLevelPtrOutput) Elem() TaskOptionsLogLevelOutput {
@@ -3783,12 +3531,6 @@ func (o TaskOptionsMtimeOutput) ToTaskOptionsMtimePtrOutputWithContext(ctx conte
 	}).(TaskOptionsMtimePtrOutput)
 }
 
-func (o TaskOptionsMtimeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsMtime] {
-	return pulumix.Output[TaskOptionsMtime]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskOptionsMtimeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3822,12 +3564,6 @@ func (o TaskOptionsMtimePtrOutput) ToTaskOptionsMtimePtrOutput() TaskOptionsMtim
 
 func (o TaskOptionsMtimePtrOutput) ToTaskOptionsMtimePtrOutputWithContext(ctx context.Context) TaskOptionsMtimePtrOutput {
 	return o
-}
-
-func (o TaskOptionsMtimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsMtime] {
-	return pulumix.Output[*TaskOptionsMtime]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskOptionsMtimePtrOutput) Elem() TaskOptionsMtimeOutput {
@@ -3966,12 +3702,6 @@ func (o TaskOptionsObjectTagsOutput) ToTaskOptionsObjectTagsPtrOutputWithContext
 	}).(TaskOptionsObjectTagsPtrOutput)
 }
 
-func (o TaskOptionsObjectTagsOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsObjectTags] {
-	return pulumix.Output[TaskOptionsObjectTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskOptionsObjectTagsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4005,12 +3735,6 @@ func (o TaskOptionsObjectTagsPtrOutput) ToTaskOptionsObjectTagsPtrOutput() TaskO
 
 func (o TaskOptionsObjectTagsPtrOutput) ToTaskOptionsObjectTagsPtrOutputWithContext(ctx context.Context) TaskOptionsObjectTagsPtrOutput {
 	return o
-}
-
-func (o TaskOptionsObjectTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsObjectTags] {
-	return pulumix.Output[*TaskOptionsObjectTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskOptionsObjectTagsPtrOutput) Elem() TaskOptionsObjectTagsOutput {
@@ -4149,12 +3873,6 @@ func (o TaskOptionsOverwriteModeOutput) ToTaskOptionsOverwriteModePtrOutputWithC
 	}).(TaskOptionsOverwriteModePtrOutput)
 }
 
-func (o TaskOptionsOverwriteModeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsOverwriteMode] {
-	return pulumix.Output[TaskOptionsOverwriteMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskOptionsOverwriteModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4188,12 +3906,6 @@ func (o TaskOptionsOverwriteModePtrOutput) ToTaskOptionsOverwriteModePtrOutput()
 
 func (o TaskOptionsOverwriteModePtrOutput) ToTaskOptionsOverwriteModePtrOutputWithContext(ctx context.Context) TaskOptionsOverwriteModePtrOutput {
 	return o
-}
-
-func (o TaskOptionsOverwriteModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsOverwriteMode] {
-	return pulumix.Output[*TaskOptionsOverwriteMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskOptionsOverwriteModePtrOutput) Elem() TaskOptionsOverwriteModeOutput {
@@ -4332,12 +4044,6 @@ func (o TaskOptionsPosixPermissionsOutput) ToTaskOptionsPosixPermissionsPtrOutpu
 	}).(TaskOptionsPosixPermissionsPtrOutput)
 }
 
-func (o TaskOptionsPosixPermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsPosixPermissions] {
-	return pulumix.Output[TaskOptionsPosixPermissions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskOptionsPosixPermissionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4371,12 +4077,6 @@ func (o TaskOptionsPosixPermissionsPtrOutput) ToTaskOptionsPosixPermissionsPtrOu
 
 func (o TaskOptionsPosixPermissionsPtrOutput) ToTaskOptionsPosixPermissionsPtrOutputWithContext(ctx context.Context) TaskOptionsPosixPermissionsPtrOutput {
 	return o
-}
-
-func (o TaskOptionsPosixPermissionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsPosixPermissions] {
-	return pulumix.Output[*TaskOptionsPosixPermissions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskOptionsPosixPermissionsPtrOutput) Elem() TaskOptionsPosixPermissionsOutput {
@@ -4515,12 +4215,6 @@ func (o TaskOptionsPreserveDeletedFilesOutput) ToTaskOptionsPreserveDeletedFiles
 	}).(TaskOptionsPreserveDeletedFilesPtrOutput)
 }
 
-func (o TaskOptionsPreserveDeletedFilesOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsPreserveDeletedFiles] {
-	return pulumix.Output[TaskOptionsPreserveDeletedFiles]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskOptionsPreserveDeletedFilesOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4554,12 +4248,6 @@ func (o TaskOptionsPreserveDeletedFilesPtrOutput) ToTaskOptionsPreserveDeletedFi
 
 func (o TaskOptionsPreserveDeletedFilesPtrOutput) ToTaskOptionsPreserveDeletedFilesPtrOutputWithContext(ctx context.Context) TaskOptionsPreserveDeletedFilesPtrOutput {
 	return o
-}
-
-func (o TaskOptionsPreserveDeletedFilesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsPreserveDeletedFiles] {
-	return pulumix.Output[*TaskOptionsPreserveDeletedFiles]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskOptionsPreserveDeletedFilesPtrOutput) Elem() TaskOptionsPreserveDeletedFilesOutput {
@@ -4698,12 +4386,6 @@ func (o TaskOptionsPreserveDevicesOutput) ToTaskOptionsPreserveDevicesPtrOutputW
 	}).(TaskOptionsPreserveDevicesPtrOutput)
 }
 
-func (o TaskOptionsPreserveDevicesOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsPreserveDevices] {
-	return pulumix.Output[TaskOptionsPreserveDevices]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskOptionsPreserveDevicesOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4737,12 +4419,6 @@ func (o TaskOptionsPreserveDevicesPtrOutput) ToTaskOptionsPreserveDevicesPtrOutp
 
 func (o TaskOptionsPreserveDevicesPtrOutput) ToTaskOptionsPreserveDevicesPtrOutputWithContext(ctx context.Context) TaskOptionsPreserveDevicesPtrOutput {
 	return o
-}
-
-func (o TaskOptionsPreserveDevicesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsPreserveDevices] {
-	return pulumix.Output[*TaskOptionsPreserveDevices]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskOptionsPreserveDevicesPtrOutput) Elem() TaskOptionsPreserveDevicesOutput {
@@ -4882,12 +4558,6 @@ func (o TaskOptionsSecurityDescriptorCopyFlagsOutput) ToTaskOptionsSecurityDescr
 	}).(TaskOptionsSecurityDescriptorCopyFlagsPtrOutput)
 }
 
-func (o TaskOptionsSecurityDescriptorCopyFlagsOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsSecurityDescriptorCopyFlags] {
-	return pulumix.Output[TaskOptionsSecurityDescriptorCopyFlags]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskOptionsSecurityDescriptorCopyFlagsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4921,12 +4591,6 @@ func (o TaskOptionsSecurityDescriptorCopyFlagsPtrOutput) ToTaskOptionsSecurityDe
 
 func (o TaskOptionsSecurityDescriptorCopyFlagsPtrOutput) ToTaskOptionsSecurityDescriptorCopyFlagsPtrOutputWithContext(ctx context.Context) TaskOptionsSecurityDescriptorCopyFlagsPtrOutput {
 	return o
-}
-
-func (o TaskOptionsSecurityDescriptorCopyFlagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsSecurityDescriptorCopyFlags] {
-	return pulumix.Output[*TaskOptionsSecurityDescriptorCopyFlags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskOptionsSecurityDescriptorCopyFlagsPtrOutput) Elem() TaskOptionsSecurityDescriptorCopyFlagsOutput {
@@ -5065,12 +4729,6 @@ func (o TaskOptionsTaskQueueingOutput) ToTaskOptionsTaskQueueingPtrOutputWithCon
 	}).(TaskOptionsTaskQueueingPtrOutput)
 }
 
-func (o TaskOptionsTaskQueueingOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsTaskQueueing] {
-	return pulumix.Output[TaskOptionsTaskQueueing]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskOptionsTaskQueueingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5104,12 +4762,6 @@ func (o TaskOptionsTaskQueueingPtrOutput) ToTaskOptionsTaskQueueingPtrOutput() T
 
 func (o TaskOptionsTaskQueueingPtrOutput) ToTaskOptionsTaskQueueingPtrOutputWithContext(ctx context.Context) TaskOptionsTaskQueueingPtrOutput {
 	return o
-}
-
-func (o TaskOptionsTaskQueueingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsTaskQueueing] {
-	return pulumix.Output[*TaskOptionsTaskQueueing]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskOptionsTaskQueueingPtrOutput) Elem() TaskOptionsTaskQueueingOutput {
@@ -5248,12 +4900,6 @@ func (o TaskOptionsTransferModeOutput) ToTaskOptionsTransferModePtrOutputWithCon
 	}).(TaskOptionsTransferModePtrOutput)
 }
 
-func (o TaskOptionsTransferModeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsTransferMode] {
-	return pulumix.Output[TaskOptionsTransferMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskOptionsTransferModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5287,12 +4933,6 @@ func (o TaskOptionsTransferModePtrOutput) ToTaskOptionsTransferModePtrOutput() T
 
 func (o TaskOptionsTransferModePtrOutput) ToTaskOptionsTransferModePtrOutputWithContext(ctx context.Context) TaskOptionsTransferModePtrOutput {
 	return o
-}
-
-func (o TaskOptionsTransferModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsTransferMode] {
-	return pulumix.Output[*TaskOptionsTransferMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskOptionsTransferModePtrOutput) Elem() TaskOptionsTransferModeOutput {
@@ -5433,12 +5073,6 @@ func (o TaskOptionsUidOutput) ToTaskOptionsUidPtrOutputWithContext(ctx context.C
 	}).(TaskOptionsUidPtrOutput)
 }
 
-func (o TaskOptionsUidOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsUid] {
-	return pulumix.Output[TaskOptionsUid]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskOptionsUidOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5472,12 +5106,6 @@ func (o TaskOptionsUidPtrOutput) ToTaskOptionsUidPtrOutput() TaskOptionsUidPtrOu
 
 func (o TaskOptionsUidPtrOutput) ToTaskOptionsUidPtrOutputWithContext(ctx context.Context) TaskOptionsUidPtrOutput {
 	return o
-}
-
-func (o TaskOptionsUidPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsUid] {
-	return pulumix.Output[*TaskOptionsUid]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskOptionsUidPtrOutput) Elem() TaskOptionsUidOutput {
@@ -5617,12 +5245,6 @@ func (o TaskOptionsVerifyModeOutput) ToTaskOptionsVerifyModePtrOutputWithContext
 	}).(TaskOptionsVerifyModePtrOutput)
 }
 
-func (o TaskOptionsVerifyModeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskOptionsVerifyMode] {
-	return pulumix.Output[TaskOptionsVerifyMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskOptionsVerifyModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5656,12 +5278,6 @@ func (o TaskOptionsVerifyModePtrOutput) ToTaskOptionsVerifyModePtrOutput() TaskO
 
 func (o TaskOptionsVerifyModePtrOutput) ToTaskOptionsVerifyModePtrOutputWithContext(ctx context.Context) TaskOptionsVerifyModePtrOutput {
 	return o
-}
-
-func (o TaskOptionsVerifyModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskOptionsVerifyMode] {
-	return pulumix.Output[*TaskOptionsVerifyMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskOptionsVerifyModePtrOutput) Elem() TaskOptionsVerifyModeOutput {
@@ -5800,12 +5416,6 @@ func (o TaskReportConfigObjectVersionIdsOutput) ToTaskReportConfigObjectVersionI
 	}).(TaskReportConfigObjectVersionIdsPtrOutput)
 }
 
-func (o TaskReportConfigObjectVersionIdsOutput) ToOutput(ctx context.Context) pulumix.Output[TaskReportConfigObjectVersionIds] {
-	return pulumix.Output[TaskReportConfigObjectVersionIds]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskReportConfigObjectVersionIdsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5839,12 +5449,6 @@ func (o TaskReportConfigObjectVersionIdsPtrOutput) ToTaskReportConfigObjectVersi
 
 func (o TaskReportConfigObjectVersionIdsPtrOutput) ToTaskReportConfigObjectVersionIdsPtrOutputWithContext(ctx context.Context) TaskReportConfigObjectVersionIdsPtrOutput {
 	return o
-}
-
-func (o TaskReportConfigObjectVersionIdsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigObjectVersionIds] {
-	return pulumix.Output[*TaskReportConfigObjectVersionIds]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskReportConfigObjectVersionIdsPtrOutput) Elem() TaskReportConfigObjectVersionIdsOutput {
@@ -5983,12 +5587,6 @@ func (o TaskReportConfigOutputTypeOutput) ToTaskReportConfigOutputTypePtrOutputW
 	}).(TaskReportConfigOutputTypePtrOutput)
 }
 
-func (o TaskReportConfigOutputTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskReportConfigOutputType] {
-	return pulumix.Output[TaskReportConfigOutputType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskReportConfigOutputTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6022,12 +5620,6 @@ func (o TaskReportConfigOutputTypePtrOutput) ToTaskReportConfigOutputTypePtrOutp
 
 func (o TaskReportConfigOutputTypePtrOutput) ToTaskReportConfigOutputTypePtrOutputWithContext(ctx context.Context) TaskReportConfigOutputTypePtrOutput {
 	return o
-}
-
-func (o TaskReportConfigOutputTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigOutputType] {
-	return pulumix.Output[*TaskReportConfigOutputType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskReportConfigOutputTypePtrOutput) Elem() TaskReportConfigOutputTypeOutput {
@@ -6166,12 +5758,6 @@ func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput) T
 	}).(TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput)
 }
 
-func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput) ToOutput(ctx context.Context) pulumix.Output[TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel] {
-	return pulumix.Output[TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6205,12 +5791,6 @@ func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput
 
 func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput) ToTaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput {
 	return o
-}
-
-func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel] {
-	return pulumix.Output[*TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelPtrOutput) Elem() TaskReportConfigOverridesPropertiesDeletedPropertiesReportLevelOutput {
@@ -6349,12 +5929,6 @@ func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput) T
 	}).(TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput)
 }
 
-func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput) ToOutput(ctx context.Context) pulumix.Output[TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel] {
-	return pulumix.Output[TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6388,12 +5962,6 @@ func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput
 
 func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput) ToTaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput {
 	return o
-}
-
-func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel] {
-	return pulumix.Output[*TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelPtrOutput) Elem() TaskReportConfigOverridesPropertiesSkippedPropertiesReportLevelOutput {
@@ -6532,12 +6100,6 @@ func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutpu
 	}).(TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput)
 }
 
-func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput) ToOutput(ctx context.Context) pulumix.Output[TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel] {
-	return pulumix.Output[TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6571,12 +6133,6 @@ func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOu
 
 func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput) ToTaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput {
 	return o
-}
-
-func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel] {
-	return pulumix.Output[*TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelPtrOutput) Elem() TaskReportConfigOverridesPropertiesTransferredPropertiesReportLevelOutput {
@@ -6715,12 +6271,6 @@ func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput) 
 	}).(TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput)
 }
 
-func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput) ToOutput(ctx context.Context) pulumix.Output[TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel] {
-	return pulumix.Output[TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6754,12 +6304,6 @@ func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutpu
 
 func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput) ToTaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput {
 	return o
-}
-
-func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel] {
-	return pulumix.Output[*TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelPtrOutput) Elem() TaskReportConfigOverridesPropertiesVerifiedPropertiesReportLevelOutput {
@@ -6898,12 +6442,6 @@ func (o TaskReportConfigReportLevelOutput) ToTaskReportConfigReportLevelPtrOutpu
 	}).(TaskReportConfigReportLevelPtrOutput)
 }
 
-func (o TaskReportConfigReportLevelOutput) ToOutput(ctx context.Context) pulumix.Output[TaskReportConfigReportLevel] {
-	return pulumix.Output[TaskReportConfigReportLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskReportConfigReportLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -6937,12 +6475,6 @@ func (o TaskReportConfigReportLevelPtrOutput) ToTaskReportConfigReportLevelPtrOu
 
 func (o TaskReportConfigReportLevelPtrOutput) ToTaskReportConfigReportLevelPtrOutputWithContext(ctx context.Context) TaskReportConfigReportLevelPtrOutput {
 	return o
-}
-
-func (o TaskReportConfigReportLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskReportConfigReportLevel] {
-	return pulumix.Output[*TaskReportConfigReportLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskReportConfigReportLevelPtrOutput) Elem() TaskReportConfigReportLevelOutput {
@@ -7048,12 +6580,6 @@ func (o TaskStatusOutput) ToTaskStatusPtrOutputWithContext(ctx context.Context) 
 	}).(TaskStatusPtrOutput)
 }
 
-func (o TaskStatusOutput) ToOutput(ctx context.Context) pulumix.Output[TaskStatus] {
-	return pulumix.Output[TaskStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -7087,12 +6613,6 @@ func (o TaskStatusPtrOutput) ToTaskStatusPtrOutput() TaskStatusPtrOutput {
 
 func (o TaskStatusPtrOutput) ToTaskStatusPtrOutputWithContext(ctx context.Context) TaskStatusPtrOutput {
 	return o
-}
-
-func (o TaskStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskStatus] {
-	return pulumix.Output[*TaskStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskStatusPtrOutput) Elem() TaskStatusOutput {

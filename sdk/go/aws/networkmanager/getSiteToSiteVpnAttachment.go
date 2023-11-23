@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::NetworkManager::SiteToSiteVpnAttachment Resource Type definition.
@@ -91,12 +90,6 @@ func (o LookupSiteToSiteVpnAttachmentResultOutput) ToLookupSiteToSiteVpnAttachme
 
 func (o LookupSiteToSiteVpnAttachmentResultOutput) ToLookupSiteToSiteVpnAttachmentResultOutputWithContext(ctx context.Context) LookupSiteToSiteVpnAttachmentResultOutput {
 	return o
-}
-
-func (o LookupSiteToSiteVpnAttachmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSiteToSiteVpnAttachmentResult] {
-	return pulumix.Output[LookupSiteToSiteVpnAttachmentResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the attachment.

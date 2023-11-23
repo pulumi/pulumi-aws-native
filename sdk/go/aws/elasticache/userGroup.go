@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ElastiCache::UserGroup
@@ -130,12 +129,6 @@ func (i *UserGroup) ToUserGroupOutputWithContext(ctx context.Context) UserGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(UserGroupOutput)
 }
 
-func (i *UserGroup) ToOutput(ctx context.Context) pulumix.Output[*UserGroup] {
-	return pulumix.Output[*UserGroup]{
-		OutputState: i.ToUserGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserGroupOutput struct{ *pulumi.OutputState }
 
 func (UserGroupOutput) ElementType() reflect.Type {
@@ -148,12 +141,6 @@ func (o UserGroupOutput) ToUserGroupOutput() UserGroupOutput {
 
 func (o UserGroupOutput) ToUserGroupOutputWithContext(ctx context.Context) UserGroupOutput {
 	return o
-}
-
-func (o UserGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*UserGroup] {
-	return pulumix.Output[*UserGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the user account.
