@@ -1,0 +1,96 @@
+{
+  "typeName" : "AWS::Logs::DeliveryDestination",
+  "description" : "Resource Type definition for AWS::Logs::DeliveryDestination",
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-logs.git",
+  "definitions" : {
+    "Arn" : {
+      "description" : "Amazon Resource Names (ARNs) uniquely identify AWS resources.",
+      "type" : "string",
+      "minLength" : 16,
+      "maxLength" : 2048,
+      "pattern" : "^arn:(aws[a-zA-Z-]*)?:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}$"
+    },
+    "Tag" : {
+      "description" : "A key-value pair to associate with a resource.",
+      "type" : "object",
+      "properties" : {
+        "Key" : {
+          "type" : "string",
+          "description" : "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
+          "minLength" : 1,
+          "maxLength" : 128
+        },
+        "Value" : {
+          "type" : "string",
+          "description" : "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
+          "minLength" : 0,
+          "maxLength" : 256
+        }
+      },
+      "required" : [ "Key", "Value" ],
+      "additionalProperties" : false
+    }
+  },
+  "properties" : {
+    "Name" : {
+      "description" : "The unique name of the Delivery Destination.",
+      "type" : "string",
+      "pattern" : "[\\w-]*$",
+      "minLength" : 1,
+      "maxLength" : 60
+    },
+    "Arn" : {
+      "description" : "The value of the Arn property for this object.",
+      "$ref" : "#/definitions/Arn"
+    },
+    "DestinationResourceArn" : {
+      "description" : "The ARN of the Destination Resource.",
+      "$ref" : "#/definitions/Arn"
+    },
+    "Tags" : {
+      "description" : "An array of key-value pairs to apply to this resource.",
+      "type" : "array",
+      "uniqueItems" : true,
+      "insertionOrder" : false,
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      }
+    },
+    "DeliveryDestinationType" : {
+      "description" : "The value of the DeliveryDestinationType property for this object.",
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 12,
+      "pattern" : "^[0-9A-Za-z]+$"
+    }
+  },
+  "additionalProperties" : false,
+  "required" : [ "Name" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/DestinationResourceArn" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/DeliveryDestinationType" ],
+  "primaryIdentifier" : [ "/properties/Name" ],
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "logs:PutDeliveryDestination", "logs:GetDeliveryDestination", "logs:ListTagsForResource", "logs:TagResource", "logs:UntagResource" ]
+    },
+    "read" : {
+      "permissions" : [ "logs:GetDeliveryDestination", "logs:ListTagsForResource" ]
+    },
+    "update" : {
+      "permissions" : [ "logs:PutDeliveryDestination", "logs:GetDeliveryDestination", "logs:ListTagsForResource", "logs:TagResource", "logs:UntagResource" ]
+    },
+    "delete" : {
+      "permissions" : [ "logs:DeleteDeliveryDestination" ]
+    },
+    "list" : {
+      "permissions" : [ "logs:DescribeDeliveryDestinations" ]
+    }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
+  }
+}
