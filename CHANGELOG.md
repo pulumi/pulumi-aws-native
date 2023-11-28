@@ -1,3 +1,44 @@
+
+## 0.87.0 (2023-11-28)
+
+### Upstream breaking changes:
+
+- Function "aws-native:ec2:getTransitGatewayVpcAttachment" missing output "addSubnetIds"
+- Function "aws-native:ec2:getTransitGatewayVpcAttachment" missing output "removeSubnetIds"
+
+### New resources:
+
+- codestarconnections.RepositoryLink
+- codestarconnections.SyncConfiguration
+- controltower.LandingZone
+- eks.PodIdentityAssociation
+- elasticloadbalancingv2.TrustStore
+- elasticloadbalancingv2.TrustStoreRevocation
+- logs.Delivery
+- logs.DeliveryDestination
+- logs.DeliverySource
+- logs.LogAnomalyDetector
+- s3.AccessGrant
+- s3.AccessGrantsInstance
+- s3.AccessGrantsLocation
+
+### New functions:
+
+- codestarconnections.getRepositoryLink
+- codestarconnections.getSyncConfiguration
+- controltower.getEnabledControl
+- controltower.getLandingZone
+- eks.getPodIdentityAssociation
+- elasticloadbalancingv2.getTrustStore
+- elasticloadbalancingv2.getTrustStoreRevocation
+- logs.getDelivery
+- logs.getDeliveryDestination
+- logs.getDeliverySource
+- logs.getLogAnomalyDetector
+- s3.getAccessGrant
+- s3.getAccessGrantsInstance
+- s3.getAccessGrantsLocation
+
 ## 0.86.0 (2023-11-21)
 
 ### Upstream breaking changes
