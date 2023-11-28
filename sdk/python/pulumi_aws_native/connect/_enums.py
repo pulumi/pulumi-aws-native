@@ -271,6 +271,7 @@ class RuleTriggerEventSourceEventSourceName(str, Enum):
     ON_CONTACT_EVALUATION_SUBMIT = "OnContactEvaluationSubmit"
     ON_POST_CALL_ANALYSIS_AVAILABLE = "OnPostCallAnalysisAvailable"
     ON_REAL_TIME_CALL_ANALYSIS_AVAILABLE = "OnRealTimeCallAnalysisAvailable"
+    ON_REAL_TIME_CHAT_ANALYSIS_AVAILABLE = "OnRealTimeChatAnalysisAvailable"
     ON_POST_CHAT_ANALYSIS_AVAILABLE = "OnPostChatAnalysisAvailable"
     ON_ZENDESK_TICKET_CREATE = "OnZendeskTicketCreate"
     ON_ZENDESK_TICKET_STATUS_UPDATE = "OnZendeskTicketStatusUpdate"

@@ -18,12 +18,15 @@ __all__ = ['AccessorArgs', 'Accessor']
 class AccessorArgs:
     def __init__(__self__, *,
                  accessor_type: pulumi.Input['AccessorType'],
+                 network_type: Optional[pulumi.Input['AccessorNetworkAccessorType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AccessorTagArgs']]]] = None):
         """
         The set of arguments for constructing a Accessor resource.
         :param pulumi.Input[Sequence[pulumi.Input['AccessorTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "accessor_type", accessor_type)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -35,6 +38,15 @@ class AccessorArgs:
     @accessor_type.setter
     def accessor_type(self, value: pulumi.Input['AccessorType']):
         pulumi.set(self, "accessor_type", value)
+
+    @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input['AccessorNetworkAccessorType']]:
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input['AccessorNetworkAccessorType']]):
+        pulumi.set(self, "network_type", value)
 
     @property
     @pulumi.getter
@@ -60,6 +72,7 @@ class Accessor(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accessor_type: Optional[pulumi.Input['AccessorType']] = None,
+                 network_type: Optional[pulumi.Input['AccessorNetworkAccessorType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessorTagArgs']]]]] = None,
                  __props__=None):
         """
@@ -94,6 +107,7 @@ class Accessor(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accessor_type: Optional[pulumi.Input['AccessorType']] = None,
+                 network_type: Optional[pulumi.Input['AccessorNetworkAccessorType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessorTagArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""Accessor is deprecated: Accessor is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -108,12 +122,13 @@ class Accessor(pulumi.CustomResource):
             if accessor_type is None and not opts.urn:
                 raise TypeError("Missing required property 'accessor_type'")
             __props__.__dict__["accessor_type"] = accessor_type
+            __props__.__dict__["network_type"] = network_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["billing_token"] = None
             __props__.__dict__["creation_date"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accessor_type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accessor_type", "network_type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Accessor, __self__).__init__(
             'aws-native:managedblockchain:Accessor',
@@ -141,6 +156,7 @@ class Accessor(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["billing_token"] = None
         __props__.__dict__["creation_date"] = None
+        __props__.__dict__["network_type"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         return Accessor(resource_name, opts=opts, __props__=__props__)
@@ -164,6 +180,11 @@ class Accessor(pulumi.CustomResource):
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> pulumi.Output[str]:
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Output[Optional['AccessorNetworkAccessorType']]:
+        return pulumi.get(self, "network_type")
 
     @property
     @pulumi.getter

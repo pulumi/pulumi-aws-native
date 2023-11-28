@@ -19,27 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetTransitGatewayVpcAttachmentResult:
-    def __init__(__self__, add_subnet_ids=None, id=None, options=None, remove_subnet_ids=None, tags=None):
-        if add_subnet_ids and not isinstance(add_subnet_ids, list):
-            raise TypeError("Expected argument 'add_subnet_ids' to be a list")
-        pulumi.set(__self__, "add_subnet_ids", add_subnet_ids)
+    def __init__(__self__, id=None, options=None, tags=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if options and not isinstance(options, dict):
             raise TypeError("Expected argument 'options' to be a dict")
         pulumi.set(__self__, "options", options)
-        if remove_subnet_ids and not isinstance(remove_subnet_ids, list):
-            raise TypeError("Expected argument 'remove_subnet_ids' to be a list")
-        pulumi.set(__self__, "remove_subnet_ids", remove_subnet_ids)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="addSubnetIds")
-    def add_subnet_ids(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "add_subnet_ids")
 
     @property
     @pulumi.getter
@@ -55,11 +44,6 @@ class GetTransitGatewayVpcAttachmentResult:
         return pulumi.get(self, "options")
 
     @property
-    @pulumi.getter(name="removeSubnetIds")
-    def remove_subnet_ids(self) -> Optional[Sequence[str]]:
-        return pulumi.get(self, "remove_subnet_ids")
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.TransitGatewayVpcAttachmentTag']]:
         return pulumi.get(self, "tags")
@@ -71,10 +55,8 @@ class AwaitableGetTransitGatewayVpcAttachmentResult(GetTransitGatewayVpcAttachme
         if False:
             yield self
         return GetTransitGatewayVpcAttachmentResult(
-            add_subnet_ids=self.add_subnet_ids,
             id=self.id,
             options=self.options,
-            remove_subnet_ids=self.remove_subnet_ids,
             tags=self.tags)
 
 
@@ -89,10 +71,8 @@ def get_transit_gateway_vpc_attachment(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getTransitGatewayVpcAttachment', __args__, opts=opts, typ=GetTransitGatewayVpcAttachmentResult).value
 
     return AwaitableGetTransitGatewayVpcAttachmentResult(
-        add_subnet_ids=pulumi.get(__ret__, 'add_subnet_ids'),
         id=pulumi.get(__ret__, 'id'),
         options=pulumi.get(__ret__, 'options'),
-        remove_subnet_ids=pulumi.get(__ret__, 'remove_subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'))
 
 

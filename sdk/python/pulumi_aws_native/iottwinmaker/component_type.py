@@ -18,6 +18,7 @@ class ComponentTypeArgs:
     def __init__(__self__, *,
                  component_type_id: pulumi.Input[str],
                  workspace_id: pulumi.Input[str],
+                 composite_component_types: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  extends_from: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  functions: Optional[Any] = None,
@@ -29,6 +30,7 @@ class ComponentTypeArgs:
         The set of arguments for constructing a ComponentType resource.
         :param pulumi.Input[str] component_type_id: The ID of the component type.
         :param pulumi.Input[str] workspace_id: The ID of the workspace that contains the component type.
+        :param Any composite_component_types: An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
         :param pulumi.Input[str] description: The description of the component type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extends_from: Specifies the parent component type to extend.
         :param Any functions: a Map of functions in the component type. Each function's key must be unique to this map.
@@ -39,6 +41,8 @@ class ComponentTypeArgs:
         """
         pulumi.set(__self__, "component_type_id", component_type_id)
         pulumi.set(__self__, "workspace_id", workspace_id)
+        if composite_component_types is not None:
+            pulumi.set(__self__, "composite_component_types", composite_component_types)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if extends_from is not None:
@@ -77,6 +81,18 @@ class ComponentTypeArgs:
     @workspace_id.setter
     def workspace_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "workspace_id", value)
+
+    @property
+    @pulumi.getter(name="compositeComponentTypes")
+    def composite_component_types(self) -> Optional[Any]:
+        """
+        An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
+        """
+        return pulumi.get(self, "composite_component_types")
+
+    @composite_component_types.setter
+    def composite_component_types(self, value: Optional[Any]):
+        pulumi.set(self, "composite_component_types", value)
 
     @property
     @pulumi.getter
@@ -169,6 +185,7 @@ class ComponentType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  component_type_id: Optional[pulumi.Input[str]] = None,
+                 composite_component_types: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  extends_from: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  functions: Optional[Any] = None,
@@ -184,6 +201,7 @@ class ComponentType(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] component_type_id: The ID of the component type.
+        :param Any composite_component_types: An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
         :param pulumi.Input[str] description: The description of the component type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extends_from: Specifies the parent component type to extend.
         :param Any functions: a Map of functions in the component type. Each function's key must be unique to this map.
@@ -218,6 +236,7 @@ class ComponentType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  component_type_id: Optional[pulumi.Input[str]] = None,
+                 composite_component_types: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  extends_from: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  functions: Optional[Any] = None,
@@ -238,6 +257,7 @@ class ComponentType(pulumi.CustomResource):
             if component_type_id is None and not opts.urn:
                 raise TypeError("Missing required property 'component_type_id'")
             __props__.__dict__["component_type_id"] = component_type_id
+            __props__.__dict__["composite_component_types"] = composite_component_types
             __props__.__dict__["description"] = description
             __props__.__dict__["extends_from"] = extends_from
             __props__.__dict__["functions"] = functions
@@ -280,6 +300,7 @@ class ComponentType(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["component_type_id"] = None
+        __props__.__dict__["composite_component_types"] = None
         __props__.__dict__["creation_date_time"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["extends_from"] = None
@@ -310,6 +331,14 @@ class ComponentType(pulumi.CustomResource):
         The ID of the component type.
         """
         return pulumi.get(self, "component_type_id")
+
+    @property
+    @pulumi.getter(name="compositeComponentTypes")
+    def composite_component_types(self) -> pulumi.Output[Optional[Any]]:
+        """
+        An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
+        """
+        return pulumi.get(self, "composite_component_types")
 
     @property
     @pulumi.getter(name="creationDateTime")

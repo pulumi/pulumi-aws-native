@@ -35,6 +35,8 @@ type LookupEntityResult struct {
 	Arn *string `pulumi:"arn"`
 	// A map that sets information about a component type.
 	Components interface{} `pulumi:"components"`
+	// A map that sets information about a composite component.
+	CompositeComponents interface{} `pulumi:"compositeComponents"`
 	// The date and time when the entity was created.
 	CreationDateTime *string `pulumi:"creationDateTime"`
 	// The description of the entity.
@@ -105,6 +107,11 @@ func (o LookupEntityResultOutput) Arn() pulumi.StringPtrOutput {
 // A map that sets information about a component type.
 func (o LookupEntityResultOutput) Components() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupEntityResult) interface{} { return v.Components }).(pulumi.AnyOutput)
+}
+
+// A map that sets information about a composite component.
+func (o LookupEntityResultOutput) CompositeComponents() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupEntityResult) interface{} { return v.CompositeComponents }).(pulumi.AnyOutput)
 }
 
 // The date and time when the entity was created.

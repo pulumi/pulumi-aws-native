@@ -47,6 +47,7 @@ export class TransitGateway extends pulumi.CustomResource {
     public readonly multicastSupport!: pulumi.Output<string | undefined>;
     public readonly propagationDefaultRouteTableId!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.ec2.TransitGatewayTag[] | undefined>;
+    public /*out*/ readonly transitGatewayArn!: pulumi.Output<string>;
     public readonly transitGatewayCidrBlocks!: pulumi.Output<string[] | undefined>;
     public readonly vpnEcmpSupport!: pulumi.Output<string | undefined>;
 
@@ -73,6 +74,7 @@ export class TransitGateway extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitGatewayCidrBlocks"] = args ? args.transitGatewayCidrBlocks : undefined;
             resourceInputs["vpnEcmpSupport"] = args ? args.vpnEcmpSupport : undefined;
+            resourceInputs["transitGatewayArn"] = undefined /*out*/;
         } else {
             resourceInputs["amazonSideAsn"] = undefined /*out*/;
             resourceInputs["associationDefaultRouteTableId"] = undefined /*out*/;
@@ -84,6 +86,7 @@ export class TransitGateway extends pulumi.CustomResource {
             resourceInputs["multicastSupport"] = undefined /*out*/;
             resourceInputs["propagationDefaultRouteTableId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["transitGatewayArn"] = undefined /*out*/;
             resourceInputs["transitGatewayCidrBlocks"] = undefined /*out*/;
             resourceInputs["vpnEcmpSupport"] = undefined /*out*/;
         }

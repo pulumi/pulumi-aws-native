@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:controltower:EnabledControl":
 		r = &EnabledControl{}
+	case "aws-native:controltower:LandingZone":
+		r = &LandingZone{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

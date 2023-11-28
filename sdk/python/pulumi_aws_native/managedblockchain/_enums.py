@@ -5,9 +5,18 @@
 from enum import Enum
 
 __all__ = [
+    'AccessorNetworkAccessorType',
     'AccessorStatus',
     'AccessorType',
 ]
+
+
+class AccessorNetworkAccessorType(str, Enum):
+    ETHEREUM_GOERLI = "ETHEREUM_GOERLI"
+    ETHEREUM_MAINNET = "ETHEREUM_MAINNET"
+    ETHEREUM_MAINNET_AND_GOERLI = "ETHEREUM_MAINNET_AND_GOERLI"
+    POLYGON_MAINNET = "POLYGON_MAINNET"
+    POLYGON_MUMBAI = "POLYGON_MUMBAI"
 
 
 class AccessorStatus(str, Enum):

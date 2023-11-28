@@ -20,13 +20,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetEntityResult:
-    def __init__(__self__, arn=None, components=None, creation_date_time=None, description=None, entity_name=None, has_child_entities=None, parent_entity_id=None, status=None, tags=None, update_date_time=None):
+    def __init__(__self__, arn=None, components=None, composite_components=None, creation_date_time=None, description=None, entity_name=None, has_child_entities=None, parent_entity_id=None, status=None, tags=None, update_date_time=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if components and not isinstance(components, dict):
             raise TypeError("Expected argument 'components' to be a dict")
         pulumi.set(__self__, "components", components)
+        if composite_components and not isinstance(composite_components, dict):
+            raise TypeError("Expected argument 'composite_components' to be a dict")
+        pulumi.set(__self__, "composite_components", composite_components)
         if creation_date_time and not isinstance(creation_date_time, str):
             raise TypeError("Expected argument 'creation_date_time' to be a str")
         pulumi.set(__self__, "creation_date_time", creation_date_time)
@@ -67,6 +70,14 @@ class GetEntityResult:
         A map that sets information about a component type.
         """
         return pulumi.get(self, "components")
+
+    @property
+    @pulumi.getter(name="compositeComponents")
+    def composite_components(self) -> Optional[Any]:
+        """
+        A map that sets information about a composite component.
+        """
+        return pulumi.get(self, "composite_components")
 
     @property
     @pulumi.getter(name="creationDateTime")
@@ -141,6 +152,7 @@ class AwaitableGetEntityResult(GetEntityResult):
         return GetEntityResult(
             arn=self.arn,
             components=self.components,
+            composite_components=self.composite_components,
             creation_date_time=self.creation_date_time,
             description=self.description,
             entity_name=self.entity_name,
@@ -170,6 +182,7 @@ def get_entity(entity_id: Optional[str] = None,
     return AwaitableGetEntityResult(
         arn=pulumi.get(__ret__, 'arn'),
         components=pulumi.get(__ret__, 'components'),
+        composite_components=pulumi.get(__ret__, 'composite_components'),
         creation_date_time=pulumi.get(__ret__, 'creation_date_time'),
         description=pulumi.get(__ret__, 'description'),
         entity_name=pulumi.get(__ret__, 'entity_name'),

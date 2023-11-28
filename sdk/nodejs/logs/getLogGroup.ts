@@ -45,6 +45,10 @@ export interface GetLogGroupResult {
      */
     readonly kmsKeyId?: string;
     /**
+     * The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS, with STANDARD being the default class
+     */
+    readonly logGroupClass?: enums.logs.LogGroupClass;
+    /**
      * The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, and 3653.
      */
     readonly retentionInDays?: number;

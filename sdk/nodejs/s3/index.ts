@@ -5,6 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccessGrantArgs } from "./accessGrant";
+export type AccessGrant = import("./accessGrant").AccessGrant;
+export const AccessGrant: typeof import("./accessGrant").AccessGrant = null as any;
+utilities.lazyLoad(exports, ["AccessGrant"], () => require("./accessGrant"));
+
+export { AccessGrantsInstanceArgs } from "./accessGrantsInstance";
+export type AccessGrantsInstance = import("./accessGrantsInstance").AccessGrantsInstance;
+export const AccessGrantsInstance: typeof import("./accessGrantsInstance").AccessGrantsInstance = null as any;
+utilities.lazyLoad(exports, ["AccessGrantsInstance"], () => require("./accessGrantsInstance"));
+
+export { AccessGrantsLocationArgs } from "./accessGrantsLocation";
+export type AccessGrantsLocation = import("./accessGrantsLocation").AccessGrantsLocation;
+export const AccessGrantsLocation: typeof import("./accessGrantsLocation").AccessGrantsLocation = null as any;
+utilities.lazyLoad(exports, ["AccessGrantsLocation"], () => require("./accessGrantsLocation"));
+
 export { AccessPointArgs } from "./accessPoint";
 export type AccessPoint = import("./accessPoint").AccessPoint;
 export const AccessPoint: typeof import("./accessPoint").AccessPoint = null as any;
@@ -19,6 +34,21 @@ export { BucketPolicyArgs } from "./bucketPolicy";
 export type BucketPolicy = import("./bucketPolicy").BucketPolicy;
 export const BucketPolicy: typeof import("./bucketPolicy").BucketPolicy = null as any;
 utilities.lazyLoad(exports, ["BucketPolicy"], () => require("./bucketPolicy"));
+
+export { GetAccessGrantArgs, GetAccessGrantResult, GetAccessGrantOutputArgs } from "./getAccessGrant";
+export const getAccessGrant: typeof import("./getAccessGrant").getAccessGrant = null as any;
+export const getAccessGrantOutput: typeof import("./getAccessGrant").getAccessGrantOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessGrant","getAccessGrantOutput"], () => require("./getAccessGrant"));
+
+export { GetAccessGrantsInstanceArgs, GetAccessGrantsInstanceResult, GetAccessGrantsInstanceOutputArgs } from "./getAccessGrantsInstance";
+export const getAccessGrantsInstance: typeof import("./getAccessGrantsInstance").getAccessGrantsInstance = null as any;
+export const getAccessGrantsInstanceOutput: typeof import("./getAccessGrantsInstance").getAccessGrantsInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessGrantsInstance","getAccessGrantsInstanceOutput"], () => require("./getAccessGrantsInstance"));
+
+export { GetAccessGrantsLocationArgs, GetAccessGrantsLocationResult, GetAccessGrantsLocationOutputArgs } from "./getAccessGrantsLocation";
+export const getAccessGrantsLocation: typeof import("./getAccessGrantsLocation").getAccessGrantsLocation = null as any;
+export const getAccessGrantsLocationOutput: typeof import("./getAccessGrantsLocation").getAccessGrantsLocationOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessGrantsLocation","getAccessGrantsLocationOutput"], () => require("./getAccessGrantsLocation"));
 
 export { GetAccessPointArgs, GetAccessPointResult, GetAccessPointOutputArgs } from "./getAccessPoint";
 export const getAccessPoint: typeof import("./getAccessPoint").getAccessPoint = null as any;
@@ -78,6 +108,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:s3:AccessGrant":
+                return new AccessGrant(name, <any>undefined, { urn })
+            case "aws-native:s3:AccessGrantsInstance":
+                return new AccessGrantsInstance(name, <any>undefined, { urn })
+            case "aws-native:s3:AccessGrantsLocation":
+                return new AccessGrantsLocation(name, <any>undefined, { urn })
             case "aws-native:s3:AccessPoint":
                 return new AccessPoint(name, <any>undefined, { urn })
             case "aws-native:s3:Bucket":

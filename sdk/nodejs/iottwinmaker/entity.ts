@@ -46,6 +46,10 @@ export class Entity extends pulumi.CustomResource {
      */
     public readonly components!: pulumi.Output<any | undefined>;
     /**
+     * A map that sets information about a composite component.
+     */
+    public readonly compositeComponents!: pulumi.Output<any | undefined>;
+    /**
      * The date and time when the entity was created.
      */
     public /*out*/ readonly creationDateTime!: pulumi.Output<string>;
@@ -101,6 +105,7 @@ export class Entity extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceId'");
             }
             resourceInputs["components"] = args ? args.components : undefined;
+            resourceInputs["compositeComponents"] = args ? args.compositeComponents : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["entityId"] = args ? args.entityId : undefined;
             resourceInputs["entityName"] = args ? args.entityName : undefined;
@@ -115,6 +120,7 @@ export class Entity extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["components"] = undefined /*out*/;
+            resourceInputs["compositeComponents"] = undefined /*out*/;
             resourceInputs["creationDateTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["entityId"] = undefined /*out*/;
@@ -141,6 +147,10 @@ export interface EntityArgs {
      * A map that sets information about a component type.
      */
     components?: any;
+    /**
+     * A map that sets information about a composite component.
+     */
+    compositeComponents?: any;
     /**
      * The description of the entity.
      */

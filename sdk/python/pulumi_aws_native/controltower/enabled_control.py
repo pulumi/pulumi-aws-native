@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['EnabledControlArgs', 'EnabledControl']
 
@@ -15,14 +17,18 @@ __all__ = ['EnabledControlArgs', 'EnabledControl']
 class EnabledControlArgs:
     def __init__(__self__, *,
                  control_identifier: pulumi.Input[str],
-                 target_identifier: pulumi.Input[str]):
+                 target_identifier: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['EnabledControlParameterArgs']]]] = None):
         """
         The set of arguments for constructing a EnabledControl resource.
         :param pulumi.Input[str] control_identifier: Arn of the control.
         :param pulumi.Input[str] target_identifier: Arn for Organizational unit to which the control needs to be applied
+        :param pulumi.Input[Sequence[pulumi.Input['EnabledControlParameterArgs']]] parameters: Parameters to configure the enabled control behavior.
         """
         pulumi.set(__self__, "control_identifier", control_identifier)
         pulumi.set(__self__, "target_identifier", target_identifier)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter(name="controlIdentifier")
@@ -48,6 +54,18 @@ class EnabledControlArgs:
     def target_identifier(self, value: pulumi.Input[str]):
         pulumi.set(self, "target_identifier", value)
 
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnabledControlParameterArgs']]]]:
+        """
+        Parameters to configure the enabled control behavior.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnabledControlParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
 
 class EnabledControl(pulumi.CustomResource):
     @overload
@@ -55,6 +73,7 @@ class EnabledControl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  control_identifier: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnabledControlParameterArgs']]]]] = None,
                  target_identifier: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -63,6 +82,7 @@ class EnabledControl(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] control_identifier: Arn of the control.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnabledControlParameterArgs']]]] parameters: Parameters to configure the enabled control behavior.
         :param pulumi.Input[str] target_identifier: Arn for Organizational unit to which the control needs to be applied
         """
         ...
@@ -90,6 +110,7 @@ class EnabledControl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  control_identifier: Optional[pulumi.Input[str]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnabledControlParameterArgs']]]]] = None,
                  target_identifier: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -103,6 +124,7 @@ class EnabledControl(pulumi.CustomResource):
             if control_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'control_identifier'")
             __props__.__dict__["control_identifier"] = control_identifier
+            __props__.__dict__["parameters"] = parameters
             if target_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'target_identifier'")
             __props__.__dict__["target_identifier"] = target_identifier
@@ -131,6 +153,7 @@ class EnabledControl(pulumi.CustomResource):
         __props__ = EnabledControlArgs.__new__(EnabledControlArgs)
 
         __props__.__dict__["control_identifier"] = None
+        __props__.__dict__["parameters"] = None
         __props__.__dict__["target_identifier"] = None
         return EnabledControl(resource_name, opts=opts, __props__=__props__)
 
@@ -141,6 +164,14 @@ class EnabledControl(pulumi.CustomResource):
         Arn of the control.
         """
         return pulumi.get(self, "control_identifier")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> pulumi.Output[Optional[Sequence['outputs.EnabledControlParameter']]]:
+        """
+        Parameters to configure the enabled control behavior.
+        """
+        return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter(name="targetIdentifier")

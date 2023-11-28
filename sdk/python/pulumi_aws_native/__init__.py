@@ -1227,7 +1227,9 @@ _utilities.register(
   "mod": "codestarconnections",
   "fqn": "pulumi_aws_native.codestarconnections",
   "classes": {
-   "aws-native:codestarconnections:Connection": "Connection"
+   "aws-native:codestarconnections:Connection": "Connection",
+   "aws-native:codestarconnections:RepositoryLink": "RepositoryLink",
+   "aws-native:codestarconnections:SyncConfiguration": "SyncConfiguration"
   }
  },
  {
@@ -1327,7 +1329,8 @@ _utilities.register(
   "mod": "controltower",
   "fqn": "pulumi_aws_native.controltower",
   "classes": {
-   "aws-native:controltower:EnabledControl": "EnabledControl"
+   "aws-native:controltower:EnabledControl": "EnabledControl",
+   "aws-native:controltower:LandingZone": "LandingZone"
   }
  },
  {
@@ -1638,7 +1641,8 @@ _utilities.register(
    "aws-native:eks:Cluster": "Cluster",
    "aws-native:eks:FargateProfile": "FargateProfile",
    "aws-native:eks:IdentityProviderConfig": "IdentityProviderConfig",
-   "aws-native:eks:Nodegroup": "Nodegroup"
+   "aws-native:eks:Nodegroup": "Nodegroup",
+   "aws-native:eks:PodIdentityAssociation": "PodIdentityAssociation"
   }
  },
  {
@@ -1685,7 +1689,9 @@ _utilities.register(
    "aws-native:elasticloadbalancingv2:ListenerCertificate": "ListenerCertificate",
    "aws-native:elasticloadbalancingv2:ListenerRule": "ListenerRule",
    "aws-native:elasticloadbalancingv2:LoadBalancer": "LoadBalancer",
-   "aws-native:elasticloadbalancingv2:TargetGroup": "TargetGroup"
+   "aws-native:elasticloadbalancingv2:TargetGroup": "TargetGroup",
+   "aws-native:elasticloadbalancingv2:TrustStore": "TrustStore",
+   "aws-native:elasticloadbalancingv2:TrustStoreRevocation": "TrustStoreRevocation"
   }
  },
  {
@@ -2383,7 +2389,11 @@ _utilities.register(
   "fqn": "pulumi_aws_native.logs",
   "classes": {
    "aws-native:logs:AccountPolicy": "AccountPolicy",
+   "aws-native:logs:Delivery": "Delivery",
+   "aws-native:logs:DeliveryDestination": "DeliveryDestination",
+   "aws-native:logs:DeliverySource": "DeliverySource",
    "aws-native:logs:Destination": "Destination",
+   "aws-native:logs:LogAnomalyDetector": "LogAnomalyDetector",
    "aws-native:logs:LogGroup": "LogGroup",
    "aws-native:logs:LogStream": "LogStream",
    "aws-native:logs:MetricFilter": "MetricFilter",
@@ -3010,6 +3020,9 @@ _utilities.register(
   "mod": "s3",
   "fqn": "pulumi_aws_native.s3",
   "classes": {
+   "aws-native:s3:AccessGrant": "AccessGrant",
+   "aws-native:s3:AccessGrantsInstance": "AccessGrantsInstance",
+   "aws-native:s3:AccessGrantsLocation": "AccessGrantsLocation",
    "aws-native:s3:AccessPoint": "AccessPoint",
    "aws-native:s3:Bucket": "Bucket",
    "aws-native:s3:BucketPolicy": "BucketPolicy",

@@ -28,13 +28,14 @@ type LookupListenerArgs struct {
 }
 
 type LookupListenerResult struct {
-	AlpnPolicy     []string                  `pulumi:"alpnPolicy"`
-	Certificates   []ListenerCertificateType `pulumi:"certificates"`
-	DefaultActions []ListenerAction          `pulumi:"defaultActions"`
-	ListenerArn    *string                   `pulumi:"listenerArn"`
-	Port           *int                      `pulumi:"port"`
-	Protocol       *string                   `pulumi:"protocol"`
-	SslPolicy      *string                   `pulumi:"sslPolicy"`
+	AlpnPolicy           []string                      `pulumi:"alpnPolicy"`
+	Certificates         []ListenerCertificateType     `pulumi:"certificates"`
+	DefaultActions       []ListenerAction              `pulumi:"defaultActions"`
+	ListenerArn          *string                       `pulumi:"listenerArn"`
+	MutualAuthentication *ListenerMutualAuthentication `pulumi:"mutualAuthentication"`
+	Port                 *int                          `pulumi:"port"`
+	Protocol             *string                       `pulumi:"protocol"`
+	SslPolicy            *string                       `pulumi:"sslPolicy"`
 }
 
 func LookupListenerOutput(ctx *pulumi.Context, args LookupListenerOutputArgs, opts ...pulumi.InvokeOption) LookupListenerResultOutput {
@@ -92,6 +93,10 @@ func (o LookupListenerResultOutput) DefaultActions() ListenerActionArrayOutput {
 
 func (o LookupListenerResultOutput) ListenerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupListenerResult) *string { return v.ListenerArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupListenerResultOutput) MutualAuthentication() ListenerMutualAuthenticationPtrOutput {
+	return o.ApplyT(func(v LookupListenerResult) *ListenerMutualAuthentication { return v.MutualAuthentication }).(ListenerMutualAuthenticationPtrOutput)
 }
 
 func (o LookupListenerResultOutput) Port() pulumi.IntPtrOutput {

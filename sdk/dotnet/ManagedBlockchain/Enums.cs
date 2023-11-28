@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AwsNative.ManagedBlockchain
 {
     [EnumType]
+    public readonly struct AccessorNetworkAccessorType : IEquatable<AccessorNetworkAccessorType>
+    {
+        private readonly string _value;
+
+        private AccessorNetworkAccessorType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessorNetworkAccessorType EthereumGoerli { get; } = new AccessorNetworkAccessorType("ETHEREUM_GOERLI");
+        public static AccessorNetworkAccessorType EthereumMainnet { get; } = new AccessorNetworkAccessorType("ETHEREUM_MAINNET");
+        public static AccessorNetworkAccessorType EthereumMainnetAndGoerli { get; } = new AccessorNetworkAccessorType("ETHEREUM_MAINNET_AND_GOERLI");
+        public static AccessorNetworkAccessorType PolygonMainnet { get; } = new AccessorNetworkAccessorType("POLYGON_MAINNET");
+        public static AccessorNetworkAccessorType PolygonMumbai { get; } = new AccessorNetworkAccessorType("POLYGON_MUMBAI");
+
+        public static bool operator ==(AccessorNetworkAccessorType left, AccessorNetworkAccessorType right) => left.Equals(right);
+        public static bool operator !=(AccessorNetworkAccessorType left, AccessorNetworkAccessorType right) => !left.Equals(right);
+
+        public static explicit operator string(AccessorNetworkAccessorType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessorNetworkAccessorType other && Equals(other);
+        public bool Equals(AccessorNetworkAccessorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AccessorStatus : IEquatable<AccessorStatus>
     {
         private readonly string _value;

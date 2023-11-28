@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("tags")]
         public Output<ImmutableArray<Outputs.TransitGatewayTag>> Tags { get; private set; } = null!;
 
+        [Output("transitGatewayArn")]
+        public Output<string> TransitGatewayArn { get; private set; } = null!;
+
         [Output("transitGatewayCidrBlocks")]
         public Output<ImmutableArray<string>> TransitGatewayCidrBlocks { get; private set; } = null!;
 

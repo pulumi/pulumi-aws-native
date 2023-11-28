@@ -46,6 +46,10 @@ export class ComponentType extends pulumi.CustomResource {
      */
     public readonly componentTypeId!: pulumi.Output<string>;
     /**
+     * An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
+     */
+    public readonly compositeComponentTypes!: pulumi.Output<any | undefined>;
+    /**
      * The date and time when the component type was created.
      */
     public /*out*/ readonly creationDateTime!: pulumi.Output<string>;
@@ -116,6 +120,7 @@ export class ComponentType extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceId'");
             }
             resourceInputs["componentTypeId"] = args ? args.componentTypeId : undefined;
+            resourceInputs["compositeComponentTypes"] = args ? args.compositeComponentTypes : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["extendsFrom"] = args ? args.extendsFrom : undefined;
             resourceInputs["functions"] = args ? args.functions : undefined;
@@ -133,6 +138,7 @@ export class ComponentType extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["componentTypeId"] = undefined /*out*/;
+            resourceInputs["compositeComponentTypes"] = undefined /*out*/;
             resourceInputs["creationDateTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["extendsFrom"] = undefined /*out*/;
@@ -162,6 +168,10 @@ export interface ComponentTypeArgs {
      * The ID of the component type.
      */
     componentTypeId: pulumi.Input<string>;
+    /**
+     * An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
+     */
+    compositeComponentTypes?: any;
     /**
      * The description of the component type.
      */

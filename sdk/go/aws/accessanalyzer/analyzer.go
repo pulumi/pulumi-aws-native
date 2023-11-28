@@ -17,6 +17,8 @@ import (
 type Analyzer struct {
 	pulumi.CustomResourceState
 
+	// The configuration for the analyzer
+	AnalyzerConfiguration AnalyzerConfigurationPropertiesPtrOutput `pulumi:"analyzerConfiguration"`
 	// Analyzer name
 	AnalyzerName pulumi.StringPtrOutput         `pulumi:"analyzerName"`
 	ArchiveRules AnalyzerArchiveRuleArrayOutput `pulumi:"archiveRules"`
@@ -24,7 +26,7 @@ type Analyzer struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// An array of key-value pairs to apply to this resource.
 	Tags AnalyzerTagArrayOutput `pulumi:"tags"`
-	// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
+	// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -39,6 +41,7 @@ func NewAnalyzer(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"analyzerConfiguration",
 		"analyzerName",
 		"type",
 	})
@@ -76,23 +79,27 @@ func (AnalyzerState) ElementType() reflect.Type {
 }
 
 type analyzerArgs struct {
+	// The configuration for the analyzer
+	AnalyzerConfiguration *AnalyzerConfigurationProperties `pulumi:"analyzerConfiguration"`
 	// Analyzer name
 	AnalyzerName *string               `pulumi:"analyzerName"`
 	ArchiveRules []AnalyzerArchiveRule `pulumi:"archiveRules"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []AnalyzerTag `pulumi:"tags"`
-	// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
+	// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
 	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Analyzer resource.
 type AnalyzerArgs struct {
+	// The configuration for the analyzer
+	AnalyzerConfiguration AnalyzerConfigurationPropertiesPtrInput
 	// Analyzer name
 	AnalyzerName pulumi.StringPtrInput
 	ArchiveRules AnalyzerArchiveRuleArrayInput
 	// An array of key-value pairs to apply to this resource.
 	Tags AnalyzerTagArrayInput
-	// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
+	// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
 	Type pulumi.StringInput
 }
 
@@ -145,6 +152,11 @@ func (o AnalyzerOutput) ToOutput(ctx context.Context) pulumix.Output[*Analyzer] 
 	}
 }
 
+// The configuration for the analyzer
+func (o AnalyzerOutput) AnalyzerConfiguration() AnalyzerConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *Analyzer) AnalyzerConfigurationPropertiesPtrOutput { return v.AnalyzerConfiguration }).(AnalyzerConfigurationPropertiesPtrOutput)
+}
+
 // Analyzer name
 func (o AnalyzerOutput) AnalyzerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Analyzer) pulumi.StringPtrOutput { return v.AnalyzerName }).(pulumi.StringPtrOutput)
@@ -164,7 +176,7 @@ func (o AnalyzerOutput) Tags() AnalyzerTagArrayOutput {
 	return o.ApplyT(func(v *Analyzer) AnalyzerTagArrayOutput { return v.Tags }).(AnalyzerTagArrayOutput)
 }
 
-// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
+// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
 func (o AnalyzerOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analyzer) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

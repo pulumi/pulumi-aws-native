@@ -1355,6 +1355,193 @@ func (o ListenerForwardConfigPtrOutput) TargetGroups() ListenerTargetGroupTupleA
 	}).(ListenerTargetGroupTupleArrayOutput)
 }
 
+type ListenerMutualAuthentication struct {
+	IgnoreClientCertificateExpiry *bool   `pulumi:"ignoreClientCertificateExpiry"`
+	Mode                          *string `pulumi:"mode"`
+	TrustStoreArn                 *string `pulumi:"trustStoreArn"`
+}
+
+// ListenerMutualAuthenticationInput is an input type that accepts ListenerMutualAuthenticationArgs and ListenerMutualAuthenticationOutput values.
+// You can construct a concrete instance of `ListenerMutualAuthenticationInput` via:
+//
+//	ListenerMutualAuthenticationArgs{...}
+type ListenerMutualAuthenticationInput interface {
+	pulumi.Input
+
+	ToListenerMutualAuthenticationOutput() ListenerMutualAuthenticationOutput
+	ToListenerMutualAuthenticationOutputWithContext(context.Context) ListenerMutualAuthenticationOutput
+}
+
+type ListenerMutualAuthenticationArgs struct {
+	IgnoreClientCertificateExpiry pulumi.BoolPtrInput   `pulumi:"ignoreClientCertificateExpiry"`
+	Mode                          pulumi.StringPtrInput `pulumi:"mode"`
+	TrustStoreArn                 pulumi.StringPtrInput `pulumi:"trustStoreArn"`
+}
+
+func (ListenerMutualAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerMutualAuthentication)(nil)).Elem()
+}
+
+func (i ListenerMutualAuthenticationArgs) ToListenerMutualAuthenticationOutput() ListenerMutualAuthenticationOutput {
+	return i.ToListenerMutualAuthenticationOutputWithContext(context.Background())
+}
+
+func (i ListenerMutualAuthenticationArgs) ToListenerMutualAuthenticationOutputWithContext(ctx context.Context) ListenerMutualAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerMutualAuthenticationOutput)
+}
+
+func (i ListenerMutualAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[ListenerMutualAuthentication] {
+	return pulumix.Output[ListenerMutualAuthentication]{
+		OutputState: i.ToListenerMutualAuthenticationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ListenerMutualAuthenticationArgs) ToListenerMutualAuthenticationPtrOutput() ListenerMutualAuthenticationPtrOutput {
+	return i.ToListenerMutualAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i ListenerMutualAuthenticationArgs) ToListenerMutualAuthenticationPtrOutputWithContext(ctx context.Context) ListenerMutualAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerMutualAuthenticationOutput).ToListenerMutualAuthenticationPtrOutputWithContext(ctx)
+}
+
+// ListenerMutualAuthenticationPtrInput is an input type that accepts ListenerMutualAuthenticationArgs, ListenerMutualAuthenticationPtr and ListenerMutualAuthenticationPtrOutput values.
+// You can construct a concrete instance of `ListenerMutualAuthenticationPtrInput` via:
+//
+//	        ListenerMutualAuthenticationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ListenerMutualAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToListenerMutualAuthenticationPtrOutput() ListenerMutualAuthenticationPtrOutput
+	ToListenerMutualAuthenticationPtrOutputWithContext(context.Context) ListenerMutualAuthenticationPtrOutput
+}
+
+type listenerMutualAuthenticationPtrType ListenerMutualAuthenticationArgs
+
+func ListenerMutualAuthenticationPtr(v *ListenerMutualAuthenticationArgs) ListenerMutualAuthenticationPtrInput {
+	return (*listenerMutualAuthenticationPtrType)(v)
+}
+
+func (*listenerMutualAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerMutualAuthentication)(nil)).Elem()
+}
+
+func (i *listenerMutualAuthenticationPtrType) ToListenerMutualAuthenticationPtrOutput() ListenerMutualAuthenticationPtrOutput {
+	return i.ToListenerMutualAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *listenerMutualAuthenticationPtrType) ToListenerMutualAuthenticationPtrOutputWithContext(ctx context.Context) ListenerMutualAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ListenerMutualAuthenticationPtrOutput)
+}
+
+func (i *listenerMutualAuthenticationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ListenerMutualAuthentication] {
+	return pulumix.Output[*ListenerMutualAuthentication]{
+		OutputState: i.ToListenerMutualAuthenticationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ListenerMutualAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (ListenerMutualAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ListenerMutualAuthentication)(nil)).Elem()
+}
+
+func (o ListenerMutualAuthenticationOutput) ToListenerMutualAuthenticationOutput() ListenerMutualAuthenticationOutput {
+	return o
+}
+
+func (o ListenerMutualAuthenticationOutput) ToListenerMutualAuthenticationOutputWithContext(ctx context.Context) ListenerMutualAuthenticationOutput {
+	return o
+}
+
+func (o ListenerMutualAuthenticationOutput) ToListenerMutualAuthenticationPtrOutput() ListenerMutualAuthenticationPtrOutput {
+	return o.ToListenerMutualAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o ListenerMutualAuthenticationOutput) ToListenerMutualAuthenticationPtrOutputWithContext(ctx context.Context) ListenerMutualAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ListenerMutualAuthentication) *ListenerMutualAuthentication {
+		return &v
+	}).(ListenerMutualAuthenticationPtrOutput)
+}
+
+func (o ListenerMutualAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerMutualAuthentication] {
+	return pulumix.Output[ListenerMutualAuthentication]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ListenerMutualAuthenticationOutput) IgnoreClientCertificateExpiry() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ListenerMutualAuthentication) *bool { return v.IgnoreClientCertificateExpiry }).(pulumi.BoolPtrOutput)
+}
+
+func (o ListenerMutualAuthenticationOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerMutualAuthentication) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+func (o ListenerMutualAuthenticationOutput) TrustStoreArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ListenerMutualAuthentication) *string { return v.TrustStoreArn }).(pulumi.StringPtrOutput)
+}
+
+type ListenerMutualAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (ListenerMutualAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ListenerMutualAuthentication)(nil)).Elem()
+}
+
+func (o ListenerMutualAuthenticationPtrOutput) ToListenerMutualAuthenticationPtrOutput() ListenerMutualAuthenticationPtrOutput {
+	return o
+}
+
+func (o ListenerMutualAuthenticationPtrOutput) ToListenerMutualAuthenticationPtrOutputWithContext(ctx context.Context) ListenerMutualAuthenticationPtrOutput {
+	return o
+}
+
+func (o ListenerMutualAuthenticationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerMutualAuthentication] {
+	return pulumix.Output[*ListenerMutualAuthentication]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ListenerMutualAuthenticationPtrOutput) Elem() ListenerMutualAuthenticationOutput {
+	return o.ApplyT(func(v *ListenerMutualAuthentication) ListenerMutualAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret ListenerMutualAuthentication
+		return ret
+	}).(ListenerMutualAuthenticationOutput)
+}
+
+func (o ListenerMutualAuthenticationPtrOutput) IgnoreClientCertificateExpiry() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ListenerMutualAuthentication) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreClientCertificateExpiry
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ListenerMutualAuthenticationPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerMutualAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ListenerMutualAuthenticationPtrOutput) TrustStoreArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ListenerMutualAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrustStoreArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type ListenerRedirectConfig struct {
 	Host       *string `pulumi:"host"`
 	Path       *string `pulumi:"path"`
@@ -5722,6 +5909,335 @@ func (o TargetGroupTargetDescriptionArrayOutput) Index(i pulumi.IntInput) Target
 	}).(TargetGroupTargetDescriptionOutput)
 }
 
+type TrustStoreRevocationType struct {
+	NumberOfRevokedEntries *int    `pulumi:"numberOfRevokedEntries"`
+	RevocationId           *string `pulumi:"revocationId"`
+	RevocationType         *string `pulumi:"revocationType"`
+	TrustStoreArn          *string `pulumi:"trustStoreArn"`
+}
+
+type TrustStoreRevocationTypeOutput struct{ *pulumi.OutputState }
+
+func (TrustStoreRevocationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustStoreRevocationType)(nil)).Elem()
+}
+
+func (o TrustStoreRevocationTypeOutput) ToTrustStoreRevocationTypeOutput() TrustStoreRevocationTypeOutput {
+	return o
+}
+
+func (o TrustStoreRevocationTypeOutput) ToTrustStoreRevocationTypeOutputWithContext(ctx context.Context) TrustStoreRevocationTypeOutput {
+	return o
+}
+
+func (o TrustStoreRevocationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TrustStoreRevocationType] {
+	return pulumix.Output[TrustStoreRevocationType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TrustStoreRevocationTypeOutput) NumberOfRevokedEntries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TrustStoreRevocationType) *int { return v.NumberOfRevokedEntries }).(pulumi.IntPtrOutput)
+}
+
+func (o TrustStoreRevocationTypeOutput) RevocationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrustStoreRevocationType) *string { return v.RevocationId }).(pulumi.StringPtrOutput)
+}
+
+func (o TrustStoreRevocationTypeOutput) RevocationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrustStoreRevocationType) *string { return v.RevocationType }).(pulumi.StringPtrOutput)
+}
+
+func (o TrustStoreRevocationTypeOutput) TrustStoreArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrustStoreRevocationType) *string { return v.TrustStoreArn }).(pulumi.StringPtrOutput)
+}
+
+type TrustStoreRevocationTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (TrustStoreRevocationTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrustStoreRevocationType)(nil)).Elem()
+}
+
+func (o TrustStoreRevocationTypeArrayOutput) ToTrustStoreRevocationTypeArrayOutput() TrustStoreRevocationTypeArrayOutput {
+	return o
+}
+
+func (o TrustStoreRevocationTypeArrayOutput) ToTrustStoreRevocationTypeArrayOutputWithContext(ctx context.Context) TrustStoreRevocationTypeArrayOutput {
+	return o
+}
+
+func (o TrustStoreRevocationTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TrustStoreRevocationType] {
+	return pulumix.Output[[]TrustStoreRevocationType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TrustStoreRevocationTypeArrayOutput) Index(i pulumi.IntInput) TrustStoreRevocationTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrustStoreRevocationType {
+		return vs[0].([]TrustStoreRevocationType)[vs[1].(int)]
+	}).(TrustStoreRevocationTypeOutput)
+}
+
+type TrustStoreRevocationRevocationContent struct {
+	RevocationType  *string `pulumi:"revocationType"`
+	S3Bucket        *string `pulumi:"s3Bucket"`
+	S3Key           *string `pulumi:"s3Key"`
+	S3ObjectVersion *string `pulumi:"s3ObjectVersion"`
+}
+
+// TrustStoreRevocationRevocationContentInput is an input type that accepts TrustStoreRevocationRevocationContentArgs and TrustStoreRevocationRevocationContentOutput values.
+// You can construct a concrete instance of `TrustStoreRevocationRevocationContentInput` via:
+//
+//	TrustStoreRevocationRevocationContentArgs{...}
+type TrustStoreRevocationRevocationContentInput interface {
+	pulumi.Input
+
+	ToTrustStoreRevocationRevocationContentOutput() TrustStoreRevocationRevocationContentOutput
+	ToTrustStoreRevocationRevocationContentOutputWithContext(context.Context) TrustStoreRevocationRevocationContentOutput
+}
+
+type TrustStoreRevocationRevocationContentArgs struct {
+	RevocationType  pulumi.StringPtrInput `pulumi:"revocationType"`
+	S3Bucket        pulumi.StringPtrInput `pulumi:"s3Bucket"`
+	S3Key           pulumi.StringPtrInput `pulumi:"s3Key"`
+	S3ObjectVersion pulumi.StringPtrInput `pulumi:"s3ObjectVersion"`
+}
+
+func (TrustStoreRevocationRevocationContentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustStoreRevocationRevocationContent)(nil)).Elem()
+}
+
+func (i TrustStoreRevocationRevocationContentArgs) ToTrustStoreRevocationRevocationContentOutput() TrustStoreRevocationRevocationContentOutput {
+	return i.ToTrustStoreRevocationRevocationContentOutputWithContext(context.Background())
+}
+
+func (i TrustStoreRevocationRevocationContentArgs) ToTrustStoreRevocationRevocationContentOutputWithContext(ctx context.Context) TrustStoreRevocationRevocationContentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreRevocationRevocationContentOutput)
+}
+
+func (i TrustStoreRevocationRevocationContentArgs) ToOutput(ctx context.Context) pulumix.Output[TrustStoreRevocationRevocationContent] {
+	return pulumix.Output[TrustStoreRevocationRevocationContent]{
+		OutputState: i.ToTrustStoreRevocationRevocationContentOutputWithContext(ctx).OutputState,
+	}
+}
+
+// TrustStoreRevocationRevocationContentArrayInput is an input type that accepts TrustStoreRevocationRevocationContentArray and TrustStoreRevocationRevocationContentArrayOutput values.
+// You can construct a concrete instance of `TrustStoreRevocationRevocationContentArrayInput` via:
+//
+//	TrustStoreRevocationRevocationContentArray{ TrustStoreRevocationRevocationContentArgs{...} }
+type TrustStoreRevocationRevocationContentArrayInput interface {
+	pulumi.Input
+
+	ToTrustStoreRevocationRevocationContentArrayOutput() TrustStoreRevocationRevocationContentArrayOutput
+	ToTrustStoreRevocationRevocationContentArrayOutputWithContext(context.Context) TrustStoreRevocationRevocationContentArrayOutput
+}
+
+type TrustStoreRevocationRevocationContentArray []TrustStoreRevocationRevocationContentInput
+
+func (TrustStoreRevocationRevocationContentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrustStoreRevocationRevocationContent)(nil)).Elem()
+}
+
+func (i TrustStoreRevocationRevocationContentArray) ToTrustStoreRevocationRevocationContentArrayOutput() TrustStoreRevocationRevocationContentArrayOutput {
+	return i.ToTrustStoreRevocationRevocationContentArrayOutputWithContext(context.Background())
+}
+
+func (i TrustStoreRevocationRevocationContentArray) ToTrustStoreRevocationRevocationContentArrayOutputWithContext(ctx context.Context) TrustStoreRevocationRevocationContentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreRevocationRevocationContentArrayOutput)
+}
+
+func (i TrustStoreRevocationRevocationContentArray) ToOutput(ctx context.Context) pulumix.Output[[]TrustStoreRevocationRevocationContent] {
+	return pulumix.Output[[]TrustStoreRevocationRevocationContent]{
+		OutputState: i.ToTrustStoreRevocationRevocationContentArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TrustStoreRevocationRevocationContentOutput struct{ *pulumi.OutputState }
+
+func (TrustStoreRevocationRevocationContentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustStoreRevocationRevocationContent)(nil)).Elem()
+}
+
+func (o TrustStoreRevocationRevocationContentOutput) ToTrustStoreRevocationRevocationContentOutput() TrustStoreRevocationRevocationContentOutput {
+	return o
+}
+
+func (o TrustStoreRevocationRevocationContentOutput) ToTrustStoreRevocationRevocationContentOutputWithContext(ctx context.Context) TrustStoreRevocationRevocationContentOutput {
+	return o
+}
+
+func (o TrustStoreRevocationRevocationContentOutput) ToOutput(ctx context.Context) pulumix.Output[TrustStoreRevocationRevocationContent] {
+	return pulumix.Output[TrustStoreRevocationRevocationContent]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TrustStoreRevocationRevocationContentOutput) RevocationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrustStoreRevocationRevocationContent) *string { return v.RevocationType }).(pulumi.StringPtrOutput)
+}
+
+func (o TrustStoreRevocationRevocationContentOutput) S3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrustStoreRevocationRevocationContent) *string { return v.S3Bucket }).(pulumi.StringPtrOutput)
+}
+
+func (o TrustStoreRevocationRevocationContentOutput) S3Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrustStoreRevocationRevocationContent) *string { return v.S3Key }).(pulumi.StringPtrOutput)
+}
+
+func (o TrustStoreRevocationRevocationContentOutput) S3ObjectVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TrustStoreRevocationRevocationContent) *string { return v.S3ObjectVersion }).(pulumi.StringPtrOutput)
+}
+
+type TrustStoreRevocationRevocationContentArrayOutput struct{ *pulumi.OutputState }
+
+func (TrustStoreRevocationRevocationContentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrustStoreRevocationRevocationContent)(nil)).Elem()
+}
+
+func (o TrustStoreRevocationRevocationContentArrayOutput) ToTrustStoreRevocationRevocationContentArrayOutput() TrustStoreRevocationRevocationContentArrayOutput {
+	return o
+}
+
+func (o TrustStoreRevocationRevocationContentArrayOutput) ToTrustStoreRevocationRevocationContentArrayOutputWithContext(ctx context.Context) TrustStoreRevocationRevocationContentArrayOutput {
+	return o
+}
+
+func (o TrustStoreRevocationRevocationContentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TrustStoreRevocationRevocationContent] {
+	return pulumix.Output[[]TrustStoreRevocationRevocationContent]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TrustStoreRevocationRevocationContentArrayOutput) Index(i pulumi.IntInput) TrustStoreRevocationRevocationContentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrustStoreRevocationRevocationContent {
+		return vs[0].([]TrustStoreRevocationRevocationContent)[vs[1].(int)]
+	}).(TrustStoreRevocationRevocationContentOutput)
+}
+
+type TrustStoreTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// TrustStoreTagInput is an input type that accepts TrustStoreTagArgs and TrustStoreTagOutput values.
+// You can construct a concrete instance of `TrustStoreTagInput` via:
+//
+//	TrustStoreTagArgs{...}
+type TrustStoreTagInput interface {
+	pulumi.Input
+
+	ToTrustStoreTagOutput() TrustStoreTagOutput
+	ToTrustStoreTagOutputWithContext(context.Context) TrustStoreTagOutput
+}
+
+type TrustStoreTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TrustStoreTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustStoreTag)(nil)).Elem()
+}
+
+func (i TrustStoreTagArgs) ToTrustStoreTagOutput() TrustStoreTagOutput {
+	return i.ToTrustStoreTagOutputWithContext(context.Background())
+}
+
+func (i TrustStoreTagArgs) ToTrustStoreTagOutputWithContext(ctx context.Context) TrustStoreTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreTagOutput)
+}
+
+func (i TrustStoreTagArgs) ToOutput(ctx context.Context) pulumix.Output[TrustStoreTag] {
+	return pulumix.Output[TrustStoreTag]{
+		OutputState: i.ToTrustStoreTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// TrustStoreTagArrayInput is an input type that accepts TrustStoreTagArray and TrustStoreTagArrayOutput values.
+// You can construct a concrete instance of `TrustStoreTagArrayInput` via:
+//
+//	TrustStoreTagArray{ TrustStoreTagArgs{...} }
+type TrustStoreTagArrayInput interface {
+	pulumi.Input
+
+	ToTrustStoreTagArrayOutput() TrustStoreTagArrayOutput
+	ToTrustStoreTagArrayOutputWithContext(context.Context) TrustStoreTagArrayOutput
+}
+
+type TrustStoreTagArray []TrustStoreTagInput
+
+func (TrustStoreTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrustStoreTag)(nil)).Elem()
+}
+
+func (i TrustStoreTagArray) ToTrustStoreTagArrayOutput() TrustStoreTagArrayOutput {
+	return i.ToTrustStoreTagArrayOutputWithContext(context.Background())
+}
+
+func (i TrustStoreTagArray) ToTrustStoreTagArrayOutputWithContext(ctx context.Context) TrustStoreTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreTagArrayOutput)
+}
+
+func (i TrustStoreTagArray) ToOutput(ctx context.Context) pulumix.Output[[]TrustStoreTag] {
+	return pulumix.Output[[]TrustStoreTag]{
+		OutputState: i.ToTrustStoreTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TrustStoreTagOutput struct{ *pulumi.OutputState }
+
+func (TrustStoreTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrustStoreTag)(nil)).Elem()
+}
+
+func (o TrustStoreTagOutput) ToTrustStoreTagOutput() TrustStoreTagOutput {
+	return o
+}
+
+func (o TrustStoreTagOutput) ToTrustStoreTagOutputWithContext(ctx context.Context) TrustStoreTagOutput {
+	return o
+}
+
+func (o TrustStoreTagOutput) ToOutput(ctx context.Context) pulumix.Output[TrustStoreTag] {
+	return pulumix.Output[TrustStoreTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TrustStoreTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TrustStoreTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o TrustStoreTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TrustStoreTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TrustStoreTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TrustStoreTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TrustStoreTag)(nil)).Elem()
+}
+
+func (o TrustStoreTagArrayOutput) ToTrustStoreTagArrayOutput() TrustStoreTagArrayOutput {
+	return o
+}
+
+func (o TrustStoreTagArrayOutput) ToTrustStoreTagArrayOutputWithContext(ctx context.Context) TrustStoreTagArrayOutput {
+	return o
+}
+
+func (o TrustStoreTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TrustStoreTag] {
+	return pulumix.Output[[]TrustStoreTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TrustStoreTagArrayOutput) Index(i pulumi.IntInput) TrustStoreTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrustStoreTag {
+		return vs[0].([]TrustStoreTag)[vs[1].(int)]
+	}).(TrustStoreTagOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerActionInput)(nil)).Elem(), ListenerActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerActionArrayInput)(nil)).Elem(), ListenerActionArray{})
@@ -5737,6 +6253,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerFixedResponseConfigPtrInput)(nil)).Elem(), ListenerFixedResponseConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerForwardConfigInput)(nil)).Elem(), ListenerForwardConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerForwardConfigPtrInput)(nil)).Elem(), ListenerForwardConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerMutualAuthenticationInput)(nil)).Elem(), ListenerMutualAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerMutualAuthenticationPtrInput)(nil)).Elem(), ListenerMutualAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRedirectConfigInput)(nil)).Elem(), ListenerRedirectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRedirectConfigPtrInput)(nil)).Elem(), ListenerRedirectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleActionInput)(nil)).Elem(), ListenerRuleActionArgs{})
@@ -5789,6 +6307,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTagArrayInput)(nil)).Elem(), TargetGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTargetDescriptionInput)(nil)).Elem(), TargetGroupTargetDescriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTargetDescriptionArrayInput)(nil)).Elem(), TargetGroupTargetDescriptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustStoreRevocationRevocationContentInput)(nil)).Elem(), TrustStoreRevocationRevocationContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustStoreRevocationRevocationContentArrayInput)(nil)).Elem(), TrustStoreRevocationRevocationContentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustStoreTagInput)(nil)).Elem(), TrustStoreTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrustStoreTagArrayInput)(nil)).Elem(), TrustStoreTagArray{})
 	pulumi.RegisterOutputType(ListenerActionOutput{})
 	pulumi.RegisterOutputType(ListenerActionArrayOutput{})
 	pulumi.RegisterOutputType(ListenerAuthenticateCognitoConfigOutput{})
@@ -5803,6 +6325,8 @@ func init() {
 	pulumi.RegisterOutputType(ListenerFixedResponseConfigPtrOutput{})
 	pulumi.RegisterOutputType(ListenerForwardConfigOutput{})
 	pulumi.RegisterOutputType(ListenerForwardConfigPtrOutput{})
+	pulumi.RegisterOutputType(ListenerMutualAuthenticationOutput{})
+	pulumi.RegisterOutputType(ListenerMutualAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(ListenerRedirectConfigOutput{})
 	pulumi.RegisterOutputType(ListenerRedirectConfigPtrOutput{})
 	pulumi.RegisterOutputType(ListenerRuleActionOutput{})
@@ -5855,4 +6379,10 @@ func init() {
 	pulumi.RegisterOutputType(TargetGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(TargetGroupTargetDescriptionOutput{})
 	pulumi.RegisterOutputType(TargetGroupTargetDescriptionArrayOutput{})
+	pulumi.RegisterOutputType(TrustStoreRevocationTypeOutput{})
+	pulumi.RegisterOutputType(TrustStoreRevocationTypeArrayOutput{})
+	pulumi.RegisterOutputType(TrustStoreRevocationRevocationContentOutput{})
+	pulumi.RegisterOutputType(TrustStoreRevocationRevocationContentArrayOutput{})
+	pulumi.RegisterOutputType(TrustStoreTagOutput{})
+	pulumi.RegisterOutputType(TrustStoreTagArrayOutput{})
 }

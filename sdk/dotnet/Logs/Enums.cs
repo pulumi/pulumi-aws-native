@@ -68,6 +68,71 @@ namespace Pulumi.AwsNative.Logs
     }
 
     /// <summary>
+    /// How often log group is evaluated
+    /// </summary>
+    [EnumType]
+    public readonly struct LogAnomalyDetectorEvaluationFrequency : IEquatable<LogAnomalyDetectorEvaluationFrequency>
+    {
+        private readonly string _value;
+
+        private LogAnomalyDetectorEvaluationFrequency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LogAnomalyDetectorEvaluationFrequency FiveMin { get; } = new LogAnomalyDetectorEvaluationFrequency("FIVE_MIN");
+        public static LogAnomalyDetectorEvaluationFrequency TenMin { get; } = new LogAnomalyDetectorEvaluationFrequency("TEN_MIN");
+        public static LogAnomalyDetectorEvaluationFrequency FifteenMin { get; } = new LogAnomalyDetectorEvaluationFrequency("FIFTEEN_MIN");
+        public static LogAnomalyDetectorEvaluationFrequency ThirtyMin { get; } = new LogAnomalyDetectorEvaluationFrequency("THIRTY_MIN");
+        public static LogAnomalyDetectorEvaluationFrequency OneHour { get; } = new LogAnomalyDetectorEvaluationFrequency("ONE_HOUR");
+
+        public static bool operator ==(LogAnomalyDetectorEvaluationFrequency left, LogAnomalyDetectorEvaluationFrequency right) => left.Equals(right);
+        public static bool operator !=(LogAnomalyDetectorEvaluationFrequency left, LogAnomalyDetectorEvaluationFrequency right) => !left.Equals(right);
+
+        public static explicit operator string(LogAnomalyDetectorEvaluationFrequency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LogAnomalyDetectorEvaluationFrequency other && Equals(other);
+        public bool Equals(LogAnomalyDetectorEvaluationFrequency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS, with STANDARD being the default class
+    /// </summary>
+    [EnumType]
+    public readonly struct LogGroupClass : IEquatable<LogGroupClass>
+    {
+        private readonly string _value;
+
+        private LogGroupClass(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LogGroupClass Standard { get; } = new LogGroupClass("STANDARD");
+        public static LogGroupClass InfrequentAccess { get; } = new LogGroupClass("INFREQUENT_ACCESS");
+
+        public static bool operator ==(LogGroupClass left, LogGroupClass right) => left.Equals(right);
+        public static bool operator !=(LogGroupClass left, LogGroupClass right) => !left.Equals(right);
+
+        public static explicit operator string(LogGroupClass value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LogGroupClass other && Equals(other);
+        public bool Equals(LogGroupClass other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The unit to assign to the metric. If you omit this, the unit is set as None.
     /// </summary>
     [EnumType]

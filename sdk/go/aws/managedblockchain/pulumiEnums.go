@@ -11,6 +11,191 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+type AccessorNetworkAccessorType string
+
+const (
+	AccessorNetworkAccessorTypeEthereumGoerli           = AccessorNetworkAccessorType("ETHEREUM_GOERLI")
+	AccessorNetworkAccessorTypeEthereumMainnet          = AccessorNetworkAccessorType("ETHEREUM_MAINNET")
+	AccessorNetworkAccessorTypeEthereumMainnetAndGoerli = AccessorNetworkAccessorType("ETHEREUM_MAINNET_AND_GOERLI")
+	AccessorNetworkAccessorTypePolygonMainnet           = AccessorNetworkAccessorType("POLYGON_MAINNET")
+	AccessorNetworkAccessorTypePolygonMumbai            = AccessorNetworkAccessorType("POLYGON_MUMBAI")
+)
+
+func (AccessorNetworkAccessorType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessorNetworkAccessorType)(nil)).Elem()
+}
+
+func (e AccessorNetworkAccessorType) ToAccessorNetworkAccessorTypeOutput() AccessorNetworkAccessorTypeOutput {
+	return pulumi.ToOutput(e).(AccessorNetworkAccessorTypeOutput)
+}
+
+func (e AccessorNetworkAccessorType) ToAccessorNetworkAccessorTypeOutputWithContext(ctx context.Context) AccessorNetworkAccessorTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AccessorNetworkAccessorTypeOutput)
+}
+
+func (e AccessorNetworkAccessorType) ToAccessorNetworkAccessorTypePtrOutput() AccessorNetworkAccessorTypePtrOutput {
+	return e.ToAccessorNetworkAccessorTypePtrOutputWithContext(context.Background())
+}
+
+func (e AccessorNetworkAccessorType) ToAccessorNetworkAccessorTypePtrOutputWithContext(ctx context.Context) AccessorNetworkAccessorTypePtrOutput {
+	return AccessorNetworkAccessorType(e).ToAccessorNetworkAccessorTypeOutputWithContext(ctx).ToAccessorNetworkAccessorTypePtrOutputWithContext(ctx)
+}
+
+func (e AccessorNetworkAccessorType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccessorNetworkAccessorType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccessorNetworkAccessorType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AccessorNetworkAccessorType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AccessorNetworkAccessorTypeOutput struct{ *pulumi.OutputState }
+
+func (AccessorNetworkAccessorTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessorNetworkAccessorType)(nil)).Elem()
+}
+
+func (o AccessorNetworkAccessorTypeOutput) ToAccessorNetworkAccessorTypeOutput() AccessorNetworkAccessorTypeOutput {
+	return o
+}
+
+func (o AccessorNetworkAccessorTypeOutput) ToAccessorNetworkAccessorTypeOutputWithContext(ctx context.Context) AccessorNetworkAccessorTypeOutput {
+	return o
+}
+
+func (o AccessorNetworkAccessorTypeOutput) ToAccessorNetworkAccessorTypePtrOutput() AccessorNetworkAccessorTypePtrOutput {
+	return o.ToAccessorNetworkAccessorTypePtrOutputWithContext(context.Background())
+}
+
+func (o AccessorNetworkAccessorTypeOutput) ToAccessorNetworkAccessorTypePtrOutputWithContext(ctx context.Context) AccessorNetworkAccessorTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessorNetworkAccessorType) *AccessorNetworkAccessorType {
+		return &v
+	}).(AccessorNetworkAccessorTypePtrOutput)
+}
+
+func (o AccessorNetworkAccessorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AccessorNetworkAccessorType] {
+	return pulumix.Output[AccessorNetworkAccessorType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AccessorNetworkAccessorTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AccessorNetworkAccessorTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessorNetworkAccessorType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AccessorNetworkAccessorTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessorNetworkAccessorTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessorNetworkAccessorType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessorNetworkAccessorTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AccessorNetworkAccessorTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessorNetworkAccessorType)(nil)).Elem()
+}
+
+func (o AccessorNetworkAccessorTypePtrOutput) ToAccessorNetworkAccessorTypePtrOutput() AccessorNetworkAccessorTypePtrOutput {
+	return o
+}
+
+func (o AccessorNetworkAccessorTypePtrOutput) ToAccessorNetworkAccessorTypePtrOutputWithContext(ctx context.Context) AccessorNetworkAccessorTypePtrOutput {
+	return o
+}
+
+func (o AccessorNetworkAccessorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessorNetworkAccessorType] {
+	return pulumix.Output[*AccessorNetworkAccessorType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AccessorNetworkAccessorTypePtrOutput) Elem() AccessorNetworkAccessorTypeOutput {
+	return o.ApplyT(func(v *AccessorNetworkAccessorType) AccessorNetworkAccessorType {
+		if v != nil {
+			return *v
+		}
+		var ret AccessorNetworkAccessorType
+		return ret
+	}).(AccessorNetworkAccessorTypeOutput)
+}
+
+func (o AccessorNetworkAccessorTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessorNetworkAccessorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccessorNetworkAccessorType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AccessorNetworkAccessorTypeInput is an input type that accepts AccessorNetworkAccessorTypeArgs and AccessorNetworkAccessorTypeOutput values.
+// You can construct a concrete instance of `AccessorNetworkAccessorTypeInput` via:
+//
+//	AccessorNetworkAccessorTypeArgs{...}
+type AccessorNetworkAccessorTypeInput interface {
+	pulumi.Input
+
+	ToAccessorNetworkAccessorTypeOutput() AccessorNetworkAccessorTypeOutput
+	ToAccessorNetworkAccessorTypeOutputWithContext(context.Context) AccessorNetworkAccessorTypeOutput
+}
+
+var accessorNetworkAccessorTypePtrType = reflect.TypeOf((**AccessorNetworkAccessorType)(nil)).Elem()
+
+type AccessorNetworkAccessorTypePtrInput interface {
+	pulumi.Input
+
+	ToAccessorNetworkAccessorTypePtrOutput() AccessorNetworkAccessorTypePtrOutput
+	ToAccessorNetworkAccessorTypePtrOutputWithContext(context.Context) AccessorNetworkAccessorTypePtrOutput
+}
+
+type accessorNetworkAccessorTypePtr string
+
+func AccessorNetworkAccessorTypePtr(v string) AccessorNetworkAccessorTypePtrInput {
+	return (*accessorNetworkAccessorTypePtr)(&v)
+}
+
+func (*accessorNetworkAccessorTypePtr) ElementType() reflect.Type {
+	return accessorNetworkAccessorTypePtrType
+}
+
+func (in *accessorNetworkAccessorTypePtr) ToAccessorNetworkAccessorTypePtrOutput() AccessorNetworkAccessorTypePtrOutput {
+	return pulumi.ToOutput(in).(AccessorNetworkAccessorTypePtrOutput)
+}
+
+func (in *accessorNetworkAccessorTypePtr) ToAccessorNetworkAccessorTypePtrOutputWithContext(ctx context.Context) AccessorNetworkAccessorTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AccessorNetworkAccessorTypePtrOutput)
+}
+
+func (in *accessorNetworkAccessorTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AccessorNetworkAccessorType] {
+	return pulumix.Output[*AccessorNetworkAccessorType]{
+		OutputState: in.ToAccessorNetworkAccessorTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AccessorStatus string
 
 const (
@@ -296,8 +481,12 @@ func (in *accessorTypePtr) ToOutput(ctx context.Context) pulumix.Output[*Accesso
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessorNetworkAccessorTypeInput)(nil)).Elem(), AccessorNetworkAccessorType("ETHEREUM_GOERLI"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessorNetworkAccessorTypePtrInput)(nil)).Elem(), AccessorNetworkAccessorType("ETHEREUM_GOERLI"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessorTypeInput)(nil)).Elem(), AccessorType("BILLING_TOKEN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessorTypePtrInput)(nil)).Elem(), AccessorType("BILLING_TOKEN"))
+	pulumi.RegisterOutputType(AccessorNetworkAccessorTypeOutput{})
+	pulumi.RegisterOutputType(AccessorNetworkAccessorTypePtrOutput{})
 	pulumi.RegisterOutputType(AccessorStatusOutput{})
 	pulumi.RegisterOutputType(AccessorStatusPtrOutput{})
 	pulumi.RegisterOutputType(AccessorTypeOutput{})

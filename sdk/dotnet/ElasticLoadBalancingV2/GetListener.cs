@@ -55,6 +55,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         public readonly ImmutableArray<Outputs.ListenerCertificate> Certificates;
         public readonly ImmutableArray<Outputs.ListenerAction> DefaultActions;
         public readonly string? ListenerArn;
+        public readonly Outputs.ListenerMutualAuthentication? MutualAuthentication;
         public readonly int? Port;
         public readonly string? Protocol;
         public readonly string? SslPolicy;
@@ -69,6 +70,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
             string? listenerArn,
 
+            Outputs.ListenerMutualAuthentication? mutualAuthentication,
+
             int? port,
 
             string? protocol,
@@ -79,6 +82,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
             Certificates = certificates;
             DefaultActions = defaultActions;
             ListenerArn = listenerArn;
+            MutualAuthentication = mutualAuthentication;
             Port = port;
             Protocol = protocol;
             SslPolicy = sslPolicy;

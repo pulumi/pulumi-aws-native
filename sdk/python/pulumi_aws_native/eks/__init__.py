@@ -14,7 +14,9 @@ from .get_cluster import *
 from .get_fargate_profile import *
 from .get_identity_provider_config import *
 from .get_nodegroup import *
+from .get_pod_identity_association import *
 from .identity_provider_config import *
 from .nodegroup import *
+from .pod_identity_association import *
 from ._inputs import *
 from . import outputs

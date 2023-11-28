@@ -8,6 +8,100 @@ using Pulumi;
 namespace Pulumi.AwsNative.S3
 {
     /// <summary>
+    /// Configures the transfer acceleration state for an Amazon S3 bucket.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccessGrantGranteeGranteeType : IEquatable<AccessGrantGranteeGranteeType>
+    {
+        private readonly string _value;
+
+        private AccessGrantGranteeGranteeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessGrantGranteeGranteeType Iam { get; } = new AccessGrantGranteeGranteeType("IAM");
+        public static AccessGrantGranteeGranteeType DirectoryUser { get; } = new AccessGrantGranteeGranteeType("DIRECTORY_USER");
+        public static AccessGrantGranteeGranteeType DirectoryGroup { get; } = new AccessGrantGranteeGranteeType("DIRECTORY_GROUP");
+
+        public static bool operator ==(AccessGrantGranteeGranteeType left, AccessGrantGranteeGranteeType right) => left.Equals(right);
+        public static bool operator !=(AccessGrantGranteeGranteeType left, AccessGrantGranteeGranteeType right) => !left.Equals(right);
+
+        public static explicit operator string(AccessGrantGranteeGranteeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessGrantGranteeGranteeType other && Equals(other);
+        public bool Equals(AccessGrantGranteeGranteeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The level of access to be afforded to the grantee
+    /// </summary>
+    [EnumType]
+    public readonly struct AccessGrantPermission : IEquatable<AccessGrantPermission>
+    {
+        private readonly string _value;
+
+        private AccessGrantPermission(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessGrantPermission Read { get; } = new AccessGrantPermission("READ");
+        public static AccessGrantPermission Write { get; } = new AccessGrantPermission("WRITE");
+        public static AccessGrantPermission Readwrite { get; } = new AccessGrantPermission("READWRITE");
+
+        public static bool operator ==(AccessGrantPermission left, AccessGrantPermission right) => left.Equals(right);
+        public static bool operator !=(AccessGrantPermission left, AccessGrantPermission right) => !left.Equals(right);
+
+        public static explicit operator string(AccessGrantPermission value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessGrantPermission other && Equals(other);
+        public bool Equals(AccessGrantPermission other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of S3SubPrefix.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccessGrantS3PrefixType : IEquatable<AccessGrantS3PrefixType>
+    {
+        private readonly string _value;
+
+        private AccessGrantS3PrefixType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessGrantS3PrefixType Object { get; } = new AccessGrantS3PrefixType("Object");
+
+        public static bool operator ==(AccessGrantS3PrefixType left, AccessGrantS3PrefixType right) => left.Equals(right);
+        public static bool operator !=(AccessGrantS3PrefixType left, AccessGrantS3PrefixType right) => !left.Equals(right);
+
+        public static explicit operator string(AccessGrantS3PrefixType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessGrantS3PrefixType other && Equals(other);
+        public bool Equals(AccessGrantS3PrefixType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Indicates whether this Access Point allows access from the public Internet. If VpcConfiguration is specified for this Access Point, then NetworkOrigin is VPC, and the Access Point doesn't allow access from the public Internet. Otherwise, NetworkOrigin is Internet, and the Access Point allows access from the public Internet, subject to the Access Point and bucket access policies.
     /// </summary>
     [EnumType]

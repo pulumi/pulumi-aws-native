@@ -824,6 +824,7 @@ namespace Pulumi.AwsNative.Connect
         public static RuleTriggerEventSourceEventSourceName OnContactEvaluationSubmit { get; } = new RuleTriggerEventSourceEventSourceName("OnContactEvaluationSubmit");
         public static RuleTriggerEventSourceEventSourceName OnPostCallAnalysisAvailable { get; } = new RuleTriggerEventSourceEventSourceName("OnPostCallAnalysisAvailable");
         public static RuleTriggerEventSourceEventSourceName OnRealTimeCallAnalysisAvailable { get; } = new RuleTriggerEventSourceEventSourceName("OnRealTimeCallAnalysisAvailable");
+        public static RuleTriggerEventSourceEventSourceName OnRealTimeChatAnalysisAvailable { get; } = new RuleTriggerEventSourceEventSourceName("OnRealTimeChatAnalysisAvailable");
         public static RuleTriggerEventSourceEventSourceName OnPostChatAnalysisAvailable { get; } = new RuleTriggerEventSourceEventSourceName("OnPostChatAnalysisAvailable");
         public static RuleTriggerEventSourceEventSourceName OnZendeskTicketCreate { get; } = new RuleTriggerEventSourceEventSourceName("OnZendeskTicketCreate");
         public static RuleTriggerEventSourceEventSourceName OnZendeskTicketStatusUpdate { get; } = new RuleTriggerEventSourceEventSourceName("OnZendeskTicketStatusUpdate");

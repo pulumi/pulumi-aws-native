@@ -3576,6 +3576,139 @@ func (o NodegroupUpdateConfigPtrOutput) MaxUnavailablePercentage() pulumi.Float6
 	}).(pulumi.Float64PtrOutput)
 }
 
+// A key-value pair to associate with a resource.
+type PodIdentityAssociationTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// PodIdentityAssociationTagInput is an input type that accepts PodIdentityAssociationTagArgs and PodIdentityAssociationTagOutput values.
+// You can construct a concrete instance of `PodIdentityAssociationTagInput` via:
+//
+//	PodIdentityAssociationTagArgs{...}
+type PodIdentityAssociationTagInput interface {
+	pulumi.Input
+
+	ToPodIdentityAssociationTagOutput() PodIdentityAssociationTagOutput
+	ToPodIdentityAssociationTagOutputWithContext(context.Context) PodIdentityAssociationTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type PodIdentityAssociationTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (PodIdentityAssociationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PodIdentityAssociationTag)(nil)).Elem()
+}
+
+func (i PodIdentityAssociationTagArgs) ToPodIdentityAssociationTagOutput() PodIdentityAssociationTagOutput {
+	return i.ToPodIdentityAssociationTagOutputWithContext(context.Background())
+}
+
+func (i PodIdentityAssociationTagArgs) ToPodIdentityAssociationTagOutputWithContext(ctx context.Context) PodIdentityAssociationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PodIdentityAssociationTagOutput)
+}
+
+func (i PodIdentityAssociationTagArgs) ToOutput(ctx context.Context) pulumix.Output[PodIdentityAssociationTag] {
+	return pulumix.Output[PodIdentityAssociationTag]{
+		OutputState: i.ToPodIdentityAssociationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// PodIdentityAssociationTagArrayInput is an input type that accepts PodIdentityAssociationTagArray and PodIdentityAssociationTagArrayOutput values.
+// You can construct a concrete instance of `PodIdentityAssociationTagArrayInput` via:
+//
+//	PodIdentityAssociationTagArray{ PodIdentityAssociationTagArgs{...} }
+type PodIdentityAssociationTagArrayInput interface {
+	pulumi.Input
+
+	ToPodIdentityAssociationTagArrayOutput() PodIdentityAssociationTagArrayOutput
+	ToPodIdentityAssociationTagArrayOutputWithContext(context.Context) PodIdentityAssociationTagArrayOutput
+}
+
+type PodIdentityAssociationTagArray []PodIdentityAssociationTagInput
+
+func (PodIdentityAssociationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PodIdentityAssociationTag)(nil)).Elem()
+}
+
+func (i PodIdentityAssociationTagArray) ToPodIdentityAssociationTagArrayOutput() PodIdentityAssociationTagArrayOutput {
+	return i.ToPodIdentityAssociationTagArrayOutputWithContext(context.Background())
+}
+
+func (i PodIdentityAssociationTagArray) ToPodIdentityAssociationTagArrayOutputWithContext(ctx context.Context) PodIdentityAssociationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PodIdentityAssociationTagArrayOutput)
+}
+
+func (i PodIdentityAssociationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PodIdentityAssociationTag] {
+	return pulumix.Output[[]PodIdentityAssociationTag]{
+		OutputState: i.ToPodIdentityAssociationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A key-value pair to associate with a resource.
+type PodIdentityAssociationTagOutput struct{ *pulumi.OutputState }
+
+func (PodIdentityAssociationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PodIdentityAssociationTag)(nil)).Elem()
+}
+
+func (o PodIdentityAssociationTagOutput) ToPodIdentityAssociationTagOutput() PodIdentityAssociationTagOutput {
+	return o
+}
+
+func (o PodIdentityAssociationTagOutput) ToPodIdentityAssociationTagOutputWithContext(ctx context.Context) PodIdentityAssociationTagOutput {
+	return o
+}
+
+func (o PodIdentityAssociationTagOutput) ToOutput(ctx context.Context) pulumix.Output[PodIdentityAssociationTag] {
+	return pulumix.Output[PodIdentityAssociationTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o PodIdentityAssociationTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v PodIdentityAssociationTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o PodIdentityAssociationTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v PodIdentityAssociationTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type PodIdentityAssociationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (PodIdentityAssociationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PodIdentityAssociationTag)(nil)).Elem()
+}
+
+func (o PodIdentityAssociationTagArrayOutput) ToPodIdentityAssociationTagArrayOutput() PodIdentityAssociationTagArrayOutput {
+	return o
+}
+
+func (o PodIdentityAssociationTagArrayOutput) ToPodIdentityAssociationTagArrayOutputWithContext(ctx context.Context) PodIdentityAssociationTagArrayOutput {
+	return o
+}
+
+func (o PodIdentityAssociationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PodIdentityAssociationTag] {
+	return pulumix.Output[[]PodIdentityAssociationTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PodIdentityAssociationTagArrayOutput) Index(i pulumi.IntInput) PodIdentityAssociationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PodIdentityAssociationTag {
+		return vs[0].([]PodIdentityAssociationTag)[vs[1].(int)]
+	}).(PodIdentityAssociationTagOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonTagInput)(nil)).Elem(), AddonTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonTagArrayInput)(nil)).Elem(), AddonTagArray{})
@@ -3620,6 +3753,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupTaintArrayInput)(nil)).Elem(), NodegroupTaintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupUpdateConfigInput)(nil)).Elem(), NodegroupUpdateConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupUpdateConfigPtrInput)(nil)).Elem(), NodegroupUpdateConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PodIdentityAssociationTagInput)(nil)).Elem(), PodIdentityAssociationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PodIdentityAssociationTagArrayInput)(nil)).Elem(), PodIdentityAssociationTagArray{})
 	pulumi.RegisterOutputType(AddonTagOutput{})
 	pulumi.RegisterOutputType(AddonTagArrayOutput{})
 	pulumi.RegisterOutputType(ClusterControlPlanePlacementOutput{})
@@ -3664,4 +3799,6 @@ func init() {
 	pulumi.RegisterOutputType(NodegroupTaintArrayOutput{})
 	pulumi.RegisterOutputType(NodegroupUpdateConfigOutput{})
 	pulumi.RegisterOutputType(NodegroupUpdateConfigPtrOutput{})
+	pulumi.RegisterOutputType(PodIdentityAssociationTagOutput{})
+	pulumi.RegisterOutputType(PodIdentityAssociationTagArrayOutput{})
 }

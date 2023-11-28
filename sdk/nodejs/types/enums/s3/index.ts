@@ -2,6 +2,37 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AccessGrantGranteeGranteeType = {
+    Iam: "IAM",
+    DirectoryUser: "DIRECTORY_USER",
+    DirectoryGroup: "DIRECTORY_GROUP",
+} as const;
+
+/**
+ * Configures the transfer acceleration state for an Amazon S3 bucket.
+ */
+export type AccessGrantGranteeGranteeType = (typeof AccessGrantGranteeGranteeType)[keyof typeof AccessGrantGranteeGranteeType];
+
+export const AccessGrantPermission = {
+    Read: "READ",
+    Write: "WRITE",
+    Readwrite: "READWRITE",
+} as const;
+
+/**
+ * The level of access to be afforded to the grantee
+ */
+export type AccessGrantPermission = (typeof AccessGrantPermission)[keyof typeof AccessGrantPermission];
+
+export const AccessGrantS3PrefixType = {
+    Object: "Object",
+} as const;
+
+/**
+ * The type of S3SubPrefix.
+ */
+export type AccessGrantS3PrefixType = (typeof AccessGrantS3PrefixType)[keyof typeof AccessGrantS3PrefixType];
+
 export const AccessPointNetworkOrigin = {
     Internet: "Internet",
     Vpc: "VPC",

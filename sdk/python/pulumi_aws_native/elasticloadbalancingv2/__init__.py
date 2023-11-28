@@ -10,10 +10,14 @@ from .get_listener_certificate import *
 from .get_listener_rule import *
 from .get_load_balancer import *
 from .get_target_group import *
+from .get_trust_store import *
+from .get_trust_store_revocation import *
 from .listener import *
 from .listener_certificate import *
 from .listener_rule import *
 from .load_balancer import *
 from .target_group import *
+from .trust_store import *
+from .trust_store_revocation import *
 from ._inputs import *
 from . import outputs

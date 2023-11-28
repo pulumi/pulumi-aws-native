@@ -23,13 +23,11 @@ export interface GetTransitGatewayVpcAttachmentArgs {
 }
 
 export interface GetTransitGatewayVpcAttachmentResult {
-    readonly addSubnetIds?: string[];
     readonly id?: string;
     /**
      * The options for the transit gateway vpc attachment.
      */
     readonly options?: outputs.ec2.OptionsProperties;
-    readonly removeSubnetIds?: string[];
     readonly tags?: outputs.ec2.TransitGatewayVpcAttachmentTag[];
 }
 /**

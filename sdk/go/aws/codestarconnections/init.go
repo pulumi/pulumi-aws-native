@@ -23,6 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:codestarconnections:Connection":
 		r = &Connection{}
+	case "aws-native:codestarconnections:RepositoryLink":
+		r = &RepositoryLink{}
+	case "aws-native:codestarconnections:SyncConfiguration":
+		r = &SyncConfiguration{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

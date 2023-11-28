@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IdentityProviderConfig{}
 	case "aws-native:eks:Nodegroup":
 		r = &Nodegroup{}
+	case "aws-native:eks:PodIdentityAssociation":
+		r = &PodIdentityAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

@@ -17,6 +17,7 @@ __all__ = [
     'ListenerCertificateArgs',
     'ListenerFixedResponseConfigArgs',
     'ListenerForwardConfigArgs',
+    'ListenerMutualAuthenticationArgs',
     'ListenerRedirectConfigArgs',
     'ListenerRuleActionArgs',
     'ListenerRuleAuthenticateCognitoConfigArgs',
@@ -43,6 +44,8 @@ __all__ = [
     'TargetGroupMatcherArgs',
     'TargetGroupTagArgs',
     'TargetGroupTargetDescriptionArgs',
+    'TrustStoreRevocationRevocationContentArgs',
+    'TrustStoreTagArgs',
 ]
 
 @pulumi.input_type
@@ -488,6 +491,47 @@ class ListenerForwardConfigArgs:
     @target_groups.setter
     def target_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerTargetGroupTupleArgs']]]]):
         pulumi.set(self, "target_groups", value)
+
+
+@pulumi.input_type
+class ListenerMutualAuthenticationArgs:
+    def __init__(__self__, *,
+                 ignore_client_certificate_expiry: Optional[pulumi.Input[bool]] = None,
+                 mode: Optional[pulumi.Input[str]] = None,
+                 trust_store_arn: Optional[pulumi.Input[str]] = None):
+        if ignore_client_certificate_expiry is not None:
+            pulumi.set(__self__, "ignore_client_certificate_expiry", ignore_client_certificate_expiry)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if trust_store_arn is not None:
+            pulumi.set(__self__, "trust_store_arn", trust_store_arn)
+
+    @property
+    @pulumi.getter(name="ignoreClientCertificateExpiry")
+    def ignore_client_certificate_expiry(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "ignore_client_certificate_expiry")
+
+    @ignore_client_certificate_expiry.setter
+    def ignore_client_certificate_expiry(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_client_certificate_expiry", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="trustStoreArn")
+    def trust_store_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "trust_store_arn")
+
+    @trust_store_arn.setter
+    def trust_store_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "trust_store_arn", value)
 
 
 @pulumi.input_type
@@ -1689,5 +1733,85 @@ class TargetGroupTargetDescriptionArgs:
     @port.setter
     def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class TrustStoreRevocationRevocationContentArgs:
+    def __init__(__self__, *,
+                 revocation_type: Optional[pulumi.Input[str]] = None,
+                 s3_bucket: Optional[pulumi.Input[str]] = None,
+                 s3_key: Optional[pulumi.Input[str]] = None,
+                 s3_object_version: Optional[pulumi.Input[str]] = None):
+        if revocation_type is not None:
+            pulumi.set(__self__, "revocation_type", revocation_type)
+        if s3_bucket is not None:
+            pulumi.set(__self__, "s3_bucket", s3_bucket)
+        if s3_key is not None:
+            pulumi.set(__self__, "s3_key", s3_key)
+        if s3_object_version is not None:
+            pulumi.set(__self__, "s3_object_version", s3_object_version)
+
+    @property
+    @pulumi.getter(name="revocationType")
+    def revocation_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "revocation_type")
+
+    @revocation_type.setter
+    def revocation_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "revocation_type", value)
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "s3_bucket")
+
+    @s3_bucket.setter
+    def s3_bucket(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_bucket", value)
+
+    @property
+    @pulumi.getter(name="s3Key")
+    def s3_key(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "s3_key")
+
+    @s3_key.setter
+    def s3_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_key", value)
+
+    @property
+    @pulumi.getter(name="s3ObjectVersion")
+    def s3_object_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "s3_object_version")
+
+    @s3_object_version.setter
+    def s3_object_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_object_version", value)
+
+
+@pulumi.input_type
+class TrustStoreTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 

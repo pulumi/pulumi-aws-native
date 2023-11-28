@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.AccessAnalyzer
     public partial class Analyzer : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The configuration for the analyzer
+        /// </summary>
+        [Output("analyzerConfiguration")]
+        public Output<Outputs.AnalyzerConfigurationProperties?> AnalyzerConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Analyzer name
         /// </summary>
         [Output("analyzerName")]
@@ -37,7 +43,7 @@ namespace Pulumi.AwsNative.AccessAnalyzer
         public Output<ImmutableArray<Outputs.AnalyzerTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
+        /// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -67,6 +73,7 @@ namespace Pulumi.AwsNative.AccessAnalyzer
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "analyzerConfiguration",
                     "analyzerName",
                     "type",
                 },
@@ -92,6 +99,12 @@ namespace Pulumi.AwsNative.AccessAnalyzer
 
     public sealed class AnalyzerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration for the analyzer
+        /// </summary>
+        [Input("analyzerConfiguration")]
+        public Input<Inputs.AnalyzerConfigurationPropertiesArgs>? AnalyzerConfiguration { get; set; }
+
         /// <summary>
         /// Analyzer name
         /// </summary>
@@ -119,7 +132,7 @@ namespace Pulumi.AwsNative.AccessAnalyzer
         }
 
         /// <summary>
-        /// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
+        /// The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

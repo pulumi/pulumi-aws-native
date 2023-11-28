@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetListenerResult:
-    def __init__(__self__, alpn_policy=None, certificates=None, default_actions=None, listener_arn=None, port=None, protocol=None, ssl_policy=None):
+    def __init__(__self__, alpn_policy=None, certificates=None, default_actions=None, listener_arn=None, mutual_authentication=None, port=None, protocol=None, ssl_policy=None):
         if alpn_policy and not isinstance(alpn_policy, list):
             raise TypeError("Expected argument 'alpn_policy' to be a list")
         pulumi.set(__self__, "alpn_policy", alpn_policy)
@@ -32,6 +32,9 @@ class GetListenerResult:
         if listener_arn and not isinstance(listener_arn, str):
             raise TypeError("Expected argument 'listener_arn' to be a str")
         pulumi.set(__self__, "listener_arn", listener_arn)
+        if mutual_authentication and not isinstance(mutual_authentication, dict):
+            raise TypeError("Expected argument 'mutual_authentication' to be a dict")
+        pulumi.set(__self__, "mutual_authentication", mutual_authentication)
         if port and not isinstance(port, int):
             raise TypeError("Expected argument 'port' to be a int")
         pulumi.set(__self__, "port", port)
@@ -63,6 +66,11 @@ class GetListenerResult:
         return pulumi.get(self, "listener_arn")
 
     @property
+    @pulumi.getter(name="mutualAuthentication")
+    def mutual_authentication(self) -> Optional['outputs.ListenerMutualAuthentication']:
+        return pulumi.get(self, "mutual_authentication")
+
+    @property
     @pulumi.getter
     def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
@@ -88,6 +96,7 @@ class AwaitableGetListenerResult(GetListenerResult):
             certificates=self.certificates,
             default_actions=self.default_actions,
             listener_arn=self.listener_arn,
+            mutual_authentication=self.mutual_authentication,
             port=self.port,
             protocol=self.protocol,
             ssl_policy=self.ssl_policy)
@@ -108,6 +117,7 @@ def get_listener(listener_arn: Optional[str] = None,
         certificates=pulumi.get(__ret__, 'certificates'),
         default_actions=pulumi.get(__ret__, 'default_actions'),
         listener_arn=pulumi.get(__ret__, 'listener_arn'),
+        mutual_authentication=pulumi.get(__ret__, 'mutual_authentication'),
         port=pulumi.get(__ret__, 'port'),
         protocol=pulumi.get(__ret__, 'protocol'),
         ssl_policy=pulumi.get(__ret__, 'ssl_policy'))

@@ -32,6 +32,7 @@ export interface GetTransitGatewayResult {
     readonly id?: string;
     readonly propagationDefaultRouteTableId?: string;
     readonly tags?: outputs.ec2.TransitGatewayTag[];
+    readonly transitGatewayArn?: string;
     readonly transitGatewayCidrBlocks?: string[];
     readonly vpnEcmpSupport?: string;
 }

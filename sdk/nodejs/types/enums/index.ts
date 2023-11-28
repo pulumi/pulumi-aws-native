@@ -26,6 +26,7 @@ import * as codegurureviewer from "./codegurureviewer";
 import * as codestarnotifications from "./codestarnotifications";
 import * as comprehend from "./comprehend";
 import * as connect from "./connect";
+import * as controltower from "./controltower";
 import * as cur from "./cur";
 import * as customerprofiles from "./customerprofiles";
 import * as databrew from "./databrew";
@@ -171,6 +172,7 @@ export {
     codestarnotifications,
     comprehend,
     connect,
+    controltower,
     cur,
     customerprofiles,
     databrew,

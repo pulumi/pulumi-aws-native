@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTransitGatewayResult:
-    def __init__(__self__, association_default_route_table_id=None, auto_accept_shared_attachments=None, default_route_table_association=None, default_route_table_propagation=None, description=None, dns_support=None, id=None, propagation_default_route_table_id=None, tags=None, transit_gateway_cidr_blocks=None, vpn_ecmp_support=None):
+    def __init__(__self__, association_default_route_table_id=None, auto_accept_shared_attachments=None, default_route_table_association=None, default_route_table_propagation=None, description=None, dns_support=None, id=None, propagation_default_route_table_id=None, tags=None, transit_gateway_arn=None, transit_gateway_cidr_blocks=None, vpn_ecmp_support=None):
         if association_default_route_table_id and not isinstance(association_default_route_table_id, str):
             raise TypeError("Expected argument 'association_default_route_table_id' to be a str")
         pulumi.set(__self__, "association_default_route_table_id", association_default_route_table_id)
@@ -47,6 +47,9 @@ class GetTransitGatewayResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if transit_gateway_arn and not isinstance(transit_gateway_arn, str):
+            raise TypeError("Expected argument 'transit_gateway_arn' to be a str")
+        pulumi.set(__self__, "transit_gateway_arn", transit_gateway_arn)
         if transit_gateway_cidr_blocks and not isinstance(transit_gateway_cidr_blocks, list):
             raise TypeError("Expected argument 'transit_gateway_cidr_blocks' to be a list")
         pulumi.set(__self__, "transit_gateway_cidr_blocks", transit_gateway_cidr_blocks)
@@ -100,6 +103,11 @@ class GetTransitGatewayResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="transitGatewayArn")
+    def transit_gateway_arn(self) -> Optional[str]:
+        return pulumi.get(self, "transit_gateway_arn")
+
+    @property
     @pulumi.getter(name="transitGatewayCidrBlocks")
     def transit_gateway_cidr_blocks(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "transit_gateway_cidr_blocks")
@@ -125,6 +133,7 @@ class AwaitableGetTransitGatewayResult(GetTransitGatewayResult):
             id=self.id,
             propagation_default_route_table_id=self.propagation_default_route_table_id,
             tags=self.tags,
+            transit_gateway_arn=self.transit_gateway_arn,
             transit_gateway_cidr_blocks=self.transit_gateway_cidr_blocks,
             vpn_ecmp_support=self.vpn_ecmp_support)
 
@@ -149,6 +158,7 @@ def get_transit_gateway(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         propagation_default_route_table_id=pulumi.get(__ret__, 'propagation_default_route_table_id'),
         tags=pulumi.get(__ret__, 'tags'),
+        transit_gateway_arn=pulumi.get(__ret__, 'transit_gateway_arn'),
         transit_gateway_cidr_blocks=pulumi.get(__ret__, 'transit_gateway_cidr_blocks'),
         vpn_ecmp_support=pulumi.get(__ret__, 'vpn_ecmp_support'))
 

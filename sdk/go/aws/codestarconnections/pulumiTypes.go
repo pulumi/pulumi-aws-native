@@ -147,9 +147,146 @@ func (o ConnectionTagArrayOutput) Index(i pulumi.IntInput) ConnectionTagOutput {
 	}).(ConnectionTagOutput)
 }
 
+// A key-value pair to associate with a resource.
+type RepositoryLinkTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, , ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, , ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// RepositoryLinkTagInput is an input type that accepts RepositoryLinkTagArgs and RepositoryLinkTagOutput values.
+// You can construct a concrete instance of `RepositoryLinkTagInput` via:
+//
+//	RepositoryLinkTagArgs{...}
+type RepositoryLinkTagInput interface {
+	pulumi.Input
+
+	ToRepositoryLinkTagOutput() RepositoryLinkTagOutput
+	ToRepositoryLinkTagOutputWithContext(context.Context) RepositoryLinkTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type RepositoryLinkTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, , ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, , ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RepositoryLinkTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryLinkTag)(nil)).Elem()
+}
+
+func (i RepositoryLinkTagArgs) ToRepositoryLinkTagOutput() RepositoryLinkTagOutput {
+	return i.ToRepositoryLinkTagOutputWithContext(context.Background())
+}
+
+func (i RepositoryLinkTagArgs) ToRepositoryLinkTagOutputWithContext(ctx context.Context) RepositoryLinkTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryLinkTagOutput)
+}
+
+func (i RepositoryLinkTagArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryLinkTag] {
+	return pulumix.Output[RepositoryLinkTag]{
+		OutputState: i.ToRepositoryLinkTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// RepositoryLinkTagArrayInput is an input type that accepts RepositoryLinkTagArray and RepositoryLinkTagArrayOutput values.
+// You can construct a concrete instance of `RepositoryLinkTagArrayInput` via:
+//
+//	RepositoryLinkTagArray{ RepositoryLinkTagArgs{...} }
+type RepositoryLinkTagArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryLinkTagArrayOutput() RepositoryLinkTagArrayOutput
+	ToRepositoryLinkTagArrayOutputWithContext(context.Context) RepositoryLinkTagArrayOutput
+}
+
+type RepositoryLinkTagArray []RepositoryLinkTagInput
+
+func (RepositoryLinkTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryLinkTag)(nil)).Elem()
+}
+
+func (i RepositoryLinkTagArray) ToRepositoryLinkTagArrayOutput() RepositoryLinkTagArrayOutput {
+	return i.ToRepositoryLinkTagArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryLinkTagArray) ToRepositoryLinkTagArrayOutputWithContext(ctx context.Context) RepositoryLinkTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryLinkTagArrayOutput)
+}
+
+func (i RepositoryLinkTagArray) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryLinkTag] {
+	return pulumix.Output[[]RepositoryLinkTag]{
+		OutputState: i.ToRepositoryLinkTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A key-value pair to associate with a resource.
+type RepositoryLinkTagOutput struct{ *pulumi.OutputState }
+
+func (RepositoryLinkTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryLinkTag)(nil)).Elem()
+}
+
+func (o RepositoryLinkTagOutput) ToRepositoryLinkTagOutput() RepositoryLinkTagOutput {
+	return o
+}
+
+func (o RepositoryLinkTagOutput) ToRepositoryLinkTagOutputWithContext(ctx context.Context) RepositoryLinkTagOutput {
+	return o
+}
+
+func (o RepositoryLinkTagOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryLinkTag] {
+	return pulumix.Output[RepositoryLinkTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, , ., /, =, +, and -.
+func (o RepositoryLinkTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryLinkTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, , ., /, =, +, and -.
+func (o RepositoryLinkTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryLinkTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RepositoryLinkTagArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryLinkTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryLinkTag)(nil)).Elem()
+}
+
+func (o RepositoryLinkTagArrayOutput) ToRepositoryLinkTagArrayOutput() RepositoryLinkTagArrayOutput {
+	return o
+}
+
+func (o RepositoryLinkTagArrayOutput) ToRepositoryLinkTagArrayOutputWithContext(ctx context.Context) RepositoryLinkTagArrayOutput {
+	return o
+}
+
+func (o RepositoryLinkTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryLinkTag] {
+	return pulumix.Output[[]RepositoryLinkTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RepositoryLinkTagArrayOutput) Index(i pulumi.IntInput) RepositoryLinkTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryLinkTag {
+		return vs[0].([]RepositoryLinkTag)[vs[1].(int)]
+	}).(RepositoryLinkTagOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTagInput)(nil)).Elem(), ConnectionTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTagArrayInput)(nil)).Elem(), ConnectionTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryLinkTagInput)(nil)).Elem(), RepositoryLinkTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryLinkTagArrayInput)(nil)).Elem(), RepositoryLinkTagArray{})
 	pulumi.RegisterOutputType(ConnectionTagOutput{})
 	pulumi.RegisterOutputType(ConnectionTagArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryLinkTagOutput{})
+	pulumi.RegisterOutputType(RepositoryLinkTagArrayOutput{})
 }

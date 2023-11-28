@@ -7,6 +7,8 @@ from enum import Enum
 __all__ = [
     'AccountPolicyPolicyType',
     'AccountPolicyScope',
+    'LogAnomalyDetectorEvaluationFrequency',
+    'LogGroupClass',
     'MetricFilterMetricTransformationUnit',
     'SubscriptionFilterDistribution',
 ]
@@ -24,6 +26,25 @@ class AccountPolicyScope(str, Enum):
     Scope for policy application
     """
     ALL = "ALL"
+
+
+class LogAnomalyDetectorEvaluationFrequency(str, Enum):
+    """
+    How often log group is evaluated
+    """
+    FIVE_MIN = "FIVE_MIN"
+    TEN_MIN = "TEN_MIN"
+    FIFTEEN_MIN = "FIFTEEN_MIN"
+    THIRTY_MIN = "THIRTY_MIN"
+    ONE_HOUR = "ONE_HOUR"
+
+
+class LogGroupClass(str, Enum):
+    """
+    The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS, with STANDARD being the default class
+    """
+    STANDARD = "STANDARD"
+    INFREQUENT_ACCESS = "INFREQUENT_ACCESS"
 
 
 class MetricFilterMetricTransformationUnit(str, Enum):

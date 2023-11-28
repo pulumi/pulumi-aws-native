@@ -375,6 +375,375 @@ func (in *accountPolicyScopePtr) ToOutput(ctx context.Context) pulumix.Output[*A
 	}
 }
 
+// How often log group is evaluated
+type LogAnomalyDetectorEvaluationFrequency string
+
+const (
+	LogAnomalyDetectorEvaluationFrequencyFiveMin    = LogAnomalyDetectorEvaluationFrequency("FIVE_MIN")
+	LogAnomalyDetectorEvaluationFrequencyTenMin     = LogAnomalyDetectorEvaluationFrequency("TEN_MIN")
+	LogAnomalyDetectorEvaluationFrequencyFifteenMin = LogAnomalyDetectorEvaluationFrequency("FIFTEEN_MIN")
+	LogAnomalyDetectorEvaluationFrequencyThirtyMin  = LogAnomalyDetectorEvaluationFrequency("THIRTY_MIN")
+	LogAnomalyDetectorEvaluationFrequencyOneHour    = LogAnomalyDetectorEvaluationFrequency("ONE_HOUR")
+)
+
+func (LogAnomalyDetectorEvaluationFrequency) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAnomalyDetectorEvaluationFrequency)(nil)).Elem()
+}
+
+func (e LogAnomalyDetectorEvaluationFrequency) ToLogAnomalyDetectorEvaluationFrequencyOutput() LogAnomalyDetectorEvaluationFrequencyOutput {
+	return pulumi.ToOutput(e).(LogAnomalyDetectorEvaluationFrequencyOutput)
+}
+
+func (e LogAnomalyDetectorEvaluationFrequency) ToLogAnomalyDetectorEvaluationFrequencyOutputWithContext(ctx context.Context) LogAnomalyDetectorEvaluationFrequencyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LogAnomalyDetectorEvaluationFrequencyOutput)
+}
+
+func (e LogAnomalyDetectorEvaluationFrequency) ToLogAnomalyDetectorEvaluationFrequencyPtrOutput() LogAnomalyDetectorEvaluationFrequencyPtrOutput {
+	return e.ToLogAnomalyDetectorEvaluationFrequencyPtrOutputWithContext(context.Background())
+}
+
+func (e LogAnomalyDetectorEvaluationFrequency) ToLogAnomalyDetectorEvaluationFrequencyPtrOutputWithContext(ctx context.Context) LogAnomalyDetectorEvaluationFrequencyPtrOutput {
+	return LogAnomalyDetectorEvaluationFrequency(e).ToLogAnomalyDetectorEvaluationFrequencyOutputWithContext(ctx).ToLogAnomalyDetectorEvaluationFrequencyPtrOutputWithContext(ctx)
+}
+
+func (e LogAnomalyDetectorEvaluationFrequency) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LogAnomalyDetectorEvaluationFrequency) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LogAnomalyDetectorEvaluationFrequency) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LogAnomalyDetectorEvaluationFrequency) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LogAnomalyDetectorEvaluationFrequencyOutput struct{ *pulumi.OutputState }
+
+func (LogAnomalyDetectorEvaluationFrequencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogAnomalyDetectorEvaluationFrequency)(nil)).Elem()
+}
+
+func (o LogAnomalyDetectorEvaluationFrequencyOutput) ToLogAnomalyDetectorEvaluationFrequencyOutput() LogAnomalyDetectorEvaluationFrequencyOutput {
+	return o
+}
+
+func (o LogAnomalyDetectorEvaluationFrequencyOutput) ToLogAnomalyDetectorEvaluationFrequencyOutputWithContext(ctx context.Context) LogAnomalyDetectorEvaluationFrequencyOutput {
+	return o
+}
+
+func (o LogAnomalyDetectorEvaluationFrequencyOutput) ToLogAnomalyDetectorEvaluationFrequencyPtrOutput() LogAnomalyDetectorEvaluationFrequencyPtrOutput {
+	return o.ToLogAnomalyDetectorEvaluationFrequencyPtrOutputWithContext(context.Background())
+}
+
+func (o LogAnomalyDetectorEvaluationFrequencyOutput) ToLogAnomalyDetectorEvaluationFrequencyPtrOutputWithContext(ctx context.Context) LogAnomalyDetectorEvaluationFrequencyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogAnomalyDetectorEvaluationFrequency) *LogAnomalyDetectorEvaluationFrequency {
+		return &v
+	}).(LogAnomalyDetectorEvaluationFrequencyPtrOutput)
+}
+
+func (o LogAnomalyDetectorEvaluationFrequencyOutput) ToOutput(ctx context.Context) pulumix.Output[LogAnomalyDetectorEvaluationFrequency] {
+	return pulumix.Output[LogAnomalyDetectorEvaluationFrequency]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LogAnomalyDetectorEvaluationFrequencyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LogAnomalyDetectorEvaluationFrequencyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LogAnomalyDetectorEvaluationFrequency) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LogAnomalyDetectorEvaluationFrequencyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LogAnomalyDetectorEvaluationFrequencyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LogAnomalyDetectorEvaluationFrequency) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogAnomalyDetectorEvaluationFrequencyPtrOutput struct{ *pulumi.OutputState }
+
+func (LogAnomalyDetectorEvaluationFrequencyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogAnomalyDetectorEvaluationFrequency)(nil)).Elem()
+}
+
+func (o LogAnomalyDetectorEvaluationFrequencyPtrOutput) ToLogAnomalyDetectorEvaluationFrequencyPtrOutput() LogAnomalyDetectorEvaluationFrequencyPtrOutput {
+	return o
+}
+
+func (o LogAnomalyDetectorEvaluationFrequencyPtrOutput) ToLogAnomalyDetectorEvaluationFrequencyPtrOutputWithContext(ctx context.Context) LogAnomalyDetectorEvaluationFrequencyPtrOutput {
+	return o
+}
+
+func (o LogAnomalyDetectorEvaluationFrequencyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LogAnomalyDetectorEvaluationFrequency] {
+	return pulumix.Output[*LogAnomalyDetectorEvaluationFrequency]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LogAnomalyDetectorEvaluationFrequencyPtrOutput) Elem() LogAnomalyDetectorEvaluationFrequencyOutput {
+	return o.ApplyT(func(v *LogAnomalyDetectorEvaluationFrequency) LogAnomalyDetectorEvaluationFrequency {
+		if v != nil {
+			return *v
+		}
+		var ret LogAnomalyDetectorEvaluationFrequency
+		return ret
+	}).(LogAnomalyDetectorEvaluationFrequencyOutput)
+}
+
+func (o LogAnomalyDetectorEvaluationFrequencyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LogAnomalyDetectorEvaluationFrequencyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LogAnomalyDetectorEvaluationFrequency) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LogAnomalyDetectorEvaluationFrequencyInput is an input type that accepts LogAnomalyDetectorEvaluationFrequencyArgs and LogAnomalyDetectorEvaluationFrequencyOutput values.
+// You can construct a concrete instance of `LogAnomalyDetectorEvaluationFrequencyInput` via:
+//
+//	LogAnomalyDetectorEvaluationFrequencyArgs{...}
+type LogAnomalyDetectorEvaluationFrequencyInput interface {
+	pulumi.Input
+
+	ToLogAnomalyDetectorEvaluationFrequencyOutput() LogAnomalyDetectorEvaluationFrequencyOutput
+	ToLogAnomalyDetectorEvaluationFrequencyOutputWithContext(context.Context) LogAnomalyDetectorEvaluationFrequencyOutput
+}
+
+var logAnomalyDetectorEvaluationFrequencyPtrType = reflect.TypeOf((**LogAnomalyDetectorEvaluationFrequency)(nil)).Elem()
+
+type LogAnomalyDetectorEvaluationFrequencyPtrInput interface {
+	pulumi.Input
+
+	ToLogAnomalyDetectorEvaluationFrequencyPtrOutput() LogAnomalyDetectorEvaluationFrequencyPtrOutput
+	ToLogAnomalyDetectorEvaluationFrequencyPtrOutputWithContext(context.Context) LogAnomalyDetectorEvaluationFrequencyPtrOutput
+}
+
+type logAnomalyDetectorEvaluationFrequencyPtr string
+
+func LogAnomalyDetectorEvaluationFrequencyPtr(v string) LogAnomalyDetectorEvaluationFrequencyPtrInput {
+	return (*logAnomalyDetectorEvaluationFrequencyPtr)(&v)
+}
+
+func (*logAnomalyDetectorEvaluationFrequencyPtr) ElementType() reflect.Type {
+	return logAnomalyDetectorEvaluationFrequencyPtrType
+}
+
+func (in *logAnomalyDetectorEvaluationFrequencyPtr) ToLogAnomalyDetectorEvaluationFrequencyPtrOutput() LogAnomalyDetectorEvaluationFrequencyPtrOutput {
+	return pulumi.ToOutput(in).(LogAnomalyDetectorEvaluationFrequencyPtrOutput)
+}
+
+func (in *logAnomalyDetectorEvaluationFrequencyPtr) ToLogAnomalyDetectorEvaluationFrequencyPtrOutputWithContext(ctx context.Context) LogAnomalyDetectorEvaluationFrequencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LogAnomalyDetectorEvaluationFrequencyPtrOutput)
+}
+
+func (in *logAnomalyDetectorEvaluationFrequencyPtr) ToOutput(ctx context.Context) pulumix.Output[*LogAnomalyDetectorEvaluationFrequency] {
+	return pulumix.Output[*LogAnomalyDetectorEvaluationFrequency]{
+		OutputState: in.ToLogAnomalyDetectorEvaluationFrequencyPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS, with STANDARD being the default class
+type LogGroupClass string
+
+const (
+	LogGroupClassStandard         = LogGroupClass("STANDARD")
+	LogGroupClassInfrequentAccess = LogGroupClass("INFREQUENT_ACCESS")
+)
+
+func (LogGroupClass) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogGroupClass)(nil)).Elem()
+}
+
+func (e LogGroupClass) ToLogGroupClassOutput() LogGroupClassOutput {
+	return pulumi.ToOutput(e).(LogGroupClassOutput)
+}
+
+func (e LogGroupClass) ToLogGroupClassOutputWithContext(ctx context.Context) LogGroupClassOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LogGroupClassOutput)
+}
+
+func (e LogGroupClass) ToLogGroupClassPtrOutput() LogGroupClassPtrOutput {
+	return e.ToLogGroupClassPtrOutputWithContext(context.Background())
+}
+
+func (e LogGroupClass) ToLogGroupClassPtrOutputWithContext(ctx context.Context) LogGroupClassPtrOutput {
+	return LogGroupClass(e).ToLogGroupClassOutputWithContext(ctx).ToLogGroupClassPtrOutputWithContext(ctx)
+}
+
+func (e LogGroupClass) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LogGroupClass) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LogGroupClass) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LogGroupClass) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LogGroupClassOutput struct{ *pulumi.OutputState }
+
+func (LogGroupClassOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogGroupClass)(nil)).Elem()
+}
+
+func (o LogGroupClassOutput) ToLogGroupClassOutput() LogGroupClassOutput {
+	return o
+}
+
+func (o LogGroupClassOutput) ToLogGroupClassOutputWithContext(ctx context.Context) LogGroupClassOutput {
+	return o
+}
+
+func (o LogGroupClassOutput) ToLogGroupClassPtrOutput() LogGroupClassPtrOutput {
+	return o.ToLogGroupClassPtrOutputWithContext(context.Background())
+}
+
+func (o LogGroupClassOutput) ToLogGroupClassPtrOutputWithContext(ctx context.Context) LogGroupClassPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogGroupClass) *LogGroupClass {
+		return &v
+	}).(LogGroupClassPtrOutput)
+}
+
+func (o LogGroupClassOutput) ToOutput(ctx context.Context) pulumix.Output[LogGroupClass] {
+	return pulumix.Output[LogGroupClass]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LogGroupClassOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LogGroupClassOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LogGroupClass) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LogGroupClassOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LogGroupClassOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LogGroupClass) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogGroupClassPtrOutput struct{ *pulumi.OutputState }
+
+func (LogGroupClassPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogGroupClass)(nil)).Elem()
+}
+
+func (o LogGroupClassPtrOutput) ToLogGroupClassPtrOutput() LogGroupClassPtrOutput {
+	return o
+}
+
+func (o LogGroupClassPtrOutput) ToLogGroupClassPtrOutputWithContext(ctx context.Context) LogGroupClassPtrOutput {
+	return o
+}
+
+func (o LogGroupClassPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LogGroupClass] {
+	return pulumix.Output[*LogGroupClass]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LogGroupClassPtrOutput) Elem() LogGroupClassOutput {
+	return o.ApplyT(func(v *LogGroupClass) LogGroupClass {
+		if v != nil {
+			return *v
+		}
+		var ret LogGroupClass
+		return ret
+	}).(LogGroupClassOutput)
+}
+
+func (o LogGroupClassPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LogGroupClassPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LogGroupClass) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LogGroupClassInput is an input type that accepts LogGroupClassArgs and LogGroupClassOutput values.
+// You can construct a concrete instance of `LogGroupClassInput` via:
+//
+//	LogGroupClassArgs{...}
+type LogGroupClassInput interface {
+	pulumi.Input
+
+	ToLogGroupClassOutput() LogGroupClassOutput
+	ToLogGroupClassOutputWithContext(context.Context) LogGroupClassOutput
+}
+
+var logGroupClassPtrType = reflect.TypeOf((**LogGroupClass)(nil)).Elem()
+
+type LogGroupClassPtrInput interface {
+	pulumi.Input
+
+	ToLogGroupClassPtrOutput() LogGroupClassPtrOutput
+	ToLogGroupClassPtrOutputWithContext(context.Context) LogGroupClassPtrOutput
+}
+
+type logGroupClassPtr string
+
+func LogGroupClassPtr(v string) LogGroupClassPtrInput {
+	return (*logGroupClassPtr)(&v)
+}
+
+func (*logGroupClassPtr) ElementType() reflect.Type {
+	return logGroupClassPtrType
+}
+
+func (in *logGroupClassPtr) ToLogGroupClassPtrOutput() LogGroupClassPtrOutput {
+	return pulumi.ToOutput(in).(LogGroupClassPtrOutput)
+}
+
+func (in *logGroupClassPtr) ToLogGroupClassPtrOutputWithContext(ctx context.Context) LogGroupClassPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LogGroupClassPtrOutput)
+}
+
+func (in *logGroupClassPtr) ToOutput(ctx context.Context) pulumix.Output[*LogGroupClass] {
+	return pulumix.Output[*LogGroupClass]{
+		OutputState: in.ToLogGroupClassPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The unit to assign to the metric. If you omit this, the unit is set as None.
 type MetricFilterMetricTransformationUnit string
 
@@ -771,6 +1140,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountPolicyPolicyTypePtrInput)(nil)).Elem(), AccountPolicyPolicyType("DATA_PROTECTION_POLICY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountPolicyScopeInput)(nil)).Elem(), AccountPolicyScope("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountPolicyScopePtrInput)(nil)).Elem(), AccountPolicyScope("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LogAnomalyDetectorEvaluationFrequencyInput)(nil)).Elem(), LogAnomalyDetectorEvaluationFrequency("FIVE_MIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LogAnomalyDetectorEvaluationFrequencyPtrInput)(nil)).Elem(), LogAnomalyDetectorEvaluationFrequency("FIVE_MIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LogGroupClassInput)(nil)).Elem(), LogGroupClass("STANDARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LogGroupClassPtrInput)(nil)).Elem(), LogGroupClass("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterMetricTransformationUnitInput)(nil)).Elem(), MetricFilterMetricTransformationUnit("Seconds"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterMetricTransformationUnitPtrInput)(nil)).Elem(), MetricFilterMetricTransformationUnit("Seconds"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionFilterDistributionInput)(nil)).Elem(), SubscriptionFilterDistribution("Random"))
@@ -779,6 +1152,10 @@ func init() {
 	pulumi.RegisterOutputType(AccountPolicyPolicyTypePtrOutput{})
 	pulumi.RegisterOutputType(AccountPolicyScopeOutput{})
 	pulumi.RegisterOutputType(AccountPolicyScopePtrOutput{})
+	pulumi.RegisterOutputType(LogAnomalyDetectorEvaluationFrequencyOutput{})
+	pulumi.RegisterOutputType(LogAnomalyDetectorEvaluationFrequencyPtrOutput{})
+	pulumi.RegisterOutputType(LogGroupClassOutput{})
+	pulumi.RegisterOutputType(LogGroupClassPtrOutput{})
 	pulumi.RegisterOutputType(MetricFilterMetricTransformationUnitOutput{})
 	pulumi.RegisterOutputType(MetricFilterMetricTransformationUnitPtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionFilterDistributionOutput{})

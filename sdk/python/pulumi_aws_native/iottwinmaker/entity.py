@@ -18,6 +18,7 @@ class EntityArgs:
     def __init__(__self__, *,
                  workspace_id: pulumi.Input[str],
                  components: Optional[Any] = None,
+                 composite_components: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  entity_id: Optional[pulumi.Input[str]] = None,
                  entity_name: Optional[pulumi.Input[str]] = None,
@@ -27,6 +28,7 @@ class EntityArgs:
         The set of arguments for constructing a Entity resource.
         :param pulumi.Input[str] workspace_id: The ID of the workspace.
         :param Any components: A map that sets information about a component type.
+        :param Any composite_components: A map that sets information about a composite component.
         :param pulumi.Input[str] description: The description of the entity.
         :param pulumi.Input[str] entity_id: The ID of the entity.
         :param pulumi.Input[str] entity_name: The name of the entity.
@@ -36,6 +38,8 @@ class EntityArgs:
         pulumi.set(__self__, "workspace_id", workspace_id)
         if components is not None:
             pulumi.set(__self__, "components", components)
+        if composite_components is not None:
+            pulumi.set(__self__, "composite_components", composite_components)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if entity_id is not None:
@@ -70,6 +74,18 @@ class EntityArgs:
     @components.setter
     def components(self, value: Optional[Any]):
         pulumi.set(self, "components", value)
+
+    @property
+    @pulumi.getter(name="compositeComponents")
+    def composite_components(self) -> Optional[Any]:
+        """
+        A map that sets information about a composite component.
+        """
+        return pulumi.get(self, "composite_components")
+
+    @composite_components.setter
+    def composite_components(self, value: Optional[Any]):
+        pulumi.set(self, "composite_components", value)
 
     @property
     @pulumi.getter
@@ -138,6 +154,7 @@ class Entity(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  components: Optional[Any] = None,
+                 composite_components: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  entity_id: Optional[pulumi.Input[str]] = None,
                  entity_name: Optional[pulumi.Input[str]] = None,
@@ -151,6 +168,7 @@ class Entity(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any components: A map that sets information about a component type.
+        :param Any composite_components: A map that sets information about a composite component.
         :param pulumi.Input[str] description: The description of the entity.
         :param pulumi.Input[str] entity_id: The ID of the entity.
         :param pulumi.Input[str] entity_name: The name of the entity.
@@ -183,6 +201,7 @@ class Entity(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  components: Optional[Any] = None,
+                 composite_components: Optional[Any] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  entity_id: Optional[pulumi.Input[str]] = None,
                  entity_name: Optional[pulumi.Input[str]] = None,
@@ -199,6 +218,7 @@ class Entity(pulumi.CustomResource):
             __props__ = EntityArgs.__new__(EntityArgs)
 
             __props__.__dict__["components"] = components
+            __props__.__dict__["composite_components"] = composite_components
             __props__.__dict__["description"] = description
             __props__.__dict__["entity_id"] = entity_id
             __props__.__dict__["entity_name"] = entity_name
@@ -238,6 +258,7 @@ class Entity(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["components"] = None
+        __props__.__dict__["composite_components"] = None
         __props__.__dict__["creation_date_time"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["entity_id"] = None
@@ -265,6 +286,14 @@ class Entity(pulumi.CustomResource):
         A map that sets information about a component type.
         """
         return pulumi.get(self, "components")
+
+    @property
+    @pulumi.getter(name="compositeComponents")
+    def composite_components(self) -> pulumi.Output[Optional[Any]]:
+        """
+        A map that sets information about a composite component.
+        """
+        return pulumi.get(self, "composite_components")
 
     @property
     @pulumi.getter(name="creationDateTime")

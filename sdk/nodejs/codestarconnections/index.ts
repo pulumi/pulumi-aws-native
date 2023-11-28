@@ -15,6 +15,26 @@ export const getConnection: typeof import("./getConnection").getConnection = nul
 export const getConnectionOutput: typeof import("./getConnection").getConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getConnection","getConnectionOutput"], () => require("./getConnection"));
 
+export { GetRepositoryLinkArgs, GetRepositoryLinkResult, GetRepositoryLinkOutputArgs } from "./getRepositoryLink";
+export const getRepositoryLink: typeof import("./getRepositoryLink").getRepositoryLink = null as any;
+export const getRepositoryLinkOutput: typeof import("./getRepositoryLink").getRepositoryLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getRepositoryLink","getRepositoryLinkOutput"], () => require("./getRepositoryLink"));
+
+export { GetSyncConfigurationArgs, GetSyncConfigurationResult, GetSyncConfigurationOutputArgs } from "./getSyncConfiguration";
+export const getSyncConfiguration: typeof import("./getSyncConfiguration").getSyncConfiguration = null as any;
+export const getSyncConfigurationOutput: typeof import("./getSyncConfiguration").getSyncConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getSyncConfiguration","getSyncConfigurationOutput"], () => require("./getSyncConfiguration"));
+
+export { RepositoryLinkArgs } from "./repositoryLink";
+export type RepositoryLink = import("./repositoryLink").RepositoryLink;
+export const RepositoryLink: typeof import("./repositoryLink").RepositoryLink = null as any;
+utilities.lazyLoad(exports, ["RepositoryLink"], () => require("./repositoryLink"));
+
+export { SyncConfigurationArgs } from "./syncConfiguration";
+export type SyncConfiguration = import("./syncConfiguration").SyncConfiguration;
+export const SyncConfiguration: typeof import("./syncConfiguration").SyncConfiguration = null as any;
+utilities.lazyLoad(exports, ["SyncConfiguration"], () => require("./syncConfiguration"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -22,6 +42,10 @@ const _module = {
         switch (type) {
             case "aws-native:codestarconnections:Connection":
                 return new Connection(name, <any>undefined, { urn })
+            case "aws-native:codestarconnections:RepositoryLink":
+                return new RepositoryLink(name, <any>undefined, { urn })
+            case "aws-native:codestarconnections:SyncConfiguration":
+                return new SyncConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

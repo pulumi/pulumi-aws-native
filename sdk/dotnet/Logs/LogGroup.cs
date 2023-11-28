@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.Logs
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
+        /// The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS, with STANDARD being the default class
+        /// </summary>
+        [Output("logGroupClass")]
+        public Output<Pulumi.AwsNative.Logs.LogGroupClass?> LogGroupClass { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
         /// </summary>
         [Output("logGroupName")]
@@ -123,6 +129,12 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
+
+        /// <summary>
+        /// The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS, with STANDARD being the default class
+        /// </summary>
+        [Input("logGroupClass")]
+        public Input<Pulumi.AwsNative.Logs.LogGroupClass>? LogGroupClass { get; set; }
 
         /// <summary>
         /// The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.

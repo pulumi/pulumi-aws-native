@@ -12,8 +12,10 @@ from . import outputs
 
 __all__ = [
     'AnalyzerArchiveRule',
+    'AnalyzerConfigurationProperties',
     'AnalyzerFilter',
     'AnalyzerTag',
+    'AnalyzerUnusedAccessConfiguration',
 ]
 
 @pulumi.output_type
@@ -60,6 +62,42 @@ class AnalyzerArchiveRule(dict):
         The archive rule name
         """
         return pulumi.get(self, "rule_name")
+
+
+@pulumi.output_type
+class AnalyzerConfigurationProperties(dict):
+    """
+    The configuration for the analyzer
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unusedAccessConfiguration":
+            suggest = "unused_access_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyzerConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyzerConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyzerConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unused_access_configuration: Optional['outputs.AnalyzerUnusedAccessConfiguration'] = None):
+        """
+        The configuration for the analyzer
+        """
+        if unused_access_configuration is not None:
+            pulumi.set(__self__, "unused_access_configuration", unused_access_configuration)
+
+    @property
+    @pulumi.getter(name="unusedAccessConfiguration")
+    def unused_access_configuration(self) -> Optional['outputs.AnalyzerUnusedAccessConfiguration']:
+        return pulumi.get(self, "unused_access_configuration")
 
 
 @pulumi.output_type
@@ -137,5 +175,45 @@ class AnalyzerTag(dict):
         The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AnalyzerUnusedAccessConfiguration(dict):
+    """
+    The Configuration for Unused Access Analyzer
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "unusedAccessAge":
+            suggest = "unused_access_age"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyzerUnusedAccessConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyzerUnusedAccessConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyzerUnusedAccessConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unused_access_age: Optional[int] = None):
+        """
+        The Configuration for Unused Access Analyzer
+        :param int unused_access_age: The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that haven't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+        """
+        if unused_access_age is not None:
+            pulumi.set(__self__, "unused_access_age", unused_access_age)
+
+    @property
+    @pulumi.getter(name="unusedAccessAge")
+    def unused_access_age(self) -> Optional[int]:
+        """
+        The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that haven't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+        """
+        return pulumi.get(self, "unused_access_age")
 
 

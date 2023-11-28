@@ -144,6 +144,168 @@ func (o AnalyzerArchiveRuleArrayOutput) Index(i pulumi.IntInput) AnalyzerArchive
 	}).(AnalyzerArchiveRuleOutput)
 }
 
+// The configuration for the analyzer
+type AnalyzerConfigurationProperties struct {
+	UnusedAccessConfiguration *AnalyzerUnusedAccessConfiguration `pulumi:"unusedAccessConfiguration"`
+}
+
+// AnalyzerConfigurationPropertiesInput is an input type that accepts AnalyzerConfigurationPropertiesArgs and AnalyzerConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `AnalyzerConfigurationPropertiesInput` via:
+//
+//	AnalyzerConfigurationPropertiesArgs{...}
+type AnalyzerConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToAnalyzerConfigurationPropertiesOutput() AnalyzerConfigurationPropertiesOutput
+	ToAnalyzerConfigurationPropertiesOutputWithContext(context.Context) AnalyzerConfigurationPropertiesOutput
+}
+
+// The configuration for the analyzer
+type AnalyzerConfigurationPropertiesArgs struct {
+	UnusedAccessConfiguration AnalyzerUnusedAccessConfigurationPtrInput `pulumi:"unusedAccessConfiguration"`
+}
+
+func (AnalyzerConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyzerConfigurationProperties)(nil)).Elem()
+}
+
+func (i AnalyzerConfigurationPropertiesArgs) ToAnalyzerConfigurationPropertiesOutput() AnalyzerConfigurationPropertiesOutput {
+	return i.ToAnalyzerConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i AnalyzerConfigurationPropertiesArgs) ToAnalyzerConfigurationPropertiesOutputWithContext(ctx context.Context) AnalyzerConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerConfigurationPropertiesOutput)
+}
+
+func (i AnalyzerConfigurationPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyzerConfigurationProperties] {
+	return pulumix.Output[AnalyzerConfigurationProperties]{
+		OutputState: i.ToAnalyzerConfigurationPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i AnalyzerConfigurationPropertiesArgs) ToAnalyzerConfigurationPropertiesPtrOutput() AnalyzerConfigurationPropertiesPtrOutput {
+	return i.ToAnalyzerConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i AnalyzerConfigurationPropertiesArgs) ToAnalyzerConfigurationPropertiesPtrOutputWithContext(ctx context.Context) AnalyzerConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerConfigurationPropertiesOutput).ToAnalyzerConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// AnalyzerConfigurationPropertiesPtrInput is an input type that accepts AnalyzerConfigurationPropertiesArgs, AnalyzerConfigurationPropertiesPtr and AnalyzerConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `AnalyzerConfigurationPropertiesPtrInput` via:
+//
+//	        AnalyzerConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalyzerConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToAnalyzerConfigurationPropertiesPtrOutput() AnalyzerConfigurationPropertiesPtrOutput
+	ToAnalyzerConfigurationPropertiesPtrOutputWithContext(context.Context) AnalyzerConfigurationPropertiesPtrOutput
+}
+
+type analyzerConfigurationPropertiesPtrType AnalyzerConfigurationPropertiesArgs
+
+func AnalyzerConfigurationPropertiesPtr(v *AnalyzerConfigurationPropertiesArgs) AnalyzerConfigurationPropertiesPtrInput {
+	return (*analyzerConfigurationPropertiesPtrType)(v)
+}
+
+func (*analyzerConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyzerConfigurationProperties)(nil)).Elem()
+}
+
+func (i *analyzerConfigurationPropertiesPtrType) ToAnalyzerConfigurationPropertiesPtrOutput() AnalyzerConfigurationPropertiesPtrOutput {
+	return i.ToAnalyzerConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *analyzerConfigurationPropertiesPtrType) ToAnalyzerConfigurationPropertiesPtrOutputWithContext(ctx context.Context) AnalyzerConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerConfigurationPropertiesPtrOutput)
+}
+
+func (i *analyzerConfigurationPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyzerConfigurationProperties] {
+	return pulumix.Output[*AnalyzerConfigurationProperties]{
+		OutputState: i.ToAnalyzerConfigurationPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The configuration for the analyzer
+type AnalyzerConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (AnalyzerConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyzerConfigurationProperties)(nil)).Elem()
+}
+
+func (o AnalyzerConfigurationPropertiesOutput) ToAnalyzerConfigurationPropertiesOutput() AnalyzerConfigurationPropertiesOutput {
+	return o
+}
+
+func (o AnalyzerConfigurationPropertiesOutput) ToAnalyzerConfigurationPropertiesOutputWithContext(ctx context.Context) AnalyzerConfigurationPropertiesOutput {
+	return o
+}
+
+func (o AnalyzerConfigurationPropertiesOutput) ToAnalyzerConfigurationPropertiesPtrOutput() AnalyzerConfigurationPropertiesPtrOutput {
+	return o.ToAnalyzerConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o AnalyzerConfigurationPropertiesOutput) ToAnalyzerConfigurationPropertiesPtrOutputWithContext(ctx context.Context) AnalyzerConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyzerConfigurationProperties) *AnalyzerConfigurationProperties {
+		return &v
+	}).(AnalyzerConfigurationPropertiesPtrOutput)
+}
+
+func (o AnalyzerConfigurationPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyzerConfigurationProperties] {
+	return pulumix.Output[AnalyzerConfigurationProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AnalyzerConfigurationPropertiesOutput) UnusedAccessConfiguration() AnalyzerUnusedAccessConfigurationPtrOutput {
+	return o.ApplyT(func(v AnalyzerConfigurationProperties) *AnalyzerUnusedAccessConfiguration {
+		return v.UnusedAccessConfiguration
+	}).(AnalyzerUnusedAccessConfigurationPtrOutput)
+}
+
+type AnalyzerConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalyzerConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyzerConfigurationProperties)(nil)).Elem()
+}
+
+func (o AnalyzerConfigurationPropertiesPtrOutput) ToAnalyzerConfigurationPropertiesPtrOutput() AnalyzerConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o AnalyzerConfigurationPropertiesPtrOutput) ToAnalyzerConfigurationPropertiesPtrOutputWithContext(ctx context.Context) AnalyzerConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o AnalyzerConfigurationPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyzerConfigurationProperties] {
+	return pulumix.Output[*AnalyzerConfigurationProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AnalyzerConfigurationPropertiesPtrOutput) Elem() AnalyzerConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *AnalyzerConfigurationProperties) AnalyzerConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyzerConfigurationProperties
+		return ret
+	}).(AnalyzerConfigurationPropertiesOutput)
+}
+
+func (o AnalyzerConfigurationPropertiesPtrOutput) UnusedAccessConfiguration() AnalyzerUnusedAccessConfigurationPtrOutput {
+	return o.ApplyT(func(v *AnalyzerConfigurationProperties) *AnalyzerUnusedAccessConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.UnusedAccessConfiguration
+	}).(AnalyzerUnusedAccessConfigurationPtrOutput)
+}
+
 type AnalyzerFilter struct {
 	Contains []string `pulumi:"contains"`
 	Eq       []string `pulumi:"eq"`
@@ -419,17 +581,189 @@ func (o AnalyzerTagArrayOutput) Index(i pulumi.IntInput) AnalyzerTagOutput {
 	}).(AnalyzerTagOutput)
 }
 
+// The Configuration for Unused Access Analyzer
+type AnalyzerUnusedAccessConfiguration struct {
+	// The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that haven't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+	UnusedAccessAge *int `pulumi:"unusedAccessAge"`
+}
+
+// AnalyzerUnusedAccessConfigurationInput is an input type that accepts AnalyzerUnusedAccessConfigurationArgs and AnalyzerUnusedAccessConfigurationOutput values.
+// You can construct a concrete instance of `AnalyzerUnusedAccessConfigurationInput` via:
+//
+//	AnalyzerUnusedAccessConfigurationArgs{...}
+type AnalyzerUnusedAccessConfigurationInput interface {
+	pulumi.Input
+
+	ToAnalyzerUnusedAccessConfigurationOutput() AnalyzerUnusedAccessConfigurationOutput
+	ToAnalyzerUnusedAccessConfigurationOutputWithContext(context.Context) AnalyzerUnusedAccessConfigurationOutput
+}
+
+// The Configuration for Unused Access Analyzer
+type AnalyzerUnusedAccessConfigurationArgs struct {
+	// The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that haven't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+	UnusedAccessAge pulumi.IntPtrInput `pulumi:"unusedAccessAge"`
+}
+
+func (AnalyzerUnusedAccessConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyzerUnusedAccessConfiguration)(nil)).Elem()
+}
+
+func (i AnalyzerUnusedAccessConfigurationArgs) ToAnalyzerUnusedAccessConfigurationOutput() AnalyzerUnusedAccessConfigurationOutput {
+	return i.ToAnalyzerUnusedAccessConfigurationOutputWithContext(context.Background())
+}
+
+func (i AnalyzerUnusedAccessConfigurationArgs) ToAnalyzerUnusedAccessConfigurationOutputWithContext(ctx context.Context) AnalyzerUnusedAccessConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerUnusedAccessConfigurationOutput)
+}
+
+func (i AnalyzerUnusedAccessConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyzerUnusedAccessConfiguration] {
+	return pulumix.Output[AnalyzerUnusedAccessConfiguration]{
+		OutputState: i.ToAnalyzerUnusedAccessConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i AnalyzerUnusedAccessConfigurationArgs) ToAnalyzerUnusedAccessConfigurationPtrOutput() AnalyzerUnusedAccessConfigurationPtrOutput {
+	return i.ToAnalyzerUnusedAccessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AnalyzerUnusedAccessConfigurationArgs) ToAnalyzerUnusedAccessConfigurationPtrOutputWithContext(ctx context.Context) AnalyzerUnusedAccessConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerUnusedAccessConfigurationOutput).ToAnalyzerUnusedAccessConfigurationPtrOutputWithContext(ctx)
+}
+
+// AnalyzerUnusedAccessConfigurationPtrInput is an input type that accepts AnalyzerUnusedAccessConfigurationArgs, AnalyzerUnusedAccessConfigurationPtr and AnalyzerUnusedAccessConfigurationPtrOutput values.
+// You can construct a concrete instance of `AnalyzerUnusedAccessConfigurationPtrInput` via:
+//
+//	        AnalyzerUnusedAccessConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalyzerUnusedAccessConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAnalyzerUnusedAccessConfigurationPtrOutput() AnalyzerUnusedAccessConfigurationPtrOutput
+	ToAnalyzerUnusedAccessConfigurationPtrOutputWithContext(context.Context) AnalyzerUnusedAccessConfigurationPtrOutput
+}
+
+type analyzerUnusedAccessConfigurationPtrType AnalyzerUnusedAccessConfigurationArgs
+
+func AnalyzerUnusedAccessConfigurationPtr(v *AnalyzerUnusedAccessConfigurationArgs) AnalyzerUnusedAccessConfigurationPtrInput {
+	return (*analyzerUnusedAccessConfigurationPtrType)(v)
+}
+
+func (*analyzerUnusedAccessConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyzerUnusedAccessConfiguration)(nil)).Elem()
+}
+
+func (i *analyzerUnusedAccessConfigurationPtrType) ToAnalyzerUnusedAccessConfigurationPtrOutput() AnalyzerUnusedAccessConfigurationPtrOutput {
+	return i.ToAnalyzerUnusedAccessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *analyzerUnusedAccessConfigurationPtrType) ToAnalyzerUnusedAccessConfigurationPtrOutputWithContext(ctx context.Context) AnalyzerUnusedAccessConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerUnusedAccessConfigurationPtrOutput)
+}
+
+func (i *analyzerUnusedAccessConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyzerUnusedAccessConfiguration] {
+	return pulumix.Output[*AnalyzerUnusedAccessConfiguration]{
+		OutputState: i.ToAnalyzerUnusedAccessConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The Configuration for Unused Access Analyzer
+type AnalyzerUnusedAccessConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AnalyzerUnusedAccessConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyzerUnusedAccessConfiguration)(nil)).Elem()
+}
+
+func (o AnalyzerUnusedAccessConfigurationOutput) ToAnalyzerUnusedAccessConfigurationOutput() AnalyzerUnusedAccessConfigurationOutput {
+	return o
+}
+
+func (o AnalyzerUnusedAccessConfigurationOutput) ToAnalyzerUnusedAccessConfigurationOutputWithContext(ctx context.Context) AnalyzerUnusedAccessConfigurationOutput {
+	return o
+}
+
+func (o AnalyzerUnusedAccessConfigurationOutput) ToAnalyzerUnusedAccessConfigurationPtrOutput() AnalyzerUnusedAccessConfigurationPtrOutput {
+	return o.ToAnalyzerUnusedAccessConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AnalyzerUnusedAccessConfigurationOutput) ToAnalyzerUnusedAccessConfigurationPtrOutputWithContext(ctx context.Context) AnalyzerUnusedAccessConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyzerUnusedAccessConfiguration) *AnalyzerUnusedAccessConfiguration {
+		return &v
+	}).(AnalyzerUnusedAccessConfigurationPtrOutput)
+}
+
+func (o AnalyzerUnusedAccessConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyzerUnusedAccessConfiguration] {
+	return pulumix.Output[AnalyzerUnusedAccessConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that haven't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+func (o AnalyzerUnusedAccessConfigurationOutput) UnusedAccessAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AnalyzerUnusedAccessConfiguration) *int { return v.UnusedAccessAge }).(pulumi.IntPtrOutput)
+}
+
+type AnalyzerUnusedAccessConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalyzerUnusedAccessConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyzerUnusedAccessConfiguration)(nil)).Elem()
+}
+
+func (o AnalyzerUnusedAccessConfigurationPtrOutput) ToAnalyzerUnusedAccessConfigurationPtrOutput() AnalyzerUnusedAccessConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalyzerUnusedAccessConfigurationPtrOutput) ToAnalyzerUnusedAccessConfigurationPtrOutputWithContext(ctx context.Context) AnalyzerUnusedAccessConfigurationPtrOutput {
+	return o
+}
+
+func (o AnalyzerUnusedAccessConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyzerUnusedAccessConfiguration] {
+	return pulumix.Output[*AnalyzerUnusedAccessConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AnalyzerUnusedAccessConfigurationPtrOutput) Elem() AnalyzerUnusedAccessConfigurationOutput {
+	return o.ApplyT(func(v *AnalyzerUnusedAccessConfiguration) AnalyzerUnusedAccessConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyzerUnusedAccessConfiguration
+		return ret
+	}).(AnalyzerUnusedAccessConfigurationOutput)
+}
+
+// The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that haven't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+func (o AnalyzerUnusedAccessConfigurationPtrOutput) UnusedAccessAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AnalyzerUnusedAccessConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UnusedAccessAge
+	}).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerArchiveRuleInput)(nil)).Elem(), AnalyzerArchiveRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerArchiveRuleArrayInput)(nil)).Elem(), AnalyzerArchiveRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerConfigurationPropertiesInput)(nil)).Elem(), AnalyzerConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerConfigurationPropertiesPtrInput)(nil)).Elem(), AnalyzerConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerFilterInput)(nil)).Elem(), AnalyzerFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerFilterArrayInput)(nil)).Elem(), AnalyzerFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerTagInput)(nil)).Elem(), AnalyzerTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerTagArrayInput)(nil)).Elem(), AnalyzerTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerUnusedAccessConfigurationInput)(nil)).Elem(), AnalyzerUnusedAccessConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerUnusedAccessConfigurationPtrInput)(nil)).Elem(), AnalyzerUnusedAccessConfigurationArgs{})
 	pulumi.RegisterOutputType(AnalyzerArchiveRuleOutput{})
 	pulumi.RegisterOutputType(AnalyzerArchiveRuleArrayOutput{})
+	pulumi.RegisterOutputType(AnalyzerConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(AnalyzerConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AnalyzerFilterOutput{})
 	pulumi.RegisterOutputType(AnalyzerFilterArrayOutput{})
 	pulumi.RegisterOutputType(AnalyzerTagOutput{})
 	pulumi.RegisterOutputType(AnalyzerTagArrayOutput{})
+	pulumi.RegisterOutputType(AnalyzerUnusedAccessConfigurationOutput{})
+	pulumi.RegisterOutputType(AnalyzerUnusedAccessConfigurationPtrOutput{})
 }

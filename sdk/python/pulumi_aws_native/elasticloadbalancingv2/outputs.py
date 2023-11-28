@@ -18,6 +18,7 @@ __all__ = [
     'ListenerCertificateCertificate',
     'ListenerFixedResponseConfig',
     'ListenerForwardConfig',
+    'ListenerMutualAuthentication',
     'ListenerRedirectConfig',
     'ListenerRuleAction',
     'ListenerRuleAuthenticateCognitoConfig',
@@ -44,6 +45,9 @@ __all__ = [
     'TargetGroupMatcher',
     'TargetGroupTag',
     'TargetGroupTargetDescription',
+    'TrustStoreRevocation',
+    'TrustStoreRevocationRevocationContent',
+    'TrustStoreTag',
 ]
 
 @pulumi.output_type
@@ -514,6 +518,54 @@ class ListenerForwardConfig(dict):
     @pulumi.getter(name="targetGroups")
     def target_groups(self) -> Optional[Sequence['outputs.ListenerTargetGroupTuple']]:
         return pulumi.get(self, "target_groups")
+
+
+@pulumi.output_type
+class ListenerMutualAuthentication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignoreClientCertificateExpiry":
+            suggest = "ignore_client_certificate_expiry"
+        elif key == "trustStoreArn":
+            suggest = "trust_store_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ListenerMutualAuthentication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ListenerMutualAuthentication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ListenerMutualAuthentication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ignore_client_certificate_expiry: Optional[bool] = None,
+                 mode: Optional[str] = None,
+                 trust_store_arn: Optional[str] = None):
+        if ignore_client_certificate_expiry is not None:
+            pulumi.set(__self__, "ignore_client_certificate_expiry", ignore_client_certificate_expiry)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if trust_store_arn is not None:
+            pulumi.set(__self__, "trust_store_arn", trust_store_arn)
+
+    @property
+    @pulumi.getter(name="ignoreClientCertificateExpiry")
+    def ignore_client_certificate_expiry(self) -> Optional[bool]:
+        return pulumi.get(self, "ignore_client_certificate_expiry")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="trustStoreArn")
+    def trust_store_arn(self) -> Optional[str]:
+        return pulumi.get(self, "trust_store_arn")
 
 
 @pulumi.output_type
@@ -1703,5 +1755,144 @@ class TargetGroupTargetDescription(dict):
         The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
         """
         return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class TrustStoreRevocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "numberOfRevokedEntries":
+            suggest = "number_of_revoked_entries"
+        elif key == "revocationId":
+            suggest = "revocation_id"
+        elif key == "revocationType":
+            suggest = "revocation_type"
+        elif key == "trustStoreArn":
+            suggest = "trust_store_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrustStoreRevocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrustStoreRevocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrustStoreRevocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 number_of_revoked_entries: Optional[int] = None,
+                 revocation_id: Optional[str] = None,
+                 revocation_type: Optional[str] = None,
+                 trust_store_arn: Optional[str] = None):
+        if number_of_revoked_entries is not None:
+            pulumi.set(__self__, "number_of_revoked_entries", number_of_revoked_entries)
+        if revocation_id is not None:
+            pulumi.set(__self__, "revocation_id", revocation_id)
+        if revocation_type is not None:
+            pulumi.set(__self__, "revocation_type", revocation_type)
+        if trust_store_arn is not None:
+            pulumi.set(__self__, "trust_store_arn", trust_store_arn)
+
+    @property
+    @pulumi.getter(name="numberOfRevokedEntries")
+    def number_of_revoked_entries(self) -> Optional[int]:
+        return pulumi.get(self, "number_of_revoked_entries")
+
+    @property
+    @pulumi.getter(name="revocationId")
+    def revocation_id(self) -> Optional[str]:
+        return pulumi.get(self, "revocation_id")
+
+    @property
+    @pulumi.getter(name="revocationType")
+    def revocation_type(self) -> Optional[str]:
+        return pulumi.get(self, "revocation_type")
+
+    @property
+    @pulumi.getter(name="trustStoreArn")
+    def trust_store_arn(self) -> Optional[str]:
+        return pulumi.get(self, "trust_store_arn")
+
+
+@pulumi.output_type
+class TrustStoreRevocationRevocationContent(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "revocationType":
+            suggest = "revocation_type"
+        elif key == "s3Bucket":
+            suggest = "s3_bucket"
+        elif key == "s3Key":
+            suggest = "s3_key"
+        elif key == "s3ObjectVersion":
+            suggest = "s3_object_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrustStoreRevocationRevocationContent. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrustStoreRevocationRevocationContent.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrustStoreRevocationRevocationContent.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 revocation_type: Optional[str] = None,
+                 s3_bucket: Optional[str] = None,
+                 s3_key: Optional[str] = None,
+                 s3_object_version: Optional[str] = None):
+        if revocation_type is not None:
+            pulumi.set(__self__, "revocation_type", revocation_type)
+        if s3_bucket is not None:
+            pulumi.set(__self__, "s3_bucket", s3_bucket)
+        if s3_key is not None:
+            pulumi.set(__self__, "s3_key", s3_key)
+        if s3_object_version is not None:
+            pulumi.set(__self__, "s3_object_version", s3_object_version)
+
+    @property
+    @pulumi.getter(name="revocationType")
+    def revocation_type(self) -> Optional[str]:
+        return pulumi.get(self, "revocation_type")
+
+    @property
+    @pulumi.getter(name="s3Bucket")
+    def s3_bucket(self) -> Optional[str]:
+        return pulumi.get(self, "s3_bucket")
+
+    @property
+    @pulumi.getter(name="s3Key")
+    def s3_key(self) -> Optional[str]:
+        return pulumi.get(self, "s3_key")
+
+    @property
+    @pulumi.getter(name="s3ObjectVersion")
+    def s3_object_version(self) -> Optional[str]:
+        return pulumi.get(self, "s3_object_version")
+
+
+@pulumi.output_type
+class TrustStoreTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
 
 

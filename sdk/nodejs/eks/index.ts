@@ -45,6 +45,11 @@ export const getNodegroup: typeof import("./getNodegroup").getNodegroup = null a
 export const getNodegroupOutput: typeof import("./getNodegroup").getNodegroupOutput = null as any;
 utilities.lazyLoad(exports, ["getNodegroup","getNodegroupOutput"], () => require("./getNodegroup"));
 
+export { GetPodIdentityAssociationArgs, GetPodIdentityAssociationResult, GetPodIdentityAssociationOutputArgs } from "./getPodIdentityAssociation";
+export const getPodIdentityAssociation: typeof import("./getPodIdentityAssociation").getPodIdentityAssociation = null as any;
+export const getPodIdentityAssociationOutput: typeof import("./getPodIdentityAssociation").getPodIdentityAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getPodIdentityAssociation","getPodIdentityAssociationOutput"], () => require("./getPodIdentityAssociation"));
+
 export { IdentityProviderConfigArgs } from "./identityProviderConfig";
 export type IdentityProviderConfig = import("./identityProviderConfig").IdentityProviderConfig;
 export const IdentityProviderConfig: typeof import("./identityProviderConfig").IdentityProviderConfig = null as any;
@@ -54,6 +59,11 @@ export { NodegroupArgs } from "./nodegroup";
 export type Nodegroup = import("./nodegroup").Nodegroup;
 export const Nodegroup: typeof import("./nodegroup").Nodegroup = null as any;
 utilities.lazyLoad(exports, ["Nodegroup"], () => require("./nodegroup"));
+
+export { PodIdentityAssociationArgs } from "./podIdentityAssociation";
+export type PodIdentityAssociation = import("./podIdentityAssociation").PodIdentityAssociation;
+export const PodIdentityAssociation: typeof import("./podIdentityAssociation").PodIdentityAssociation = null as any;
+utilities.lazyLoad(exports, ["PodIdentityAssociation"], () => require("./podIdentityAssociation"));
 
 
 // Export enums:
@@ -73,6 +83,8 @@ const _module = {
                 return new IdentityProviderConfig(name, <any>undefined, { urn })
             case "aws-native:eks:Nodegroup":
                 return new Nodegroup(name, <any>undefined, { urn })
+            case "aws-native:eks:PodIdentityAssociation":
+                return new PodIdentityAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

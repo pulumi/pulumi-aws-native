@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         public readonly string? KmsKeyId;
         /// <summary>
+        /// The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS, with STANDARD being the default class
+        /// </summary>
+        public readonly Pulumi.AwsNative.Logs.LogGroupClass? LogGroupClass;
+        /// <summary>
         /// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, and 3653.
         /// </summary>
         public readonly int? RetentionInDays;
@@ -92,6 +96,8 @@ namespace Pulumi.AwsNative.Logs
 
             string? kmsKeyId,
 
+            Pulumi.AwsNative.Logs.LogGroupClass? logGroupClass,
+
             int? retentionInDays,
 
             ImmutableArray<Outputs.LogGroupTag> tags)
@@ -99,6 +105,7 @@ namespace Pulumi.AwsNative.Logs
             Arn = arn;
             DataProtectionPolicy = dataProtectionPolicy;
             KmsKeyId = kmsKeyId;
+            LogGroupClass = logGroupClass;
             RetentionInDays = retentionInDays;
             Tags = tags;
         }

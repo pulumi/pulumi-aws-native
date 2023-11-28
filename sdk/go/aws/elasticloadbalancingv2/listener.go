@@ -17,14 +17,15 @@ import (
 type Listener struct {
 	pulumi.CustomResourceState
 
-	AlpnPolicy      pulumi.StringArrayOutput           `pulumi:"alpnPolicy"`
-	Certificates    ListenerCertificateTypeArrayOutput `pulumi:"certificates"`
-	DefaultActions  ListenerActionArrayOutput          `pulumi:"defaultActions"`
-	ListenerArn     pulumi.StringOutput                `pulumi:"listenerArn"`
-	LoadBalancerArn pulumi.StringOutput                `pulumi:"loadBalancerArn"`
-	Port            pulumi.IntPtrOutput                `pulumi:"port"`
-	Protocol        pulumi.StringPtrOutput             `pulumi:"protocol"`
-	SslPolicy       pulumi.StringPtrOutput             `pulumi:"sslPolicy"`
+	AlpnPolicy           pulumi.StringArrayOutput              `pulumi:"alpnPolicy"`
+	Certificates         ListenerCertificateTypeArrayOutput    `pulumi:"certificates"`
+	DefaultActions       ListenerActionArrayOutput             `pulumi:"defaultActions"`
+	ListenerArn          pulumi.StringOutput                   `pulumi:"listenerArn"`
+	LoadBalancerArn      pulumi.StringOutput                   `pulumi:"loadBalancerArn"`
+	MutualAuthentication ListenerMutualAuthenticationPtrOutput `pulumi:"mutualAuthentication"`
+	Port                 pulumi.IntPtrOutput                   `pulumi:"port"`
+	Protocol             pulumi.StringPtrOutput                `pulumi:"protocol"`
+	SslPolicy            pulumi.StringPtrOutput                `pulumi:"sslPolicy"`
 }
 
 // NewListener registers a new resource with the given unique name, arguments, and options.
@@ -77,24 +78,26 @@ func (ListenerState) ElementType() reflect.Type {
 }
 
 type listenerArgs struct {
-	AlpnPolicy      []string                  `pulumi:"alpnPolicy"`
-	Certificates    []ListenerCertificateType `pulumi:"certificates"`
-	DefaultActions  []ListenerAction          `pulumi:"defaultActions"`
-	LoadBalancerArn string                    `pulumi:"loadBalancerArn"`
-	Port            *int                      `pulumi:"port"`
-	Protocol        *string                   `pulumi:"protocol"`
-	SslPolicy       *string                   `pulumi:"sslPolicy"`
+	AlpnPolicy           []string                      `pulumi:"alpnPolicy"`
+	Certificates         []ListenerCertificateType     `pulumi:"certificates"`
+	DefaultActions       []ListenerAction              `pulumi:"defaultActions"`
+	LoadBalancerArn      string                        `pulumi:"loadBalancerArn"`
+	MutualAuthentication *ListenerMutualAuthentication `pulumi:"mutualAuthentication"`
+	Port                 *int                          `pulumi:"port"`
+	Protocol             *string                       `pulumi:"protocol"`
+	SslPolicy            *string                       `pulumi:"sslPolicy"`
 }
 
 // The set of arguments for constructing a Listener resource.
 type ListenerArgs struct {
-	AlpnPolicy      pulumi.StringArrayInput
-	Certificates    ListenerCertificateTypeArrayInput
-	DefaultActions  ListenerActionArrayInput
-	LoadBalancerArn pulumi.StringInput
-	Port            pulumi.IntPtrInput
-	Protocol        pulumi.StringPtrInput
-	SslPolicy       pulumi.StringPtrInput
+	AlpnPolicy           pulumi.StringArrayInput
+	Certificates         ListenerCertificateTypeArrayInput
+	DefaultActions       ListenerActionArrayInput
+	LoadBalancerArn      pulumi.StringInput
+	MutualAuthentication ListenerMutualAuthenticationPtrInput
+	Port                 pulumi.IntPtrInput
+	Protocol             pulumi.StringPtrInput
+	SslPolicy            pulumi.StringPtrInput
 }
 
 func (ListenerArgs) ElementType() reflect.Type {
@@ -164,6 +167,10 @@ func (o ListenerOutput) ListenerArn() pulumi.StringOutput {
 
 func (o ListenerOutput) LoadBalancerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.LoadBalancerArn }).(pulumi.StringOutput)
+}
+
+func (o ListenerOutput) MutualAuthentication() ListenerMutualAuthenticationPtrOutput {
+	return o.ApplyT(func(v *Listener) ListenerMutualAuthenticationPtrOutput { return v.MutualAuthentication }).(ListenerMutualAuthenticationPtrOutput)
 }
 
 func (o ListenerOutput) Port() pulumi.IntPtrOutput {

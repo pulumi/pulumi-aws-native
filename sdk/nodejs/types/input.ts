@@ -721,6 +721,13 @@ export namespace accessanalyzer {
         ruleName: pulumi.Input<string>;
     }
 
+    /**
+     * The configuration for the analyzer
+     */
+    export interface AnalyzerConfigurationPropertiesArgs {
+        unusedAccessConfiguration?: pulumi.Input<inputs.accessanalyzer.AnalyzerUnusedAccessConfigurationArgs>;
+    }
+
     export interface AnalyzerFilterArgs {
         contains?: pulumi.Input<pulumi.Input<string>[]>;
         eq?: pulumi.Input<pulumi.Input<string>[]>;
@@ -741,6 +748,16 @@ export namespace accessanalyzer {
          * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
         value: pulumi.Input<string>;
+    }
+
+    /**
+     * The Configuration for Unused Access Analyzer
+     */
+    export interface AnalyzerUnusedAccessConfigurationArgs {
+        /**
+         * The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that haven't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+         */
+        unusedAccessAge?: pulumi.Input<number>;
     }
 }
 
@@ -8257,6 +8274,20 @@ export namespace codestarconnections {
          */
         value: pulumi.Input<string>;
     }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface RepositoryLinkTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, , ., /, =, +, and -. 
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, , ., /, =, +, and -. 
+         */
+        value: pulumi.Input<string>;
+    }
 }
 
 export namespace codestarnotifications {
@@ -9711,6 +9742,18 @@ export namespace connectcampaigns {
          * The value for the tag. You can specify a value that's 1 to 256 characters in length.
          */
         value: pulumi.Input<string>;
+    }
+}
+
+export namespace controltower {
+    export interface EnabledControlParameterArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<pulumi.Input<string | number | any | boolean>[] | string | number | any | boolean>;
+    }
+
+    export interface LandingZoneTagArgs {
+        key?: pulumi.Input<string>;
+        value?: pulumi.Input<string>;
     }
 }
 
@@ -15062,6 +15105,7 @@ export namespace efs {
     }
 
     export interface FileSystemLifecyclePolicyArgs {
+        transitionToArchive?: pulumi.Input<string>;
         transitionToIa?: pulumi.Input<string>;
         transitionToPrimaryStorageClass?: pulumi.Input<string>;
     }
@@ -15366,6 +15410,20 @@ export namespace eks {
          * The maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once. This value or maxUnavailable is required to have a value.
          */
         maxUnavailablePercentage?: pulumi.Input<number>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface PodIdentityAssociationTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
     }
 }
 
@@ -15782,6 +15840,12 @@ export namespace elasticloadbalancingv2 {
         targetGroups?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerTargetGroupTupleArgs>[]>;
     }
 
+    export interface ListenerMutualAuthenticationArgs {
+        ignoreClientCertificateExpiry?: pulumi.Input<boolean>;
+        mode?: pulumi.Input<string>;
+        trustStoreArn?: pulumi.Input<string>;
+    }
+
     export interface ListenerRedirectConfigArgs {
         host?: pulumi.Input<string>;
         path?: pulumi.Input<string>;
@@ -15972,6 +16036,18 @@ export namespace elasticloadbalancingv2 {
          * The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
          */
         port?: pulumi.Input<number>;
+    }
+
+    export interface TrustStoreRevocationRevocationContentArgs {
+        revocationType?: pulumi.Input<string>;
+        s3Bucket?: pulumi.Input<string>;
+        s3Key?: pulumi.Input<string>;
+        s3ObjectVersion?: pulumi.Input<string>;
+    }
+
+    export interface TrustStoreTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
     }
 }
 
@@ -28104,6 +28180,48 @@ export namespace location {
 }
 
 export namespace logs {
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface DeliveryDestinationTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface DeliverySourceTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface DeliveryTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode
+         */
+        value: pulumi.Input<string>;
+    }
+
     /**
      * A key-value pair to associate with a resource.
      */
@@ -46594,6 +46712,39 @@ export namespace rum {
 }
 
 export namespace s3 {
+    export interface AccessGrantGranteeArgs {
+        /**
+         * The unique identifier of the Grantee
+         */
+        granteeIdentifier: pulumi.Input<string>;
+        /**
+         * Configures the transfer acceleration state for an Amazon S3 bucket.
+         */
+        granteeType: pulumi.Input<enums.s3.AccessGrantGranteeGranteeType>;
+    }
+
+    export interface AccessGrantTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface AccessGrantsInstanceTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface AccessGrantsLocationConfigurationArgs {
+        /**
+         * The S3 sub prefix of a registered location in your S3 Access Grants instance
+         */
+        s3SubPrefix: pulumi.Input<string>;
+    }
+
+    export interface AccessGrantsLocationTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
     export interface AccessPointPublicAccessBlockConfigurationArgs {
         /**
          * Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:

@@ -28,12 +28,10 @@ type LookupTransitGatewayVpcAttachmentArgs struct {
 }
 
 type LookupTransitGatewayVpcAttachmentResult struct {
-	AddSubnetIds []string `pulumi:"addSubnetIds"`
-	Id           *string  `pulumi:"id"`
+	Id *string `pulumi:"id"`
 	// The options for the transit gateway vpc attachment.
-	Options         *OptionsProperties               `pulumi:"options"`
-	RemoveSubnetIds []string                         `pulumi:"removeSubnetIds"`
-	Tags            []TransitGatewayVpcAttachmentTag `pulumi:"tags"`
+	Options *OptionsProperties               `pulumi:"options"`
+	Tags    []TransitGatewayVpcAttachmentTag `pulumi:"tags"`
 }
 
 func LookupTransitGatewayVpcAttachmentOutput(ctx *pulumi.Context, args LookupTransitGatewayVpcAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupTransitGatewayVpcAttachmentResultOutput {
@@ -77,10 +75,6 @@ func (o LookupTransitGatewayVpcAttachmentResultOutput) ToOutput(ctx context.Cont
 	}
 }
 
-func (o LookupTransitGatewayVpcAttachmentResultOutput) AddSubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupTransitGatewayVpcAttachmentResult) []string { return v.AddSubnetIds }).(pulumi.StringArrayOutput)
-}
-
 func (o LookupTransitGatewayVpcAttachmentResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransitGatewayVpcAttachmentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -88,10 +82,6 @@ func (o LookupTransitGatewayVpcAttachmentResultOutput) Id() pulumi.StringPtrOutp
 // The options for the transit gateway vpc attachment.
 func (o LookupTransitGatewayVpcAttachmentResultOutput) Options() OptionsPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupTransitGatewayVpcAttachmentResult) *OptionsProperties { return v.Options }).(OptionsPropertiesPtrOutput)
-}
-
-func (o LookupTransitGatewayVpcAttachmentResultOutput) RemoveSubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupTransitGatewayVpcAttachmentResult) []string { return v.RemoveSubnetIds }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupTransitGatewayVpcAttachmentResultOutput) Tags() TransitGatewayVpcAttachmentTagArrayOutput {

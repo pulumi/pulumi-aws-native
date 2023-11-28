@@ -11,8 +11,10 @@ from .. import _utilities
 
 __all__ = [
     'AnalyzerArchiveRuleArgs',
+    'AnalyzerConfigurationPropertiesArgs',
     'AnalyzerFilterArgs',
     'AnalyzerTagArgs',
+    'AnalyzerUnusedAccessConfigurationArgs',
 ]
 
 @pulumi.input_type
@@ -47,6 +49,26 @@ class AnalyzerArchiveRuleArgs:
     @rule_name.setter
     def rule_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "rule_name", value)
+
+
+@pulumi.input_type
+class AnalyzerConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 unused_access_configuration: Optional[pulumi.Input['AnalyzerUnusedAccessConfigurationArgs']] = None):
+        """
+        The configuration for the analyzer
+        """
+        if unused_access_configuration is not None:
+            pulumi.set(__self__, "unused_access_configuration", unused_access_configuration)
+
+    @property
+    @pulumi.getter(name="unusedAccessConfiguration")
+    def unused_access_configuration(self) -> Optional[pulumi.Input['AnalyzerUnusedAccessConfigurationArgs']]:
+        return pulumi.get(self, "unused_access_configuration")
+
+    @unused_access_configuration.setter
+    def unused_access_configuration(self, value: Optional[pulumi.Input['AnalyzerUnusedAccessConfigurationArgs']]):
+        pulumi.set(self, "unused_access_configuration", value)
 
 
 @pulumi.input_type
@@ -149,5 +171,29 @@ class AnalyzerTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class AnalyzerUnusedAccessConfigurationArgs:
+    def __init__(__self__, *,
+                 unused_access_age: Optional[pulumi.Input[int]] = None):
+        """
+        The Configuration for Unused Access Analyzer
+        :param pulumi.Input[int] unused_access_age: The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that haven't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+        """
+        if unused_access_age is not None:
+            pulumi.set(__self__, "unused_access_age", unused_access_age)
+
+    @property
+    @pulumi.getter(name="unusedAccessAge")
+    def unused_access_age(self) -> Optional[pulumi.Input[int]]:
+        """
+        The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that haven't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+        """
+        return pulumi.get(self, "unused_access_age")
+
+    @unused_access_age.setter
+    def unused_access_age(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "unused_access_age", value)
 
 

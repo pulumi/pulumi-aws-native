@@ -246,6 +246,7 @@ class TransitGateway(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["transit_gateway_cidr_blocks"] = transit_gateway_cidr_blocks
             __props__.__dict__["vpn_ecmp_support"] = vpn_ecmp_support
+            __props__.__dict__["transit_gateway_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amazon_side_asn", "multicast_support"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TransitGateway, __self__).__init__(
@@ -280,6 +281,7 @@ class TransitGateway(pulumi.CustomResource):
         __props__.__dict__["multicast_support"] = None
         __props__.__dict__["propagation_default_route_table_id"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["transit_gateway_arn"] = None
         __props__.__dict__["transit_gateway_cidr_blocks"] = None
         __props__.__dict__["vpn_ecmp_support"] = None
         return TransitGateway(resource_name, opts=opts, __props__=__props__)
@@ -333,6 +335,11 @@ class TransitGateway(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TransitGatewayTag']]]:
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="transitGatewayArn")
+    def transit_gateway_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "transit_gateway_arn")
 
     @property
     @pulumi.getter(name="transitGatewayCidrBlocks")

@@ -20,10 +20,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetComponentTypeResult:
-    def __init__(__self__, arn=None, creation_date_time=None, description=None, extends_from=None, functions=None, is_abstract=None, is_schema_initialized=None, is_singleton=None, property_definitions=None, property_groups=None, status=None, tags=None, update_date_time=None):
+    def __init__(__self__, arn=None, composite_component_types=None, creation_date_time=None, description=None, extends_from=None, functions=None, is_abstract=None, is_schema_initialized=None, is_singleton=None, property_definitions=None, property_groups=None, status=None, tags=None, update_date_time=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if composite_component_types and not isinstance(composite_component_types, dict):
+            raise TypeError("Expected argument 'composite_component_types' to be a dict")
+        pulumi.set(__self__, "composite_component_types", composite_component_types)
         if creation_date_time and not isinstance(creation_date_time, str):
             raise TypeError("Expected argument 'creation_date_time' to be a str")
         pulumi.set(__self__, "creation_date_time", creation_date_time)
@@ -68,6 +71,14 @@ class GetComponentTypeResult:
         The ARN of the component type.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="compositeComponentTypes")
+    def composite_component_types(self) -> Optional[Any]:
+        """
+        An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
+        """
+        return pulumi.get(self, "composite_component_types")
 
     @property
     @pulumi.getter(name="creationDateTime")
@@ -173,6 +184,7 @@ class AwaitableGetComponentTypeResult(GetComponentTypeResult):
             yield self
         return GetComponentTypeResult(
             arn=self.arn,
+            composite_component_types=self.composite_component_types,
             creation_date_time=self.creation_date_time,
             description=self.description,
             extends_from=self.extends_from,
@@ -205,6 +217,7 @@ def get_component_type(component_type_id: Optional[str] = None,
 
     return AwaitableGetComponentTypeResult(
         arn=pulumi.get(__ret__, 'arn'),
+        composite_component_types=pulumi.get(__ret__, 'composite_component_types'),
         creation_date_time=pulumi.get(__ret__, 'creation_date_time'),
         description=pulumi.get(__ret__, 'description'),
         extends_from=pulumi.get(__ret__, 'extends_from'),

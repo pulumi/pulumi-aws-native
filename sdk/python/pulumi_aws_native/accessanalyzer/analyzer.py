@@ -17,16 +17,20 @@ __all__ = ['AnalyzerArgs', 'Analyzer']
 class AnalyzerArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
+                 analyzer_configuration: Optional[pulumi.Input['AnalyzerConfigurationPropertiesArgs']] = None,
                  analyzer_name: Optional[pulumi.Input[str]] = None,
                  archive_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerArchiveRuleArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerTagArgs']]]] = None):
         """
         The set of arguments for constructing a Analyzer resource.
-        :param pulumi.Input[str] type: The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
+        :param pulumi.Input[str] type: The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
+        :param pulumi.Input['AnalyzerConfigurationPropertiesArgs'] analyzer_configuration: The configuration for the analyzer
         :param pulumi.Input[str] analyzer_name: Analyzer name
         :param pulumi.Input[Sequence[pulumi.Input['AnalyzerTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "type", type)
+        if analyzer_configuration is not None:
+            pulumi.set(__self__, "analyzer_configuration", analyzer_configuration)
         if analyzer_name is not None:
             pulumi.set(__self__, "analyzer_name", analyzer_name)
         if archive_rules is not None:
@@ -38,13 +42,25 @@ class AnalyzerArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
+        The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="analyzerConfiguration")
+    def analyzer_configuration(self) -> Optional[pulumi.Input['AnalyzerConfigurationPropertiesArgs']]:
+        """
+        The configuration for the analyzer
+        """
+        return pulumi.get(self, "analyzer_configuration")
+
+    @analyzer_configuration.setter
+    def analyzer_configuration(self, value: Optional[pulumi.Input['AnalyzerConfigurationPropertiesArgs']]):
+        pulumi.set(self, "analyzer_configuration", value)
 
     @property
     @pulumi.getter(name="analyzerName")
@@ -85,6 +101,7 @@ class Analyzer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 analyzer_configuration: Optional[pulumi.Input[pulumi.InputType['AnalyzerConfigurationPropertiesArgs']]] = None,
                  analyzer_name: Optional[pulumi.Input[str]] = None,
                  archive_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyzerArchiveRuleArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyzerTagArgs']]]]] = None,
@@ -95,9 +112,10 @@ class Analyzer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AnalyzerConfigurationPropertiesArgs']] analyzer_configuration: The configuration for the analyzer
         :param pulumi.Input[str] analyzer_name: Analyzer name
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyzerTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
-        :param pulumi.Input[str] type: The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
+        :param pulumi.Input[str] type: The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
         """
         ...
     @overload
@@ -123,6 +141,7 @@ class Analyzer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 analyzer_configuration: Optional[pulumi.Input[pulumi.InputType['AnalyzerConfigurationPropertiesArgs']]] = None,
                  analyzer_name: Optional[pulumi.Input[str]] = None,
                  archive_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyzerArchiveRuleArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyzerTagArgs']]]]] = None,
@@ -136,6 +155,7 @@ class Analyzer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AnalyzerArgs.__new__(AnalyzerArgs)
 
+            __props__.__dict__["analyzer_configuration"] = analyzer_configuration
             __props__.__dict__["analyzer_name"] = analyzer_name
             __props__.__dict__["archive_rules"] = archive_rules
             __props__.__dict__["tags"] = tags
@@ -143,7 +163,7 @@ class Analyzer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["analyzer_name", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["analyzer_configuration", "analyzer_name", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Analyzer, __self__).__init__(
             'aws-native:accessanalyzer:Analyzer',
@@ -167,12 +187,21 @@ class Analyzer(pulumi.CustomResource):
 
         __props__ = AnalyzerArgs.__new__(AnalyzerArgs)
 
+        __props__.__dict__["analyzer_configuration"] = None
         __props__.__dict__["analyzer_name"] = None
         __props__.__dict__["archive_rules"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Analyzer(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="analyzerConfiguration")
+    def analyzer_configuration(self) -> pulumi.Output[Optional['outputs.AnalyzerConfigurationProperties']]:
+        """
+        The configuration for the analyzer
+        """
+        return pulumi.get(self, "analyzer_configuration")
 
     @property
     @pulumi.getter(name="analyzerName")
@@ -207,7 +236,7 @@ class Analyzer(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
+        The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
         """
         return pulumi.get(self, "type")
 

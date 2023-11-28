@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ControlTower
         public Output<string> ControlIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// Parameters to configure the enabled control behavior.
+        /// </summary>
+        [Output("parameters")]
+        public Output<ImmutableArray<Outputs.EnabledControlParameter>> Parameters { get; private set; } = null!;
+
+        /// <summary>
         /// Arn for Organizational unit to which the control needs to be applied
         /// </summary>
         [Output("targetIdentifier")]
@@ -82,6 +88,18 @@ namespace Pulumi.AwsNative.ControlTower
         /// </summary>
         [Input("controlIdentifier", required: true)]
         public Input<string> ControlIdentifier { get; set; } = null!;
+
+        [Input("parameters")]
+        private InputList<Inputs.EnabledControlParameterArgs>? _parameters;
+
+        /// <summary>
+        /// Parameters to configure the enabled control behavior.
+        /// </summary>
+        public InputList<Inputs.EnabledControlParameterArgs> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputList<Inputs.EnabledControlParameterArgs>());
+            set => _parameters = value;
+        }
 
         /// <summary>
         /// Arn for Organizational unit to which the control needs to be applied

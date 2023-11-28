@@ -19,6 +19,8 @@ type EnabledControl struct {
 
 	// Arn of the control.
 	ControlIdentifier pulumi.StringOutput `pulumi:"controlIdentifier"`
+	// Parameters to configure the enabled control behavior.
+	Parameters EnabledControlParameterArrayOutput `pulumi:"parameters"`
 	// Arn for Organizational unit to which the control needs to be applied
 	TargetIdentifier pulumi.StringOutput `pulumi:"targetIdentifier"`
 }
@@ -76,6 +78,8 @@ func (EnabledControlState) ElementType() reflect.Type {
 type enabledControlArgs struct {
 	// Arn of the control.
 	ControlIdentifier string `pulumi:"controlIdentifier"`
+	// Parameters to configure the enabled control behavior.
+	Parameters []EnabledControlParameter `pulumi:"parameters"`
 	// Arn for Organizational unit to which the control needs to be applied
 	TargetIdentifier string `pulumi:"targetIdentifier"`
 }
@@ -84,6 +88,8 @@ type enabledControlArgs struct {
 type EnabledControlArgs struct {
 	// Arn of the control.
 	ControlIdentifier pulumi.StringInput
+	// Parameters to configure the enabled control behavior.
+	Parameters EnabledControlParameterArrayInput
 	// Arn for Organizational unit to which the control needs to be applied
 	TargetIdentifier pulumi.StringInput
 }
@@ -140,6 +146,11 @@ func (o EnabledControlOutput) ToOutput(ctx context.Context) pulumix.Output[*Enab
 // Arn of the control.
 func (o EnabledControlOutput) ControlIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnabledControl) pulumi.StringOutput { return v.ControlIdentifier }).(pulumi.StringOutput)
+}
+
+// Parameters to configure the enabled control behavior.
+func (o EnabledControlOutput) Parameters() EnabledControlParameterArrayOutput {
+	return o.ApplyT(func(v *EnabledControl) EnabledControlParameterArrayOutput { return v.Parameters }).(EnabledControlParameterArrayOutput)
 }
 
 // Arn for Organizational unit to which the control needs to be applied

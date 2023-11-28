@@ -42,6 +42,7 @@ export class Listener extends pulumi.CustomResource {
     public readonly defaultActions!: pulumi.Output<outputs.elasticloadbalancingv2.ListenerAction[]>;
     public /*out*/ readonly listenerArn!: pulumi.Output<string>;
     public readonly loadBalancerArn!: pulumi.Output<string>;
+    public readonly mutualAuthentication!: pulumi.Output<outputs.elasticloadbalancingv2.ListenerMutualAuthentication | undefined>;
     public readonly port!: pulumi.Output<number | undefined>;
     public readonly protocol!: pulumi.Output<string | undefined>;
     public readonly sslPolicy!: pulumi.Output<string | undefined>;
@@ -67,6 +68,7 @@ export class Listener extends pulumi.CustomResource {
             resourceInputs["certificates"] = args ? args.certificates : undefined;
             resourceInputs["defaultActions"] = args ? args.defaultActions : undefined;
             resourceInputs["loadBalancerArn"] = args ? args.loadBalancerArn : undefined;
+            resourceInputs["mutualAuthentication"] = args ? args.mutualAuthentication : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
             resourceInputs["sslPolicy"] = args ? args.sslPolicy : undefined;
@@ -77,6 +79,7 @@ export class Listener extends pulumi.CustomResource {
             resourceInputs["defaultActions"] = undefined /*out*/;
             resourceInputs["listenerArn"] = undefined /*out*/;
             resourceInputs["loadBalancerArn"] = undefined /*out*/;
+            resourceInputs["mutualAuthentication"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
             resourceInputs["protocol"] = undefined /*out*/;
             resourceInputs["sslPolicy"] = undefined /*out*/;
@@ -96,6 +99,7 @@ export interface ListenerArgs {
     certificates?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerCertificateArgs>[]>;
     defaultActions: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.ListenerActionArgs>[]>;
     loadBalancerArn: pulumi.Input<string>;
+    mutualAuthentication?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerMutualAuthenticationArgs>;
     port?: pulumi.Input<number>;
     protocol?: pulumi.Input<string>;
     sslPolicy?: pulumi.Input<string>;

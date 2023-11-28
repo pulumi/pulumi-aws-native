@@ -38,6 +38,10 @@ export class Analyzer extends pulumi.CustomResource {
     }
 
     /**
+     * The configuration for the analyzer
+     */
+    public readonly analyzerConfiguration!: pulumi.Output<outputs.accessanalyzer.AnalyzerConfigurationProperties | undefined>;
+    /**
      * Analyzer name
      */
     public readonly analyzerName!: pulumi.Output<string | undefined>;
@@ -51,7 +55,7 @@ export class Analyzer extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<outputs.accessanalyzer.AnalyzerTag[] | undefined>;
     /**
-     * The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
+     * The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
      */
     public readonly type!: pulumi.Output<string>;
 
@@ -69,12 +73,14 @@ export class Analyzer extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            resourceInputs["analyzerConfiguration"] = args ? args.analyzerConfiguration : undefined;
             resourceInputs["analyzerName"] = args ? args.analyzerName : undefined;
             resourceInputs["archiveRules"] = args ? args.archiveRules : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
+            resourceInputs["analyzerConfiguration"] = undefined /*out*/;
             resourceInputs["analyzerName"] = undefined /*out*/;
             resourceInputs["archiveRules"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -82,7 +88,7 @@ export class Analyzer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["analyzerName", "type"] };
+        const replaceOnChanges = { replaceOnChanges: ["analyzerConfiguration", "analyzerName", "type"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Analyzer.__pulumiType, name, resourceInputs, opts);
     }
@@ -93,6 +99,10 @@ export class Analyzer extends pulumi.CustomResource {
  */
 export interface AnalyzerArgs {
     /**
+     * The configuration for the analyzer
+     */
+    analyzerConfiguration?: pulumi.Input<inputs.accessanalyzer.AnalyzerConfigurationPropertiesArgs>;
+    /**
      * Analyzer name
      */
     analyzerName?: pulumi.Input<string>;
@@ -102,7 +112,7 @@ export interface AnalyzerArgs {
      */
     tags?: pulumi.Input<pulumi.Input<inputs.accessanalyzer.AnalyzerTagArgs>[]>;
     /**
-     * The type of the analyzer, must be one of ACCOUNT, ORGANIZATION
+     * The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
      */
     type: pulumi.Input<string>;
 }

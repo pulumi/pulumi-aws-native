@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         public Output<string> ComponentTypeId { get; private set; } = null!;
 
         /// <summary>
+        /// An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
+        /// </summary>
+        [Output("compositeComponentTypes")]
+        public Output<object?> CompositeComponentTypes { get; private set; } = null!;
+
+        /// <summary>
         /// The date and time when the component type was created.
         /// </summary>
         [Output("creationDateTime")]
@@ -160,6 +166,12 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// </summary>
         [Input("componentTypeId", required: true)]
         public Input<string> ComponentTypeId { get; set; } = null!;
+
+        /// <summary>
+        /// An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
+        /// </summary>
+        [Input("compositeComponentTypes")]
+        public Input<object>? CompositeComponentTypes { get; set; }
 
         /// <summary>
         /// The description of the component type.

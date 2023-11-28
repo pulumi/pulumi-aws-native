@@ -240,12 +240,24 @@ class FileSystemElasticFileSystemTagArgs:
 @pulumi.input_type
 class FileSystemLifecyclePolicyArgs:
     def __init__(__self__, *,
+                 transition_to_archive: Optional[pulumi.Input[str]] = None,
                  transition_to_ia: Optional[pulumi.Input[str]] = None,
                  transition_to_primary_storage_class: Optional[pulumi.Input[str]] = None):
+        if transition_to_archive is not None:
+            pulumi.set(__self__, "transition_to_archive", transition_to_archive)
         if transition_to_ia is not None:
             pulumi.set(__self__, "transition_to_ia", transition_to_ia)
         if transition_to_primary_storage_class is not None:
             pulumi.set(__self__, "transition_to_primary_storage_class", transition_to_primary_storage_class)
+
+    @property
+    @pulumi.getter(name="transitionToArchive")
+    def transition_to_archive(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "transition_to_archive")
+
+    @transition_to_archive.setter
+    def transition_to_archive(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transition_to_archive", value)
 
     @property
     @pulumi.getter(name="transitionToIa")

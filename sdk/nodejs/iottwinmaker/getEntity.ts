@@ -40,6 +40,10 @@ export interface GetEntityResult {
      */
     readonly components?: any;
     /**
+     * A map that sets information about a composite component.
+     */
+    readonly compositeComponents?: any;
+    /**
      * The date and time when the entity was created.
      */
     readonly creationDateTime?: string;

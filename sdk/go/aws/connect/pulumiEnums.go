@@ -4459,6 +4459,7 @@ const (
 	RuleTriggerEventSourceEventSourceNameOnContactEvaluationSubmit       = RuleTriggerEventSourceEventSourceName("OnContactEvaluationSubmit")
 	RuleTriggerEventSourceEventSourceNameOnPostCallAnalysisAvailable     = RuleTriggerEventSourceEventSourceName("OnPostCallAnalysisAvailable")
 	RuleTriggerEventSourceEventSourceNameOnRealTimeCallAnalysisAvailable = RuleTriggerEventSourceEventSourceName("OnRealTimeCallAnalysisAvailable")
+	RuleTriggerEventSourceEventSourceNameOnRealTimeChatAnalysisAvailable = RuleTriggerEventSourceEventSourceName("OnRealTimeChatAnalysisAvailable")
 	RuleTriggerEventSourceEventSourceNameOnPostChatAnalysisAvailable     = RuleTriggerEventSourceEventSourceName("OnPostChatAnalysisAvailable")
 	RuleTriggerEventSourceEventSourceNameOnZendeskTicketCreate           = RuleTriggerEventSourceEventSourceName("OnZendeskTicketCreate")
 	RuleTriggerEventSourceEventSourceNameOnZendeskTicketStatusUpdate     = RuleTriggerEventSourceEventSourceName("OnZendeskTicketStatusUpdate")

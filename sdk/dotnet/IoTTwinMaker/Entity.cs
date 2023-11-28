@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         public Output<object?> Components { get; private set; } = null!;
 
         /// <summary>
+        /// A map that sets information about a composite component.
+        /// </summary>
+        [Output("compositeComponents")]
+        public Output<object?> CompositeComponents { get; private set; } = null!;
+
+        /// <summary>
         /// The date and time when the entity was created.
         /// </summary>
         [Output("creationDateTime")]
@@ -142,6 +148,12 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// </summary>
         [Input("components")]
         public Input<object>? Components { get; set; }
+
+        /// <summary>
+        /// A map that sets information about a composite component.
+        /// </summary>
+        [Input("compositeComponents")]
+        public Input<object>? CompositeComponents { get; set; }
 
         /// <summary>
         /// The description of the entity.

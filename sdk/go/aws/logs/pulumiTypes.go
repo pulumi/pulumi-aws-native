@@ -15,6 +15,405 @@ import (
 var _ = internal.GetEnvOrDefault
 
 // A key-value pair to associate with a resource.
+type DeliveryDestinationTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// DeliveryDestinationTagInput is an input type that accepts DeliveryDestinationTagArgs and DeliveryDestinationTagOutput values.
+// You can construct a concrete instance of `DeliveryDestinationTagInput` via:
+//
+//	DeliveryDestinationTagArgs{...}
+type DeliveryDestinationTagInput interface {
+	pulumi.Input
+
+	ToDeliveryDestinationTagOutput() DeliveryDestinationTagOutput
+	ToDeliveryDestinationTagOutputWithContext(context.Context) DeliveryDestinationTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type DeliveryDestinationTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DeliveryDestinationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryDestinationTag)(nil)).Elem()
+}
+
+func (i DeliveryDestinationTagArgs) ToDeliveryDestinationTagOutput() DeliveryDestinationTagOutput {
+	return i.ToDeliveryDestinationTagOutputWithContext(context.Background())
+}
+
+func (i DeliveryDestinationTagArgs) ToDeliveryDestinationTagOutputWithContext(ctx context.Context) DeliveryDestinationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryDestinationTagOutput)
+}
+
+func (i DeliveryDestinationTagArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryDestinationTag] {
+	return pulumix.Output[DeliveryDestinationTag]{
+		OutputState: i.ToDeliveryDestinationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// DeliveryDestinationTagArrayInput is an input type that accepts DeliveryDestinationTagArray and DeliveryDestinationTagArrayOutput values.
+// You can construct a concrete instance of `DeliveryDestinationTagArrayInput` via:
+//
+//	DeliveryDestinationTagArray{ DeliveryDestinationTagArgs{...} }
+type DeliveryDestinationTagArrayInput interface {
+	pulumi.Input
+
+	ToDeliveryDestinationTagArrayOutput() DeliveryDestinationTagArrayOutput
+	ToDeliveryDestinationTagArrayOutputWithContext(context.Context) DeliveryDestinationTagArrayOutput
+}
+
+type DeliveryDestinationTagArray []DeliveryDestinationTagInput
+
+func (DeliveryDestinationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeliveryDestinationTag)(nil)).Elem()
+}
+
+func (i DeliveryDestinationTagArray) ToDeliveryDestinationTagArrayOutput() DeliveryDestinationTagArrayOutput {
+	return i.ToDeliveryDestinationTagArrayOutputWithContext(context.Background())
+}
+
+func (i DeliveryDestinationTagArray) ToDeliveryDestinationTagArrayOutputWithContext(ctx context.Context) DeliveryDestinationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryDestinationTagArrayOutput)
+}
+
+func (i DeliveryDestinationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DeliveryDestinationTag] {
+	return pulumix.Output[[]DeliveryDestinationTag]{
+		OutputState: i.ToDeliveryDestinationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A key-value pair to associate with a resource.
+type DeliveryDestinationTagOutput struct{ *pulumi.OutputState }
+
+func (DeliveryDestinationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryDestinationTag)(nil)).Elem()
+}
+
+func (o DeliveryDestinationTagOutput) ToDeliveryDestinationTagOutput() DeliveryDestinationTagOutput {
+	return o
+}
+
+func (o DeliveryDestinationTagOutput) ToDeliveryDestinationTagOutputWithContext(ctx context.Context) DeliveryDestinationTagOutput {
+	return o
+}
+
+func (o DeliveryDestinationTagOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryDestinationTag] {
+	return pulumix.Output[DeliveryDestinationTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o DeliveryDestinationTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryDestinationTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o DeliveryDestinationTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryDestinationTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DeliveryDestinationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DeliveryDestinationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeliveryDestinationTag)(nil)).Elem()
+}
+
+func (o DeliveryDestinationTagArrayOutput) ToDeliveryDestinationTagArrayOutput() DeliveryDestinationTagArrayOutput {
+	return o
+}
+
+func (o DeliveryDestinationTagArrayOutput) ToDeliveryDestinationTagArrayOutputWithContext(ctx context.Context) DeliveryDestinationTagArrayOutput {
+	return o
+}
+
+func (o DeliveryDestinationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeliveryDestinationTag] {
+	return pulumix.Output[[]DeliveryDestinationTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeliveryDestinationTagArrayOutput) Index(i pulumi.IntInput) DeliveryDestinationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliveryDestinationTag {
+		return vs[0].([]DeliveryDestinationTag)[vs[1].(int)]
+	}).(DeliveryDestinationTagOutput)
+}
+
+// A key-value pair to associate with a resource.
+type DeliverySourceTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode
+	Value string `pulumi:"value"`
+}
+
+// DeliverySourceTagInput is an input type that accepts DeliverySourceTagArgs and DeliverySourceTagOutput values.
+// You can construct a concrete instance of `DeliverySourceTagInput` via:
+//
+//	DeliverySourceTagArgs{...}
+type DeliverySourceTagInput interface {
+	pulumi.Input
+
+	ToDeliverySourceTagOutput() DeliverySourceTagOutput
+	ToDeliverySourceTagOutputWithContext(context.Context) DeliverySourceTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type DeliverySourceTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DeliverySourceTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliverySourceTag)(nil)).Elem()
+}
+
+func (i DeliverySourceTagArgs) ToDeliverySourceTagOutput() DeliverySourceTagOutput {
+	return i.ToDeliverySourceTagOutputWithContext(context.Background())
+}
+
+func (i DeliverySourceTagArgs) ToDeliverySourceTagOutputWithContext(ctx context.Context) DeliverySourceTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliverySourceTagOutput)
+}
+
+func (i DeliverySourceTagArgs) ToOutput(ctx context.Context) pulumix.Output[DeliverySourceTag] {
+	return pulumix.Output[DeliverySourceTag]{
+		OutputState: i.ToDeliverySourceTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// DeliverySourceTagArrayInput is an input type that accepts DeliverySourceTagArray and DeliverySourceTagArrayOutput values.
+// You can construct a concrete instance of `DeliverySourceTagArrayInput` via:
+//
+//	DeliverySourceTagArray{ DeliverySourceTagArgs{...} }
+type DeliverySourceTagArrayInput interface {
+	pulumi.Input
+
+	ToDeliverySourceTagArrayOutput() DeliverySourceTagArrayOutput
+	ToDeliverySourceTagArrayOutputWithContext(context.Context) DeliverySourceTagArrayOutput
+}
+
+type DeliverySourceTagArray []DeliverySourceTagInput
+
+func (DeliverySourceTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeliverySourceTag)(nil)).Elem()
+}
+
+func (i DeliverySourceTagArray) ToDeliverySourceTagArrayOutput() DeliverySourceTagArrayOutput {
+	return i.ToDeliverySourceTagArrayOutputWithContext(context.Background())
+}
+
+func (i DeliverySourceTagArray) ToDeliverySourceTagArrayOutputWithContext(ctx context.Context) DeliverySourceTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliverySourceTagArrayOutput)
+}
+
+func (i DeliverySourceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DeliverySourceTag] {
+	return pulumix.Output[[]DeliverySourceTag]{
+		OutputState: i.ToDeliverySourceTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A key-value pair to associate with a resource.
+type DeliverySourceTagOutput struct{ *pulumi.OutputState }
+
+func (DeliverySourceTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliverySourceTag)(nil)).Elem()
+}
+
+func (o DeliverySourceTagOutput) ToDeliverySourceTagOutput() DeliverySourceTagOutput {
+	return o
+}
+
+func (o DeliverySourceTagOutput) ToDeliverySourceTagOutputWithContext(ctx context.Context) DeliverySourceTagOutput {
+	return o
+}
+
+func (o DeliverySourceTagOutput) ToOutput(ctx context.Context) pulumix.Output[DeliverySourceTag] {
+	return pulumix.Output[DeliverySourceTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode
+func (o DeliverySourceTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliverySourceTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode
+func (o DeliverySourceTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliverySourceTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DeliverySourceTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DeliverySourceTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeliverySourceTag)(nil)).Elem()
+}
+
+func (o DeliverySourceTagArrayOutput) ToDeliverySourceTagArrayOutput() DeliverySourceTagArrayOutput {
+	return o
+}
+
+func (o DeliverySourceTagArrayOutput) ToDeliverySourceTagArrayOutputWithContext(ctx context.Context) DeliverySourceTagArrayOutput {
+	return o
+}
+
+func (o DeliverySourceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeliverySourceTag] {
+	return pulumix.Output[[]DeliverySourceTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeliverySourceTagArrayOutput) Index(i pulumi.IntInput) DeliverySourceTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliverySourceTag {
+		return vs[0].([]DeliverySourceTag)[vs[1].(int)]
+	}).(DeliverySourceTagOutput)
+}
+
+// A key-value pair to associate with a resource.
+type DeliveryTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode
+	Value string `pulumi:"value"`
+}
+
+// DeliveryTagInput is an input type that accepts DeliveryTagArgs and DeliveryTagOutput values.
+// You can construct a concrete instance of `DeliveryTagInput` via:
+//
+//	DeliveryTagArgs{...}
+type DeliveryTagInput interface {
+	pulumi.Input
+
+	ToDeliveryTagOutput() DeliveryTagOutput
+	ToDeliveryTagOutputWithContext(context.Context) DeliveryTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type DeliveryTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DeliveryTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryTag)(nil)).Elem()
+}
+
+func (i DeliveryTagArgs) ToDeliveryTagOutput() DeliveryTagOutput {
+	return i.ToDeliveryTagOutputWithContext(context.Background())
+}
+
+func (i DeliveryTagArgs) ToDeliveryTagOutputWithContext(ctx context.Context) DeliveryTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryTagOutput)
+}
+
+func (i DeliveryTagArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryTag] {
+	return pulumix.Output[DeliveryTag]{
+		OutputState: i.ToDeliveryTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// DeliveryTagArrayInput is an input type that accepts DeliveryTagArray and DeliveryTagArrayOutput values.
+// You can construct a concrete instance of `DeliveryTagArrayInput` via:
+//
+//	DeliveryTagArray{ DeliveryTagArgs{...} }
+type DeliveryTagArrayInput interface {
+	pulumi.Input
+
+	ToDeliveryTagArrayOutput() DeliveryTagArrayOutput
+	ToDeliveryTagArrayOutputWithContext(context.Context) DeliveryTagArrayOutput
+}
+
+type DeliveryTagArray []DeliveryTagInput
+
+func (DeliveryTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeliveryTag)(nil)).Elem()
+}
+
+func (i DeliveryTagArray) ToDeliveryTagArrayOutput() DeliveryTagArrayOutput {
+	return i.ToDeliveryTagArrayOutputWithContext(context.Background())
+}
+
+func (i DeliveryTagArray) ToDeliveryTagArrayOutputWithContext(ctx context.Context) DeliveryTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryTagArrayOutput)
+}
+
+func (i DeliveryTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DeliveryTag] {
+	return pulumix.Output[[]DeliveryTag]{
+		OutputState: i.ToDeliveryTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A key-value pair to associate with a resource.
+type DeliveryTagOutput struct{ *pulumi.OutputState }
+
+func (DeliveryTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryTag)(nil)).Elem()
+}
+
+func (o DeliveryTagOutput) ToDeliveryTagOutput() DeliveryTagOutput {
+	return o
+}
+
+func (o DeliveryTagOutput) ToDeliveryTagOutputWithContext(ctx context.Context) DeliveryTagOutput {
+	return o
+}
+
+func (o DeliveryTagOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryTag] {
+	return pulumix.Output[DeliveryTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode
+func (o DeliveryTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode
+func (o DeliveryTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DeliveryTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DeliveryTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeliveryTag)(nil)).Elem()
+}
+
+func (o DeliveryTagArrayOutput) ToDeliveryTagArrayOutput() DeliveryTagArrayOutput {
+	return o
+}
+
+func (o DeliveryTagArrayOutput) ToDeliveryTagArrayOutputWithContext(ctx context.Context) DeliveryTagArrayOutput {
+	return o
+}
+
+func (o DeliveryTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeliveryTag] {
+	return pulumix.Output[[]DeliveryTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeliveryTagArrayOutput) Index(i pulumi.IntInput) DeliveryTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeliveryTag {
+		return vs[0].([]DeliveryTag)[vs[1].(int)]
+	}).(DeliveryTagOutput)
+}
+
+// A key-value pair to associate with a resource.
 type LogGroupTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., :, /, =, +, - and @.
 	Key string `pulumi:"key"`
@@ -447,12 +846,24 @@ func (o MetricFilterMetricTransformationArrayOutput) Index(i pulumi.IntInput) Me
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryDestinationTagInput)(nil)).Elem(), DeliveryDestinationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryDestinationTagArrayInput)(nil)).Elem(), DeliveryDestinationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliverySourceTagInput)(nil)).Elem(), DeliverySourceTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliverySourceTagArrayInput)(nil)).Elem(), DeliverySourceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryTagInput)(nil)).Elem(), DeliveryTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryTagArrayInput)(nil)).Elem(), DeliveryTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogGroupTagInput)(nil)).Elem(), LogGroupTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogGroupTagArrayInput)(nil)).Elem(), LogGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterDimensionInput)(nil)).Elem(), MetricFilterDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterDimensionArrayInput)(nil)).Elem(), MetricFilterDimensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterMetricTransformationInput)(nil)).Elem(), MetricFilterMetricTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterMetricTransformationArrayInput)(nil)).Elem(), MetricFilterMetricTransformationArray{})
+	pulumi.RegisterOutputType(DeliveryDestinationTagOutput{})
+	pulumi.RegisterOutputType(DeliveryDestinationTagArrayOutput{})
+	pulumi.RegisterOutputType(DeliverySourceTagOutput{})
+	pulumi.RegisterOutputType(DeliverySourceTagArrayOutput{})
+	pulumi.RegisterOutputType(DeliveryTagOutput{})
+	pulumi.RegisterOutputType(DeliveryTagArrayOutput{})
 	pulumi.RegisterOutputType(LogGroupTagOutput{})
 	pulumi.RegisterOutputType(LogGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(MetricFilterDimensionOutput{})

@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         [Output("loadBalancerArn")]
         public Output<string> LoadBalancerArn { get; private set; } = null!;
 
+        [Output("mutualAuthentication")]
+        public Output<Outputs.ListenerMutualAuthentication?> MutualAuthentication { get; private set; } = null!;
+
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
 
@@ -114,6 +117,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
         [Input("loadBalancerArn", required: true)]
         public Input<string> LoadBalancerArn { get; set; } = null!;
+
+        [Input("mutualAuthentication")]
+        public Input<Inputs.ListenerMutualAuthenticationArgs>? MutualAuthentication { get; set; }
 
         [Input("port")]
         public Input<int>? Port { get; set; }

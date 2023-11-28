@@ -21,6 +21,8 @@ type Entity struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A map that sets information about a component type.
 	Components pulumi.AnyOutput `pulumi:"components"`
+	// A map that sets information about a composite component.
+	CompositeComponents pulumi.AnyOutput `pulumi:"compositeComponents"`
 	// The date and time when the entity was created.
 	CreationDateTime pulumi.StringOutput `pulumi:"creationDateTime"`
 	// The description of the entity.
@@ -93,6 +95,8 @@ func (EntityState) ElementType() reflect.Type {
 type entityArgs struct {
 	// A map that sets information about a component type.
 	Components interface{} `pulumi:"components"`
+	// A map that sets information about a composite component.
+	CompositeComponents interface{} `pulumi:"compositeComponents"`
 	// The description of the entity.
 	Description *string `pulumi:"description"`
 	// The ID of the entity.
@@ -111,6 +115,8 @@ type entityArgs struct {
 type EntityArgs struct {
 	// A map that sets information about a component type.
 	Components pulumi.Input
+	// A map that sets information about a composite component.
+	CompositeComponents pulumi.Input
 	// The description of the entity.
 	Description pulumi.StringPtrInput
 	// The ID of the entity.
@@ -182,6 +188,11 @@ func (o EntityOutput) Arn() pulumi.StringOutput {
 // A map that sets information about a component type.
 func (o EntityOutput) Components() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Entity) pulumi.AnyOutput { return v.Components }).(pulumi.AnyOutput)
+}
+
+// A map that sets information about a composite component.
+func (o EntityOutput) CompositeComponents() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Entity) pulumi.AnyOutput { return v.CompositeComponents }).(pulumi.AnyOutput)
 }
 
 // The date and time when the entity was created.

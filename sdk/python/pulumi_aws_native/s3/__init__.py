@@ -6,9 +6,15 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .access_grant import *
+from .access_grants_instance import *
+from .access_grants_location import *
 from .access_point import *
 from .bucket import *
 from .bucket_policy import *
+from .get_access_grant import *
+from .get_access_grants_instance import *
+from .get_access_grants_location import *
 from .get_access_point import *
 from .get_bucket import *
 from .get_bucket_policy import *

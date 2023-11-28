@@ -21,6 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:s3:AccessGrant":
+		r = &AccessGrant{}
+	case "aws-native:s3:AccessGrantsInstance":
+		r = &AccessGrantsInstance{}
+	case "aws-native:s3:AccessGrantsLocation":
+		r = &AccessGrantsLocation{}
 	case "aws-native:s3:AccessPoint":
 		r = &AccessPoint{}
 	case "aws-native:s3:Bucket":

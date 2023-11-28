@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetLogGroupResult',
@@ -19,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetLogGroupResult:
-    def __init__(__self__, arn=None, data_protection_policy=None, kms_key_id=None, retention_in_days=None, tags=None):
+    def __init__(__self__, arn=None, data_protection_policy=None, kms_key_id=None, log_group_class=None, retention_in_days=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -29,6 +30,9 @@ class GetLogGroupResult:
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
         pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if log_group_class and not isinstance(log_group_class, str):
+            raise TypeError("Expected argument 'log_group_class' to be a str")
+        pulumi.set(__self__, "log_group_class", log_group_class)
         if retention_in_days and not isinstance(retention_in_days, int):
             raise TypeError("Expected argument 'retention_in_days' to be a int")
         pulumi.set(__self__, "retention_in_days", retention_in_days)
@@ -67,6 +71,14 @@ class GetLogGroupResult:
         return pulumi.get(self, "kms_key_id")
 
     @property
+    @pulumi.getter(name="logGroupClass")
+    def log_group_class(self) -> Optional['LogGroupClass']:
+        """
+        The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS, with STANDARD being the default class
+        """
+        return pulumi.get(self, "log_group_class")
+
+    @property
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> Optional[int]:
         """
@@ -92,6 +104,7 @@ class AwaitableGetLogGroupResult(GetLogGroupResult):
             arn=self.arn,
             data_protection_policy=self.data_protection_policy,
             kms_key_id=self.kms_key_id,
+            log_group_class=self.log_group_class,
             retention_in_days=self.retention_in_days,
             tags=self.tags)
 
@@ -113,6 +126,7 @@ def get_log_group(log_group_name: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         data_protection_policy=pulumi.get(__ret__, 'data_protection_policy'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
+        log_group_class=pulumi.get(__ret__, 'log_group_class'),
         retention_in_days=pulumi.get(__ret__, 'retention_in_days'),
         tags=pulumi.get(__ret__, 'tags'))
 

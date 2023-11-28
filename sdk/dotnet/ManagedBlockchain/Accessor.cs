@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.ManagedBlockchain
         [Output("creationDate")]
         public Output<string> CreationDate { get; private set; } = null!;
 
+        [Output("networkType")]
+        public Output<Pulumi.AwsNative.ManagedBlockchain.AccessorNetworkAccessorType?> NetworkType { get; private set; } = null!;
+
         [Output("status")]
         public Output<Pulumi.AwsNative.ManagedBlockchain.AccessorStatus> Status { get; private set; } = null!;
 
@@ -63,6 +66,7 @@ namespace Pulumi.AwsNative.ManagedBlockchain
                 ReplaceOnChanges =
                 {
                     "accessorType",
+                    "networkType",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -88,6 +92,9 @@ namespace Pulumi.AwsNative.ManagedBlockchain
     {
         [Input("accessorType", required: true)]
         public Input<Pulumi.AwsNative.ManagedBlockchain.AccessorType> AccessorType { get; set; } = null!;
+
+        [Input("networkType")]
+        public Input<Pulumi.AwsNative.ManagedBlockchain.AccessorNetworkAccessorType>? NetworkType { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.AccessorTagArgs>? _tags;

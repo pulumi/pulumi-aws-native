@@ -18,6 +18,13 @@ export namespace accessanalyzer {
         ruleName: string;
     }
 
+    /**
+     * The configuration for the analyzer
+     */
+    export interface AnalyzerConfigurationProperties {
+        unusedAccessConfiguration?: outputs.accessanalyzer.AnalyzerUnusedAccessConfiguration;
+    }
+
     export interface AnalyzerFilter {
         contains?: string[];
         eq?: string[];
@@ -38,6 +45,16 @@ export namespace accessanalyzer {
          * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
         value: string;
+    }
+
+    /**
+     * The Configuration for Unused Access Analyzer
+     */
+    export interface AnalyzerUnusedAccessConfiguration {
+        /**
+         * The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that haven't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+         */
+        unusedAccessAge?: number;
     }
 
 }
@@ -7610,6 +7627,20 @@ export namespace codestarconnections {
         value: string;
     }
 
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface RepositoryLinkTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, , ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, , ., /, =, +, and -. 
+         */
+        value: string;
+    }
+
 }
 
 export namespace codestarnotifications {
@@ -9773,6 +9804,19 @@ export namespace connectcampaigns {
          * The value for the tag. You can specify a value that's 1 to 256 characters in length.
          */
         value: string;
+    }
+
+}
+
+export namespace controltower {
+    export interface EnabledControlParameter {
+        key: string;
+        value: (string | number | any | boolean)[] | string | number | any | boolean;
+    }
+
+    export interface LandingZoneTag {
+        key?: string;
+        value?: string;
     }
 
 }
@@ -15341,6 +15385,7 @@ export namespace efs {
     }
 
     export interface FileSystemLifecyclePolicy {
+        transitionToArchive?: string;
         transitionToIa?: string;
         transitionToPrimaryStorageClass?: string;
     }
@@ -15646,6 +15691,20 @@ export namespace eks {
          * The maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once. This value or maxUnavailable is required to have a value.
          */
         maxUnavailablePercentage?: number;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface PodIdentityAssociationTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
     }
 
 }
@@ -16066,6 +16125,12 @@ export namespace elasticloadbalancingv2 {
         targetGroups?: outputs.elasticloadbalancingv2.ListenerTargetGroupTuple[];
     }
 
+    export interface ListenerMutualAuthentication {
+        ignoreClientCertificateExpiry?: boolean;
+        mode?: string;
+        trustStoreArn?: string;
+    }
+
     export interface ListenerRedirectConfig {
         host?: string;
         path?: string;
@@ -16256,6 +16321,25 @@ export namespace elasticloadbalancingv2 {
          * The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. If the target type is alb, the targeted Application Load Balancer must have at least one listener whose port matches the target group port. Not used if the target is a Lambda function.
          */
         port?: number;
+    }
+
+    export interface TrustStoreRevocation {
+        numberOfRevokedEntries?: number;
+        revocationId?: string;
+        revocationType?: string;
+        trustStoreArn?: string;
+    }
+
+    export interface TrustStoreRevocationRevocationContent {
+        revocationType?: string;
+        s3Bucket?: string;
+        s3Key?: string;
+        s3ObjectVersion?: string;
+    }
+
+    export interface TrustStoreTag {
+        key: string;
+        value: string;
     }
 
 }
@@ -28506,6 +28590,48 @@ export namespace location {
 }
 
 export namespace logs {
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface DeliveryDestinationTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface DeliverySourceTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface DeliveryTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode
+         */
+        value: string;
+    }
+
     /**
      * A key-value pair to associate with a resource.
      */
@@ -47377,6 +47503,39 @@ export namespace rum {
 }
 
 export namespace s3 {
+    export interface AccessGrantGrantee {
+        /**
+         * The unique identifier of the Grantee
+         */
+        granteeIdentifier: string;
+        /**
+         * Configures the transfer acceleration state for an Amazon S3 bucket.
+         */
+        granteeType: enums.s3.AccessGrantGranteeGranteeType;
+    }
+
+    export interface AccessGrantTag {
+        key: string;
+        value: string;
+    }
+
+    export interface AccessGrantsInstanceTag {
+        key: string;
+        value: string;
+    }
+
+    export interface AccessGrantsLocationConfiguration {
+        /**
+         * The S3 sub prefix of a registered location in your S3 Access Grants instance
+         */
+        s3SubPrefix: string;
+    }
+
+    export interface AccessGrantsLocationTag {
+        key: string;
+        value: string;
+    }
+
     export interface AccessPointPublicAccessBlockConfiguration {
         /**
          * Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:

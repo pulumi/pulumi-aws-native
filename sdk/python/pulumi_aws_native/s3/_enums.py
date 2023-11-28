@@ -5,6 +5,9 @@
 from enum import Enum
 
 __all__ = [
+    'AccessGrantGranteeGranteeType',
+    'AccessGrantPermission',
+    'AccessGrantS3PrefixType',
     'AccessPointNetworkOrigin',
     'BucketAccelerateConfigurationAccelerationStatus',
     'BucketAccessControl',
@@ -35,6 +38,31 @@ __all__ = [
     'StorageLensS3BucketDestinationFormat',
     'StorageLensS3BucketDestinationOutputSchemaVersion',
 ]
+
+
+class AccessGrantGranteeGranteeType(str, Enum):
+    """
+    Configures the transfer acceleration state for an Amazon S3 bucket.
+    """
+    IAM = "IAM"
+    DIRECTORY_USER = "DIRECTORY_USER"
+    DIRECTORY_GROUP = "DIRECTORY_GROUP"
+
+
+class AccessGrantPermission(str, Enum):
+    """
+    The level of access to be afforded to the grantee
+    """
+    READ = "READ"
+    WRITE = "WRITE"
+    READWRITE = "READWRITE"
+
+
+class AccessGrantS3PrefixType(str, Enum):
+    """
+    The type of S3SubPrefix.
+    """
+    OBJECT = "Object"
 
 
 class AccessPointNetworkOrigin(str, Enum):

@@ -20,6 +20,29 @@ export const AccountPolicyScope = {
  */
 export type AccountPolicyScope = (typeof AccountPolicyScope)[keyof typeof AccountPolicyScope];
 
+export const LogAnomalyDetectorEvaluationFrequency = {
+    FiveMin: "FIVE_MIN",
+    TenMin: "TEN_MIN",
+    FifteenMin: "FIFTEEN_MIN",
+    ThirtyMin: "THIRTY_MIN",
+    OneHour: "ONE_HOUR",
+} as const;
+
+/**
+ * How often log group is evaluated
+ */
+export type LogAnomalyDetectorEvaluationFrequency = (typeof LogAnomalyDetectorEvaluationFrequency)[keyof typeof LogAnomalyDetectorEvaluationFrequency];
+
+export const LogGroupClass = {
+    Standard: "STANDARD",
+    InfrequentAccess: "INFREQUENT_ACCESS",
+} as const;
+
+/**
+ * The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS, with STANDARD being the default class
+ */
+export type LogGroupClass = (typeof LogGroupClass)[keyof typeof LogGroupClass];
+
 export const MetricFilterMetricTransformationUnit = {
     Seconds: "Seconds",
     Microseconds: "Microseconds",

@@ -27,6 +27,7 @@ export interface GetListenerResult {
     readonly certificates?: outputs.elasticloadbalancingv2.ListenerCertificate[];
     readonly defaultActions?: outputs.elasticloadbalancingv2.ListenerAction[];
     readonly listenerArn?: string;
+    readonly mutualAuthentication?: outputs.elasticloadbalancingv2.ListenerMutualAuthentication;
     readonly port?: number;
     readonly protocol?: string;
     readonly sslPolicy?: string;

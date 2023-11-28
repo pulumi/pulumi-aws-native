@@ -11,6 +11,556 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+// Configures the transfer acceleration state for an Amazon S3 bucket.
+type AccessGrantGranteeGranteeType string
+
+const (
+	AccessGrantGranteeGranteeTypeIam            = AccessGrantGranteeGranteeType("IAM")
+	AccessGrantGranteeGranteeTypeDirectoryUser  = AccessGrantGranteeGranteeType("DIRECTORY_USER")
+	AccessGrantGranteeGranteeTypeDirectoryGroup = AccessGrantGranteeGranteeType("DIRECTORY_GROUP")
+)
+
+func (AccessGrantGranteeGranteeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantGranteeGranteeType)(nil)).Elem()
+}
+
+func (e AccessGrantGranteeGranteeType) ToAccessGrantGranteeGranteeTypeOutput() AccessGrantGranteeGranteeTypeOutput {
+	return pulumi.ToOutput(e).(AccessGrantGranteeGranteeTypeOutput)
+}
+
+func (e AccessGrantGranteeGranteeType) ToAccessGrantGranteeGranteeTypeOutputWithContext(ctx context.Context) AccessGrantGranteeGranteeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AccessGrantGranteeGranteeTypeOutput)
+}
+
+func (e AccessGrantGranteeGranteeType) ToAccessGrantGranteeGranteeTypePtrOutput() AccessGrantGranteeGranteeTypePtrOutput {
+	return e.ToAccessGrantGranteeGranteeTypePtrOutputWithContext(context.Background())
+}
+
+func (e AccessGrantGranteeGranteeType) ToAccessGrantGranteeGranteeTypePtrOutputWithContext(ctx context.Context) AccessGrantGranteeGranteeTypePtrOutput {
+	return AccessGrantGranteeGranteeType(e).ToAccessGrantGranteeGranteeTypeOutputWithContext(ctx).ToAccessGrantGranteeGranteeTypePtrOutputWithContext(ctx)
+}
+
+func (e AccessGrantGranteeGranteeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccessGrantGranteeGranteeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccessGrantGranteeGranteeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AccessGrantGranteeGranteeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AccessGrantGranteeGranteeTypeOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantGranteeGranteeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantGranteeGranteeType)(nil)).Elem()
+}
+
+func (o AccessGrantGranteeGranteeTypeOutput) ToAccessGrantGranteeGranteeTypeOutput() AccessGrantGranteeGranteeTypeOutput {
+	return o
+}
+
+func (o AccessGrantGranteeGranteeTypeOutput) ToAccessGrantGranteeGranteeTypeOutputWithContext(ctx context.Context) AccessGrantGranteeGranteeTypeOutput {
+	return o
+}
+
+func (o AccessGrantGranteeGranteeTypeOutput) ToAccessGrantGranteeGranteeTypePtrOutput() AccessGrantGranteeGranteeTypePtrOutput {
+	return o.ToAccessGrantGranteeGranteeTypePtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantGranteeGranteeTypeOutput) ToAccessGrantGranteeGranteeTypePtrOutputWithContext(ctx context.Context) AccessGrantGranteeGranteeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessGrantGranteeGranteeType) *AccessGrantGranteeGranteeType {
+		return &v
+	}).(AccessGrantGranteeGranteeTypePtrOutput)
+}
+
+func (o AccessGrantGranteeGranteeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AccessGrantGranteeGranteeType] {
+	return pulumix.Output[AccessGrantGranteeGranteeType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AccessGrantGranteeGranteeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AccessGrantGranteeGranteeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessGrantGranteeGranteeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AccessGrantGranteeGranteeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantGranteeGranteeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessGrantGranteeGranteeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessGrantGranteeGranteeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantGranteeGranteeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessGrantGranteeGranteeType)(nil)).Elem()
+}
+
+func (o AccessGrantGranteeGranteeTypePtrOutput) ToAccessGrantGranteeGranteeTypePtrOutput() AccessGrantGranteeGranteeTypePtrOutput {
+	return o
+}
+
+func (o AccessGrantGranteeGranteeTypePtrOutput) ToAccessGrantGranteeGranteeTypePtrOutputWithContext(ctx context.Context) AccessGrantGranteeGranteeTypePtrOutput {
+	return o
+}
+
+func (o AccessGrantGranteeGranteeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessGrantGranteeGranteeType] {
+	return pulumix.Output[*AccessGrantGranteeGranteeType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AccessGrantGranteeGranteeTypePtrOutput) Elem() AccessGrantGranteeGranteeTypeOutput {
+	return o.ApplyT(func(v *AccessGrantGranteeGranteeType) AccessGrantGranteeGranteeType {
+		if v != nil {
+			return *v
+		}
+		var ret AccessGrantGranteeGranteeType
+		return ret
+	}).(AccessGrantGranteeGranteeTypeOutput)
+}
+
+func (o AccessGrantGranteeGranteeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantGranteeGranteeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccessGrantGranteeGranteeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AccessGrantGranteeGranteeTypeInput is an input type that accepts AccessGrantGranteeGranteeTypeArgs and AccessGrantGranteeGranteeTypeOutput values.
+// You can construct a concrete instance of `AccessGrantGranteeGranteeTypeInput` via:
+//
+//	AccessGrantGranteeGranteeTypeArgs{...}
+type AccessGrantGranteeGranteeTypeInput interface {
+	pulumi.Input
+
+	ToAccessGrantGranteeGranteeTypeOutput() AccessGrantGranteeGranteeTypeOutput
+	ToAccessGrantGranteeGranteeTypeOutputWithContext(context.Context) AccessGrantGranteeGranteeTypeOutput
+}
+
+var accessGrantGranteeGranteeTypePtrType = reflect.TypeOf((**AccessGrantGranteeGranteeType)(nil)).Elem()
+
+type AccessGrantGranteeGranteeTypePtrInput interface {
+	pulumi.Input
+
+	ToAccessGrantGranteeGranteeTypePtrOutput() AccessGrantGranteeGranteeTypePtrOutput
+	ToAccessGrantGranteeGranteeTypePtrOutputWithContext(context.Context) AccessGrantGranteeGranteeTypePtrOutput
+}
+
+type accessGrantGranteeGranteeTypePtr string
+
+func AccessGrantGranteeGranteeTypePtr(v string) AccessGrantGranteeGranteeTypePtrInput {
+	return (*accessGrantGranteeGranteeTypePtr)(&v)
+}
+
+func (*accessGrantGranteeGranteeTypePtr) ElementType() reflect.Type {
+	return accessGrantGranteeGranteeTypePtrType
+}
+
+func (in *accessGrantGranteeGranteeTypePtr) ToAccessGrantGranteeGranteeTypePtrOutput() AccessGrantGranteeGranteeTypePtrOutput {
+	return pulumi.ToOutput(in).(AccessGrantGranteeGranteeTypePtrOutput)
+}
+
+func (in *accessGrantGranteeGranteeTypePtr) ToAccessGrantGranteeGranteeTypePtrOutputWithContext(ctx context.Context) AccessGrantGranteeGranteeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AccessGrantGranteeGranteeTypePtrOutput)
+}
+
+func (in *accessGrantGranteeGranteeTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AccessGrantGranteeGranteeType] {
+	return pulumix.Output[*AccessGrantGranteeGranteeType]{
+		OutputState: in.ToAccessGrantGranteeGranteeTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The level of access to be afforded to the grantee
+type AccessGrantPermission string
+
+const (
+	AccessGrantPermissionRead      = AccessGrantPermission("READ")
+	AccessGrantPermissionWrite     = AccessGrantPermission("WRITE")
+	AccessGrantPermissionReadwrite = AccessGrantPermission("READWRITE")
+)
+
+func (AccessGrantPermission) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantPermission)(nil)).Elem()
+}
+
+func (e AccessGrantPermission) ToAccessGrantPermissionOutput() AccessGrantPermissionOutput {
+	return pulumi.ToOutput(e).(AccessGrantPermissionOutput)
+}
+
+func (e AccessGrantPermission) ToAccessGrantPermissionOutputWithContext(ctx context.Context) AccessGrantPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AccessGrantPermissionOutput)
+}
+
+func (e AccessGrantPermission) ToAccessGrantPermissionPtrOutput() AccessGrantPermissionPtrOutput {
+	return e.ToAccessGrantPermissionPtrOutputWithContext(context.Background())
+}
+
+func (e AccessGrantPermission) ToAccessGrantPermissionPtrOutputWithContext(ctx context.Context) AccessGrantPermissionPtrOutput {
+	return AccessGrantPermission(e).ToAccessGrantPermissionOutputWithContext(ctx).ToAccessGrantPermissionPtrOutputWithContext(ctx)
+}
+
+func (e AccessGrantPermission) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccessGrantPermission) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccessGrantPermission) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AccessGrantPermission) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AccessGrantPermissionOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantPermission)(nil)).Elem()
+}
+
+func (o AccessGrantPermissionOutput) ToAccessGrantPermissionOutput() AccessGrantPermissionOutput {
+	return o
+}
+
+func (o AccessGrantPermissionOutput) ToAccessGrantPermissionOutputWithContext(ctx context.Context) AccessGrantPermissionOutput {
+	return o
+}
+
+func (o AccessGrantPermissionOutput) ToAccessGrantPermissionPtrOutput() AccessGrantPermissionPtrOutput {
+	return o.ToAccessGrantPermissionPtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantPermissionOutput) ToAccessGrantPermissionPtrOutputWithContext(ctx context.Context) AccessGrantPermissionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessGrantPermission) *AccessGrantPermission {
+		return &v
+	}).(AccessGrantPermissionPtrOutput)
+}
+
+func (o AccessGrantPermissionOutput) ToOutput(ctx context.Context) pulumix.Output[AccessGrantPermission] {
+	return pulumix.Output[AccessGrantPermission]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AccessGrantPermissionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AccessGrantPermissionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessGrantPermission) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AccessGrantPermissionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantPermissionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessGrantPermission) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessGrantPermissionPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantPermissionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessGrantPermission)(nil)).Elem()
+}
+
+func (o AccessGrantPermissionPtrOutput) ToAccessGrantPermissionPtrOutput() AccessGrantPermissionPtrOutput {
+	return o
+}
+
+func (o AccessGrantPermissionPtrOutput) ToAccessGrantPermissionPtrOutputWithContext(ctx context.Context) AccessGrantPermissionPtrOutput {
+	return o
+}
+
+func (o AccessGrantPermissionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessGrantPermission] {
+	return pulumix.Output[*AccessGrantPermission]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AccessGrantPermissionPtrOutput) Elem() AccessGrantPermissionOutput {
+	return o.ApplyT(func(v *AccessGrantPermission) AccessGrantPermission {
+		if v != nil {
+			return *v
+		}
+		var ret AccessGrantPermission
+		return ret
+	}).(AccessGrantPermissionOutput)
+}
+
+func (o AccessGrantPermissionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantPermissionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccessGrantPermission) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AccessGrantPermissionInput is an input type that accepts AccessGrantPermissionArgs and AccessGrantPermissionOutput values.
+// You can construct a concrete instance of `AccessGrantPermissionInput` via:
+//
+//	AccessGrantPermissionArgs{...}
+type AccessGrantPermissionInput interface {
+	pulumi.Input
+
+	ToAccessGrantPermissionOutput() AccessGrantPermissionOutput
+	ToAccessGrantPermissionOutputWithContext(context.Context) AccessGrantPermissionOutput
+}
+
+var accessGrantPermissionPtrType = reflect.TypeOf((**AccessGrantPermission)(nil)).Elem()
+
+type AccessGrantPermissionPtrInput interface {
+	pulumi.Input
+
+	ToAccessGrantPermissionPtrOutput() AccessGrantPermissionPtrOutput
+	ToAccessGrantPermissionPtrOutputWithContext(context.Context) AccessGrantPermissionPtrOutput
+}
+
+type accessGrantPermissionPtr string
+
+func AccessGrantPermissionPtr(v string) AccessGrantPermissionPtrInput {
+	return (*accessGrantPermissionPtr)(&v)
+}
+
+func (*accessGrantPermissionPtr) ElementType() reflect.Type {
+	return accessGrantPermissionPtrType
+}
+
+func (in *accessGrantPermissionPtr) ToAccessGrantPermissionPtrOutput() AccessGrantPermissionPtrOutput {
+	return pulumi.ToOutput(in).(AccessGrantPermissionPtrOutput)
+}
+
+func (in *accessGrantPermissionPtr) ToAccessGrantPermissionPtrOutputWithContext(ctx context.Context) AccessGrantPermissionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AccessGrantPermissionPtrOutput)
+}
+
+func (in *accessGrantPermissionPtr) ToOutput(ctx context.Context) pulumix.Output[*AccessGrantPermission] {
+	return pulumix.Output[*AccessGrantPermission]{
+		OutputState: in.ToAccessGrantPermissionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The type of S3SubPrefix.
+type AccessGrantS3PrefixType string
+
+const (
+	AccessGrantS3PrefixTypeObject = AccessGrantS3PrefixType("Object")
+)
+
+func (AccessGrantS3PrefixType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantS3PrefixType)(nil)).Elem()
+}
+
+func (e AccessGrantS3PrefixType) ToAccessGrantS3PrefixTypeOutput() AccessGrantS3PrefixTypeOutput {
+	return pulumi.ToOutput(e).(AccessGrantS3PrefixTypeOutput)
+}
+
+func (e AccessGrantS3PrefixType) ToAccessGrantS3PrefixTypeOutputWithContext(ctx context.Context) AccessGrantS3PrefixTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AccessGrantS3PrefixTypeOutput)
+}
+
+func (e AccessGrantS3PrefixType) ToAccessGrantS3PrefixTypePtrOutput() AccessGrantS3PrefixTypePtrOutput {
+	return e.ToAccessGrantS3PrefixTypePtrOutputWithContext(context.Background())
+}
+
+func (e AccessGrantS3PrefixType) ToAccessGrantS3PrefixTypePtrOutputWithContext(ctx context.Context) AccessGrantS3PrefixTypePtrOutput {
+	return AccessGrantS3PrefixType(e).ToAccessGrantS3PrefixTypeOutputWithContext(ctx).ToAccessGrantS3PrefixTypePtrOutputWithContext(ctx)
+}
+
+func (e AccessGrantS3PrefixType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccessGrantS3PrefixType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccessGrantS3PrefixType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AccessGrantS3PrefixType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AccessGrantS3PrefixTypeOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantS3PrefixTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessGrantS3PrefixType)(nil)).Elem()
+}
+
+func (o AccessGrantS3PrefixTypeOutput) ToAccessGrantS3PrefixTypeOutput() AccessGrantS3PrefixTypeOutput {
+	return o
+}
+
+func (o AccessGrantS3PrefixTypeOutput) ToAccessGrantS3PrefixTypeOutputWithContext(ctx context.Context) AccessGrantS3PrefixTypeOutput {
+	return o
+}
+
+func (o AccessGrantS3PrefixTypeOutput) ToAccessGrantS3PrefixTypePtrOutput() AccessGrantS3PrefixTypePtrOutput {
+	return o.ToAccessGrantS3PrefixTypePtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantS3PrefixTypeOutput) ToAccessGrantS3PrefixTypePtrOutputWithContext(ctx context.Context) AccessGrantS3PrefixTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessGrantS3PrefixType) *AccessGrantS3PrefixType {
+		return &v
+	}).(AccessGrantS3PrefixTypePtrOutput)
+}
+
+func (o AccessGrantS3PrefixTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AccessGrantS3PrefixType] {
+	return pulumix.Output[AccessGrantS3PrefixType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AccessGrantS3PrefixTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AccessGrantS3PrefixTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessGrantS3PrefixType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AccessGrantS3PrefixTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantS3PrefixTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessGrantS3PrefixType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessGrantS3PrefixTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AccessGrantS3PrefixTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessGrantS3PrefixType)(nil)).Elem()
+}
+
+func (o AccessGrantS3PrefixTypePtrOutput) ToAccessGrantS3PrefixTypePtrOutput() AccessGrantS3PrefixTypePtrOutput {
+	return o
+}
+
+func (o AccessGrantS3PrefixTypePtrOutput) ToAccessGrantS3PrefixTypePtrOutputWithContext(ctx context.Context) AccessGrantS3PrefixTypePtrOutput {
+	return o
+}
+
+func (o AccessGrantS3PrefixTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessGrantS3PrefixType] {
+	return pulumix.Output[*AccessGrantS3PrefixType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AccessGrantS3PrefixTypePtrOutput) Elem() AccessGrantS3PrefixTypeOutput {
+	return o.ApplyT(func(v *AccessGrantS3PrefixType) AccessGrantS3PrefixType {
+		if v != nil {
+			return *v
+		}
+		var ret AccessGrantS3PrefixType
+		return ret
+	}).(AccessGrantS3PrefixTypeOutput)
+}
+
+func (o AccessGrantS3PrefixTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessGrantS3PrefixTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccessGrantS3PrefixType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AccessGrantS3PrefixTypeInput is an input type that accepts AccessGrantS3PrefixTypeArgs and AccessGrantS3PrefixTypeOutput values.
+// You can construct a concrete instance of `AccessGrantS3PrefixTypeInput` via:
+//
+//	AccessGrantS3PrefixTypeArgs{...}
+type AccessGrantS3PrefixTypeInput interface {
+	pulumi.Input
+
+	ToAccessGrantS3PrefixTypeOutput() AccessGrantS3PrefixTypeOutput
+	ToAccessGrantS3PrefixTypeOutputWithContext(context.Context) AccessGrantS3PrefixTypeOutput
+}
+
+var accessGrantS3PrefixTypePtrType = reflect.TypeOf((**AccessGrantS3PrefixType)(nil)).Elem()
+
+type AccessGrantS3PrefixTypePtrInput interface {
+	pulumi.Input
+
+	ToAccessGrantS3PrefixTypePtrOutput() AccessGrantS3PrefixTypePtrOutput
+	ToAccessGrantS3PrefixTypePtrOutputWithContext(context.Context) AccessGrantS3PrefixTypePtrOutput
+}
+
+type accessGrantS3PrefixTypePtr string
+
+func AccessGrantS3PrefixTypePtr(v string) AccessGrantS3PrefixTypePtrInput {
+	return (*accessGrantS3PrefixTypePtr)(&v)
+}
+
+func (*accessGrantS3PrefixTypePtr) ElementType() reflect.Type {
+	return accessGrantS3PrefixTypePtrType
+}
+
+func (in *accessGrantS3PrefixTypePtr) ToAccessGrantS3PrefixTypePtrOutput() AccessGrantS3PrefixTypePtrOutput {
+	return pulumi.ToOutput(in).(AccessGrantS3PrefixTypePtrOutput)
+}
+
+func (in *accessGrantS3PrefixTypePtr) ToAccessGrantS3PrefixTypePtrOutputWithContext(ctx context.Context) AccessGrantS3PrefixTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AccessGrantS3PrefixTypePtrOutput)
+}
+
+func (in *accessGrantS3PrefixTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AccessGrantS3PrefixType] {
+	return pulumix.Output[*AccessGrantS3PrefixType]{
+		OutputState: in.ToAccessGrantS3PrefixTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Indicates whether this Access Point allows access from the public Internet. If VpcConfiguration is specified for this Access Point, then NetworkOrigin is VPC, and the Access Point doesn't allow access from the public Internet. Otherwise, NetworkOrigin is Internet, and the Access Point allows access from the public Internet, subject to the Access Point and bucket access policies.
 type AccessPointNetworkOrigin string
 
@@ -5299,6 +5849,12 @@ func (in *storageLensS3BucketDestinationOutputSchemaVersionPtr) ToOutput(ctx con
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantGranteeGranteeTypeInput)(nil)).Elem(), AccessGrantGranteeGranteeType("IAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantGranteeGranteeTypePtrInput)(nil)).Elem(), AccessGrantGranteeGranteeType("IAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantPermissionInput)(nil)).Elem(), AccessGrantPermission("READ"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantPermissionPtrInput)(nil)).Elem(), AccessGrantPermission("READ"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantS3PrefixTypeInput)(nil)).Elem(), AccessGrantS3PrefixType("Object"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantS3PrefixTypePtrInput)(nil)).Elem(), AccessGrantS3PrefixType("Object"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAccelerateConfigurationAccelerationStatusInput)(nil)).Elem(), BucketAccelerateConfigurationAccelerationStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAccelerateConfigurationAccelerationStatusPtrInput)(nil)).Elem(), BucketAccelerateConfigurationAccelerationStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketAccessControlInput)(nil)).Elem(), BucketAccessControl("AuthenticatedRead"))
@@ -5355,6 +5911,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensS3BucketDestinationFormatPtrInput)(nil)).Elem(), StorageLensS3BucketDestinationFormat("CSV"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensS3BucketDestinationOutputSchemaVersionInput)(nil)).Elem(), StorageLensS3BucketDestinationOutputSchemaVersion("V_1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensS3BucketDestinationOutputSchemaVersionPtrInput)(nil)).Elem(), StorageLensS3BucketDestinationOutputSchemaVersion("V_1"))
+	pulumi.RegisterOutputType(AccessGrantGranteeGranteeTypeOutput{})
+	pulumi.RegisterOutputType(AccessGrantGranteeGranteeTypePtrOutput{})
+	pulumi.RegisterOutputType(AccessGrantPermissionOutput{})
+	pulumi.RegisterOutputType(AccessGrantPermissionPtrOutput{})
+	pulumi.RegisterOutputType(AccessGrantS3PrefixTypeOutput{})
+	pulumi.RegisterOutputType(AccessGrantS3PrefixTypePtrOutput{})
 	pulumi.RegisterOutputType(AccessPointNetworkOriginOutput{})
 	pulumi.RegisterOutputType(AccessPointNetworkOriginPtrOutput{})
 	pulumi.RegisterOutputType(BucketAccelerateConfigurationAccelerationStatusOutput{})

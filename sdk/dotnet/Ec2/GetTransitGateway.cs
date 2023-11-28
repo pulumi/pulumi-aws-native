@@ -60,6 +60,7 @@ namespace Pulumi.AwsNative.Ec2
         public readonly string? Id;
         public readonly string? PropagationDefaultRouteTableId;
         public readonly ImmutableArray<Outputs.TransitGatewayTag> Tags;
+        public readonly string? TransitGatewayArn;
         public readonly ImmutableArray<string> TransitGatewayCidrBlocks;
         public readonly string? VpnEcmpSupport;
 
@@ -83,6 +84,8 @@ namespace Pulumi.AwsNative.Ec2
 
             ImmutableArray<Outputs.TransitGatewayTag> tags,
 
+            string? transitGatewayArn,
+
             ImmutableArray<string> transitGatewayCidrBlocks,
 
             string? vpnEcmpSupport)
@@ -96,6 +99,7 @@ namespace Pulumi.AwsNative.Ec2
             Id = id;
             PropagationDefaultRouteTableId = propagationDefaultRouteTableId;
             Tags = tags;
+            TransitGatewayArn = transitGatewayArn;
             TransitGatewayCidrBlocks = transitGatewayCidrBlocks;
             VpnEcmpSupport = vpnEcmpSupport;
         }

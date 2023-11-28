@@ -31,6 +31,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LoadBalancer{}
 	case "aws-native:elasticloadbalancingv2:TargetGroup":
 		r = &TargetGroup{}
+	case "aws-native:elasticloadbalancingv2:TrustStore":
+		r = &TrustStore{}
+	case "aws-native:elasticloadbalancingv2:TrustStoreRevocation":
+		r = &TrustStoreRevocation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

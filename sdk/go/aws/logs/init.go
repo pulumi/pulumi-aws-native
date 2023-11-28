@@ -23,8 +23,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:logs:AccountPolicy":
 		r = &AccountPolicy{}
+	case "aws-native:logs:Delivery":
+		r = &Delivery{}
+	case "aws-native:logs:DeliveryDestination":
+		r = &DeliveryDestination{}
+	case "aws-native:logs:DeliverySource":
+		r = &DeliverySource{}
 	case "aws-native:logs:Destination":
 		r = &Destination{}
+	case "aws-native:logs:LogAnomalyDetector":
+		r = &LogAnomalyDetector{}
 	case "aws-native:logs:LogGroup":
 		r = &LogGroup{}
 	case "aws-native:logs:LogStream":

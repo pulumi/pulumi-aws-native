@@ -78,6 +78,10 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// </summary>
         public readonly object? Components;
         /// <summary>
+        /// A map that sets information about a composite component.
+        /// </summary>
+        public readonly object? CompositeComponents;
+        /// <summary>
         /// The date and time when the entity was created.
         /// </summary>
         public readonly string? CreationDateTime;
@@ -116,6 +120,8 @@ namespace Pulumi.AwsNative.IoTTwinMaker
 
             object? components,
 
+            object? compositeComponents,
+
             string? creationDateTime,
 
             string? description,
@@ -134,6 +140,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         {
             Arn = arn;
             Components = components;
+            CompositeComponents = compositeComponents;
             CreationDateTime = creationDateTime;
             Description = description;
             EntityName = entityName;

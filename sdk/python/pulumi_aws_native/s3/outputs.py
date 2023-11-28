@@ -12,6 +12,11 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AccessGrantGrantee',
+    'AccessGrantTag',
+    'AccessGrantsInstanceTag',
+    'AccessGrantsLocationConfiguration',
+    'AccessGrantsLocationTag',
     'AccessPointPublicAccessBlockConfiguration',
     'AccessPointVpcConfiguration',
     'BucketAbortIncompleteMultipartUpload',
@@ -100,6 +105,146 @@ __all__ = [
     'StorageLensSelectionCriteria',
     'StorageLensTag',
 ]
+
+@pulumi.output_type
+class AccessGrantGrantee(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "granteeIdentifier":
+            suggest = "grantee_identifier"
+        elif key == "granteeType":
+            suggest = "grantee_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessGrantGrantee. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessGrantGrantee.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessGrantGrantee.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 grantee_identifier: str,
+                 grantee_type: 'AccessGrantGranteeGranteeType'):
+        """
+        :param str grantee_identifier: The unique identifier of the Grantee
+        :param 'AccessGrantGranteeGranteeType' grantee_type: Configures the transfer acceleration state for an Amazon S3 bucket.
+        """
+        pulumi.set(__self__, "grantee_identifier", grantee_identifier)
+        pulumi.set(__self__, "grantee_type", grantee_type)
+
+    @property
+    @pulumi.getter(name="granteeIdentifier")
+    def grantee_identifier(self) -> str:
+        """
+        The unique identifier of the Grantee
+        """
+        return pulumi.get(self, "grantee_identifier")
+
+    @property
+    @pulumi.getter(name="granteeType")
+    def grantee_type(self) -> 'AccessGrantGranteeGranteeType':
+        """
+        Configures the transfer acceleration state for an Amazon S3 bucket.
+        """
+        return pulumi.get(self, "grantee_type")
+
+
+@pulumi.output_type
+class AccessGrantTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AccessGrantsInstanceTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AccessGrantsLocationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3SubPrefix":
+            suggest = "s3_sub_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccessGrantsLocationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccessGrantsLocationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccessGrantsLocationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_sub_prefix: str):
+        """
+        :param str s3_sub_prefix: The S3 sub prefix of a registered location in your S3 Access Grants instance
+        """
+        pulumi.set(__self__, "s3_sub_prefix", s3_sub_prefix)
+
+    @property
+    @pulumi.getter(name="s3SubPrefix")
+    def s3_sub_prefix(self) -> str:
+        """
+        The S3 sub prefix of a registered location in your S3 Access Grants instance
+        """
+        return pulumi.get(self, "s3_sub_prefix")
+
+
+@pulumi.output_type
+class AccessGrantsLocationTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class AccessPointPublicAccessBlockConfiguration(dict):

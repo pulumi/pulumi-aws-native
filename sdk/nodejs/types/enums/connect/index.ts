@@ -282,6 +282,7 @@ export const RuleTriggerEventSourceEventSourceName = {
     OnContactEvaluationSubmit: "OnContactEvaluationSubmit",
     OnPostCallAnalysisAvailable: "OnPostCallAnalysisAvailable",
     OnRealTimeCallAnalysisAvailable: "OnRealTimeCallAnalysisAvailable",
+    OnRealTimeChatAnalysisAvailable: "OnRealTimeChatAnalysisAvailable",
     OnPostChatAnalysisAvailable: "OnPostChatAnalysisAvailable",
     OnZendeskTicketCreate: "OnZendeskTicketCreate",
     OnZendeskTicketStatusUpdate: "OnZendeskTicketStatusUpdate",

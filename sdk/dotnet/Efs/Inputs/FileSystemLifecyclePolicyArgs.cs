@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Efs.Inputs
 
     public sealed class FileSystemLifecyclePolicyArgs : global::Pulumi.ResourceArgs
     {
+        [Input("transitionToArchive")]
+        public Input<string>? TransitionToArchive { get; set; }
+
         [Input("transitionToIa")]
         public Input<string>? TransitionToIa { get; set; }
 

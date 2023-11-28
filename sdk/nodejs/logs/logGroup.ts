@@ -56,6 +56,10 @@ export class LogGroup extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
+     * The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS, with STANDARD being the default class
+     */
+    public readonly logGroupClass!: pulumi.Output<enums.logs.LogGroupClass | undefined>;
+    /**
      * The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
      */
     public readonly logGroupName!: pulumi.Output<string | undefined>;
@@ -81,6 +85,7 @@ export class LogGroup extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["dataProtectionPolicy"] = args ? args.dataProtectionPolicy : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["logGroupClass"] = args ? args.logGroupClass : undefined;
             resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
             resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -89,6 +94,7 @@ export class LogGroup extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dataProtectionPolicy"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["logGroupClass"] = undefined /*out*/;
             resourceInputs["logGroupName"] = undefined /*out*/;
             resourceInputs["retentionInDays"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -118,6 +124,10 @@ export interface LogGroupArgs {
      * The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS, with STANDARD being the default class
+     */
+    logGroupClass?: pulumi.Input<enums.logs.LogGroupClass>;
     /**
      * The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
      */

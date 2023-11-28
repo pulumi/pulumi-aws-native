@@ -36,6 +36,10 @@ export interface GetComponentTypeResult {
      */
     readonly arn?: string;
     /**
+     * An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
+     */
+    readonly compositeComponentTypes?: any;
+    /**
      * The date and time when the component type was created.
      */
     readonly creationDateTime?: string;

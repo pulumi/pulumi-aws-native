@@ -244,7 +244,9 @@ class FileSystemLifecyclePolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "transitionToIa":
+        if key == "transitionToArchive":
+            suggest = "transition_to_archive"
+        elif key == "transitionToIa":
             suggest = "transition_to_ia"
         elif key == "transitionToPrimaryStorageClass":
             suggest = "transition_to_primary_storage_class"
@@ -261,12 +263,20 @@ class FileSystemLifecyclePolicy(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 transition_to_archive: Optional[str] = None,
                  transition_to_ia: Optional[str] = None,
                  transition_to_primary_storage_class: Optional[str] = None):
+        if transition_to_archive is not None:
+            pulumi.set(__self__, "transition_to_archive", transition_to_archive)
         if transition_to_ia is not None:
             pulumi.set(__self__, "transition_to_ia", transition_to_ia)
         if transition_to_primary_storage_class is not None:
             pulumi.set(__self__, "transition_to_primary_storage_class", transition_to_primary_storage_class)
+
+    @property
+    @pulumi.getter(name="transitionToArchive")
+    def transition_to_archive(self) -> Optional[str]:
+        return pulumi.get(self, "transition_to_archive")
 
     @property
     @pulumi.getter(name="transitionToIa")

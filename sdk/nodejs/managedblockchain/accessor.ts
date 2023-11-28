@@ -44,6 +44,7 @@ export class Accessor extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly billingToken!: pulumi.Output<string>;
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    public readonly networkType!: pulumi.Output<enums.managedblockchain.AccessorNetworkAccessorType | undefined>;
     public /*out*/ readonly status!: pulumi.Output<enums.managedblockchain.AccessorStatus>;
     /**
      * An array of key-value pairs to apply to this resource.
@@ -67,6 +68,7 @@ export class Accessor extends pulumi.CustomResource {
                 throw new Error("Missing required property 'accessorType'");
             }
             resourceInputs["accessorType"] = args ? args.accessorType : undefined;
+            resourceInputs["networkType"] = args ? args.networkType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["billingToken"] = undefined /*out*/;
@@ -77,11 +79,12 @@ export class Accessor extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["billingToken"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["networkType"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["accessorType"] };
+        const replaceOnChanges = { replaceOnChanges: ["accessorType", "networkType"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Accessor.__pulumiType, name, resourceInputs, opts);
     }
@@ -92,6 +95,7 @@ export class Accessor extends pulumi.CustomResource {
  */
 export interface AccessorArgs {
     accessorType: pulumi.Input<enums.managedblockchain.AccessorType>;
+    networkType?: pulumi.Input<enums.managedblockchain.AccessorNetworkAccessorType>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

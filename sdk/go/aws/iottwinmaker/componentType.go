@@ -21,6 +21,8 @@ type ComponentType struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the component type.
 	ComponentTypeId pulumi.StringOutput `pulumi:"componentTypeId"`
+	// An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
+	CompositeComponentTypes pulumi.AnyOutput `pulumi:"compositeComponentTypes"`
 	// The date and time when the component type was created.
 	CreationDateTime pulumi.StringOutput `pulumi:"creationDateTime"`
 	// The description of the component type.
@@ -102,6 +104,8 @@ func (ComponentTypeState) ElementType() reflect.Type {
 type componentTypeArgs struct {
 	// The ID of the component type.
 	ComponentTypeId string `pulumi:"componentTypeId"`
+	// An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
+	CompositeComponentTypes interface{} `pulumi:"compositeComponentTypes"`
 	// The description of the component type.
 	Description *string `pulumi:"description"`
 	// Specifies the parent component type to extend.
@@ -124,6 +128,8 @@ type componentTypeArgs struct {
 type ComponentTypeArgs struct {
 	// The ID of the component type.
 	ComponentTypeId pulumi.StringInput
+	// An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
+	CompositeComponentTypes pulumi.Input
 	// The description of the component type.
 	Description pulumi.StringPtrInput
 	// Specifies the parent component type to extend.
@@ -199,6 +205,11 @@ func (o ComponentTypeOutput) Arn() pulumi.StringOutput {
 // The ID of the component type.
 func (o ComponentTypeOutput) ComponentTypeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ComponentType) pulumi.StringOutput { return v.ComponentTypeId }).(pulumi.StringOutput)
+}
+
+// An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
+func (o ComponentTypeOutput) CompositeComponentTypes() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ComponentType) pulumi.AnyOutput { return v.CompositeComponentTypes }).(pulumi.AnyOutput)
 }
 
 // The date and time when the component type was created.

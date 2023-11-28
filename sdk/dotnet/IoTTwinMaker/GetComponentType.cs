@@ -74,6 +74,10 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
+        /// </summary>
+        public readonly object? CompositeComponentTypes;
+        /// <summary>
         /// The date and time when the component type was created.
         /// </summary>
         public readonly string? CreationDateTime;
@@ -126,6 +130,8 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         private GetComponentTypeResult(
             string? arn,
 
+            object? compositeComponentTypes,
+
             string? creationDateTime,
 
             string? description,
@@ -151,6 +157,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker
             string? updateDateTime)
         {
             Arn = arn;
+            CompositeComponentTypes = compositeComponentTypes;
             CreationDateTime = creationDateTime;
             Description = description;
             ExtendsFrom = extendsFrom;

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -39,6 +42,10 @@ export class EnabledControl extends pulumi.CustomResource {
      */
     public readonly controlIdentifier!: pulumi.Output<string>;
     /**
+     * Parameters to configure the enabled control behavior.
+     */
+    public readonly parameters!: pulumi.Output<outputs.controltower.EnabledControlParameter[] | undefined>;
+    /**
      * Arn for Organizational unit to which the control needs to be applied
      */
     public readonly targetIdentifier!: pulumi.Output<string>;
@@ -61,9 +68,11 @@ export class EnabledControl extends pulumi.CustomResource {
                 throw new Error("Missing required property 'targetIdentifier'");
             }
             resourceInputs["controlIdentifier"] = args ? args.controlIdentifier : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["targetIdentifier"] = args ? args.targetIdentifier : undefined;
         } else {
             resourceInputs["controlIdentifier"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["targetIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -81,6 +90,10 @@ export interface EnabledControlArgs {
      * Arn of the control.
      */
     controlIdentifier: pulumi.Input<string>;
+    /**
+     * Parameters to configure the enabled control behavior.
+     */
+    parameters?: pulumi.Input<pulumi.Input<inputs.controltower.EnabledControlParameterArgs>[]>;
     /**
      * Arn for Organizational unit to which the control needs to be applied
      */

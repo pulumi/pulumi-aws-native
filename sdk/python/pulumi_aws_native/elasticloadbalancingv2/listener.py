@@ -20,6 +20,7 @@ class ListenerArgs:
                  load_balancer_arn: pulumi.Input[str],
                  alpn_policy: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerCertificateArgs']]]] = None,
+                 mutual_authentication: Optional[pulumi.Input['ListenerMutualAuthenticationArgs']] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  ssl_policy: Optional[pulumi.Input[str]] = None):
@@ -32,6 +33,8 @@ class ListenerArgs:
             pulumi.set(__self__, "alpn_policy", alpn_policy)
         if certificates is not None:
             pulumi.set(__self__, "certificates", certificates)
+        if mutual_authentication is not None:
+            pulumi.set(__self__, "mutual_authentication", mutual_authentication)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if protocol is not None:
@@ -76,6 +79,15 @@ class ListenerArgs:
         pulumi.set(self, "certificates", value)
 
     @property
+    @pulumi.getter(name="mutualAuthentication")
+    def mutual_authentication(self) -> Optional[pulumi.Input['ListenerMutualAuthenticationArgs']]:
+        return pulumi.get(self, "mutual_authentication")
+
+    @mutual_authentication.setter
+    def mutual_authentication(self, value: Optional[pulumi.Input['ListenerMutualAuthenticationArgs']]):
+        pulumi.set(self, "mutual_authentication", value)
+
+    @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "port")
@@ -112,6 +124,7 @@ class Listener(pulumi.CustomResource):
                  certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerCertificateArgs']]]]] = None,
                  default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerActionArgs']]]]] = None,
                  load_balancer_arn: Optional[pulumi.Input[str]] = None,
+                 mutual_authentication: Optional[pulumi.Input[pulumi.InputType['ListenerMutualAuthenticationArgs']]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  ssl_policy: Optional[pulumi.Input[str]] = None,
@@ -150,6 +163,7 @@ class Listener(pulumi.CustomResource):
                  certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerCertificateArgs']]]]] = None,
                  default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerActionArgs']]]]] = None,
                  load_balancer_arn: Optional[pulumi.Input[str]] = None,
+                 mutual_authentication: Optional[pulumi.Input[pulumi.InputType['ListenerMutualAuthenticationArgs']]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  ssl_policy: Optional[pulumi.Input[str]] = None,
@@ -170,6 +184,7 @@ class Listener(pulumi.CustomResource):
             if load_balancer_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_arn'")
             __props__.__dict__["load_balancer_arn"] = load_balancer_arn
+            __props__.__dict__["mutual_authentication"] = mutual_authentication
             __props__.__dict__["port"] = port
             __props__.__dict__["protocol"] = protocol
             __props__.__dict__["ssl_policy"] = ssl_policy
@@ -203,6 +218,7 @@ class Listener(pulumi.CustomResource):
         __props__.__dict__["default_actions"] = None
         __props__.__dict__["listener_arn"] = None
         __props__.__dict__["load_balancer_arn"] = None
+        __props__.__dict__["mutual_authentication"] = None
         __props__.__dict__["port"] = None
         __props__.__dict__["protocol"] = None
         __props__.__dict__["ssl_policy"] = None
@@ -232,6 +248,11 @@ class Listener(pulumi.CustomResource):
     @pulumi.getter(name="loadBalancerArn")
     def load_balancer_arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "load_balancer_arn")
+
+    @property
+    @pulumi.getter(name="mutualAuthentication")
+    def mutual_authentication(self) -> pulumi.Output[Optional['outputs.ListenerMutualAuthentication']]:
+        return pulumi.get(self, "mutual_authentication")
 
     @property
     @pulumi.getter

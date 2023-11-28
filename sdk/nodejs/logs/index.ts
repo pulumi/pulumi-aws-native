@@ -10,6 +10,21 @@ export type AccountPolicy = import("./accountPolicy").AccountPolicy;
 export const AccountPolicy: typeof import("./accountPolicy").AccountPolicy = null as any;
 utilities.lazyLoad(exports, ["AccountPolicy"], () => require("./accountPolicy"));
 
+export { DeliveryArgs } from "./delivery";
+export type Delivery = import("./delivery").Delivery;
+export const Delivery: typeof import("./delivery").Delivery = null as any;
+utilities.lazyLoad(exports, ["Delivery"], () => require("./delivery"));
+
+export { DeliveryDestinationArgs } from "./deliveryDestination";
+export type DeliveryDestination = import("./deliveryDestination").DeliveryDestination;
+export const DeliveryDestination: typeof import("./deliveryDestination").DeliveryDestination = null as any;
+utilities.lazyLoad(exports, ["DeliveryDestination"], () => require("./deliveryDestination"));
+
+export { DeliverySourceArgs } from "./deliverySource";
+export type DeliverySource = import("./deliverySource").DeliverySource;
+export const DeliverySource: typeof import("./deliverySource").DeliverySource = null as any;
+utilities.lazyLoad(exports, ["DeliverySource"], () => require("./deliverySource"));
+
 export { DestinationArgs } from "./destination";
 export type Destination = import("./destination").Destination;
 export const Destination: typeof import("./destination").Destination = null as any;
@@ -20,10 +35,30 @@ export const getAccountPolicy: typeof import("./getAccountPolicy").getAccountPol
 export const getAccountPolicyOutput: typeof import("./getAccountPolicy").getAccountPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getAccountPolicy","getAccountPolicyOutput"], () => require("./getAccountPolicy"));
 
+export { GetDeliveryArgs, GetDeliveryResult, GetDeliveryOutputArgs } from "./getDelivery";
+export const getDelivery: typeof import("./getDelivery").getDelivery = null as any;
+export const getDeliveryOutput: typeof import("./getDelivery").getDeliveryOutput = null as any;
+utilities.lazyLoad(exports, ["getDelivery","getDeliveryOutput"], () => require("./getDelivery"));
+
+export { GetDeliveryDestinationArgs, GetDeliveryDestinationResult, GetDeliveryDestinationOutputArgs } from "./getDeliveryDestination";
+export const getDeliveryDestination: typeof import("./getDeliveryDestination").getDeliveryDestination = null as any;
+export const getDeliveryDestinationOutput: typeof import("./getDeliveryDestination").getDeliveryDestinationOutput = null as any;
+utilities.lazyLoad(exports, ["getDeliveryDestination","getDeliveryDestinationOutput"], () => require("./getDeliveryDestination"));
+
+export { GetDeliverySourceArgs, GetDeliverySourceResult, GetDeliverySourceOutputArgs } from "./getDeliverySource";
+export const getDeliverySource: typeof import("./getDeliverySource").getDeliverySource = null as any;
+export const getDeliverySourceOutput: typeof import("./getDeliverySource").getDeliverySourceOutput = null as any;
+utilities.lazyLoad(exports, ["getDeliverySource","getDeliverySourceOutput"], () => require("./getDeliverySource"));
+
 export { GetDestinationArgs, GetDestinationResult, GetDestinationOutputArgs } from "./getDestination";
 export const getDestination: typeof import("./getDestination").getDestination = null as any;
 export const getDestinationOutput: typeof import("./getDestination").getDestinationOutput = null as any;
 utilities.lazyLoad(exports, ["getDestination","getDestinationOutput"], () => require("./getDestination"));
+
+export { GetLogAnomalyDetectorArgs, GetLogAnomalyDetectorResult, GetLogAnomalyDetectorOutputArgs } from "./getLogAnomalyDetector";
+export const getLogAnomalyDetector: typeof import("./getLogAnomalyDetector").getLogAnomalyDetector = null as any;
+export const getLogAnomalyDetectorOutput: typeof import("./getLogAnomalyDetector").getLogAnomalyDetectorOutput = null as any;
+utilities.lazyLoad(exports, ["getLogAnomalyDetector","getLogAnomalyDetectorOutput"], () => require("./getLogAnomalyDetector"));
 
 export { GetLogGroupArgs, GetLogGroupResult, GetLogGroupOutputArgs } from "./getLogGroup";
 export const getLogGroup: typeof import("./getLogGroup").getLogGroup = null as any;
@@ -49,6 +84,11 @@ export { GetSubscriptionFilterArgs, GetSubscriptionFilterResult, GetSubscription
 export const getSubscriptionFilter: typeof import("./getSubscriptionFilter").getSubscriptionFilter = null as any;
 export const getSubscriptionFilterOutput: typeof import("./getSubscriptionFilter").getSubscriptionFilterOutput = null as any;
 utilities.lazyLoad(exports, ["getSubscriptionFilter","getSubscriptionFilterOutput"], () => require("./getSubscriptionFilter"));
+
+export { LogAnomalyDetectorArgs } from "./logAnomalyDetector";
+export type LogAnomalyDetector = import("./logAnomalyDetector").LogAnomalyDetector;
+export const LogAnomalyDetector: typeof import("./logAnomalyDetector").LogAnomalyDetector = null as any;
+utilities.lazyLoad(exports, ["LogAnomalyDetector"], () => require("./logAnomalyDetector"));
 
 export { LogGroupArgs } from "./logGroup";
 export type LogGroup = import("./logGroup").LogGroup;
@@ -90,8 +130,16 @@ const _module = {
         switch (type) {
             case "aws-native:logs:AccountPolicy":
                 return new AccountPolicy(name, <any>undefined, { urn })
+            case "aws-native:logs:Delivery":
+                return new Delivery(name, <any>undefined, { urn })
+            case "aws-native:logs:DeliveryDestination":
+                return new DeliveryDestination(name, <any>undefined, { urn })
+            case "aws-native:logs:DeliverySource":
+                return new DeliverySource(name, <any>undefined, { urn })
             case "aws-native:logs:Destination":
                 return new Destination(name, <any>undefined, { urn })
+            case "aws-native:logs:LogAnomalyDetector":
+                return new LogAnomalyDetector(name, <any>undefined, { urn })
             case "aws-native:logs:LogGroup":
                 return new LogGroup(name, <any>undefined, { urn })
             case "aws-native:logs:LogStream":

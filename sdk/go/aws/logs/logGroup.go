@@ -28,6 +28,8 @@ type LogGroup struct {
 	DataProtectionPolicy pulumi.AnyOutput `pulumi:"dataProtectionPolicy"`
 	// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
+	// The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS, with STANDARD being the default class
+	LogGroupClass LogGroupClassPtrOutput `pulumi:"logGroupClass"`
 	// The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
 	LogGroupName pulumi.StringPtrOutput `pulumi:"logGroupName"`
 	// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, and 3653.
@@ -90,6 +92,8 @@ type logGroupArgs struct {
 	DataProtectionPolicy interface{} `pulumi:"dataProtectionPolicy"`
 	// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS, with STANDARD being the default class
+	LogGroupClass *LogGroupClass `pulumi:"logGroupClass"`
 	// The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
 	LogGroupName *string `pulumi:"logGroupName"`
 	// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, and 3653.
@@ -110,6 +114,8 @@ type LogGroupArgs struct {
 	DataProtectionPolicy pulumi.Input
 	// The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
 	KmsKeyId pulumi.StringPtrInput
+	// The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS, with STANDARD being the default class
+	LogGroupClass LogGroupClassPtrInput
 	// The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.
 	LogGroupName pulumi.StringPtrInput
 	// The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1096, 1827, and 3653.
@@ -186,6 +192,11 @@ func (o LogGroupOutput) DataProtectionPolicy() pulumi.AnyOutput {
 // The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.
 func (o LogGroupOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The class of the log group. Possible values are: STANDARD and INFREQUENT_ACCESS, with STANDARD being the default class
+func (o LogGroupOutput) LogGroupClass() LogGroupClassPtrOutput {
+	return o.ApplyT(func(v *LogGroup) LogGroupClassPtrOutput { return v.LogGroupClass }).(LogGroupClassPtrOutput)
 }
 
 // The name of the log group. If you don't specify a name, AWS CloudFormation generates a unique ID for the log group.

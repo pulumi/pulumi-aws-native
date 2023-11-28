@@ -37,6 +37,7 @@ type LookupTransitGatewayResult struct {
 	Id                             *string             `pulumi:"id"`
 	PropagationDefaultRouteTableId *string             `pulumi:"propagationDefaultRouteTableId"`
 	Tags                           []TransitGatewayTag `pulumi:"tags"`
+	TransitGatewayArn              *string             `pulumi:"transitGatewayArn"`
 	TransitGatewayCidrBlocks       []string            `pulumi:"transitGatewayCidrBlocks"`
 	VpnEcmpSupport                 *string             `pulumi:"vpnEcmpSupport"`
 }
@@ -116,6 +117,10 @@ func (o LookupTransitGatewayResultOutput) PropagationDefaultRouteTableId() pulum
 
 func (o LookupTransitGatewayResultOutput) Tags() TransitGatewayTagArrayOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) []TransitGatewayTag { return v.Tags }).(TransitGatewayTagArrayOutput)
+}
+
+func (o LookupTransitGatewayResultOutput) TransitGatewayArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTransitGatewayResult) *string { return v.TransitGatewayArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupTransitGatewayResultOutput) TransitGatewayCidrBlocks() pulumi.StringArrayOutput {

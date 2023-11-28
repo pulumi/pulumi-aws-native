@@ -19,11 +19,12 @@ import (
 type Accessor struct {
 	pulumi.CustomResourceState
 
-	AccessorType AccessorTypeOutput   `pulumi:"accessorType"`
-	Arn          pulumi.StringOutput  `pulumi:"arn"`
-	BillingToken pulumi.StringOutput  `pulumi:"billingToken"`
-	CreationDate pulumi.StringOutput  `pulumi:"creationDate"`
-	Status       AccessorStatusOutput `pulumi:"status"`
+	AccessorType AccessorTypeOutput                   `pulumi:"accessorType"`
+	Arn          pulumi.StringOutput                  `pulumi:"arn"`
+	BillingToken pulumi.StringOutput                  `pulumi:"billingToken"`
+	CreationDate pulumi.StringOutput                  `pulumi:"creationDate"`
+	NetworkType  AccessorNetworkAccessorTypePtrOutput `pulumi:"networkType"`
+	Status       AccessorStatusOutput                 `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
 	Tags AccessorTagArrayOutput `pulumi:"tags"`
 }
@@ -40,6 +41,7 @@ func NewAccessor(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"accessorType",
+		"networkType",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -75,7 +77,8 @@ func (AccessorState) ElementType() reflect.Type {
 }
 
 type accessorArgs struct {
-	AccessorType AccessorType `pulumi:"accessorType"`
+	AccessorType AccessorType                 `pulumi:"accessorType"`
+	NetworkType  *AccessorNetworkAccessorType `pulumi:"networkType"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []AccessorTag `pulumi:"tags"`
 }
@@ -83,6 +86,7 @@ type accessorArgs struct {
 // The set of arguments for constructing a Accessor resource.
 type AccessorArgs struct {
 	AccessorType AccessorTypeInput
+	NetworkType  AccessorNetworkAccessorTypePtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags AccessorTagArrayInput
 }
@@ -150,6 +154,10 @@ func (o AccessorOutput) BillingToken() pulumi.StringOutput {
 
 func (o AccessorOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Accessor) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+func (o AccessorOutput) NetworkType() AccessorNetworkAccessorTypePtrOutput {
+	return o.ApplyT(func(v *Accessor) AccessorNetworkAccessorTypePtrOutput { return v.NetworkType }).(AccessorNetworkAccessorTypePtrOutput)
 }
 
 func (o AccessorOutput) Status() AccessorStatusOutput {

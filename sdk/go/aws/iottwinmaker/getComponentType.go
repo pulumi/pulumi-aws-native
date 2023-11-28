@@ -33,6 +33,8 @@ type LookupComponentTypeArgs struct {
 type LookupComponentTypeResult struct {
 	// The ARN of the component type.
 	Arn *string `pulumi:"arn"`
+	// An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
+	CompositeComponentTypes interface{} `pulumi:"compositeComponentTypes"`
 	// The date and time when the component type was created.
 	CreationDateTime *string `pulumi:"creationDateTime"`
 	// The description of the component type.
@@ -106,6 +108,11 @@ func (o LookupComponentTypeResultOutput) ToOutput(ctx context.Context) pulumix.O
 // The ARN of the component type.
 func (o LookupComponentTypeResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupComponentTypeResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// An map of the composite component types in the component type. Each composite component type's key must be unique to this map.
+func (o LookupComponentTypeResultOutput) CompositeComponentTypes() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupComponentTypeResult) interface{} { return v.CompositeComponentTypes }).(pulumi.AnyOutput)
 }
 
 // The date and time when the component type was created.

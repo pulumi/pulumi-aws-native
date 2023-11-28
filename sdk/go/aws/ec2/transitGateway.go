@@ -26,6 +26,7 @@ type TransitGateway struct {
 	MulticastSupport               pulumi.StringPtrOutput       `pulumi:"multicastSupport"`
 	PropagationDefaultRouteTableId pulumi.StringPtrOutput       `pulumi:"propagationDefaultRouteTableId"`
 	Tags                           TransitGatewayTagArrayOutput `pulumi:"tags"`
+	TransitGatewayArn              pulumi.StringOutput          `pulumi:"transitGatewayArn"`
 	TransitGatewayCidrBlocks       pulumi.StringArrayOutput     `pulumi:"transitGatewayCidrBlocks"`
 	VpnEcmpSupport                 pulumi.StringPtrOutput       `pulumi:"vpnEcmpSupport"`
 }
@@ -192,6 +193,10 @@ func (o TransitGatewayOutput) PropagationDefaultRouteTableId() pulumi.StringPtrO
 
 func (o TransitGatewayOutput) Tags() TransitGatewayTagArrayOutput {
 	return o.ApplyT(func(v *TransitGateway) TransitGatewayTagArrayOutput { return v.Tags }).(TransitGatewayTagArrayOutput)
+}
+
+func (o TransitGatewayOutput) TransitGatewayArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitGateway) pulumi.StringOutput { return v.TransitGatewayArn }).(pulumi.StringOutput)
 }
 
 func (o TransitGatewayOutput) TransitGatewayCidrBlocks() pulumi.StringArrayOutput {
