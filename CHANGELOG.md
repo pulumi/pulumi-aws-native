@@ -1,3 +1,18 @@
+## Unreleased
+
+## 0.88.0 (2023-11-29)
+
+### New resources:
+
+- elasticache.ServerlessCache
+- s3express.BucketPolicy
+- s3express.DirectoryBucket
+
+### New functions:
+
+- elasticache.getServerlessCache
+- s3express.getBucketPolicy
+- s3express.getDirectoryBucket
 
 ## 0.87.0 (2023-11-28)
 
