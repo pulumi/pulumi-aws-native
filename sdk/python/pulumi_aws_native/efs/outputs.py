@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'AccessPointCreationInfo',
@@ -18,6 +19,7 @@ __all__ = [
     'FileSystemBackupPolicy',
     'FileSystemElasticFileSystemTag',
     'FileSystemLifecyclePolicy',
+    'FileSystemProtection',
     'FileSystemReplicationConfiguration',
     'FileSystemReplicationDestination',
 ]
@@ -287,6 +289,36 @@ class FileSystemLifecyclePolicy(dict):
     @pulumi.getter(name="transitionToPrimaryStorageClass")
     def transition_to_primary_storage_class(self) -> Optional[str]:
         return pulumi.get(self, "transition_to_primary_storage_class")
+
+
+@pulumi.output_type
+class FileSystemProtection(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "replicationOverwriteProtection":
+            suggest = "replication_overwrite_protection"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileSystemProtection. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileSystemProtection.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileSystemProtection.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 replication_overwrite_protection: Optional['FileSystemProtectionReplicationOverwriteProtection'] = None):
+        if replication_overwrite_protection is not None:
+            pulumi.set(__self__, "replication_overwrite_protection", replication_overwrite_protection)
+
+    @property
+    @pulumi.getter(name="replicationOverwriteProtection")
+    def replication_overwrite_protection(self) -> Optional['FileSystemProtectionReplicationOverwriteProtection']:
+        return pulumi.get(self, "replication_overwrite_protection")
 
 
 @pulumi.output_type

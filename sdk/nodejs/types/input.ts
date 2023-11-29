@@ -15110,6 +15110,10 @@ export namespace efs {
         transitionToPrimaryStorageClass?: pulumi.Input<string>;
     }
 
+    export interface FileSystemProtectionArgs {
+        replicationOverwriteProtection?: pulumi.Input<enums.efs.FileSystemProtectionReplicationOverwriteProtection>;
+    }
+
     export interface FileSystemReplicationConfigurationArgs {
         destinations?: pulumi.Input<pulumi.Input<inputs.efs.FileSystemReplicationDestinationArgs>[]>;
     }
@@ -15546,6 +15550,52 @@ export namespace elasticache {
     export interface SecurityGroupTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    /**
+     * The cache capacity limit of the Serverless Cache.
+     */
+    export interface ServerlessCacheCacheUsageLimitsArgs {
+        dataStorage?: pulumi.Input<inputs.elasticache.ServerlessCacheDataStorageArgs>;
+        ecpuPerSecond?: pulumi.Input<inputs.elasticache.ServerlessCacheEcpuPerSecondArgs>;
+    }
+
+    /**
+     * The cached data capacity of the Serverless Cache.
+     */
+    export interface ServerlessCacheDataStorageArgs {
+        /**
+         * The maximum cached data capacity of the Serverless Cache.
+         */
+        maximum: pulumi.Input<number>;
+        /**
+         * The unix of cached data capacity of the Serverless Cache.
+         */
+        unit: pulumi.Input<enums.elasticache.ServerlessCacheDataStorageUnit>;
+    }
+
+    /**
+     * The ECPU per second of the Serverless Cache.
+     */
+    export interface ServerlessCacheEcpuPerSecondArgs {
+        /**
+         * The maximum ECPU per second of the Serverless Cache.
+         */
+        maximum: pulumi.Input<number>;
+    }
+
+    /**
+     * A key-value pair to associate with Serverless Cache.
+     */
+    export interface ServerlessCacheTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: pulumi.Input<string>;
     }
 
     /**

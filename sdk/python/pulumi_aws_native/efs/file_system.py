@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['FileSystemArgs', 'FileSystem']
@@ -21,6 +22,7 @@ class FileSystemArgs:
                  bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  file_system_policy: Optional[Any] = None,
+                 file_system_protection: Optional[pulumi.Input['FileSystemProtectionArgs']] = None,
                  file_system_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemElasticFileSystemTagArgs']]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input['FileSystemLifecyclePolicyArgs']]]] = None,
@@ -42,6 +44,8 @@ class FileSystemArgs:
             pulumi.set(__self__, "encrypted", encrypted)
         if file_system_policy is not None:
             pulumi.set(__self__, "file_system_policy", file_system_policy)
+        if file_system_protection is not None:
+            pulumi.set(__self__, "file_system_protection", file_system_protection)
         if file_system_tags is not None:
             pulumi.set(__self__, "file_system_tags", file_system_tags)
         if kms_key_id is not None:
@@ -104,6 +108,15 @@ class FileSystemArgs:
     @file_system_policy.setter
     def file_system_policy(self, value: Optional[Any]):
         pulumi.set(self, "file_system_policy", value)
+
+    @property
+    @pulumi.getter(name="fileSystemProtection")
+    def file_system_protection(self) -> Optional[pulumi.Input['FileSystemProtectionArgs']]:
+        return pulumi.get(self, "file_system_protection")
+
+    @file_system_protection.setter
+    def file_system_protection(self, value: Optional[pulumi.Input['FileSystemProtectionArgs']]):
+        pulumi.set(self, "file_system_protection", value)
 
     @property
     @pulumi.getter(name="fileSystemTags")
@@ -179,6 +192,7 @@ class FileSystem(pulumi.CustomResource):
                  bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  file_system_policy: Optional[Any] = None,
+                 file_system_protection: Optional[pulumi.Input[pulumi.InputType['FileSystemProtectionArgs']]] = None,
                  file_system_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemElasticFileSystemTagArgs']]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]]] = None,
@@ -223,6 +237,7 @@ class FileSystem(pulumi.CustomResource):
                  bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  file_system_policy: Optional[Any] = None,
+                 file_system_protection: Optional[pulumi.Input[pulumi.InputType['FileSystemProtectionArgs']]] = None,
                  file_system_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemElasticFileSystemTagArgs']]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemLifecyclePolicyArgs']]]]] = None,
@@ -244,6 +259,7 @@ class FileSystem(pulumi.CustomResource):
             __props__.__dict__["bypass_policy_lockout_safety_check"] = bypass_policy_lockout_safety_check
             __props__.__dict__["encrypted"] = encrypted
             __props__.__dict__["file_system_policy"] = file_system_policy
+            __props__.__dict__["file_system_protection"] = file_system_protection
             __props__.__dict__["file_system_tags"] = file_system_tags
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["lifecycle_policies"] = lifecycle_policies
@@ -284,6 +300,7 @@ class FileSystem(pulumi.CustomResource):
         __props__.__dict__["encrypted"] = None
         __props__.__dict__["file_system_id"] = None
         __props__.__dict__["file_system_policy"] = None
+        __props__.__dict__["file_system_protection"] = None
         __props__.__dict__["file_system_tags"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["lifecycle_policies"] = None
@@ -330,6 +347,11 @@ class FileSystem(pulumi.CustomResource):
     @pulumi.getter(name="fileSystemPolicy")
     def file_system_policy(self) -> pulumi.Output[Optional[Any]]:
         return pulumi.get(self, "file_system_policy")
+
+    @property
+    @pulumi.getter(name="fileSystemProtection")
+    def file_system_protection(self) -> pulumi.Output[Optional['outputs.FileSystemProtection']]:
+        return pulumi.get(self, "file_system_protection")
 
     @property
     @pulumi.getter(name="fileSystemTags")

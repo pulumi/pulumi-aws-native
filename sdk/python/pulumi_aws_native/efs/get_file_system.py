@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetFileSystemResult',
@@ -19,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFileSystemResult:
-    def __init__(__self__, arn=None, backup_policy=None, file_system_id=None, file_system_policy=None, file_system_tags=None, lifecycle_policies=None, provisioned_throughput_in_mibps=None, replication_configuration=None, throughput_mode=None):
+    def __init__(__self__, arn=None, backup_policy=None, file_system_id=None, file_system_policy=None, file_system_protection=None, file_system_tags=None, lifecycle_policies=None, provisioned_throughput_in_mibps=None, replication_configuration=None, throughput_mode=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -32,6 +33,9 @@ class GetFileSystemResult:
         if file_system_policy and not isinstance(file_system_policy, dict):
             raise TypeError("Expected argument 'file_system_policy' to be a dict")
         pulumi.set(__self__, "file_system_policy", file_system_policy)
+        if file_system_protection and not isinstance(file_system_protection, dict):
+            raise TypeError("Expected argument 'file_system_protection' to be a dict")
+        pulumi.set(__self__, "file_system_protection", file_system_protection)
         if file_system_tags and not isinstance(file_system_tags, list):
             raise TypeError("Expected argument 'file_system_tags' to be a list")
         pulumi.set(__self__, "file_system_tags", file_system_tags)
@@ -69,6 +73,11 @@ class GetFileSystemResult:
         return pulumi.get(self, "file_system_policy")
 
     @property
+    @pulumi.getter(name="fileSystemProtection")
+    def file_system_protection(self) -> Optional['outputs.FileSystemProtection']:
+        return pulumi.get(self, "file_system_protection")
+
+    @property
     @pulumi.getter(name="fileSystemTags")
     def file_system_tags(self) -> Optional[Sequence['outputs.FileSystemElasticFileSystemTag']]:
         return pulumi.get(self, "file_system_tags")
@@ -104,6 +113,7 @@ class AwaitableGetFileSystemResult(GetFileSystemResult):
             backup_policy=self.backup_policy,
             file_system_id=self.file_system_id,
             file_system_policy=self.file_system_policy,
+            file_system_protection=self.file_system_protection,
             file_system_tags=self.file_system_tags,
             lifecycle_policies=self.lifecycle_policies,
             provisioned_throughput_in_mibps=self.provisioned_throughput_in_mibps,
@@ -126,6 +136,7 @@ def get_file_system(file_system_id: Optional[str] = None,
         backup_policy=pulumi.get(__ret__, 'backup_policy'),
         file_system_id=pulumi.get(__ret__, 'file_system_id'),
         file_system_policy=pulumi.get(__ret__, 'file_system_policy'),
+        file_system_protection=pulumi.get(__ret__, 'file_system_protection'),
         file_system_tags=pulumi.get(__ret__, 'file_system_tags'),
         lifecycle_policies=pulumi.get(__ret__, 'lifecycle_policies'),
         provisioned_throughput_in_mibps=pulumi.get(__ret__, 'provisioned_throughput_in_mibps'),

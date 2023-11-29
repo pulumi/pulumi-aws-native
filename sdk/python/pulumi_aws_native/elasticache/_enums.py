@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'GlobalReplicationGroupMemberRole',
+    'ServerlessCacheDataStorageUnit',
     'UserAuthenticationModePropertiesType',
     'UserEngine',
     'UserGroupEngine',
@@ -18,6 +19,13 @@ class GlobalReplicationGroupMemberRole(str, Enum):
     """
     PRIMARY = "PRIMARY"
     SECONDARY = "SECONDARY"
+
+
+class ServerlessCacheDataStorageUnit(str, Enum):
+    """
+    The unix of cached data capacity of the Serverless Cache.
+    """
+    GB = "GB"
 
 
 class UserAuthenticationModePropertiesType(str, Enum):

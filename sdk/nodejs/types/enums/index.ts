@@ -37,6 +37,7 @@ import * as dms from "./dms";
 import * as ec2 from "./ec2";
 import * as ecr from "./ecr";
 import * as ecs from "./ecs";
+import * as efs from "./efs";
 import * as eks from "./eks";
 import * as elasticache from "./elasticache";
 import * as emr from "./emr";
@@ -123,6 +124,7 @@ import * as route53recoverycontrol from "./route53recoverycontrol";
 import * as route53resolver from "./route53resolver";
 import * as rum from "./rum";
 import * as s3 from "./s3";
+import * as s3express from "./s3express";
 import * as s3outposts from "./s3outposts";
 import * as sagemaker from "./sagemaker";
 import * as scheduler from "./scheduler";
@@ -183,6 +185,7 @@ export {
     ec2,
     ecr,
     ecs,
+    efs,
     eks,
     elasticache,
     emr,
@@ -269,6 +272,7 @@ export {
     route53resolver,
     rum,
     s3,
+    s3express,
     s3outposts,
     sagemaker,
     scheduler,

@@ -256,6 +256,7 @@ import * as route53recoveryreadiness from "./route53recoveryreadiness";
 import * as route53resolver from "./route53resolver";
 import * as rum from "./rum";
 import * as s3 from "./s3";
+import * as s3express from "./s3express";
 import * as s3objectlambda from "./s3objectlambda";
 import * as s3outposts from "./s3outposts";
 import * as sagemaker from "./sagemaker";
@@ -486,6 +487,7 @@ export {
     route53resolver,
     rum,
     s3,
+    s3express,
     s3objectlambda,
     s3outposts,
     sagemaker,

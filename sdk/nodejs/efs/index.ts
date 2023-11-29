@@ -36,6 +36,9 @@ export const MountTarget: typeof import("./mountTarget").MountTarget = null as a
 utilities.lazyLoad(exports, ["MountTarget"], () => require("./mountTarget"));
 
 
+// Export enums:
+export * from "../types/enums/efs";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

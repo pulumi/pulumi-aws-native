@@ -31,6 +31,12 @@ type LookupDeliveryDestinationArgs struct {
 type LookupDeliveryDestinationResult struct {
 	// The value of the Arn property for this object.
 	Arn *string `pulumi:"arn"`
+	// IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
+	//
+	// The policy must be in JSON string format.
+	//
+	// Length Constraints: Maximum length of 51200
+	DeliveryDestinationPolicy interface{} `pulumi:"deliveryDestinationPolicy"`
 	// The value of the DeliveryDestinationType property for this object.
 	DeliveryDestinationType *string `pulumi:"deliveryDestinationType"`
 	// An array of key-value pairs to apply to this resource.
@@ -82,6 +88,15 @@ func (o LookupDeliveryDestinationResultOutput) ToOutput(ctx context.Context) pul
 // The value of the Arn property for this object.
 func (o LookupDeliveryDestinationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeliveryDestinationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
+//
+// The policy must be in JSON string format.
+//
+// Length Constraints: Maximum length of 51200
+func (o LookupDeliveryDestinationResultOutput) DeliveryDestinationPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupDeliveryDestinationResult) interface{} { return v.DeliveryDestinationPolicy }).(pulumi.AnyOutput)
 }
 
 // The value of the DeliveryDestinationType property for this object.

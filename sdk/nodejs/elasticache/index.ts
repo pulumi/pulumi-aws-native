@@ -40,6 +40,11 @@ export const getSecurityGroupIngress: typeof import("./getSecurityGroupIngress")
 export const getSecurityGroupIngressOutput: typeof import("./getSecurityGroupIngress").getSecurityGroupIngressOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityGroupIngress","getSecurityGroupIngressOutput"], () => require("./getSecurityGroupIngress"));
 
+export { GetServerlessCacheArgs, GetServerlessCacheResult, GetServerlessCacheOutputArgs } from "./getServerlessCache";
+export const getServerlessCache: typeof import("./getServerlessCache").getServerlessCache = null as any;
+export const getServerlessCacheOutput: typeof import("./getServerlessCache").getServerlessCacheOutput = null as any;
+utilities.lazyLoad(exports, ["getServerlessCache","getServerlessCacheOutput"], () => require("./getServerlessCache"));
+
 export { GetSubnetGroupArgs, GetSubnetGroupResult, GetSubnetGroupOutputArgs } from "./getSubnetGroup";
 export const getSubnetGroup: typeof import("./getSubnetGroup").getSubnetGroup = null as any;
 export const getSubnetGroupOutput: typeof import("./getSubnetGroup").getSubnetGroupOutput = null as any;
@@ -80,6 +85,11 @@ export type SecurityGroupIngress = import("./securityGroupIngress").SecurityGrou
 export const SecurityGroupIngress: typeof import("./securityGroupIngress").SecurityGroupIngress = null as any;
 utilities.lazyLoad(exports, ["SecurityGroupIngress"], () => require("./securityGroupIngress"));
 
+export { ServerlessCacheArgs } from "./serverlessCache";
+export type ServerlessCache = import("./serverlessCache").ServerlessCache;
+export const ServerlessCache: typeof import("./serverlessCache").ServerlessCache = null as any;
+utilities.lazyLoad(exports, ["ServerlessCache"], () => require("./serverlessCache"));
+
 export { SubnetGroupArgs } from "./subnetGroup";
 export type SubnetGroup = import("./subnetGroup").SubnetGroup;
 export const SubnetGroup: typeof import("./subnetGroup").SubnetGroup = null as any;
@@ -115,6 +125,8 @@ const _module = {
                 return new SecurityGroup(name, <any>undefined, { urn })
             case "aws-native:elasticache:SecurityGroupIngress":
                 return new SecurityGroupIngress(name, <any>undefined, { urn })
+            case "aws-native:elasticache:ServerlessCache":
+                return new ServerlessCache(name, <any>undefined, { urn })
             case "aws-native:elasticache:SubnetGroup":
                 return new SubnetGroup(name, <any>undefined, { urn })
             case "aws-native:elasticache:User":

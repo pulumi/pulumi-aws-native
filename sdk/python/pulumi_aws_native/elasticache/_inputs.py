@@ -28,6 +28,10 @@ __all__ = [
     'ReplicationGroupNodeGroupConfigurationArgs',
     'ReplicationGroupTagArgs',
     'SecurityGroupTagArgs',
+    'ServerlessCacheCacheUsageLimitsArgs',
+    'ServerlessCacheDataStorageArgs',
+    'ServerlessCacheEcpuPerSecondArgs',
+    'ServerlessCacheTagArgs',
     'SubnetGroupTagArgs',
     'UserGroupTagArgs',
     'UserTagArgs',
@@ -610,6 +614,138 @@ class SecurityGroupTagArgs:
 
     @value.setter
     def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ServerlessCacheCacheUsageLimitsArgs:
+    def __init__(__self__, *,
+                 data_storage: Optional[pulumi.Input['ServerlessCacheDataStorageArgs']] = None,
+                 ecpu_per_second: Optional[pulumi.Input['ServerlessCacheEcpuPerSecondArgs']] = None):
+        """
+        The cache capacity limit of the Serverless Cache.
+        """
+        if data_storage is not None:
+            pulumi.set(__self__, "data_storage", data_storage)
+        if ecpu_per_second is not None:
+            pulumi.set(__self__, "ecpu_per_second", ecpu_per_second)
+
+    @property
+    @pulumi.getter(name="dataStorage")
+    def data_storage(self) -> Optional[pulumi.Input['ServerlessCacheDataStorageArgs']]:
+        return pulumi.get(self, "data_storage")
+
+    @data_storage.setter
+    def data_storage(self, value: Optional[pulumi.Input['ServerlessCacheDataStorageArgs']]):
+        pulumi.set(self, "data_storage", value)
+
+    @property
+    @pulumi.getter(name="ecpuPerSecond")
+    def ecpu_per_second(self) -> Optional[pulumi.Input['ServerlessCacheEcpuPerSecondArgs']]:
+        return pulumi.get(self, "ecpu_per_second")
+
+    @ecpu_per_second.setter
+    def ecpu_per_second(self, value: Optional[pulumi.Input['ServerlessCacheEcpuPerSecondArgs']]):
+        pulumi.set(self, "ecpu_per_second", value)
+
+
+@pulumi.input_type
+class ServerlessCacheDataStorageArgs:
+    def __init__(__self__, *,
+                 maximum: pulumi.Input[int],
+                 unit: pulumi.Input['ServerlessCacheDataStorageUnit']):
+        """
+        The cached data capacity of the Serverless Cache.
+        :param pulumi.Input[int] maximum: The maximum cached data capacity of the Serverless Cache.
+        :param pulumi.Input['ServerlessCacheDataStorageUnit'] unit: The unix of cached data capacity of the Serverless Cache.
+        """
+        pulumi.set(__self__, "maximum", maximum)
+        pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> pulumi.Input[int]:
+        """
+        The maximum cached data capacity of the Serverless Cache.
+        """
+        return pulumi.get(self, "maximum")
+
+    @maximum.setter
+    def maximum(self, value: pulumi.Input[int]):
+        pulumi.set(self, "maximum", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input['ServerlessCacheDataStorageUnit']:
+        """
+        The unix of cached data capacity of the Serverless Cache.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input['ServerlessCacheDataStorageUnit']):
+        pulumi.set(self, "unit", value)
+
+
+@pulumi.input_type
+class ServerlessCacheEcpuPerSecondArgs:
+    def __init__(__self__, *,
+                 maximum: pulumi.Input[int]):
+        """
+        The ECPU per second of the Serverless Cache.
+        :param pulumi.Input[int] maximum: The maximum ECPU per second of the Serverless Cache.
+        """
+        pulumi.set(__self__, "maximum", maximum)
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> pulumi.Input[int]:
+        """
+        The maximum ECPU per second of the Serverless Cache.
+        """
+        return pulumi.get(self, "maximum")
+
+    @maximum.setter
+    def maximum(self, value: pulumi.Input[int]):
+        pulumi.set(self, "maximum", value)
+
+
+@pulumi.input_type
+class ServerlessCacheTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        A key-value pair to associate with Serverless Cache.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
 

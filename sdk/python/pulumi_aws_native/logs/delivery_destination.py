@@ -16,21 +16,45 @@ __all__ = ['DeliveryDestinationArgs', 'DeliveryDestination']
 @pulumi.input_type
 class DeliveryDestinationArgs:
     def __init__(__self__, *,
+                 delivery_destination_policy: Optional[Any] = None,
                  destination_resource_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryDestinationTagArgs']]]] = None):
         """
         The set of arguments for constructing a DeliveryDestination resource.
+        :param Any delivery_destination_policy: IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
+               
+               The policy must be in JSON string format.
+               
+               Length Constraints: Maximum length of 51200
         :param pulumi.Input[str] destination_resource_arn: The ARN of the Destination Resource.
         :param pulumi.Input[str] name: The unique name of the Delivery Destination.
         :param pulumi.Input[Sequence[pulumi.Input['DeliveryDestinationTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
+        if delivery_destination_policy is not None:
+            pulumi.set(__self__, "delivery_destination_policy", delivery_destination_policy)
         if destination_resource_arn is not None:
             pulumi.set(__self__, "destination_resource_arn", destination_resource_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="deliveryDestinationPolicy")
+    def delivery_destination_policy(self) -> Optional[Any]:
+        """
+        IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
+
+        The policy must be in JSON string format.
+
+        Length Constraints: Maximum length of 51200
+        """
+        return pulumi.get(self, "delivery_destination_policy")
+
+    @delivery_destination_policy.setter
+    def delivery_destination_policy(self, value: Optional[Any]):
+        pulumi.set(self, "delivery_destination_policy", value)
 
     @property
     @pulumi.getter(name="destinationResourceArn")
@@ -74,6 +98,7 @@ class DeliveryDestination(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 delivery_destination_policy: Optional[Any] = None,
                  destination_resource_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryDestinationTagArgs']]]]] = None,
@@ -83,6 +108,11 @@ class DeliveryDestination(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param Any delivery_destination_policy: IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
+               
+               The policy must be in JSON string format.
+               
+               Length Constraints: Maximum length of 51200
         :param pulumi.Input[str] destination_resource_arn: The ARN of the Destination Resource.
         :param pulumi.Input[str] name: The unique name of the Delivery Destination.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryDestinationTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
@@ -111,6 +141,7 @@ class DeliveryDestination(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 delivery_destination_policy: Optional[Any] = None,
                  destination_resource_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryDestinationTagArgs']]]]] = None,
@@ -123,6 +154,7 @@ class DeliveryDestination(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeliveryDestinationArgs.__new__(DeliveryDestinationArgs)
 
+            __props__.__dict__["delivery_destination_policy"] = delivery_destination_policy
             __props__.__dict__["destination_resource_arn"] = destination_resource_arn
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
@@ -153,6 +185,7 @@ class DeliveryDestination(pulumi.CustomResource):
         __props__ = DeliveryDestinationArgs.__new__(DeliveryDestinationArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["delivery_destination_policy"] = None
         __props__.__dict__["delivery_destination_type"] = None
         __props__.__dict__["destination_resource_arn"] = None
         __props__.__dict__["name"] = None
@@ -166,6 +199,18 @@ class DeliveryDestination(pulumi.CustomResource):
         The value of the Arn property for this object.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="deliveryDestinationPolicy")
+    def delivery_destination_policy(self) -> pulumi.Output[Optional[Any]]:
+        """
+        IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
+
+        The policy must be in JSON string format.
+
+        Length Constraints: Maximum length of 51200
+        """
+        return pulumi.get(self, "delivery_destination_policy")
 
     @property
     @pulumi.getter(name="deliveryDestinationType")

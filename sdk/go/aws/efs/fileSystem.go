@@ -24,6 +24,7 @@ type FileSystem struct {
 	Encrypted                      pulumi.BoolPtrOutput                        `pulumi:"encrypted"`
 	FileSystemId                   pulumi.StringOutput                         `pulumi:"fileSystemId"`
 	FileSystemPolicy               pulumi.AnyOutput                            `pulumi:"fileSystemPolicy"`
+	FileSystemProtection           FileSystemProtectionPtrOutput               `pulumi:"fileSystemProtection"`
 	FileSystemTags                 FileSystemElasticFileSystemTagArrayOutput   `pulumi:"fileSystemTags"`
 	KmsKeyId                       pulumi.StringPtrOutput                      `pulumi:"kmsKeyId"`
 	LifecyclePolicies              FileSystemLifecyclePolicyArrayOutput        `pulumi:"lifecyclePolicies"`
@@ -86,6 +87,7 @@ type fileSystemArgs struct {
 	BypassPolicyLockoutSafetyCheck *bool                               `pulumi:"bypassPolicyLockoutSafetyCheck"`
 	Encrypted                      *bool                               `pulumi:"encrypted"`
 	FileSystemPolicy               interface{}                         `pulumi:"fileSystemPolicy"`
+	FileSystemProtection           *FileSystemProtection               `pulumi:"fileSystemProtection"`
 	FileSystemTags                 []FileSystemElasticFileSystemTag    `pulumi:"fileSystemTags"`
 	KmsKeyId                       *string                             `pulumi:"kmsKeyId"`
 	LifecyclePolicies              []FileSystemLifecyclePolicy         `pulumi:"lifecyclePolicies"`
@@ -103,6 +105,7 @@ type FileSystemArgs struct {
 	BypassPolicyLockoutSafetyCheck pulumi.BoolPtrInput
 	Encrypted                      pulumi.BoolPtrInput
 	FileSystemPolicy               pulumi.Input
+	FileSystemProtection           FileSystemProtectionPtrInput
 	FileSystemTags                 FileSystemElasticFileSystemTagArrayInput
 	KmsKeyId                       pulumi.StringPtrInput
 	LifecyclePolicies              FileSystemLifecyclePolicyArrayInput
@@ -188,6 +191,10 @@ func (o FileSystemOutput) FileSystemId() pulumi.StringOutput {
 
 func (o FileSystemOutput) FileSystemPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *FileSystem) pulumi.AnyOutput { return v.FileSystemPolicy }).(pulumi.AnyOutput)
+}
+
+func (o FileSystemOutput) FileSystemProtection() FileSystemProtectionPtrOutput {
+	return o.ApplyT(func(v *FileSystem) FileSystemProtectionPtrOutput { return v.FileSystemProtection }).(FileSystemProtectionPtrOutput)
 }
 
 func (o FileSystemOutput) FileSystemTags() FileSystemElasticFileSystemTagArrayOutput {

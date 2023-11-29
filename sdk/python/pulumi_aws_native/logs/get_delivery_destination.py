@@ -19,10 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetDeliveryDestinationResult:
-    def __init__(__self__, arn=None, delivery_destination_type=None, tags=None):
+    def __init__(__self__, arn=None, delivery_destination_policy=None, delivery_destination_type=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if delivery_destination_policy and not isinstance(delivery_destination_policy, dict):
+            raise TypeError("Expected argument 'delivery_destination_policy' to be a dict")
+        pulumi.set(__self__, "delivery_destination_policy", delivery_destination_policy)
         if delivery_destination_type and not isinstance(delivery_destination_type, str):
             raise TypeError("Expected argument 'delivery_destination_type' to be a str")
         pulumi.set(__self__, "delivery_destination_type", delivery_destination_type)
@@ -37,6 +40,18 @@ class GetDeliveryDestinationResult:
         The value of the Arn property for this object.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="deliveryDestinationPolicy")
+    def delivery_destination_policy(self) -> Optional[Any]:
+        """
+        IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
+
+        The policy must be in JSON string format.
+
+        Length Constraints: Maximum length of 51200
+        """
+        return pulumi.get(self, "delivery_destination_policy")
 
     @property
     @pulumi.getter(name="deliveryDestinationType")
@@ -62,6 +77,7 @@ class AwaitableGetDeliveryDestinationResult(GetDeliveryDestinationResult):
             yield self
         return GetDeliveryDestinationResult(
             arn=self.arn,
+            delivery_destination_policy=self.delivery_destination_policy,
             delivery_destination_type=self.delivery_destination_type,
             tags=self.tags)
 
@@ -81,6 +97,7 @@ def get_delivery_destination(name: Optional[str] = None,
 
     return AwaitableGetDeliveryDestinationResult(
         arn=pulumi.get(__ret__, 'arn'),
+        delivery_destination_policy=pulumi.get(__ret__, 'delivery_destination_policy'),
         delivery_destination_type=pulumi.get(__ret__, 'delivery_destination_type'),
         tags=pulumi.get(__ret__, 'tags'))
 

@@ -18,6 +18,12 @@ type DeliveryDestination struct {
 
 	// The value of the Arn property for this object.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
+	//
+	// The policy must be in JSON string format.
+	//
+	// Length Constraints: Maximum length of 51200
+	DeliveryDestinationPolicy pulumi.AnyOutput `pulumi:"deliveryDestinationPolicy"`
 	// The value of the DeliveryDestinationType property for this object.
 	DeliveryDestinationType pulumi.StringOutput `pulumi:"deliveryDestinationType"`
 	// The ARN of the Destination Resource.
@@ -73,6 +79,12 @@ func (DeliveryDestinationState) ElementType() reflect.Type {
 }
 
 type deliveryDestinationArgs struct {
+	// IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
+	//
+	// The policy must be in JSON string format.
+	//
+	// Length Constraints: Maximum length of 51200
+	DeliveryDestinationPolicy interface{} `pulumi:"deliveryDestinationPolicy"`
 	// The ARN of the Destination Resource.
 	DestinationResourceArn *string `pulumi:"destinationResourceArn"`
 	// The unique name of the Delivery Destination.
@@ -83,6 +95,12 @@ type deliveryDestinationArgs struct {
 
 // The set of arguments for constructing a DeliveryDestination resource.
 type DeliveryDestinationArgs struct {
+	// IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
+	//
+	// The policy must be in JSON string format.
+	//
+	// Length Constraints: Maximum length of 51200
+	DeliveryDestinationPolicy pulumi.Input
 	// The ARN of the Destination Resource.
 	DestinationResourceArn pulumi.StringPtrInput
 	// The unique name of the Delivery Destination.
@@ -143,6 +161,15 @@ func (o DeliveryDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[
 // The value of the Arn property for this object.
 func (o DeliveryDestinationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeliveryDestination) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
+//
+// The policy must be in JSON string format.
+//
+// Length Constraints: Maximum length of 51200
+func (o DeliveryDestinationOutput) DeliveryDestinationPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DeliveryDestination) pulumi.AnyOutput { return v.DeliveryDestinationPolicy }).(pulumi.AnyOutput)
 }
 
 // The value of the DeliveryDestinationType property for this object.

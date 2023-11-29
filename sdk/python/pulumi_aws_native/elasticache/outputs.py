@@ -29,6 +29,11 @@ __all__ = [
     'ReplicationGroupNodeGroupConfiguration',
     'ReplicationGroupTag',
     'SecurityGroupTag',
+    'ServerlessCacheCacheUsageLimits',
+    'ServerlessCacheDataStorage',
+    'ServerlessCacheEcpuPerSecond',
+    'ServerlessCacheEndpoint',
+    'ServerlessCacheTag',
     'SubnetGroupTag',
     'UserGroupTag',
     'UserTag',
@@ -689,6 +694,176 @@ class SecurityGroupTag(dict):
     @property
     @pulumi.getter
     def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ServerlessCacheCacheUsageLimits(dict):
+    """
+    The cache capacity limit of the Serverless Cache.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataStorage":
+            suggest = "data_storage"
+        elif key == "ecpuPerSecond":
+            suggest = "ecpu_per_second"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerlessCacheCacheUsageLimits. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerlessCacheCacheUsageLimits.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerlessCacheCacheUsageLimits.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_storage: Optional['outputs.ServerlessCacheDataStorage'] = None,
+                 ecpu_per_second: Optional['outputs.ServerlessCacheEcpuPerSecond'] = None):
+        """
+        The cache capacity limit of the Serverless Cache.
+        """
+        if data_storage is not None:
+            pulumi.set(__self__, "data_storage", data_storage)
+        if ecpu_per_second is not None:
+            pulumi.set(__self__, "ecpu_per_second", ecpu_per_second)
+
+    @property
+    @pulumi.getter(name="dataStorage")
+    def data_storage(self) -> Optional['outputs.ServerlessCacheDataStorage']:
+        return pulumi.get(self, "data_storage")
+
+    @property
+    @pulumi.getter(name="ecpuPerSecond")
+    def ecpu_per_second(self) -> Optional['outputs.ServerlessCacheEcpuPerSecond']:
+        return pulumi.get(self, "ecpu_per_second")
+
+
+@pulumi.output_type
+class ServerlessCacheDataStorage(dict):
+    """
+    The cached data capacity of the Serverless Cache.
+    """
+    def __init__(__self__, *,
+                 maximum: int,
+                 unit: 'ServerlessCacheDataStorageUnit'):
+        """
+        The cached data capacity of the Serverless Cache.
+        :param int maximum: The maximum cached data capacity of the Serverless Cache.
+        :param 'ServerlessCacheDataStorageUnit' unit: The unix of cached data capacity of the Serverless Cache.
+        """
+        pulumi.set(__self__, "maximum", maximum)
+        pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> int:
+        """
+        The maximum cached data capacity of the Serverless Cache.
+        """
+        return pulumi.get(self, "maximum")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> 'ServerlessCacheDataStorageUnit':
+        """
+        The unix of cached data capacity of the Serverless Cache.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class ServerlessCacheEcpuPerSecond(dict):
+    """
+    The ECPU per second of the Serverless Cache.
+    """
+    def __init__(__self__, *,
+                 maximum: int):
+        """
+        The ECPU per second of the Serverless Cache.
+        :param int maximum: The maximum ECPU per second of the Serverless Cache.
+        """
+        pulumi.set(__self__, "maximum", maximum)
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> int:
+        """
+        The maximum ECPU per second of the Serverless Cache.
+        """
+        return pulumi.get(self, "maximum")
+
+
+@pulumi.output_type
+class ServerlessCacheEndpoint(dict):
+    """
+    The address and the port.
+    """
+    def __init__(__self__, *,
+                 address: Optional[str] = None,
+                 port: Optional[int] = None):
+        """
+        The address and the port.
+        :param str address: Endpoint address.
+        :param int port: Endpoint port.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[str]:
+        """
+        Endpoint address.
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        Endpoint port.
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class ServerlessCacheTag(dict):
+    """
+    A key-value pair to associate with Serverless Cache.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: Optional[str] = None):
+        """
+        A key-value pair to associate with Serverless Cache.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
         return pulumi.get(self, "value")
 
 

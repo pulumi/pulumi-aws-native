@@ -12,6 +12,15 @@ export const GlobalReplicationGroupMemberRole = {
  */
 export type GlobalReplicationGroupMemberRole = (typeof GlobalReplicationGroupMemberRole)[keyof typeof GlobalReplicationGroupMemberRole];
 
+export const ServerlessCacheDataStorageUnit = {
+    Gb: "GB",
+} as const;
+
+/**
+ * The unix of cached data capacity of the Serverless Cache.
+ */
+export type ServerlessCacheDataStorageUnit = (typeof ServerlessCacheDataStorageUnit)[keyof typeof ServerlessCacheDataStorageUnit];
+
 export const UserAuthenticationModePropertiesType = {
     Password: "password",
     NoPasswordRequired: "no-password-required",

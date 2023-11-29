@@ -55,6 +55,7 @@ namespace Pulumi.AwsNative.Efs
         public readonly Outputs.FileSystemBackupPolicy? BackupPolicy;
         public readonly string? FileSystemId;
         public readonly object? FileSystemPolicy;
+        public readonly Outputs.FileSystemProtection? FileSystemProtection;
         public readonly ImmutableArray<Outputs.FileSystemElasticFileSystemTag> FileSystemTags;
         public readonly ImmutableArray<Outputs.FileSystemLifecyclePolicy> LifecyclePolicies;
         public readonly double? ProvisionedThroughputInMibps;
@@ -71,6 +72,8 @@ namespace Pulumi.AwsNative.Efs
 
             object? fileSystemPolicy,
 
+            Outputs.FileSystemProtection? fileSystemProtection,
+
             ImmutableArray<Outputs.FileSystemElasticFileSystemTag> fileSystemTags,
 
             ImmutableArray<Outputs.FileSystemLifecyclePolicy> lifecyclePolicies,
@@ -85,6 +88,7 @@ namespace Pulumi.AwsNative.Efs
             BackupPolicy = backupPolicy;
             FileSystemId = fileSystemId;
             FileSystemPolicy = fileSystemPolicy;
+            FileSystemProtection = fileSystemProtection;
             FileSystemTags = fileSystemTags;
             LifecyclePolicies = lifecyclePolicies;
             ProvisionedThroughputInMibps = provisionedThroughputInMibps;

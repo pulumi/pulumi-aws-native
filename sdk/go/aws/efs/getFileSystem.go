@@ -32,6 +32,7 @@ type LookupFileSystemResult struct {
 	BackupPolicy                 *FileSystemBackupPolicy             `pulumi:"backupPolicy"`
 	FileSystemId                 *string                             `pulumi:"fileSystemId"`
 	FileSystemPolicy             interface{}                         `pulumi:"fileSystemPolicy"`
+	FileSystemProtection         *FileSystemProtection               `pulumi:"fileSystemProtection"`
 	FileSystemTags               []FileSystemElasticFileSystemTag    `pulumi:"fileSystemTags"`
 	LifecyclePolicies            []FileSystemLifecyclePolicy         `pulumi:"lifecyclePolicies"`
 	ProvisionedThroughputInMibps *float64                            `pulumi:"provisionedThroughputInMibps"`
@@ -94,6 +95,10 @@ func (o LookupFileSystemResultOutput) FileSystemId() pulumi.StringPtrOutput {
 
 func (o LookupFileSystemResultOutput) FileSystemPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupFileSystemResult) interface{} { return v.FileSystemPolicy }).(pulumi.AnyOutput)
+}
+
+func (o LookupFileSystemResultOutput) FileSystemProtection() FileSystemProtectionPtrOutput {
+	return o.ApplyT(func(v LookupFileSystemResult) *FileSystemProtection { return v.FileSystemProtection }).(FileSystemProtectionPtrOutput)
 }
 
 func (o LookupFileSystemResultOutput) FileSystemTags() FileSystemElasticFileSystemTagArrayOutput {

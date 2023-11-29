@@ -42,6 +42,14 @@ export class DeliveryDestination extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
+     *
+     * The policy must be in JSON string format.
+     *
+     * Length Constraints: Maximum length of 51200
+     */
+    public readonly deliveryDestinationPolicy!: pulumi.Output<any | undefined>;
+    /**
      * The value of the DeliveryDestinationType property for this object.
      */
     public /*out*/ readonly deliveryDestinationType!: pulumi.Output<string>;
@@ -69,6 +77,7 @@ export class DeliveryDestination extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["deliveryDestinationPolicy"] = args ? args.deliveryDestinationPolicy : undefined;
             resourceInputs["destinationResourceArn"] = args ? args.destinationResourceArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -76,6 +85,7 @@ export class DeliveryDestination extends pulumi.CustomResource {
             resourceInputs["deliveryDestinationType"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["deliveryDestinationPolicy"] = undefined /*out*/;
             resourceInputs["deliveryDestinationType"] = undefined /*out*/;
             resourceInputs["destinationResourceArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -92,6 +102,14 @@ export class DeliveryDestination extends pulumi.CustomResource {
  * The set of arguments for constructing a DeliveryDestination resource.
  */
 export interface DeliveryDestinationArgs {
+    /**
+     * IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
+     *
+     * The policy must be in JSON string format.
+     *
+     * Length Constraints: Maximum length of 51200
+     */
+    deliveryDestinationPolicy?: any;
     /**
      * The ARN of the Destination Resource.
      */

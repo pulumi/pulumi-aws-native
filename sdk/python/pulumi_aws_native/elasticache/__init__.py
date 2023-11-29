@@ -13,6 +13,7 @@ from .get_parameter_group import *
 from .get_replication_group import *
 from .get_security_group import *
 from .get_security_group_ingress import *
+from .get_serverless_cache import *
 from .get_subnet_group import *
 from .get_user import *
 from .get_user_group import *
@@ -21,6 +22,7 @@ from .parameter_group import *
 from .replication_group import *
 from .security_group import *
 from .security_group_ingress import *
+from .serverless_cache import *
 from .subnet_group import *
 from .user import *
 from .user_group import *

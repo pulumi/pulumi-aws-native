@@ -330,6 +330,7 @@ AWS::EMR::WALWorkspace
 AWS::EMRContainers::VirtualCluster
 AWS::EMRServerless::Application
 AWS::ElastiCache::GlobalReplicationGroup
+AWS::ElastiCache::ServerlessCache
 AWS::ElastiCache::SubnetGroup
 AWS::ElastiCache::User
 AWS::ElastiCache::UserGroup
@@ -750,6 +751,8 @@ AWS::S3::MultiRegionAccessPoint
 AWS::S3::MultiRegionAccessPointPolicy
 AWS::S3::StorageLens
 AWS::S3::StorageLensGroup
+AWS::S3Express::BucketPolicy
+AWS::S3Express::DirectoryBucket
 AWS::S3ObjectLambda::AccessPoint
 AWS::S3ObjectLambda::AccessPointPolicy
 AWS::S3Outposts::AccessPoint

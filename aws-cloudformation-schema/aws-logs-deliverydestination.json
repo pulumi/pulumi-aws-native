@@ -29,6 +29,25 @@
       },
       "required" : [ "Key", "Value" ],
       "additionalProperties" : false
+    },
+    "DestinationPolicy" : {
+      "type" : "object",
+      "properties" : {
+        "DeliveryDestinationName" : {
+          "type" : "string",
+          "description" : "The name of the delivery destination to assign this policy to",
+          "minLength" : 1,
+          "maxLength" : 60
+        },
+        "DeliveryDestinationPolicy" : {
+          "type" : "string",
+          "description" : "The contents of the policy attached to the delivery destination",
+          "minLength" : 1,
+          "maxLength" : 51200
+        }
+      },
+      "required" : [ "DeliveryDestinationName", "DeliveryDestinationPolicy" ],
+      "additionalProperties" : false
     }
   },
   "properties" : {
@@ -62,6 +81,13 @@
       "minLength" : 1,
       "maxLength" : 12,
       "pattern" : "^[0-9A-Za-z]+$"
+    },
+    "DeliveryDestinationPolicy" : {
+      "description" : "IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.\n\nThe policy must be in JSON string format.\n\nLength Constraints: Maximum length of 51200",
+      "type" : "object",
+      "items" : {
+        "$ref" : "#/definitions/DestinationPolicy"
+      }
     }
   },
   "additionalProperties" : false,
@@ -71,19 +97,19 @@
   "primaryIdentifier" : [ "/properties/Name" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "logs:PutDeliveryDestination", "logs:GetDeliveryDestination", "logs:ListTagsForResource", "logs:TagResource", "logs:UntagResource" ]
+      "permissions" : [ "logs:PutDeliveryDestination", "logs:GetDeliveryDestination", "logs:ListTagsForResource", "logs:TagResource", "logs:UntagResource", "logs:PutDeliveryDestinationPolicy", "logs:GetDeliveryDestinationPolicy" ]
     },
     "read" : {
-      "permissions" : [ "logs:GetDeliveryDestination", "logs:ListTagsForResource" ]
+      "permissions" : [ "logs:GetDeliveryDestination", "logs:ListTagsForResource", "logs:GetDeliveryDestinationPolicy" ]
     },
     "update" : {
-      "permissions" : [ "logs:PutDeliveryDestination", "logs:GetDeliveryDestination", "logs:ListTagsForResource", "logs:TagResource", "logs:UntagResource" ]
+      "permissions" : [ "logs:PutDeliveryDestination", "logs:GetDeliveryDestination", "logs:ListTagsForResource", "logs:TagResource", "logs:UntagResource", "logs:DeleteDeliveryDestinationPolicy", "logs:PutDeliveryDestinationPolicy", "logs:GetDeliveryDestinationPolicy" ]
     },
     "delete" : {
-      "permissions" : [ "logs:DeleteDeliveryDestination" ]
+      "permissions" : [ "logs:DeleteDeliveryDestination", "logs:DeleteDeliveryDestinationPolicy" ]
     },
     "list" : {
-      "permissions" : [ "logs:DescribeDeliveryDestinations" ]
+      "permissions" : [ "logs:DescribeDeliveryDestinations", "logs:GetDeliveryDestinationPolicy" ]
     }
   },
   "tagging" : {

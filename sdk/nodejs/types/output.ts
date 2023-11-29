@@ -15390,6 +15390,10 @@ export namespace efs {
         transitionToPrimaryStorageClass?: string;
     }
 
+    export interface FileSystemProtection {
+        replicationOverwriteProtection?: enums.efs.FileSystemProtectionReplicationOverwriteProtection;
+    }
+
     export interface FileSystemReplicationConfiguration {
         destinations?: outputs.efs.FileSystemReplicationDestination[];
     }
@@ -15828,6 +15832,66 @@ export namespace elasticache {
     export interface SecurityGroupTag {
         key: string;
         value: string;
+    }
+
+    /**
+     * The cache capacity limit of the Serverless Cache.
+     */
+    export interface ServerlessCacheCacheUsageLimits {
+        dataStorage?: outputs.elasticache.ServerlessCacheDataStorage;
+        ecpuPerSecond?: outputs.elasticache.ServerlessCacheEcpuPerSecond;
+    }
+
+    /**
+     * The cached data capacity of the Serverless Cache.
+     */
+    export interface ServerlessCacheDataStorage {
+        /**
+         * The maximum cached data capacity of the Serverless Cache.
+         */
+        maximum: number;
+        /**
+         * The unix of cached data capacity of the Serverless Cache.
+         */
+        unit: enums.elasticache.ServerlessCacheDataStorageUnit;
+    }
+
+    /**
+     * The ECPU per second of the Serverless Cache.
+     */
+    export interface ServerlessCacheEcpuPerSecond {
+        /**
+         * The maximum ECPU per second of the Serverless Cache.
+         */
+        maximum: number;
+    }
+
+    /**
+     * The address and the port.
+     */
+    export interface ServerlessCacheEndpoint {
+        /**
+         * Endpoint address.
+         */
+        address?: string;
+        /**
+         * Endpoint port.
+         */
+        port?: number;
+    }
+
+    /**
+     * A key-value pair to associate with Serverless Cache.
+     */
+    export interface ServerlessCacheTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value?: string;
     }
 
     /**

@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.Efs
         [Output("fileSystemPolicy")]
         public Output<object?> FileSystemPolicy { get; private set; } = null!;
 
+        [Output("fileSystemProtection")]
+        public Output<Outputs.FileSystemProtection?> FileSystemProtection { get; private set; } = null!;
+
         [Output("fileSystemTags")]
         public Output<ImmutableArray<Outputs.FileSystemElasticFileSystemTag>> FileSystemTags { get; private set; } = null!;
 
@@ -129,6 +132,9 @@ namespace Pulumi.AwsNative.Efs
 
         [Input("fileSystemPolicy")]
         public Input<object>? FileSystemPolicy { get; set; }
+
+        [Input("fileSystemProtection")]
+        public Input<Inputs.FileSystemProtectionArgs>? FileSystemProtection { get; set; }
 
         [Input("fileSystemTags")]
         private InputList<Inputs.FileSystemElasticFileSystemTagArgs>? _fileSystemTags;

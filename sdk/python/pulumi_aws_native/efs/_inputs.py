@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'AccessPointCreationInfoArgs',
@@ -17,6 +18,7 @@ __all__ = [
     'FileSystemBackupPolicyArgs',
     'FileSystemElasticFileSystemTagArgs',
     'FileSystemLifecyclePolicyArgs',
+    'FileSystemProtectionArgs',
     'FileSystemReplicationConfigurationArgs',
     'FileSystemReplicationDestinationArgs',
 ]
@@ -276,6 +278,23 @@ class FileSystemLifecyclePolicyArgs:
     @transition_to_primary_storage_class.setter
     def transition_to_primary_storage_class(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "transition_to_primary_storage_class", value)
+
+
+@pulumi.input_type
+class FileSystemProtectionArgs:
+    def __init__(__self__, *,
+                 replication_overwrite_protection: Optional[pulumi.Input['FileSystemProtectionReplicationOverwriteProtection']] = None):
+        if replication_overwrite_protection is not None:
+            pulumi.set(__self__, "replication_overwrite_protection", replication_overwrite_protection)
+
+    @property
+    @pulumi.getter(name="replicationOverwriteProtection")
+    def replication_overwrite_protection(self) -> Optional[pulumi.Input['FileSystemProtectionReplicationOverwriteProtection']]:
+        return pulumi.get(self, "replication_overwrite_protection")
+
+    @replication_overwrite_protection.setter
+    def replication_overwrite_protection(self, value: Optional[pulumi.Input['FileSystemProtectionReplicationOverwriteProtection']]):
+        pulumi.set(self, "replication_overwrite_protection", value)
 
 
 @pulumi.input_type

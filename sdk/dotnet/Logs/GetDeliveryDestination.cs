@@ -62,6 +62,14 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
+        /// 
+        /// The policy must be in JSON string format.
+        /// 
+        /// Length Constraints: Maximum length of 51200
+        /// </summary>
+        public readonly object? DeliveryDestinationPolicy;
+        /// <summary>
         /// The value of the DeliveryDestinationType property for this object.
         /// </summary>
         public readonly string? DeliveryDestinationType;
@@ -74,11 +82,14 @@ namespace Pulumi.AwsNative.Logs
         private GetDeliveryDestinationResult(
             string? arn,
 
+            object? deliveryDestinationPolicy,
+
             string? deliveryDestinationType,
 
             ImmutableArray<Outputs.DeliveryDestinationTag> tags)
         {
             Arn = arn;
+            DeliveryDestinationPolicy = deliveryDestinationPolicy;
             DeliveryDestinationType = deliveryDestinationType;
             Tags = tags;
         }

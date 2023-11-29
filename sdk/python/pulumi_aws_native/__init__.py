@@ -403,6 +403,8 @@ if typing.TYPE_CHECKING:
     rum = __rum
     import pulumi_aws_native.s3 as __s3
     s3 = __s3
+    import pulumi_aws_native.s3express as __s3express
+    s3express = __s3express
     import pulumi_aws_native.s3objectlambda as __s3objectlambda
     s3objectlambda = __s3objectlambda
     import pulumi_aws_native.s3outposts as __s3outposts
@@ -667,6 +669,7 @@ else:
     route53resolver = _utilities.lazy_import('pulumi_aws_native.route53resolver')
     rum = _utilities.lazy_import('pulumi_aws_native.rum')
     s3 = _utilities.lazy_import('pulumi_aws_native.s3')
+    s3express = _utilities.lazy_import('pulumi_aws_native.s3express')
     s3objectlambda = _utilities.lazy_import('pulumi_aws_native.s3objectlambda')
     s3outposts = _utilities.lazy_import('pulumi_aws_native.s3outposts')
     sagemaker = _utilities.lazy_import('pulumi_aws_native.sagemaker')
@@ -1656,6 +1659,7 @@ _utilities.register(
    "aws-native:elasticache:ReplicationGroup": "ReplicationGroup",
    "aws-native:elasticache:SecurityGroup": "SecurityGroup",
    "aws-native:elasticache:SecurityGroupIngress": "SecurityGroupIngress",
+   "aws-native:elasticache:ServerlessCache": "ServerlessCache",
    "aws-native:elasticache:SubnetGroup": "SubnetGroup",
    "aws-native:elasticache:User": "User",
    "aws-native:elasticache:UserGroup": "UserGroup"
@@ -3030,6 +3034,15 @@ _utilities.register(
    "aws-native:s3:MultiRegionAccessPointPolicy": "MultiRegionAccessPointPolicy",
    "aws-native:s3:StorageLens": "StorageLens",
    "aws-native:s3:StorageLensGroup": "StorageLensGroup"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "s3express",
+  "fqn": "pulumi_aws_native.s3express",
+  "classes": {
+   "aws-native:s3express:BucketPolicy": "BucketPolicy",
+   "aws-native:s3express:DirectoryBucket": "DirectoryBucket"
   }
  },
  {

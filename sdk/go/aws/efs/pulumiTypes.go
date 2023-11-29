@@ -1127,6 +1127,165 @@ func (o FileSystemLifecyclePolicyArrayOutput) Index(i pulumi.IntInput) FileSyste
 	}).(FileSystemLifecyclePolicyOutput)
 }
 
+type FileSystemProtection struct {
+	ReplicationOverwriteProtection *FileSystemProtectionReplicationOverwriteProtection `pulumi:"replicationOverwriteProtection"`
+}
+
+// FileSystemProtectionInput is an input type that accepts FileSystemProtectionArgs and FileSystemProtectionOutput values.
+// You can construct a concrete instance of `FileSystemProtectionInput` via:
+//
+//	FileSystemProtectionArgs{...}
+type FileSystemProtectionInput interface {
+	pulumi.Input
+
+	ToFileSystemProtectionOutput() FileSystemProtectionOutput
+	ToFileSystemProtectionOutputWithContext(context.Context) FileSystemProtectionOutput
+}
+
+type FileSystemProtectionArgs struct {
+	ReplicationOverwriteProtection FileSystemProtectionReplicationOverwriteProtectionPtrInput `pulumi:"replicationOverwriteProtection"`
+}
+
+func (FileSystemProtectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemProtection)(nil)).Elem()
+}
+
+func (i FileSystemProtectionArgs) ToFileSystemProtectionOutput() FileSystemProtectionOutput {
+	return i.ToFileSystemProtectionOutputWithContext(context.Background())
+}
+
+func (i FileSystemProtectionArgs) ToFileSystemProtectionOutputWithContext(ctx context.Context) FileSystemProtectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemProtectionOutput)
+}
+
+func (i FileSystemProtectionArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemProtection] {
+	return pulumix.Output[FileSystemProtection]{
+		OutputState: i.ToFileSystemProtectionOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i FileSystemProtectionArgs) ToFileSystemProtectionPtrOutput() FileSystemProtectionPtrOutput {
+	return i.ToFileSystemProtectionPtrOutputWithContext(context.Background())
+}
+
+func (i FileSystemProtectionArgs) ToFileSystemProtectionPtrOutputWithContext(ctx context.Context) FileSystemProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemProtectionOutput).ToFileSystemProtectionPtrOutputWithContext(ctx)
+}
+
+// FileSystemProtectionPtrInput is an input type that accepts FileSystemProtectionArgs, FileSystemProtectionPtr and FileSystemProtectionPtrOutput values.
+// You can construct a concrete instance of `FileSystemProtectionPtrInput` via:
+//
+//	        FileSystemProtectionArgs{...}
+//
+//	or:
+//
+//	        nil
+type FileSystemProtectionPtrInput interface {
+	pulumi.Input
+
+	ToFileSystemProtectionPtrOutput() FileSystemProtectionPtrOutput
+	ToFileSystemProtectionPtrOutputWithContext(context.Context) FileSystemProtectionPtrOutput
+}
+
+type fileSystemProtectionPtrType FileSystemProtectionArgs
+
+func FileSystemProtectionPtr(v *FileSystemProtectionArgs) FileSystemProtectionPtrInput {
+	return (*fileSystemProtectionPtrType)(v)
+}
+
+func (*fileSystemProtectionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemProtection)(nil)).Elem()
+}
+
+func (i *fileSystemProtectionPtrType) ToFileSystemProtectionPtrOutput() FileSystemProtectionPtrOutput {
+	return i.ToFileSystemProtectionPtrOutputWithContext(context.Background())
+}
+
+func (i *fileSystemProtectionPtrType) ToFileSystemProtectionPtrOutputWithContext(ctx context.Context) FileSystemProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileSystemProtectionPtrOutput)
+}
+
+func (i *fileSystemProtectionPtrType) ToOutput(ctx context.Context) pulumix.Output[*FileSystemProtection] {
+	return pulumix.Output[*FileSystemProtection]{
+		OutputState: i.ToFileSystemProtectionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type FileSystemProtectionOutput struct{ *pulumi.OutputState }
+
+func (FileSystemProtectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileSystemProtection)(nil)).Elem()
+}
+
+func (o FileSystemProtectionOutput) ToFileSystemProtectionOutput() FileSystemProtectionOutput {
+	return o
+}
+
+func (o FileSystemProtectionOutput) ToFileSystemProtectionOutputWithContext(ctx context.Context) FileSystemProtectionOutput {
+	return o
+}
+
+func (o FileSystemProtectionOutput) ToFileSystemProtectionPtrOutput() FileSystemProtectionPtrOutput {
+	return o.ToFileSystemProtectionPtrOutputWithContext(context.Background())
+}
+
+func (o FileSystemProtectionOutput) ToFileSystemProtectionPtrOutputWithContext(ctx context.Context) FileSystemProtectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemProtection) *FileSystemProtection {
+		return &v
+	}).(FileSystemProtectionPtrOutput)
+}
+
+func (o FileSystemProtectionOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemProtection] {
+	return pulumix.Output[FileSystemProtection]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FileSystemProtectionOutput) ReplicationOverwriteProtection() FileSystemProtectionReplicationOverwriteProtectionPtrOutput {
+	return o.ApplyT(func(v FileSystemProtection) *FileSystemProtectionReplicationOverwriteProtection {
+		return v.ReplicationOverwriteProtection
+	}).(FileSystemProtectionReplicationOverwriteProtectionPtrOutput)
+}
+
+type FileSystemProtectionPtrOutput struct{ *pulumi.OutputState }
+
+func (FileSystemProtectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileSystemProtection)(nil)).Elem()
+}
+
+func (o FileSystemProtectionPtrOutput) ToFileSystemProtectionPtrOutput() FileSystemProtectionPtrOutput {
+	return o
+}
+
+func (o FileSystemProtectionPtrOutput) ToFileSystemProtectionPtrOutputWithContext(ctx context.Context) FileSystemProtectionPtrOutput {
+	return o
+}
+
+func (o FileSystemProtectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FileSystemProtection] {
+	return pulumix.Output[*FileSystemProtection]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FileSystemProtectionPtrOutput) Elem() FileSystemProtectionOutput {
+	return o.ApplyT(func(v *FileSystemProtection) FileSystemProtection {
+		if v != nil {
+			return *v
+		}
+		var ret FileSystemProtection
+		return ret
+	}).(FileSystemProtectionOutput)
+}
+
+func (o FileSystemProtectionPtrOutput) ReplicationOverwriteProtection() FileSystemProtectionReplicationOverwriteProtectionPtrOutput {
+	return o.ApplyT(func(v *FileSystemProtection) *FileSystemProtectionReplicationOverwriteProtection {
+		if v == nil {
+			return nil
+		}
+		return v.ReplicationOverwriteProtection
+	}).(FileSystemProtectionReplicationOverwriteProtectionPtrOutput)
+}
+
 type FileSystemReplicationConfiguration struct {
 	Destinations []FileSystemReplicationDestination `pulumi:"destinations"`
 }
@@ -1435,6 +1594,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemElasticFileSystemTagArrayInput)(nil)).Elem(), FileSystemElasticFileSystemTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemLifecyclePolicyInput)(nil)).Elem(), FileSystemLifecyclePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemLifecyclePolicyArrayInput)(nil)).Elem(), FileSystemLifecyclePolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemProtectionInput)(nil)).Elem(), FileSystemProtectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemProtectionPtrInput)(nil)).Elem(), FileSystemProtectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemReplicationConfigurationInput)(nil)).Elem(), FileSystemReplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemReplicationConfigurationPtrInput)(nil)).Elem(), FileSystemReplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemReplicationDestinationInput)(nil)).Elem(), FileSystemReplicationDestinationArgs{})
@@ -1453,6 +1614,8 @@ func init() {
 	pulumi.RegisterOutputType(FileSystemElasticFileSystemTagArrayOutput{})
 	pulumi.RegisterOutputType(FileSystemLifecyclePolicyOutput{})
 	pulumi.RegisterOutputType(FileSystemLifecyclePolicyArrayOutput{})
+	pulumi.RegisterOutputType(FileSystemProtectionOutput{})
+	pulumi.RegisterOutputType(FileSystemProtectionPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemReplicationConfigurationOutput{})
 	pulumi.RegisterOutputType(FileSystemReplicationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemReplicationDestinationOutput{})

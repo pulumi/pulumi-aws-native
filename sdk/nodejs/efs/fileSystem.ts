@@ -47,6 +47,7 @@ export class FileSystem extends pulumi.CustomResource {
     public readonly encrypted!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly fileSystemId!: pulumi.Output<string>;
     public readonly fileSystemPolicy!: pulumi.Output<any | undefined>;
+    public readonly fileSystemProtection!: pulumi.Output<outputs.efs.FileSystemProtection | undefined>;
     public readonly fileSystemTags!: pulumi.Output<outputs.efs.FileSystemElasticFileSystemTag[] | undefined>;
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     public readonly lifecyclePolicies!: pulumi.Output<outputs.efs.FileSystemLifecyclePolicy[] | undefined>;
@@ -71,6 +72,7 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
             resourceInputs["encrypted"] = args ? args.encrypted : undefined;
             resourceInputs["fileSystemPolicy"] = args ? args.fileSystemPolicy : undefined;
+            resourceInputs["fileSystemProtection"] = args ? args.fileSystemProtection : undefined;
             resourceInputs["fileSystemTags"] = args ? args.fileSystemTags : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["lifecyclePolicies"] = args ? args.lifecyclePolicies : undefined;
@@ -88,6 +90,7 @@ export class FileSystem extends pulumi.CustomResource {
             resourceInputs["encrypted"] = undefined /*out*/;
             resourceInputs["fileSystemId"] = undefined /*out*/;
             resourceInputs["fileSystemPolicy"] = undefined /*out*/;
+            resourceInputs["fileSystemProtection"] = undefined /*out*/;
             resourceInputs["fileSystemTags"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["lifecyclePolicies"] = undefined /*out*/;
@@ -115,6 +118,7 @@ export interface FileSystemArgs {
     bypassPolicyLockoutSafetyCheck?: pulumi.Input<boolean>;
     encrypted?: pulumi.Input<boolean>;
     fileSystemPolicy?: any;
+    fileSystemProtection?: pulumi.Input<inputs.efs.FileSystemProtectionArgs>;
     fileSystemTags?: pulumi.Input<pulumi.Input<inputs.efs.FileSystemElasticFileSystemTagArgs>[]>;
     kmsKeyId?: pulumi.Input<string>;
     lifecyclePolicies?: pulumi.Input<pulumi.Input<inputs.efs.FileSystemLifecyclePolicyArgs>[]>;

@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .access_point import *
 from .file_system import *
 from .get_access_point import *

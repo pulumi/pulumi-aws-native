@@ -194,6 +194,188 @@ func (in *globalReplicationGroupMemberRolePtr) ToOutput(ctx context.Context) pul
 	}
 }
 
+// The unix of cached data capacity of the Serverless Cache.
+type ServerlessCacheDataStorageUnit string
+
+const (
+	ServerlessCacheDataStorageUnitGb = ServerlessCacheDataStorageUnit("GB")
+)
+
+func (ServerlessCacheDataStorageUnit) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheDataStorageUnit)(nil)).Elem()
+}
+
+func (e ServerlessCacheDataStorageUnit) ToServerlessCacheDataStorageUnitOutput() ServerlessCacheDataStorageUnitOutput {
+	return pulumi.ToOutput(e).(ServerlessCacheDataStorageUnitOutput)
+}
+
+func (e ServerlessCacheDataStorageUnit) ToServerlessCacheDataStorageUnitOutputWithContext(ctx context.Context) ServerlessCacheDataStorageUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServerlessCacheDataStorageUnitOutput)
+}
+
+func (e ServerlessCacheDataStorageUnit) ToServerlessCacheDataStorageUnitPtrOutput() ServerlessCacheDataStorageUnitPtrOutput {
+	return e.ToServerlessCacheDataStorageUnitPtrOutputWithContext(context.Background())
+}
+
+func (e ServerlessCacheDataStorageUnit) ToServerlessCacheDataStorageUnitPtrOutputWithContext(ctx context.Context) ServerlessCacheDataStorageUnitPtrOutput {
+	return ServerlessCacheDataStorageUnit(e).ToServerlessCacheDataStorageUnitOutputWithContext(ctx).ToServerlessCacheDataStorageUnitPtrOutputWithContext(ctx)
+}
+
+func (e ServerlessCacheDataStorageUnit) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerlessCacheDataStorageUnit) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerlessCacheDataStorageUnit) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServerlessCacheDataStorageUnit) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServerlessCacheDataStorageUnitOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheDataStorageUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheDataStorageUnit)(nil)).Elem()
+}
+
+func (o ServerlessCacheDataStorageUnitOutput) ToServerlessCacheDataStorageUnitOutput() ServerlessCacheDataStorageUnitOutput {
+	return o
+}
+
+func (o ServerlessCacheDataStorageUnitOutput) ToServerlessCacheDataStorageUnitOutputWithContext(ctx context.Context) ServerlessCacheDataStorageUnitOutput {
+	return o
+}
+
+func (o ServerlessCacheDataStorageUnitOutput) ToServerlessCacheDataStorageUnitPtrOutput() ServerlessCacheDataStorageUnitPtrOutput {
+	return o.ToServerlessCacheDataStorageUnitPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessCacheDataStorageUnitOutput) ToServerlessCacheDataStorageUnitPtrOutputWithContext(ctx context.Context) ServerlessCacheDataStorageUnitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerlessCacheDataStorageUnit) *ServerlessCacheDataStorageUnit {
+		return &v
+	}).(ServerlessCacheDataStorageUnitPtrOutput)
+}
+
+func (o ServerlessCacheDataStorageUnitOutput) ToOutput(ctx context.Context) pulumix.Output[ServerlessCacheDataStorageUnit] {
+	return pulumix.Output[ServerlessCacheDataStorageUnit]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServerlessCacheDataStorageUnitOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServerlessCacheDataStorageUnitOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerlessCacheDataStorageUnit) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServerlessCacheDataStorageUnitOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessCacheDataStorageUnitOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerlessCacheDataStorageUnit) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerlessCacheDataStorageUnitPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCacheDataStorageUnitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessCacheDataStorageUnit)(nil)).Elem()
+}
+
+func (o ServerlessCacheDataStorageUnitPtrOutput) ToServerlessCacheDataStorageUnitPtrOutput() ServerlessCacheDataStorageUnitPtrOutput {
+	return o
+}
+
+func (o ServerlessCacheDataStorageUnitPtrOutput) ToServerlessCacheDataStorageUnitPtrOutputWithContext(ctx context.Context) ServerlessCacheDataStorageUnitPtrOutput {
+	return o
+}
+
+func (o ServerlessCacheDataStorageUnitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerlessCacheDataStorageUnit] {
+	return pulumix.Output[*ServerlessCacheDataStorageUnit]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServerlessCacheDataStorageUnitPtrOutput) Elem() ServerlessCacheDataStorageUnitOutput {
+	return o.ApplyT(func(v *ServerlessCacheDataStorageUnit) ServerlessCacheDataStorageUnit {
+		if v != nil {
+			return *v
+		}
+		var ret ServerlessCacheDataStorageUnit
+		return ret
+	}).(ServerlessCacheDataStorageUnitOutput)
+}
+
+func (o ServerlessCacheDataStorageUnitPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessCacheDataStorageUnitPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerlessCacheDataStorageUnit) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServerlessCacheDataStorageUnitInput is an input type that accepts ServerlessCacheDataStorageUnitArgs and ServerlessCacheDataStorageUnitOutput values.
+// You can construct a concrete instance of `ServerlessCacheDataStorageUnitInput` via:
+//
+//	ServerlessCacheDataStorageUnitArgs{...}
+type ServerlessCacheDataStorageUnitInput interface {
+	pulumi.Input
+
+	ToServerlessCacheDataStorageUnitOutput() ServerlessCacheDataStorageUnitOutput
+	ToServerlessCacheDataStorageUnitOutputWithContext(context.Context) ServerlessCacheDataStorageUnitOutput
+}
+
+var serverlessCacheDataStorageUnitPtrType = reflect.TypeOf((**ServerlessCacheDataStorageUnit)(nil)).Elem()
+
+type ServerlessCacheDataStorageUnitPtrInput interface {
+	pulumi.Input
+
+	ToServerlessCacheDataStorageUnitPtrOutput() ServerlessCacheDataStorageUnitPtrOutput
+	ToServerlessCacheDataStorageUnitPtrOutputWithContext(context.Context) ServerlessCacheDataStorageUnitPtrOutput
+}
+
+type serverlessCacheDataStorageUnitPtr string
+
+func ServerlessCacheDataStorageUnitPtr(v string) ServerlessCacheDataStorageUnitPtrInput {
+	return (*serverlessCacheDataStorageUnitPtr)(&v)
+}
+
+func (*serverlessCacheDataStorageUnitPtr) ElementType() reflect.Type {
+	return serverlessCacheDataStorageUnitPtrType
+}
+
+func (in *serverlessCacheDataStorageUnitPtr) ToServerlessCacheDataStorageUnitPtrOutput() ServerlessCacheDataStorageUnitPtrOutput {
+	return pulumi.ToOutput(in).(ServerlessCacheDataStorageUnitPtrOutput)
+}
+
+func (in *serverlessCacheDataStorageUnitPtr) ToServerlessCacheDataStorageUnitPtrOutputWithContext(ctx context.Context) ServerlessCacheDataStorageUnitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServerlessCacheDataStorageUnitPtrOutput)
+}
+
+func (in *serverlessCacheDataStorageUnitPtr) ToOutput(ctx context.Context) pulumix.Output[*ServerlessCacheDataStorageUnit] {
+	return pulumix.Output[*ServerlessCacheDataStorageUnit]{
+		OutputState: in.ToServerlessCacheDataStorageUnitPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Authentication Type
 type UserAuthenticationModePropertiesType string
 
@@ -745,6 +927,8 @@ func (in *userGroupEnginePtr) ToOutput(ctx context.Context) pulumix.Output[*User
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupMemberRoleInput)(nil)).Elem(), GlobalReplicationGroupMemberRole("PRIMARY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalReplicationGroupMemberRolePtrInput)(nil)).Elem(), GlobalReplicationGroupMemberRole("PRIMARY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheDataStorageUnitInput)(nil)).Elem(), ServerlessCacheDataStorageUnit("GB"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheDataStorageUnitPtrInput)(nil)).Elem(), ServerlessCacheDataStorageUnit("GB"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAuthenticationModePropertiesTypeInput)(nil)).Elem(), UserAuthenticationModePropertiesType("password"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAuthenticationModePropertiesTypePtrInput)(nil)).Elem(), UserAuthenticationModePropertiesType("password"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserEngineInput)(nil)).Elem(), UserEngine("redis"))
@@ -753,6 +937,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserGroupEnginePtrInput)(nil)).Elem(), UserGroupEngine("redis"))
 	pulumi.RegisterOutputType(GlobalReplicationGroupMemberRoleOutput{})
 	pulumi.RegisterOutputType(GlobalReplicationGroupMemberRolePtrOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheDataStorageUnitOutput{})
+	pulumi.RegisterOutputType(ServerlessCacheDataStorageUnitPtrOutput{})
 	pulumi.RegisterOutputType(UserAuthenticationModePropertiesTypeOutput{})
 	pulumi.RegisterOutputType(UserAuthenticationModePropertiesTypePtrOutput{})
 	pulumi.RegisterOutputType(UserEngineOutput{})
