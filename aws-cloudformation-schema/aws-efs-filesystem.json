@@ -44,6 +44,16 @@
       },
       "required" : [ "Status" ]
     },
+    "FileSystemProtection" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ReplicationOverwriteProtection" : {
+          "type" : "string",
+          "enum" : [ "DISABLED", "ENABLED" ]
+        }
+      }
+    },
     "ReplicationDestination" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -105,6 +115,9 @@
         "$ref" : "#/definitions/LifecyclePolicy"
       }
     },
+    "FileSystemProtection" : {
+      "$ref" : "#/definitions/FileSystemProtection"
+    },
     "PerformanceMode" : {
       "type" : "string"
     },
@@ -137,7 +150,8 @@
   "writeOnlyProperties" : [ "/properties/BypassPolicyLockoutSafetyCheck", "/properties/ReplicationConfiguration/Destinations/0/AvailabilityZoneName", "/properties/ReplicationConfiguration/Destinations/0/KmsKeyId" ],
   "createOnlyProperties" : [ "/properties/AvailabilityZoneName", "/properties/Encrypted", "/properties/KmsKeyId", "/properties/PerformanceMode" ],
   "propertyTransform" : {
-    "/properties/KmsKeyId" : "\"arn:aws[-a-z]*:kms:[a-z0-9-]+:[0-9]{12}:key/[a-zA-Z0-9-]+\""
+    "/properties/KmsKeyId" : "\"arn:aws[-a-z]*:kms:[a-z0-9-]+:[0-9]{12}:key/[a-zA-Z0-9-]+\"",
+    "/properties/FileSystemProtection/ReplicationOverwriteProtection" : "$uppercase(FileSystemProtection.ReplicationOverwriteProtection)='DISABLED' ? 'REPLICATING' : $uppercase(FileSystemProtection.ReplicationOverwriteProtection)"
   },
   "tagging" : {
     "taggable" : true,
@@ -148,13 +162,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "elasticfilesystem:CreateFileSystem", "elasticfilesystem:DescribeReplicationConfigurations", "elasticfilesystem:TagResource", "elasticfilesystem:CreateReplicationConfiguration", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:PutBackupPolicy", "elasticfilesystem:PutFileSystemPolicy", "elasticfilesystem:PutLifecycleConfiguration", "kms:DescribeKey", "kms:GenerateDataKeyWithoutPlaintext", "kms:CreateGrant" ]
+      "permissions" : [ "elasticfilesystem:CreateFileSystem", "elasticfilesystem:DescribeReplicationConfigurations", "elasticfilesystem:TagResource", "elasticfilesystem:CreateReplicationConfiguration", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:PutBackupPolicy", "elasticfilesystem:PutFileSystemPolicy", "elasticfilesystem:PutLifecycleConfiguration", "elasticfilesystem:UpdateFileSystemProtection", "kms:DescribeKey", "kms:GenerateDataKeyWithoutPlaintext", "kms:CreateGrant" ]
     },
     "read" : {
       "permissions" : [ "elasticfilesystem:DescribeBackupPolicy", "elasticfilesystem:DescribeFileSystemPolicy", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DescribeLifecycleConfiguration", "elasticfilesystem:DescribeReplicationConfigurations" ]
     },
     "update" : {
-      "permissions" : [ "elasticfilesystem:CreateReplicationConfiguration", "elasticfilesystem:DeleteFileSystemPolicy", "elasticfilesystem:DescribeBackupPolicy", "elasticfilesystem:DescribeFileSystemPolicy", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DescribeLifecycleConfiguration", "elasticfilesystem:DescribeReplicationConfigurations", "elasticfilesystem:DeleteTags", "elasticfilesystem:DeleteReplicationConfiguration", "elasticfilesystem:ListTagsForResource", "elasticfilesystem:PutBackupPolicy", "elasticfilesystem:PutFileSystemPolicy", "elasticfilesystem:PutLifecycleConfiguration", "elasticfilesystem:TagResource", "elasticfilesystem:UntagResource", "elasticfilesystem:UpdateFileSystem", "kms:DescribeKey", "kms:GenerateDataKeyWithoutPlaintext", "kms:CreateGrant" ]
+      "permissions" : [ "elasticfilesystem:CreateReplicationConfiguration", "elasticfilesystem:DeleteFileSystemPolicy", "elasticfilesystem:DescribeBackupPolicy", "elasticfilesystem:DescribeFileSystemPolicy", "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DescribeLifecycleConfiguration", "elasticfilesystem:DescribeReplicationConfigurations", "elasticfilesystem:DeleteTags", "elasticfilesystem:DeleteReplicationConfiguration", "elasticfilesystem:ListTagsForResource", "elasticfilesystem:PutBackupPolicy", "elasticfilesystem:PutFileSystemPolicy", "elasticfilesystem:PutLifecycleConfiguration", "elasticfilesystem:TagResource", "elasticfilesystem:UntagResource", "elasticfilesystem:UpdateFileSystem", "elasticfilesystem:UpdateFileSystemProtection", "kms:DescribeKey", "kms:GenerateDataKeyWithoutPlaintext", "kms:CreateGrant" ]
     },
     "delete" : {
       "permissions" : [ "elasticfilesystem:DescribeFileSystems", "elasticfilesystem:DeleteFileSystem", "elasticfilesystem:DeleteReplicationConfiguration", "elasticfilesystem:DescribeReplicationConfigurations" ]
