@@ -38,6 +38,37 @@ namespace Pulumi.AwsNative.OpenSearchServerless
     }
 
     /// <summary>
+    /// The possible standby replicas for the collection
+    /// </summary>
+    [EnumType]
+    public readonly struct CollectionStandbyReplicas : IEquatable<CollectionStandbyReplicas>
+    {
+        private readonly string _value;
+
+        private CollectionStandbyReplicas(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CollectionStandbyReplicas Enabled { get; } = new CollectionStandbyReplicas("ENABLED");
+        public static CollectionStandbyReplicas Disabled { get; } = new CollectionStandbyReplicas("DISABLED");
+
+        public static bool operator ==(CollectionStandbyReplicas left, CollectionStandbyReplicas right) => left.Equals(right);
+        public static bool operator !=(CollectionStandbyReplicas left, CollectionStandbyReplicas right) => !left.Equals(right);
+
+        public static explicit operator string(CollectionStandbyReplicas value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CollectionStandbyReplicas other && Equals(other);
+        public bool Equals(CollectionStandbyReplicas other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The possible types for the collection
     /// </summary>
     [EnumType]

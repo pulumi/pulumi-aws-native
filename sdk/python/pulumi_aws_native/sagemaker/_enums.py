@@ -24,6 +24,7 @@ __all__ = [
     'ImageVersionJobType',
     'ImageVersionProcessor',
     'ImageVersionVendorGuidance',
+    'InferenceComponentStatus',
     'InferenceExperimentDesiredState',
     'InferenceExperimentEndpointMetadataEndpointStatus',
     'InferenceExperimentModelInfrastructureConfigInfrastructureType',
@@ -352,6 +353,14 @@ class ImageVersionVendorGuidance(str, Enum):
     STABLE = "STABLE"
     TO_BE_ARCHIVED = "TO_BE_ARCHIVED"
     ARCHIVED = "ARCHIVED"
+
+
+class InferenceComponentStatus(str, Enum):
+    IN_SERVICE = "InService"
+    CREATING = "Creating"
+    UPDATING = "Updating"
+    FAILED = "Failed"
+    DELETING = "Deleting"
 
 
 class InferenceExperimentDesiredState(str, Enum):

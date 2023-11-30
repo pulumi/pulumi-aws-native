@@ -19,6 +19,7 @@ class CollectionArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 standby_replicas: Optional[pulumi.Input['CollectionStandbyReplicas']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['CollectionTagArgs']]]] = None,
                  type: Optional[pulumi.Input['CollectionType']] = None):
         """
@@ -37,6 +38,8 @@ class CollectionArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if standby_replicas is not None:
+            pulumi.set(__self__, "standby_replicas", standby_replicas)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if type is not None:
@@ -73,6 +76,15 @@ class CollectionArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="standbyReplicas")
+    def standby_replicas(self) -> Optional[pulumi.Input['CollectionStandbyReplicas']]:
+        return pulumi.get(self, "standby_replicas")
+
+    @standby_replicas.setter
+    def standby_replicas(self, value: Optional[pulumi.Input['CollectionStandbyReplicas']]):
+        pulumi.set(self, "standby_replicas", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CollectionTagArgs']]]]:
         """
@@ -101,6 +113,7 @@ class Collection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 standby_replicas: Optional[pulumi.Input['CollectionStandbyReplicas']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CollectionTagArgs']]]]] = None,
                  type: Optional[pulumi.Input['CollectionType']] = None,
                  __props__=None):
@@ -145,6 +158,7 @@ class Collection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 standby_replicas: Optional[pulumi.Input['CollectionStandbyReplicas']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CollectionTagArgs']]]]] = None,
                  type: Optional[pulumi.Input['CollectionType']] = None,
                  __props__=None):
@@ -158,6 +172,7 @@ class Collection(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
+            __props__.__dict__["standby_replicas"] = standby_replicas
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
@@ -192,6 +207,7 @@ class Collection(pulumi.CustomResource):
         __props__.__dict__["dashboard_endpoint"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["standby_replicas"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Collection(resource_name, opts=opts, __props__=__props__)
@@ -241,6 +257,11 @@ class Collection(pulumi.CustomResource):
         Contains between 3 and 32 characters
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="standbyReplicas")
+    def standby_replicas(self) -> pulumi.Output[Optional['CollectionStandbyReplicas']]:
+        return pulumi.get(self, "standby_replicas")
 
     @property
     @pulumi.getter

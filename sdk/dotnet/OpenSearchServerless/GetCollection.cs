@@ -77,6 +77,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// The identifier of the collection
         /// </summary>
         public readonly string? Id;
+        public readonly Pulumi.AwsNative.OpenSearchServerless.CollectionStandbyReplicas? StandbyReplicas;
 
         [OutputConstructor]
         private GetCollectionResult(
@@ -88,13 +89,16 @@ namespace Pulumi.AwsNative.OpenSearchServerless
 
             string? description,
 
-            string? id)
+            string? id,
+
+            Pulumi.AwsNative.OpenSearchServerless.CollectionStandbyReplicas? standbyReplicas)
         {
             Arn = arn;
             CollectionEndpoint = collectionEndpoint;
             DashboardEndpoint = dashboardEndpoint;
             Description = description;
             Id = id;
+            StandbyReplicas = standbyReplicas;
         }
     }
 }

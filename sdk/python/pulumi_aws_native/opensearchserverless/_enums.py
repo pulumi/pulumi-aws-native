@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AccessPolicyType',
+    'CollectionStandbyReplicas',
     'CollectionType',
     'LifecyclePolicyType',
     'SecurityConfigType',
@@ -18,6 +19,14 @@ class AccessPolicyType(str, Enum):
     The possible types for the access policy
     """
     DATA = "data"
+
+
+class CollectionStandbyReplicas(str, Enum):
+    """
+    The possible standby replicas for the collection
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class CollectionType(str, Enum):

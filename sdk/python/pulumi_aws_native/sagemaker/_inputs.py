@@ -87,6 +87,14 @@ __all__ = [
     'FeatureGroupS3StorageConfigArgs',
     'FeatureGroupTagArgs',
     'ImageTagArgs',
+    'InferenceComponentComputeResourceRequirementsArgs',
+    'InferenceComponentContainerSpecificationArgs',
+    'InferenceComponentDeployedImageArgs',
+    'InferenceComponentEnvironmentMapArgs',
+    'InferenceComponentRuntimeConfigArgs',
+    'InferenceComponentSpecificationArgs',
+    'InferenceComponentStartupParametersArgs',
+    'InferenceComponentTagArgs',
     'InferenceExperimentCaptureContentTypeHeaderArgs',
     'InferenceExperimentDataStorageConfigArgs',
     'InferenceExperimentModelInfrastructureConfigArgs',
@@ -3485,6 +3493,328 @@ class ImageTagArgs:
     def value(self) -> pulumi.Input[str]:
         """
         The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class InferenceComponentComputeResourceRequirementsArgs:
+    def __init__(__self__, *,
+                 max_memory_required_in_mb: Optional[pulumi.Input[int]] = None,
+                 min_memory_required_in_mb: Optional[pulumi.Input[int]] = None,
+                 number_of_accelerator_devices_required: Optional[pulumi.Input[float]] = None,
+                 number_of_cpu_cores_required: Optional[pulumi.Input[float]] = None):
+        if max_memory_required_in_mb is not None:
+            pulumi.set(__self__, "max_memory_required_in_mb", max_memory_required_in_mb)
+        if min_memory_required_in_mb is not None:
+            pulumi.set(__self__, "min_memory_required_in_mb", min_memory_required_in_mb)
+        if number_of_accelerator_devices_required is not None:
+            pulumi.set(__self__, "number_of_accelerator_devices_required", number_of_accelerator_devices_required)
+        if number_of_cpu_cores_required is not None:
+            pulumi.set(__self__, "number_of_cpu_cores_required", number_of_cpu_cores_required)
+
+    @property
+    @pulumi.getter(name="maxMemoryRequiredInMb")
+    def max_memory_required_in_mb(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_memory_required_in_mb")
+
+    @max_memory_required_in_mb.setter
+    def max_memory_required_in_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_memory_required_in_mb", value)
+
+    @property
+    @pulumi.getter(name="minMemoryRequiredInMb")
+    def min_memory_required_in_mb(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "min_memory_required_in_mb")
+
+    @min_memory_required_in_mb.setter
+    def min_memory_required_in_mb(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_memory_required_in_mb", value)
+
+    @property
+    @pulumi.getter(name="numberOfAcceleratorDevicesRequired")
+    def number_of_accelerator_devices_required(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "number_of_accelerator_devices_required")
+
+    @number_of_accelerator_devices_required.setter
+    def number_of_accelerator_devices_required(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "number_of_accelerator_devices_required", value)
+
+    @property
+    @pulumi.getter(name="numberOfCpuCoresRequired")
+    def number_of_cpu_cores_required(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "number_of_cpu_cores_required")
+
+    @number_of_cpu_cores_required.setter
+    def number_of_cpu_cores_required(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "number_of_cpu_cores_required", value)
+
+
+@pulumi.input_type
+class InferenceComponentContainerSpecificationArgs:
+    def __init__(__self__, *,
+                 artifact_url: Optional[pulumi.Input[str]] = None,
+                 deployed_image: Optional[pulumi.Input['InferenceComponentDeployedImageArgs']] = None,
+                 environment: Optional[pulumi.Input['InferenceComponentEnvironmentMapArgs']] = None,
+                 image: Optional[pulumi.Input[str]] = None):
+        if artifact_url is not None:
+            pulumi.set(__self__, "artifact_url", artifact_url)
+        if deployed_image is not None:
+            pulumi.set(__self__, "deployed_image", deployed_image)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+
+    @property
+    @pulumi.getter(name="artifactUrl")
+    def artifact_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "artifact_url")
+
+    @artifact_url.setter
+    def artifact_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "artifact_url", value)
+
+    @property
+    @pulumi.getter(name="deployedImage")
+    def deployed_image(self) -> Optional[pulumi.Input['InferenceComponentDeployedImageArgs']]:
+        return pulumi.get(self, "deployed_image")
+
+    @deployed_image.setter
+    def deployed_image(self, value: Optional[pulumi.Input['InferenceComponentDeployedImageArgs']]):
+        pulumi.set(self, "deployed_image", value)
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional[pulumi.Input['InferenceComponentEnvironmentMapArgs']]:
+        return pulumi.get(self, "environment")
+
+    @environment.setter
+    def environment(self, value: Optional[pulumi.Input['InferenceComponentEnvironmentMapArgs']]):
+        pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image", value)
+
+
+@pulumi.input_type
+class InferenceComponentDeployedImageArgs:
+    def __init__(__self__, *,
+                 resolution_time: Optional[pulumi.Input[str]] = None,
+                 resolved_image: Optional[pulumi.Input[str]] = None,
+                 specified_image: Optional[pulumi.Input[str]] = None):
+        if resolution_time is not None:
+            pulumi.set(__self__, "resolution_time", resolution_time)
+        if resolved_image is not None:
+            pulumi.set(__self__, "resolved_image", resolved_image)
+        if specified_image is not None:
+            pulumi.set(__self__, "specified_image", specified_image)
+
+    @property
+    @pulumi.getter(name="resolutionTime")
+    def resolution_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resolution_time")
+
+    @resolution_time.setter
+    def resolution_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resolution_time", value)
+
+    @property
+    @pulumi.getter(name="resolvedImage")
+    def resolved_image(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resolved_image")
+
+    @resolved_image.setter
+    def resolved_image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resolved_image", value)
+
+    @property
+    @pulumi.getter(name="specifiedImage")
+    def specified_image(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "specified_image")
+
+    @specified_image.setter
+    def specified_image(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "specified_image", value)
+
+
+@pulumi.input_type
+class InferenceComponentEnvironmentMapArgs:
+    def __init__(__self__):
+        """
+        Environment variables to specify on the container
+        """
+        pass
+
+
+@pulumi.input_type
+class InferenceComponentRuntimeConfigArgs:
+    def __init__(__self__, *,
+                 copy_count: Optional[pulumi.Input[int]] = None,
+                 current_copy_count: Optional[pulumi.Input[int]] = None,
+                 desired_copy_count: Optional[pulumi.Input[int]] = None):
+        """
+        The runtime config for the inference component
+        """
+        if copy_count is not None:
+            pulumi.set(__self__, "copy_count", copy_count)
+        if current_copy_count is not None:
+            pulumi.set(__self__, "current_copy_count", current_copy_count)
+        if desired_copy_count is not None:
+            pulumi.set(__self__, "desired_copy_count", desired_copy_count)
+
+    @property
+    @pulumi.getter(name="copyCount")
+    def copy_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "copy_count")
+
+    @copy_count.setter
+    def copy_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "copy_count", value)
+
+    @property
+    @pulumi.getter(name="currentCopyCount")
+    def current_copy_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "current_copy_count")
+
+    @current_copy_count.setter
+    def current_copy_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "current_copy_count", value)
+
+    @property
+    @pulumi.getter(name="desiredCopyCount")
+    def desired_copy_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "desired_copy_count")
+
+    @desired_copy_count.setter
+    def desired_copy_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "desired_copy_count", value)
+
+
+@pulumi.input_type
+class InferenceComponentSpecificationArgs:
+    def __init__(__self__, *,
+                 compute_resource_requirements: pulumi.Input['InferenceComponentComputeResourceRequirementsArgs'],
+                 container: Optional[pulumi.Input['InferenceComponentContainerSpecificationArgs']] = None,
+                 model_name: Optional[pulumi.Input[str]] = None,
+                 startup_parameters: Optional[pulumi.Input['InferenceComponentStartupParametersArgs']] = None):
+        """
+        The specification for the inference component
+        """
+        pulumi.set(__self__, "compute_resource_requirements", compute_resource_requirements)
+        if container is not None:
+            pulumi.set(__self__, "container", container)
+        if model_name is not None:
+            pulumi.set(__self__, "model_name", model_name)
+        if startup_parameters is not None:
+            pulumi.set(__self__, "startup_parameters", startup_parameters)
+
+    @property
+    @pulumi.getter(name="computeResourceRequirements")
+    def compute_resource_requirements(self) -> pulumi.Input['InferenceComponentComputeResourceRequirementsArgs']:
+        return pulumi.get(self, "compute_resource_requirements")
+
+    @compute_resource_requirements.setter
+    def compute_resource_requirements(self, value: pulumi.Input['InferenceComponentComputeResourceRequirementsArgs']):
+        pulumi.set(self, "compute_resource_requirements", value)
+
+    @property
+    @pulumi.getter
+    def container(self) -> Optional[pulumi.Input['InferenceComponentContainerSpecificationArgs']]:
+        return pulumi.get(self, "container")
+
+    @container.setter
+    def container(self, value: Optional[pulumi.Input['InferenceComponentContainerSpecificationArgs']]):
+        pulumi.set(self, "container", value)
+
+    @property
+    @pulumi.getter(name="modelName")
+    def model_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "model_name")
+
+    @model_name.setter
+    def model_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_name", value)
+
+    @property
+    @pulumi.getter(name="startupParameters")
+    def startup_parameters(self) -> Optional[pulumi.Input['InferenceComponentStartupParametersArgs']]:
+        return pulumi.get(self, "startup_parameters")
+
+    @startup_parameters.setter
+    def startup_parameters(self, value: Optional[pulumi.Input['InferenceComponentStartupParametersArgs']]):
+        pulumi.set(self, "startup_parameters", value)
+
+
+@pulumi.input_type
+class InferenceComponentStartupParametersArgs:
+    def __init__(__self__, *,
+                 container_startup_health_check_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 model_data_download_timeout_in_seconds: Optional[pulumi.Input[int]] = None):
+        if container_startup_health_check_timeout_in_seconds is not None:
+            pulumi.set(__self__, "container_startup_health_check_timeout_in_seconds", container_startup_health_check_timeout_in_seconds)
+        if model_data_download_timeout_in_seconds is not None:
+            pulumi.set(__self__, "model_data_download_timeout_in_seconds", model_data_download_timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="containerStartupHealthCheckTimeoutInSeconds")
+    def container_startup_health_check_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "container_startup_health_check_timeout_in_seconds")
+
+    @container_startup_health_check_timeout_in_seconds.setter
+    def container_startup_health_check_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "container_startup_health_check_timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="modelDataDownloadTimeoutInSeconds")
+    def model_data_download_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "model_data_download_timeout_in_seconds")
+
+    @model_data_download_timeout_in_seconds.setter
+    def model_data_download_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "model_data_download_timeout_in_seconds", value)
+
+
+@pulumi.input_type
+class InferenceComponentTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A tag in the form of a key-value pair to associate with the resource
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
         """
         return pulumi.get(self, "value")
 

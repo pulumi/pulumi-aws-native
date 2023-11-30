@@ -88,6 +88,14 @@ __all__ = [
     'FeatureGroupS3StorageConfig',
     'FeatureGroupTag',
     'ImageTag',
+    'InferenceComponentComputeResourceRequirements',
+    'InferenceComponentContainerSpecification',
+    'InferenceComponentDeployedImage',
+    'InferenceComponentEnvironmentMap',
+    'InferenceComponentRuntimeConfig',
+    'InferenceComponentSpecification',
+    'InferenceComponentStartupParameters',
+    'InferenceComponentTag',
     'InferenceExperimentCaptureContentTypeHeader',
     'InferenceExperimentDataStorageConfig',
     'InferenceExperimentEndpointMetadata',
@@ -3959,6 +3967,376 @@ class ImageTag(dict):
     def value(self) -> str:
         """
         The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class InferenceComponentComputeResourceRequirements(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxMemoryRequiredInMb":
+            suggest = "max_memory_required_in_mb"
+        elif key == "minMemoryRequiredInMb":
+            suggest = "min_memory_required_in_mb"
+        elif key == "numberOfAcceleratorDevicesRequired":
+            suggest = "number_of_accelerator_devices_required"
+        elif key == "numberOfCpuCoresRequired":
+            suggest = "number_of_cpu_cores_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceComponentComputeResourceRequirements. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceComponentComputeResourceRequirements.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceComponentComputeResourceRequirements.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_memory_required_in_mb: Optional[int] = None,
+                 min_memory_required_in_mb: Optional[int] = None,
+                 number_of_accelerator_devices_required: Optional[float] = None,
+                 number_of_cpu_cores_required: Optional[float] = None):
+        if max_memory_required_in_mb is not None:
+            pulumi.set(__self__, "max_memory_required_in_mb", max_memory_required_in_mb)
+        if min_memory_required_in_mb is not None:
+            pulumi.set(__self__, "min_memory_required_in_mb", min_memory_required_in_mb)
+        if number_of_accelerator_devices_required is not None:
+            pulumi.set(__self__, "number_of_accelerator_devices_required", number_of_accelerator_devices_required)
+        if number_of_cpu_cores_required is not None:
+            pulumi.set(__self__, "number_of_cpu_cores_required", number_of_cpu_cores_required)
+
+    @property
+    @pulumi.getter(name="maxMemoryRequiredInMb")
+    def max_memory_required_in_mb(self) -> Optional[int]:
+        return pulumi.get(self, "max_memory_required_in_mb")
+
+    @property
+    @pulumi.getter(name="minMemoryRequiredInMb")
+    def min_memory_required_in_mb(self) -> Optional[int]:
+        return pulumi.get(self, "min_memory_required_in_mb")
+
+    @property
+    @pulumi.getter(name="numberOfAcceleratorDevicesRequired")
+    def number_of_accelerator_devices_required(self) -> Optional[float]:
+        return pulumi.get(self, "number_of_accelerator_devices_required")
+
+    @property
+    @pulumi.getter(name="numberOfCpuCoresRequired")
+    def number_of_cpu_cores_required(self) -> Optional[float]:
+        return pulumi.get(self, "number_of_cpu_cores_required")
+
+
+@pulumi.output_type
+class InferenceComponentContainerSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "artifactUrl":
+            suggest = "artifact_url"
+        elif key == "deployedImage":
+            suggest = "deployed_image"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceComponentContainerSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceComponentContainerSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceComponentContainerSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 artifact_url: Optional[str] = None,
+                 deployed_image: Optional['outputs.InferenceComponentDeployedImage'] = None,
+                 environment: Optional['outputs.InferenceComponentEnvironmentMap'] = None,
+                 image: Optional[str] = None):
+        if artifact_url is not None:
+            pulumi.set(__self__, "artifact_url", artifact_url)
+        if deployed_image is not None:
+            pulumi.set(__self__, "deployed_image", deployed_image)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+
+    @property
+    @pulumi.getter(name="artifactUrl")
+    def artifact_url(self) -> Optional[str]:
+        return pulumi.get(self, "artifact_url")
+
+    @property
+    @pulumi.getter(name="deployedImage")
+    def deployed_image(self) -> Optional['outputs.InferenceComponentDeployedImage']:
+        return pulumi.get(self, "deployed_image")
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional['outputs.InferenceComponentEnvironmentMap']:
+        return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter
+    def image(self) -> Optional[str]:
+        return pulumi.get(self, "image")
+
+
+@pulumi.output_type
+class InferenceComponentDeployedImage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resolutionTime":
+            suggest = "resolution_time"
+        elif key == "resolvedImage":
+            suggest = "resolved_image"
+        elif key == "specifiedImage":
+            suggest = "specified_image"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceComponentDeployedImage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceComponentDeployedImage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceComponentDeployedImage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resolution_time: Optional[str] = None,
+                 resolved_image: Optional[str] = None,
+                 specified_image: Optional[str] = None):
+        if resolution_time is not None:
+            pulumi.set(__self__, "resolution_time", resolution_time)
+        if resolved_image is not None:
+            pulumi.set(__self__, "resolved_image", resolved_image)
+        if specified_image is not None:
+            pulumi.set(__self__, "specified_image", specified_image)
+
+    @property
+    @pulumi.getter(name="resolutionTime")
+    def resolution_time(self) -> Optional[str]:
+        return pulumi.get(self, "resolution_time")
+
+    @property
+    @pulumi.getter(name="resolvedImage")
+    def resolved_image(self) -> Optional[str]:
+        return pulumi.get(self, "resolved_image")
+
+    @property
+    @pulumi.getter(name="specifiedImage")
+    def specified_image(self) -> Optional[str]:
+        return pulumi.get(self, "specified_image")
+
+
+@pulumi.output_type
+class InferenceComponentEnvironmentMap(dict):
+    """
+    Environment variables to specify on the container
+    """
+    def __init__(__self__):
+        """
+        Environment variables to specify on the container
+        """
+        pass
+
+
+@pulumi.output_type
+class InferenceComponentRuntimeConfig(dict):
+    """
+    The runtime config for the inference component
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "copyCount":
+            suggest = "copy_count"
+        elif key == "currentCopyCount":
+            suggest = "current_copy_count"
+        elif key == "desiredCopyCount":
+            suggest = "desired_copy_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceComponentRuntimeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceComponentRuntimeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceComponentRuntimeConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 copy_count: Optional[int] = None,
+                 current_copy_count: Optional[int] = None,
+                 desired_copy_count: Optional[int] = None):
+        """
+        The runtime config for the inference component
+        """
+        if copy_count is not None:
+            pulumi.set(__self__, "copy_count", copy_count)
+        if current_copy_count is not None:
+            pulumi.set(__self__, "current_copy_count", current_copy_count)
+        if desired_copy_count is not None:
+            pulumi.set(__self__, "desired_copy_count", desired_copy_count)
+
+    @property
+    @pulumi.getter(name="copyCount")
+    def copy_count(self) -> Optional[int]:
+        return pulumi.get(self, "copy_count")
+
+    @property
+    @pulumi.getter(name="currentCopyCount")
+    def current_copy_count(self) -> Optional[int]:
+        return pulumi.get(self, "current_copy_count")
+
+    @property
+    @pulumi.getter(name="desiredCopyCount")
+    def desired_copy_count(self) -> Optional[int]:
+        return pulumi.get(self, "desired_copy_count")
+
+
+@pulumi.output_type
+class InferenceComponentSpecification(dict):
+    """
+    The specification for the inference component
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeResourceRequirements":
+            suggest = "compute_resource_requirements"
+        elif key == "modelName":
+            suggest = "model_name"
+        elif key == "startupParameters":
+            suggest = "startup_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceComponentSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceComponentSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceComponentSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_resource_requirements: 'outputs.InferenceComponentComputeResourceRequirements',
+                 container: Optional['outputs.InferenceComponentContainerSpecification'] = None,
+                 model_name: Optional[str] = None,
+                 startup_parameters: Optional['outputs.InferenceComponentStartupParameters'] = None):
+        """
+        The specification for the inference component
+        """
+        pulumi.set(__self__, "compute_resource_requirements", compute_resource_requirements)
+        if container is not None:
+            pulumi.set(__self__, "container", container)
+        if model_name is not None:
+            pulumi.set(__self__, "model_name", model_name)
+        if startup_parameters is not None:
+            pulumi.set(__self__, "startup_parameters", startup_parameters)
+
+    @property
+    @pulumi.getter(name="computeResourceRequirements")
+    def compute_resource_requirements(self) -> 'outputs.InferenceComponentComputeResourceRequirements':
+        return pulumi.get(self, "compute_resource_requirements")
+
+    @property
+    @pulumi.getter
+    def container(self) -> Optional['outputs.InferenceComponentContainerSpecification']:
+        return pulumi.get(self, "container")
+
+    @property
+    @pulumi.getter(name="modelName")
+    def model_name(self) -> Optional[str]:
+        return pulumi.get(self, "model_name")
+
+    @property
+    @pulumi.getter(name="startupParameters")
+    def startup_parameters(self) -> Optional['outputs.InferenceComponentStartupParameters']:
+        return pulumi.get(self, "startup_parameters")
+
+
+@pulumi.output_type
+class InferenceComponentStartupParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerStartupHealthCheckTimeoutInSeconds":
+            suggest = "container_startup_health_check_timeout_in_seconds"
+        elif key == "modelDataDownloadTimeoutInSeconds":
+            suggest = "model_data_download_timeout_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceComponentStartupParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceComponentStartupParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceComponentStartupParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_startup_health_check_timeout_in_seconds: Optional[int] = None,
+                 model_data_download_timeout_in_seconds: Optional[int] = None):
+        if container_startup_health_check_timeout_in_seconds is not None:
+            pulumi.set(__self__, "container_startup_health_check_timeout_in_seconds", container_startup_health_check_timeout_in_seconds)
+        if model_data_download_timeout_in_seconds is not None:
+            pulumi.set(__self__, "model_data_download_timeout_in_seconds", model_data_download_timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="containerStartupHealthCheckTimeoutInSeconds")
+    def container_startup_health_check_timeout_in_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "container_startup_health_check_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="modelDataDownloadTimeoutInSeconds")
+    def model_data_download_timeout_in_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "model_data_download_timeout_in_seconds")
+
+
+@pulumi.output_type
+class InferenceComponentTag(dict):
+    """
+    A tag in the form of a key-value pair to associate with the resource
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A tag in the form of a key-value pair to associate with the resource
+        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
+        :param str value: The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
         """
         return pulumi.get(self, "value")
 

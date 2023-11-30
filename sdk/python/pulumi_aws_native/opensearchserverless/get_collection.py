@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'GetCollectionResult',
@@ -18,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCollectionResult:
-    def __init__(__self__, arn=None, collection_endpoint=None, dashboard_endpoint=None, description=None, id=None):
+    def __init__(__self__, arn=None, collection_endpoint=None, dashboard_endpoint=None, description=None, id=None, standby_replicas=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -34,6 +35,9 @@ class GetCollectionResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if standby_replicas and not isinstance(standby_replicas, str):
+            raise TypeError("Expected argument 'standby_replicas' to be a str")
+        pulumi.set(__self__, "standby_replicas", standby_replicas)
 
     @property
     @pulumi.getter
@@ -75,6 +79,11 @@ class GetCollectionResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter(name="standbyReplicas")
+    def standby_replicas(self) -> Optional['CollectionStandbyReplicas']:
+        return pulumi.get(self, "standby_replicas")
+
 
 class AwaitableGetCollectionResult(GetCollectionResult):
     # pylint: disable=using-constant-test
@@ -86,7 +95,8 @@ class AwaitableGetCollectionResult(GetCollectionResult):
             collection_endpoint=self.collection_endpoint,
             dashboard_endpoint=self.dashboard_endpoint,
             description=self.description,
-            id=self.id)
+            id=self.id,
+            standby_replicas=self.standby_replicas)
 
 
 def get_collection(id: Optional[str] = None,
@@ -107,7 +117,8 @@ def get_collection(id: Optional[str] = None,
         collection_endpoint=pulumi.get(__ret__, 'collection_endpoint'),
         dashboard_endpoint=pulumi.get(__ret__, 'dashboard_endpoint'),
         description=pulumi.get(__ret__, 'description'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        standby_replicas=pulumi.get(__ret__, 'standby_replicas'))
 
 
 @_utilities.lift_output_func(get_collection)

@@ -3610,6 +3610,111 @@ func (in *imageVersionVendorGuidancePtr) ToOutput(ctx context.Context) pulumix.O
 	}
 }
 
+type InferenceComponentStatus string
+
+const (
+	InferenceComponentStatusInService = InferenceComponentStatus("InService")
+	InferenceComponentStatusCreating  = InferenceComponentStatus("Creating")
+	InferenceComponentStatusUpdating  = InferenceComponentStatus("Updating")
+	InferenceComponentStatusFailed    = InferenceComponentStatus("Failed")
+	InferenceComponentStatusDeleting  = InferenceComponentStatus("Deleting")
+)
+
+type InferenceComponentStatusOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentStatus)(nil)).Elem()
+}
+
+func (o InferenceComponentStatusOutput) ToInferenceComponentStatusOutput() InferenceComponentStatusOutput {
+	return o
+}
+
+func (o InferenceComponentStatusOutput) ToInferenceComponentStatusOutputWithContext(ctx context.Context) InferenceComponentStatusOutput {
+	return o
+}
+
+func (o InferenceComponentStatusOutput) ToInferenceComponentStatusPtrOutput() InferenceComponentStatusPtrOutput {
+	return o.ToInferenceComponentStatusPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentStatusOutput) ToInferenceComponentStatusPtrOutputWithContext(ctx context.Context) InferenceComponentStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceComponentStatus) *InferenceComponentStatus {
+		return &v
+	}).(InferenceComponentStatusPtrOutput)
+}
+
+func (o InferenceComponentStatusOutput) ToOutput(ctx context.Context) pulumix.Output[InferenceComponentStatus] {
+	return pulumix.Output[InferenceComponentStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o InferenceComponentStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InferenceComponentStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InferenceComponentStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InferenceComponentStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InferenceComponentStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentStatus)(nil)).Elem()
+}
+
+func (o InferenceComponentStatusPtrOutput) ToInferenceComponentStatusPtrOutput() InferenceComponentStatusPtrOutput {
+	return o
+}
+
+func (o InferenceComponentStatusPtrOutput) ToInferenceComponentStatusPtrOutputWithContext(ctx context.Context) InferenceComponentStatusPtrOutput {
+	return o
+}
+
+func (o InferenceComponentStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InferenceComponentStatus] {
+	return pulumix.Output[*InferenceComponentStatus]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o InferenceComponentStatusPtrOutput) Elem() InferenceComponentStatusOutput {
+	return o.ApplyT(func(v *InferenceComponentStatus) InferenceComponentStatus {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceComponentStatus
+		return ret
+	}).(InferenceComponentStatusOutput)
+}
+
+func (o InferenceComponentStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InferenceComponentStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The desired state of the experiment after starting or stopping operation.
 type InferenceExperimentDesiredState string
 
@@ -12823,6 +12928,8 @@ func init() {
 	pulumi.RegisterOutputType(ImageVersionProcessorPtrOutput{})
 	pulumi.RegisterOutputType(ImageVersionVendorGuidanceOutput{})
 	pulumi.RegisterOutputType(ImageVersionVendorGuidancePtrOutput{})
+	pulumi.RegisterOutputType(InferenceComponentStatusOutput{})
+	pulumi.RegisterOutputType(InferenceComponentStatusPtrOutput{})
 	pulumi.RegisterOutputType(InferenceExperimentDesiredStateOutput{})
 	pulumi.RegisterOutputType(InferenceExperimentDesiredStatePtrOutput{})
 	pulumi.RegisterOutputType(InferenceExperimentEndpointMetadataEndpointStatusOutput{})

@@ -48732,6 +48732,70 @@ export namespace sagemaker {
         value: pulumi.Input<string>;
     }
 
+    export interface InferenceComponentComputeResourceRequirementsArgs {
+        maxMemoryRequiredInMb?: pulumi.Input<number>;
+        minMemoryRequiredInMb?: pulumi.Input<number>;
+        numberOfAcceleratorDevicesRequired?: pulumi.Input<number>;
+        numberOfCpuCoresRequired?: pulumi.Input<number>;
+    }
+
+    export interface InferenceComponentContainerSpecificationArgs {
+        artifactUrl?: pulumi.Input<string>;
+        deployedImage?: pulumi.Input<inputs.sagemaker.InferenceComponentDeployedImageArgs>;
+        environment?: pulumi.Input<inputs.sagemaker.InferenceComponentEnvironmentMapArgs>;
+        image?: pulumi.Input<string>;
+    }
+
+    export interface InferenceComponentDeployedImageArgs {
+        resolutionTime?: pulumi.Input<string>;
+        resolvedImage?: pulumi.Input<string>;
+        specifiedImage?: pulumi.Input<string>;
+    }
+
+    /**
+     * Environment variables to specify on the container
+     */
+    export interface InferenceComponentEnvironmentMapArgs {
+    }
+
+    /**
+     * The runtime config for the inference component
+     */
+    export interface InferenceComponentRuntimeConfigArgs {
+        copyCount?: pulumi.Input<number>;
+        currentCopyCount?: pulumi.Input<number>;
+        desiredCopyCount?: pulumi.Input<number>;
+    }
+
+    /**
+     * The specification for the inference component
+     */
+    export interface InferenceComponentSpecificationArgs {
+        computeResourceRequirements: pulumi.Input<inputs.sagemaker.InferenceComponentComputeResourceRequirementsArgs>;
+        container?: pulumi.Input<inputs.sagemaker.InferenceComponentContainerSpecificationArgs>;
+        modelName?: pulumi.Input<string>;
+        startupParameters?: pulumi.Input<inputs.sagemaker.InferenceComponentStartupParametersArgs>;
+    }
+
+    export interface InferenceComponentStartupParametersArgs {
+        containerStartupHealthCheckTimeoutInSeconds?: pulumi.Input<number>;
+        modelDataDownloadTimeoutInSeconds?: pulumi.Input<number>;
+    }
+
+    /**
+     * A tag in the form of a key-value pair to associate with the resource
+     */
+    export interface InferenceComponentTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
+         */
+        value: pulumi.Input<string>;
+    }
+
     /**
      * Configuration specifying how to treat different headers. If no headers are specified SageMaker will by default base64 encode when capturing the data.
      */

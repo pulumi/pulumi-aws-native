@@ -11,6 +11,16 @@ export const AccessPolicyType = {
  */
 export type AccessPolicyType = (typeof AccessPolicyType)[keyof typeof AccessPolicyType];
 
+export const CollectionStandbyReplicas = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The possible standby replicas for the collection
+ */
+export type CollectionStandbyReplicas = (typeof CollectionStandbyReplicas)[keyof typeof CollectionStandbyReplicas];
+
 export const CollectionType = {
     Search: "SEARCH",
     Timeseries: "TIMESERIES",

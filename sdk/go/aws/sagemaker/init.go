@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Image{}
 	case "aws-native:sagemaker:ImageVersion":
 		r = &ImageVersion{}
+	case "aws-native:sagemaker:InferenceComponent":
+		r = &InferenceComponent{}
 	case "aws-native:sagemaker:InferenceExperiment":
 		r = &InferenceExperiment{}
 	case "aws-native:sagemaker:Model":

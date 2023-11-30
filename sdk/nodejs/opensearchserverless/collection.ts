@@ -63,6 +63,7 @@ export class Collection extends pulumi.CustomResource {
      * Contains between 3 and 32 characters
      */
     public readonly name!: pulumi.Output<string>;
+    public readonly standbyReplicas!: pulumi.Output<enums.opensearchserverless.CollectionStandbyReplicas | undefined>;
     /**
      * List of tags to be added to the resource
      */
@@ -82,6 +83,7 @@ export class Collection extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["standbyReplicas"] = args ? args.standbyReplicas : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -93,6 +95,7 @@ export class Collection extends pulumi.CustomResource {
             resourceInputs["dashboardEndpoint"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["standbyReplicas"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -121,6 +124,7 @@ export interface CollectionArgs {
      * Contains between 3 and 32 characters
      */
     name?: pulumi.Input<string>;
+    standbyReplicas?: pulumi.Input<enums.opensearchserverless.CollectionStandbyReplicas>;
     /**
      * List of tags to be added to the resource
      */

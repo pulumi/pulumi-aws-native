@@ -716,6 +716,37 @@ namespace Pulumi.AwsNative.SageMaker
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct InferenceComponentStatus : IEquatable<InferenceComponentStatus>
+    {
+        private readonly string _value;
+
+        private InferenceComponentStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InferenceComponentStatus InService { get; } = new InferenceComponentStatus("InService");
+        public static InferenceComponentStatus Creating { get; } = new InferenceComponentStatus("Creating");
+        public static InferenceComponentStatus Updating { get; } = new InferenceComponentStatus("Updating");
+        public static InferenceComponentStatus Failed { get; } = new InferenceComponentStatus("Failed");
+        public static InferenceComponentStatus Deleting { get; } = new InferenceComponentStatus("Deleting");
+
+        public static bool operator ==(InferenceComponentStatus left, InferenceComponentStatus right) => left.Equals(right);
+        public static bool operator !=(InferenceComponentStatus left, InferenceComponentStatus right) => !left.Equals(right);
+
+        public static explicit operator string(InferenceComponentStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InferenceComponentStatus other && Equals(other);
+        public bool Equals(InferenceComponentStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The desired state of the experiment after starting or stopping operation.
     /// </summary>

@@ -312,6 +312,16 @@ export const ImageVersionVendorGuidance = {
  */
 export type ImageVersionVendorGuidance = (typeof ImageVersionVendorGuidance)[keyof typeof ImageVersionVendorGuidance];
 
+export const InferenceComponentStatus = {
+    InService: "InService",
+    Creating: "Creating",
+    Updating: "Updating",
+    Failed: "Failed",
+    Deleting: "Deleting",
+} as const;
+
+export type InferenceComponentStatus = (typeof InferenceComponentStatus)[keyof typeof InferenceComponentStatus];
+
 export const InferenceExperimentDesiredState = {
     Running: "Running",
     Completed: "Completed",

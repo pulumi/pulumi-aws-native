@@ -38,7 +38,8 @@ type LookupCollectionResult struct {
 	// The description of the collection
 	Description *string `pulumi:"description"`
 	// The identifier of the collection
-	Id *string `pulumi:"id"`
+	Id              *string                    `pulumi:"id"`
+	StandbyReplicas *CollectionStandbyReplicas `pulumi:"standbyReplicas"`
 }
 
 func LookupCollectionOutput(ctx *pulumi.Context, args LookupCollectionOutputArgs, opts ...pulumi.InvokeOption) LookupCollectionResultOutput {
@@ -106,6 +107,10 @@ func (o LookupCollectionResultOutput) Description() pulumi.StringPtrOutput {
 // The identifier of the collection
 func (o LookupCollectionResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCollectionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupCollectionResultOutput) StandbyReplicas() CollectionStandbyReplicasPtrOutput {
+	return o.ApplyT(func(v LookupCollectionResult) *CollectionStandbyReplicas { return v.StandbyReplicas }).(CollectionStandbyReplicasPtrOutput)
 }
 
 func init() {

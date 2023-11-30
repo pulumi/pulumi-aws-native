@@ -3082,6 +3082,7 @@ _utilities.register(
    "aws-native:sagemaker:FeatureGroup": "FeatureGroup",
    "aws-native:sagemaker:Image": "Image",
    "aws-native:sagemaker:ImageVersion": "ImageVersion",
+   "aws-native:sagemaker:InferenceComponent": "InferenceComponent",
    "aws-native:sagemaker:InferenceExperiment": "InferenceExperiment",
    "aws-native:sagemaker:Model": "Model",
    "aws-native:sagemaker:ModelBiasJobDefinition": "ModelBiasJobDefinition",

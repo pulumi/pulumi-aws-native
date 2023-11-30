@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("standbyReplicas")]
+        public Output<Pulumi.AwsNative.OpenSearchServerless.CollectionStandbyReplicas?> StandbyReplicas { get; private set; } = null!;
+
         /// <summary>
         /// List of tags to be added to the resource
         /// </summary>
@@ -128,6 +131,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("standbyReplicas")]
+        public Input<Pulumi.AwsNative.OpenSearchServerless.CollectionStandbyReplicas>? StandbyReplicas { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.CollectionTagArgs>? _tags;

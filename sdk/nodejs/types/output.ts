@@ -49601,6 +49601,70 @@ export namespace sagemaker {
         value: string;
     }
 
+    export interface InferenceComponentComputeResourceRequirements {
+        maxMemoryRequiredInMb?: number;
+        minMemoryRequiredInMb?: number;
+        numberOfAcceleratorDevicesRequired?: number;
+        numberOfCpuCoresRequired?: number;
+    }
+
+    export interface InferenceComponentContainerSpecification {
+        artifactUrl?: string;
+        deployedImage?: outputs.sagemaker.InferenceComponentDeployedImage;
+        environment?: outputs.sagemaker.InferenceComponentEnvironmentMap;
+        image?: string;
+    }
+
+    export interface InferenceComponentDeployedImage {
+        resolutionTime?: string;
+        resolvedImage?: string;
+        specifiedImage?: string;
+    }
+
+    /**
+     * Environment variables to specify on the container
+     */
+    export interface InferenceComponentEnvironmentMap {
+    }
+
+    /**
+     * The runtime config for the inference component
+     */
+    export interface InferenceComponentRuntimeConfig {
+        copyCount?: number;
+        currentCopyCount?: number;
+        desiredCopyCount?: number;
+    }
+
+    /**
+     * The specification for the inference component
+     */
+    export interface InferenceComponentSpecification {
+        computeResourceRequirements: outputs.sagemaker.InferenceComponentComputeResourceRequirements;
+        container?: outputs.sagemaker.InferenceComponentContainerSpecification;
+        modelName?: string;
+        startupParameters?: outputs.sagemaker.InferenceComponentStartupParameters;
+    }
+
+    export interface InferenceComponentStartupParameters {
+        containerStartupHealthCheckTimeoutInSeconds?: number;
+        modelDataDownloadTimeoutInSeconds?: number;
+    }
+
+    /**
+     * A tag in the form of a key-value pair to associate with the resource
+     */
+    export interface InferenceComponentTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
+         */
+        value: string;
+    }
+
     /**
      * Configuration specifying how to treat different headers. If no headers are specified SageMaker will by default base64 encode when capturing the data.
      */

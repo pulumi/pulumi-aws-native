@@ -31,7 +31,8 @@ type Collection struct {
 	// Starts with a lowercase letter
 	// Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
 	// Contains between 3 and 32 characters
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name            pulumi.StringOutput                `pulumi:"name"`
+	StandbyReplicas CollectionStandbyReplicasPtrOutput `pulumi:"standbyReplicas"`
 	// List of tags to be added to the resource
 	Tags CollectionTagArrayOutput `pulumi:"tags"`
 	Type CollectionTypePtrOutput  `pulumi:"type"`
@@ -92,7 +93,8 @@ type collectionArgs struct {
 	// Starts with a lowercase letter
 	// Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
 	// Contains between 3 and 32 characters
-	Name *string `pulumi:"name"`
+	Name            *string                    `pulumi:"name"`
+	StandbyReplicas *CollectionStandbyReplicas `pulumi:"standbyReplicas"`
 	// List of tags to be added to the resource
 	Tags []CollectionTag `pulumi:"tags"`
 	Type *CollectionType `pulumi:"type"`
@@ -109,7 +111,8 @@ type CollectionArgs struct {
 	// Starts with a lowercase letter
 	// Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
 	// Contains between 3 and 32 characters
-	Name pulumi.StringPtrInput
+	Name            pulumi.StringPtrInput
+	StandbyReplicas CollectionStandbyReplicasPtrInput
 	// List of tags to be added to the resource
 	Tags CollectionTagArrayInput
 	Type CollectionTypePtrInput
@@ -193,6 +196,10 @@ func (o CollectionOutput) Description() pulumi.StringPtrOutput {
 // Contains between 3 and 32 characters
 func (o CollectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o CollectionOutput) StandbyReplicas() CollectionStandbyReplicasPtrOutput {
+	return o.ApplyT(func(v *Collection) CollectionStandbyReplicasPtrOutput { return v.StandbyReplicas }).(CollectionStandbyReplicasPtrOutput)
 }
 
 // List of tags to be added to the resource

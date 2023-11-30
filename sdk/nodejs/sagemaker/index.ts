@@ -110,6 +110,11 @@ export const getImageVersion: typeof import("./getImageVersion").getImageVersion
 export const getImageVersionOutput: typeof import("./getImageVersion").getImageVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getImageVersion","getImageVersionOutput"], () => require("./getImageVersion"));
 
+export { GetInferenceComponentArgs, GetInferenceComponentResult, GetInferenceComponentOutputArgs } from "./getInferenceComponent";
+export const getInferenceComponent: typeof import("./getInferenceComponent").getInferenceComponent = null as any;
+export const getInferenceComponentOutput: typeof import("./getInferenceComponent").getInferenceComponentOutput = null as any;
+utilities.lazyLoad(exports, ["getInferenceComponent","getInferenceComponentOutput"], () => require("./getInferenceComponent"));
+
 export { GetInferenceExperimentArgs, GetInferenceExperimentResult, GetInferenceExperimentOutputArgs } from "./getInferenceExperiment";
 export const getInferenceExperiment: typeof import("./getInferenceExperiment").getInferenceExperiment = null as any;
 export const getInferenceExperimentOutput: typeof import("./getInferenceExperiment").getInferenceExperimentOutput = null as any;
@@ -199,6 +204,11 @@ export { ImageVersionArgs } from "./imageVersion";
 export type ImageVersion = import("./imageVersion").ImageVersion;
 export const ImageVersion: typeof import("./imageVersion").ImageVersion = null as any;
 utilities.lazyLoad(exports, ["ImageVersion"], () => require("./imageVersion"));
+
+export { InferenceComponentArgs } from "./inferenceComponent";
+export type InferenceComponent = import("./inferenceComponent").InferenceComponent;
+export const InferenceComponent: typeof import("./inferenceComponent").InferenceComponent = null as any;
+utilities.lazyLoad(exports, ["InferenceComponent"], () => require("./inferenceComponent"));
 
 export { InferenceExperimentArgs } from "./inferenceExperiment";
 export type InferenceExperiment = import("./inferenceExperiment").InferenceExperiment;
@@ -312,6 +322,8 @@ const _module = {
                 return new Image(name, <any>undefined, { urn })
             case "aws-native:sagemaker:ImageVersion":
                 return new ImageVersion(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:InferenceComponent":
+                return new InferenceComponent(name, <any>undefined, { urn })
             case "aws-native:sagemaker:InferenceExperiment":
                 return new InferenceExperiment(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Model":
