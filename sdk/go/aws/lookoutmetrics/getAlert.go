@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::LookoutMetrics::Alert
@@ -67,12 +66,6 @@ func (o LookupAlertResultOutput) ToLookupAlertResultOutput() LookupAlertResultOu
 
 func (o LookupAlertResultOutput) ToLookupAlertResultOutputWithContext(ctx context.Context) LookupAlertResultOutput {
 	return o
-}
-
-func (o LookupAlertResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAlertResult] {
-	return pulumix.Output[LookupAlertResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN assigned to the alert.

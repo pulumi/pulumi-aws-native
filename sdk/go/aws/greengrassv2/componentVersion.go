@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource for Greengrass component version.
@@ -104,12 +103,6 @@ func (i *ComponentVersion) ToComponentVersionOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionOutput)
 }
 
-func (i *ComponentVersion) ToOutput(ctx context.Context) pulumix.Output[*ComponentVersion] {
-	return pulumix.Output[*ComponentVersion]{
-		OutputState: i.ToComponentVersionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComponentVersionOutput struct{ *pulumi.OutputState }
 
 func (ComponentVersionOutput) ElementType() reflect.Type {
@@ -122,12 +115,6 @@ func (o ComponentVersionOutput) ToComponentVersionOutput() ComponentVersionOutpu
 
 func (o ComponentVersionOutput) ToComponentVersionOutputWithContext(ctx context.Context) ComponentVersionOutput {
 	return o
-}
-
-func (o ComponentVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*ComponentVersion] {
-	return pulumix.Output[*ComponentVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentVersionOutput) Arn() pulumi.StringOutput {

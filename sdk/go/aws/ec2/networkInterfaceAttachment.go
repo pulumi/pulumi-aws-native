@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::NetworkInterfaceAttachment
@@ -129,12 +128,6 @@ func (i *NetworkInterfaceAttachment) ToNetworkInterfaceAttachmentOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfaceAttachmentOutput)
 }
 
-func (i *NetworkInterfaceAttachment) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterfaceAttachment] {
-	return pulumix.Output[*NetworkInterfaceAttachment]{
-		OutputState: i.ToNetworkInterfaceAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkInterfaceAttachmentOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfaceAttachmentOutput) ElementType() reflect.Type {
@@ -147,12 +140,6 @@ func (o NetworkInterfaceAttachmentOutput) ToNetworkInterfaceAttachmentOutput() N
 
 func (o NetworkInterfaceAttachmentOutput) ToNetworkInterfaceAttachmentOutputWithContext(ctx context.Context) NetworkInterfaceAttachmentOutput {
 	return o
-}
-
-func (o NetworkInterfaceAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterfaceAttachment] {
-	return pulumix.Output[*NetworkInterfaceAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the network interface attachment.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGatewayV2::Api“ resource creates an API. WebSocket APIs and HTTP APIs are supported. For more information about WebSocket APIs, see [About WebSocket APIs in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-overview.html) in the *API Gateway Developer Guide*. For more information about HTTP APIs, see [HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html) in the *API Gateway Developer Guide.*
@@ -81,12 +80,6 @@ func (o LookupApiResultOutput) ToLookupApiResultOutput() LookupApiResultOutput {
 
 func (o LookupApiResultOutput) ToLookupApiResultOutputWithContext(ctx context.Context) LookupApiResultOutput {
 	return o
-}
-
-func (o LookupApiResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupApiResult] {
-	return pulumix.Output[LookupApiResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupApiResultOutput) ApiEndpoint() pulumi.StringPtrOutput {

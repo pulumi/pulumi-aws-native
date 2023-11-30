@@ -79,12 +79,6 @@ func (o InAppTemplateAlignmentOutput) ToInAppTemplateAlignmentPtrOutputWithConte
 	}).(InAppTemplateAlignmentPtrOutput)
 }
 
-func (o InAppTemplateAlignmentOutput) ToOutput(ctx context.Context) pulumix.Output[InAppTemplateAlignment] {
-	return pulumix.Output[InAppTemplateAlignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InAppTemplateAlignmentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o InAppTemplateAlignmentPtrOutput) ToInAppTemplateAlignmentPtrOutput() InA
 
 func (o InAppTemplateAlignmentPtrOutput) ToInAppTemplateAlignmentPtrOutputWithContext(ctx context.Context) InAppTemplateAlignmentPtrOutput {
 	return o
-}
-
-func (o InAppTemplateAlignmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InAppTemplateAlignment] {
-	return pulumix.Output[*InAppTemplateAlignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InAppTemplateAlignmentPtrOutput) Elem() InAppTemplateAlignmentOutput {
@@ -262,12 +250,6 @@ func (o InAppTemplateButtonActionOutput) ToInAppTemplateButtonActionPtrOutputWit
 	}).(InAppTemplateButtonActionPtrOutput)
 }
 
-func (o InAppTemplateButtonActionOutput) ToOutput(ctx context.Context) pulumix.Output[InAppTemplateButtonAction] {
-	return pulumix.Output[InAppTemplateButtonAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InAppTemplateButtonActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +283,6 @@ func (o InAppTemplateButtonActionPtrOutput) ToInAppTemplateButtonActionPtrOutput
 
 func (o InAppTemplateButtonActionPtrOutput) ToInAppTemplateButtonActionPtrOutputWithContext(ctx context.Context) InAppTemplateButtonActionPtrOutput {
 	return o
-}
-
-func (o InAppTemplateButtonActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InAppTemplateButtonAction] {
-	return pulumix.Output[*InAppTemplateButtonAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InAppTemplateButtonActionPtrOutput) Elem() InAppTemplateButtonActionOutput {
@@ -448,12 +424,6 @@ func (o InAppTemplateLayoutOutput) ToInAppTemplateLayoutPtrOutputWithContext(ctx
 	}).(InAppTemplateLayoutPtrOutput)
 }
 
-func (o InAppTemplateLayoutOutput) ToOutput(ctx context.Context) pulumix.Output[InAppTemplateLayout] {
-	return pulumix.Output[InAppTemplateLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InAppTemplateLayoutOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -487,12 +457,6 @@ func (o InAppTemplateLayoutPtrOutput) ToInAppTemplateLayoutPtrOutput() InAppTemp
 
 func (o InAppTemplateLayoutPtrOutput) ToInAppTemplateLayoutPtrOutputWithContext(ctx context.Context) InAppTemplateLayoutPtrOutput {
 	return o
-}
-
-func (o InAppTemplateLayoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InAppTemplateLayout] {
-	return pulumix.Output[*InAppTemplateLayout]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InAppTemplateLayoutPtrOutput) Elem() InAppTemplateLayoutOutput {

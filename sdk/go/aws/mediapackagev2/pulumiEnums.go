@@ -77,12 +77,6 @@ func (o OriginEndpointAdMarkerHlsOutput) ToOriginEndpointAdMarkerHlsPtrOutputWit
 	}).(OriginEndpointAdMarkerHlsPtrOutput)
 }
 
-func (o OriginEndpointAdMarkerHlsOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointAdMarkerHls] {
-	return pulumix.Output[OriginEndpointAdMarkerHls]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointAdMarkerHlsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -116,12 +110,6 @@ func (o OriginEndpointAdMarkerHlsPtrOutput) ToOriginEndpointAdMarkerHlsPtrOutput
 
 func (o OriginEndpointAdMarkerHlsPtrOutput) ToOriginEndpointAdMarkerHlsPtrOutputWithContext(ctx context.Context) OriginEndpointAdMarkerHlsPtrOutput {
 	return o
-}
-
-func (o OriginEndpointAdMarkerHlsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointAdMarkerHls] {
-	return pulumix.Output[*OriginEndpointAdMarkerHls]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointAdMarkerHlsPtrOutput) Elem() OriginEndpointAdMarkerHlsOutput {
@@ -259,12 +247,6 @@ func (o OriginEndpointCmafEncryptionMethodOutput) ToOriginEndpointCmafEncryption
 	}).(OriginEndpointCmafEncryptionMethodPtrOutput)
 }
 
-func (o OriginEndpointCmafEncryptionMethodOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointCmafEncryptionMethod] {
-	return pulumix.Output[OriginEndpointCmafEncryptionMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointCmafEncryptionMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -298,12 +280,6 @@ func (o OriginEndpointCmafEncryptionMethodPtrOutput) ToOriginEndpointCmafEncrypt
 
 func (o OriginEndpointCmafEncryptionMethodPtrOutput) ToOriginEndpointCmafEncryptionMethodPtrOutputWithContext(ctx context.Context) OriginEndpointCmafEncryptionMethodPtrOutput {
 	return o
-}
-
-func (o OriginEndpointCmafEncryptionMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointCmafEncryptionMethod] {
-	return pulumix.Output[*OriginEndpointCmafEncryptionMethod]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointCmafEncryptionMethodPtrOutput) Elem() OriginEndpointCmafEncryptionMethodOutput {
@@ -441,12 +417,6 @@ func (o OriginEndpointContainerTypeOutput) ToOriginEndpointContainerTypePtrOutpu
 	}).(OriginEndpointContainerTypePtrOutput)
 }
 
-func (o OriginEndpointContainerTypeOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointContainerType] {
-	return pulumix.Output[OriginEndpointContainerType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointContainerTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -480,12 +450,6 @@ func (o OriginEndpointContainerTypePtrOutput) ToOriginEndpointContainerTypePtrOu
 
 func (o OriginEndpointContainerTypePtrOutput) ToOriginEndpointContainerTypePtrOutputWithContext(ctx context.Context) OriginEndpointContainerTypePtrOutput {
 	return o
-}
-
-func (o OriginEndpointContainerTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointContainerType] {
-	return pulumix.Output[*OriginEndpointContainerType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointContainerTypePtrOutput) Elem() OriginEndpointContainerTypeOutput {
@@ -625,12 +589,6 @@ func (o OriginEndpointDrmSystemOutput) ToOriginEndpointDrmSystemPtrOutputWithCon
 	}).(OriginEndpointDrmSystemPtrOutput)
 }
 
-func (o OriginEndpointDrmSystemOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointDrmSystem] {
-	return pulumix.Output[OriginEndpointDrmSystem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointDrmSystemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -664,12 +622,6 @@ func (o OriginEndpointDrmSystemPtrOutput) ToOriginEndpointDrmSystemPtrOutput() O
 
 func (o OriginEndpointDrmSystemPtrOutput) ToOriginEndpointDrmSystemPtrOutputWithContext(ctx context.Context) OriginEndpointDrmSystemPtrOutput {
 	return o
-}
-
-func (o OriginEndpointDrmSystemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDrmSystem] {
-	return pulumix.Output[*OriginEndpointDrmSystem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointDrmSystemPtrOutput) Elem() OriginEndpointDrmSystemOutput {
@@ -765,12 +717,6 @@ func (i OriginEndpointDrmSystemArray) ToOriginEndpointDrmSystemArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointDrmSystemArrayOutput)
 }
 
-func (i OriginEndpointDrmSystemArray) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointDrmSystem] {
-	return pulumix.Output[[]OriginEndpointDrmSystem]{
-		OutputState: i.ToOriginEndpointDrmSystemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OriginEndpointDrmSystemArrayOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointDrmSystemArrayOutput) ElementType() reflect.Type {
@@ -783,12 +729,6 @@ func (o OriginEndpointDrmSystemArrayOutput) ToOriginEndpointDrmSystemArrayOutput
 
 func (o OriginEndpointDrmSystemArrayOutput) ToOriginEndpointDrmSystemArrayOutputWithContext(ctx context.Context) OriginEndpointDrmSystemArrayOutput {
 	return o
-}
-
-func (o OriginEndpointDrmSystemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointDrmSystem] {
-	return pulumix.Output[[]OriginEndpointDrmSystem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointDrmSystemArrayOutput) Index(i pulumi.IntInput) OriginEndpointDrmSystemOutput {
@@ -867,12 +807,6 @@ func (o OriginEndpointPresetSpeke20AudioOutput) ToOriginEndpointPresetSpeke20Aud
 	}).(OriginEndpointPresetSpeke20AudioPtrOutput)
 }
 
-func (o OriginEndpointPresetSpeke20AudioOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointPresetSpeke20Audio] {
-	return pulumix.Output[OriginEndpointPresetSpeke20Audio]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointPresetSpeke20AudioOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -906,12 +840,6 @@ func (o OriginEndpointPresetSpeke20AudioPtrOutput) ToOriginEndpointPresetSpeke20
 
 func (o OriginEndpointPresetSpeke20AudioPtrOutput) ToOriginEndpointPresetSpeke20AudioPtrOutputWithContext(ctx context.Context) OriginEndpointPresetSpeke20AudioPtrOutput {
 	return o
-}
-
-func (o OriginEndpointPresetSpeke20AudioPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointPresetSpeke20Audio] {
-	return pulumix.Output[*OriginEndpointPresetSpeke20Audio]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointPresetSpeke20AudioPtrOutput) Elem() OriginEndpointPresetSpeke20AudioOutput {
@@ -1057,12 +985,6 @@ func (o OriginEndpointPresetSpeke20VideoOutput) ToOriginEndpointPresetSpeke20Vid
 	}).(OriginEndpointPresetSpeke20VideoPtrOutput)
 }
 
-func (o OriginEndpointPresetSpeke20VideoOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointPresetSpeke20Video] {
-	return pulumix.Output[OriginEndpointPresetSpeke20Video]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointPresetSpeke20VideoOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1096,12 +1018,6 @@ func (o OriginEndpointPresetSpeke20VideoPtrOutput) ToOriginEndpointPresetSpeke20
 
 func (o OriginEndpointPresetSpeke20VideoPtrOutput) ToOriginEndpointPresetSpeke20VideoPtrOutputWithContext(ctx context.Context) OriginEndpointPresetSpeke20VideoPtrOutput {
 	return o
-}
-
-func (o OriginEndpointPresetSpeke20VideoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointPresetSpeke20Video] {
-	return pulumix.Output[*OriginEndpointPresetSpeke20Video]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointPresetSpeke20VideoPtrOutput) Elem() OriginEndpointPresetSpeke20VideoOutput {
@@ -1246,12 +1162,6 @@ func (o OriginEndpointScteFilterOutput) ToOriginEndpointScteFilterPtrOutputWithC
 	}).(OriginEndpointScteFilterPtrOutput)
 }
 
-func (o OriginEndpointScteFilterOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointScteFilter] {
-	return pulumix.Output[OriginEndpointScteFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointScteFilterOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1285,12 +1195,6 @@ func (o OriginEndpointScteFilterPtrOutput) ToOriginEndpointScteFilterPtrOutput()
 
 func (o OriginEndpointScteFilterPtrOutput) ToOriginEndpointScteFilterPtrOutputWithContext(ctx context.Context) OriginEndpointScteFilterPtrOutput {
 	return o
-}
-
-func (o OriginEndpointScteFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointScteFilter] {
-	return pulumix.Output[*OriginEndpointScteFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointScteFilterPtrOutput) Elem() OriginEndpointScteFilterOutput {
@@ -1386,12 +1290,6 @@ func (i OriginEndpointScteFilterArray) ToOriginEndpointScteFilterArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointScteFilterArrayOutput)
 }
 
-func (i OriginEndpointScteFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointScteFilter] {
-	return pulumix.Output[[]OriginEndpointScteFilter]{
-		OutputState: i.ToOriginEndpointScteFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OriginEndpointScteFilterArrayOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointScteFilterArrayOutput) ElementType() reflect.Type {
@@ -1404,12 +1302,6 @@ func (o OriginEndpointScteFilterArrayOutput) ToOriginEndpointScteFilterArrayOutp
 
 func (o OriginEndpointScteFilterArrayOutput) ToOriginEndpointScteFilterArrayOutputWithContext(ctx context.Context) OriginEndpointScteFilterArrayOutput {
 	return o
-}
-
-func (o OriginEndpointScteFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointScteFilter] {
-	return pulumix.Output[[]OriginEndpointScteFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointScteFilterArrayOutput) Index(i pulumi.IntInput) OriginEndpointScteFilterOutput {
@@ -1485,12 +1377,6 @@ func (o OriginEndpointTsEncryptionMethodOutput) ToOriginEndpointTsEncryptionMeth
 	}).(OriginEndpointTsEncryptionMethodPtrOutput)
 }
 
-func (o OriginEndpointTsEncryptionMethodOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointTsEncryptionMethod] {
-	return pulumix.Output[OriginEndpointTsEncryptionMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointTsEncryptionMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1524,12 +1410,6 @@ func (o OriginEndpointTsEncryptionMethodPtrOutput) ToOriginEndpointTsEncryptionM
 
 func (o OriginEndpointTsEncryptionMethodPtrOutput) ToOriginEndpointTsEncryptionMethodPtrOutputWithContext(ctx context.Context) OriginEndpointTsEncryptionMethodPtrOutput {
 	return o
-}
-
-func (o OriginEndpointTsEncryptionMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointTsEncryptionMethod] {
-	return pulumix.Output[*OriginEndpointTsEncryptionMethod]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointTsEncryptionMethodPtrOutput) Elem() OriginEndpointTsEncryptionMethodOutput {

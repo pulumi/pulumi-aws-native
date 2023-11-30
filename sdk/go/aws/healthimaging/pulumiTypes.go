@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -43,12 +42,6 @@ func (i DatastoreTagsArgs) ToDatastoreTagsOutput() DatastoreTagsOutput {
 
 func (i DatastoreTagsArgs) ToDatastoreTagsOutputWithContext(ctx context.Context) DatastoreTagsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreTagsOutput)
-}
-
-func (i DatastoreTagsArgs) ToOutput(ctx context.Context) pulumix.Output[DatastoreTags] {
-	return pulumix.Output[DatastoreTags]{
-		OutputState: i.ToDatastoreTagsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i DatastoreTagsArgs) ToDatastoreTagsPtrOutput() DatastoreTagsPtrOutput {
@@ -92,12 +85,6 @@ func (i *datastoreTagsPtrType) ToDatastoreTagsPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreTagsPtrOutput)
 }
 
-func (i *datastoreTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatastoreTags] {
-	return pulumix.Output[*DatastoreTags]{
-		OutputState: i.ToDatastoreTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A Map of key value pairs for Tags.
 type DatastoreTagsOutput struct{ *pulumi.OutputState }
 
@@ -123,12 +110,6 @@ func (o DatastoreTagsOutput) ToDatastoreTagsPtrOutputWithContext(ctx context.Con
 	}).(DatastoreTagsPtrOutput)
 }
 
-func (o DatastoreTagsOutput) ToOutput(ctx context.Context) pulumix.Output[DatastoreTags] {
-	return pulumix.Output[DatastoreTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 type DatastoreTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (DatastoreTagsPtrOutput) ElementType() reflect.Type {
@@ -141,12 +122,6 @@ func (o DatastoreTagsPtrOutput) ToDatastoreTagsPtrOutput() DatastoreTagsPtrOutpu
 
 func (o DatastoreTagsPtrOutput) ToDatastoreTagsPtrOutputWithContext(ctx context.Context) DatastoreTagsPtrOutput {
 	return o
-}
-
-func (o DatastoreTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatastoreTags] {
-	return pulumix.Output[*DatastoreTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatastoreTagsPtrOutput) Elem() DatastoreTagsOutput {

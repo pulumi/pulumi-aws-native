@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Logs::DeliveryDestination
@@ -132,12 +131,6 @@ func (i *DeliveryDestination) ToDeliveryDestinationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(DeliveryDestinationOutput)
 }
 
-func (i *DeliveryDestination) ToOutput(ctx context.Context) pulumix.Output[*DeliveryDestination] {
-	return pulumix.Output[*DeliveryDestination]{
-		OutputState: i.ToDeliveryDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeliveryDestinationOutput struct{ *pulumi.OutputState }
 
 func (DeliveryDestinationOutput) ElementType() reflect.Type {
@@ -150,12 +143,6 @@ func (o DeliveryDestinationOutput) ToDeliveryDestinationOutput() DeliveryDestina
 
 func (o DeliveryDestinationOutput) ToDeliveryDestinationOutputWithContext(ctx context.Context) DeliveryDestinationOutput {
 	return o
-}
-
-func (o DeliveryDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryDestination] {
-	return pulumix.Output[*DeliveryDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The value of the Arn property for this object.

@@ -78,12 +78,6 @@ func (o FileSystemProtectionReplicationOverwriteProtectionOutput) ToFileSystemPr
 	}).(FileSystemProtectionReplicationOverwriteProtectionPtrOutput)
 }
 
-func (o FileSystemProtectionReplicationOverwriteProtectionOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemProtectionReplicationOverwriteProtection] {
-	return pulumix.Output[FileSystemProtectionReplicationOverwriteProtection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FileSystemProtectionReplicationOverwriteProtectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o FileSystemProtectionReplicationOverwriteProtectionPtrOutput) ToFileSyste
 
 func (o FileSystemProtectionReplicationOverwriteProtectionPtrOutput) ToFileSystemProtectionReplicationOverwriteProtectionPtrOutputWithContext(ctx context.Context) FileSystemProtectionReplicationOverwriteProtectionPtrOutput {
 	return o
-}
-
-func (o FileSystemProtectionReplicationOverwriteProtectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FileSystemProtectionReplicationOverwriteProtection] {
-	return pulumix.Output[*FileSystemProtectionReplicationOverwriteProtection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemProtectionReplicationOverwriteProtectionPtrOutput) Elem() FileSystemProtectionReplicationOverwriteProtectionOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Scheduled audits can be used to specify the checks you want to perform during an audit and how often the audit should be run.
@@ -136,12 +135,6 @@ func (i *ScheduledAudit) ToScheduledAuditOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledAuditOutput)
 }
 
-func (i *ScheduledAudit) ToOutput(ctx context.Context) pulumix.Output[*ScheduledAudit] {
-	return pulumix.Output[*ScheduledAudit]{
-		OutputState: i.ToScheduledAuditOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduledAuditOutput struct{ *pulumi.OutputState }
 
 func (ScheduledAuditOutput) ElementType() reflect.Type {
@@ -154,12 +147,6 @@ func (o ScheduledAuditOutput) ToScheduledAuditOutput() ScheduledAuditOutput {
 
 func (o ScheduledAuditOutput) ToScheduledAuditOutputWithContext(ctx context.Context) ScheduledAuditOutput {
 	return o
-}
-
-func (o ScheduledAuditOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledAudit] {
-	return pulumix.Output[*ScheduledAudit]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The day of the month on which the scheduled audit takes place. Can be 1 through 31 or LAST. This field is required if the frequency parameter is set to MONTHLY.

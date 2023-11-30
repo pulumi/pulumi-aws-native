@@ -59,12 +59,6 @@ func (o ComponentTypeStatusStateOutput) ToComponentTypeStatusStatePtrOutputWithC
 	}).(ComponentTypeStatusStatePtrOutput)
 }
 
-func (o ComponentTypeStatusStateOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentTypeStatusState] {
-	return pulumix.Output[ComponentTypeStatusState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ComponentTypeStatusStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -98,12 +92,6 @@ func (o ComponentTypeStatusStatePtrOutput) ToComponentTypeStatusStatePtrOutput()
 
 func (o ComponentTypeStatusStatePtrOutput) ToComponentTypeStatusStatePtrOutputWithContext(ctx context.Context) ComponentTypeStatusStatePtrOutput {
 	return o
-}
-
-func (o ComponentTypeStatusStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComponentTypeStatusState] {
-	return pulumix.Output[*ComponentTypeStatusState]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentTypeStatusStatePtrOutput) Elem() ComponentTypeStatusStateOutput {
@@ -178,12 +166,6 @@ func (o EntityStatusStateOutput) ToEntityStatusStatePtrOutputWithContext(ctx con
 	}).(EntityStatusStatePtrOutput)
 }
 
-func (o EntityStatusStateOutput) ToOutput(ctx context.Context) pulumix.Output[EntityStatusState] {
-	return pulumix.Output[EntityStatusState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EntityStatusStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -217,12 +199,6 @@ func (o EntityStatusStatePtrOutput) ToEntityStatusStatePtrOutput() EntityStatusS
 
 func (o EntityStatusStatePtrOutput) ToEntityStatusStatePtrOutputWithContext(ctx context.Context) EntityStatusStatePtrOutput {
 	return o
-}
-
-func (o EntityStatusStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EntityStatusState] {
-	return pulumix.Output[*EntityStatusState]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EntityStatusStatePtrOutput) Elem() EntityStatusStateOutput {

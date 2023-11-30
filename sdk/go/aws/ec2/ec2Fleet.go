@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::EC2Fleet
@@ -143,12 +142,6 @@ func (i *Ec2Fleet) ToEc2FleetOutputWithContext(ctx context.Context) Ec2FleetOutp
 	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetOutput)
 }
 
-func (i *Ec2Fleet) ToOutput(ctx context.Context) pulumix.Output[*Ec2Fleet] {
-	return pulumix.Output[*Ec2Fleet]{
-		OutputState: i.ToEc2FleetOutputWithContext(ctx).OutputState,
-	}
-}
-
 type Ec2FleetOutput struct{ *pulumi.OutputState }
 
 func (Ec2FleetOutput) ElementType() reflect.Type {
@@ -161,12 +154,6 @@ func (o Ec2FleetOutput) ToEc2FleetOutput() Ec2FleetOutput {
 
 func (o Ec2FleetOutput) ToEc2FleetOutputWithContext(ctx context.Context) Ec2FleetOutput {
 	return o
-}
-
-func (o Ec2FleetOutput) ToOutput(ctx context.Context) pulumix.Output[*Ec2Fleet] {
-	return pulumix.Output[*Ec2Fleet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o Ec2FleetOutput) Context() pulumi.StringPtrOutput {

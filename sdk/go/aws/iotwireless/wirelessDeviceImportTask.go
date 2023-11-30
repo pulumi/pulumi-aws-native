@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Wireless Device Import Tasks
@@ -130,12 +129,6 @@ func (i *WirelessDeviceImportTask) ToWirelessDeviceImportTaskOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceImportTaskOutput)
 }
 
-func (i *WirelessDeviceImportTask) ToOutput(ctx context.Context) pulumix.Output[*WirelessDeviceImportTask] {
-	return pulumix.Output[*WirelessDeviceImportTask]{
-		OutputState: i.ToWirelessDeviceImportTaskOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WirelessDeviceImportTaskOutput struct{ *pulumi.OutputState }
 
 func (WirelessDeviceImportTaskOutput) ElementType() reflect.Type {
@@ -148,12 +141,6 @@ func (o WirelessDeviceImportTaskOutput) ToWirelessDeviceImportTaskOutput() Wirel
 
 func (o WirelessDeviceImportTaskOutput) ToWirelessDeviceImportTaskOutputWithContext(ctx context.Context) WirelessDeviceImportTaskOutput {
 	return o
-}
-
-func (o WirelessDeviceImportTaskOutput) ToOutput(ctx context.Context) pulumix.Output[*WirelessDeviceImportTask] {
-	return pulumix.Output[*WirelessDeviceImportTask]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Arn for Wireless Device Import Task, Returned upon successful start.

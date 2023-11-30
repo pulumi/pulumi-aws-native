@@ -79,12 +79,6 @@ func (o ProfilingGroupComputePlatformOutput) ToProfilingGroupComputePlatformPtrO
 	}).(ProfilingGroupComputePlatformPtrOutput)
 }
 
-func (o ProfilingGroupComputePlatformOutput) ToOutput(ctx context.Context) pulumix.Output[ProfilingGroupComputePlatform] {
-	return pulumix.Output[ProfilingGroupComputePlatform]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProfilingGroupComputePlatformOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o ProfilingGroupComputePlatformPtrOutput) ToProfilingGroupComputePlatformP
 
 func (o ProfilingGroupComputePlatformPtrOutput) ToProfilingGroupComputePlatformPtrOutputWithContext(ctx context.Context) ProfilingGroupComputePlatformPtrOutput {
 	return o
-}
-
-func (o ProfilingGroupComputePlatformPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProfilingGroupComputePlatform] {
-	return pulumix.Output[*ProfilingGroupComputePlatform]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProfilingGroupComputePlatformPtrOutput) Elem() ProfilingGroupComputePlatformOutput {

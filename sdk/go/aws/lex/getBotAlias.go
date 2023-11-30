@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A Bot Alias enables you to change the version of a bot without updating applications that use the bot
@@ -75,12 +74,6 @@ func (o LookupBotAliasResultOutput) ToLookupBotAliasResultOutput() LookupBotAlia
 
 func (o LookupBotAliasResultOutput) ToLookupBotAliasResultOutputWithContext(ctx context.Context) LookupBotAliasResultOutput {
 	return o
-}
-
-func (o LookupBotAliasResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBotAliasResult] {
-	return pulumix.Output[LookupBotAliasResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupBotAliasResultOutput) Arn() pulumi.StringPtrOutput {

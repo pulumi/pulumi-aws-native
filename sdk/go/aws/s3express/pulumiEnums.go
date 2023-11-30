@@ -78,12 +78,6 @@ func (o DirectoryBucketDataRedundancyOutput) ToDirectoryBucketDataRedundancyPtrO
 	}).(DirectoryBucketDataRedundancyPtrOutput)
 }
 
-func (o DirectoryBucketDataRedundancyOutput) ToOutput(ctx context.Context) pulumix.Output[DirectoryBucketDataRedundancy] {
-	return pulumix.Output[DirectoryBucketDataRedundancy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DirectoryBucketDataRedundancyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o DirectoryBucketDataRedundancyPtrOutput) ToDirectoryBucketDataRedundancyP
 
 func (o DirectoryBucketDataRedundancyPtrOutput) ToDirectoryBucketDataRedundancyPtrOutputWithContext(ctx context.Context) DirectoryBucketDataRedundancyPtrOutput {
 	return o
-}
-
-func (o DirectoryBucketDataRedundancyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DirectoryBucketDataRedundancy] {
-	return pulumix.Output[*DirectoryBucketDataRedundancy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DirectoryBucketDataRedundancyPtrOutput) Elem() DirectoryBucketDataRedundancyOutput {

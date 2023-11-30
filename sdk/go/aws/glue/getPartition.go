@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Glue::Partition
@@ -65,12 +64,6 @@ func (o LookupPartitionResultOutput) ToLookupPartitionResultOutput() LookupParti
 
 func (o LookupPartitionResultOutput) ToLookupPartitionResultOutputWithContext(ctx context.Context) LookupPartitionResultOutput {
 	return o
-}
-
-func (o LookupPartitionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPartitionResult] {
-	return pulumix.Output[LookupPartitionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupPartitionResultOutput) Id() pulumi.StringPtrOutput {

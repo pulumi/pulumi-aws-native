@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Detective::Graph
@@ -70,12 +69,6 @@ func (o LookupGraphResultOutput) ToLookupGraphResultOutput() LookupGraphResultOu
 
 func (o LookupGraphResultOutput) ToLookupGraphResultOutputWithContext(ctx context.Context) LookupGraphResultOutput {
 	return o
-}
-
-func (o LookupGraphResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGraphResult] {
-	return pulumix.Output[LookupGraphResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Detective graph ARN

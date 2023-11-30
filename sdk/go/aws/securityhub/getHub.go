@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SecurityHub::Hub
@@ -68,12 +67,6 @@ func (o LookupHubResultOutput) ToLookupHubResultOutput() LookupHubResultOutput {
 
 func (o LookupHubResultOutput) ToLookupHubResultOutputWithContext(ctx context.Context) LookupHubResultOutput {
 	return o
-}
-
-func (o LookupHubResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupHubResult] {
-	return pulumix.Output[LookupHubResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupHubResultOutput) AutoEnableControls() pulumi.BoolPtrOutput {

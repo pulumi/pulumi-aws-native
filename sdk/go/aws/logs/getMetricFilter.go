@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Specifies a metric filter that describes how CloudWatch Logs extracts information from logs and transforms it into Amazon CloudWatch metrics.
@@ -73,12 +72,6 @@ func (o LookupMetricFilterResultOutput) ToLookupMetricFilterResultOutput() Looku
 
 func (o LookupMetricFilterResultOutput) ToLookupMetricFilterResultOutputWithContext(ctx context.Context) LookupMetricFilterResultOutput {
 	return o
-}
-
-func (o LookupMetricFilterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMetricFilterResult] {
-	return pulumix.Output[LookupMetricFilterResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Pattern that Logs follows to interpret each entry in a log.

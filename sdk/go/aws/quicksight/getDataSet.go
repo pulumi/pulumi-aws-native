@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of the AWS::QuickSight::DataSet Resource Type.
@@ -95,12 +94,6 @@ func (o LookupDataSetResultOutput) ToLookupDataSetResultOutput() LookupDataSetRe
 
 func (o LookupDataSetResultOutput) ToLookupDataSetResultOutputWithContext(ctx context.Context) LookupDataSetResultOutput {
 	return o
-}
-
-func (o LookupDataSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDataSetResult] {
-	return pulumix.Output[LookupDataSetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>The Amazon Resource Name (ARN) of the resource.</p>

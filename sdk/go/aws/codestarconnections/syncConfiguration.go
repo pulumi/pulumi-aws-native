@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for AWS::CodeStarConnections::SyncConfiguration resource which is used to enables an AWS resource to be synchronized from a source-provider.
@@ -153,12 +152,6 @@ func (i *SyncConfiguration) ToSyncConfigurationOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SyncConfigurationOutput)
 }
 
-func (i *SyncConfiguration) ToOutput(ctx context.Context) pulumix.Output[*SyncConfiguration] {
-	return pulumix.Output[*SyncConfiguration]{
-		OutputState: i.ToSyncConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SyncConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SyncConfigurationOutput) ElementType() reflect.Type {
@@ -171,12 +164,6 @@ func (o SyncConfigurationOutput) ToSyncConfigurationOutput() SyncConfigurationOu
 
 func (o SyncConfigurationOutput) ToSyncConfigurationOutputWithContext(ctx context.Context) SyncConfigurationOutput {
 	return o
-}
-
-func (o SyncConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*SyncConfiguration] {
-	return pulumix.Output[*SyncConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the branch of the repository from which resources are to be synchronized,

@@ -80,12 +80,6 @@ func (o AssessmentDelegationStatusOutput) ToAssessmentDelegationStatusPtrOutputW
 	}).(AssessmentDelegationStatusPtrOutput)
 }
 
-func (o AssessmentDelegationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentDelegationStatus] {
-	return pulumix.Output[AssessmentDelegationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssessmentDelegationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o AssessmentDelegationStatusPtrOutput) ToAssessmentDelegationStatusPtrOutp
 
 func (o AssessmentDelegationStatusPtrOutput) ToAssessmentDelegationStatusPtrOutputWithContext(ctx context.Context) AssessmentDelegationStatusPtrOutput {
 	return o
-}
-
-func (o AssessmentDelegationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentDelegationStatus] {
-	return pulumix.Output[*AssessmentDelegationStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssessmentDelegationStatusPtrOutput) Elem() AssessmentDelegationStatusOutput {
@@ -262,12 +250,6 @@ func (o AssessmentReportDestinationTypeOutput) ToAssessmentReportDestinationType
 	}).(AssessmentReportDestinationTypePtrOutput)
 }
 
-func (o AssessmentReportDestinationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentReportDestinationType] {
-	return pulumix.Output[AssessmentReportDestinationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssessmentReportDestinationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +283,6 @@ func (o AssessmentReportDestinationTypePtrOutput) ToAssessmentReportDestinationT
 
 func (o AssessmentReportDestinationTypePtrOutput) ToAssessmentReportDestinationTypePtrOutputWithContext(ctx context.Context) AssessmentReportDestinationTypePtrOutput {
 	return o
-}
-
-func (o AssessmentReportDestinationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentReportDestinationType] {
-	return pulumix.Output[*AssessmentReportDestinationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssessmentReportDestinationTypePtrOutput) Elem() AssessmentReportDestinationTypeOutput {
@@ -445,12 +421,6 @@ func (o AssessmentRoleTypeOutput) ToAssessmentRoleTypePtrOutputWithContext(ctx c
 	}).(AssessmentRoleTypePtrOutput)
 }
 
-func (o AssessmentRoleTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentRoleType] {
-	return pulumix.Output[AssessmentRoleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssessmentRoleTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -484,12 +454,6 @@ func (o AssessmentRoleTypePtrOutput) ToAssessmentRoleTypePtrOutput() AssessmentR
 
 func (o AssessmentRoleTypePtrOutput) ToAssessmentRoleTypePtrOutputWithContext(ctx context.Context) AssessmentRoleTypePtrOutput {
 	return o
-}
-
-func (o AssessmentRoleTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentRoleType] {
-	return pulumix.Output[*AssessmentRoleType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssessmentRoleTypePtrOutput) Elem() AssessmentRoleTypeOutput {
@@ -628,12 +592,6 @@ func (o AssessmentStatusOutput) ToAssessmentStatusPtrOutputWithContext(ctx conte
 	}).(AssessmentStatusPtrOutput)
 }
 
-func (o AssessmentStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentStatus] {
-	return pulumix.Output[AssessmentStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssessmentStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -667,12 +625,6 @@ func (o AssessmentStatusPtrOutput) ToAssessmentStatusPtrOutput() AssessmentStatu
 
 func (o AssessmentStatusPtrOutput) ToAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentStatusPtrOutput {
 	return o
-}
-
-func (o AssessmentStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentStatus] {
-	return pulumix.Output[*AssessmentStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssessmentStatusPtrOutput) Elem() AssessmentStatusOutput {

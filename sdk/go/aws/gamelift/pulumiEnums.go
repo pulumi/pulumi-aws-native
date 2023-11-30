@@ -79,12 +79,6 @@ func (o AliasRoutingStrategyTypeOutput) ToAliasRoutingStrategyTypePtrOutputWithC
 	}).(AliasRoutingStrategyTypePtrOutput)
 }
 
-func (o AliasRoutingStrategyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AliasRoutingStrategyType] {
-	return pulumix.Output[AliasRoutingStrategyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AliasRoutingStrategyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o AliasRoutingStrategyTypePtrOutput) ToAliasRoutingStrategyTypePtrOutput()
 
 func (o AliasRoutingStrategyTypePtrOutput) ToAliasRoutingStrategyTypePtrOutputWithContext(ctx context.Context) AliasRoutingStrategyTypePtrOutput {
 	return o
-}
-
-func (o AliasRoutingStrategyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AliasRoutingStrategyType] {
-	return pulumix.Output[*AliasRoutingStrategyType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AliasRoutingStrategyTypePtrOutput) Elem() AliasRoutingStrategyTypeOutput {
@@ -265,12 +253,6 @@ func (o BuildOperatingSystemOutput) ToBuildOperatingSystemPtrOutputWithContext(c
 	}).(BuildOperatingSystemPtrOutput)
 }
 
-func (o BuildOperatingSystemOutput) ToOutput(ctx context.Context) pulumix.Output[BuildOperatingSystem] {
-	return pulumix.Output[BuildOperatingSystem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BuildOperatingSystemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -304,12 +286,6 @@ func (o BuildOperatingSystemPtrOutput) ToBuildOperatingSystemPtrOutput() BuildOp
 
 func (o BuildOperatingSystemPtrOutput) ToBuildOperatingSystemPtrOutputWithContext(ctx context.Context) BuildOperatingSystemPtrOutput {
 	return o
-}
-
-func (o BuildOperatingSystemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BuildOperatingSystem] {
-	return pulumix.Output[*BuildOperatingSystem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BuildOperatingSystemPtrOutput) Elem() BuildOperatingSystemOutput {
@@ -447,12 +423,6 @@ func (o FleetCertificateConfigurationCertificateTypeOutput) ToFleetCertificateCo
 	}).(FleetCertificateConfigurationCertificateTypePtrOutput)
 }
 
-func (o FleetCertificateConfigurationCertificateTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FleetCertificateConfigurationCertificateType] {
-	return pulumix.Output[FleetCertificateConfigurationCertificateType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetCertificateConfigurationCertificateTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -486,12 +456,6 @@ func (o FleetCertificateConfigurationCertificateTypePtrOutput) ToFleetCertificat
 
 func (o FleetCertificateConfigurationCertificateTypePtrOutput) ToFleetCertificateConfigurationCertificateTypePtrOutputWithContext(ctx context.Context) FleetCertificateConfigurationCertificateTypePtrOutput {
 	return o
-}
-
-func (o FleetCertificateConfigurationCertificateTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetCertificateConfigurationCertificateType] {
-	return pulumix.Output[*FleetCertificateConfigurationCertificateType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FleetCertificateConfigurationCertificateTypePtrOutput) Elem() FleetCertificateConfigurationCertificateTypeOutput {
@@ -630,12 +594,6 @@ func (o FleetComputeTypeOutput) ToFleetComputeTypePtrOutputWithContext(ctx conte
 	}).(FleetComputeTypePtrOutput)
 }
 
-func (o FleetComputeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FleetComputeType] {
-	return pulumix.Output[FleetComputeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetComputeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -669,12 +627,6 @@ func (o FleetComputeTypePtrOutput) ToFleetComputeTypePtrOutput() FleetComputeTyp
 
 func (o FleetComputeTypePtrOutput) ToFleetComputeTypePtrOutputWithContext(ctx context.Context) FleetComputeTypePtrOutput {
 	return o
-}
-
-func (o FleetComputeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetComputeType] {
-	return pulumix.Output[*FleetComputeType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FleetComputeTypePtrOutput) Elem() FleetComputeTypeOutput {
@@ -812,12 +764,6 @@ func (o FleetInstanceRoleCredentialsProviderOutput) ToFleetInstanceRoleCredentia
 	}).(FleetInstanceRoleCredentialsProviderPtrOutput)
 }
 
-func (o FleetInstanceRoleCredentialsProviderOutput) ToOutput(ctx context.Context) pulumix.Output[FleetInstanceRoleCredentialsProvider] {
-	return pulumix.Output[FleetInstanceRoleCredentialsProvider]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetInstanceRoleCredentialsProviderOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -851,12 +797,6 @@ func (o FleetInstanceRoleCredentialsProviderPtrOutput) ToFleetInstanceRoleCreden
 
 func (o FleetInstanceRoleCredentialsProviderPtrOutput) ToFleetInstanceRoleCredentialsProviderPtrOutputWithContext(ctx context.Context) FleetInstanceRoleCredentialsProviderPtrOutput {
 	return o
-}
-
-func (o FleetInstanceRoleCredentialsProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetInstanceRoleCredentialsProvider] {
-	return pulumix.Output[*FleetInstanceRoleCredentialsProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FleetInstanceRoleCredentialsProviderPtrOutput) Elem() FleetInstanceRoleCredentialsProviderOutput {
@@ -995,12 +935,6 @@ func (o FleetIpPermissionProtocolOutput) ToFleetIpPermissionProtocolPtrOutputWit
 	}).(FleetIpPermissionProtocolPtrOutput)
 }
 
-func (o FleetIpPermissionProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[FleetIpPermissionProtocol] {
-	return pulumix.Output[FleetIpPermissionProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetIpPermissionProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1034,12 +968,6 @@ func (o FleetIpPermissionProtocolPtrOutput) ToFleetIpPermissionProtocolPtrOutput
 
 func (o FleetIpPermissionProtocolPtrOutput) ToFleetIpPermissionProtocolPtrOutputWithContext(ctx context.Context) FleetIpPermissionProtocolPtrOutput {
 	return o
-}
-
-func (o FleetIpPermissionProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetIpPermissionProtocol] {
-	return pulumix.Output[*FleetIpPermissionProtocol]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FleetIpPermissionProtocolPtrOutput) Elem() FleetIpPermissionProtocolOutput {
@@ -1178,12 +1106,6 @@ func (o FleetNewGameSessionProtectionPolicyOutput) ToFleetNewGameSessionProtecti
 	}).(FleetNewGameSessionProtectionPolicyPtrOutput)
 }
 
-func (o FleetNewGameSessionProtectionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[FleetNewGameSessionProtectionPolicy] {
-	return pulumix.Output[FleetNewGameSessionProtectionPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetNewGameSessionProtectionPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1217,12 +1139,6 @@ func (o FleetNewGameSessionProtectionPolicyPtrOutput) ToFleetNewGameSessionProte
 
 func (o FleetNewGameSessionProtectionPolicyPtrOutput) ToFleetNewGameSessionProtectionPolicyPtrOutputWithContext(ctx context.Context) FleetNewGameSessionProtectionPolicyPtrOutput {
 	return o
-}
-
-func (o FleetNewGameSessionProtectionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetNewGameSessionProtectionPolicy] {
-	return pulumix.Output[*FleetNewGameSessionProtectionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FleetNewGameSessionProtectionPolicyPtrOutput) Elem() FleetNewGameSessionProtectionPolicyOutput {
@@ -1363,12 +1279,6 @@ func (o FleetScalingPolicyComparisonOperatorOutput) ToFleetScalingPolicyComparis
 	}).(FleetScalingPolicyComparisonOperatorPtrOutput)
 }
 
-func (o FleetScalingPolicyComparisonOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[FleetScalingPolicyComparisonOperator] {
-	return pulumix.Output[FleetScalingPolicyComparisonOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetScalingPolicyComparisonOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1402,12 +1312,6 @@ func (o FleetScalingPolicyComparisonOperatorPtrOutput) ToFleetScalingPolicyCompa
 
 func (o FleetScalingPolicyComparisonOperatorPtrOutput) ToFleetScalingPolicyComparisonOperatorPtrOutputWithContext(ctx context.Context) FleetScalingPolicyComparisonOperatorPtrOutput {
 	return o
-}
-
-func (o FleetScalingPolicyComparisonOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyComparisonOperator] {
-	return pulumix.Output[*FleetScalingPolicyComparisonOperator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FleetScalingPolicyComparisonOperatorPtrOutput) Elem() FleetScalingPolicyComparisonOperatorOutput {
@@ -1556,12 +1460,6 @@ func (o FleetScalingPolicyMetricNameOutput) ToFleetScalingPolicyMetricNamePtrOut
 	}).(FleetScalingPolicyMetricNamePtrOutput)
 }
 
-func (o FleetScalingPolicyMetricNameOutput) ToOutput(ctx context.Context) pulumix.Output[FleetScalingPolicyMetricName] {
-	return pulumix.Output[FleetScalingPolicyMetricName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetScalingPolicyMetricNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1595,12 +1493,6 @@ func (o FleetScalingPolicyMetricNamePtrOutput) ToFleetScalingPolicyMetricNamePtr
 
 func (o FleetScalingPolicyMetricNamePtrOutput) ToFleetScalingPolicyMetricNamePtrOutputWithContext(ctx context.Context) FleetScalingPolicyMetricNamePtrOutput {
 	return o
-}
-
-func (o FleetScalingPolicyMetricNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyMetricName] {
-	return pulumix.Output[*FleetScalingPolicyMetricName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FleetScalingPolicyMetricNamePtrOutput) Elem() FleetScalingPolicyMetricNameOutput {
@@ -1739,12 +1631,6 @@ func (o FleetScalingPolicyPolicyTypeOutput) ToFleetScalingPolicyPolicyTypePtrOut
 	}).(FleetScalingPolicyPolicyTypePtrOutput)
 }
 
-func (o FleetScalingPolicyPolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FleetScalingPolicyPolicyType] {
-	return pulumix.Output[FleetScalingPolicyPolicyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetScalingPolicyPolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1778,12 +1664,6 @@ func (o FleetScalingPolicyPolicyTypePtrOutput) ToFleetScalingPolicyPolicyTypePtr
 
 func (o FleetScalingPolicyPolicyTypePtrOutput) ToFleetScalingPolicyPolicyTypePtrOutputWithContext(ctx context.Context) FleetScalingPolicyPolicyTypePtrOutput {
 	return o
-}
-
-func (o FleetScalingPolicyPolicyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyPolicyType] {
-	return pulumix.Output[*FleetScalingPolicyPolicyType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FleetScalingPolicyPolicyTypePtrOutput) Elem() FleetScalingPolicyPolicyTypeOutput {
@@ -1923,12 +1803,6 @@ func (o FleetScalingPolicyScalingAdjustmentTypeOutput) ToFleetScalingPolicyScali
 	}).(FleetScalingPolicyScalingAdjustmentTypePtrOutput)
 }
 
-func (o FleetScalingPolicyScalingAdjustmentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FleetScalingPolicyScalingAdjustmentType] {
-	return pulumix.Output[FleetScalingPolicyScalingAdjustmentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetScalingPolicyScalingAdjustmentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1962,12 +1836,6 @@ func (o FleetScalingPolicyScalingAdjustmentTypePtrOutput) ToFleetScalingPolicySc
 
 func (o FleetScalingPolicyScalingAdjustmentTypePtrOutput) ToFleetScalingPolicyScalingAdjustmentTypePtrOutputWithContext(ctx context.Context) FleetScalingPolicyScalingAdjustmentTypePtrOutput {
 	return o
-}
-
-func (o FleetScalingPolicyScalingAdjustmentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyScalingAdjustmentType] {
-	return pulumix.Output[*FleetScalingPolicyScalingAdjustmentType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FleetScalingPolicyScalingAdjustmentTypePtrOutput) Elem() FleetScalingPolicyScalingAdjustmentTypeOutput {
@@ -2111,12 +1979,6 @@ func (o FleetScalingPolicyStatusOutput) ToFleetScalingPolicyStatusPtrOutputWithC
 	}).(FleetScalingPolicyStatusPtrOutput)
 }
 
-func (o FleetScalingPolicyStatusOutput) ToOutput(ctx context.Context) pulumix.Output[FleetScalingPolicyStatus] {
-	return pulumix.Output[FleetScalingPolicyStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetScalingPolicyStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2150,12 +2012,6 @@ func (o FleetScalingPolicyStatusPtrOutput) ToFleetScalingPolicyStatusPtrOutput()
 
 func (o FleetScalingPolicyStatusPtrOutput) ToFleetScalingPolicyStatusPtrOutputWithContext(ctx context.Context) FleetScalingPolicyStatusPtrOutput {
 	return o
-}
-
-func (o FleetScalingPolicyStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyStatus] {
-	return pulumix.Output[*FleetScalingPolicyStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FleetScalingPolicyStatusPtrOutput) Elem() FleetScalingPolicyStatusOutput {
@@ -2293,12 +2149,6 @@ func (o FleetScalingPolicyUpdateStatusOutput) ToFleetScalingPolicyUpdateStatusPt
 	}).(FleetScalingPolicyUpdateStatusPtrOutput)
 }
 
-func (o FleetScalingPolicyUpdateStatusOutput) ToOutput(ctx context.Context) pulumix.Output[FleetScalingPolicyUpdateStatus] {
-	return pulumix.Output[FleetScalingPolicyUpdateStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetScalingPolicyUpdateStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2332,12 +2182,6 @@ func (o FleetScalingPolicyUpdateStatusPtrOutput) ToFleetScalingPolicyUpdateStatu
 
 func (o FleetScalingPolicyUpdateStatusPtrOutput) ToFleetScalingPolicyUpdateStatusPtrOutputWithContext(ctx context.Context) FleetScalingPolicyUpdateStatusPtrOutput {
 	return o
-}
-
-func (o FleetScalingPolicyUpdateStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyUpdateStatus] {
-	return pulumix.Output[*FleetScalingPolicyUpdateStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FleetScalingPolicyUpdateStatusPtrOutput) Elem() FleetScalingPolicyUpdateStatusOutput {
@@ -2476,12 +2320,6 @@ func (o FleetTypeOutput) ToFleetTypePtrOutputWithContext(ctx context.Context) Fl
 	}).(FleetTypePtrOutput)
 }
 
-func (o FleetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FleetType] {
-	return pulumix.Output[FleetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2515,12 +2353,6 @@ func (o FleetTypePtrOutput) ToFleetTypePtrOutput() FleetTypePtrOutput {
 
 func (o FleetTypePtrOutput) ToFleetTypePtrOutputWithContext(ctx context.Context) FleetTypePtrOutput {
 	return o
-}
-
-func (o FleetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetType] {
-	return pulumix.Output[*FleetType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FleetTypePtrOutput) Elem() FleetTypeOutput {
@@ -2660,12 +2492,6 @@ func (o GameServerGroupBalancingStrategyOutput) ToGameServerGroupBalancingStrate
 	}).(GameServerGroupBalancingStrategyPtrOutput)
 }
 
-func (o GameServerGroupBalancingStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[GameServerGroupBalancingStrategy] {
-	return pulumix.Output[GameServerGroupBalancingStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GameServerGroupBalancingStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2699,12 +2525,6 @@ func (o GameServerGroupBalancingStrategyPtrOutput) ToGameServerGroupBalancingStr
 
 func (o GameServerGroupBalancingStrategyPtrOutput) ToGameServerGroupBalancingStrategyPtrOutputWithContext(ctx context.Context) GameServerGroupBalancingStrategyPtrOutput {
 	return o
-}
-
-func (o GameServerGroupBalancingStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GameServerGroupBalancingStrategy] {
-	return pulumix.Output[*GameServerGroupBalancingStrategy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GameServerGroupBalancingStrategyPtrOutput) Elem() GameServerGroupBalancingStrategyOutput {
@@ -2844,12 +2664,6 @@ func (o GameServerGroupDeleteOptionOutput) ToGameServerGroupDeleteOptionPtrOutpu
 	}).(GameServerGroupDeleteOptionPtrOutput)
 }
 
-func (o GameServerGroupDeleteOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GameServerGroupDeleteOption] {
-	return pulumix.Output[GameServerGroupDeleteOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GameServerGroupDeleteOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2883,12 +2697,6 @@ func (o GameServerGroupDeleteOptionPtrOutput) ToGameServerGroupDeleteOptionPtrOu
 
 func (o GameServerGroupDeleteOptionPtrOutput) ToGameServerGroupDeleteOptionPtrOutputWithContext(ctx context.Context) GameServerGroupDeleteOptionPtrOutput {
 	return o
-}
-
-func (o GameServerGroupDeleteOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GameServerGroupDeleteOption] {
-	return pulumix.Output[*GameServerGroupDeleteOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GameServerGroupDeleteOptionPtrOutput) Elem() GameServerGroupDeleteOptionOutput {
@@ -3027,12 +2835,6 @@ func (o GameServerGroupGameServerProtectionPolicyOutput) ToGameServerGroupGameSe
 	}).(GameServerGroupGameServerProtectionPolicyPtrOutput)
 }
 
-func (o GameServerGroupGameServerProtectionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GameServerGroupGameServerProtectionPolicy] {
-	return pulumix.Output[GameServerGroupGameServerProtectionPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GameServerGroupGameServerProtectionPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3066,12 +2868,6 @@ func (o GameServerGroupGameServerProtectionPolicyPtrOutput) ToGameServerGroupGam
 
 func (o GameServerGroupGameServerProtectionPolicyPtrOutput) ToGameServerGroupGameServerProtectionPolicyPtrOutputWithContext(ctx context.Context) GameServerGroupGameServerProtectionPolicyPtrOutput {
 	return o
-}
-
-func (o GameServerGroupGameServerProtectionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GameServerGroupGameServerProtectionPolicy] {
-	return pulumix.Output[*GameServerGroupGameServerProtectionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GameServerGroupGameServerProtectionPolicyPtrOutput) Elem() GameServerGroupGameServerProtectionPolicyOutput {
@@ -3211,12 +3007,6 @@ func (o GameSessionQueuePriorityOrderItemOutput) ToGameSessionQueuePriorityOrder
 	}).(GameSessionQueuePriorityOrderItemPtrOutput)
 }
 
-func (o GameSessionQueuePriorityOrderItemOutput) ToOutput(ctx context.Context) pulumix.Output[GameSessionQueuePriorityOrderItem] {
-	return pulumix.Output[GameSessionQueuePriorityOrderItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GameSessionQueuePriorityOrderItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3250,12 +3040,6 @@ func (o GameSessionQueuePriorityOrderItemPtrOutput) ToGameSessionQueuePriorityOr
 
 func (o GameSessionQueuePriorityOrderItemPtrOutput) ToGameSessionQueuePriorityOrderItemPtrOutputWithContext(ctx context.Context) GameSessionQueuePriorityOrderItemPtrOutput {
 	return o
-}
-
-func (o GameSessionQueuePriorityOrderItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GameSessionQueuePriorityOrderItem] {
-	return pulumix.Output[*GameSessionQueuePriorityOrderItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GameSessionQueuePriorityOrderItemPtrOutput) Elem() GameSessionQueuePriorityOrderItemOutput {
@@ -3351,12 +3135,6 @@ func (i GameSessionQueuePriorityOrderItemArray) ToGameSessionQueuePriorityOrderI
 	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueuePriorityOrderItemArrayOutput)
 }
 
-func (i GameSessionQueuePriorityOrderItemArray) ToOutput(ctx context.Context) pulumix.Output[[]GameSessionQueuePriorityOrderItem] {
-	return pulumix.Output[[]GameSessionQueuePriorityOrderItem]{
-		OutputState: i.ToGameSessionQueuePriorityOrderItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GameSessionQueuePriorityOrderItemArrayOutput struct{ *pulumi.OutputState }
 
 func (GameSessionQueuePriorityOrderItemArrayOutput) ElementType() reflect.Type {
@@ -3369,12 +3147,6 @@ func (o GameSessionQueuePriorityOrderItemArrayOutput) ToGameSessionQueuePriority
 
 func (o GameSessionQueuePriorityOrderItemArrayOutput) ToGameSessionQueuePriorityOrderItemArrayOutputWithContext(ctx context.Context) GameSessionQueuePriorityOrderItemArrayOutput {
 	return o
-}
-
-func (o GameSessionQueuePriorityOrderItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GameSessionQueuePriorityOrderItem] {
-	return pulumix.Output[[]GameSessionQueuePriorityOrderItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GameSessionQueuePriorityOrderItemArrayOutput) Index(i pulumi.IntInput) GameSessionQueuePriorityOrderItemOutput {
@@ -3451,12 +3223,6 @@ func (o MatchmakingConfigurationBackfillModeOutput) ToMatchmakingConfigurationBa
 	}).(MatchmakingConfigurationBackfillModePtrOutput)
 }
 
-func (o MatchmakingConfigurationBackfillModeOutput) ToOutput(ctx context.Context) pulumix.Output[MatchmakingConfigurationBackfillMode] {
-	return pulumix.Output[MatchmakingConfigurationBackfillMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MatchmakingConfigurationBackfillModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3490,12 +3256,6 @@ func (o MatchmakingConfigurationBackfillModePtrOutput) ToMatchmakingConfiguratio
 
 func (o MatchmakingConfigurationBackfillModePtrOutput) ToMatchmakingConfigurationBackfillModePtrOutputWithContext(ctx context.Context) MatchmakingConfigurationBackfillModePtrOutput {
 	return o
-}
-
-func (o MatchmakingConfigurationBackfillModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MatchmakingConfigurationBackfillMode] {
-	return pulumix.Output[*MatchmakingConfigurationBackfillMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MatchmakingConfigurationBackfillModePtrOutput) Elem() MatchmakingConfigurationBackfillModeOutput {
@@ -3634,12 +3394,6 @@ func (o MatchmakingConfigurationFlexMatchModeOutput) ToMatchmakingConfigurationF
 	}).(MatchmakingConfigurationFlexMatchModePtrOutput)
 }
 
-func (o MatchmakingConfigurationFlexMatchModeOutput) ToOutput(ctx context.Context) pulumix.Output[MatchmakingConfigurationFlexMatchMode] {
-	return pulumix.Output[MatchmakingConfigurationFlexMatchMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MatchmakingConfigurationFlexMatchModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3673,12 +3427,6 @@ func (o MatchmakingConfigurationFlexMatchModePtrOutput) ToMatchmakingConfigurati
 
 func (o MatchmakingConfigurationFlexMatchModePtrOutput) ToMatchmakingConfigurationFlexMatchModePtrOutputWithContext(ctx context.Context) MatchmakingConfigurationFlexMatchModePtrOutput {
 	return o
-}
-
-func (o MatchmakingConfigurationFlexMatchModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MatchmakingConfigurationFlexMatchMode] {
-	return pulumix.Output[*MatchmakingConfigurationFlexMatchMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MatchmakingConfigurationFlexMatchModePtrOutput) Elem() MatchmakingConfigurationFlexMatchModeOutput {

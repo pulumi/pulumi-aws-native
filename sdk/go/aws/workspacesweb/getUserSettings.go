@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::WorkSpacesWeb::UserSettings Resource Type
@@ -74,12 +73,6 @@ func (o LookupUserSettingsResultOutput) ToLookupUserSettingsResultOutput() Looku
 
 func (o LookupUserSettingsResultOutput) ToLookupUserSettingsResultOutputWithContext(ctx context.Context) LookupUserSettingsResultOutput {
 	return o
-}
-
-func (o LookupUserSettingsResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupUserSettingsResult] {
-	return pulumix.Output[LookupUserSettingsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupUserSettingsResultOutput) AssociatedPortalArns() pulumi.StringArrayOutput {

@@ -80,12 +80,6 @@ func (o StateMachineAliasDeploymentPreferenceTypeOutput) ToStateMachineAliasDepl
 	}).(StateMachineAliasDeploymentPreferenceTypePtrOutput)
 }
 
-func (o StateMachineAliasDeploymentPreferenceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[StateMachineAliasDeploymentPreferenceType] {
-	return pulumix.Output[StateMachineAliasDeploymentPreferenceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StateMachineAliasDeploymentPreferenceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o StateMachineAliasDeploymentPreferenceTypePtrOutput) ToStateMachineAliasD
 
 func (o StateMachineAliasDeploymentPreferenceTypePtrOutput) ToStateMachineAliasDeploymentPreferenceTypePtrOutputWithContext(ctx context.Context) StateMachineAliasDeploymentPreferenceTypePtrOutput {
 	return o
-}
-
-func (o StateMachineAliasDeploymentPreferenceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StateMachineAliasDeploymentPreferenceType] {
-	return pulumix.Output[*StateMachineAliasDeploymentPreferenceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StateMachineAliasDeploymentPreferenceTypePtrOutput) Elem() StateMachineAliasDeploymentPreferenceTypeOutput {
@@ -264,12 +252,6 @@ func (o StateMachineLoggingConfigurationLevelOutput) ToStateMachineLoggingConfig
 	}).(StateMachineLoggingConfigurationLevelPtrOutput)
 }
 
-func (o StateMachineLoggingConfigurationLevelOutput) ToOutput(ctx context.Context) pulumix.Output[StateMachineLoggingConfigurationLevel] {
-	return pulumix.Output[StateMachineLoggingConfigurationLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StateMachineLoggingConfigurationLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -303,12 +285,6 @@ func (o StateMachineLoggingConfigurationLevelPtrOutput) ToStateMachineLoggingCon
 
 func (o StateMachineLoggingConfigurationLevelPtrOutput) ToStateMachineLoggingConfigurationLevelPtrOutputWithContext(ctx context.Context) StateMachineLoggingConfigurationLevelPtrOutput {
 	return o
-}
-
-func (o StateMachineLoggingConfigurationLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StateMachineLoggingConfigurationLevel] {
-	return pulumix.Output[*StateMachineLoggingConfigurationLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StateMachineLoggingConfigurationLevelPtrOutput) Elem() StateMachineLoggingConfigurationLevelOutput {
@@ -446,12 +422,6 @@ func (o StateMachineTypeOutput) ToStateMachineTypePtrOutputWithContext(ctx conte
 	}).(StateMachineTypePtrOutput)
 }
 
-func (o StateMachineTypeOutput) ToOutput(ctx context.Context) pulumix.Output[StateMachineType] {
-	return pulumix.Output[StateMachineType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StateMachineTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -485,12 +455,6 @@ func (o StateMachineTypePtrOutput) ToStateMachineTypePtrOutput() StateMachineTyp
 
 func (o StateMachineTypePtrOutput) ToStateMachineTypePtrOutputWithContext(ctx context.Context) StateMachineTypePtrOutput {
 	return o
-}
-
-func (o StateMachineTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StateMachineType] {
-	return pulumix.Output[*StateMachineType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StateMachineTypePtrOutput) Elem() StateMachineTypeOutput {

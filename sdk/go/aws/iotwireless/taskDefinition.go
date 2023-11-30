@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a gateway task definition.
@@ -129,12 +128,6 @@ func (i *TaskDefinition) ToTaskDefinitionOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionOutput)
 }
 
-func (i *TaskDefinition) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinition] {
-	return pulumix.Output[*TaskDefinition]{
-		OutputState: i.ToTaskDefinitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TaskDefinitionOutput struct{ *pulumi.OutputState }
 
 func (TaskDefinitionOutput) ElementType() reflect.Type {
@@ -147,12 +140,6 @@ func (o TaskDefinitionOutput) ToTaskDefinitionOutput() TaskDefinitionOutput {
 
 func (o TaskDefinitionOutput) ToTaskDefinitionOutputWithContext(ctx context.Context) TaskDefinitionOutput {
 	return o
-}
-
-func (o TaskDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinition] {
-	return pulumix.Output[*TaskDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // TaskDefinition arn. Returned after successful create.

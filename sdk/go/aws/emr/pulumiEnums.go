@@ -79,12 +79,6 @@ func (o StudioAuthModeOutput) ToStudioAuthModePtrOutputWithContext(ctx context.C
 	}).(StudioAuthModePtrOutput)
 }
 
-func (o StudioAuthModeOutput) ToOutput(ctx context.Context) pulumix.Output[StudioAuthMode] {
-	return pulumix.Output[StudioAuthMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StudioAuthModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o StudioAuthModePtrOutput) ToStudioAuthModePtrOutput() StudioAuthModePtrOu
 
 func (o StudioAuthModePtrOutput) ToStudioAuthModePtrOutputWithContext(ctx context.Context) StudioAuthModePtrOutput {
 	return o
-}
-
-func (o StudioAuthModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StudioAuthMode] {
-	return pulumix.Output[*StudioAuthMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StudioAuthModePtrOutput) Elem() StudioAuthModeOutput {
@@ -262,12 +250,6 @@ func (o StudioSessionMappingIdentityTypeOutput) ToStudioSessionMappingIdentityTy
 	}).(StudioSessionMappingIdentityTypePtrOutput)
 }
 
-func (o StudioSessionMappingIdentityTypeOutput) ToOutput(ctx context.Context) pulumix.Output[StudioSessionMappingIdentityType] {
-	return pulumix.Output[StudioSessionMappingIdentityType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StudioSessionMappingIdentityTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +283,6 @@ func (o StudioSessionMappingIdentityTypePtrOutput) ToStudioSessionMappingIdentit
 
 func (o StudioSessionMappingIdentityTypePtrOutput) ToStudioSessionMappingIdentityTypePtrOutputWithContext(ctx context.Context) StudioSessionMappingIdentityTypePtrOutput {
 	return o
-}
-
-func (o StudioSessionMappingIdentityTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StudioSessionMappingIdentityType] {
-	return pulumix.Output[*StudioSessionMappingIdentityType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StudioSessionMappingIdentityTypePtrOutput) Elem() StudioSessionMappingIdentityTypeOutput {

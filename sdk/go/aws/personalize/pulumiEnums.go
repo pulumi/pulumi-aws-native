@@ -79,12 +79,6 @@ func (o DatasetGroupDomainOutput) ToDatasetGroupDomainPtrOutputWithContext(ctx c
 	}).(DatasetGroupDomainPtrOutput)
 }
 
-func (o DatasetGroupDomainOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetGroupDomain] {
-	return pulumix.Output[DatasetGroupDomain]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetGroupDomainOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o DatasetGroupDomainPtrOutput) ToDatasetGroupDomainPtrOutput() DatasetGrou
 
 func (o DatasetGroupDomainPtrOutput) ToDatasetGroupDomainPtrOutputWithContext(ctx context.Context) DatasetGroupDomainPtrOutput {
 	return o
-}
-
-func (o DatasetGroupDomainPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetGroupDomain] {
-	return pulumix.Output[*DatasetGroupDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatasetGroupDomainPtrOutput) Elem() DatasetGroupDomainOutput {
@@ -263,12 +251,6 @@ func (o DatasetTypeOutput) ToDatasetTypePtrOutputWithContext(ctx context.Context
 	}).(DatasetTypePtrOutput)
 }
 
-func (o DatasetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetType] {
-	return pulumix.Output[DatasetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -302,12 +284,6 @@ func (o DatasetTypePtrOutput) ToDatasetTypePtrOutput() DatasetTypePtrOutput {
 
 func (o DatasetTypePtrOutput) ToDatasetTypePtrOutputWithContext(ctx context.Context) DatasetTypePtrOutput {
 	return o
-}
-
-func (o DatasetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetType] {
-	return pulumix.Output[*DatasetType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatasetTypePtrOutput) Elem() DatasetTypeOutput {
@@ -446,12 +422,6 @@ func (o SchemaDomainOutput) ToSchemaDomainPtrOutputWithContext(ctx context.Conte
 	}).(SchemaDomainPtrOutput)
 }
 
-func (o SchemaDomainOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaDomain] {
-	return pulumix.Output[SchemaDomain]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchemaDomainOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -485,12 +455,6 @@ func (o SchemaDomainPtrOutput) ToSchemaDomainPtrOutput() SchemaDomainPtrOutput {
 
 func (o SchemaDomainPtrOutput) ToSchemaDomainPtrOutputWithContext(ctx context.Context) SchemaDomainPtrOutput {
 	return o
-}
-
-func (o SchemaDomainPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaDomain] {
-	return pulumix.Output[*SchemaDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SchemaDomainPtrOutput) Elem() SchemaDomainOutput {
@@ -629,12 +593,6 @@ func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeOutput) ToSol
 	}).(SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutput)
 }
 
-func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType] {
-	return pulumix.Output[SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -668,12 +626,6 @@ func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutput) To
 
 func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutput) ToSolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutputWithContext(ctx context.Context) SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutput {
 	return o
-}
-
-func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType] {
-	return pulumix.Output[*SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutput) Elem() SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeOutput {

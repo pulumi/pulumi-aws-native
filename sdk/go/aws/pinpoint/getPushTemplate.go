@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::PushTemplate
@@ -73,12 +72,6 @@ func (o LookupPushTemplateResultOutput) ToLookupPushTemplateResultOutput() Looku
 
 func (o LookupPushTemplateResultOutput) ToLookupPushTemplateResultOutputWithContext(ctx context.Context) LookupPushTemplateResultOutput {
 	return o
-}
-
-func (o LookupPushTemplateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPushTemplateResult] {
-	return pulumix.Output[LookupPushTemplateResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupPushTemplateResultOutput) Adm() PushTemplateAndroidPushNotificationTemplatePtrOutput {

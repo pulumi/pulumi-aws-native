@@ -80,12 +80,6 @@ func (o LinkResourceTypeOutput) ToLinkResourceTypePtrOutputWithContext(ctx conte
 	}).(LinkResourceTypePtrOutput)
 }
 
-func (o LinkResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LinkResourceType] {
-	return pulumix.Output[LinkResourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinkResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o LinkResourceTypePtrOutput) ToLinkResourceTypePtrOutput() LinkResourceTyp
 
 func (o LinkResourceTypePtrOutput) ToLinkResourceTypePtrOutputWithContext(ctx context.Context) LinkResourceTypePtrOutput {
 	return o
-}
-
-func (o LinkResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkResourceType] {
-	return pulumix.Output[*LinkResourceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkResourceTypePtrOutput) Elem() LinkResourceTypeOutput {
@@ -220,12 +208,6 @@ func (i LinkResourceTypeArray) ToLinkResourceTypeArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LinkResourceTypeArrayOutput)
 }
 
-func (i LinkResourceTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]LinkResourceType] {
-	return pulumix.Output[[]LinkResourceType]{
-		OutputState: i.ToLinkResourceTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkResourceTypeArrayOutput struct{ *pulumi.OutputState }
 
 func (LinkResourceTypeArrayOutput) ElementType() reflect.Type {
@@ -238,12 +220,6 @@ func (o LinkResourceTypeArrayOutput) ToLinkResourceTypeArrayOutput() LinkResourc
 
 func (o LinkResourceTypeArrayOutput) ToLinkResourceTypeArrayOutputWithContext(ctx context.Context) LinkResourceTypeArrayOutput {
 	return o
-}
-
-func (o LinkResourceTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LinkResourceType] {
-	return pulumix.Output[[]LinkResourceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkResourceTypeArrayOutput) Index(i pulumi.IntInput) LinkResourceTypeOutput {

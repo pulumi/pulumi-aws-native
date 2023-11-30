@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Glue::Crawler
@@ -76,12 +75,6 @@ func (o LookupCrawlerResultOutput) ToLookupCrawlerResultOutput() LookupCrawlerRe
 
 func (o LookupCrawlerResultOutput) ToLookupCrawlerResultOutputWithContext(ctx context.Context) LookupCrawlerResultOutput {
 	return o
-}
-
-func (o LookupCrawlerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCrawlerResult] {
-	return pulumix.Output[LookupCrawlerResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupCrawlerResultOutput) Classifiers() pulumi.StringArrayOutput {

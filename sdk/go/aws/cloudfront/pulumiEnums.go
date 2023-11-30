@@ -78,12 +78,6 @@ func (o ContinuousDeploymentPolicyConfigTypeOutput) ToContinuousDeploymentPolicy
 	}).(ContinuousDeploymentPolicyConfigTypePtrOutput)
 }
 
-func (o ContinuousDeploymentPolicyConfigTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ContinuousDeploymentPolicyConfigType] {
-	return pulumix.Output[ContinuousDeploymentPolicyConfigType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContinuousDeploymentPolicyConfigTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o ContinuousDeploymentPolicyConfigTypePtrOutput) ToContinuousDeploymentPol
 
 func (o ContinuousDeploymentPolicyConfigTypePtrOutput) ToContinuousDeploymentPolicyConfigTypePtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyConfigTypePtrOutput {
 	return o
-}
-
-func (o ContinuousDeploymentPolicyConfigTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContinuousDeploymentPolicyConfigType] {
-	return pulumix.Output[*ContinuousDeploymentPolicyConfigType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContinuousDeploymentPolicyConfigTypePtrOutput) Elem() ContinuousDeploymentPolicyConfigTypeOutput {
@@ -260,12 +248,6 @@ func (o ContinuousDeploymentPolicyTrafficConfigTypeOutput) ToContinuousDeploymen
 	}).(ContinuousDeploymentPolicyTrafficConfigTypePtrOutput)
 }
 
-func (o ContinuousDeploymentPolicyTrafficConfigTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ContinuousDeploymentPolicyTrafficConfigType] {
-	return pulumix.Output[ContinuousDeploymentPolicyTrafficConfigType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContinuousDeploymentPolicyTrafficConfigTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -299,12 +281,6 @@ func (o ContinuousDeploymentPolicyTrafficConfigTypePtrOutput) ToContinuousDeploy
 
 func (o ContinuousDeploymentPolicyTrafficConfigTypePtrOutput) ToContinuousDeploymentPolicyTrafficConfigTypePtrOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyTrafficConfigTypePtrOutput {
 	return o
-}
-
-func (o ContinuousDeploymentPolicyTrafficConfigTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContinuousDeploymentPolicyTrafficConfigType] {
-	return pulumix.Output[*ContinuousDeploymentPolicyTrafficConfigType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContinuousDeploymentPolicyTrafficConfigTypePtrOutput) Elem() ContinuousDeploymentPolicyTrafficConfigTypeOutput {
@@ -442,12 +418,6 @@ func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSu
 	}).(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput)
 }
 
-func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusOutput) ToOutput(ctx context.Context) pulumix.Output[MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus] {
-	return pulumix.Output[MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -481,12 +451,6 @@ func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSu
 
 func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput) ToMonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutputWithContext(ctx context.Context) MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput {
 	return o
-}
-
-func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus] {
-	return pulumix.Output[*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput) Elem() MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusOutput {

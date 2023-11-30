@@ -45,12 +45,6 @@ func (o FhirDatastoreDatastoreStatusOutput) ToFhirDatastoreDatastoreStatusPtrOut
 	}).(FhirDatastoreDatastoreStatusPtrOutput)
 }
 
-func (o FhirDatastoreDatastoreStatusOutput) ToOutput(ctx context.Context) pulumix.Output[FhirDatastoreDatastoreStatus] {
-	return pulumix.Output[FhirDatastoreDatastoreStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FhirDatastoreDatastoreStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -84,12 +78,6 @@ func (o FhirDatastoreDatastoreStatusPtrOutput) ToFhirDatastoreDatastoreStatusPtr
 
 func (o FhirDatastoreDatastoreStatusPtrOutput) ToFhirDatastoreDatastoreStatusPtrOutputWithContext(ctx context.Context) FhirDatastoreDatastoreStatusPtrOutput {
 	return o
-}
-
-func (o FhirDatastoreDatastoreStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FhirDatastoreDatastoreStatus] {
-	return pulumix.Output[*FhirDatastoreDatastoreStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FhirDatastoreDatastoreStatusPtrOutput) Elem() FhirDatastoreDatastoreStatusOutput {
@@ -183,12 +171,6 @@ func (o FhirDatastoreDatastoreTypeVersionOutput) ToFhirDatastoreDatastoreTypeVer
 	}).(FhirDatastoreDatastoreTypeVersionPtrOutput)
 }
 
-func (o FhirDatastoreDatastoreTypeVersionOutput) ToOutput(ctx context.Context) pulumix.Output[FhirDatastoreDatastoreTypeVersion] {
-	return pulumix.Output[FhirDatastoreDatastoreTypeVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FhirDatastoreDatastoreTypeVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -222,12 +204,6 @@ func (o FhirDatastoreDatastoreTypeVersionPtrOutput) ToFhirDatastoreDatastoreType
 
 func (o FhirDatastoreDatastoreTypeVersionPtrOutput) ToFhirDatastoreDatastoreTypeVersionPtrOutputWithContext(ctx context.Context) FhirDatastoreDatastoreTypeVersionPtrOutput {
 	return o
-}
-
-func (o FhirDatastoreDatastoreTypeVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FhirDatastoreDatastoreTypeVersion] {
-	return pulumix.Output[*FhirDatastoreDatastoreTypeVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FhirDatastoreDatastoreTypeVersionPtrOutput) Elem() FhirDatastoreDatastoreTypeVersionOutput {
@@ -366,12 +342,6 @@ func (o FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput) T
 	}).(FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput)
 }
 
-func (o FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy] {
-	return pulumix.Output[FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -405,12 +375,6 @@ func (o FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput
 
 func (o FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput) ToFhirDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutputWithContext(ctx context.Context) FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput {
 	return o
-}
-
-func (o FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy] {
-	return pulumix.Output[*FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput) Elem() FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput {
@@ -549,12 +513,6 @@ func (o FhirDatastoreKmsEncryptionConfigCmkTypeOutput) ToFhirDatastoreKmsEncrypt
 	}).(FhirDatastoreKmsEncryptionConfigCmkTypePtrOutput)
 }
 
-func (o FhirDatastoreKmsEncryptionConfigCmkTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FhirDatastoreKmsEncryptionConfigCmkType] {
-	return pulumix.Output[FhirDatastoreKmsEncryptionConfigCmkType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FhirDatastoreKmsEncryptionConfigCmkTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -588,12 +546,6 @@ func (o FhirDatastoreKmsEncryptionConfigCmkTypePtrOutput) ToFhirDatastoreKmsEncr
 
 func (o FhirDatastoreKmsEncryptionConfigCmkTypePtrOutput) ToFhirDatastoreKmsEncryptionConfigCmkTypePtrOutputWithContext(ctx context.Context) FhirDatastoreKmsEncryptionConfigCmkTypePtrOutput {
 	return o
-}
-
-func (o FhirDatastoreKmsEncryptionConfigCmkTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FhirDatastoreKmsEncryptionConfigCmkType] {
-	return pulumix.Output[*FhirDatastoreKmsEncryptionConfigCmkType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FhirDatastoreKmsEncryptionConfigCmkTypePtrOutput) Elem() FhirDatastoreKmsEncryptionConfigCmkTypeOutput {
@@ -731,12 +683,6 @@ func (o FhirDatastorePreloadDataConfigPreloadDataTypeOutput) ToFhirDatastorePrel
 	}).(FhirDatastorePreloadDataConfigPreloadDataTypePtrOutput)
 }
 
-func (o FhirDatastorePreloadDataConfigPreloadDataTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FhirDatastorePreloadDataConfigPreloadDataType] {
-	return pulumix.Output[FhirDatastorePreloadDataConfigPreloadDataType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FhirDatastorePreloadDataConfigPreloadDataTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -770,12 +716,6 @@ func (o FhirDatastorePreloadDataConfigPreloadDataTypePtrOutput) ToFhirDatastoreP
 
 func (o FhirDatastorePreloadDataConfigPreloadDataTypePtrOutput) ToFhirDatastorePreloadDataConfigPreloadDataTypePtrOutputWithContext(ctx context.Context) FhirDatastorePreloadDataConfigPreloadDataTypePtrOutput {
 	return o
-}
-
-func (o FhirDatastorePreloadDataConfigPreloadDataTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FhirDatastorePreloadDataConfigPreloadDataType] {
-	return pulumix.Output[*FhirDatastorePreloadDataConfigPreloadDataType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FhirDatastorePreloadDataConfigPreloadDataTypePtrOutput) Elem() FhirDatastorePreloadDataConfigPreloadDataTypeOutput {

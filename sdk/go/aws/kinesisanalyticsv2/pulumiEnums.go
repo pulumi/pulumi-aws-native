@@ -79,12 +79,6 @@ func (o ApplicationCheckpointConfigurationConfigurationTypeOutput) ToApplication
 	}).(ApplicationCheckpointConfigurationConfigurationTypePtrOutput)
 }
 
-func (o ApplicationCheckpointConfigurationConfigurationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCheckpointConfigurationConfigurationType] {
-	return pulumix.Output[ApplicationCheckpointConfigurationConfigurationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationCheckpointConfigurationConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o ApplicationCheckpointConfigurationConfigurationTypePtrOutput) ToApplicat
 
 func (o ApplicationCheckpointConfigurationConfigurationTypePtrOutput) ToApplicationCheckpointConfigurationConfigurationTypePtrOutputWithContext(ctx context.Context) ApplicationCheckpointConfigurationConfigurationTypePtrOutput {
 	return o
-}
-
-func (o ApplicationCheckpointConfigurationConfigurationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCheckpointConfigurationConfigurationType] {
-	return pulumix.Output[*ApplicationCheckpointConfigurationConfigurationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationCheckpointConfigurationConfigurationTypePtrOutput) Elem() ApplicationCheckpointConfigurationConfigurationTypeOutput {
@@ -262,12 +250,6 @@ func (o ApplicationCodeConfigurationCodeContentTypeOutput) ToApplicationCodeConf
 	}).(ApplicationCodeConfigurationCodeContentTypePtrOutput)
 }
 
-func (o ApplicationCodeConfigurationCodeContentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCodeConfigurationCodeContentType] {
-	return pulumix.Output[ApplicationCodeConfigurationCodeContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationCodeConfigurationCodeContentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +283,6 @@ func (o ApplicationCodeConfigurationCodeContentTypePtrOutput) ToApplicationCodeC
 
 func (o ApplicationCodeConfigurationCodeContentTypePtrOutput) ToApplicationCodeConfigurationCodeContentTypePtrOutputWithContext(ctx context.Context) ApplicationCodeConfigurationCodeContentTypePtrOutput {
 	return o
-}
-
-func (o ApplicationCodeConfigurationCodeContentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCodeConfigurationCodeContentType] {
-	return pulumix.Output[*ApplicationCodeConfigurationCodeContentType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationCodeConfigurationCodeContentTypePtrOutput) Elem() ApplicationCodeConfigurationCodeContentTypeOutput {
@@ -445,12 +421,6 @@ func (o ApplicationCustomArtifactConfigurationArtifactTypeOutput) ToApplicationC
 	}).(ApplicationCustomArtifactConfigurationArtifactTypePtrOutput)
 }
 
-func (o ApplicationCustomArtifactConfigurationArtifactTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCustomArtifactConfigurationArtifactType] {
-	return pulumix.Output[ApplicationCustomArtifactConfigurationArtifactType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationCustomArtifactConfigurationArtifactTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -484,12 +454,6 @@ func (o ApplicationCustomArtifactConfigurationArtifactTypePtrOutput) ToApplicati
 
 func (o ApplicationCustomArtifactConfigurationArtifactTypePtrOutput) ToApplicationCustomArtifactConfigurationArtifactTypePtrOutputWithContext(ctx context.Context) ApplicationCustomArtifactConfigurationArtifactTypePtrOutput {
 	return o
-}
-
-func (o ApplicationCustomArtifactConfigurationArtifactTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCustomArtifactConfigurationArtifactType] {
-	return pulumix.Output[*ApplicationCustomArtifactConfigurationArtifactType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationCustomArtifactConfigurationArtifactTypePtrOutput) Elem() ApplicationCustomArtifactConfigurationArtifactTypeOutput {
@@ -627,12 +591,6 @@ func (o ApplicationInputSchemaRecordEncodingOutput) ToApplicationInputSchemaReco
 	}).(ApplicationInputSchemaRecordEncodingPtrOutput)
 }
 
-func (o ApplicationInputSchemaRecordEncodingOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationInputSchemaRecordEncoding] {
-	return pulumix.Output[ApplicationInputSchemaRecordEncoding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationInputSchemaRecordEncodingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -666,12 +624,6 @@ func (o ApplicationInputSchemaRecordEncodingPtrOutput) ToApplicationInputSchemaR
 
 func (o ApplicationInputSchemaRecordEncodingPtrOutput) ToApplicationInputSchemaRecordEncodingPtrOutputWithContext(ctx context.Context) ApplicationInputSchemaRecordEncodingPtrOutput {
 	return o
-}
-
-func (o ApplicationInputSchemaRecordEncodingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationInputSchemaRecordEncoding] {
-	return pulumix.Output[*ApplicationInputSchemaRecordEncoding]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationInputSchemaRecordEncodingPtrOutput) Elem() ApplicationInputSchemaRecordEncodingOutput {
@@ -810,12 +762,6 @@ func (o ApplicationModeOutput) ToApplicationModePtrOutputWithContext(ctx context
 	}).(ApplicationModePtrOutput)
 }
 
-func (o ApplicationModeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationMode] {
-	return pulumix.Output[ApplicationMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -849,12 +795,6 @@ func (o ApplicationModePtrOutput) ToApplicationModePtrOutput() ApplicationModePt
 
 func (o ApplicationModePtrOutput) ToApplicationModePtrOutputWithContext(ctx context.Context) ApplicationModePtrOutput {
 	return o
-}
-
-func (o ApplicationModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMode] {
-	return pulumix.Output[*ApplicationMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationModePtrOutput) Elem() ApplicationModeOutput {
@@ -993,12 +933,6 @@ func (o ApplicationMonitoringConfigurationConfigurationTypeOutput) ToApplication
 	}).(ApplicationMonitoringConfigurationConfigurationTypePtrOutput)
 }
 
-func (o ApplicationMonitoringConfigurationConfigurationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationMonitoringConfigurationConfigurationType] {
-	return pulumix.Output[ApplicationMonitoringConfigurationConfigurationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationMonitoringConfigurationConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1032,12 +966,6 @@ func (o ApplicationMonitoringConfigurationConfigurationTypePtrOutput) ToApplicat
 
 func (o ApplicationMonitoringConfigurationConfigurationTypePtrOutput) ToApplicationMonitoringConfigurationConfigurationTypePtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationConfigurationTypePtrOutput {
 	return o
-}
-
-func (o ApplicationMonitoringConfigurationConfigurationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMonitoringConfigurationConfigurationType] {
-	return pulumix.Output[*ApplicationMonitoringConfigurationConfigurationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationMonitoringConfigurationConfigurationTypePtrOutput) Elem() ApplicationMonitoringConfigurationConfigurationTypeOutput {
@@ -1178,12 +1106,6 @@ func (o ApplicationMonitoringConfigurationLogLevelOutput) ToApplicationMonitorin
 	}).(ApplicationMonitoringConfigurationLogLevelPtrOutput)
 }
 
-func (o ApplicationMonitoringConfigurationLogLevelOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationMonitoringConfigurationLogLevel] {
-	return pulumix.Output[ApplicationMonitoringConfigurationLogLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationMonitoringConfigurationLogLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1217,12 +1139,6 @@ func (o ApplicationMonitoringConfigurationLogLevelPtrOutput) ToApplicationMonito
 
 func (o ApplicationMonitoringConfigurationLogLevelPtrOutput) ToApplicationMonitoringConfigurationLogLevelPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationLogLevelPtrOutput {
 	return o
-}
-
-func (o ApplicationMonitoringConfigurationLogLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMonitoringConfigurationLogLevel] {
-	return pulumix.Output[*ApplicationMonitoringConfigurationLogLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationMonitoringConfigurationLogLevelPtrOutput) Elem() ApplicationMonitoringConfigurationLogLevelOutput {
@@ -1363,12 +1279,6 @@ func (o ApplicationMonitoringConfigurationMetricsLevelOutput) ToApplicationMonit
 	}).(ApplicationMonitoringConfigurationMetricsLevelPtrOutput)
 }
 
-func (o ApplicationMonitoringConfigurationMetricsLevelOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationMonitoringConfigurationMetricsLevel] {
-	return pulumix.Output[ApplicationMonitoringConfigurationMetricsLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationMonitoringConfigurationMetricsLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1402,12 +1312,6 @@ func (o ApplicationMonitoringConfigurationMetricsLevelPtrOutput) ToApplicationMo
 
 func (o ApplicationMonitoringConfigurationMetricsLevelPtrOutput) ToApplicationMonitoringConfigurationMetricsLevelPtrOutputWithContext(ctx context.Context) ApplicationMonitoringConfigurationMetricsLevelPtrOutput {
 	return o
-}
-
-func (o ApplicationMonitoringConfigurationMetricsLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationMonitoringConfigurationMetricsLevel] {
-	return pulumix.Output[*ApplicationMonitoringConfigurationMetricsLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationMonitoringConfigurationMetricsLevelPtrOutput) Elem() ApplicationMonitoringConfigurationMetricsLevelOutput {
@@ -1546,12 +1450,6 @@ func (o ApplicationParallelismConfigurationConfigurationTypeOutput) ToApplicatio
 	}).(ApplicationParallelismConfigurationConfigurationTypePtrOutput)
 }
 
-func (o ApplicationParallelismConfigurationConfigurationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationParallelismConfigurationConfigurationType] {
-	return pulumix.Output[ApplicationParallelismConfigurationConfigurationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationParallelismConfigurationConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1585,12 +1483,6 @@ func (o ApplicationParallelismConfigurationConfigurationTypePtrOutput) ToApplica
 
 func (o ApplicationParallelismConfigurationConfigurationTypePtrOutput) ToApplicationParallelismConfigurationConfigurationTypePtrOutputWithContext(ctx context.Context) ApplicationParallelismConfigurationConfigurationTypePtrOutput {
 	return o
-}
-
-func (o ApplicationParallelismConfigurationConfigurationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationParallelismConfigurationConfigurationType] {
-	return pulumix.Output[*ApplicationParallelismConfigurationConfigurationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationParallelismConfigurationConfigurationTypePtrOutput) Elem() ApplicationParallelismConfigurationConfigurationTypeOutput {
@@ -1729,12 +1621,6 @@ func (o ApplicationRecordFormatRecordFormatTypeOutput) ToApplicationRecordFormat
 	}).(ApplicationRecordFormatRecordFormatTypePtrOutput)
 }
 
-func (o ApplicationRecordFormatRecordFormatTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationRecordFormatRecordFormatType] {
-	return pulumix.Output[ApplicationRecordFormatRecordFormatType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationRecordFormatRecordFormatTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1768,12 +1654,6 @@ func (o ApplicationRecordFormatRecordFormatTypePtrOutput) ToApplicationRecordFor
 
 func (o ApplicationRecordFormatRecordFormatTypePtrOutput) ToApplicationRecordFormatRecordFormatTypePtrOutputWithContext(ctx context.Context) ApplicationRecordFormatRecordFormatTypePtrOutput {
 	return o
-}
-
-func (o ApplicationRecordFormatRecordFormatTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationRecordFormatRecordFormatType] {
-	return pulumix.Output[*ApplicationRecordFormatRecordFormatType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationRecordFormatRecordFormatTypePtrOutput) Elem() ApplicationRecordFormatRecordFormatTypeOutput {
@@ -1913,12 +1793,6 @@ func (o ApplicationRestoreConfigurationApplicationRestoreTypeOutput) ToApplicati
 	}).(ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput)
 }
 
-func (o ApplicationRestoreConfigurationApplicationRestoreTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationRestoreConfigurationApplicationRestoreType] {
-	return pulumix.Output[ApplicationRestoreConfigurationApplicationRestoreType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationRestoreConfigurationApplicationRestoreTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1952,12 +1826,6 @@ func (o ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput) ToApplic
 
 func (o ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput) ToApplicationRestoreConfigurationApplicationRestoreTypePtrOutputWithContext(ctx context.Context) ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput {
 	return o
-}
-
-func (o ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationRestoreConfigurationApplicationRestoreType] {
-	return pulumix.Output[*ApplicationRestoreConfigurationApplicationRestoreType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationRestoreConfigurationApplicationRestoreTypePtrOutput) Elem() ApplicationRestoreConfigurationApplicationRestoreTypeOutput {
@@ -2098,12 +1966,6 @@ func (o ApplicationZeppelinMonitoringConfigurationLogLevelOutput) ToApplicationZ
 	}).(ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput)
 }
 
-func (o ApplicationZeppelinMonitoringConfigurationLogLevelOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationZeppelinMonitoringConfigurationLogLevel] {
-	return pulumix.Output[ApplicationZeppelinMonitoringConfigurationLogLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationZeppelinMonitoringConfigurationLogLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2137,12 +1999,6 @@ func (o ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput) ToApplicati
 
 func (o ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput) ToApplicationZeppelinMonitoringConfigurationLogLevelPtrOutputWithContext(ctx context.Context) ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput {
 	return o
-}
-
-func (o ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationZeppelinMonitoringConfigurationLogLevel] {
-	return pulumix.Output[*ApplicationZeppelinMonitoringConfigurationLogLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationZeppelinMonitoringConfigurationLogLevelPtrOutput) Elem() ApplicationZeppelinMonitoringConfigurationLogLevelOutput {

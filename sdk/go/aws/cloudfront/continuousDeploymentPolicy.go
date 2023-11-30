@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFront::ContinuousDeploymentPolicy
@@ -95,12 +94,6 @@ func (i *ContinuousDeploymentPolicy) ToContinuousDeploymentPolicyOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ContinuousDeploymentPolicyOutput)
 }
 
-func (i *ContinuousDeploymentPolicy) ToOutput(ctx context.Context) pulumix.Output[*ContinuousDeploymentPolicy] {
-	return pulumix.Output[*ContinuousDeploymentPolicy]{
-		OutputState: i.ToContinuousDeploymentPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContinuousDeploymentPolicyOutput struct{ *pulumi.OutputState }
 
 func (ContinuousDeploymentPolicyOutput) ElementType() reflect.Type {
@@ -113,12 +106,6 @@ func (o ContinuousDeploymentPolicyOutput) ToContinuousDeploymentPolicyOutput() C
 
 func (o ContinuousDeploymentPolicyOutput) ToContinuousDeploymentPolicyOutputWithContext(ctx context.Context) ContinuousDeploymentPolicyOutput {
 	return o
-}
-
-func (o ContinuousDeploymentPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ContinuousDeploymentPolicy] {
-	return pulumix.Output[*ContinuousDeploymentPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContinuousDeploymentPolicyOutput) ContinuousDeploymentPolicyConfig() ContinuousDeploymentPolicyConfigOutput {

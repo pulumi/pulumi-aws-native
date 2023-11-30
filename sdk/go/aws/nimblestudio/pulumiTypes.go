@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -113,12 +112,6 @@ func (i LaunchProfileStreamConfigurationArgs) ToLaunchProfileStreamConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamConfigurationOutput)
 }
 
-func (i LaunchProfileStreamConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileStreamConfiguration] {
-	return pulumix.Output[LaunchProfileStreamConfiguration]{
-		OutputState: i.ToLaunchProfileStreamConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>A configuration for a streaming session.</p>
 type LaunchProfileStreamConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -132,12 +125,6 @@ func (o LaunchProfileStreamConfigurationOutput) ToLaunchProfileStreamConfigurati
 
 func (o LaunchProfileStreamConfigurationOutput) ToLaunchProfileStreamConfigurationOutputWithContext(ctx context.Context) LaunchProfileStreamConfigurationOutput {
 	return o
-}
-
-func (o LaunchProfileStreamConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileStreamConfiguration] {
-	return pulumix.Output[LaunchProfileStreamConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LaunchProfileStreamConfigurationOutput) AutomaticTerminationMode() LaunchProfileAutomaticTerminationModePtrOutput {
@@ -232,12 +219,6 @@ func (o LaunchProfileStreamConfigurationPtrOutput) ToLaunchProfileStreamConfigur
 
 func (o LaunchProfileStreamConfigurationPtrOutput) ToLaunchProfileStreamConfigurationPtrOutputWithContext(ctx context.Context) LaunchProfileStreamConfigurationPtrOutput {
 	return o
-}
-
-func (o LaunchProfileStreamConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileStreamConfiguration] {
-	return pulumix.Output[*LaunchProfileStreamConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LaunchProfileStreamConfigurationPtrOutput) Elem() LaunchProfileStreamConfigurationOutput {
@@ -411,12 +392,6 @@ func (i LaunchProfileStreamConfigurationSessionBackupArgs) ToLaunchProfileStream
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamConfigurationSessionBackupOutput)
 }
 
-func (i LaunchProfileStreamConfigurationSessionBackupArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileStreamConfigurationSessionBackup] {
-	return pulumix.Output[LaunchProfileStreamConfigurationSessionBackup]{
-		OutputState: i.ToLaunchProfileStreamConfigurationSessionBackupOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LaunchProfileStreamConfigurationSessionBackupArgs) ToLaunchProfileStreamConfigurationSessionBackupPtrOutput() LaunchProfileStreamConfigurationSessionBackupPtrOutput {
 	return i.ToLaunchProfileStreamConfigurationSessionBackupPtrOutputWithContext(context.Background())
 }
@@ -458,12 +433,6 @@ func (i *launchProfileStreamConfigurationSessionBackupPtrType) ToLaunchProfileSt
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamConfigurationSessionBackupPtrOutput)
 }
 
-func (i *launchProfileStreamConfigurationSessionBackupPtrType) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileStreamConfigurationSessionBackup] {
-	return pulumix.Output[*LaunchProfileStreamConfigurationSessionBackup]{
-		OutputState: i.ToLaunchProfileStreamConfigurationSessionBackupPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>Configures how streaming sessions are backed up when launched from this launch
 //
 //	profile.</p>
@@ -491,12 +460,6 @@ func (o LaunchProfileStreamConfigurationSessionBackupOutput) ToLaunchProfileStre
 	}).(LaunchProfileStreamConfigurationSessionBackupPtrOutput)
 }
 
-func (o LaunchProfileStreamConfigurationSessionBackupOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileStreamConfigurationSessionBackup] {
-	return pulumix.Output[LaunchProfileStreamConfigurationSessionBackup]{
-		OutputState: o.OutputState,
-	}
-}
-
 // <p>The maximum number of backups that each streaming session created from this launch
 //
 //	profile can have.</p>
@@ -520,12 +483,6 @@ func (o LaunchProfileStreamConfigurationSessionBackupPtrOutput) ToLaunchProfileS
 
 func (o LaunchProfileStreamConfigurationSessionBackupPtrOutput) ToLaunchProfileStreamConfigurationSessionBackupPtrOutputWithContext(ctx context.Context) LaunchProfileStreamConfigurationSessionBackupPtrOutput {
 	return o
-}
-
-func (o LaunchProfileStreamConfigurationSessionBackupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileStreamConfigurationSessionBackup] {
-	return pulumix.Output[*LaunchProfileStreamConfigurationSessionBackup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LaunchProfileStreamConfigurationSessionBackupPtrOutput) Elem() LaunchProfileStreamConfigurationSessionBackupOutput {
@@ -598,12 +555,6 @@ func (i LaunchProfileStreamConfigurationSessionStorageArgs) ToLaunchProfileStrea
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamConfigurationSessionStorageOutput)
 }
 
-func (i LaunchProfileStreamConfigurationSessionStorageArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileStreamConfigurationSessionStorage] {
-	return pulumix.Output[LaunchProfileStreamConfigurationSessionStorage]{
-		OutputState: i.ToLaunchProfileStreamConfigurationSessionStorageOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LaunchProfileStreamConfigurationSessionStorageArgs) ToLaunchProfileStreamConfigurationSessionStoragePtrOutput() LaunchProfileStreamConfigurationSessionStoragePtrOutput {
 	return i.ToLaunchProfileStreamConfigurationSessionStoragePtrOutputWithContext(context.Background())
 }
@@ -645,12 +596,6 @@ func (i *launchProfileStreamConfigurationSessionStoragePtrType) ToLaunchProfileS
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamConfigurationSessionStoragePtrOutput)
 }
 
-func (i *launchProfileStreamConfigurationSessionStoragePtrType) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileStreamConfigurationSessionStorage] {
-	return pulumix.Output[*LaunchProfileStreamConfigurationSessionStorage]{
-		OutputState: i.ToLaunchProfileStreamConfigurationSessionStoragePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>The configuration for a streaming session’s upload storage.</p>
 type LaunchProfileStreamConfigurationSessionStorageOutput struct{ *pulumi.OutputState }
 
@@ -674,12 +619,6 @@ func (o LaunchProfileStreamConfigurationSessionStorageOutput) ToLaunchProfileStr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchProfileStreamConfigurationSessionStorage) *LaunchProfileStreamConfigurationSessionStorage {
 		return &v
 	}).(LaunchProfileStreamConfigurationSessionStoragePtrOutput)
-}
-
-func (o LaunchProfileStreamConfigurationSessionStorageOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileStreamConfigurationSessionStorage] {
-	return pulumix.Output[LaunchProfileStreamConfigurationSessionStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>Allows artists to upload files to their workstations. The only valid option is
@@ -709,12 +648,6 @@ func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) ToLaunchProfile
 
 func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) ToLaunchProfileStreamConfigurationSessionStoragePtrOutputWithContext(ctx context.Context) LaunchProfileStreamConfigurationSessionStoragePtrOutput {
 	return o
-}
-
-func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileStreamConfigurationSessionStorage] {
-	return pulumix.Output[*LaunchProfileStreamConfigurationSessionStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) Elem() LaunchProfileStreamConfigurationSessionStorageOutput {
@@ -791,12 +724,6 @@ func (i LaunchProfileStreamingSessionStorageRootArgs) ToLaunchProfileStreamingSe
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamingSessionStorageRootOutput)
 }
 
-func (i LaunchProfileStreamingSessionStorageRootArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileStreamingSessionStorageRoot] {
-	return pulumix.Output[LaunchProfileStreamingSessionStorageRoot]{
-		OutputState: i.ToLaunchProfileStreamingSessionStorageRootOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LaunchProfileStreamingSessionStorageRootArgs) ToLaunchProfileStreamingSessionStorageRootPtrOutput() LaunchProfileStreamingSessionStorageRootPtrOutput {
 	return i.ToLaunchProfileStreamingSessionStorageRootPtrOutputWithContext(context.Background())
 }
@@ -838,12 +765,6 @@ func (i *launchProfileStreamingSessionStorageRootPtrType) ToLaunchProfileStreami
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamingSessionStorageRootPtrOutput)
 }
 
-func (i *launchProfileStreamingSessionStorageRootPtrType) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileStreamingSessionStorageRoot] {
-	return pulumix.Output[*LaunchProfileStreamingSessionStorageRoot]{
-		OutputState: i.ToLaunchProfileStreamingSessionStorageRootPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>The upload storage root location (folder) on streaming workstations where files are
 //
 //	uploaded.</p>
@@ -871,12 +792,6 @@ func (o LaunchProfileStreamingSessionStorageRootOutput) ToLaunchProfileStreaming
 	}).(LaunchProfileStreamingSessionStorageRootPtrOutput)
 }
 
-func (o LaunchProfileStreamingSessionStorageRootOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileStreamingSessionStorageRoot] {
-	return pulumix.Output[LaunchProfileStreamingSessionStorageRoot]{
-		OutputState: o.OutputState,
-	}
-}
-
 // <p>The folder path in Linux workstations where files are uploaded.</p>
 func (o LaunchProfileStreamingSessionStorageRootOutput) Linux() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamingSessionStorageRoot) *string { return v.Linux }).(pulumi.StringPtrOutput)
@@ -899,12 +814,6 @@ func (o LaunchProfileStreamingSessionStorageRootPtrOutput) ToLaunchProfileStream
 
 func (o LaunchProfileStreamingSessionStorageRootPtrOutput) ToLaunchProfileStreamingSessionStorageRootPtrOutputWithContext(ctx context.Context) LaunchProfileStreamingSessionStorageRootPtrOutput {
 	return o
-}
-
-func (o LaunchProfileStreamingSessionStorageRootPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileStreamingSessionStorageRoot] {
-	return pulumix.Output[*LaunchProfileStreamingSessionStorageRoot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LaunchProfileStreamingSessionStorageRootPtrOutput) Elem() LaunchProfileStreamingSessionStorageRootOutput {
@@ -966,12 +875,6 @@ func (i LaunchProfileTagsArgs) ToLaunchProfileTagsOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileTagsOutput)
 }
 
-func (i LaunchProfileTagsArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileTags] {
-	return pulumix.Output[LaunchProfileTags]{
-		OutputState: i.ToLaunchProfileTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LaunchProfileTagsArgs) ToLaunchProfileTagsPtrOutput() LaunchProfileTagsPtrOutput {
 	return i.ToLaunchProfileTagsPtrOutputWithContext(context.Background())
 }
@@ -1013,12 +916,6 @@ func (i *launchProfileTagsPtrType) ToLaunchProfileTagsPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileTagsPtrOutput)
 }
 
-func (i *launchProfileTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileTags] {
-	return pulumix.Output[*LaunchProfileTags]{
-		OutputState: i.ToLaunchProfileTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LaunchProfileTagsOutput struct{ *pulumi.OutputState }
 
 func (LaunchProfileTagsOutput) ElementType() reflect.Type {
@@ -1043,12 +940,6 @@ func (o LaunchProfileTagsOutput) ToLaunchProfileTagsPtrOutputWithContext(ctx con
 	}).(LaunchProfileTagsPtrOutput)
 }
 
-func (o LaunchProfileTagsOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileTags] {
-	return pulumix.Output[LaunchProfileTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 type LaunchProfileTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (LaunchProfileTagsPtrOutput) ElementType() reflect.Type {
@@ -1061,12 +952,6 @@ func (o LaunchProfileTagsPtrOutput) ToLaunchProfileTagsPtrOutput() LaunchProfile
 
 func (o LaunchProfileTagsPtrOutput) ToLaunchProfileTagsPtrOutputWithContext(ctx context.Context) LaunchProfileTagsPtrOutput {
 	return o
-}
-
-func (o LaunchProfileTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileTags] {
-	return pulumix.Output[*LaunchProfileTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LaunchProfileTagsPtrOutput) Elem() LaunchProfileTagsOutput {
@@ -1136,12 +1021,6 @@ func (i LaunchProfileVolumeConfigurationArgs) ToLaunchProfileVolumeConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileVolumeConfigurationOutput)
 }
 
-func (i LaunchProfileVolumeConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileVolumeConfiguration] {
-	return pulumix.Output[LaunchProfileVolumeConfiguration]{
-		OutputState: i.ToLaunchProfileVolumeConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LaunchProfileVolumeConfigurationArgs) ToLaunchProfileVolumeConfigurationPtrOutput() LaunchProfileVolumeConfigurationPtrOutput {
 	return i.ToLaunchProfileVolumeConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1183,12 +1062,6 @@ func (i *launchProfileVolumeConfigurationPtrType) ToLaunchProfileVolumeConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileVolumeConfigurationPtrOutput)
 }
 
-func (i *launchProfileVolumeConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileVolumeConfiguration] {
-	return pulumix.Output[*LaunchProfileVolumeConfiguration]{
-		OutputState: i.ToLaunchProfileVolumeConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>Custom volume configuration for the root volumes that are attached to streaming
 //
 //	   sessions.</p>
@@ -1216,12 +1089,6 @@ func (o LaunchProfileVolumeConfigurationOutput) ToLaunchProfileVolumeConfigurati
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchProfileVolumeConfiguration) *LaunchProfileVolumeConfiguration {
 		return &v
 	}).(LaunchProfileVolumeConfigurationPtrOutput)
-}
-
-func (o LaunchProfileVolumeConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LaunchProfileVolumeConfiguration] {
-	return pulumix.Output[LaunchProfileVolumeConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>The number of I/O operations per second for the root volume that is attached to
@@ -1257,12 +1124,6 @@ func (o LaunchProfileVolumeConfigurationPtrOutput) ToLaunchProfileVolumeConfigur
 
 func (o LaunchProfileVolumeConfigurationPtrOutput) ToLaunchProfileVolumeConfigurationPtrOutputWithContext(ctx context.Context) LaunchProfileVolumeConfigurationPtrOutput {
 	return o
-}
-
-func (o LaunchProfileVolumeConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchProfileVolumeConfiguration] {
-	return pulumix.Output[*LaunchProfileVolumeConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LaunchProfileVolumeConfigurationPtrOutput) Elem() LaunchProfileVolumeConfigurationOutput {
@@ -1333,12 +1194,6 @@ func (o StreamingImageEncryptionConfigurationOutput) ToStreamingImageEncryptionC
 	return o
 }
 
-func (o StreamingImageEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingImageEncryptionConfiguration] {
-	return pulumix.Output[StreamingImageEncryptionConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // <p>The ARN for a KMS key that is used to encrypt studio data.</p>
 func (o StreamingImageEncryptionConfigurationOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingImageEncryptionConfiguration) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
@@ -1362,12 +1217,6 @@ func (o StreamingImageEncryptionConfigurationPtrOutput) ToStreamingImageEncrypti
 
 func (o StreamingImageEncryptionConfigurationPtrOutput) ToStreamingImageEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StreamingImageEncryptionConfigurationPtrOutput {
 	return o
-}
-
-func (o StreamingImageEncryptionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingImageEncryptionConfiguration] {
-	return pulumix.Output[*StreamingImageEncryptionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingImageEncryptionConfigurationPtrOutput) Elem() StreamingImageEncryptionConfigurationOutput {
@@ -1428,12 +1277,6 @@ func (i StreamingImageTagsArgs) ToStreamingImageTagsOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingImageTagsOutput)
 }
 
-func (i StreamingImageTagsArgs) ToOutput(ctx context.Context) pulumix.Output[StreamingImageTags] {
-	return pulumix.Output[StreamingImageTags]{
-		OutputState: i.ToStreamingImageTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StreamingImageTagsArgs) ToStreamingImageTagsPtrOutput() StreamingImageTagsPtrOutput {
 	return i.ToStreamingImageTagsPtrOutputWithContext(context.Background())
 }
@@ -1475,12 +1318,6 @@ func (i *streamingImageTagsPtrType) ToStreamingImageTagsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingImageTagsPtrOutput)
 }
 
-func (i *streamingImageTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StreamingImageTags] {
-	return pulumix.Output[*StreamingImageTags]{
-		OutputState: i.ToStreamingImageTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingImageTagsOutput struct{ *pulumi.OutputState }
 
 func (StreamingImageTagsOutput) ElementType() reflect.Type {
@@ -1505,12 +1342,6 @@ func (o StreamingImageTagsOutput) ToStreamingImageTagsPtrOutputWithContext(ctx c
 	}).(StreamingImageTagsPtrOutput)
 }
 
-func (o StreamingImageTagsOutput) ToOutput(ctx context.Context) pulumix.Output[StreamingImageTags] {
-	return pulumix.Output[StreamingImageTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 type StreamingImageTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (StreamingImageTagsPtrOutput) ElementType() reflect.Type {
@@ -1523,12 +1354,6 @@ func (o StreamingImageTagsPtrOutput) ToStreamingImageTagsPtrOutput() StreamingIm
 
 func (o StreamingImageTagsPtrOutput) ToStreamingImageTagsPtrOutputWithContext(ctx context.Context) StreamingImageTagsPtrOutput {
 	return o
-}
-
-func (o StreamingImageTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingImageTags] {
-	return pulumix.Output[*StreamingImageTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingImageTagsPtrOutput) Elem() StreamingImageTagsOutput {
@@ -1640,12 +1465,6 @@ func (i StudioComponentInitializationScriptArgs) ToStudioComponentInitialization
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentInitializationScriptOutput)
 }
 
-func (i StudioComponentInitializationScriptArgs) ToOutput(ctx context.Context) pulumix.Output[StudioComponentInitializationScript] {
-	return pulumix.Output[StudioComponentInitializationScript]{
-		OutputState: i.ToStudioComponentInitializationScriptOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StudioComponentInitializationScriptArrayInput is an input type that accepts StudioComponentInitializationScriptArray and StudioComponentInitializationScriptArrayOutput values.
 // You can construct a concrete instance of `StudioComponentInitializationScriptArrayInput` via:
 //
@@ -1671,12 +1490,6 @@ func (i StudioComponentInitializationScriptArray) ToStudioComponentInitializatio
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentInitializationScriptArrayOutput)
 }
 
-func (i StudioComponentInitializationScriptArray) ToOutput(ctx context.Context) pulumix.Output[[]StudioComponentInitializationScript] {
-	return pulumix.Output[[]StudioComponentInitializationScript]{
-		OutputState: i.ToStudioComponentInitializationScriptArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>Initialization scripts for studio components.</p>
 type StudioComponentInitializationScriptOutput struct{ *pulumi.OutputState }
 
@@ -1690,12 +1503,6 @@ func (o StudioComponentInitializationScriptOutput) ToStudioComponentInitializati
 
 func (o StudioComponentInitializationScriptOutput) ToStudioComponentInitializationScriptOutputWithContext(ctx context.Context) StudioComponentInitializationScriptOutput {
 	return o
-}
-
-func (o StudioComponentInitializationScriptOutput) ToOutput(ctx context.Context) pulumix.Output[StudioComponentInitializationScript] {
-	return pulumix.Output[StudioComponentInitializationScript]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>The version number of the protocol that is used by the launch profile. The only valid
@@ -1732,12 +1539,6 @@ func (o StudioComponentInitializationScriptArrayOutput) ToStudioComponentInitial
 
 func (o StudioComponentInitializationScriptArrayOutput) ToStudioComponentInitializationScriptArrayOutputWithContext(ctx context.Context) StudioComponentInitializationScriptArrayOutput {
 	return o
-}
-
-func (o StudioComponentInitializationScriptArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StudioComponentInitializationScript] {
-	return pulumix.Output[[]StudioComponentInitializationScript]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StudioComponentInitializationScriptArrayOutput) Index(i pulumi.IntInput) StudioComponentInitializationScriptOutput {
@@ -1794,12 +1595,6 @@ func (i StudioComponentScriptParameterKeyValueArgs) ToStudioComponentScriptParam
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentScriptParameterKeyValueOutput)
 }
 
-func (i StudioComponentScriptParameterKeyValueArgs) ToOutput(ctx context.Context) pulumix.Output[StudioComponentScriptParameterKeyValue] {
-	return pulumix.Output[StudioComponentScriptParameterKeyValue]{
-		OutputState: i.ToStudioComponentScriptParameterKeyValueOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StudioComponentScriptParameterKeyValueArrayInput is an input type that accepts StudioComponentScriptParameterKeyValueArray and StudioComponentScriptParameterKeyValueArrayOutput values.
 // You can construct a concrete instance of `StudioComponentScriptParameterKeyValueArrayInput` via:
 //
@@ -1825,12 +1620,6 @@ func (i StudioComponentScriptParameterKeyValueArray) ToStudioComponentScriptPara
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentScriptParameterKeyValueArrayOutput)
 }
 
-func (i StudioComponentScriptParameterKeyValueArray) ToOutput(ctx context.Context) pulumix.Output[[]StudioComponentScriptParameterKeyValue] {
-	return pulumix.Output[[]StudioComponentScriptParameterKeyValue]{
-		OutputState: i.ToStudioComponentScriptParameterKeyValueArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>A parameter for a studio component script, in the form of a key:value pair.</p>
 type StudioComponentScriptParameterKeyValueOutput struct{ *pulumi.OutputState }
 
@@ -1844,12 +1633,6 @@ func (o StudioComponentScriptParameterKeyValueOutput) ToStudioComponentScriptPar
 
 func (o StudioComponentScriptParameterKeyValueOutput) ToStudioComponentScriptParameterKeyValueOutputWithContext(ctx context.Context) StudioComponentScriptParameterKeyValueOutput {
 	return o
-}
-
-func (o StudioComponentScriptParameterKeyValueOutput) ToOutput(ctx context.Context) pulumix.Output[StudioComponentScriptParameterKeyValue] {
-	return pulumix.Output[StudioComponentScriptParameterKeyValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>A script parameter key.</p>
@@ -1874,12 +1657,6 @@ func (o StudioComponentScriptParameterKeyValueArrayOutput) ToStudioComponentScri
 
 func (o StudioComponentScriptParameterKeyValueArrayOutput) ToStudioComponentScriptParameterKeyValueArrayOutputWithContext(ctx context.Context) StudioComponentScriptParameterKeyValueArrayOutput {
 	return o
-}
-
-func (o StudioComponentScriptParameterKeyValueArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StudioComponentScriptParameterKeyValue] {
-	return pulumix.Output[[]StudioComponentScriptParameterKeyValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StudioComponentScriptParameterKeyValueArrayOutput) Index(i pulumi.IntInput) StudioComponentScriptParameterKeyValueOutput {
@@ -1934,12 +1711,6 @@ func (i StudioComponentTagsArgs) ToStudioComponentTagsOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentTagsOutput)
 }
 
-func (i StudioComponentTagsArgs) ToOutput(ctx context.Context) pulumix.Output[StudioComponentTags] {
-	return pulumix.Output[StudioComponentTags]{
-		OutputState: i.ToStudioComponentTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StudioComponentTagsArgs) ToStudioComponentTagsPtrOutput() StudioComponentTagsPtrOutput {
 	return i.ToStudioComponentTagsPtrOutputWithContext(context.Background())
 }
@@ -1981,12 +1752,6 @@ func (i *studioComponentTagsPtrType) ToStudioComponentTagsPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentTagsPtrOutput)
 }
 
-func (i *studioComponentTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StudioComponentTags] {
-	return pulumix.Output[*StudioComponentTags]{
-		OutputState: i.ToStudioComponentTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StudioComponentTagsOutput struct{ *pulumi.OutputState }
 
 func (StudioComponentTagsOutput) ElementType() reflect.Type {
@@ -2011,12 +1776,6 @@ func (o StudioComponentTagsOutput) ToStudioComponentTagsPtrOutputWithContext(ctx
 	}).(StudioComponentTagsPtrOutput)
 }
 
-func (o StudioComponentTagsOutput) ToOutput(ctx context.Context) pulumix.Output[StudioComponentTags] {
-	return pulumix.Output[StudioComponentTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 type StudioComponentTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (StudioComponentTagsPtrOutput) ElementType() reflect.Type {
@@ -2029,12 +1788,6 @@ func (o StudioComponentTagsPtrOutput) ToStudioComponentTagsPtrOutput() StudioCom
 
 func (o StudioComponentTagsPtrOutput) ToStudioComponentTagsPtrOutputWithContext(ctx context.Context) StudioComponentTagsPtrOutput {
 	return o
-}
-
-func (o StudioComponentTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StudioComponentTags] {
-	return pulumix.Output[*StudioComponentTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StudioComponentTagsPtrOutput) Elem() StudioComponentTagsOutput {
@@ -2084,12 +1837,6 @@ func (i StudioEncryptionConfigurationArgs) ToStudioEncryptionConfigurationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(StudioEncryptionConfigurationOutput)
 }
 
-func (i StudioEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[StudioEncryptionConfiguration] {
-	return pulumix.Output[StudioEncryptionConfiguration]{
-		OutputState: i.ToStudioEncryptionConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StudioEncryptionConfigurationArgs) ToStudioEncryptionConfigurationPtrOutput() StudioEncryptionConfigurationPtrOutput {
 	return i.ToStudioEncryptionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2131,12 +1878,6 @@ func (i *studioEncryptionConfigurationPtrType) ToStudioEncryptionConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(StudioEncryptionConfigurationPtrOutput)
 }
 
-func (i *studioEncryptionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*StudioEncryptionConfiguration] {
-	return pulumix.Output[*StudioEncryptionConfiguration]{
-		OutputState: i.ToStudioEncryptionConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>Configuration of the encryption method that is used for the studio.</p>
 type StudioEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -2162,12 +1903,6 @@ func (o StudioEncryptionConfigurationOutput) ToStudioEncryptionConfigurationPtrO
 	}).(StudioEncryptionConfigurationPtrOutput)
 }
 
-func (o StudioEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[StudioEncryptionConfiguration] {
-	return pulumix.Output[StudioEncryptionConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // <p>The ARN for a KMS key that is used to encrypt studio data.</p>
 func (o StudioEncryptionConfigurationOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioEncryptionConfiguration) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
@@ -2189,12 +1924,6 @@ func (o StudioEncryptionConfigurationPtrOutput) ToStudioEncryptionConfigurationP
 
 func (o StudioEncryptionConfigurationPtrOutput) ToStudioEncryptionConfigurationPtrOutputWithContext(ctx context.Context) StudioEncryptionConfigurationPtrOutput {
 	return o
-}
-
-func (o StudioEncryptionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StudioEncryptionConfiguration] {
-	return pulumix.Output[*StudioEncryptionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StudioEncryptionConfigurationPtrOutput) Elem() StudioEncryptionConfigurationOutput {
@@ -2255,12 +1984,6 @@ func (i StudioTagsArgs) ToStudioTagsOutputWithContext(ctx context.Context) Studi
 	return pulumi.ToOutputWithContext(ctx, i).(StudioTagsOutput)
 }
 
-func (i StudioTagsArgs) ToOutput(ctx context.Context) pulumix.Output[StudioTags] {
-	return pulumix.Output[StudioTags]{
-		OutputState: i.ToStudioTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StudioTagsArgs) ToStudioTagsPtrOutput() StudioTagsPtrOutput {
 	return i.ToStudioTagsPtrOutputWithContext(context.Background())
 }
@@ -2302,12 +2025,6 @@ func (i *studioTagsPtrType) ToStudioTagsPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(StudioTagsPtrOutput)
 }
 
-func (i *studioTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StudioTags] {
-	return pulumix.Output[*StudioTags]{
-		OutputState: i.ToStudioTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StudioTagsOutput struct{ *pulumi.OutputState }
 
 func (StudioTagsOutput) ElementType() reflect.Type {
@@ -2332,12 +2049,6 @@ func (o StudioTagsOutput) ToStudioTagsPtrOutputWithContext(ctx context.Context) 
 	}).(StudioTagsPtrOutput)
 }
 
-func (o StudioTagsOutput) ToOutput(ctx context.Context) pulumix.Output[StudioTags] {
-	return pulumix.Output[StudioTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 type StudioTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (StudioTagsPtrOutput) ElementType() reflect.Type {
@@ -2350,12 +2061,6 @@ func (o StudioTagsPtrOutput) ToStudioTagsPtrOutput() StudioTagsPtrOutput {
 
 func (o StudioTagsPtrOutput) ToStudioTagsPtrOutputWithContext(ctx context.Context) StudioTagsPtrOutput {
 	return o
-}
-
-func (o StudioTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StudioTags] {
-	return pulumix.Output[*StudioTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StudioTagsPtrOutput) Elem() StudioTagsOutput {

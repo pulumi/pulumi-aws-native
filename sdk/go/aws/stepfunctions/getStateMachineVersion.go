@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for StateMachineVersion
@@ -65,12 +64,6 @@ func (o LookupStateMachineVersionResultOutput) ToLookupStateMachineVersionResult
 
 func (o LookupStateMachineVersionResultOutput) ToLookupStateMachineVersionResultOutputWithContext(ctx context.Context) LookupStateMachineVersionResultOutput {
 	return o
-}
-
-func (o LookupStateMachineVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStateMachineVersionResult] {
-	return pulumix.Output[LookupStateMachineVersionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupStateMachineVersionResultOutput) Arn() pulumi.StringPtrOutput {

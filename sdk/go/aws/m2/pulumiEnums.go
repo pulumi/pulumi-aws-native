@@ -78,12 +78,6 @@ func (o ApplicationEngineTypeOutput) ToApplicationEngineTypePtrOutputWithContext
 	}).(ApplicationEngineTypePtrOutput)
 }
 
-func (o ApplicationEngineTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationEngineType] {
-	return pulumix.Output[ApplicationEngineType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationEngineTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o ApplicationEngineTypePtrOutput) ToApplicationEngineTypePtrOutput() Appli
 
 func (o ApplicationEngineTypePtrOutput) ToApplicationEngineTypePtrOutputWithContext(ctx context.Context) ApplicationEngineTypePtrOutput {
 	return o
-}
-
-func (o ApplicationEngineTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationEngineType] {
-	return pulumix.Output[*ApplicationEngineType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationEngineTypePtrOutput) Elem() ApplicationEngineTypeOutput {
@@ -261,12 +249,6 @@ func (o EnvironmentEngineTypeOutput) ToEnvironmentEngineTypePtrOutputWithContext
 	}).(EnvironmentEngineTypePtrOutput)
 }
 
-func (o EnvironmentEngineTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentEngineType] {
-	return pulumix.Output[EnvironmentEngineType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentEngineTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -300,12 +282,6 @@ func (o EnvironmentEngineTypePtrOutput) ToEnvironmentEngineTypePtrOutput() Envir
 
 func (o EnvironmentEngineTypePtrOutput) ToEnvironmentEngineTypePtrOutputWithContext(ctx context.Context) EnvironmentEngineTypePtrOutput {
 	return o
-}
-
-func (o EnvironmentEngineTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentEngineType] {
-	return pulumix.Output[*EnvironmentEngineType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentEngineTypePtrOutput) Elem() EnvironmentEngineTypeOutput {

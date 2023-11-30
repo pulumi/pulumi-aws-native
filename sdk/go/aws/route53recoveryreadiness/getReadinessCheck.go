@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Aws Route53 Recovery Readiness Check Schema and API specification.
@@ -71,12 +70,6 @@ func (o LookupReadinessCheckResultOutput) ToLookupReadinessCheckResultOutput() L
 
 func (o LookupReadinessCheckResultOutput) ToLookupReadinessCheckResultOutputWithContext(ctx context.Context) LookupReadinessCheckResultOutput {
 	return o
-}
-
-func (o LookupReadinessCheckResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupReadinessCheckResult] {
-	return pulumix.Output[LookupReadinessCheckResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the readiness check.

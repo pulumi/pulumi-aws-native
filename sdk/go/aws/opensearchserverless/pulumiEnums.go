@@ -78,12 +78,6 @@ func (o AccessPolicyTypeOutput) ToAccessPolicyTypePtrOutputWithContext(ctx conte
 	}).(AccessPolicyTypePtrOutput)
 }
 
-func (o AccessPolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPolicyType] {
-	return pulumix.Output[AccessPolicyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccessPolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o AccessPolicyTypePtrOutput) ToAccessPolicyTypePtrOutput() AccessPolicyTyp
 
 func (o AccessPolicyTypePtrOutput) ToAccessPolicyTypePtrOutputWithContext(ctx context.Context) AccessPolicyTypePtrOutput {
 	return o
-}
-
-func (o AccessPolicyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPolicyType] {
-	return pulumix.Output[*AccessPolicyType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessPolicyTypePtrOutput) Elem() AccessPolicyTypeOutput {
@@ -262,12 +250,6 @@ func (o CollectionTypeOutput) ToCollectionTypePtrOutputWithContext(ctx context.C
 	}).(CollectionTypePtrOutput)
 }
 
-func (o CollectionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[CollectionType] {
-	return pulumix.Output[CollectionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CollectionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +283,6 @@ func (o CollectionTypePtrOutput) ToCollectionTypePtrOutput() CollectionTypePtrOu
 
 func (o CollectionTypePtrOutput) ToCollectionTypePtrOutputWithContext(ctx context.Context) CollectionTypePtrOutput {
 	return o
-}
-
-func (o CollectionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CollectionType] {
-	return pulumix.Output[*CollectionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CollectionTypePtrOutput) Elem() CollectionTypeOutput {
@@ -444,12 +420,6 @@ func (o LifecyclePolicyTypeOutput) ToLifecyclePolicyTypePtrOutputWithContext(ctx
 	}).(LifecyclePolicyTypePtrOutput)
 }
 
-func (o LifecyclePolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyType] {
-	return pulumix.Output[LifecyclePolicyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LifecyclePolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -483,12 +453,6 @@ func (o LifecyclePolicyTypePtrOutput) ToLifecyclePolicyTypePtrOutput() Lifecycle
 
 func (o LifecyclePolicyTypePtrOutput) ToLifecyclePolicyTypePtrOutputWithContext(ctx context.Context) LifecyclePolicyTypePtrOutput {
 	return o
-}
-
-func (o LifecyclePolicyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyType] {
-	return pulumix.Output[*LifecyclePolicyType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LifecyclePolicyTypePtrOutput) Elem() LifecyclePolicyTypeOutput {
@@ -626,12 +590,6 @@ func (o SecurityConfigTypeOutput) ToSecurityConfigTypePtrOutputWithContext(ctx c
 	}).(SecurityConfigTypePtrOutput)
 }
 
-func (o SecurityConfigTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SecurityConfigType] {
-	return pulumix.Output[SecurityConfigType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SecurityConfigTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -665,12 +623,6 @@ func (o SecurityConfigTypePtrOutput) ToSecurityConfigTypePtrOutput() SecurityCon
 
 func (o SecurityConfigTypePtrOutput) ToSecurityConfigTypePtrOutputWithContext(ctx context.Context) SecurityConfigTypePtrOutput {
 	return o
-}
-
-func (o SecurityConfigTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityConfigType] {
-	return pulumix.Output[*SecurityConfigType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SecurityConfigTypePtrOutput) Elem() SecurityConfigTypeOutput {
@@ -809,12 +761,6 @@ func (o SecurityPolicyTypeOutput) ToSecurityPolicyTypePtrOutputWithContext(ctx c
 	}).(SecurityPolicyTypePtrOutput)
 }
 
-func (o SecurityPolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SecurityPolicyType] {
-	return pulumix.Output[SecurityPolicyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SecurityPolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -848,12 +794,6 @@ func (o SecurityPolicyTypePtrOutput) ToSecurityPolicyTypePtrOutput() SecurityPol
 
 func (o SecurityPolicyTypePtrOutput) ToSecurityPolicyTypePtrOutputWithContext(ctx context.Context) SecurityPolicyTypePtrOutput {
 	return o
-}
-
-func (o SecurityPolicyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityPolicyType] {
-	return pulumix.Output[*SecurityPolicyType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SecurityPolicyTypePtrOutput) Elem() SecurityPolicyTypeOutput {

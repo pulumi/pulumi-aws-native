@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
@@ -82,12 +81,6 @@ func (o LookupStudioComponentResultOutput) ToLookupStudioComponentResultOutput()
 
 func (o LookupStudioComponentResultOutput) ToLookupStudioComponentResultOutputWithContext(ctx context.Context) LookupStudioComponentResultOutput {
 	return o
-}
-
-func (o LookupStudioComponentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStudioComponentResult] {
-	return pulumix.Output[LookupStudioComponentResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupStudioComponentResultOutput) Configuration() pulumi.AnyOutput {

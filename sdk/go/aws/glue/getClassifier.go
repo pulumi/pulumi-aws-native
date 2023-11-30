@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Glue::Classifier
@@ -68,12 +67,6 @@ func (o LookupClassifierResultOutput) ToLookupClassifierResultOutput() LookupCla
 
 func (o LookupClassifierResultOutput) ToLookupClassifierResultOutputWithContext(ctx context.Context) LookupClassifierResultOutput {
 	return o
-}
-
-func (o LookupClassifierResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupClassifierResult] {
-	return pulumix.Output[LookupClassifierResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupClassifierResultOutput) CsvClassifier() ClassifierCsvClassifierPtrOutput {

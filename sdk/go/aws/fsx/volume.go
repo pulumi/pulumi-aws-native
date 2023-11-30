@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::FSx::Volume
@@ -115,12 +114,6 @@ func (i *Volume) ToVolumeOutputWithContext(ctx context.Context) VolumeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeOutput)
 }
 
-func (i *Volume) ToOutput(ctx context.Context) pulumix.Output[*Volume] {
-	return pulumix.Output[*Volume]{
-		OutputState: i.ToVolumeOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VolumeOutput struct{ *pulumi.OutputState }
 
 func (VolumeOutput) ElementType() reflect.Type {
@@ -133,12 +126,6 @@ func (o VolumeOutput) ToVolumeOutput() VolumeOutput {
 
 func (o VolumeOutput) ToVolumeOutputWithContext(ctx context.Context) VolumeOutput {
 	return o
-}
-
-func (o VolumeOutput) ToOutput(ctx context.Context) pulumix.Output[*Volume] {
-	return pulumix.Output[*Volume]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeOutput) BackupId() pulumi.StringPtrOutput {

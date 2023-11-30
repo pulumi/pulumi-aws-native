@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Greengrass::FunctionDefinitionVersion
@@ -111,12 +110,6 @@ func (i *FunctionDefinitionVersion) ToFunctionDefinitionVersionOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionVersionOutput)
 }
 
-func (i *FunctionDefinitionVersion) ToOutput(ctx context.Context) pulumix.Output[*FunctionDefinitionVersion] {
-	return pulumix.Output[*FunctionDefinitionVersion]{
-		OutputState: i.ToFunctionDefinitionVersionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionDefinitionVersionOutput struct{ *pulumi.OutputState }
 
 func (FunctionDefinitionVersionOutput) ElementType() reflect.Type {
@@ -129,12 +122,6 @@ func (o FunctionDefinitionVersionOutput) ToFunctionDefinitionVersionOutput() Fun
 
 func (o FunctionDefinitionVersionOutput) ToFunctionDefinitionVersionOutputWithContext(ctx context.Context) FunctionDefinitionVersionOutput {
 	return o
-}
-
-func (o FunctionDefinitionVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionDefinitionVersion] {
-	return pulumix.Output[*FunctionDefinitionVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionDefinitionVersionOutput) DefaultConfig() FunctionDefinitionVersionDefaultConfigPtrOutput {

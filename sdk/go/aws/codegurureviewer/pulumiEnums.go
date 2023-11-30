@@ -81,12 +81,6 @@ func (o RepositoryAssociationTypeOutput) ToRepositoryAssociationTypePtrOutputWit
 	}).(RepositoryAssociationTypePtrOutput)
 }
 
-func (o RepositoryAssociationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryAssociationType] {
-	return pulumix.Output[RepositoryAssociationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RepositoryAssociationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +114,6 @@ func (o RepositoryAssociationTypePtrOutput) ToRepositoryAssociationTypePtrOutput
 
 func (o RepositoryAssociationTypePtrOutput) ToRepositoryAssociationTypePtrOutputWithContext(ctx context.Context) RepositoryAssociationTypePtrOutput {
 	return o
-}
-
-func (o RepositoryAssociationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryAssociationType] {
-	return pulumix.Output[*RepositoryAssociationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryAssociationTypePtrOutput) Elem() RepositoryAssociationTypeOutput {

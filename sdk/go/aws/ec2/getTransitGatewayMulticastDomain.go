@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::EC2::TransitGatewayMulticastDomain type
@@ -77,12 +76,6 @@ func (o LookupTransitGatewayMulticastDomainResultOutput) ToLookupTransitGatewayM
 
 func (o LookupTransitGatewayMulticastDomainResultOutput) ToLookupTransitGatewayMulticastDomainResultOutputWithContext(ctx context.Context) LookupTransitGatewayMulticastDomainResultOutput {
 	return o
-}
-
-func (o LookupTransitGatewayMulticastDomainResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTransitGatewayMulticastDomainResult] {
-	return pulumix.Output[LookupTransitGatewayMulticastDomainResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The time the transit gateway multicast domain was created.

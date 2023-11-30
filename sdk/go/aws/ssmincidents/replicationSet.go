@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource type definition for AWS::SSMIncidents::ReplicationSet
@@ -108,12 +107,6 @@ func (i *ReplicationSet) ToReplicationSetOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationSetOutput)
 }
 
-func (i *ReplicationSet) ToOutput(ctx context.Context) pulumix.Output[*ReplicationSet] {
-	return pulumix.Output[*ReplicationSet]{
-		OutputState: i.ToReplicationSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationSetOutput struct{ *pulumi.OutputState }
 
 func (ReplicationSetOutput) ElementType() reflect.Type {
@@ -126,12 +119,6 @@ func (o ReplicationSetOutput) ToReplicationSetOutput() ReplicationSetOutput {
 
 func (o ReplicationSetOutput) ToReplicationSetOutputWithContext(ctx context.Context) ReplicationSetOutput {
 	return o
-}
-
-func (o ReplicationSetOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationSet] {
-	return pulumix.Output[*ReplicationSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the ReplicationSet.

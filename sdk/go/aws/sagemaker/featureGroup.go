@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::FeatureGroup
@@ -160,12 +159,6 @@ func (i *FeatureGroup) ToFeatureGroupOutputWithContext(ctx context.Context) Feat
 	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOutput)
 }
 
-func (i *FeatureGroup) ToOutput(ctx context.Context) pulumix.Output[*FeatureGroup] {
-	return pulumix.Output[*FeatureGroup]{
-		OutputState: i.ToFeatureGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FeatureGroupOutput struct{ *pulumi.OutputState }
 
 func (FeatureGroupOutput) ElementType() reflect.Type {
@@ -178,12 +171,6 @@ func (o FeatureGroupOutput) ToFeatureGroupOutput() FeatureGroupOutput {
 
 func (o FeatureGroupOutput) ToFeatureGroupOutputWithContext(ctx context.Context) FeatureGroupOutput {
 	return o
-}
-
-func (o FeatureGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*FeatureGroup] {
-	return pulumix.Output[*FeatureGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A timestamp of FeatureGroup creation time.

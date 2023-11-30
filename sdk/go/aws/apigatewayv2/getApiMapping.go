@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGatewayV2::ApiMapping“ resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see [CreateApiMapping](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference*.
@@ -77,12 +76,6 @@ func (o LookupApiMappingResultOutput) ToLookupApiMappingResultOutput() LookupApi
 
 func (o LookupApiMappingResultOutput) ToLookupApiMappingResultOutputWithContext(ctx context.Context) LookupApiMappingResultOutput {
 	return o
-}
-
-func (o LookupApiMappingResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupApiMappingResult] {
-	return pulumix.Output[LookupApiMappingResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The identifier of the API.

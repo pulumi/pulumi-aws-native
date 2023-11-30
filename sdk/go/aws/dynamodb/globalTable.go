@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
@@ -139,12 +138,6 @@ func (i *GlobalTable) ToGlobalTableOutputWithContext(ctx context.Context) Global
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableOutput)
 }
 
-func (i *GlobalTable) ToOutput(ctx context.Context) pulumix.Output[*GlobalTable] {
-	return pulumix.Output[*GlobalTable]{
-		OutputState: i.ToGlobalTableOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalTableOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableOutput) ElementType() reflect.Type {
@@ -157,12 +150,6 @@ func (o GlobalTableOutput) ToGlobalTableOutput() GlobalTableOutput {
 
 func (o GlobalTableOutput) ToGlobalTableOutputWithContext(ctx context.Context) GlobalTableOutput {
 	return o
-}
-
-func (o GlobalTableOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalTable] {
-	return pulumix.Output[*GlobalTable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalTableOutput) Arn() pulumi.StringOutput {

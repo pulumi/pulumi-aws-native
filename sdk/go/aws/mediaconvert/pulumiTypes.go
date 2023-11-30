@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -43,12 +42,6 @@ func (i JobTemplateAccelerationSettingsArgs) ToJobTemplateAccelerationSettingsOu
 
 func (i JobTemplateAccelerationSettingsArgs) ToJobTemplateAccelerationSettingsOutputWithContext(ctx context.Context) JobTemplateAccelerationSettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateAccelerationSettingsOutput)
-}
-
-func (i JobTemplateAccelerationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[JobTemplateAccelerationSettings] {
-	return pulumix.Output[JobTemplateAccelerationSettings]{
-		OutputState: i.ToJobTemplateAccelerationSettingsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i JobTemplateAccelerationSettingsArgs) ToJobTemplateAccelerationSettingsPtrOutput() JobTemplateAccelerationSettingsPtrOutput {
@@ -92,12 +85,6 @@ func (i *jobTemplateAccelerationSettingsPtrType) ToJobTemplateAccelerationSettin
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateAccelerationSettingsPtrOutput)
 }
 
-func (i *jobTemplateAccelerationSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*JobTemplateAccelerationSettings] {
-	return pulumix.Output[*JobTemplateAccelerationSettings]{
-		OutputState: i.ToJobTemplateAccelerationSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobTemplateAccelerationSettingsOutput struct{ *pulumi.OutputState }
 
 func (JobTemplateAccelerationSettingsOutput) ElementType() reflect.Type {
@@ -122,12 +109,6 @@ func (o JobTemplateAccelerationSettingsOutput) ToJobTemplateAccelerationSettings
 	}).(JobTemplateAccelerationSettingsPtrOutput)
 }
 
-func (o JobTemplateAccelerationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[JobTemplateAccelerationSettings] {
-	return pulumix.Output[JobTemplateAccelerationSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobTemplateAccelerationSettingsOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v JobTemplateAccelerationSettings) string { return v.Mode }).(pulumi.StringOutput)
 }
@@ -144,12 +125,6 @@ func (o JobTemplateAccelerationSettingsPtrOutput) ToJobTemplateAccelerationSetti
 
 func (o JobTemplateAccelerationSettingsPtrOutput) ToJobTemplateAccelerationSettingsPtrOutputWithContext(ctx context.Context) JobTemplateAccelerationSettingsPtrOutput {
 	return o
-}
-
-func (o JobTemplateAccelerationSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobTemplateAccelerationSettings] {
-	return pulumix.Output[*JobTemplateAccelerationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobTemplateAccelerationSettingsPtrOutput) Elem() JobTemplateAccelerationSettingsOutput {
@@ -206,12 +181,6 @@ func (i JobTemplateHopDestinationArgs) ToJobTemplateHopDestinationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateHopDestinationOutput)
 }
 
-func (i JobTemplateHopDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[JobTemplateHopDestination] {
-	return pulumix.Output[JobTemplateHopDestination]{
-		OutputState: i.ToJobTemplateHopDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobTemplateHopDestinationArrayInput is an input type that accepts JobTemplateHopDestinationArray and JobTemplateHopDestinationArrayOutput values.
 // You can construct a concrete instance of `JobTemplateHopDestinationArrayInput` via:
 //
@@ -237,12 +206,6 @@ func (i JobTemplateHopDestinationArray) ToJobTemplateHopDestinationArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(JobTemplateHopDestinationArrayOutput)
 }
 
-func (i JobTemplateHopDestinationArray) ToOutput(ctx context.Context) pulumix.Output[[]JobTemplateHopDestination] {
-	return pulumix.Output[[]JobTemplateHopDestination]{
-		OutputState: i.ToJobTemplateHopDestinationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobTemplateHopDestinationOutput struct{ *pulumi.OutputState }
 
 func (JobTemplateHopDestinationOutput) ElementType() reflect.Type {
@@ -255,12 +218,6 @@ func (o JobTemplateHopDestinationOutput) ToJobTemplateHopDestinationOutput() Job
 
 func (o JobTemplateHopDestinationOutput) ToJobTemplateHopDestinationOutputWithContext(ctx context.Context) JobTemplateHopDestinationOutput {
 	return o
-}
-
-func (o JobTemplateHopDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[JobTemplateHopDestination] {
-	return pulumix.Output[JobTemplateHopDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobTemplateHopDestinationOutput) Priority() pulumi.IntPtrOutput {
@@ -287,12 +244,6 @@ func (o JobTemplateHopDestinationArrayOutput) ToJobTemplateHopDestinationArrayOu
 
 func (o JobTemplateHopDestinationArrayOutput) ToJobTemplateHopDestinationArrayOutputWithContext(ctx context.Context) JobTemplateHopDestinationArrayOutput {
 	return o
-}
-
-func (o JobTemplateHopDestinationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]JobTemplateHopDestination] {
-	return pulumix.Output[[]JobTemplateHopDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobTemplateHopDestinationArrayOutput) Index(i pulumi.IntInput) JobTemplateHopDestinationOutput {

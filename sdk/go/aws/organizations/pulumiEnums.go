@@ -43,12 +43,6 @@ func (o AccountJoinedMethodOutput) ToAccountJoinedMethodPtrOutputWithContext(ctx
 	}).(AccountJoinedMethodPtrOutput)
 }
 
-func (o AccountJoinedMethodOutput) ToOutput(ctx context.Context) pulumix.Output[AccountJoinedMethod] {
-	return pulumix.Output[AccountJoinedMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccountJoinedMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -82,12 +76,6 @@ func (o AccountJoinedMethodPtrOutput) ToAccountJoinedMethodPtrOutput() AccountJo
 
 func (o AccountJoinedMethodPtrOutput) ToAccountJoinedMethodPtrOutputWithContext(ctx context.Context) AccountJoinedMethodPtrOutput {
 	return o
-}
-
-func (o AccountJoinedMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountJoinedMethod] {
-	return pulumix.Output[*AccountJoinedMethod]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountJoinedMethodPtrOutput) Elem() AccountJoinedMethodOutput {
@@ -147,12 +135,6 @@ func (o AccountStatusOutput) ToAccountStatusPtrOutputWithContext(ctx context.Con
 	}).(AccountStatusPtrOutput)
 }
 
-func (o AccountStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AccountStatus] {
-	return pulumix.Output[AccountStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccountStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -186,12 +168,6 @@ func (o AccountStatusPtrOutput) ToAccountStatusPtrOutput() AccountStatusPtrOutpu
 
 func (o AccountStatusPtrOutput) ToAccountStatusPtrOutputWithContext(ctx context.Context) AccountStatusPtrOutput {
 	return o
-}
-
-func (o AccountStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountStatus] {
-	return pulumix.Output[*AccountStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountStatusPtrOutput) Elem() AccountStatusOutput {
@@ -286,12 +262,6 @@ func (o OrganizationFeatureSetOutput) ToOrganizationFeatureSetPtrOutputWithConte
 	}).(OrganizationFeatureSetPtrOutput)
 }
 
-func (o OrganizationFeatureSetOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationFeatureSet] {
-	return pulumix.Output[OrganizationFeatureSet]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OrganizationFeatureSetOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -325,12 +295,6 @@ func (o OrganizationFeatureSetPtrOutput) ToOrganizationFeatureSetPtrOutput() Org
 
 func (o OrganizationFeatureSetPtrOutput) ToOrganizationFeatureSetPtrOutputWithContext(ctx context.Context) OrganizationFeatureSetPtrOutput {
 	return o
-}
-
-func (o OrganizationFeatureSetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrganizationFeatureSet] {
-	return pulumix.Output[*OrganizationFeatureSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationFeatureSetPtrOutput) Elem() OrganizationFeatureSetOutput {
@@ -471,12 +435,6 @@ func (o PolicyTypeOutput) ToPolicyTypePtrOutputWithContext(ctx context.Context) 
 	}).(PolicyTypePtrOutput)
 }
 
-func (o PolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyType] {
-	return pulumix.Output[PolicyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -510,12 +468,6 @@ func (o PolicyTypePtrOutput) ToPolicyTypePtrOutput() PolicyTypePtrOutput {
 
 func (o PolicyTypePtrOutput) ToPolicyTypePtrOutputWithContext(ctx context.Context) PolicyTypePtrOutput {
 	return o
-}
-
-func (o PolicyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyType] {
-	return pulumix.Output[*PolicyType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyTypePtrOutput) Elem() PolicyTypeOutput {

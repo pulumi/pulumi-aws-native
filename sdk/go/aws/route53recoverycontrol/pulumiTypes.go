@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -33,12 +32,6 @@ func (o ClusterEndpointOutput) ToClusterEndpointOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ClusterEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterEndpoint] {
-	return pulumix.Output[ClusterEndpoint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterEndpointOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterEndpoint) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
@@ -59,12 +52,6 @@ func (o ClusterEndpointArrayOutput) ToClusterEndpointArrayOutput() ClusterEndpoi
 
 func (o ClusterEndpointArrayOutput) ToClusterEndpointArrayOutputWithContext(ctx context.Context) ClusterEndpointArrayOutput {
 	return o
-}
-
-func (o ClusterEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterEndpoint] {
-	return pulumix.Output[[]ClusterEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterEndpointArrayOutput) Index(i pulumi.IntInput) ClusterEndpointOutput {
@@ -106,12 +93,6 @@ func (i ClusterTagArgs) ToClusterTagOutputWithContext(ctx context.Context) Clust
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterTagOutput)
 }
 
-func (i ClusterTagArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterTag] {
-	return pulumix.Output[ClusterTag]{
-		OutputState: i.ToClusterTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterTagArrayInput is an input type that accepts ClusterTagArray and ClusterTagArrayOutput values.
 // You can construct a concrete instance of `ClusterTagArrayInput` via:
 //
@@ -137,12 +118,6 @@ func (i ClusterTagArray) ToClusterTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterTagArrayOutput)
 }
 
-func (i ClusterTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterTag] {
-	return pulumix.Output[[]ClusterTag]{
-		OutputState: i.ToClusterTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterTagOutput struct{ *pulumi.OutputState }
 
 func (ClusterTagOutput) ElementType() reflect.Type {
@@ -155,12 +130,6 @@ func (o ClusterTagOutput) ToClusterTagOutput() ClusterTagOutput {
 
 func (o ClusterTagOutput) ToClusterTagOutputWithContext(ctx context.Context) ClusterTagOutput {
 	return o
-}
-
-func (o ClusterTagOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterTag] {
-	return pulumix.Output[ClusterTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterTagOutput) Key() pulumi.StringOutput {
@@ -183,12 +152,6 @@ func (o ClusterTagArrayOutput) ToClusterTagArrayOutput() ClusterTagArrayOutput {
 
 func (o ClusterTagArrayOutput) ToClusterTagArrayOutputWithContext(ctx context.Context) ClusterTagArrayOutput {
 	return o
-}
-
-func (o ClusterTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterTag] {
-	return pulumix.Output[[]ClusterTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterTagArrayOutput) Index(i pulumi.IntInput) ClusterTagOutput {
@@ -230,12 +193,6 @@ func (i ControlPanelTagArgs) ToControlPanelTagOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ControlPanelTagOutput)
 }
 
-func (i ControlPanelTagArgs) ToOutput(ctx context.Context) pulumix.Output[ControlPanelTag] {
-	return pulumix.Output[ControlPanelTag]{
-		OutputState: i.ToControlPanelTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ControlPanelTagArrayInput is an input type that accepts ControlPanelTagArray and ControlPanelTagArrayOutput values.
 // You can construct a concrete instance of `ControlPanelTagArrayInput` via:
 //
@@ -261,12 +218,6 @@ func (i ControlPanelTagArray) ToControlPanelTagArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ControlPanelTagArrayOutput)
 }
 
-func (i ControlPanelTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ControlPanelTag] {
-	return pulumix.Output[[]ControlPanelTag]{
-		OutputState: i.ToControlPanelTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ControlPanelTagOutput struct{ *pulumi.OutputState }
 
 func (ControlPanelTagOutput) ElementType() reflect.Type {
@@ -279,12 +230,6 @@ func (o ControlPanelTagOutput) ToControlPanelTagOutput() ControlPanelTagOutput {
 
 func (o ControlPanelTagOutput) ToControlPanelTagOutputWithContext(ctx context.Context) ControlPanelTagOutput {
 	return o
-}
-
-func (o ControlPanelTagOutput) ToOutput(ctx context.Context) pulumix.Output[ControlPanelTag] {
-	return pulumix.Output[ControlPanelTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ControlPanelTagOutput) Key() pulumi.StringOutput {
@@ -307,12 +252,6 @@ func (o ControlPanelTagArrayOutput) ToControlPanelTagArrayOutput() ControlPanelT
 
 func (o ControlPanelTagArrayOutput) ToControlPanelTagArrayOutputWithContext(ctx context.Context) ControlPanelTagArrayOutput {
 	return o
-}
-
-func (o ControlPanelTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ControlPanelTag] {
-	return pulumix.Output[[]ControlPanelTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ControlPanelTagArrayOutput) Index(i pulumi.IntInput) ControlPanelTagOutput {
@@ -360,12 +299,6 @@ func (i SafetyRuleAssertionRuleArgs) ToSafetyRuleAssertionRuleOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(SafetyRuleAssertionRuleOutput)
 }
 
-func (i SafetyRuleAssertionRuleArgs) ToOutput(ctx context.Context) pulumix.Output[SafetyRuleAssertionRule] {
-	return pulumix.Output[SafetyRuleAssertionRule]{
-		OutputState: i.ToSafetyRuleAssertionRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SafetyRuleAssertionRuleArgs) ToSafetyRuleAssertionRulePtrOutput() SafetyRuleAssertionRulePtrOutput {
 	return i.ToSafetyRuleAssertionRulePtrOutputWithContext(context.Background())
 }
@@ -407,12 +340,6 @@ func (i *safetyRuleAssertionRulePtrType) ToSafetyRuleAssertionRulePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(SafetyRuleAssertionRulePtrOutput)
 }
 
-func (i *safetyRuleAssertionRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*SafetyRuleAssertionRule] {
-	return pulumix.Output[*SafetyRuleAssertionRule]{
-		OutputState: i.ToSafetyRuleAssertionRulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An assertion rule enforces that, when a routing control state is changed, that the criteria set by the rule configuration is met. Otherwise, the change to the routing control is not accepted.
 type SafetyRuleAssertionRuleOutput struct{ *pulumi.OutputState }
 
@@ -438,12 +365,6 @@ func (o SafetyRuleAssertionRuleOutput) ToSafetyRuleAssertionRulePtrOutputWithCon
 	}).(SafetyRuleAssertionRulePtrOutput)
 }
 
-func (o SafetyRuleAssertionRuleOutput) ToOutput(ctx context.Context) pulumix.Output[SafetyRuleAssertionRule] {
-	return pulumix.Output[SafetyRuleAssertionRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The routing controls that are part of transactions that are evaluated to determine if a request to change a routing control state is allowed. For example, you might include three routing controls, one for each of three AWS Regions.
 func (o SafetyRuleAssertionRuleOutput) AssertedControls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SafetyRuleAssertionRule) []string { return v.AssertedControls }).(pulumi.StringArrayOutput)
@@ -466,12 +387,6 @@ func (o SafetyRuleAssertionRulePtrOutput) ToSafetyRuleAssertionRulePtrOutput() S
 
 func (o SafetyRuleAssertionRulePtrOutput) ToSafetyRuleAssertionRulePtrOutputWithContext(ctx context.Context) SafetyRuleAssertionRulePtrOutput {
 	return o
-}
-
-func (o SafetyRuleAssertionRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SafetyRuleAssertionRule] {
-	return pulumix.Output[*SafetyRuleAssertionRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SafetyRuleAssertionRulePtrOutput) Elem() SafetyRuleAssertionRuleOutput {
@@ -549,12 +464,6 @@ func (i SafetyRuleGatingRuleArgs) ToSafetyRuleGatingRuleOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SafetyRuleGatingRuleOutput)
 }
 
-func (i SafetyRuleGatingRuleArgs) ToOutput(ctx context.Context) pulumix.Output[SafetyRuleGatingRule] {
-	return pulumix.Output[SafetyRuleGatingRule]{
-		OutputState: i.ToSafetyRuleGatingRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SafetyRuleGatingRuleArgs) ToSafetyRuleGatingRulePtrOutput() SafetyRuleGatingRulePtrOutput {
 	return i.ToSafetyRuleGatingRulePtrOutputWithContext(context.Background())
 }
@@ -596,12 +505,6 @@ func (i *safetyRuleGatingRulePtrType) ToSafetyRuleGatingRulePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SafetyRuleGatingRulePtrOutput)
 }
 
-func (i *safetyRuleGatingRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*SafetyRuleGatingRule] {
-	return pulumix.Output[*SafetyRuleGatingRule]{
-		OutputState: i.ToSafetyRuleGatingRulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A gating rule verifies that a set of gating controls evaluates as true, based on a rule configuration that you specify. If the gating rule evaluates to true, Amazon Route 53 Application Recovery Controller allows a set of routing control state changes to run and complete against the set of target controls.
 type SafetyRuleGatingRuleOutput struct{ *pulumi.OutputState }
 
@@ -625,12 +528,6 @@ func (o SafetyRuleGatingRuleOutput) ToSafetyRuleGatingRulePtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SafetyRuleGatingRule) *SafetyRuleGatingRule {
 		return &v
 	}).(SafetyRuleGatingRulePtrOutput)
-}
-
-func (o SafetyRuleGatingRuleOutput) ToOutput(ctx context.Context) pulumix.Output[SafetyRuleGatingRule] {
-	return pulumix.Output[SafetyRuleGatingRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The gating controls for the gating rule. That is, routing controls that are evaluated by the rule configuration that you specify.
@@ -661,12 +558,6 @@ func (o SafetyRuleGatingRulePtrOutput) ToSafetyRuleGatingRulePtrOutput() SafetyR
 
 func (o SafetyRuleGatingRulePtrOutput) ToSafetyRuleGatingRulePtrOutputWithContext(ctx context.Context) SafetyRuleGatingRulePtrOutput {
 	return o
-}
-
-func (o SafetyRuleGatingRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SafetyRuleGatingRule] {
-	return pulumix.Output[*SafetyRuleGatingRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SafetyRuleGatingRulePtrOutput) Elem() SafetyRuleGatingRuleOutput {
@@ -751,12 +642,6 @@ func (i SafetyRuleRuleConfigArgs) ToSafetyRuleRuleConfigOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SafetyRuleRuleConfigOutput)
 }
 
-func (i SafetyRuleRuleConfigArgs) ToOutput(ctx context.Context) pulumix.Output[SafetyRuleRuleConfig] {
-	return pulumix.Output[SafetyRuleRuleConfig]{
-		OutputState: i.ToSafetyRuleRuleConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SafetyRuleRuleConfigArgs) ToSafetyRuleRuleConfigPtrOutput() SafetyRuleRuleConfigPtrOutput {
 	return i.ToSafetyRuleRuleConfigPtrOutputWithContext(context.Background())
 }
@@ -798,12 +683,6 @@ func (i *safetyRuleRuleConfigPtrType) ToSafetyRuleRuleConfigPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SafetyRuleRuleConfigPtrOutput)
 }
 
-func (i *safetyRuleRuleConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*SafetyRuleRuleConfig] {
-	return pulumix.Output[*SafetyRuleRuleConfig]{
-		OutputState: i.ToSafetyRuleRuleConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The rule configuration for an assertion rule or gating rule. This is the criteria that you set for specific assertion controls (routing controls) or gating controls. This configuration specifies how many controls must be enabled after a transaction completes.
 type SafetyRuleRuleConfigOutput struct{ *pulumi.OutputState }
 
@@ -827,12 +706,6 @@ func (o SafetyRuleRuleConfigOutput) ToSafetyRuleRuleConfigPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SafetyRuleRuleConfig) *SafetyRuleRuleConfig {
 		return &v
 	}).(SafetyRuleRuleConfigPtrOutput)
-}
-
-func (o SafetyRuleRuleConfigOutput) ToOutput(ctx context.Context) pulumix.Output[SafetyRuleRuleConfig] {
-	return pulumix.Output[SafetyRuleRuleConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Logical negation of the rule. If the rule would usually evaluate true, it's evaluated as false, and vice versa.
@@ -861,12 +734,6 @@ func (o SafetyRuleRuleConfigPtrOutput) ToSafetyRuleRuleConfigPtrOutput() SafetyR
 
 func (o SafetyRuleRuleConfigPtrOutput) ToSafetyRuleRuleConfigPtrOutputWithContext(ctx context.Context) SafetyRuleRuleConfigPtrOutput {
 	return o
-}
-
-func (o SafetyRuleRuleConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SafetyRuleRuleConfig] {
-	return pulumix.Output[*SafetyRuleRuleConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SafetyRuleRuleConfigPtrOutput) Elem() SafetyRuleRuleConfigOutput {
@@ -941,12 +808,6 @@ func (i SafetyRuleTagArgs) ToSafetyRuleTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SafetyRuleTagOutput)
 }
 
-func (i SafetyRuleTagArgs) ToOutput(ctx context.Context) pulumix.Output[SafetyRuleTag] {
-	return pulumix.Output[SafetyRuleTag]{
-		OutputState: i.ToSafetyRuleTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SafetyRuleTagArrayInput is an input type that accepts SafetyRuleTagArray and SafetyRuleTagArrayOutput values.
 // You can construct a concrete instance of `SafetyRuleTagArrayInput` via:
 //
@@ -972,12 +833,6 @@ func (i SafetyRuleTagArray) ToSafetyRuleTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SafetyRuleTagArrayOutput)
 }
 
-func (i SafetyRuleTagArray) ToOutput(ctx context.Context) pulumix.Output[[]SafetyRuleTag] {
-	return pulumix.Output[[]SafetyRuleTag]{
-		OutputState: i.ToSafetyRuleTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SafetyRuleTagOutput struct{ *pulumi.OutputState }
 
 func (SafetyRuleTagOutput) ElementType() reflect.Type {
@@ -990,12 +845,6 @@ func (o SafetyRuleTagOutput) ToSafetyRuleTagOutput() SafetyRuleTagOutput {
 
 func (o SafetyRuleTagOutput) ToSafetyRuleTagOutputWithContext(ctx context.Context) SafetyRuleTagOutput {
 	return o
-}
-
-func (o SafetyRuleTagOutput) ToOutput(ctx context.Context) pulumix.Output[SafetyRuleTag] {
-	return pulumix.Output[SafetyRuleTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SafetyRuleTagOutput) Key() pulumi.StringOutput {
@@ -1018,12 +867,6 @@ func (o SafetyRuleTagArrayOutput) ToSafetyRuleTagArrayOutput() SafetyRuleTagArra
 
 func (o SafetyRuleTagArrayOutput) ToSafetyRuleTagArrayOutputWithContext(ctx context.Context) SafetyRuleTagArrayOutput {
 	return o
-}
-
-func (o SafetyRuleTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SafetyRuleTag] {
-	return pulumix.Output[[]SafetyRuleTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SafetyRuleTagArrayOutput) Index(i pulumi.IntInput) SafetyRuleTagOutput {

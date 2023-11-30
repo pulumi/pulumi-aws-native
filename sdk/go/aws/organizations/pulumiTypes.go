@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i AccountTagArgs) ToAccountTagOutputWithContext(ctx context.Context) Accou
 	return pulumi.ToOutputWithContext(ctx, i).(AccountTagOutput)
 }
 
-func (i AccountTagArgs) ToOutput(ctx context.Context) pulumix.Output[AccountTag] {
-	return pulumix.Output[AccountTag]{
-		OutputState: i.ToAccountTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccountTagArrayInput is an input type that accepts AccountTagArray and AccountTagArrayOutput values.
 // You can construct a concrete instance of `AccountTagArrayInput` via:
 //
@@ -84,12 +77,6 @@ func (i AccountTagArray) ToAccountTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(AccountTagArrayOutput)
 }
 
-func (i AccountTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AccountTag] {
-	return pulumix.Output[[]AccountTag]{
-		OutputState: i.ToAccountTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A custom key-value pair associated with a resource within your organization.
 type AccountTagOutput struct{ *pulumi.OutputState }
 
@@ -103,12 +90,6 @@ func (o AccountTagOutput) ToAccountTagOutput() AccountTagOutput {
 
 func (o AccountTagOutput) ToAccountTagOutputWithContext(ctx context.Context) AccountTagOutput {
 	return o
-}
-
-func (o AccountTagOutput) ToOutput(ctx context.Context) pulumix.Output[AccountTag] {
-	return pulumix.Output[AccountTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key identifier, or name, of the tag.
@@ -133,12 +114,6 @@ func (o AccountTagArrayOutput) ToAccountTagArrayOutput() AccountTagArrayOutput {
 
 func (o AccountTagArrayOutput) ToAccountTagArrayOutputWithContext(ctx context.Context) AccountTagArrayOutput {
 	return o
-}
-
-func (o AccountTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccountTag] {
-	return pulumix.Output[[]AccountTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountTagArrayOutput) Index(i pulumi.IntInput) AccountTagOutput {
@@ -186,12 +161,6 @@ func (i OrganizationalUnitTagArgs) ToOrganizationalUnitTagOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationalUnitTagOutput)
 }
 
-func (i OrganizationalUnitTagArgs) ToOutput(ctx context.Context) pulumix.Output[OrganizationalUnitTag] {
-	return pulumix.Output[OrganizationalUnitTag]{
-		OutputState: i.ToOrganizationalUnitTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OrganizationalUnitTagArrayInput is an input type that accepts OrganizationalUnitTagArray and OrganizationalUnitTagArrayOutput values.
 // You can construct a concrete instance of `OrganizationalUnitTagArrayInput` via:
 //
@@ -217,12 +186,6 @@ func (i OrganizationalUnitTagArray) ToOrganizationalUnitTagArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationalUnitTagArrayOutput)
 }
 
-func (i OrganizationalUnitTagArray) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationalUnitTag] {
-	return pulumix.Output[[]OrganizationalUnitTag]{
-		OutputState: i.ToOrganizationalUnitTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A custom key-value pair associated with a resource within your organization.
 type OrganizationalUnitTagOutput struct{ *pulumi.OutputState }
 
@@ -236,12 +199,6 @@ func (o OrganizationalUnitTagOutput) ToOrganizationalUnitTagOutput() Organizatio
 
 func (o OrganizationalUnitTagOutput) ToOrganizationalUnitTagOutputWithContext(ctx context.Context) OrganizationalUnitTagOutput {
 	return o
-}
-
-func (o OrganizationalUnitTagOutput) ToOutput(ctx context.Context) pulumix.Output[OrganizationalUnitTag] {
-	return pulumix.Output[OrganizationalUnitTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key identifier, or name, of the tag.
@@ -266,12 +223,6 @@ func (o OrganizationalUnitTagArrayOutput) ToOrganizationalUnitTagArrayOutput() O
 
 func (o OrganizationalUnitTagArrayOutput) ToOrganizationalUnitTagArrayOutputWithContext(ctx context.Context) OrganizationalUnitTagArrayOutput {
 	return o
-}
-
-func (o OrganizationalUnitTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OrganizationalUnitTag] {
-	return pulumix.Output[[]OrganizationalUnitTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrganizationalUnitTagArrayOutput) Index(i pulumi.IntInput) OrganizationalUnitTagOutput {
@@ -319,12 +270,6 @@ func (i PolicyTagArgs) ToPolicyTagOutputWithContext(ctx context.Context) PolicyT
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTagOutput)
 }
 
-func (i PolicyTagArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyTag] {
-	return pulumix.Output[PolicyTag]{
-		OutputState: i.ToPolicyTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PolicyTagArrayInput is an input type that accepts PolicyTagArray and PolicyTagArrayOutput values.
 // You can construct a concrete instance of `PolicyTagArrayInput` via:
 //
@@ -350,12 +295,6 @@ func (i PolicyTagArray) ToPolicyTagArrayOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTagArrayOutput)
 }
 
-func (i PolicyTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyTag] {
-	return pulumix.Output[[]PolicyTag]{
-		OutputState: i.ToPolicyTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A custom key-value pair associated with a resource within your organization.
 type PolicyTagOutput struct{ *pulumi.OutputState }
 
@@ -369,12 +308,6 @@ func (o PolicyTagOutput) ToPolicyTagOutput() PolicyTagOutput {
 
 func (o PolicyTagOutput) ToPolicyTagOutputWithContext(ctx context.Context) PolicyTagOutput {
 	return o
-}
-
-func (o PolicyTagOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyTag] {
-	return pulumix.Output[PolicyTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key identifier, or name, of the tag.
@@ -399,12 +332,6 @@ func (o PolicyTagArrayOutput) ToPolicyTagArrayOutput() PolicyTagArrayOutput {
 
 func (o PolicyTagArrayOutput) ToPolicyTagArrayOutputWithContext(ctx context.Context) PolicyTagArrayOutput {
 	return o
-}
-
-func (o PolicyTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyTag] {
-	return pulumix.Output[[]PolicyTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyTagArrayOutput) Index(i pulumi.IntInput) PolicyTagOutput {
@@ -452,12 +379,6 @@ func (i ResourcePolicyTagArgs) ToResourcePolicyTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyTagOutput)
 }
 
-func (i ResourcePolicyTagArgs) ToOutput(ctx context.Context) pulumix.Output[ResourcePolicyTag] {
-	return pulumix.Output[ResourcePolicyTag]{
-		OutputState: i.ToResourcePolicyTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResourcePolicyTagArrayInput is an input type that accepts ResourcePolicyTagArray and ResourcePolicyTagArrayOutput values.
 // You can construct a concrete instance of `ResourcePolicyTagArrayInput` via:
 //
@@ -483,12 +404,6 @@ func (i ResourcePolicyTagArray) ToResourcePolicyTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ResourcePolicyTagArrayOutput)
 }
 
-func (i ResourcePolicyTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourcePolicyTag] {
-	return pulumix.Output[[]ResourcePolicyTag]{
-		OutputState: i.ToResourcePolicyTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A custom key-value pair associated with a resource within your organization.
 type ResourcePolicyTagOutput struct{ *pulumi.OutputState }
 
@@ -502,12 +417,6 @@ func (o ResourcePolicyTagOutput) ToResourcePolicyTagOutput() ResourcePolicyTagOu
 
 func (o ResourcePolicyTagOutput) ToResourcePolicyTagOutputWithContext(ctx context.Context) ResourcePolicyTagOutput {
 	return o
-}
-
-func (o ResourcePolicyTagOutput) ToOutput(ctx context.Context) pulumix.Output[ResourcePolicyTag] {
-	return pulumix.Output[ResourcePolicyTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key identifier, or name, of the tag.
@@ -532,12 +441,6 @@ func (o ResourcePolicyTagArrayOutput) ToResourcePolicyTagArrayOutput() ResourceP
 
 func (o ResourcePolicyTagArrayOutput) ToResourcePolicyTagArrayOutputWithContext(ctx context.Context) ResourcePolicyTagArrayOutput {
 	return o
-}
-
-func (o ResourcePolicyTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourcePolicyTag] {
-	return pulumix.Output[[]ResourcePolicyTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourcePolicyTagArrayOutput) Index(i pulumi.IntInput) ResourcePolicyTagOutput {

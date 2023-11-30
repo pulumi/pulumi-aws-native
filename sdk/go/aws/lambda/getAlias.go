@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Lambda::Alias
@@ -68,12 +67,6 @@ func (o LookupAliasResultOutput) ToLookupAliasResultOutput() LookupAliasResultOu
 
 func (o LookupAliasResultOutput) ToLookupAliasResultOutputWithContext(ctx context.Context) LookupAliasResultOutput {
 	return o
-}
-
-func (o LookupAliasResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAliasResult] {
-	return pulumix.Output[LookupAliasResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupAliasResultOutput) Description() pulumi.StringPtrOutput {

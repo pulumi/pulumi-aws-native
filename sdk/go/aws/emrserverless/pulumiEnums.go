@@ -79,12 +79,6 @@ func (o ApplicationArchitectureOutput) ToApplicationArchitecturePtrOutputWithCon
 	}).(ApplicationArchitecturePtrOutput)
 }
 
-func (o ApplicationArchitectureOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationArchitecture] {
-	return pulumix.Output[ApplicationArchitecture]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationArchitectureOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o ApplicationArchitecturePtrOutput) ToApplicationArchitecturePtrOutput() A
 
 func (o ApplicationArchitecturePtrOutput) ToApplicationArchitecturePtrOutputWithContext(ctx context.Context) ApplicationArchitecturePtrOutput {
 	return o
-}
-
-func (o ApplicationArchitecturePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationArchitecture] {
-	return pulumix.Output[*ApplicationArchitecture]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationArchitecturePtrOutput) Elem() ApplicationArchitectureOutput {

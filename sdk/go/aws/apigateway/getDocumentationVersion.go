@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGateway::DocumentationVersion“ resource creates a snapshot of the documentation for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
@@ -71,12 +70,6 @@ func (o LookupDocumentationVersionResultOutput) ToLookupDocumentationVersionResu
 
 func (o LookupDocumentationVersionResultOutput) ToLookupDocumentationVersionResultOutputWithContext(ctx context.Context) LookupDocumentationVersionResultOutput {
 	return o
-}
-
-func (o LookupDocumentationVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDocumentationVersionResult] {
-	return pulumix.Output[LookupDocumentationVersionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description about the new documentation snapshot.

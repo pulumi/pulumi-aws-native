@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ServiceCatalog::PortfolioPrincipalAssociation
@@ -64,12 +63,6 @@ func (o LookupPortfolioPrincipalAssociationResultOutput) ToLookupPortfolioPrinci
 
 func (o LookupPortfolioPrincipalAssociationResultOutput) ToLookupPortfolioPrincipalAssociationResultOutputWithContext(ctx context.Context) LookupPortfolioPrincipalAssociationResultOutput {
 	return o
-}
-
-func (o LookupPortfolioPrincipalAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPortfolioPrincipalAssociationResult] {
-	return pulumix.Output[LookupPortfolioPrincipalAssociationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupPortfolioPrincipalAssociationResultOutput) Id() pulumi.StringPtrOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i DataCellsFilterColumnWildcardArgs) ToDataCellsFilterColumnWildcardOutput
 
 func (i DataCellsFilterColumnWildcardArgs) ToDataCellsFilterColumnWildcardOutputWithContext(ctx context.Context) DataCellsFilterColumnWildcardOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterColumnWildcardOutput)
-}
-
-func (i DataCellsFilterColumnWildcardArgs) ToOutput(ctx context.Context) pulumix.Output[DataCellsFilterColumnWildcard] {
-	return pulumix.Output[DataCellsFilterColumnWildcard]{
-		OutputState: i.ToDataCellsFilterColumnWildcardOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i DataCellsFilterColumnWildcardArgs) ToDataCellsFilterColumnWildcardPtrOutput() DataCellsFilterColumnWildcardPtrOutput {
@@ -96,12 +89,6 @@ func (i *dataCellsFilterColumnWildcardPtrType) ToDataCellsFilterColumnWildcardPt
 	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterColumnWildcardPtrOutput)
 }
 
-func (i *dataCellsFilterColumnWildcardPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataCellsFilterColumnWildcard] {
-	return pulumix.Output[*DataCellsFilterColumnWildcard]{
-		OutputState: i.ToDataCellsFilterColumnWildcardPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An object representing the Data Cells Filter's Columns. Either Column Names or a Wildcard is required.
 type DataCellsFilterColumnWildcardOutput struct{ *pulumi.OutputState }
 
@@ -127,12 +114,6 @@ func (o DataCellsFilterColumnWildcardOutput) ToDataCellsFilterColumnWildcardPtrO
 	}).(DataCellsFilterColumnWildcardPtrOutput)
 }
 
-func (o DataCellsFilterColumnWildcardOutput) ToOutput(ctx context.Context) pulumix.Output[DataCellsFilterColumnWildcard] {
-	return pulumix.Output[DataCellsFilterColumnWildcard]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A list of column names to be excluded from the Data Cells Filter.
 func (o DataCellsFilterColumnWildcardOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataCellsFilterColumnWildcard) []string { return v.ExcludedColumnNames }).(pulumi.StringArrayOutput)
@@ -150,12 +131,6 @@ func (o DataCellsFilterColumnWildcardPtrOutput) ToDataCellsFilterColumnWildcardP
 
 func (o DataCellsFilterColumnWildcardPtrOutput) ToDataCellsFilterColumnWildcardPtrOutputWithContext(ctx context.Context) DataCellsFilterColumnWildcardPtrOutput {
 	return o
-}
-
-func (o DataCellsFilterColumnWildcardPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataCellsFilterColumnWildcard] {
-	return pulumix.Output[*DataCellsFilterColumnWildcard]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCellsFilterColumnWildcardPtrOutput) Elem() DataCellsFilterColumnWildcardOutput {
@@ -217,12 +192,6 @@ func (i DataCellsFilterRowFilterArgs) ToDataCellsFilterRowFilterOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterRowFilterOutput)
 }
 
-func (i DataCellsFilterRowFilterArgs) ToOutput(ctx context.Context) pulumix.Output[DataCellsFilterRowFilter] {
-	return pulumix.Output[DataCellsFilterRowFilter]{
-		OutputState: i.ToDataCellsFilterRowFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataCellsFilterRowFilterArgs) ToDataCellsFilterRowFilterPtrOutput() DataCellsFilterRowFilterPtrOutput {
 	return i.ToDataCellsFilterRowFilterPtrOutputWithContext(context.Background())
 }
@@ -264,12 +233,6 @@ func (i *dataCellsFilterRowFilterPtrType) ToDataCellsFilterRowFilterPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DataCellsFilterRowFilterPtrOutput)
 }
 
-func (i *dataCellsFilterRowFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataCellsFilterRowFilter] {
-	return pulumix.Output[*DataCellsFilterRowFilter]{
-		OutputState: i.ToDataCellsFilterRowFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An object representing the Data Cells Filter's Row Filter. Either a Filter Expression or a Wildcard is required.
 type DataCellsFilterRowFilterOutput struct{ *pulumi.OutputState }
 
@@ -295,12 +258,6 @@ func (o DataCellsFilterRowFilterOutput) ToDataCellsFilterRowFilterPtrOutputWithC
 	}).(DataCellsFilterRowFilterPtrOutput)
 }
 
-func (o DataCellsFilterRowFilterOutput) ToOutput(ctx context.Context) pulumix.Output[DataCellsFilterRowFilter] {
-	return pulumix.Output[DataCellsFilterRowFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 // An empty object representing a row wildcard.
 func (o DataCellsFilterRowFilterOutput) AllRowsWildcard() pulumi.AnyOutput {
 	return o.ApplyT(func(v DataCellsFilterRowFilter) interface{} { return v.AllRowsWildcard }).(pulumi.AnyOutput)
@@ -323,12 +280,6 @@ func (o DataCellsFilterRowFilterPtrOutput) ToDataCellsFilterRowFilterPtrOutput()
 
 func (o DataCellsFilterRowFilterPtrOutput) ToDataCellsFilterRowFilterPtrOutputWithContext(ctx context.Context) DataCellsFilterRowFilterPtrOutput {
 	return o
-}
-
-func (o DataCellsFilterRowFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataCellsFilterRowFilter] {
-	return pulumix.Output[*DataCellsFilterRowFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCellsFilterRowFilterPtrOutput) Elem() DataCellsFilterRowFilterOutput {
@@ -390,12 +341,6 @@ func (i DataLakeSettingsAdminsArgs) ToDataLakeSettingsAdminsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsAdminsOutput)
 }
 
-func (i DataLakeSettingsAdminsArgs) ToOutput(ctx context.Context) pulumix.Output[DataLakeSettingsAdmins] {
-	return pulumix.Output[DataLakeSettingsAdmins]{
-		OutputState: i.ToDataLakeSettingsAdminsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataLakeSettingsAdminsArgs) ToDataLakeSettingsAdminsPtrOutput() DataLakeSettingsAdminsPtrOutput {
 	return i.ToDataLakeSettingsAdminsPtrOutputWithContext(context.Background())
 }
@@ -437,12 +382,6 @@ func (i *dataLakeSettingsAdminsPtrType) ToDataLakeSettingsAdminsPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsAdminsPtrOutput)
 }
 
-func (i *dataLakeSettingsAdminsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataLakeSettingsAdmins] {
-	return pulumix.Output[*DataLakeSettingsAdmins]{
-		OutputState: i.ToDataLakeSettingsAdminsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataLakeSettingsAdminsOutput struct{ *pulumi.OutputState }
 
 func (DataLakeSettingsAdminsOutput) ElementType() reflect.Type {
@@ -467,12 +406,6 @@ func (o DataLakeSettingsAdminsOutput) ToDataLakeSettingsAdminsPtrOutputWithConte
 	}).(DataLakeSettingsAdminsPtrOutput)
 }
 
-func (o DataLakeSettingsAdminsOutput) ToOutput(ctx context.Context) pulumix.Output[DataLakeSettingsAdmins] {
-	return pulumix.Output[DataLakeSettingsAdmins]{
-		OutputState: o.OutputState,
-	}
-}
-
 type DataLakeSettingsAdminsPtrOutput struct{ *pulumi.OutputState }
 
 func (DataLakeSettingsAdminsPtrOutput) ElementType() reflect.Type {
@@ -485,12 +418,6 @@ func (o DataLakeSettingsAdminsPtrOutput) ToDataLakeSettingsAdminsPtrOutput() Dat
 
 func (o DataLakeSettingsAdminsPtrOutput) ToDataLakeSettingsAdminsPtrOutputWithContext(ctx context.Context) DataLakeSettingsAdminsPtrOutput {
 	return o
-}
-
-func (o DataLakeSettingsAdminsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataLakeSettingsAdmins] {
-	return pulumix.Output[*DataLakeSettingsAdmins]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataLakeSettingsAdminsPtrOutput) Elem() DataLakeSettingsAdminsOutput {
@@ -530,12 +457,6 @@ func (i DataLakeSettingsCreateDatabaseDefaultPermissionsArgs) ToDataLakeSettings
 
 func (i DataLakeSettingsCreateDatabaseDefaultPermissionsArgs) ToDataLakeSettingsCreateDatabaseDefaultPermissionsOutputWithContext(ctx context.Context) DataLakeSettingsCreateDatabaseDefaultPermissionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsCreateDatabaseDefaultPermissionsOutput)
-}
-
-func (i DataLakeSettingsCreateDatabaseDefaultPermissionsArgs) ToOutput(ctx context.Context) pulumix.Output[DataLakeSettingsCreateDatabaseDefaultPermissions] {
-	return pulumix.Output[DataLakeSettingsCreateDatabaseDefaultPermissions]{
-		OutputState: i.ToDataLakeSettingsCreateDatabaseDefaultPermissionsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i DataLakeSettingsCreateDatabaseDefaultPermissionsArgs) ToDataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput() DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput {
@@ -579,12 +500,6 @@ func (i *dataLakeSettingsCreateDatabaseDefaultPermissionsPtrType) ToDataLakeSett
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput)
 }
 
-func (i *dataLakeSettingsCreateDatabaseDefaultPermissionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataLakeSettingsCreateDatabaseDefaultPermissions] {
-	return pulumix.Output[*DataLakeSettingsCreateDatabaseDefaultPermissions]{
-		OutputState: i.ToDataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataLakeSettingsCreateDatabaseDefaultPermissionsOutput struct{ *pulumi.OutputState }
 
 func (DataLakeSettingsCreateDatabaseDefaultPermissionsOutput) ElementType() reflect.Type {
@@ -609,12 +524,6 @@ func (o DataLakeSettingsCreateDatabaseDefaultPermissionsOutput) ToDataLakeSettin
 	}).(DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput)
 }
 
-func (o DataLakeSettingsCreateDatabaseDefaultPermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[DataLakeSettingsCreateDatabaseDefaultPermissions] {
-	return pulumix.Output[DataLakeSettingsCreateDatabaseDefaultPermissions]{
-		OutputState: o.OutputState,
-	}
-}
-
 type DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput struct{ *pulumi.OutputState }
 
 func (DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput) ElementType() reflect.Type {
@@ -627,12 +536,6 @@ func (o DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput) ToDataLakeSet
 
 func (o DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput) ToDataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutputWithContext(ctx context.Context) DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput {
 	return o
-}
-
-func (o DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataLakeSettingsCreateDatabaseDefaultPermissions] {
-	return pulumix.Output[*DataLakeSettingsCreateDatabaseDefaultPermissions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataLakeSettingsCreateDatabaseDefaultPermissionsPtrOutput) Elem() DataLakeSettingsCreateDatabaseDefaultPermissionsOutput {
@@ -672,12 +575,6 @@ func (i DataLakeSettingsCreateTableDefaultPermissionsArgs) ToDataLakeSettingsCre
 
 func (i DataLakeSettingsCreateTableDefaultPermissionsArgs) ToDataLakeSettingsCreateTableDefaultPermissionsOutputWithContext(ctx context.Context) DataLakeSettingsCreateTableDefaultPermissionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsCreateTableDefaultPermissionsOutput)
-}
-
-func (i DataLakeSettingsCreateTableDefaultPermissionsArgs) ToOutput(ctx context.Context) pulumix.Output[DataLakeSettingsCreateTableDefaultPermissions] {
-	return pulumix.Output[DataLakeSettingsCreateTableDefaultPermissions]{
-		OutputState: i.ToDataLakeSettingsCreateTableDefaultPermissionsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i DataLakeSettingsCreateTableDefaultPermissionsArgs) ToDataLakeSettingsCreateTableDefaultPermissionsPtrOutput() DataLakeSettingsCreateTableDefaultPermissionsPtrOutput {
@@ -721,12 +618,6 @@ func (i *dataLakeSettingsCreateTableDefaultPermissionsPtrType) ToDataLakeSetting
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsCreateTableDefaultPermissionsPtrOutput)
 }
 
-func (i *dataLakeSettingsCreateTableDefaultPermissionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataLakeSettingsCreateTableDefaultPermissions] {
-	return pulumix.Output[*DataLakeSettingsCreateTableDefaultPermissions]{
-		OutputState: i.ToDataLakeSettingsCreateTableDefaultPermissionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataLakeSettingsCreateTableDefaultPermissionsOutput struct{ *pulumi.OutputState }
 
 func (DataLakeSettingsCreateTableDefaultPermissionsOutput) ElementType() reflect.Type {
@@ -751,12 +642,6 @@ func (o DataLakeSettingsCreateTableDefaultPermissionsOutput) ToDataLakeSettingsC
 	}).(DataLakeSettingsCreateTableDefaultPermissionsPtrOutput)
 }
 
-func (o DataLakeSettingsCreateTableDefaultPermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[DataLakeSettingsCreateTableDefaultPermissions] {
-	return pulumix.Output[DataLakeSettingsCreateTableDefaultPermissions]{
-		OutputState: o.OutputState,
-	}
-}
-
 type DataLakeSettingsCreateTableDefaultPermissionsPtrOutput struct{ *pulumi.OutputState }
 
 func (DataLakeSettingsCreateTableDefaultPermissionsPtrOutput) ElementType() reflect.Type {
@@ -769,12 +654,6 @@ func (o DataLakeSettingsCreateTableDefaultPermissionsPtrOutput) ToDataLakeSettin
 
 func (o DataLakeSettingsCreateTableDefaultPermissionsPtrOutput) ToDataLakeSettingsCreateTableDefaultPermissionsPtrOutputWithContext(ctx context.Context) DataLakeSettingsCreateTableDefaultPermissionsPtrOutput {
 	return o
-}
-
-func (o DataLakeSettingsCreateTableDefaultPermissionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataLakeSettingsCreateTableDefaultPermissions] {
-	return pulumix.Output[*DataLakeSettingsCreateTableDefaultPermissions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataLakeSettingsCreateTableDefaultPermissionsPtrOutput) Elem() DataLakeSettingsCreateTableDefaultPermissionsOutput {
@@ -814,12 +693,6 @@ func (i DataLakeSettingsExternalDataFilteringAllowListArgs) ToDataLakeSettingsEx
 
 func (i DataLakeSettingsExternalDataFilteringAllowListArgs) ToDataLakeSettingsExternalDataFilteringAllowListOutputWithContext(ctx context.Context) DataLakeSettingsExternalDataFilteringAllowListOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsExternalDataFilteringAllowListOutput)
-}
-
-func (i DataLakeSettingsExternalDataFilteringAllowListArgs) ToOutput(ctx context.Context) pulumix.Output[DataLakeSettingsExternalDataFilteringAllowList] {
-	return pulumix.Output[DataLakeSettingsExternalDataFilteringAllowList]{
-		OutputState: i.ToDataLakeSettingsExternalDataFilteringAllowListOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i DataLakeSettingsExternalDataFilteringAllowListArgs) ToDataLakeSettingsExternalDataFilteringAllowListPtrOutput() DataLakeSettingsExternalDataFilteringAllowListPtrOutput {
@@ -863,12 +736,6 @@ func (i *dataLakeSettingsExternalDataFilteringAllowListPtrType) ToDataLakeSettin
 	return pulumi.ToOutputWithContext(ctx, i).(DataLakeSettingsExternalDataFilteringAllowListPtrOutput)
 }
 
-func (i *dataLakeSettingsExternalDataFilteringAllowListPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataLakeSettingsExternalDataFilteringAllowList] {
-	return pulumix.Output[*DataLakeSettingsExternalDataFilteringAllowList]{
-		OutputState: i.ToDataLakeSettingsExternalDataFilteringAllowListPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataLakeSettingsExternalDataFilteringAllowListOutput struct{ *pulumi.OutputState }
 
 func (DataLakeSettingsExternalDataFilteringAllowListOutput) ElementType() reflect.Type {
@@ -893,12 +760,6 @@ func (o DataLakeSettingsExternalDataFilteringAllowListOutput) ToDataLakeSettings
 	}).(DataLakeSettingsExternalDataFilteringAllowListPtrOutput)
 }
 
-func (o DataLakeSettingsExternalDataFilteringAllowListOutput) ToOutput(ctx context.Context) pulumix.Output[DataLakeSettingsExternalDataFilteringAllowList] {
-	return pulumix.Output[DataLakeSettingsExternalDataFilteringAllowList]{
-		OutputState: o.OutputState,
-	}
-}
-
 type DataLakeSettingsExternalDataFilteringAllowListPtrOutput struct{ *pulumi.OutputState }
 
 func (DataLakeSettingsExternalDataFilteringAllowListPtrOutput) ElementType() reflect.Type {
@@ -911,12 +772,6 @@ func (o DataLakeSettingsExternalDataFilteringAllowListPtrOutput) ToDataLakeSetti
 
 func (o DataLakeSettingsExternalDataFilteringAllowListPtrOutput) ToDataLakeSettingsExternalDataFilteringAllowListPtrOutputWithContext(ctx context.Context) DataLakeSettingsExternalDataFilteringAllowListPtrOutput {
 	return o
-}
-
-func (o DataLakeSettingsExternalDataFilteringAllowListPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataLakeSettingsExternalDataFilteringAllowList] {
-	return pulumix.Output[*DataLakeSettingsExternalDataFilteringAllowList]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataLakeSettingsExternalDataFilteringAllowListPtrOutput) Elem() DataLakeSettingsExternalDataFilteringAllowListOutput {
@@ -960,12 +815,6 @@ func (i PermissionsColumnWildcardArgs) ToPermissionsColumnWildcardOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsColumnWildcardOutput)
 }
 
-func (i PermissionsColumnWildcardArgs) ToOutput(ctx context.Context) pulumix.Output[PermissionsColumnWildcard] {
-	return pulumix.Output[PermissionsColumnWildcard]{
-		OutputState: i.ToPermissionsColumnWildcardOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PermissionsColumnWildcardArgs) ToPermissionsColumnWildcardPtrOutput() PermissionsColumnWildcardPtrOutput {
 	return i.ToPermissionsColumnWildcardPtrOutputWithContext(context.Background())
 }
@@ -1007,12 +856,6 @@ func (i *permissionsColumnWildcardPtrType) ToPermissionsColumnWildcardPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsColumnWildcardPtrOutput)
 }
 
-func (i *permissionsColumnWildcardPtrType) ToOutput(ctx context.Context) pulumix.Output[*PermissionsColumnWildcard] {
-	return pulumix.Output[*PermissionsColumnWildcard]{
-		OutputState: i.ToPermissionsColumnWildcardPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PermissionsColumnWildcardOutput struct{ *pulumi.OutputState }
 
 func (PermissionsColumnWildcardOutput) ElementType() reflect.Type {
@@ -1037,12 +880,6 @@ func (o PermissionsColumnWildcardOutput) ToPermissionsColumnWildcardPtrOutputWit
 	}).(PermissionsColumnWildcardPtrOutput)
 }
 
-func (o PermissionsColumnWildcardOutput) ToOutput(ctx context.Context) pulumix.Output[PermissionsColumnWildcard] {
-	return pulumix.Output[PermissionsColumnWildcard]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PermissionsColumnWildcardOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PermissionsColumnWildcard) []string { return v.ExcludedColumnNames }).(pulumi.StringArrayOutput)
 }
@@ -1059,12 +896,6 @@ func (o PermissionsColumnWildcardPtrOutput) ToPermissionsColumnWildcardPtrOutput
 
 func (o PermissionsColumnWildcardPtrOutput) ToPermissionsColumnWildcardPtrOutputWithContext(ctx context.Context) PermissionsColumnWildcardPtrOutput {
 	return o
-}
-
-func (o PermissionsColumnWildcardPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PermissionsColumnWildcard] {
-	return pulumix.Output[*PermissionsColumnWildcard]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PermissionsColumnWildcardPtrOutput) Elem() PermissionsColumnWildcardOutput {
@@ -1117,12 +948,6 @@ func (i PermissionsDataLakePrincipalArgs) ToPermissionsDataLakePrincipalOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsDataLakePrincipalOutput)
 }
 
-func (i PermissionsDataLakePrincipalArgs) ToOutput(ctx context.Context) pulumix.Output[PermissionsDataLakePrincipal] {
-	return pulumix.Output[PermissionsDataLakePrincipal]{
-		OutputState: i.ToPermissionsDataLakePrincipalOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PermissionsDataLakePrincipalOutput struct{ *pulumi.OutputState }
 
 func (PermissionsDataLakePrincipalOutput) ElementType() reflect.Type {
@@ -1135,12 +960,6 @@ func (o PermissionsDataLakePrincipalOutput) ToPermissionsDataLakePrincipalOutput
 
 func (o PermissionsDataLakePrincipalOutput) ToPermissionsDataLakePrincipalOutputWithContext(ctx context.Context) PermissionsDataLakePrincipalOutput {
 	return o
-}
-
-func (o PermissionsDataLakePrincipalOutput) ToOutput(ctx context.Context) pulumix.Output[PermissionsDataLakePrincipal] {
-	return pulumix.Output[PermissionsDataLakePrincipal]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PermissionsDataLakePrincipalOutput) DataLakePrincipalIdentifier() pulumi.StringPtrOutput {
@@ -1178,12 +997,6 @@ func (i PermissionsDataLocationResourceArgs) ToPermissionsDataLocationResourceOu
 
 func (i PermissionsDataLocationResourceArgs) ToPermissionsDataLocationResourceOutputWithContext(ctx context.Context) PermissionsDataLocationResourceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsDataLocationResourceOutput)
-}
-
-func (i PermissionsDataLocationResourceArgs) ToOutput(ctx context.Context) pulumix.Output[PermissionsDataLocationResource] {
-	return pulumix.Output[PermissionsDataLocationResource]{
-		OutputState: i.ToPermissionsDataLocationResourceOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i PermissionsDataLocationResourceArgs) ToPermissionsDataLocationResourcePtrOutput() PermissionsDataLocationResourcePtrOutput {
@@ -1227,12 +1040,6 @@ func (i *permissionsDataLocationResourcePtrType) ToPermissionsDataLocationResour
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsDataLocationResourcePtrOutput)
 }
 
-func (i *permissionsDataLocationResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*PermissionsDataLocationResource] {
-	return pulumix.Output[*PermissionsDataLocationResource]{
-		OutputState: i.ToPermissionsDataLocationResourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PermissionsDataLocationResourceOutput struct{ *pulumi.OutputState }
 
 func (PermissionsDataLocationResourceOutput) ElementType() reflect.Type {
@@ -1257,12 +1064,6 @@ func (o PermissionsDataLocationResourceOutput) ToPermissionsDataLocationResource
 	}).(PermissionsDataLocationResourcePtrOutput)
 }
 
-func (o PermissionsDataLocationResourceOutput) ToOutput(ctx context.Context) pulumix.Output[PermissionsDataLocationResource] {
-	return pulumix.Output[PermissionsDataLocationResource]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PermissionsDataLocationResourceOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsDataLocationResource) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
@@ -1283,12 +1084,6 @@ func (o PermissionsDataLocationResourcePtrOutput) ToPermissionsDataLocationResou
 
 func (o PermissionsDataLocationResourcePtrOutput) ToPermissionsDataLocationResourcePtrOutputWithContext(ctx context.Context) PermissionsDataLocationResourcePtrOutput {
 	return o
-}
-
-func (o PermissionsDataLocationResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PermissionsDataLocationResource] {
-	return pulumix.Output[*PermissionsDataLocationResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PermissionsDataLocationResourcePtrOutput) Elem() PermissionsDataLocationResourceOutput {
@@ -1352,12 +1147,6 @@ func (i PermissionsDatabaseResourceArgs) ToPermissionsDatabaseResourceOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsDatabaseResourceOutput)
 }
 
-func (i PermissionsDatabaseResourceArgs) ToOutput(ctx context.Context) pulumix.Output[PermissionsDatabaseResource] {
-	return pulumix.Output[PermissionsDatabaseResource]{
-		OutputState: i.ToPermissionsDatabaseResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PermissionsDatabaseResourceArgs) ToPermissionsDatabaseResourcePtrOutput() PermissionsDatabaseResourcePtrOutput {
 	return i.ToPermissionsDatabaseResourcePtrOutputWithContext(context.Background())
 }
@@ -1399,12 +1188,6 @@ func (i *permissionsDatabaseResourcePtrType) ToPermissionsDatabaseResourcePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsDatabaseResourcePtrOutput)
 }
 
-func (i *permissionsDatabaseResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*PermissionsDatabaseResource] {
-	return pulumix.Output[*PermissionsDatabaseResource]{
-		OutputState: i.ToPermissionsDatabaseResourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PermissionsDatabaseResourceOutput struct{ *pulumi.OutputState }
 
 func (PermissionsDatabaseResourceOutput) ElementType() reflect.Type {
@@ -1429,12 +1212,6 @@ func (o PermissionsDatabaseResourceOutput) ToPermissionsDatabaseResourcePtrOutpu
 	}).(PermissionsDatabaseResourcePtrOutput)
 }
 
-func (o PermissionsDatabaseResourceOutput) ToOutput(ctx context.Context) pulumix.Output[PermissionsDatabaseResource] {
-	return pulumix.Output[PermissionsDatabaseResource]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PermissionsDatabaseResourceOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PermissionsDatabaseResource) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
@@ -1455,12 +1232,6 @@ func (o PermissionsDatabaseResourcePtrOutput) ToPermissionsDatabaseResourcePtrOu
 
 func (o PermissionsDatabaseResourcePtrOutput) ToPermissionsDatabaseResourcePtrOutputWithContext(ctx context.Context) PermissionsDatabaseResourcePtrOutput {
 	return o
-}
-
-func (o PermissionsDatabaseResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PermissionsDatabaseResource] {
-	return pulumix.Output[*PermissionsDatabaseResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PermissionsDatabaseResourcePtrOutput) Elem() PermissionsDatabaseResourceOutput {
@@ -1528,12 +1299,6 @@ func (i PermissionsResourceArgs) ToPermissionsResourceOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsResourceOutput)
 }
 
-func (i PermissionsResourceArgs) ToOutput(ctx context.Context) pulumix.Output[PermissionsResource] {
-	return pulumix.Output[PermissionsResource]{
-		OutputState: i.ToPermissionsResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PermissionsResourceOutput struct{ *pulumi.OutputState }
 
 func (PermissionsResourceOutput) ElementType() reflect.Type {
@@ -1546,12 +1311,6 @@ func (o PermissionsResourceOutput) ToPermissionsResourceOutput() PermissionsReso
 
 func (o PermissionsResourceOutput) ToPermissionsResourceOutputWithContext(ctx context.Context) PermissionsResourceOutput {
 	return o
-}
-
-func (o PermissionsResourceOutput) ToOutput(ctx context.Context) pulumix.Output[PermissionsResource] {
-	return pulumix.Output[PermissionsResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PermissionsResourceOutput) DataLocationResource() PermissionsDataLocationResourcePtrOutput {
@@ -1607,12 +1366,6 @@ func (i PermissionsTableResourceArgs) ToPermissionsTableResourceOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsTableResourceOutput)
 }
 
-func (i PermissionsTableResourceArgs) ToOutput(ctx context.Context) pulumix.Output[PermissionsTableResource] {
-	return pulumix.Output[PermissionsTableResource]{
-		OutputState: i.ToPermissionsTableResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PermissionsTableResourceArgs) ToPermissionsTableResourcePtrOutput() PermissionsTableResourcePtrOutput {
 	return i.ToPermissionsTableResourcePtrOutputWithContext(context.Background())
 }
@@ -1654,12 +1407,6 @@ func (i *permissionsTableResourcePtrType) ToPermissionsTableResourcePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsTableResourcePtrOutput)
 }
 
-func (i *permissionsTableResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*PermissionsTableResource] {
-	return pulumix.Output[*PermissionsTableResource]{
-		OutputState: i.ToPermissionsTableResourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PermissionsTableResourceOutput struct{ *pulumi.OutputState }
 
 func (PermissionsTableResourceOutput) ElementType() reflect.Type {
@@ -1682,12 +1429,6 @@ func (o PermissionsTableResourceOutput) ToPermissionsTableResourcePtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionsTableResource) *PermissionsTableResource {
 		return &v
 	}).(PermissionsTableResourcePtrOutput)
-}
-
-func (o PermissionsTableResourceOutput) ToOutput(ctx context.Context) pulumix.Output[PermissionsTableResource] {
-	return pulumix.Output[PermissionsTableResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PermissionsTableResourceOutput) CatalogId() pulumi.StringPtrOutput {
@@ -1718,12 +1459,6 @@ func (o PermissionsTableResourcePtrOutput) ToPermissionsTableResourcePtrOutput()
 
 func (o PermissionsTableResourcePtrOutput) ToPermissionsTableResourcePtrOutputWithContext(ctx context.Context) PermissionsTableResourcePtrOutput {
 	return o
-}
-
-func (o PermissionsTableResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PermissionsTableResource] {
-	return pulumix.Output[*PermissionsTableResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PermissionsTableResourcePtrOutput) Elem() PermissionsTableResourceOutput {
@@ -1801,12 +1536,6 @@ func (i PermissionsTableWildcardArgs) ToPermissionsTableWildcardOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsTableWildcardOutput)
 }
 
-func (i PermissionsTableWildcardArgs) ToOutput(ctx context.Context) pulumix.Output[PermissionsTableWildcard] {
-	return pulumix.Output[PermissionsTableWildcard]{
-		OutputState: i.ToPermissionsTableWildcardOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PermissionsTableWildcardArgs) ToPermissionsTableWildcardPtrOutput() PermissionsTableWildcardPtrOutput {
 	return i.ToPermissionsTableWildcardPtrOutputWithContext(context.Background())
 }
@@ -1848,12 +1577,6 @@ func (i *permissionsTableWildcardPtrType) ToPermissionsTableWildcardPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsTableWildcardPtrOutput)
 }
 
-func (i *permissionsTableWildcardPtrType) ToOutput(ctx context.Context) pulumix.Output[*PermissionsTableWildcard] {
-	return pulumix.Output[*PermissionsTableWildcard]{
-		OutputState: i.ToPermissionsTableWildcardPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PermissionsTableWildcardOutput struct{ *pulumi.OutputState }
 
 func (PermissionsTableWildcardOutput) ElementType() reflect.Type {
@@ -1878,12 +1601,6 @@ func (o PermissionsTableWildcardOutput) ToPermissionsTableWildcardPtrOutputWithC
 	}).(PermissionsTableWildcardPtrOutput)
 }
 
-func (o PermissionsTableWildcardOutput) ToOutput(ctx context.Context) pulumix.Output[PermissionsTableWildcard] {
-	return pulumix.Output[PermissionsTableWildcard]{
-		OutputState: o.OutputState,
-	}
-}
-
 type PermissionsTableWildcardPtrOutput struct{ *pulumi.OutputState }
 
 func (PermissionsTableWildcardPtrOutput) ElementType() reflect.Type {
@@ -1896,12 +1613,6 @@ func (o PermissionsTableWildcardPtrOutput) ToPermissionsTableWildcardPtrOutput()
 
 func (o PermissionsTableWildcardPtrOutput) ToPermissionsTableWildcardPtrOutputWithContext(ctx context.Context) PermissionsTableWildcardPtrOutput {
 	return o
-}
-
-func (o PermissionsTableWildcardPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PermissionsTableWildcard] {
-	return pulumix.Output[*PermissionsTableWildcard]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PermissionsTableWildcardPtrOutput) Elem() PermissionsTableWildcardOutput {
@@ -1953,12 +1664,6 @@ func (i PermissionsTableWithColumnsResourceArgs) ToPermissionsTableWithColumnsRe
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsTableWithColumnsResourceOutput)
 }
 
-func (i PermissionsTableWithColumnsResourceArgs) ToOutput(ctx context.Context) pulumix.Output[PermissionsTableWithColumnsResource] {
-	return pulumix.Output[PermissionsTableWithColumnsResource]{
-		OutputState: i.ToPermissionsTableWithColumnsResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PermissionsTableWithColumnsResourceArgs) ToPermissionsTableWithColumnsResourcePtrOutput() PermissionsTableWithColumnsResourcePtrOutput {
 	return i.ToPermissionsTableWithColumnsResourcePtrOutputWithContext(context.Background())
 }
@@ -2000,12 +1705,6 @@ func (i *permissionsTableWithColumnsResourcePtrType) ToPermissionsTableWithColum
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionsTableWithColumnsResourcePtrOutput)
 }
 
-func (i *permissionsTableWithColumnsResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*PermissionsTableWithColumnsResource] {
-	return pulumix.Output[*PermissionsTableWithColumnsResource]{
-		OutputState: i.ToPermissionsTableWithColumnsResourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PermissionsTableWithColumnsResourceOutput struct{ *pulumi.OutputState }
 
 func (PermissionsTableWithColumnsResourceOutput) ElementType() reflect.Type {
@@ -2028,12 +1727,6 @@ func (o PermissionsTableWithColumnsResourceOutput) ToPermissionsTableWithColumns
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionsTableWithColumnsResource) *PermissionsTableWithColumnsResource {
 		return &v
 	}).(PermissionsTableWithColumnsResourcePtrOutput)
-}
-
-func (o PermissionsTableWithColumnsResourceOutput) ToOutput(ctx context.Context) pulumix.Output[PermissionsTableWithColumnsResource] {
-	return pulumix.Output[PermissionsTableWithColumnsResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PermissionsTableWithColumnsResourceOutput) CatalogId() pulumi.StringPtrOutput {
@@ -2068,12 +1761,6 @@ func (o PermissionsTableWithColumnsResourcePtrOutput) ToPermissionsTableWithColu
 
 func (o PermissionsTableWithColumnsResourcePtrOutput) ToPermissionsTableWithColumnsResourcePtrOutputWithContext(ctx context.Context) PermissionsTableWithColumnsResourcePtrOutput {
 	return o
-}
-
-func (o PermissionsTableWithColumnsResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PermissionsTableWithColumnsResource] {
-	return pulumix.Output[*PermissionsTableWithColumnsResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PermissionsTableWithColumnsResourcePtrOutput) Elem() PermissionsTableWithColumnsResourceOutput {
@@ -2160,12 +1847,6 @@ func (i PrincipalPermissionsCatalogResourceArgs) ToPrincipalPermissionsCatalogRe
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsCatalogResourceOutput)
 }
 
-func (i PrincipalPermissionsCatalogResourceArgs) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsCatalogResource] {
-	return pulumix.Output[PrincipalPermissionsCatalogResource]{
-		OutputState: i.ToPrincipalPermissionsCatalogResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PrincipalPermissionsCatalogResourceArgs) ToPrincipalPermissionsCatalogResourcePtrOutput() PrincipalPermissionsCatalogResourcePtrOutput {
 	return i.ToPrincipalPermissionsCatalogResourcePtrOutputWithContext(context.Background())
 }
@@ -2207,12 +1888,6 @@ func (i *principalPermissionsCatalogResourcePtrType) ToPrincipalPermissionsCatal
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsCatalogResourcePtrOutput)
 }
 
-func (i *principalPermissionsCatalogResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissionsCatalogResource] {
-	return pulumix.Output[*PrincipalPermissionsCatalogResource]{
-		OutputState: i.ToPrincipalPermissionsCatalogResourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrincipalPermissionsCatalogResourceOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsCatalogResourceOutput) ElementType() reflect.Type {
@@ -2237,12 +1912,6 @@ func (o PrincipalPermissionsCatalogResourceOutput) ToPrincipalPermissionsCatalog
 	}).(PrincipalPermissionsCatalogResourcePtrOutput)
 }
 
-func (o PrincipalPermissionsCatalogResourceOutput) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsCatalogResource] {
-	return pulumix.Output[PrincipalPermissionsCatalogResource]{
-		OutputState: o.OutputState,
-	}
-}
-
 type PrincipalPermissionsCatalogResourcePtrOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsCatalogResourcePtrOutput) ElementType() reflect.Type {
@@ -2255,12 +1924,6 @@ func (o PrincipalPermissionsCatalogResourcePtrOutput) ToPrincipalPermissionsCata
 
 func (o PrincipalPermissionsCatalogResourcePtrOutput) ToPrincipalPermissionsCatalogResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsCatalogResourcePtrOutput {
 	return o
-}
-
-func (o PrincipalPermissionsCatalogResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissionsCatalogResource] {
-	return pulumix.Output[*PrincipalPermissionsCatalogResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPermissionsCatalogResourcePtrOutput) Elem() PrincipalPermissionsCatalogResourceOutput {
@@ -2304,12 +1967,6 @@ func (i PrincipalPermissionsColumnWildcardArgs) ToPrincipalPermissionsColumnWild
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsColumnWildcardOutput)
 }
 
-func (i PrincipalPermissionsColumnWildcardArgs) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsColumnWildcard] {
-	return pulumix.Output[PrincipalPermissionsColumnWildcard]{
-		OutputState: i.ToPrincipalPermissionsColumnWildcardOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PrincipalPermissionsColumnWildcardArgs) ToPrincipalPermissionsColumnWildcardPtrOutput() PrincipalPermissionsColumnWildcardPtrOutput {
 	return i.ToPrincipalPermissionsColumnWildcardPtrOutputWithContext(context.Background())
 }
@@ -2351,12 +2008,6 @@ func (i *principalPermissionsColumnWildcardPtrType) ToPrincipalPermissionsColumn
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsColumnWildcardPtrOutput)
 }
 
-func (i *principalPermissionsColumnWildcardPtrType) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissionsColumnWildcard] {
-	return pulumix.Output[*PrincipalPermissionsColumnWildcard]{
-		OutputState: i.ToPrincipalPermissionsColumnWildcardPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrincipalPermissionsColumnWildcardOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsColumnWildcardOutput) ElementType() reflect.Type {
@@ -2381,12 +2032,6 @@ func (o PrincipalPermissionsColumnWildcardOutput) ToPrincipalPermissionsColumnWi
 	}).(PrincipalPermissionsColumnWildcardPtrOutput)
 }
 
-func (o PrincipalPermissionsColumnWildcardOutput) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsColumnWildcard] {
-	return pulumix.Output[PrincipalPermissionsColumnWildcard]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PrincipalPermissionsColumnWildcardOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PrincipalPermissionsColumnWildcard) []string { return v.ExcludedColumnNames }).(pulumi.StringArrayOutput)
 }
@@ -2403,12 +2048,6 @@ func (o PrincipalPermissionsColumnWildcardPtrOutput) ToPrincipalPermissionsColum
 
 func (o PrincipalPermissionsColumnWildcardPtrOutput) ToPrincipalPermissionsColumnWildcardPtrOutputWithContext(ctx context.Context) PrincipalPermissionsColumnWildcardPtrOutput {
 	return o
-}
-
-func (o PrincipalPermissionsColumnWildcardPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissionsColumnWildcard] {
-	return pulumix.Output[*PrincipalPermissionsColumnWildcard]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPermissionsColumnWildcardPtrOutput) Elem() PrincipalPermissionsColumnWildcardOutput {
@@ -2467,12 +2106,6 @@ func (i PrincipalPermissionsDataCellsFilterResourceArgs) ToPrincipalPermissionsD
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsDataCellsFilterResourceOutput)
 }
 
-func (i PrincipalPermissionsDataCellsFilterResourceArgs) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsDataCellsFilterResource] {
-	return pulumix.Output[PrincipalPermissionsDataCellsFilterResource]{
-		OutputState: i.ToPrincipalPermissionsDataCellsFilterResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PrincipalPermissionsDataCellsFilterResourceArgs) ToPrincipalPermissionsDataCellsFilterResourcePtrOutput() PrincipalPermissionsDataCellsFilterResourcePtrOutput {
 	return i.ToPrincipalPermissionsDataCellsFilterResourcePtrOutputWithContext(context.Background())
 }
@@ -2514,12 +2147,6 @@ func (i *principalPermissionsDataCellsFilterResourcePtrType) ToPrincipalPermissi
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsDataCellsFilterResourcePtrOutput)
 }
 
-func (i *principalPermissionsDataCellsFilterResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissionsDataCellsFilterResource] {
-	return pulumix.Output[*PrincipalPermissionsDataCellsFilterResource]{
-		OutputState: i.ToPrincipalPermissionsDataCellsFilterResourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrincipalPermissionsDataCellsFilterResourceOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsDataCellsFilterResourceOutput) ElementType() reflect.Type {
@@ -2542,12 +2169,6 @@ func (o PrincipalPermissionsDataCellsFilterResourceOutput) ToPrincipalPermission
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalPermissionsDataCellsFilterResource) *PrincipalPermissionsDataCellsFilterResource {
 		return &v
 	}).(PrincipalPermissionsDataCellsFilterResourcePtrOutput)
-}
-
-func (o PrincipalPermissionsDataCellsFilterResourceOutput) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsDataCellsFilterResource] {
-	return pulumix.Output[PrincipalPermissionsDataCellsFilterResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPermissionsDataCellsFilterResourceOutput) DatabaseName() pulumi.StringOutput {
@@ -2578,12 +2199,6 @@ func (o PrincipalPermissionsDataCellsFilterResourcePtrOutput) ToPrincipalPermiss
 
 func (o PrincipalPermissionsDataCellsFilterResourcePtrOutput) ToPrincipalPermissionsDataCellsFilterResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsDataCellsFilterResourcePtrOutput {
 	return o
-}
-
-func (o PrincipalPermissionsDataCellsFilterResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissionsDataCellsFilterResource] {
-	return pulumix.Output[*PrincipalPermissionsDataCellsFilterResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPermissionsDataCellsFilterResourcePtrOutput) Elem() PrincipalPermissionsDataCellsFilterResourceOutput {
@@ -2663,12 +2278,6 @@ func (i PrincipalPermissionsDataLakePrincipalArgs) ToPrincipalPermissionsDataLak
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsDataLakePrincipalOutput)
 }
 
-func (i PrincipalPermissionsDataLakePrincipalArgs) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsDataLakePrincipal] {
-	return pulumix.Output[PrincipalPermissionsDataLakePrincipal]{
-		OutputState: i.ToPrincipalPermissionsDataLakePrincipalOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrincipalPermissionsDataLakePrincipalOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsDataLakePrincipalOutput) ElementType() reflect.Type {
@@ -2681,12 +2290,6 @@ func (o PrincipalPermissionsDataLakePrincipalOutput) ToPrincipalPermissionsDataL
 
 func (o PrincipalPermissionsDataLakePrincipalOutput) ToPrincipalPermissionsDataLakePrincipalOutputWithContext(ctx context.Context) PrincipalPermissionsDataLakePrincipalOutput {
 	return o
-}
-
-func (o PrincipalPermissionsDataLakePrincipalOutput) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsDataLakePrincipal] {
-	return pulumix.Output[PrincipalPermissionsDataLakePrincipal]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPermissionsDataLakePrincipalOutput) DataLakePrincipalIdentifier() pulumi.StringPtrOutput {
@@ -2724,12 +2327,6 @@ func (i PrincipalPermissionsDataLocationResourceArgs) ToPrincipalPermissionsData
 
 func (i PrincipalPermissionsDataLocationResourceArgs) ToPrincipalPermissionsDataLocationResourceOutputWithContext(ctx context.Context) PrincipalPermissionsDataLocationResourceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsDataLocationResourceOutput)
-}
-
-func (i PrincipalPermissionsDataLocationResourceArgs) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsDataLocationResource] {
-	return pulumix.Output[PrincipalPermissionsDataLocationResource]{
-		OutputState: i.ToPrincipalPermissionsDataLocationResourceOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i PrincipalPermissionsDataLocationResourceArgs) ToPrincipalPermissionsDataLocationResourcePtrOutput() PrincipalPermissionsDataLocationResourcePtrOutput {
@@ -2773,12 +2370,6 @@ func (i *principalPermissionsDataLocationResourcePtrType) ToPrincipalPermissions
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsDataLocationResourcePtrOutput)
 }
 
-func (i *principalPermissionsDataLocationResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissionsDataLocationResource] {
-	return pulumix.Output[*PrincipalPermissionsDataLocationResource]{
-		OutputState: i.ToPrincipalPermissionsDataLocationResourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrincipalPermissionsDataLocationResourceOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsDataLocationResourceOutput) ElementType() reflect.Type {
@@ -2803,12 +2394,6 @@ func (o PrincipalPermissionsDataLocationResourceOutput) ToPrincipalPermissionsDa
 	}).(PrincipalPermissionsDataLocationResourcePtrOutput)
 }
 
-func (o PrincipalPermissionsDataLocationResourceOutput) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsDataLocationResource] {
-	return pulumix.Output[PrincipalPermissionsDataLocationResource]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PrincipalPermissionsDataLocationResourceOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v PrincipalPermissionsDataLocationResource) string { return v.CatalogId }).(pulumi.StringOutput)
 }
@@ -2829,12 +2414,6 @@ func (o PrincipalPermissionsDataLocationResourcePtrOutput) ToPrincipalPermission
 
 func (o PrincipalPermissionsDataLocationResourcePtrOutput) ToPrincipalPermissionsDataLocationResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsDataLocationResourcePtrOutput {
 	return o
-}
-
-func (o PrincipalPermissionsDataLocationResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissionsDataLocationResource] {
-	return pulumix.Output[*PrincipalPermissionsDataLocationResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPermissionsDataLocationResourcePtrOutput) Elem() PrincipalPermissionsDataLocationResourceOutput {
@@ -2898,12 +2477,6 @@ func (i PrincipalPermissionsDatabaseResourceArgs) ToPrincipalPermissionsDatabase
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsDatabaseResourceOutput)
 }
 
-func (i PrincipalPermissionsDatabaseResourceArgs) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsDatabaseResource] {
-	return pulumix.Output[PrincipalPermissionsDatabaseResource]{
-		OutputState: i.ToPrincipalPermissionsDatabaseResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PrincipalPermissionsDatabaseResourceArgs) ToPrincipalPermissionsDatabaseResourcePtrOutput() PrincipalPermissionsDatabaseResourcePtrOutput {
 	return i.ToPrincipalPermissionsDatabaseResourcePtrOutputWithContext(context.Background())
 }
@@ -2945,12 +2518,6 @@ func (i *principalPermissionsDatabaseResourcePtrType) ToPrincipalPermissionsData
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsDatabaseResourcePtrOutput)
 }
 
-func (i *principalPermissionsDatabaseResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissionsDatabaseResource] {
-	return pulumix.Output[*PrincipalPermissionsDatabaseResource]{
-		OutputState: i.ToPrincipalPermissionsDatabaseResourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrincipalPermissionsDatabaseResourceOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsDatabaseResourceOutput) ElementType() reflect.Type {
@@ -2975,12 +2542,6 @@ func (o PrincipalPermissionsDatabaseResourceOutput) ToPrincipalPermissionsDataba
 	}).(PrincipalPermissionsDatabaseResourcePtrOutput)
 }
 
-func (o PrincipalPermissionsDatabaseResourceOutput) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsDatabaseResource] {
-	return pulumix.Output[PrincipalPermissionsDatabaseResource]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PrincipalPermissionsDatabaseResourceOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v PrincipalPermissionsDatabaseResource) string { return v.CatalogId }).(pulumi.StringOutput)
 }
@@ -3001,12 +2562,6 @@ func (o PrincipalPermissionsDatabaseResourcePtrOutput) ToPrincipalPermissionsDat
 
 func (o PrincipalPermissionsDatabaseResourcePtrOutput) ToPrincipalPermissionsDatabaseResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsDatabaseResourcePtrOutput {
 	return o
-}
-
-func (o PrincipalPermissionsDatabaseResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissionsDatabaseResource] {
-	return pulumix.Output[*PrincipalPermissionsDatabaseResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPermissionsDatabaseResourcePtrOutput) Elem() PrincipalPermissionsDatabaseResourceOutput {
@@ -3070,12 +2625,6 @@ func (i PrincipalPermissionsLfTagArgs) ToPrincipalPermissionsLfTagOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLfTagOutput)
 }
 
-func (i PrincipalPermissionsLfTagArgs) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsLfTag] {
-	return pulumix.Output[PrincipalPermissionsLfTag]{
-		OutputState: i.ToPrincipalPermissionsLfTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PrincipalPermissionsLfTagArrayInput is an input type that accepts PrincipalPermissionsLfTagArray and PrincipalPermissionsLfTagArrayOutput values.
 // You can construct a concrete instance of `PrincipalPermissionsLfTagArrayInput` via:
 //
@@ -3101,12 +2650,6 @@ func (i PrincipalPermissionsLfTagArray) ToPrincipalPermissionsLfTagArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLfTagArrayOutput)
 }
 
-func (i PrincipalPermissionsLfTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PrincipalPermissionsLfTag] {
-	return pulumix.Output[[]PrincipalPermissionsLfTag]{
-		OutputState: i.ToPrincipalPermissionsLfTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrincipalPermissionsLfTagOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsLfTagOutput) ElementType() reflect.Type {
@@ -3119,12 +2662,6 @@ func (o PrincipalPermissionsLfTagOutput) ToPrincipalPermissionsLfTagOutput() Pri
 
 func (o PrincipalPermissionsLfTagOutput) ToPrincipalPermissionsLfTagOutputWithContext(ctx context.Context) PrincipalPermissionsLfTagOutput {
 	return o
-}
-
-func (o PrincipalPermissionsLfTagOutput) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsLfTag] {
-	return pulumix.Output[PrincipalPermissionsLfTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPermissionsLfTagOutput) TagKey() pulumi.StringPtrOutput {
@@ -3147,12 +2684,6 @@ func (o PrincipalPermissionsLfTagArrayOutput) ToPrincipalPermissionsLfTagArrayOu
 
 func (o PrincipalPermissionsLfTagArrayOutput) ToPrincipalPermissionsLfTagArrayOutputWithContext(ctx context.Context) PrincipalPermissionsLfTagArrayOutput {
 	return o
-}
-
-func (o PrincipalPermissionsLfTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PrincipalPermissionsLfTag] {
-	return pulumix.Output[[]PrincipalPermissionsLfTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPermissionsLfTagArrayOutput) Index(i pulumi.IntInput) PrincipalPermissionsLfTagOutput {
@@ -3196,12 +2727,6 @@ func (i PrincipalPermissionsLfTagKeyResourceArgs) ToPrincipalPermissionsLfTagKey
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLfTagKeyResourceOutput)
 }
 
-func (i PrincipalPermissionsLfTagKeyResourceArgs) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsLfTagKeyResource] {
-	return pulumix.Output[PrincipalPermissionsLfTagKeyResource]{
-		OutputState: i.ToPrincipalPermissionsLfTagKeyResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PrincipalPermissionsLfTagKeyResourceArgs) ToPrincipalPermissionsLfTagKeyResourcePtrOutput() PrincipalPermissionsLfTagKeyResourcePtrOutput {
 	return i.ToPrincipalPermissionsLfTagKeyResourcePtrOutputWithContext(context.Background())
 }
@@ -3243,12 +2768,6 @@ func (i *principalPermissionsLfTagKeyResourcePtrType) ToPrincipalPermissionsLfTa
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLfTagKeyResourcePtrOutput)
 }
 
-func (i *principalPermissionsLfTagKeyResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissionsLfTagKeyResource] {
-	return pulumix.Output[*PrincipalPermissionsLfTagKeyResource]{
-		OutputState: i.ToPrincipalPermissionsLfTagKeyResourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrincipalPermissionsLfTagKeyResourceOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsLfTagKeyResourceOutput) ElementType() reflect.Type {
@@ -3271,12 +2790,6 @@ func (o PrincipalPermissionsLfTagKeyResourceOutput) ToPrincipalPermissionsLfTagK
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalPermissionsLfTagKeyResource) *PrincipalPermissionsLfTagKeyResource {
 		return &v
 	}).(PrincipalPermissionsLfTagKeyResourcePtrOutput)
-}
-
-func (o PrincipalPermissionsLfTagKeyResourceOutput) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsLfTagKeyResource] {
-	return pulumix.Output[PrincipalPermissionsLfTagKeyResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPermissionsLfTagKeyResourceOutput) CatalogId() pulumi.StringOutput {
@@ -3303,12 +2816,6 @@ func (o PrincipalPermissionsLfTagKeyResourcePtrOutput) ToPrincipalPermissionsLfT
 
 func (o PrincipalPermissionsLfTagKeyResourcePtrOutput) ToPrincipalPermissionsLfTagKeyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLfTagKeyResourcePtrOutput {
 	return o
-}
-
-func (o PrincipalPermissionsLfTagKeyResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissionsLfTagKeyResource] {
-	return pulumix.Output[*PrincipalPermissionsLfTagKeyResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPermissionsLfTagKeyResourcePtrOutput) Elem() PrincipalPermissionsLfTagKeyResourceOutput {
@@ -3383,12 +2890,6 @@ func (i PrincipalPermissionsLfTagPolicyResourceArgs) ToPrincipalPermissionsLfTag
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLfTagPolicyResourceOutput)
 }
 
-func (i PrincipalPermissionsLfTagPolicyResourceArgs) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsLfTagPolicyResource] {
-	return pulumix.Output[PrincipalPermissionsLfTagPolicyResource]{
-		OutputState: i.ToPrincipalPermissionsLfTagPolicyResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PrincipalPermissionsLfTagPolicyResourceArgs) ToPrincipalPermissionsLfTagPolicyResourcePtrOutput() PrincipalPermissionsLfTagPolicyResourcePtrOutput {
 	return i.ToPrincipalPermissionsLfTagPolicyResourcePtrOutputWithContext(context.Background())
 }
@@ -3430,12 +2931,6 @@ func (i *principalPermissionsLfTagPolicyResourcePtrType) ToPrincipalPermissionsL
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsLfTagPolicyResourcePtrOutput)
 }
 
-func (i *principalPermissionsLfTagPolicyResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissionsLfTagPolicyResource] {
-	return pulumix.Output[*PrincipalPermissionsLfTagPolicyResource]{
-		OutputState: i.ToPrincipalPermissionsLfTagPolicyResourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrincipalPermissionsLfTagPolicyResourceOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsLfTagPolicyResourceOutput) ElementType() reflect.Type {
@@ -3458,12 +2953,6 @@ func (o PrincipalPermissionsLfTagPolicyResourceOutput) ToPrincipalPermissionsLfT
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalPermissionsLfTagPolicyResource) *PrincipalPermissionsLfTagPolicyResource {
 		return &v
 	}).(PrincipalPermissionsLfTagPolicyResourcePtrOutput)
-}
-
-func (o PrincipalPermissionsLfTagPolicyResourceOutput) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsLfTagPolicyResource] {
-	return pulumix.Output[PrincipalPermissionsLfTagPolicyResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPermissionsLfTagPolicyResourceOutput) CatalogId() pulumi.StringOutput {
@@ -3492,12 +2981,6 @@ func (o PrincipalPermissionsLfTagPolicyResourcePtrOutput) ToPrincipalPermissions
 
 func (o PrincipalPermissionsLfTagPolicyResourcePtrOutput) ToPrincipalPermissionsLfTagPolicyResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsLfTagPolicyResourcePtrOutput {
 	return o
-}
-
-func (o PrincipalPermissionsLfTagPolicyResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissionsLfTagPolicyResource] {
-	return pulumix.Output[*PrincipalPermissionsLfTagPolicyResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPermissionsLfTagPolicyResourcePtrOutput) Elem() PrincipalPermissionsLfTagPolicyResourceOutput {
@@ -3582,12 +3065,6 @@ func (i PrincipalPermissionsResourceArgs) ToPrincipalPermissionsResourceOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsResourceOutput)
 }
 
-func (i PrincipalPermissionsResourceArgs) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsResource] {
-	return pulumix.Output[PrincipalPermissionsResource]{
-		OutputState: i.ToPrincipalPermissionsResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrincipalPermissionsResourceOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsResourceOutput) ElementType() reflect.Type {
@@ -3600,12 +3077,6 @@ func (o PrincipalPermissionsResourceOutput) ToPrincipalPermissionsResourceOutput
 
 func (o PrincipalPermissionsResourceOutput) ToPrincipalPermissionsResourceOutputWithContext(ctx context.Context) PrincipalPermissionsResourceOutput {
 	return o
-}
-
-func (o PrincipalPermissionsResourceOutput) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsResource] {
-	return pulumix.Output[PrincipalPermissionsResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPermissionsResourceOutput) Catalog() PrincipalPermissionsCatalogResourcePtrOutput {
@@ -3681,12 +3152,6 @@ func (i PrincipalPermissionsTableResourceArgs) ToPrincipalPermissionsTableResour
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsTableResourceOutput)
 }
 
-func (i PrincipalPermissionsTableResourceArgs) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsTableResource] {
-	return pulumix.Output[PrincipalPermissionsTableResource]{
-		OutputState: i.ToPrincipalPermissionsTableResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PrincipalPermissionsTableResourceArgs) ToPrincipalPermissionsTableResourcePtrOutput() PrincipalPermissionsTableResourcePtrOutput {
 	return i.ToPrincipalPermissionsTableResourcePtrOutputWithContext(context.Background())
 }
@@ -3728,12 +3193,6 @@ func (i *principalPermissionsTableResourcePtrType) ToPrincipalPermissionsTableRe
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsTableResourcePtrOutput)
 }
 
-func (i *principalPermissionsTableResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissionsTableResource] {
-	return pulumix.Output[*PrincipalPermissionsTableResource]{
-		OutputState: i.ToPrincipalPermissionsTableResourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrincipalPermissionsTableResourceOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsTableResourceOutput) ElementType() reflect.Type {
@@ -3756,12 +3215,6 @@ func (o PrincipalPermissionsTableResourceOutput) ToPrincipalPermissionsTableReso
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalPermissionsTableResource) *PrincipalPermissionsTableResource {
 		return &v
 	}).(PrincipalPermissionsTableResourcePtrOutput)
-}
-
-func (o PrincipalPermissionsTableResourceOutput) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsTableResource] {
-	return pulumix.Output[PrincipalPermissionsTableResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPermissionsTableResourceOutput) CatalogId() pulumi.StringOutput {
@@ -3792,12 +3245,6 @@ func (o PrincipalPermissionsTableResourcePtrOutput) ToPrincipalPermissionsTableR
 
 func (o PrincipalPermissionsTableResourcePtrOutput) ToPrincipalPermissionsTableResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsTableResourcePtrOutput {
 	return o
-}
-
-func (o PrincipalPermissionsTableResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissionsTableResource] {
-	return pulumix.Output[*PrincipalPermissionsTableResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPermissionsTableResourcePtrOutput) Elem() PrincipalPermissionsTableResourceOutput {
@@ -3875,12 +3322,6 @@ func (i PrincipalPermissionsTableWildcardArgs) ToPrincipalPermissionsTableWildca
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsTableWildcardOutput)
 }
 
-func (i PrincipalPermissionsTableWildcardArgs) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsTableWildcard] {
-	return pulumix.Output[PrincipalPermissionsTableWildcard]{
-		OutputState: i.ToPrincipalPermissionsTableWildcardOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PrincipalPermissionsTableWildcardArgs) ToPrincipalPermissionsTableWildcardPtrOutput() PrincipalPermissionsTableWildcardPtrOutput {
 	return i.ToPrincipalPermissionsTableWildcardPtrOutputWithContext(context.Background())
 }
@@ -3922,12 +3363,6 @@ func (i *principalPermissionsTableWildcardPtrType) ToPrincipalPermissionsTableWi
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsTableWildcardPtrOutput)
 }
 
-func (i *principalPermissionsTableWildcardPtrType) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissionsTableWildcard] {
-	return pulumix.Output[*PrincipalPermissionsTableWildcard]{
-		OutputState: i.ToPrincipalPermissionsTableWildcardPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrincipalPermissionsTableWildcardOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsTableWildcardOutput) ElementType() reflect.Type {
@@ -3952,12 +3387,6 @@ func (o PrincipalPermissionsTableWildcardOutput) ToPrincipalPermissionsTableWild
 	}).(PrincipalPermissionsTableWildcardPtrOutput)
 }
 
-func (o PrincipalPermissionsTableWildcardOutput) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsTableWildcard] {
-	return pulumix.Output[PrincipalPermissionsTableWildcard]{
-		OutputState: o.OutputState,
-	}
-}
-
 type PrincipalPermissionsTableWildcardPtrOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsTableWildcardPtrOutput) ElementType() reflect.Type {
@@ -3970,12 +3399,6 @@ func (o PrincipalPermissionsTableWildcardPtrOutput) ToPrincipalPermissionsTableW
 
 func (o PrincipalPermissionsTableWildcardPtrOutput) ToPrincipalPermissionsTableWildcardPtrOutputWithContext(ctx context.Context) PrincipalPermissionsTableWildcardPtrOutput {
 	return o
-}
-
-func (o PrincipalPermissionsTableWildcardPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissionsTableWildcard] {
-	return pulumix.Output[*PrincipalPermissionsTableWildcard]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPermissionsTableWildcardPtrOutput) Elem() PrincipalPermissionsTableWildcardOutput {
@@ -4027,12 +3450,6 @@ func (i PrincipalPermissionsTableWithColumnsResourceArgs) ToPrincipalPermissions
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsTableWithColumnsResourceOutput)
 }
 
-func (i PrincipalPermissionsTableWithColumnsResourceArgs) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsTableWithColumnsResource] {
-	return pulumix.Output[PrincipalPermissionsTableWithColumnsResource]{
-		OutputState: i.ToPrincipalPermissionsTableWithColumnsResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PrincipalPermissionsTableWithColumnsResourceArgs) ToPrincipalPermissionsTableWithColumnsResourcePtrOutput() PrincipalPermissionsTableWithColumnsResourcePtrOutput {
 	return i.ToPrincipalPermissionsTableWithColumnsResourcePtrOutputWithContext(context.Background())
 }
@@ -4074,12 +3491,6 @@ func (i *principalPermissionsTableWithColumnsResourcePtrType) ToPrincipalPermiss
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsTableWithColumnsResourcePtrOutput)
 }
 
-func (i *principalPermissionsTableWithColumnsResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissionsTableWithColumnsResource] {
-	return pulumix.Output[*PrincipalPermissionsTableWithColumnsResource]{
-		OutputState: i.ToPrincipalPermissionsTableWithColumnsResourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrincipalPermissionsTableWithColumnsResourceOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsTableWithColumnsResourceOutput) ElementType() reflect.Type {
@@ -4102,12 +3513,6 @@ func (o PrincipalPermissionsTableWithColumnsResourceOutput) ToPrincipalPermissio
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrincipalPermissionsTableWithColumnsResource) *PrincipalPermissionsTableWithColumnsResource {
 		return &v
 	}).(PrincipalPermissionsTableWithColumnsResourcePtrOutput)
-}
-
-func (o PrincipalPermissionsTableWithColumnsResourceOutput) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsTableWithColumnsResource] {
-	return pulumix.Output[PrincipalPermissionsTableWithColumnsResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPermissionsTableWithColumnsResourceOutput) CatalogId() pulumi.StringOutput {
@@ -4144,12 +3549,6 @@ func (o PrincipalPermissionsTableWithColumnsResourcePtrOutput) ToPrincipalPermis
 
 func (o PrincipalPermissionsTableWithColumnsResourcePtrOutput) ToPrincipalPermissionsTableWithColumnsResourcePtrOutputWithContext(ctx context.Context) PrincipalPermissionsTableWithColumnsResourcePtrOutput {
 	return o
-}
-
-func (o PrincipalPermissionsTableWithColumnsResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissionsTableWithColumnsResource] {
-	return pulumix.Output[*PrincipalPermissionsTableWithColumnsResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPermissionsTableWithColumnsResourcePtrOutput) Elem() PrincipalPermissionsTableWithColumnsResourceOutput {
@@ -4236,12 +3635,6 @@ func (i TagAssociationCatalogResourceArgs) ToTagAssociationCatalogResourceOutput
 	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationCatalogResourceOutput)
 }
 
-func (i TagAssociationCatalogResourceArgs) ToOutput(ctx context.Context) pulumix.Output[TagAssociationCatalogResource] {
-	return pulumix.Output[TagAssociationCatalogResource]{
-		OutputState: i.ToTagAssociationCatalogResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TagAssociationCatalogResourceArgs) ToTagAssociationCatalogResourcePtrOutput() TagAssociationCatalogResourcePtrOutput {
 	return i.ToTagAssociationCatalogResourcePtrOutputWithContext(context.Background())
 }
@@ -4283,12 +3676,6 @@ func (i *tagAssociationCatalogResourcePtrType) ToTagAssociationCatalogResourcePt
 	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationCatalogResourcePtrOutput)
 }
 
-func (i *tagAssociationCatalogResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*TagAssociationCatalogResource] {
-	return pulumix.Output[*TagAssociationCatalogResource]{
-		OutputState: i.ToTagAssociationCatalogResourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TagAssociationCatalogResourceOutput struct{ *pulumi.OutputState }
 
 func (TagAssociationCatalogResourceOutput) ElementType() reflect.Type {
@@ -4313,12 +3700,6 @@ func (o TagAssociationCatalogResourceOutput) ToTagAssociationCatalogResourcePtrO
 	}).(TagAssociationCatalogResourcePtrOutput)
 }
 
-func (o TagAssociationCatalogResourceOutput) ToOutput(ctx context.Context) pulumix.Output[TagAssociationCatalogResource] {
-	return pulumix.Output[TagAssociationCatalogResource]{
-		OutputState: o.OutputState,
-	}
-}
-
 type TagAssociationCatalogResourcePtrOutput struct{ *pulumi.OutputState }
 
 func (TagAssociationCatalogResourcePtrOutput) ElementType() reflect.Type {
@@ -4331,12 +3712,6 @@ func (o TagAssociationCatalogResourcePtrOutput) ToTagAssociationCatalogResourceP
 
 func (o TagAssociationCatalogResourcePtrOutput) ToTagAssociationCatalogResourcePtrOutputWithContext(ctx context.Context) TagAssociationCatalogResourcePtrOutput {
 	return o
-}
-
-func (o TagAssociationCatalogResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TagAssociationCatalogResource] {
-	return pulumix.Output[*TagAssociationCatalogResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TagAssociationCatalogResourcePtrOutput) Elem() TagAssociationCatalogResourceOutput {
@@ -4382,12 +3757,6 @@ func (i TagAssociationDatabaseResourceArgs) ToTagAssociationDatabaseResourceOutp
 	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationDatabaseResourceOutput)
 }
 
-func (i TagAssociationDatabaseResourceArgs) ToOutput(ctx context.Context) pulumix.Output[TagAssociationDatabaseResource] {
-	return pulumix.Output[TagAssociationDatabaseResource]{
-		OutputState: i.ToTagAssociationDatabaseResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TagAssociationDatabaseResourceArgs) ToTagAssociationDatabaseResourcePtrOutput() TagAssociationDatabaseResourcePtrOutput {
 	return i.ToTagAssociationDatabaseResourcePtrOutputWithContext(context.Background())
 }
@@ -4429,12 +3798,6 @@ func (i *tagAssociationDatabaseResourcePtrType) ToTagAssociationDatabaseResource
 	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationDatabaseResourcePtrOutput)
 }
 
-func (i *tagAssociationDatabaseResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*TagAssociationDatabaseResource] {
-	return pulumix.Output[*TagAssociationDatabaseResource]{
-		OutputState: i.ToTagAssociationDatabaseResourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TagAssociationDatabaseResourceOutput struct{ *pulumi.OutputState }
 
 func (TagAssociationDatabaseResourceOutput) ElementType() reflect.Type {
@@ -4459,12 +3822,6 @@ func (o TagAssociationDatabaseResourceOutput) ToTagAssociationDatabaseResourcePt
 	}).(TagAssociationDatabaseResourcePtrOutput)
 }
 
-func (o TagAssociationDatabaseResourceOutput) ToOutput(ctx context.Context) pulumix.Output[TagAssociationDatabaseResource] {
-	return pulumix.Output[TagAssociationDatabaseResource]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TagAssociationDatabaseResourceOutput) CatalogId() pulumi.StringOutput {
 	return o.ApplyT(func(v TagAssociationDatabaseResource) string { return v.CatalogId }).(pulumi.StringOutput)
 }
@@ -4485,12 +3842,6 @@ func (o TagAssociationDatabaseResourcePtrOutput) ToTagAssociationDatabaseResourc
 
 func (o TagAssociationDatabaseResourcePtrOutput) ToTagAssociationDatabaseResourcePtrOutputWithContext(ctx context.Context) TagAssociationDatabaseResourcePtrOutput {
 	return o
-}
-
-func (o TagAssociationDatabaseResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TagAssociationDatabaseResource] {
-	return pulumix.Output[*TagAssociationDatabaseResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TagAssociationDatabaseResourcePtrOutput) Elem() TagAssociationDatabaseResourceOutput {
@@ -4556,12 +3907,6 @@ func (i TagAssociationLfTagPairArgs) ToTagAssociationLfTagPairOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationLfTagPairOutput)
 }
 
-func (i TagAssociationLfTagPairArgs) ToOutput(ctx context.Context) pulumix.Output[TagAssociationLfTagPair] {
-	return pulumix.Output[TagAssociationLfTagPair]{
-		OutputState: i.ToTagAssociationLfTagPairOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TagAssociationLfTagPairArrayInput is an input type that accepts TagAssociationLfTagPairArray and TagAssociationLfTagPairArrayOutput values.
 // You can construct a concrete instance of `TagAssociationLfTagPairArrayInput` via:
 //
@@ -4587,12 +3932,6 @@ func (i TagAssociationLfTagPairArray) ToTagAssociationLfTagPairArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationLfTagPairArrayOutput)
 }
 
-func (i TagAssociationLfTagPairArray) ToOutput(ctx context.Context) pulumix.Output[[]TagAssociationLfTagPair] {
-	return pulumix.Output[[]TagAssociationLfTagPair]{
-		OutputState: i.ToTagAssociationLfTagPairArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TagAssociationLfTagPairOutput struct{ *pulumi.OutputState }
 
 func (TagAssociationLfTagPairOutput) ElementType() reflect.Type {
@@ -4605,12 +3944,6 @@ func (o TagAssociationLfTagPairOutput) ToTagAssociationLfTagPairOutput() TagAsso
 
 func (o TagAssociationLfTagPairOutput) ToTagAssociationLfTagPairOutputWithContext(ctx context.Context) TagAssociationLfTagPairOutput {
 	return o
-}
-
-func (o TagAssociationLfTagPairOutput) ToOutput(ctx context.Context) pulumix.Output[TagAssociationLfTagPair] {
-	return pulumix.Output[TagAssociationLfTagPair]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TagAssociationLfTagPairOutput) CatalogId() pulumi.StringOutput {
@@ -4637,12 +3970,6 @@ func (o TagAssociationLfTagPairArrayOutput) ToTagAssociationLfTagPairArrayOutput
 
 func (o TagAssociationLfTagPairArrayOutput) ToTagAssociationLfTagPairArrayOutputWithContext(ctx context.Context) TagAssociationLfTagPairArrayOutput {
 	return o
-}
-
-func (o TagAssociationLfTagPairArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TagAssociationLfTagPair] {
-	return pulumix.Output[[]TagAssociationLfTagPair]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TagAssociationLfTagPairArrayOutput) Index(i pulumi.IntInput) TagAssociationLfTagPairOutput {
@@ -4688,12 +4015,6 @@ func (i TagAssociationResourceArgs) ToTagAssociationResourceOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationResourceOutput)
 }
 
-func (i TagAssociationResourceArgs) ToOutput(ctx context.Context) pulumix.Output[TagAssociationResource] {
-	return pulumix.Output[TagAssociationResource]{
-		OutputState: i.ToTagAssociationResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TagAssociationResourceOutput struct{ *pulumi.OutputState }
 
 func (TagAssociationResourceOutput) ElementType() reflect.Type {
@@ -4706,12 +4027,6 @@ func (o TagAssociationResourceOutput) ToTagAssociationResourceOutput() TagAssoci
 
 func (o TagAssociationResourceOutput) ToTagAssociationResourceOutputWithContext(ctx context.Context) TagAssociationResourceOutput {
 	return o
-}
-
-func (o TagAssociationResourceOutput) ToOutput(ctx context.Context) pulumix.Output[TagAssociationResource] {
-	return pulumix.Output[TagAssociationResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TagAssociationResourceOutput) Catalog() TagAssociationCatalogResourcePtrOutput {
@@ -4767,12 +4082,6 @@ func (i TagAssociationTableResourceArgs) ToTagAssociationTableResourceOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationTableResourceOutput)
 }
 
-func (i TagAssociationTableResourceArgs) ToOutput(ctx context.Context) pulumix.Output[TagAssociationTableResource] {
-	return pulumix.Output[TagAssociationTableResource]{
-		OutputState: i.ToTagAssociationTableResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TagAssociationTableResourceArgs) ToTagAssociationTableResourcePtrOutput() TagAssociationTableResourcePtrOutput {
 	return i.ToTagAssociationTableResourcePtrOutputWithContext(context.Background())
 }
@@ -4814,12 +4123,6 @@ func (i *tagAssociationTableResourcePtrType) ToTagAssociationTableResourcePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationTableResourcePtrOutput)
 }
 
-func (i *tagAssociationTableResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*TagAssociationTableResource] {
-	return pulumix.Output[*TagAssociationTableResource]{
-		OutputState: i.ToTagAssociationTableResourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TagAssociationTableResourceOutput struct{ *pulumi.OutputState }
 
 func (TagAssociationTableResourceOutput) ElementType() reflect.Type {
@@ -4842,12 +4145,6 @@ func (o TagAssociationTableResourceOutput) ToTagAssociationTableResourcePtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagAssociationTableResource) *TagAssociationTableResource {
 		return &v
 	}).(TagAssociationTableResourcePtrOutput)
-}
-
-func (o TagAssociationTableResourceOutput) ToOutput(ctx context.Context) pulumix.Output[TagAssociationTableResource] {
-	return pulumix.Output[TagAssociationTableResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TagAssociationTableResourceOutput) CatalogId() pulumi.StringOutput {
@@ -4878,12 +4175,6 @@ func (o TagAssociationTableResourcePtrOutput) ToTagAssociationTableResourcePtrOu
 
 func (o TagAssociationTableResourcePtrOutput) ToTagAssociationTableResourcePtrOutputWithContext(ctx context.Context) TagAssociationTableResourcePtrOutput {
 	return o
-}
-
-func (o TagAssociationTableResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TagAssociationTableResource] {
-	return pulumix.Output[*TagAssociationTableResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TagAssociationTableResourcePtrOutput) Elem() TagAssociationTableResourceOutput {
@@ -4961,12 +4252,6 @@ func (i TagAssociationTableWildcardArgs) ToTagAssociationTableWildcardOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationTableWildcardOutput)
 }
 
-func (i TagAssociationTableWildcardArgs) ToOutput(ctx context.Context) pulumix.Output[TagAssociationTableWildcard] {
-	return pulumix.Output[TagAssociationTableWildcard]{
-		OutputState: i.ToTagAssociationTableWildcardOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TagAssociationTableWildcardArgs) ToTagAssociationTableWildcardPtrOutput() TagAssociationTableWildcardPtrOutput {
 	return i.ToTagAssociationTableWildcardPtrOutputWithContext(context.Background())
 }
@@ -5008,12 +4293,6 @@ func (i *tagAssociationTableWildcardPtrType) ToTagAssociationTableWildcardPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationTableWildcardPtrOutput)
 }
 
-func (i *tagAssociationTableWildcardPtrType) ToOutput(ctx context.Context) pulumix.Output[*TagAssociationTableWildcard] {
-	return pulumix.Output[*TagAssociationTableWildcard]{
-		OutputState: i.ToTagAssociationTableWildcardPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TagAssociationTableWildcardOutput struct{ *pulumi.OutputState }
 
 func (TagAssociationTableWildcardOutput) ElementType() reflect.Type {
@@ -5038,12 +4317,6 @@ func (o TagAssociationTableWildcardOutput) ToTagAssociationTableWildcardPtrOutpu
 	}).(TagAssociationTableWildcardPtrOutput)
 }
 
-func (o TagAssociationTableWildcardOutput) ToOutput(ctx context.Context) pulumix.Output[TagAssociationTableWildcard] {
-	return pulumix.Output[TagAssociationTableWildcard]{
-		OutputState: o.OutputState,
-	}
-}
-
 type TagAssociationTableWildcardPtrOutput struct{ *pulumi.OutputState }
 
 func (TagAssociationTableWildcardPtrOutput) ElementType() reflect.Type {
@@ -5056,12 +4329,6 @@ func (o TagAssociationTableWildcardPtrOutput) ToTagAssociationTableWildcardPtrOu
 
 func (o TagAssociationTableWildcardPtrOutput) ToTagAssociationTableWildcardPtrOutputWithContext(ctx context.Context) TagAssociationTableWildcardPtrOutput {
 	return o
-}
-
-func (o TagAssociationTableWildcardPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TagAssociationTableWildcard] {
-	return pulumix.Output[*TagAssociationTableWildcard]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TagAssociationTableWildcardPtrOutput) Elem() TagAssociationTableWildcardOutput {
@@ -5111,12 +4378,6 @@ func (i TagAssociationTableWithColumnsResourceArgs) ToTagAssociationTableWithCol
 	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationTableWithColumnsResourceOutput)
 }
 
-func (i TagAssociationTableWithColumnsResourceArgs) ToOutput(ctx context.Context) pulumix.Output[TagAssociationTableWithColumnsResource] {
-	return pulumix.Output[TagAssociationTableWithColumnsResource]{
-		OutputState: i.ToTagAssociationTableWithColumnsResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TagAssociationTableWithColumnsResourceArgs) ToTagAssociationTableWithColumnsResourcePtrOutput() TagAssociationTableWithColumnsResourcePtrOutput {
 	return i.ToTagAssociationTableWithColumnsResourcePtrOutputWithContext(context.Background())
 }
@@ -5158,12 +4419,6 @@ func (i *tagAssociationTableWithColumnsResourcePtrType) ToTagAssociationTableWit
 	return pulumi.ToOutputWithContext(ctx, i).(TagAssociationTableWithColumnsResourcePtrOutput)
 }
 
-func (i *tagAssociationTableWithColumnsResourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*TagAssociationTableWithColumnsResource] {
-	return pulumix.Output[*TagAssociationTableWithColumnsResource]{
-		OutputState: i.ToTagAssociationTableWithColumnsResourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TagAssociationTableWithColumnsResourceOutput struct{ *pulumi.OutputState }
 
 func (TagAssociationTableWithColumnsResourceOutput) ElementType() reflect.Type {
@@ -5186,12 +4441,6 @@ func (o TagAssociationTableWithColumnsResourceOutput) ToTagAssociationTableWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagAssociationTableWithColumnsResource) *TagAssociationTableWithColumnsResource {
 		return &v
 	}).(TagAssociationTableWithColumnsResourcePtrOutput)
-}
-
-func (o TagAssociationTableWithColumnsResourceOutput) ToOutput(ctx context.Context) pulumix.Output[TagAssociationTableWithColumnsResource] {
-	return pulumix.Output[TagAssociationTableWithColumnsResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TagAssociationTableWithColumnsResourceOutput) CatalogId() pulumi.StringOutput {
@@ -5222,12 +4471,6 @@ func (o TagAssociationTableWithColumnsResourcePtrOutput) ToTagAssociationTableWi
 
 func (o TagAssociationTableWithColumnsResourcePtrOutput) ToTagAssociationTableWithColumnsResourcePtrOutputWithContext(ctx context.Context) TagAssociationTableWithColumnsResourcePtrOutput {
 	return o
-}
-
-func (o TagAssociationTableWithColumnsResourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TagAssociationTableWithColumnsResource] {
-	return pulumix.Output[*TagAssociationTableWithColumnsResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TagAssociationTableWithColumnsResourcePtrOutput) Elem() TagAssociationTableWithColumnsResourceOutput {

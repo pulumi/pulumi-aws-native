@@ -91,12 +91,6 @@ func (o AnalysisTemplateAnalysisParameterTypeOutput) ToAnalysisTemplateAnalysisP
 	}).(AnalysisTemplateAnalysisParameterTypePtrOutput)
 }
 
-func (o AnalysisTemplateAnalysisParameterTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTemplateAnalysisParameterType] {
-	return pulumix.Output[AnalysisTemplateAnalysisParameterType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTemplateAnalysisParameterTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -130,12 +124,6 @@ func (o AnalysisTemplateAnalysisParameterTypePtrOutput) ToAnalysisTemplateAnalys
 
 func (o AnalysisTemplateAnalysisParameterTypePtrOutput) ToAnalysisTemplateAnalysisParameterTypePtrOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisParameterTypePtrOutput {
 	return o
-}
-
-func (o AnalysisTemplateAnalysisParameterTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTemplateAnalysisParameterType] {
-	return pulumix.Output[*AnalysisTemplateAnalysisParameterType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisTemplateAnalysisParameterTypePtrOutput) Elem() AnalysisTemplateAnalysisParameterTypeOutput {
@@ -272,12 +260,6 @@ func (o AnalysisTemplateFormatOutput) ToAnalysisTemplateFormatPtrOutputWithConte
 	}).(AnalysisTemplateFormatPtrOutput)
 }
 
-func (o AnalysisTemplateFormatOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTemplateFormat] {
-	return pulumix.Output[AnalysisTemplateFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTemplateFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -311,12 +293,6 @@ func (o AnalysisTemplateFormatPtrOutput) ToAnalysisTemplateFormatPtrOutput() Ana
 
 func (o AnalysisTemplateFormatPtrOutput) ToAnalysisTemplateFormatPtrOutputWithContext(ctx context.Context) AnalysisTemplateFormatPtrOutput {
 	return o
-}
-
-func (o AnalysisTemplateFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTemplateFormat] {
-	return pulumix.Output[*AnalysisTemplateFormat]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisTemplateFormatPtrOutput) Elem() AnalysisTemplateFormatOutput {
@@ -454,12 +430,6 @@ func (o CollaborationMemberAbilityOutput) ToCollaborationMemberAbilityPtrOutputW
 	}).(CollaborationMemberAbilityPtrOutput)
 }
 
-func (o CollaborationMemberAbilityOutput) ToOutput(ctx context.Context) pulumix.Output[CollaborationMemberAbility] {
-	return pulumix.Output[CollaborationMemberAbility]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CollaborationMemberAbilityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -493,12 +463,6 @@ func (o CollaborationMemberAbilityPtrOutput) ToCollaborationMemberAbilityPtrOutp
 
 func (o CollaborationMemberAbilityPtrOutput) ToCollaborationMemberAbilityPtrOutputWithContext(ctx context.Context) CollaborationMemberAbilityPtrOutput {
 	return o
-}
-
-func (o CollaborationMemberAbilityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CollaborationMemberAbility] {
-	return pulumix.Output[*CollaborationMemberAbility]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CollaborationMemberAbilityPtrOutput) Elem() CollaborationMemberAbilityOutput {
@@ -594,12 +558,6 @@ func (i CollaborationMemberAbilityArray) ToCollaborationMemberAbilityArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(CollaborationMemberAbilityArrayOutput)
 }
 
-func (i CollaborationMemberAbilityArray) ToOutput(ctx context.Context) pulumix.Output[[]CollaborationMemberAbility] {
-	return pulumix.Output[[]CollaborationMemberAbility]{
-		OutputState: i.ToCollaborationMemberAbilityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CollaborationMemberAbilityArrayOutput struct{ *pulumi.OutputState }
 
 func (CollaborationMemberAbilityArrayOutput) ElementType() reflect.Type {
@@ -612,12 +570,6 @@ func (o CollaborationMemberAbilityArrayOutput) ToCollaborationMemberAbilityArray
 
 func (o CollaborationMemberAbilityArrayOutput) ToCollaborationMemberAbilityArrayOutputWithContext(ctx context.Context) CollaborationMemberAbilityArrayOutput {
 	return o
-}
-
-func (o CollaborationMemberAbilityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CollaborationMemberAbility] {
-	return pulumix.Output[[]CollaborationMemberAbility]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CollaborationMemberAbilityArrayOutput) Index(i pulumi.IntInput) CollaborationMemberAbilityOutput {
@@ -693,12 +645,6 @@ func (o CollaborationQueryLogStatusOutput) ToCollaborationQueryLogStatusPtrOutpu
 	}).(CollaborationQueryLogStatusPtrOutput)
 }
 
-func (o CollaborationQueryLogStatusOutput) ToOutput(ctx context.Context) pulumix.Output[CollaborationQueryLogStatus] {
-	return pulumix.Output[CollaborationQueryLogStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CollaborationQueryLogStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -732,12 +678,6 @@ func (o CollaborationQueryLogStatusPtrOutput) ToCollaborationQueryLogStatusPtrOu
 
 func (o CollaborationQueryLogStatusPtrOutput) ToCollaborationQueryLogStatusPtrOutputWithContext(ctx context.Context) CollaborationQueryLogStatusPtrOutput {
 	return o
-}
-
-func (o CollaborationQueryLogStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CollaborationQueryLogStatus] {
-	return pulumix.Output[*CollaborationQueryLogStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CollaborationQueryLogStatusPtrOutput) Elem() CollaborationQueryLogStatusOutput {
@@ -890,12 +830,6 @@ func (o ConfiguredTableAnalysisMethodOutput) ToConfiguredTableAnalysisMethodPtrO
 	}).(ConfiguredTableAnalysisMethodPtrOutput)
 }
 
-func (o ConfiguredTableAnalysisMethodOutput) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableAnalysisMethod] {
-	return pulumix.Output[ConfiguredTableAnalysisMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfiguredTableAnalysisMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -929,12 +863,6 @@ func (o ConfiguredTableAnalysisMethodPtrOutput) ToConfiguredTableAnalysisMethodP
 
 func (o ConfiguredTableAnalysisMethodPtrOutput) ToConfiguredTableAnalysisMethodPtrOutputWithContext(ctx context.Context) ConfiguredTableAnalysisMethodPtrOutput {
 	return o
-}
-
-func (o ConfiguredTableAnalysisMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfiguredTableAnalysisMethod] {
-	return pulumix.Output[*ConfiguredTableAnalysisMethod]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfiguredTableAnalysisMethodPtrOutput) Elem() ConfiguredTableAnalysisMethodOutput {
@@ -1073,12 +1001,6 @@ func (o ConfiguredTableAnalysisRuleTypeOutput) ToConfiguredTableAnalysisRuleType
 	}).(ConfiguredTableAnalysisRuleTypePtrOutput)
 }
 
-func (o ConfiguredTableAnalysisRuleTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableAnalysisRuleType] {
-	return pulumix.Output[ConfiguredTableAnalysisRuleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfiguredTableAnalysisRuleTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1112,12 +1034,6 @@ func (o ConfiguredTableAnalysisRuleTypePtrOutput) ToConfiguredTableAnalysisRuleT
 
 func (o ConfiguredTableAnalysisRuleTypePtrOutput) ToConfiguredTableAnalysisRuleTypePtrOutputWithContext(ctx context.Context) ConfiguredTableAnalysisRuleTypePtrOutput {
 	return o
-}
-
-func (o ConfiguredTableAnalysisRuleTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfiguredTableAnalysisRuleType] {
-	return pulumix.Output[*ConfiguredTableAnalysisRuleType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfiguredTableAnalysisRuleTypePtrOutput) Elem() ConfiguredTableAnalysisRuleTypeOutput {
@@ -1286,12 +1202,6 @@ func (o MembershipQueryLogStatusOutput) ToMembershipQueryLogStatusPtrOutputWithC
 	}).(MembershipQueryLogStatusPtrOutput)
 }
 
-func (o MembershipQueryLogStatusOutput) ToOutput(ctx context.Context) pulumix.Output[MembershipQueryLogStatus] {
-	return pulumix.Output[MembershipQueryLogStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MembershipQueryLogStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1325,12 +1235,6 @@ func (o MembershipQueryLogStatusPtrOutput) ToMembershipQueryLogStatusPtrOutput()
 
 func (o MembershipQueryLogStatusPtrOutput) ToMembershipQueryLogStatusPtrOutputWithContext(ctx context.Context) MembershipQueryLogStatusPtrOutput {
 	return o
-}
-
-func (o MembershipQueryLogStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MembershipQueryLogStatus] {
-	return pulumix.Output[*MembershipQueryLogStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MembershipQueryLogStatusPtrOutput) Elem() MembershipQueryLogStatusOutput {
@@ -1468,12 +1372,6 @@ func (o MembershipResultFormatOutput) ToMembershipResultFormatPtrOutputWithConte
 	}).(MembershipResultFormatPtrOutput)
 }
 
-func (o MembershipResultFormatOutput) ToOutput(ctx context.Context) pulumix.Output[MembershipResultFormat] {
-	return pulumix.Output[MembershipResultFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MembershipResultFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1507,12 +1405,6 @@ func (o MembershipResultFormatPtrOutput) ToMembershipResultFormatPtrOutput() Mem
 
 func (o MembershipResultFormatPtrOutput) ToMembershipResultFormatPtrOutputWithContext(ctx context.Context) MembershipResultFormatPtrOutput {
 	return o
-}
-
-func (o MembershipResultFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MembershipResultFormat] {
-	return pulumix.Output[*MembershipResultFormat]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MembershipResultFormatPtrOutput) Elem() MembershipResultFormatOutput {

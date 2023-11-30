@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -57,12 +56,6 @@ func (i ProactiveEngagementEmergencyContactArgs) ToProactiveEngagementEmergencyC
 	return pulumi.ToOutputWithContext(ctx, i).(ProactiveEngagementEmergencyContactOutput)
 }
 
-func (i ProactiveEngagementEmergencyContactArgs) ToOutput(ctx context.Context) pulumix.Output[ProactiveEngagementEmergencyContact] {
-	return pulumix.Output[ProactiveEngagementEmergencyContact]{
-		OutputState: i.ToProactiveEngagementEmergencyContactOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProactiveEngagementEmergencyContactArrayInput is an input type that accepts ProactiveEngagementEmergencyContactArray and ProactiveEngagementEmergencyContactArrayOutput values.
 // You can construct a concrete instance of `ProactiveEngagementEmergencyContactArrayInput` via:
 //
@@ -88,12 +81,6 @@ func (i ProactiveEngagementEmergencyContactArray) ToProactiveEngagementEmergency
 	return pulumi.ToOutputWithContext(ctx, i).(ProactiveEngagementEmergencyContactArrayOutput)
 }
 
-func (i ProactiveEngagementEmergencyContactArray) ToOutput(ctx context.Context) pulumix.Output[[]ProactiveEngagementEmergencyContact] {
-	return pulumix.Output[[]ProactiveEngagementEmergencyContact]{
-		OutputState: i.ToProactiveEngagementEmergencyContactArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An emergency contact is used by Shield Response Team (SRT) to contact you for escalations to the SRT and to initiate proactive customer support. An emergency contact requires an email address.
 type ProactiveEngagementEmergencyContactOutput struct{ *pulumi.OutputState }
 
@@ -107,12 +94,6 @@ func (o ProactiveEngagementEmergencyContactOutput) ToProactiveEngagementEmergenc
 
 func (o ProactiveEngagementEmergencyContactOutput) ToProactiveEngagementEmergencyContactOutputWithContext(ctx context.Context) ProactiveEngagementEmergencyContactOutput {
 	return o
-}
-
-func (o ProactiveEngagementEmergencyContactOutput) ToOutput(ctx context.Context) pulumix.Output[ProactiveEngagementEmergencyContact] {
-	return pulumix.Output[ProactiveEngagementEmergencyContact]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Additional notes regarding the contact.
@@ -142,12 +123,6 @@ func (o ProactiveEngagementEmergencyContactArrayOutput) ToProactiveEngagementEme
 
 func (o ProactiveEngagementEmergencyContactArrayOutput) ToProactiveEngagementEmergencyContactArrayOutputWithContext(ctx context.Context) ProactiveEngagementEmergencyContactArrayOutput {
 	return o
-}
-
-func (o ProactiveEngagementEmergencyContactArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProactiveEngagementEmergencyContact] {
-	return pulumix.Output[[]ProactiveEngagementEmergencyContact]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProactiveEngagementEmergencyContactArrayOutput) Index(i pulumi.IntInput) ProactiveEngagementEmergencyContactOutput {
@@ -195,12 +170,6 @@ func (i ProtectionApplicationLayerAutomaticResponseConfigurationArgs) ToProtecti
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionApplicationLayerAutomaticResponseConfigurationOutput)
 }
 
-func (i ProtectionApplicationLayerAutomaticResponseConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ProtectionApplicationLayerAutomaticResponseConfiguration] {
-	return pulumix.Output[ProtectionApplicationLayerAutomaticResponseConfiguration]{
-		OutputState: i.ToProtectionApplicationLayerAutomaticResponseConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ProtectionApplicationLayerAutomaticResponseConfigurationArgs) ToProtectionApplicationLayerAutomaticResponseConfigurationPtrOutput() ProtectionApplicationLayerAutomaticResponseConfigurationPtrOutput {
 	return i.ToProtectionApplicationLayerAutomaticResponseConfigurationPtrOutputWithContext(context.Background())
 }
@@ -242,12 +211,6 @@ func (i *protectionApplicationLayerAutomaticResponseConfigurationPtrType) ToProt
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionApplicationLayerAutomaticResponseConfigurationPtrOutput)
 }
 
-func (i *protectionApplicationLayerAutomaticResponseConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ProtectionApplicationLayerAutomaticResponseConfiguration] {
-	return pulumix.Output[*ProtectionApplicationLayerAutomaticResponseConfiguration]{
-		OutputState: i.ToProtectionApplicationLayerAutomaticResponseConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The automatic application layer DDoS mitigation settings for a Protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
 type ProtectionApplicationLayerAutomaticResponseConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -271,12 +234,6 @@ func (o ProtectionApplicationLayerAutomaticResponseConfigurationOutput) ToProtec
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectionApplicationLayerAutomaticResponseConfiguration) *ProtectionApplicationLayerAutomaticResponseConfiguration {
 		return &v
 	}).(ProtectionApplicationLayerAutomaticResponseConfigurationPtrOutput)
-}
-
-func (o ProtectionApplicationLayerAutomaticResponseConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ProtectionApplicationLayerAutomaticResponseConfiguration] {
-	return pulumix.Output[ProtectionApplicationLayerAutomaticResponseConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the action setting that Shield Advanced should use in the AWS WAF rules that it creates on behalf of the protected resource in response to DDoS attacks. You specify this as part of the configuration for the automatic application layer DDoS mitigation feature, when you enable or update automatic mitigation. Shield Advanced creates the AWS WAF rules in a Shield Advanced-managed rule group, inside the web ACL that you have associated with the resource.
@@ -303,12 +260,6 @@ func (o ProtectionApplicationLayerAutomaticResponseConfigurationPtrOutput) ToPro
 
 func (o ProtectionApplicationLayerAutomaticResponseConfigurationPtrOutput) ToProtectionApplicationLayerAutomaticResponseConfigurationPtrOutputWithContext(ctx context.Context) ProtectionApplicationLayerAutomaticResponseConfigurationPtrOutput {
 	return o
-}
-
-func (o ProtectionApplicationLayerAutomaticResponseConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectionApplicationLayerAutomaticResponseConfiguration] {
-	return pulumix.Output[*ProtectionApplicationLayerAutomaticResponseConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProtectionApplicationLayerAutomaticResponseConfigurationPtrOutput) Elem() ProtectionApplicationLayerAutomaticResponseConfigurationOutput {
@@ -394,12 +345,6 @@ func (i ProtectionGroupTagArgs) ToProtectionGroupTagOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionGroupTagOutput)
 }
 
-func (i ProtectionGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[ProtectionGroupTag] {
-	return pulumix.Output[ProtectionGroupTag]{
-		OutputState: i.ToProtectionGroupTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProtectionGroupTagArrayInput is an input type that accepts ProtectionGroupTagArray and ProtectionGroupTagArrayOutput values.
 // You can construct a concrete instance of `ProtectionGroupTagArrayInput` via:
 //
@@ -425,12 +370,6 @@ func (i ProtectionGroupTagArray) ToProtectionGroupTagArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionGroupTagArrayOutput)
 }
 
-func (i ProtectionGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ProtectionGroupTag] {
-	return pulumix.Output[[]ProtectionGroupTag]{
-		OutputState: i.ToProtectionGroupTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
 type ProtectionGroupTagOutput struct{ *pulumi.OutputState }
 
@@ -444,12 +383,6 @@ func (o ProtectionGroupTagOutput) ToProtectionGroupTagOutput() ProtectionGroupTa
 
 func (o ProtectionGroupTagOutput) ToProtectionGroupTagOutputWithContext(ctx context.Context) ProtectionGroupTagOutput {
 	return o
-}
-
-func (o ProtectionGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[ProtectionGroupTag] {
-	return pulumix.Output[ProtectionGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
@@ -474,12 +407,6 @@ func (o ProtectionGroupTagArrayOutput) ToProtectionGroupTagArrayOutput() Protect
 
 func (o ProtectionGroupTagArrayOutput) ToProtectionGroupTagArrayOutputWithContext(ctx context.Context) ProtectionGroupTagArrayOutput {
 	return o
-}
-
-func (o ProtectionGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProtectionGroupTag] {
-	return pulumix.Output[[]ProtectionGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProtectionGroupTagArrayOutput) Index(i pulumi.IntInput) ProtectionGroupTagOutput {
@@ -527,12 +454,6 @@ func (i ProtectionTagArgs) ToProtectionTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionTagOutput)
 }
 
-func (i ProtectionTagArgs) ToOutput(ctx context.Context) pulumix.Output[ProtectionTag] {
-	return pulumix.Output[ProtectionTag]{
-		OutputState: i.ToProtectionTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProtectionTagArrayInput is an input type that accepts ProtectionTagArray and ProtectionTagArrayOutput values.
 // You can construct a concrete instance of `ProtectionTagArrayInput` via:
 //
@@ -558,12 +479,6 @@ func (i ProtectionTagArray) ToProtectionTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionTagArrayOutput)
 }
 
-func (i ProtectionTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ProtectionTag] {
-	return pulumix.Output[[]ProtectionTag]{
-		OutputState: i.ToProtectionTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
 type ProtectionTagOutput struct{ *pulumi.OutputState }
 
@@ -577,12 +492,6 @@ func (o ProtectionTagOutput) ToProtectionTagOutput() ProtectionTagOutput {
 
 func (o ProtectionTagOutput) ToProtectionTagOutputWithContext(ctx context.Context) ProtectionTagOutput {
 	return o
-}
-
-func (o ProtectionTagOutput) ToOutput(ctx context.Context) pulumix.Output[ProtectionTag] {
-	return pulumix.Output[ProtectionTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
@@ -607,12 +516,6 @@ func (o ProtectionTagArrayOutput) ToProtectionTagArrayOutput() ProtectionTagArra
 
 func (o ProtectionTagArrayOutput) ToProtectionTagArrayOutputWithContext(ctx context.Context) ProtectionTagArrayOutput {
 	return o
-}
-
-func (o ProtectionTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProtectionTag] {
-	return pulumix.Output[[]ProtectionTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProtectionTagArrayOutput) Index(i pulumi.IntInput) ProtectionTagOutput {

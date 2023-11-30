@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::HoursOfOperation
@@ -79,12 +78,6 @@ func (o LookupHoursOfOperationResultOutput) ToLookupHoursOfOperationResultOutput
 
 func (o LookupHoursOfOperationResultOutput) ToLookupHoursOfOperationResultOutputWithContext(ctx context.Context) LookupHoursOfOperationResultOutput {
 	return o
-}
-
-func (o LookupHoursOfOperationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupHoursOfOperationResult] {
-	return pulumix.Output[LookupHoursOfOperationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Configuration information for the hours of operation: day, start time, and end time.

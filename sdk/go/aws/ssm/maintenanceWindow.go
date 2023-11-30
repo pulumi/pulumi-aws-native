@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SSM::MaintenanceWindow
@@ -135,12 +134,6 @@ func (i *MaintenanceWindow) ToMaintenanceWindowOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceWindowOutput)
 }
 
-func (i *MaintenanceWindow) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindow] {
-	return pulumix.Output[*MaintenanceWindow]{
-		OutputState: i.ToMaintenanceWindowOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MaintenanceWindowOutput struct{ *pulumi.OutputState }
 
 func (MaintenanceWindowOutput) ElementType() reflect.Type {
@@ -153,12 +146,6 @@ func (o MaintenanceWindowOutput) ToMaintenanceWindowOutput() MaintenanceWindowOu
 
 func (o MaintenanceWindowOutput) ToMaintenanceWindowOutputWithContext(ctx context.Context) MaintenanceWindowOutput {
 	return o
-}
-
-func (o MaintenanceWindowOutput) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindow] {
-	return pulumix.Output[*MaintenanceWindow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MaintenanceWindowOutput) AllowUnassociatedTargets() pulumi.BoolOutput {

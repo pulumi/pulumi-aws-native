@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ServiceCatalog::LaunchRoleConstraint
@@ -119,12 +118,6 @@ func (i *LaunchRoleConstraint) ToLaunchRoleConstraintOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchRoleConstraintOutput)
 }
 
-func (i *LaunchRoleConstraint) ToOutput(ctx context.Context) pulumix.Output[*LaunchRoleConstraint] {
-	return pulumix.Output[*LaunchRoleConstraint]{
-		OutputState: i.ToLaunchRoleConstraintOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LaunchRoleConstraintOutput struct{ *pulumi.OutputState }
 
 func (LaunchRoleConstraintOutput) ElementType() reflect.Type {
@@ -137,12 +130,6 @@ func (o LaunchRoleConstraintOutput) ToLaunchRoleConstraintOutput() LaunchRoleCon
 
 func (o LaunchRoleConstraintOutput) ToLaunchRoleConstraintOutputWithContext(ctx context.Context) LaunchRoleConstraintOutput {
 	return o
-}
-
-func (o LaunchRoleConstraintOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchRoleConstraint] {
-	return pulumix.Output[*LaunchRoleConstraint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LaunchRoleConstraintOutput) AcceptLanguage() pulumi.StringPtrOutput {

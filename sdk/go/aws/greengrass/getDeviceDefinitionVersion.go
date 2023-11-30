@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Greengrass::DeviceDefinitionVersion
@@ -64,12 +63,6 @@ func (o LookupDeviceDefinitionVersionResultOutput) ToLookupDeviceDefinitionVersi
 
 func (o LookupDeviceDefinitionVersionResultOutput) ToLookupDeviceDefinitionVersionResultOutputWithContext(ctx context.Context) LookupDeviceDefinitionVersionResultOutput {
 	return o
-}
-
-func (o LookupDeviceDefinitionVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDeviceDefinitionVersionResult] {
-	return pulumix.Output[LookupDeviceDefinitionVersionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupDeviceDefinitionVersionResultOutput) Id() pulumi.StringPtrOutput {

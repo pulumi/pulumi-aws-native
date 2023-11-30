@@ -79,12 +79,6 @@ func (o AcceleratorIpAddressTypeOutput) ToAcceleratorIpAddressTypePtrOutputWithC
 	}).(AcceleratorIpAddressTypePtrOutput)
 }
 
-func (o AcceleratorIpAddressTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AcceleratorIpAddressType] {
-	return pulumix.Output[AcceleratorIpAddressType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AcceleratorIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o AcceleratorIpAddressTypePtrOutput) ToAcceleratorIpAddressTypePtrOutput()
 
 func (o AcceleratorIpAddressTypePtrOutput) ToAcceleratorIpAddressTypePtrOutputWithContext(ctx context.Context) AcceleratorIpAddressTypePtrOutput {
 	return o
-}
-
-func (o AcceleratorIpAddressTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AcceleratorIpAddressType] {
-	return pulumix.Output[*AcceleratorIpAddressType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AcceleratorIpAddressTypePtrOutput) Elem() AcceleratorIpAddressTypeOutput {
@@ -263,12 +251,6 @@ func (o EndpointGroupHealthCheckProtocolOutput) ToEndpointGroupHealthCheckProtoc
 	}).(EndpointGroupHealthCheckProtocolPtrOutput)
 }
 
-func (o EndpointGroupHealthCheckProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointGroupHealthCheckProtocol] {
-	return pulumix.Output[EndpointGroupHealthCheckProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EndpointGroupHealthCheckProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -302,12 +284,6 @@ func (o EndpointGroupHealthCheckProtocolPtrOutput) ToEndpointGroupHealthCheckPro
 
 func (o EndpointGroupHealthCheckProtocolPtrOutput) ToEndpointGroupHealthCheckProtocolPtrOutputWithContext(ctx context.Context) EndpointGroupHealthCheckProtocolPtrOutput {
 	return o
-}
-
-func (o EndpointGroupHealthCheckProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointGroupHealthCheckProtocol] {
-	return pulumix.Output[*EndpointGroupHealthCheckProtocol]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointGroupHealthCheckProtocolPtrOutput) Elem() EndpointGroupHealthCheckProtocolOutput {
@@ -446,12 +422,6 @@ func (o ListenerClientAffinityOutput) ToListenerClientAffinityPtrOutputWithConte
 	}).(ListenerClientAffinityPtrOutput)
 }
 
-func (o ListenerClientAffinityOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerClientAffinity] {
-	return pulumix.Output[ListenerClientAffinity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ListenerClientAffinityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -485,12 +455,6 @@ func (o ListenerClientAffinityPtrOutput) ToListenerClientAffinityPtrOutput() Lis
 
 func (o ListenerClientAffinityPtrOutput) ToListenerClientAffinityPtrOutputWithContext(ctx context.Context) ListenerClientAffinityPtrOutput {
 	return o
-}
-
-func (o ListenerClientAffinityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerClientAffinity] {
-	return pulumix.Output[*ListenerClientAffinity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerClientAffinityPtrOutput) Elem() ListenerClientAffinityOutput {
@@ -629,12 +593,6 @@ func (o ListenerProtocolOutput) ToListenerProtocolPtrOutputWithContext(ctx conte
 	}).(ListenerProtocolPtrOutput)
 }
 
-func (o ListenerProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[ListenerProtocol] {
-	return pulumix.Output[ListenerProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ListenerProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -668,12 +626,6 @@ func (o ListenerProtocolPtrOutput) ToListenerProtocolPtrOutput() ListenerProtoco
 
 func (o ListenerProtocolPtrOutput) ToListenerProtocolPtrOutputWithContext(ctx context.Context) ListenerProtocolPtrOutput {
 	return o
-}
-
-func (o ListenerProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ListenerProtocol] {
-	return pulumix.Output[*ListenerProtocol]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ListenerProtocolPtrOutput) Elem() ListenerProtocolOutput {
