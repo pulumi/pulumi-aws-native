@@ -794,6 +794,7 @@ AWS::SageMaker::Domain
 AWS::SageMaker::FeatureGroup
 AWS::SageMaker::Image
 AWS::SageMaker::ImageVersion
+AWS::SageMaker::InferenceComponent
 AWS::SageMaker::InferenceExperiment
 AWS::SageMaker::ModelBiasJobDefinition
 AWS::SageMaker::ModelCard
