@@ -1,5 +1,15 @@
 ## Unreleased
 
+## 0.89.0 (2023-11-30)
+
+### New resources:
+
+- sagemaker.InferenceComponent
+
+###New functions:
+
+- sagemaker.getInferenceComponent
+
 ## 0.88.0 (2023-11-29)
 
 ### New resources:
