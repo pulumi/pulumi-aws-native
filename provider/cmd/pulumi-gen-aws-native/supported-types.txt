@@ -4,6 +4,7 @@ AWS::ACMPCA::CertificateAuthorityActivation
 AWS::ACMPCA::Permission
 AWS::APS::RuleGroupsNamespace
 AWS::APS::Workspace
+AWS::ARCZonalShift::ZonalAutoshiftConfiguration
 AWS::AccessAnalyzer::Analyzer
 AWS::Amplify::App
 AWS::Amplify::Branch
