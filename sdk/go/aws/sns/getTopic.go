@@ -44,6 +44,8 @@ type LookupTopicResult struct {
 	//
 	// Length Constraints: Maximum length of 30720
 	DataProtectionPolicy interface{} `pulumi:"dataProtectionPolicy"`
+	// Delivery status logging configuration for supported protocols for an Amazon SNS topic.
+	DeliveryStatusLogging []TopicLoggingConfig `pulumi:"deliveryStatusLogging"`
 	// The display name to use for an Amazon SNS topic with SMS subscriptions.
 	DisplayName *string `pulumi:"displayName"`
 	// The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
@@ -124,6 +126,11 @@ func (o LookupTopicResultOutput) ContentBasedDeduplication() pulumi.BoolPtrOutpu
 // Length Constraints: Maximum length of 30720
 func (o LookupTopicResultOutput) DataProtectionPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupTopicResult) interface{} { return v.DataProtectionPolicy }).(pulumi.AnyOutput)
+}
+
+// Delivery status logging configuration for supported protocols for an Amazon SNS topic.
+func (o LookupTopicResultOutput) DeliveryStatusLogging() TopicLoggingConfigArrayOutput {
+	return o.ApplyT(func(v LookupTopicResult) []TopicLoggingConfig { return v.DeliveryStatusLogging }).(TopicLoggingConfigArrayOutput)
 }
 
 // The display name to use for an Amazon SNS topic with SMS subscriptions.

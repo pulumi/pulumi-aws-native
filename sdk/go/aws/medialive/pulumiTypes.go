@@ -10227,6 +10227,178 @@ func (o ChannelEncoderSettingsPtrOutput) VideoDescriptions() ChannelVideoDescrip
 	}).(ChannelVideoDescriptionArrayOutput)
 }
 
+type ChannelEpochLockingSettings struct {
+	CustomEpoch *string `pulumi:"customEpoch"`
+	JamSyncTime *string `pulumi:"jamSyncTime"`
+}
+
+// ChannelEpochLockingSettingsInput is an input type that accepts ChannelEpochLockingSettingsArgs and ChannelEpochLockingSettingsOutput values.
+// You can construct a concrete instance of `ChannelEpochLockingSettingsInput` via:
+//
+//	ChannelEpochLockingSettingsArgs{...}
+type ChannelEpochLockingSettingsInput interface {
+	pulumi.Input
+
+	ToChannelEpochLockingSettingsOutput() ChannelEpochLockingSettingsOutput
+	ToChannelEpochLockingSettingsOutputWithContext(context.Context) ChannelEpochLockingSettingsOutput
+}
+
+type ChannelEpochLockingSettingsArgs struct {
+	CustomEpoch pulumi.StringPtrInput `pulumi:"customEpoch"`
+	JamSyncTime pulumi.StringPtrInput `pulumi:"jamSyncTime"`
+}
+
+func (ChannelEpochLockingSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEpochLockingSettings)(nil)).Elem()
+}
+
+func (i ChannelEpochLockingSettingsArgs) ToChannelEpochLockingSettingsOutput() ChannelEpochLockingSettingsOutput {
+	return i.ToChannelEpochLockingSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelEpochLockingSettingsArgs) ToChannelEpochLockingSettingsOutputWithContext(ctx context.Context) ChannelEpochLockingSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEpochLockingSettingsOutput)
+}
+
+func (i ChannelEpochLockingSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelEpochLockingSettings] {
+	return pulumix.Output[ChannelEpochLockingSettings]{
+		OutputState: i.ToChannelEpochLockingSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ChannelEpochLockingSettingsArgs) ToChannelEpochLockingSettingsPtrOutput() ChannelEpochLockingSettingsPtrOutput {
+	return i.ToChannelEpochLockingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEpochLockingSettingsArgs) ToChannelEpochLockingSettingsPtrOutputWithContext(ctx context.Context) ChannelEpochLockingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEpochLockingSettingsOutput).ToChannelEpochLockingSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelEpochLockingSettingsPtrInput is an input type that accepts ChannelEpochLockingSettingsArgs, ChannelEpochLockingSettingsPtr and ChannelEpochLockingSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelEpochLockingSettingsPtrInput` via:
+//
+//	        ChannelEpochLockingSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEpochLockingSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelEpochLockingSettingsPtrOutput() ChannelEpochLockingSettingsPtrOutput
+	ToChannelEpochLockingSettingsPtrOutputWithContext(context.Context) ChannelEpochLockingSettingsPtrOutput
+}
+
+type channelEpochLockingSettingsPtrType ChannelEpochLockingSettingsArgs
+
+func ChannelEpochLockingSettingsPtr(v *ChannelEpochLockingSettingsArgs) ChannelEpochLockingSettingsPtrInput {
+	return (*channelEpochLockingSettingsPtrType)(v)
+}
+
+func (*channelEpochLockingSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEpochLockingSettings)(nil)).Elem()
+}
+
+func (i *channelEpochLockingSettingsPtrType) ToChannelEpochLockingSettingsPtrOutput() ChannelEpochLockingSettingsPtrOutput {
+	return i.ToChannelEpochLockingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEpochLockingSettingsPtrType) ToChannelEpochLockingSettingsPtrOutputWithContext(ctx context.Context) ChannelEpochLockingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEpochLockingSettingsPtrOutput)
+}
+
+func (i *channelEpochLockingSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelEpochLockingSettings] {
+	return pulumix.Output[*ChannelEpochLockingSettings]{
+		OutputState: i.ToChannelEpochLockingSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ChannelEpochLockingSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelEpochLockingSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEpochLockingSettings)(nil)).Elem()
+}
+
+func (o ChannelEpochLockingSettingsOutput) ToChannelEpochLockingSettingsOutput() ChannelEpochLockingSettingsOutput {
+	return o
+}
+
+func (o ChannelEpochLockingSettingsOutput) ToChannelEpochLockingSettingsOutputWithContext(ctx context.Context) ChannelEpochLockingSettingsOutput {
+	return o
+}
+
+func (o ChannelEpochLockingSettingsOutput) ToChannelEpochLockingSettingsPtrOutput() ChannelEpochLockingSettingsPtrOutput {
+	return o.ToChannelEpochLockingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEpochLockingSettingsOutput) ToChannelEpochLockingSettingsPtrOutputWithContext(ctx context.Context) ChannelEpochLockingSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEpochLockingSettings) *ChannelEpochLockingSettings {
+		return &v
+	}).(ChannelEpochLockingSettingsPtrOutput)
+}
+
+func (o ChannelEpochLockingSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelEpochLockingSettings] {
+	return pulumix.Output[ChannelEpochLockingSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ChannelEpochLockingSettingsOutput) CustomEpoch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEpochLockingSettings) *string { return v.CustomEpoch }).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelEpochLockingSettingsOutput) JamSyncTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelEpochLockingSettings) *string { return v.JamSyncTime }).(pulumi.StringPtrOutput)
+}
+
+type ChannelEpochLockingSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEpochLockingSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEpochLockingSettings)(nil)).Elem()
+}
+
+func (o ChannelEpochLockingSettingsPtrOutput) ToChannelEpochLockingSettingsPtrOutput() ChannelEpochLockingSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEpochLockingSettingsPtrOutput) ToChannelEpochLockingSettingsPtrOutputWithContext(ctx context.Context) ChannelEpochLockingSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelEpochLockingSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelEpochLockingSettings] {
+	return pulumix.Output[*ChannelEpochLockingSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ChannelEpochLockingSettingsPtrOutput) Elem() ChannelEpochLockingSettingsOutput {
+	return o.ApplyT(func(v *ChannelEpochLockingSettings) ChannelEpochLockingSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEpochLockingSettings
+		return ret
+	}).(ChannelEpochLockingSettingsOutput)
+}
+
+func (o ChannelEpochLockingSettingsPtrOutput) CustomEpoch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEpochLockingSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomEpoch
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelEpochLockingSettingsPtrOutput) JamSyncTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEpochLockingSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JamSyncTime
+	}).(pulumi.StringPtrOutput)
+}
+
 type ChannelEsam struct {
 	AcquisitionPointId *string `pulumi:"acquisitionPointId"`
 	AdAvailOffset      *int    `pulumi:"adAvailOffset"`
@@ -10769,7 +10941,8 @@ func (o ChannelFailoverConditionSettingsPtrOutput) VideoBlackSettings() ChannelV
 }
 
 type ChannelFeatureActivations struct {
-	InputPrepareScheduleActions *string `pulumi:"inputPrepareScheduleActions"`
+	InputPrepareScheduleActions             *string `pulumi:"inputPrepareScheduleActions"`
+	OutputStaticImageOverlayScheduleActions *string `pulumi:"outputStaticImageOverlayScheduleActions"`
 }
 
 // ChannelFeatureActivationsInput is an input type that accepts ChannelFeatureActivationsArgs and ChannelFeatureActivationsOutput values.
@@ -10784,7 +10957,8 @@ type ChannelFeatureActivationsInput interface {
 }
 
 type ChannelFeatureActivationsArgs struct {
-	InputPrepareScheduleActions pulumi.StringPtrInput `pulumi:"inputPrepareScheduleActions"`
+	InputPrepareScheduleActions             pulumi.StringPtrInput `pulumi:"inputPrepareScheduleActions"`
+	OutputStaticImageOverlayScheduleActions pulumi.StringPtrInput `pulumi:"outputStaticImageOverlayScheduleActions"`
 }
 
 func (ChannelFeatureActivationsArgs) ElementType() reflect.Type {
@@ -10886,6 +11060,10 @@ func (o ChannelFeatureActivationsOutput) InputPrepareScheduleActions() pulumi.St
 	return o.ApplyT(func(v ChannelFeatureActivations) *string { return v.InputPrepareScheduleActions }).(pulumi.StringPtrOutput)
 }
 
+func (o ChannelFeatureActivationsOutput) OutputStaticImageOverlayScheduleActions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelFeatureActivations) *string { return v.OutputStaticImageOverlayScheduleActions }).(pulumi.StringPtrOutput)
+}
+
 type ChannelFeatureActivationsPtrOutput struct{ *pulumi.OutputState }
 
 func (ChannelFeatureActivationsPtrOutput) ElementType() reflect.Type {
@@ -10922,6 +11100,15 @@ func (o ChannelFeatureActivationsPtrOutput) InputPrepareScheduleActions() pulumi
 			return nil
 		}
 		return v.InputPrepareScheduleActions
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelFeatureActivationsPtrOutput) OutputStaticImageOverlayScheduleActions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelFeatureActivations) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputStaticImageOverlayScheduleActions
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -12274,12 +12461,13 @@ func (o ChannelFrameCaptureSettingsPtrOutput) TimecodeBurninSettings() ChannelTi
 }
 
 type ChannelGlobalConfiguration struct {
-	InitialAudioGain          *int                      `pulumi:"initialAudioGain"`
-	InputEndAction            *string                   `pulumi:"inputEndAction"`
-	InputLossBehavior         *ChannelInputLossBehavior `pulumi:"inputLossBehavior"`
-	OutputLockingMode         *string                   `pulumi:"outputLockingMode"`
-	OutputTimingSource        *string                   `pulumi:"outputTimingSource"`
-	SupportLowFramerateInputs *string                   `pulumi:"supportLowFramerateInputs"`
+	InitialAudioGain          *int                          `pulumi:"initialAudioGain"`
+	InputEndAction            *string                       `pulumi:"inputEndAction"`
+	InputLossBehavior         *ChannelInputLossBehavior     `pulumi:"inputLossBehavior"`
+	OutputLockingMode         *string                       `pulumi:"outputLockingMode"`
+	OutputLockingSettings     *ChannelOutputLockingSettings `pulumi:"outputLockingSettings"`
+	OutputTimingSource        *string                       `pulumi:"outputTimingSource"`
+	SupportLowFramerateInputs *string                       `pulumi:"supportLowFramerateInputs"`
 }
 
 // ChannelGlobalConfigurationInput is an input type that accepts ChannelGlobalConfigurationArgs and ChannelGlobalConfigurationOutput values.
@@ -12294,12 +12482,13 @@ type ChannelGlobalConfigurationInput interface {
 }
 
 type ChannelGlobalConfigurationArgs struct {
-	InitialAudioGain          pulumi.IntPtrInput               `pulumi:"initialAudioGain"`
-	InputEndAction            pulumi.StringPtrInput            `pulumi:"inputEndAction"`
-	InputLossBehavior         ChannelInputLossBehaviorPtrInput `pulumi:"inputLossBehavior"`
-	OutputLockingMode         pulumi.StringPtrInput            `pulumi:"outputLockingMode"`
-	OutputTimingSource        pulumi.StringPtrInput            `pulumi:"outputTimingSource"`
-	SupportLowFramerateInputs pulumi.StringPtrInput            `pulumi:"supportLowFramerateInputs"`
+	InitialAudioGain          pulumi.IntPtrInput                   `pulumi:"initialAudioGain"`
+	InputEndAction            pulumi.StringPtrInput                `pulumi:"inputEndAction"`
+	InputLossBehavior         ChannelInputLossBehaviorPtrInput     `pulumi:"inputLossBehavior"`
+	OutputLockingMode         pulumi.StringPtrInput                `pulumi:"outputLockingMode"`
+	OutputLockingSettings     ChannelOutputLockingSettingsPtrInput `pulumi:"outputLockingSettings"`
+	OutputTimingSource        pulumi.StringPtrInput                `pulumi:"outputTimingSource"`
+	SupportLowFramerateInputs pulumi.StringPtrInput                `pulumi:"supportLowFramerateInputs"`
 }
 
 func (ChannelGlobalConfigurationArgs) ElementType() reflect.Type {
@@ -12413,6 +12602,10 @@ func (o ChannelGlobalConfigurationOutput) OutputLockingMode() pulumi.StringPtrOu
 	return o.ApplyT(func(v ChannelGlobalConfiguration) *string { return v.OutputLockingMode }).(pulumi.StringPtrOutput)
 }
 
+func (o ChannelGlobalConfigurationOutput) OutputLockingSettings() ChannelOutputLockingSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelGlobalConfiguration) *ChannelOutputLockingSettings { return v.OutputLockingSettings }).(ChannelOutputLockingSettingsPtrOutput)
+}
+
 func (o ChannelGlobalConfigurationOutput) OutputTimingSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelGlobalConfiguration) *string { return v.OutputTimingSource }).(pulumi.StringPtrOutput)
 }
@@ -12485,6 +12678,15 @@ func (o ChannelGlobalConfigurationPtrOutput) OutputLockingMode() pulumi.StringPt
 		}
 		return v.OutputLockingMode
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o ChannelGlobalConfigurationPtrOutput) OutputLockingSettings() ChannelOutputLockingSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelGlobalConfiguration) *ChannelOutputLockingSettings {
+		if v == nil {
+			return nil
+		}
+		return v.OutputLockingSettings
+	}).(ChannelOutputLockingSettingsPtrOutput)
 }
 
 func (o ChannelGlobalConfigurationPtrOutput) OutputTimingSource() pulumi.StringPtrOutput {
@@ -24942,6 +25144,178 @@ func (o ChannelOutputLocationRefPtrOutput) DestinationRefId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type ChannelOutputLockingSettings struct {
+	EpochLockingSettings    *ChannelEpochLockingSettings    `pulumi:"epochLockingSettings"`
+	PipelineLockingSettings *ChannelPipelineLockingSettings `pulumi:"pipelineLockingSettings"`
+}
+
+// ChannelOutputLockingSettingsInput is an input type that accepts ChannelOutputLockingSettingsArgs and ChannelOutputLockingSettingsOutput values.
+// You can construct a concrete instance of `ChannelOutputLockingSettingsInput` via:
+//
+//	ChannelOutputLockingSettingsArgs{...}
+type ChannelOutputLockingSettingsInput interface {
+	pulumi.Input
+
+	ToChannelOutputLockingSettingsOutput() ChannelOutputLockingSettingsOutput
+	ToChannelOutputLockingSettingsOutputWithContext(context.Context) ChannelOutputLockingSettingsOutput
+}
+
+type ChannelOutputLockingSettingsArgs struct {
+	EpochLockingSettings    ChannelEpochLockingSettingsPtrInput    `pulumi:"epochLockingSettings"`
+	PipelineLockingSettings ChannelPipelineLockingSettingsPtrInput `pulumi:"pipelineLockingSettings"`
+}
+
+func (ChannelOutputLockingSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelOutputLockingSettings)(nil)).Elem()
+}
+
+func (i ChannelOutputLockingSettingsArgs) ToChannelOutputLockingSettingsOutput() ChannelOutputLockingSettingsOutput {
+	return i.ToChannelOutputLockingSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelOutputLockingSettingsArgs) ToChannelOutputLockingSettingsOutputWithContext(ctx context.Context) ChannelOutputLockingSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutputLockingSettingsOutput)
+}
+
+func (i ChannelOutputLockingSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelOutputLockingSettings] {
+	return pulumix.Output[ChannelOutputLockingSettings]{
+		OutputState: i.ToChannelOutputLockingSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ChannelOutputLockingSettingsArgs) ToChannelOutputLockingSettingsPtrOutput() ChannelOutputLockingSettingsPtrOutput {
+	return i.ToChannelOutputLockingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelOutputLockingSettingsArgs) ToChannelOutputLockingSettingsPtrOutputWithContext(ctx context.Context) ChannelOutputLockingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutputLockingSettingsOutput).ToChannelOutputLockingSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelOutputLockingSettingsPtrInput is an input type that accepts ChannelOutputLockingSettingsArgs, ChannelOutputLockingSettingsPtr and ChannelOutputLockingSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelOutputLockingSettingsPtrInput` via:
+//
+//	        ChannelOutputLockingSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelOutputLockingSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelOutputLockingSettingsPtrOutput() ChannelOutputLockingSettingsPtrOutput
+	ToChannelOutputLockingSettingsPtrOutputWithContext(context.Context) ChannelOutputLockingSettingsPtrOutput
+}
+
+type channelOutputLockingSettingsPtrType ChannelOutputLockingSettingsArgs
+
+func ChannelOutputLockingSettingsPtr(v *ChannelOutputLockingSettingsArgs) ChannelOutputLockingSettingsPtrInput {
+	return (*channelOutputLockingSettingsPtrType)(v)
+}
+
+func (*channelOutputLockingSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelOutputLockingSettings)(nil)).Elem()
+}
+
+func (i *channelOutputLockingSettingsPtrType) ToChannelOutputLockingSettingsPtrOutput() ChannelOutputLockingSettingsPtrOutput {
+	return i.ToChannelOutputLockingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelOutputLockingSettingsPtrType) ToChannelOutputLockingSettingsPtrOutputWithContext(ctx context.Context) ChannelOutputLockingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelOutputLockingSettingsPtrOutput)
+}
+
+func (i *channelOutputLockingSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelOutputLockingSettings] {
+	return pulumix.Output[*ChannelOutputLockingSettings]{
+		OutputState: i.ToChannelOutputLockingSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ChannelOutputLockingSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelOutputLockingSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelOutputLockingSettings)(nil)).Elem()
+}
+
+func (o ChannelOutputLockingSettingsOutput) ToChannelOutputLockingSettingsOutput() ChannelOutputLockingSettingsOutput {
+	return o
+}
+
+func (o ChannelOutputLockingSettingsOutput) ToChannelOutputLockingSettingsOutputWithContext(ctx context.Context) ChannelOutputLockingSettingsOutput {
+	return o
+}
+
+func (o ChannelOutputLockingSettingsOutput) ToChannelOutputLockingSettingsPtrOutput() ChannelOutputLockingSettingsPtrOutput {
+	return o.ToChannelOutputLockingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelOutputLockingSettingsOutput) ToChannelOutputLockingSettingsPtrOutputWithContext(ctx context.Context) ChannelOutputLockingSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelOutputLockingSettings) *ChannelOutputLockingSettings {
+		return &v
+	}).(ChannelOutputLockingSettingsPtrOutput)
+}
+
+func (o ChannelOutputLockingSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelOutputLockingSettings] {
+	return pulumix.Output[ChannelOutputLockingSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ChannelOutputLockingSettingsOutput) EpochLockingSettings() ChannelEpochLockingSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelOutputLockingSettings) *ChannelEpochLockingSettings { return v.EpochLockingSettings }).(ChannelEpochLockingSettingsPtrOutput)
+}
+
+func (o ChannelOutputLockingSettingsOutput) PipelineLockingSettings() ChannelPipelineLockingSettingsPtrOutput {
+	return o.ApplyT(func(v ChannelOutputLockingSettings) *ChannelPipelineLockingSettings { return v.PipelineLockingSettings }).(ChannelPipelineLockingSettingsPtrOutput)
+}
+
+type ChannelOutputLockingSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelOutputLockingSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelOutputLockingSettings)(nil)).Elem()
+}
+
+func (o ChannelOutputLockingSettingsPtrOutput) ToChannelOutputLockingSettingsPtrOutput() ChannelOutputLockingSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelOutputLockingSettingsPtrOutput) ToChannelOutputLockingSettingsPtrOutputWithContext(ctx context.Context) ChannelOutputLockingSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelOutputLockingSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelOutputLockingSettings] {
+	return pulumix.Output[*ChannelOutputLockingSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ChannelOutputLockingSettingsPtrOutput) Elem() ChannelOutputLockingSettingsOutput {
+	return o.ApplyT(func(v *ChannelOutputLockingSettings) ChannelOutputLockingSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelOutputLockingSettings
+		return ret
+	}).(ChannelOutputLockingSettingsOutput)
+}
+
+func (o ChannelOutputLockingSettingsPtrOutput) EpochLockingSettings() ChannelEpochLockingSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelOutputLockingSettings) *ChannelEpochLockingSettings {
+		if v == nil {
+			return nil
+		}
+		return v.EpochLockingSettings
+	}).(ChannelEpochLockingSettingsPtrOutput)
+}
+
+func (o ChannelOutputLockingSettingsPtrOutput) PipelineLockingSettings() ChannelPipelineLockingSettingsPtrOutput {
+	return o.ApplyT(func(v *ChannelOutputLockingSettings) *ChannelPipelineLockingSettings {
+		if v == nil {
+			return nil
+		}
+		return v.PipelineLockingSettings
+	}).(ChannelPipelineLockingSettingsPtrOutput)
+}
+
 type ChannelOutputSettings struct {
 	ArchiveOutputSettings      *ChannelArchiveOutputSettings      `pulumi:"archiveOutputSettings"`
 	FrameCaptureOutputSettings *ChannelFrameCaptureOutputSettings `pulumi:"frameCaptureOutputSettings"`
@@ -25344,6 +25718,148 @@ func (o ChannelPassThroughSettingsPtrOutput) Elem() ChannelPassThroughSettingsOu
 		var ret ChannelPassThroughSettings
 		return ret
 	}).(ChannelPassThroughSettingsOutput)
+}
+
+type ChannelPipelineLockingSettings struct {
+}
+
+// ChannelPipelineLockingSettingsInput is an input type that accepts ChannelPipelineLockingSettingsArgs and ChannelPipelineLockingSettingsOutput values.
+// You can construct a concrete instance of `ChannelPipelineLockingSettingsInput` via:
+//
+//	ChannelPipelineLockingSettingsArgs{...}
+type ChannelPipelineLockingSettingsInput interface {
+	pulumi.Input
+
+	ToChannelPipelineLockingSettingsOutput() ChannelPipelineLockingSettingsOutput
+	ToChannelPipelineLockingSettingsOutputWithContext(context.Context) ChannelPipelineLockingSettingsOutput
+}
+
+type ChannelPipelineLockingSettingsArgs struct {
+}
+
+func (ChannelPipelineLockingSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelPipelineLockingSettings)(nil)).Elem()
+}
+
+func (i ChannelPipelineLockingSettingsArgs) ToChannelPipelineLockingSettingsOutput() ChannelPipelineLockingSettingsOutput {
+	return i.ToChannelPipelineLockingSettingsOutputWithContext(context.Background())
+}
+
+func (i ChannelPipelineLockingSettingsArgs) ToChannelPipelineLockingSettingsOutputWithContext(ctx context.Context) ChannelPipelineLockingSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelPipelineLockingSettingsOutput)
+}
+
+func (i ChannelPipelineLockingSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelPipelineLockingSettings] {
+	return pulumix.Output[ChannelPipelineLockingSettings]{
+		OutputState: i.ToChannelPipelineLockingSettingsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ChannelPipelineLockingSettingsArgs) ToChannelPipelineLockingSettingsPtrOutput() ChannelPipelineLockingSettingsPtrOutput {
+	return i.ToChannelPipelineLockingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelPipelineLockingSettingsArgs) ToChannelPipelineLockingSettingsPtrOutputWithContext(ctx context.Context) ChannelPipelineLockingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelPipelineLockingSettingsOutput).ToChannelPipelineLockingSettingsPtrOutputWithContext(ctx)
+}
+
+// ChannelPipelineLockingSettingsPtrInput is an input type that accepts ChannelPipelineLockingSettingsArgs, ChannelPipelineLockingSettingsPtr and ChannelPipelineLockingSettingsPtrOutput values.
+// You can construct a concrete instance of `ChannelPipelineLockingSettingsPtrInput` via:
+//
+//	        ChannelPipelineLockingSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelPipelineLockingSettingsPtrInput interface {
+	pulumi.Input
+
+	ToChannelPipelineLockingSettingsPtrOutput() ChannelPipelineLockingSettingsPtrOutput
+	ToChannelPipelineLockingSettingsPtrOutputWithContext(context.Context) ChannelPipelineLockingSettingsPtrOutput
+}
+
+type channelPipelineLockingSettingsPtrType ChannelPipelineLockingSettingsArgs
+
+func ChannelPipelineLockingSettingsPtr(v *ChannelPipelineLockingSettingsArgs) ChannelPipelineLockingSettingsPtrInput {
+	return (*channelPipelineLockingSettingsPtrType)(v)
+}
+
+func (*channelPipelineLockingSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelPipelineLockingSettings)(nil)).Elem()
+}
+
+func (i *channelPipelineLockingSettingsPtrType) ToChannelPipelineLockingSettingsPtrOutput() ChannelPipelineLockingSettingsPtrOutput {
+	return i.ToChannelPipelineLockingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *channelPipelineLockingSettingsPtrType) ToChannelPipelineLockingSettingsPtrOutputWithContext(ctx context.Context) ChannelPipelineLockingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelPipelineLockingSettingsPtrOutput)
+}
+
+func (i *channelPipelineLockingSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelPipelineLockingSettings] {
+	return pulumix.Output[*ChannelPipelineLockingSettings]{
+		OutputState: i.ToChannelPipelineLockingSettingsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ChannelPipelineLockingSettingsOutput struct{ *pulumi.OutputState }
+
+func (ChannelPipelineLockingSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelPipelineLockingSettings)(nil)).Elem()
+}
+
+func (o ChannelPipelineLockingSettingsOutput) ToChannelPipelineLockingSettingsOutput() ChannelPipelineLockingSettingsOutput {
+	return o
+}
+
+func (o ChannelPipelineLockingSettingsOutput) ToChannelPipelineLockingSettingsOutputWithContext(ctx context.Context) ChannelPipelineLockingSettingsOutput {
+	return o
+}
+
+func (o ChannelPipelineLockingSettingsOutput) ToChannelPipelineLockingSettingsPtrOutput() ChannelPipelineLockingSettingsPtrOutput {
+	return o.ToChannelPipelineLockingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelPipelineLockingSettingsOutput) ToChannelPipelineLockingSettingsPtrOutputWithContext(ctx context.Context) ChannelPipelineLockingSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelPipelineLockingSettings) *ChannelPipelineLockingSettings {
+		return &v
+	}).(ChannelPipelineLockingSettingsPtrOutput)
+}
+
+func (o ChannelPipelineLockingSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelPipelineLockingSettings] {
+	return pulumix.Output[ChannelPipelineLockingSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
+type ChannelPipelineLockingSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelPipelineLockingSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelPipelineLockingSettings)(nil)).Elem()
+}
+
+func (o ChannelPipelineLockingSettingsPtrOutput) ToChannelPipelineLockingSettingsPtrOutput() ChannelPipelineLockingSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelPipelineLockingSettingsPtrOutput) ToChannelPipelineLockingSettingsPtrOutputWithContext(ctx context.Context) ChannelPipelineLockingSettingsPtrOutput {
+	return o
+}
+
+func (o ChannelPipelineLockingSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelPipelineLockingSettings] {
+	return pulumix.Output[*ChannelPipelineLockingSettings]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ChannelPipelineLockingSettingsPtrOutput) Elem() ChannelPipelineLockingSettingsOutput {
+	return o.ApplyT(func(v *ChannelPipelineLockingSettings) ChannelPipelineLockingSettings {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelPipelineLockingSettings
+		return ret
+	}).(ChannelPipelineLockingSettingsOutput)
 }
 
 type ChannelRawSettings struct {
@@ -34148,6 +34664,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEmbeddedSourceSettingsPtrInput)(nil)).Elem(), ChannelEmbeddedSourceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsInput)(nil)).Elem(), ChannelEncoderSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncoderSettingsPtrInput)(nil)).Elem(), ChannelEncoderSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEpochLockingSettingsInput)(nil)).Elem(), ChannelEpochLockingSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEpochLockingSettingsPtrInput)(nil)).Elem(), ChannelEpochLockingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEsamInput)(nil)).Elem(), ChannelEsamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEsamPtrInput)(nil)).Elem(), ChannelEsamArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelFailoverConditionInput)(nil)).Elem(), ChannelFailoverConditionArgs{})
@@ -34280,10 +34798,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelOutputGroupSettingsPtrInput)(nil)).Elem(), ChannelOutputGroupSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelOutputLocationRefInput)(nil)).Elem(), ChannelOutputLocationRefArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelOutputLocationRefPtrInput)(nil)).Elem(), ChannelOutputLocationRefArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelOutputLockingSettingsInput)(nil)).Elem(), ChannelOutputLockingSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelOutputLockingSettingsPtrInput)(nil)).Elem(), ChannelOutputLockingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelOutputSettingsInput)(nil)).Elem(), ChannelOutputSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelOutputSettingsPtrInput)(nil)).Elem(), ChannelOutputSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPassThroughSettingsInput)(nil)).Elem(), ChannelPassThroughSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPassThroughSettingsPtrInput)(nil)).Elem(), ChannelPassThroughSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPipelineLockingSettingsInput)(nil)).Elem(), ChannelPipelineLockingSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPipelineLockingSettingsPtrInput)(nil)).Elem(), ChannelPipelineLockingSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelRawSettingsInput)(nil)).Elem(), ChannelRawSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelRawSettingsPtrInput)(nil)).Elem(), ChannelRawSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelRec601SettingsInput)(nil)).Elem(), ChannelRec601SettingsArgs{})
@@ -34491,6 +35013,8 @@ func init() {
 	pulumi.RegisterOutputType(ChannelEmbeddedSourceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelEncoderSettingsOutput{})
 	pulumi.RegisterOutputType(ChannelEncoderSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEpochLockingSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelEpochLockingSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelEsamOutput{})
 	pulumi.RegisterOutputType(ChannelEsamPtrOutput{})
 	pulumi.RegisterOutputType(ChannelFailoverConditionOutput{})
@@ -34623,10 +35147,14 @@ func init() {
 	pulumi.RegisterOutputType(ChannelOutputGroupSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelOutputLocationRefOutput{})
 	pulumi.RegisterOutputType(ChannelOutputLocationRefPtrOutput{})
+	pulumi.RegisterOutputType(ChannelOutputLockingSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelOutputLockingSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelOutputSettingsOutput{})
 	pulumi.RegisterOutputType(ChannelOutputSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelPassThroughSettingsOutput{})
 	pulumi.RegisterOutputType(ChannelPassThroughSettingsPtrOutput{})
+	pulumi.RegisterOutputType(ChannelPipelineLockingSettingsOutput{})
+	pulumi.RegisterOutputType(ChannelPipelineLockingSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelRawSettingsOutput{})
 	pulumi.RegisterOutputType(ChannelRawSettingsPtrOutput{})
 	pulumi.RegisterOutputType(ChannelRec601SettingsOutput{})

@@ -56,6 +56,7 @@ namespace Pulumi.AwsNative.Route53Resolver
         public readonly string? IpAddressCount;
         public readonly ImmutableArray<Outputs.ResolverEndpointIpAddressRequest> IpAddresses;
         public readonly string? Name;
+        public readonly ImmutableArray<string> Protocols;
         public readonly string? ResolverEndpointId;
         public readonly string? ResolverEndpointType;
         public readonly ImmutableArray<Outputs.ResolverEndpointTag> Tags;
@@ -72,6 +73,8 @@ namespace Pulumi.AwsNative.Route53Resolver
 
             string? name,
 
+            ImmutableArray<string> protocols,
+
             string? resolverEndpointId,
 
             string? resolverEndpointType,
@@ -83,6 +86,7 @@ namespace Pulumi.AwsNative.Route53Resolver
             IpAddressCount = ipAddressCount;
             IpAddresses = ipAddresses;
             Name = name;
+            Protocols = protocols;
             ResolverEndpointId = resolverEndpointId;
             ResolverEndpointType = resolverEndpointType;
             Tags = tags;

@@ -29,6 +29,8 @@ type LookupDbInstanceArgs struct {
 
 type LookupDbInstanceResult struct {
 	AutoMinorVersionUpgrade    *bool           `pulumi:"autoMinorVersionUpgrade"`
+	CaCertificateIdentifier    *string         `pulumi:"caCertificateIdentifier"`
+	CertificateRotationRestart *bool           `pulumi:"certificateRotationRestart"`
 	DbInstanceClass            *string         `pulumi:"dbInstanceClass"`
 	EnablePerformanceInsights  *bool           `pulumi:"enablePerformanceInsights"`
 	Endpoint                   *string         `pulumi:"endpoint"`
@@ -81,6 +83,14 @@ func (o LookupDbInstanceResultOutput) ToOutput(ctx context.Context) pulumix.Outp
 
 func (o LookupDbInstanceResultOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) *bool { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupDbInstanceResultOutput) CaCertificateIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.CaCertificateIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDbInstanceResultOutput) CertificateRotationRestart() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDbInstanceResult) *bool { return v.CertificateRotationRestart }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupDbInstanceResultOutput) DbInstanceClass() pulumi.StringPtrOutput {

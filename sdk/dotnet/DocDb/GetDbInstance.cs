@@ -52,6 +52,8 @@ namespace Pulumi.AwsNative.DocDb
     public sealed class GetDbInstanceResult
     {
         public readonly bool? AutoMinorVersionUpgrade;
+        public readonly string? CaCertificateIdentifier;
+        public readonly bool? CertificateRotationRestart;
         public readonly string? DbInstanceClass;
         public readonly bool? EnablePerformanceInsights;
         public readonly string? Endpoint;
@@ -63,6 +65,10 @@ namespace Pulumi.AwsNative.DocDb
         [OutputConstructor]
         private GetDbInstanceResult(
             bool? autoMinorVersionUpgrade,
+
+            string? caCertificateIdentifier,
+
+            bool? certificateRotationRestart,
 
             string? dbInstanceClass,
 
@@ -79,6 +85,8 @@ namespace Pulumi.AwsNative.DocDb
             ImmutableArray<Outputs.DbInstanceTag> tags)
         {
             AutoMinorVersionUpgrade = autoMinorVersionUpgrade;
+            CaCertificateIdentifier = caCertificateIdentifier;
+            CertificateRotationRestart = certificateRotationRestart;
             DbInstanceClass = dbInstanceClass;
             EnablePerformanceInsights = enablePerformanceInsights;
             Endpoint = endpoint;

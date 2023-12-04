@@ -38,6 +38,7 @@ type LookupServerResult struct {
 	PreAuthenticationLoginBanner  *string                          `pulumi:"preAuthenticationLoginBanner"`
 	ProtocolDetails               *ServerProtocolDetails           `pulumi:"protocolDetails"`
 	Protocols                     []ServerProtocol                 `pulumi:"protocols"`
+	S3StorageOptions              *ServerS3StorageOptions          `pulumi:"s3StorageOptions"`
 	SecurityPolicyName            *string                          `pulumi:"securityPolicyName"`
 	ServerId                      *string                          `pulumi:"serverId"`
 	StructuredLogDestinations     []ServerStructuredLogDestination `pulumi:"structuredLogDestinations"`
@@ -124,6 +125,10 @@ func (o LookupServerResultOutput) ProtocolDetails() ServerProtocolDetailsPtrOutp
 
 func (o LookupServerResultOutput) Protocols() ServerProtocolArrayOutput {
 	return o.ApplyT(func(v LookupServerResult) []ServerProtocol { return v.Protocols }).(ServerProtocolArrayOutput)
+}
+
+func (o LookupServerResultOutput) S3StorageOptions() ServerS3StorageOptionsPtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *ServerS3StorageOptions { return v.S3StorageOptions }).(ServerS3StorageOptionsPtrOutput)
 }
 
 func (o LookupServerResultOutput) SecurityPolicyName() pulumi.StringPtrOutput {

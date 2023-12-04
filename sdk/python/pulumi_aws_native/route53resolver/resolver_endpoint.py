@@ -22,6 +22,7 @@ class ResolverEndpointArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
                  preferred_instance_type: Optional[pulumi.Input[str]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resolver_endpoint_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverEndpointTagArgs']]]] = None):
         """
@@ -36,6 +37,8 @@ class ResolverEndpointArgs:
             pulumi.set(__self__, "outpost_arn", outpost_arn)
         if preferred_instance_type is not None:
             pulumi.set(__self__, "preferred_instance_type", preferred_instance_type)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
         if resolver_endpoint_type is not None:
             pulumi.set(__self__, "resolver_endpoint_type", resolver_endpoint_type)
         if tags is not None:
@@ -96,6 +99,15 @@ class ResolverEndpointArgs:
         pulumi.set(self, "preferred_instance_type", value)
 
     @property
+    @pulumi.getter
+    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "protocols")
+
+    @protocols.setter
+    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "protocols", value)
+
+    @property
     @pulumi.getter(name="resolverEndpointType")
     def resolver_endpoint_type(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "resolver_endpoint_type")
@@ -129,6 +141,7 @@ class ResolverEndpoint(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
                  preferred_instance_type: Optional[pulumi.Input[str]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resolver_endpoint_type: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverEndpointTagArgs']]]]] = None,
@@ -168,6 +181,7 @@ class ResolverEndpoint(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
                  preferred_instance_type: Optional[pulumi.Input[str]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resolver_endpoint_type: Optional[pulumi.Input[str]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverEndpointTagArgs']]]]] = None,
@@ -190,6 +204,7 @@ class ResolverEndpoint(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["outpost_arn"] = outpost_arn
             __props__.__dict__["preferred_instance_type"] = preferred_instance_type
+            __props__.__dict__["protocols"] = protocols
             __props__.__dict__["resolver_endpoint_type"] = resolver_endpoint_type
             if security_group_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_ids'")
@@ -231,6 +246,7 @@ class ResolverEndpoint(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["outpost_arn"] = None
         __props__.__dict__["preferred_instance_type"] = None
+        __props__.__dict__["protocols"] = None
         __props__.__dict__["resolver_endpoint_id"] = None
         __props__.__dict__["resolver_endpoint_type"] = None
         __props__.__dict__["security_group_ids"] = None
@@ -276,6 +292,11 @@ class ResolverEndpoint(pulumi.CustomResource):
     @pulumi.getter(name="preferredInstanceType")
     def preferred_instance_type(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "preferred_instance_type")
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "protocols")
 
     @property
     @pulumi.getter(name="resolverEndpointId")

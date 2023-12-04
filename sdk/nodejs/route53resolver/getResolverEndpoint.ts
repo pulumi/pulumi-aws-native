@@ -28,6 +28,7 @@ export interface GetResolverEndpointResult {
     readonly ipAddressCount?: string;
     readonly ipAddresses?: outputs.route53resolver.ResolverEndpointIpAddressRequest[];
     readonly name?: string;
+    readonly protocols?: string[];
     readonly resolverEndpointId?: string;
     readonly resolverEndpointType?: string;
     readonly tags?: outputs.route53resolver.ResolverEndpointTag[];

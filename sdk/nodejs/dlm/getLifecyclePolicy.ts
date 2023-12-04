@@ -24,10 +24,17 @@ export interface GetLifecyclePolicyArgs {
 
 export interface GetLifecyclePolicyResult {
     readonly arn?: string;
+    readonly copyTags?: boolean;
+    readonly createInterval?: number;
+    readonly crossRegionCopyTargets?: outputs.dlm.LifecyclePolicyCrossRegionCopyTargets;
+    readonly defaultPolicy?: string;
     readonly description?: string;
+    readonly exclusions?: outputs.dlm.LifecyclePolicyExclusions;
     readonly executionRoleArn?: string;
+    readonly extendDeletion?: boolean;
     readonly id?: string;
     readonly policyDetails?: outputs.dlm.LifecyclePolicyPolicyDetails;
+    readonly retainInterval?: number;
     readonly state?: string;
     readonly tags?: outputs.dlm.LifecyclePolicyTag[];
 }

@@ -13,19 +13,24 @@ namespace Pulumi.AwsNative.FSx.Outputs
     [OutputType]
     public sealed class VolumeOntapConfiguration
     {
+        public readonly Outputs.VolumeAggregateConfiguration? AggregateConfiguration;
         public readonly string? CopyTagsToBackups;
         public readonly string? JunctionPath;
         public readonly string? OntapVolumeType;
         public readonly string? SecurityStyle;
-        public readonly string SizeInMegabytes;
+        public readonly string? SizeInBytes;
+        public readonly string? SizeInMegabytes;
         public readonly Outputs.VolumeSnaplockConfiguration? SnaplockConfiguration;
         public readonly string? SnapshotPolicy;
         public readonly string? StorageEfficiencyEnabled;
         public readonly string StorageVirtualMachineId;
         public readonly Outputs.VolumeTieringPolicy? TieringPolicy;
+        public readonly string? VolumeStyle;
 
         [OutputConstructor]
         private VolumeOntapConfiguration(
+            Outputs.VolumeAggregateConfiguration? aggregateConfiguration,
+
             string? copyTagsToBackups,
 
             string? junctionPath,
@@ -34,7 +39,9 @@ namespace Pulumi.AwsNative.FSx.Outputs
 
             string? securityStyle,
 
-            string sizeInMegabytes,
+            string? sizeInBytes,
+
+            string? sizeInMegabytes,
 
             Outputs.VolumeSnaplockConfiguration? snaplockConfiguration,
 
@@ -44,18 +51,23 @@ namespace Pulumi.AwsNative.FSx.Outputs
 
             string storageVirtualMachineId,
 
-            Outputs.VolumeTieringPolicy? tieringPolicy)
+            Outputs.VolumeTieringPolicy? tieringPolicy,
+
+            string? volumeStyle)
         {
+            AggregateConfiguration = aggregateConfiguration;
             CopyTagsToBackups = copyTagsToBackups;
             JunctionPath = junctionPath;
             OntapVolumeType = ontapVolumeType;
             SecurityStyle = securityStyle;
+            SizeInBytes = sizeInBytes;
             SizeInMegabytes = sizeInMegabytes;
             SnaplockConfiguration = snaplockConfiguration;
             SnapshotPolicy = snapshotPolicy;
             StorageEfficiencyEnabled = storageEfficiencyEnabled;
             StorageVirtualMachineId = storageVirtualMachineId;
             TieringPolicy = tieringPolicy;
+            VolumeStyle = volumeStyle;
         }
     }
 }

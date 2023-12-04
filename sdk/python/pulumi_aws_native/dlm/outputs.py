@@ -19,10 +19,14 @@ __all__ = [
     'LifecyclePolicyCrossRegionCopyDeprecateRule',
     'LifecyclePolicyCrossRegionCopyRetainRule',
     'LifecyclePolicyCrossRegionCopyRule',
+    'LifecyclePolicyCrossRegionCopyTargets',
     'LifecyclePolicyDeprecateRule',
     'LifecyclePolicyEncryptionConfiguration',
     'LifecyclePolicyEventParameters',
     'LifecyclePolicyEventSource',
+    'LifecyclePolicyExcludeTags',
+    'LifecyclePolicyExcludeVolumeTypesList',
+    'LifecyclePolicyExclusions',
     'LifecyclePolicyFastRestoreRule',
     'LifecyclePolicyParameters',
     'LifecyclePolicyPolicyDetails',
@@ -404,6 +408,12 @@ class LifecyclePolicyCrossRegionCopyRule(dict):
 
 
 @pulumi.output_type
+class LifecyclePolicyCrossRegionCopyTargets(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
 class LifecyclePolicyDeprecateRule(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -555,6 +565,68 @@ class LifecyclePolicyEventSource(dict):
 
 
 @pulumi.output_type
+class LifecyclePolicyExcludeTags(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class LifecyclePolicyExcludeVolumeTypesList(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class LifecyclePolicyExclusions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "excludeBootVolumes":
+            suggest = "exclude_boot_volumes"
+        elif key == "excludeTags":
+            suggest = "exclude_tags"
+        elif key == "excludeVolumeTypes":
+            suggest = "exclude_volume_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LifecyclePolicyExclusions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LifecyclePolicyExclusions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LifecyclePolicyExclusions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 exclude_boot_volumes: Optional[bool] = None,
+                 exclude_tags: Optional['outputs.LifecyclePolicyExcludeTags'] = None,
+                 exclude_volume_types: Optional['outputs.LifecyclePolicyExcludeVolumeTypesList'] = None):
+        if exclude_boot_volumes is not None:
+            pulumi.set(__self__, "exclude_boot_volumes", exclude_boot_volumes)
+        if exclude_tags is not None:
+            pulumi.set(__self__, "exclude_tags", exclude_tags)
+        if exclude_volume_types is not None:
+            pulumi.set(__self__, "exclude_volume_types", exclude_volume_types)
+
+    @property
+    @pulumi.getter(name="excludeBootVolumes")
+    def exclude_boot_volumes(self) -> Optional[bool]:
+        return pulumi.get(self, "exclude_boot_volumes")
+
+    @property
+    @pulumi.getter(name="excludeTags")
+    def exclude_tags(self) -> Optional['outputs.LifecyclePolicyExcludeTags']:
+        return pulumi.get(self, "exclude_tags")
+
+    @property
+    @pulumi.getter(name="excludeVolumeTypes")
+    def exclude_volume_types(self) -> Optional['outputs.LifecyclePolicyExcludeVolumeTypesList']:
+        return pulumi.get(self, "exclude_volume_types")
+
+
+@pulumi.output_type
 class LifecyclePolicyFastRestoreRule(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -665,14 +737,28 @@ class LifecyclePolicyPolicyDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "eventSource":
+        if key == "copyTags":
+            suggest = "copy_tags"
+        elif key == "createInterval":
+            suggest = "create_interval"
+        elif key == "crossRegionCopyTargets":
+            suggest = "cross_region_copy_targets"
+        elif key == "eventSource":
             suggest = "event_source"
+        elif key == "extendDeletion":
+            suggest = "extend_deletion"
+        elif key == "policyLanguage":
+            suggest = "policy_language"
         elif key == "policyType":
             suggest = "policy_type"
         elif key == "resourceLocations":
             suggest = "resource_locations"
+        elif key == "resourceType":
+            suggest = "resource_type"
         elif key == "resourceTypes":
             suggest = "resource_types"
+        elif key == "retainInterval":
+            suggest = "retain_interval"
         elif key == "targetTags":
             suggest = "target_tags"
 
@@ -689,25 +775,49 @@ class LifecyclePolicyPolicyDetails(dict):
 
     def __init__(__self__, *,
                  actions: Optional[Sequence['outputs.LifecyclePolicyAction']] = None,
+                 copy_tags: Optional[bool] = None,
+                 create_interval: Optional[int] = None,
+                 cross_region_copy_targets: Optional['outputs.LifecyclePolicyCrossRegionCopyTargets'] = None,
                  event_source: Optional['outputs.LifecyclePolicyEventSource'] = None,
+                 exclusions: Optional['outputs.LifecyclePolicyExclusions'] = None,
+                 extend_deletion: Optional[bool] = None,
                  parameters: Optional['outputs.LifecyclePolicyParameters'] = None,
+                 policy_language: Optional[str] = None,
                  policy_type: Optional[str] = None,
                  resource_locations: Optional[Sequence[str]] = None,
+                 resource_type: Optional[str] = None,
                  resource_types: Optional[Sequence[str]] = None,
+                 retain_interval: Optional[int] = None,
                  schedules: Optional[Sequence['outputs.LifecyclePolicySchedule']] = None,
                  target_tags: Optional[Sequence['outputs.LifecyclePolicyTag']] = None):
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
+        if copy_tags is not None:
+            pulumi.set(__self__, "copy_tags", copy_tags)
+        if create_interval is not None:
+            pulumi.set(__self__, "create_interval", create_interval)
+        if cross_region_copy_targets is not None:
+            pulumi.set(__self__, "cross_region_copy_targets", cross_region_copy_targets)
         if event_source is not None:
             pulumi.set(__self__, "event_source", event_source)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+        if extend_deletion is not None:
+            pulumi.set(__self__, "extend_deletion", extend_deletion)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if policy_language is not None:
+            pulumi.set(__self__, "policy_language", policy_language)
         if policy_type is not None:
             pulumi.set(__self__, "policy_type", policy_type)
         if resource_locations is not None:
             pulumi.set(__self__, "resource_locations", resource_locations)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
         if resource_types is not None:
             pulumi.set(__self__, "resource_types", resource_types)
+        if retain_interval is not None:
+            pulumi.set(__self__, "retain_interval", retain_interval)
         if schedules is not None:
             pulumi.set(__self__, "schedules", schedules)
         if target_tags is not None:
@@ -719,14 +829,44 @@ class LifecyclePolicyPolicyDetails(dict):
         return pulumi.get(self, "actions")
 
     @property
+    @pulumi.getter(name="copyTags")
+    def copy_tags(self) -> Optional[bool]:
+        return pulumi.get(self, "copy_tags")
+
+    @property
+    @pulumi.getter(name="createInterval")
+    def create_interval(self) -> Optional[int]:
+        return pulumi.get(self, "create_interval")
+
+    @property
+    @pulumi.getter(name="crossRegionCopyTargets")
+    def cross_region_copy_targets(self) -> Optional['outputs.LifecyclePolicyCrossRegionCopyTargets']:
+        return pulumi.get(self, "cross_region_copy_targets")
+
+    @property
     @pulumi.getter(name="eventSource")
     def event_source(self) -> Optional['outputs.LifecyclePolicyEventSource']:
         return pulumi.get(self, "event_source")
 
     @property
     @pulumi.getter
+    def exclusions(self) -> Optional['outputs.LifecyclePolicyExclusions']:
+        return pulumi.get(self, "exclusions")
+
+    @property
+    @pulumi.getter(name="extendDeletion")
+    def extend_deletion(self) -> Optional[bool]:
+        return pulumi.get(self, "extend_deletion")
+
+    @property
+    @pulumi.getter
     def parameters(self) -> Optional['outputs.LifecyclePolicyParameters']:
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="policyLanguage")
+    def policy_language(self) -> Optional[str]:
+        return pulumi.get(self, "policy_language")
 
     @property
     @pulumi.getter(name="policyType")
@@ -739,9 +879,19 @@ class LifecyclePolicyPolicyDetails(dict):
         return pulumi.get(self, "resource_locations")
 
     @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[str]:
+        return pulumi.get(self, "resource_type")
+
+    @property
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "resource_types")
+
+    @property
+    @pulumi.getter(name="retainInterval")
+    def retain_interval(self) -> Optional[int]:
+        return pulumi.get(self, "retain_interval")
 
     @property
     @pulumi.getter

@@ -32,6 +32,7 @@ __all__ = [
     'StorageVirtualMachineActiveDirectoryConfiguration',
     'StorageVirtualMachineSelfManagedActiveDirectoryConfiguration',
     'StorageVirtualMachineTag',
+    'VolumeAggregateConfiguration',
     'VolumeAutocommitPeriod',
     'VolumeClientConfigurations',
     'VolumeNfsExports',
@@ -482,12 +483,16 @@ class FileSystemOntapConfiguration(dict):
             suggest = "endpoint_ip_address_range"
         elif key == "fsxAdminPassword":
             suggest = "fsx_admin_password"
+        elif key == "haPairs":
+            suggest = "ha_pairs"
         elif key == "preferredSubnetId":
             suggest = "preferred_subnet_id"
         elif key == "routeTableIds":
             suggest = "route_table_ids"
         elif key == "throughputCapacity":
             suggest = "throughput_capacity"
+        elif key == "throughputCapacityPerHaPair":
+            suggest = "throughput_capacity_per_ha_pair"
         elif key == "weeklyMaintenanceStartTime":
             suggest = "weekly_maintenance_start_time"
 
@@ -509,9 +514,11 @@ class FileSystemOntapConfiguration(dict):
                  disk_iops_configuration: Optional['outputs.FileSystemDiskIopsConfiguration'] = None,
                  endpoint_ip_address_range: Optional[str] = None,
                  fsx_admin_password: Optional[str] = None,
+                 ha_pairs: Optional[int] = None,
                  preferred_subnet_id: Optional[str] = None,
                  route_table_ids: Optional[Sequence[str]] = None,
                  throughput_capacity: Optional[int] = None,
+                 throughput_capacity_per_ha_pair: Optional[int] = None,
                  weekly_maintenance_start_time: Optional[str] = None):
         pulumi.set(__self__, "deployment_type", deployment_type)
         if automatic_backup_retention_days is not None:
@@ -524,12 +531,16 @@ class FileSystemOntapConfiguration(dict):
             pulumi.set(__self__, "endpoint_ip_address_range", endpoint_ip_address_range)
         if fsx_admin_password is not None:
             pulumi.set(__self__, "fsx_admin_password", fsx_admin_password)
+        if ha_pairs is not None:
+            pulumi.set(__self__, "ha_pairs", ha_pairs)
         if preferred_subnet_id is not None:
             pulumi.set(__self__, "preferred_subnet_id", preferred_subnet_id)
         if route_table_ids is not None:
             pulumi.set(__self__, "route_table_ids", route_table_ids)
         if throughput_capacity is not None:
             pulumi.set(__self__, "throughput_capacity", throughput_capacity)
+        if throughput_capacity_per_ha_pair is not None:
+            pulumi.set(__self__, "throughput_capacity_per_ha_pair", throughput_capacity_per_ha_pair)
         if weekly_maintenance_start_time is not None:
             pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
 
@@ -564,6 +575,11 @@ class FileSystemOntapConfiguration(dict):
         return pulumi.get(self, "fsx_admin_password")
 
     @property
+    @pulumi.getter(name="haPairs")
+    def ha_pairs(self) -> Optional[int]:
+        return pulumi.get(self, "ha_pairs")
+
+    @property
     @pulumi.getter(name="preferredSubnetId")
     def preferred_subnet_id(self) -> Optional[str]:
         return pulumi.get(self, "preferred_subnet_id")
@@ -577,6 +593,11 @@ class FileSystemOntapConfiguration(dict):
     @pulumi.getter(name="throughputCapacity")
     def throughput_capacity(self) -> Optional[int]:
         return pulumi.get(self, "throughput_capacity")
+
+    @property
+    @pulumi.getter(name="throughputCapacityPerHaPair")
+    def throughput_capacity_per_ha_pair(self) -> Optional[int]:
+        return pulumi.get(self, "throughput_capacity_per_ha_pair")
 
     @property
     @pulumi.getter(name="weeklyMaintenanceStartTime")
@@ -1248,6 +1269,44 @@ class StorageVirtualMachineTag(dict):
 
 
 @pulumi.output_type
+class VolumeAggregateConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "constituentsPerAggregate":
+            suggest = "constituents_per_aggregate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeAggregateConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeAggregateConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeAggregateConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aggregates: Optional[Sequence[str]] = None,
+                 constituents_per_aggregate: Optional[int] = None):
+        if aggregates is not None:
+            pulumi.set(__self__, "aggregates", aggregates)
+        if constituents_per_aggregate is not None:
+            pulumi.set(__self__, "constituents_per_aggregate", constituents_per_aggregate)
+
+    @property
+    @pulumi.getter
+    def aggregates(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "aggregates")
+
+    @property
+    @pulumi.getter(name="constituentsPerAggregate")
+    def constituents_per_aggregate(self) -> Optional[int]:
+        return pulumi.get(self, "constituents_per_aggregate")
+
+
+@pulumi.output_type
 class VolumeAutocommitPeriod(dict):
     def __init__(__self__, *,
                  type: str,
@@ -1320,10 +1379,10 @@ class VolumeOntapConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sizeInMegabytes":
-            suggest = "size_in_megabytes"
-        elif key == "storageVirtualMachineId":
+        if key == "storageVirtualMachineId":
             suggest = "storage_virtual_machine_id"
+        elif key == "aggregateConfiguration":
+            suggest = "aggregate_configuration"
         elif key == "copyTagsToBackups":
             suggest = "copy_tags_to_backups"
         elif key == "junctionPath":
@@ -1332,6 +1391,10 @@ class VolumeOntapConfiguration(dict):
             suggest = "ontap_volume_type"
         elif key == "securityStyle":
             suggest = "security_style"
+        elif key == "sizeInBytes":
+            suggest = "size_in_bytes"
+        elif key == "sizeInMegabytes":
+            suggest = "size_in_megabytes"
         elif key == "snaplockConfiguration":
             suggest = "snaplock_configuration"
         elif key == "snapshotPolicy":
@@ -1340,6 +1403,8 @@ class VolumeOntapConfiguration(dict):
             suggest = "storage_efficiency_enabled"
         elif key == "tieringPolicy":
             suggest = "tiering_policy"
+        elif key == "volumeStyle":
+            suggest = "volume_style"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VolumeOntapConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -1353,18 +1418,22 @@ class VolumeOntapConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 size_in_megabytes: str,
                  storage_virtual_machine_id: str,
+                 aggregate_configuration: Optional['outputs.VolumeAggregateConfiguration'] = None,
                  copy_tags_to_backups: Optional[str] = None,
                  junction_path: Optional[str] = None,
                  ontap_volume_type: Optional[str] = None,
                  security_style: Optional[str] = None,
+                 size_in_bytes: Optional[str] = None,
+                 size_in_megabytes: Optional[str] = None,
                  snaplock_configuration: Optional['outputs.VolumeSnaplockConfiguration'] = None,
                  snapshot_policy: Optional[str] = None,
                  storage_efficiency_enabled: Optional[str] = None,
-                 tiering_policy: Optional['outputs.VolumeTieringPolicy'] = None):
-        pulumi.set(__self__, "size_in_megabytes", size_in_megabytes)
+                 tiering_policy: Optional['outputs.VolumeTieringPolicy'] = None,
+                 volume_style: Optional[str] = None):
         pulumi.set(__self__, "storage_virtual_machine_id", storage_virtual_machine_id)
+        if aggregate_configuration is not None:
+            pulumi.set(__self__, "aggregate_configuration", aggregate_configuration)
         if copy_tags_to_backups is not None:
             pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
         if junction_path is not None:
@@ -1373,6 +1442,10 @@ class VolumeOntapConfiguration(dict):
             pulumi.set(__self__, "ontap_volume_type", ontap_volume_type)
         if security_style is not None:
             pulumi.set(__self__, "security_style", security_style)
+        if size_in_bytes is not None:
+            pulumi.set(__self__, "size_in_bytes", size_in_bytes)
+        if size_in_megabytes is not None:
+            pulumi.set(__self__, "size_in_megabytes", size_in_megabytes)
         if snaplock_configuration is not None:
             pulumi.set(__self__, "snaplock_configuration", snaplock_configuration)
         if snapshot_policy is not None:
@@ -1381,16 +1454,18 @@ class VolumeOntapConfiguration(dict):
             pulumi.set(__self__, "storage_efficiency_enabled", storage_efficiency_enabled)
         if tiering_policy is not None:
             pulumi.set(__self__, "tiering_policy", tiering_policy)
-
-    @property
-    @pulumi.getter(name="sizeInMegabytes")
-    def size_in_megabytes(self) -> str:
-        return pulumi.get(self, "size_in_megabytes")
+        if volume_style is not None:
+            pulumi.set(__self__, "volume_style", volume_style)
 
     @property
     @pulumi.getter(name="storageVirtualMachineId")
     def storage_virtual_machine_id(self) -> str:
         return pulumi.get(self, "storage_virtual_machine_id")
+
+    @property
+    @pulumi.getter(name="aggregateConfiguration")
+    def aggregate_configuration(self) -> Optional['outputs.VolumeAggregateConfiguration']:
+        return pulumi.get(self, "aggregate_configuration")
 
     @property
     @pulumi.getter(name="copyTagsToBackups")
@@ -1413,6 +1488,16 @@ class VolumeOntapConfiguration(dict):
         return pulumi.get(self, "security_style")
 
     @property
+    @pulumi.getter(name="sizeInBytes")
+    def size_in_bytes(self) -> Optional[str]:
+        return pulumi.get(self, "size_in_bytes")
+
+    @property
+    @pulumi.getter(name="sizeInMegabytes")
+    def size_in_megabytes(self) -> Optional[str]:
+        return pulumi.get(self, "size_in_megabytes")
+
+    @property
     @pulumi.getter(name="snaplockConfiguration")
     def snaplock_configuration(self) -> Optional['outputs.VolumeSnaplockConfiguration']:
         return pulumi.get(self, "snaplock_configuration")
@@ -1431,6 +1516,11 @@ class VolumeOntapConfiguration(dict):
     @pulumi.getter(name="tieringPolicy")
     def tiering_policy(self) -> Optional['outputs.VolumeTieringPolicy']:
         return pulumi.get(self, "tiering_policy")
+
+    @property
+    @pulumi.getter(name="volumeStyle")
+    def volume_style(self) -> Optional[str]:
+        return pulumi.get(self, "volume_style")
 
 
 @pulumi.output_type

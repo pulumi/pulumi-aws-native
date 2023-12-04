@@ -21,6 +21,7 @@ __all__ = [
     'ServerIdentityProviderDetailsArgs',
     'ServerProtocolDetailsArgs',
     'ServerProtocolArgs',
+    'ServerS3StorageOptionsArgs',
     'ServerStructuredLogDestinationArgs',
     'ServerTagArgs',
     'ServerWorkflowDetailsArgs',
@@ -544,6 +545,23 @@ class ServerProtocolArgs:
 
 
 @pulumi.input_type
+class ServerS3StorageOptionsArgs:
+    def __init__(__self__, *,
+                 directory_listing_optimization: Optional[pulumi.Input[str]] = None):
+        if directory_listing_optimization is not None:
+            pulumi.set(__self__, "directory_listing_optimization", directory_listing_optimization)
+
+    @property
+    @pulumi.getter(name="directoryListingOptimization")
+    def directory_listing_optimization(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "directory_listing_optimization")
+
+    @directory_listing_optimization.setter
+    def directory_listing_optimization(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "directory_listing_optimization", value)
+
+
+@pulumi.input_type
 class ServerStructuredLogDestinationArgs:
     def __init__(__self__):
         pass
@@ -676,9 +694,12 @@ class SftpConfigPropertiesArgs:
 class UserHomeDirectoryMapEntryArgs:
     def __init__(__self__, *,
                  entry: pulumi.Input[str],
-                 target: pulumi.Input[str]):
+                 target: pulumi.Input[str],
+                 type: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "entry", entry)
         pulumi.set(__self__, "target", target)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -697,6 +718,15 @@ class UserHomeDirectoryMapEntryArgs:
     @target.setter
     def target(self, value: pulumi.Input[str]):
         pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

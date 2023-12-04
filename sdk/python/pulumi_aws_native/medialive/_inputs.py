@@ -63,6 +63,7 @@ __all__ = [
     'ChannelEmbeddedPlusScte20DestinationSettingsArgs',
     'ChannelEmbeddedSourceSettingsArgs',
     'ChannelEncoderSettingsArgs',
+    'ChannelEpochLockingSettingsArgs',
     'ChannelEsamArgs',
     'ChannelFailoverConditionSettingsArgs',
     'ChannelFailoverConditionArgs',
@@ -128,9 +129,11 @@ __all__ = [
     'ChannelOutputGroupSettingsArgs',
     'ChannelOutputGroupArgs',
     'ChannelOutputLocationRefArgs',
+    'ChannelOutputLockingSettingsArgs',
     'ChannelOutputSettingsArgs',
     'ChannelOutputArgs',
     'ChannelPassThroughSettingsArgs',
+    'ChannelPipelineLockingSettingsArgs',
     'ChannelRawSettingsArgs',
     'ChannelRec601SettingsArgs',
     'ChannelRec709SettingsArgs',
@@ -3056,6 +3059,35 @@ class ChannelEncoderSettingsArgs:
 
 
 @pulumi.input_type
+class ChannelEpochLockingSettingsArgs:
+    def __init__(__self__, *,
+                 custom_epoch: Optional[pulumi.Input[str]] = None,
+                 jam_sync_time: Optional[pulumi.Input[str]] = None):
+        if custom_epoch is not None:
+            pulumi.set(__self__, "custom_epoch", custom_epoch)
+        if jam_sync_time is not None:
+            pulumi.set(__self__, "jam_sync_time", jam_sync_time)
+
+    @property
+    @pulumi.getter(name="customEpoch")
+    def custom_epoch(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_epoch")
+
+    @custom_epoch.setter
+    def custom_epoch(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_epoch", value)
+
+    @property
+    @pulumi.getter(name="jamSyncTime")
+    def jam_sync_time(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "jam_sync_time")
+
+    @jam_sync_time.setter
+    def jam_sync_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "jam_sync_time", value)
+
+
+@pulumi.input_type
 class ChannelEsamArgs:
     def __init__(__self__, *,
                  acquisition_point_id: Optional[pulumi.Input[str]] = None,
@@ -3193,9 +3225,12 @@ class ChannelFailoverConditionArgs:
 @pulumi.input_type
 class ChannelFeatureActivationsArgs:
     def __init__(__self__, *,
-                 input_prepare_schedule_actions: Optional[pulumi.Input[str]] = None):
+                 input_prepare_schedule_actions: Optional[pulumi.Input[str]] = None,
+                 output_static_image_overlay_schedule_actions: Optional[pulumi.Input[str]] = None):
         if input_prepare_schedule_actions is not None:
             pulumi.set(__self__, "input_prepare_schedule_actions", input_prepare_schedule_actions)
+        if output_static_image_overlay_schedule_actions is not None:
+            pulumi.set(__self__, "output_static_image_overlay_schedule_actions", output_static_image_overlay_schedule_actions)
 
     @property
     @pulumi.getter(name="inputPrepareScheduleActions")
@@ -3205,6 +3240,15 @@ class ChannelFeatureActivationsArgs:
     @input_prepare_schedule_actions.setter
     def input_prepare_schedule_actions(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "input_prepare_schedule_actions", value)
+
+    @property
+    @pulumi.getter(name="outputStaticImageOverlayScheduleActions")
+    def output_static_image_overlay_schedule_actions(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "output_static_image_overlay_schedule_actions")
+
+    @output_static_image_overlay_schedule_actions.setter
+    def output_static_image_overlay_schedule_actions(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "output_static_image_overlay_schedule_actions", value)
 
 
 @pulumi.input_type
@@ -3423,6 +3467,7 @@ class ChannelGlobalConfigurationArgs:
                  input_end_action: Optional[pulumi.Input[str]] = None,
                  input_loss_behavior: Optional[pulumi.Input['ChannelInputLossBehaviorArgs']] = None,
                  output_locking_mode: Optional[pulumi.Input[str]] = None,
+                 output_locking_settings: Optional[pulumi.Input['ChannelOutputLockingSettingsArgs']] = None,
                  output_timing_source: Optional[pulumi.Input[str]] = None,
                  support_low_framerate_inputs: Optional[pulumi.Input[str]] = None):
         if initial_audio_gain is not None:
@@ -3433,6 +3478,8 @@ class ChannelGlobalConfigurationArgs:
             pulumi.set(__self__, "input_loss_behavior", input_loss_behavior)
         if output_locking_mode is not None:
             pulumi.set(__self__, "output_locking_mode", output_locking_mode)
+        if output_locking_settings is not None:
+            pulumi.set(__self__, "output_locking_settings", output_locking_settings)
         if output_timing_source is not None:
             pulumi.set(__self__, "output_timing_source", output_timing_source)
         if support_low_framerate_inputs is not None:
@@ -3473,6 +3520,15 @@ class ChannelGlobalConfigurationArgs:
     @output_locking_mode.setter
     def output_locking_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "output_locking_mode", value)
+
+    @property
+    @pulumi.getter(name="outputLockingSettings")
+    def output_locking_settings(self) -> Optional[pulumi.Input['ChannelOutputLockingSettingsArgs']]:
+        return pulumi.get(self, "output_locking_settings")
+
+    @output_locking_settings.setter
+    def output_locking_settings(self, value: Optional[pulumi.Input['ChannelOutputLockingSettingsArgs']]):
+        pulumi.set(self, "output_locking_settings", value)
 
     @property
     @pulumi.getter(name="outputTimingSource")
@@ -7945,6 +8001,35 @@ class ChannelOutputLocationRefArgs:
 
 
 @pulumi.input_type
+class ChannelOutputLockingSettingsArgs:
+    def __init__(__self__, *,
+                 epoch_locking_settings: Optional[pulumi.Input['ChannelEpochLockingSettingsArgs']] = None,
+                 pipeline_locking_settings: Optional[pulumi.Input['ChannelPipelineLockingSettingsArgs']] = None):
+        if epoch_locking_settings is not None:
+            pulumi.set(__self__, "epoch_locking_settings", epoch_locking_settings)
+        if pipeline_locking_settings is not None:
+            pulumi.set(__self__, "pipeline_locking_settings", pipeline_locking_settings)
+
+    @property
+    @pulumi.getter(name="epochLockingSettings")
+    def epoch_locking_settings(self) -> Optional[pulumi.Input['ChannelEpochLockingSettingsArgs']]:
+        return pulumi.get(self, "epoch_locking_settings")
+
+    @epoch_locking_settings.setter
+    def epoch_locking_settings(self, value: Optional[pulumi.Input['ChannelEpochLockingSettingsArgs']]):
+        pulumi.set(self, "epoch_locking_settings", value)
+
+    @property
+    @pulumi.getter(name="pipelineLockingSettings")
+    def pipeline_locking_settings(self) -> Optional[pulumi.Input['ChannelPipelineLockingSettingsArgs']]:
+        return pulumi.get(self, "pipeline_locking_settings")
+
+    @pipeline_locking_settings.setter
+    def pipeline_locking_settings(self, value: Optional[pulumi.Input['ChannelPipelineLockingSettingsArgs']]):
+        pulumi.set(self, "pipeline_locking_settings", value)
+
+
+@pulumi.input_type
 class ChannelOutputSettingsArgs:
     def __init__(__self__, *,
                  archive_output_settings: Optional[pulumi.Input['ChannelArchiveOutputSettingsArgs']] = None,
@@ -8112,6 +8197,12 @@ class ChannelOutputArgs:
 
 @pulumi.input_type
 class ChannelPassThroughSettingsArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class ChannelPipelineLockingSettingsArgs:
     def __init__(__self__):
         pass
 

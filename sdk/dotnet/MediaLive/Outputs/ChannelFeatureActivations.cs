@@ -14,11 +14,16 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
     public sealed class ChannelFeatureActivations
     {
         public readonly string? InputPrepareScheduleActions;
+        public readonly string? OutputStaticImageOverlayScheduleActions;
 
         [OutputConstructor]
-        private ChannelFeatureActivations(string? inputPrepareScheduleActions)
+        private ChannelFeatureActivations(
+            string? inputPrepareScheduleActions,
+
+            string? outputStaticImageOverlayScheduleActions)
         {
             InputPrepareScheduleActions = inputPrepareScheduleActions;
+            OutputStaticImageOverlayScheduleActions = outputStaticImageOverlayScheduleActions;
         }
     }
 }

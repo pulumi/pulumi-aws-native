@@ -2180,6 +2180,8 @@ class EndpointS3Settings(dict):
         suggest = None
         if key == "addColumnName":
             suggest = "add_column_name"
+        elif key == "addTrailingPaddingCharacter":
+            suggest = "add_trailing_padding_character"
         elif key == "bucketFolder":
             suggest = "bucket_folder"
         elif key == "bucketName":
@@ -2226,8 +2228,12 @@ class EndpointS3Settings(dict):
             suggest = "encoding_type"
         elif key == "encryptionMode":
             suggest = "encryption_mode"
+        elif key == "expectedBucketOwner":
+            suggest = "expected_bucket_owner"
         elif key == "externalTableDefinition":
             suggest = "external_table_definition"
+        elif key == "glueCatalogGeneration":
+            suggest = "glue_catalog_generation"
         elif key == "ignoreHeaderRows":
             suggest = "ignore_header_rows"
         elif key == "includeOpForFullLoad":
@@ -2266,6 +2272,7 @@ class EndpointS3Settings(dict):
 
     def __init__(__self__, *,
                  add_column_name: Optional[bool] = None,
+                 add_trailing_padding_character: Optional[bool] = None,
                  bucket_folder: Optional[str] = None,
                  bucket_name: Optional[str] = None,
                  canned_acl_for_objects: Optional[str] = None,
@@ -2289,7 +2296,9 @@ class EndpointS3Settings(dict):
                  enable_statistics: Optional[bool] = None,
                  encoding_type: Optional[str] = None,
                  encryption_mode: Optional[str] = None,
+                 expected_bucket_owner: Optional[str] = None,
                  external_table_definition: Optional[str] = None,
+                 glue_catalog_generation: Optional[bool] = None,
                  ignore_header_rows: Optional[int] = None,
                  include_op_for_full_load: Optional[bool] = None,
                  max_file_size: Optional[int] = None,
@@ -2305,6 +2314,8 @@ class EndpointS3Settings(dict):
                  use_task_start_time_for_full_load_timestamp: Optional[bool] = None):
         if add_column_name is not None:
             pulumi.set(__self__, "add_column_name", add_column_name)
+        if add_trailing_padding_character is not None:
+            pulumi.set(__self__, "add_trailing_padding_character", add_trailing_padding_character)
         if bucket_folder is not None:
             pulumi.set(__self__, "bucket_folder", bucket_folder)
         if bucket_name is not None:
@@ -2351,8 +2362,12 @@ class EndpointS3Settings(dict):
             pulumi.set(__self__, "encoding_type", encoding_type)
         if encryption_mode is not None:
             pulumi.set(__self__, "encryption_mode", encryption_mode)
+        if expected_bucket_owner is not None:
+            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if external_table_definition is not None:
             pulumi.set(__self__, "external_table_definition", external_table_definition)
+        if glue_catalog_generation is not None:
+            pulumi.set(__self__, "glue_catalog_generation", glue_catalog_generation)
         if ignore_header_rows is not None:
             pulumi.set(__self__, "ignore_header_rows", ignore_header_rows)
         if include_op_for_full_load is not None:
@@ -2384,6 +2399,11 @@ class EndpointS3Settings(dict):
     @pulumi.getter(name="addColumnName")
     def add_column_name(self) -> Optional[bool]:
         return pulumi.get(self, "add_column_name")
+
+    @property
+    @pulumi.getter(name="addTrailingPaddingCharacter")
+    def add_trailing_padding_character(self) -> Optional[bool]:
+        return pulumi.get(self, "add_trailing_padding_character")
 
     @property
     @pulumi.getter(name="bucketFolder")
@@ -2501,9 +2521,19 @@ class EndpointS3Settings(dict):
         return pulumi.get(self, "encryption_mode")
 
     @property
+    @pulumi.getter(name="expectedBucketOwner")
+    def expected_bucket_owner(self) -> Optional[str]:
+        return pulumi.get(self, "expected_bucket_owner")
+
+    @property
     @pulumi.getter(name="externalTableDefinition")
     def external_table_definition(self) -> Optional[str]:
         return pulumi.get(self, "external_table_definition")
+
+    @property
+    @pulumi.getter(name="glueCatalogGeneration")
+    def glue_catalog_generation(self) -> Optional[bool]:
+        return pulumi.get(self, "glue_catalog_generation")
 
     @property
     @pulumi.getter(name="ignoreHeaderRows")

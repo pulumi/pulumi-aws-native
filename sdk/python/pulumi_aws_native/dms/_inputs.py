@@ -2348,6 +2348,7 @@ class EndpointRedshiftSettingsArgs:
 class EndpointS3SettingsArgs:
     def __init__(__self__, *,
                  add_column_name: Optional[pulumi.Input[bool]] = None,
+                 add_trailing_padding_character: Optional[pulumi.Input[bool]] = None,
                  bucket_folder: Optional[pulumi.Input[str]] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  canned_acl_for_objects: Optional[pulumi.Input[str]] = None,
@@ -2371,7 +2372,9 @@ class EndpointS3SettingsArgs:
                  enable_statistics: Optional[pulumi.Input[bool]] = None,
                  encoding_type: Optional[pulumi.Input[str]] = None,
                  encryption_mode: Optional[pulumi.Input[str]] = None,
+                 expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  external_table_definition: Optional[pulumi.Input[str]] = None,
+                 glue_catalog_generation: Optional[pulumi.Input[bool]] = None,
                  ignore_header_rows: Optional[pulumi.Input[int]] = None,
                  include_op_for_full_load: Optional[pulumi.Input[bool]] = None,
                  max_file_size: Optional[pulumi.Input[int]] = None,
@@ -2387,6 +2390,8 @@ class EndpointS3SettingsArgs:
                  use_task_start_time_for_full_load_timestamp: Optional[pulumi.Input[bool]] = None):
         if add_column_name is not None:
             pulumi.set(__self__, "add_column_name", add_column_name)
+        if add_trailing_padding_character is not None:
+            pulumi.set(__self__, "add_trailing_padding_character", add_trailing_padding_character)
         if bucket_folder is not None:
             pulumi.set(__self__, "bucket_folder", bucket_folder)
         if bucket_name is not None:
@@ -2433,8 +2438,12 @@ class EndpointS3SettingsArgs:
             pulumi.set(__self__, "encoding_type", encoding_type)
         if encryption_mode is not None:
             pulumi.set(__self__, "encryption_mode", encryption_mode)
+        if expected_bucket_owner is not None:
+            pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if external_table_definition is not None:
             pulumi.set(__self__, "external_table_definition", external_table_definition)
+        if glue_catalog_generation is not None:
+            pulumi.set(__self__, "glue_catalog_generation", glue_catalog_generation)
         if ignore_header_rows is not None:
             pulumi.set(__self__, "ignore_header_rows", ignore_header_rows)
         if include_op_for_full_load is not None:
@@ -2470,6 +2479,15 @@ class EndpointS3SettingsArgs:
     @add_column_name.setter
     def add_column_name(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "add_column_name", value)
+
+    @property
+    @pulumi.getter(name="addTrailingPaddingCharacter")
+    def add_trailing_padding_character(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "add_trailing_padding_character")
+
+    @add_trailing_padding_character.setter
+    def add_trailing_padding_character(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "add_trailing_padding_character", value)
 
     @property
     @pulumi.getter(name="bucketFolder")
@@ -2679,6 +2697,15 @@ class EndpointS3SettingsArgs:
         pulumi.set(self, "encryption_mode", value)
 
     @property
+    @pulumi.getter(name="expectedBucketOwner")
+    def expected_bucket_owner(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "expected_bucket_owner")
+
+    @expected_bucket_owner.setter
+    def expected_bucket_owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expected_bucket_owner", value)
+
+    @property
     @pulumi.getter(name="externalTableDefinition")
     def external_table_definition(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "external_table_definition")
@@ -2686,6 +2713,15 @@ class EndpointS3SettingsArgs:
     @external_table_definition.setter
     def external_table_definition(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "external_table_definition", value)
+
+    @property
+    @pulumi.getter(name="glueCatalogGeneration")
+    def glue_catalog_generation(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "glue_catalog_generation")
+
+    @glue_catalog_generation.setter
+    def glue_catalog_generation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "glue_catalog_generation", value)
 
     @property
     @pulumi.getter(name="ignoreHeaderRows")

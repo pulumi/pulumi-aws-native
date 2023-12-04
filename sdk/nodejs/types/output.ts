@@ -4451,6 +4451,21 @@ export namespace aps {
 
 }
 
+export namespace arczonalshift {
+    export interface ZonalAutoshiftConfigurationControlCondition {
+        alarmIdentifier: string;
+        type: enums.arczonalshift.ZonalAutoshiftConfigurationControlConditionType;
+    }
+
+    export interface ZonalAutoshiftConfigurationPracticeRunConfiguration {
+        blockedDates?: string[];
+        blockedWindows?: string[];
+        blockingAlarms?: outputs.arczonalshift.ZonalAutoshiftConfigurationControlCondition[];
+        outcomeAlarms: outputs.arczonalshift.ZonalAutoshiftConfigurationControlCondition[];
+    }
+
+}
+
 export namespace ask {
     export interface SkillAuthenticationConfiguration {
         clientId: string;
@@ -11735,6 +11750,9 @@ export namespace dlm {
         targetRegion?: string;
     }
 
+    export interface LifecyclePolicyCrossRegionCopyTargets {
+    }
+
     export interface LifecyclePolicyDeprecateRule {
         count?: number;
         interval?: number;
@@ -11757,6 +11775,18 @@ export namespace dlm {
         type: string;
     }
 
+    export interface LifecyclePolicyExcludeTags {
+    }
+
+    export interface LifecyclePolicyExcludeVolumeTypesList {
+    }
+
+    export interface LifecyclePolicyExclusions {
+        excludeBootVolumes?: boolean;
+        excludeTags?: outputs.dlm.LifecyclePolicyExcludeTags;
+        excludeVolumeTypes?: outputs.dlm.LifecyclePolicyExcludeVolumeTypesList;
+    }
+
     export interface LifecyclePolicyFastRestoreRule {
         availabilityZones?: string[];
         count?: number;
@@ -11772,11 +11802,19 @@ export namespace dlm {
 
     export interface LifecyclePolicyPolicyDetails {
         actions?: outputs.dlm.LifecyclePolicyAction[];
+        copyTags?: boolean;
+        createInterval?: number;
+        crossRegionCopyTargets?: outputs.dlm.LifecyclePolicyCrossRegionCopyTargets;
         eventSource?: outputs.dlm.LifecyclePolicyEventSource;
+        exclusions?: outputs.dlm.LifecyclePolicyExclusions;
+        extendDeletion?: boolean;
         parameters?: outputs.dlm.LifecyclePolicyParameters;
+        policyLanguage?: string;
         policyType?: string;
         resourceLocations?: string[];
+        resourceType?: string;
         resourceTypes?: string[];
+        retainInterval?: number;
         schedules?: outputs.dlm.LifecyclePolicySchedule[];
         targetTags?: outputs.dlm.LifecyclePolicyTag[];
     }
@@ -12063,6 +12101,7 @@ export namespace dms {
 
     export interface EndpointS3Settings {
         addColumnName?: boolean;
+        addTrailingPaddingCharacter?: boolean;
         bucketFolder?: string;
         bucketName?: string;
         cannedAclForObjects?: string;
@@ -12086,7 +12125,9 @@ export namespace dms {
         enableStatistics?: boolean;
         encodingType?: string;
         encryptionMode?: string;
+        expectedBucketOwner?: string;
         externalTableDefinition?: string;
+        glueCatalogGeneration?: boolean;
         ignoreHeaderRows?: number;
         includeOpForFullLoad?: boolean;
         maxFileSize?: number;
@@ -18260,9 +18301,11 @@ export namespace fsx {
         diskIopsConfiguration?: outputs.fsx.FileSystemDiskIopsConfiguration;
         endpointIpAddressRange?: string;
         fsxAdminPassword?: string;
+        haPairs?: number;
         preferredSubnetId?: string;
         routeTableIds?: string[];
         throughputCapacity?: number;
+        throughputCapacityPerHaPair?: number;
         weeklyMaintenanceStartTime?: string;
     }
 
@@ -18350,6 +18393,11 @@ export namespace fsx {
         value: string;
     }
 
+    export interface VolumeAggregateConfiguration {
+        aggregates?: string[];
+        constituentsPerAggregate?: number;
+    }
+
     export interface VolumeAutocommitPeriod {
         type: string;
         value?: number;
@@ -18365,16 +18413,19 @@ export namespace fsx {
     }
 
     export interface VolumeOntapConfiguration {
+        aggregateConfiguration?: outputs.fsx.VolumeAggregateConfiguration;
         copyTagsToBackups?: string;
         junctionPath?: string;
         ontapVolumeType?: string;
         securityStyle?: string;
-        sizeInMegabytes: string;
+        sizeInBytes?: string;
+        sizeInMegabytes?: string;
         snaplockConfiguration?: outputs.fsx.VolumeSnaplockConfiguration;
         snapshotPolicy?: string;
         storageEfficiencyEnabled?: string;
         storageVirtualMachineId: string;
         tieringPolicy?: outputs.fsx.VolumeTieringPolicy;
+        volumeStyle?: string;
     }
 
     export interface VolumeOpenZfsConfiguration {
@@ -30080,6 +30131,11 @@ export namespace medialive {
         videoDescriptions?: outputs.medialive.ChannelVideoDescription[];
     }
 
+    export interface ChannelEpochLockingSettings {
+        customEpoch?: string;
+        jamSyncTime?: string;
+    }
+
     export interface ChannelEsam {
         acquisitionPointId?: string;
         adAvailOffset?: number;
@@ -30101,6 +30157,7 @@ export namespace medialive {
 
     export interface ChannelFeatureActivations {
         inputPrepareScheduleActions?: string;
+        outputStaticImageOverlayScheduleActions?: string;
     }
 
     export interface ChannelFecOutputSettings {
@@ -30146,6 +30203,7 @@ export namespace medialive {
         inputEndAction?: string;
         inputLossBehavior?: outputs.medialive.ChannelInputLossBehavior;
         outputLockingMode?: string;
+        outputLockingSettings?: outputs.medialive.ChannelOutputLockingSettings;
         outputTimingSource?: string;
         supportLowFramerateInputs?: string;
     }
@@ -30663,6 +30721,11 @@ export namespace medialive {
         destinationRefId?: string;
     }
 
+    export interface ChannelOutputLockingSettings {
+        epochLockingSettings?: outputs.medialive.ChannelEpochLockingSettings;
+        pipelineLockingSettings?: outputs.medialive.ChannelPipelineLockingSettings;
+    }
+
     export interface ChannelOutputSettings {
         archiveOutputSettings?: outputs.medialive.ChannelArchiveOutputSettings;
         frameCaptureOutputSettings?: outputs.medialive.ChannelFrameCaptureOutputSettings;
@@ -30675,6 +30738,9 @@ export namespace medialive {
     }
 
     export interface ChannelPassThroughSettings {
+    }
+
+    export interface ChannelPipelineLockingSettings {
     }
 
     export interface ChannelRawSettings {
@@ -49505,18 +49571,30 @@ export namespace sagemaker {
         clarifyExplainerConfig?: outputs.sagemaker.EndpointConfigClarifyExplainerConfig;
     }
 
+    export interface EndpointConfigManagedInstanceScaling {
+        maxInstanceCount?: number;
+        minInstanceCount?: number;
+        status?: string;
+    }
+
     export interface EndpointConfigProductionVariant {
         acceleratorType?: string;
         containerStartupHealthCheckTimeoutInSeconds?: number;
         enableSsmAccess?: boolean;
         initialInstanceCount?: number;
-        initialVariantWeight: number;
+        initialVariantWeight?: number;
         instanceType?: string;
+        managedInstanceScaling?: outputs.sagemaker.EndpointConfigManagedInstanceScaling;
         modelDataDownloadTimeoutInSeconds?: number;
-        modelName: string;
+        modelName?: string;
+        routingConfig?: outputs.sagemaker.EndpointConfigRoutingConfig;
         serverlessConfig?: outputs.sagemaker.EndpointConfigServerlessConfig;
         variantName: string;
         volumeSizeInGb?: number;
+    }
+
+    export interface EndpointConfigRoutingConfig {
+        routingStrategy?: string;
     }
 
     export interface EndpointConfigServerlessConfig {
@@ -49528,6 +49606,11 @@ export namespace sagemaker {
     export interface EndpointConfigTag {
         key: string;
         value: string;
+    }
+
+    export interface EndpointConfigVpcConfig {
+        securityGroupIds: string[];
+        subnets: string[];
     }
 
     export interface EndpointDeploymentConfig {
@@ -50494,9 +50577,14 @@ export namespace sagemaker {
         imageConfig?: outputs.sagemaker.ModelImageConfig;
         inferenceSpecificationName?: string;
         mode?: string;
+        modelDataSource?: outputs.sagemaker.ModelDataSource;
         modelDataUrl?: string;
         modelPackageName?: string;
         multiModelConfig?: outputs.sagemaker.ModelMultiModelConfig;
+    }
+
+    export interface ModelDataSource {
+        s3DataSource: outputs.sagemaker.ModelS3DataSource;
     }
 
     /**
@@ -51527,6 +51615,12 @@ export namespace sagemaker {
 
     export interface ModelRepositoryAuthConfig {
         repositoryCredentialsProviderArn: string;
+    }
+
+    export interface ModelS3DataSource {
+        compressionType: string;
+        s3DataType: string;
+        s3Uri: string;
     }
 
     export interface ModelTag {
@@ -53308,6 +53402,25 @@ export namespace simspaceweaver {
 }
 
 export namespace sns {
+    export interface TopicLoggingConfig {
+        /**
+         * The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch
+         */
+        failureFeedbackRoleArn?: string;
+        /**
+         * Indicates one of the supported protocols for the SNS topic
+         */
+        protocol: enums.sns.TopicLoggingConfigProtocol;
+        /**
+         * The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch
+         */
+        successFeedbackRoleArn?: string;
+        /**
+         * The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100
+         */
+        successFeedbackSampleRate?: string;
+    }
+
     export interface TopicSubscription {
         endpoint: string;
         protocol: string;
@@ -54446,6 +54559,10 @@ export namespace transfer {
         tlsSessionResumptionMode?: string;
     }
 
+    export interface ServerS3StorageOptions {
+        directoryListingOptimization?: string;
+    }
+
     export interface ServerStructuredLogDestination {
     }
 
@@ -54481,6 +54598,7 @@ export namespace transfer {
     export interface UserHomeDirectoryMapEntry {
         entry: string;
         target: string;
+        type?: string;
     }
 
     export interface UserPosixProfile {
@@ -56378,6 +56496,54 @@ export namespace workspaces {
 
     export interface WorkspaceTag {
         key: string;
+        value: string;
+    }
+
+}
+
+export namespace workspacesthinclient {
+    export interface EnvironmentMaintenanceWindow {
+        /**
+         * The desired time zone maintenance window.
+         */
+        applyTimeOf?: enums.workspacesthinclient.EnvironmentMaintenanceWindowApplyTimeOf;
+        /**
+         * The date of maintenance window.
+         */
+        daysOfTheWeek?: enums.workspacesthinclient.EnvironmentDayOfWeek[];
+        /**
+         * The hour end time of maintenance window.
+         */
+        endTimeHour?: number;
+        /**
+         * The minute end time of maintenance window.
+         */
+        endTimeMinute?: number;
+        /**
+         * The hour start time of maintenance window.
+         */
+        startTimeHour?: number;
+        /**
+         * The minute start time of maintenance window.
+         */
+        startTimeMinute?: number;
+        /**
+         * The type of maintenance window.
+         */
+        type: enums.workspacesthinclient.EnvironmentMaintenanceWindowType;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface EnvironmentTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         value: string;
     }
 

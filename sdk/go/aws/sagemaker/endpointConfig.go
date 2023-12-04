@@ -21,12 +21,15 @@ type EndpointConfig struct {
 
 	AsyncInferenceConfig     EndpointConfigAsyncInferenceConfigPtrOutput `pulumi:"asyncInferenceConfig"`
 	DataCaptureConfig        EndpointConfigDataCaptureConfigPtrOutput    `pulumi:"dataCaptureConfig"`
+	EnableNetworkIsolation   pulumi.BoolPtrOutput                        `pulumi:"enableNetworkIsolation"`
 	EndpointConfigName       pulumi.StringPtrOutput                      `pulumi:"endpointConfigName"`
+	ExecutionRoleArn         pulumi.StringPtrOutput                      `pulumi:"executionRoleArn"`
 	ExplainerConfig          EndpointConfigExplainerConfigPtrOutput      `pulumi:"explainerConfig"`
 	KmsKeyId                 pulumi.StringPtrOutput                      `pulumi:"kmsKeyId"`
 	ProductionVariants       EndpointConfigProductionVariantArrayOutput  `pulumi:"productionVariants"`
 	ShadowProductionVariants EndpointConfigProductionVariantArrayOutput  `pulumi:"shadowProductionVariants"`
 	Tags                     EndpointConfigTagArrayOutput                `pulumi:"tags"`
+	VpcConfig                EndpointConfigVpcConfigPtrOutput            `pulumi:"vpcConfig"`
 }
 
 // NewEndpointConfig registers a new resource with the given unique name, arguments, and options.
@@ -42,11 +45,14 @@ func NewEndpointConfig(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"asyncInferenceConfig",
 		"dataCaptureConfig",
+		"enableNetworkIsolation",
 		"endpointConfigName",
+		"executionRoleArn",
 		"explainerConfig",
 		"kmsKeyId",
 		"productionVariants[*]",
 		"shadowProductionVariants[*]",
+		"vpcConfig",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -84,24 +90,30 @@ func (EndpointConfigState) ElementType() reflect.Type {
 type endpointConfigArgs struct {
 	AsyncInferenceConfig     *EndpointConfigAsyncInferenceConfig `pulumi:"asyncInferenceConfig"`
 	DataCaptureConfig        *EndpointConfigDataCaptureConfig    `pulumi:"dataCaptureConfig"`
+	EnableNetworkIsolation   *bool                               `pulumi:"enableNetworkIsolation"`
 	EndpointConfigName       *string                             `pulumi:"endpointConfigName"`
+	ExecutionRoleArn         *string                             `pulumi:"executionRoleArn"`
 	ExplainerConfig          *EndpointConfigExplainerConfig      `pulumi:"explainerConfig"`
 	KmsKeyId                 *string                             `pulumi:"kmsKeyId"`
 	ProductionVariants       []EndpointConfigProductionVariant   `pulumi:"productionVariants"`
 	ShadowProductionVariants []EndpointConfigProductionVariant   `pulumi:"shadowProductionVariants"`
 	Tags                     []EndpointConfigTag                 `pulumi:"tags"`
+	VpcConfig                *EndpointConfigVpcConfig            `pulumi:"vpcConfig"`
 }
 
 // The set of arguments for constructing a EndpointConfig resource.
 type EndpointConfigArgs struct {
 	AsyncInferenceConfig     EndpointConfigAsyncInferenceConfigPtrInput
 	DataCaptureConfig        EndpointConfigDataCaptureConfigPtrInput
+	EnableNetworkIsolation   pulumi.BoolPtrInput
 	EndpointConfigName       pulumi.StringPtrInput
+	ExecutionRoleArn         pulumi.StringPtrInput
 	ExplainerConfig          EndpointConfigExplainerConfigPtrInput
 	KmsKeyId                 pulumi.StringPtrInput
 	ProductionVariants       EndpointConfigProductionVariantArrayInput
 	ShadowProductionVariants EndpointConfigProductionVariantArrayInput
 	Tags                     EndpointConfigTagArrayInput
+	VpcConfig                EndpointConfigVpcConfigPtrInput
 }
 
 func (EndpointConfigArgs) ElementType() reflect.Type {
@@ -161,8 +173,16 @@ func (o EndpointConfigOutput) DataCaptureConfig() EndpointConfigDataCaptureConfi
 	return o.ApplyT(func(v *EndpointConfig) EndpointConfigDataCaptureConfigPtrOutput { return v.DataCaptureConfig }).(EndpointConfigDataCaptureConfigPtrOutput)
 }
 
+func (o EndpointConfigOutput) EnableNetworkIsolation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointConfig) pulumi.BoolPtrOutput { return v.EnableNetworkIsolation }).(pulumi.BoolPtrOutput)
+}
+
 func (o EndpointConfigOutput) EndpointConfigName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointConfig) pulumi.StringPtrOutput { return v.EndpointConfigName }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointConfigOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfig) pulumi.StringPtrOutput { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointConfigOutput) ExplainerConfig() EndpointConfigExplainerConfigPtrOutput {
@@ -183,6 +203,10 @@ func (o EndpointConfigOutput) ShadowProductionVariants() EndpointConfigProductio
 
 func (o EndpointConfigOutput) Tags() EndpointConfigTagArrayOutput {
 	return o.ApplyT(func(v *EndpointConfig) EndpointConfigTagArrayOutput { return v.Tags }).(EndpointConfigTagArrayOutput)
+}
+
+func (o EndpointConfigOutput) VpcConfig() EndpointConfigVpcConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointConfig) EndpointConfigVpcConfigPtrOutput { return v.VpcConfig }).(EndpointConfigVpcConfigPtrOutput)
 }
 
 func init() {

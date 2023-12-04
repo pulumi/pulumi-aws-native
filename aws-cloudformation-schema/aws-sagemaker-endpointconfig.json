@@ -13,6 +13,12 @@
     "DataCaptureConfig" : {
       "$ref" : "#/definitions/DataCaptureConfig"
     },
+    "ExecutionRoleArn" : {
+      "type" : "string"
+    },
+    "EnableNetworkIsolation" : {
+      "type" : "boolean"
+    },
     "ProductionVariants" : {
       "type" : "array",
       "uniqueItems" : false,
@@ -25,6 +31,9 @@
     },
     "AsyncInferenceConfig" : {
       "$ref" : "#/definitions/AsyncInferenceConfig"
+    },
+    "VpcConfig" : {
+      "$ref" : "#/definitions/VpcConfig"
     },
     "EndpointConfigName" : {
       "type" : "string"
@@ -44,6 +53,21 @@
     }
   },
   "definitions" : {
+    "ManagedInstanceScaling" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Status" : {
+          "type" : "string"
+        },
+        "MaxInstanceCount" : {
+          "type" : "integer"
+        },
+        "MinInstanceCount" : {
+          "type" : "integer"
+        }
+      }
+    },
     "AsyncInferenceNotificationConfig" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -71,8 +95,8 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "ModelDataDownloadTimeoutInSeconds" : {
-          "type" : "integer"
+        "ManagedInstanceScaling" : {
+          "$ref" : "#/definitions/ManagedInstanceScaling"
         },
         "ModelName" : {
           "type" : "string"
@@ -86,10 +110,22 @@
         "VariantName" : {
           "type" : "string"
         },
-        "ContainerStartupHealthCheckTimeoutInSeconds" : {
+        "InitialInstanceCount" : {
           "type" : "integer"
         },
-        "InitialInstanceCount" : {
+        "RoutingConfig" : {
+          "$ref" : "#/definitions/RoutingConfig"
+        },
+        "AcceleratorType" : {
+          "type" : "string"
+        },
+        "InitialVariantWeight" : {
+          "type" : "number"
+        },
+        "ModelDataDownloadTimeoutInSeconds" : {
+          "type" : "integer"
+        },
+        "ContainerStartupHealthCheckTimeoutInSeconds" : {
           "type" : "integer"
         },
         "ServerlessConfig" : {
@@ -97,15 +133,30 @@
         },
         "InstanceType" : {
           "type" : "string"
-        },
-        "AcceleratorType" : {
-          "type" : "string"
-        },
-        "InitialVariantWeight" : {
-          "type" : "number"
         }
       },
-      "required" : [ "ModelName", "VariantName", "InitialVariantWeight" ]
+      "required" : [ "VariantName" ]
+    },
+    "VpcConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "SecurityGroupIds" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "Subnets" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        }
+      },
+      "required" : [ "Subnets", "SecurityGroupIds" ]
     },
     "ClarifyInferenceConfig" : {
       "type" : "object",
@@ -188,6 +239,15 @@
           "items" : {
             "type" : "string"
           }
+        }
+      }
+    },
+    "RoutingConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "RoutingStrategy" : {
+          "type" : "string"
         }
       }
     },
@@ -367,7 +427,7 @@
     }
   },
   "required" : [ "ProductionVariants" ],
-  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/AsyncInferenceConfig", "/properties/ShadowProductionVariants", "/properties/ProductionVariants", "/properties/DataCaptureConfig", "/properties/ExplainerConfig", "/properties/EndpointConfigName" ],
+  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/AsyncInferenceConfig", "/properties/ExecutionRoleArn", "/properties/ShadowProductionVariants", "/properties/EnableNetworkIsolation", "/properties/ProductionVariants", "/properties/DataCaptureConfig", "/properties/ExplainerConfig", "/properties/EndpointConfigName", "/properties/VpcConfig" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }

@@ -19,14 +19,35 @@ namespace Pulumi.AwsNative.Dlm
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("copyTags")]
+        public Output<bool?> CopyTags { get; private set; } = null!;
+
+        [Output("createInterval")]
+        public Output<int?> CreateInterval { get; private set; } = null!;
+
+        [Output("crossRegionCopyTargets")]
+        public Output<Outputs.LifecyclePolicyCrossRegionCopyTargets?> CrossRegionCopyTargets { get; private set; } = null!;
+
+        [Output("defaultPolicy")]
+        public Output<string?> DefaultPolicy { get; private set; } = null!;
+
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        [Output("exclusions")]
+        public Output<Outputs.LifecyclePolicyExclusions?> Exclusions { get; private set; } = null!;
 
         [Output("executionRoleArn")]
         public Output<string?> ExecutionRoleArn { get; private set; } = null!;
 
+        [Output("extendDeletion")]
+        public Output<bool?> ExtendDeletion { get; private set; } = null!;
+
         [Output("policyDetails")]
         public Output<Outputs.LifecyclePolicyPolicyDetails?> PolicyDetails { get; private set; } = null!;
+
+        [Output("retainInterval")]
+        public Output<int?> RetainInterval { get; private set; } = null!;
 
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
@@ -79,14 +100,35 @@ namespace Pulumi.AwsNative.Dlm
 
     public sealed class LifecyclePolicyArgs : global::Pulumi.ResourceArgs
     {
+        [Input("copyTags")]
+        public Input<bool>? CopyTags { get; set; }
+
+        [Input("createInterval")]
+        public Input<int>? CreateInterval { get; set; }
+
+        [Input("crossRegionCopyTargets")]
+        public Input<Inputs.LifecyclePolicyCrossRegionCopyTargetsArgs>? CrossRegionCopyTargets { get; set; }
+
+        [Input("defaultPolicy")]
+        public Input<string>? DefaultPolicy { get; set; }
+
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("exclusions")]
+        public Input<Inputs.LifecyclePolicyExclusionsArgs>? Exclusions { get; set; }
 
         [Input("executionRoleArn")]
         public Input<string>? ExecutionRoleArn { get; set; }
 
+        [Input("extendDeletion")]
+        public Input<bool>? ExtendDeletion { get; set; }
+
         [Input("policyDetails")]
         public Input<Inputs.LifecyclePolicyPolicyDetailsArgs>? PolicyDetails { get; set; }
+
+        [Input("retainInterval")]
+        public Input<int>? RetainInterval { get; set; }
 
         [Input("state")]
         public Input<string>? State { get; set; }

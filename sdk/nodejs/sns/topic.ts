@@ -60,6 +60,10 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly dataProtectionPolicy!: pulumi.Output<any | undefined>;
     /**
+     * Delivery status logging configuration for supported protocols for an Amazon SNS topic.
+     */
+    public readonly deliveryStatusLogging!: pulumi.Output<outputs.sns.TopicLoggingConfig[] | undefined>;
+    /**
      * The display name to use for an Amazon SNS topic with SMS subscriptions.
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
@@ -108,6 +112,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["archivePolicy"] = args ? args.archivePolicy : undefined;
             resourceInputs["contentBasedDeduplication"] = args ? args.contentBasedDeduplication : undefined;
             resourceInputs["dataProtectionPolicy"] = args ? args.dataProtectionPolicy : undefined;
+            resourceInputs["deliveryStatusLogging"] = args ? args.deliveryStatusLogging : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["fifoTopic"] = args ? args.fifoTopic : undefined;
             resourceInputs["kmsMasterKeyId"] = args ? args.kmsMasterKeyId : undefined;
@@ -121,6 +126,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["archivePolicy"] = undefined /*out*/;
             resourceInputs["contentBasedDeduplication"] = undefined /*out*/;
             resourceInputs["dataProtectionPolicy"] = undefined /*out*/;
+            resourceInputs["deliveryStatusLogging"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["fifoTopic"] = undefined /*out*/;
             resourceInputs["kmsMasterKeyId"] = undefined /*out*/;
@@ -164,6 +170,10 @@ export interface TopicArgs {
      * Length Constraints: Maximum length of 30720
      */
     dataProtectionPolicy?: any;
+    /**
+     * Delivery status logging configuration for supported protocols for an Amazon SNS topic.
+     */
+    deliveryStatusLogging?: pulumi.Input<pulumi.Input<inputs.sns.TopicLoggingConfigArgs>[]>;
     /**
      * The display name to use for an Amazon SNS topic with SMS subscriptions.
      */

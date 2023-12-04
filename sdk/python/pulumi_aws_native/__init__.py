@@ -55,6 +55,8 @@ if typing.TYPE_CHECKING:
     appsync = __appsync
     import pulumi_aws_native.aps as __aps
     aps = __aps
+    import pulumi_aws_native.arczonalshift as __arczonalshift
+    arczonalshift = __arczonalshift
     import pulumi_aws_native.ask as __ask
     ask = __ask
     import pulumi_aws_native.athena as __athena
@@ -473,6 +475,8 @@ if typing.TYPE_CHECKING:
     wisdom = __wisdom
     import pulumi_aws_native.workspaces as __workspaces
     workspaces = __workspaces
+    import pulumi_aws_native.workspacesthinclient as __workspacesthinclient
+    workspacesthinclient = __workspacesthinclient
     import pulumi_aws_native.workspacesweb as __workspacesweb
     workspacesweb = __workspacesweb
     import pulumi_aws_native.xray as __xray
@@ -495,6 +499,7 @@ else:
     appstream = _utilities.lazy_import('pulumi_aws_native.appstream')
     appsync = _utilities.lazy_import('pulumi_aws_native.appsync')
     aps = _utilities.lazy_import('pulumi_aws_native.aps')
+    arczonalshift = _utilities.lazy_import('pulumi_aws_native.arczonalshift')
     ask = _utilities.lazy_import('pulumi_aws_native.ask')
     athena = _utilities.lazy_import('pulumi_aws_native.athena')
     auditmanager = _utilities.lazy_import('pulumi_aws_native.auditmanager')
@@ -704,6 +709,7 @@ else:
     wafv2 = _utilities.lazy_import('pulumi_aws_native.wafv2')
     wisdom = _utilities.lazy_import('pulumi_aws_native.wisdom')
     workspaces = _utilities.lazy_import('pulumi_aws_native.workspaces')
+    workspacesthinclient = _utilities.lazy_import('pulumi_aws_native.workspacesthinclient')
     workspacesweb = _utilities.lazy_import('pulumi_aws_native.workspacesweb')
     xray = _utilities.lazy_import('pulumi_aws_native.xray')
 
@@ -926,6 +932,14 @@ _utilities.register(
   "classes": {
    "aws-native:aps:RuleGroupsNamespace": "RuleGroupsNamespace",
    "aws-native:aps:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "arczonalshift",
+  "fqn": "pulumi_aws_native.arczonalshift",
+  "classes": {
+   "aws-native:arczonalshift:ZonalAutoshiftConfiguration": "ZonalAutoshiftConfiguration"
   }
  },
  {
@@ -3457,6 +3471,14 @@ _utilities.register(
   "classes": {
    "aws-native:workspaces:ConnectionAlias": "ConnectionAlias",
    "aws-native:workspaces:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "workspacesthinclient",
+  "fqn": "pulumi_aws_native.workspacesthinclient",
+  "classes": {
+   "aws-native:workspacesthinclient:Environment": "Environment"
   }
  },
  {

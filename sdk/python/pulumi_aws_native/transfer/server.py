@@ -27,6 +27,7 @@ class ServerArgs:
                  pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
                  protocol_details: Optional[pulumi.Input['ServerProtocolDetailsArgs']] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input['ServerProtocolArgs']]]] = None,
+                 s3_storage_options: Optional[pulumi.Input['ServerS3StorageOptionsArgs']] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input['ServerStructuredLogDestinationArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServerTagArgs']]]] = None,
@@ -56,6 +57,8 @@ class ServerArgs:
             pulumi.set(__self__, "protocol_details", protocol_details)
         if protocols is not None:
             pulumi.set(__self__, "protocols", protocols)
+        if s3_storage_options is not None:
+            pulumi.set(__self__, "s3_storage_options", s3_storage_options)
         if security_policy_name is not None:
             pulumi.set(__self__, "security_policy_name", security_policy_name)
         if structured_log_destinations is not None:
@@ -165,6 +168,15 @@ class ServerArgs:
         pulumi.set(self, "protocols", value)
 
     @property
+    @pulumi.getter(name="s3StorageOptions")
+    def s3_storage_options(self) -> Optional[pulumi.Input['ServerS3StorageOptionsArgs']]:
+        return pulumi.get(self, "s3_storage_options")
+
+    @s3_storage_options.setter
+    def s3_storage_options(self, value: Optional[pulumi.Input['ServerS3StorageOptionsArgs']]):
+        pulumi.set(self, "s3_storage_options", value)
+
+    @property
     @pulumi.getter(name="securityPolicyName")
     def security_policy_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "security_policy_name")
@@ -222,6 +234,7 @@ class Server(pulumi.CustomResource):
                  pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
                  protocol_details: Optional[pulumi.Input[pulumi.InputType['ServerProtocolDetailsArgs']]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerProtocolArgs']]]]] = None,
+                 s3_storage_options: Optional[pulumi.Input[pulumi.InputType['ServerS3StorageOptionsArgs']]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerStructuredLogDestinationArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerTagArgs']]]]] = None,
@@ -268,6 +281,7 @@ class Server(pulumi.CustomResource):
                  pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
                  protocol_details: Optional[pulumi.Input[pulumi.InputType['ServerProtocolDetailsArgs']]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerProtocolArgs']]]]] = None,
+                 s3_storage_options: Optional[pulumi.Input[pulumi.InputType['ServerS3StorageOptionsArgs']]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerStructuredLogDestinationArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerTagArgs']]]]] = None,
@@ -293,6 +307,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["pre_authentication_login_banner"] = pre_authentication_login_banner
             __props__.__dict__["protocol_details"] = protocol_details
             __props__.__dict__["protocols"] = protocols
+            __props__.__dict__["s3_storage_options"] = s3_storage_options
             __props__.__dict__["security_policy_name"] = security_policy_name
             __props__.__dict__["structured_log_destinations"] = structured_log_destinations
             __props__.__dict__["tags"] = tags
@@ -335,6 +350,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["pre_authentication_login_banner"] = None
         __props__.__dict__["protocol_details"] = None
         __props__.__dict__["protocols"] = None
+        __props__.__dict__["s3_storage_options"] = None
         __props__.__dict__["security_policy_name"] = None
         __props__.__dict__["server_id"] = None
         __props__.__dict__["structured_log_destinations"] = None
@@ -401,6 +417,11 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def protocols(self) -> pulumi.Output[Optional[Sequence['outputs.ServerProtocol']]]:
         return pulumi.get(self, "protocols")
+
+    @property
+    @pulumi.getter(name="s3StorageOptions")
+    def s3_storage_options(self) -> pulumi.Output[Optional['outputs.ServerS3StorageOptions']]:
+        return pulumi.get(self, "s3_storage_options")
 
     @property
     @pulumi.getter(name="securityPolicyName")

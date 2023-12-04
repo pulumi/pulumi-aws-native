@@ -5137,6 +5137,20 @@ export namespace aps {
     }
 }
 
+export namespace arczonalshift {
+    export interface ZonalAutoshiftConfigurationControlConditionArgs {
+        alarmIdentifier: pulumi.Input<string>;
+        type: pulumi.Input<enums.arczonalshift.ZonalAutoshiftConfigurationControlConditionType>;
+    }
+
+    export interface ZonalAutoshiftConfigurationPracticeRunConfigurationArgs {
+        blockedDates?: pulumi.Input<pulumi.Input<string>[]>;
+        blockedWindows?: pulumi.Input<pulumi.Input<string>[]>;
+        blockingAlarms?: pulumi.Input<pulumi.Input<inputs.arczonalshift.ZonalAutoshiftConfigurationControlConditionArgs>[]>;
+        outcomeAlarms: pulumi.Input<pulumi.Input<inputs.arczonalshift.ZonalAutoshiftConfigurationControlConditionArgs>[]>;
+    }
+}
+
 export namespace ask {
     export interface SkillAuthenticationConfigurationArgs {
         clientId: pulumi.Input<string>;
@@ -11632,6 +11646,9 @@ export namespace dlm {
         targetRegion?: pulumi.Input<string>;
     }
 
+    export interface LifecyclePolicyCrossRegionCopyTargetsArgs {
+    }
+
     export interface LifecyclePolicyDeprecateRuleArgs {
         count?: pulumi.Input<number>;
         interval?: pulumi.Input<number>;
@@ -11654,6 +11671,18 @@ export namespace dlm {
         type: pulumi.Input<string>;
     }
 
+    export interface LifecyclePolicyExcludeTagsArgs {
+    }
+
+    export interface LifecyclePolicyExcludeVolumeTypesListArgs {
+    }
+
+    export interface LifecyclePolicyExclusionsArgs {
+        excludeBootVolumes?: pulumi.Input<boolean>;
+        excludeTags?: pulumi.Input<inputs.dlm.LifecyclePolicyExcludeTagsArgs>;
+        excludeVolumeTypes?: pulumi.Input<inputs.dlm.LifecyclePolicyExcludeVolumeTypesListArgs>;
+    }
+
     export interface LifecyclePolicyFastRestoreRuleArgs {
         availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
         count?: pulumi.Input<number>;
@@ -11669,11 +11698,19 @@ export namespace dlm {
 
     export interface LifecyclePolicyPolicyDetailsArgs {
         actions?: pulumi.Input<pulumi.Input<inputs.dlm.LifecyclePolicyActionArgs>[]>;
+        copyTags?: pulumi.Input<boolean>;
+        createInterval?: pulumi.Input<number>;
+        crossRegionCopyTargets?: pulumi.Input<inputs.dlm.LifecyclePolicyCrossRegionCopyTargetsArgs>;
         eventSource?: pulumi.Input<inputs.dlm.LifecyclePolicyEventSourceArgs>;
+        exclusions?: pulumi.Input<inputs.dlm.LifecyclePolicyExclusionsArgs>;
+        extendDeletion?: pulumi.Input<boolean>;
         parameters?: pulumi.Input<inputs.dlm.LifecyclePolicyParametersArgs>;
+        policyLanguage?: pulumi.Input<string>;
         policyType?: pulumi.Input<string>;
         resourceLocations?: pulumi.Input<pulumi.Input<string>[]>;
+        resourceType?: pulumi.Input<string>;
         resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        retainInterval?: pulumi.Input<number>;
         schedules?: pulumi.Input<pulumi.Input<inputs.dlm.LifecyclePolicyScheduleArgs>[]>;
         targetTags?: pulumi.Input<pulumi.Input<inputs.dlm.LifecyclePolicyTagArgs>[]>;
     }
@@ -11959,6 +11996,7 @@ export namespace dms {
 
     export interface EndpointS3SettingsArgs {
         addColumnName?: pulumi.Input<boolean>;
+        addTrailingPaddingCharacter?: pulumi.Input<boolean>;
         bucketFolder?: pulumi.Input<string>;
         bucketName?: pulumi.Input<string>;
         cannedAclForObjects?: pulumi.Input<string>;
@@ -11982,7 +12020,9 @@ export namespace dms {
         enableStatistics?: pulumi.Input<boolean>;
         encodingType?: pulumi.Input<string>;
         encryptionMode?: pulumi.Input<string>;
+        expectedBucketOwner?: pulumi.Input<string>;
         externalTableDefinition?: pulumi.Input<string>;
+        glueCatalogGeneration?: pulumi.Input<boolean>;
         ignoreHeaderRows?: pulumi.Input<number>;
         includeOpForFullLoad?: pulumi.Input<boolean>;
         maxFileSize?: pulumi.Input<number>;
@@ -17940,9 +17980,11 @@ export namespace fsx {
         diskIopsConfiguration?: pulumi.Input<inputs.fsx.FileSystemDiskIopsConfigurationArgs>;
         endpointIpAddressRange?: pulumi.Input<string>;
         fsxAdminPassword?: pulumi.Input<string>;
+        haPairs?: pulumi.Input<number>;
         preferredSubnetId?: pulumi.Input<string>;
         routeTableIds?: pulumi.Input<pulumi.Input<string>[]>;
         throughputCapacity?: pulumi.Input<number>;
+        throughputCapacityPerHaPair?: pulumi.Input<number>;
         weeklyMaintenanceStartTime?: pulumi.Input<string>;
     }
 
@@ -18030,6 +18072,11 @@ export namespace fsx {
         value: pulumi.Input<string>;
     }
 
+    export interface VolumeAggregateConfigurationArgs {
+        aggregates?: pulumi.Input<pulumi.Input<string>[]>;
+        constituentsPerAggregate?: pulumi.Input<number>;
+    }
+
     export interface VolumeAutocommitPeriodArgs {
         type: pulumi.Input<string>;
         value?: pulumi.Input<number>;
@@ -18045,16 +18092,19 @@ export namespace fsx {
     }
 
     export interface VolumeOntapConfigurationArgs {
+        aggregateConfiguration?: pulumi.Input<inputs.fsx.VolumeAggregateConfigurationArgs>;
         copyTagsToBackups?: pulumi.Input<string>;
         junctionPath?: pulumi.Input<string>;
         ontapVolumeType?: pulumi.Input<string>;
         securityStyle?: pulumi.Input<string>;
-        sizeInMegabytes: pulumi.Input<string>;
+        sizeInBytes?: pulumi.Input<string>;
+        sizeInMegabytes?: pulumi.Input<string>;
         snaplockConfiguration?: pulumi.Input<inputs.fsx.VolumeSnaplockConfigurationArgs>;
         snapshotPolicy?: pulumi.Input<string>;
         storageEfficiencyEnabled?: pulumi.Input<string>;
         storageVirtualMachineId: pulumi.Input<string>;
         tieringPolicy?: pulumi.Input<inputs.fsx.VolumeTieringPolicyArgs>;
+        volumeStyle?: pulumi.Input<string>;
     }
 
     export interface VolumeOpenZfsConfigurationArgs {
@@ -29648,6 +29698,11 @@ export namespace medialive {
         videoDescriptions?: pulumi.Input<pulumi.Input<inputs.medialive.ChannelVideoDescriptionArgs>[]>;
     }
 
+    export interface ChannelEpochLockingSettingsArgs {
+        customEpoch?: pulumi.Input<string>;
+        jamSyncTime?: pulumi.Input<string>;
+    }
+
     export interface ChannelEsamArgs {
         acquisitionPointId?: pulumi.Input<string>;
         adAvailOffset?: pulumi.Input<number>;
@@ -29669,6 +29724,7 @@ export namespace medialive {
 
     export interface ChannelFeatureActivationsArgs {
         inputPrepareScheduleActions?: pulumi.Input<string>;
+        outputStaticImageOverlayScheduleActions?: pulumi.Input<string>;
     }
 
     export interface ChannelFecOutputSettingsArgs {
@@ -29714,6 +29770,7 @@ export namespace medialive {
         inputEndAction?: pulumi.Input<string>;
         inputLossBehavior?: pulumi.Input<inputs.medialive.ChannelInputLossBehaviorArgs>;
         outputLockingMode?: pulumi.Input<string>;
+        outputLockingSettings?: pulumi.Input<inputs.medialive.ChannelOutputLockingSettingsArgs>;
         outputTimingSource?: pulumi.Input<string>;
         supportLowFramerateInputs?: pulumi.Input<string>;
     }
@@ -30231,6 +30288,11 @@ export namespace medialive {
         destinationRefId?: pulumi.Input<string>;
     }
 
+    export interface ChannelOutputLockingSettingsArgs {
+        epochLockingSettings?: pulumi.Input<inputs.medialive.ChannelEpochLockingSettingsArgs>;
+        pipelineLockingSettings?: pulumi.Input<inputs.medialive.ChannelPipelineLockingSettingsArgs>;
+    }
+
     export interface ChannelOutputSettingsArgs {
         archiveOutputSettings?: pulumi.Input<inputs.medialive.ChannelArchiveOutputSettingsArgs>;
         frameCaptureOutputSettings?: pulumi.Input<inputs.medialive.ChannelFrameCaptureOutputSettingsArgs>;
@@ -30243,6 +30305,9 @@ export namespace medialive {
     }
 
     export interface ChannelPassThroughSettingsArgs {
+    }
+
+    export interface ChannelPipelineLockingSettingsArgs {
     }
 
     export interface ChannelRawSettingsArgs {
@@ -48636,18 +48701,30 @@ export namespace sagemaker {
         clarifyExplainerConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigClarifyExplainerConfigArgs>;
     }
 
+    export interface EndpointConfigManagedInstanceScalingArgs {
+        maxInstanceCount?: pulumi.Input<number>;
+        minInstanceCount?: pulumi.Input<number>;
+        status?: pulumi.Input<string>;
+    }
+
     export interface EndpointConfigProductionVariantArgs {
         acceleratorType?: pulumi.Input<string>;
         containerStartupHealthCheckTimeoutInSeconds?: pulumi.Input<number>;
         enableSsmAccess?: pulumi.Input<boolean>;
         initialInstanceCount?: pulumi.Input<number>;
-        initialVariantWeight: pulumi.Input<number>;
+        initialVariantWeight?: pulumi.Input<number>;
         instanceType?: pulumi.Input<string>;
+        managedInstanceScaling?: pulumi.Input<inputs.sagemaker.EndpointConfigManagedInstanceScalingArgs>;
         modelDataDownloadTimeoutInSeconds?: pulumi.Input<number>;
-        modelName: pulumi.Input<string>;
+        modelName?: pulumi.Input<string>;
+        routingConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigRoutingConfigArgs>;
         serverlessConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigServerlessConfigArgs>;
         variantName: pulumi.Input<string>;
         volumeSizeInGb?: pulumi.Input<number>;
+    }
+
+    export interface EndpointConfigRoutingConfigArgs {
+        routingStrategy?: pulumi.Input<string>;
     }
 
     export interface EndpointConfigServerlessConfigArgs {
@@ -48659,6 +48736,11 @@ export namespace sagemaker {
     export interface EndpointConfigTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    export interface EndpointConfigVpcConfigArgs {
+        securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
+        subnets: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface EndpointDeploymentConfigArgs {
@@ -49610,9 +49692,14 @@ export namespace sagemaker {
         imageConfig?: pulumi.Input<inputs.sagemaker.ModelImageConfigArgs>;
         inferenceSpecificationName?: pulumi.Input<string>;
         mode?: pulumi.Input<string>;
+        modelDataSource?: pulumi.Input<inputs.sagemaker.ModelDataSourceArgs>;
         modelDataUrl?: pulumi.Input<string>;
         modelPackageName?: pulumi.Input<string>;
         multiModelConfig?: pulumi.Input<inputs.sagemaker.ModelMultiModelConfigArgs>;
+    }
+
+    export interface ModelDataSourceArgs {
+        s3DataSource: pulumi.Input<inputs.sagemaker.ModelS3DataSourceArgs>;
     }
 
     /**
@@ -50643,6 +50730,12 @@ export namespace sagemaker {
 
     export interface ModelRepositoryAuthConfigArgs {
         repositoryCredentialsProviderArn: pulumi.Input<string>;
+    }
+
+    export interface ModelS3DataSourceArgs {
+        compressionType: pulumi.Input<string>;
+        s3DataType: pulumi.Input<string>;
+        s3Uri: pulumi.Input<string>;
     }
 
     export interface ModelTagArgs {
@@ -52413,6 +52506,25 @@ export namespace simspaceweaver {
 }
 
 export namespace sns {
+    export interface TopicLoggingConfigArgs {
+        /**
+         * The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch
+         */
+        failureFeedbackRoleArn?: pulumi.Input<string>;
+        /**
+         * Indicates one of the supported protocols for the SNS topic
+         */
+        protocol: pulumi.Input<enums.sns.TopicLoggingConfigProtocol>;
+        /**
+         * The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch
+         */
+        successFeedbackRoleArn?: pulumi.Input<string>;
+        /**
+         * The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100
+         */
+        successFeedbackSampleRate?: pulumi.Input<string>;
+    }
+
     export interface TopicSubscriptionArgs {
         endpoint: pulumi.Input<string>;
         protocol: pulumi.Input<string>;
@@ -53541,6 +53653,10 @@ export namespace transfer {
         tlsSessionResumptionMode?: pulumi.Input<string>;
     }
 
+    export interface ServerS3StorageOptionsArgs {
+        directoryListingOptimization?: pulumi.Input<string>;
+    }
+
     export interface ServerStructuredLogDestinationArgs {
     }
 
@@ -53576,6 +53692,7 @@ export namespace transfer {
     export interface UserHomeDirectoryMapEntryArgs {
         entry: pulumi.Input<string>;
         target: pulumi.Input<string>;
+        type?: pulumi.Input<string>;
     }
 
     export interface UserPosixProfileArgs {
@@ -55451,6 +55568,53 @@ export namespace workspaces {
 
     export interface WorkspaceTagArgs {
         key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+}
+
+export namespace workspacesthinclient {
+    export interface EnvironmentMaintenanceWindowArgs {
+        /**
+         * The desired time zone maintenance window.
+         */
+        applyTimeOf?: pulumi.Input<enums.workspacesthinclient.EnvironmentMaintenanceWindowApplyTimeOf>;
+        /**
+         * The date of maintenance window.
+         */
+        daysOfTheWeek?: pulumi.Input<pulumi.Input<enums.workspacesthinclient.EnvironmentDayOfWeek>[]>;
+        /**
+         * The hour end time of maintenance window.
+         */
+        endTimeHour?: pulumi.Input<number>;
+        /**
+         * The minute end time of maintenance window.
+         */
+        endTimeMinute?: pulumi.Input<number>;
+        /**
+         * The hour start time of maintenance window.
+         */
+        startTimeHour?: pulumi.Input<number>;
+        /**
+         * The minute start time of maintenance window.
+         */
+        startTimeMinute?: pulumi.Input<number>;
+        /**
+         * The type of maintenance window.
+         */
+        type: pulumi.Input<enums.workspacesthinclient.EnvironmentMaintenanceWindowType>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface EnvironmentTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
         value: pulumi.Input<string>;
     }
 }

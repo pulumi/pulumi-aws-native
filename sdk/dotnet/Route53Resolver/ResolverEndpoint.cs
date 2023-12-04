@@ -40,6 +40,9 @@ namespace Pulumi.AwsNative.Route53Resolver
         [Output("preferredInstanceType")]
         public Output<string?> PreferredInstanceType { get; private set; } = null!;
 
+        [Output("protocols")]
+        public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
+
         [Output("resolverEndpointId")]
         public Output<string> ResolverEndpointId { get; private set; } = null!;
 
@@ -123,6 +126,14 @@ namespace Pulumi.AwsNative.Route53Resolver
 
         [Input("preferredInstanceType")]
         public Input<string>? PreferredInstanceType { get; set; }
+
+        [Input("protocols")]
+        private InputList<string>? _protocols;
+        public InputList<string> Protocols
+        {
+            get => _protocols ?? (_protocols = new InputList<string>());
+            set => _protocols = value;
+        }
 
         [Input("resolverEndpointType")]
         public Input<string>? ResolverEndpointType { get; set; }

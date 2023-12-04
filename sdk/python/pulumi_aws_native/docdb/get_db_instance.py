@@ -19,10 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbInstanceResult:
-    def __init__(__self__, auto_minor_version_upgrade=None, db_instance_class=None, enable_performance_insights=None, endpoint=None, id=None, port=None, preferred_maintenance_window=None, tags=None):
+    def __init__(__self__, auto_minor_version_upgrade=None, ca_certificate_identifier=None, certificate_rotation_restart=None, db_instance_class=None, enable_performance_insights=None, endpoint=None, id=None, port=None, preferred_maintenance_window=None, tags=None):
         if auto_minor_version_upgrade and not isinstance(auto_minor_version_upgrade, bool):
             raise TypeError("Expected argument 'auto_minor_version_upgrade' to be a bool")
         pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
+        if ca_certificate_identifier and not isinstance(ca_certificate_identifier, str):
+            raise TypeError("Expected argument 'ca_certificate_identifier' to be a str")
+        pulumi.set(__self__, "ca_certificate_identifier", ca_certificate_identifier)
+        if certificate_rotation_restart and not isinstance(certificate_rotation_restart, bool):
+            raise TypeError("Expected argument 'certificate_rotation_restart' to be a bool")
+        pulumi.set(__self__, "certificate_rotation_restart", certificate_rotation_restart)
         if db_instance_class and not isinstance(db_instance_class, str):
             raise TypeError("Expected argument 'db_instance_class' to be a str")
         pulumi.set(__self__, "db_instance_class", db_instance_class)
@@ -49,6 +55,16 @@ class GetDbInstanceResult:
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> Optional[bool]:
         return pulumi.get(self, "auto_minor_version_upgrade")
+
+    @property
+    @pulumi.getter(name="caCertificateIdentifier")
+    def ca_certificate_identifier(self) -> Optional[str]:
+        return pulumi.get(self, "ca_certificate_identifier")
+
+    @property
+    @pulumi.getter(name="certificateRotationRestart")
+    def certificate_rotation_restart(self) -> Optional[bool]:
+        return pulumi.get(self, "certificate_rotation_restart")
 
     @property
     @pulumi.getter(name="dbInstanceClass")
@@ -93,6 +109,8 @@ class AwaitableGetDbInstanceResult(GetDbInstanceResult):
             yield self
         return GetDbInstanceResult(
             auto_minor_version_upgrade=self.auto_minor_version_upgrade,
+            ca_certificate_identifier=self.ca_certificate_identifier,
+            certificate_rotation_restart=self.certificate_rotation_restart,
             db_instance_class=self.db_instance_class,
             enable_performance_insights=self.enable_performance_insights,
             endpoint=self.endpoint,
@@ -114,6 +132,8 @@ def get_db_instance(id: Optional[str] = None,
 
     return AwaitableGetDbInstanceResult(
         auto_minor_version_upgrade=pulumi.get(__ret__, 'auto_minor_version_upgrade'),
+        ca_certificate_identifier=pulumi.get(__ret__, 'ca_certificate_identifier'),
+        certificate_rotation_restart=pulumi.get(__ret__, 'certificate_rotation_restart'),
         db_instance_class=pulumi.get(__ret__, 'db_instance_class'),
         enable_performance_insights=pulumi.get(__ret__, 'enable_performance_insights'),
         endpoint=pulumi.get(__ret__, 'endpoint'),

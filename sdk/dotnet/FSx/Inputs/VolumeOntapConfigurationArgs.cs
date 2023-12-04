@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.FSx.Inputs
 
     public sealed class VolumeOntapConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("aggregateConfiguration")]
+        public Input<Inputs.VolumeAggregateConfigurationArgs>? AggregateConfiguration { get; set; }
+
         [Input("copyTagsToBackups")]
         public Input<string>? CopyTagsToBackups { get; set; }
 
@@ -24,8 +27,11 @@ namespace Pulumi.AwsNative.FSx.Inputs
         [Input("securityStyle")]
         public Input<string>? SecurityStyle { get; set; }
 
-        [Input("sizeInMegabytes", required: true)]
-        public Input<string> SizeInMegabytes { get; set; } = null!;
+        [Input("sizeInBytes")]
+        public Input<string>? SizeInBytes { get; set; }
+
+        [Input("sizeInMegabytes")]
+        public Input<string>? SizeInMegabytes { get; set; }
 
         [Input("snaplockConfiguration")]
         public Input<Inputs.VolumeSnaplockConfigurationArgs>? SnaplockConfiguration { get; set; }
@@ -41,6 +47,9 @@ namespace Pulumi.AwsNative.FSx.Inputs
 
         [Input("tieringPolicy")]
         public Input<Inputs.VolumeTieringPolicyArgs>? TieringPolicy { get; set; }
+
+        [Input("volumeStyle")]
+        public Input<string>? VolumeStyle { get; set; }
 
         public VolumeOntapConfigurationArgs()
         {

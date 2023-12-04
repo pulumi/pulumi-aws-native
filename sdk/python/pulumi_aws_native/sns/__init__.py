@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .get_subscription import *
 from .get_topic import *
 from .get_topic_inline_policy import *

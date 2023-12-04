@@ -73,9 +73,12 @@ __all__ = [
     'EndpointConfigClarifyTextConfigArgs',
     'EndpointConfigDataCaptureConfigArgs',
     'EndpointConfigExplainerConfigArgs',
+    'EndpointConfigManagedInstanceScalingArgs',
     'EndpointConfigProductionVariantArgs',
+    'EndpointConfigRoutingConfigArgs',
     'EndpointConfigServerlessConfigArgs',
     'EndpointConfigTagArgs',
+    'EndpointConfigVpcConfigArgs',
     'EndpointDeploymentConfigArgs',
     'EndpointRollingUpdatePolicyArgs',
     'EndpointTagArgs',
@@ -151,6 +154,7 @@ __all__ = [
     'ModelCardTrainingMetricArgs',
     'ModelCardUserContextArgs',
     'ModelContainerDefinitionArgs',
+    'ModelDataSourceArgs',
     'ModelExplainabilityJobDefinitionBatchTransformInputArgs',
     'ModelExplainabilityJobDefinitionClusterConfigArgs',
     'ModelExplainabilityJobDefinitionConstraintsResourceArgs',
@@ -225,6 +229,7 @@ __all__ = [
     'ModelQualityJobDefinitionTagArgs',
     'ModelQualityJobDefinitionVpcConfigArgs',
     'ModelRepositoryAuthConfigArgs',
+    'ModelS3DataSourceArgs',
     'ModelTagArgs',
     'ModelVpcConfigArgs',
     'MonitoringScheduleBaselineConfigArgs',
@@ -2936,21 +2941,62 @@ class EndpointConfigExplainerConfigArgs:
 
 
 @pulumi.input_type
+class EndpointConfigManagedInstanceScalingArgs:
+    def __init__(__self__, *,
+                 max_instance_count: Optional[pulumi.Input[int]] = None,
+                 min_instance_count: Optional[pulumi.Input[int]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        if max_instance_count is not None:
+            pulumi.set(__self__, "max_instance_count", max_instance_count)
+        if min_instance_count is not None:
+            pulumi.set(__self__, "min_instance_count", min_instance_count)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="maxInstanceCount")
+    def max_instance_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_instance_count")
+
+    @max_instance_count.setter
+    def max_instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_instance_count", value)
+
+    @property
+    @pulumi.getter(name="minInstanceCount")
+    def min_instance_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "min_instance_count")
+
+    @min_instance_count.setter
+    def min_instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_instance_count", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
 class EndpointConfigProductionVariantArgs:
     def __init__(__self__, *,
-                 initial_variant_weight: pulumi.Input[float],
-                 model_name: pulumi.Input[str],
                  variant_name: pulumi.Input[str],
                  accelerator_type: Optional[pulumi.Input[str]] = None,
                  container_startup_health_check_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  enable_ssm_access: Optional[pulumi.Input[bool]] = None,
                  initial_instance_count: Optional[pulumi.Input[int]] = None,
+                 initial_variant_weight: Optional[pulumi.Input[float]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
+                 managed_instance_scaling: Optional[pulumi.Input['EndpointConfigManagedInstanceScalingArgs']] = None,
                  model_data_download_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 model_name: Optional[pulumi.Input[str]] = None,
+                 routing_config: Optional[pulumi.Input['EndpointConfigRoutingConfigArgs']] = None,
                  serverless_config: Optional[pulumi.Input['EndpointConfigServerlessConfigArgs']] = None,
                  volume_size_in_gb: Optional[pulumi.Input[int]] = None):
-        pulumi.set(__self__, "initial_variant_weight", initial_variant_weight)
-        pulumi.set(__self__, "model_name", model_name)
         pulumi.set(__self__, "variant_name", variant_name)
         if accelerator_type is not None:
             pulumi.set(__self__, "accelerator_type", accelerator_type)
@@ -2960,32 +3006,22 @@ class EndpointConfigProductionVariantArgs:
             pulumi.set(__self__, "enable_ssm_access", enable_ssm_access)
         if initial_instance_count is not None:
             pulumi.set(__self__, "initial_instance_count", initial_instance_count)
+        if initial_variant_weight is not None:
+            pulumi.set(__self__, "initial_variant_weight", initial_variant_weight)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if managed_instance_scaling is not None:
+            pulumi.set(__self__, "managed_instance_scaling", managed_instance_scaling)
         if model_data_download_timeout_in_seconds is not None:
             pulumi.set(__self__, "model_data_download_timeout_in_seconds", model_data_download_timeout_in_seconds)
+        if model_name is not None:
+            pulumi.set(__self__, "model_name", model_name)
+        if routing_config is not None:
+            pulumi.set(__self__, "routing_config", routing_config)
         if serverless_config is not None:
             pulumi.set(__self__, "serverless_config", serverless_config)
         if volume_size_in_gb is not None:
             pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
-
-    @property
-    @pulumi.getter(name="initialVariantWeight")
-    def initial_variant_weight(self) -> pulumi.Input[float]:
-        return pulumi.get(self, "initial_variant_weight")
-
-    @initial_variant_weight.setter
-    def initial_variant_weight(self, value: pulumi.Input[float]):
-        pulumi.set(self, "initial_variant_weight", value)
-
-    @property
-    @pulumi.getter(name="modelName")
-    def model_name(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "model_name")
-
-    @model_name.setter
-    def model_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "model_name", value)
 
     @property
     @pulumi.getter(name="variantName")
@@ -3033,6 +3069,15 @@ class EndpointConfigProductionVariantArgs:
         pulumi.set(self, "initial_instance_count", value)
 
     @property
+    @pulumi.getter(name="initialVariantWeight")
+    def initial_variant_weight(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "initial_variant_weight")
+
+    @initial_variant_weight.setter
+    def initial_variant_weight(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "initial_variant_weight", value)
+
+    @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "instance_type")
@@ -3042,6 +3087,15 @@ class EndpointConfigProductionVariantArgs:
         pulumi.set(self, "instance_type", value)
 
     @property
+    @pulumi.getter(name="managedInstanceScaling")
+    def managed_instance_scaling(self) -> Optional[pulumi.Input['EndpointConfigManagedInstanceScalingArgs']]:
+        return pulumi.get(self, "managed_instance_scaling")
+
+    @managed_instance_scaling.setter
+    def managed_instance_scaling(self, value: Optional[pulumi.Input['EndpointConfigManagedInstanceScalingArgs']]):
+        pulumi.set(self, "managed_instance_scaling", value)
+
+    @property
     @pulumi.getter(name="modelDataDownloadTimeoutInSeconds")
     def model_data_download_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "model_data_download_timeout_in_seconds")
@@ -3049,6 +3103,24 @@ class EndpointConfigProductionVariantArgs:
     @model_data_download_timeout_in_seconds.setter
     def model_data_download_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "model_data_download_timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="modelName")
+    def model_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "model_name")
+
+    @model_name.setter
+    def model_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "model_name", value)
+
+    @property
+    @pulumi.getter(name="routingConfig")
+    def routing_config(self) -> Optional[pulumi.Input['EndpointConfigRoutingConfigArgs']]:
+        return pulumi.get(self, "routing_config")
+
+    @routing_config.setter
+    def routing_config(self, value: Optional[pulumi.Input['EndpointConfigRoutingConfigArgs']]):
+        pulumi.set(self, "routing_config", value)
 
     @property
     @pulumi.getter(name="serverlessConfig")
@@ -3067,6 +3139,23 @@ class EndpointConfigProductionVariantArgs:
     @volume_size_in_gb.setter
     def volume_size_in_gb(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "volume_size_in_gb", value)
+
+
+@pulumi.input_type
+class EndpointConfigRoutingConfigArgs:
+    def __init__(__self__, *,
+                 routing_strategy: Optional[pulumi.Input[str]] = None):
+        if routing_strategy is not None:
+            pulumi.set(__self__, "routing_strategy", routing_strategy)
+
+    @property
+    @pulumi.getter(name="routingStrategy")
+    def routing_strategy(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "routing_strategy")
+
+    @routing_strategy.setter
+    def routing_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "routing_strategy", value)
 
 
 @pulumi.input_type
@@ -3133,6 +3222,33 @@ class EndpointConfigTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class EndpointConfigVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 subnets: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "subnets", value)
 
 
 @pulumi.input_type
@@ -6825,6 +6941,7 @@ class ModelContainerDefinitionArgs:
                  image_config: Optional[pulumi.Input['ModelImageConfigArgs']] = None,
                  inference_specification_name: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
+                 model_data_source: Optional[pulumi.Input['ModelDataSourceArgs']] = None,
                  model_data_url: Optional[pulumi.Input[str]] = None,
                  model_package_name: Optional[pulumi.Input[str]] = None,
                  multi_model_config: Optional[pulumi.Input['ModelMultiModelConfigArgs']] = None):
@@ -6840,6 +6957,8 @@ class ModelContainerDefinitionArgs:
             pulumi.set(__self__, "inference_specification_name", inference_specification_name)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
+        if model_data_source is not None:
+            pulumi.set(__self__, "model_data_source", model_data_source)
         if model_data_url is not None:
             pulumi.set(__self__, "model_data_url", model_data_url)
         if model_package_name is not None:
@@ -6902,6 +7021,15 @@ class ModelContainerDefinitionArgs:
         pulumi.set(self, "mode", value)
 
     @property
+    @pulumi.getter(name="modelDataSource")
+    def model_data_source(self) -> Optional[pulumi.Input['ModelDataSourceArgs']]:
+        return pulumi.get(self, "model_data_source")
+
+    @model_data_source.setter
+    def model_data_source(self, value: Optional[pulumi.Input['ModelDataSourceArgs']]):
+        pulumi.set(self, "model_data_source", value)
+
+    @property
     @pulumi.getter(name="modelDataUrl")
     def model_data_url(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "model_data_url")
@@ -6927,6 +7055,22 @@ class ModelContainerDefinitionArgs:
     @multi_model_config.setter
     def multi_model_config(self, value: Optional[pulumi.Input['ModelMultiModelConfigArgs']]):
         pulumi.set(self, "multi_model_config", value)
+
+
+@pulumi.input_type
+class ModelDataSourceArgs:
+    def __init__(__self__, *,
+                 s3_data_source: pulumi.Input['ModelS3DataSourceArgs']):
+        pulumi.set(__self__, "s3_data_source", s3_data_source)
+
+    @property
+    @pulumi.getter(name="s3DataSource")
+    def s3_data_source(self) -> pulumi.Input['ModelS3DataSourceArgs']:
+        return pulumi.get(self, "s3_data_source")
+
+    @s3_data_source.setter
+    def s3_data_source(self, value: pulumi.Input['ModelS3DataSourceArgs']):
+        pulumi.set(self, "s3_data_source", value)
 
 
 @pulumi.input_type
@@ -10387,6 +10531,44 @@ class ModelRepositoryAuthConfigArgs:
     @repository_credentials_provider_arn.setter
     def repository_credentials_provider_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "repository_credentials_provider_arn", value)
+
+
+@pulumi.input_type
+class ModelS3DataSourceArgs:
+    def __init__(__self__, *,
+                 compression_type: pulumi.Input[str],
+                 s3_data_type: pulumi.Input[str],
+                 s3_uri: pulumi.Input[str]):
+        pulumi.set(__self__, "compression_type", compression_type)
+        pulumi.set(__self__, "s3_data_type", s3_data_type)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "compression_type")
+
+    @compression_type.setter
+    def compression_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compression_type", value)
+
+    @property
+    @pulumi.getter(name="s3DataType")
+    def s3_data_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "s3_data_type")
+
+    @s3_data_type.setter
+    def s3_data_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_data_type", value)
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_uri", value)
 
 
 @pulumi.input_type

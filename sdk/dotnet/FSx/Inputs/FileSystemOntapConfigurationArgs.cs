@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.FSx.Inputs
         [Input("fsxAdminPassword")]
         public Input<string>? FsxAdminPassword { get; set; }
 
+        [Input("haPairs")]
+        public Input<int>? HaPairs { get; set; }
+
         [Input("preferredSubnetId")]
         public Input<string>? PreferredSubnetId { get; set; }
 
@@ -43,6 +46,9 @@ namespace Pulumi.AwsNative.FSx.Inputs
 
         [Input("throughputCapacity")]
         public Input<int>? ThroughputCapacity { get; set; }
+
+        [Input("throughputCapacityPerHaPair")]
+        public Input<int>? ThroughputCapacityPerHaPair { get; set; }
 
         [Input("weeklyMaintenanceStartTime")]
         public Input<string>? WeeklyMaintenanceStartTime { get; set; }

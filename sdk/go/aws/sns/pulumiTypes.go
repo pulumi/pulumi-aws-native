@@ -14,6 +14,154 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TopicLoggingConfig struct {
+	// The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch
+	FailureFeedbackRoleArn *string `pulumi:"failureFeedbackRoleArn"`
+	// Indicates one of the supported protocols for the SNS topic
+	Protocol TopicLoggingConfigProtocol `pulumi:"protocol"`
+	// The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch
+	SuccessFeedbackRoleArn *string `pulumi:"successFeedbackRoleArn"`
+	// The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100
+	SuccessFeedbackSampleRate *string `pulumi:"successFeedbackSampleRate"`
+}
+
+// TopicLoggingConfigInput is an input type that accepts TopicLoggingConfigArgs and TopicLoggingConfigOutput values.
+// You can construct a concrete instance of `TopicLoggingConfigInput` via:
+//
+//	TopicLoggingConfigArgs{...}
+type TopicLoggingConfigInput interface {
+	pulumi.Input
+
+	ToTopicLoggingConfigOutput() TopicLoggingConfigOutput
+	ToTopicLoggingConfigOutputWithContext(context.Context) TopicLoggingConfigOutput
+}
+
+type TopicLoggingConfigArgs struct {
+	// The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch
+	FailureFeedbackRoleArn pulumi.StringPtrInput `pulumi:"failureFeedbackRoleArn"`
+	// Indicates one of the supported protocols for the SNS topic
+	Protocol TopicLoggingConfigProtocolInput `pulumi:"protocol"`
+	// The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch
+	SuccessFeedbackRoleArn pulumi.StringPtrInput `pulumi:"successFeedbackRoleArn"`
+	// The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100
+	SuccessFeedbackSampleRate pulumi.StringPtrInput `pulumi:"successFeedbackSampleRate"`
+}
+
+func (TopicLoggingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicLoggingConfig)(nil)).Elem()
+}
+
+func (i TopicLoggingConfigArgs) ToTopicLoggingConfigOutput() TopicLoggingConfigOutput {
+	return i.ToTopicLoggingConfigOutputWithContext(context.Background())
+}
+
+func (i TopicLoggingConfigArgs) ToTopicLoggingConfigOutputWithContext(ctx context.Context) TopicLoggingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicLoggingConfigOutput)
+}
+
+func (i TopicLoggingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[TopicLoggingConfig] {
+	return pulumix.Output[TopicLoggingConfig]{
+		OutputState: i.ToTopicLoggingConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
+// TopicLoggingConfigArrayInput is an input type that accepts TopicLoggingConfigArray and TopicLoggingConfigArrayOutput values.
+// You can construct a concrete instance of `TopicLoggingConfigArrayInput` via:
+//
+//	TopicLoggingConfigArray{ TopicLoggingConfigArgs{...} }
+type TopicLoggingConfigArrayInput interface {
+	pulumi.Input
+
+	ToTopicLoggingConfigArrayOutput() TopicLoggingConfigArrayOutput
+	ToTopicLoggingConfigArrayOutputWithContext(context.Context) TopicLoggingConfigArrayOutput
+}
+
+type TopicLoggingConfigArray []TopicLoggingConfigInput
+
+func (TopicLoggingConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicLoggingConfig)(nil)).Elem()
+}
+
+func (i TopicLoggingConfigArray) ToTopicLoggingConfigArrayOutput() TopicLoggingConfigArrayOutput {
+	return i.ToTopicLoggingConfigArrayOutputWithContext(context.Background())
+}
+
+func (i TopicLoggingConfigArray) ToTopicLoggingConfigArrayOutputWithContext(ctx context.Context) TopicLoggingConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicLoggingConfigArrayOutput)
+}
+
+func (i TopicLoggingConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]TopicLoggingConfig] {
+	return pulumix.Output[[]TopicLoggingConfig]{
+		OutputState: i.ToTopicLoggingConfigArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TopicLoggingConfigOutput struct{ *pulumi.OutputState }
+
+func (TopicLoggingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicLoggingConfig)(nil)).Elem()
+}
+
+func (o TopicLoggingConfigOutput) ToTopicLoggingConfigOutput() TopicLoggingConfigOutput {
+	return o
+}
+
+func (o TopicLoggingConfigOutput) ToTopicLoggingConfigOutputWithContext(ctx context.Context) TopicLoggingConfigOutput {
+	return o
+}
+
+func (o TopicLoggingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[TopicLoggingConfig] {
+	return pulumix.Output[TopicLoggingConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch
+func (o TopicLoggingConfigOutput) FailureFeedbackRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicLoggingConfig) *string { return v.FailureFeedbackRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// Indicates one of the supported protocols for the SNS topic
+func (o TopicLoggingConfigOutput) Protocol() TopicLoggingConfigProtocolOutput {
+	return o.ApplyT(func(v TopicLoggingConfig) TopicLoggingConfigProtocol { return v.Protocol }).(TopicLoggingConfigProtocolOutput)
+}
+
+// The IAM role ARN to be used when logging successful message deliveries in Amazon CloudWatch
+func (o TopicLoggingConfigOutput) SuccessFeedbackRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicLoggingConfig) *string { return v.SuccessFeedbackRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The percentage of successful message deliveries to be logged in Amazon CloudWatch. Valid percentage values range from 0 to 100
+func (o TopicLoggingConfigOutput) SuccessFeedbackSampleRate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicLoggingConfig) *string { return v.SuccessFeedbackSampleRate }).(pulumi.StringPtrOutput)
+}
+
+type TopicLoggingConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicLoggingConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicLoggingConfig)(nil)).Elem()
+}
+
+func (o TopicLoggingConfigArrayOutput) ToTopicLoggingConfigArrayOutput() TopicLoggingConfigArrayOutput {
+	return o
+}
+
+func (o TopicLoggingConfigArrayOutput) ToTopicLoggingConfigArrayOutputWithContext(ctx context.Context) TopicLoggingConfigArrayOutput {
+	return o
+}
+
+func (o TopicLoggingConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TopicLoggingConfig] {
+	return pulumix.Output[[]TopicLoggingConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TopicLoggingConfigArrayOutput) Index(i pulumi.IntInput) TopicLoggingConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicLoggingConfig {
+		return vs[0].([]TopicLoggingConfig)[vs[1].(int)]
+	}).(TopicLoggingConfigOutput)
+}
+
 type TopicSubscription struct {
 	Endpoint string `pulumi:"endpoint"`
 	Protocol string `pulumi:"protocol"`
@@ -269,10 +417,14 @@ func (o TopicTagArrayOutput) Index(i pulumi.IntInput) TopicTagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicLoggingConfigInput)(nil)).Elem(), TopicLoggingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicLoggingConfigArrayInput)(nil)).Elem(), TopicLoggingConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSubscriptionInput)(nil)).Elem(), TopicSubscriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSubscriptionArrayInput)(nil)).Elem(), TopicSubscriptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicTagInput)(nil)).Elem(), TopicTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicTagArrayInput)(nil)).Elem(), TopicTagArray{})
+	pulumi.RegisterOutputType(TopicLoggingConfigOutput{})
+	pulumi.RegisterOutputType(TopicLoggingConfigArrayOutput{})
 	pulumi.RegisterOutputType(TopicSubscriptionOutput{})
 	pulumi.RegisterOutputType(TopicSubscriptionArrayOutput{})
 	pulumi.RegisterOutputType(TopicTagOutput{})

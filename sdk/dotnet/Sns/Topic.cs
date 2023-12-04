@@ -44,6 +44,12 @@ namespace Pulumi.AwsNative.Sns
         public Output<object?> DataProtectionPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// Delivery status logging configuration for supported protocols for an Amazon SNS topic.
+        /// </summary>
+        [Output("deliveryStatusLogging")]
+        public Output<ImmutableArray<Outputs.TopicLoggingConfig>> DeliveryStatusLogging { get; private set; } = null!;
+
+        /// <summary>
         /// The display name to use for an Amazon SNS topic with SMS subscriptions.
         /// </summary>
         [Output("displayName")]
@@ -172,6 +178,18 @@ namespace Pulumi.AwsNative.Sns
         /// </summary>
         [Input("dataProtectionPolicy")]
         public Input<object>? DataProtectionPolicy { get; set; }
+
+        [Input("deliveryStatusLogging")]
+        private InputList<Inputs.TopicLoggingConfigArgs>? _deliveryStatusLogging;
+
+        /// <summary>
+        /// Delivery status logging configuration for supported protocols for an Amazon SNS topic.
+        /// </summary>
+        public InputList<Inputs.TopicLoggingConfigArgs> DeliveryStatusLogging
+        {
+            get => _deliveryStatusLogging ?? (_deliveryStatusLogging = new InputList<Inputs.TopicLoggingConfigArgs>());
+            set => _deliveryStatusLogging = value;
+        }
 
         /// <summary>
         /// The display name to use for an Amazon SNS topic with SMS subscriptions.

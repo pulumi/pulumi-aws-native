@@ -16,9 +16,9 @@ __all__ = ['ModelArgs', 'Model']
 @pulumi.input_type
 class ModelArgs:
     def __init__(__self__, *,
-                 execution_role_arn: pulumi.Input[str],
                  containers: Optional[pulumi.Input[Sequence[pulumi.Input['ModelContainerDefinitionArgs']]]] = None,
                  enable_network_isolation: Optional[pulumi.Input[bool]] = None,
+                 execution_role_arn: Optional[pulumi.Input[str]] = None,
                  inference_execution_config: Optional[pulumi.Input['ModelInferenceExecutionConfigArgs']] = None,
                  model_name: Optional[pulumi.Input[str]] = None,
                  primary_container: Optional[pulumi.Input['ModelContainerDefinitionArgs']] = None,
@@ -27,11 +27,12 @@ class ModelArgs:
         """
         The set of arguments for constructing a Model resource.
         """
-        pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if containers is not None:
             pulumi.set(__self__, "containers", containers)
         if enable_network_isolation is not None:
             pulumi.set(__self__, "enable_network_isolation", enable_network_isolation)
+        if execution_role_arn is not None:
+            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if inference_execution_config is not None:
             pulumi.set(__self__, "inference_execution_config", inference_execution_config)
         if model_name is not None:
@@ -42,15 +43,6 @@ class ModelArgs:
             pulumi.set(__self__, "tags", tags)
         if vpc_config is not None:
             pulumi.set(__self__, "vpc_config", vpc_config)
-
-    @property
-    @pulumi.getter(name="executionRoleArn")
-    def execution_role_arn(self) -> pulumi.Input[str]:
-        return pulumi.get(self, "execution_role_arn")
-
-    @execution_role_arn.setter
-    def execution_role_arn(self, value: pulumi.Input[str]):
-        pulumi.set(self, "execution_role_arn", value)
 
     @property
     @pulumi.getter
@@ -69,6 +61,15 @@ class ModelArgs:
     @enable_network_isolation.setter
     def enable_network_isolation(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_network_isolation", value)
+
+    @property
+    @pulumi.getter(name="executionRoleArn")
+    def execution_role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "execution_role_arn")
+
+    @execution_role_arn.setter
+    def execution_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_role_arn", value)
 
     @property
     @pulumi.getter(name="inferenceExecutionConfig")
@@ -145,7 +146,7 @@ class Model(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ModelArgs,
+                 args: Optional[ModelArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::Model
@@ -185,8 +186,6 @@ class Model(pulumi.CustomResource):
 
             __props__.__dict__["containers"] = containers
             __props__.__dict__["enable_network_isolation"] = enable_network_isolation
-            if execution_role_arn is None and not opts.urn:
-                raise TypeError("Missing required property 'execution_role_arn'")
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["inference_execution_config"] = inference_execution_config
             __props__.__dict__["model_name"] = model_name
@@ -239,7 +238,7 @@ class Model(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="executionRoleArn")
-    def execution_role_arn(self) -> pulumi.Output[str]:
+    def execution_role_arn(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "execution_role_arn")
 
     @property

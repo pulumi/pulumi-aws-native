@@ -21,6 +21,8 @@ type DbInstance struct {
 
 	AutoMinorVersionUpgrade    pulumi.BoolPtrOutput     `pulumi:"autoMinorVersionUpgrade"`
 	AvailabilityZone           pulumi.StringPtrOutput   `pulumi:"availabilityZone"`
+	CaCertificateIdentifier    pulumi.StringPtrOutput   `pulumi:"caCertificateIdentifier"`
+	CertificateRotationRestart pulumi.BoolPtrOutput     `pulumi:"certificateRotationRestart"`
 	DbClusterIdentifier        pulumi.StringOutput      `pulumi:"dbClusterIdentifier"`
 	DbInstanceClass            pulumi.StringOutput      `pulumi:"dbInstanceClass"`
 	DbInstanceIdentifier       pulumi.StringPtrOutput   `pulumi:"dbInstanceIdentifier"`
@@ -85,6 +87,8 @@ func (DbInstanceState) ElementType() reflect.Type {
 type dbInstanceArgs struct {
 	AutoMinorVersionUpgrade    *bool           `pulumi:"autoMinorVersionUpgrade"`
 	AvailabilityZone           *string         `pulumi:"availabilityZone"`
+	CaCertificateIdentifier    *string         `pulumi:"caCertificateIdentifier"`
+	CertificateRotationRestart *bool           `pulumi:"certificateRotationRestart"`
 	DbClusterIdentifier        string          `pulumi:"dbClusterIdentifier"`
 	DbInstanceClass            string          `pulumi:"dbInstanceClass"`
 	DbInstanceIdentifier       *string         `pulumi:"dbInstanceIdentifier"`
@@ -97,6 +101,8 @@ type dbInstanceArgs struct {
 type DbInstanceArgs struct {
 	AutoMinorVersionUpgrade    pulumi.BoolPtrInput
 	AvailabilityZone           pulumi.StringPtrInput
+	CaCertificateIdentifier    pulumi.StringPtrInput
+	CertificateRotationRestart pulumi.BoolPtrInput
 	DbClusterIdentifier        pulumi.StringInput
 	DbInstanceClass            pulumi.StringInput
 	DbInstanceIdentifier       pulumi.StringPtrInput
@@ -160,6 +166,14 @@ func (o DbInstanceOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
 
 func (o DbInstanceOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+func (o DbInstanceOutput) CaCertificateIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.CaCertificateIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o DbInstanceOutput) CertificateRotationRestart() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.BoolPtrOutput { return v.CertificateRotationRestart }).(pulumi.BoolPtrOutput)
 }
 
 func (o DbInstanceOutput) DbClusterIdentifier() pulumi.StringOutput {

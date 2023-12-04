@@ -41,9 +41,16 @@ export class LifecyclePolicy extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly copyTags!: pulumi.Output<boolean | undefined>;
+    public readonly createInterval!: pulumi.Output<number | undefined>;
+    public readonly crossRegionCopyTargets!: pulumi.Output<outputs.dlm.LifecyclePolicyCrossRegionCopyTargets | undefined>;
+    public readonly defaultPolicy!: pulumi.Output<string | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
+    public readonly exclusions!: pulumi.Output<outputs.dlm.LifecyclePolicyExclusions | undefined>;
     public readonly executionRoleArn!: pulumi.Output<string | undefined>;
+    public readonly extendDeletion!: pulumi.Output<boolean | undefined>;
     public readonly policyDetails!: pulumi.Output<outputs.dlm.LifecyclePolicyPolicyDetails | undefined>;
+    public readonly retainInterval!: pulumi.Output<number | undefined>;
     public readonly state!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<outputs.dlm.LifecyclePolicyTag[] | undefined>;
 
@@ -60,17 +67,31 @@ export class LifecyclePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["copyTags"] = args ? args.copyTags : undefined;
+            resourceInputs["createInterval"] = args ? args.createInterval : undefined;
+            resourceInputs["crossRegionCopyTargets"] = args ? args.crossRegionCopyTargets : undefined;
+            resourceInputs["defaultPolicy"] = args ? args.defaultPolicy : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["exclusions"] = args ? args.exclusions : undefined;
             resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
+            resourceInputs["extendDeletion"] = args ? args.extendDeletion : undefined;
             resourceInputs["policyDetails"] = args ? args.policyDetails : undefined;
+            resourceInputs["retainInterval"] = args ? args.retainInterval : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["copyTags"] = undefined /*out*/;
+            resourceInputs["createInterval"] = undefined /*out*/;
+            resourceInputs["crossRegionCopyTargets"] = undefined /*out*/;
+            resourceInputs["defaultPolicy"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["exclusions"] = undefined /*out*/;
             resourceInputs["executionRoleArn"] = undefined /*out*/;
+            resourceInputs["extendDeletion"] = undefined /*out*/;
             resourceInputs["policyDetails"] = undefined /*out*/;
+            resourceInputs["retainInterval"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -83,9 +104,16 @@ export class LifecyclePolicy extends pulumi.CustomResource {
  * The set of arguments for constructing a LifecyclePolicy resource.
  */
 export interface LifecyclePolicyArgs {
+    copyTags?: pulumi.Input<boolean>;
+    createInterval?: pulumi.Input<number>;
+    crossRegionCopyTargets?: pulumi.Input<inputs.dlm.LifecyclePolicyCrossRegionCopyTargetsArgs>;
+    defaultPolicy?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
+    exclusions?: pulumi.Input<inputs.dlm.LifecyclePolicyExclusionsArgs>;
     executionRoleArn?: pulumi.Input<string>;
+    extendDeletion?: pulumi.Input<boolean>;
     policyDetails?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsArgs>;
+    retainInterval?: pulumi.Input<number>;
     state?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.dlm.LifecyclePolicyTagArgs>[]>;
 }

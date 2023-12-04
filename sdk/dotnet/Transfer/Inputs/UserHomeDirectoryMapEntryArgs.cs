@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Transfer.Inputs
         [Input("target", required: true)]
         public Input<string> Target { get; set; } = null!;
 
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
         public UserHomeDirectoryMapEntryArgs()
         {
         }

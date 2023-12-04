@@ -46,6 +46,9 @@ export const TopicPolicy: typeof import("./topicPolicy").TopicPolicy = null as a
 utilities.lazyLoad(exports, ["TopicPolicy"], () => require("./topicPolicy"));
 
 
+// Export enums:
+export * from "../types/enums/sns";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

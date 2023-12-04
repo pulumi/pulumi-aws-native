@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
@@ -21,7 +20,7 @@ type Model struct {
 
 	Containers               ModelContainerDefinitionArrayOutput    `pulumi:"containers"`
 	EnableNetworkIsolation   pulumi.BoolPtrOutput                   `pulumi:"enableNetworkIsolation"`
-	ExecutionRoleArn         pulumi.StringOutput                    `pulumi:"executionRoleArn"`
+	ExecutionRoleArn         pulumi.StringPtrOutput                 `pulumi:"executionRoleArn"`
 	InferenceExecutionConfig ModelInferenceExecutionConfigPtrOutput `pulumi:"inferenceExecutionConfig"`
 	ModelName                pulumi.StringPtrOutput                 `pulumi:"modelName"`
 	PrimaryContainer         ModelContainerDefinitionPtrOutput      `pulumi:"primaryContainer"`
@@ -33,12 +32,9 @@ type Model struct {
 func NewModel(ctx *pulumi.Context,
 	name string, args *ModelArgs, opts ...pulumi.ResourceOption) (*Model, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ModelArgs{}
 	}
 
-	if args.ExecutionRoleArn == nil {
-		return nil, errors.New("invalid value for required argument 'ExecutionRoleArn'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"containers[*]",
 		"enableNetworkIsolation",
@@ -84,7 +80,7 @@ func (ModelState) ElementType() reflect.Type {
 type modelArgs struct {
 	Containers               []ModelContainerDefinition     `pulumi:"containers"`
 	EnableNetworkIsolation   *bool                          `pulumi:"enableNetworkIsolation"`
-	ExecutionRoleArn         string                         `pulumi:"executionRoleArn"`
+	ExecutionRoleArn         *string                        `pulumi:"executionRoleArn"`
 	InferenceExecutionConfig *ModelInferenceExecutionConfig `pulumi:"inferenceExecutionConfig"`
 	ModelName                *string                        `pulumi:"modelName"`
 	PrimaryContainer         *ModelContainerDefinition      `pulumi:"primaryContainer"`
@@ -96,7 +92,7 @@ type modelArgs struct {
 type ModelArgs struct {
 	Containers               ModelContainerDefinitionArrayInput
 	EnableNetworkIsolation   pulumi.BoolPtrInput
-	ExecutionRoleArn         pulumi.StringInput
+	ExecutionRoleArn         pulumi.StringPtrInput
 	InferenceExecutionConfig ModelInferenceExecutionConfigPtrInput
 	ModelName                pulumi.StringPtrInput
 	PrimaryContainer         ModelContainerDefinitionPtrInput
@@ -161,8 +157,8 @@ func (o ModelOutput) EnableNetworkIsolation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Model) pulumi.BoolPtrOutput { return v.EnableNetworkIsolation }).(pulumi.BoolPtrOutput)
 }
 
-func (o ModelOutput) ExecutionRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Model) pulumi.StringOutput { return v.ExecutionRoleArn }).(pulumi.StringOutput)
+func (o ModelOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Model) pulumi.StringPtrOutput { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
 
 func (o ModelOutput) InferenceExecutionConfig() ModelInferenceExecutionConfigPtrOutput {

@@ -33,6 +33,7 @@ export interface GetServerResult {
     readonly preAuthenticationLoginBanner?: string;
     readonly protocolDetails?: outputs.transfer.ServerProtocolDetails;
     readonly protocols?: outputs.transfer.ServerProtocol[];
+    readonly s3StorageOptions?: outputs.transfer.ServerS3StorageOptions;
     readonly securityPolicyName?: string;
     readonly serverId?: string;
     readonly structuredLogDestinations?: outputs.transfer.ServerStructuredLogDestination[];

@@ -46,6 +46,10 @@ export interface GetTopicResult {
      */
     readonly dataProtectionPolicy?: any;
     /**
+     * Delivery status logging configuration for supported protocols for an Amazon SNS topic.
+     */
+    readonly deliveryStatusLogging?: outputs.sns.TopicLoggingConfig[];
+    /**
      * The display name to use for an Amazon SNS topic with SMS subscriptions.
      */
     readonly displayName?: string;

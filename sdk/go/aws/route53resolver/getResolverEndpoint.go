@@ -33,6 +33,7 @@ type LookupResolverEndpointResult struct {
 	IpAddressCount       *string                            `pulumi:"ipAddressCount"`
 	IpAddresses          []ResolverEndpointIpAddressRequest `pulumi:"ipAddresses"`
 	Name                 *string                            `pulumi:"name"`
+	Protocols            []string                           `pulumi:"protocols"`
 	ResolverEndpointId   *string                            `pulumi:"resolverEndpointId"`
 	ResolverEndpointType *string                            `pulumi:"resolverEndpointType"`
 	Tags                 []ResolverEndpointTag              `pulumi:"tags"`
@@ -97,6 +98,10 @@ func (o LookupResolverEndpointResultOutput) IpAddresses() ResolverEndpointIpAddr
 
 func (o LookupResolverEndpointResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResolverEndpointResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupResolverEndpointResultOutput) Protocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupResolverEndpointResult) []string { return v.Protocols }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupResolverEndpointResultOutput) ResolverEndpointId() pulumi.StringPtrOutput {

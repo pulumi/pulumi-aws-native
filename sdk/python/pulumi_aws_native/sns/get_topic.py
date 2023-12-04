@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetTopicResult',
@@ -19,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTopicResult:
-    def __init__(__self__, archive_policy=None, content_based_deduplication=None, data_protection_policy=None, display_name=None, kms_master_key_id=None, signature_version=None, subscription=None, tags=None, topic_arn=None, tracing_config=None):
+    def __init__(__self__, archive_policy=None, content_based_deduplication=None, data_protection_policy=None, delivery_status_logging=None, display_name=None, kms_master_key_id=None, signature_version=None, subscription=None, tags=None, topic_arn=None, tracing_config=None):
         if archive_policy and not isinstance(archive_policy, dict):
             raise TypeError("Expected argument 'archive_policy' to be a dict")
         pulumi.set(__self__, "archive_policy", archive_policy)
@@ -29,6 +30,9 @@ class GetTopicResult:
         if data_protection_policy and not isinstance(data_protection_policy, dict):
             raise TypeError("Expected argument 'data_protection_policy' to be a dict")
         pulumi.set(__self__, "data_protection_policy", data_protection_policy)
+        if delivery_status_logging and not isinstance(delivery_status_logging, list):
+            raise TypeError("Expected argument 'delivery_status_logging' to be a list")
+        pulumi.set(__self__, "delivery_status_logging", delivery_status_logging)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -84,6 +88,14 @@ class GetTopicResult:
         Length Constraints: Maximum length of 30720
         """
         return pulumi.get(self, "data_protection_policy")
+
+    @property
+    @pulumi.getter(name="deliveryStatusLogging")
+    def delivery_status_logging(self) -> Optional[Sequence['outputs.TopicLoggingConfig']]:
+        """
+        Delivery status logging configuration for supported protocols for an Amazon SNS topic.
+        """
+        return pulumi.get(self, "delivery_status_logging")
 
     @property
     @pulumi.getter(name="displayName")
@@ -147,6 +159,7 @@ class AwaitableGetTopicResult(GetTopicResult):
             archive_policy=self.archive_policy,
             content_based_deduplication=self.content_based_deduplication,
             data_protection_policy=self.data_protection_policy,
+            delivery_status_logging=self.delivery_status_logging,
             display_name=self.display_name,
             kms_master_key_id=self.kms_master_key_id,
             signature_version=self.signature_version,
@@ -170,6 +183,7 @@ def get_topic(topic_arn: Optional[str] = None,
         archive_policy=pulumi.get(__ret__, 'archive_policy'),
         content_based_deduplication=pulumi.get(__ret__, 'content_based_deduplication'),
         data_protection_policy=pulumi.get(__ret__, 'data_protection_policy'),
+        delivery_status_logging=pulumi.get(__ret__, 'delivery_status_logging'),
         display_name=pulumi.get(__ret__, 'display_name'),
         kms_master_key_id=pulumi.get(__ret__, 'kms_master_key_id'),
         signature_version=pulumi.get(__ret__, 'signature_version'),

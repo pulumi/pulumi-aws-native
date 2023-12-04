@@ -240,7 +240,22 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "HAPairs" : {
+          "type" : "integer"
+        },
         "FsxAdminPassword" : {
+          "type" : "string"
+        },
+        "ThroughputCapacityPerHAPair" : {
+          "type" : "integer"
+        },
+        "DeploymentType" : {
+          "type" : "string"
+        },
+        "ThroughputCapacity" : {
+          "type" : "integer"
+        },
+        "EndpointIpAddressRange" : {
           "type" : "string"
         },
         "RouteTableIds" : {
@@ -256,20 +271,11 @@
         "DiskIopsConfiguration" : {
           "$ref" : "#/definitions/DiskIopsConfiguration"
         },
-        "DeploymentType" : {
-          "type" : "string"
-        },
         "DailyAutomaticBackupStartTime" : {
           "type" : "string"
         },
-        "ThroughputCapacity" : {
-          "type" : "integer"
-        },
         "AutomaticBackupRetentionDays" : {
           "type" : "integer"
-        },
-        "EndpointIpAddressRange" : {
-          "type" : "string"
         },
         "PreferredSubnetId" : {
           "type" : "string"

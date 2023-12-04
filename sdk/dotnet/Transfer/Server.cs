@@ -52,6 +52,9 @@ namespace Pulumi.AwsNative.Transfer
         [Output("protocols")]
         public Output<ImmutableArray<Outputs.ServerProtocol>> Protocols { get; private set; } = null!;
 
+        [Output("s3StorageOptions")]
+        public Output<Outputs.ServerS3StorageOptions?> S3StorageOptions { get; private set; } = null!;
+
         [Output("securityPolicyName")]
         public Output<string?> SecurityPolicyName { get; private set; } = null!;
 
@@ -154,6 +157,9 @@ namespace Pulumi.AwsNative.Transfer
             get => _protocols ?? (_protocols = new InputList<Inputs.ServerProtocolArgs>());
             set => _protocols = value;
         }
+
+        [Input("s3StorageOptions")]
+        public Input<Inputs.ServerS3StorageOptionsArgs>? S3StorageOptions { get; set; }
 
         [Input("securityPolicyName")]
         public Input<string>? SecurityPolicyName { get; set; }

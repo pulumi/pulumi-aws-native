@@ -24,6 +24,8 @@ export interface GetDbInstanceArgs {
 
 export interface GetDbInstanceResult {
     readonly autoMinorVersionUpgrade?: boolean;
+    readonly caCertificateIdentifier?: string;
+    readonly certificateRotationRestart?: boolean;
     readonly dbInstanceClass?: string;
     readonly enablePerformanceInsights?: boolean;
     readonly endpoint?: string;

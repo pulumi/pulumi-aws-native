@@ -19,9 +19,11 @@ namespace Pulumi.AwsNative.FSx.Outputs
         public readonly Outputs.FileSystemDiskIopsConfiguration? DiskIopsConfiguration;
         public readonly string? EndpointIpAddressRange;
         public readonly string? FsxAdminPassword;
+        public readonly int? HaPairs;
         public readonly string? PreferredSubnetId;
         public readonly ImmutableArray<string> RouteTableIds;
         public readonly int? ThroughputCapacity;
+        public readonly int? ThroughputCapacityPerHaPair;
         public readonly string? WeeklyMaintenanceStartTime;
 
         [OutputConstructor]
@@ -38,11 +40,15 @@ namespace Pulumi.AwsNative.FSx.Outputs
 
             string? fsxAdminPassword,
 
+            int? haPairs,
+
             string? preferredSubnetId,
 
             ImmutableArray<string> routeTableIds,
 
             int? throughputCapacity,
+
+            int? throughputCapacityPerHaPair,
 
             string? weeklyMaintenanceStartTime)
         {
@@ -52,9 +58,11 @@ namespace Pulumi.AwsNative.FSx.Outputs
             DiskIopsConfiguration = diskIopsConfiguration;
             EndpointIpAddressRange = endpointIpAddressRange;
             FsxAdminPassword = fsxAdminPassword;
+            HaPairs = haPairs;
             PreferredSubnetId = preferredSubnetId;
             RouteTableIds = routeTableIds;
             ThroughputCapacity = throughputCapacity;
+            ThroughputCapacityPerHaPair = throughputCapacityPerHaPair;
             WeeklyMaintenanceStartTime = weeklyMaintenanceStartTime;
         }
     }

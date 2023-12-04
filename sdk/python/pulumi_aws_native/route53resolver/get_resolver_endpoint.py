@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetResolverEndpointResult:
-    def __init__(__self__, arn=None, host_vpc_id=None, ip_address_count=None, ip_addresses=None, name=None, resolver_endpoint_id=None, resolver_endpoint_type=None, tags=None):
+    def __init__(__self__, arn=None, host_vpc_id=None, ip_address_count=None, ip_addresses=None, name=None, protocols=None, resolver_endpoint_id=None, resolver_endpoint_type=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -35,6 +35,9 @@ class GetResolverEndpointResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if protocols and not isinstance(protocols, list):
+            raise TypeError("Expected argument 'protocols' to be a list")
+        pulumi.set(__self__, "protocols", protocols)
         if resolver_endpoint_id and not isinstance(resolver_endpoint_id, str):
             raise TypeError("Expected argument 'resolver_endpoint_id' to be a str")
         pulumi.set(__self__, "resolver_endpoint_id", resolver_endpoint_id)
@@ -71,6 +74,11 @@ class GetResolverEndpointResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def protocols(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "protocols")
+
+    @property
     @pulumi.getter(name="resolverEndpointId")
     def resolver_endpoint_id(self) -> Optional[str]:
         return pulumi.get(self, "resolver_endpoint_id")
@@ -97,6 +105,7 @@ class AwaitableGetResolverEndpointResult(GetResolverEndpointResult):
             ip_address_count=self.ip_address_count,
             ip_addresses=self.ip_addresses,
             name=self.name,
+            protocols=self.protocols,
             resolver_endpoint_id=self.resolver_endpoint_id,
             resolver_endpoint_type=self.resolver_endpoint_type,
             tags=self.tags)
@@ -118,6 +127,7 @@ def get_resolver_endpoint(resolver_endpoint_id: Optional[str] = None,
         ip_address_count=pulumi.get(__ret__, 'ip_address_count'),
         ip_addresses=pulumi.get(__ret__, 'ip_addresses'),
         name=pulumi.get(__ret__, 'name'),
+        protocols=pulumi.get(__ret__, 'protocols'),
         resolver_endpoint_id=pulumi.get(__ret__, 'resolver_endpoint_id'),
         resolver_endpoint_type=pulumi.get(__ret__, 'resolver_endpoint_type'),
         tags=pulumi.get(__ret__, 'tags'))

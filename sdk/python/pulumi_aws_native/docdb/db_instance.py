@@ -20,6 +20,8 @@ class DbInstanceArgs:
                  db_instance_class: pulumi.Input[str],
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
+                 certificate_rotation_restart: Optional[pulumi.Input[bool]] = None,
                  db_instance_identifier: Optional[pulumi.Input[str]] = None,
                  enable_performance_insights: Optional[pulumi.Input[bool]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
@@ -33,6 +35,10 @@ class DbInstanceArgs:
             pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if ca_certificate_identifier is not None:
+            pulumi.set(__self__, "ca_certificate_identifier", ca_certificate_identifier)
+        if certificate_rotation_restart is not None:
+            pulumi.set(__self__, "certificate_rotation_restart", certificate_rotation_restart)
         if db_instance_identifier is not None:
             pulumi.set(__self__, "db_instance_identifier", db_instance_identifier)
         if enable_performance_insights is not None:
@@ -77,6 +83,24 @@ class DbInstanceArgs:
     @availability_zone.setter
     def availability_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="caCertificateIdentifier")
+    def ca_certificate_identifier(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ca_certificate_identifier")
+
+    @ca_certificate_identifier.setter
+    def ca_certificate_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ca_certificate_identifier", value)
+
+    @property
+    @pulumi.getter(name="certificateRotationRestart")
+    def certificate_rotation_restart(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "certificate_rotation_restart")
+
+    @certificate_rotation_restart.setter
+    def certificate_rotation_restart(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "certificate_rotation_restart", value)
 
     @property
     @pulumi.getter(name="dbInstanceIdentifier")
@@ -127,6 +151,8 @@ class DbInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
+                 certificate_rotation_restart: Optional[pulumi.Input[bool]] = None,
                  db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  db_instance_class: Optional[pulumi.Input[str]] = None,
                  db_instance_identifier: Optional[pulumi.Input[str]] = None,
@@ -166,6 +192,8 @@ class DbInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 ca_certificate_identifier: Optional[pulumi.Input[str]] = None,
+                 certificate_rotation_restart: Optional[pulumi.Input[bool]] = None,
                  db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  db_instance_class: Optional[pulumi.Input[str]] = None,
                  db_instance_identifier: Optional[pulumi.Input[str]] = None,
@@ -184,6 +212,8 @@ class DbInstance(pulumi.CustomResource):
 
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
             __props__.__dict__["availability_zone"] = availability_zone
+            __props__.__dict__["ca_certificate_identifier"] = ca_certificate_identifier
+            __props__.__dict__["certificate_rotation_restart"] = certificate_rotation_restart
             if db_cluster_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'db_cluster_identifier'")
             __props__.__dict__["db_cluster_identifier"] = db_cluster_identifier
@@ -222,6 +252,8 @@ class DbInstance(pulumi.CustomResource):
 
         __props__.__dict__["auto_minor_version_upgrade"] = None
         __props__.__dict__["availability_zone"] = None
+        __props__.__dict__["ca_certificate_identifier"] = None
+        __props__.__dict__["certificate_rotation_restart"] = None
         __props__.__dict__["db_cluster_identifier"] = None
         __props__.__dict__["db_instance_class"] = None
         __props__.__dict__["db_instance_identifier"] = None
@@ -241,6 +273,16 @@ class DbInstance(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="caCertificateIdentifier")
+    def ca_certificate_identifier(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "ca_certificate_identifier")
+
+    @property
+    @pulumi.getter(name="certificateRotationRestart")
+    def certificate_rotation_restart(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "certificate_rotation_restart")
 
     @property
     @pulumi.getter(name="dbClusterIdentifier")

@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         [Input("outputLockingMode")]
         public Input<string>? OutputLockingMode { get; set; }
 
+        [Input("outputLockingSettings")]
+        public Input<Inputs.ChannelOutputLockingSettingsArgs>? OutputLockingSettings { get; set; }
+
         [Input("outputTimingSource")]
         public Input<string>? OutputTimingSource { get; set; }
 

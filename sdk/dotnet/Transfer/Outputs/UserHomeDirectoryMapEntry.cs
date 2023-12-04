@@ -15,15 +15,19 @@ namespace Pulumi.AwsNative.Transfer.Outputs
     {
         public readonly string Entry;
         public readonly string Target;
+        public readonly string? Type;
 
         [OutputConstructor]
         private UserHomeDirectoryMapEntry(
             string entry,
 
-            string target)
+            string target,
+
+            string? type)
         {
             Entry = entry;
             Target = target;
+            Type = type;
         }
     }
 }

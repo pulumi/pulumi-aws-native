@@ -52,10 +52,17 @@ namespace Pulumi.AwsNative.Dlm
     public sealed class GetLifecyclePolicyResult
     {
         public readonly string? Arn;
+        public readonly bool? CopyTags;
+        public readonly int? CreateInterval;
+        public readonly Outputs.LifecyclePolicyCrossRegionCopyTargets? CrossRegionCopyTargets;
+        public readonly string? DefaultPolicy;
         public readonly string? Description;
+        public readonly Outputs.LifecyclePolicyExclusions? Exclusions;
         public readonly string? ExecutionRoleArn;
+        public readonly bool? ExtendDeletion;
         public readonly string? Id;
         public readonly Outputs.LifecyclePolicyPolicyDetails? PolicyDetails;
+        public readonly int? RetainInterval;
         public readonly string? State;
         public readonly ImmutableArray<Outputs.LifecyclePolicyTag> Tags;
 
@@ -63,23 +70,44 @@ namespace Pulumi.AwsNative.Dlm
         private GetLifecyclePolicyResult(
             string? arn,
 
+            bool? copyTags,
+
+            int? createInterval,
+
+            Outputs.LifecyclePolicyCrossRegionCopyTargets? crossRegionCopyTargets,
+
+            string? defaultPolicy,
+
             string? description,
 
+            Outputs.LifecyclePolicyExclusions? exclusions,
+
             string? executionRoleArn,
+
+            bool? extendDeletion,
 
             string? id,
 
             Outputs.LifecyclePolicyPolicyDetails? policyDetails,
+
+            int? retainInterval,
 
             string? state,
 
             ImmutableArray<Outputs.LifecyclePolicyTag> tags)
         {
             Arn = arn;
+            CopyTags = copyTags;
+            CreateInterval = createInterval;
+            CrossRegionCopyTargets = crossRegionCopyTargets;
+            DefaultPolicy = defaultPolicy;
             Description = description;
+            Exclusions = exclusions;
             ExecutionRoleArn = executionRoleArn;
+            ExtendDeletion = extendDeletion;
             Id = id;
             PolicyDetails = policyDetails;
+            RetainInterval = retainInterval;
             State = state;
             Tags = tags;
         }

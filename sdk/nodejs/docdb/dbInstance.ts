@@ -42,6 +42,8 @@ export class DbInstance extends pulumi.CustomResource {
 
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    public readonly caCertificateIdentifier!: pulumi.Output<string | undefined>;
+    public readonly certificateRotationRestart!: pulumi.Output<boolean | undefined>;
     public readonly dbClusterIdentifier!: pulumi.Output<string>;
     public readonly dbInstanceClass!: pulumi.Output<string>;
     public readonly dbInstanceIdentifier!: pulumi.Output<string | undefined>;
@@ -72,6 +74,8 @@ export class DbInstance extends pulumi.CustomResource {
             }
             resourceInputs["autoMinorVersionUpgrade"] = args ? args.autoMinorVersionUpgrade : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["caCertificateIdentifier"] = args ? args.caCertificateIdentifier : undefined;
+            resourceInputs["certificateRotationRestart"] = args ? args.certificateRotationRestart : undefined;
             resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
             resourceInputs["dbInstanceClass"] = args ? args.dbInstanceClass : undefined;
             resourceInputs["dbInstanceIdentifier"] = args ? args.dbInstanceIdentifier : undefined;
@@ -83,6 +87,8 @@ export class DbInstance extends pulumi.CustomResource {
         } else {
             resourceInputs["autoMinorVersionUpgrade"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
+            resourceInputs["caCertificateIdentifier"] = undefined /*out*/;
+            resourceInputs["certificateRotationRestart"] = undefined /*out*/;
             resourceInputs["dbClusterIdentifier"] = undefined /*out*/;
             resourceInputs["dbInstanceClass"] = undefined /*out*/;
             resourceInputs["dbInstanceIdentifier"] = undefined /*out*/;
@@ -105,6 +111,8 @@ export class DbInstance extends pulumi.CustomResource {
 export interface DbInstanceArgs {
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     availabilityZone?: pulumi.Input<string>;
+    caCertificateIdentifier?: pulumi.Input<string>;
+    certificateRotationRestart?: pulumi.Input<boolean>;
     dbClusterIdentifier: pulumi.Input<string>;
     dbInstanceClass: pulumi.Input<string>;
     dbInstanceIdentifier?: pulumi.Input<string>;

@@ -1672,9 +1672,11 @@ type FileSystemOntapConfiguration struct {
 	DiskIopsConfiguration         *FileSystemDiskIopsConfiguration `pulumi:"diskIopsConfiguration"`
 	EndpointIpAddressRange        *string                          `pulumi:"endpointIpAddressRange"`
 	FsxAdminPassword              *string                          `pulumi:"fsxAdminPassword"`
+	HaPairs                       *int                             `pulumi:"haPairs"`
 	PreferredSubnetId             *string                          `pulumi:"preferredSubnetId"`
 	RouteTableIds                 []string                         `pulumi:"routeTableIds"`
 	ThroughputCapacity            *int                             `pulumi:"throughputCapacity"`
+	ThroughputCapacityPerHaPair   *int                             `pulumi:"throughputCapacityPerHaPair"`
 	WeeklyMaintenanceStartTime    *string                          `pulumi:"weeklyMaintenanceStartTime"`
 }
 
@@ -1696,9 +1698,11 @@ type FileSystemOntapConfigurationArgs struct {
 	DiskIopsConfiguration         FileSystemDiskIopsConfigurationPtrInput `pulumi:"diskIopsConfiguration"`
 	EndpointIpAddressRange        pulumi.StringPtrInput                   `pulumi:"endpointIpAddressRange"`
 	FsxAdminPassword              pulumi.StringPtrInput                   `pulumi:"fsxAdminPassword"`
+	HaPairs                       pulumi.IntPtrInput                      `pulumi:"haPairs"`
 	PreferredSubnetId             pulumi.StringPtrInput                   `pulumi:"preferredSubnetId"`
 	RouteTableIds                 pulumi.StringArrayInput                 `pulumi:"routeTableIds"`
 	ThroughputCapacity            pulumi.IntPtrInput                      `pulumi:"throughputCapacity"`
+	ThroughputCapacityPerHaPair   pulumi.IntPtrInput                      `pulumi:"throughputCapacityPerHaPair"`
 	WeeklyMaintenanceStartTime    pulumi.StringPtrInput                   `pulumi:"weeklyMaintenanceStartTime"`
 }
 
@@ -1821,6 +1825,10 @@ func (o FileSystemOntapConfigurationOutput) FsxAdminPassword() pulumi.StringPtrO
 	return o.ApplyT(func(v FileSystemOntapConfiguration) *string { return v.FsxAdminPassword }).(pulumi.StringPtrOutput)
 }
 
+func (o FileSystemOntapConfigurationOutput) HaPairs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileSystemOntapConfiguration) *int { return v.HaPairs }).(pulumi.IntPtrOutput)
+}
+
 func (o FileSystemOntapConfigurationOutput) PreferredSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemOntapConfiguration) *string { return v.PreferredSubnetId }).(pulumi.StringPtrOutput)
 }
@@ -1831,6 +1839,10 @@ func (o FileSystemOntapConfigurationOutput) RouteTableIds() pulumi.StringArrayOu
 
 func (o FileSystemOntapConfigurationOutput) ThroughputCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FileSystemOntapConfiguration) *int { return v.ThroughputCapacity }).(pulumi.IntPtrOutput)
+}
+
+func (o FileSystemOntapConfigurationOutput) ThroughputCapacityPerHaPair() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FileSystemOntapConfiguration) *int { return v.ThroughputCapacityPerHaPair }).(pulumi.IntPtrOutput)
 }
 
 func (o FileSystemOntapConfigurationOutput) WeeklyMaintenanceStartTime() pulumi.StringPtrOutput {
@@ -1921,6 +1933,15 @@ func (o FileSystemOntapConfigurationPtrOutput) FsxAdminPassword() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o FileSystemOntapConfigurationPtrOutput) HaPairs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FileSystemOntapConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HaPairs
+	}).(pulumi.IntPtrOutput)
+}
+
 func (o FileSystemOntapConfigurationPtrOutput) PreferredSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FileSystemOntapConfiguration) *string {
 		if v == nil {
@@ -1945,6 +1966,15 @@ func (o FileSystemOntapConfigurationPtrOutput) ThroughputCapacity() pulumi.IntPt
 			return nil
 		}
 		return v.ThroughputCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FileSystemOntapConfigurationPtrOutput) ThroughputCapacityPerHaPair() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FileSystemOntapConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ThroughputCapacityPerHaPair
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -4006,6 +4036,178 @@ func (o StorageVirtualMachineTagArrayOutput) Index(i pulumi.IntInput) StorageVir
 	}).(StorageVirtualMachineTagOutput)
 }
 
+type VolumeAggregateConfiguration struct {
+	Aggregates               []string `pulumi:"aggregates"`
+	ConstituentsPerAggregate *int     `pulumi:"constituentsPerAggregate"`
+}
+
+// VolumeAggregateConfigurationInput is an input type that accepts VolumeAggregateConfigurationArgs and VolumeAggregateConfigurationOutput values.
+// You can construct a concrete instance of `VolumeAggregateConfigurationInput` via:
+//
+//	VolumeAggregateConfigurationArgs{...}
+type VolumeAggregateConfigurationInput interface {
+	pulumi.Input
+
+	ToVolumeAggregateConfigurationOutput() VolumeAggregateConfigurationOutput
+	ToVolumeAggregateConfigurationOutputWithContext(context.Context) VolumeAggregateConfigurationOutput
+}
+
+type VolumeAggregateConfigurationArgs struct {
+	Aggregates               pulumi.StringArrayInput `pulumi:"aggregates"`
+	ConstituentsPerAggregate pulumi.IntPtrInput      `pulumi:"constituentsPerAggregate"`
+}
+
+func (VolumeAggregateConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeAggregateConfiguration)(nil)).Elem()
+}
+
+func (i VolumeAggregateConfigurationArgs) ToVolumeAggregateConfigurationOutput() VolumeAggregateConfigurationOutput {
+	return i.ToVolumeAggregateConfigurationOutputWithContext(context.Background())
+}
+
+func (i VolumeAggregateConfigurationArgs) ToVolumeAggregateConfigurationOutputWithContext(ctx context.Context) VolumeAggregateConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeAggregateConfigurationOutput)
+}
+
+func (i VolumeAggregateConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[VolumeAggregateConfiguration] {
+	return pulumix.Output[VolumeAggregateConfiguration]{
+		OutputState: i.ToVolumeAggregateConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i VolumeAggregateConfigurationArgs) ToVolumeAggregateConfigurationPtrOutput() VolumeAggregateConfigurationPtrOutput {
+	return i.ToVolumeAggregateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeAggregateConfigurationArgs) ToVolumeAggregateConfigurationPtrOutputWithContext(ctx context.Context) VolumeAggregateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeAggregateConfigurationOutput).ToVolumeAggregateConfigurationPtrOutputWithContext(ctx)
+}
+
+// VolumeAggregateConfigurationPtrInput is an input type that accepts VolumeAggregateConfigurationArgs, VolumeAggregateConfigurationPtr and VolumeAggregateConfigurationPtrOutput values.
+// You can construct a concrete instance of `VolumeAggregateConfigurationPtrInput` via:
+//
+//	        VolumeAggregateConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeAggregateConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToVolumeAggregateConfigurationPtrOutput() VolumeAggregateConfigurationPtrOutput
+	ToVolumeAggregateConfigurationPtrOutputWithContext(context.Context) VolumeAggregateConfigurationPtrOutput
+}
+
+type volumeAggregateConfigurationPtrType VolumeAggregateConfigurationArgs
+
+func VolumeAggregateConfigurationPtr(v *VolumeAggregateConfigurationArgs) VolumeAggregateConfigurationPtrInput {
+	return (*volumeAggregateConfigurationPtrType)(v)
+}
+
+func (*volumeAggregateConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeAggregateConfiguration)(nil)).Elem()
+}
+
+func (i *volumeAggregateConfigurationPtrType) ToVolumeAggregateConfigurationPtrOutput() VolumeAggregateConfigurationPtrOutput {
+	return i.ToVolumeAggregateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeAggregateConfigurationPtrType) ToVolumeAggregateConfigurationPtrOutputWithContext(ctx context.Context) VolumeAggregateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeAggregateConfigurationPtrOutput)
+}
+
+func (i *volumeAggregateConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*VolumeAggregateConfiguration] {
+	return pulumix.Output[*VolumeAggregateConfiguration]{
+		OutputState: i.ToVolumeAggregateConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type VolumeAggregateConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VolumeAggregateConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeAggregateConfiguration)(nil)).Elem()
+}
+
+func (o VolumeAggregateConfigurationOutput) ToVolumeAggregateConfigurationOutput() VolumeAggregateConfigurationOutput {
+	return o
+}
+
+func (o VolumeAggregateConfigurationOutput) ToVolumeAggregateConfigurationOutputWithContext(ctx context.Context) VolumeAggregateConfigurationOutput {
+	return o
+}
+
+func (o VolumeAggregateConfigurationOutput) ToVolumeAggregateConfigurationPtrOutput() VolumeAggregateConfigurationPtrOutput {
+	return o.ToVolumeAggregateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeAggregateConfigurationOutput) ToVolumeAggregateConfigurationPtrOutputWithContext(ctx context.Context) VolumeAggregateConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeAggregateConfiguration) *VolumeAggregateConfiguration {
+		return &v
+	}).(VolumeAggregateConfigurationPtrOutput)
+}
+
+func (o VolumeAggregateConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[VolumeAggregateConfiguration] {
+	return pulumix.Output[VolumeAggregateConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o VolumeAggregateConfigurationOutput) Aggregates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VolumeAggregateConfiguration) []string { return v.Aggregates }).(pulumi.StringArrayOutput)
+}
+
+func (o VolumeAggregateConfigurationOutput) ConstituentsPerAggregate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VolumeAggregateConfiguration) *int { return v.ConstituentsPerAggregate }).(pulumi.IntPtrOutput)
+}
+
+type VolumeAggregateConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeAggregateConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeAggregateConfiguration)(nil)).Elem()
+}
+
+func (o VolumeAggregateConfigurationPtrOutput) ToVolumeAggregateConfigurationPtrOutput() VolumeAggregateConfigurationPtrOutput {
+	return o
+}
+
+func (o VolumeAggregateConfigurationPtrOutput) ToVolumeAggregateConfigurationPtrOutputWithContext(ctx context.Context) VolumeAggregateConfigurationPtrOutput {
+	return o
+}
+
+func (o VolumeAggregateConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VolumeAggregateConfiguration] {
+	return pulumix.Output[*VolumeAggregateConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o VolumeAggregateConfigurationPtrOutput) Elem() VolumeAggregateConfigurationOutput {
+	return o.ApplyT(func(v *VolumeAggregateConfiguration) VolumeAggregateConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeAggregateConfiguration
+		return ret
+	}).(VolumeAggregateConfigurationOutput)
+}
+
+func (o VolumeAggregateConfigurationPtrOutput) Aggregates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VolumeAggregateConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Aggregates
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o VolumeAggregateConfigurationPtrOutput) ConstituentsPerAggregate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeAggregateConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ConstituentsPerAggregate
+	}).(pulumi.IntPtrOutput)
+}
+
 type VolumeAutocommitPeriod struct {
 	Type  string `pulumi:"type"`
 	Value *int   `pulumi:"value"`
@@ -4421,16 +4623,19 @@ func (o VolumeNfsExportsArrayOutput) Index(i pulumi.IntInput) VolumeNfsExportsOu
 }
 
 type VolumeOntapConfiguration struct {
-	CopyTagsToBackups        *string                      `pulumi:"copyTagsToBackups"`
-	JunctionPath             *string                      `pulumi:"junctionPath"`
-	OntapVolumeType          *string                      `pulumi:"ontapVolumeType"`
-	SecurityStyle            *string                      `pulumi:"securityStyle"`
-	SizeInMegabytes          string                       `pulumi:"sizeInMegabytes"`
-	SnaplockConfiguration    *VolumeSnaplockConfiguration `pulumi:"snaplockConfiguration"`
-	SnapshotPolicy           *string                      `pulumi:"snapshotPolicy"`
-	StorageEfficiencyEnabled *string                      `pulumi:"storageEfficiencyEnabled"`
-	StorageVirtualMachineId  string                       `pulumi:"storageVirtualMachineId"`
-	TieringPolicy            *VolumeTieringPolicy         `pulumi:"tieringPolicy"`
+	AggregateConfiguration   *VolumeAggregateConfiguration `pulumi:"aggregateConfiguration"`
+	CopyTagsToBackups        *string                       `pulumi:"copyTagsToBackups"`
+	JunctionPath             *string                       `pulumi:"junctionPath"`
+	OntapVolumeType          *string                       `pulumi:"ontapVolumeType"`
+	SecurityStyle            *string                       `pulumi:"securityStyle"`
+	SizeInBytes              *string                       `pulumi:"sizeInBytes"`
+	SizeInMegabytes          *string                       `pulumi:"sizeInMegabytes"`
+	SnaplockConfiguration    *VolumeSnaplockConfiguration  `pulumi:"snaplockConfiguration"`
+	SnapshotPolicy           *string                       `pulumi:"snapshotPolicy"`
+	StorageEfficiencyEnabled *string                       `pulumi:"storageEfficiencyEnabled"`
+	StorageVirtualMachineId  string                        `pulumi:"storageVirtualMachineId"`
+	TieringPolicy            *VolumeTieringPolicy          `pulumi:"tieringPolicy"`
+	VolumeStyle              *string                       `pulumi:"volumeStyle"`
 }
 
 // VolumeOntapConfigurationInput is an input type that accepts VolumeOntapConfigurationArgs and VolumeOntapConfigurationOutput values.
@@ -4445,16 +4650,19 @@ type VolumeOntapConfigurationInput interface {
 }
 
 type VolumeOntapConfigurationArgs struct {
-	CopyTagsToBackups        pulumi.StringPtrInput               `pulumi:"copyTagsToBackups"`
-	JunctionPath             pulumi.StringPtrInput               `pulumi:"junctionPath"`
-	OntapVolumeType          pulumi.StringPtrInput               `pulumi:"ontapVolumeType"`
-	SecurityStyle            pulumi.StringPtrInput               `pulumi:"securityStyle"`
-	SizeInMegabytes          pulumi.StringInput                  `pulumi:"sizeInMegabytes"`
-	SnaplockConfiguration    VolumeSnaplockConfigurationPtrInput `pulumi:"snaplockConfiguration"`
-	SnapshotPolicy           pulumi.StringPtrInput               `pulumi:"snapshotPolicy"`
-	StorageEfficiencyEnabled pulumi.StringPtrInput               `pulumi:"storageEfficiencyEnabled"`
-	StorageVirtualMachineId  pulumi.StringInput                  `pulumi:"storageVirtualMachineId"`
-	TieringPolicy            VolumeTieringPolicyPtrInput         `pulumi:"tieringPolicy"`
+	AggregateConfiguration   VolumeAggregateConfigurationPtrInput `pulumi:"aggregateConfiguration"`
+	CopyTagsToBackups        pulumi.StringPtrInput                `pulumi:"copyTagsToBackups"`
+	JunctionPath             pulumi.StringPtrInput                `pulumi:"junctionPath"`
+	OntapVolumeType          pulumi.StringPtrInput                `pulumi:"ontapVolumeType"`
+	SecurityStyle            pulumi.StringPtrInput                `pulumi:"securityStyle"`
+	SizeInBytes              pulumi.StringPtrInput                `pulumi:"sizeInBytes"`
+	SizeInMegabytes          pulumi.StringPtrInput                `pulumi:"sizeInMegabytes"`
+	SnaplockConfiguration    VolumeSnaplockConfigurationPtrInput  `pulumi:"snaplockConfiguration"`
+	SnapshotPolicy           pulumi.StringPtrInput                `pulumi:"snapshotPolicy"`
+	StorageEfficiencyEnabled pulumi.StringPtrInput                `pulumi:"storageEfficiencyEnabled"`
+	StorageVirtualMachineId  pulumi.StringInput                   `pulumi:"storageVirtualMachineId"`
+	TieringPolicy            VolumeTieringPolicyPtrInput          `pulumi:"tieringPolicy"`
+	VolumeStyle              pulumi.StringPtrInput                `pulumi:"volumeStyle"`
 }
 
 func (VolumeOntapConfigurationArgs) ElementType() reflect.Type {
@@ -4552,6 +4760,10 @@ func (o VolumeOntapConfigurationOutput) ToOutput(ctx context.Context) pulumix.Ou
 	}
 }
 
+func (o VolumeOntapConfigurationOutput) AggregateConfiguration() VolumeAggregateConfigurationPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *VolumeAggregateConfiguration { return v.AggregateConfiguration }).(VolumeAggregateConfigurationPtrOutput)
+}
+
 func (o VolumeOntapConfigurationOutput) CopyTagsToBackups() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeOntapConfiguration) *string { return v.CopyTagsToBackups }).(pulumi.StringPtrOutput)
 }
@@ -4568,8 +4780,12 @@ func (o VolumeOntapConfigurationOutput) SecurityStyle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VolumeOntapConfiguration) *string { return v.SecurityStyle }).(pulumi.StringPtrOutput)
 }
 
-func (o VolumeOntapConfigurationOutput) SizeInMegabytes() pulumi.StringOutput {
-	return o.ApplyT(func(v VolumeOntapConfiguration) string { return v.SizeInMegabytes }).(pulumi.StringOutput)
+func (o VolumeOntapConfigurationOutput) SizeInBytes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *string { return v.SizeInBytes }).(pulumi.StringPtrOutput)
+}
+
+func (o VolumeOntapConfigurationOutput) SizeInMegabytes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *string { return v.SizeInMegabytes }).(pulumi.StringPtrOutput)
 }
 
 func (o VolumeOntapConfigurationOutput) SnaplockConfiguration() VolumeSnaplockConfigurationPtrOutput {
@@ -4590,6 +4806,10 @@ func (o VolumeOntapConfigurationOutput) StorageVirtualMachineId() pulumi.StringO
 
 func (o VolumeOntapConfigurationOutput) TieringPolicy() VolumeTieringPolicyPtrOutput {
 	return o.ApplyT(func(v VolumeOntapConfiguration) *VolumeTieringPolicy { return v.TieringPolicy }).(VolumeTieringPolicyPtrOutput)
+}
+
+func (o VolumeOntapConfigurationOutput) VolumeStyle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *string { return v.VolumeStyle }).(pulumi.StringPtrOutput)
 }
 
 type VolumeOntapConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -4620,6 +4840,15 @@ func (o VolumeOntapConfigurationPtrOutput) Elem() VolumeOntapConfigurationOutput
 		var ret VolumeOntapConfiguration
 		return ret
 	}).(VolumeOntapConfigurationOutput)
+}
+
+func (o VolumeOntapConfigurationPtrOutput) AggregateConfiguration() VolumeAggregateConfigurationPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *VolumeAggregateConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AggregateConfiguration
+	}).(VolumeAggregateConfigurationPtrOutput)
 }
 
 func (o VolumeOntapConfigurationPtrOutput) CopyTagsToBackups() pulumi.StringPtrOutput {
@@ -4658,12 +4887,21 @@ func (o VolumeOntapConfigurationPtrOutput) SecurityStyle() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o VolumeOntapConfigurationPtrOutput) SizeInBytes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SizeInBytes
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o VolumeOntapConfigurationPtrOutput) SizeInMegabytes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VolumeOntapConfiguration) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.SizeInMegabytes
+		return v.SizeInMegabytes
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4710,6 +4948,15 @@ func (o VolumeOntapConfigurationPtrOutput) TieringPolicy() VolumeTieringPolicyPt
 		}
 		return v.TieringPolicy
 	}).(VolumeTieringPolicyPtrOutput)
+}
+
+func (o VolumeOntapConfigurationPtrOutput) VolumeStyle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeStyle
+	}).(pulumi.StringPtrOutput)
 }
 
 type VolumeOpenZfsConfiguration struct {
@@ -6249,6 +6496,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrInput)(nil)).Elem(), StorageVirtualMachineSelfManagedActiveDirectoryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineTagInput)(nil)).Elem(), StorageVirtualMachineTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageVirtualMachineTagArrayInput)(nil)).Elem(), StorageVirtualMachineTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeAggregateConfigurationInput)(nil)).Elem(), VolumeAggregateConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeAggregateConfigurationPtrInput)(nil)).Elem(), VolumeAggregateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeAutocommitPeriodInput)(nil)).Elem(), VolumeAutocommitPeriodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeAutocommitPeriodPtrInput)(nil)).Elem(), VolumeAutocommitPeriodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeClientConfigurationsInput)(nil)).Elem(), VolumeClientConfigurationsArgs{})
@@ -6313,6 +6562,8 @@ func init() {
 	pulumi.RegisterOutputType(StorageVirtualMachineSelfManagedActiveDirectoryConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StorageVirtualMachineTagOutput{})
 	pulumi.RegisterOutputType(StorageVirtualMachineTagArrayOutput{})
+	pulumi.RegisterOutputType(VolumeAggregateConfigurationOutput{})
+	pulumi.RegisterOutputType(VolumeAggregateConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VolumeAutocommitPeriodOutput{})
 	pulumi.RegisterOutputType(VolumeAutocommitPeriodPtrOutput{})
 	pulumi.RegisterOutputType(VolumeClientConfigurationsOutput{})

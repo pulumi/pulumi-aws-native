@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DocDb
         [Output("availabilityZone")]
         public Output<string?> AvailabilityZone { get; private set; } = null!;
 
+        [Output("caCertificateIdentifier")]
+        public Output<string?> CaCertificateIdentifier { get; private set; } = null!;
+
+        [Output("certificateRotationRestart")]
+        public Output<bool?> CertificateRotationRestart { get; private set; } = null!;
+
         [Output("dbClusterIdentifier")]
         public Output<string> DbClusterIdentifier { get; private set; } = null!;
 
@@ -102,6 +108,12 @@ namespace Pulumi.AwsNative.DocDb
 
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
+
+        [Input("caCertificateIdentifier")]
+        public Input<string>? CaCertificateIdentifier { get; set; }
+
+        [Input("certificateRotationRestart")]
+        public Input<bool>? CertificateRotationRestart { get; set; }
 
         [Input("dbClusterIdentifier", required: true)]
         public Input<string> DbClusterIdentifier { get; set; } = null!;

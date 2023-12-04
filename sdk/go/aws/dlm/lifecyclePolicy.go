@@ -18,12 +18,19 @@ import (
 type LifecyclePolicy struct {
 	pulumi.CustomResourceState
 
-	Arn              pulumi.StringOutput                   `pulumi:"arn"`
-	Description      pulumi.StringPtrOutput                `pulumi:"description"`
-	ExecutionRoleArn pulumi.StringPtrOutput                `pulumi:"executionRoleArn"`
-	PolicyDetails    LifecyclePolicyPolicyDetailsPtrOutput `pulumi:"policyDetails"`
-	State            pulumi.StringPtrOutput                `pulumi:"state"`
-	Tags             LifecyclePolicyTagArrayOutput         `pulumi:"tags"`
+	Arn                    pulumi.StringOutput                            `pulumi:"arn"`
+	CopyTags               pulumi.BoolPtrOutput                           `pulumi:"copyTags"`
+	CreateInterval         pulumi.IntPtrOutput                            `pulumi:"createInterval"`
+	CrossRegionCopyTargets LifecyclePolicyCrossRegionCopyTargetsPtrOutput `pulumi:"crossRegionCopyTargets"`
+	DefaultPolicy          pulumi.StringPtrOutput                         `pulumi:"defaultPolicy"`
+	Description            pulumi.StringPtrOutput                         `pulumi:"description"`
+	Exclusions             LifecyclePolicyExclusionsPtrOutput             `pulumi:"exclusions"`
+	ExecutionRoleArn       pulumi.StringPtrOutput                         `pulumi:"executionRoleArn"`
+	ExtendDeletion         pulumi.BoolPtrOutput                           `pulumi:"extendDeletion"`
+	PolicyDetails          LifecyclePolicyPolicyDetailsPtrOutput          `pulumi:"policyDetails"`
+	RetainInterval         pulumi.IntPtrOutput                            `pulumi:"retainInterval"`
+	State                  pulumi.StringPtrOutput                         `pulumi:"state"`
+	Tags                   LifecyclePolicyTagArrayOutput                  `pulumi:"tags"`
 }
 
 // NewLifecyclePolicy registers a new resource with the given unique name, arguments, and options.
@@ -66,20 +73,34 @@ func (LifecyclePolicyState) ElementType() reflect.Type {
 }
 
 type lifecyclePolicyArgs struct {
-	Description      *string                       `pulumi:"description"`
-	ExecutionRoleArn *string                       `pulumi:"executionRoleArn"`
-	PolicyDetails    *LifecyclePolicyPolicyDetails `pulumi:"policyDetails"`
-	State            *string                       `pulumi:"state"`
-	Tags             []LifecyclePolicyTag          `pulumi:"tags"`
+	CopyTags               *bool                                  `pulumi:"copyTags"`
+	CreateInterval         *int                                   `pulumi:"createInterval"`
+	CrossRegionCopyTargets *LifecyclePolicyCrossRegionCopyTargets `pulumi:"crossRegionCopyTargets"`
+	DefaultPolicy          *string                                `pulumi:"defaultPolicy"`
+	Description            *string                                `pulumi:"description"`
+	Exclusions             *LifecyclePolicyExclusions             `pulumi:"exclusions"`
+	ExecutionRoleArn       *string                                `pulumi:"executionRoleArn"`
+	ExtendDeletion         *bool                                  `pulumi:"extendDeletion"`
+	PolicyDetails          *LifecyclePolicyPolicyDetails          `pulumi:"policyDetails"`
+	RetainInterval         *int                                   `pulumi:"retainInterval"`
+	State                  *string                                `pulumi:"state"`
+	Tags                   []LifecyclePolicyTag                   `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LifecyclePolicy resource.
 type LifecyclePolicyArgs struct {
-	Description      pulumi.StringPtrInput
-	ExecutionRoleArn pulumi.StringPtrInput
-	PolicyDetails    LifecyclePolicyPolicyDetailsPtrInput
-	State            pulumi.StringPtrInput
-	Tags             LifecyclePolicyTagArrayInput
+	CopyTags               pulumi.BoolPtrInput
+	CreateInterval         pulumi.IntPtrInput
+	CrossRegionCopyTargets LifecyclePolicyCrossRegionCopyTargetsPtrInput
+	DefaultPolicy          pulumi.StringPtrInput
+	Description            pulumi.StringPtrInput
+	Exclusions             LifecyclePolicyExclusionsPtrInput
+	ExecutionRoleArn       pulumi.StringPtrInput
+	ExtendDeletion         pulumi.BoolPtrInput
+	PolicyDetails          LifecyclePolicyPolicyDetailsPtrInput
+	RetainInterval         pulumi.IntPtrInput
+	State                  pulumi.StringPtrInput
+	Tags                   LifecyclePolicyTagArrayInput
 }
 
 func (LifecyclePolicyArgs) ElementType() reflect.Type {
@@ -135,16 +156,46 @@ func (o LifecyclePolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+func (o LifecyclePolicyOutput) CopyTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) pulumi.BoolPtrOutput { return v.CopyTags }).(pulumi.BoolPtrOutput)
+}
+
+func (o LifecyclePolicyOutput) CreateInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) pulumi.IntPtrOutput { return v.CreateInterval }).(pulumi.IntPtrOutput)
+}
+
+func (o LifecyclePolicyOutput) CrossRegionCopyTargets() LifecyclePolicyCrossRegionCopyTargetsPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) LifecyclePolicyCrossRegionCopyTargetsPtrOutput {
+		return v.CrossRegionCopyTargets
+	}).(LifecyclePolicyCrossRegionCopyTargetsPtrOutput)
+}
+
+func (o LifecyclePolicyOutput) DefaultPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringPtrOutput { return v.DefaultPolicy }).(pulumi.StringPtrOutput)
+}
+
 func (o LifecyclePolicyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LifecyclePolicyOutput) Exclusions() LifecyclePolicyExclusionsPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) LifecyclePolicyExclusionsPtrOutput { return v.Exclusions }).(LifecyclePolicyExclusionsPtrOutput)
 }
 
 func (o LifecyclePolicyOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) pulumi.StringPtrOutput { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
 
+func (o LifecyclePolicyOutput) ExtendDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) pulumi.BoolPtrOutput { return v.ExtendDeletion }).(pulumi.BoolPtrOutput)
+}
+
 func (o LifecyclePolicyOutput) PolicyDetails() LifecyclePolicyPolicyDetailsPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicy) LifecyclePolicyPolicyDetailsPtrOutput { return v.PolicyDetails }).(LifecyclePolicyPolicyDetailsPtrOutput)
+}
+
+func (o LifecyclePolicyOutput) RetainInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) pulumi.IntPtrOutput { return v.RetainInterval }).(pulumi.IntPtrOutput)
 }
 
 func (o LifecyclePolicyOutput) State() pulumi.StringPtrOutput {

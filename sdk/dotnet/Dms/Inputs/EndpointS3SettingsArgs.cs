@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Dms.Inputs
         [Input("addColumnName")]
         public Input<bool>? AddColumnName { get; set; }
 
+        [Input("addTrailingPaddingCharacter")]
+        public Input<bool>? AddTrailingPaddingCharacter { get; set; }
+
         [Input("bucketFolder")]
         public Input<string>? BucketFolder { get; set; }
 
@@ -84,8 +87,14 @@ namespace Pulumi.AwsNative.Dms.Inputs
         [Input("encryptionMode")]
         public Input<string>? EncryptionMode { get; set; }
 
+        [Input("expectedBucketOwner")]
+        public Input<string>? ExpectedBucketOwner { get; set; }
+
         [Input("externalTableDefinition")]
         public Input<string>? ExternalTableDefinition { get; set; }
+
+        [Input("glueCatalogGeneration")]
+        public Input<bool>? GlueCatalogGeneration { get; set; }
 
         [Input("ignoreHeaderRows")]
         public Input<int>? IgnoreHeaderRows { get; set; }

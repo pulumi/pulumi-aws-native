@@ -17,10 +17,12 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly int? ContainerStartupHealthCheckTimeoutInSeconds;
         public readonly bool? EnableSsmAccess;
         public readonly int? InitialInstanceCount;
-        public readonly double InitialVariantWeight;
+        public readonly double? InitialVariantWeight;
         public readonly string? InstanceType;
+        public readonly Outputs.EndpointConfigManagedInstanceScaling? ManagedInstanceScaling;
         public readonly int? ModelDataDownloadTimeoutInSeconds;
-        public readonly string ModelName;
+        public readonly string? ModelName;
+        public readonly Outputs.EndpointConfigRoutingConfig? RoutingConfig;
         public readonly Outputs.EndpointConfigServerlessConfig? ServerlessConfig;
         public readonly string VariantName;
         public readonly int? VolumeSizeInGb;
@@ -35,13 +37,17 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             int? initialInstanceCount,
 
-            double initialVariantWeight,
+            double? initialVariantWeight,
 
             string? instanceType,
 
+            Outputs.EndpointConfigManagedInstanceScaling? managedInstanceScaling,
+
             int? modelDataDownloadTimeoutInSeconds,
 
-            string modelName,
+            string? modelName,
+
+            Outputs.EndpointConfigRoutingConfig? routingConfig,
 
             Outputs.EndpointConfigServerlessConfig? serverlessConfig,
 
@@ -55,8 +61,10 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             InitialInstanceCount = initialInstanceCount;
             InitialVariantWeight = initialVariantWeight;
             InstanceType = instanceType;
+            ManagedInstanceScaling = managedInstanceScaling;
             ModelDataDownloadTimeoutInSeconds = modelDataDownloadTimeoutInSeconds;
             ModelName = modelName;
+            RoutingConfig = routingConfig;
             ServerlessConfig = serverlessConfig;
             VariantName = variantName;
             VolumeSizeInGb = volumeSizeInGb;

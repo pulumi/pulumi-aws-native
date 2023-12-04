@@ -22,6 +22,7 @@ __all__ = [
     'ServerIdentityProviderDetails',
     'ServerProtocol',
     'ServerProtocolDetails',
+    'ServerS3StorageOptions',
     'ServerStructuredLogDestination',
     'ServerTag',
     'ServerWorkflowDetail',
@@ -536,6 +537,36 @@ class ServerProtocolDetails(dict):
 
 
 @pulumi.output_type
+class ServerS3StorageOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "directoryListingOptimization":
+            suggest = "directory_listing_optimization"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerS3StorageOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerS3StorageOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerS3StorageOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 directory_listing_optimization: Optional[str] = None):
+        if directory_listing_optimization is not None:
+            pulumi.set(__self__, "directory_listing_optimization", directory_listing_optimization)
+
+    @property
+    @pulumi.getter(name="directoryListingOptimization")
+    def directory_listing_optimization(self) -> Optional[str]:
+        return pulumi.get(self, "directory_listing_optimization")
+
+
+@pulumi.output_type
 class ServerStructuredLogDestination(dict):
     def __init__(__self__):
         pass
@@ -696,9 +727,12 @@ class SftpConfigProperties(dict):
 class UserHomeDirectoryMapEntry(dict):
     def __init__(__self__, *,
                  entry: str,
-                 target: str):
+                 target: str,
+                 type: Optional[str] = None):
         pulumi.set(__self__, "entry", entry)
         pulumi.set(__self__, "target", target)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -709,6 +743,11 @@ class UserHomeDirectoryMapEntry(dict):
     @pulumi.getter
     def target(self) -> str:
         return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

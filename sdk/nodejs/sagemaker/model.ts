@@ -42,7 +42,7 @@ export class Model extends pulumi.CustomResource {
 
     public readonly containers!: pulumi.Output<outputs.sagemaker.ModelContainerDefinition[] | undefined>;
     public readonly enableNetworkIsolation!: pulumi.Output<boolean | undefined>;
-    public readonly executionRoleArn!: pulumi.Output<string>;
+    public readonly executionRoleArn!: pulumi.Output<string | undefined>;
     public readonly inferenceExecutionConfig!: pulumi.Output<outputs.sagemaker.ModelInferenceExecutionConfig | undefined>;
     public readonly modelName!: pulumi.Output<string | undefined>;
     public readonly primaryContainer!: pulumi.Output<outputs.sagemaker.ModelContainerDefinition | undefined>;
@@ -57,14 +57,11 @@ export class Model extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated Model is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
-    constructor(name: string, args: ModelArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ModelArgs, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Model is deprecated: Model is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.executionRoleArn === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'executionRoleArn'");
-            }
             resourceInputs["containers"] = args ? args.containers : undefined;
             resourceInputs["enableNetworkIsolation"] = args ? args.enableNetworkIsolation : undefined;
             resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
@@ -96,7 +93,7 @@ export class Model extends pulumi.CustomResource {
 export interface ModelArgs {
     containers?: pulumi.Input<pulumi.Input<inputs.sagemaker.ModelContainerDefinitionArgs>[]>;
     enableNetworkIsolation?: pulumi.Input<boolean>;
-    executionRoleArn: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string>;
     inferenceExecutionConfig?: pulumi.Input<inputs.sagemaker.ModelInferenceExecutionConfigArgs>;
     modelName?: pulumi.Input<string>;
     primaryContainer?: pulumi.Input<inputs.sagemaker.ModelContainerDefinitionArgs>;

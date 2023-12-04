@@ -1726,6 +1726,163 @@ func (o ServerProtocolDetailsPtrOutput) TlsSessionResumptionMode() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServerS3StorageOptions struct {
+	DirectoryListingOptimization *string `pulumi:"directoryListingOptimization"`
+}
+
+// ServerS3StorageOptionsInput is an input type that accepts ServerS3StorageOptionsArgs and ServerS3StorageOptionsOutput values.
+// You can construct a concrete instance of `ServerS3StorageOptionsInput` via:
+//
+//	ServerS3StorageOptionsArgs{...}
+type ServerS3StorageOptionsInput interface {
+	pulumi.Input
+
+	ToServerS3StorageOptionsOutput() ServerS3StorageOptionsOutput
+	ToServerS3StorageOptionsOutputWithContext(context.Context) ServerS3StorageOptionsOutput
+}
+
+type ServerS3StorageOptionsArgs struct {
+	DirectoryListingOptimization pulumi.StringPtrInput `pulumi:"directoryListingOptimization"`
+}
+
+func (ServerS3StorageOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerS3StorageOptions)(nil)).Elem()
+}
+
+func (i ServerS3StorageOptionsArgs) ToServerS3StorageOptionsOutput() ServerS3StorageOptionsOutput {
+	return i.ToServerS3StorageOptionsOutputWithContext(context.Background())
+}
+
+func (i ServerS3StorageOptionsArgs) ToServerS3StorageOptionsOutputWithContext(ctx context.Context) ServerS3StorageOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerS3StorageOptionsOutput)
+}
+
+func (i ServerS3StorageOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[ServerS3StorageOptions] {
+	return pulumix.Output[ServerS3StorageOptions]{
+		OutputState: i.ToServerS3StorageOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ServerS3StorageOptionsArgs) ToServerS3StorageOptionsPtrOutput() ServerS3StorageOptionsPtrOutput {
+	return i.ToServerS3StorageOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ServerS3StorageOptionsArgs) ToServerS3StorageOptionsPtrOutputWithContext(ctx context.Context) ServerS3StorageOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerS3StorageOptionsOutput).ToServerS3StorageOptionsPtrOutputWithContext(ctx)
+}
+
+// ServerS3StorageOptionsPtrInput is an input type that accepts ServerS3StorageOptionsArgs, ServerS3StorageOptionsPtr and ServerS3StorageOptionsPtrOutput values.
+// You can construct a concrete instance of `ServerS3StorageOptionsPtrInput` via:
+//
+//	        ServerS3StorageOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerS3StorageOptionsPtrInput interface {
+	pulumi.Input
+
+	ToServerS3StorageOptionsPtrOutput() ServerS3StorageOptionsPtrOutput
+	ToServerS3StorageOptionsPtrOutputWithContext(context.Context) ServerS3StorageOptionsPtrOutput
+}
+
+type serverS3StorageOptionsPtrType ServerS3StorageOptionsArgs
+
+func ServerS3StorageOptionsPtr(v *ServerS3StorageOptionsArgs) ServerS3StorageOptionsPtrInput {
+	return (*serverS3StorageOptionsPtrType)(v)
+}
+
+func (*serverS3StorageOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerS3StorageOptions)(nil)).Elem()
+}
+
+func (i *serverS3StorageOptionsPtrType) ToServerS3StorageOptionsPtrOutput() ServerS3StorageOptionsPtrOutput {
+	return i.ToServerS3StorageOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *serverS3StorageOptionsPtrType) ToServerS3StorageOptionsPtrOutputWithContext(ctx context.Context) ServerS3StorageOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerS3StorageOptionsPtrOutput)
+}
+
+func (i *serverS3StorageOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerS3StorageOptions] {
+	return pulumix.Output[*ServerS3StorageOptions]{
+		OutputState: i.ToServerS3StorageOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ServerS3StorageOptionsOutput struct{ *pulumi.OutputState }
+
+func (ServerS3StorageOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerS3StorageOptions)(nil)).Elem()
+}
+
+func (o ServerS3StorageOptionsOutput) ToServerS3StorageOptionsOutput() ServerS3StorageOptionsOutput {
+	return o
+}
+
+func (o ServerS3StorageOptionsOutput) ToServerS3StorageOptionsOutputWithContext(ctx context.Context) ServerS3StorageOptionsOutput {
+	return o
+}
+
+func (o ServerS3StorageOptionsOutput) ToServerS3StorageOptionsPtrOutput() ServerS3StorageOptionsPtrOutput {
+	return o.ToServerS3StorageOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerS3StorageOptionsOutput) ToServerS3StorageOptionsPtrOutputWithContext(ctx context.Context) ServerS3StorageOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerS3StorageOptions) *ServerS3StorageOptions {
+		return &v
+	}).(ServerS3StorageOptionsPtrOutput)
+}
+
+func (o ServerS3StorageOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[ServerS3StorageOptions] {
+	return pulumix.Output[ServerS3StorageOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServerS3StorageOptionsOutput) DirectoryListingOptimization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerS3StorageOptions) *string { return v.DirectoryListingOptimization }).(pulumi.StringPtrOutput)
+}
+
+type ServerS3StorageOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerS3StorageOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerS3StorageOptions)(nil)).Elem()
+}
+
+func (o ServerS3StorageOptionsPtrOutput) ToServerS3StorageOptionsPtrOutput() ServerS3StorageOptionsPtrOutput {
+	return o
+}
+
+func (o ServerS3StorageOptionsPtrOutput) ToServerS3StorageOptionsPtrOutputWithContext(ctx context.Context) ServerS3StorageOptionsPtrOutput {
+	return o
+}
+
+func (o ServerS3StorageOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerS3StorageOptions] {
+	return pulumix.Output[*ServerS3StorageOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServerS3StorageOptionsPtrOutput) Elem() ServerS3StorageOptionsOutput {
+	return o.ApplyT(func(v *ServerS3StorageOptions) ServerS3StorageOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ServerS3StorageOptions
+		return ret
+	}).(ServerS3StorageOptionsOutput)
+}
+
+func (o ServerS3StorageOptionsPtrOutput) DirectoryListingOptimization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerS3StorageOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DirectoryListingOptimization
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServerStructuredLogDestination struct {
 }
 
@@ -2442,8 +2599,9 @@ func (o SftpConfigPropertiesPtrOutput) UserSecretId() pulumi.StringPtrOutput {
 }
 
 type UserHomeDirectoryMapEntry struct {
-	Entry  string `pulumi:"entry"`
-	Target string `pulumi:"target"`
+	Entry  string  `pulumi:"entry"`
+	Target string  `pulumi:"target"`
+	Type   *string `pulumi:"type"`
 }
 
 // UserHomeDirectoryMapEntryInput is an input type that accepts UserHomeDirectoryMapEntryArgs and UserHomeDirectoryMapEntryOutput values.
@@ -2458,8 +2616,9 @@ type UserHomeDirectoryMapEntryInput interface {
 }
 
 type UserHomeDirectoryMapEntryArgs struct {
-	Entry  pulumi.StringInput `pulumi:"entry"`
-	Target pulumi.StringInput `pulumi:"target"`
+	Entry  pulumi.StringInput    `pulumi:"entry"`
+	Target pulumi.StringInput    `pulumi:"target"`
+	Type   pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (UserHomeDirectoryMapEntryArgs) ElementType() reflect.Type {
@@ -2537,6 +2696,10 @@ func (o UserHomeDirectoryMapEntryOutput) Entry() pulumi.StringOutput {
 
 func (o UserHomeDirectoryMapEntryOutput) Target() pulumi.StringOutput {
 	return o.ApplyT(func(v UserHomeDirectoryMapEntry) string { return v.Target }).(pulumi.StringOutput)
+}
+
+func (o UserHomeDirectoryMapEntryOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserHomeDirectoryMapEntry) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type UserHomeDirectoryMapEntryArrayOutput struct{ *pulumi.OutputState }
@@ -5211,6 +5374,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolArrayInput)(nil)).Elem(), ServerProtocolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolDetailsInput)(nil)).Elem(), ServerProtocolDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolDetailsPtrInput)(nil)).Elem(), ServerProtocolDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerS3StorageOptionsInput)(nil)).Elem(), ServerS3StorageOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerS3StorageOptionsPtrInput)(nil)).Elem(), ServerS3StorageOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerStructuredLogDestinationInput)(nil)).Elem(), ServerStructuredLogDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerStructuredLogDestinationArrayInput)(nil)).Elem(), ServerStructuredLogDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerTagInput)(nil)).Elem(), ServerTagArgs{})
@@ -5273,6 +5438,8 @@ func init() {
 	pulumi.RegisterOutputType(ServerProtocolArrayOutput{})
 	pulumi.RegisterOutputType(ServerProtocolDetailsOutput{})
 	pulumi.RegisterOutputType(ServerProtocolDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServerS3StorageOptionsOutput{})
+	pulumi.RegisterOutputType(ServerS3StorageOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ServerStructuredLogDestinationOutput{})
 	pulumi.RegisterOutputType(ServerStructuredLogDestinationArrayOutput{})
 	pulumi.RegisterOutputType(ServerTagOutput{})

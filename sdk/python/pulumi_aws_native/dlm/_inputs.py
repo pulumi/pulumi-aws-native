@@ -18,10 +18,14 @@ __all__ = [
     'LifecyclePolicyCrossRegionCopyDeprecateRuleArgs',
     'LifecyclePolicyCrossRegionCopyRetainRuleArgs',
     'LifecyclePolicyCrossRegionCopyRuleArgs',
+    'LifecyclePolicyCrossRegionCopyTargetsArgs',
     'LifecyclePolicyDeprecateRuleArgs',
     'LifecyclePolicyEncryptionConfigurationArgs',
     'LifecyclePolicyEventParametersArgs',
     'LifecyclePolicyEventSourceArgs',
+    'LifecyclePolicyExcludeTagsArgs',
+    'LifecyclePolicyExcludeVolumeTypesListArgs',
+    'LifecyclePolicyExclusionsArgs',
     'LifecyclePolicyFastRestoreRuleArgs',
     'LifecyclePolicyParametersArgs',
     'LifecyclePolicyPolicyDetailsArgs',
@@ -351,6 +355,12 @@ class LifecyclePolicyCrossRegionCopyRuleArgs:
 
 
 @pulumi.input_type
+class LifecyclePolicyCrossRegionCopyTargetsArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
 class LifecyclePolicyDeprecateRuleArgs:
     def __init__(__self__, *,
                  count: Optional[pulumi.Input[int]] = None,
@@ -487,6 +497,59 @@ class LifecyclePolicyEventSourceArgs:
 
 
 @pulumi.input_type
+class LifecyclePolicyExcludeTagsArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class LifecyclePolicyExcludeVolumeTypesListArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class LifecyclePolicyExclusionsArgs:
+    def __init__(__self__, *,
+                 exclude_boot_volumes: Optional[pulumi.Input[bool]] = None,
+                 exclude_tags: Optional[pulumi.Input['LifecyclePolicyExcludeTagsArgs']] = None,
+                 exclude_volume_types: Optional[pulumi.Input['LifecyclePolicyExcludeVolumeTypesListArgs']] = None):
+        if exclude_boot_volumes is not None:
+            pulumi.set(__self__, "exclude_boot_volumes", exclude_boot_volumes)
+        if exclude_tags is not None:
+            pulumi.set(__self__, "exclude_tags", exclude_tags)
+        if exclude_volume_types is not None:
+            pulumi.set(__self__, "exclude_volume_types", exclude_volume_types)
+
+    @property
+    @pulumi.getter(name="excludeBootVolumes")
+    def exclude_boot_volumes(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "exclude_boot_volumes")
+
+    @exclude_boot_volumes.setter
+    def exclude_boot_volumes(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "exclude_boot_volumes", value)
+
+    @property
+    @pulumi.getter(name="excludeTags")
+    def exclude_tags(self) -> Optional[pulumi.Input['LifecyclePolicyExcludeTagsArgs']]:
+        return pulumi.get(self, "exclude_tags")
+
+    @exclude_tags.setter
+    def exclude_tags(self, value: Optional[pulumi.Input['LifecyclePolicyExcludeTagsArgs']]):
+        pulumi.set(self, "exclude_tags", value)
+
+    @property
+    @pulumi.getter(name="excludeVolumeTypes")
+    def exclude_volume_types(self) -> Optional[pulumi.Input['LifecyclePolicyExcludeVolumeTypesListArgs']]:
+        return pulumi.get(self, "exclude_volume_types")
+
+    @exclude_volume_types.setter
+    def exclude_volume_types(self, value: Optional[pulumi.Input['LifecyclePolicyExcludeVolumeTypesListArgs']]):
+        pulumi.set(self, "exclude_volume_types", value)
+
+
+@pulumi.input_type
 class LifecyclePolicyFastRestoreRuleArgs:
     def __init__(__self__, *,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -584,25 +647,49 @@ class LifecyclePolicyParametersArgs:
 class LifecyclePolicyPolicyDetailsArgs:
     def __init__(__self__, *,
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyActionArgs']]]] = None,
+                 copy_tags: Optional[pulumi.Input[bool]] = None,
+                 create_interval: Optional[pulumi.Input[int]] = None,
+                 cross_region_copy_targets: Optional[pulumi.Input['LifecyclePolicyCrossRegionCopyTargetsArgs']] = None,
                  event_source: Optional[pulumi.Input['LifecyclePolicyEventSourceArgs']] = None,
+                 exclusions: Optional[pulumi.Input['LifecyclePolicyExclusionsArgs']] = None,
+                 extend_deletion: Optional[pulumi.Input[bool]] = None,
                  parameters: Optional[pulumi.Input['LifecyclePolicyParametersArgs']] = None,
+                 policy_language: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
                  resource_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_type: Optional[pulumi.Input[str]] = None,
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 retain_interval: Optional[pulumi.Input[int]] = None,
                  schedules: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyScheduleArgs']]]] = None,
                  target_tags: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyTagArgs']]]] = None):
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
+        if copy_tags is not None:
+            pulumi.set(__self__, "copy_tags", copy_tags)
+        if create_interval is not None:
+            pulumi.set(__self__, "create_interval", create_interval)
+        if cross_region_copy_targets is not None:
+            pulumi.set(__self__, "cross_region_copy_targets", cross_region_copy_targets)
         if event_source is not None:
             pulumi.set(__self__, "event_source", event_source)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+        if extend_deletion is not None:
+            pulumi.set(__self__, "extend_deletion", extend_deletion)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if policy_language is not None:
+            pulumi.set(__self__, "policy_language", policy_language)
         if policy_type is not None:
             pulumi.set(__self__, "policy_type", policy_type)
         if resource_locations is not None:
             pulumi.set(__self__, "resource_locations", resource_locations)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
         if resource_types is not None:
             pulumi.set(__self__, "resource_types", resource_types)
+        if retain_interval is not None:
+            pulumi.set(__self__, "retain_interval", retain_interval)
         if schedules is not None:
             pulumi.set(__self__, "schedules", schedules)
         if target_tags is not None:
@@ -618,6 +705,33 @@ class LifecyclePolicyPolicyDetailsArgs:
         pulumi.set(self, "actions", value)
 
     @property
+    @pulumi.getter(name="copyTags")
+    def copy_tags(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "copy_tags")
+
+    @copy_tags.setter
+    def copy_tags(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "copy_tags", value)
+
+    @property
+    @pulumi.getter(name="createInterval")
+    def create_interval(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "create_interval")
+
+    @create_interval.setter
+    def create_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "create_interval", value)
+
+    @property
+    @pulumi.getter(name="crossRegionCopyTargets")
+    def cross_region_copy_targets(self) -> Optional[pulumi.Input['LifecyclePolicyCrossRegionCopyTargetsArgs']]:
+        return pulumi.get(self, "cross_region_copy_targets")
+
+    @cross_region_copy_targets.setter
+    def cross_region_copy_targets(self, value: Optional[pulumi.Input['LifecyclePolicyCrossRegionCopyTargetsArgs']]):
+        pulumi.set(self, "cross_region_copy_targets", value)
+
+    @property
     @pulumi.getter(name="eventSource")
     def event_source(self) -> Optional[pulumi.Input['LifecyclePolicyEventSourceArgs']]:
         return pulumi.get(self, "event_source")
@@ -628,12 +742,39 @@ class LifecyclePolicyPolicyDetailsArgs:
 
     @property
     @pulumi.getter
+    def exclusions(self) -> Optional[pulumi.Input['LifecyclePolicyExclusionsArgs']]:
+        return pulumi.get(self, "exclusions")
+
+    @exclusions.setter
+    def exclusions(self, value: Optional[pulumi.Input['LifecyclePolicyExclusionsArgs']]):
+        pulumi.set(self, "exclusions", value)
+
+    @property
+    @pulumi.getter(name="extendDeletion")
+    def extend_deletion(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "extend_deletion")
+
+    @extend_deletion.setter
+    def extend_deletion(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "extend_deletion", value)
+
+    @property
+    @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input['LifecyclePolicyParametersArgs']]:
         return pulumi.get(self, "parameters")
 
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input['LifecyclePolicyParametersArgs']]):
         pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="policyLanguage")
+    def policy_language(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "policy_language")
+
+    @policy_language.setter
+    def policy_language(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_language", value)
 
     @property
     @pulumi.getter(name="policyType")
@@ -654,6 +795,15 @@ class LifecyclePolicyPolicyDetailsArgs:
         pulumi.set(self, "resource_locations", value)
 
     @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_type", value)
+
+    @property
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "resource_types")
@@ -661,6 +811,15 @@ class LifecyclePolicyPolicyDetailsArgs:
     @resource_types.setter
     def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resource_types", value)
+
+    @property
+    @pulumi.getter(name="retainInterval")
+    def retain_interval(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "retain_interval")
+
+    @retain_interval.setter
+    def retain_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retain_interval", value)
 
     @property
     @pulumi.getter

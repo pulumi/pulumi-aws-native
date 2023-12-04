@@ -64,6 +64,7 @@ __all__ = [
     'ChannelEmbeddedPlusScte20DestinationSettings',
     'ChannelEmbeddedSourceSettings',
     'ChannelEncoderSettings',
+    'ChannelEpochLockingSettings',
     'ChannelEsam',
     'ChannelFailoverCondition',
     'ChannelFailoverConditionSettings',
@@ -130,8 +131,10 @@ __all__ = [
     'ChannelOutputGroup',
     'ChannelOutputGroupSettings',
     'ChannelOutputLocationRef',
+    'ChannelOutputLockingSettings',
     'ChannelOutputSettings',
     'ChannelPassThroughSettings',
+    'ChannelPipelineLockingSettings',
     'ChannelRawSettings',
     'ChannelRec601Settings',
     'ChannelRec709Settings',
@@ -3204,6 +3207,46 @@ class ChannelEncoderSettings(dict):
 
 
 @pulumi.output_type
+class ChannelEpochLockingSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customEpoch":
+            suggest = "custom_epoch"
+        elif key == "jamSyncTime":
+            suggest = "jam_sync_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEpochLockingSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEpochLockingSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEpochLockingSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_epoch: Optional[str] = None,
+                 jam_sync_time: Optional[str] = None):
+        if custom_epoch is not None:
+            pulumi.set(__self__, "custom_epoch", custom_epoch)
+        if jam_sync_time is not None:
+            pulumi.set(__self__, "jam_sync_time", jam_sync_time)
+
+    @property
+    @pulumi.getter(name="customEpoch")
+    def custom_epoch(self) -> Optional[str]:
+        return pulumi.get(self, "custom_epoch")
+
+    @property
+    @pulumi.getter(name="jamSyncTime")
+    def jam_sync_time(self) -> Optional[str]:
+        return pulumi.get(self, "jam_sync_time")
+
+
+@pulumi.output_type
 class ChannelEsam(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3368,6 +3411,8 @@ class ChannelFeatureActivations(dict):
         suggest = None
         if key == "inputPrepareScheduleActions":
             suggest = "input_prepare_schedule_actions"
+        elif key == "outputStaticImageOverlayScheduleActions":
+            suggest = "output_static_image_overlay_schedule_actions"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ChannelFeatureActivations. Access the value via the '{suggest}' property getter instead.")
@@ -3381,14 +3426,22 @@ class ChannelFeatureActivations(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 input_prepare_schedule_actions: Optional[str] = None):
+                 input_prepare_schedule_actions: Optional[str] = None,
+                 output_static_image_overlay_schedule_actions: Optional[str] = None):
         if input_prepare_schedule_actions is not None:
             pulumi.set(__self__, "input_prepare_schedule_actions", input_prepare_schedule_actions)
+        if output_static_image_overlay_schedule_actions is not None:
+            pulumi.set(__self__, "output_static_image_overlay_schedule_actions", output_static_image_overlay_schedule_actions)
 
     @property
     @pulumi.getter(name="inputPrepareScheduleActions")
     def input_prepare_schedule_actions(self) -> Optional[str]:
         return pulumi.get(self, "input_prepare_schedule_actions")
+
+    @property
+    @pulumi.getter(name="outputStaticImageOverlayScheduleActions")
+    def output_static_image_overlay_schedule_actions(self) -> Optional[str]:
+        return pulumi.get(self, "output_static_image_overlay_schedule_actions")
 
 
 @pulumi.output_type
@@ -3688,6 +3741,8 @@ class ChannelGlobalConfiguration(dict):
             suggest = "input_loss_behavior"
         elif key == "outputLockingMode":
             suggest = "output_locking_mode"
+        elif key == "outputLockingSettings":
+            suggest = "output_locking_settings"
         elif key == "outputTimingSource":
             suggest = "output_timing_source"
         elif key == "supportLowFramerateInputs":
@@ -3709,6 +3764,7 @@ class ChannelGlobalConfiguration(dict):
                  input_end_action: Optional[str] = None,
                  input_loss_behavior: Optional['outputs.ChannelInputLossBehavior'] = None,
                  output_locking_mode: Optional[str] = None,
+                 output_locking_settings: Optional['outputs.ChannelOutputLockingSettings'] = None,
                  output_timing_source: Optional[str] = None,
                  support_low_framerate_inputs: Optional[str] = None):
         if initial_audio_gain is not None:
@@ -3719,6 +3775,8 @@ class ChannelGlobalConfiguration(dict):
             pulumi.set(__self__, "input_loss_behavior", input_loss_behavior)
         if output_locking_mode is not None:
             pulumi.set(__self__, "output_locking_mode", output_locking_mode)
+        if output_locking_settings is not None:
+            pulumi.set(__self__, "output_locking_settings", output_locking_settings)
         if output_timing_source is not None:
             pulumi.set(__self__, "output_timing_source", output_timing_source)
         if support_low_framerate_inputs is not None:
@@ -3743,6 +3801,11 @@ class ChannelGlobalConfiguration(dict):
     @pulumi.getter(name="outputLockingMode")
     def output_locking_mode(self) -> Optional[str]:
         return pulumi.get(self, "output_locking_mode")
+
+    @property
+    @pulumi.getter(name="outputLockingSettings")
+    def output_locking_settings(self) -> Optional['outputs.ChannelOutputLockingSettings']:
+        return pulumi.get(self, "output_locking_settings")
 
     @property
     @pulumi.getter(name="outputTimingSource")
@@ -8206,6 +8269,46 @@ class ChannelOutputLocationRef(dict):
 
 
 @pulumi.output_type
+class ChannelOutputLockingSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "epochLockingSettings":
+            suggest = "epoch_locking_settings"
+        elif key == "pipelineLockingSettings":
+            suggest = "pipeline_locking_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelOutputLockingSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelOutputLockingSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelOutputLockingSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 epoch_locking_settings: Optional['outputs.ChannelEpochLockingSettings'] = None,
+                 pipeline_locking_settings: Optional['outputs.ChannelPipelineLockingSettings'] = None):
+        if epoch_locking_settings is not None:
+            pulumi.set(__self__, "epoch_locking_settings", epoch_locking_settings)
+        if pipeline_locking_settings is not None:
+            pulumi.set(__self__, "pipeline_locking_settings", pipeline_locking_settings)
+
+    @property
+    @pulumi.getter(name="epochLockingSettings")
+    def epoch_locking_settings(self) -> Optional['outputs.ChannelEpochLockingSettings']:
+        return pulumi.get(self, "epoch_locking_settings")
+
+    @property
+    @pulumi.getter(name="pipelineLockingSettings")
+    def pipeline_locking_settings(self) -> Optional['outputs.ChannelPipelineLockingSettings']:
+        return pulumi.get(self, "pipeline_locking_settings")
+
+
+@pulumi.output_type
 class ChannelOutputSettings(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -8307,6 +8410,12 @@ class ChannelOutputSettings(dict):
 
 @pulumi.output_type
 class ChannelPassThroughSettings(dict):
+    def __init__(__self__):
+        pass
+
+
+@pulumi.output_type
+class ChannelPipelineLockingSettings(dict):
     def __init__(__self__):
         pass
 

@@ -14,11 +14,19 @@ namespace Pulumi.AwsNative.Dlm.Outputs
     public sealed class LifecyclePolicyPolicyDetails
     {
         public readonly ImmutableArray<Outputs.LifecyclePolicyAction> Actions;
+        public readonly bool? CopyTags;
+        public readonly int? CreateInterval;
+        public readonly Outputs.LifecyclePolicyCrossRegionCopyTargets? CrossRegionCopyTargets;
         public readonly Outputs.LifecyclePolicyEventSource? EventSource;
+        public readonly Outputs.LifecyclePolicyExclusions? Exclusions;
+        public readonly bool? ExtendDeletion;
         public readonly Outputs.LifecyclePolicyParameters? Parameters;
+        public readonly string? PolicyLanguage;
         public readonly string? PolicyType;
         public readonly ImmutableArray<string> ResourceLocations;
+        public readonly string? ResourceType;
         public readonly ImmutableArray<string> ResourceTypes;
+        public readonly int? RetainInterval;
         public readonly ImmutableArray<Outputs.LifecyclePolicySchedule> Schedules;
         public readonly ImmutableArray<Outputs.LifecyclePolicyTag> TargetTags;
 
@@ -26,26 +34,50 @@ namespace Pulumi.AwsNative.Dlm.Outputs
         private LifecyclePolicyPolicyDetails(
             ImmutableArray<Outputs.LifecyclePolicyAction> actions,
 
+            bool? copyTags,
+
+            int? createInterval,
+
+            Outputs.LifecyclePolicyCrossRegionCopyTargets? crossRegionCopyTargets,
+
             Outputs.LifecyclePolicyEventSource? eventSource,
 
+            Outputs.LifecyclePolicyExclusions? exclusions,
+
+            bool? extendDeletion,
+
             Outputs.LifecyclePolicyParameters? parameters,
+
+            string? policyLanguage,
 
             string? policyType,
 
             ImmutableArray<string> resourceLocations,
 
+            string? resourceType,
+
             ImmutableArray<string> resourceTypes,
+
+            int? retainInterval,
 
             ImmutableArray<Outputs.LifecyclePolicySchedule> schedules,
 
             ImmutableArray<Outputs.LifecyclePolicyTag> targetTags)
         {
             Actions = actions;
+            CopyTags = copyTags;
+            CreateInterval = createInterval;
+            CrossRegionCopyTargets = crossRegionCopyTargets;
             EventSource = eventSource;
+            Exclusions = exclusions;
+            ExtendDeletion = extendDeletion;
             Parameters = parameters;
+            PolicyLanguage = policyLanguage;
             PolicyType = policyType;
             ResourceLocations = resourceLocations;
+            ResourceType = resourceType;
             ResourceTypes = resourceTypes;
+            RetainInterval = retainInterval;
             Schedules = schedules;
             TargetTags = targetTags;
         }

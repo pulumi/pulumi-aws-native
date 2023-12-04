@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.MediaLive.Inputs
         [Input("inputPrepareScheduleActions")]
         public Input<string>? InputPrepareScheduleActions { get; set; }
 
+        [Input("outputStaticImageOverlayScheduleActions")]
+        public Input<string>? OutputStaticImageOverlayScheduleActions { get; set; }
+
         public ChannelFeatureActivationsArgs()
         {
         }

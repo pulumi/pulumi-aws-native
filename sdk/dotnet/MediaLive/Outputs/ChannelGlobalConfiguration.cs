@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
         public readonly string? InputEndAction;
         public readonly Outputs.ChannelInputLossBehavior? InputLossBehavior;
         public readonly string? OutputLockingMode;
+        public readonly Outputs.ChannelOutputLockingSettings? OutputLockingSettings;
         public readonly string? OutputTimingSource;
         public readonly string? SupportLowFramerateInputs;
 
@@ -30,6 +31,8 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
 
             string? outputLockingMode,
 
+            Outputs.ChannelOutputLockingSettings? outputLockingSettings,
+
             string? outputTimingSource,
 
             string? supportLowFramerateInputs)
@@ -38,6 +41,7 @@ namespace Pulumi.AwsNative.MediaLive.Outputs
             InputEndAction = inputEndAction;
             InputLossBehavior = inputLossBehavior;
             OutputLockingMode = outputLockingMode;
+            OutputLockingSettings = outputLockingSettings;
             OutputTimingSource = outputTimingSource;
             SupportLowFramerateInputs = supportLowFramerateInputs;
         }

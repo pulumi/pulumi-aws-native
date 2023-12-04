@@ -61,6 +61,7 @@ namespace Pulumi.AwsNative.Transfer
         public readonly string? PreAuthenticationLoginBanner;
         public readonly Outputs.ServerProtocolDetails? ProtocolDetails;
         public readonly ImmutableArray<Outputs.ServerProtocol> Protocols;
+        public readonly Outputs.ServerS3StorageOptions? S3StorageOptions;
         public readonly string? SecurityPolicyName;
         public readonly string? ServerId;
         public readonly ImmutableArray<Outputs.ServerStructuredLogDestination> StructuredLogDestinations;
@@ -89,6 +90,8 @@ namespace Pulumi.AwsNative.Transfer
 
             ImmutableArray<Outputs.ServerProtocol> protocols,
 
+            Outputs.ServerS3StorageOptions? s3StorageOptions,
+
             string? securityPolicyName,
 
             string? serverId,
@@ -109,6 +112,7 @@ namespace Pulumi.AwsNative.Transfer
             PreAuthenticationLoginBanner = preAuthenticationLoginBanner;
             ProtocolDetails = protocolDetails;
             Protocols = protocols;
+            S3StorageOptions = s3StorageOptions;
             SecurityPolicyName = securityPolicyName;
             ServerId = serverId;
             StructuredLogDestinations = structuredLogDestinations;

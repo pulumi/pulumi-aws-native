@@ -74,6 +74,10 @@ namespace Pulumi.AwsNative.Sns
         /// </summary>
         public readonly object? DataProtectionPolicy;
         /// <summary>
+        /// Delivery status logging configuration for supported protocols for an Amazon SNS topic.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TopicLoggingConfig> DeliveryStatusLogging;
+        /// <summary>
         /// The display name to use for an Amazon SNS topic with SMS subscriptions.
         /// </summary>
         public readonly string? DisplayName;
@@ -106,6 +110,8 @@ namespace Pulumi.AwsNative.Sns
 
             object? dataProtectionPolicy,
 
+            ImmutableArray<Outputs.TopicLoggingConfig> deliveryStatusLogging,
+
             string? displayName,
 
             string? kmsMasterKeyId,
@@ -123,6 +129,7 @@ namespace Pulumi.AwsNative.Sns
             ArchivePolicy = archivePolicy;
             ContentBasedDeduplication = contentBasedDeduplication;
             DataProtectionPolicy = dataProtectionPolicy;
+            DeliveryStatusLogging = deliveryStatusLogging;
             DisplayName = displayName;
             KmsMasterKeyId = kmsMasterKeyId;
             SignatureVersion = signatureVersion;

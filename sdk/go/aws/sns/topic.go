@@ -32,6 +32,8 @@ type Topic struct {
 	//
 	// Length Constraints: Maximum length of 30720
 	DataProtectionPolicy pulumi.AnyOutput `pulumi:"dataProtectionPolicy"`
+	// Delivery status logging configuration for supported protocols for an Amazon SNS topic.
+	DeliveryStatusLogging TopicLoggingConfigArrayOutput `pulumi:"deliveryStatusLogging"`
 	// The display name to use for an Amazon SNS topic with SMS subscriptions.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// Set to true to create a FIFO topic.
@@ -115,6 +117,8 @@ type topicArgs struct {
 	//
 	// Length Constraints: Maximum length of 30720
 	DataProtectionPolicy interface{} `pulumi:"dataProtectionPolicy"`
+	// Delivery status logging configuration for supported protocols for an Amazon SNS topic.
+	DeliveryStatusLogging []TopicLoggingConfig `pulumi:"deliveryStatusLogging"`
 	// The display name to use for an Amazon SNS topic with SMS subscriptions.
 	DisplayName *string `pulumi:"displayName"`
 	// Set to true to create a FIFO topic.
@@ -154,6 +158,8 @@ type TopicArgs struct {
 	//
 	// Length Constraints: Maximum length of 30720
 	DataProtectionPolicy pulumi.Input
+	// Delivery status logging configuration for supported protocols for an Amazon SNS topic.
+	DeliveryStatusLogging TopicLoggingConfigArrayInput
 	// The display name to use for an Amazon SNS topic with SMS subscriptions.
 	DisplayName pulumi.StringPtrInput
 	// Set to true to create a FIFO topic.
@@ -247,6 +253,11 @@ func (o TopicOutput) ContentBasedDeduplication() pulumi.BoolPtrOutput {
 // Length Constraints: Maximum length of 30720
 func (o TopicOutput) DataProtectionPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Topic) pulumi.AnyOutput { return v.DataProtectionPolicy }).(pulumi.AnyOutput)
+}
+
+// Delivery status logging configuration for supported protocols for an Amazon SNS topic.
+func (o TopicOutput) DeliveryStatusLogging() TopicLoggingConfigArrayOutput {
+	return o.ApplyT(func(v *Topic) TopicLoggingConfigArrayOutput { return v.DeliveryStatusLogging }).(TopicLoggingConfigArrayOutput)
 }
 
 // The display name to use for an Amazon SNS topic with SMS subscriptions.

@@ -20,11 +20,29 @@ namespace Pulumi.AwsNative.Dlm.Inputs
             set => _actions = value;
         }
 
+        [Input("copyTags")]
+        public Input<bool>? CopyTags { get; set; }
+
+        [Input("createInterval")]
+        public Input<int>? CreateInterval { get; set; }
+
+        [Input("crossRegionCopyTargets")]
+        public Input<Inputs.LifecyclePolicyCrossRegionCopyTargetsArgs>? CrossRegionCopyTargets { get; set; }
+
         [Input("eventSource")]
         public Input<Inputs.LifecyclePolicyEventSourceArgs>? EventSource { get; set; }
 
+        [Input("exclusions")]
+        public Input<Inputs.LifecyclePolicyExclusionsArgs>? Exclusions { get; set; }
+
+        [Input("extendDeletion")]
+        public Input<bool>? ExtendDeletion { get; set; }
+
         [Input("parameters")]
         public Input<Inputs.LifecyclePolicyParametersArgs>? Parameters { get; set; }
+
+        [Input("policyLanguage")]
+        public Input<string>? PolicyLanguage { get; set; }
 
         [Input("policyType")]
         public Input<string>? PolicyType { get; set; }
@@ -37,6 +55,9 @@ namespace Pulumi.AwsNative.Dlm.Inputs
             set => _resourceLocations = value;
         }
 
+        [Input("resourceType")]
+        public Input<string>? ResourceType { get; set; }
+
         [Input("resourceTypes")]
         private InputList<string>? _resourceTypes;
         public InputList<string> ResourceTypes
@@ -44,6 +65,9 @@ namespace Pulumi.AwsNative.Dlm.Inputs
             get => _resourceTypes ?? (_resourceTypes = new InputList<string>());
             set => _resourceTypes = value;
         }
+
+        [Input("retainInterval")]
+        public Input<int>? RetainInterval { get; set; }
 
         [Input("schedules")]
         private InputList<Inputs.LifecyclePolicyScheduleArgs>? _schedules;

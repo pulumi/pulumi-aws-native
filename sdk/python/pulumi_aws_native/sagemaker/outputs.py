@@ -74,9 +74,12 @@ __all__ = [
     'EndpointConfigClarifyTextConfig',
     'EndpointConfigDataCaptureConfig',
     'EndpointConfigExplainerConfig',
+    'EndpointConfigManagedInstanceScaling',
     'EndpointConfigProductionVariant',
+    'EndpointConfigRoutingConfig',
     'EndpointConfigServerlessConfig',
     'EndpointConfigTag',
+    'EndpointConfigVpcConfig',
     'EndpointDeploymentConfig',
     'EndpointRollingUpdatePolicy',
     'EndpointTag',
@@ -153,6 +156,7 @@ __all__ = [
     'ModelCardTrainingMetric',
     'ModelCardUserContext',
     'ModelContainerDefinition',
+    'ModelDataSource',
     'ModelExplainabilityJobDefinitionBatchTransformInput',
     'ModelExplainabilityJobDefinitionClusterConfig',
     'ModelExplainabilityJobDefinitionConstraintsResource',
@@ -227,6 +231,7 @@ __all__ = [
     'ModelQualityJobDefinitionTag',
     'ModelQualityJobDefinitionVpcConfig',
     'ModelRepositoryAuthConfig',
+    'ModelS3DataSource',
     'ModelTag',
     'ModelVpcConfig',
     'MonitoringScheduleBaselineConfig',
@@ -3356,15 +3361,59 @@ class EndpointConfigExplainerConfig(dict):
 
 
 @pulumi.output_type
+class EndpointConfigManagedInstanceScaling(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxInstanceCount":
+            suggest = "max_instance_count"
+        elif key == "minInstanceCount":
+            suggest = "min_instance_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigManagedInstanceScaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigManagedInstanceScaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigManagedInstanceScaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_instance_count: Optional[int] = None,
+                 min_instance_count: Optional[int] = None,
+                 status: Optional[str] = None):
+        if max_instance_count is not None:
+            pulumi.set(__self__, "max_instance_count", max_instance_count)
+        if min_instance_count is not None:
+            pulumi.set(__self__, "min_instance_count", min_instance_count)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="maxInstanceCount")
+    def max_instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "max_instance_count")
+
+    @property
+    @pulumi.getter(name="minInstanceCount")
+    def min_instance_count(self) -> Optional[int]:
+        return pulumi.get(self, "min_instance_count")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class EndpointConfigProductionVariant(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "initialVariantWeight":
-            suggest = "initial_variant_weight"
-        elif key == "modelName":
-            suggest = "model_name"
-        elif key == "variantName":
+        if key == "variantName":
             suggest = "variant_name"
         elif key == "acceleratorType":
             suggest = "accelerator_type"
@@ -3374,10 +3423,18 @@ class EndpointConfigProductionVariant(dict):
             suggest = "enable_ssm_access"
         elif key == "initialInstanceCount":
             suggest = "initial_instance_count"
+        elif key == "initialVariantWeight":
+            suggest = "initial_variant_weight"
         elif key == "instanceType":
             suggest = "instance_type"
+        elif key == "managedInstanceScaling":
+            suggest = "managed_instance_scaling"
         elif key == "modelDataDownloadTimeoutInSeconds":
             suggest = "model_data_download_timeout_in_seconds"
+        elif key == "modelName":
+            suggest = "model_name"
+        elif key == "routingConfig":
+            suggest = "routing_config"
         elif key == "serverlessConfig":
             suggest = "serverless_config"
         elif key == "volumeSizeInGb":
@@ -3395,19 +3452,19 @@ class EndpointConfigProductionVariant(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 initial_variant_weight: float,
-                 model_name: str,
                  variant_name: str,
                  accelerator_type: Optional[str] = None,
                  container_startup_health_check_timeout_in_seconds: Optional[int] = None,
                  enable_ssm_access: Optional[bool] = None,
                  initial_instance_count: Optional[int] = None,
+                 initial_variant_weight: Optional[float] = None,
                  instance_type: Optional[str] = None,
+                 managed_instance_scaling: Optional['outputs.EndpointConfigManagedInstanceScaling'] = None,
                  model_data_download_timeout_in_seconds: Optional[int] = None,
+                 model_name: Optional[str] = None,
+                 routing_config: Optional['outputs.EndpointConfigRoutingConfig'] = None,
                  serverless_config: Optional['outputs.EndpointConfigServerlessConfig'] = None,
                  volume_size_in_gb: Optional[int] = None):
-        pulumi.set(__self__, "initial_variant_weight", initial_variant_weight)
-        pulumi.set(__self__, "model_name", model_name)
         pulumi.set(__self__, "variant_name", variant_name)
         if accelerator_type is not None:
             pulumi.set(__self__, "accelerator_type", accelerator_type)
@@ -3417,24 +3474,22 @@ class EndpointConfigProductionVariant(dict):
             pulumi.set(__self__, "enable_ssm_access", enable_ssm_access)
         if initial_instance_count is not None:
             pulumi.set(__self__, "initial_instance_count", initial_instance_count)
+        if initial_variant_weight is not None:
+            pulumi.set(__self__, "initial_variant_weight", initial_variant_weight)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
+        if managed_instance_scaling is not None:
+            pulumi.set(__self__, "managed_instance_scaling", managed_instance_scaling)
         if model_data_download_timeout_in_seconds is not None:
             pulumi.set(__self__, "model_data_download_timeout_in_seconds", model_data_download_timeout_in_seconds)
+        if model_name is not None:
+            pulumi.set(__self__, "model_name", model_name)
+        if routing_config is not None:
+            pulumi.set(__self__, "routing_config", routing_config)
         if serverless_config is not None:
             pulumi.set(__self__, "serverless_config", serverless_config)
         if volume_size_in_gb is not None:
             pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
-
-    @property
-    @pulumi.getter(name="initialVariantWeight")
-    def initial_variant_weight(self) -> float:
-        return pulumi.get(self, "initial_variant_weight")
-
-    @property
-    @pulumi.getter(name="modelName")
-    def model_name(self) -> str:
-        return pulumi.get(self, "model_name")
 
     @property
     @pulumi.getter(name="variantName")
@@ -3462,14 +3517,34 @@ class EndpointConfigProductionVariant(dict):
         return pulumi.get(self, "initial_instance_count")
 
     @property
+    @pulumi.getter(name="initialVariantWeight")
+    def initial_variant_weight(self) -> Optional[float]:
+        return pulumi.get(self, "initial_variant_weight")
+
+    @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[str]:
         return pulumi.get(self, "instance_type")
 
     @property
+    @pulumi.getter(name="managedInstanceScaling")
+    def managed_instance_scaling(self) -> Optional['outputs.EndpointConfigManagedInstanceScaling']:
+        return pulumi.get(self, "managed_instance_scaling")
+
+    @property
     @pulumi.getter(name="modelDataDownloadTimeoutInSeconds")
     def model_data_download_timeout_in_seconds(self) -> Optional[int]:
         return pulumi.get(self, "model_data_download_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="modelName")
+    def model_name(self) -> Optional[str]:
+        return pulumi.get(self, "model_name")
+
+    @property
+    @pulumi.getter(name="routingConfig")
+    def routing_config(self) -> Optional['outputs.EndpointConfigRoutingConfig']:
+        return pulumi.get(self, "routing_config")
 
     @property
     @pulumi.getter(name="serverlessConfig")
@@ -3480,6 +3555,36 @@ class EndpointConfigProductionVariant(dict):
     @pulumi.getter(name="volumeSizeInGb")
     def volume_size_in_gb(self) -> Optional[int]:
         return pulumi.get(self, "volume_size_in_gb")
+
+
+@pulumi.output_type
+class EndpointConfigRoutingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "routingStrategy":
+            suggest = "routing_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigRoutingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigRoutingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigRoutingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 routing_strategy: Optional[str] = None):
+        if routing_strategy is not None:
+            pulumi.set(__self__, "routing_strategy", routing_strategy)
+
+    @property
+    @pulumi.getter(name="routingStrategy")
+    def routing_strategy(self) -> Optional[str]:
+        return pulumi.get(self, "routing_strategy")
 
 
 @pulumi.output_type
@@ -3547,6 +3652,42 @@ class EndpointConfigTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EndpointConfigVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Sequence[str],
+                 subnets: Sequence[str]):
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[str]:
+        return pulumi.get(self, "security_group_ids")
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Sequence[str]:
+        return pulumi.get(self, "subnets")
 
 
 @pulumi.output_type
@@ -7744,6 +7885,8 @@ class ModelContainerDefinition(dict):
             suggest = "image_config"
         elif key == "inferenceSpecificationName":
             suggest = "inference_specification_name"
+        elif key == "modelDataSource":
+            suggest = "model_data_source"
         elif key == "modelDataUrl":
             suggest = "model_data_url"
         elif key == "modelPackageName":
@@ -7769,6 +7912,7 @@ class ModelContainerDefinition(dict):
                  image_config: Optional['outputs.ModelImageConfig'] = None,
                  inference_specification_name: Optional[str] = None,
                  mode: Optional[str] = None,
+                 model_data_source: Optional['outputs.ModelDataSource'] = None,
                  model_data_url: Optional[str] = None,
                  model_package_name: Optional[str] = None,
                  multi_model_config: Optional['outputs.ModelMultiModelConfig'] = None):
@@ -7784,6 +7928,8 @@ class ModelContainerDefinition(dict):
             pulumi.set(__self__, "inference_specification_name", inference_specification_name)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
+        if model_data_source is not None:
+            pulumi.set(__self__, "model_data_source", model_data_source)
         if model_data_url is not None:
             pulumi.set(__self__, "model_data_url", model_data_url)
         if model_package_name is not None:
@@ -7822,6 +7968,11 @@ class ModelContainerDefinition(dict):
         return pulumi.get(self, "mode")
 
     @property
+    @pulumi.getter(name="modelDataSource")
+    def model_data_source(self) -> Optional['outputs.ModelDataSource']:
+        return pulumi.get(self, "model_data_source")
+
+    @property
     @pulumi.getter(name="modelDataUrl")
     def model_data_url(self) -> Optional[str]:
         return pulumi.get(self, "model_data_url")
@@ -7835,6 +7986,35 @@ class ModelContainerDefinition(dict):
     @pulumi.getter(name="multiModelConfig")
     def multi_model_config(self) -> Optional['outputs.ModelMultiModelConfig']:
         return pulumi.get(self, "multi_model_config")
+
+
+@pulumi.output_type
+class ModelDataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3DataSource":
+            suggest = "s3_data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelDataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelDataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelDataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_data_source: 'outputs.ModelS3DataSource'):
+        pulumi.set(__self__, "s3_data_source", s3_data_source)
+
+    @property
+    @pulumi.getter(name="s3DataSource")
+    def s3_data_source(self) -> 'outputs.ModelS3DataSource':
+        return pulumi.get(self, "s3_data_source")
 
 
 @pulumi.output_type
@@ -11838,6 +12018,53 @@ class ModelRepositoryAuthConfig(dict):
     @pulumi.getter(name="repositoryCredentialsProviderArn")
     def repository_credentials_provider_arn(self) -> str:
         return pulumi.get(self, "repository_credentials_provider_arn")
+
+
+@pulumi.output_type
+class ModelS3DataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "compressionType":
+            suggest = "compression_type"
+        elif key == "s3DataType":
+            suggest = "s3_data_type"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelS3DataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelS3DataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelS3DataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression_type: str,
+                 s3_data_type: str,
+                 s3_uri: str):
+        pulumi.set(__self__, "compression_type", compression_type)
+        pulumi.set(__self__, "s3_data_type", s3_data_type)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> str:
+        return pulumi.get(self, "compression_type")
+
+    @property
+    @pulumi.getter(name="s3DataType")
+    def s3_data_type(self) -> str:
+        return pulumi.get(self, "s3_data_type")
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> str:
+        return pulumi.get(self, "s3_uri")
 
 
 @pulumi.output_type

@@ -1322,6 +1322,148 @@ func (o LifecyclePolicyCrossRegionCopyRuleArrayOutput) Index(i pulumi.IntInput) 
 	}).(LifecyclePolicyCrossRegionCopyRuleOutput)
 }
 
+type LifecyclePolicyCrossRegionCopyTargets struct {
+}
+
+// LifecyclePolicyCrossRegionCopyTargetsInput is an input type that accepts LifecyclePolicyCrossRegionCopyTargetsArgs and LifecyclePolicyCrossRegionCopyTargetsOutput values.
+// You can construct a concrete instance of `LifecyclePolicyCrossRegionCopyTargetsInput` via:
+//
+//	LifecyclePolicyCrossRegionCopyTargetsArgs{...}
+type LifecyclePolicyCrossRegionCopyTargetsInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyCrossRegionCopyTargetsOutput() LifecyclePolicyCrossRegionCopyTargetsOutput
+	ToLifecyclePolicyCrossRegionCopyTargetsOutputWithContext(context.Context) LifecyclePolicyCrossRegionCopyTargetsOutput
+}
+
+type LifecyclePolicyCrossRegionCopyTargetsArgs struct {
+}
+
+func (LifecyclePolicyCrossRegionCopyTargetsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyCrossRegionCopyTargets)(nil)).Elem()
+}
+
+func (i LifecyclePolicyCrossRegionCopyTargetsArgs) ToLifecyclePolicyCrossRegionCopyTargetsOutput() LifecyclePolicyCrossRegionCopyTargetsOutput {
+	return i.ToLifecyclePolicyCrossRegionCopyTargetsOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyCrossRegionCopyTargetsArgs) ToLifecyclePolicyCrossRegionCopyTargetsOutputWithContext(ctx context.Context) LifecyclePolicyCrossRegionCopyTargetsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyCrossRegionCopyTargetsOutput)
+}
+
+func (i LifecyclePolicyCrossRegionCopyTargetsArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyCrossRegionCopyTargets] {
+	return pulumix.Output[LifecyclePolicyCrossRegionCopyTargets]{
+		OutputState: i.ToLifecyclePolicyCrossRegionCopyTargetsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i LifecyclePolicyCrossRegionCopyTargetsArgs) ToLifecyclePolicyCrossRegionCopyTargetsPtrOutput() LifecyclePolicyCrossRegionCopyTargetsPtrOutput {
+	return i.ToLifecyclePolicyCrossRegionCopyTargetsPtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyCrossRegionCopyTargetsArgs) ToLifecyclePolicyCrossRegionCopyTargetsPtrOutputWithContext(ctx context.Context) LifecyclePolicyCrossRegionCopyTargetsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyCrossRegionCopyTargetsOutput).ToLifecyclePolicyCrossRegionCopyTargetsPtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyCrossRegionCopyTargetsPtrInput is an input type that accepts LifecyclePolicyCrossRegionCopyTargetsArgs, LifecyclePolicyCrossRegionCopyTargetsPtr and LifecyclePolicyCrossRegionCopyTargetsPtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyCrossRegionCopyTargetsPtrInput` via:
+//
+//	        LifecyclePolicyCrossRegionCopyTargetsArgs{...}
+//
+//	or:
+//
+//	        nil
+type LifecyclePolicyCrossRegionCopyTargetsPtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyCrossRegionCopyTargetsPtrOutput() LifecyclePolicyCrossRegionCopyTargetsPtrOutput
+	ToLifecyclePolicyCrossRegionCopyTargetsPtrOutputWithContext(context.Context) LifecyclePolicyCrossRegionCopyTargetsPtrOutput
+}
+
+type lifecyclePolicyCrossRegionCopyTargetsPtrType LifecyclePolicyCrossRegionCopyTargetsArgs
+
+func LifecyclePolicyCrossRegionCopyTargetsPtr(v *LifecyclePolicyCrossRegionCopyTargetsArgs) LifecyclePolicyCrossRegionCopyTargetsPtrInput {
+	return (*lifecyclePolicyCrossRegionCopyTargetsPtrType)(v)
+}
+
+func (*lifecyclePolicyCrossRegionCopyTargetsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyCrossRegionCopyTargets)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyCrossRegionCopyTargetsPtrType) ToLifecyclePolicyCrossRegionCopyTargetsPtrOutput() LifecyclePolicyCrossRegionCopyTargetsPtrOutput {
+	return i.ToLifecyclePolicyCrossRegionCopyTargetsPtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyCrossRegionCopyTargetsPtrType) ToLifecyclePolicyCrossRegionCopyTargetsPtrOutputWithContext(ctx context.Context) LifecyclePolicyCrossRegionCopyTargetsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyCrossRegionCopyTargetsPtrOutput)
+}
+
+func (i *lifecyclePolicyCrossRegionCopyTargetsPtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyCrossRegionCopyTargets] {
+	return pulumix.Output[*LifecyclePolicyCrossRegionCopyTargets]{
+		OutputState: i.ToLifecyclePolicyCrossRegionCopyTargetsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type LifecyclePolicyCrossRegionCopyTargetsOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyCrossRegionCopyTargetsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyCrossRegionCopyTargets)(nil)).Elem()
+}
+
+func (o LifecyclePolicyCrossRegionCopyTargetsOutput) ToLifecyclePolicyCrossRegionCopyTargetsOutput() LifecyclePolicyCrossRegionCopyTargetsOutput {
+	return o
+}
+
+func (o LifecyclePolicyCrossRegionCopyTargetsOutput) ToLifecyclePolicyCrossRegionCopyTargetsOutputWithContext(ctx context.Context) LifecyclePolicyCrossRegionCopyTargetsOutput {
+	return o
+}
+
+func (o LifecyclePolicyCrossRegionCopyTargetsOutput) ToLifecyclePolicyCrossRegionCopyTargetsPtrOutput() LifecyclePolicyCrossRegionCopyTargetsPtrOutput {
+	return o.ToLifecyclePolicyCrossRegionCopyTargetsPtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyCrossRegionCopyTargetsOutput) ToLifecyclePolicyCrossRegionCopyTargetsPtrOutputWithContext(ctx context.Context) LifecyclePolicyCrossRegionCopyTargetsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyCrossRegionCopyTargets) *LifecyclePolicyCrossRegionCopyTargets {
+		return &v
+	}).(LifecyclePolicyCrossRegionCopyTargetsPtrOutput)
+}
+
+func (o LifecyclePolicyCrossRegionCopyTargetsOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyCrossRegionCopyTargets] {
+	return pulumix.Output[LifecyclePolicyCrossRegionCopyTargets]{
+		OutputState: o.OutputState,
+	}
+}
+
+type LifecyclePolicyCrossRegionCopyTargetsPtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyCrossRegionCopyTargetsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyCrossRegionCopyTargets)(nil)).Elem()
+}
+
+func (o LifecyclePolicyCrossRegionCopyTargetsPtrOutput) ToLifecyclePolicyCrossRegionCopyTargetsPtrOutput() LifecyclePolicyCrossRegionCopyTargetsPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyCrossRegionCopyTargetsPtrOutput) ToLifecyclePolicyCrossRegionCopyTargetsPtrOutputWithContext(ctx context.Context) LifecyclePolicyCrossRegionCopyTargetsPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyCrossRegionCopyTargetsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyCrossRegionCopyTargets] {
+	return pulumix.Output[*LifecyclePolicyCrossRegionCopyTargets]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LifecyclePolicyCrossRegionCopyTargetsPtrOutput) Elem() LifecyclePolicyCrossRegionCopyTargetsOutput {
+	return o.ApplyT(func(v *LifecyclePolicyCrossRegionCopyTargets) LifecyclePolicyCrossRegionCopyTargets {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyCrossRegionCopyTargets
+		return ret
+	}).(LifecyclePolicyCrossRegionCopyTargetsOutput)
+}
+
 type LifecyclePolicyDeprecateRule struct {
 	Count        *int    `pulumi:"count"`
 	Interval     *int    `pulumi:"interval"`
@@ -1935,6 +2077,477 @@ func (o LifecyclePolicyEventSourcePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type LifecyclePolicyExcludeTags struct {
+}
+
+// LifecyclePolicyExcludeTagsInput is an input type that accepts LifecyclePolicyExcludeTagsArgs and LifecyclePolicyExcludeTagsOutput values.
+// You can construct a concrete instance of `LifecyclePolicyExcludeTagsInput` via:
+//
+//	LifecyclePolicyExcludeTagsArgs{...}
+type LifecyclePolicyExcludeTagsInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyExcludeTagsOutput() LifecyclePolicyExcludeTagsOutput
+	ToLifecyclePolicyExcludeTagsOutputWithContext(context.Context) LifecyclePolicyExcludeTagsOutput
+}
+
+type LifecyclePolicyExcludeTagsArgs struct {
+}
+
+func (LifecyclePolicyExcludeTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyExcludeTags)(nil)).Elem()
+}
+
+func (i LifecyclePolicyExcludeTagsArgs) ToLifecyclePolicyExcludeTagsOutput() LifecyclePolicyExcludeTagsOutput {
+	return i.ToLifecyclePolicyExcludeTagsOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyExcludeTagsArgs) ToLifecyclePolicyExcludeTagsOutputWithContext(ctx context.Context) LifecyclePolicyExcludeTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyExcludeTagsOutput)
+}
+
+func (i LifecyclePolicyExcludeTagsArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyExcludeTags] {
+	return pulumix.Output[LifecyclePolicyExcludeTags]{
+		OutputState: i.ToLifecyclePolicyExcludeTagsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i LifecyclePolicyExcludeTagsArgs) ToLifecyclePolicyExcludeTagsPtrOutput() LifecyclePolicyExcludeTagsPtrOutput {
+	return i.ToLifecyclePolicyExcludeTagsPtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyExcludeTagsArgs) ToLifecyclePolicyExcludeTagsPtrOutputWithContext(ctx context.Context) LifecyclePolicyExcludeTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyExcludeTagsOutput).ToLifecyclePolicyExcludeTagsPtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyExcludeTagsPtrInput is an input type that accepts LifecyclePolicyExcludeTagsArgs, LifecyclePolicyExcludeTagsPtr and LifecyclePolicyExcludeTagsPtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyExcludeTagsPtrInput` via:
+//
+//	        LifecyclePolicyExcludeTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type LifecyclePolicyExcludeTagsPtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyExcludeTagsPtrOutput() LifecyclePolicyExcludeTagsPtrOutput
+	ToLifecyclePolicyExcludeTagsPtrOutputWithContext(context.Context) LifecyclePolicyExcludeTagsPtrOutput
+}
+
+type lifecyclePolicyExcludeTagsPtrType LifecyclePolicyExcludeTagsArgs
+
+func LifecyclePolicyExcludeTagsPtr(v *LifecyclePolicyExcludeTagsArgs) LifecyclePolicyExcludeTagsPtrInput {
+	return (*lifecyclePolicyExcludeTagsPtrType)(v)
+}
+
+func (*lifecyclePolicyExcludeTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyExcludeTags)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyExcludeTagsPtrType) ToLifecyclePolicyExcludeTagsPtrOutput() LifecyclePolicyExcludeTagsPtrOutput {
+	return i.ToLifecyclePolicyExcludeTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyExcludeTagsPtrType) ToLifecyclePolicyExcludeTagsPtrOutputWithContext(ctx context.Context) LifecyclePolicyExcludeTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyExcludeTagsPtrOutput)
+}
+
+func (i *lifecyclePolicyExcludeTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyExcludeTags] {
+	return pulumix.Output[*LifecyclePolicyExcludeTags]{
+		OutputState: i.ToLifecyclePolicyExcludeTagsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type LifecyclePolicyExcludeTagsOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyExcludeTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyExcludeTags)(nil)).Elem()
+}
+
+func (o LifecyclePolicyExcludeTagsOutput) ToLifecyclePolicyExcludeTagsOutput() LifecyclePolicyExcludeTagsOutput {
+	return o
+}
+
+func (o LifecyclePolicyExcludeTagsOutput) ToLifecyclePolicyExcludeTagsOutputWithContext(ctx context.Context) LifecyclePolicyExcludeTagsOutput {
+	return o
+}
+
+func (o LifecyclePolicyExcludeTagsOutput) ToLifecyclePolicyExcludeTagsPtrOutput() LifecyclePolicyExcludeTagsPtrOutput {
+	return o.ToLifecyclePolicyExcludeTagsPtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyExcludeTagsOutput) ToLifecyclePolicyExcludeTagsPtrOutputWithContext(ctx context.Context) LifecyclePolicyExcludeTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyExcludeTags) *LifecyclePolicyExcludeTags {
+		return &v
+	}).(LifecyclePolicyExcludeTagsPtrOutput)
+}
+
+func (o LifecyclePolicyExcludeTagsOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyExcludeTags] {
+	return pulumix.Output[LifecyclePolicyExcludeTags]{
+		OutputState: o.OutputState,
+	}
+}
+
+type LifecyclePolicyExcludeTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyExcludeTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyExcludeTags)(nil)).Elem()
+}
+
+func (o LifecyclePolicyExcludeTagsPtrOutput) ToLifecyclePolicyExcludeTagsPtrOutput() LifecyclePolicyExcludeTagsPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyExcludeTagsPtrOutput) ToLifecyclePolicyExcludeTagsPtrOutputWithContext(ctx context.Context) LifecyclePolicyExcludeTagsPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyExcludeTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyExcludeTags] {
+	return pulumix.Output[*LifecyclePolicyExcludeTags]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LifecyclePolicyExcludeTagsPtrOutput) Elem() LifecyclePolicyExcludeTagsOutput {
+	return o.ApplyT(func(v *LifecyclePolicyExcludeTags) LifecyclePolicyExcludeTags {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyExcludeTags
+		return ret
+	}).(LifecyclePolicyExcludeTagsOutput)
+}
+
+type LifecyclePolicyExcludeVolumeTypesList struct {
+}
+
+// LifecyclePolicyExcludeVolumeTypesListInput is an input type that accepts LifecyclePolicyExcludeVolumeTypesListArgs and LifecyclePolicyExcludeVolumeTypesListOutput values.
+// You can construct a concrete instance of `LifecyclePolicyExcludeVolumeTypesListInput` via:
+//
+//	LifecyclePolicyExcludeVolumeTypesListArgs{...}
+type LifecyclePolicyExcludeVolumeTypesListInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyExcludeVolumeTypesListOutput() LifecyclePolicyExcludeVolumeTypesListOutput
+	ToLifecyclePolicyExcludeVolumeTypesListOutputWithContext(context.Context) LifecyclePolicyExcludeVolumeTypesListOutput
+}
+
+type LifecyclePolicyExcludeVolumeTypesListArgs struct {
+}
+
+func (LifecyclePolicyExcludeVolumeTypesListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyExcludeVolumeTypesList)(nil)).Elem()
+}
+
+func (i LifecyclePolicyExcludeVolumeTypesListArgs) ToLifecyclePolicyExcludeVolumeTypesListOutput() LifecyclePolicyExcludeVolumeTypesListOutput {
+	return i.ToLifecyclePolicyExcludeVolumeTypesListOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyExcludeVolumeTypesListArgs) ToLifecyclePolicyExcludeVolumeTypesListOutputWithContext(ctx context.Context) LifecyclePolicyExcludeVolumeTypesListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyExcludeVolumeTypesListOutput)
+}
+
+func (i LifecyclePolicyExcludeVolumeTypesListArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyExcludeVolumeTypesList] {
+	return pulumix.Output[LifecyclePolicyExcludeVolumeTypesList]{
+		OutputState: i.ToLifecyclePolicyExcludeVolumeTypesListOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i LifecyclePolicyExcludeVolumeTypesListArgs) ToLifecyclePolicyExcludeVolumeTypesListPtrOutput() LifecyclePolicyExcludeVolumeTypesListPtrOutput {
+	return i.ToLifecyclePolicyExcludeVolumeTypesListPtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyExcludeVolumeTypesListArgs) ToLifecyclePolicyExcludeVolumeTypesListPtrOutputWithContext(ctx context.Context) LifecyclePolicyExcludeVolumeTypesListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyExcludeVolumeTypesListOutput).ToLifecyclePolicyExcludeVolumeTypesListPtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyExcludeVolumeTypesListPtrInput is an input type that accepts LifecyclePolicyExcludeVolumeTypesListArgs, LifecyclePolicyExcludeVolumeTypesListPtr and LifecyclePolicyExcludeVolumeTypesListPtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyExcludeVolumeTypesListPtrInput` via:
+//
+//	        LifecyclePolicyExcludeVolumeTypesListArgs{...}
+//
+//	or:
+//
+//	        nil
+type LifecyclePolicyExcludeVolumeTypesListPtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyExcludeVolumeTypesListPtrOutput() LifecyclePolicyExcludeVolumeTypesListPtrOutput
+	ToLifecyclePolicyExcludeVolumeTypesListPtrOutputWithContext(context.Context) LifecyclePolicyExcludeVolumeTypesListPtrOutput
+}
+
+type lifecyclePolicyExcludeVolumeTypesListPtrType LifecyclePolicyExcludeVolumeTypesListArgs
+
+func LifecyclePolicyExcludeVolumeTypesListPtr(v *LifecyclePolicyExcludeVolumeTypesListArgs) LifecyclePolicyExcludeVolumeTypesListPtrInput {
+	return (*lifecyclePolicyExcludeVolumeTypesListPtrType)(v)
+}
+
+func (*lifecyclePolicyExcludeVolumeTypesListPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyExcludeVolumeTypesList)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyExcludeVolumeTypesListPtrType) ToLifecyclePolicyExcludeVolumeTypesListPtrOutput() LifecyclePolicyExcludeVolumeTypesListPtrOutput {
+	return i.ToLifecyclePolicyExcludeVolumeTypesListPtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyExcludeVolumeTypesListPtrType) ToLifecyclePolicyExcludeVolumeTypesListPtrOutputWithContext(ctx context.Context) LifecyclePolicyExcludeVolumeTypesListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyExcludeVolumeTypesListPtrOutput)
+}
+
+func (i *lifecyclePolicyExcludeVolumeTypesListPtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyExcludeVolumeTypesList] {
+	return pulumix.Output[*LifecyclePolicyExcludeVolumeTypesList]{
+		OutputState: i.ToLifecyclePolicyExcludeVolumeTypesListPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type LifecyclePolicyExcludeVolumeTypesListOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyExcludeVolumeTypesListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyExcludeVolumeTypesList)(nil)).Elem()
+}
+
+func (o LifecyclePolicyExcludeVolumeTypesListOutput) ToLifecyclePolicyExcludeVolumeTypesListOutput() LifecyclePolicyExcludeVolumeTypesListOutput {
+	return o
+}
+
+func (o LifecyclePolicyExcludeVolumeTypesListOutput) ToLifecyclePolicyExcludeVolumeTypesListOutputWithContext(ctx context.Context) LifecyclePolicyExcludeVolumeTypesListOutput {
+	return o
+}
+
+func (o LifecyclePolicyExcludeVolumeTypesListOutput) ToLifecyclePolicyExcludeVolumeTypesListPtrOutput() LifecyclePolicyExcludeVolumeTypesListPtrOutput {
+	return o.ToLifecyclePolicyExcludeVolumeTypesListPtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyExcludeVolumeTypesListOutput) ToLifecyclePolicyExcludeVolumeTypesListPtrOutputWithContext(ctx context.Context) LifecyclePolicyExcludeVolumeTypesListPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyExcludeVolumeTypesList) *LifecyclePolicyExcludeVolumeTypesList {
+		return &v
+	}).(LifecyclePolicyExcludeVolumeTypesListPtrOutput)
+}
+
+func (o LifecyclePolicyExcludeVolumeTypesListOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyExcludeVolumeTypesList] {
+	return pulumix.Output[LifecyclePolicyExcludeVolumeTypesList]{
+		OutputState: o.OutputState,
+	}
+}
+
+type LifecyclePolicyExcludeVolumeTypesListPtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyExcludeVolumeTypesListPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyExcludeVolumeTypesList)(nil)).Elem()
+}
+
+func (o LifecyclePolicyExcludeVolumeTypesListPtrOutput) ToLifecyclePolicyExcludeVolumeTypesListPtrOutput() LifecyclePolicyExcludeVolumeTypesListPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyExcludeVolumeTypesListPtrOutput) ToLifecyclePolicyExcludeVolumeTypesListPtrOutputWithContext(ctx context.Context) LifecyclePolicyExcludeVolumeTypesListPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyExcludeVolumeTypesListPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyExcludeVolumeTypesList] {
+	return pulumix.Output[*LifecyclePolicyExcludeVolumeTypesList]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LifecyclePolicyExcludeVolumeTypesListPtrOutput) Elem() LifecyclePolicyExcludeVolumeTypesListOutput {
+	return o.ApplyT(func(v *LifecyclePolicyExcludeVolumeTypesList) LifecyclePolicyExcludeVolumeTypesList {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyExcludeVolumeTypesList
+		return ret
+	}).(LifecyclePolicyExcludeVolumeTypesListOutput)
+}
+
+type LifecyclePolicyExclusions struct {
+	ExcludeBootVolumes *bool                                  `pulumi:"excludeBootVolumes"`
+	ExcludeTags        *LifecyclePolicyExcludeTags            `pulumi:"excludeTags"`
+	ExcludeVolumeTypes *LifecyclePolicyExcludeVolumeTypesList `pulumi:"excludeVolumeTypes"`
+}
+
+// LifecyclePolicyExclusionsInput is an input type that accepts LifecyclePolicyExclusionsArgs and LifecyclePolicyExclusionsOutput values.
+// You can construct a concrete instance of `LifecyclePolicyExclusionsInput` via:
+//
+//	LifecyclePolicyExclusionsArgs{...}
+type LifecyclePolicyExclusionsInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyExclusionsOutput() LifecyclePolicyExclusionsOutput
+	ToLifecyclePolicyExclusionsOutputWithContext(context.Context) LifecyclePolicyExclusionsOutput
+}
+
+type LifecyclePolicyExclusionsArgs struct {
+	ExcludeBootVolumes pulumi.BoolPtrInput                           `pulumi:"excludeBootVolumes"`
+	ExcludeTags        LifecyclePolicyExcludeTagsPtrInput            `pulumi:"excludeTags"`
+	ExcludeVolumeTypes LifecyclePolicyExcludeVolumeTypesListPtrInput `pulumi:"excludeVolumeTypes"`
+}
+
+func (LifecyclePolicyExclusionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyExclusions)(nil)).Elem()
+}
+
+func (i LifecyclePolicyExclusionsArgs) ToLifecyclePolicyExclusionsOutput() LifecyclePolicyExclusionsOutput {
+	return i.ToLifecyclePolicyExclusionsOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyExclusionsArgs) ToLifecyclePolicyExclusionsOutputWithContext(ctx context.Context) LifecyclePolicyExclusionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyExclusionsOutput)
+}
+
+func (i LifecyclePolicyExclusionsArgs) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyExclusions] {
+	return pulumix.Output[LifecyclePolicyExclusions]{
+		OutputState: i.ToLifecyclePolicyExclusionsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i LifecyclePolicyExclusionsArgs) ToLifecyclePolicyExclusionsPtrOutput() LifecyclePolicyExclusionsPtrOutput {
+	return i.ToLifecyclePolicyExclusionsPtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyExclusionsArgs) ToLifecyclePolicyExclusionsPtrOutputWithContext(ctx context.Context) LifecyclePolicyExclusionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyExclusionsOutput).ToLifecyclePolicyExclusionsPtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyExclusionsPtrInput is an input type that accepts LifecyclePolicyExclusionsArgs, LifecyclePolicyExclusionsPtr and LifecyclePolicyExclusionsPtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyExclusionsPtrInput` via:
+//
+//	        LifecyclePolicyExclusionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type LifecyclePolicyExclusionsPtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyExclusionsPtrOutput() LifecyclePolicyExclusionsPtrOutput
+	ToLifecyclePolicyExclusionsPtrOutputWithContext(context.Context) LifecyclePolicyExclusionsPtrOutput
+}
+
+type lifecyclePolicyExclusionsPtrType LifecyclePolicyExclusionsArgs
+
+func LifecyclePolicyExclusionsPtr(v *LifecyclePolicyExclusionsArgs) LifecyclePolicyExclusionsPtrInput {
+	return (*lifecyclePolicyExclusionsPtrType)(v)
+}
+
+func (*lifecyclePolicyExclusionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyExclusions)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyExclusionsPtrType) ToLifecyclePolicyExclusionsPtrOutput() LifecyclePolicyExclusionsPtrOutput {
+	return i.ToLifecyclePolicyExclusionsPtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyExclusionsPtrType) ToLifecyclePolicyExclusionsPtrOutputWithContext(ctx context.Context) LifecyclePolicyExclusionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyExclusionsPtrOutput)
+}
+
+func (i *lifecyclePolicyExclusionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyExclusions] {
+	return pulumix.Output[*LifecyclePolicyExclusions]{
+		OutputState: i.ToLifecyclePolicyExclusionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type LifecyclePolicyExclusionsOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyExclusionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyExclusions)(nil)).Elem()
+}
+
+func (o LifecyclePolicyExclusionsOutput) ToLifecyclePolicyExclusionsOutput() LifecyclePolicyExclusionsOutput {
+	return o
+}
+
+func (o LifecyclePolicyExclusionsOutput) ToLifecyclePolicyExclusionsOutputWithContext(ctx context.Context) LifecyclePolicyExclusionsOutput {
+	return o
+}
+
+func (o LifecyclePolicyExclusionsOutput) ToLifecyclePolicyExclusionsPtrOutput() LifecyclePolicyExclusionsPtrOutput {
+	return o.ToLifecyclePolicyExclusionsPtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyExclusionsOutput) ToLifecyclePolicyExclusionsPtrOutputWithContext(ctx context.Context) LifecyclePolicyExclusionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyExclusions) *LifecyclePolicyExclusions {
+		return &v
+	}).(LifecyclePolicyExclusionsPtrOutput)
+}
+
+func (o LifecyclePolicyExclusionsOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyExclusions] {
+	return pulumix.Output[LifecyclePolicyExclusions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LifecyclePolicyExclusionsOutput) ExcludeBootVolumes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyExclusions) *bool { return v.ExcludeBootVolumes }).(pulumi.BoolPtrOutput)
+}
+
+func (o LifecyclePolicyExclusionsOutput) ExcludeTags() LifecyclePolicyExcludeTagsPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyExclusions) *LifecyclePolicyExcludeTags { return v.ExcludeTags }).(LifecyclePolicyExcludeTagsPtrOutput)
+}
+
+func (o LifecyclePolicyExclusionsOutput) ExcludeVolumeTypes() LifecyclePolicyExcludeVolumeTypesListPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyExclusions) *LifecyclePolicyExcludeVolumeTypesList { return v.ExcludeVolumeTypes }).(LifecyclePolicyExcludeVolumeTypesListPtrOutput)
+}
+
+type LifecyclePolicyExclusionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyExclusionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyExclusions)(nil)).Elem()
+}
+
+func (o LifecyclePolicyExclusionsPtrOutput) ToLifecyclePolicyExclusionsPtrOutput() LifecyclePolicyExclusionsPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyExclusionsPtrOutput) ToLifecyclePolicyExclusionsPtrOutputWithContext(ctx context.Context) LifecyclePolicyExclusionsPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyExclusionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyExclusions] {
+	return pulumix.Output[*LifecyclePolicyExclusions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o LifecyclePolicyExclusionsPtrOutput) Elem() LifecyclePolicyExclusionsOutput {
+	return o.ApplyT(func(v *LifecyclePolicyExclusions) LifecyclePolicyExclusions {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyExclusions
+		return ret
+	}).(LifecyclePolicyExclusionsOutput)
+}
+
+func (o LifecyclePolicyExclusionsPtrOutput) ExcludeBootVolumes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyExclusions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeBootVolumes
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o LifecyclePolicyExclusionsPtrOutput) ExcludeTags() LifecyclePolicyExcludeTagsPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyExclusions) *LifecyclePolicyExcludeTags {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeTags
+	}).(LifecyclePolicyExcludeTagsPtrOutput)
+}
+
+func (o LifecyclePolicyExclusionsPtrOutput) ExcludeVolumeTypes() LifecyclePolicyExcludeVolumeTypesListPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyExclusions) *LifecyclePolicyExcludeVolumeTypesList {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeVolumeTypes
+	}).(LifecyclePolicyExcludeVolumeTypesListPtrOutput)
+}
+
 type LifecyclePolicyFastRestoreRule struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	Count             *int     `pulumi:"count"`
@@ -2325,14 +2938,22 @@ func (o LifecyclePolicyParametersPtrOutput) NoReboot() pulumi.BoolPtrOutput {
 }
 
 type LifecyclePolicyPolicyDetails struct {
-	Actions           []LifecyclePolicyAction     `pulumi:"actions"`
-	EventSource       *LifecyclePolicyEventSource `pulumi:"eventSource"`
-	Parameters        *LifecyclePolicyParameters  `pulumi:"parameters"`
-	PolicyType        *string                     `pulumi:"policyType"`
-	ResourceLocations []string                    `pulumi:"resourceLocations"`
-	ResourceTypes     []string                    `pulumi:"resourceTypes"`
-	Schedules         []LifecyclePolicySchedule   `pulumi:"schedules"`
-	TargetTags        []LifecyclePolicyTag        `pulumi:"targetTags"`
+	Actions                []LifecyclePolicyAction                `pulumi:"actions"`
+	CopyTags               *bool                                  `pulumi:"copyTags"`
+	CreateInterval         *int                                   `pulumi:"createInterval"`
+	CrossRegionCopyTargets *LifecyclePolicyCrossRegionCopyTargets `pulumi:"crossRegionCopyTargets"`
+	EventSource            *LifecyclePolicyEventSource            `pulumi:"eventSource"`
+	Exclusions             *LifecyclePolicyExclusions             `pulumi:"exclusions"`
+	ExtendDeletion         *bool                                  `pulumi:"extendDeletion"`
+	Parameters             *LifecyclePolicyParameters             `pulumi:"parameters"`
+	PolicyLanguage         *string                                `pulumi:"policyLanguage"`
+	PolicyType             *string                                `pulumi:"policyType"`
+	ResourceLocations      []string                               `pulumi:"resourceLocations"`
+	ResourceType           *string                                `pulumi:"resourceType"`
+	ResourceTypes          []string                               `pulumi:"resourceTypes"`
+	RetainInterval         *int                                   `pulumi:"retainInterval"`
+	Schedules              []LifecyclePolicySchedule              `pulumi:"schedules"`
+	TargetTags             []LifecyclePolicyTag                   `pulumi:"targetTags"`
 }
 
 // LifecyclePolicyPolicyDetailsInput is an input type that accepts LifecyclePolicyPolicyDetailsArgs and LifecyclePolicyPolicyDetailsOutput values.
@@ -2347,14 +2968,22 @@ type LifecyclePolicyPolicyDetailsInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsArgs struct {
-	Actions           LifecyclePolicyActionArrayInput    `pulumi:"actions"`
-	EventSource       LifecyclePolicyEventSourcePtrInput `pulumi:"eventSource"`
-	Parameters        LifecyclePolicyParametersPtrInput  `pulumi:"parameters"`
-	PolicyType        pulumi.StringPtrInput              `pulumi:"policyType"`
-	ResourceLocations pulumi.StringArrayInput            `pulumi:"resourceLocations"`
-	ResourceTypes     pulumi.StringArrayInput            `pulumi:"resourceTypes"`
-	Schedules         LifecyclePolicyScheduleArrayInput  `pulumi:"schedules"`
-	TargetTags        LifecyclePolicyTagArrayInput       `pulumi:"targetTags"`
+	Actions                LifecyclePolicyActionArrayInput               `pulumi:"actions"`
+	CopyTags               pulumi.BoolPtrInput                           `pulumi:"copyTags"`
+	CreateInterval         pulumi.IntPtrInput                            `pulumi:"createInterval"`
+	CrossRegionCopyTargets LifecyclePolicyCrossRegionCopyTargetsPtrInput `pulumi:"crossRegionCopyTargets"`
+	EventSource            LifecyclePolicyEventSourcePtrInput            `pulumi:"eventSource"`
+	Exclusions             LifecyclePolicyExclusionsPtrInput             `pulumi:"exclusions"`
+	ExtendDeletion         pulumi.BoolPtrInput                           `pulumi:"extendDeletion"`
+	Parameters             LifecyclePolicyParametersPtrInput             `pulumi:"parameters"`
+	PolicyLanguage         pulumi.StringPtrInput                         `pulumi:"policyLanguage"`
+	PolicyType             pulumi.StringPtrInput                         `pulumi:"policyType"`
+	ResourceLocations      pulumi.StringArrayInput                       `pulumi:"resourceLocations"`
+	ResourceType           pulumi.StringPtrInput                         `pulumi:"resourceType"`
+	ResourceTypes          pulumi.StringArrayInput                       `pulumi:"resourceTypes"`
+	RetainInterval         pulumi.IntPtrInput                            `pulumi:"retainInterval"`
+	Schedules              LifecyclePolicyScheduleArrayInput             `pulumi:"schedules"`
+	TargetTags             LifecyclePolicyTagArrayInput                  `pulumi:"targetTags"`
 }
 
 func (LifecyclePolicyPolicyDetailsArgs) ElementType() reflect.Type {
@@ -2456,12 +3085,38 @@ func (o LifecyclePolicyPolicyDetailsOutput) Actions() LifecyclePolicyActionArray
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) []LifecyclePolicyAction { return v.Actions }).(LifecyclePolicyActionArrayOutput)
 }
 
+func (o LifecyclePolicyPolicyDetailsOutput) CopyTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *bool { return v.CopyTags }).(pulumi.BoolPtrOutput)
+}
+
+func (o LifecyclePolicyPolicyDetailsOutput) CreateInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *int { return v.CreateInterval }).(pulumi.IntPtrOutput)
+}
+
+func (o LifecyclePolicyPolicyDetailsOutput) CrossRegionCopyTargets() LifecyclePolicyCrossRegionCopyTargetsPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *LifecyclePolicyCrossRegionCopyTargets {
+		return v.CrossRegionCopyTargets
+	}).(LifecyclePolicyCrossRegionCopyTargetsPtrOutput)
+}
+
 func (o LifecyclePolicyPolicyDetailsOutput) EventSource() LifecyclePolicyEventSourcePtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *LifecyclePolicyEventSource { return v.EventSource }).(LifecyclePolicyEventSourcePtrOutput)
 }
 
+func (o LifecyclePolicyPolicyDetailsOutput) Exclusions() LifecyclePolicyExclusionsPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *LifecyclePolicyExclusions { return v.Exclusions }).(LifecyclePolicyExclusionsPtrOutput)
+}
+
+func (o LifecyclePolicyPolicyDetailsOutput) ExtendDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *bool { return v.ExtendDeletion }).(pulumi.BoolPtrOutput)
+}
+
 func (o LifecyclePolicyPolicyDetailsOutput) Parameters() LifecyclePolicyParametersPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *LifecyclePolicyParameters { return v.Parameters }).(LifecyclePolicyParametersPtrOutput)
+}
+
+func (o LifecyclePolicyPolicyDetailsOutput) PolicyLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *string { return v.PolicyLanguage }).(pulumi.StringPtrOutput)
 }
 
 func (o LifecyclePolicyPolicyDetailsOutput) PolicyType() pulumi.StringPtrOutput {
@@ -2472,8 +3127,16 @@ func (o LifecyclePolicyPolicyDetailsOutput) ResourceLocations() pulumi.StringArr
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) []string { return v.ResourceLocations }).(pulumi.StringArrayOutput)
 }
 
+func (o LifecyclePolicyPolicyDetailsOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
 func (o LifecyclePolicyPolicyDetailsOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o LifecyclePolicyPolicyDetailsOutput) RetainInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *int { return v.RetainInterval }).(pulumi.IntPtrOutput)
 }
 
 func (o LifecyclePolicyPolicyDetailsOutput) Schedules() LifecyclePolicyScheduleArrayOutput {
@@ -2523,6 +3186,33 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) Actions() LifecyclePolicyActionAr
 	}).(LifecyclePolicyActionArrayOutput)
 }
 
+func (o LifecyclePolicyPolicyDetailsPtrOutput) CopyTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CopyTags
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o LifecyclePolicyPolicyDetailsPtrOutput) CreateInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CreateInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LifecyclePolicyPolicyDetailsPtrOutput) CrossRegionCopyTargets() LifecyclePolicyCrossRegionCopyTargetsPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *LifecyclePolicyCrossRegionCopyTargets {
+		if v == nil {
+			return nil
+		}
+		return v.CrossRegionCopyTargets
+	}).(LifecyclePolicyCrossRegionCopyTargetsPtrOutput)
+}
+
 func (o LifecyclePolicyPolicyDetailsPtrOutput) EventSource() LifecyclePolicyEventSourcePtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *LifecyclePolicyEventSource {
 		if v == nil {
@@ -2532,6 +3222,24 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) EventSource() LifecyclePolicyEven
 	}).(LifecyclePolicyEventSourcePtrOutput)
 }
 
+func (o LifecyclePolicyPolicyDetailsPtrOutput) Exclusions() LifecyclePolicyExclusionsPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *LifecyclePolicyExclusions {
+		if v == nil {
+			return nil
+		}
+		return v.Exclusions
+	}).(LifecyclePolicyExclusionsPtrOutput)
+}
+
+func (o LifecyclePolicyPolicyDetailsPtrOutput) ExtendDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ExtendDeletion
+	}).(pulumi.BoolPtrOutput)
+}
+
 func (o LifecyclePolicyPolicyDetailsPtrOutput) Parameters() LifecyclePolicyParametersPtrOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *LifecyclePolicyParameters {
 		if v == nil {
@@ -2539,6 +3247,15 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) Parameters() LifecyclePolicyParam
 		}
 		return v.Parameters
 	}).(LifecyclePolicyParametersPtrOutput)
+}
+
+func (o LifecyclePolicyPolicyDetailsPtrOutput) PolicyLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyLanguage
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o LifecyclePolicyPolicyDetailsPtrOutput) PolicyType() pulumi.StringPtrOutput {
@@ -2559,6 +3276,15 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) ResourceLocations() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
+func (o LifecyclePolicyPolicyDetailsPtrOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceType
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o LifecyclePolicyPolicyDetailsPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) []string {
 		if v == nil {
@@ -2566,6 +3292,15 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) ResourceTypes() pulumi.StringArra
 		}
 		return v.ResourceTypes
 	}).(pulumi.StringArrayOutput)
+}
+
+func (o LifecyclePolicyPolicyDetailsPtrOutput) RetainInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetainInterval
+	}).(pulumi.IntPtrOutput)
 }
 
 func (o LifecyclePolicyPolicyDetailsPtrOutput) Schedules() LifecyclePolicyScheduleArrayOutput {
@@ -3557,6 +4292,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyCrossRegionCopyRetainRulePtrInput)(nil)).Elem(), LifecyclePolicyCrossRegionCopyRetainRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyCrossRegionCopyRuleInput)(nil)).Elem(), LifecyclePolicyCrossRegionCopyRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyCrossRegionCopyRuleArrayInput)(nil)).Elem(), LifecyclePolicyCrossRegionCopyRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyCrossRegionCopyTargetsInput)(nil)).Elem(), LifecyclePolicyCrossRegionCopyTargetsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyCrossRegionCopyTargetsPtrInput)(nil)).Elem(), LifecyclePolicyCrossRegionCopyTargetsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyDeprecateRuleInput)(nil)).Elem(), LifecyclePolicyDeprecateRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyDeprecateRulePtrInput)(nil)).Elem(), LifecyclePolicyDeprecateRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyEncryptionConfigurationInput)(nil)).Elem(), LifecyclePolicyEncryptionConfigurationArgs{})
@@ -3564,6 +4301,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyEventParametersPtrInput)(nil)).Elem(), LifecyclePolicyEventParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyEventSourceInput)(nil)).Elem(), LifecyclePolicyEventSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyEventSourcePtrInput)(nil)).Elem(), LifecyclePolicyEventSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyExcludeTagsInput)(nil)).Elem(), LifecyclePolicyExcludeTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyExcludeTagsPtrInput)(nil)).Elem(), LifecyclePolicyExcludeTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyExcludeVolumeTypesListInput)(nil)).Elem(), LifecyclePolicyExcludeVolumeTypesListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyExcludeVolumeTypesListPtrInput)(nil)).Elem(), LifecyclePolicyExcludeVolumeTypesListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyExclusionsInput)(nil)).Elem(), LifecyclePolicyExclusionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyExclusionsPtrInput)(nil)).Elem(), LifecyclePolicyExclusionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyFastRestoreRuleInput)(nil)).Elem(), LifecyclePolicyFastRestoreRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyFastRestoreRulePtrInput)(nil)).Elem(), LifecyclePolicyFastRestoreRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyParametersInput)(nil)).Elem(), LifecyclePolicyParametersArgs{})
@@ -3598,6 +4341,8 @@ func init() {
 	pulumi.RegisterOutputType(LifecyclePolicyCrossRegionCopyRetainRulePtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyCrossRegionCopyRuleOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyCrossRegionCopyRuleArrayOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyCrossRegionCopyTargetsOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyCrossRegionCopyTargetsPtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyDeprecateRuleOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyDeprecateRulePtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyEncryptionConfigurationOutput{})
@@ -3605,6 +4350,12 @@ func init() {
 	pulumi.RegisterOutputType(LifecyclePolicyEventParametersPtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyEventSourceOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyEventSourcePtrOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyExcludeTagsOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyExcludeTagsPtrOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyExcludeVolumeTypesListOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyExcludeVolumeTypesListPtrOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyExclusionsOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyExclusionsPtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyFastRestoreRuleOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyFastRestoreRulePtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyParametersOutput{})

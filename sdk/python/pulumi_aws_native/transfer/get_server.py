@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetServerResult:
-    def __init__(__self__, arn=None, certificate=None, endpoint_details=None, endpoint_type=None, identity_provider_details=None, logging_role=None, post_authentication_login_banner=None, pre_authentication_login_banner=None, protocol_details=None, protocols=None, security_policy_name=None, server_id=None, structured_log_destinations=None, tags=None, workflow_details=None):
+    def __init__(__self__, arn=None, certificate=None, endpoint_details=None, endpoint_type=None, identity_provider_details=None, logging_role=None, post_authentication_login_banner=None, pre_authentication_login_banner=None, protocol_details=None, protocols=None, s3_storage_options=None, security_policy_name=None, server_id=None, structured_log_destinations=None, tags=None, workflow_details=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -50,6 +50,9 @@ class GetServerResult:
         if protocols and not isinstance(protocols, list):
             raise TypeError("Expected argument 'protocols' to be a list")
         pulumi.set(__self__, "protocols", protocols)
+        if s3_storage_options and not isinstance(s3_storage_options, dict):
+            raise TypeError("Expected argument 's3_storage_options' to be a dict")
+        pulumi.set(__self__, "s3_storage_options", s3_storage_options)
         if security_policy_name and not isinstance(security_policy_name, str):
             raise TypeError("Expected argument 'security_policy_name' to be a str")
         pulumi.set(__self__, "security_policy_name", security_policy_name)
@@ -117,6 +120,11 @@ class GetServerResult:
         return pulumi.get(self, "protocols")
 
     @property
+    @pulumi.getter(name="s3StorageOptions")
+    def s3_storage_options(self) -> Optional['outputs.ServerS3StorageOptions']:
+        return pulumi.get(self, "s3_storage_options")
+
+    @property
     @pulumi.getter(name="securityPolicyName")
     def security_policy_name(self) -> Optional[str]:
         return pulumi.get(self, "security_policy_name")
@@ -158,6 +166,7 @@ class AwaitableGetServerResult(GetServerResult):
             pre_authentication_login_banner=self.pre_authentication_login_banner,
             protocol_details=self.protocol_details,
             protocols=self.protocols,
+            s3_storage_options=self.s3_storage_options,
             security_policy_name=self.security_policy_name,
             server_id=self.server_id,
             structured_log_destinations=self.structured_log_destinations,
@@ -186,6 +195,7 @@ def get_server(server_id: Optional[str] = None,
         pre_authentication_login_banner=pulumi.get(__ret__, 'pre_authentication_login_banner'),
         protocol_details=pulumi.get(__ret__, 'protocol_details'),
         protocols=pulumi.get(__ret__, 'protocols'),
+        s3_storage_options=pulumi.get(__ret__, 's3_storage_options'),
         security_policy_name=pulumi.get(__ret__, 'security_policy_name'),
         server_id=pulumi.get(__ret__, 'server_id'),
         structured_log_destinations=pulumi.get(__ret__, 'structured_log_destinations'),

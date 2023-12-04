@@ -10243,18 +10243,207 @@ func (o EndpointConfigExplainerConfigPtrOutput) ClarifyExplainerConfig() Endpoin
 	}).(EndpointConfigClarifyExplainerConfigPtrOutput)
 }
 
+type EndpointConfigManagedInstanceScaling struct {
+	MaxInstanceCount *int    `pulumi:"maxInstanceCount"`
+	MinInstanceCount *int    `pulumi:"minInstanceCount"`
+	Status           *string `pulumi:"status"`
+}
+
+// EndpointConfigManagedInstanceScalingInput is an input type that accepts EndpointConfigManagedInstanceScalingArgs and EndpointConfigManagedInstanceScalingOutput values.
+// You can construct a concrete instance of `EndpointConfigManagedInstanceScalingInput` via:
+//
+//	EndpointConfigManagedInstanceScalingArgs{...}
+type EndpointConfigManagedInstanceScalingInput interface {
+	pulumi.Input
+
+	ToEndpointConfigManagedInstanceScalingOutput() EndpointConfigManagedInstanceScalingOutput
+	ToEndpointConfigManagedInstanceScalingOutputWithContext(context.Context) EndpointConfigManagedInstanceScalingOutput
+}
+
+type EndpointConfigManagedInstanceScalingArgs struct {
+	MaxInstanceCount pulumi.IntPtrInput    `pulumi:"maxInstanceCount"`
+	MinInstanceCount pulumi.IntPtrInput    `pulumi:"minInstanceCount"`
+	Status           pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (EndpointConfigManagedInstanceScalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigManagedInstanceScaling)(nil)).Elem()
+}
+
+func (i EndpointConfigManagedInstanceScalingArgs) ToEndpointConfigManagedInstanceScalingOutput() EndpointConfigManagedInstanceScalingOutput {
+	return i.ToEndpointConfigManagedInstanceScalingOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigManagedInstanceScalingArgs) ToEndpointConfigManagedInstanceScalingOutputWithContext(ctx context.Context) EndpointConfigManagedInstanceScalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigManagedInstanceScalingOutput)
+}
+
+func (i EndpointConfigManagedInstanceScalingArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointConfigManagedInstanceScaling] {
+	return pulumix.Output[EndpointConfigManagedInstanceScaling]{
+		OutputState: i.ToEndpointConfigManagedInstanceScalingOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i EndpointConfigManagedInstanceScalingArgs) ToEndpointConfigManagedInstanceScalingPtrOutput() EndpointConfigManagedInstanceScalingPtrOutput {
+	return i.ToEndpointConfigManagedInstanceScalingPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigManagedInstanceScalingArgs) ToEndpointConfigManagedInstanceScalingPtrOutputWithContext(ctx context.Context) EndpointConfigManagedInstanceScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigManagedInstanceScalingOutput).ToEndpointConfigManagedInstanceScalingPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigManagedInstanceScalingPtrInput is an input type that accepts EndpointConfigManagedInstanceScalingArgs, EndpointConfigManagedInstanceScalingPtr and EndpointConfigManagedInstanceScalingPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigManagedInstanceScalingPtrInput` via:
+//
+//	        EndpointConfigManagedInstanceScalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigManagedInstanceScalingPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigManagedInstanceScalingPtrOutput() EndpointConfigManagedInstanceScalingPtrOutput
+	ToEndpointConfigManagedInstanceScalingPtrOutputWithContext(context.Context) EndpointConfigManagedInstanceScalingPtrOutput
+}
+
+type endpointConfigManagedInstanceScalingPtrType EndpointConfigManagedInstanceScalingArgs
+
+func EndpointConfigManagedInstanceScalingPtr(v *EndpointConfigManagedInstanceScalingArgs) EndpointConfigManagedInstanceScalingPtrInput {
+	return (*endpointConfigManagedInstanceScalingPtrType)(v)
+}
+
+func (*endpointConfigManagedInstanceScalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigManagedInstanceScaling)(nil)).Elem()
+}
+
+func (i *endpointConfigManagedInstanceScalingPtrType) ToEndpointConfigManagedInstanceScalingPtrOutput() EndpointConfigManagedInstanceScalingPtrOutput {
+	return i.ToEndpointConfigManagedInstanceScalingPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigManagedInstanceScalingPtrType) ToEndpointConfigManagedInstanceScalingPtrOutputWithContext(ctx context.Context) EndpointConfigManagedInstanceScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigManagedInstanceScalingPtrOutput)
+}
+
+func (i *endpointConfigManagedInstanceScalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointConfigManagedInstanceScaling] {
+	return pulumix.Output[*EndpointConfigManagedInstanceScaling]{
+		OutputState: i.ToEndpointConfigManagedInstanceScalingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type EndpointConfigManagedInstanceScalingOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigManagedInstanceScalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigManagedInstanceScaling)(nil)).Elem()
+}
+
+func (o EndpointConfigManagedInstanceScalingOutput) ToEndpointConfigManagedInstanceScalingOutput() EndpointConfigManagedInstanceScalingOutput {
+	return o
+}
+
+func (o EndpointConfigManagedInstanceScalingOutput) ToEndpointConfigManagedInstanceScalingOutputWithContext(ctx context.Context) EndpointConfigManagedInstanceScalingOutput {
+	return o
+}
+
+func (o EndpointConfigManagedInstanceScalingOutput) ToEndpointConfigManagedInstanceScalingPtrOutput() EndpointConfigManagedInstanceScalingPtrOutput {
+	return o.ToEndpointConfigManagedInstanceScalingPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigManagedInstanceScalingOutput) ToEndpointConfigManagedInstanceScalingPtrOutputWithContext(ctx context.Context) EndpointConfigManagedInstanceScalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigManagedInstanceScaling) *EndpointConfigManagedInstanceScaling {
+		return &v
+	}).(EndpointConfigManagedInstanceScalingPtrOutput)
+}
+
+func (o EndpointConfigManagedInstanceScalingOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointConfigManagedInstanceScaling] {
+	return pulumix.Output[EndpointConfigManagedInstanceScaling]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o EndpointConfigManagedInstanceScalingOutput) MaxInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigManagedInstanceScaling) *int { return v.MaxInstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointConfigManagedInstanceScalingOutput) MinInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigManagedInstanceScaling) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointConfigManagedInstanceScalingOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigManagedInstanceScaling) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type EndpointConfigManagedInstanceScalingPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigManagedInstanceScalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigManagedInstanceScaling)(nil)).Elem()
+}
+
+func (o EndpointConfigManagedInstanceScalingPtrOutput) ToEndpointConfigManagedInstanceScalingPtrOutput() EndpointConfigManagedInstanceScalingPtrOutput {
+	return o
+}
+
+func (o EndpointConfigManagedInstanceScalingPtrOutput) ToEndpointConfigManagedInstanceScalingPtrOutputWithContext(ctx context.Context) EndpointConfigManagedInstanceScalingPtrOutput {
+	return o
+}
+
+func (o EndpointConfigManagedInstanceScalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointConfigManagedInstanceScaling] {
+	return pulumix.Output[*EndpointConfigManagedInstanceScaling]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o EndpointConfigManagedInstanceScalingPtrOutput) Elem() EndpointConfigManagedInstanceScalingOutput {
+	return o.ApplyT(func(v *EndpointConfigManagedInstanceScaling) EndpointConfigManagedInstanceScaling {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigManagedInstanceScaling
+		return ret
+	}).(EndpointConfigManagedInstanceScalingOutput)
+}
+
+func (o EndpointConfigManagedInstanceScalingPtrOutput) MaxInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigManagedInstanceScaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxInstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointConfigManagedInstanceScalingPtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigManagedInstanceScaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinInstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointConfigManagedInstanceScalingPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigManagedInstanceScaling) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
 type EndpointConfigProductionVariant struct {
-	AcceleratorType                             *string                         `pulumi:"acceleratorType"`
-	ContainerStartupHealthCheckTimeoutInSeconds *int                            `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
-	EnableSsmAccess                             *bool                           `pulumi:"enableSsmAccess"`
-	InitialInstanceCount                        *int                            `pulumi:"initialInstanceCount"`
-	InitialVariantWeight                        float64                         `pulumi:"initialVariantWeight"`
-	InstanceType                                *string                         `pulumi:"instanceType"`
-	ModelDataDownloadTimeoutInSeconds           *int                            `pulumi:"modelDataDownloadTimeoutInSeconds"`
-	ModelName                                   string                          `pulumi:"modelName"`
-	ServerlessConfig                            *EndpointConfigServerlessConfig `pulumi:"serverlessConfig"`
-	VariantName                                 string                          `pulumi:"variantName"`
-	VolumeSizeInGb                              *int                            `pulumi:"volumeSizeInGb"`
+	AcceleratorType                             *string                               `pulumi:"acceleratorType"`
+	ContainerStartupHealthCheckTimeoutInSeconds *int                                  `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
+	EnableSsmAccess                             *bool                                 `pulumi:"enableSsmAccess"`
+	InitialInstanceCount                        *int                                  `pulumi:"initialInstanceCount"`
+	InitialVariantWeight                        *float64                              `pulumi:"initialVariantWeight"`
+	InstanceType                                *string                               `pulumi:"instanceType"`
+	ManagedInstanceScaling                      *EndpointConfigManagedInstanceScaling `pulumi:"managedInstanceScaling"`
+	ModelDataDownloadTimeoutInSeconds           *int                                  `pulumi:"modelDataDownloadTimeoutInSeconds"`
+	ModelName                                   *string                               `pulumi:"modelName"`
+	RoutingConfig                               *EndpointConfigRoutingConfig          `pulumi:"routingConfig"`
+	ServerlessConfig                            *EndpointConfigServerlessConfig       `pulumi:"serverlessConfig"`
+	VariantName                                 string                                `pulumi:"variantName"`
+	VolumeSizeInGb                              *int                                  `pulumi:"volumeSizeInGb"`
 }
 
 // EndpointConfigProductionVariantInput is an input type that accepts EndpointConfigProductionVariantArgs and EndpointConfigProductionVariantOutput values.
@@ -10269,17 +10458,19 @@ type EndpointConfigProductionVariantInput interface {
 }
 
 type EndpointConfigProductionVariantArgs struct {
-	AcceleratorType                             pulumi.StringPtrInput                  `pulumi:"acceleratorType"`
-	ContainerStartupHealthCheckTimeoutInSeconds pulumi.IntPtrInput                     `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
-	EnableSsmAccess                             pulumi.BoolPtrInput                    `pulumi:"enableSsmAccess"`
-	InitialInstanceCount                        pulumi.IntPtrInput                     `pulumi:"initialInstanceCount"`
-	InitialVariantWeight                        pulumi.Float64Input                    `pulumi:"initialVariantWeight"`
-	InstanceType                                pulumi.StringPtrInput                  `pulumi:"instanceType"`
-	ModelDataDownloadTimeoutInSeconds           pulumi.IntPtrInput                     `pulumi:"modelDataDownloadTimeoutInSeconds"`
-	ModelName                                   pulumi.StringInput                     `pulumi:"modelName"`
-	ServerlessConfig                            EndpointConfigServerlessConfigPtrInput `pulumi:"serverlessConfig"`
-	VariantName                                 pulumi.StringInput                     `pulumi:"variantName"`
-	VolumeSizeInGb                              pulumi.IntPtrInput                     `pulumi:"volumeSizeInGb"`
+	AcceleratorType                             pulumi.StringPtrInput                        `pulumi:"acceleratorType"`
+	ContainerStartupHealthCheckTimeoutInSeconds pulumi.IntPtrInput                           `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
+	EnableSsmAccess                             pulumi.BoolPtrInput                          `pulumi:"enableSsmAccess"`
+	InitialInstanceCount                        pulumi.IntPtrInput                           `pulumi:"initialInstanceCount"`
+	InitialVariantWeight                        pulumi.Float64PtrInput                       `pulumi:"initialVariantWeight"`
+	InstanceType                                pulumi.StringPtrInput                        `pulumi:"instanceType"`
+	ManagedInstanceScaling                      EndpointConfigManagedInstanceScalingPtrInput `pulumi:"managedInstanceScaling"`
+	ModelDataDownloadTimeoutInSeconds           pulumi.IntPtrInput                           `pulumi:"modelDataDownloadTimeoutInSeconds"`
+	ModelName                                   pulumi.StringPtrInput                        `pulumi:"modelName"`
+	RoutingConfig                               EndpointConfigRoutingConfigPtrInput          `pulumi:"routingConfig"`
+	ServerlessConfig                            EndpointConfigServerlessConfigPtrInput       `pulumi:"serverlessConfig"`
+	VariantName                                 pulumi.StringInput                           `pulumi:"variantName"`
+	VolumeSizeInGb                              pulumi.IntPtrInput                           `pulumi:"volumeSizeInGb"`
 }
 
 func (EndpointConfigProductionVariantArgs) ElementType() reflect.Type {
@@ -10367,20 +10558,30 @@ func (o EndpointConfigProductionVariantOutput) InitialInstanceCount() pulumi.Int
 	return o.ApplyT(func(v EndpointConfigProductionVariant) *int { return v.InitialInstanceCount }).(pulumi.IntPtrOutput)
 }
 
-func (o EndpointConfigProductionVariantOutput) InitialVariantWeight() pulumi.Float64Output {
-	return o.ApplyT(func(v EndpointConfigProductionVariant) float64 { return v.InitialVariantWeight }).(pulumi.Float64Output)
+func (o EndpointConfigProductionVariantOutput) InitialVariantWeight() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *float64 { return v.InitialVariantWeight }).(pulumi.Float64PtrOutput)
 }
 
 func (o EndpointConfigProductionVariantOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointConfigProductionVariant) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointConfigProductionVariantOutput) ManagedInstanceScaling() EndpointConfigManagedInstanceScalingPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *EndpointConfigManagedInstanceScaling {
+		return v.ManagedInstanceScaling
+	}).(EndpointConfigManagedInstanceScalingPtrOutput)
+}
+
 func (o EndpointConfigProductionVariantOutput) ModelDataDownloadTimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointConfigProductionVariant) *int { return v.ModelDataDownloadTimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
-func (o EndpointConfigProductionVariantOutput) ModelName() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointConfigProductionVariant) string { return v.ModelName }).(pulumi.StringOutput)
+func (o EndpointConfigProductionVariantOutput) ModelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *string { return v.ModelName }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointConfigProductionVariantOutput) RoutingConfig() EndpointConfigRoutingConfigPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *EndpointConfigRoutingConfig { return v.RoutingConfig }).(EndpointConfigRoutingConfigPtrOutput)
 }
 
 func (o EndpointConfigProductionVariantOutput) ServerlessConfig() EndpointConfigServerlessConfigPtrOutput {
@@ -10419,6 +10620,163 @@ func (o EndpointConfigProductionVariantArrayOutput) Index(i pulumi.IntInput) End
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointConfigProductionVariant {
 		return vs[0].([]EndpointConfigProductionVariant)[vs[1].(int)]
 	}).(EndpointConfigProductionVariantOutput)
+}
+
+type EndpointConfigRoutingConfig struct {
+	RoutingStrategy *string `pulumi:"routingStrategy"`
+}
+
+// EndpointConfigRoutingConfigInput is an input type that accepts EndpointConfigRoutingConfigArgs and EndpointConfigRoutingConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigRoutingConfigInput` via:
+//
+//	EndpointConfigRoutingConfigArgs{...}
+type EndpointConfigRoutingConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigRoutingConfigOutput() EndpointConfigRoutingConfigOutput
+	ToEndpointConfigRoutingConfigOutputWithContext(context.Context) EndpointConfigRoutingConfigOutput
+}
+
+type EndpointConfigRoutingConfigArgs struct {
+	RoutingStrategy pulumi.StringPtrInput `pulumi:"routingStrategy"`
+}
+
+func (EndpointConfigRoutingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigRoutingConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigRoutingConfigArgs) ToEndpointConfigRoutingConfigOutput() EndpointConfigRoutingConfigOutput {
+	return i.ToEndpointConfigRoutingConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigRoutingConfigArgs) ToEndpointConfigRoutingConfigOutputWithContext(ctx context.Context) EndpointConfigRoutingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigRoutingConfigOutput)
+}
+
+func (i EndpointConfigRoutingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointConfigRoutingConfig] {
+	return pulumix.Output[EndpointConfigRoutingConfig]{
+		OutputState: i.ToEndpointConfigRoutingConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i EndpointConfigRoutingConfigArgs) ToEndpointConfigRoutingConfigPtrOutput() EndpointConfigRoutingConfigPtrOutput {
+	return i.ToEndpointConfigRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigRoutingConfigArgs) ToEndpointConfigRoutingConfigPtrOutputWithContext(ctx context.Context) EndpointConfigRoutingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigRoutingConfigOutput).ToEndpointConfigRoutingConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigRoutingConfigPtrInput is an input type that accepts EndpointConfigRoutingConfigArgs, EndpointConfigRoutingConfigPtr and EndpointConfigRoutingConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigRoutingConfigPtrInput` via:
+//
+//	        EndpointConfigRoutingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigRoutingConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigRoutingConfigPtrOutput() EndpointConfigRoutingConfigPtrOutput
+	ToEndpointConfigRoutingConfigPtrOutputWithContext(context.Context) EndpointConfigRoutingConfigPtrOutput
+}
+
+type endpointConfigRoutingConfigPtrType EndpointConfigRoutingConfigArgs
+
+func EndpointConfigRoutingConfigPtr(v *EndpointConfigRoutingConfigArgs) EndpointConfigRoutingConfigPtrInput {
+	return (*endpointConfigRoutingConfigPtrType)(v)
+}
+
+func (*endpointConfigRoutingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigRoutingConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigRoutingConfigPtrType) ToEndpointConfigRoutingConfigPtrOutput() EndpointConfigRoutingConfigPtrOutput {
+	return i.ToEndpointConfigRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigRoutingConfigPtrType) ToEndpointConfigRoutingConfigPtrOutputWithContext(ctx context.Context) EndpointConfigRoutingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigRoutingConfigPtrOutput)
+}
+
+func (i *endpointConfigRoutingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointConfigRoutingConfig] {
+	return pulumix.Output[*EndpointConfigRoutingConfig]{
+		OutputState: i.ToEndpointConfigRoutingConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type EndpointConfigRoutingConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigRoutingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigRoutingConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigRoutingConfigOutput) ToEndpointConfigRoutingConfigOutput() EndpointConfigRoutingConfigOutput {
+	return o
+}
+
+func (o EndpointConfigRoutingConfigOutput) ToEndpointConfigRoutingConfigOutputWithContext(ctx context.Context) EndpointConfigRoutingConfigOutput {
+	return o
+}
+
+func (o EndpointConfigRoutingConfigOutput) ToEndpointConfigRoutingConfigPtrOutput() EndpointConfigRoutingConfigPtrOutput {
+	return o.ToEndpointConfigRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigRoutingConfigOutput) ToEndpointConfigRoutingConfigPtrOutputWithContext(ctx context.Context) EndpointConfigRoutingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigRoutingConfig) *EndpointConfigRoutingConfig {
+		return &v
+	}).(EndpointConfigRoutingConfigPtrOutput)
+}
+
+func (o EndpointConfigRoutingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointConfigRoutingConfig] {
+	return pulumix.Output[EndpointConfigRoutingConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o EndpointConfigRoutingConfigOutput) RoutingStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigRoutingConfig) *string { return v.RoutingStrategy }).(pulumi.StringPtrOutput)
+}
+
+type EndpointConfigRoutingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigRoutingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigRoutingConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigRoutingConfigPtrOutput) ToEndpointConfigRoutingConfigPtrOutput() EndpointConfigRoutingConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigRoutingConfigPtrOutput) ToEndpointConfigRoutingConfigPtrOutputWithContext(ctx context.Context) EndpointConfigRoutingConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigRoutingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointConfigRoutingConfig] {
+	return pulumix.Output[*EndpointConfigRoutingConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o EndpointConfigRoutingConfigPtrOutput) Elem() EndpointConfigRoutingConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigRoutingConfig) EndpointConfigRoutingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigRoutingConfig
+		return ret
+	}).(EndpointConfigRoutingConfigOutput)
+}
+
+func (o EndpointConfigRoutingConfigPtrOutput) RoutingStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigRoutingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoutingStrategy
+	}).(pulumi.StringPtrOutput)
 }
 
 type EndpointConfigServerlessConfig struct {
@@ -10730,6 +11088,178 @@ func (o EndpointConfigTagArrayOutput) Index(i pulumi.IntInput) EndpointConfigTag
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointConfigTag {
 		return vs[0].([]EndpointConfigTag)[vs[1].(int)]
 	}).(EndpointConfigTagOutput)
+}
+
+type EndpointConfigVpcConfig struct {
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	Subnets          []string `pulumi:"subnets"`
+}
+
+// EndpointConfigVpcConfigInput is an input type that accepts EndpointConfigVpcConfigArgs and EndpointConfigVpcConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigVpcConfigInput` via:
+//
+//	EndpointConfigVpcConfigArgs{...}
+type EndpointConfigVpcConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigVpcConfigOutput() EndpointConfigVpcConfigOutput
+	ToEndpointConfigVpcConfigOutputWithContext(context.Context) EndpointConfigVpcConfigOutput
+}
+
+type EndpointConfigVpcConfigArgs struct {
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	Subnets          pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (EndpointConfigVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigVpcConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigVpcConfigArgs) ToEndpointConfigVpcConfigOutput() EndpointConfigVpcConfigOutput {
+	return i.ToEndpointConfigVpcConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigVpcConfigArgs) ToEndpointConfigVpcConfigOutputWithContext(ctx context.Context) EndpointConfigVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigVpcConfigOutput)
+}
+
+func (i EndpointConfigVpcConfigArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointConfigVpcConfig] {
+	return pulumix.Output[EndpointConfigVpcConfig]{
+		OutputState: i.ToEndpointConfigVpcConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i EndpointConfigVpcConfigArgs) ToEndpointConfigVpcConfigPtrOutput() EndpointConfigVpcConfigPtrOutput {
+	return i.ToEndpointConfigVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigVpcConfigArgs) ToEndpointConfigVpcConfigPtrOutputWithContext(ctx context.Context) EndpointConfigVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigVpcConfigOutput).ToEndpointConfigVpcConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigVpcConfigPtrInput is an input type that accepts EndpointConfigVpcConfigArgs, EndpointConfigVpcConfigPtr and EndpointConfigVpcConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigVpcConfigPtrInput` via:
+//
+//	        EndpointConfigVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigVpcConfigPtrOutput() EndpointConfigVpcConfigPtrOutput
+	ToEndpointConfigVpcConfigPtrOutputWithContext(context.Context) EndpointConfigVpcConfigPtrOutput
+}
+
+type endpointConfigVpcConfigPtrType EndpointConfigVpcConfigArgs
+
+func EndpointConfigVpcConfigPtr(v *EndpointConfigVpcConfigArgs) EndpointConfigVpcConfigPtrInput {
+	return (*endpointConfigVpcConfigPtrType)(v)
+}
+
+func (*endpointConfigVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigVpcConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigVpcConfigPtrType) ToEndpointConfigVpcConfigPtrOutput() EndpointConfigVpcConfigPtrOutput {
+	return i.ToEndpointConfigVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigVpcConfigPtrType) ToEndpointConfigVpcConfigPtrOutputWithContext(ctx context.Context) EndpointConfigVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigVpcConfigPtrOutput)
+}
+
+func (i *endpointConfigVpcConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointConfigVpcConfig] {
+	return pulumix.Output[*EndpointConfigVpcConfig]{
+		OutputState: i.ToEndpointConfigVpcConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type EndpointConfigVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigVpcConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigVpcConfigOutput) ToEndpointConfigVpcConfigOutput() EndpointConfigVpcConfigOutput {
+	return o
+}
+
+func (o EndpointConfigVpcConfigOutput) ToEndpointConfigVpcConfigOutputWithContext(ctx context.Context) EndpointConfigVpcConfigOutput {
+	return o
+}
+
+func (o EndpointConfigVpcConfigOutput) ToEndpointConfigVpcConfigPtrOutput() EndpointConfigVpcConfigPtrOutput {
+	return o.ToEndpointConfigVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigVpcConfigOutput) ToEndpointConfigVpcConfigPtrOutputWithContext(ctx context.Context) EndpointConfigVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigVpcConfig) *EndpointConfigVpcConfig {
+		return &v
+	}).(EndpointConfigVpcConfigPtrOutput)
+}
+
+func (o EndpointConfigVpcConfigOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointConfigVpcConfig] {
+	return pulumix.Output[EndpointConfigVpcConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o EndpointConfigVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointConfigVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+func (o EndpointConfigVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointConfigVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+type EndpointConfigVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigVpcConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigVpcConfigPtrOutput) ToEndpointConfigVpcConfigPtrOutput() EndpointConfigVpcConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigVpcConfigPtrOutput) ToEndpointConfigVpcConfigPtrOutputWithContext(ctx context.Context) EndpointConfigVpcConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigVpcConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointConfigVpcConfig] {
+	return pulumix.Output[*EndpointConfigVpcConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o EndpointConfigVpcConfigPtrOutput) Elem() EndpointConfigVpcConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigVpcConfig) EndpointConfigVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigVpcConfig
+		return ret
+	}).(EndpointConfigVpcConfigOutput)
+}
+
+func (o EndpointConfigVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EndpointConfigVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o EndpointConfigVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EndpointConfigVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
 }
 
 type EndpointDeploymentConfig struct {
@@ -22442,6 +22972,7 @@ type ModelContainerDefinition struct {
 	ImageConfig                *ModelImageConfig      `pulumi:"imageConfig"`
 	InferenceSpecificationName *string                `pulumi:"inferenceSpecificationName"`
 	Mode                       *string                `pulumi:"mode"`
+	ModelDataSource            *ModelDataSource       `pulumi:"modelDataSource"`
 	ModelDataUrl               *string                `pulumi:"modelDataUrl"`
 	ModelPackageName           *string                `pulumi:"modelPackageName"`
 	MultiModelConfig           *ModelMultiModelConfig `pulumi:"multiModelConfig"`
@@ -22465,6 +22996,7 @@ type ModelContainerDefinitionArgs struct {
 	ImageConfig                ModelImageConfigPtrInput      `pulumi:"imageConfig"`
 	InferenceSpecificationName pulumi.StringPtrInput         `pulumi:"inferenceSpecificationName"`
 	Mode                       pulumi.StringPtrInput         `pulumi:"mode"`
+	ModelDataSource            ModelDataSourcePtrInput       `pulumi:"modelDataSource"`
 	ModelDataUrl               pulumi.StringPtrInput         `pulumi:"modelDataUrl"`
 	ModelPackageName           pulumi.StringPtrInput         `pulumi:"modelPackageName"`
 	MultiModelConfig           ModelMultiModelConfigPtrInput `pulumi:"multiModelConfig"`
@@ -22620,6 +23152,10 @@ func (o ModelContainerDefinitionOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelContainerDefinition) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
+func (o ModelContainerDefinitionOutput) ModelDataSource() ModelDataSourcePtrOutput {
+	return o.ApplyT(func(v ModelContainerDefinition) *ModelDataSource { return v.ModelDataSource }).(ModelDataSourcePtrOutput)
+}
+
 func (o ModelContainerDefinitionOutput) ModelDataUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelContainerDefinition) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
 }
@@ -22716,6 +23252,15 @@ func (o ModelContainerDefinitionPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o ModelContainerDefinitionPtrOutput) ModelDataSource() ModelDataSourcePtrOutput {
+	return o.ApplyT(func(v *ModelContainerDefinition) *ModelDataSource {
+		if v == nil {
+			return nil
+		}
+		return v.ModelDataSource
+	}).(ModelDataSourcePtrOutput)
+}
+
 func (o ModelContainerDefinitionPtrOutput) ModelDataUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ModelContainerDefinition) *string {
 		if v == nil {
@@ -22767,6 +23312,163 @@ func (o ModelContainerDefinitionArrayOutput) Index(i pulumi.IntInput) ModelConta
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelContainerDefinition {
 		return vs[0].([]ModelContainerDefinition)[vs[1].(int)]
 	}).(ModelContainerDefinitionOutput)
+}
+
+type ModelDataSource struct {
+	S3DataSource ModelS3DataSource `pulumi:"s3DataSource"`
+}
+
+// ModelDataSourceInput is an input type that accepts ModelDataSourceArgs and ModelDataSourceOutput values.
+// You can construct a concrete instance of `ModelDataSourceInput` via:
+//
+//	ModelDataSourceArgs{...}
+type ModelDataSourceInput interface {
+	pulumi.Input
+
+	ToModelDataSourceOutput() ModelDataSourceOutput
+	ToModelDataSourceOutputWithContext(context.Context) ModelDataSourceOutput
+}
+
+type ModelDataSourceArgs struct {
+	S3DataSource ModelS3DataSourceInput `pulumi:"s3DataSource"`
+}
+
+func (ModelDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelDataSource)(nil)).Elem()
+}
+
+func (i ModelDataSourceArgs) ToModelDataSourceOutput() ModelDataSourceOutput {
+	return i.ToModelDataSourceOutputWithContext(context.Background())
+}
+
+func (i ModelDataSourceArgs) ToModelDataSourceOutputWithContext(ctx context.Context) ModelDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelDataSourceOutput)
+}
+
+func (i ModelDataSourceArgs) ToOutput(ctx context.Context) pulumix.Output[ModelDataSource] {
+	return pulumix.Output[ModelDataSource]{
+		OutputState: i.ToModelDataSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ModelDataSourceArgs) ToModelDataSourcePtrOutput() ModelDataSourcePtrOutput {
+	return i.ToModelDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i ModelDataSourceArgs) ToModelDataSourcePtrOutputWithContext(ctx context.Context) ModelDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelDataSourceOutput).ToModelDataSourcePtrOutputWithContext(ctx)
+}
+
+// ModelDataSourcePtrInput is an input type that accepts ModelDataSourceArgs, ModelDataSourcePtr and ModelDataSourcePtrOutput values.
+// You can construct a concrete instance of `ModelDataSourcePtrInput` via:
+//
+//	        ModelDataSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelDataSourcePtrInput interface {
+	pulumi.Input
+
+	ToModelDataSourcePtrOutput() ModelDataSourcePtrOutput
+	ToModelDataSourcePtrOutputWithContext(context.Context) ModelDataSourcePtrOutput
+}
+
+type modelDataSourcePtrType ModelDataSourceArgs
+
+func ModelDataSourcePtr(v *ModelDataSourceArgs) ModelDataSourcePtrInput {
+	return (*modelDataSourcePtrType)(v)
+}
+
+func (*modelDataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelDataSource)(nil)).Elem()
+}
+
+func (i *modelDataSourcePtrType) ToModelDataSourcePtrOutput() ModelDataSourcePtrOutput {
+	return i.ToModelDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *modelDataSourcePtrType) ToModelDataSourcePtrOutputWithContext(ctx context.Context) ModelDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelDataSourcePtrOutput)
+}
+
+func (i *modelDataSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*ModelDataSource] {
+	return pulumix.Output[*ModelDataSource]{
+		OutputState: i.ToModelDataSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ModelDataSourceOutput struct{ *pulumi.OutputState }
+
+func (ModelDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelDataSource)(nil)).Elem()
+}
+
+func (o ModelDataSourceOutput) ToModelDataSourceOutput() ModelDataSourceOutput {
+	return o
+}
+
+func (o ModelDataSourceOutput) ToModelDataSourceOutputWithContext(ctx context.Context) ModelDataSourceOutput {
+	return o
+}
+
+func (o ModelDataSourceOutput) ToModelDataSourcePtrOutput() ModelDataSourcePtrOutput {
+	return o.ToModelDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o ModelDataSourceOutput) ToModelDataSourcePtrOutputWithContext(ctx context.Context) ModelDataSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelDataSource) *ModelDataSource {
+		return &v
+	}).(ModelDataSourcePtrOutput)
+}
+
+func (o ModelDataSourceOutput) ToOutput(ctx context.Context) pulumix.Output[ModelDataSource] {
+	return pulumix.Output[ModelDataSource]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ModelDataSourceOutput) S3DataSource() ModelS3DataSourceOutput {
+	return o.ApplyT(func(v ModelDataSource) ModelS3DataSource { return v.S3DataSource }).(ModelS3DataSourceOutput)
+}
+
+type ModelDataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ModelDataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelDataSource)(nil)).Elem()
+}
+
+func (o ModelDataSourcePtrOutput) ToModelDataSourcePtrOutput() ModelDataSourcePtrOutput {
+	return o
+}
+
+func (o ModelDataSourcePtrOutput) ToModelDataSourcePtrOutputWithContext(ctx context.Context) ModelDataSourcePtrOutput {
+	return o
+}
+
+func (o ModelDataSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelDataSource] {
+	return pulumix.Output[*ModelDataSource]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ModelDataSourcePtrOutput) Elem() ModelDataSourceOutput {
+	return o.ApplyT(func(v *ModelDataSource) ModelDataSource {
+		if v != nil {
+			return *v
+		}
+		var ret ModelDataSource
+		return ret
+	}).(ModelDataSourceOutput)
+}
+
+func (o ModelDataSourcePtrOutput) S3DataSource() ModelS3DataSourcePtrOutput {
+	return o.ApplyT(func(v *ModelDataSource) *ModelS3DataSource {
+		if v == nil {
+			return nil
+		}
+		return &v.S3DataSource
+	}).(ModelS3DataSourcePtrOutput)
 }
 
 // The batch transform input for a monitoring job.
@@ -34274,6 +34976,193 @@ func (o ModelRepositoryAuthConfigPtrOutput) RepositoryCredentialsProviderArn() p
 	}).(pulumi.StringPtrOutput)
 }
 
+type ModelS3DataSource struct {
+	CompressionType string `pulumi:"compressionType"`
+	S3DataType      string `pulumi:"s3DataType"`
+	S3Uri           string `pulumi:"s3Uri"`
+}
+
+// ModelS3DataSourceInput is an input type that accepts ModelS3DataSourceArgs and ModelS3DataSourceOutput values.
+// You can construct a concrete instance of `ModelS3DataSourceInput` via:
+//
+//	ModelS3DataSourceArgs{...}
+type ModelS3DataSourceInput interface {
+	pulumi.Input
+
+	ToModelS3DataSourceOutput() ModelS3DataSourceOutput
+	ToModelS3DataSourceOutputWithContext(context.Context) ModelS3DataSourceOutput
+}
+
+type ModelS3DataSourceArgs struct {
+	CompressionType pulumi.StringInput `pulumi:"compressionType"`
+	S3DataType      pulumi.StringInput `pulumi:"s3DataType"`
+	S3Uri           pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (ModelS3DataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelS3DataSource)(nil)).Elem()
+}
+
+func (i ModelS3DataSourceArgs) ToModelS3DataSourceOutput() ModelS3DataSourceOutput {
+	return i.ToModelS3DataSourceOutputWithContext(context.Background())
+}
+
+func (i ModelS3DataSourceArgs) ToModelS3DataSourceOutputWithContext(ctx context.Context) ModelS3DataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelS3DataSourceOutput)
+}
+
+func (i ModelS3DataSourceArgs) ToOutput(ctx context.Context) pulumix.Output[ModelS3DataSource] {
+	return pulumix.Output[ModelS3DataSource]{
+		OutputState: i.ToModelS3DataSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ModelS3DataSourceArgs) ToModelS3DataSourcePtrOutput() ModelS3DataSourcePtrOutput {
+	return i.ToModelS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i ModelS3DataSourceArgs) ToModelS3DataSourcePtrOutputWithContext(ctx context.Context) ModelS3DataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelS3DataSourceOutput).ToModelS3DataSourcePtrOutputWithContext(ctx)
+}
+
+// ModelS3DataSourcePtrInput is an input type that accepts ModelS3DataSourceArgs, ModelS3DataSourcePtr and ModelS3DataSourcePtrOutput values.
+// You can construct a concrete instance of `ModelS3DataSourcePtrInput` via:
+//
+//	        ModelS3DataSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelS3DataSourcePtrInput interface {
+	pulumi.Input
+
+	ToModelS3DataSourcePtrOutput() ModelS3DataSourcePtrOutput
+	ToModelS3DataSourcePtrOutputWithContext(context.Context) ModelS3DataSourcePtrOutput
+}
+
+type modelS3DataSourcePtrType ModelS3DataSourceArgs
+
+func ModelS3DataSourcePtr(v *ModelS3DataSourceArgs) ModelS3DataSourcePtrInput {
+	return (*modelS3DataSourcePtrType)(v)
+}
+
+func (*modelS3DataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelS3DataSource)(nil)).Elem()
+}
+
+func (i *modelS3DataSourcePtrType) ToModelS3DataSourcePtrOutput() ModelS3DataSourcePtrOutput {
+	return i.ToModelS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *modelS3DataSourcePtrType) ToModelS3DataSourcePtrOutputWithContext(ctx context.Context) ModelS3DataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelS3DataSourcePtrOutput)
+}
+
+func (i *modelS3DataSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*ModelS3DataSource] {
+	return pulumix.Output[*ModelS3DataSource]{
+		OutputState: i.ToModelS3DataSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ModelS3DataSourceOutput struct{ *pulumi.OutputState }
+
+func (ModelS3DataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelS3DataSource)(nil)).Elem()
+}
+
+func (o ModelS3DataSourceOutput) ToModelS3DataSourceOutput() ModelS3DataSourceOutput {
+	return o
+}
+
+func (o ModelS3DataSourceOutput) ToModelS3DataSourceOutputWithContext(ctx context.Context) ModelS3DataSourceOutput {
+	return o
+}
+
+func (o ModelS3DataSourceOutput) ToModelS3DataSourcePtrOutput() ModelS3DataSourcePtrOutput {
+	return o.ToModelS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o ModelS3DataSourceOutput) ToModelS3DataSourcePtrOutputWithContext(ctx context.Context) ModelS3DataSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelS3DataSource) *ModelS3DataSource {
+		return &v
+	}).(ModelS3DataSourcePtrOutput)
+}
+
+func (o ModelS3DataSourceOutput) ToOutput(ctx context.Context) pulumix.Output[ModelS3DataSource] {
+	return pulumix.Output[ModelS3DataSource]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ModelS3DataSourceOutput) CompressionType() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelS3DataSource) string { return v.CompressionType }).(pulumi.StringOutput)
+}
+
+func (o ModelS3DataSourceOutput) S3DataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelS3DataSource) string { return v.S3DataType }).(pulumi.StringOutput)
+}
+
+func (o ModelS3DataSourceOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelS3DataSource) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type ModelS3DataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ModelS3DataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelS3DataSource)(nil)).Elem()
+}
+
+func (o ModelS3DataSourcePtrOutput) ToModelS3DataSourcePtrOutput() ModelS3DataSourcePtrOutput {
+	return o
+}
+
+func (o ModelS3DataSourcePtrOutput) ToModelS3DataSourcePtrOutputWithContext(ctx context.Context) ModelS3DataSourcePtrOutput {
+	return o
+}
+
+func (o ModelS3DataSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModelS3DataSource] {
+	return pulumix.Output[*ModelS3DataSource]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ModelS3DataSourcePtrOutput) Elem() ModelS3DataSourceOutput {
+	return o.ApplyT(func(v *ModelS3DataSource) ModelS3DataSource {
+		if v != nil {
+			return *v
+		}
+		var ret ModelS3DataSource
+		return ret
+	}).(ModelS3DataSourceOutput)
+}
+
+func (o ModelS3DataSourcePtrOutput) CompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CompressionType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ModelS3DataSourcePtrOutput) S3DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3DataType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ModelS3DataSourcePtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
 type ModelTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -43788,12 +44677,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigDataCaptureConfigPtrInput)(nil)).Elem(), EndpointConfigDataCaptureConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigExplainerConfigInput)(nil)).Elem(), EndpointConfigExplainerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigExplainerConfigPtrInput)(nil)).Elem(), EndpointConfigExplainerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigManagedInstanceScalingInput)(nil)).Elem(), EndpointConfigManagedInstanceScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigManagedInstanceScalingPtrInput)(nil)).Elem(), EndpointConfigManagedInstanceScalingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigProductionVariantInput)(nil)).Elem(), EndpointConfigProductionVariantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigProductionVariantArrayInput)(nil)).Elem(), EndpointConfigProductionVariantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigRoutingConfigInput)(nil)).Elem(), EndpointConfigRoutingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigRoutingConfigPtrInput)(nil)).Elem(), EndpointConfigRoutingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigServerlessConfigInput)(nil)).Elem(), EndpointConfigServerlessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigServerlessConfigPtrInput)(nil)).Elem(), EndpointConfigServerlessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigTagInput)(nil)).Elem(), EndpointConfigTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigTagArrayInput)(nil)).Elem(), EndpointConfigTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigVpcConfigInput)(nil)).Elem(), EndpointConfigVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigVpcConfigPtrInput)(nil)).Elem(), EndpointConfigVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigInput)(nil)).Elem(), EndpointDeploymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigPtrInput)(nil)).Elem(), EndpointDeploymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRollingUpdatePolicyInput)(nil)).Elem(), EndpointRollingUpdatePolicyArgs{})
@@ -43924,6 +44819,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerDefinitionInput)(nil)).Elem(), ModelContainerDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerDefinitionPtrInput)(nil)).Elem(), ModelContainerDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerDefinitionArrayInput)(nil)).Elem(), ModelContainerDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelDataSourceInput)(nil)).Elem(), ModelDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelDataSourcePtrInput)(nil)).Elem(), ModelDataSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionBatchTransformInputInput)(nil)).Elem(), ModelExplainabilityJobDefinitionBatchTransformInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionBatchTransformInputPtrInput)(nil)).Elem(), ModelExplainabilityJobDefinitionBatchTransformInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelExplainabilityJobDefinitionClusterConfigInput)(nil)).Elem(), ModelExplainabilityJobDefinitionClusterConfigArgs{})
@@ -44053,6 +44950,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelQualityJobDefinitionVpcConfigPtrInput)(nil)).Elem(), ModelQualityJobDefinitionVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelRepositoryAuthConfigInput)(nil)).Elem(), ModelRepositoryAuthConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelRepositoryAuthConfigPtrInput)(nil)).Elem(), ModelRepositoryAuthConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelS3DataSourceInput)(nil)).Elem(), ModelS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelS3DataSourcePtrInput)(nil)).Elem(), ModelS3DataSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelTagInput)(nil)).Elem(), ModelTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelTagArrayInput)(nil)).Elem(), ModelTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelVpcConfigInput)(nil)).Elem(), ModelVpcConfigArgs{})
@@ -44278,12 +45177,18 @@ func init() {
 	pulumi.RegisterOutputType(EndpointConfigDataCaptureConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConfigExplainerConfigOutput{})
 	pulumi.RegisterOutputType(EndpointConfigExplainerConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigManagedInstanceScalingOutput{})
+	pulumi.RegisterOutputType(EndpointConfigManagedInstanceScalingPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConfigProductionVariantOutput{})
 	pulumi.RegisterOutputType(EndpointConfigProductionVariantArrayOutput{})
+	pulumi.RegisterOutputType(EndpointConfigRoutingConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigRoutingConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConfigServerlessConfigOutput{})
 	pulumi.RegisterOutputType(EndpointConfigServerlessConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConfigTagOutput{})
 	pulumi.RegisterOutputType(EndpointConfigTagArrayOutput{})
+	pulumi.RegisterOutputType(EndpointConfigVpcConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointDeploymentConfigOutput{})
 	pulumi.RegisterOutputType(EndpointDeploymentConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointRollingUpdatePolicyOutput{})
@@ -44420,6 +45325,8 @@ func init() {
 	pulumi.RegisterOutputType(ModelContainerDefinitionOutput{})
 	pulumi.RegisterOutputType(ModelContainerDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(ModelContainerDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(ModelDataSourceOutput{})
+	pulumi.RegisterOutputType(ModelDataSourcePtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionBatchTransformInputOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionBatchTransformInputPtrOutput{})
 	pulumi.RegisterOutputType(ModelExplainabilityJobDefinitionClusterConfigOutput{})
@@ -44549,6 +45456,8 @@ func init() {
 	pulumi.RegisterOutputType(ModelQualityJobDefinitionVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelRepositoryAuthConfigOutput{})
 	pulumi.RegisterOutputType(ModelRepositoryAuthConfigPtrOutput{})
+	pulumi.RegisterOutputType(ModelS3DataSourceOutput{})
+	pulumi.RegisterOutputType(ModelS3DataSourcePtrOutput{})
 	pulumi.RegisterOutputType(ModelTagOutput{})
 	pulumi.RegisterOutputType(ModelTagArrayOutput{})
 	pulumi.RegisterOutputType(ModelVpcConfigOutput{})

@@ -28,13 +28,20 @@ type LookupLifecyclePolicyArgs struct {
 }
 
 type LookupLifecyclePolicyResult struct {
-	Arn              *string                       `pulumi:"arn"`
-	Description      *string                       `pulumi:"description"`
-	ExecutionRoleArn *string                       `pulumi:"executionRoleArn"`
-	Id               *string                       `pulumi:"id"`
-	PolicyDetails    *LifecyclePolicyPolicyDetails `pulumi:"policyDetails"`
-	State            *string                       `pulumi:"state"`
-	Tags             []LifecyclePolicyTag          `pulumi:"tags"`
+	Arn                    *string                                `pulumi:"arn"`
+	CopyTags               *bool                                  `pulumi:"copyTags"`
+	CreateInterval         *int                                   `pulumi:"createInterval"`
+	CrossRegionCopyTargets *LifecyclePolicyCrossRegionCopyTargets `pulumi:"crossRegionCopyTargets"`
+	DefaultPolicy          *string                                `pulumi:"defaultPolicy"`
+	Description            *string                                `pulumi:"description"`
+	Exclusions             *LifecyclePolicyExclusions             `pulumi:"exclusions"`
+	ExecutionRoleArn       *string                                `pulumi:"executionRoleArn"`
+	ExtendDeletion         *bool                                  `pulumi:"extendDeletion"`
+	Id                     *string                                `pulumi:"id"`
+	PolicyDetails          *LifecyclePolicyPolicyDetails          `pulumi:"policyDetails"`
+	RetainInterval         *int                                   `pulumi:"retainInterval"`
+	State                  *string                                `pulumi:"state"`
+	Tags                   []LifecyclePolicyTag                   `pulumi:"tags"`
 }
 
 func LookupLifecyclePolicyOutput(ctx *pulumi.Context, args LookupLifecyclePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupLifecyclePolicyResultOutput {
@@ -82,12 +89,38 @@ func (o LookupLifecyclePolicyResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLifecyclePolicyResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupLifecyclePolicyResultOutput) CopyTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLifecyclePolicyResult) *bool { return v.CopyTags }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupLifecyclePolicyResultOutput) CreateInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupLifecyclePolicyResult) *int { return v.CreateInterval }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupLifecyclePolicyResultOutput) CrossRegionCopyTargets() LifecyclePolicyCrossRegionCopyTargetsPtrOutput {
+	return o.ApplyT(func(v LookupLifecyclePolicyResult) *LifecyclePolicyCrossRegionCopyTargets {
+		return v.CrossRegionCopyTargets
+	}).(LifecyclePolicyCrossRegionCopyTargetsPtrOutput)
+}
+
+func (o LookupLifecyclePolicyResultOutput) DefaultPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLifecyclePolicyResult) *string { return v.DefaultPolicy }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupLifecyclePolicyResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLifecyclePolicyResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupLifecyclePolicyResultOutput) Exclusions() LifecyclePolicyExclusionsPtrOutput {
+	return o.ApplyT(func(v LookupLifecyclePolicyResult) *LifecyclePolicyExclusions { return v.Exclusions }).(LifecyclePolicyExclusionsPtrOutput)
+}
+
 func (o LookupLifecyclePolicyResultOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLifecyclePolicyResult) *string { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupLifecyclePolicyResultOutput) ExtendDeletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupLifecyclePolicyResult) *bool { return v.ExtendDeletion }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupLifecyclePolicyResultOutput) Id() pulumi.StringPtrOutput {
@@ -96,6 +129,10 @@ func (o LookupLifecyclePolicyResultOutput) Id() pulumi.StringPtrOutput {
 
 func (o LookupLifecyclePolicyResultOutput) PolicyDetails() LifecyclePolicyPolicyDetailsPtrOutput {
 	return o.ApplyT(func(v LookupLifecyclePolicyResult) *LifecyclePolicyPolicyDetails { return v.PolicyDetails }).(LifecyclePolicyPolicyDetailsPtrOutput)
+}
+
+func (o LookupLifecyclePolicyResultOutput) RetainInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupLifecyclePolicyResult) *int { return v.RetainInterval }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupLifecyclePolicyResultOutput) State() pulumi.StringPtrOutput {

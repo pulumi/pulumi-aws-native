@@ -30,6 +30,7 @@ type Server struct {
 	PreAuthenticationLoginBanner  pulumi.StringPtrOutput                    `pulumi:"preAuthenticationLoginBanner"`
 	ProtocolDetails               ServerProtocolDetailsPtrOutput            `pulumi:"protocolDetails"`
 	Protocols                     ServerProtocolArrayOutput                 `pulumi:"protocols"`
+	S3StorageOptions              ServerS3StorageOptionsPtrOutput           `pulumi:"s3StorageOptions"`
 	SecurityPolicyName            pulumi.StringPtrOutput                    `pulumi:"securityPolicyName"`
 	ServerId                      pulumi.StringOutput                       `pulumi:"serverId"`
 	StructuredLogDestinations     ServerStructuredLogDestinationArrayOutput `pulumi:"structuredLogDestinations"`
@@ -93,6 +94,7 @@ type serverArgs struct {
 	PreAuthenticationLoginBanner  *string                          `pulumi:"preAuthenticationLoginBanner"`
 	ProtocolDetails               *ServerProtocolDetails           `pulumi:"protocolDetails"`
 	Protocols                     []ServerProtocol                 `pulumi:"protocols"`
+	S3StorageOptions              *ServerS3StorageOptions          `pulumi:"s3StorageOptions"`
 	SecurityPolicyName            *string                          `pulumi:"securityPolicyName"`
 	StructuredLogDestinations     []ServerStructuredLogDestination `pulumi:"structuredLogDestinations"`
 	Tags                          []ServerTag                      `pulumi:"tags"`
@@ -112,6 +114,7 @@ type ServerArgs struct {
 	PreAuthenticationLoginBanner  pulumi.StringPtrInput
 	ProtocolDetails               ServerProtocolDetailsPtrInput
 	Protocols                     ServerProtocolArrayInput
+	S3StorageOptions              ServerS3StorageOptionsPtrInput
 	SecurityPolicyName            pulumi.StringPtrInput
 	StructuredLogDestinations     ServerStructuredLogDestinationArrayInput
 	Tags                          ServerTagArrayInput
@@ -213,6 +216,10 @@ func (o ServerOutput) ProtocolDetails() ServerProtocolDetailsPtrOutput {
 
 func (o ServerOutput) Protocols() ServerProtocolArrayOutput {
 	return o.ApplyT(func(v *Server) ServerProtocolArrayOutput { return v.Protocols }).(ServerProtocolArrayOutput)
+}
+
+func (o ServerOutput) S3StorageOptions() ServerS3StorageOptionsPtrOutput {
+	return o.ApplyT(func(v *Server) ServerS3StorageOptionsPtrOutput { return v.S3StorageOptions }).(ServerS3StorageOptionsPtrOutput)
 }
 
 func (o ServerOutput) SecurityPolicyName() pulumi.StringPtrOutput {

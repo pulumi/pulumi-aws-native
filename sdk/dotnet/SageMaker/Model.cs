@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<bool?> EnableNetworkIsolation { get; private set; } = null!;
 
         [Output("executionRoleArn")]
-        public Output<string> ExecutionRoleArn { get; private set; } = null!;
+        public Output<string?> ExecutionRoleArn { get; private set; } = null!;
 
         [Output("inferenceExecutionConfig")]
         public Output<Outputs.ModelInferenceExecutionConfig?> InferenceExecutionConfig { get; private set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Model(string name, ModelArgs args, CustomResourceOptions? options = null)
+        public Model(string name, ModelArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:sagemaker:Model", name, args ?? new ModelArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -106,8 +106,8 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("enableNetworkIsolation")]
         public Input<bool>? EnableNetworkIsolation { get; set; }
 
-        [Input("executionRoleArn", required: true)]
-        public Input<string> ExecutionRoleArn { get; set; } = null!;
+        [Input("executionRoleArn")]
+        public Input<string>? ExecutionRoleArn { get; set; }
 
         [Input("inferenceExecutionConfig")]
         public Input<Inputs.ModelInferenceExecutionConfigArgs>? InferenceExecutionConfig { get; set; }

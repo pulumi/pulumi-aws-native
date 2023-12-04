@@ -27,6 +27,7 @@ type ResolverEndpoint struct {
 	Name                  pulumi.StringPtrOutput                      `pulumi:"name"`
 	OutpostArn            pulumi.StringPtrOutput                      `pulumi:"outpostArn"`
 	PreferredInstanceType pulumi.StringPtrOutput                      `pulumi:"preferredInstanceType"`
+	Protocols             pulumi.StringArrayOutput                    `pulumi:"protocols"`
 	ResolverEndpointId    pulumi.StringOutput                         `pulumi:"resolverEndpointId"`
 	ResolverEndpointType  pulumi.StringPtrOutput                      `pulumi:"resolverEndpointType"`
 	SecurityGroupIds      pulumi.StringArrayOutput                    `pulumi:"securityGroupIds"`
@@ -94,6 +95,7 @@ type resolverEndpointArgs struct {
 	Name                  *string                            `pulumi:"name"`
 	OutpostArn            *string                            `pulumi:"outpostArn"`
 	PreferredInstanceType *string                            `pulumi:"preferredInstanceType"`
+	Protocols             []string                           `pulumi:"protocols"`
 	ResolverEndpointType  *string                            `pulumi:"resolverEndpointType"`
 	SecurityGroupIds      []string                           `pulumi:"securityGroupIds"`
 	Tags                  []ResolverEndpointTag              `pulumi:"tags"`
@@ -106,6 +108,7 @@ type ResolverEndpointArgs struct {
 	Name                  pulumi.StringPtrInput
 	OutpostArn            pulumi.StringPtrInput
 	PreferredInstanceType pulumi.StringPtrInput
+	Protocols             pulumi.StringArrayInput
 	ResolverEndpointType  pulumi.StringPtrInput
 	SecurityGroupIds      pulumi.StringArrayInput
 	Tags                  ResolverEndpointTagArrayInput
@@ -190,6 +193,10 @@ func (o ResolverEndpointOutput) OutpostArn() pulumi.StringPtrOutput {
 
 func (o ResolverEndpointOutput) PreferredInstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringPtrOutput { return v.PreferredInstanceType }).(pulumi.StringPtrOutput)
+}
+
+func (o ResolverEndpointOutput) Protocols() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResolverEndpoint) pulumi.StringArrayOutput { return v.Protocols }).(pulumi.StringArrayOutput)
 }
 
 func (o ResolverEndpointOutput) ResolverEndpointId() pulumi.StringOutput {

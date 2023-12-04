@@ -4936,6 +4936,7 @@ func (o EndpointRedshiftSettingsPtrOutput) WriteBufferSize() pulumi.IntPtrOutput
 
 type EndpointS3Settings struct {
 	AddColumnName                        *bool   `pulumi:"addColumnName"`
+	AddTrailingPaddingCharacter          *bool   `pulumi:"addTrailingPaddingCharacter"`
 	BucketFolder                         *string `pulumi:"bucketFolder"`
 	BucketName                           *string `pulumi:"bucketName"`
 	CannedAclForObjects                  *string `pulumi:"cannedAclForObjects"`
@@ -4959,7 +4960,9 @@ type EndpointS3Settings struct {
 	EnableStatistics                     *bool   `pulumi:"enableStatistics"`
 	EncodingType                         *string `pulumi:"encodingType"`
 	EncryptionMode                       *string `pulumi:"encryptionMode"`
+	ExpectedBucketOwner                  *string `pulumi:"expectedBucketOwner"`
 	ExternalTableDefinition              *string `pulumi:"externalTableDefinition"`
+	GlueCatalogGeneration                *bool   `pulumi:"glueCatalogGeneration"`
 	IgnoreHeaderRows                     *int    `pulumi:"ignoreHeaderRows"`
 	IncludeOpForFullLoad                 *bool   `pulumi:"includeOpForFullLoad"`
 	MaxFileSize                          *int    `pulumi:"maxFileSize"`
@@ -4988,6 +4991,7 @@ type EndpointS3SettingsInput interface {
 
 type EndpointS3SettingsArgs struct {
 	AddColumnName                        pulumi.BoolPtrInput   `pulumi:"addColumnName"`
+	AddTrailingPaddingCharacter          pulumi.BoolPtrInput   `pulumi:"addTrailingPaddingCharacter"`
 	BucketFolder                         pulumi.StringPtrInput `pulumi:"bucketFolder"`
 	BucketName                           pulumi.StringPtrInput `pulumi:"bucketName"`
 	CannedAclForObjects                  pulumi.StringPtrInput `pulumi:"cannedAclForObjects"`
@@ -5011,7 +5015,9 @@ type EndpointS3SettingsArgs struct {
 	EnableStatistics                     pulumi.BoolPtrInput   `pulumi:"enableStatistics"`
 	EncodingType                         pulumi.StringPtrInput `pulumi:"encodingType"`
 	EncryptionMode                       pulumi.StringPtrInput `pulumi:"encryptionMode"`
+	ExpectedBucketOwner                  pulumi.StringPtrInput `pulumi:"expectedBucketOwner"`
 	ExternalTableDefinition              pulumi.StringPtrInput `pulumi:"externalTableDefinition"`
+	GlueCatalogGeneration                pulumi.BoolPtrInput   `pulumi:"glueCatalogGeneration"`
 	IgnoreHeaderRows                     pulumi.IntPtrInput    `pulumi:"ignoreHeaderRows"`
 	IncludeOpForFullLoad                 pulumi.BoolPtrInput   `pulumi:"includeOpForFullLoad"`
 	MaxFileSize                          pulumi.IntPtrInput    `pulumi:"maxFileSize"`
@@ -5126,6 +5132,10 @@ func (o EndpointS3SettingsOutput) AddColumnName() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.AddColumnName }).(pulumi.BoolPtrOutput)
 }
 
+func (o EndpointS3SettingsOutput) AddTrailingPaddingCharacter() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.AddTrailingPaddingCharacter }).(pulumi.BoolPtrOutput)
+}
+
 func (o EndpointS3SettingsOutput) BucketFolder() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.BucketFolder }).(pulumi.StringPtrOutput)
 }
@@ -5218,8 +5228,16 @@ func (o EndpointS3SettingsOutput) EncryptionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.EncryptionMode }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointS3SettingsOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *string { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointS3SettingsOutput) ExternalTableDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointS3Settings) *string { return v.ExternalTableDefinition }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsOutput) GlueCatalogGeneration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointS3Settings) *bool { return v.GlueCatalogGeneration }).(pulumi.BoolPtrOutput)
 }
 
 func (o EndpointS3SettingsOutput) IgnoreHeaderRows() pulumi.IntPtrOutput {
@@ -5310,6 +5328,15 @@ func (o EndpointS3SettingsPtrOutput) AddColumnName() pulumi.BoolPtrOutput {
 			return nil
 		}
 		return v.AddColumnName
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) AddTrailingPaddingCharacter() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AddTrailingPaddingCharacter
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -5520,6 +5547,15 @@ func (o EndpointS3SettingsPtrOutput) EncryptionMode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointS3SettingsPtrOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpectedBucketOwner
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointS3SettingsPtrOutput) ExternalTableDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointS3Settings) *string {
 		if v == nil {
@@ -5527,6 +5563,15 @@ func (o EndpointS3SettingsPtrOutput) ExternalTableDefinition() pulumi.StringPtrO
 		}
 		return v.ExternalTableDefinition
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointS3SettingsPtrOutput) GlueCatalogGeneration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointS3Settings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.GlueCatalogGeneration
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o EndpointS3SettingsPtrOutput) IgnoreHeaderRows() pulumi.IntPtrOutput {

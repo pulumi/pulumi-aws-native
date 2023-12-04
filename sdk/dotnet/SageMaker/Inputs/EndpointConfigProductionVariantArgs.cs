@@ -24,17 +24,23 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("initialInstanceCount")]
         public Input<int>? InitialInstanceCount { get; set; }
 
-        [Input("initialVariantWeight", required: true)]
-        public Input<double> InitialVariantWeight { get; set; } = null!;
+        [Input("initialVariantWeight")]
+        public Input<double>? InitialVariantWeight { get; set; }
 
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
 
+        [Input("managedInstanceScaling")]
+        public Input<Inputs.EndpointConfigManagedInstanceScalingArgs>? ManagedInstanceScaling { get; set; }
+
         [Input("modelDataDownloadTimeoutInSeconds")]
         public Input<int>? ModelDataDownloadTimeoutInSeconds { get; set; }
 
-        [Input("modelName", required: true)]
-        public Input<string> ModelName { get; set; } = null!;
+        [Input("modelName")]
+        public Input<string>? ModelName { get; set; }
+
+        [Input("routingConfig")]
+        public Input<Inputs.EndpointConfigRoutingConfigArgs>? RoutingConfig { get; set; }
 
         [Input("serverlessConfig")]
         public Input<Inputs.EndpointConfigServerlessConfigArgs>? ServerlessConfig { get; set; }

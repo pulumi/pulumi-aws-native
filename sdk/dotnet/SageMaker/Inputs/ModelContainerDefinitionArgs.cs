@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("mode")]
         public Input<string>? Mode { get; set; }
 
+        [Input("modelDataSource")]
+        public Input<Inputs.ModelDataSourceArgs>? ModelDataSource { get; set; }
+
         [Input("modelDataUrl")]
         public Input<string>? ModelDataUrl { get; set; }
 

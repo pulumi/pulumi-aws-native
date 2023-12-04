@@ -3,14 +3,32 @@
   "description" : "Resource Type definition for AWS::DLM::LifecyclePolicy",
   "additionalProperties" : false,
   "properties" : {
-    "ExecutionRoleArn" : {
-      "type" : "string"
+    "CreateInterval" : {
+      "type" : "integer"
     },
     "Description" : {
       "type" : "string"
     },
+    "ExtendDeletion" : {
+      "type" : "boolean"
+    },
+    "Exclusions" : {
+      "$ref" : "#/definitions/Exclusions"
+    },
+    "RetainInterval" : {
+      "type" : "integer"
+    },
+    "ExecutionRoleArn" : {
+      "type" : "string"
+    },
+    "DefaultPolicy" : {
+      "type" : "string"
+    },
     "State" : {
       "type" : "string"
+    },
+    "CrossRegionCopyTargets" : {
+      "$ref" : "#/definitions/CrossRegionCopyTargets"
     },
     "PolicyDetails" : {
       "$ref" : "#/definitions/PolicyDetails"
@@ -27,9 +45,192 @@
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
+    },
+    "CopyTags" : {
+      "type" : "boolean"
     }
   },
   "definitions" : {
+    "Action" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "CrossRegionCopy" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/CrossRegionCopyAction"
+          }
+        },
+        "Name" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "CrossRegionCopy", "Name" ]
+    },
+    "Exclusions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ExcludeTags" : {
+          "$ref" : "#/definitions/ExcludeTags"
+        },
+        "ExcludeVolumeTypes" : {
+          "$ref" : "#/definitions/ExcludeVolumeTypesList"
+        },
+        "ExcludeBootVolumes" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "ArchiveRule" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "RetainRule" : {
+          "$ref" : "#/definitions/ArchiveRetainRule"
+        }
+      },
+      "required" : [ "RetainRule" ]
+    },
+    "ExcludeVolumeTypesList" : {
+      "type" : "object",
+      "additionalProperties" : false
+    },
+    "DeprecateRule" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "IntervalUnit" : {
+          "type" : "string"
+        },
+        "Count" : {
+          "type" : "integer"
+        },
+        "Interval" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "CrossRegionCopyDeprecateRule" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "IntervalUnit" : {
+          "type" : "string"
+        },
+        "Interval" : {
+          "type" : "integer"
+        }
+      },
+      "required" : [ "IntervalUnit", "Interval" ]
+    },
+    "CreateRule" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "IntervalUnit" : {
+          "type" : "string"
+        },
+        "Scripts" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/Script"
+          }
+        },
+        "Times" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "CronExpression" : {
+          "type" : "string"
+        },
+        "Interval" : {
+          "type" : "integer"
+        },
+        "Location" : {
+          "type" : "string"
+        }
+      }
+    },
+    "PolicyDetails" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "PolicyLanguage" : {
+          "type" : "string"
+        },
+        "ResourceTypes" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "Schedules" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/Schedule"
+          }
+        },
+        "PolicyType" : {
+          "type" : "string"
+        },
+        "CreateInterval" : {
+          "type" : "integer"
+        },
+        "Parameters" : {
+          "$ref" : "#/definitions/Parameters"
+        },
+        "ExtendDeletion" : {
+          "type" : "boolean"
+        },
+        "Exclusions" : {
+          "$ref" : "#/definitions/Exclusions"
+        },
+        "Actions" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/Action"
+          }
+        },
+        "ResourceType" : {
+          "type" : "string"
+        },
+        "RetainInterval" : {
+          "type" : "integer"
+        },
+        "EventSource" : {
+          "$ref" : "#/definitions/EventSource"
+        },
+        "CrossRegionCopyTargets" : {
+          "$ref" : "#/definitions/CrossRegionCopyTargets"
+        },
+        "TargetTags" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "$ref" : "#/definitions/Tag"
+          }
+        },
+        "ResourceLocations" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "CopyTags" : {
+          "type" : "boolean"
+        }
+      }
+    },
     "Script" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -57,23 +258,6 @@
           "type" : "boolean"
         }
       }
-    },
-    "Action" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "CrossRegionCopy" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "$ref" : "#/definitions/CrossRegionCopyAction"
-          }
-        },
-        "Name" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "CrossRegionCopy", "Name" ]
     },
     "Parameters" : {
       "type" : "object",
@@ -148,15 +332,9 @@
       },
       "required" : [ "IntervalUnit", "Interval" ]
     },
-    "ArchiveRule" : {
+    "ExcludeTags" : {
       "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "RetainRule" : {
-          "$ref" : "#/definitions/ArchiveRetainRule"
-        }
-      },
-      "required" : [ "RetainRule" ]
+      "additionalProperties" : false
     },
     "EventParameters" : {
       "type" : "object",
@@ -222,34 +400,6 @@
       },
       "required" : [ "Type" ]
     },
-    "DeprecateRule" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "IntervalUnit" : {
-          "type" : "string"
-        },
-        "Count" : {
-          "type" : "integer"
-        },
-        "Interval" : {
-          "type" : "integer"
-        }
-      }
-    },
-    "CrossRegionCopyDeprecateRule" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "IntervalUnit" : {
-          "type" : "string"
-        },
-        "Interval" : {
-          "type" : "integer"
-        }
-      },
-      "required" : [ "IntervalUnit", "Interval" ]
-    },
     "ArchiveRetainRule" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -260,37 +410,9 @@
       },
       "required" : [ "RetentionArchiveTier" ]
     },
-    "CreateRule" : {
+    "CrossRegionCopyTargets" : {
       "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "IntervalUnit" : {
-          "type" : "string"
-        },
-        "Scripts" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "$ref" : "#/definitions/Script"
-          }
-        },
-        "Times" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "CronExpression" : {
-          "type" : "string"
-        },
-        "Interval" : {
-          "type" : "integer"
-        },
-        "Location" : {
-          "type" : "string"
-        }
-      }
+      "additionalProperties" : false
     },
     "Schedule" : {
       "type" : "object",
@@ -366,56 +488,6 @@
         },
         "Interval" : {
           "type" : "integer"
-        }
-      }
-    },
-    "PolicyDetails" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "ResourceTypes" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "type" : "string"
-          }
-        },
-        "Schedules" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "$ref" : "#/definitions/Schedule"
-          }
-        },
-        "PolicyType" : {
-          "type" : "string"
-        },
-        "EventSource" : {
-          "$ref" : "#/definitions/EventSource"
-        },
-        "Parameters" : {
-          "$ref" : "#/definitions/Parameters"
-        },
-        "Actions" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "$ref" : "#/definitions/Action"
-          }
-        },
-        "TargetTags" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "$ref" : "#/definitions/Tag"
-          }
-        },
-        "ResourceLocations" : {
-          "type" : "array",
-          "uniqueItems" : false,
-          "items" : {
-            "type" : "string"
-          }
         }
       }
     },

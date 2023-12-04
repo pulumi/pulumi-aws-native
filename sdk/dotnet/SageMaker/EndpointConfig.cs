@@ -22,8 +22,14 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("dataCaptureConfig")]
         public Output<Outputs.EndpointConfigDataCaptureConfig?> DataCaptureConfig { get; private set; } = null!;
 
+        [Output("enableNetworkIsolation")]
+        public Output<bool?> EnableNetworkIsolation { get; private set; } = null!;
+
         [Output("endpointConfigName")]
         public Output<string?> EndpointConfigName { get; private set; } = null!;
+
+        [Output("executionRoleArn")]
+        public Output<string?> ExecutionRoleArn { get; private set; } = null!;
 
         [Output("explainerConfig")]
         public Output<Outputs.EndpointConfigExplainerConfig?> ExplainerConfig { get; private set; } = null!;
@@ -39,6 +45,9 @@ namespace Pulumi.AwsNative.SageMaker
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.EndpointConfigTag>> Tags { get; private set; } = null!;
+
+        [Output("vpcConfig")]
+        public Output<Outputs.EndpointConfigVpcConfig?> VpcConfig { get; private set; } = null!;
 
 
         /// <summary>
@@ -67,11 +76,14 @@ namespace Pulumi.AwsNative.SageMaker
                 {
                     "asyncInferenceConfig",
                     "dataCaptureConfig",
+                    "enableNetworkIsolation",
                     "endpointConfigName",
+                    "executionRoleArn",
                     "explainerConfig",
                     "kmsKeyId",
                     "productionVariants[*]",
                     "shadowProductionVariants[*]",
+                    "vpcConfig",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -101,8 +113,14 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("dataCaptureConfig")]
         public Input<Inputs.EndpointConfigDataCaptureConfigArgs>? DataCaptureConfig { get; set; }
 
+        [Input("enableNetworkIsolation")]
+        public Input<bool>? EnableNetworkIsolation { get; set; }
+
         [Input("endpointConfigName")]
         public Input<string>? EndpointConfigName { get; set; }
+
+        [Input("executionRoleArn")]
+        public Input<string>? ExecutionRoleArn { get; set; }
 
         [Input("explainerConfig")]
         public Input<Inputs.EndpointConfigExplainerConfigArgs>? ExplainerConfig { get; set; }
@@ -133,6 +151,9 @@ namespace Pulumi.AwsNative.SageMaker
             get => _tags ?? (_tags = new InputList<Inputs.EndpointConfigTagArgs>());
             set => _tags = value;
         }
+
+        [Input("vpcConfig")]
+        public Input<Inputs.EndpointConfigVpcConfigArgs>? VpcConfig { get; set; }
 
         public EndpointConfigArgs()
         {

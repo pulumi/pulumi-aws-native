@@ -42,12 +42,15 @@ export class EndpointConfig extends pulumi.CustomResource {
 
     public readonly asyncInferenceConfig!: pulumi.Output<outputs.sagemaker.EndpointConfigAsyncInferenceConfig | undefined>;
     public readonly dataCaptureConfig!: pulumi.Output<outputs.sagemaker.EndpointConfigDataCaptureConfig | undefined>;
+    public readonly enableNetworkIsolation!: pulumi.Output<boolean | undefined>;
     public readonly endpointConfigName!: pulumi.Output<string | undefined>;
+    public readonly executionRoleArn!: pulumi.Output<string | undefined>;
     public readonly explainerConfig!: pulumi.Output<outputs.sagemaker.EndpointConfigExplainerConfig | undefined>;
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     public readonly productionVariants!: pulumi.Output<outputs.sagemaker.EndpointConfigProductionVariant[]>;
     public readonly shadowProductionVariants!: pulumi.Output<outputs.sagemaker.EndpointConfigProductionVariant[] | undefined>;
     public readonly tags!: pulumi.Output<outputs.sagemaker.EndpointConfigTag[] | undefined>;
+    public readonly vpcConfig!: pulumi.Output<outputs.sagemaker.EndpointConfigVpcConfig | undefined>;
 
     /**
      * Create a EndpointConfig resource with the given unique name, arguments, and options.
@@ -67,24 +70,30 @@ export class EndpointConfig extends pulumi.CustomResource {
             }
             resourceInputs["asyncInferenceConfig"] = args ? args.asyncInferenceConfig : undefined;
             resourceInputs["dataCaptureConfig"] = args ? args.dataCaptureConfig : undefined;
+            resourceInputs["enableNetworkIsolation"] = args ? args.enableNetworkIsolation : undefined;
             resourceInputs["endpointConfigName"] = args ? args.endpointConfigName : undefined;
+            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             resourceInputs["explainerConfig"] = args ? args.explainerConfig : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["productionVariants"] = args ? args.productionVariants : undefined;
             resourceInputs["shadowProductionVariants"] = args ? args.shadowProductionVariants : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
         } else {
             resourceInputs["asyncInferenceConfig"] = undefined /*out*/;
             resourceInputs["dataCaptureConfig"] = undefined /*out*/;
+            resourceInputs["enableNetworkIsolation"] = undefined /*out*/;
             resourceInputs["endpointConfigName"] = undefined /*out*/;
+            resourceInputs["executionRoleArn"] = undefined /*out*/;
             resourceInputs["explainerConfig"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["productionVariants"] = undefined /*out*/;
             resourceInputs["shadowProductionVariants"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vpcConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["asyncInferenceConfig", "dataCaptureConfig", "endpointConfigName", "explainerConfig", "kmsKeyId", "productionVariants[*]", "shadowProductionVariants[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["asyncInferenceConfig", "dataCaptureConfig", "enableNetworkIsolation", "endpointConfigName", "executionRoleArn", "explainerConfig", "kmsKeyId", "productionVariants[*]", "shadowProductionVariants[*]", "vpcConfig"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(EndpointConfig.__pulumiType, name, resourceInputs, opts);
     }
@@ -96,10 +105,13 @@ export class EndpointConfig extends pulumi.CustomResource {
 export interface EndpointConfigArgs {
     asyncInferenceConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigAsyncInferenceConfigArgs>;
     dataCaptureConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigDataCaptureConfigArgs>;
+    enableNetworkIsolation?: pulumi.Input<boolean>;
     endpointConfigName?: pulumi.Input<string>;
+    executionRoleArn?: pulumi.Input<string>;
     explainerConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigExplainerConfigArgs>;
     kmsKeyId?: pulumi.Input<string>;
     productionVariants: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigProductionVariantArgs>[]>;
     shadowProductionVariants?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigProductionVariantArgs>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointConfigTagArgs>[]>;
+    vpcConfig?: pulumi.Input<inputs.sagemaker.EndpointConfigVpcConfigArgs>;
 }

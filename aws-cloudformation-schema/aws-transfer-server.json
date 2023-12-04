@@ -44,6 +44,9 @@
     "ProtocolDetails" : {
       "$ref" : "#/definitions/ProtocolDetails"
     },
+    "S3StorageOptions" : {
+      "$ref" : "#/definitions/S3StorageOptions"
+    },
     "WorkflowDetails" : {
       "$ref" : "#/definitions/WorkflowDetails"
     },
@@ -111,6 +114,15 @@
           "type" : "string"
         },
         "TlsSessionResumptionMode" : {
+          "type" : "string"
+        }
+      }
+    },
+    "S3StorageOptions" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "DirectoryListingOptimization" : {
           "type" : "string"
         }
       }

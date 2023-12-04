@@ -14,6 +14,7 @@ namespace Pulumi.AwsNative.Dms.Outputs
     public sealed class EndpointS3Settings
     {
         public readonly bool? AddColumnName;
+        public readonly bool? AddTrailingPaddingCharacter;
         public readonly string? BucketFolder;
         public readonly string? BucketName;
         public readonly string? CannedAclForObjects;
@@ -37,7 +38,9 @@ namespace Pulumi.AwsNative.Dms.Outputs
         public readonly bool? EnableStatistics;
         public readonly string? EncodingType;
         public readonly string? EncryptionMode;
+        public readonly string? ExpectedBucketOwner;
         public readonly string? ExternalTableDefinition;
+        public readonly bool? GlueCatalogGeneration;
         public readonly int? IgnoreHeaderRows;
         public readonly bool? IncludeOpForFullLoad;
         public readonly int? MaxFileSize;
@@ -55,6 +58,8 @@ namespace Pulumi.AwsNative.Dms.Outputs
         [OutputConstructor]
         private EndpointS3Settings(
             bool? addColumnName,
+
+            bool? addTrailingPaddingCharacter,
 
             string? bucketFolder,
 
@@ -102,7 +107,11 @@ namespace Pulumi.AwsNative.Dms.Outputs
 
             string? encryptionMode,
 
+            string? expectedBucketOwner,
+
             string? externalTableDefinition,
+
+            bool? glueCatalogGeneration,
 
             int? ignoreHeaderRows,
 
@@ -131,6 +140,7 @@ namespace Pulumi.AwsNative.Dms.Outputs
             bool? useTaskStartTimeForFullLoadTimestamp)
         {
             AddColumnName = addColumnName;
+            AddTrailingPaddingCharacter = addTrailingPaddingCharacter;
             BucketFolder = bucketFolder;
             BucketName = bucketName;
             CannedAclForObjects = cannedAclForObjects;
@@ -154,7 +164,9 @@ namespace Pulumi.AwsNative.Dms.Outputs
             EnableStatistics = enableStatistics;
             EncodingType = encodingType;
             EncryptionMode = encryptionMode;
+            ExpectedBucketOwner = expectedBucketOwner;
             ExternalTableDefinition = externalTableDefinition;
+            GlueCatalogGeneration = glueCatalogGeneration;
             IgnoreHeaderRows = ignoreHeaderRows;
             IncludeOpForFullLoad = includeOpForFullLoad;
             MaxFileSize = maxFileSize;

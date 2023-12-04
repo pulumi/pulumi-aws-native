@@ -9,6 +9,7 @@ import * as appflow from "./appflow";
 import * as applicationinsights from "./applicationinsights";
 import * as apprunner from "./apprunner";
 import * as appsync from "./appsync";
+import * as arczonalshift from "./arczonalshift";
 import * as athena from "./athena";
 import * as auditmanager from "./auditmanager";
 import * as backup from "./backup";
@@ -133,6 +134,7 @@ import * as servicecatalog from "./servicecatalog";
 import * as servicecatalogappregistry from "./servicecatalogappregistry";
 import * as shield from "./shield";
 import * as signer from "./signer";
+import * as sns from "./sns";
 import * as ssm from "./ssm";
 import * as ssmcontacts from "./ssmcontacts";
 import * as ssmincidents from "./ssmincidents";
@@ -147,6 +149,7 @@ import * as vpclattice from "./vpclattice";
 import * as wafv2 from "./wafv2";
 import * as wisdom from "./wisdom";
 import * as workspaces from "./workspaces";
+import * as workspacesthinclient from "./workspacesthinclient";
 import * as workspacesweb from "./workspacesweb";
 
 export {
@@ -157,6 +160,7 @@ export {
     applicationinsights,
     apprunner,
     appsync,
+    arczonalshift,
     athena,
     auditmanager,
     backup,
@@ -281,6 +285,7 @@ export {
     servicecatalogappregistry,
     shield,
     signer,
+    sns,
     ssm,
     ssmcontacts,
     ssmincidents,
@@ -295,6 +300,7 @@ export {
     wafv2,
     wisdom,
     workspaces,
+    workspacesthinclient,
     workspacesweb,
 };
 

@@ -363,6 +363,9 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "OutputStaticImageOverlayScheduleActions" : {
+          "type" : "string"
+        },
         "InputPrepareScheduleActions" : {
           "type" : "string"
         }
@@ -458,6 +461,9 @@
         "InputEndAction" : {
           "type" : "string"
         },
+        "OutputLockingSettings" : {
+          "$ref" : "#/definitions/OutputLockingSettings"
+        },
         "OutputTimingSource" : {
           "type" : "string"
         },
@@ -474,6 +480,10 @@
           "$ref" : "#/definitions/InputLossBehavior"
         }
       }
+    },
+    "PipelineLockingSettings" : {
+      "type" : "object",
+      "additionalProperties" : false
     },
     "FrameCaptureS3Settings" : {
       "type" : "object",
@@ -2024,6 +2034,18 @@
         }
       }
     },
+    "EpochLockingSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "JamSyncTime" : {
+          "type" : "string"
+        },
+        "CustomEpoch" : {
+          "type" : "string"
+        }
+      }
+    },
     "VideoSelectorPid" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -2560,6 +2582,18 @@
         },
         "BackgroundColor" : {
           "type" : "string"
+        }
+      }
+    },
+    "OutputLockingSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "EpochLockingSettings" : {
+          "$ref" : "#/definitions/EpochLockingSettings"
+        },
+        "PipelineLockingSettings" : {
+          "$ref" : "#/definitions/PipelineLockingSettings"
         }
       }
     },

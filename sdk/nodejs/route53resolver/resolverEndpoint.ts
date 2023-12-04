@@ -48,6 +48,7 @@ export class ResolverEndpoint extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly outpostArn!: pulumi.Output<string | undefined>;
     public readonly preferredInstanceType!: pulumi.Output<string | undefined>;
+    public readonly protocols!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly resolverEndpointId!: pulumi.Output<string>;
     public readonly resolverEndpointType!: pulumi.Output<string | undefined>;
     public readonly securityGroupIds!: pulumi.Output<string[]>;
@@ -80,6 +81,7 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
             resourceInputs["preferredInstanceType"] = args ? args.preferredInstanceType : undefined;
+            resourceInputs["protocols"] = args ? args.protocols : undefined;
             resourceInputs["resolverEndpointType"] = args ? args.resolverEndpointType : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -96,6 +98,7 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["outpostArn"] = undefined /*out*/;
             resourceInputs["preferredInstanceType"] = undefined /*out*/;
+            resourceInputs["protocols"] = undefined /*out*/;
             resourceInputs["resolverEndpointId"] = undefined /*out*/;
             resourceInputs["resolverEndpointType"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;
@@ -117,6 +120,7 @@ export interface ResolverEndpointArgs {
     name?: pulumi.Input<string>;
     outpostArn?: pulumi.Input<string>;
     preferredInstanceType?: pulumi.Input<string>;
+    protocols?: pulumi.Input<pulumi.Input<string>[]>;
     resolverEndpointType?: pulumi.Input<string>;
     securityGroupIds: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.route53resolver.ResolverEndpointTagArgs>[]>;

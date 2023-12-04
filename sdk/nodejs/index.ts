@@ -82,6 +82,7 @@ import * as apprunner from "./apprunner";
 import * as appstream from "./appstream";
 import * as appsync from "./appsync";
 import * as aps from "./aps";
+import * as arczonalshift from "./arczonalshift";
 import * as ask from "./ask";
 import * as athena from "./athena";
 import * as auditmanager from "./auditmanager";
@@ -292,6 +293,7 @@ import * as wafregional from "./wafregional";
 import * as wafv2 from "./wafv2";
 import * as wisdom from "./wisdom";
 import * as workspaces from "./workspaces";
+import * as workspacesthinclient from "./workspacesthinclient";
 import * as workspacesweb from "./workspacesweb";
 import * as xray from "./xray";
 
@@ -313,6 +315,7 @@ export {
     appstream,
     appsync,
     aps,
+    arczonalshift,
     ask,
     athena,
     auditmanager,
@@ -523,6 +526,7 @@ export {
     wafv2,
     wisdom,
     workspaces,
+    workspacesthinclient,
     workspacesweb,
     xray,
 };

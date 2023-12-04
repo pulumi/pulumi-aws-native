@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['TopicArgs', 'Topic']
@@ -19,6 +20,7 @@ class TopicArgs:
                  archive_policy: Optional[Any] = None,
                  content_based_deduplication: Optional[pulumi.Input[bool]] = None,
                  data_protection_policy: Optional[Any] = None,
+                 delivery_status_logging: Optional[pulumi.Input[Sequence[pulumi.Input['TopicLoggingConfigArgs']]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  fifo_topic: Optional[pulumi.Input[bool]] = None,
                  kms_master_key_id: Optional[pulumi.Input[str]] = None,
@@ -42,6 +44,7 @@ class TopicArgs:
                The policy must be in JSON string format.
                
                Length Constraints: Maximum length of 30720
+        :param pulumi.Input[Sequence[pulumi.Input['TopicLoggingConfigArgs']]] delivery_status_logging: Delivery status logging configuration for supported protocols for an Amazon SNS topic.
         :param pulumi.Input[str] display_name: The display name to use for an Amazon SNS topic with SMS subscriptions.
         :param pulumi.Input[bool] fifo_topic: Set to true to create a FIFO topic.
         :param pulumi.Input[str] kms_master_key_id: The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
@@ -60,6 +63,8 @@ class TopicArgs:
             pulumi.set(__self__, "content_based_deduplication", content_based_deduplication)
         if data_protection_policy is not None:
             pulumi.set(__self__, "data_protection_policy", data_protection_policy)
+        if delivery_status_logging is not None:
+            pulumi.set(__self__, "delivery_status_logging", delivery_status_logging)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if fifo_topic is not None:
@@ -122,6 +127,18 @@ class TopicArgs:
     @data_protection_policy.setter
     def data_protection_policy(self, value: Optional[Any]):
         pulumi.set(self, "data_protection_policy", value)
+
+    @property
+    @pulumi.getter(name="deliveryStatusLogging")
+    def delivery_status_logging(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicLoggingConfigArgs']]]]:
+        """
+        Delivery status logging configuration for supported protocols for an Amazon SNS topic.
+        """
+        return pulumi.get(self, "delivery_status_logging")
+
+    @delivery_status_logging.setter
+    def delivery_status_logging(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicLoggingConfigArgs']]]]):
+        pulumi.set(self, "delivery_status_logging", value)
 
     @property
     @pulumi.getter(name="displayName")
@@ -229,6 +246,7 @@ class Topic(pulumi.CustomResource):
                  archive_policy: Optional[Any] = None,
                  content_based_deduplication: Optional[pulumi.Input[bool]] = None,
                  data_protection_policy: Optional[Any] = None,
+                 delivery_status_logging: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicLoggingConfigArgs']]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  fifo_topic: Optional[pulumi.Input[bool]] = None,
                  kms_master_key_id: Optional[pulumi.Input[str]] = None,
@@ -256,6 +274,7 @@ class Topic(pulumi.CustomResource):
                The policy must be in JSON string format.
                
                Length Constraints: Maximum length of 30720
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicLoggingConfigArgs']]]] delivery_status_logging: Delivery status logging configuration for supported protocols for an Amazon SNS topic.
         :param pulumi.Input[str] display_name: The display name to use for an Amazon SNS topic with SMS subscriptions.
         :param pulumi.Input[bool] fifo_topic: Set to true to create a FIFO topic.
         :param pulumi.Input[str] kms_master_key_id: The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see Key Terms. For more examples, see KeyId in the AWS Key Management Service API Reference.
@@ -295,6 +314,7 @@ class Topic(pulumi.CustomResource):
                  archive_policy: Optional[Any] = None,
                  content_based_deduplication: Optional[pulumi.Input[bool]] = None,
                  data_protection_policy: Optional[Any] = None,
+                 delivery_status_logging: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicLoggingConfigArgs']]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  fifo_topic: Optional[pulumi.Input[bool]] = None,
                  kms_master_key_id: Optional[pulumi.Input[str]] = None,
@@ -315,6 +335,7 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["archive_policy"] = archive_policy
             __props__.__dict__["content_based_deduplication"] = content_based_deduplication
             __props__.__dict__["data_protection_policy"] = data_protection_policy
+            __props__.__dict__["delivery_status_logging"] = delivery_status_logging
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["fifo_topic"] = fifo_topic
             __props__.__dict__["kms_master_key_id"] = kms_master_key_id
@@ -351,6 +372,7 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["archive_policy"] = None
         __props__.__dict__["content_based_deduplication"] = None
         __props__.__dict__["data_protection_policy"] = None
+        __props__.__dict__["delivery_status_logging"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["fifo_topic"] = None
         __props__.__dict__["kms_master_key_id"] = None
@@ -395,6 +417,14 @@ class Topic(pulumi.CustomResource):
         Length Constraints: Maximum length of 30720
         """
         return pulumi.get(self, "data_protection_policy")
+
+    @property
+    @pulumi.getter(name="deliveryStatusLogging")
+    def delivery_status_logging(self) -> pulumi.Output[Optional[Sequence['outputs.TopicLoggingConfig']]]:
+        """
+        Delivery status logging configuration for supported protocols for an Amazon SNS topic.
+        """
+        return pulumi.get(self, "delivery_status_logging")
 
     @property
     @pulumi.getter(name="displayName")
