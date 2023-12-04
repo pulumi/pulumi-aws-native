@@ -4,6 +4,7 @@ AWS::ACMPCA::CertificateAuthorityActivation
 AWS::ACMPCA::Permission
 AWS::APS::RuleGroupsNamespace
 AWS::APS::Workspace
+AWS::ARCZonalShift::ZonalAutoshiftConfiguration
 AWS::AccessAnalyzer::Analyzer
 AWS::Amplify::App
 AWS::Amplify::Branch
@@ -869,6 +870,7 @@ AWS::Wisdom::Assistant
 AWS::Wisdom::AssistantAssociation
 AWS::Wisdom::KnowledgeBase
 AWS::WorkSpaces::ConnectionAlias
+AWS::WorkSpacesThinClient::Environment
 AWS::WorkSpacesWeb::BrowserSettings
 AWS::WorkSpacesWeb::IdentityProvider
 AWS::WorkSpacesWeb::IpAccessSettings

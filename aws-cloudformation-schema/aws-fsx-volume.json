@@ -36,6 +36,131 @@
     }
   },
   "definitions" : {
+    "TieringPolicy" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "CoolingPeriod" : {
+          "type" : "integer"
+        },
+        "Name" : {
+          "type" : "string"
+        }
+      }
+    },
+    "SnaplockRetentionPeriod" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MinimumRetention" : {
+          "$ref" : "#/definitions/RetentionPeriod"
+        },
+        "DefaultRetention" : {
+          "$ref" : "#/definitions/RetentionPeriod"
+        },
+        "MaximumRetention" : {
+          "$ref" : "#/definitions/RetentionPeriod"
+        }
+      },
+      "required" : [ "DefaultRetention", "MaximumRetention", "MinimumRetention" ]
+    },
+    "OntapConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "JunctionPath" : {
+          "type" : "string"
+        },
+        "StorageVirtualMachineId" : {
+          "type" : "string"
+        },
+        "TieringPolicy" : {
+          "$ref" : "#/definitions/TieringPolicy"
+        },
+        "SizeInMegabytes" : {
+          "type" : "string"
+        },
+        "VolumeStyle" : {
+          "type" : "string"
+        },
+        "SizeInBytes" : {
+          "type" : "string"
+        },
+        "SecurityStyle" : {
+          "type" : "string"
+        },
+        "SnaplockConfiguration" : {
+          "$ref" : "#/definitions/SnaplockConfiguration"
+        },
+        "AggregateConfiguration" : {
+          "$ref" : "#/definitions/AggregateConfiguration"
+        },
+        "SnapshotPolicy" : {
+          "type" : "string"
+        },
+        "StorageEfficiencyEnabled" : {
+          "type" : "string"
+        },
+        "CopyTagsToBackups" : {
+          "type" : "string"
+        },
+        "OntapVolumeType" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "StorageVirtualMachineId" ]
+    },
+    "RetentionPeriod" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Value" : {
+          "type" : "integer"
+        },
+        "Type" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Type" ]
+    },
+    "SnaplockConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AuditLogVolume" : {
+          "type" : "string"
+        },
+        "VolumeAppendModeEnabled" : {
+          "type" : "string"
+        },
+        "AutocommitPeriod" : {
+          "$ref" : "#/definitions/AutocommitPeriod"
+        },
+        "RetentionPeriod" : {
+          "$ref" : "#/definitions/SnaplockRetentionPeriod"
+        },
+        "PrivilegedDelete" : {
+          "type" : "string"
+        },
+        "SnaplockType" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "SnaplockType" ]
+    },
+    "OriginSnapshot" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "SnapshotARN" : {
+          "type" : "string"
+        },
+        "CopyStrategy" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "CopyStrategy", "SnapshotARN" ]
+    },
     "OpenZFSConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -88,33 +213,21 @@
       },
       "required" : [ "ParentVolumeId" ]
     },
-    "TieringPolicy" : {
+    "AggregateConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "CoolingPeriod" : {
-          "type" : "integer"
+        "Aggregates" : {
+          "type" : "array",
+          "uniqueItems" : false,
+          "items" : {
+            "type" : "string"
+          }
         },
-        "Name" : {
-          "type" : "string"
+        "ConstituentsPerAggregate" : {
+          "type" : "integer"
         }
       }
-    },
-    "SnaplockRetentionPeriod" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "MinimumRetention" : {
-          "$ref" : "#/definitions/RetentionPeriod"
-        },
-        "DefaultRetention" : {
-          "$ref" : "#/definitions/RetentionPeriod"
-        },
-        "MaximumRetention" : {
-          "$ref" : "#/definitions/RetentionPeriod"
-        }
-      },
-      "required" : [ "DefaultRetention", "MaximumRetention", "MinimumRetention" ]
     },
     "NfsExports" : {
       "type" : "object",
@@ -129,43 +242,6 @@
         }
       },
       "required" : [ "ClientConfigurations" ]
-    },
-    "OntapConfiguration" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "JunctionPath" : {
-          "type" : "string"
-        },
-        "StorageVirtualMachineId" : {
-          "type" : "string"
-        },
-        "SnapshotPolicy" : {
-          "type" : "string"
-        },
-        "TieringPolicy" : {
-          "$ref" : "#/definitions/TieringPolicy"
-        },
-        "StorageEfficiencyEnabled" : {
-          "type" : "string"
-        },
-        "SizeInMegabytes" : {
-          "type" : "string"
-        },
-        "CopyTagsToBackups" : {
-          "type" : "string"
-        },
-        "SecurityStyle" : {
-          "type" : "string"
-        },
-        "SnaplockConfiguration" : {
-          "$ref" : "#/definitions/SnaplockConfiguration"
-        },
-        "OntapVolumeType" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "StorageVirtualMachineId", "SizeInMegabytes" ]
     },
     "ClientConfigurations" : {
       "type" : "object",
@@ -209,57 +285,6 @@
         }
       },
       "required" : [ "Type" ]
-    },
-    "RetentionPeriod" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Value" : {
-          "type" : "integer"
-        },
-        "Type" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "Type" ]
-    },
-    "SnaplockConfiguration" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "AuditLogVolume" : {
-          "type" : "string"
-        },
-        "VolumeAppendModeEnabled" : {
-          "type" : "string"
-        },
-        "AutocommitPeriod" : {
-          "$ref" : "#/definitions/AutocommitPeriod"
-        },
-        "RetentionPeriod" : {
-          "$ref" : "#/definitions/SnaplockRetentionPeriod"
-        },
-        "PrivilegedDelete" : {
-          "type" : "string"
-        },
-        "SnaplockType" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "SnaplockType" ]
-    },
-    "OriginSnapshot" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "SnapshotARN" : {
-          "type" : "string"
-        },
-        "CopyStrategy" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "CopyStrategy", "SnapshotARN" ]
     },
     "UserAndGroupQuotas" : {
       "type" : "object",
