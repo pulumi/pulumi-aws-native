@@ -1,12 +1,24 @@
 ## Unreleased
 
+## 0.90.0 (2023-12-04)
+
+### New resources:
+
+- arczonalshift.ZonalAutoshiftConfiguration
+- workspacesthinclient.Environment
+
+### New functions:
+
+- arczonalshift.getZonalAutoshiftConfiguration
+- workspacesthinclient.getEnvironment
+
 ## 0.89.0 (2023-11-30)
 
 ### New resources:
 
 - sagemaker.InferenceComponent
 
-###New functions:
+### New functions:
 
 - sagemaker.getInferenceComponent
 
