@@ -348,6 +348,7 @@ AWS::ElasticLoadBalancingV2::TrustStoreRevocation
 AWS::EntityResolution::IdMappingWorkflow
 AWS::EntityResolution::MatchingWorkflow
 AWS::EntityResolution::SchemaMapping
+AWS::EventSchemas::Discoverer
 AWS::EventSchemas::RegistryPolicy
 AWS::Events::ApiDestination
 AWS::Events::Archive
