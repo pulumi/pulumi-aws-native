@@ -348,6 +348,8 @@ AWS::ElasticLoadBalancingV2::TrustStoreRevocation
 AWS::EntityResolution::IdMappingWorkflow
 AWS::EntityResolution::MatchingWorkflow
 AWS::EntityResolution::SchemaMapping
+AWS::EventSchemas::Discoverer
+AWS::EventSchemas::Registry
 AWS::EventSchemas::RegistryPolicy
 AWS::Events::ApiDestination
 AWS::Events::Archive
@@ -361,6 +363,7 @@ AWS::Evidently::Launch
 AWS::Evidently::Project
 AWS::Evidently::Segment
 AWS::FIS::ExperimentTemplate
+AWS::FIS::TargetAccountConfiguration
 AWS::FMS::NotificationChannel
 AWS::FMS::Policy
 AWS::FMS::ResourceSet

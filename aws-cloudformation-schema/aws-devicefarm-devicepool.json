@@ -96,16 +96,16 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "devicefarm:CreateDevicePool", "devicefarm:TagResource" ]
+      "permissions" : [ "devicefarm:CreateDevicePool", "devicefarm:TagResource", "devicefarm:GetDevicePool", "devicefarm:ListTagsForResource" ]
     },
     "read" : {
       "permissions" : [ "devicefarm:GetDevicePool", "devicefarm:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "devicefarm:UpdateDevicePool", "devicefarm:TagResource", "devicefarm:UntagResource", "devicefarm:ListTagsForResource" ]
+      "permissions" : [ "devicefarm:UpdateDevicePool", "devicefarm:TagResource", "devicefarm:UntagResource", "devicefarm:ListTagsForResource", "devicefarm:GetDevicePool" ]
     },
     "delete" : {
-      "permissions" : [ "devicefarm:DeleteDevicePool" ]
+      "permissions" : [ "devicefarm:DeleteDevicePool", "devicefarm:GetDevicePool", "devicefarm:UntagResource", "devicefarm:ListTagsForResource" ]
     },
     "list" : {
       "permissions" : [ "devicefarm:ListDevicePools" ],
