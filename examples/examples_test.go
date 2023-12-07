@@ -30,6 +30,7 @@ func getCwd(t *testing.T) string {
 func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
 	return integration.ProgramTestOptions{
+		Verbose: true,
 		Config: map[string]string{
 			"aws-native:region": envRegion,
 		},
