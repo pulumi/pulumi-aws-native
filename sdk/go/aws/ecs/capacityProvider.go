@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ECS::CapacityProvider.
@@ -105,12 +104,6 @@ func (i *CapacityProvider) ToCapacityProviderOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderOutput)
 }
 
-func (i *CapacityProvider) ToOutput(ctx context.Context) pulumix.Output[*CapacityProvider] {
-	return pulumix.Output[*CapacityProvider]{
-		OutputState: i.ToCapacityProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CapacityProviderOutput struct{ *pulumi.OutputState }
 
 func (CapacityProviderOutput) ElementType() reflect.Type {
@@ -123,12 +116,6 @@ func (o CapacityProviderOutput) ToCapacityProviderOutput() CapacityProviderOutpu
 
 func (o CapacityProviderOutput) ToCapacityProviderOutputWithContext(ctx context.Context) CapacityProviderOutput {
 	return o
-}
-
-func (o CapacityProviderOutput) ToOutput(ctx context.Context) pulumix.Output[*CapacityProvider] {
-	return pulumix.Output[*CapacityProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CapacityProviderOutput) AutoScalingGroupProvider() CapacityProviderAutoScalingGroupProviderOutput {

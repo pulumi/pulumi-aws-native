@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AutoScaling::LifecycleHook
@@ -147,12 +146,6 @@ func (i *LifecycleHook) ToLifecycleHookOutputWithContext(ctx context.Context) Li
 	return pulumi.ToOutputWithContext(ctx, i).(LifecycleHookOutput)
 }
 
-func (i *LifecycleHook) ToOutput(ctx context.Context) pulumix.Output[*LifecycleHook] {
-	return pulumix.Output[*LifecycleHook]{
-		OutputState: i.ToLifecycleHookOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LifecycleHookOutput struct{ *pulumi.OutputState }
 
 func (LifecycleHookOutput) ElementType() reflect.Type {
@@ -165,12 +158,6 @@ func (o LifecycleHookOutput) ToLifecycleHookOutput() LifecycleHookOutput {
 
 func (o LifecycleHookOutput) ToLifecycleHookOutputWithContext(ctx context.Context) LifecycleHookOutput {
 	return o
-}
-
-func (o LifecycleHookOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecycleHook] {
-	return pulumix.Output[*LifecycleHook]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Auto Scaling group for the lifecycle hook.

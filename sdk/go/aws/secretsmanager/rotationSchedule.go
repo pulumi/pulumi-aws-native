@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SecretsManager::RotationSchedule
@@ -112,12 +111,6 @@ func (i *RotationSchedule) ToRotationScheduleOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(RotationScheduleOutput)
 }
 
-func (i *RotationSchedule) ToOutput(ctx context.Context) pulumix.Output[*RotationSchedule] {
-	return pulumix.Output[*RotationSchedule]{
-		OutputState: i.ToRotationScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RotationScheduleOutput struct{ *pulumi.OutputState }
 
 func (RotationScheduleOutput) ElementType() reflect.Type {
@@ -130,12 +123,6 @@ func (o RotationScheduleOutput) ToRotationScheduleOutput() RotationScheduleOutpu
 
 func (o RotationScheduleOutput) ToRotationScheduleOutputWithContext(ctx context.Context) RotationScheduleOutput {
 	return o
-}
-
-func (o RotationScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[*RotationSchedule] {
-	return pulumix.Output[*RotationSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RotationScheduleOutput) HostedRotationLambda() RotationScheduleHostedRotationLambdaPtrOutput {

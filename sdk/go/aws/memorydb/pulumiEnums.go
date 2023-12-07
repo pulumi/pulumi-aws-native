@@ -78,12 +78,6 @@ func (o ClusterDataTieringStatusOutput) ToClusterDataTieringStatusPtrOutputWithC
 	}).(ClusterDataTieringStatusPtrOutput)
 }
 
-func (o ClusterDataTieringStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterDataTieringStatus] {
-	return pulumix.Output[ClusterDataTieringStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterDataTieringStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o ClusterDataTieringStatusPtrOutput) ToClusterDataTieringStatusPtrOutput()
 
 func (o ClusterDataTieringStatusPtrOutput) ToClusterDataTieringStatusPtrOutputWithContext(ctx context.Context) ClusterDataTieringStatusPtrOutput {
 	return o
-}
-
-func (o ClusterDataTieringStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterDataTieringStatus] {
-	return pulumix.Output[*ClusterDataTieringStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterDataTieringStatusPtrOutput) Elem() ClusterDataTieringStatusOutput {
@@ -261,12 +249,6 @@ func (o UserAuthenticationModePropertiesTypeOutput) ToUserAuthenticationModeProp
 	}).(UserAuthenticationModePropertiesTypePtrOutput)
 }
 
-func (o UserAuthenticationModePropertiesTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UserAuthenticationModePropertiesType] {
-	return pulumix.Output[UserAuthenticationModePropertiesType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserAuthenticationModePropertiesTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -300,12 +282,6 @@ func (o UserAuthenticationModePropertiesTypePtrOutput) ToUserAuthenticationModeP
 
 func (o UserAuthenticationModePropertiesTypePtrOutput) ToUserAuthenticationModePropertiesTypePtrOutputWithContext(ctx context.Context) UserAuthenticationModePropertiesTypePtrOutput {
 	return o
-}
-
-func (o UserAuthenticationModePropertiesTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserAuthenticationModePropertiesType] {
-	return pulumix.Output[*UserAuthenticationModePropertiesType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserAuthenticationModePropertiesTypePtrOutput) Elem() UserAuthenticationModePropertiesTypeOutput {

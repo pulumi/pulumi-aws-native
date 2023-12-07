@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ServiceCatalog::TagOptionAssociation
@@ -64,12 +63,6 @@ func (o LookupTagOptionAssociationResultOutput) ToLookupTagOptionAssociationResu
 
 func (o LookupTagOptionAssociationResultOutput) ToLookupTagOptionAssociationResultOutputWithContext(ctx context.Context) LookupTagOptionAssociationResultOutput {
 	return o
-}
-
-func (o LookupTagOptionAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTagOptionAssociationResult] {
-	return pulumix.Output[LookupTagOptionAssociationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupTagOptionAssociationResultOutput) Id() pulumi.StringPtrOutput {

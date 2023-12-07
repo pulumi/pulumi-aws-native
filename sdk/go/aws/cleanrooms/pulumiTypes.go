@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i AnalysisTemplateAnalysisParameterArgs) ToAnalysisTemplateAnalysisParamet
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateAnalysisParameterOutput)
 }
 
-func (i AnalysisTemplateAnalysisParameterArgs) ToOutput(ctx context.Context) pulumix.Output[AnalysisTemplateAnalysisParameter] {
-	return pulumix.Output[AnalysisTemplateAnalysisParameter]{
-		OutputState: i.ToAnalysisTemplateAnalysisParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AnalysisTemplateAnalysisParameterArrayInput is an input type that accepts AnalysisTemplateAnalysisParameterArray and AnalysisTemplateAnalysisParameterArrayOutput values.
 // You can construct a concrete instance of `AnalysisTemplateAnalysisParameterArrayInput` via:
 //
@@ -80,12 +73,6 @@ func (i AnalysisTemplateAnalysisParameterArray) ToAnalysisTemplateAnalysisParame
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateAnalysisParameterArrayOutput)
 }
 
-func (i AnalysisTemplateAnalysisParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]AnalysisTemplateAnalysisParameter] {
-	return pulumix.Output[[]AnalysisTemplateAnalysisParameter]{
-		OutputState: i.ToAnalysisTemplateAnalysisParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnalysisTemplateAnalysisParameterOutput struct{ *pulumi.OutputState }
 
 func (AnalysisTemplateAnalysisParameterOutput) ElementType() reflect.Type {
@@ -98,12 +85,6 @@ func (o AnalysisTemplateAnalysisParameterOutput) ToAnalysisTemplateAnalysisParam
 
 func (o AnalysisTemplateAnalysisParameterOutput) ToAnalysisTemplateAnalysisParameterOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisParameterOutput {
 	return o
-}
-
-func (o AnalysisTemplateAnalysisParameterOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTemplateAnalysisParameter] {
-	return pulumix.Output[AnalysisTemplateAnalysisParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisTemplateAnalysisParameterOutput) DefaultValue() pulumi.StringPtrOutput {
@@ -132,12 +113,6 @@ func (o AnalysisTemplateAnalysisParameterArrayOutput) ToAnalysisTemplateAnalysis
 	return o
 }
 
-func (o AnalysisTemplateAnalysisParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AnalysisTemplateAnalysisParameter] {
-	return pulumix.Output[[]AnalysisTemplateAnalysisParameter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTemplateAnalysisParameterArrayOutput) Index(i pulumi.IntInput) AnalysisTemplateAnalysisParameterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalysisTemplateAnalysisParameter {
 		return vs[0].([]AnalysisTemplateAnalysisParameter)[vs[1].(int)]
@@ -162,12 +137,6 @@ func (o AnalysisTemplateAnalysisSchemaOutput) ToAnalysisTemplateAnalysisSchemaOu
 	return o
 }
 
-func (o AnalysisTemplateAnalysisSchemaOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTemplateAnalysisSchema] {
-	return pulumix.Output[AnalysisTemplateAnalysisSchema]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalysisTemplateAnalysisSchemaOutput) ReferencedTables() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AnalysisTemplateAnalysisSchema) []string { return v.ReferencedTables }).(pulumi.StringArrayOutput)
 }
@@ -184,12 +153,6 @@ func (o AnalysisTemplateAnalysisSchemaPtrOutput) ToAnalysisTemplateAnalysisSchem
 
 func (o AnalysisTemplateAnalysisSchemaPtrOutput) ToAnalysisTemplateAnalysisSchemaPtrOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisSchemaPtrOutput {
 	return o
-}
-
-func (o AnalysisTemplateAnalysisSchemaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalysisTemplateAnalysisSchema] {
-	return pulumix.Output[*AnalysisTemplateAnalysisSchema]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisTemplateAnalysisSchemaPtrOutput) Elem() AnalysisTemplateAnalysisSchemaOutput {
@@ -242,12 +205,6 @@ func (i AnalysisTemplateAnalysisSourceArgs) ToAnalysisTemplateAnalysisSourceOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateAnalysisSourceOutput)
 }
 
-func (i AnalysisTemplateAnalysisSourceArgs) ToOutput(ctx context.Context) pulumix.Output[AnalysisTemplateAnalysisSource] {
-	return pulumix.Output[AnalysisTemplateAnalysisSource]{
-		OutputState: i.ToAnalysisTemplateAnalysisSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnalysisTemplateAnalysisSourceOutput struct{ *pulumi.OutputState }
 
 func (AnalysisTemplateAnalysisSourceOutput) ElementType() reflect.Type {
@@ -260,12 +217,6 @@ func (o AnalysisTemplateAnalysisSourceOutput) ToAnalysisTemplateAnalysisSourceOu
 
 func (o AnalysisTemplateAnalysisSourceOutput) ToAnalysisTemplateAnalysisSourceOutputWithContext(ctx context.Context) AnalysisTemplateAnalysisSourceOutput {
 	return o
-}
-
-func (o AnalysisTemplateAnalysisSourceOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTemplateAnalysisSource] {
-	return pulumix.Output[AnalysisTemplateAnalysisSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisTemplateAnalysisSourceOutput) Text() pulumi.StringOutput {
@@ -305,12 +256,6 @@ func (i AnalysisTemplateTagArgs) ToAnalysisTemplateTagOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateTagOutput)
 }
 
-func (i AnalysisTemplateTagArgs) ToOutput(ctx context.Context) pulumix.Output[AnalysisTemplateTag] {
-	return pulumix.Output[AnalysisTemplateTag]{
-		OutputState: i.ToAnalysisTemplateTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AnalysisTemplateTagArrayInput is an input type that accepts AnalysisTemplateTagArray and AnalysisTemplateTagArrayOutput values.
 // You can construct a concrete instance of `AnalysisTemplateTagArrayInput` via:
 //
@@ -336,12 +281,6 @@ func (i AnalysisTemplateTagArray) ToAnalysisTemplateTagArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AnalysisTemplateTagArrayOutput)
 }
 
-func (i AnalysisTemplateTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AnalysisTemplateTag] {
-	return pulumix.Output[[]AnalysisTemplateTag]{
-		OutputState: i.ToAnalysisTemplateTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnalysisTemplateTagOutput struct{ *pulumi.OutputState }
 
 func (AnalysisTemplateTagOutput) ElementType() reflect.Type {
@@ -354,12 +293,6 @@ func (o AnalysisTemplateTagOutput) ToAnalysisTemplateTagOutput() AnalysisTemplat
 
 func (o AnalysisTemplateTagOutput) ToAnalysisTemplateTagOutputWithContext(ctx context.Context) AnalysisTemplateTagOutput {
 	return o
-}
-
-func (o AnalysisTemplateTagOutput) ToOutput(ctx context.Context) pulumix.Output[AnalysisTemplateTag] {
-	return pulumix.Output[AnalysisTemplateTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisTemplateTagOutput) Key() pulumi.StringOutput {
@@ -382,12 +315,6 @@ func (o AnalysisTemplateTagArrayOutput) ToAnalysisTemplateTagArrayOutput() Analy
 
 func (o AnalysisTemplateTagArrayOutput) ToAnalysisTemplateTagArrayOutputWithContext(ctx context.Context) AnalysisTemplateTagArrayOutput {
 	return o
-}
-
-func (o AnalysisTemplateTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AnalysisTemplateTag] {
-	return pulumix.Output[[]AnalysisTemplateTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalysisTemplateTagArrayOutput) Index(i pulumi.IntInput) AnalysisTemplateTagOutput {
@@ -433,12 +360,6 @@ func (i CollaborationDataEncryptionMetadataArgs) ToCollaborationDataEncryptionMe
 	return pulumi.ToOutputWithContext(ctx, i).(CollaborationDataEncryptionMetadataOutput)
 }
 
-func (i CollaborationDataEncryptionMetadataArgs) ToOutput(ctx context.Context) pulumix.Output[CollaborationDataEncryptionMetadata] {
-	return pulumix.Output[CollaborationDataEncryptionMetadata]{
-		OutputState: i.ToCollaborationDataEncryptionMetadataOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CollaborationDataEncryptionMetadataArgs) ToCollaborationDataEncryptionMetadataPtrOutput() CollaborationDataEncryptionMetadataPtrOutput {
 	return i.ToCollaborationDataEncryptionMetadataPtrOutputWithContext(context.Background())
 }
@@ -480,12 +401,6 @@ func (i *collaborationDataEncryptionMetadataPtrType) ToCollaborationDataEncrypti
 	return pulumi.ToOutputWithContext(ctx, i).(CollaborationDataEncryptionMetadataPtrOutput)
 }
 
-func (i *collaborationDataEncryptionMetadataPtrType) ToOutput(ctx context.Context) pulumix.Output[*CollaborationDataEncryptionMetadata] {
-	return pulumix.Output[*CollaborationDataEncryptionMetadata]{
-		OutputState: i.ToCollaborationDataEncryptionMetadataPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CollaborationDataEncryptionMetadataOutput struct{ *pulumi.OutputState }
 
 func (CollaborationDataEncryptionMetadataOutput) ElementType() reflect.Type {
@@ -508,12 +423,6 @@ func (o CollaborationDataEncryptionMetadataOutput) ToCollaborationDataEncryption
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollaborationDataEncryptionMetadata) *CollaborationDataEncryptionMetadata {
 		return &v
 	}).(CollaborationDataEncryptionMetadataPtrOutput)
-}
-
-func (o CollaborationDataEncryptionMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[CollaborationDataEncryptionMetadata] {
-	return pulumix.Output[CollaborationDataEncryptionMetadata]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CollaborationDataEncryptionMetadataOutput) AllowCleartext() pulumi.BoolOutput {
@@ -544,12 +453,6 @@ func (o CollaborationDataEncryptionMetadataPtrOutput) ToCollaborationDataEncrypt
 
 func (o CollaborationDataEncryptionMetadataPtrOutput) ToCollaborationDataEncryptionMetadataPtrOutputWithContext(ctx context.Context) CollaborationDataEncryptionMetadataPtrOutput {
 	return o
-}
-
-func (o CollaborationDataEncryptionMetadataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CollaborationDataEncryptionMetadata] {
-	return pulumix.Output[*CollaborationDataEncryptionMetadata]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CollaborationDataEncryptionMetadataPtrOutput) Elem() CollaborationDataEncryptionMetadataOutput {
@@ -633,12 +536,6 @@ func (i CollaborationMemberSpecificationArgs) ToCollaborationMemberSpecification
 	return pulumi.ToOutputWithContext(ctx, i).(CollaborationMemberSpecificationOutput)
 }
 
-func (i CollaborationMemberSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[CollaborationMemberSpecification] {
-	return pulumix.Output[CollaborationMemberSpecification]{
-		OutputState: i.ToCollaborationMemberSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CollaborationMemberSpecificationArrayInput is an input type that accepts CollaborationMemberSpecificationArray and CollaborationMemberSpecificationArrayOutput values.
 // You can construct a concrete instance of `CollaborationMemberSpecificationArrayInput` via:
 //
@@ -664,12 +561,6 @@ func (i CollaborationMemberSpecificationArray) ToCollaborationMemberSpecificatio
 	return pulumi.ToOutputWithContext(ctx, i).(CollaborationMemberSpecificationArrayOutput)
 }
 
-func (i CollaborationMemberSpecificationArray) ToOutput(ctx context.Context) pulumix.Output[[]CollaborationMemberSpecification] {
-	return pulumix.Output[[]CollaborationMemberSpecification]{
-		OutputState: i.ToCollaborationMemberSpecificationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CollaborationMemberSpecificationOutput struct{ *pulumi.OutputState }
 
 func (CollaborationMemberSpecificationOutput) ElementType() reflect.Type {
@@ -682,12 +573,6 @@ func (o CollaborationMemberSpecificationOutput) ToCollaborationMemberSpecificati
 
 func (o CollaborationMemberSpecificationOutput) ToCollaborationMemberSpecificationOutputWithContext(ctx context.Context) CollaborationMemberSpecificationOutput {
 	return o
-}
-
-func (o CollaborationMemberSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[CollaborationMemberSpecification] {
-	return pulumix.Output[CollaborationMemberSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CollaborationMemberSpecificationOutput) AccountId() pulumi.StringOutput {
@@ -714,12 +599,6 @@ func (o CollaborationMemberSpecificationArrayOutput) ToCollaborationMemberSpecif
 
 func (o CollaborationMemberSpecificationArrayOutput) ToCollaborationMemberSpecificationArrayOutputWithContext(ctx context.Context) CollaborationMemberSpecificationArrayOutput {
 	return o
-}
-
-func (o CollaborationMemberSpecificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CollaborationMemberSpecification] {
-	return pulumix.Output[[]CollaborationMemberSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CollaborationMemberSpecificationArrayOutput) Index(i pulumi.IntInput) CollaborationMemberSpecificationOutput {
@@ -761,12 +640,6 @@ func (i CollaborationTagArgs) ToCollaborationTagOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(CollaborationTagOutput)
 }
 
-func (i CollaborationTagArgs) ToOutput(ctx context.Context) pulumix.Output[CollaborationTag] {
-	return pulumix.Output[CollaborationTag]{
-		OutputState: i.ToCollaborationTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CollaborationTagArrayInput is an input type that accepts CollaborationTagArray and CollaborationTagArrayOutput values.
 // You can construct a concrete instance of `CollaborationTagArrayInput` via:
 //
@@ -792,12 +665,6 @@ func (i CollaborationTagArray) ToCollaborationTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(CollaborationTagArrayOutput)
 }
 
-func (i CollaborationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]CollaborationTag] {
-	return pulumix.Output[[]CollaborationTag]{
-		OutputState: i.ToCollaborationTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CollaborationTagOutput struct{ *pulumi.OutputState }
 
 func (CollaborationTagOutput) ElementType() reflect.Type {
@@ -810,12 +677,6 @@ func (o CollaborationTagOutput) ToCollaborationTagOutput() CollaborationTagOutpu
 
 func (o CollaborationTagOutput) ToCollaborationTagOutputWithContext(ctx context.Context) CollaborationTagOutput {
 	return o
-}
-
-func (o CollaborationTagOutput) ToOutput(ctx context.Context) pulumix.Output[CollaborationTag] {
-	return pulumix.Output[CollaborationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CollaborationTagOutput) Key() pulumi.StringOutput {
@@ -840,12 +701,6 @@ func (o CollaborationTagArrayOutput) ToCollaborationTagArrayOutputWithContext(ct
 	return o
 }
 
-func (o CollaborationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CollaborationTag] {
-	return pulumix.Output[[]CollaborationTag]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CollaborationTagArrayOutput) Index(i pulumi.IntInput) CollaborationTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CollaborationTag {
 		return vs[0].([]CollaborationTag)[vs[1].(int)]
@@ -857,10 +712,205 @@ type ConfiguredTableAggregateColumn struct {
 	Function    ConfiguredTableAggregateFunctionName `pulumi:"function"`
 }
 
+// ConfiguredTableAggregateColumnInput is an input type that accepts ConfiguredTableAggregateColumnArgs and ConfiguredTableAggregateColumnOutput values.
+// You can construct a concrete instance of `ConfiguredTableAggregateColumnInput` via:
+//
+//	ConfiguredTableAggregateColumnArgs{...}
+type ConfiguredTableAggregateColumnInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAggregateColumnOutput() ConfiguredTableAggregateColumnOutput
+	ToConfiguredTableAggregateColumnOutputWithContext(context.Context) ConfiguredTableAggregateColumnOutput
+}
+
+type ConfiguredTableAggregateColumnArgs struct {
+	ColumnNames pulumi.StringArrayInput                   `pulumi:"columnNames"`
+	Function    ConfiguredTableAggregateFunctionNameInput `pulumi:"function"`
+}
+
+func (ConfiguredTableAggregateColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAggregateColumn)(nil)).Elem()
+}
+
+func (i ConfiguredTableAggregateColumnArgs) ToConfiguredTableAggregateColumnOutput() ConfiguredTableAggregateColumnOutput {
+	return i.ToConfiguredTableAggregateColumnOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableAggregateColumnArgs) ToConfiguredTableAggregateColumnOutputWithContext(ctx context.Context) ConfiguredTableAggregateColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAggregateColumnOutput)
+}
+
+// ConfiguredTableAggregateColumnArrayInput is an input type that accepts ConfiguredTableAggregateColumnArray and ConfiguredTableAggregateColumnArrayOutput values.
+// You can construct a concrete instance of `ConfiguredTableAggregateColumnArrayInput` via:
+//
+//	ConfiguredTableAggregateColumnArray{ ConfiguredTableAggregateColumnArgs{...} }
+type ConfiguredTableAggregateColumnArrayInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAggregateColumnArrayOutput() ConfiguredTableAggregateColumnArrayOutput
+	ToConfiguredTableAggregateColumnArrayOutputWithContext(context.Context) ConfiguredTableAggregateColumnArrayOutput
+}
+
+type ConfiguredTableAggregateColumnArray []ConfiguredTableAggregateColumnInput
+
+func (ConfiguredTableAggregateColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredTableAggregateColumn)(nil)).Elem()
+}
+
+func (i ConfiguredTableAggregateColumnArray) ToConfiguredTableAggregateColumnArrayOutput() ConfiguredTableAggregateColumnArrayOutput {
+	return i.ToConfiguredTableAggregateColumnArrayOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableAggregateColumnArray) ToConfiguredTableAggregateColumnArrayOutputWithContext(ctx context.Context) ConfiguredTableAggregateColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAggregateColumnArrayOutput)
+}
+
+type ConfiguredTableAggregateColumnOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAggregateColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAggregateColumn)(nil)).Elem()
+}
+
+func (o ConfiguredTableAggregateColumnOutput) ToConfiguredTableAggregateColumnOutput() ConfiguredTableAggregateColumnOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregateColumnOutput) ToConfiguredTableAggregateColumnOutputWithContext(ctx context.Context) ConfiguredTableAggregateColumnOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregateColumnOutput) ColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableAggregateColumn) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
+}
+
+func (o ConfiguredTableAggregateColumnOutput) Function() ConfiguredTableAggregateFunctionNameOutput {
+	return o.ApplyT(func(v ConfiguredTableAggregateColumn) ConfiguredTableAggregateFunctionName { return v.Function }).(ConfiguredTableAggregateFunctionNameOutput)
+}
+
+type ConfiguredTableAggregateColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAggregateColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredTableAggregateColumn)(nil)).Elem()
+}
+
+func (o ConfiguredTableAggregateColumnArrayOutput) ToConfiguredTableAggregateColumnArrayOutput() ConfiguredTableAggregateColumnArrayOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregateColumnArrayOutput) ToConfiguredTableAggregateColumnArrayOutputWithContext(ctx context.Context) ConfiguredTableAggregateColumnArrayOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregateColumnArrayOutput) Index(i pulumi.IntInput) ConfiguredTableAggregateColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfiguredTableAggregateColumn {
+		return vs[0].([]ConfiguredTableAggregateColumn)[vs[1].(int)]
+	}).(ConfiguredTableAggregateColumnOutput)
+}
+
 type ConfiguredTableAggregationConstraint struct {
 	ColumnName string                         `pulumi:"columnName"`
 	Minimum    float64                        `pulumi:"minimum"`
 	Type       ConfiguredTableAggregationType `pulumi:"type"`
+}
+
+// ConfiguredTableAggregationConstraintInput is an input type that accepts ConfiguredTableAggregationConstraintArgs and ConfiguredTableAggregationConstraintOutput values.
+// You can construct a concrete instance of `ConfiguredTableAggregationConstraintInput` via:
+//
+//	ConfiguredTableAggregationConstraintArgs{...}
+type ConfiguredTableAggregationConstraintInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAggregationConstraintOutput() ConfiguredTableAggregationConstraintOutput
+	ToConfiguredTableAggregationConstraintOutputWithContext(context.Context) ConfiguredTableAggregationConstraintOutput
+}
+
+type ConfiguredTableAggregationConstraintArgs struct {
+	ColumnName pulumi.StringInput                  `pulumi:"columnName"`
+	Minimum    pulumi.Float64Input                 `pulumi:"minimum"`
+	Type       ConfiguredTableAggregationTypeInput `pulumi:"type"`
+}
+
+func (ConfiguredTableAggregationConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAggregationConstraint)(nil)).Elem()
+}
+
+func (i ConfiguredTableAggregationConstraintArgs) ToConfiguredTableAggregationConstraintOutput() ConfiguredTableAggregationConstraintOutput {
+	return i.ToConfiguredTableAggregationConstraintOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableAggregationConstraintArgs) ToConfiguredTableAggregationConstraintOutputWithContext(ctx context.Context) ConfiguredTableAggregationConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAggregationConstraintOutput)
+}
+
+// ConfiguredTableAggregationConstraintArrayInput is an input type that accepts ConfiguredTableAggregationConstraintArray and ConfiguredTableAggregationConstraintArrayOutput values.
+// You can construct a concrete instance of `ConfiguredTableAggregationConstraintArrayInput` via:
+//
+//	ConfiguredTableAggregationConstraintArray{ ConfiguredTableAggregationConstraintArgs{...} }
+type ConfiguredTableAggregationConstraintArrayInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAggregationConstraintArrayOutput() ConfiguredTableAggregationConstraintArrayOutput
+	ToConfiguredTableAggregationConstraintArrayOutputWithContext(context.Context) ConfiguredTableAggregationConstraintArrayOutput
+}
+
+type ConfiguredTableAggregationConstraintArray []ConfiguredTableAggregationConstraintInput
+
+func (ConfiguredTableAggregationConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredTableAggregationConstraint)(nil)).Elem()
+}
+
+func (i ConfiguredTableAggregationConstraintArray) ToConfiguredTableAggregationConstraintArrayOutput() ConfiguredTableAggregationConstraintArrayOutput {
+	return i.ToConfiguredTableAggregationConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableAggregationConstraintArray) ToConfiguredTableAggregationConstraintArrayOutputWithContext(ctx context.Context) ConfiguredTableAggregationConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAggregationConstraintArrayOutput)
+}
+
+type ConfiguredTableAggregationConstraintOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAggregationConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAggregationConstraint)(nil)).Elem()
+}
+
+func (o ConfiguredTableAggregationConstraintOutput) ToConfiguredTableAggregationConstraintOutput() ConfiguredTableAggregationConstraintOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregationConstraintOutput) ToConfiguredTableAggregationConstraintOutputWithContext(ctx context.Context) ConfiguredTableAggregationConstraintOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregationConstraintOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredTableAggregationConstraint) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableAggregationConstraintOutput) Minimum() pulumi.Float64Output {
+	return o.ApplyT(func(v ConfiguredTableAggregationConstraint) float64 { return v.Minimum }).(pulumi.Float64Output)
+}
+
+func (o ConfiguredTableAggregationConstraintOutput) Type() ConfiguredTableAggregationTypeOutput {
+	return o.ApplyT(func(v ConfiguredTableAggregationConstraint) ConfiguredTableAggregationType { return v.Type }).(ConfiguredTableAggregationTypeOutput)
+}
+
+type ConfiguredTableAggregationConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAggregationConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredTableAggregationConstraint)(nil)).Elem()
+}
+
+func (o ConfiguredTableAggregationConstraintArrayOutput) ToConfiguredTableAggregationConstraintArrayOutput() ConfiguredTableAggregationConstraintArrayOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregationConstraintArrayOutput) ToConfiguredTableAggregationConstraintArrayOutputWithContext(ctx context.Context) ConfiguredTableAggregationConstraintArrayOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregationConstraintArrayOutput) Index(i pulumi.IntInput) ConfiguredTableAggregationConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfiguredTableAggregationConstraint {
+		return vs[0].([]ConfiguredTableAggregationConstraint)[vs[1].(int)]
+	}).(ConfiguredTableAggregationConstraintOutput)
 }
 
 type ConfiguredTableAnalysisRule struct {
@@ -896,12 +946,6 @@ func (i ConfiguredTableAnalysisRuleArgs) ToConfiguredTableAnalysisRuleOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAnalysisRuleOutput)
 }
 
-func (i ConfiguredTableAnalysisRuleArgs) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableAnalysisRule] {
-	return pulumix.Output[ConfiguredTableAnalysisRule]{
-		OutputState: i.ToConfiguredTableAnalysisRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfiguredTableAnalysisRuleArrayInput is an input type that accepts ConfiguredTableAnalysisRuleArray and ConfiguredTableAnalysisRuleArrayOutput values.
 // You can construct a concrete instance of `ConfiguredTableAnalysisRuleArrayInput` via:
 //
@@ -927,12 +971,6 @@ func (i ConfiguredTableAnalysisRuleArray) ToConfiguredTableAnalysisRuleArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAnalysisRuleArrayOutput)
 }
 
-func (i ConfiguredTableAnalysisRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfiguredTableAnalysisRule] {
-	return pulumix.Output[[]ConfiguredTableAnalysisRule]{
-		OutputState: i.ToConfiguredTableAnalysisRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfiguredTableAnalysisRuleOutput struct{ *pulumi.OutputState }
 
 func (ConfiguredTableAnalysisRuleOutput) ElementType() reflect.Type {
@@ -945,12 +983,6 @@ func (o ConfiguredTableAnalysisRuleOutput) ToConfiguredTableAnalysisRuleOutput()
 
 func (o ConfiguredTableAnalysisRuleOutput) ToConfiguredTableAnalysisRuleOutputWithContext(ctx context.Context) ConfiguredTableAnalysisRuleOutput {
 	return o
-}
-
-func (o ConfiguredTableAnalysisRuleOutput) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableAnalysisRule] {
-	return pulumix.Output[ConfiguredTableAnalysisRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfiguredTableAnalysisRuleOutput) Policy() ConfiguredTableAnalysisRulePolicyOutput {
@@ -975,12 +1007,6 @@ func (o ConfiguredTableAnalysisRuleArrayOutput) ToConfiguredTableAnalysisRuleArr
 	return o
 }
 
-func (o ConfiguredTableAnalysisRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfiguredTableAnalysisRule] {
-	return pulumix.Output[[]ConfiguredTableAnalysisRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfiguredTableAnalysisRuleArrayOutput) Index(i pulumi.IntInput) ConfiguredTableAnalysisRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfiguredTableAnalysisRule {
 		return vs[0].([]ConfiguredTableAnalysisRule)[vs[1].(int)]
@@ -997,15 +1023,205 @@ type ConfiguredTableAnalysisRuleAggregation struct {
 	ScalarFunctions      []ConfiguredTableScalarFunctions       `pulumi:"scalarFunctions"`
 }
 
+// ConfiguredTableAnalysisRuleAggregationInput is an input type that accepts ConfiguredTableAnalysisRuleAggregationArgs and ConfiguredTableAnalysisRuleAggregationOutput values.
+// You can construct a concrete instance of `ConfiguredTableAnalysisRuleAggregationInput` via:
+//
+//	ConfiguredTableAnalysisRuleAggregationArgs{...}
+type ConfiguredTableAnalysisRuleAggregationInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAnalysisRuleAggregationOutput() ConfiguredTableAnalysisRuleAggregationOutput
+	ToConfiguredTableAnalysisRuleAggregationOutputWithContext(context.Context) ConfiguredTableAnalysisRuleAggregationOutput
+}
+
+type ConfiguredTableAnalysisRuleAggregationArgs struct {
+	AggregateColumns     ConfiguredTableAggregateColumnArrayInput       `pulumi:"aggregateColumns"`
+	AllowedJoinOperators ConfiguredTableJoinOperatorArrayInput          `pulumi:"allowedJoinOperators"`
+	DimensionColumns     pulumi.StringArrayInput                        `pulumi:"dimensionColumns"`
+	JoinColumns          pulumi.StringArrayInput                        `pulumi:"joinColumns"`
+	JoinRequired         ConfiguredTableJoinRequiredOptionPtrInput      `pulumi:"joinRequired"`
+	OutputConstraints    ConfiguredTableAggregationConstraintArrayInput `pulumi:"outputConstraints"`
+	ScalarFunctions      ConfiguredTableScalarFunctionsArrayInput       `pulumi:"scalarFunctions"`
+}
+
+func (ConfiguredTableAnalysisRuleAggregationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAnalysisRuleAggregation)(nil)).Elem()
+}
+
+func (i ConfiguredTableAnalysisRuleAggregationArgs) ToConfiguredTableAnalysisRuleAggregationOutput() ConfiguredTableAnalysisRuleAggregationOutput {
+	return i.ToConfiguredTableAnalysisRuleAggregationOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableAnalysisRuleAggregationArgs) ToConfiguredTableAnalysisRuleAggregationOutputWithContext(ctx context.Context) ConfiguredTableAnalysisRuleAggregationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAnalysisRuleAggregationOutput)
+}
+
+type ConfiguredTableAnalysisRuleAggregationOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAnalysisRuleAggregationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAnalysisRuleAggregation)(nil)).Elem()
+}
+
+func (o ConfiguredTableAnalysisRuleAggregationOutput) ToConfiguredTableAnalysisRuleAggregationOutput() ConfiguredTableAnalysisRuleAggregationOutput {
+	return o
+}
+
+func (o ConfiguredTableAnalysisRuleAggregationOutput) ToConfiguredTableAnalysisRuleAggregationOutputWithContext(ctx context.Context) ConfiguredTableAnalysisRuleAggregationOutput {
+	return o
+}
+
+func (o ConfiguredTableAnalysisRuleAggregationOutput) AggregateColumns() ConfiguredTableAggregateColumnArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableAnalysisRuleAggregation) []ConfiguredTableAggregateColumn {
+		return v.AggregateColumns
+	}).(ConfiguredTableAggregateColumnArrayOutput)
+}
+
+func (o ConfiguredTableAnalysisRuleAggregationOutput) AllowedJoinOperators() ConfiguredTableJoinOperatorArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableAnalysisRuleAggregation) []ConfiguredTableJoinOperator {
+		return v.AllowedJoinOperators
+	}).(ConfiguredTableJoinOperatorArrayOutput)
+}
+
+func (o ConfiguredTableAnalysisRuleAggregationOutput) DimensionColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableAnalysisRuleAggregation) []string { return v.DimensionColumns }).(pulumi.StringArrayOutput)
+}
+
+func (o ConfiguredTableAnalysisRuleAggregationOutput) JoinColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableAnalysisRuleAggregation) []string { return v.JoinColumns }).(pulumi.StringArrayOutput)
+}
+
+func (o ConfiguredTableAnalysisRuleAggregationOutput) JoinRequired() ConfiguredTableJoinRequiredOptionPtrOutput {
+	return o.ApplyT(func(v ConfiguredTableAnalysisRuleAggregation) *ConfiguredTableJoinRequiredOption {
+		return v.JoinRequired
+	}).(ConfiguredTableJoinRequiredOptionPtrOutput)
+}
+
+func (o ConfiguredTableAnalysisRuleAggregationOutput) OutputConstraints() ConfiguredTableAggregationConstraintArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableAnalysisRuleAggregation) []ConfiguredTableAggregationConstraint {
+		return v.OutputConstraints
+	}).(ConfiguredTableAggregationConstraintArrayOutput)
+}
+
+func (o ConfiguredTableAnalysisRuleAggregationOutput) ScalarFunctions() ConfiguredTableScalarFunctionsArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableAnalysisRuleAggregation) []ConfiguredTableScalarFunctions {
+		return v.ScalarFunctions
+	}).(ConfiguredTableScalarFunctionsArrayOutput)
+}
+
 type ConfiguredTableAnalysisRuleCustom struct {
 	AllowedAnalyses          []string `pulumi:"allowedAnalyses"`
 	AllowedAnalysisProviders []string `pulumi:"allowedAnalysisProviders"`
+}
+
+// ConfiguredTableAnalysisRuleCustomInput is an input type that accepts ConfiguredTableAnalysisRuleCustomArgs and ConfiguredTableAnalysisRuleCustomOutput values.
+// You can construct a concrete instance of `ConfiguredTableAnalysisRuleCustomInput` via:
+//
+//	ConfiguredTableAnalysisRuleCustomArgs{...}
+type ConfiguredTableAnalysisRuleCustomInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAnalysisRuleCustomOutput() ConfiguredTableAnalysisRuleCustomOutput
+	ToConfiguredTableAnalysisRuleCustomOutputWithContext(context.Context) ConfiguredTableAnalysisRuleCustomOutput
+}
+
+type ConfiguredTableAnalysisRuleCustomArgs struct {
+	AllowedAnalyses          pulumi.StringArrayInput `pulumi:"allowedAnalyses"`
+	AllowedAnalysisProviders pulumi.StringArrayInput `pulumi:"allowedAnalysisProviders"`
+}
+
+func (ConfiguredTableAnalysisRuleCustomArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAnalysisRuleCustom)(nil)).Elem()
+}
+
+func (i ConfiguredTableAnalysisRuleCustomArgs) ToConfiguredTableAnalysisRuleCustomOutput() ConfiguredTableAnalysisRuleCustomOutput {
+	return i.ToConfiguredTableAnalysisRuleCustomOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableAnalysisRuleCustomArgs) ToConfiguredTableAnalysisRuleCustomOutputWithContext(ctx context.Context) ConfiguredTableAnalysisRuleCustomOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAnalysisRuleCustomOutput)
+}
+
+type ConfiguredTableAnalysisRuleCustomOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAnalysisRuleCustomOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAnalysisRuleCustom)(nil)).Elem()
+}
+
+func (o ConfiguredTableAnalysisRuleCustomOutput) ToConfiguredTableAnalysisRuleCustomOutput() ConfiguredTableAnalysisRuleCustomOutput {
+	return o
+}
+
+func (o ConfiguredTableAnalysisRuleCustomOutput) ToConfiguredTableAnalysisRuleCustomOutputWithContext(ctx context.Context) ConfiguredTableAnalysisRuleCustomOutput {
+	return o
+}
+
+func (o ConfiguredTableAnalysisRuleCustomOutput) AllowedAnalyses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableAnalysisRuleCustom) []string { return v.AllowedAnalyses }).(pulumi.StringArrayOutput)
+}
+
+func (o ConfiguredTableAnalysisRuleCustomOutput) AllowedAnalysisProviders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableAnalysisRuleCustom) []string { return v.AllowedAnalysisProviders }).(pulumi.StringArrayOutput)
 }
 
 type ConfiguredTableAnalysisRuleList struct {
 	AllowedJoinOperators []ConfiguredTableJoinOperator `pulumi:"allowedJoinOperators"`
 	JoinColumns          []string                      `pulumi:"joinColumns"`
 	ListColumns          []string                      `pulumi:"listColumns"`
+}
+
+// ConfiguredTableAnalysisRuleListInput is an input type that accepts ConfiguredTableAnalysisRuleListArgs and ConfiguredTableAnalysisRuleListOutput values.
+// You can construct a concrete instance of `ConfiguredTableAnalysisRuleListInput` via:
+//
+//	ConfiguredTableAnalysisRuleListArgs{...}
+type ConfiguredTableAnalysisRuleListInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAnalysisRuleListOutput() ConfiguredTableAnalysisRuleListOutput
+	ToConfiguredTableAnalysisRuleListOutputWithContext(context.Context) ConfiguredTableAnalysisRuleListOutput
+}
+
+type ConfiguredTableAnalysisRuleListArgs struct {
+	AllowedJoinOperators ConfiguredTableJoinOperatorArrayInput `pulumi:"allowedJoinOperators"`
+	JoinColumns          pulumi.StringArrayInput               `pulumi:"joinColumns"`
+	ListColumns          pulumi.StringArrayInput               `pulumi:"listColumns"`
+}
+
+func (ConfiguredTableAnalysisRuleListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAnalysisRuleList)(nil)).Elem()
+}
+
+func (i ConfiguredTableAnalysisRuleListArgs) ToConfiguredTableAnalysisRuleListOutput() ConfiguredTableAnalysisRuleListOutput {
+	return i.ToConfiguredTableAnalysisRuleListOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableAnalysisRuleListArgs) ToConfiguredTableAnalysisRuleListOutputWithContext(ctx context.Context) ConfiguredTableAnalysisRuleListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAnalysisRuleListOutput)
+}
+
+type ConfiguredTableAnalysisRuleListOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAnalysisRuleListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAnalysisRuleList)(nil)).Elem()
+}
+
+func (o ConfiguredTableAnalysisRuleListOutput) ToConfiguredTableAnalysisRuleListOutput() ConfiguredTableAnalysisRuleListOutput {
+	return o
+}
+
+func (o ConfiguredTableAnalysisRuleListOutput) ToConfiguredTableAnalysisRuleListOutputWithContext(ctx context.Context) ConfiguredTableAnalysisRuleListOutput {
+	return o
+}
+
+func (o ConfiguredTableAnalysisRuleListOutput) AllowedJoinOperators() ConfiguredTableJoinOperatorArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableAnalysisRuleList) []ConfiguredTableJoinOperator { return v.AllowedJoinOperators }).(ConfiguredTableJoinOperatorArrayOutput)
+}
+
+func (o ConfiguredTableAnalysisRuleListOutput) JoinColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableAnalysisRuleList) []string { return v.JoinColumns }).(pulumi.StringArrayOutput)
+}
+
+func (o ConfiguredTableAnalysisRuleListOutput) ListColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableAnalysisRuleList) []string { return v.ListColumns }).(pulumi.StringArrayOutput)
 }
 
 type ConfiguredTableAnalysisRulePolicy struct {
@@ -1039,12 +1255,6 @@ func (i ConfiguredTableAnalysisRulePolicyArgs) ToConfiguredTableAnalysisRulePoli
 	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAnalysisRulePolicyOutput)
 }
 
-func (i ConfiguredTableAnalysisRulePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableAnalysisRulePolicy] {
-	return pulumix.Output[ConfiguredTableAnalysisRulePolicy]{
-		OutputState: i.ToConfiguredTableAnalysisRulePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfiguredTableAnalysisRulePolicyOutput struct{ *pulumi.OutputState }
 
 func (ConfiguredTableAnalysisRulePolicyOutput) ElementType() reflect.Type {
@@ -1059,12 +1269,6 @@ func (o ConfiguredTableAnalysisRulePolicyOutput) ToConfiguredTableAnalysisRulePo
 	return o
 }
 
-func (o ConfiguredTableAnalysisRulePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableAnalysisRulePolicy] {
-	return pulumix.Output[ConfiguredTableAnalysisRulePolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfiguredTableAnalysisRulePolicyOutput) V1() pulumi.AnyOutput {
 	return o.ApplyT(func(v ConfiguredTableAnalysisRulePolicy) interface{} { return v.V1 }).(pulumi.AnyOutput)
 }
@@ -1073,12 +1277,151 @@ type ConfiguredTableAnalysisRulePolicyV10Properties struct {
 	List ConfiguredTableAnalysisRuleList `pulumi:"list"`
 }
 
+// ConfiguredTableAnalysisRulePolicyV10PropertiesInput is an input type that accepts ConfiguredTableAnalysisRulePolicyV10PropertiesArgs and ConfiguredTableAnalysisRulePolicyV10PropertiesOutput values.
+// You can construct a concrete instance of `ConfiguredTableAnalysisRulePolicyV10PropertiesInput` via:
+//
+//	ConfiguredTableAnalysisRulePolicyV10PropertiesArgs{...}
+type ConfiguredTableAnalysisRulePolicyV10PropertiesInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAnalysisRulePolicyV10PropertiesOutput() ConfiguredTableAnalysisRulePolicyV10PropertiesOutput
+	ToConfiguredTableAnalysisRulePolicyV10PropertiesOutputWithContext(context.Context) ConfiguredTableAnalysisRulePolicyV10PropertiesOutput
+}
+
+type ConfiguredTableAnalysisRulePolicyV10PropertiesArgs struct {
+	List ConfiguredTableAnalysisRuleListInput `pulumi:"list"`
+}
+
+func (ConfiguredTableAnalysisRulePolicyV10PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAnalysisRulePolicyV10Properties)(nil)).Elem()
+}
+
+func (i ConfiguredTableAnalysisRulePolicyV10PropertiesArgs) ToConfiguredTableAnalysisRulePolicyV10PropertiesOutput() ConfiguredTableAnalysisRulePolicyV10PropertiesOutput {
+	return i.ToConfiguredTableAnalysisRulePolicyV10PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableAnalysisRulePolicyV10PropertiesArgs) ToConfiguredTableAnalysisRulePolicyV10PropertiesOutputWithContext(ctx context.Context) ConfiguredTableAnalysisRulePolicyV10PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAnalysisRulePolicyV10PropertiesOutput)
+}
+
+type ConfiguredTableAnalysisRulePolicyV10PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAnalysisRulePolicyV10PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAnalysisRulePolicyV10Properties)(nil)).Elem()
+}
+
+func (o ConfiguredTableAnalysisRulePolicyV10PropertiesOutput) ToConfiguredTableAnalysisRulePolicyV10PropertiesOutput() ConfiguredTableAnalysisRulePolicyV10PropertiesOutput {
+	return o
+}
+
+func (o ConfiguredTableAnalysisRulePolicyV10PropertiesOutput) ToConfiguredTableAnalysisRulePolicyV10PropertiesOutputWithContext(ctx context.Context) ConfiguredTableAnalysisRulePolicyV10PropertiesOutput {
+	return o
+}
+
+func (o ConfiguredTableAnalysisRulePolicyV10PropertiesOutput) List() ConfiguredTableAnalysisRuleListOutput {
+	return o.ApplyT(func(v ConfiguredTableAnalysisRulePolicyV10Properties) ConfiguredTableAnalysisRuleList { return v.List }).(ConfiguredTableAnalysisRuleListOutput)
+}
+
 type ConfiguredTableAnalysisRulePolicyV11Properties struct {
 	Aggregation ConfiguredTableAnalysisRuleAggregation `pulumi:"aggregation"`
 }
 
+// ConfiguredTableAnalysisRulePolicyV11PropertiesInput is an input type that accepts ConfiguredTableAnalysisRulePolicyV11PropertiesArgs and ConfiguredTableAnalysisRulePolicyV11PropertiesOutput values.
+// You can construct a concrete instance of `ConfiguredTableAnalysisRulePolicyV11PropertiesInput` via:
+//
+//	ConfiguredTableAnalysisRulePolicyV11PropertiesArgs{...}
+type ConfiguredTableAnalysisRulePolicyV11PropertiesInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAnalysisRulePolicyV11PropertiesOutput() ConfiguredTableAnalysisRulePolicyV11PropertiesOutput
+	ToConfiguredTableAnalysisRulePolicyV11PropertiesOutputWithContext(context.Context) ConfiguredTableAnalysisRulePolicyV11PropertiesOutput
+}
+
+type ConfiguredTableAnalysisRulePolicyV11PropertiesArgs struct {
+	Aggregation ConfiguredTableAnalysisRuleAggregationInput `pulumi:"aggregation"`
+}
+
+func (ConfiguredTableAnalysisRulePolicyV11PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAnalysisRulePolicyV11Properties)(nil)).Elem()
+}
+
+func (i ConfiguredTableAnalysisRulePolicyV11PropertiesArgs) ToConfiguredTableAnalysisRulePolicyV11PropertiesOutput() ConfiguredTableAnalysisRulePolicyV11PropertiesOutput {
+	return i.ToConfiguredTableAnalysisRulePolicyV11PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableAnalysisRulePolicyV11PropertiesArgs) ToConfiguredTableAnalysisRulePolicyV11PropertiesOutputWithContext(ctx context.Context) ConfiguredTableAnalysisRulePolicyV11PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAnalysisRulePolicyV11PropertiesOutput)
+}
+
+type ConfiguredTableAnalysisRulePolicyV11PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAnalysisRulePolicyV11PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAnalysisRulePolicyV11Properties)(nil)).Elem()
+}
+
+func (o ConfiguredTableAnalysisRulePolicyV11PropertiesOutput) ToConfiguredTableAnalysisRulePolicyV11PropertiesOutput() ConfiguredTableAnalysisRulePolicyV11PropertiesOutput {
+	return o
+}
+
+func (o ConfiguredTableAnalysisRulePolicyV11PropertiesOutput) ToConfiguredTableAnalysisRulePolicyV11PropertiesOutputWithContext(ctx context.Context) ConfiguredTableAnalysisRulePolicyV11PropertiesOutput {
+	return o
+}
+
+func (o ConfiguredTableAnalysisRulePolicyV11PropertiesOutput) Aggregation() ConfiguredTableAnalysisRuleAggregationOutput {
+	return o.ApplyT(func(v ConfiguredTableAnalysisRulePolicyV11Properties) ConfiguredTableAnalysisRuleAggregation {
+		return v.Aggregation
+	}).(ConfiguredTableAnalysisRuleAggregationOutput)
+}
+
 type ConfiguredTableAnalysisRulePolicyV12Properties struct {
 	Custom ConfiguredTableAnalysisRuleCustom `pulumi:"custom"`
+}
+
+// ConfiguredTableAnalysisRulePolicyV12PropertiesInput is an input type that accepts ConfiguredTableAnalysisRulePolicyV12PropertiesArgs and ConfiguredTableAnalysisRulePolicyV12PropertiesOutput values.
+// You can construct a concrete instance of `ConfiguredTableAnalysisRulePolicyV12PropertiesInput` via:
+//
+//	ConfiguredTableAnalysisRulePolicyV12PropertiesArgs{...}
+type ConfiguredTableAnalysisRulePolicyV12PropertiesInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAnalysisRulePolicyV12PropertiesOutput() ConfiguredTableAnalysisRulePolicyV12PropertiesOutput
+	ToConfiguredTableAnalysisRulePolicyV12PropertiesOutputWithContext(context.Context) ConfiguredTableAnalysisRulePolicyV12PropertiesOutput
+}
+
+type ConfiguredTableAnalysisRulePolicyV12PropertiesArgs struct {
+	Custom ConfiguredTableAnalysisRuleCustomInput `pulumi:"custom"`
+}
+
+func (ConfiguredTableAnalysisRulePolicyV12PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAnalysisRulePolicyV12Properties)(nil)).Elem()
+}
+
+func (i ConfiguredTableAnalysisRulePolicyV12PropertiesArgs) ToConfiguredTableAnalysisRulePolicyV12PropertiesOutput() ConfiguredTableAnalysisRulePolicyV12PropertiesOutput {
+	return i.ToConfiguredTableAnalysisRulePolicyV12PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableAnalysisRulePolicyV12PropertiesArgs) ToConfiguredTableAnalysisRulePolicyV12PropertiesOutputWithContext(ctx context.Context) ConfiguredTableAnalysisRulePolicyV12PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAnalysisRulePolicyV12PropertiesOutput)
+}
+
+type ConfiguredTableAnalysisRulePolicyV12PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAnalysisRulePolicyV12PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAnalysisRulePolicyV12Properties)(nil)).Elem()
+}
+
+func (o ConfiguredTableAnalysisRulePolicyV12PropertiesOutput) ToConfiguredTableAnalysisRulePolicyV12PropertiesOutput() ConfiguredTableAnalysisRulePolicyV12PropertiesOutput {
+	return o
+}
+
+func (o ConfiguredTableAnalysisRulePolicyV12PropertiesOutput) ToConfiguredTableAnalysisRulePolicyV12PropertiesOutputWithContext(ctx context.Context) ConfiguredTableAnalysisRulePolicyV12PropertiesOutput {
+	return o
+}
+
+func (o ConfiguredTableAnalysisRulePolicyV12PropertiesOutput) Custom() ConfiguredTableAnalysisRuleCustomOutput {
+	return o.ApplyT(func(v ConfiguredTableAnalysisRulePolicyV12Properties) ConfiguredTableAnalysisRuleCustom {
+		return v.Custom
+	}).(ConfiguredTableAnalysisRuleCustomOutput)
 }
 
 type ConfiguredTableAssociationTag struct {
@@ -1114,12 +1457,6 @@ func (i ConfiguredTableAssociationTagArgs) ToConfiguredTableAssociationTagOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAssociationTagOutput)
 }
 
-func (i ConfiguredTableAssociationTagArgs) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableAssociationTag] {
-	return pulumix.Output[ConfiguredTableAssociationTag]{
-		OutputState: i.ToConfiguredTableAssociationTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfiguredTableAssociationTagArrayInput is an input type that accepts ConfiguredTableAssociationTagArray and ConfiguredTableAssociationTagArrayOutput values.
 // You can construct a concrete instance of `ConfiguredTableAssociationTagArrayInput` via:
 //
@@ -1145,12 +1482,6 @@ func (i ConfiguredTableAssociationTagArray) ToConfiguredTableAssociationTagArray
 	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAssociationTagArrayOutput)
 }
 
-func (i ConfiguredTableAssociationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfiguredTableAssociationTag] {
-	return pulumix.Output[[]ConfiguredTableAssociationTag]{
-		OutputState: i.ToConfiguredTableAssociationTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfiguredTableAssociationTagOutput struct{ *pulumi.OutputState }
 
 func (ConfiguredTableAssociationTagOutput) ElementType() reflect.Type {
@@ -1163,12 +1494,6 @@ func (o ConfiguredTableAssociationTagOutput) ToConfiguredTableAssociationTagOutp
 
 func (o ConfiguredTableAssociationTagOutput) ToConfiguredTableAssociationTagOutputWithContext(ctx context.Context) ConfiguredTableAssociationTagOutput {
 	return o
-}
-
-func (o ConfiguredTableAssociationTagOutput) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableAssociationTag] {
-	return pulumix.Output[ConfiguredTableAssociationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfiguredTableAssociationTagOutput) Key() pulumi.StringOutput {
@@ -1191,12 +1516,6 @@ func (o ConfiguredTableAssociationTagArrayOutput) ToConfiguredTableAssociationTa
 
 func (o ConfiguredTableAssociationTagArrayOutput) ToConfiguredTableAssociationTagArrayOutputWithContext(ctx context.Context) ConfiguredTableAssociationTagArrayOutput {
 	return o
-}
-
-func (o ConfiguredTableAssociationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfiguredTableAssociationTag] {
-	return pulumix.Output[[]ConfiguredTableAssociationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfiguredTableAssociationTagArrayOutput) Index(i pulumi.IntInput) ConfiguredTableAssociationTagOutput {
@@ -1238,12 +1557,6 @@ func (i ConfiguredTableGlueTableReferenceArgs) ToConfiguredTableGlueTableReferen
 	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableGlueTableReferenceOutput)
 }
 
-func (i ConfiguredTableGlueTableReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableGlueTableReference] {
-	return pulumix.Output[ConfiguredTableGlueTableReference]{
-		OutputState: i.ToConfiguredTableGlueTableReferenceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfiguredTableGlueTableReferenceOutput struct{ *pulumi.OutputState }
 
 func (ConfiguredTableGlueTableReferenceOutput) ElementType() reflect.Type {
@@ -1256,12 +1569,6 @@ func (o ConfiguredTableGlueTableReferenceOutput) ToConfiguredTableGlueTableRefer
 
 func (o ConfiguredTableGlueTableReferenceOutput) ToConfiguredTableGlueTableReferenceOutputWithContext(ctx context.Context) ConfiguredTableGlueTableReferenceOutput {
 	return o
-}
-
-func (o ConfiguredTableGlueTableReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableGlueTableReference] {
-	return pulumix.Output[ConfiguredTableGlueTableReference]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfiguredTableGlueTableReferenceOutput) DatabaseName() pulumi.StringOutput {
@@ -1303,12 +1610,6 @@ func (i ConfiguredTableTableReferenceArgs) ToConfiguredTableTableReferenceOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableTableReferenceOutput)
 }
 
-func (i ConfiguredTableTableReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableTableReference] {
-	return pulumix.Output[ConfiguredTableTableReference]{
-		OutputState: i.ToConfiguredTableTableReferenceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfiguredTableTableReferenceOutput struct{ *pulumi.OutputState }
 
 func (ConfiguredTableTableReferenceOutput) ElementType() reflect.Type {
@@ -1321,12 +1622,6 @@ func (o ConfiguredTableTableReferenceOutput) ToConfiguredTableTableReferenceOutp
 
 func (o ConfiguredTableTableReferenceOutput) ToConfiguredTableTableReferenceOutputWithContext(ctx context.Context) ConfiguredTableTableReferenceOutput {
 	return o
-}
-
-func (o ConfiguredTableTableReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableTableReference] {
-	return pulumix.Output[ConfiguredTableTableReference]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfiguredTableTableReferenceOutput) Glue() ConfiguredTableGlueTableReferenceOutput {
@@ -1366,12 +1661,6 @@ func (i ConfiguredTableTagArgs) ToConfiguredTableTagOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableTagOutput)
 }
 
-func (i ConfiguredTableTagArgs) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableTag] {
-	return pulumix.Output[ConfiguredTableTag]{
-		OutputState: i.ToConfiguredTableTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfiguredTableTagArrayInput is an input type that accepts ConfiguredTableTagArray and ConfiguredTableTagArrayOutput values.
 // You can construct a concrete instance of `ConfiguredTableTagArrayInput` via:
 //
@@ -1397,12 +1686,6 @@ func (i ConfiguredTableTagArray) ToConfiguredTableTagArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableTagArrayOutput)
 }
 
-func (i ConfiguredTableTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfiguredTableTag] {
-	return pulumix.Output[[]ConfiguredTableTag]{
-		OutputState: i.ToConfiguredTableTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfiguredTableTagOutput struct{ *pulumi.OutputState }
 
 func (ConfiguredTableTagOutput) ElementType() reflect.Type {
@@ -1415,12 +1698,6 @@ func (o ConfiguredTableTagOutput) ToConfiguredTableTagOutput() ConfiguredTableTa
 
 func (o ConfiguredTableTagOutput) ToConfiguredTableTagOutputWithContext(ctx context.Context) ConfiguredTableTagOutput {
 	return o
-}
-
-func (o ConfiguredTableTagOutput) ToOutput(ctx context.Context) pulumix.Output[ConfiguredTableTag] {
-	return pulumix.Output[ConfiguredTableTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfiguredTableTagOutput) Key() pulumi.StringOutput {
@@ -1443,12 +1720,6 @@ func (o ConfiguredTableTagArrayOutput) ToConfiguredTableTagArrayOutput() Configu
 
 func (o ConfiguredTableTagArrayOutput) ToConfiguredTableTagArrayOutputWithContext(ctx context.Context) ConfiguredTableTagArrayOutput {
 	return o
-}
-
-func (o ConfiguredTableTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfiguredTableTag] {
-	return pulumix.Output[[]ConfiguredTableTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfiguredTableTagArrayOutput) Index(i pulumi.IntInput) ConfiguredTableTagOutput {
@@ -1486,12 +1757,6 @@ func (i MembershipProtectedQueryOutputConfigurationArgs) ToMembershipProtectedQu
 
 func (i MembershipProtectedQueryOutputConfigurationArgs) ToMembershipProtectedQueryOutputConfigurationOutputWithContext(ctx context.Context) MembershipProtectedQueryOutputConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedQueryOutputConfigurationOutput)
-}
-
-func (i MembershipProtectedQueryOutputConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MembershipProtectedQueryOutputConfiguration] {
-	return pulumix.Output[MembershipProtectedQueryOutputConfiguration]{
-		OutputState: i.ToMembershipProtectedQueryOutputConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i MembershipProtectedQueryOutputConfigurationArgs) ToMembershipProtectedQueryOutputConfigurationPtrOutput() MembershipProtectedQueryOutputConfigurationPtrOutput {
@@ -1535,12 +1800,6 @@ func (i *membershipProtectedQueryOutputConfigurationPtrType) ToMembershipProtect
 	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedQueryOutputConfigurationPtrOutput)
 }
 
-func (i *membershipProtectedQueryOutputConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MembershipProtectedQueryOutputConfiguration] {
-	return pulumix.Output[*MembershipProtectedQueryOutputConfiguration]{
-		OutputState: i.ToMembershipProtectedQueryOutputConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MembershipProtectedQueryOutputConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MembershipProtectedQueryOutputConfigurationOutput) ElementType() reflect.Type {
@@ -1565,12 +1824,6 @@ func (o MembershipProtectedQueryOutputConfigurationOutput) ToMembershipProtected
 	}).(MembershipProtectedQueryOutputConfigurationPtrOutput)
 }
 
-func (o MembershipProtectedQueryOutputConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MembershipProtectedQueryOutputConfiguration] {
-	return pulumix.Output[MembershipProtectedQueryOutputConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MembershipProtectedQueryOutputConfigurationOutput) S3() MembershipProtectedQueryS3OutputConfigurationOutput {
 	return o.ApplyT(func(v MembershipProtectedQueryOutputConfiguration) MembershipProtectedQueryS3OutputConfiguration {
 		return v.S3
@@ -1589,12 +1842,6 @@ func (o MembershipProtectedQueryOutputConfigurationPtrOutput) ToMembershipProtec
 
 func (o MembershipProtectedQueryOutputConfigurationPtrOutput) ToMembershipProtectedQueryOutputConfigurationPtrOutputWithContext(ctx context.Context) MembershipProtectedQueryOutputConfigurationPtrOutput {
 	return o
-}
-
-func (o MembershipProtectedQueryOutputConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MembershipProtectedQueryOutputConfiguration] {
-	return pulumix.Output[*MembershipProtectedQueryOutputConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MembershipProtectedQueryOutputConfigurationPtrOutput) Elem() MembershipProtectedQueryOutputConfigurationOutput {
@@ -1649,12 +1896,6 @@ func (i MembershipProtectedQueryResultConfigurationArgs) ToMembershipProtectedQu
 	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedQueryResultConfigurationOutput)
 }
 
-func (i MembershipProtectedQueryResultConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MembershipProtectedQueryResultConfiguration] {
-	return pulumix.Output[MembershipProtectedQueryResultConfiguration]{
-		OutputState: i.ToMembershipProtectedQueryResultConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MembershipProtectedQueryResultConfigurationArgs) ToMembershipProtectedQueryResultConfigurationPtrOutput() MembershipProtectedQueryResultConfigurationPtrOutput {
 	return i.ToMembershipProtectedQueryResultConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1696,12 +1937,6 @@ func (i *membershipProtectedQueryResultConfigurationPtrType) ToMembershipProtect
 	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedQueryResultConfigurationPtrOutput)
 }
 
-func (i *membershipProtectedQueryResultConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MembershipProtectedQueryResultConfiguration] {
-	return pulumix.Output[*MembershipProtectedQueryResultConfiguration]{
-		OutputState: i.ToMembershipProtectedQueryResultConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MembershipProtectedQueryResultConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MembershipProtectedQueryResultConfigurationOutput) ElementType() reflect.Type {
@@ -1726,12 +1961,6 @@ func (o MembershipProtectedQueryResultConfigurationOutput) ToMembershipProtected
 	}).(MembershipProtectedQueryResultConfigurationPtrOutput)
 }
 
-func (o MembershipProtectedQueryResultConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MembershipProtectedQueryResultConfiguration] {
-	return pulumix.Output[MembershipProtectedQueryResultConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MembershipProtectedQueryResultConfigurationOutput) OutputConfiguration() MembershipProtectedQueryOutputConfigurationOutput {
 	return o.ApplyT(func(v MembershipProtectedQueryResultConfiguration) MembershipProtectedQueryOutputConfiguration {
 		return v.OutputConfiguration
@@ -1754,12 +1983,6 @@ func (o MembershipProtectedQueryResultConfigurationPtrOutput) ToMembershipProtec
 
 func (o MembershipProtectedQueryResultConfigurationPtrOutput) ToMembershipProtectedQueryResultConfigurationPtrOutputWithContext(ctx context.Context) MembershipProtectedQueryResultConfigurationPtrOutput {
 	return o
-}
-
-func (o MembershipProtectedQueryResultConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MembershipProtectedQueryResultConfiguration] {
-	return pulumix.Output[*MembershipProtectedQueryResultConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MembershipProtectedQueryResultConfigurationPtrOutput) Elem() MembershipProtectedQueryResultConfigurationOutput {
@@ -1825,12 +2048,6 @@ func (i MembershipProtectedQueryS3OutputConfigurationArgs) ToMembershipProtected
 	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedQueryS3OutputConfigurationOutput)
 }
 
-func (i MembershipProtectedQueryS3OutputConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MembershipProtectedQueryS3OutputConfiguration] {
-	return pulumix.Output[MembershipProtectedQueryS3OutputConfiguration]{
-		OutputState: i.ToMembershipProtectedQueryS3OutputConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MembershipProtectedQueryS3OutputConfigurationArgs) ToMembershipProtectedQueryS3OutputConfigurationPtrOutput() MembershipProtectedQueryS3OutputConfigurationPtrOutput {
 	return i.ToMembershipProtectedQueryS3OutputConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1872,12 +2089,6 @@ func (i *membershipProtectedQueryS3OutputConfigurationPtrType) ToMembershipProte
 	return pulumi.ToOutputWithContext(ctx, i).(MembershipProtectedQueryS3OutputConfigurationPtrOutput)
 }
 
-func (i *membershipProtectedQueryS3OutputConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MembershipProtectedQueryS3OutputConfiguration] {
-	return pulumix.Output[*MembershipProtectedQueryS3OutputConfiguration]{
-		OutputState: i.ToMembershipProtectedQueryS3OutputConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MembershipProtectedQueryS3OutputConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MembershipProtectedQueryS3OutputConfigurationOutput) ElementType() reflect.Type {
@@ -1900,12 +2111,6 @@ func (o MembershipProtectedQueryS3OutputConfigurationOutput) ToMembershipProtect
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MembershipProtectedQueryS3OutputConfiguration) *MembershipProtectedQueryS3OutputConfiguration {
 		return &v
 	}).(MembershipProtectedQueryS3OutputConfigurationPtrOutput)
-}
-
-func (o MembershipProtectedQueryS3OutputConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MembershipProtectedQueryS3OutputConfiguration] {
-	return pulumix.Output[MembershipProtectedQueryS3OutputConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MembershipProtectedQueryS3OutputConfigurationOutput) Bucket() pulumi.StringOutput {
@@ -1932,12 +2137,6 @@ func (o MembershipProtectedQueryS3OutputConfigurationPtrOutput) ToMembershipProt
 
 func (o MembershipProtectedQueryS3OutputConfigurationPtrOutput) ToMembershipProtectedQueryS3OutputConfigurationPtrOutputWithContext(ctx context.Context) MembershipProtectedQueryS3OutputConfigurationPtrOutput {
 	return o
-}
-
-func (o MembershipProtectedQueryS3OutputConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MembershipProtectedQueryS3OutputConfiguration] {
-	return pulumix.Output[*MembershipProtectedQueryS3OutputConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MembershipProtectedQueryS3OutputConfigurationPtrOutput) Elem() MembershipProtectedQueryS3OutputConfigurationOutput {
@@ -2010,12 +2209,6 @@ func (i MembershipTagArgs) ToMembershipTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(MembershipTagOutput)
 }
 
-func (i MembershipTagArgs) ToOutput(ctx context.Context) pulumix.Output[MembershipTag] {
-	return pulumix.Output[MembershipTag]{
-		OutputState: i.ToMembershipTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MembershipTagArrayInput is an input type that accepts MembershipTagArray and MembershipTagArrayOutput values.
 // You can construct a concrete instance of `MembershipTagArrayInput` via:
 //
@@ -2041,12 +2234,6 @@ func (i MembershipTagArray) ToMembershipTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(MembershipTagArrayOutput)
 }
 
-func (i MembershipTagArray) ToOutput(ctx context.Context) pulumix.Output[[]MembershipTag] {
-	return pulumix.Output[[]MembershipTag]{
-		OutputState: i.ToMembershipTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MembershipTagOutput struct{ *pulumi.OutputState }
 
 func (MembershipTagOutput) ElementType() reflect.Type {
@@ -2059,12 +2246,6 @@ func (o MembershipTagOutput) ToMembershipTagOutput() MembershipTagOutput {
 
 func (o MembershipTagOutput) ToMembershipTagOutputWithContext(ctx context.Context) MembershipTagOutput {
 	return o
-}
-
-func (o MembershipTagOutput) ToOutput(ctx context.Context) pulumix.Output[MembershipTag] {
-	return pulumix.Output[MembershipTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MembershipTagOutput) Key() pulumi.StringOutput {
@@ -2089,12 +2270,6 @@ func (o MembershipTagArrayOutput) ToMembershipTagArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o MembershipTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MembershipTag] {
-	return pulumix.Output[[]MembershipTag]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MembershipTagArrayOutput) Index(i pulumi.IntInput) MembershipTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MembershipTag {
 		return vs[0].([]MembershipTag)[vs[1].(int)]
@@ -2113,9 +2288,19 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberSpecificationArrayInput)(nil)).Elem(), CollaborationMemberSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationTagInput)(nil)).Elem(), CollaborationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationTagArrayInput)(nil)).Elem(), CollaborationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregateColumnInput)(nil)).Elem(), ConfiguredTableAggregateColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregateColumnArrayInput)(nil)).Elem(), ConfiguredTableAggregateColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregationConstraintInput)(nil)).Elem(), ConfiguredTableAggregationConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregationConstraintArrayInput)(nil)).Elem(), ConfiguredTableAggregationConstraintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRuleInput)(nil)).Elem(), ConfiguredTableAnalysisRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRuleArrayInput)(nil)).Elem(), ConfiguredTableAnalysisRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRuleAggregationInput)(nil)).Elem(), ConfiguredTableAnalysisRuleAggregationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRuleCustomInput)(nil)).Elem(), ConfiguredTableAnalysisRuleCustomArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRuleListInput)(nil)).Elem(), ConfiguredTableAnalysisRuleListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRulePolicyInput)(nil)).Elem(), ConfiguredTableAnalysisRulePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRulePolicyV10PropertiesInput)(nil)).Elem(), ConfiguredTableAnalysisRulePolicyV10PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRulePolicyV11PropertiesInput)(nil)).Elem(), ConfiguredTableAnalysisRulePolicyV11PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRulePolicyV12PropertiesInput)(nil)).Elem(), ConfiguredTableAnalysisRulePolicyV12PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationTagInput)(nil)).Elem(), ConfiguredTableAssociationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationTagArrayInput)(nil)).Elem(), ConfiguredTableAssociationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableGlueTableReferenceInput)(nil)).Elem(), ConfiguredTableGlueTableReferenceArgs{})
@@ -2143,9 +2328,19 @@ func init() {
 	pulumi.RegisterOutputType(CollaborationMemberSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(CollaborationTagOutput{})
 	pulumi.RegisterOutputType(CollaborationTagArrayOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAggregateColumnOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAggregateColumnArrayOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAggregationConstraintOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAggregationConstraintArrayOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRuleOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRuleArrayOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAnalysisRuleAggregationOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAnalysisRuleCustomOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAnalysisRuleListOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRulePolicyOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAnalysisRulePolicyV10PropertiesOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAnalysisRulePolicyV11PropertiesOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAnalysisRulePolicyV12PropertiesOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAssociationTagOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAssociationTagArrayOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableGlueTableReferenceOutput{})

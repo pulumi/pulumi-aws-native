@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates or updates the auth policy.
@@ -105,12 +104,6 @@ func (i *AuthPolicy) ToAuthPolicyOutputWithContext(ctx context.Context) AuthPoli
 	return pulumi.ToOutputWithContext(ctx, i).(AuthPolicyOutput)
 }
 
-func (i *AuthPolicy) ToOutput(ctx context.Context) pulumix.Output[*AuthPolicy] {
-	return pulumix.Output[*AuthPolicy]{
-		OutputState: i.ToAuthPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AuthPolicyOutput struct{ *pulumi.OutputState }
 
 func (AuthPolicyOutput) ElementType() reflect.Type {
@@ -123,12 +116,6 @@ func (o AuthPolicyOutput) ToAuthPolicyOutput() AuthPolicyOutput {
 
 func (o AuthPolicyOutput) ToAuthPolicyOutputWithContext(ctx context.Context) AuthPolicyOutput {
 	return o
-}
-
-func (o AuthPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*AuthPolicy] {
-	return pulumix.Output[*AuthPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AuthPolicyOutput) Policy() pulumi.AnyOutput {

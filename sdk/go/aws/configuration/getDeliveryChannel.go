@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Config::DeliveryChannel
@@ -69,12 +68,6 @@ func (o LookupDeliveryChannelResultOutput) ToLookupDeliveryChannelResultOutput()
 
 func (o LookupDeliveryChannelResultOutput) ToLookupDeliveryChannelResultOutputWithContext(ctx context.Context) LookupDeliveryChannelResultOutput {
 	return o
-}
-
-func (o LookupDeliveryChannelResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDeliveryChannelResult] {
-	return pulumix.Output[LookupDeliveryChannelResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupDeliveryChannelResultOutput) ConfigSnapshotDeliveryProperties() DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {

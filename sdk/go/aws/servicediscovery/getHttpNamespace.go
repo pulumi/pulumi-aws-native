@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ServiceDiscovery::HttpNamespace
@@ -67,12 +66,6 @@ func (o LookupHttpNamespaceResultOutput) ToLookupHttpNamespaceResultOutput() Loo
 
 func (o LookupHttpNamespaceResultOutput) ToLookupHttpNamespaceResultOutputWithContext(ctx context.Context) LookupHttpNamespaceResultOutput {
 	return o
-}
-
-func (o LookupHttpNamespaceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupHttpNamespaceResult] {
-	return pulumix.Output[LookupHttpNamespaceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupHttpNamespaceResultOutput) Arn() pulumi.StringPtrOutput {

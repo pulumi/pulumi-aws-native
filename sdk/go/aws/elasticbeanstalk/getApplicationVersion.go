@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ElasticBeanstalk::ApplicationVersion
@@ -70,12 +69,6 @@ func (o LookupApplicationVersionResultOutput) ToLookupApplicationVersionResultOu
 
 func (o LookupApplicationVersionResultOutput) ToLookupApplicationVersionResultOutputWithContext(ctx context.Context) LookupApplicationVersionResultOutput {
 	return o
-}
-
-func (o LookupApplicationVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupApplicationVersionResult] {
-	return pulumix.Output[LookupApplicationVersionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description of this application version.

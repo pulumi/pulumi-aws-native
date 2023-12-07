@@ -79,12 +79,6 @@ func (o ClusterEncryptionInTransitClientBrokerOutput) ToClusterEncryptionInTrans
 	}).(ClusterEncryptionInTransitClientBrokerPtrOutput)
 }
 
-func (o ClusterEncryptionInTransitClientBrokerOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterEncryptionInTransitClientBroker] {
-	return pulumix.Output[ClusterEncryptionInTransitClientBroker]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterEncryptionInTransitClientBrokerOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o ClusterEncryptionInTransitClientBrokerPtrOutput) ToClusterEncryptionInTr
 
 func (o ClusterEncryptionInTransitClientBrokerPtrOutput) ToClusterEncryptionInTransitClientBrokerPtrOutputWithContext(ctx context.Context) ClusterEncryptionInTransitClientBrokerPtrOutput {
 	return o
-}
-
-func (o ClusterEncryptionInTransitClientBrokerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterEncryptionInTransitClientBroker] {
-	return pulumix.Output[*ClusterEncryptionInTransitClientBroker]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterEncryptionInTransitClientBrokerPtrOutput) Elem() ClusterEncryptionInTransitClientBrokerOutput {
@@ -263,12 +251,6 @@ func (o ClusterEnhancedMonitoringOutput) ToClusterEnhancedMonitoringPtrOutputWit
 	}).(ClusterEnhancedMonitoringPtrOutput)
 }
 
-func (o ClusterEnhancedMonitoringOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterEnhancedMonitoring] {
-	return pulumix.Output[ClusterEnhancedMonitoring]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterEnhancedMonitoringOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -302,12 +284,6 @@ func (o ClusterEnhancedMonitoringPtrOutput) ToClusterEnhancedMonitoringPtrOutput
 
 func (o ClusterEnhancedMonitoringPtrOutput) ToClusterEnhancedMonitoringPtrOutputWithContext(ctx context.Context) ClusterEnhancedMonitoringPtrOutput {
 	return o
-}
-
-func (o ClusterEnhancedMonitoringPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterEnhancedMonitoring] {
-	return pulumix.Output[*ClusterEnhancedMonitoring]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterEnhancedMonitoringPtrOutput) Elem() ClusterEnhancedMonitoringOutput {
@@ -445,12 +421,6 @@ func (o ClusterStorageModeOutput) ToClusterStorageModePtrOutputWithContext(ctx c
 	}).(ClusterStorageModePtrOutput)
 }
 
-func (o ClusterStorageModeOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterStorageMode] {
-	return pulumix.Output[ClusterStorageMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterStorageModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -484,12 +454,6 @@ func (o ClusterStorageModePtrOutput) ToClusterStorageModePtrOutput() ClusterStor
 
 func (o ClusterStorageModePtrOutput) ToClusterStorageModePtrOutputWithContext(ctx context.Context) ClusterStorageModePtrOutput {
 	return o
-}
-
-func (o ClusterStorageModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterStorageMode] {
-	return pulumix.Output[*ClusterStorageMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterStorageModePtrOutput) Elem() ClusterStorageModeOutput {
@@ -631,12 +595,6 @@ func (o ReplicatorReplicationInfoTargetCompressionTypeOutput) ToReplicatorReplic
 	}).(ReplicatorReplicationInfoTargetCompressionTypePtrOutput)
 }
 
-func (o ReplicatorReplicationInfoTargetCompressionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicatorReplicationInfoTargetCompressionType] {
-	return pulumix.Output[ReplicatorReplicationInfoTargetCompressionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicatorReplicationInfoTargetCompressionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -670,12 +628,6 @@ func (o ReplicatorReplicationInfoTargetCompressionTypePtrOutput) ToReplicatorRep
 
 func (o ReplicatorReplicationInfoTargetCompressionTypePtrOutput) ToReplicatorReplicationInfoTargetCompressionTypePtrOutputWithContext(ctx context.Context) ReplicatorReplicationInfoTargetCompressionTypePtrOutput {
 	return o
-}
-
-func (o ReplicatorReplicationInfoTargetCompressionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicatorReplicationInfoTargetCompressionType] {
-	return pulumix.Output[*ReplicatorReplicationInfoTargetCompressionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicatorReplicationInfoTargetCompressionTypePtrOutput) Elem() ReplicatorReplicationInfoTargetCompressionTypeOutput {
@@ -815,12 +767,6 @@ func (o VpcConnectionAuthenticationOutput) ToVpcConnectionAuthenticationPtrOutpu
 	}).(VpcConnectionAuthenticationPtrOutput)
 }
 
-func (o VpcConnectionAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[VpcConnectionAuthentication] {
-	return pulumix.Output[VpcConnectionAuthentication]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpcConnectionAuthenticationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -854,12 +800,6 @@ func (o VpcConnectionAuthenticationPtrOutput) ToVpcConnectionAuthenticationPtrOu
 
 func (o VpcConnectionAuthenticationPtrOutput) ToVpcConnectionAuthenticationPtrOutputWithContext(ctx context.Context) VpcConnectionAuthenticationPtrOutput {
 	return o
-}
-
-func (o VpcConnectionAuthenticationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcConnectionAuthentication] {
-	return pulumix.Output[*VpcConnectionAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpcConnectionAuthenticationPtrOutput) Elem() VpcConnectionAuthenticationOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Route53Resolver::ResolverRuleAssociation
@@ -67,12 +66,6 @@ func (o LookupResolverRuleAssociationResultOutput) ToLookupResolverRuleAssociati
 
 func (o LookupResolverRuleAssociationResultOutput) ToLookupResolverRuleAssociationResultOutputWithContext(ctx context.Context) LookupResolverRuleAssociationResultOutput {
 	return o
-}
-
-func (o LookupResolverRuleAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResolverRuleAssociationResult] {
-	return pulumix.Output[LookupResolverRuleAssociationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Primary Identifier for Resolver Rule Association

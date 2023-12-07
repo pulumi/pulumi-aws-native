@@ -77,12 +77,6 @@ func (o ApplicationCredentialCredentialTypeOutput) ToApplicationCredentialCreden
 	}).(ApplicationCredentialCredentialTypePtrOutput)
 }
 
-func (o ApplicationCredentialCredentialTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCredentialCredentialType] {
-	return pulumix.Output[ApplicationCredentialCredentialType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationCredentialCredentialTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -116,12 +110,6 @@ func (o ApplicationCredentialCredentialTypePtrOutput) ToApplicationCredentialCre
 
 func (o ApplicationCredentialCredentialTypePtrOutput) ToApplicationCredentialCredentialTypePtrOutputWithContext(ctx context.Context) ApplicationCredentialCredentialTypePtrOutput {
 	return o
-}
-
-func (o ApplicationCredentialCredentialTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCredentialCredentialType] {
-	return pulumix.Output[*ApplicationCredentialCredentialType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationCredentialCredentialTypePtrOutput) Elem() ApplicationCredentialCredentialTypeOutput {
@@ -258,12 +246,6 @@ func (o ApplicationTypeOutput) ToApplicationTypePtrOutputWithContext(ctx context
 	}).(ApplicationTypePtrOutput)
 }
 
-func (o ApplicationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationType] {
-	return pulumix.Output[ApplicationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -297,12 +279,6 @@ func (o ApplicationTypePtrOutput) ToApplicationTypePtrOutput() ApplicationTypePt
 
 func (o ApplicationTypePtrOutput) ToApplicationTypePtrOutputWithContext(ctx context.Context) ApplicationTypePtrOutput {
 	return o
-}
-
-func (o ApplicationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationType] {
-	return pulumix.Output[*ApplicationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationTypePtrOutput) Elem() ApplicationTypeOutput {

@@ -49,12 +49,6 @@ func (o AllowListStatusOutput) ToAllowListStatusPtrOutputWithContext(ctx context
 	}).(AllowListStatusPtrOutput)
 }
 
-func (o AllowListStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AllowListStatus] {
-	return pulumix.Output[AllowListStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AllowListStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -88,12 +82,6 @@ func (o AllowListStatusPtrOutput) ToAllowListStatusPtrOutput() AllowListStatusPt
 
 func (o AllowListStatusPtrOutput) ToAllowListStatusPtrOutputWithContext(ctx context.Context) AllowListStatusPtrOutput {
 	return o
-}
-
-func (o AllowListStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AllowListStatus] {
-	return pulumix.Output[*AllowListStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AllowListStatusPtrOutput) Elem() AllowListStatusOutput {
@@ -187,12 +175,6 @@ func (o FindingsFilterFindingFilterActionOutput) ToFindingsFilterFindingFilterAc
 	}).(FindingsFilterFindingFilterActionPtrOutput)
 }
 
-func (o FindingsFilterFindingFilterActionOutput) ToOutput(ctx context.Context) pulumix.Output[FindingsFilterFindingFilterAction] {
-	return pulumix.Output[FindingsFilterFindingFilterAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FindingsFilterFindingFilterActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -226,12 +208,6 @@ func (o FindingsFilterFindingFilterActionPtrOutput) ToFindingsFilterFindingFilte
 
 func (o FindingsFilterFindingFilterActionPtrOutput) ToFindingsFilterFindingFilterActionPtrOutputWithContext(ctx context.Context) FindingsFilterFindingFilterActionPtrOutput {
 	return o
-}
-
-func (o FindingsFilterFindingFilterActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FindingsFilterFindingFilterAction] {
-	return pulumix.Output[*FindingsFilterFindingFilterAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FindingsFilterFindingFilterActionPtrOutput) Elem() FindingsFilterFindingFilterActionOutput {
@@ -371,12 +347,6 @@ func (o SessionFindingPublishingFrequencyOutput) ToSessionFindingPublishingFrequ
 	}).(SessionFindingPublishingFrequencyPtrOutput)
 }
 
-func (o SessionFindingPublishingFrequencyOutput) ToOutput(ctx context.Context) pulumix.Output[SessionFindingPublishingFrequency] {
-	return pulumix.Output[SessionFindingPublishingFrequency]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SessionFindingPublishingFrequencyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -410,12 +380,6 @@ func (o SessionFindingPublishingFrequencyPtrOutput) ToSessionFindingPublishingFr
 
 func (o SessionFindingPublishingFrequencyPtrOutput) ToSessionFindingPublishingFrequencyPtrOutputWithContext(ctx context.Context) SessionFindingPublishingFrequencyPtrOutput {
 	return o
-}
-
-func (o SessionFindingPublishingFrequencyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SessionFindingPublishingFrequency] {
-	return pulumix.Output[*SessionFindingPublishingFrequency]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SessionFindingPublishingFrequencyPtrOutput) Elem() SessionFindingPublishingFrequencyOutput {
@@ -554,12 +518,6 @@ func (o SessionStatusOutput) ToSessionStatusPtrOutputWithContext(ctx context.Con
 	}).(SessionStatusPtrOutput)
 }
 
-func (o SessionStatusOutput) ToOutput(ctx context.Context) pulumix.Output[SessionStatus] {
-	return pulumix.Output[SessionStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SessionStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -593,12 +551,6 @@ func (o SessionStatusPtrOutput) ToSessionStatusPtrOutput() SessionStatusPtrOutpu
 
 func (o SessionStatusPtrOutput) ToSessionStatusPtrOutputWithContext(ctx context.Context) SessionStatusPtrOutput {
 	return o
-}
-
-func (o SessionStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SessionStatus] {
-	return pulumix.Output[*SessionStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SessionStatusPtrOutput) Elem() SessionStatusOutput {

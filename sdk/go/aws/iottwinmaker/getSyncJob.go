@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::IoTTwinMaker::SyncJob
@@ -77,12 +76,6 @@ func (o LookupSyncJobResultOutput) ToLookupSyncJobResultOutput() LookupSyncJobRe
 
 func (o LookupSyncJobResultOutput) ToLookupSyncJobResultOutputWithContext(ctx context.Context) LookupSyncJobResultOutput {
 	return o
-}
-
-func (o LookupSyncJobResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSyncJobResult] {
-	return pulumix.Output[LookupSyncJobResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the SyncJob.

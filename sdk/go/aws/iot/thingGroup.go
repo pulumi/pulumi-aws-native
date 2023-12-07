@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IoT::ThingGroup
@@ -111,12 +110,6 @@ func (i *ThingGroup) ToThingGroupOutputWithContext(ctx context.Context) ThingGro
 	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupOutput)
 }
 
-func (i *ThingGroup) ToOutput(ctx context.Context) pulumix.Output[*ThingGroup] {
-	return pulumix.Output[*ThingGroup]{
-		OutputState: i.ToThingGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThingGroupOutput struct{ *pulumi.OutputState }
 
 func (ThingGroupOutput) ElementType() reflect.Type {
@@ -129,12 +122,6 @@ func (o ThingGroupOutput) ToThingGroupOutput() ThingGroupOutput {
 
 func (o ThingGroupOutput) ToThingGroupOutputWithContext(ctx context.Context) ThingGroupOutput {
 	return o
-}
-
-func (o ThingGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ThingGroup] {
-	return pulumix.Output[*ThingGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThingGroupOutput) Arn() pulumi.StringOutput {

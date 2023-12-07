@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An aggregated metric of certain devices in your fleet
@@ -160,12 +159,6 @@ func (i *FleetMetric) ToFleetMetricOutputWithContext(ctx context.Context) FleetM
 	return pulumi.ToOutputWithContext(ctx, i).(FleetMetricOutput)
 }
 
-func (i *FleetMetric) ToOutput(ctx context.Context) pulumix.Output[*FleetMetric] {
-	return pulumix.Output[*FleetMetric]{
-		OutputState: i.ToFleetMetricOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FleetMetricOutput struct{ *pulumi.OutputState }
 
 func (FleetMetricOutput) ElementType() reflect.Type {
@@ -178,12 +171,6 @@ func (o FleetMetricOutput) ToFleetMetricOutput() FleetMetricOutput {
 
 func (o FleetMetricOutput) ToFleetMetricOutputWithContext(ctx context.Context) FleetMetricOutput {
 	return o
-}
-
-func (o FleetMetricOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetMetric] {
-	return pulumix.Output[*FleetMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The aggregation field to perform aggregation and metric emission

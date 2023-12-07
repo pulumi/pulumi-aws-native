@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.
@@ -71,12 +70,6 @@ func (o LookupTargetGroupResultOutput) ToLookupTargetGroupResultOutput() LookupT
 
 func (o LookupTargetGroupResultOutput) ToLookupTargetGroupResultOutputWithContext(ctx context.Context) LookupTargetGroupResultOutput {
 	return o
-}
-
-func (o LookupTargetGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTargetGroupResult] {
-	return pulumix.Output[LookupTargetGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupTargetGroupResultOutput) Arn() pulumi.StringPtrOutput {

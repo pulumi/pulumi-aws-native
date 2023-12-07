@@ -77,12 +77,6 @@ func (o AutomationRuleDateRangeUnitOutput) ToAutomationRuleDateRangeUnitPtrOutpu
 	}).(AutomationRuleDateRangeUnitPtrOutput)
 }
 
-func (o AutomationRuleDateRangeUnitOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleDateRangeUnit] {
-	return pulumix.Output[AutomationRuleDateRangeUnit]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRuleDateRangeUnitOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -116,12 +110,6 @@ func (o AutomationRuleDateRangeUnitPtrOutput) ToAutomationRuleDateRangeUnitPtrOu
 
 func (o AutomationRuleDateRangeUnitPtrOutput) ToAutomationRuleDateRangeUnitPtrOutputWithContext(ctx context.Context) AutomationRuleDateRangeUnitPtrOutput {
 	return o
-}
-
-func (o AutomationRuleDateRangeUnitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleDateRangeUnit] {
-	return pulumix.Output[*AutomationRuleDateRangeUnit]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRuleDateRangeUnitPtrOutput) Elem() AutomationRuleDateRangeUnitOutput {
@@ -261,12 +249,6 @@ func (o AutomationRuleMapFilterComparisonOutput) ToAutomationRuleMapFilterCompar
 	}).(AutomationRuleMapFilterComparisonPtrOutput)
 }
 
-func (o AutomationRuleMapFilterComparisonOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleMapFilterComparison] {
-	return pulumix.Output[AutomationRuleMapFilterComparison]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRuleMapFilterComparisonOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -300,12 +282,6 @@ func (o AutomationRuleMapFilterComparisonPtrOutput) ToAutomationRuleMapFilterCom
 
 func (o AutomationRuleMapFilterComparisonPtrOutput) ToAutomationRuleMapFilterComparisonPtrOutputWithContext(ctx context.Context) AutomationRuleMapFilterComparisonPtrOutput {
 	return o
-}
-
-func (o AutomationRuleMapFilterComparisonPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleMapFilterComparison] {
-	return pulumix.Output[*AutomationRuleMapFilterComparison]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRuleMapFilterComparisonPtrOutput) Elem() AutomationRuleMapFilterComparisonOutput {
@@ -444,12 +420,6 @@ func (o AutomationRuleRuleStatusOutput) ToAutomationRuleRuleStatusPtrOutputWithC
 	}).(AutomationRuleRuleStatusPtrOutput)
 }
 
-func (o AutomationRuleRuleStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleRuleStatus] {
-	return pulumix.Output[AutomationRuleRuleStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRuleRuleStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -483,12 +453,6 @@ func (o AutomationRuleRuleStatusPtrOutput) ToAutomationRuleRuleStatusPtrOutput()
 
 func (o AutomationRuleRuleStatusPtrOutput) ToAutomationRuleRuleStatusPtrOutputWithContext(ctx context.Context) AutomationRuleRuleStatusPtrOutput {
 	return o
-}
-
-func (o AutomationRuleRuleStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleRuleStatus] {
-	return pulumix.Output[*AutomationRuleRuleStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRuleRuleStatusPtrOutput) Elem() AutomationRuleRuleStatusOutput {
@@ -629,12 +593,6 @@ func (o AutomationRuleSeverityUpdateLabelOutput) ToAutomationRuleSeverityUpdateL
 	}).(AutomationRuleSeverityUpdateLabelPtrOutput)
 }
 
-func (o AutomationRuleSeverityUpdateLabelOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleSeverityUpdateLabel] {
-	return pulumix.Output[AutomationRuleSeverityUpdateLabel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRuleSeverityUpdateLabelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -668,12 +626,6 @@ func (o AutomationRuleSeverityUpdateLabelPtrOutput) ToAutomationRuleSeverityUpda
 
 func (o AutomationRuleSeverityUpdateLabelPtrOutput) ToAutomationRuleSeverityUpdateLabelPtrOutputWithContext(ctx context.Context) AutomationRuleSeverityUpdateLabelPtrOutput {
 	return o
-}
-
-func (o AutomationRuleSeverityUpdateLabelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleSeverityUpdateLabel] {
-	return pulumix.Output[*AutomationRuleSeverityUpdateLabel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRuleSeverityUpdateLabelPtrOutput) Elem() AutomationRuleSeverityUpdateLabelOutput {
@@ -815,12 +767,6 @@ func (o AutomationRuleStringFilterComparisonOutput) ToAutomationRuleStringFilter
 	}).(AutomationRuleStringFilterComparisonPtrOutput)
 }
 
-func (o AutomationRuleStringFilterComparisonOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleStringFilterComparison] {
-	return pulumix.Output[AutomationRuleStringFilterComparison]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRuleStringFilterComparisonOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -854,12 +800,6 @@ func (o AutomationRuleStringFilterComparisonPtrOutput) ToAutomationRuleStringFil
 
 func (o AutomationRuleStringFilterComparisonPtrOutput) ToAutomationRuleStringFilterComparisonPtrOutputWithContext(ctx context.Context) AutomationRuleStringFilterComparisonPtrOutput {
 	return o
-}
-
-func (o AutomationRuleStringFilterComparisonPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleStringFilterComparison] {
-	return pulumix.Output[*AutomationRuleStringFilterComparison]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRuleStringFilterComparisonPtrOutput) Elem() AutomationRuleStringFilterComparisonOutput {
@@ -999,12 +939,6 @@ func (o AutomationRuleWorkflowUpdateStatusOutput) ToAutomationRuleWorkflowUpdate
 	}).(AutomationRuleWorkflowUpdateStatusPtrOutput)
 }
 
-func (o AutomationRuleWorkflowUpdateStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleWorkflowUpdateStatus] {
-	return pulumix.Output[AutomationRuleWorkflowUpdateStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRuleWorkflowUpdateStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1038,12 +972,6 @@ func (o AutomationRuleWorkflowUpdateStatusPtrOutput) ToAutomationRuleWorkflowUpd
 
 func (o AutomationRuleWorkflowUpdateStatusPtrOutput) ToAutomationRuleWorkflowUpdateStatusPtrOutputWithContext(ctx context.Context) AutomationRuleWorkflowUpdateStatusPtrOutput {
 	return o
-}
-
-func (o AutomationRuleWorkflowUpdateStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleWorkflowUpdateStatus] {
-	return pulumix.Output[*AutomationRuleWorkflowUpdateStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRuleWorkflowUpdateStatusPtrOutput) Elem() AutomationRuleWorkflowUpdateStatusOutput {
@@ -1180,12 +1108,6 @@ func (o AutomationRulesActionTypeOutput) ToAutomationRulesActionTypePtrOutputWit
 	}).(AutomationRulesActionTypePtrOutput)
 }
 
-func (o AutomationRulesActionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRulesActionType] {
-	return pulumix.Output[AutomationRulesActionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRulesActionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1219,12 +1141,6 @@ func (o AutomationRulesActionTypePtrOutput) ToAutomationRulesActionTypePtrOutput
 
 func (o AutomationRulesActionTypePtrOutput) ToAutomationRulesActionTypePtrOutputWithContext(ctx context.Context) AutomationRulesActionTypePtrOutput {
 	return o
-}
-
-func (o AutomationRulesActionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRulesActionType] {
-	return pulumix.Output[*AutomationRulesActionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRulesActionTypePtrOutput) Elem() AutomationRulesActionTypeOutput {
@@ -1364,12 +1280,6 @@ func (o AutomationRulesFindingFieldsUpdateVerificationStateOutput) ToAutomationR
 	}).(AutomationRulesFindingFieldsUpdateVerificationStatePtrOutput)
 }
 
-func (o AutomationRulesFindingFieldsUpdateVerificationStateOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRulesFindingFieldsUpdateVerificationState] {
-	return pulumix.Output[AutomationRulesFindingFieldsUpdateVerificationState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRulesFindingFieldsUpdateVerificationStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1403,12 +1313,6 @@ func (o AutomationRulesFindingFieldsUpdateVerificationStatePtrOutput) ToAutomati
 
 func (o AutomationRulesFindingFieldsUpdateVerificationStatePtrOutput) ToAutomationRulesFindingFieldsUpdateVerificationStatePtrOutputWithContext(ctx context.Context) AutomationRulesFindingFieldsUpdateVerificationStatePtrOutput {
 	return o
-}
-
-func (o AutomationRulesFindingFieldsUpdateVerificationStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRulesFindingFieldsUpdateVerificationState] {
-	return pulumix.Output[*AutomationRulesFindingFieldsUpdateVerificationState]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRulesFindingFieldsUpdateVerificationStatePtrOutput) Elem() AutomationRulesFindingFieldsUpdateVerificationStateOutput {

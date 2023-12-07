@@ -79,12 +79,6 @@ func (o AssignmentPrincipalTypeOutput) ToAssignmentPrincipalTypePtrOutputWithCon
 	}).(AssignmentPrincipalTypePtrOutput)
 }
 
-func (o AssignmentPrincipalTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AssignmentPrincipalType] {
-	return pulumix.Output[AssignmentPrincipalType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssignmentPrincipalTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o AssignmentPrincipalTypePtrOutput) ToAssignmentPrincipalTypePtrOutput() A
 
 func (o AssignmentPrincipalTypePtrOutput) ToAssignmentPrincipalTypePtrOutputWithContext(ctx context.Context) AssignmentPrincipalTypePtrOutput {
 	return o
-}
-
-func (o AssignmentPrincipalTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssignmentPrincipalType] {
-	return pulumix.Output[*AssignmentPrincipalType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssignmentPrincipalTypePtrOutput) Elem() AssignmentPrincipalTypeOutput {
@@ -261,12 +249,6 @@ func (o AssignmentTargetTypeOutput) ToAssignmentTargetTypePtrOutputWithContext(c
 	}).(AssignmentTargetTypePtrOutput)
 }
 
-func (o AssignmentTargetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AssignmentTargetType] {
-	return pulumix.Output[AssignmentTargetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssignmentTargetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -300,12 +282,6 @@ func (o AssignmentTargetTypePtrOutput) ToAssignmentTargetTypePtrOutput() Assignm
 
 func (o AssignmentTargetTypePtrOutput) ToAssignmentTargetTypePtrOutputWithContext(ctx context.Context) AssignmentTargetTypePtrOutput {
 	return o
-}
-
-func (o AssignmentTargetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssignmentTargetType] {
-	return pulumix.Output[*AssignmentTargetType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssignmentTargetTypePtrOutput) Elem() AssignmentTargetTypeOutput {

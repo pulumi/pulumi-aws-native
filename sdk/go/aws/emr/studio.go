@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::EMR::Studio
@@ -202,12 +201,6 @@ func (i *Studio) ToStudioOutputWithContext(ctx context.Context) StudioOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StudioOutput)
 }
 
-func (i *Studio) ToOutput(ctx context.Context) pulumix.Output[*Studio] {
-	return pulumix.Output[*Studio]{
-		OutputState: i.ToStudioOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StudioOutput struct{ *pulumi.OutputState }
 
 func (StudioOutput) ElementType() reflect.Type {
@@ -220,12 +213,6 @@ func (o StudioOutput) ToStudioOutput() StudioOutput {
 
 func (o StudioOutput) ToStudioOutputWithContext(ctx context.Context) StudioOutput {
 	return o
-}
-
-func (o StudioOutput) ToOutput(ctx context.Context) pulumix.Output[*Studio] {
-	return pulumix.Output[*Studio]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the EMR Studio.

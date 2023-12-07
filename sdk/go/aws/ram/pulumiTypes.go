@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -51,12 +50,6 @@ func (i PermissionTagArgs) ToPermissionTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionTagOutput)
 }
 
-func (i PermissionTagArgs) ToOutput(ctx context.Context) pulumix.Output[PermissionTag] {
-	return pulumix.Output[PermissionTag]{
-		OutputState: i.ToPermissionTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PermissionTagArrayInput is an input type that accepts PermissionTagArray and PermissionTagArrayOutput values.
 // You can construct a concrete instance of `PermissionTagArrayInput` via:
 //
@@ -82,12 +75,6 @@ func (i PermissionTagArray) ToPermissionTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionTagArrayOutput)
 }
 
-func (i PermissionTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PermissionTag] {
-	return pulumix.Output[[]PermissionTag]{
-		OutputState: i.ToPermissionTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PermissionTagOutput struct{ *pulumi.OutputState }
 
 func (PermissionTagOutput) ElementType() reflect.Type {
@@ -100,12 +87,6 @@ func (o PermissionTagOutput) ToPermissionTagOutput() PermissionTagOutput {
 
 func (o PermissionTagOutput) ToPermissionTagOutputWithContext(ctx context.Context) PermissionTagOutput {
 	return o
-}
-
-func (o PermissionTagOutput) ToOutput(ctx context.Context) pulumix.Output[PermissionTag] {
-	return pulumix.Output[PermissionTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -130,12 +111,6 @@ func (o PermissionTagArrayOutput) ToPermissionTagArrayOutput() PermissionTagArra
 
 func (o PermissionTagArrayOutput) ToPermissionTagArrayOutputWithContext(ctx context.Context) PermissionTagArrayOutput {
 	return o
-}
-
-func (o PermissionTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PermissionTag] {
-	return pulumix.Output[[]PermissionTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PermissionTagArrayOutput) Index(i pulumi.IntInput) PermissionTagOutput {
@@ -177,12 +152,6 @@ func (i ResourceShareTagArgs) ToResourceShareTagOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceShareTagOutput)
 }
 
-func (i ResourceShareTagArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceShareTag] {
-	return pulumix.Output[ResourceShareTag]{
-		OutputState: i.ToResourceShareTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResourceShareTagArrayInput is an input type that accepts ResourceShareTagArray and ResourceShareTagArrayOutput values.
 // You can construct a concrete instance of `ResourceShareTagArrayInput` via:
 //
@@ -208,12 +177,6 @@ func (i ResourceShareTagArray) ToResourceShareTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceShareTagArrayOutput)
 }
 
-func (i ResourceShareTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourceShareTag] {
-	return pulumix.Output[[]ResourceShareTag]{
-		OutputState: i.ToResourceShareTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceShareTagOutput struct{ *pulumi.OutputState }
 
 func (ResourceShareTagOutput) ElementType() reflect.Type {
@@ -226,12 +189,6 @@ func (o ResourceShareTagOutput) ToResourceShareTagOutput() ResourceShareTagOutpu
 
 func (o ResourceShareTagOutput) ToResourceShareTagOutputWithContext(ctx context.Context) ResourceShareTagOutput {
 	return o
-}
-
-func (o ResourceShareTagOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceShareTag] {
-	return pulumix.Output[ResourceShareTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceShareTagOutput) Key() pulumi.StringOutput {
@@ -254,12 +211,6 @@ func (o ResourceShareTagArrayOutput) ToResourceShareTagArrayOutput() ResourceSha
 
 func (o ResourceShareTagArrayOutput) ToResourceShareTagArrayOutputWithContext(ctx context.Context) ResourceShareTagArrayOutput {
 	return o
-}
-
-func (o ResourceShareTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourceShareTag] {
-	return pulumix.Output[[]ResourceShareTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceShareTagArrayOutput) Index(i pulumi.IntInput) ResourceShareTagOutput {

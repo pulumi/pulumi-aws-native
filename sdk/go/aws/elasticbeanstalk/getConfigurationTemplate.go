@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ElasticBeanstalk::ConfigurationTemplate
@@ -75,12 +74,6 @@ func (o LookupConfigurationTemplateResultOutput) ToLookupConfigurationTemplateRe
 
 func (o LookupConfigurationTemplateResultOutput) ToLookupConfigurationTemplateResultOutputWithContext(ctx context.Context) LookupConfigurationTemplateResultOutput {
 	return o
-}
-
-func (o LookupConfigurationTemplateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConfigurationTemplateResult] {
-	return pulumix.Output[LookupConfigurationTemplateResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An optional description for this configuration.

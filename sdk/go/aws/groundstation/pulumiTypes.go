@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -43,12 +42,6 @@ func (i ConfigAntennaDownlinkConfigArgs) ToConfigAntennaDownlinkConfigOutput() C
 
 func (i ConfigAntennaDownlinkConfigArgs) ToConfigAntennaDownlinkConfigOutputWithContext(ctx context.Context) ConfigAntennaDownlinkConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigAntennaDownlinkConfigOutput)
-}
-
-func (i ConfigAntennaDownlinkConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigAntennaDownlinkConfig] {
-	return pulumix.Output[ConfigAntennaDownlinkConfig]{
-		OutputState: i.ToConfigAntennaDownlinkConfigOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ConfigAntennaDownlinkConfigArgs) ToConfigAntennaDownlinkConfigPtrOutput() ConfigAntennaDownlinkConfigPtrOutput {
@@ -92,12 +85,6 @@ func (i *configAntennaDownlinkConfigPtrType) ToConfigAntennaDownlinkConfigPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigAntennaDownlinkConfigPtrOutput)
 }
 
-func (i *configAntennaDownlinkConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigAntennaDownlinkConfig] {
-	return pulumix.Output[*ConfigAntennaDownlinkConfig]{
-		OutputState: i.ToConfigAntennaDownlinkConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigAntennaDownlinkConfigOutput struct{ *pulumi.OutputState }
 
 func (ConfigAntennaDownlinkConfigOutput) ElementType() reflect.Type {
@@ -122,12 +109,6 @@ func (o ConfigAntennaDownlinkConfigOutput) ToConfigAntennaDownlinkConfigPtrOutpu
 	}).(ConfigAntennaDownlinkConfigPtrOutput)
 }
 
-func (o ConfigAntennaDownlinkConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigAntennaDownlinkConfig] {
-	return pulumix.Output[ConfigAntennaDownlinkConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigAntennaDownlinkConfigOutput) SpectrumConfig() ConfigSpectrumConfigPtrOutput {
 	return o.ApplyT(func(v ConfigAntennaDownlinkConfig) *ConfigSpectrumConfig { return v.SpectrumConfig }).(ConfigSpectrumConfigPtrOutput)
 }
@@ -144,12 +125,6 @@ func (o ConfigAntennaDownlinkConfigPtrOutput) ToConfigAntennaDownlinkConfigPtrOu
 
 func (o ConfigAntennaDownlinkConfigPtrOutput) ToConfigAntennaDownlinkConfigPtrOutputWithContext(ctx context.Context) ConfigAntennaDownlinkConfigPtrOutput {
 	return o
-}
-
-func (o ConfigAntennaDownlinkConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigAntennaDownlinkConfig] {
-	return pulumix.Output[*ConfigAntennaDownlinkConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigAntennaDownlinkConfigPtrOutput) Elem() ConfigAntennaDownlinkConfigOutput {
@@ -206,12 +181,6 @@ func (i ConfigAntennaDownlinkDemodDecodeConfigArgs) ToConfigAntennaDownlinkDemod
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigAntennaDownlinkDemodDecodeConfigOutput)
 }
 
-func (i ConfigAntennaDownlinkDemodDecodeConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigAntennaDownlinkDemodDecodeConfig] {
-	return pulumix.Output[ConfigAntennaDownlinkDemodDecodeConfig]{
-		OutputState: i.ToConfigAntennaDownlinkDemodDecodeConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigAntennaDownlinkDemodDecodeConfigArgs) ToConfigAntennaDownlinkDemodDecodeConfigPtrOutput() ConfigAntennaDownlinkDemodDecodeConfigPtrOutput {
 	return i.ToConfigAntennaDownlinkDemodDecodeConfigPtrOutputWithContext(context.Background())
 }
@@ -253,12 +222,6 @@ func (i *configAntennaDownlinkDemodDecodeConfigPtrType) ToConfigAntennaDownlinkD
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigAntennaDownlinkDemodDecodeConfigPtrOutput)
 }
 
-func (i *configAntennaDownlinkDemodDecodeConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigAntennaDownlinkDemodDecodeConfig] {
-	return pulumix.Output[*ConfigAntennaDownlinkDemodDecodeConfig]{
-		OutputState: i.ToConfigAntennaDownlinkDemodDecodeConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigAntennaDownlinkDemodDecodeConfigOutput struct{ *pulumi.OutputState }
 
 func (ConfigAntennaDownlinkDemodDecodeConfigOutput) ElementType() reflect.Type {
@@ -281,12 +244,6 @@ func (o ConfigAntennaDownlinkDemodDecodeConfigOutput) ToConfigAntennaDownlinkDem
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigAntennaDownlinkDemodDecodeConfig) *ConfigAntennaDownlinkDemodDecodeConfig {
 		return &v
 	}).(ConfigAntennaDownlinkDemodDecodeConfigPtrOutput)
-}
-
-func (o ConfigAntennaDownlinkDemodDecodeConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigAntennaDownlinkDemodDecodeConfig] {
-	return pulumix.Output[ConfigAntennaDownlinkDemodDecodeConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigAntennaDownlinkDemodDecodeConfigOutput) DecodeConfig() ConfigDecodeConfigPtrOutput {
@@ -313,12 +270,6 @@ func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) ToConfigAntennaDownlink
 
 func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) ToConfigAntennaDownlinkDemodDecodeConfigPtrOutputWithContext(ctx context.Context) ConfigAntennaDownlinkDemodDecodeConfigPtrOutput {
 	return o
-}
-
-func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigAntennaDownlinkDemodDecodeConfig] {
-	return pulumix.Output[*ConfigAntennaDownlinkDemodDecodeConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) Elem() ConfigAntennaDownlinkDemodDecodeConfigOutput {
@@ -393,12 +344,6 @@ func (i ConfigAntennaUplinkConfigArgs) ToConfigAntennaUplinkConfigOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigAntennaUplinkConfigOutput)
 }
 
-func (i ConfigAntennaUplinkConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigAntennaUplinkConfig] {
-	return pulumix.Output[ConfigAntennaUplinkConfig]{
-		OutputState: i.ToConfigAntennaUplinkConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigAntennaUplinkConfigArgs) ToConfigAntennaUplinkConfigPtrOutput() ConfigAntennaUplinkConfigPtrOutput {
 	return i.ToConfigAntennaUplinkConfigPtrOutputWithContext(context.Background())
 }
@@ -440,12 +385,6 @@ func (i *configAntennaUplinkConfigPtrType) ToConfigAntennaUplinkConfigPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigAntennaUplinkConfigPtrOutput)
 }
 
-func (i *configAntennaUplinkConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigAntennaUplinkConfig] {
-	return pulumix.Output[*ConfigAntennaUplinkConfig]{
-		OutputState: i.ToConfigAntennaUplinkConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigAntennaUplinkConfigOutput struct{ *pulumi.OutputState }
 
 func (ConfigAntennaUplinkConfigOutput) ElementType() reflect.Type {
@@ -468,12 +407,6 @@ func (o ConfigAntennaUplinkConfigOutput) ToConfigAntennaUplinkConfigPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigAntennaUplinkConfig) *ConfigAntennaUplinkConfig {
 		return &v
 	}).(ConfigAntennaUplinkConfigPtrOutput)
-}
-
-func (o ConfigAntennaUplinkConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigAntennaUplinkConfig] {
-	return pulumix.Output[ConfigAntennaUplinkConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigAntennaUplinkConfigOutput) SpectrumConfig() ConfigUplinkSpectrumConfigPtrOutput {
@@ -500,12 +433,6 @@ func (o ConfigAntennaUplinkConfigPtrOutput) ToConfigAntennaUplinkConfigPtrOutput
 
 func (o ConfigAntennaUplinkConfigPtrOutput) ToConfigAntennaUplinkConfigPtrOutputWithContext(ctx context.Context) ConfigAntennaUplinkConfigPtrOutput {
 	return o
-}
-
-func (o ConfigAntennaUplinkConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigAntennaUplinkConfig] {
-	return pulumix.Output[*ConfigAntennaUplinkConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigAntennaUplinkConfigPtrOutput) Elem() ConfigAntennaUplinkConfigOutput {
@@ -588,12 +515,6 @@ func (i ConfigDataArgs) ToConfigDataOutputWithContext(ctx context.Context) Confi
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigDataOutput)
 }
 
-func (i ConfigDataArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigData] {
-	return pulumix.Output[ConfigData]{
-		OutputState: i.ToConfigDataOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigDataOutput struct{ *pulumi.OutputState }
 
 func (ConfigDataOutput) ElementType() reflect.Type {
@@ -606,12 +527,6 @@ func (o ConfigDataOutput) ToConfigDataOutput() ConfigDataOutput {
 
 func (o ConfigDataOutput) ToConfigDataOutputWithContext(ctx context.Context) ConfigDataOutput {
 	return o
-}
-
-func (o ConfigDataOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigData] {
-	return pulumix.Output[ConfigData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigDataOutput) AntennaDownlinkConfig() ConfigAntennaDownlinkConfigPtrOutput {
@@ -654,12 +569,6 @@ func (o ConfigDataPtrOutput) ToConfigDataPtrOutput() ConfigDataPtrOutput {
 
 func (o ConfigDataPtrOutput) ToConfigDataPtrOutputWithContext(ctx context.Context) ConfigDataPtrOutput {
 	return o
-}
-
-func (o ConfigDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigData] {
-	return pulumix.Output[*ConfigData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigDataPtrOutput) Elem() ConfigDataOutput {
@@ -768,12 +677,6 @@ func (i ConfigDataflowEndpointConfigArgs) ToConfigDataflowEndpointConfigOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigDataflowEndpointConfigOutput)
 }
 
-func (i ConfigDataflowEndpointConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigDataflowEndpointConfig] {
-	return pulumix.Output[ConfigDataflowEndpointConfig]{
-		OutputState: i.ToConfigDataflowEndpointConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigDataflowEndpointConfigArgs) ToConfigDataflowEndpointConfigPtrOutput() ConfigDataflowEndpointConfigPtrOutput {
 	return i.ToConfigDataflowEndpointConfigPtrOutputWithContext(context.Background())
 }
@@ -815,12 +718,6 @@ func (i *configDataflowEndpointConfigPtrType) ToConfigDataflowEndpointConfigPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigDataflowEndpointConfigPtrOutput)
 }
 
-func (i *configDataflowEndpointConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigDataflowEndpointConfig] {
-	return pulumix.Output[*ConfigDataflowEndpointConfig]{
-		OutputState: i.ToConfigDataflowEndpointConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigDataflowEndpointConfigOutput struct{ *pulumi.OutputState }
 
 func (ConfigDataflowEndpointConfigOutput) ElementType() reflect.Type {
@@ -845,12 +742,6 @@ func (o ConfigDataflowEndpointConfigOutput) ToConfigDataflowEndpointConfigPtrOut
 	}).(ConfigDataflowEndpointConfigPtrOutput)
 }
 
-func (o ConfigDataflowEndpointConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigDataflowEndpointConfig] {
-	return pulumix.Output[ConfigDataflowEndpointConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigDataflowEndpointConfigOutput) DataflowEndpointName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigDataflowEndpointConfig) *string { return v.DataflowEndpointName }).(pulumi.StringPtrOutput)
 }
@@ -871,12 +762,6 @@ func (o ConfigDataflowEndpointConfigPtrOutput) ToConfigDataflowEndpointConfigPtr
 
 func (o ConfigDataflowEndpointConfigPtrOutput) ToConfigDataflowEndpointConfigPtrOutputWithContext(ctx context.Context) ConfigDataflowEndpointConfigPtrOutput {
 	return o
-}
-
-func (o ConfigDataflowEndpointConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigDataflowEndpointConfig] {
-	return pulumix.Output[*ConfigDataflowEndpointConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigDataflowEndpointConfigPtrOutput) Elem() ConfigDataflowEndpointConfigOutput {
@@ -938,12 +823,6 @@ func (i ConfigDecodeConfigArgs) ToConfigDecodeConfigOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigDecodeConfigOutput)
 }
 
-func (i ConfigDecodeConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigDecodeConfig] {
-	return pulumix.Output[ConfigDecodeConfig]{
-		OutputState: i.ToConfigDecodeConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigDecodeConfigArgs) ToConfigDecodeConfigPtrOutput() ConfigDecodeConfigPtrOutput {
 	return i.ToConfigDecodeConfigPtrOutputWithContext(context.Background())
 }
@@ -985,12 +864,6 @@ func (i *configDecodeConfigPtrType) ToConfigDecodeConfigPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigDecodeConfigPtrOutput)
 }
 
-func (i *configDecodeConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigDecodeConfig] {
-	return pulumix.Output[*ConfigDecodeConfig]{
-		OutputState: i.ToConfigDecodeConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigDecodeConfigOutput struct{ *pulumi.OutputState }
 
 func (ConfigDecodeConfigOutput) ElementType() reflect.Type {
@@ -1015,12 +888,6 @@ func (o ConfigDecodeConfigOutput) ToConfigDecodeConfigPtrOutputWithContext(ctx c
 	}).(ConfigDecodeConfigPtrOutput)
 }
 
-func (o ConfigDecodeConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigDecodeConfig] {
-	return pulumix.Output[ConfigDecodeConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigDecodeConfigOutput) UnvalidatedJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigDecodeConfig) *string { return v.UnvalidatedJson }).(pulumi.StringPtrOutput)
 }
@@ -1037,12 +904,6 @@ func (o ConfigDecodeConfigPtrOutput) ToConfigDecodeConfigPtrOutput() ConfigDecod
 
 func (o ConfigDecodeConfigPtrOutput) ToConfigDecodeConfigPtrOutputWithContext(ctx context.Context) ConfigDecodeConfigPtrOutput {
 	return o
-}
-
-func (o ConfigDecodeConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigDecodeConfig] {
-	return pulumix.Output[*ConfigDecodeConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigDecodeConfigPtrOutput) Elem() ConfigDecodeConfigOutput {
@@ -1095,12 +956,6 @@ func (i ConfigDemodulationConfigArgs) ToConfigDemodulationConfigOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigDemodulationConfigOutput)
 }
 
-func (i ConfigDemodulationConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigDemodulationConfig] {
-	return pulumix.Output[ConfigDemodulationConfig]{
-		OutputState: i.ToConfigDemodulationConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigDemodulationConfigArgs) ToConfigDemodulationConfigPtrOutput() ConfigDemodulationConfigPtrOutput {
 	return i.ToConfigDemodulationConfigPtrOutputWithContext(context.Background())
 }
@@ -1142,12 +997,6 @@ func (i *configDemodulationConfigPtrType) ToConfigDemodulationConfigPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigDemodulationConfigPtrOutput)
 }
 
-func (i *configDemodulationConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigDemodulationConfig] {
-	return pulumix.Output[*ConfigDemodulationConfig]{
-		OutputState: i.ToConfigDemodulationConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigDemodulationConfigOutput struct{ *pulumi.OutputState }
 
 func (ConfigDemodulationConfigOutput) ElementType() reflect.Type {
@@ -1172,12 +1021,6 @@ func (o ConfigDemodulationConfigOutput) ToConfigDemodulationConfigPtrOutputWithC
 	}).(ConfigDemodulationConfigPtrOutput)
 }
 
-func (o ConfigDemodulationConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigDemodulationConfig] {
-	return pulumix.Output[ConfigDemodulationConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigDemodulationConfigOutput) UnvalidatedJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigDemodulationConfig) *string { return v.UnvalidatedJson }).(pulumi.StringPtrOutput)
 }
@@ -1194,12 +1037,6 @@ func (o ConfigDemodulationConfigPtrOutput) ToConfigDemodulationConfigPtrOutput()
 
 func (o ConfigDemodulationConfigPtrOutput) ToConfigDemodulationConfigPtrOutputWithContext(ctx context.Context) ConfigDemodulationConfigPtrOutput {
 	return o
-}
-
-func (o ConfigDemodulationConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigDemodulationConfig] {
-	return pulumix.Output[*ConfigDemodulationConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigDemodulationConfigPtrOutput) Elem() ConfigDemodulationConfigOutput {
@@ -1254,12 +1091,6 @@ func (i ConfigEirpArgs) ToConfigEirpOutputWithContext(ctx context.Context) Confi
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigEirpOutput)
 }
 
-func (i ConfigEirpArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigEirp] {
-	return pulumix.Output[ConfigEirp]{
-		OutputState: i.ToConfigEirpOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigEirpArgs) ToConfigEirpPtrOutput() ConfigEirpPtrOutput {
 	return i.ToConfigEirpPtrOutputWithContext(context.Background())
 }
@@ -1301,12 +1132,6 @@ func (i *configEirpPtrType) ToConfigEirpPtrOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigEirpPtrOutput)
 }
 
-func (i *configEirpPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigEirp] {
-	return pulumix.Output[*ConfigEirp]{
-		OutputState: i.ToConfigEirpPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigEirpOutput struct{ *pulumi.OutputState }
 
 func (ConfigEirpOutput) ElementType() reflect.Type {
@@ -1331,12 +1156,6 @@ func (o ConfigEirpOutput) ToConfigEirpPtrOutputWithContext(ctx context.Context) 
 	}).(ConfigEirpPtrOutput)
 }
 
-func (o ConfigEirpOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigEirp] {
-	return pulumix.Output[ConfigEirp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigEirpOutput) Units() ConfigEirpUnitsPtrOutput {
 	return o.ApplyT(func(v ConfigEirp) *ConfigEirpUnits { return v.Units }).(ConfigEirpUnitsPtrOutput)
 }
@@ -1357,12 +1176,6 @@ func (o ConfigEirpPtrOutput) ToConfigEirpPtrOutput() ConfigEirpPtrOutput {
 
 func (o ConfigEirpPtrOutput) ToConfigEirpPtrOutputWithContext(ctx context.Context) ConfigEirpPtrOutput {
 	return o
-}
-
-func (o ConfigEirpPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigEirp] {
-	return pulumix.Output[*ConfigEirp]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigEirpPtrOutput) Elem() ConfigEirpOutput {
@@ -1426,12 +1239,6 @@ func (i ConfigFrequencyArgs) ToConfigFrequencyOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigFrequencyOutput)
 }
 
-func (i ConfigFrequencyArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigFrequency] {
-	return pulumix.Output[ConfigFrequency]{
-		OutputState: i.ToConfigFrequencyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigFrequencyArgs) ToConfigFrequencyPtrOutput() ConfigFrequencyPtrOutput {
 	return i.ToConfigFrequencyPtrOutputWithContext(context.Background())
 }
@@ -1473,12 +1280,6 @@ func (i *configFrequencyPtrType) ToConfigFrequencyPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigFrequencyPtrOutput)
 }
 
-func (i *configFrequencyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigFrequency] {
-	return pulumix.Output[*ConfigFrequency]{
-		OutputState: i.ToConfigFrequencyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigFrequencyOutput struct{ *pulumi.OutputState }
 
 func (ConfigFrequencyOutput) ElementType() reflect.Type {
@@ -1503,12 +1304,6 @@ func (o ConfigFrequencyOutput) ToConfigFrequencyPtrOutputWithContext(ctx context
 	}).(ConfigFrequencyPtrOutput)
 }
 
-func (o ConfigFrequencyOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigFrequency] {
-	return pulumix.Output[ConfigFrequency]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigFrequencyOutput) Units() ConfigFrequencyUnitsPtrOutput {
 	return o.ApplyT(func(v ConfigFrequency) *ConfigFrequencyUnits { return v.Units }).(ConfigFrequencyUnitsPtrOutput)
 }
@@ -1529,12 +1324,6 @@ func (o ConfigFrequencyPtrOutput) ToConfigFrequencyPtrOutput() ConfigFrequencyPt
 
 func (o ConfigFrequencyPtrOutput) ToConfigFrequencyPtrOutputWithContext(ctx context.Context) ConfigFrequencyPtrOutput {
 	return o
-}
-
-func (o ConfigFrequencyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigFrequency] {
-	return pulumix.Output[*ConfigFrequency]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigFrequencyPtrOutput) Elem() ConfigFrequencyOutput {
@@ -1598,12 +1387,6 @@ func (i ConfigFrequencyBandwidthArgs) ToConfigFrequencyBandwidthOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigFrequencyBandwidthOutput)
 }
 
-func (i ConfigFrequencyBandwidthArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigFrequencyBandwidth] {
-	return pulumix.Output[ConfigFrequencyBandwidth]{
-		OutputState: i.ToConfigFrequencyBandwidthOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigFrequencyBandwidthArgs) ToConfigFrequencyBandwidthPtrOutput() ConfigFrequencyBandwidthPtrOutput {
 	return i.ToConfigFrequencyBandwidthPtrOutputWithContext(context.Background())
 }
@@ -1645,12 +1428,6 @@ func (i *configFrequencyBandwidthPtrType) ToConfigFrequencyBandwidthPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigFrequencyBandwidthPtrOutput)
 }
 
-func (i *configFrequencyBandwidthPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigFrequencyBandwidth] {
-	return pulumix.Output[*ConfigFrequencyBandwidth]{
-		OutputState: i.ToConfigFrequencyBandwidthPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigFrequencyBandwidthOutput struct{ *pulumi.OutputState }
 
 func (ConfigFrequencyBandwidthOutput) ElementType() reflect.Type {
@@ -1675,12 +1452,6 @@ func (o ConfigFrequencyBandwidthOutput) ToConfigFrequencyBandwidthPtrOutputWithC
 	}).(ConfigFrequencyBandwidthPtrOutput)
 }
 
-func (o ConfigFrequencyBandwidthOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigFrequencyBandwidth] {
-	return pulumix.Output[ConfigFrequencyBandwidth]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigFrequencyBandwidthOutput) Units() ConfigBandwidthUnitsPtrOutput {
 	return o.ApplyT(func(v ConfigFrequencyBandwidth) *ConfigBandwidthUnits { return v.Units }).(ConfigBandwidthUnitsPtrOutput)
 }
@@ -1701,12 +1472,6 @@ func (o ConfigFrequencyBandwidthPtrOutput) ToConfigFrequencyBandwidthPtrOutput()
 
 func (o ConfigFrequencyBandwidthPtrOutput) ToConfigFrequencyBandwidthPtrOutputWithContext(ctx context.Context) ConfigFrequencyBandwidthPtrOutput {
 	return o
-}
-
-func (o ConfigFrequencyBandwidthPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigFrequencyBandwidth] {
-	return pulumix.Output[*ConfigFrequencyBandwidth]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigFrequencyBandwidthPtrOutput) Elem() ConfigFrequencyBandwidthOutput {
@@ -1772,12 +1537,6 @@ func (i ConfigS3RecordingConfigArgs) ToConfigS3RecordingConfigOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigS3RecordingConfigOutput)
 }
 
-func (i ConfigS3RecordingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigS3RecordingConfig] {
-	return pulumix.Output[ConfigS3RecordingConfig]{
-		OutputState: i.ToConfigS3RecordingConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigS3RecordingConfigArgs) ToConfigS3RecordingConfigPtrOutput() ConfigS3RecordingConfigPtrOutput {
 	return i.ToConfigS3RecordingConfigPtrOutputWithContext(context.Background())
 }
@@ -1819,12 +1578,6 @@ func (i *configS3RecordingConfigPtrType) ToConfigS3RecordingConfigPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigS3RecordingConfigPtrOutput)
 }
 
-func (i *configS3RecordingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigS3RecordingConfig] {
-	return pulumix.Output[*ConfigS3RecordingConfig]{
-		OutputState: i.ToConfigS3RecordingConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigS3RecordingConfigOutput struct{ *pulumi.OutputState }
 
 func (ConfigS3RecordingConfigOutput) ElementType() reflect.Type {
@@ -1847,12 +1600,6 @@ func (o ConfigS3RecordingConfigOutput) ToConfigS3RecordingConfigPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigS3RecordingConfig) *ConfigS3RecordingConfig {
 		return &v
 	}).(ConfigS3RecordingConfigPtrOutput)
-}
-
-func (o ConfigS3RecordingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigS3RecordingConfig] {
-	return pulumix.Output[ConfigS3RecordingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigS3RecordingConfigOutput) BucketArn() pulumi.StringPtrOutput {
@@ -1879,12 +1626,6 @@ func (o ConfigS3RecordingConfigPtrOutput) ToConfigS3RecordingConfigPtrOutput() C
 
 func (o ConfigS3RecordingConfigPtrOutput) ToConfigS3RecordingConfigPtrOutputWithContext(ctx context.Context) ConfigS3RecordingConfigPtrOutput {
 	return o
-}
-
-func (o ConfigS3RecordingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigS3RecordingConfig] {
-	return pulumix.Output[*ConfigS3RecordingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigS3RecordingConfigPtrOutput) Elem() ConfigS3RecordingConfigOutput {
@@ -1959,12 +1700,6 @@ func (i ConfigSpectrumConfigArgs) ToConfigSpectrumConfigOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigSpectrumConfigOutput)
 }
 
-func (i ConfigSpectrumConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigSpectrumConfig] {
-	return pulumix.Output[ConfigSpectrumConfig]{
-		OutputState: i.ToConfigSpectrumConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigSpectrumConfigArgs) ToConfigSpectrumConfigPtrOutput() ConfigSpectrumConfigPtrOutput {
 	return i.ToConfigSpectrumConfigPtrOutputWithContext(context.Background())
 }
@@ -2006,12 +1741,6 @@ func (i *configSpectrumConfigPtrType) ToConfigSpectrumConfigPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigSpectrumConfigPtrOutput)
 }
 
-func (i *configSpectrumConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigSpectrumConfig] {
-	return pulumix.Output[*ConfigSpectrumConfig]{
-		OutputState: i.ToConfigSpectrumConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigSpectrumConfigOutput struct{ *pulumi.OutputState }
 
 func (ConfigSpectrumConfigOutput) ElementType() reflect.Type {
@@ -2034,12 +1763,6 @@ func (o ConfigSpectrumConfigOutput) ToConfigSpectrumConfigPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigSpectrumConfig) *ConfigSpectrumConfig {
 		return &v
 	}).(ConfigSpectrumConfigPtrOutput)
-}
-
-func (o ConfigSpectrumConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigSpectrumConfig] {
-	return pulumix.Output[ConfigSpectrumConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigSpectrumConfigOutput) Bandwidth() ConfigFrequencyBandwidthPtrOutput {
@@ -2066,12 +1789,6 @@ func (o ConfigSpectrumConfigPtrOutput) ToConfigSpectrumConfigPtrOutput() ConfigS
 
 func (o ConfigSpectrumConfigPtrOutput) ToConfigSpectrumConfigPtrOutputWithContext(ctx context.Context) ConfigSpectrumConfigPtrOutput {
 	return o
-}
-
-func (o ConfigSpectrumConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigSpectrumConfig] {
-	return pulumix.Output[*ConfigSpectrumConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigSpectrumConfigPtrOutput) Elem() ConfigSpectrumConfigOutput {
@@ -2144,12 +1861,6 @@ func (i ConfigTagArgs) ToConfigTagOutputWithContext(ctx context.Context) ConfigT
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigTagOutput)
 }
 
-func (i ConfigTagArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigTag] {
-	return pulumix.Output[ConfigTag]{
-		OutputState: i.ToConfigTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfigTagArrayInput is an input type that accepts ConfigTagArray and ConfigTagArrayOutput values.
 // You can construct a concrete instance of `ConfigTagArrayInput` via:
 //
@@ -2175,12 +1886,6 @@ func (i ConfigTagArray) ToConfigTagArrayOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigTagArrayOutput)
 }
 
-func (i ConfigTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigTag] {
-	return pulumix.Output[[]ConfigTag]{
-		OutputState: i.ToConfigTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigTagOutput struct{ *pulumi.OutputState }
 
 func (ConfigTagOutput) ElementType() reflect.Type {
@@ -2193,12 +1898,6 @@ func (o ConfigTagOutput) ToConfigTagOutput() ConfigTagOutput {
 
 func (o ConfigTagOutput) ToConfigTagOutputWithContext(ctx context.Context) ConfigTagOutput {
 	return o
-}
-
-func (o ConfigTagOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigTag] {
-	return pulumix.Output[ConfigTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigTagOutput) Key() pulumi.StringPtrOutput {
@@ -2221,12 +1920,6 @@ func (o ConfigTagArrayOutput) ToConfigTagArrayOutput() ConfigTagArrayOutput {
 
 func (o ConfigTagArrayOutput) ToConfigTagArrayOutputWithContext(ctx context.Context) ConfigTagArrayOutput {
 	return o
-}
-
-func (o ConfigTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigTag] {
-	return pulumix.Output[[]ConfigTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigTagArrayOutput) Index(i pulumi.IntInput) ConfigTagOutput {
@@ -2264,12 +1957,6 @@ func (i ConfigTrackingConfigArgs) ToConfigTrackingConfigOutput() ConfigTrackingC
 
 func (i ConfigTrackingConfigArgs) ToConfigTrackingConfigOutputWithContext(ctx context.Context) ConfigTrackingConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigTrackingConfigOutput)
-}
-
-func (i ConfigTrackingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigTrackingConfig] {
-	return pulumix.Output[ConfigTrackingConfig]{
-		OutputState: i.ToConfigTrackingConfigOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ConfigTrackingConfigArgs) ToConfigTrackingConfigPtrOutput() ConfigTrackingConfigPtrOutput {
@@ -2313,12 +2000,6 @@ func (i *configTrackingConfigPtrType) ToConfigTrackingConfigPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigTrackingConfigPtrOutput)
 }
 
-func (i *configTrackingConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigTrackingConfig] {
-	return pulumix.Output[*ConfigTrackingConfig]{
-		OutputState: i.ToConfigTrackingConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigTrackingConfigOutput struct{ *pulumi.OutputState }
 
 func (ConfigTrackingConfigOutput) ElementType() reflect.Type {
@@ -2343,12 +2024,6 @@ func (o ConfigTrackingConfigOutput) ToConfigTrackingConfigPtrOutputWithContext(c
 	}).(ConfigTrackingConfigPtrOutput)
 }
 
-func (o ConfigTrackingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigTrackingConfig] {
-	return pulumix.Output[ConfigTrackingConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigTrackingConfigOutput) Autotrack() ConfigTrackingConfigAutotrackPtrOutput {
 	return o.ApplyT(func(v ConfigTrackingConfig) *ConfigTrackingConfigAutotrack { return v.Autotrack }).(ConfigTrackingConfigAutotrackPtrOutput)
 }
@@ -2365,12 +2040,6 @@ func (o ConfigTrackingConfigPtrOutput) ToConfigTrackingConfigPtrOutput() ConfigT
 
 func (o ConfigTrackingConfigPtrOutput) ToConfigTrackingConfigPtrOutputWithContext(ctx context.Context) ConfigTrackingConfigPtrOutput {
 	return o
-}
-
-func (o ConfigTrackingConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigTrackingConfig] {
-	return pulumix.Output[*ConfigTrackingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigTrackingConfigPtrOutput) Elem() ConfigTrackingConfigOutput {
@@ -2425,12 +2094,6 @@ func (i ConfigUplinkEchoConfigArgs) ToConfigUplinkEchoConfigOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigUplinkEchoConfigOutput)
 }
 
-func (i ConfigUplinkEchoConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigUplinkEchoConfig] {
-	return pulumix.Output[ConfigUplinkEchoConfig]{
-		OutputState: i.ToConfigUplinkEchoConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigUplinkEchoConfigArgs) ToConfigUplinkEchoConfigPtrOutput() ConfigUplinkEchoConfigPtrOutput {
 	return i.ToConfigUplinkEchoConfigPtrOutputWithContext(context.Background())
 }
@@ -2472,12 +2135,6 @@ func (i *configUplinkEchoConfigPtrType) ToConfigUplinkEchoConfigPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigUplinkEchoConfigPtrOutput)
 }
 
-func (i *configUplinkEchoConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigUplinkEchoConfig] {
-	return pulumix.Output[*ConfigUplinkEchoConfig]{
-		OutputState: i.ToConfigUplinkEchoConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigUplinkEchoConfigOutput struct{ *pulumi.OutputState }
 
 func (ConfigUplinkEchoConfigOutput) ElementType() reflect.Type {
@@ -2502,12 +2159,6 @@ func (o ConfigUplinkEchoConfigOutput) ToConfigUplinkEchoConfigPtrOutputWithConte
 	}).(ConfigUplinkEchoConfigPtrOutput)
 }
 
-func (o ConfigUplinkEchoConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigUplinkEchoConfig] {
-	return pulumix.Output[ConfigUplinkEchoConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigUplinkEchoConfigOutput) AntennaUplinkConfigArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigUplinkEchoConfig) *string { return v.AntennaUplinkConfigArn }).(pulumi.StringPtrOutput)
 }
@@ -2528,12 +2179,6 @@ func (o ConfigUplinkEchoConfigPtrOutput) ToConfigUplinkEchoConfigPtrOutput() Con
 
 func (o ConfigUplinkEchoConfigPtrOutput) ToConfigUplinkEchoConfigPtrOutputWithContext(ctx context.Context) ConfigUplinkEchoConfigPtrOutput {
 	return o
-}
-
-func (o ConfigUplinkEchoConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigUplinkEchoConfig] {
-	return pulumix.Output[*ConfigUplinkEchoConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigUplinkEchoConfigPtrOutput) Elem() ConfigUplinkEchoConfigOutput {
@@ -2597,12 +2242,6 @@ func (i ConfigUplinkSpectrumConfigArgs) ToConfigUplinkSpectrumConfigOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigUplinkSpectrumConfigOutput)
 }
 
-func (i ConfigUplinkSpectrumConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigUplinkSpectrumConfig] {
-	return pulumix.Output[ConfigUplinkSpectrumConfig]{
-		OutputState: i.ToConfigUplinkSpectrumConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigUplinkSpectrumConfigArgs) ToConfigUplinkSpectrumConfigPtrOutput() ConfigUplinkSpectrumConfigPtrOutput {
 	return i.ToConfigUplinkSpectrumConfigPtrOutputWithContext(context.Background())
 }
@@ -2644,12 +2283,6 @@ func (i *configUplinkSpectrumConfigPtrType) ToConfigUplinkSpectrumConfigPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigUplinkSpectrumConfigPtrOutput)
 }
 
-func (i *configUplinkSpectrumConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigUplinkSpectrumConfig] {
-	return pulumix.Output[*ConfigUplinkSpectrumConfig]{
-		OutputState: i.ToConfigUplinkSpectrumConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigUplinkSpectrumConfigOutput struct{ *pulumi.OutputState }
 
 func (ConfigUplinkSpectrumConfigOutput) ElementType() reflect.Type {
@@ -2674,12 +2307,6 @@ func (o ConfigUplinkSpectrumConfigOutput) ToConfigUplinkSpectrumConfigPtrOutputW
 	}).(ConfigUplinkSpectrumConfigPtrOutput)
 }
 
-func (o ConfigUplinkSpectrumConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigUplinkSpectrumConfig] {
-	return pulumix.Output[ConfigUplinkSpectrumConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConfigUplinkSpectrumConfigOutput) CenterFrequency() ConfigFrequencyPtrOutput {
 	return o.ApplyT(func(v ConfigUplinkSpectrumConfig) *ConfigFrequency { return v.CenterFrequency }).(ConfigFrequencyPtrOutput)
 }
@@ -2700,12 +2327,6 @@ func (o ConfigUplinkSpectrumConfigPtrOutput) ToConfigUplinkSpectrumConfigPtrOutp
 
 func (o ConfigUplinkSpectrumConfigPtrOutput) ToConfigUplinkSpectrumConfigPtrOutputWithContext(ctx context.Context) ConfigUplinkSpectrumConfigPtrOutput {
 	return o
-}
-
-func (o ConfigUplinkSpectrumConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigUplinkSpectrumConfig] {
-	return pulumix.Output[*ConfigUplinkSpectrumConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigUplinkSpectrumConfigPtrOutput) Elem() ConfigUplinkSpectrumConfigOutput {
@@ -2777,12 +2398,6 @@ func (i DataflowEndpointGroupAwsGroundStationAgentEndpointArgs) ToDataflowEndpoi
 	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupAwsGroundStationAgentEndpointOutput)
 }
 
-func (i DataflowEndpointGroupAwsGroundStationAgentEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[DataflowEndpointGroupAwsGroundStationAgentEndpoint] {
-	return pulumix.Output[DataflowEndpointGroupAwsGroundStationAgentEndpoint]{
-		OutputState: i.ToDataflowEndpointGroupAwsGroundStationAgentEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataflowEndpointGroupAwsGroundStationAgentEndpointArgs) ToDataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput() DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput {
 	return i.ToDataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutputWithContext(context.Background())
 }
@@ -2824,12 +2439,6 @@ func (i *dataflowEndpointGroupAwsGroundStationAgentEndpointPtrType) ToDataflowEn
 	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput)
 }
 
-func (i *dataflowEndpointGroupAwsGroundStationAgentEndpointPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataflowEndpointGroupAwsGroundStationAgentEndpoint] {
-	return pulumix.Output[*DataflowEndpointGroupAwsGroundStationAgentEndpoint]{
-		OutputState: i.ToDataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Information about AwsGroundStationAgentEndpoint.
 type DataflowEndpointGroupAwsGroundStationAgentEndpointOutput struct{ *pulumi.OutputState }
 
@@ -2853,12 +2462,6 @@ func (o DataflowEndpointGroupAwsGroundStationAgentEndpointOutput) ToDataflowEndp
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataflowEndpointGroupAwsGroundStationAgentEndpoint) *DataflowEndpointGroupAwsGroundStationAgentEndpoint {
 		return &v
 	}).(DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput)
-}
-
-func (o DataflowEndpointGroupAwsGroundStationAgentEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[DataflowEndpointGroupAwsGroundStationAgentEndpoint] {
-	return pulumix.Output[DataflowEndpointGroupAwsGroundStationAgentEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataflowEndpointGroupAwsGroundStationAgentEndpointOutput) AgentStatus() DataflowEndpointGroupAgentStatusPtrOutput {
@@ -2901,12 +2504,6 @@ func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) ToDataflowE
 
 func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) ToDataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput {
 	return o
-}
-
-func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataflowEndpointGroupAwsGroundStationAgentEndpoint] {
-	return pulumix.Output[*DataflowEndpointGroupAwsGroundStationAgentEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) Elem() DataflowEndpointGroupAwsGroundStationAgentEndpointOutput {
@@ -3001,12 +2598,6 @@ func (i DataflowEndpointGroupConnectionDetailsArgs) ToDataflowEndpointGroupConne
 	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupConnectionDetailsOutput)
 }
 
-func (i DataflowEndpointGroupConnectionDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[DataflowEndpointGroupConnectionDetails] {
-	return pulumix.Output[DataflowEndpointGroupConnectionDetails]{
-		OutputState: i.ToDataflowEndpointGroupConnectionDetailsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataflowEndpointGroupConnectionDetailsArgs) ToDataflowEndpointGroupConnectionDetailsPtrOutput() DataflowEndpointGroupConnectionDetailsPtrOutput {
 	return i.ToDataflowEndpointGroupConnectionDetailsPtrOutputWithContext(context.Background())
 }
@@ -3048,12 +2639,6 @@ func (i *dataflowEndpointGroupConnectionDetailsPtrType) ToDataflowEndpointGroupC
 	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupConnectionDetailsPtrOutput)
 }
 
-func (i *dataflowEndpointGroupConnectionDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataflowEndpointGroupConnectionDetails] {
-	return pulumix.Output[*DataflowEndpointGroupConnectionDetails]{
-		OutputState: i.ToDataflowEndpointGroupConnectionDetailsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Egress address of AgentEndpoint with an optional mtu.
 type DataflowEndpointGroupConnectionDetailsOutput struct{ *pulumi.OutputState }
 
@@ -3079,12 +2664,6 @@ func (o DataflowEndpointGroupConnectionDetailsOutput) ToDataflowEndpointGroupCon
 	}).(DataflowEndpointGroupConnectionDetailsPtrOutput)
 }
 
-func (o DataflowEndpointGroupConnectionDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[DataflowEndpointGroupConnectionDetails] {
-	return pulumix.Output[DataflowEndpointGroupConnectionDetails]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
 func (o DataflowEndpointGroupConnectionDetailsOutput) Mtu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupConnectionDetails) *int { return v.Mtu }).(pulumi.IntPtrOutput)
@@ -3108,12 +2687,6 @@ func (o DataflowEndpointGroupConnectionDetailsPtrOutput) ToDataflowEndpointGroup
 
 func (o DataflowEndpointGroupConnectionDetailsPtrOutput) ToDataflowEndpointGroupConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupConnectionDetailsPtrOutput {
 	return o
-}
-
-func (o DataflowEndpointGroupConnectionDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataflowEndpointGroupConnectionDetails] {
-	return pulumix.Output[*DataflowEndpointGroupConnectionDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataflowEndpointGroupConnectionDetailsPtrOutput) Elem() DataflowEndpointGroupConnectionDetailsOutput {
@@ -3180,12 +2753,6 @@ func (i DataflowEndpointGroupDataflowEndpointArgs) ToDataflowEndpointGroupDatafl
 	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupDataflowEndpointOutput)
 }
 
-func (i DataflowEndpointGroupDataflowEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[DataflowEndpointGroupDataflowEndpoint] {
-	return pulumix.Output[DataflowEndpointGroupDataflowEndpoint]{
-		OutputState: i.ToDataflowEndpointGroupDataflowEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataflowEndpointGroupDataflowEndpointArgs) ToDataflowEndpointGroupDataflowEndpointPtrOutput() DataflowEndpointGroupDataflowEndpointPtrOutput {
 	return i.ToDataflowEndpointGroupDataflowEndpointPtrOutputWithContext(context.Background())
 }
@@ -3227,12 +2794,6 @@ func (i *dataflowEndpointGroupDataflowEndpointPtrType) ToDataflowEndpointGroupDa
 	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupDataflowEndpointPtrOutput)
 }
 
-func (i *dataflowEndpointGroupDataflowEndpointPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataflowEndpointGroupDataflowEndpoint] {
-	return pulumix.Output[*DataflowEndpointGroupDataflowEndpoint]{
-		OutputState: i.ToDataflowEndpointGroupDataflowEndpointPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataflowEndpointGroupDataflowEndpointOutput struct{ *pulumi.OutputState }
 
 func (DataflowEndpointGroupDataflowEndpointOutput) ElementType() reflect.Type {
@@ -3255,12 +2816,6 @@ func (o DataflowEndpointGroupDataflowEndpointOutput) ToDataflowEndpointGroupData
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataflowEndpointGroupDataflowEndpoint) *DataflowEndpointGroupDataflowEndpoint {
 		return &v
 	}).(DataflowEndpointGroupDataflowEndpointPtrOutput)
-}
-
-func (o DataflowEndpointGroupDataflowEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[DataflowEndpointGroupDataflowEndpoint] {
-	return pulumix.Output[DataflowEndpointGroupDataflowEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataflowEndpointGroupDataflowEndpointOutput) Address() DataflowEndpointGroupSocketAddressPtrOutput {
@@ -3287,12 +2842,6 @@ func (o DataflowEndpointGroupDataflowEndpointPtrOutput) ToDataflowEndpointGroupD
 
 func (o DataflowEndpointGroupDataflowEndpointPtrOutput) ToDataflowEndpointGroupDataflowEndpointPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupDataflowEndpointPtrOutput {
 	return o
-}
-
-func (o DataflowEndpointGroupDataflowEndpointPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataflowEndpointGroupDataflowEndpoint] {
-	return pulumix.Output[*DataflowEndpointGroupDataflowEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataflowEndpointGroupDataflowEndpointPtrOutput) Elem() DataflowEndpointGroupDataflowEndpointOutput {
@@ -3367,12 +2916,6 @@ func (i DataflowEndpointGroupEndpointDetailsArgs) ToDataflowEndpointGroupEndpoin
 	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupEndpointDetailsOutput)
 }
 
-func (i DataflowEndpointGroupEndpointDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[DataflowEndpointGroupEndpointDetails] {
-	return pulumix.Output[DataflowEndpointGroupEndpointDetails]{
-		OutputState: i.ToDataflowEndpointGroupEndpointDetailsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataflowEndpointGroupEndpointDetailsArrayInput is an input type that accepts DataflowEndpointGroupEndpointDetailsArray and DataflowEndpointGroupEndpointDetailsArrayOutput values.
 // You can construct a concrete instance of `DataflowEndpointGroupEndpointDetailsArrayInput` via:
 //
@@ -3398,12 +2941,6 @@ func (i DataflowEndpointGroupEndpointDetailsArray) ToDataflowEndpointGroupEndpoi
 	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupEndpointDetailsArrayOutput)
 }
 
-func (i DataflowEndpointGroupEndpointDetailsArray) ToOutput(ctx context.Context) pulumix.Output[[]DataflowEndpointGroupEndpointDetails] {
-	return pulumix.Output[[]DataflowEndpointGroupEndpointDetails]{
-		OutputState: i.ToDataflowEndpointGroupEndpointDetailsArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataflowEndpointGroupEndpointDetailsOutput struct{ *pulumi.OutputState }
 
 func (DataflowEndpointGroupEndpointDetailsOutput) ElementType() reflect.Type {
@@ -3416,12 +2953,6 @@ func (o DataflowEndpointGroupEndpointDetailsOutput) ToDataflowEndpointGroupEndpo
 
 func (o DataflowEndpointGroupEndpointDetailsOutput) ToDataflowEndpointGroupEndpointDetailsOutputWithContext(ctx context.Context) DataflowEndpointGroupEndpointDetailsOutput {
 	return o
-}
-
-func (o DataflowEndpointGroupEndpointDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[DataflowEndpointGroupEndpointDetails] {
-	return pulumix.Output[DataflowEndpointGroupEndpointDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataflowEndpointGroupEndpointDetailsOutput) AwsGroundStationAgentEndpoint() DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput {
@@ -3452,12 +2983,6 @@ func (o DataflowEndpointGroupEndpointDetailsArrayOutput) ToDataflowEndpointGroup
 
 func (o DataflowEndpointGroupEndpointDetailsArrayOutput) ToDataflowEndpointGroupEndpointDetailsArrayOutputWithContext(ctx context.Context) DataflowEndpointGroupEndpointDetailsArrayOutput {
 	return o
-}
-
-func (o DataflowEndpointGroupEndpointDetailsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataflowEndpointGroupEndpointDetails] {
-	return pulumix.Output[[]DataflowEndpointGroupEndpointDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataflowEndpointGroupEndpointDetailsArrayOutput) Index(i pulumi.IntInput) DataflowEndpointGroupEndpointDetailsOutput {
@@ -3505,12 +3030,6 @@ func (i DataflowEndpointGroupIntegerRangeArgs) ToDataflowEndpointGroupIntegerRan
 	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupIntegerRangeOutput)
 }
 
-func (i DataflowEndpointGroupIntegerRangeArgs) ToOutput(ctx context.Context) pulumix.Output[DataflowEndpointGroupIntegerRange] {
-	return pulumix.Output[DataflowEndpointGroupIntegerRange]{
-		OutputState: i.ToDataflowEndpointGroupIntegerRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataflowEndpointGroupIntegerRangeArgs) ToDataflowEndpointGroupIntegerRangePtrOutput() DataflowEndpointGroupIntegerRangePtrOutput {
 	return i.ToDataflowEndpointGroupIntegerRangePtrOutputWithContext(context.Background())
 }
@@ -3552,12 +3071,6 @@ func (i *dataflowEndpointGroupIntegerRangePtrType) ToDataflowEndpointGroupIntege
 	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupIntegerRangePtrOutput)
 }
 
-func (i *dataflowEndpointGroupIntegerRangePtrType) ToOutput(ctx context.Context) pulumix.Output[*DataflowEndpointGroupIntegerRange] {
-	return pulumix.Output[*DataflowEndpointGroupIntegerRange]{
-		OutputState: i.ToDataflowEndpointGroupIntegerRangePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An integer range that has a minimum and maximum value.
 type DataflowEndpointGroupIntegerRangeOutput struct{ *pulumi.OutputState }
 
@@ -3583,12 +3096,6 @@ func (o DataflowEndpointGroupIntegerRangeOutput) ToDataflowEndpointGroupIntegerR
 	}).(DataflowEndpointGroupIntegerRangePtrOutput)
 }
 
-func (o DataflowEndpointGroupIntegerRangeOutput) ToOutput(ctx context.Context) pulumix.Output[DataflowEndpointGroupIntegerRange] {
-	return pulumix.Output[DataflowEndpointGroupIntegerRange]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A maximum value.
 func (o DataflowEndpointGroupIntegerRangeOutput) Maximum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupIntegerRange) *int { return v.Maximum }).(pulumi.IntPtrOutput)
@@ -3611,12 +3118,6 @@ func (o DataflowEndpointGroupIntegerRangePtrOutput) ToDataflowEndpointGroupInteg
 
 func (o DataflowEndpointGroupIntegerRangePtrOutput) ToDataflowEndpointGroupIntegerRangePtrOutputWithContext(ctx context.Context) DataflowEndpointGroupIntegerRangePtrOutput {
 	return o
-}
-
-func (o DataflowEndpointGroupIntegerRangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataflowEndpointGroupIntegerRange] {
-	return pulumix.Output[*DataflowEndpointGroupIntegerRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataflowEndpointGroupIntegerRangePtrOutput) Elem() DataflowEndpointGroupIntegerRangeOutput {
@@ -3686,12 +3187,6 @@ func (i DataflowEndpointGroupRangedConnectionDetailsArgs) ToDataflowEndpointGrou
 	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupRangedConnectionDetailsOutput)
 }
 
-func (i DataflowEndpointGroupRangedConnectionDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[DataflowEndpointGroupRangedConnectionDetails] {
-	return pulumix.Output[DataflowEndpointGroupRangedConnectionDetails]{
-		OutputState: i.ToDataflowEndpointGroupRangedConnectionDetailsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataflowEndpointGroupRangedConnectionDetailsArgs) ToDataflowEndpointGroupRangedConnectionDetailsPtrOutput() DataflowEndpointGroupRangedConnectionDetailsPtrOutput {
 	return i.ToDataflowEndpointGroupRangedConnectionDetailsPtrOutputWithContext(context.Background())
 }
@@ -3733,12 +3228,6 @@ func (i *dataflowEndpointGroupRangedConnectionDetailsPtrType) ToDataflowEndpoint
 	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupRangedConnectionDetailsPtrOutput)
 }
 
-func (i *dataflowEndpointGroupRangedConnectionDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataflowEndpointGroupRangedConnectionDetails] {
-	return pulumix.Output[*DataflowEndpointGroupRangedConnectionDetails]{
-		OutputState: i.ToDataflowEndpointGroupRangedConnectionDetailsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Ingress address of AgentEndpoint with a port range and an optional mtu.
 type DataflowEndpointGroupRangedConnectionDetailsOutput struct{ *pulumi.OutputState }
 
@@ -3764,12 +3253,6 @@ func (o DataflowEndpointGroupRangedConnectionDetailsOutput) ToDataflowEndpointGr
 	}).(DataflowEndpointGroupRangedConnectionDetailsPtrOutput)
 }
 
-func (o DataflowEndpointGroupRangedConnectionDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[DataflowEndpointGroupRangedConnectionDetails] {
-	return pulumix.Output[DataflowEndpointGroupRangedConnectionDetails]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
 func (o DataflowEndpointGroupRangedConnectionDetailsOutput) Mtu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupRangedConnectionDetails) *int { return v.Mtu }).(pulumi.IntPtrOutput)
@@ -3793,12 +3276,6 @@ func (o DataflowEndpointGroupRangedConnectionDetailsPtrOutput) ToDataflowEndpoin
 
 func (o DataflowEndpointGroupRangedConnectionDetailsPtrOutput) ToDataflowEndpointGroupRangedConnectionDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupRangedConnectionDetailsPtrOutput {
 	return o
-}
-
-func (o DataflowEndpointGroupRangedConnectionDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataflowEndpointGroupRangedConnectionDetails] {
-	return pulumix.Output[*DataflowEndpointGroupRangedConnectionDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataflowEndpointGroupRangedConnectionDetailsPtrOutput) Elem() DataflowEndpointGroupRangedConnectionDetailsOutput {
@@ -3869,12 +3346,6 @@ func (i DataflowEndpointGroupRangedSocketAddressArgs) ToDataflowEndpointGroupRan
 	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupRangedSocketAddressOutput)
 }
 
-func (i DataflowEndpointGroupRangedSocketAddressArgs) ToOutput(ctx context.Context) pulumix.Output[DataflowEndpointGroupRangedSocketAddress] {
-	return pulumix.Output[DataflowEndpointGroupRangedSocketAddress]{
-		OutputState: i.ToDataflowEndpointGroupRangedSocketAddressOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataflowEndpointGroupRangedSocketAddressArgs) ToDataflowEndpointGroupRangedSocketAddressPtrOutput() DataflowEndpointGroupRangedSocketAddressPtrOutput {
 	return i.ToDataflowEndpointGroupRangedSocketAddressPtrOutputWithContext(context.Background())
 }
@@ -3916,12 +3387,6 @@ func (i *dataflowEndpointGroupRangedSocketAddressPtrType) ToDataflowEndpointGrou
 	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupRangedSocketAddressPtrOutput)
 }
 
-func (i *dataflowEndpointGroupRangedSocketAddressPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataflowEndpointGroupRangedSocketAddress] {
-	return pulumix.Output[*DataflowEndpointGroupRangedSocketAddress]{
-		OutputState: i.ToDataflowEndpointGroupRangedSocketAddressPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A socket address with a port range.
 type DataflowEndpointGroupRangedSocketAddressOutput struct{ *pulumi.OutputState }
 
@@ -3945,12 +3410,6 @@ func (o DataflowEndpointGroupRangedSocketAddressOutput) ToDataflowEndpointGroupR
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataflowEndpointGroupRangedSocketAddress) *DataflowEndpointGroupRangedSocketAddress {
 		return &v
 	}).(DataflowEndpointGroupRangedSocketAddressPtrOutput)
-}
-
-func (o DataflowEndpointGroupRangedSocketAddressOutput) ToOutput(ctx context.Context) pulumix.Output[DataflowEndpointGroupRangedSocketAddress] {
-	return pulumix.Output[DataflowEndpointGroupRangedSocketAddress]{
-		OutputState: o.OutputState,
-	}
 }
 
 // IPv4 socket address.
@@ -3977,12 +3436,6 @@ func (o DataflowEndpointGroupRangedSocketAddressPtrOutput) ToDataflowEndpointGro
 
 func (o DataflowEndpointGroupRangedSocketAddressPtrOutput) ToDataflowEndpointGroupRangedSocketAddressPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupRangedSocketAddressPtrOutput {
 	return o
-}
-
-func (o DataflowEndpointGroupRangedSocketAddressPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataflowEndpointGroupRangedSocketAddress] {
-	return pulumix.Output[*DataflowEndpointGroupRangedSocketAddress]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataflowEndpointGroupRangedSocketAddressPtrOutput) Elem() DataflowEndpointGroupRangedSocketAddressOutput {
@@ -4050,12 +3503,6 @@ func (i DataflowEndpointGroupSecurityDetailsArgs) ToDataflowEndpointGroupSecurit
 	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupSecurityDetailsOutput)
 }
 
-func (i DataflowEndpointGroupSecurityDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[DataflowEndpointGroupSecurityDetails] {
-	return pulumix.Output[DataflowEndpointGroupSecurityDetails]{
-		OutputState: i.ToDataflowEndpointGroupSecurityDetailsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataflowEndpointGroupSecurityDetailsArgs) ToDataflowEndpointGroupSecurityDetailsPtrOutput() DataflowEndpointGroupSecurityDetailsPtrOutput {
 	return i.ToDataflowEndpointGroupSecurityDetailsPtrOutputWithContext(context.Background())
 }
@@ -4097,12 +3544,6 @@ func (i *dataflowEndpointGroupSecurityDetailsPtrType) ToDataflowEndpointGroupSec
 	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupSecurityDetailsPtrOutput)
 }
 
-func (i *dataflowEndpointGroupSecurityDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataflowEndpointGroupSecurityDetails] {
-	return pulumix.Output[*DataflowEndpointGroupSecurityDetails]{
-		OutputState: i.ToDataflowEndpointGroupSecurityDetailsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataflowEndpointGroupSecurityDetailsOutput struct{ *pulumi.OutputState }
 
 func (DataflowEndpointGroupSecurityDetailsOutput) ElementType() reflect.Type {
@@ -4125,12 +3566,6 @@ func (o DataflowEndpointGroupSecurityDetailsOutput) ToDataflowEndpointGroupSecur
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataflowEndpointGroupSecurityDetails) *DataflowEndpointGroupSecurityDetails {
 		return &v
 	}).(DataflowEndpointGroupSecurityDetailsPtrOutput)
-}
-
-func (o DataflowEndpointGroupSecurityDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[DataflowEndpointGroupSecurityDetails] {
-	return pulumix.Output[DataflowEndpointGroupSecurityDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataflowEndpointGroupSecurityDetailsOutput) RoleArn() pulumi.StringPtrOutput {
@@ -4157,12 +3592,6 @@ func (o DataflowEndpointGroupSecurityDetailsPtrOutput) ToDataflowEndpointGroupSe
 
 func (o DataflowEndpointGroupSecurityDetailsPtrOutput) ToDataflowEndpointGroupSecurityDetailsPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupSecurityDetailsPtrOutput {
 	return o
-}
-
-func (o DataflowEndpointGroupSecurityDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataflowEndpointGroupSecurityDetails] {
-	return pulumix.Output[*DataflowEndpointGroupSecurityDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataflowEndpointGroupSecurityDetailsPtrOutput) Elem() DataflowEndpointGroupSecurityDetailsOutput {
@@ -4235,12 +3664,6 @@ func (i DataflowEndpointGroupSocketAddressArgs) ToDataflowEndpointGroupSocketAdd
 	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupSocketAddressOutput)
 }
 
-func (i DataflowEndpointGroupSocketAddressArgs) ToOutput(ctx context.Context) pulumix.Output[DataflowEndpointGroupSocketAddress] {
-	return pulumix.Output[DataflowEndpointGroupSocketAddress]{
-		OutputState: i.ToDataflowEndpointGroupSocketAddressOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataflowEndpointGroupSocketAddressArgs) ToDataflowEndpointGroupSocketAddressPtrOutput() DataflowEndpointGroupSocketAddressPtrOutput {
 	return i.ToDataflowEndpointGroupSocketAddressPtrOutputWithContext(context.Background())
 }
@@ -4282,12 +3705,6 @@ func (i *dataflowEndpointGroupSocketAddressPtrType) ToDataflowEndpointGroupSocke
 	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupSocketAddressPtrOutput)
 }
 
-func (i *dataflowEndpointGroupSocketAddressPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataflowEndpointGroupSocketAddress] {
-	return pulumix.Output[*DataflowEndpointGroupSocketAddress]{
-		OutputState: i.ToDataflowEndpointGroupSocketAddressPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataflowEndpointGroupSocketAddressOutput struct{ *pulumi.OutputState }
 
 func (DataflowEndpointGroupSocketAddressOutput) ElementType() reflect.Type {
@@ -4312,12 +3729,6 @@ func (o DataflowEndpointGroupSocketAddressOutput) ToDataflowEndpointGroupSocketA
 	}).(DataflowEndpointGroupSocketAddressPtrOutput)
 }
 
-func (o DataflowEndpointGroupSocketAddressOutput) ToOutput(ctx context.Context) pulumix.Output[DataflowEndpointGroupSocketAddress] {
-	return pulumix.Output[DataflowEndpointGroupSocketAddress]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataflowEndpointGroupSocketAddressOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupSocketAddress) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -4338,12 +3749,6 @@ func (o DataflowEndpointGroupSocketAddressPtrOutput) ToDataflowEndpointGroupSock
 
 func (o DataflowEndpointGroupSocketAddressPtrOutput) ToDataflowEndpointGroupSocketAddressPtrOutputWithContext(ctx context.Context) DataflowEndpointGroupSocketAddressPtrOutput {
 	return o
-}
-
-func (o DataflowEndpointGroupSocketAddressPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataflowEndpointGroupSocketAddress] {
-	return pulumix.Output[*DataflowEndpointGroupSocketAddress]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataflowEndpointGroupSocketAddressPtrOutput) Elem() DataflowEndpointGroupSocketAddressOutput {
@@ -4407,12 +3812,6 @@ func (i DataflowEndpointGroupTagArgs) ToDataflowEndpointGroupTagOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupTagOutput)
 }
 
-func (i DataflowEndpointGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[DataflowEndpointGroupTag] {
-	return pulumix.Output[DataflowEndpointGroupTag]{
-		OutputState: i.ToDataflowEndpointGroupTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataflowEndpointGroupTagArrayInput is an input type that accepts DataflowEndpointGroupTagArray and DataflowEndpointGroupTagArrayOutput values.
 // You can construct a concrete instance of `DataflowEndpointGroupTagArrayInput` via:
 //
@@ -4438,12 +3837,6 @@ func (i DataflowEndpointGroupTagArray) ToDataflowEndpointGroupTagArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DataflowEndpointGroupTagArrayOutput)
 }
 
-func (i DataflowEndpointGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DataflowEndpointGroupTag] {
-	return pulumix.Output[[]DataflowEndpointGroupTag]{
-		OutputState: i.ToDataflowEndpointGroupTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataflowEndpointGroupTagOutput struct{ *pulumi.OutputState }
 
 func (DataflowEndpointGroupTagOutput) ElementType() reflect.Type {
@@ -4456,12 +3849,6 @@ func (o DataflowEndpointGroupTagOutput) ToDataflowEndpointGroupTagOutput() Dataf
 
 func (o DataflowEndpointGroupTagOutput) ToDataflowEndpointGroupTagOutputWithContext(ctx context.Context) DataflowEndpointGroupTagOutput {
 	return o
-}
-
-func (o DataflowEndpointGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[DataflowEndpointGroupTag] {
-	return pulumix.Output[DataflowEndpointGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataflowEndpointGroupTagOutput) Key() pulumi.StringOutput {
@@ -4484,12 +3871,6 @@ func (o DataflowEndpointGroupTagArrayOutput) ToDataflowEndpointGroupTagArrayOutp
 
 func (o DataflowEndpointGroupTagArrayOutput) ToDataflowEndpointGroupTagArrayOutputWithContext(ctx context.Context) DataflowEndpointGroupTagArrayOutput {
 	return o
-}
-
-func (o DataflowEndpointGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataflowEndpointGroupTag] {
-	return pulumix.Output[[]DataflowEndpointGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataflowEndpointGroupTagArrayOutput) Index(i pulumi.IntInput) DataflowEndpointGroupTagOutput {
@@ -4531,12 +3912,6 @@ func (i MissionProfileDataflowEdgeArgs) ToMissionProfileDataflowEdgeOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(MissionProfileDataflowEdgeOutput)
 }
 
-func (i MissionProfileDataflowEdgeArgs) ToOutput(ctx context.Context) pulumix.Output[MissionProfileDataflowEdge] {
-	return pulumix.Output[MissionProfileDataflowEdge]{
-		OutputState: i.ToMissionProfileDataflowEdgeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MissionProfileDataflowEdgeArrayInput is an input type that accepts MissionProfileDataflowEdgeArray and MissionProfileDataflowEdgeArrayOutput values.
 // You can construct a concrete instance of `MissionProfileDataflowEdgeArrayInput` via:
 //
@@ -4562,12 +3937,6 @@ func (i MissionProfileDataflowEdgeArray) ToMissionProfileDataflowEdgeArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(MissionProfileDataflowEdgeArrayOutput)
 }
 
-func (i MissionProfileDataflowEdgeArray) ToOutput(ctx context.Context) pulumix.Output[[]MissionProfileDataflowEdge] {
-	return pulumix.Output[[]MissionProfileDataflowEdge]{
-		OutputState: i.ToMissionProfileDataflowEdgeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MissionProfileDataflowEdgeOutput struct{ *pulumi.OutputState }
 
 func (MissionProfileDataflowEdgeOutput) ElementType() reflect.Type {
@@ -4580,12 +3949,6 @@ func (o MissionProfileDataflowEdgeOutput) ToMissionProfileDataflowEdgeOutput() M
 
 func (o MissionProfileDataflowEdgeOutput) ToMissionProfileDataflowEdgeOutputWithContext(ctx context.Context) MissionProfileDataflowEdgeOutput {
 	return o
-}
-
-func (o MissionProfileDataflowEdgeOutput) ToOutput(ctx context.Context) pulumix.Output[MissionProfileDataflowEdge] {
-	return pulumix.Output[MissionProfileDataflowEdge]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MissionProfileDataflowEdgeOutput) Destination() pulumi.StringPtrOutput {
@@ -4608,12 +3971,6 @@ func (o MissionProfileDataflowEdgeArrayOutput) ToMissionProfileDataflowEdgeArray
 
 func (o MissionProfileDataflowEdgeArrayOutput) ToMissionProfileDataflowEdgeArrayOutputWithContext(ctx context.Context) MissionProfileDataflowEdgeArrayOutput {
 	return o
-}
-
-func (o MissionProfileDataflowEdgeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MissionProfileDataflowEdge] {
-	return pulumix.Output[[]MissionProfileDataflowEdge]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MissionProfileDataflowEdgeArrayOutput) Index(i pulumi.IntInput) MissionProfileDataflowEdgeOutput {
@@ -4653,12 +4010,6 @@ func (i MissionProfileStreamsKmsKeyArgs) ToMissionProfileStreamsKmsKeyOutput() M
 
 func (i MissionProfileStreamsKmsKeyArgs) ToMissionProfileStreamsKmsKeyOutputWithContext(ctx context.Context) MissionProfileStreamsKmsKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MissionProfileStreamsKmsKeyOutput)
-}
-
-func (i MissionProfileStreamsKmsKeyArgs) ToOutput(ctx context.Context) pulumix.Output[MissionProfileStreamsKmsKey] {
-	return pulumix.Output[MissionProfileStreamsKmsKey]{
-		OutputState: i.ToMissionProfileStreamsKmsKeyOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i MissionProfileStreamsKmsKeyArgs) ToMissionProfileStreamsKmsKeyPtrOutput() MissionProfileStreamsKmsKeyPtrOutput {
@@ -4702,12 +4053,6 @@ func (i *missionProfileStreamsKmsKeyPtrType) ToMissionProfileStreamsKmsKeyPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(MissionProfileStreamsKmsKeyPtrOutput)
 }
 
-func (i *missionProfileStreamsKmsKeyPtrType) ToOutput(ctx context.Context) pulumix.Output[*MissionProfileStreamsKmsKey] {
-	return pulumix.Output[*MissionProfileStreamsKmsKey]{
-		OutputState: i.ToMissionProfileStreamsKmsKeyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MissionProfileStreamsKmsKeyOutput struct{ *pulumi.OutputState }
 
 func (MissionProfileStreamsKmsKeyOutput) ElementType() reflect.Type {
@@ -4732,12 +4077,6 @@ func (o MissionProfileStreamsKmsKeyOutput) ToMissionProfileStreamsKmsKeyPtrOutpu
 	}).(MissionProfileStreamsKmsKeyPtrOutput)
 }
 
-func (o MissionProfileStreamsKmsKeyOutput) ToOutput(ctx context.Context) pulumix.Output[MissionProfileStreamsKmsKey] {
-	return pulumix.Output[MissionProfileStreamsKmsKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MissionProfileStreamsKmsKeyOutput) KmsAliasArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MissionProfileStreamsKmsKey) *string { return v.KmsAliasArn }).(pulumi.StringPtrOutput)
 }
@@ -4758,12 +4097,6 @@ func (o MissionProfileStreamsKmsKeyPtrOutput) ToMissionProfileStreamsKmsKeyPtrOu
 
 func (o MissionProfileStreamsKmsKeyPtrOutput) ToMissionProfileStreamsKmsKeyPtrOutputWithContext(ctx context.Context) MissionProfileStreamsKmsKeyPtrOutput {
 	return o
-}
-
-func (o MissionProfileStreamsKmsKeyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MissionProfileStreamsKmsKey] {
-	return pulumix.Output[*MissionProfileStreamsKmsKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MissionProfileStreamsKmsKeyPtrOutput) Elem() MissionProfileStreamsKmsKeyOutput {
@@ -4827,12 +4160,6 @@ func (i MissionProfileTagArgs) ToMissionProfileTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(MissionProfileTagOutput)
 }
 
-func (i MissionProfileTagArgs) ToOutput(ctx context.Context) pulumix.Output[MissionProfileTag] {
-	return pulumix.Output[MissionProfileTag]{
-		OutputState: i.ToMissionProfileTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MissionProfileTagArrayInput is an input type that accepts MissionProfileTagArray and MissionProfileTagArrayOutput values.
 // You can construct a concrete instance of `MissionProfileTagArrayInput` via:
 //
@@ -4858,12 +4185,6 @@ func (i MissionProfileTagArray) ToMissionProfileTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(MissionProfileTagArrayOutput)
 }
 
-func (i MissionProfileTagArray) ToOutput(ctx context.Context) pulumix.Output[[]MissionProfileTag] {
-	return pulumix.Output[[]MissionProfileTag]{
-		OutputState: i.ToMissionProfileTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MissionProfileTagOutput struct{ *pulumi.OutputState }
 
 func (MissionProfileTagOutput) ElementType() reflect.Type {
@@ -4876,12 +4197,6 @@ func (o MissionProfileTagOutput) ToMissionProfileTagOutput() MissionProfileTagOu
 
 func (o MissionProfileTagOutput) ToMissionProfileTagOutputWithContext(ctx context.Context) MissionProfileTagOutput {
 	return o
-}
-
-func (o MissionProfileTagOutput) ToOutput(ctx context.Context) pulumix.Output[MissionProfileTag] {
-	return pulumix.Output[MissionProfileTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MissionProfileTagOutput) Key() pulumi.StringOutput {
@@ -4904,12 +4219,6 @@ func (o MissionProfileTagArrayOutput) ToMissionProfileTagArrayOutput() MissionPr
 
 func (o MissionProfileTagArrayOutput) ToMissionProfileTagArrayOutputWithContext(ctx context.Context) MissionProfileTagArrayOutput {
 	return o
-}
-
-func (o MissionProfileTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MissionProfileTag] {
-	return pulumix.Output[[]MissionProfileTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MissionProfileTagArrayOutput) Index(i pulumi.IntInput) MissionProfileTagOutput {

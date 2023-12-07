@@ -88,12 +88,6 @@ func (o PrincipalPermissionsPermissionOutput) ToPrincipalPermissionsPermissionPt
 	}).(PrincipalPermissionsPermissionPtrOutput)
 }
 
-func (o PrincipalPermissionsPermissionOutput) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsPermission] {
-	return pulumix.Output[PrincipalPermissionsPermission]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PrincipalPermissionsPermissionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -127,12 +121,6 @@ func (o PrincipalPermissionsPermissionPtrOutput) ToPrincipalPermissionsPermissio
 
 func (o PrincipalPermissionsPermissionPtrOutput) ToPrincipalPermissionsPermissionPtrOutputWithContext(ctx context.Context) PrincipalPermissionsPermissionPtrOutput {
 	return o
-}
-
-func (o PrincipalPermissionsPermissionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissionsPermission] {
-	return pulumix.Output[*PrincipalPermissionsPermission]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPermissionsPermissionPtrOutput) Elem() PrincipalPermissionsPermissionOutput {
@@ -228,12 +216,6 @@ func (i PrincipalPermissionsPermissionArray) ToPrincipalPermissionsPermissionArr
 	return pulumi.ToOutputWithContext(ctx, i).(PrincipalPermissionsPermissionArrayOutput)
 }
 
-func (i PrincipalPermissionsPermissionArray) ToOutput(ctx context.Context) pulumix.Output[[]PrincipalPermissionsPermission] {
-	return pulumix.Output[[]PrincipalPermissionsPermission]{
-		OutputState: i.ToPrincipalPermissionsPermissionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrincipalPermissionsPermissionArrayOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsPermissionArrayOutput) ElementType() reflect.Type {
@@ -246,12 +228,6 @@ func (o PrincipalPermissionsPermissionArrayOutput) ToPrincipalPermissionsPermiss
 
 func (o PrincipalPermissionsPermissionArrayOutput) ToPrincipalPermissionsPermissionArrayOutputWithContext(ctx context.Context) PrincipalPermissionsPermissionArrayOutput {
 	return o
-}
-
-func (o PrincipalPermissionsPermissionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PrincipalPermissionsPermission] {
-	return pulumix.Output[[]PrincipalPermissionsPermission]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPermissionsPermissionArrayOutput) Index(i pulumi.IntInput) PrincipalPermissionsPermissionOutput {
@@ -327,12 +303,6 @@ func (o PrincipalPermissionsResourceTypeOutput) ToPrincipalPermissionsResourceTy
 	}).(PrincipalPermissionsResourceTypePtrOutput)
 }
 
-func (o PrincipalPermissionsResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PrincipalPermissionsResourceType] {
-	return pulumix.Output[PrincipalPermissionsResourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PrincipalPermissionsResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -366,12 +336,6 @@ func (o PrincipalPermissionsResourceTypePtrOutput) ToPrincipalPermissionsResourc
 
 func (o PrincipalPermissionsResourceTypePtrOutput) ToPrincipalPermissionsResourceTypePtrOutputWithContext(ctx context.Context) PrincipalPermissionsResourceTypePtrOutput {
 	return o
-}
-
-func (o PrincipalPermissionsResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrincipalPermissionsResourceType] {
-	return pulumix.Output[*PrincipalPermissionsResourceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrincipalPermissionsResourceTypePtrOutput) Elem() PrincipalPermissionsResourceTypeOutput {

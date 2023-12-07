@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.
@@ -73,12 +72,6 @@ func (o LookupProfilingGroupResultOutput) ToLookupProfilingGroupResultOutput() L
 
 func (o LookupProfilingGroupResultOutput) ToLookupProfilingGroupResultOutputWithContext(ctx context.Context) LookupProfilingGroupResultOutput {
 	return o
-}
-
-func (o LookupProfilingGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupProfilingGroupResult] {
-	return pulumix.Output[LookupProfilingGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The agent permissions attached to this profiling group.

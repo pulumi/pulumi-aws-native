@@ -78,12 +78,6 @@ func (o AppMonitorCustomEventsStatusOutput) ToAppMonitorCustomEventsStatusPtrOut
 	}).(AppMonitorCustomEventsStatusPtrOutput)
 }
 
-func (o AppMonitorCustomEventsStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AppMonitorCustomEventsStatus] {
-	return pulumix.Output[AppMonitorCustomEventsStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AppMonitorCustomEventsStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o AppMonitorCustomEventsStatusPtrOutput) ToAppMonitorCustomEventsStatusPtr
 
 func (o AppMonitorCustomEventsStatusPtrOutput) ToAppMonitorCustomEventsStatusPtrOutputWithContext(ctx context.Context) AppMonitorCustomEventsStatusPtrOutput {
 	return o
-}
-
-func (o AppMonitorCustomEventsStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppMonitorCustomEventsStatus] {
-	return pulumix.Output[*AppMonitorCustomEventsStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppMonitorCustomEventsStatusPtrOutput) Elem() AppMonitorCustomEventsStatusOutput {
@@ -261,12 +249,6 @@ func (o AppMonitorMetricDestinationDestinationOutput) ToAppMonitorMetricDestinat
 	}).(AppMonitorMetricDestinationDestinationPtrOutput)
 }
 
-func (o AppMonitorMetricDestinationDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[AppMonitorMetricDestinationDestination] {
-	return pulumix.Output[AppMonitorMetricDestinationDestination]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AppMonitorMetricDestinationDestinationOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -300,12 +282,6 @@ func (o AppMonitorMetricDestinationDestinationPtrOutput) ToAppMonitorMetricDesti
 
 func (o AppMonitorMetricDestinationDestinationPtrOutput) ToAppMonitorMetricDestinationDestinationPtrOutputWithContext(ctx context.Context) AppMonitorMetricDestinationDestinationPtrOutput {
 	return o
-}
-
-func (o AppMonitorMetricDestinationDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppMonitorMetricDestinationDestination] {
-	return pulumix.Output[*AppMonitorMetricDestinationDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppMonitorMetricDestinationDestinationPtrOutput) Elem() AppMonitorMetricDestinationDestinationOutput {
@@ -444,12 +420,6 @@ func (o AppMonitorTelemetryOutput) ToAppMonitorTelemetryPtrOutputWithContext(ctx
 	}).(AppMonitorTelemetryPtrOutput)
 }
 
-func (o AppMonitorTelemetryOutput) ToOutput(ctx context.Context) pulumix.Output[AppMonitorTelemetry] {
-	return pulumix.Output[AppMonitorTelemetry]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AppMonitorTelemetryOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -483,12 +453,6 @@ func (o AppMonitorTelemetryPtrOutput) ToAppMonitorTelemetryPtrOutput() AppMonito
 
 func (o AppMonitorTelemetryPtrOutput) ToAppMonitorTelemetryPtrOutputWithContext(ctx context.Context) AppMonitorTelemetryPtrOutput {
 	return o
-}
-
-func (o AppMonitorTelemetryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AppMonitorTelemetry] {
-	return pulumix.Output[*AppMonitorTelemetry]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppMonitorTelemetryPtrOutput) Elem() AppMonitorTelemetryOutput {
@@ -584,12 +548,6 @@ func (i AppMonitorTelemetryArray) ToAppMonitorTelemetryArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AppMonitorTelemetryArrayOutput)
 }
 
-func (i AppMonitorTelemetryArray) ToOutput(ctx context.Context) pulumix.Output[[]AppMonitorTelemetry] {
-	return pulumix.Output[[]AppMonitorTelemetry]{
-		OutputState: i.ToAppMonitorTelemetryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppMonitorTelemetryArrayOutput struct{ *pulumi.OutputState }
 
 func (AppMonitorTelemetryArrayOutput) ElementType() reflect.Type {
@@ -602,12 +560,6 @@ func (o AppMonitorTelemetryArrayOutput) ToAppMonitorTelemetryArrayOutput() AppMo
 
 func (o AppMonitorTelemetryArrayOutput) ToAppMonitorTelemetryArrayOutputWithContext(ctx context.Context) AppMonitorTelemetryArrayOutput {
 	return o
-}
-
-func (o AppMonitorTelemetryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AppMonitorTelemetry] {
-	return pulumix.Output[[]AppMonitorTelemetry]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppMonitorTelemetryArrayOutput) Index(i pulumi.IntInput) AppMonitorTelemetryOutput {

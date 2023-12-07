@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema of AWS::EC2::IPAMPoolCidr Type
@@ -73,12 +72,6 @@ func (o LookupIpamPoolCidrResultOutput) ToLookupIpamPoolCidrResultOutput() Looku
 
 func (o LookupIpamPoolCidrResultOutput) ToLookupIpamPoolCidrResultOutputWithContext(ctx context.Context) LookupIpamPoolCidrResultOutput {
 	return o
-}
-
-func (o LookupIpamPoolCidrResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIpamPoolCidrResult] {
-	return pulumix.Output[LookupIpamPoolCidrResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Id of the IPAM Pool Cidr.

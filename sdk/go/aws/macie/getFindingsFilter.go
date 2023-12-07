@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Macie FindingsFilter resource schema.
@@ -81,12 +80,6 @@ func (o LookupFindingsFilterResultOutput) ToLookupFindingsFilterResultOutput() L
 
 func (o LookupFindingsFilterResultOutput) ToLookupFindingsFilterResultOutputWithContext(ctx context.Context) LookupFindingsFilterResultOutput {
 	return o
-}
-
-func (o LookupFindingsFilterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFindingsFilterResult] {
-	return pulumix.Output[LookupFindingsFilterResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Findings filter action.

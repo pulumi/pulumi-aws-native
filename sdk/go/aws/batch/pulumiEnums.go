@@ -78,12 +78,6 @@ func (o JobQueueStateEnumOutput) ToJobQueueStateEnumPtrOutputWithContext(ctx con
 	}).(JobQueueStateEnumPtrOutput)
 }
 
-func (o JobQueueStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[JobQueueStateEnum] {
-	return pulumix.Output[JobQueueStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobQueueStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o JobQueueStateEnumPtrOutput) ToJobQueueStateEnumPtrOutput() JobQueueState
 
 func (o JobQueueStateEnumPtrOutput) ToJobQueueStateEnumPtrOutputWithContext(ctx context.Context) JobQueueStateEnumPtrOutput {
 	return o
-}
-
-func (o JobQueueStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*JobQueueStateEnum] {
-	return pulumix.Output[*JobQueueStateEnum]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobQueueStateEnumPtrOutput) Elem() JobQueueStateEnumOutput {

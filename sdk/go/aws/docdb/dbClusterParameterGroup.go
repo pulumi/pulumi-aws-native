@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::DocDB::DBClusterParameterGroup
@@ -120,12 +119,6 @@ func (i *DbClusterParameterGroup) ToDbClusterParameterGroupOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DbClusterParameterGroupOutput)
 }
 
-func (i *DbClusterParameterGroup) ToOutput(ctx context.Context) pulumix.Output[*DbClusterParameterGroup] {
-	return pulumix.Output[*DbClusterParameterGroup]{
-		OutputState: i.ToDbClusterParameterGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DbClusterParameterGroupOutput struct{ *pulumi.OutputState }
 
 func (DbClusterParameterGroupOutput) ElementType() reflect.Type {
@@ -138,12 +131,6 @@ func (o DbClusterParameterGroupOutput) ToDbClusterParameterGroupOutput() DbClust
 
 func (o DbClusterParameterGroupOutput) ToDbClusterParameterGroupOutputWithContext(ctx context.Context) DbClusterParameterGroupOutput {
 	return o
-}
-
-func (o DbClusterParameterGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*DbClusterParameterGroup] {
-	return pulumix.Output[*DbClusterParameterGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DbClusterParameterGroupOutput) Description() pulumi.StringOutput {

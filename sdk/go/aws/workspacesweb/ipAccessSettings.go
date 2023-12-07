@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::WorkSpacesWeb::IpAccessSettings Resource Type
@@ -117,12 +116,6 @@ func (i *IpAccessSettings) ToIpAccessSettingsOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(IpAccessSettingsOutput)
 }
 
-func (i *IpAccessSettings) ToOutput(ctx context.Context) pulumix.Output[*IpAccessSettings] {
-	return pulumix.Output[*IpAccessSettings]{
-		OutputState: i.ToIpAccessSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IpAccessSettingsOutput struct{ *pulumi.OutputState }
 
 func (IpAccessSettingsOutput) ElementType() reflect.Type {
@@ -135,12 +128,6 @@ func (o IpAccessSettingsOutput) ToIpAccessSettingsOutput() IpAccessSettingsOutpu
 
 func (o IpAccessSettingsOutput) ToIpAccessSettingsOutputWithContext(ctx context.Context) IpAccessSettingsOutput {
 	return o
-}
-
-func (o IpAccessSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*IpAccessSettings] {
-	return pulumix.Output[*IpAccessSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IpAccessSettingsOutput) AdditionalEncryptionContext() IpAccessSettingsEncryptionContextMapPtrOutput {

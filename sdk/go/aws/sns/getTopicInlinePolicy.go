@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for AWS::SNS::TopicInlinePolicy
@@ -67,12 +66,6 @@ func (o LookupTopicInlinePolicyResultOutput) ToLookupTopicInlinePolicyResultOutp
 
 func (o LookupTopicInlinePolicyResultOutput) ToLookupTopicInlinePolicyResultOutputWithContext(ctx context.Context) LookupTopicInlinePolicyResultOutput {
 	return o
-}
-
-func (o LookupTopicInlinePolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTopicInlinePolicyResult] {
-	return pulumix.Output[LookupTopicInlinePolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A policy document that contains permissions to add to the specified SNS topics.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -71,12 +70,6 @@ func (i EnvironmentMaintenanceWindowArgs) ToEnvironmentMaintenanceWindowOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentMaintenanceWindowOutput)
 }
 
-func (i EnvironmentMaintenanceWindowArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentMaintenanceWindow] {
-	return pulumix.Output[EnvironmentMaintenanceWindow]{
-		OutputState: i.ToEnvironmentMaintenanceWindowOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EnvironmentMaintenanceWindowArgs) ToEnvironmentMaintenanceWindowPtrOutput() EnvironmentMaintenanceWindowPtrOutput {
 	return i.ToEnvironmentMaintenanceWindowPtrOutputWithContext(context.Background())
 }
@@ -118,12 +111,6 @@ func (i *environmentMaintenanceWindowPtrType) ToEnvironmentMaintenanceWindowPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentMaintenanceWindowPtrOutput)
 }
 
-func (i *environmentMaintenanceWindowPtrType) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentMaintenanceWindow] {
-	return pulumix.Output[*EnvironmentMaintenanceWindow]{
-		OutputState: i.ToEnvironmentMaintenanceWindowPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentMaintenanceWindowOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentMaintenanceWindowOutput) ElementType() reflect.Type {
@@ -146,12 +133,6 @@ func (o EnvironmentMaintenanceWindowOutput) ToEnvironmentMaintenanceWindowPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentMaintenanceWindow) *EnvironmentMaintenanceWindow {
 		return &v
 	}).(EnvironmentMaintenanceWindowPtrOutput)
-}
-
-func (o EnvironmentMaintenanceWindowOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentMaintenanceWindow] {
-	return pulumix.Output[EnvironmentMaintenanceWindow]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The desired time zone maintenance window.
@@ -201,12 +182,6 @@ func (o EnvironmentMaintenanceWindowPtrOutput) ToEnvironmentMaintenanceWindowPtr
 
 func (o EnvironmentMaintenanceWindowPtrOutput) ToEnvironmentMaintenanceWindowPtrOutputWithContext(ctx context.Context) EnvironmentMaintenanceWindowPtrOutput {
 	return o
-}
-
-func (o EnvironmentMaintenanceWindowPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentMaintenanceWindow] {
-	return pulumix.Output[*EnvironmentMaintenanceWindow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentMaintenanceWindowPtrOutput) Elem() EnvironmentMaintenanceWindowOutput {
@@ -328,12 +303,6 @@ func (i EnvironmentTagArgs) ToEnvironmentTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagOutput)
 }
 
-func (i EnvironmentTagArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentTag] {
-	return pulumix.Output[EnvironmentTag]{
-		OutputState: i.ToEnvironmentTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EnvironmentTagArrayInput is an input type that accepts EnvironmentTagArray and EnvironmentTagArrayOutput values.
 // You can construct a concrete instance of `EnvironmentTagArrayInput` via:
 //
@@ -359,12 +328,6 @@ func (i EnvironmentTagArray) ToEnvironmentTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTagArrayOutput)
 }
 
-func (i EnvironmentTagArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentTag] {
-	return pulumix.Output[[]EnvironmentTag]{
-		OutputState: i.ToEnvironmentTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type EnvironmentTagOutput struct{ *pulumi.OutputState }
 
@@ -378,12 +341,6 @@ func (o EnvironmentTagOutput) ToEnvironmentTagOutput() EnvironmentTagOutput {
 
 func (o EnvironmentTagOutput) ToEnvironmentTagOutputWithContext(ctx context.Context) EnvironmentTagOutput {
 	return o
-}
-
-func (o EnvironmentTagOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentTag] {
-	return pulumix.Output[EnvironmentTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -408,12 +365,6 @@ func (o EnvironmentTagArrayOutput) ToEnvironmentTagArrayOutput() EnvironmentTagA
 
 func (o EnvironmentTagArrayOutput) ToEnvironmentTagArrayOutputWithContext(ctx context.Context) EnvironmentTagArrayOutput {
 	return o
-}
-
-func (o EnvironmentTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentTag] {
-	return pulumix.Output[[]EnvironmentTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentTagArrayOutput) Index(i pulumi.IntInput) EnvironmentTagOutput {

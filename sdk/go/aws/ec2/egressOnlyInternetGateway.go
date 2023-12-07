@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::EgressOnlyInternetGateway
@@ -101,12 +100,6 @@ func (i *EgressOnlyInternetGateway) ToEgressOnlyInternetGatewayOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(EgressOnlyInternetGatewayOutput)
 }
 
-func (i *EgressOnlyInternetGateway) ToOutput(ctx context.Context) pulumix.Output[*EgressOnlyInternetGateway] {
-	return pulumix.Output[*EgressOnlyInternetGateway]{
-		OutputState: i.ToEgressOnlyInternetGatewayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EgressOnlyInternetGatewayOutput struct{ *pulumi.OutputState }
 
 func (EgressOnlyInternetGatewayOutput) ElementType() reflect.Type {
@@ -119,12 +112,6 @@ func (o EgressOnlyInternetGatewayOutput) ToEgressOnlyInternetGatewayOutput() Egr
 
 func (o EgressOnlyInternetGatewayOutput) ToEgressOnlyInternetGatewayOutputWithContext(ctx context.Context) EgressOnlyInternetGatewayOutput {
 	return o
-}
-
-func (o EgressOnlyInternetGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*EgressOnlyInternetGateway] {
-	return pulumix.Output[*EgressOnlyInternetGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the VPC for which to create the egress-only internet gateway.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::S3::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.
@@ -75,12 +74,6 @@ func (o LookupAccessPointResultOutput) ToLookupAccessPointResultOutput() LookupA
 
 func (o LookupAccessPointResultOutput) ToLookupAccessPointResultOutputWithContext(ctx context.Context) LookupAccessPointResultOutput {
 	return o
-}
-
-func (o LookupAccessPointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAccessPointResult] {
-	return pulumix.Output[LookupAccessPointResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The alias of this Access Point. This alias can be used for compatibility purposes with other AWS services and third-party applications.

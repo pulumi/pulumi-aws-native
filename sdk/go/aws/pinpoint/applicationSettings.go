@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::ApplicationSettings
@@ -112,12 +111,6 @@ func (i *ApplicationSettings) ToApplicationSettingsOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSettingsOutput)
 }
 
-func (i *ApplicationSettings) ToOutput(ctx context.Context) pulumix.Output[*ApplicationSettings] {
-	return pulumix.Output[*ApplicationSettings]{
-		OutputState: i.ToApplicationSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApplicationSettingsOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSettingsOutput) ElementType() reflect.Type {
@@ -130,12 +123,6 @@ func (o ApplicationSettingsOutput) ToApplicationSettingsOutput() ApplicationSett
 
 func (o ApplicationSettingsOutput) ToApplicationSettingsOutputWithContext(ctx context.Context) ApplicationSettingsOutput {
 	return o
-}
-
-func (o ApplicationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationSettings] {
-	return pulumix.Output[*ApplicationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationSettingsOutput) ApplicationId() pulumi.StringOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::ARCZonalShift::ZonalAutoshiftConfiguration Resource Type
@@ -65,12 +64,6 @@ func (o LookupZonalAutoshiftConfigurationResultOutput) ToLookupZonalAutoshiftCon
 
 func (o LookupZonalAutoshiftConfigurationResultOutput) ToLookupZonalAutoshiftConfigurationResultOutputWithContext(ctx context.Context) LookupZonalAutoshiftConfigurationResultOutput {
 	return o
-}
-
-func (o LookupZonalAutoshiftConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupZonalAutoshiftConfigurationResult] {
-	return pulumix.Output[LookupZonalAutoshiftConfigurationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupZonalAutoshiftConfigurationResultOutput) PracticeRunConfiguration() ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput {

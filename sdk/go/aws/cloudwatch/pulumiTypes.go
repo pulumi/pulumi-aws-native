@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i AlarmDimensionArgs) ToAlarmDimensionOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmDimensionOutput)
 }
 
-func (i AlarmDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmDimension] {
-	return pulumix.Output[AlarmDimension]{
-		OutputState: i.ToAlarmDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlarmDimensionArrayInput is an input type that accepts AlarmDimensionArray and AlarmDimensionArrayOutput values.
 // You can construct a concrete instance of `AlarmDimensionArrayInput` via:
 //
@@ -84,12 +77,6 @@ func (i AlarmDimensionArray) ToAlarmDimensionArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmDimensionArrayOutput)
 }
 
-func (i AlarmDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]AlarmDimension] {
-	return pulumix.Output[[]AlarmDimension]{
-		OutputState: i.ToAlarmDimensionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Dimensions are arbitrary name/value pairs that can be associated with a CloudWatch metric.
 type AlarmDimensionOutput struct{ *pulumi.OutputState }
 
@@ -103,12 +90,6 @@ func (o AlarmDimensionOutput) ToAlarmDimensionOutput() AlarmDimensionOutput {
 
 func (o AlarmDimensionOutput) ToAlarmDimensionOutputWithContext(ctx context.Context) AlarmDimensionOutput {
 	return o
-}
-
-func (o AlarmDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmDimension] {
-	return pulumix.Output[AlarmDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the dimension.
@@ -133,12 +114,6 @@ func (o AlarmDimensionArrayOutput) ToAlarmDimensionArrayOutput() AlarmDimensionA
 
 func (o AlarmDimensionArrayOutput) ToAlarmDimensionArrayOutputWithContext(ctx context.Context) AlarmDimensionArrayOutput {
 	return o
-}
-
-func (o AlarmDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlarmDimension] {
-	return pulumix.Output[[]AlarmDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlarmDimensionArrayOutput) Index(i pulumi.IntInput) AlarmDimensionOutput {
@@ -190,12 +165,6 @@ func (i AlarmMetricArgs) ToAlarmMetricOutputWithContext(ctx context.Context) Ala
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmMetricOutput)
 }
 
-func (i AlarmMetricArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmMetric] {
-	return pulumix.Output[AlarmMetric]{
-		OutputState: i.ToAlarmMetricOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlarmMetricArgs) ToAlarmMetricPtrOutput() AlarmMetricPtrOutput {
 	return i.ToAlarmMetricPtrOutputWithContext(context.Background())
 }
@@ -237,12 +206,6 @@ func (i *alarmMetricPtrType) ToAlarmMetricPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmMetricPtrOutput)
 }
 
-func (i *alarmMetricPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlarmMetric] {
-	return pulumix.Output[*AlarmMetric]{
-		OutputState: i.ToAlarmMetricPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The Metric property type represents a specific metric.
 type AlarmMetricOutput struct{ *pulumi.OutputState }
 
@@ -266,12 +229,6 @@ func (o AlarmMetricOutput) ToAlarmMetricPtrOutputWithContext(ctx context.Context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlarmMetric) *AlarmMetric {
 		return &v
 	}).(AlarmMetricPtrOutput)
-}
-
-func (o AlarmMetricOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmMetric] {
-	return pulumix.Output[AlarmMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The dimensions for the metric.
@@ -301,12 +258,6 @@ func (o AlarmMetricPtrOutput) ToAlarmMetricPtrOutput() AlarmMetricPtrOutput {
 
 func (o AlarmMetricPtrOutput) ToAlarmMetricPtrOutputWithContext(ctx context.Context) AlarmMetricPtrOutput {
 	return o
-}
-
-func (o AlarmMetricPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmMetric] {
-	return pulumix.Output[*AlarmMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlarmMetricPtrOutput) Elem() AlarmMetricOutput {
@@ -408,12 +359,6 @@ func (i AlarmMetricDataQueryArgs) ToAlarmMetricDataQueryOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmMetricDataQueryOutput)
 }
 
-func (i AlarmMetricDataQueryArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmMetricDataQuery] {
-	return pulumix.Output[AlarmMetricDataQuery]{
-		OutputState: i.ToAlarmMetricDataQueryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlarmMetricDataQueryArrayInput is an input type that accepts AlarmMetricDataQueryArray and AlarmMetricDataQueryArrayOutput values.
 // You can construct a concrete instance of `AlarmMetricDataQueryArrayInput` via:
 //
@@ -439,12 +384,6 @@ func (i AlarmMetricDataQueryArray) ToAlarmMetricDataQueryArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmMetricDataQueryArrayOutput)
 }
 
-func (i AlarmMetricDataQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]AlarmMetricDataQuery] {
-	return pulumix.Output[[]AlarmMetricDataQuery]{
-		OutputState: i.ToAlarmMetricDataQueryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // This property type specifies the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data.
 type AlarmMetricDataQueryOutput struct{ *pulumi.OutputState }
 
@@ -458,12 +397,6 @@ func (o AlarmMetricDataQueryOutput) ToAlarmMetricDataQueryOutput() AlarmMetricDa
 
 func (o AlarmMetricDataQueryOutput) ToAlarmMetricDataQueryOutputWithContext(ctx context.Context) AlarmMetricDataQueryOutput {
 	return o
-}
-
-func (o AlarmMetricDataQueryOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmMetricDataQuery] {
-	return pulumix.Output[AlarmMetricDataQuery]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the account where the metrics are located, if this is a cross-account alarm.
@@ -513,12 +446,6 @@ func (o AlarmMetricDataQueryArrayOutput) ToAlarmMetricDataQueryArrayOutput() Ala
 
 func (o AlarmMetricDataQueryArrayOutput) ToAlarmMetricDataQueryArrayOutputWithContext(ctx context.Context) AlarmMetricDataQueryArrayOutput {
 	return o
-}
-
-func (o AlarmMetricDataQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AlarmMetricDataQuery] {
-	return pulumix.Output[[]AlarmMetricDataQuery]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlarmMetricDataQueryArrayOutput) Index(i pulumi.IntInput) AlarmMetricDataQueryOutput {
@@ -574,12 +501,6 @@ func (i AlarmMetricStatArgs) ToAlarmMetricStatOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmMetricStatOutput)
 }
 
-func (i AlarmMetricStatArgs) ToOutput(ctx context.Context) pulumix.Output[AlarmMetricStat] {
-	return pulumix.Output[AlarmMetricStat]{
-		OutputState: i.ToAlarmMetricStatOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AlarmMetricStatArgs) ToAlarmMetricStatPtrOutput() AlarmMetricStatPtrOutput {
 	return i.ToAlarmMetricStatPtrOutputWithContext(context.Background())
 }
@@ -621,12 +542,6 @@ func (i *alarmMetricStatPtrType) ToAlarmMetricStatPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AlarmMetricStatPtrOutput)
 }
 
-func (i *alarmMetricStatPtrType) ToOutput(ctx context.Context) pulumix.Output[*AlarmMetricStat] {
-	return pulumix.Output[*AlarmMetricStat]{
-		OutputState: i.ToAlarmMetricStatPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // This structure defines the metric to be returned, along with the statistics, period, and units.
 type AlarmMetricStatOutput struct{ *pulumi.OutputState }
 
@@ -650,12 +565,6 @@ func (o AlarmMetricStatOutput) ToAlarmMetricStatPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlarmMetricStat) *AlarmMetricStat {
 		return &v
 	}).(AlarmMetricStatPtrOutput)
-}
-
-func (o AlarmMetricStatOutput) ToOutput(ctx context.Context) pulumix.Output[AlarmMetricStat] {
-	return pulumix.Output[AlarmMetricStat]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The metric to return, including the metric name, namespace, and dimensions.
@@ -690,12 +599,6 @@ func (o AlarmMetricStatPtrOutput) ToAlarmMetricStatPtrOutput() AlarmMetricStatPt
 
 func (o AlarmMetricStatPtrOutput) ToAlarmMetricStatPtrOutputWithContext(ctx context.Context) AlarmMetricStatPtrOutput {
 	return o
-}
-
-func (o AlarmMetricStatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AlarmMetricStat] {
-	return pulumix.Output[*AlarmMetricStat]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlarmMetricStatPtrOutput) Elem() AlarmMetricStatOutput {
@@ -781,12 +684,6 @@ func (i AnomalyDetectorConfigurationArgs) ToAnomalyDetectorConfigurationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorConfigurationOutput)
 }
 
-func (i AnomalyDetectorConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorConfiguration] {
-	return pulumix.Output[AnomalyDetectorConfiguration]{
-		OutputState: i.ToAnomalyDetectorConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AnomalyDetectorConfigurationArgs) ToAnomalyDetectorConfigurationPtrOutput() AnomalyDetectorConfigurationPtrOutput {
 	return i.ToAnomalyDetectorConfigurationPtrOutputWithContext(context.Background())
 }
@@ -828,12 +725,6 @@ func (i *anomalyDetectorConfigurationPtrType) ToAnomalyDetectorConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorConfigurationPtrOutput)
 }
 
-func (i *anomalyDetectorConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorConfiguration] {
-	return pulumix.Output[*AnomalyDetectorConfiguration]{
-		OutputState: i.ToAnomalyDetectorConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalyDetectorConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorConfigurationOutput) ElementType() reflect.Type {
@@ -858,12 +749,6 @@ func (o AnomalyDetectorConfigurationOutput) ToAnomalyDetectorConfigurationPtrOut
 	}).(AnomalyDetectorConfigurationPtrOutput)
 }
 
-func (o AnomalyDetectorConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorConfiguration] {
-	return pulumix.Output[AnomalyDetectorConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnomalyDetectorConfigurationOutput) ExcludedTimeRanges() AnomalyDetectorRangeArrayOutput {
 	return o.ApplyT(func(v AnomalyDetectorConfiguration) []AnomalyDetectorRange { return v.ExcludedTimeRanges }).(AnomalyDetectorRangeArrayOutput)
 }
@@ -884,12 +769,6 @@ func (o AnomalyDetectorConfigurationPtrOutput) ToAnomalyDetectorConfigurationPtr
 
 func (o AnomalyDetectorConfigurationPtrOutput) ToAnomalyDetectorConfigurationPtrOutputWithContext(ctx context.Context) AnomalyDetectorConfigurationPtrOutput {
 	return o
-}
-
-func (o AnomalyDetectorConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorConfiguration] {
-	return pulumix.Output[*AnomalyDetectorConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalyDetectorConfigurationPtrOutput) Elem() AnomalyDetectorConfigurationOutput {
@@ -953,12 +832,6 @@ func (i AnomalyDetectorDimensionArgs) ToAnomalyDetectorDimensionOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorDimensionOutput)
 }
 
-func (i AnomalyDetectorDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorDimension] {
-	return pulumix.Output[AnomalyDetectorDimension]{
-		OutputState: i.ToAnomalyDetectorDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AnomalyDetectorDimensionArrayInput is an input type that accepts AnomalyDetectorDimensionArray and AnomalyDetectorDimensionArrayOutput values.
 // You can construct a concrete instance of `AnomalyDetectorDimensionArrayInput` via:
 //
@@ -984,12 +857,6 @@ func (i AnomalyDetectorDimensionArray) ToAnomalyDetectorDimensionArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorDimensionArrayOutput)
 }
 
-func (i AnomalyDetectorDimensionArray) ToOutput(ctx context.Context) pulumix.Output[[]AnomalyDetectorDimension] {
-	return pulumix.Output[[]AnomalyDetectorDimension]{
-		OutputState: i.ToAnomalyDetectorDimensionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalyDetectorDimensionOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorDimensionOutput) ElementType() reflect.Type {
@@ -1002,12 +869,6 @@ func (o AnomalyDetectorDimensionOutput) ToAnomalyDetectorDimensionOutput() Anoma
 
 func (o AnomalyDetectorDimensionOutput) ToAnomalyDetectorDimensionOutputWithContext(ctx context.Context) AnomalyDetectorDimensionOutput {
 	return o
-}
-
-func (o AnomalyDetectorDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorDimension] {
-	return pulumix.Output[AnomalyDetectorDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalyDetectorDimensionOutput) Name() pulumi.StringOutput {
@@ -1030,12 +891,6 @@ func (o AnomalyDetectorDimensionArrayOutput) ToAnomalyDetectorDimensionArrayOutp
 
 func (o AnomalyDetectorDimensionArrayOutput) ToAnomalyDetectorDimensionArrayOutputWithContext(ctx context.Context) AnomalyDetectorDimensionArrayOutput {
 	return o
-}
-
-func (o AnomalyDetectorDimensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AnomalyDetectorDimension] {
-	return pulumix.Output[[]AnomalyDetectorDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalyDetectorDimensionArrayOutput) Index(i pulumi.IntInput) AnomalyDetectorDimensionOutput {
@@ -1079,12 +934,6 @@ func (i AnomalyDetectorMetricArgs) ToAnomalyDetectorMetricOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricOutput)
 }
 
-func (i AnomalyDetectorMetricArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorMetric] {
-	return pulumix.Output[AnomalyDetectorMetric]{
-		OutputState: i.ToAnomalyDetectorMetricOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AnomalyDetectorMetricArgs) ToAnomalyDetectorMetricPtrOutput() AnomalyDetectorMetricPtrOutput {
 	return i.ToAnomalyDetectorMetricPtrOutputWithContext(context.Background())
 }
@@ -1126,12 +975,6 @@ func (i *anomalyDetectorMetricPtrType) ToAnomalyDetectorMetricPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricPtrOutput)
 }
 
-func (i *anomalyDetectorMetricPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorMetric] {
-	return pulumix.Output[*AnomalyDetectorMetric]{
-		OutputState: i.ToAnomalyDetectorMetricPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalyDetectorMetricOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorMetricOutput) ElementType() reflect.Type {
@@ -1154,12 +997,6 @@ func (o AnomalyDetectorMetricOutput) ToAnomalyDetectorMetricPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorMetric) *AnomalyDetectorMetric {
 		return &v
 	}).(AnomalyDetectorMetricPtrOutput)
-}
-
-func (o AnomalyDetectorMetricOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorMetric] {
-	return pulumix.Output[AnomalyDetectorMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalyDetectorMetricOutput) Dimensions() AnomalyDetectorDimensionArrayOutput {
@@ -1186,12 +1023,6 @@ func (o AnomalyDetectorMetricPtrOutput) ToAnomalyDetectorMetricPtrOutput() Anoma
 
 func (o AnomalyDetectorMetricPtrOutput) ToAnomalyDetectorMetricPtrOutputWithContext(ctx context.Context) AnomalyDetectorMetricPtrOutput {
 	return o
-}
-
-func (o AnomalyDetectorMetricPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorMetric] {
-	return pulumix.Output[*AnomalyDetectorMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalyDetectorMetricPtrOutput) Elem() AnomalyDetectorMetricOutput {
@@ -1274,12 +1105,6 @@ func (i AnomalyDetectorMetricDataQueryArgs) ToAnomalyDetectorMetricDataQueryOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricDataQueryOutput)
 }
 
-func (i AnomalyDetectorMetricDataQueryArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorMetricDataQuery] {
-	return pulumix.Output[AnomalyDetectorMetricDataQuery]{
-		OutputState: i.ToAnomalyDetectorMetricDataQueryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AnomalyDetectorMetricDataQueryArrayInput is an input type that accepts AnomalyDetectorMetricDataQueryArray and AnomalyDetectorMetricDataQueryArrayOutput values.
 // You can construct a concrete instance of `AnomalyDetectorMetricDataQueryArrayInput` via:
 //
@@ -1305,12 +1130,6 @@ func (i AnomalyDetectorMetricDataQueryArray) ToAnomalyDetectorMetricDataQueryArr
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricDataQueryArrayOutput)
 }
 
-func (i AnomalyDetectorMetricDataQueryArray) ToOutput(ctx context.Context) pulumix.Output[[]AnomalyDetectorMetricDataQuery] {
-	return pulumix.Output[[]AnomalyDetectorMetricDataQuery]{
-		OutputState: i.ToAnomalyDetectorMetricDataQueryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalyDetectorMetricDataQueryOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorMetricDataQueryOutput) ElementType() reflect.Type {
@@ -1323,12 +1142,6 @@ func (o AnomalyDetectorMetricDataQueryOutput) ToAnomalyDetectorMetricDataQueryOu
 
 func (o AnomalyDetectorMetricDataQueryOutput) ToAnomalyDetectorMetricDataQueryOutputWithContext(ctx context.Context) AnomalyDetectorMetricDataQueryOutput {
 	return o
-}
-
-func (o AnomalyDetectorMetricDataQueryOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorMetricDataQuery] {
-	return pulumix.Output[AnomalyDetectorMetricDataQuery]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalyDetectorMetricDataQueryOutput) AccountId() pulumi.StringPtrOutput {
@@ -1373,12 +1186,6 @@ func (o AnomalyDetectorMetricDataQueryArrayOutput) ToAnomalyDetectorMetricDataQu
 	return o
 }
 
-func (o AnomalyDetectorMetricDataQueryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AnomalyDetectorMetricDataQuery] {
-	return pulumix.Output[[]AnomalyDetectorMetricDataQuery]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnomalyDetectorMetricDataQueryArrayOutput) Index(i pulumi.IntInput) AnomalyDetectorMetricDataQueryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnomalyDetectorMetricDataQuery {
 		return vs[0].([]AnomalyDetectorMetricDataQuery)[vs[1].(int)]
@@ -1414,12 +1221,6 @@ func (i AnomalyDetectorMetricMathAnomalyDetectorArgs) ToAnomalyDetectorMetricMat
 
 func (i AnomalyDetectorMetricMathAnomalyDetectorArgs) ToAnomalyDetectorMetricMathAnomalyDetectorOutputWithContext(ctx context.Context) AnomalyDetectorMetricMathAnomalyDetectorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricMathAnomalyDetectorOutput)
-}
-
-func (i AnomalyDetectorMetricMathAnomalyDetectorArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorMetricMathAnomalyDetector] {
-	return pulumix.Output[AnomalyDetectorMetricMathAnomalyDetector]{
-		OutputState: i.ToAnomalyDetectorMetricMathAnomalyDetectorOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i AnomalyDetectorMetricMathAnomalyDetectorArgs) ToAnomalyDetectorMetricMathAnomalyDetectorPtrOutput() AnomalyDetectorMetricMathAnomalyDetectorPtrOutput {
@@ -1463,12 +1264,6 @@ func (i *anomalyDetectorMetricMathAnomalyDetectorPtrType) ToAnomalyDetectorMetri
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricMathAnomalyDetectorPtrOutput)
 }
 
-func (i *anomalyDetectorMetricMathAnomalyDetectorPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorMetricMathAnomalyDetector] {
-	return pulumix.Output[*AnomalyDetectorMetricMathAnomalyDetector]{
-		OutputState: i.ToAnomalyDetectorMetricMathAnomalyDetectorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalyDetectorMetricMathAnomalyDetectorOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorMetricMathAnomalyDetectorOutput) ElementType() reflect.Type {
@@ -1493,12 +1288,6 @@ func (o AnomalyDetectorMetricMathAnomalyDetectorOutput) ToAnomalyDetectorMetricM
 	}).(AnomalyDetectorMetricMathAnomalyDetectorPtrOutput)
 }
 
-func (o AnomalyDetectorMetricMathAnomalyDetectorOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorMetricMathAnomalyDetector] {
-	return pulumix.Output[AnomalyDetectorMetricMathAnomalyDetector]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnomalyDetectorMetricMathAnomalyDetectorOutput) MetricDataQueries() AnomalyDetectorMetricDataQueryArrayOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricMathAnomalyDetector) []AnomalyDetectorMetricDataQuery {
 		return v.MetricDataQueries
@@ -1517,12 +1306,6 @@ func (o AnomalyDetectorMetricMathAnomalyDetectorPtrOutput) ToAnomalyDetectorMetr
 
 func (o AnomalyDetectorMetricMathAnomalyDetectorPtrOutput) ToAnomalyDetectorMetricMathAnomalyDetectorPtrOutputWithContext(ctx context.Context) AnomalyDetectorMetricMathAnomalyDetectorPtrOutput {
 	return o
-}
-
-func (o AnomalyDetectorMetricMathAnomalyDetectorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorMetricMathAnomalyDetector] {
-	return pulumix.Output[*AnomalyDetectorMetricMathAnomalyDetector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalyDetectorMetricMathAnomalyDetectorPtrOutput) Elem() AnomalyDetectorMetricMathAnomalyDetectorOutput {
@@ -1581,12 +1364,6 @@ func (i AnomalyDetectorMetricStatArgs) ToAnomalyDetectorMetricStatOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricStatOutput)
 }
 
-func (i AnomalyDetectorMetricStatArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorMetricStat] {
-	return pulumix.Output[AnomalyDetectorMetricStat]{
-		OutputState: i.ToAnomalyDetectorMetricStatOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AnomalyDetectorMetricStatArgs) ToAnomalyDetectorMetricStatPtrOutput() AnomalyDetectorMetricStatPtrOutput {
 	return i.ToAnomalyDetectorMetricStatPtrOutputWithContext(context.Background())
 }
@@ -1628,12 +1405,6 @@ func (i *anomalyDetectorMetricStatPtrType) ToAnomalyDetectorMetricStatPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorMetricStatPtrOutput)
 }
 
-func (i *anomalyDetectorMetricStatPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorMetricStat] {
-	return pulumix.Output[*AnomalyDetectorMetricStat]{
-		OutputState: i.ToAnomalyDetectorMetricStatPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalyDetectorMetricStatOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorMetricStatOutput) ElementType() reflect.Type {
@@ -1656,12 +1427,6 @@ func (o AnomalyDetectorMetricStatOutput) ToAnomalyDetectorMetricStatPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorMetricStat) *AnomalyDetectorMetricStat {
 		return &v
 	}).(AnomalyDetectorMetricStatPtrOutput)
-}
-
-func (o AnomalyDetectorMetricStatOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorMetricStat] {
-	return pulumix.Output[AnomalyDetectorMetricStat]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalyDetectorMetricStatOutput) Metric() AnomalyDetectorMetricOutput {
@@ -1692,12 +1457,6 @@ func (o AnomalyDetectorMetricStatPtrOutput) ToAnomalyDetectorMetricStatPtrOutput
 
 func (o AnomalyDetectorMetricStatPtrOutput) ToAnomalyDetectorMetricStatPtrOutputWithContext(ctx context.Context) AnomalyDetectorMetricStatPtrOutput {
 	return o
-}
-
-func (o AnomalyDetectorMetricStatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorMetricStat] {
-	return pulumix.Output[*AnomalyDetectorMetricStat]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalyDetectorMetricStatPtrOutput) Elem() AnomalyDetectorMetricStatOutput {
@@ -1779,12 +1538,6 @@ func (i AnomalyDetectorRangeArgs) ToAnomalyDetectorRangeOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorRangeOutput)
 }
 
-func (i AnomalyDetectorRangeArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorRange] {
-	return pulumix.Output[AnomalyDetectorRange]{
-		OutputState: i.ToAnomalyDetectorRangeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AnomalyDetectorRangeArrayInput is an input type that accepts AnomalyDetectorRangeArray and AnomalyDetectorRangeArrayOutput values.
 // You can construct a concrete instance of `AnomalyDetectorRangeArrayInput` via:
 //
@@ -1810,12 +1563,6 @@ func (i AnomalyDetectorRangeArray) ToAnomalyDetectorRangeArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorRangeArrayOutput)
 }
 
-func (i AnomalyDetectorRangeArray) ToOutput(ctx context.Context) pulumix.Output[[]AnomalyDetectorRange] {
-	return pulumix.Output[[]AnomalyDetectorRange]{
-		OutputState: i.ToAnomalyDetectorRangeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalyDetectorRangeOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorRangeOutput) ElementType() reflect.Type {
@@ -1828,12 +1575,6 @@ func (o AnomalyDetectorRangeOutput) ToAnomalyDetectorRangeOutput() AnomalyDetect
 
 func (o AnomalyDetectorRangeOutput) ToAnomalyDetectorRangeOutputWithContext(ctx context.Context) AnomalyDetectorRangeOutput {
 	return o
-}
-
-func (o AnomalyDetectorRangeOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorRange] {
-	return pulumix.Output[AnomalyDetectorRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalyDetectorRangeOutput) EndTime() pulumi.StringOutput {
@@ -1856,12 +1597,6 @@ func (o AnomalyDetectorRangeArrayOutput) ToAnomalyDetectorRangeArrayOutput() Ano
 
 func (o AnomalyDetectorRangeArrayOutput) ToAnomalyDetectorRangeArrayOutputWithContext(ctx context.Context) AnomalyDetectorRangeArrayOutput {
 	return o
-}
-
-func (o AnomalyDetectorRangeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AnomalyDetectorRange] {
-	return pulumix.Output[[]AnomalyDetectorRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalyDetectorRangeArrayOutput) Index(i pulumi.IntInput) AnomalyDetectorRangeOutput {
@@ -1907,12 +1642,6 @@ func (i AnomalyDetectorSingleMetricAnomalyDetectorArgs) ToAnomalyDetectorSingleM
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorSingleMetricAnomalyDetectorOutput)
 }
 
-func (i AnomalyDetectorSingleMetricAnomalyDetectorArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorSingleMetricAnomalyDetector] {
-	return pulumix.Output[AnomalyDetectorSingleMetricAnomalyDetector]{
-		OutputState: i.ToAnomalyDetectorSingleMetricAnomalyDetectorOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AnomalyDetectorSingleMetricAnomalyDetectorArgs) ToAnomalyDetectorSingleMetricAnomalyDetectorPtrOutput() AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput {
 	return i.ToAnomalyDetectorSingleMetricAnomalyDetectorPtrOutputWithContext(context.Background())
 }
@@ -1954,12 +1683,6 @@ func (i *anomalyDetectorSingleMetricAnomalyDetectorPtrType) ToAnomalyDetectorSin
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput)
 }
 
-func (i *anomalyDetectorSingleMetricAnomalyDetectorPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorSingleMetricAnomalyDetector] {
-	return pulumix.Output[*AnomalyDetectorSingleMetricAnomalyDetector]{
-		OutputState: i.ToAnomalyDetectorSingleMetricAnomalyDetectorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalyDetectorSingleMetricAnomalyDetectorOutput struct{ *pulumi.OutputState }
 
 func (AnomalyDetectorSingleMetricAnomalyDetectorOutput) ElementType() reflect.Type {
@@ -1982,12 +1705,6 @@ func (o AnomalyDetectorSingleMetricAnomalyDetectorOutput) ToAnomalyDetectorSingl
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnomalyDetectorSingleMetricAnomalyDetector) *AnomalyDetectorSingleMetricAnomalyDetector {
 		return &v
 	}).(AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput)
-}
-
-func (o AnomalyDetectorSingleMetricAnomalyDetectorOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyDetectorSingleMetricAnomalyDetector] {
-	return pulumix.Output[AnomalyDetectorSingleMetricAnomalyDetector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalyDetectorSingleMetricAnomalyDetectorOutput) Dimensions() AnomalyDetectorDimensionArrayOutput {
@@ -2018,12 +1735,6 @@ func (o AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput) ToAnomalyDetectorSi
 
 func (o AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput) ToAnomalyDetectorSingleMetricAnomalyDetectorPtrOutputWithContext(ctx context.Context) AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput {
 	return o
-}
-
-func (o AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnomalyDetectorSingleMetricAnomalyDetector] {
-	return pulumix.Output[*AnomalyDetectorSingleMetricAnomalyDetector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalyDetectorSingleMetricAnomalyDetectorPtrOutput) Elem() AnomalyDetectorSingleMetricAnomalyDetectorOutput {
@@ -2101,12 +1812,6 @@ func (i InsightRuleTagsArgs) ToInsightRuleTagsOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(InsightRuleTagsOutput)
 }
 
-func (i InsightRuleTagsArgs) ToOutput(ctx context.Context) pulumix.Output[InsightRuleTags] {
-	return pulumix.Output[InsightRuleTags]{
-		OutputState: i.ToInsightRuleTagsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InsightRuleTagsArgs) ToInsightRuleTagsPtrOutput() InsightRuleTagsPtrOutput {
 	return i.ToInsightRuleTagsPtrOutputWithContext(context.Background())
 }
@@ -2148,12 +1853,6 @@ func (i *insightRuleTagsPtrType) ToInsightRuleTagsPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(InsightRuleTagsPtrOutput)
 }
 
-func (i *insightRuleTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*InsightRuleTags] {
-	return pulumix.Output[*InsightRuleTags]{
-		OutputState: i.ToInsightRuleTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InsightRuleTagsOutput struct{ *pulumi.OutputState }
 
 func (InsightRuleTagsOutput) ElementType() reflect.Type {
@@ -2178,12 +1877,6 @@ func (o InsightRuleTagsOutput) ToInsightRuleTagsPtrOutputWithContext(ctx context
 	}).(InsightRuleTagsPtrOutput)
 }
 
-func (o InsightRuleTagsOutput) ToOutput(ctx context.Context) pulumix.Output[InsightRuleTags] {
-	return pulumix.Output[InsightRuleTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 type InsightRuleTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (InsightRuleTagsPtrOutput) ElementType() reflect.Type {
@@ -2196,12 +1889,6 @@ func (o InsightRuleTagsPtrOutput) ToInsightRuleTagsPtrOutput() InsightRuleTagsPt
 
 func (o InsightRuleTagsPtrOutput) ToInsightRuleTagsPtrOutputWithContext(ctx context.Context) InsightRuleTagsPtrOutput {
 	return o
-}
-
-func (o InsightRuleTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InsightRuleTags] {
-	return pulumix.Output[*InsightRuleTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InsightRuleTagsPtrOutput) Elem() InsightRuleTagsOutput {
@@ -2253,12 +1940,6 @@ func (i MetricStreamFilterArgs) ToMetricStreamFilterOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamFilterOutput)
 }
 
-func (i MetricStreamFilterArgs) ToOutput(ctx context.Context) pulumix.Output[MetricStreamFilter] {
-	return pulumix.Output[MetricStreamFilter]{
-		OutputState: i.ToMetricStreamFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MetricStreamFilterArrayInput is an input type that accepts MetricStreamFilterArray and MetricStreamFilterArrayOutput values.
 // You can construct a concrete instance of `MetricStreamFilterArrayInput` via:
 //
@@ -2284,12 +1965,6 @@ func (i MetricStreamFilterArray) ToMetricStreamFilterArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamFilterArrayOutput)
 }
 
-func (i MetricStreamFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]MetricStreamFilter] {
-	return pulumix.Output[[]MetricStreamFilter]{
-		OutputState: i.ToMetricStreamFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // This structure defines the metrics that will be streamed.
 type MetricStreamFilterOutput struct{ *pulumi.OutputState }
 
@@ -2303,12 +1978,6 @@ func (o MetricStreamFilterOutput) ToMetricStreamFilterOutput() MetricStreamFilte
 
 func (o MetricStreamFilterOutput) ToMetricStreamFilterOutputWithContext(ctx context.Context) MetricStreamFilterOutput {
 	return o
-}
-
-func (o MetricStreamFilterOutput) ToOutput(ctx context.Context) pulumix.Output[MetricStreamFilter] {
-	return pulumix.Output[MetricStreamFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Only metrics with MetricNames matching these values will be streamed. Must be set together with Namespace.
@@ -2333,12 +2002,6 @@ func (o MetricStreamFilterArrayOutput) ToMetricStreamFilterArrayOutput() MetricS
 
 func (o MetricStreamFilterArrayOutput) ToMetricStreamFilterArrayOutputWithContext(ctx context.Context) MetricStreamFilterArrayOutput {
 	return o
-}
-
-func (o MetricStreamFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MetricStreamFilter] {
-	return pulumix.Output[[]MetricStreamFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MetricStreamFilterArrayOutput) Index(i pulumi.IntInput) MetricStreamFilterOutput {
@@ -2386,12 +2049,6 @@ func (i MetricStreamStatisticsConfigurationArgs) ToMetricStreamStatisticsConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamStatisticsConfigurationOutput)
 }
 
-func (i MetricStreamStatisticsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MetricStreamStatisticsConfiguration] {
-	return pulumix.Output[MetricStreamStatisticsConfiguration]{
-		OutputState: i.ToMetricStreamStatisticsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MetricStreamStatisticsConfigurationArrayInput is an input type that accepts MetricStreamStatisticsConfigurationArray and MetricStreamStatisticsConfigurationArrayOutput values.
 // You can construct a concrete instance of `MetricStreamStatisticsConfigurationArrayInput` via:
 //
@@ -2417,12 +2074,6 @@ func (i MetricStreamStatisticsConfigurationArray) ToMetricStreamStatisticsConfig
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamStatisticsConfigurationArrayOutput)
 }
 
-func (i MetricStreamStatisticsConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]MetricStreamStatisticsConfiguration] {
-	return pulumix.Output[[]MetricStreamStatisticsConfiguration]{
-		OutputState: i.ToMetricStreamStatisticsConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // This structure specifies a list of additional statistics to stream, and the metrics to stream those additional statistics for. All metrics that match the combination of metric name and namespace will be streamed with the extended statistics, no matter their dimensions.
 type MetricStreamStatisticsConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -2436,12 +2087,6 @@ func (o MetricStreamStatisticsConfigurationOutput) ToMetricStreamStatisticsConfi
 
 func (o MetricStreamStatisticsConfigurationOutput) ToMetricStreamStatisticsConfigurationOutputWithContext(ctx context.Context) MetricStreamStatisticsConfigurationOutput {
 	return o
-}
-
-func (o MetricStreamStatisticsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MetricStreamStatisticsConfiguration] {
-	return pulumix.Output[MetricStreamStatisticsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The additional statistics to stream for the metrics listed in IncludeMetrics.
@@ -2466,12 +2111,6 @@ func (o MetricStreamStatisticsConfigurationArrayOutput) ToMetricStreamStatistics
 
 func (o MetricStreamStatisticsConfigurationArrayOutput) ToMetricStreamStatisticsConfigurationArrayOutputWithContext(ctx context.Context) MetricStreamStatisticsConfigurationArrayOutput {
 	return o
-}
-
-func (o MetricStreamStatisticsConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MetricStreamStatisticsConfiguration] {
-	return pulumix.Output[[]MetricStreamStatisticsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MetricStreamStatisticsConfigurationArrayOutput) Index(i pulumi.IntInput) MetricStreamStatisticsConfigurationOutput {
@@ -2519,12 +2158,6 @@ func (i MetricStreamStatisticsMetricArgs) ToMetricStreamStatisticsMetricOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamStatisticsMetricOutput)
 }
 
-func (i MetricStreamStatisticsMetricArgs) ToOutput(ctx context.Context) pulumix.Output[MetricStreamStatisticsMetric] {
-	return pulumix.Output[MetricStreamStatisticsMetric]{
-		OutputState: i.ToMetricStreamStatisticsMetricOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MetricStreamStatisticsMetricArrayInput is an input type that accepts MetricStreamStatisticsMetricArray and MetricStreamStatisticsMetricArrayOutput values.
 // You can construct a concrete instance of `MetricStreamStatisticsMetricArrayInput` via:
 //
@@ -2550,12 +2183,6 @@ func (i MetricStreamStatisticsMetricArray) ToMetricStreamStatisticsMetricArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamStatisticsMetricArrayOutput)
 }
 
-func (i MetricStreamStatisticsMetricArray) ToOutput(ctx context.Context) pulumix.Output[[]MetricStreamStatisticsMetric] {
-	return pulumix.Output[[]MetricStreamStatisticsMetric]{
-		OutputState: i.ToMetricStreamStatisticsMetricArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A structure that specifies the metric name and namespace for one metric that is going to have additional statistics included in the stream.
 type MetricStreamStatisticsMetricOutput struct{ *pulumi.OutputState }
 
@@ -2569,12 +2196,6 @@ func (o MetricStreamStatisticsMetricOutput) ToMetricStreamStatisticsMetricOutput
 
 func (o MetricStreamStatisticsMetricOutput) ToMetricStreamStatisticsMetricOutputWithContext(ctx context.Context) MetricStreamStatisticsMetricOutput {
 	return o
-}
-
-func (o MetricStreamStatisticsMetricOutput) ToOutput(ctx context.Context) pulumix.Output[MetricStreamStatisticsMetric] {
-	return pulumix.Output[MetricStreamStatisticsMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the metric.
@@ -2599,12 +2220,6 @@ func (o MetricStreamStatisticsMetricArrayOutput) ToMetricStreamStatisticsMetricA
 
 func (o MetricStreamStatisticsMetricArrayOutput) ToMetricStreamStatisticsMetricArrayOutputWithContext(ctx context.Context) MetricStreamStatisticsMetricArrayOutput {
 	return o
-}
-
-func (o MetricStreamStatisticsMetricArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MetricStreamStatisticsMetric] {
-	return pulumix.Output[[]MetricStreamStatisticsMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MetricStreamStatisticsMetricArrayOutput) Index(i pulumi.IntInput) MetricStreamStatisticsMetricOutput {
@@ -2652,12 +2267,6 @@ func (i MetricStreamTagArgs) ToMetricStreamTagOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamTagOutput)
 }
 
-func (i MetricStreamTagArgs) ToOutput(ctx context.Context) pulumix.Output[MetricStreamTag] {
-	return pulumix.Output[MetricStreamTag]{
-		OutputState: i.ToMetricStreamTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MetricStreamTagArrayInput is an input type that accepts MetricStreamTagArray and MetricStreamTagArrayOutput values.
 // You can construct a concrete instance of `MetricStreamTagArrayInput` via:
 //
@@ -2683,12 +2292,6 @@ func (i MetricStreamTagArray) ToMetricStreamTagArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(MetricStreamTagArrayOutput)
 }
 
-func (i MetricStreamTagArray) ToOutput(ctx context.Context) pulumix.Output[[]MetricStreamTag] {
-	return pulumix.Output[[]MetricStreamTag]{
-		OutputState: i.ToMetricStreamTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Metadata that you can assign to a Metric Stream, consisting of a key-value pair.
 type MetricStreamTagOutput struct{ *pulumi.OutputState }
 
@@ -2702,12 +2305,6 @@ func (o MetricStreamTagOutput) ToMetricStreamTagOutput() MetricStreamTagOutput {
 
 func (o MetricStreamTagOutput) ToMetricStreamTagOutputWithContext(ctx context.Context) MetricStreamTagOutput {
 	return o
-}
-
-func (o MetricStreamTagOutput) ToOutput(ctx context.Context) pulumix.Output[MetricStreamTag] {
-	return pulumix.Output[MetricStreamTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A unique identifier for the tag.
@@ -2732,12 +2329,6 @@ func (o MetricStreamTagArrayOutput) ToMetricStreamTagArrayOutput() MetricStreamT
 
 func (o MetricStreamTagArrayOutput) ToMetricStreamTagArrayOutputWithContext(ctx context.Context) MetricStreamTagArrayOutput {
 	return o
-}
-
-func (o MetricStreamTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MetricStreamTag] {
-	return pulumix.Output[[]MetricStreamTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MetricStreamTagArrayOutput) Index(i pulumi.IntInput) MetricStreamTagOutput {

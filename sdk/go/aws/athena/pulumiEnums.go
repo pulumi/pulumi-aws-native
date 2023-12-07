@@ -46,12 +46,6 @@ func (o CapacityReservationStatusOutput) ToCapacityReservationStatusPtrOutputWit
 	}).(CapacityReservationStatusPtrOutput)
 }
 
-func (o CapacityReservationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[CapacityReservationStatus] {
-	return pulumix.Output[CapacityReservationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CapacityReservationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -85,12 +79,6 @@ func (o CapacityReservationStatusPtrOutput) ToCapacityReservationStatusPtrOutput
 
 func (o CapacityReservationStatusPtrOutput) ToCapacityReservationStatusPtrOutputWithContext(ctx context.Context) CapacityReservationStatusPtrOutput {
 	return o
-}
-
-func (o CapacityReservationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CapacityReservationStatus] {
-	return pulumix.Output[*CapacityReservationStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CapacityReservationStatusPtrOutput) Elem() CapacityReservationStatusOutput {
@@ -186,12 +174,6 @@ func (o DataCatalogTypeOutput) ToDataCatalogTypePtrOutputWithContext(ctx context
 	}).(DataCatalogTypePtrOutput)
 }
 
-func (o DataCatalogTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataCatalogType] {
-	return pulumix.Output[DataCatalogType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataCatalogTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -225,12 +207,6 @@ func (o DataCatalogTypePtrOutput) ToDataCatalogTypePtrOutput() DataCatalogTypePt
 
 func (o DataCatalogTypePtrOutput) ToDataCatalogTypePtrOutputWithContext(ctx context.Context) DataCatalogTypePtrOutput {
 	return o
-}
-
-func (o DataCatalogTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataCatalogType] {
-	return pulumix.Output[*DataCatalogType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCatalogTypePtrOutput) Elem() DataCatalogTypeOutput {
@@ -370,12 +346,6 @@ func (o WorkGroupEncryptionOptionOutput) ToWorkGroupEncryptionOptionPtrOutputWit
 	}).(WorkGroupEncryptionOptionPtrOutput)
 }
 
-func (o WorkGroupEncryptionOptionOutput) ToOutput(ctx context.Context) pulumix.Output[WorkGroupEncryptionOption] {
-	return pulumix.Output[WorkGroupEncryptionOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkGroupEncryptionOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -409,12 +379,6 @@ func (o WorkGroupEncryptionOptionPtrOutput) ToWorkGroupEncryptionOptionPtrOutput
 
 func (o WorkGroupEncryptionOptionPtrOutput) ToWorkGroupEncryptionOptionPtrOutputWithContext(ctx context.Context) WorkGroupEncryptionOptionPtrOutput {
 	return o
-}
-
-func (o WorkGroupEncryptionOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupEncryptionOption] {
-	return pulumix.Output[*WorkGroupEncryptionOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkGroupEncryptionOptionPtrOutput) Elem() WorkGroupEncryptionOptionOutput {
@@ -552,12 +516,6 @@ func (o WorkGroupS3AclOptionOutput) ToWorkGroupS3AclOptionPtrOutputWithContext(c
 	}).(WorkGroupS3AclOptionPtrOutput)
 }
 
-func (o WorkGroupS3AclOptionOutput) ToOutput(ctx context.Context) pulumix.Output[WorkGroupS3AclOption] {
-	return pulumix.Output[WorkGroupS3AclOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkGroupS3AclOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -591,12 +549,6 @@ func (o WorkGroupS3AclOptionPtrOutput) ToWorkGroupS3AclOptionPtrOutput() WorkGro
 
 func (o WorkGroupS3AclOptionPtrOutput) ToWorkGroupS3AclOptionPtrOutputWithContext(ctx context.Context) WorkGroupS3AclOptionPtrOutput {
 	return o
-}
-
-func (o WorkGroupS3AclOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupS3AclOption] {
-	return pulumix.Output[*WorkGroupS3AclOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkGroupS3AclOptionPtrOutput) Elem() WorkGroupS3AclOptionOutput {
@@ -735,12 +687,6 @@ func (o WorkGroupStateEnumOutput) ToWorkGroupStateEnumPtrOutputWithContext(ctx c
 	}).(WorkGroupStateEnumPtrOutput)
 }
 
-func (o WorkGroupStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[WorkGroupStateEnum] {
-	return pulumix.Output[WorkGroupStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkGroupStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -774,12 +720,6 @@ func (o WorkGroupStateEnumPtrOutput) ToWorkGroupStateEnumPtrOutput() WorkGroupSt
 
 func (o WorkGroupStateEnumPtrOutput) ToWorkGroupStateEnumPtrOutputWithContext(ctx context.Context) WorkGroupStateEnumPtrOutput {
 	return o
-}
-
-func (o WorkGroupStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkGroupStateEnum] {
-	return pulumix.Output[*WorkGroupStateEnum]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkGroupStateEnumPtrOutput) Elem() WorkGroupStateEnumOutput {

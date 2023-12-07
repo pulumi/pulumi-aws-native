@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Create and manage wireless gateways, including LoRa gateways.
@@ -146,12 +145,6 @@ func (i *WirelessDevice) ToWirelessDeviceOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceOutput)
 }
 
-func (i *WirelessDevice) ToOutput(ctx context.Context) pulumix.Output[*WirelessDevice] {
-	return pulumix.Output[*WirelessDevice]{
-		OutputState: i.ToWirelessDeviceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WirelessDeviceOutput struct{ *pulumi.OutputState }
 
 func (WirelessDeviceOutput) ElementType() reflect.Type {
@@ -164,12 +157,6 @@ func (o WirelessDeviceOutput) ToWirelessDeviceOutput() WirelessDeviceOutput {
 
 func (o WirelessDeviceOutput) ToWirelessDeviceOutputWithContext(ctx context.Context) WirelessDeviceOutput {
 	return o
-}
-
-func (o WirelessDeviceOutput) ToOutput(ctx context.Context) pulumix.Output[*WirelessDevice] {
-	return pulumix.Output[*WirelessDevice]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Wireless device arn. Returned after successful create.

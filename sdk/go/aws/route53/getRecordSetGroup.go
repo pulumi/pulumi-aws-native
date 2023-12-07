@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Route53::RecordSetGroup
@@ -66,12 +65,6 @@ func (o LookupRecordSetGroupResultOutput) ToLookupRecordSetGroupResultOutput() L
 
 func (o LookupRecordSetGroupResultOutput) ToLookupRecordSetGroupResultOutputWithContext(ctx context.Context) LookupRecordSetGroupResultOutput {
 	return o
-}
-
-func (o LookupRecordSetGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRecordSetGroupResult] {
-	return pulumix.Output[LookupRecordSetGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupRecordSetGroupResultOutput) Comment() pulumi.StringPtrOutput {

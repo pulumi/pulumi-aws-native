@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::Rekognition::StreamProcessor type is used to create an Amazon Rekognition StreamProcessor that you can use to analyze streaming videos.
@@ -72,12 +71,6 @@ func (o LookupStreamProcessorResultOutput) ToLookupStreamProcessorResultOutput()
 
 func (o LookupStreamProcessorResultOutput) ToLookupStreamProcessorResultOutputWithContext(ctx context.Context) LookupStreamProcessorResultOutput {
 	return o
-}
-
-func (o LookupStreamProcessorResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStreamProcessorResult] {
-	return pulumix.Output[LookupStreamProcessorResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupStreamProcessorResultOutput) Arn() pulumi.StringPtrOutput {

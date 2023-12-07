@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Synthetics::Canary
@@ -196,12 +195,6 @@ func (i *Canary) ToCanaryOutputWithContext(ctx context.Context) CanaryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryOutput)
 }
 
-func (i *Canary) ToOutput(ctx context.Context) pulumix.Output[*Canary] {
-	return pulumix.Output[*Canary]{
-		OutputState: i.ToCanaryOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CanaryOutput struct{ *pulumi.OutputState }
 
 func (CanaryOutput) ElementType() reflect.Type {
@@ -214,12 +207,6 @@ func (o CanaryOutput) ToCanaryOutput() CanaryOutput {
 
 func (o CanaryOutput) ToCanaryOutputWithContext(ctx context.Context) CanaryOutput {
 	return o
-}
-
-func (o CanaryOutput) ToOutput(ctx context.Context) pulumix.Output[*Canary] {
-	return pulumix.Output[*Canary]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Provide artifact configuration

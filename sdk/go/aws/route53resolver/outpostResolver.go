@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Route53Resolver::OutpostResolver.
@@ -140,12 +139,6 @@ func (i *OutpostResolver) ToOutpostResolverOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(OutpostResolverOutput)
 }
 
-func (i *OutpostResolver) ToOutput(ctx context.Context) pulumix.Output[*OutpostResolver] {
-	return pulumix.Output[*OutpostResolver]{
-		OutputState: i.ToOutpostResolverOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OutpostResolverOutput struct{ *pulumi.OutputState }
 
 func (OutpostResolverOutput) ElementType() reflect.Type {
@@ -158,12 +151,6 @@ func (o OutpostResolverOutput) ToOutpostResolverOutput() OutpostResolverOutput {
 
 func (o OutpostResolverOutput) ToOutpostResolverOutputWithContext(ctx context.Context) OutpostResolverOutput {
 	return o
-}
-
-func (o OutpostResolverOutput) ToOutput(ctx context.Context) pulumix.Output[*OutpostResolver] {
-	return pulumix.Output[*OutpostResolver]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The OutpostResolver ARN.

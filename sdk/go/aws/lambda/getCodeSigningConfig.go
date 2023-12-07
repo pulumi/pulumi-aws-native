@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Lambda::CodeSigningConfig.
@@ -75,12 +74,6 @@ func (o LookupCodeSigningConfigResultOutput) ToLookupCodeSigningConfigResultOutp
 
 func (o LookupCodeSigningConfigResultOutput) ToLookupCodeSigningConfigResultOutputWithContext(ctx context.Context) LookupCodeSigningConfigResultOutput {
 	return o
-}
-
-func (o LookupCodeSigningConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCodeSigningConfigResult] {
-	return pulumix.Output[LookupCodeSigningConfigResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list

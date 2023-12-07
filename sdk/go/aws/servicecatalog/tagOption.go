@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ServiceCatalog::TagOption
@@ -110,12 +109,6 @@ func (i *TagOption) ToTagOptionOutputWithContext(ctx context.Context) TagOptionO
 	return pulumi.ToOutputWithContext(ctx, i).(TagOptionOutput)
 }
 
-func (i *TagOption) ToOutput(ctx context.Context) pulumix.Output[*TagOption] {
-	return pulumix.Output[*TagOption]{
-		OutputState: i.ToTagOptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TagOptionOutput struct{ *pulumi.OutputState }
 
 func (TagOptionOutput) ElementType() reflect.Type {
@@ -128,12 +121,6 @@ func (o TagOptionOutput) ToTagOptionOutput() TagOptionOutput {
 
 func (o TagOptionOutput) ToTagOptionOutputWithContext(ctx context.Context) TagOptionOutput {
 	return o
-}
-
-func (o TagOptionOutput) ToOutput(ctx context.Context) pulumix.Output[*TagOption] {
-	return pulumix.Output[*TagOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TagOptionOutput) Active() pulumi.BoolPtrOutput {

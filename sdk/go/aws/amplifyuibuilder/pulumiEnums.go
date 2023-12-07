@@ -78,12 +78,6 @@ func (o FormActionTypeOutput) ToFormActionTypePtrOutputWithContext(ctx context.C
 	}).(FormActionTypePtrOutput)
 }
 
-func (o FormActionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FormActionType] {
-	return pulumix.Output[FormActionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FormActionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o FormActionTypePtrOutput) ToFormActionTypePtrOutput() FormActionTypePtrOu
 
 func (o FormActionTypePtrOutput) ToFormActionTypePtrOutputWithContext(ctx context.Context) FormActionTypePtrOutput {
 	return o
-}
-
-func (o FormActionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FormActionType] {
-	return pulumix.Output[*FormActionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FormActionTypePtrOutput) Elem() FormActionTypeOutput {
@@ -261,12 +249,6 @@ func (o FormButtonsPositionOutput) ToFormButtonsPositionPtrOutputWithContext(ctx
 	}).(FormButtonsPositionPtrOutput)
 }
 
-func (o FormButtonsPositionOutput) ToOutput(ctx context.Context) pulumix.Output[FormButtonsPosition] {
-	return pulumix.Output[FormButtonsPosition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FormButtonsPositionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -300,12 +282,6 @@ func (o FormButtonsPositionPtrOutput) ToFormButtonsPositionPtrOutput() FormButto
 
 func (o FormButtonsPositionPtrOutput) ToFormButtonsPositionPtrOutputWithContext(ctx context.Context) FormButtonsPositionPtrOutput {
 	return o
-}
-
-func (o FormButtonsPositionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FormButtonsPosition] {
-	return pulumix.Output[*FormButtonsPosition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FormButtonsPositionPtrOutput) Elem() FormButtonsPositionOutput {
@@ -443,12 +419,6 @@ func (o FormDataSourceTypeOutput) ToFormDataSourceTypePtrOutputWithContext(ctx c
 	}).(FormDataSourceTypePtrOutput)
 }
 
-func (o FormDataSourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FormDataSourceType] {
-	return pulumix.Output[FormDataSourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FormDataSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -482,12 +452,6 @@ func (o FormDataSourceTypePtrOutput) ToFormDataSourceTypePtrOutput() FormDataSou
 
 func (o FormDataSourceTypePtrOutput) ToFormDataSourceTypePtrOutputWithContext(ctx context.Context) FormDataSourceTypePtrOutput {
 	return o
-}
-
-func (o FormDataSourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FormDataSourceType] {
-	return pulumix.Output[*FormDataSourceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FormDataSourceTypePtrOutput) Elem() FormDataSourceTypeOutput {
@@ -564,6 +528,169 @@ const (
 	FormFixedPositionFirst = FormFixedPosition("first")
 )
 
+func (FormFixedPosition) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormFixedPosition)(nil)).Elem()
+}
+
+func (e FormFixedPosition) ToFormFixedPositionOutput() FormFixedPositionOutput {
+	return pulumi.ToOutput(e).(FormFixedPositionOutput)
+}
+
+func (e FormFixedPosition) ToFormFixedPositionOutputWithContext(ctx context.Context) FormFixedPositionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FormFixedPositionOutput)
+}
+
+func (e FormFixedPosition) ToFormFixedPositionPtrOutput() FormFixedPositionPtrOutput {
+	return e.ToFormFixedPositionPtrOutputWithContext(context.Background())
+}
+
+func (e FormFixedPosition) ToFormFixedPositionPtrOutputWithContext(ctx context.Context) FormFixedPositionPtrOutput {
+	return FormFixedPosition(e).ToFormFixedPositionOutputWithContext(ctx).ToFormFixedPositionPtrOutputWithContext(ctx)
+}
+
+func (e FormFixedPosition) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FormFixedPosition) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FormFixedPosition) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FormFixedPosition) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FormFixedPositionOutput struct{ *pulumi.OutputState }
+
+func (FormFixedPositionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FormFixedPosition)(nil)).Elem()
+}
+
+func (o FormFixedPositionOutput) ToFormFixedPositionOutput() FormFixedPositionOutput {
+	return o
+}
+
+func (o FormFixedPositionOutput) ToFormFixedPositionOutputWithContext(ctx context.Context) FormFixedPositionOutput {
+	return o
+}
+
+func (o FormFixedPositionOutput) ToFormFixedPositionPtrOutput() FormFixedPositionPtrOutput {
+	return o.ToFormFixedPositionPtrOutputWithContext(context.Background())
+}
+
+func (o FormFixedPositionOutput) ToFormFixedPositionPtrOutputWithContext(ctx context.Context) FormFixedPositionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FormFixedPosition) *FormFixedPosition {
+		return &v
+	}).(FormFixedPositionPtrOutput)
+}
+
+func (o FormFixedPositionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FormFixedPositionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FormFixedPosition) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FormFixedPositionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FormFixedPositionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FormFixedPosition) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FormFixedPositionPtrOutput struct{ *pulumi.OutputState }
+
+func (FormFixedPositionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FormFixedPosition)(nil)).Elem()
+}
+
+func (o FormFixedPositionPtrOutput) ToFormFixedPositionPtrOutput() FormFixedPositionPtrOutput {
+	return o
+}
+
+func (o FormFixedPositionPtrOutput) ToFormFixedPositionPtrOutputWithContext(ctx context.Context) FormFixedPositionPtrOutput {
+	return o
+}
+
+func (o FormFixedPositionPtrOutput) Elem() FormFixedPositionOutput {
+	return o.ApplyT(func(v *FormFixedPosition) FormFixedPosition {
+		if v != nil {
+			return *v
+		}
+		var ret FormFixedPosition
+		return ret
+	}).(FormFixedPositionOutput)
+}
+
+func (o FormFixedPositionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FormFixedPositionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FormFixedPosition) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FormFixedPositionInput is an input type that accepts FormFixedPositionArgs and FormFixedPositionOutput values.
+// You can construct a concrete instance of `FormFixedPositionInput` via:
+//
+//	FormFixedPositionArgs{...}
+type FormFixedPositionInput interface {
+	pulumi.Input
+
+	ToFormFixedPositionOutput() FormFixedPositionOutput
+	ToFormFixedPositionOutputWithContext(context.Context) FormFixedPositionOutput
+}
+
+var formFixedPositionPtrType = reflect.TypeOf((**FormFixedPosition)(nil)).Elem()
+
+type FormFixedPositionPtrInput interface {
+	pulumi.Input
+
+	ToFormFixedPositionPtrOutput() FormFixedPositionPtrOutput
+	ToFormFixedPositionPtrOutputWithContext(context.Context) FormFixedPositionPtrOutput
+}
+
+type formFixedPositionPtr string
+
+func FormFixedPositionPtr(v string) FormFixedPositionPtrInput {
+	return (*formFixedPositionPtr)(&v)
+}
+
+func (*formFixedPositionPtr) ElementType() reflect.Type {
+	return formFixedPositionPtrType
+}
+
+func (in *formFixedPositionPtr) ToFormFixedPositionPtrOutput() FormFixedPositionPtrOutput {
+	return pulumi.ToOutput(in).(FormFixedPositionPtrOutput)
+}
+
+func (in *formFixedPositionPtr) ToFormFixedPositionPtrOutputWithContext(ctx context.Context) FormFixedPositionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FormFixedPositionPtrOutput)
+}
+
+func (in *formFixedPositionPtr) ToOutput(ctx context.Context) pulumix.Output[*FormFixedPosition] {
+	return pulumix.Output[*FormFixedPosition]{
+		OutputState: in.ToFormFixedPositionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FormLabelDecorator string
 
 const (
@@ -632,12 +759,6 @@ func (o FormLabelDecoratorOutput) ToFormLabelDecoratorPtrOutputWithContext(ctx c
 	}).(FormLabelDecoratorPtrOutput)
 }
 
-func (o FormLabelDecoratorOutput) ToOutput(ctx context.Context) pulumix.Output[FormLabelDecorator] {
-	return pulumix.Output[FormLabelDecorator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FormLabelDecoratorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -671,12 +792,6 @@ func (o FormLabelDecoratorPtrOutput) ToFormLabelDecoratorPtrOutput() FormLabelDe
 
 func (o FormLabelDecoratorPtrOutput) ToFormLabelDecoratorPtrOutputWithContext(ctx context.Context) FormLabelDecoratorPtrOutput {
 	return o
-}
-
-func (o FormLabelDecoratorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FormLabelDecorator] {
-	return pulumix.Output[*FormLabelDecorator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FormLabelDecoratorPtrOutput) Elem() FormLabelDecoratorOutput {
@@ -754,6 +869,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FormButtonsPositionPtrInput)(nil)).Elem(), FormButtonsPosition("top"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FormDataSourceTypeInput)(nil)).Elem(), FormDataSourceType("DataStore"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FormDataSourceTypePtrInput)(nil)).Elem(), FormDataSourceType("DataStore"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FormFixedPositionInput)(nil)).Elem(), FormFixedPosition("first"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FormFixedPositionPtrInput)(nil)).Elem(), FormFixedPosition("first"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FormLabelDecoratorInput)(nil)).Elem(), FormLabelDecorator("required"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FormLabelDecoratorPtrInput)(nil)).Elem(), FormLabelDecorator("required"))
 	pulumi.RegisterOutputType(FormActionTypeOutput{})
@@ -762,6 +879,8 @@ func init() {
 	pulumi.RegisterOutputType(FormButtonsPositionPtrOutput{})
 	pulumi.RegisterOutputType(FormDataSourceTypeOutput{})
 	pulumi.RegisterOutputType(FormDataSourceTypePtrOutput{})
+	pulumi.RegisterOutputType(FormFixedPositionOutput{})
+	pulumi.RegisterOutputType(FormFixedPositionPtrOutput{})
 	pulumi.RegisterOutputType(FormLabelDecoratorOutput{})
 	pulumi.RegisterOutputType(FormLabelDecoratorPtrOutput{})
 }

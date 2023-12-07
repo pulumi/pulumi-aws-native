@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i ComponentVersionComponentPlatformArgs) ToComponentVersionComponentPlatfo
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionComponentPlatformOutput)
 }
 
-func (i ComponentVersionComponentPlatformArgs) ToOutput(ctx context.Context) pulumix.Output[ComponentVersionComponentPlatform] {
-	return pulumix.Output[ComponentVersionComponentPlatform]{
-		OutputState: i.ToComponentVersionComponentPlatformOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ComponentVersionComponentPlatformArrayInput is an input type that accepts ComponentVersionComponentPlatformArray and ComponentVersionComponentPlatformArrayOutput values.
 // You can construct a concrete instance of `ComponentVersionComponentPlatformArrayInput` via:
 //
@@ -78,12 +71,6 @@ func (i ComponentVersionComponentPlatformArray) ToComponentVersionComponentPlatf
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionComponentPlatformArrayOutput)
 }
 
-func (i ComponentVersionComponentPlatformArray) ToOutput(ctx context.Context) pulumix.Output[[]ComponentVersionComponentPlatform] {
-	return pulumix.Output[[]ComponentVersionComponentPlatform]{
-		OutputState: i.ToComponentVersionComponentPlatformArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComponentVersionComponentPlatformOutput struct{ *pulumi.OutputState }
 
 func (ComponentVersionComponentPlatformOutput) ElementType() reflect.Type {
@@ -96,12 +83,6 @@ func (o ComponentVersionComponentPlatformOutput) ToComponentVersionComponentPlat
 
 func (o ComponentVersionComponentPlatformOutput) ToComponentVersionComponentPlatformOutputWithContext(ctx context.Context) ComponentVersionComponentPlatformOutput {
 	return o
-}
-
-func (o ComponentVersionComponentPlatformOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentVersionComponentPlatform] {
-	return pulumix.Output[ComponentVersionComponentPlatform]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentVersionComponentPlatformOutput) Attributes() pulumi.AnyOutput {
@@ -124,12 +105,6 @@ func (o ComponentVersionComponentPlatformArrayOutput) ToComponentVersionComponen
 
 func (o ComponentVersionComponentPlatformArrayOutput) ToComponentVersionComponentPlatformArrayOutputWithContext(ctx context.Context) ComponentVersionComponentPlatformArrayOutput {
 	return o
-}
-
-func (o ComponentVersionComponentPlatformArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ComponentVersionComponentPlatform] {
-	return pulumix.Output[[]ComponentVersionComponentPlatform]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentVersionComponentPlatformArrayOutput) Index(i pulumi.IntInput) ComponentVersionComponentPlatformOutput {
@@ -175,12 +150,6 @@ func (i ComponentVersionLambdaContainerParamsArgs) ToComponentVersionLambdaConta
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionLambdaContainerParamsOutput)
 }
 
-func (i ComponentVersionLambdaContainerParamsArgs) ToOutput(ctx context.Context) pulumix.Output[ComponentVersionLambdaContainerParams] {
-	return pulumix.Output[ComponentVersionLambdaContainerParams]{
-		OutputState: i.ToComponentVersionLambdaContainerParamsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ComponentVersionLambdaContainerParamsArgs) ToComponentVersionLambdaContainerParamsPtrOutput() ComponentVersionLambdaContainerParamsPtrOutput {
 	return i.ToComponentVersionLambdaContainerParamsPtrOutputWithContext(context.Background())
 }
@@ -222,12 +191,6 @@ func (i *componentVersionLambdaContainerParamsPtrType) ToComponentVersionLambdaC
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionLambdaContainerParamsPtrOutput)
 }
 
-func (i *componentVersionLambdaContainerParamsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ComponentVersionLambdaContainerParams] {
-	return pulumix.Output[*ComponentVersionLambdaContainerParams]{
-		OutputState: i.ToComponentVersionLambdaContainerParamsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComponentVersionLambdaContainerParamsOutput struct{ *pulumi.OutputState }
 
 func (ComponentVersionLambdaContainerParamsOutput) ElementType() reflect.Type {
@@ -250,12 +213,6 @@ func (o ComponentVersionLambdaContainerParamsOutput) ToComponentVersionLambdaCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentVersionLambdaContainerParams) *ComponentVersionLambdaContainerParams {
 		return &v
 	}).(ComponentVersionLambdaContainerParamsPtrOutput)
-}
-
-func (o ComponentVersionLambdaContainerParamsOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentVersionLambdaContainerParams] {
-	return pulumix.Output[ComponentVersionLambdaContainerParams]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentVersionLambdaContainerParamsOutput) Devices() ComponentVersionLambdaDeviceMountArrayOutput {
@@ -286,12 +243,6 @@ func (o ComponentVersionLambdaContainerParamsPtrOutput) ToComponentVersionLambda
 
 func (o ComponentVersionLambdaContainerParamsPtrOutput) ToComponentVersionLambdaContainerParamsPtrOutputWithContext(ctx context.Context) ComponentVersionLambdaContainerParamsPtrOutput {
 	return o
-}
-
-func (o ComponentVersionLambdaContainerParamsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComponentVersionLambdaContainerParams] {
-	return pulumix.Output[*ComponentVersionLambdaContainerParams]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentVersionLambdaContainerParamsPtrOutput) Elem() ComponentVersionLambdaContainerParamsOutput {
@@ -375,12 +326,6 @@ func (i ComponentVersionLambdaDeviceMountArgs) ToComponentVersionLambdaDeviceMou
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionLambdaDeviceMountOutput)
 }
 
-func (i ComponentVersionLambdaDeviceMountArgs) ToOutput(ctx context.Context) pulumix.Output[ComponentVersionLambdaDeviceMount] {
-	return pulumix.Output[ComponentVersionLambdaDeviceMount]{
-		OutputState: i.ToComponentVersionLambdaDeviceMountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ComponentVersionLambdaDeviceMountArrayInput is an input type that accepts ComponentVersionLambdaDeviceMountArray and ComponentVersionLambdaDeviceMountArrayOutput values.
 // You can construct a concrete instance of `ComponentVersionLambdaDeviceMountArrayInput` via:
 //
@@ -406,12 +351,6 @@ func (i ComponentVersionLambdaDeviceMountArray) ToComponentVersionLambdaDeviceMo
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionLambdaDeviceMountArrayOutput)
 }
 
-func (i ComponentVersionLambdaDeviceMountArray) ToOutput(ctx context.Context) pulumix.Output[[]ComponentVersionLambdaDeviceMount] {
-	return pulumix.Output[[]ComponentVersionLambdaDeviceMount]{
-		OutputState: i.ToComponentVersionLambdaDeviceMountArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComponentVersionLambdaDeviceMountOutput struct{ *pulumi.OutputState }
 
 func (ComponentVersionLambdaDeviceMountOutput) ElementType() reflect.Type {
@@ -424,12 +363,6 @@ func (o ComponentVersionLambdaDeviceMountOutput) ToComponentVersionLambdaDeviceM
 
 func (o ComponentVersionLambdaDeviceMountOutput) ToComponentVersionLambdaDeviceMountOutputWithContext(ctx context.Context) ComponentVersionLambdaDeviceMountOutput {
 	return o
-}
-
-func (o ComponentVersionLambdaDeviceMountOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentVersionLambdaDeviceMount] {
-	return pulumix.Output[ComponentVersionLambdaDeviceMount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentVersionLambdaDeviceMountOutput) AddGroupOwner() pulumi.BoolPtrOutput {
@@ -458,12 +391,6 @@ func (o ComponentVersionLambdaDeviceMountArrayOutput) ToComponentVersionLambdaDe
 
 func (o ComponentVersionLambdaDeviceMountArrayOutput) ToComponentVersionLambdaDeviceMountArrayOutputWithContext(ctx context.Context) ComponentVersionLambdaDeviceMountArrayOutput {
 	return o
-}
-
-func (o ComponentVersionLambdaDeviceMountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ComponentVersionLambdaDeviceMount] {
-	return pulumix.Output[[]ComponentVersionLambdaDeviceMount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentVersionLambdaDeviceMountArrayOutput) Index(i pulumi.IntInput) ComponentVersionLambdaDeviceMountOutput {
@@ -505,12 +432,6 @@ func (i ComponentVersionLambdaEventSourceArgs) ToComponentVersionLambdaEventSour
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionLambdaEventSourceOutput)
 }
 
-func (i ComponentVersionLambdaEventSourceArgs) ToOutput(ctx context.Context) pulumix.Output[ComponentVersionLambdaEventSource] {
-	return pulumix.Output[ComponentVersionLambdaEventSource]{
-		OutputState: i.ToComponentVersionLambdaEventSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ComponentVersionLambdaEventSourceArrayInput is an input type that accepts ComponentVersionLambdaEventSourceArray and ComponentVersionLambdaEventSourceArrayOutput values.
 // You can construct a concrete instance of `ComponentVersionLambdaEventSourceArrayInput` via:
 //
@@ -536,12 +457,6 @@ func (i ComponentVersionLambdaEventSourceArray) ToComponentVersionLambdaEventSou
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionLambdaEventSourceArrayOutput)
 }
 
-func (i ComponentVersionLambdaEventSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]ComponentVersionLambdaEventSource] {
-	return pulumix.Output[[]ComponentVersionLambdaEventSource]{
-		OutputState: i.ToComponentVersionLambdaEventSourceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComponentVersionLambdaEventSourceOutput struct{ *pulumi.OutputState }
 
 func (ComponentVersionLambdaEventSourceOutput) ElementType() reflect.Type {
@@ -554,12 +469,6 @@ func (o ComponentVersionLambdaEventSourceOutput) ToComponentVersionLambdaEventSo
 
 func (o ComponentVersionLambdaEventSourceOutput) ToComponentVersionLambdaEventSourceOutputWithContext(ctx context.Context) ComponentVersionLambdaEventSourceOutput {
 	return o
-}
-
-func (o ComponentVersionLambdaEventSourceOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentVersionLambdaEventSource] {
-	return pulumix.Output[ComponentVersionLambdaEventSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentVersionLambdaEventSourceOutput) Topic() pulumi.StringPtrOutput {
@@ -582,12 +491,6 @@ func (o ComponentVersionLambdaEventSourceArrayOutput) ToComponentVersionLambdaEv
 
 func (o ComponentVersionLambdaEventSourceArrayOutput) ToComponentVersionLambdaEventSourceArrayOutputWithContext(ctx context.Context) ComponentVersionLambdaEventSourceArrayOutput {
 	return o
-}
-
-func (o ComponentVersionLambdaEventSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ComponentVersionLambdaEventSource] {
-	return pulumix.Output[[]ComponentVersionLambdaEventSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentVersionLambdaEventSourceArrayOutput) Index(i pulumi.IntInput) ComponentVersionLambdaEventSourceOutput {
@@ -647,12 +550,6 @@ func (i ComponentVersionLambdaExecutionParametersArgs) ToComponentVersionLambdaE
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionLambdaExecutionParametersOutput)
 }
 
-func (i ComponentVersionLambdaExecutionParametersArgs) ToOutput(ctx context.Context) pulumix.Output[ComponentVersionLambdaExecutionParameters] {
-	return pulumix.Output[ComponentVersionLambdaExecutionParameters]{
-		OutputState: i.ToComponentVersionLambdaExecutionParametersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ComponentVersionLambdaExecutionParametersArgs) ToComponentVersionLambdaExecutionParametersPtrOutput() ComponentVersionLambdaExecutionParametersPtrOutput {
 	return i.ToComponentVersionLambdaExecutionParametersPtrOutputWithContext(context.Background())
 }
@@ -694,12 +591,6 @@ func (i *componentVersionLambdaExecutionParametersPtrType) ToComponentVersionLam
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionLambdaExecutionParametersPtrOutput)
 }
 
-func (i *componentVersionLambdaExecutionParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*ComponentVersionLambdaExecutionParameters] {
-	return pulumix.Output[*ComponentVersionLambdaExecutionParameters]{
-		OutputState: i.ToComponentVersionLambdaExecutionParametersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComponentVersionLambdaExecutionParametersOutput struct{ *pulumi.OutputState }
 
 func (ComponentVersionLambdaExecutionParametersOutput) ElementType() reflect.Type {
@@ -722,12 +613,6 @@ func (o ComponentVersionLambdaExecutionParametersOutput) ToComponentVersionLambd
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentVersionLambdaExecutionParameters) *ComponentVersionLambdaExecutionParameters {
 		return &v
 	}).(ComponentVersionLambdaExecutionParametersPtrOutput)
-}
-
-func (o ComponentVersionLambdaExecutionParametersOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentVersionLambdaExecutionParameters] {
-	return pulumix.Output[ComponentVersionLambdaExecutionParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentVersionLambdaExecutionParametersOutput) EnvironmentVariables() pulumi.AnyOutput {
@@ -792,12 +677,6 @@ func (o ComponentVersionLambdaExecutionParametersPtrOutput) ToComponentVersionLa
 
 func (o ComponentVersionLambdaExecutionParametersPtrOutput) ToComponentVersionLambdaExecutionParametersPtrOutputWithContext(ctx context.Context) ComponentVersionLambdaExecutionParametersPtrOutput {
 	return o
-}
-
-func (o ComponentVersionLambdaExecutionParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComponentVersionLambdaExecutionParameters] {
-	return pulumix.Output[*ComponentVersionLambdaExecutionParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentVersionLambdaExecutionParametersPtrOutput) Elem() ComponentVersionLambdaExecutionParametersOutput {
@@ -950,12 +829,6 @@ func (i ComponentVersionLambdaFunctionRecipeSourceArgs) ToComponentVersionLambda
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionLambdaFunctionRecipeSourceOutput)
 }
 
-func (i ComponentVersionLambdaFunctionRecipeSourceArgs) ToOutput(ctx context.Context) pulumix.Output[ComponentVersionLambdaFunctionRecipeSource] {
-	return pulumix.Output[ComponentVersionLambdaFunctionRecipeSource]{
-		OutputState: i.ToComponentVersionLambdaFunctionRecipeSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ComponentVersionLambdaFunctionRecipeSourceArgs) ToComponentVersionLambdaFunctionRecipeSourcePtrOutput() ComponentVersionLambdaFunctionRecipeSourcePtrOutput {
 	return i.ToComponentVersionLambdaFunctionRecipeSourcePtrOutputWithContext(context.Background())
 }
@@ -997,12 +870,6 @@ func (i *componentVersionLambdaFunctionRecipeSourcePtrType) ToComponentVersionLa
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionLambdaFunctionRecipeSourcePtrOutput)
 }
 
-func (i *componentVersionLambdaFunctionRecipeSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*ComponentVersionLambdaFunctionRecipeSource] {
-	return pulumix.Output[*ComponentVersionLambdaFunctionRecipeSource]{
-		OutputState: i.ToComponentVersionLambdaFunctionRecipeSourcePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComponentVersionLambdaFunctionRecipeSourceOutput struct{ *pulumi.OutputState }
 
 func (ComponentVersionLambdaFunctionRecipeSourceOutput) ElementType() reflect.Type {
@@ -1025,12 +892,6 @@ func (o ComponentVersionLambdaFunctionRecipeSourceOutput) ToComponentVersionLamb
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentVersionLambdaFunctionRecipeSource) *ComponentVersionLambdaFunctionRecipeSource {
 		return &v
 	}).(ComponentVersionLambdaFunctionRecipeSourcePtrOutput)
-}
-
-func (o ComponentVersionLambdaFunctionRecipeSourceOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentVersionLambdaFunctionRecipeSource] {
-	return pulumix.Output[ComponentVersionLambdaFunctionRecipeSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentVersionLambdaFunctionRecipeSourceOutput) ComponentDependencies() pulumi.AnyOutput {
@@ -1073,12 +934,6 @@ func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) ToComponentVersionL
 
 func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) ToComponentVersionLambdaFunctionRecipeSourcePtrOutputWithContext(ctx context.Context) ComponentVersionLambdaFunctionRecipeSourcePtrOutput {
 	return o
-}
-
-func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComponentVersionLambdaFunctionRecipeSource] {
-	return pulumix.Output[*ComponentVersionLambdaFunctionRecipeSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) Elem() ComponentVersionLambdaFunctionRecipeSourceOutput {
@@ -1178,12 +1033,6 @@ func (i ComponentVersionLambdaLinuxProcessParamsArgs) ToComponentVersionLambdaLi
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionLambdaLinuxProcessParamsOutput)
 }
 
-func (i ComponentVersionLambdaLinuxProcessParamsArgs) ToOutput(ctx context.Context) pulumix.Output[ComponentVersionLambdaLinuxProcessParams] {
-	return pulumix.Output[ComponentVersionLambdaLinuxProcessParams]{
-		OutputState: i.ToComponentVersionLambdaLinuxProcessParamsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ComponentVersionLambdaLinuxProcessParamsArgs) ToComponentVersionLambdaLinuxProcessParamsPtrOutput() ComponentVersionLambdaLinuxProcessParamsPtrOutput {
 	return i.ToComponentVersionLambdaLinuxProcessParamsPtrOutputWithContext(context.Background())
 }
@@ -1225,12 +1074,6 @@ func (i *componentVersionLambdaLinuxProcessParamsPtrType) ToComponentVersionLamb
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionLambdaLinuxProcessParamsPtrOutput)
 }
 
-func (i *componentVersionLambdaLinuxProcessParamsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ComponentVersionLambdaLinuxProcessParams] {
-	return pulumix.Output[*ComponentVersionLambdaLinuxProcessParams]{
-		OutputState: i.ToComponentVersionLambdaLinuxProcessParamsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComponentVersionLambdaLinuxProcessParamsOutput struct{ *pulumi.OutputState }
 
 func (ComponentVersionLambdaLinuxProcessParamsOutput) ElementType() reflect.Type {
@@ -1253,12 +1096,6 @@ func (o ComponentVersionLambdaLinuxProcessParamsOutput) ToComponentVersionLambda
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComponentVersionLambdaLinuxProcessParams) *ComponentVersionLambdaLinuxProcessParams {
 		return &v
 	}).(ComponentVersionLambdaLinuxProcessParamsPtrOutput)
-}
-
-func (o ComponentVersionLambdaLinuxProcessParamsOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentVersionLambdaLinuxProcessParams] {
-	return pulumix.Output[ComponentVersionLambdaLinuxProcessParams]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentVersionLambdaLinuxProcessParamsOutput) ContainerParams() ComponentVersionLambdaContainerParamsPtrOutput {
@@ -1285,12 +1122,6 @@ func (o ComponentVersionLambdaLinuxProcessParamsPtrOutput) ToComponentVersionLam
 
 func (o ComponentVersionLambdaLinuxProcessParamsPtrOutput) ToComponentVersionLambdaLinuxProcessParamsPtrOutputWithContext(ctx context.Context) ComponentVersionLambdaLinuxProcessParamsPtrOutput {
 	return o
-}
-
-func (o ComponentVersionLambdaLinuxProcessParamsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComponentVersionLambdaLinuxProcessParams] {
-	return pulumix.Output[*ComponentVersionLambdaLinuxProcessParams]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentVersionLambdaLinuxProcessParamsPtrOutput) Elem() ComponentVersionLambdaLinuxProcessParamsOutput {
@@ -1358,12 +1189,6 @@ func (i ComponentVersionLambdaVolumeMountArgs) ToComponentVersionLambdaVolumeMou
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionLambdaVolumeMountOutput)
 }
 
-func (i ComponentVersionLambdaVolumeMountArgs) ToOutput(ctx context.Context) pulumix.Output[ComponentVersionLambdaVolumeMount] {
-	return pulumix.Output[ComponentVersionLambdaVolumeMount]{
-		OutputState: i.ToComponentVersionLambdaVolumeMountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ComponentVersionLambdaVolumeMountArrayInput is an input type that accepts ComponentVersionLambdaVolumeMountArray and ComponentVersionLambdaVolumeMountArrayOutput values.
 // You can construct a concrete instance of `ComponentVersionLambdaVolumeMountArrayInput` via:
 //
@@ -1389,12 +1214,6 @@ func (i ComponentVersionLambdaVolumeMountArray) ToComponentVersionLambdaVolumeMo
 	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionLambdaVolumeMountArrayOutput)
 }
 
-func (i ComponentVersionLambdaVolumeMountArray) ToOutput(ctx context.Context) pulumix.Output[[]ComponentVersionLambdaVolumeMount] {
-	return pulumix.Output[[]ComponentVersionLambdaVolumeMount]{
-		OutputState: i.ToComponentVersionLambdaVolumeMountArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ComponentVersionLambdaVolumeMountOutput struct{ *pulumi.OutputState }
 
 func (ComponentVersionLambdaVolumeMountOutput) ElementType() reflect.Type {
@@ -1407,12 +1226,6 @@ func (o ComponentVersionLambdaVolumeMountOutput) ToComponentVersionLambdaVolumeM
 
 func (o ComponentVersionLambdaVolumeMountOutput) ToComponentVersionLambdaVolumeMountOutputWithContext(ctx context.Context) ComponentVersionLambdaVolumeMountOutput {
 	return o
-}
-
-func (o ComponentVersionLambdaVolumeMountOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentVersionLambdaVolumeMount] {
-	return pulumix.Output[ComponentVersionLambdaVolumeMount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentVersionLambdaVolumeMountOutput) AddGroupOwner() pulumi.BoolPtrOutput {
@@ -1445,12 +1258,6 @@ func (o ComponentVersionLambdaVolumeMountArrayOutput) ToComponentVersionLambdaVo
 
 func (o ComponentVersionLambdaVolumeMountArrayOutput) ToComponentVersionLambdaVolumeMountArrayOutputWithContext(ctx context.Context) ComponentVersionLambdaVolumeMountArrayOutput {
 	return o
-}
-
-func (o ComponentVersionLambdaVolumeMountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ComponentVersionLambdaVolumeMount] {
-	return pulumix.Output[[]ComponentVersionLambdaVolumeMount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentVersionLambdaVolumeMountArrayOutput) Index(i pulumi.IntInput) ComponentVersionLambdaVolumeMountOutput {
@@ -1490,12 +1297,6 @@ func (i DeploymentComponentUpdatePolicyArgs) ToDeploymentComponentUpdatePolicyOu
 
 func (i DeploymentComponentUpdatePolicyArgs) ToDeploymentComponentUpdatePolicyOutputWithContext(ctx context.Context) DeploymentComponentUpdatePolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentComponentUpdatePolicyOutput)
-}
-
-func (i DeploymentComponentUpdatePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentComponentUpdatePolicy] {
-	return pulumix.Output[DeploymentComponentUpdatePolicy]{
-		OutputState: i.ToDeploymentComponentUpdatePolicyOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i DeploymentComponentUpdatePolicyArgs) ToDeploymentComponentUpdatePolicyPtrOutput() DeploymentComponentUpdatePolicyPtrOutput {
@@ -1539,12 +1340,6 @@ func (i *deploymentComponentUpdatePolicyPtrType) ToDeploymentComponentUpdatePoli
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentComponentUpdatePolicyPtrOutput)
 }
 
-func (i *deploymentComponentUpdatePolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentComponentUpdatePolicy] {
-	return pulumix.Output[*DeploymentComponentUpdatePolicy]{
-		OutputState: i.ToDeploymentComponentUpdatePolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeploymentComponentUpdatePolicyOutput struct{ *pulumi.OutputState }
 
 func (DeploymentComponentUpdatePolicyOutput) ElementType() reflect.Type {
@@ -1569,12 +1364,6 @@ func (o DeploymentComponentUpdatePolicyOutput) ToDeploymentComponentUpdatePolicy
 	}).(DeploymentComponentUpdatePolicyPtrOutput)
 }
 
-func (o DeploymentComponentUpdatePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentComponentUpdatePolicy] {
-	return pulumix.Output[DeploymentComponentUpdatePolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeploymentComponentUpdatePolicyOutput) Action() DeploymentComponentUpdatePolicyActionPtrOutput {
 	return o.ApplyT(func(v DeploymentComponentUpdatePolicy) *DeploymentComponentUpdatePolicyAction { return v.Action }).(DeploymentComponentUpdatePolicyActionPtrOutput)
 }
@@ -1595,12 +1384,6 @@ func (o DeploymentComponentUpdatePolicyPtrOutput) ToDeploymentComponentUpdatePol
 
 func (o DeploymentComponentUpdatePolicyPtrOutput) ToDeploymentComponentUpdatePolicyPtrOutputWithContext(ctx context.Context) DeploymentComponentUpdatePolicyPtrOutput {
 	return o
-}
-
-func (o DeploymentComponentUpdatePolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentComponentUpdatePolicy] {
-	return pulumix.Output[*DeploymentComponentUpdatePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeploymentComponentUpdatePolicyPtrOutput) Elem() DeploymentComponentUpdatePolicyOutput {
@@ -1662,12 +1445,6 @@ func (i DeploymentConfigurationValidationPolicyArgs) ToDeploymentConfigurationVa
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigurationValidationPolicyOutput)
 }
 
-func (i DeploymentConfigurationValidationPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentConfigurationValidationPolicy] {
-	return pulumix.Output[DeploymentConfigurationValidationPolicy]{
-		OutputState: i.ToDeploymentConfigurationValidationPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DeploymentConfigurationValidationPolicyArgs) ToDeploymentConfigurationValidationPolicyPtrOutput() DeploymentConfigurationValidationPolicyPtrOutput {
 	return i.ToDeploymentConfigurationValidationPolicyPtrOutputWithContext(context.Background())
 }
@@ -1709,12 +1486,6 @@ func (i *deploymentConfigurationValidationPolicyPtrType) ToDeploymentConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigurationValidationPolicyPtrOutput)
 }
 
-func (i *deploymentConfigurationValidationPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentConfigurationValidationPolicy] {
-	return pulumix.Output[*DeploymentConfigurationValidationPolicy]{
-		OutputState: i.ToDeploymentConfigurationValidationPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeploymentConfigurationValidationPolicyOutput struct{ *pulumi.OutputState }
 
 func (DeploymentConfigurationValidationPolicyOutput) ElementType() reflect.Type {
@@ -1739,12 +1510,6 @@ func (o DeploymentConfigurationValidationPolicyOutput) ToDeploymentConfiguration
 	}).(DeploymentConfigurationValidationPolicyPtrOutput)
 }
 
-func (o DeploymentConfigurationValidationPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentConfigurationValidationPolicy] {
-	return pulumix.Output[DeploymentConfigurationValidationPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeploymentConfigurationValidationPolicyOutput) TimeoutInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeploymentConfigurationValidationPolicy) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
@@ -1761,12 +1526,6 @@ func (o DeploymentConfigurationValidationPolicyPtrOutput) ToDeploymentConfigurat
 
 func (o DeploymentConfigurationValidationPolicyPtrOutput) ToDeploymentConfigurationValidationPolicyPtrOutputWithContext(ctx context.Context) DeploymentConfigurationValidationPolicyPtrOutput {
 	return o
-}
-
-func (o DeploymentConfigurationValidationPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentConfigurationValidationPolicy] {
-	return pulumix.Output[*DeploymentConfigurationValidationPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeploymentConfigurationValidationPolicyPtrOutput) Elem() DeploymentConfigurationValidationPolicyOutput {
@@ -1819,12 +1578,6 @@ func (i DeploymentIoTJobAbortConfigArgs) ToDeploymentIoTJobAbortConfigOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobAbortConfigOutput)
 }
 
-func (i DeploymentIoTJobAbortConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentIoTJobAbortConfig] {
-	return pulumix.Output[DeploymentIoTJobAbortConfig]{
-		OutputState: i.ToDeploymentIoTJobAbortConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DeploymentIoTJobAbortConfigArgs) ToDeploymentIoTJobAbortConfigPtrOutput() DeploymentIoTJobAbortConfigPtrOutput {
 	return i.ToDeploymentIoTJobAbortConfigPtrOutputWithContext(context.Background())
 }
@@ -1866,12 +1619,6 @@ func (i *deploymentIoTJobAbortConfigPtrType) ToDeploymentIoTJobAbortConfigPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobAbortConfigPtrOutput)
 }
 
-func (i *deploymentIoTJobAbortConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentIoTJobAbortConfig] {
-	return pulumix.Output[*DeploymentIoTJobAbortConfig]{
-		OutputState: i.ToDeploymentIoTJobAbortConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeploymentIoTJobAbortConfigOutput struct{ *pulumi.OutputState }
 
 func (DeploymentIoTJobAbortConfigOutput) ElementType() reflect.Type {
@@ -1896,12 +1643,6 @@ func (o DeploymentIoTJobAbortConfigOutput) ToDeploymentIoTJobAbortConfigPtrOutpu
 	}).(DeploymentIoTJobAbortConfigPtrOutput)
 }
 
-func (o DeploymentIoTJobAbortConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentIoTJobAbortConfig] {
-	return pulumix.Output[DeploymentIoTJobAbortConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeploymentIoTJobAbortConfigOutput) CriteriaList() DeploymentIoTJobAbortCriteriaArrayOutput {
 	return o.ApplyT(func(v DeploymentIoTJobAbortConfig) []DeploymentIoTJobAbortCriteria { return v.CriteriaList }).(DeploymentIoTJobAbortCriteriaArrayOutput)
 }
@@ -1918,12 +1659,6 @@ func (o DeploymentIoTJobAbortConfigPtrOutput) ToDeploymentIoTJobAbortConfigPtrOu
 
 func (o DeploymentIoTJobAbortConfigPtrOutput) ToDeploymentIoTJobAbortConfigPtrOutputWithContext(ctx context.Context) DeploymentIoTJobAbortConfigPtrOutput {
 	return o
-}
-
-func (o DeploymentIoTJobAbortConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentIoTJobAbortConfig] {
-	return pulumix.Output[*DeploymentIoTJobAbortConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeploymentIoTJobAbortConfigPtrOutput) Elem() DeploymentIoTJobAbortConfigOutput {
@@ -1982,12 +1717,6 @@ func (i DeploymentIoTJobAbortCriteriaArgs) ToDeploymentIoTJobAbortCriteriaOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobAbortCriteriaOutput)
 }
 
-func (i DeploymentIoTJobAbortCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentIoTJobAbortCriteria] {
-	return pulumix.Output[DeploymentIoTJobAbortCriteria]{
-		OutputState: i.ToDeploymentIoTJobAbortCriteriaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DeploymentIoTJobAbortCriteriaArrayInput is an input type that accepts DeploymentIoTJobAbortCriteriaArray and DeploymentIoTJobAbortCriteriaArrayOutput values.
 // You can construct a concrete instance of `DeploymentIoTJobAbortCriteriaArrayInput` via:
 //
@@ -2013,12 +1742,6 @@ func (i DeploymentIoTJobAbortCriteriaArray) ToDeploymentIoTJobAbortCriteriaArray
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobAbortCriteriaArrayOutput)
 }
 
-func (i DeploymentIoTJobAbortCriteriaArray) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentIoTJobAbortCriteria] {
-	return pulumix.Output[[]DeploymentIoTJobAbortCriteria]{
-		OutputState: i.ToDeploymentIoTJobAbortCriteriaArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeploymentIoTJobAbortCriteriaOutput struct{ *pulumi.OutputState }
 
 func (DeploymentIoTJobAbortCriteriaOutput) ElementType() reflect.Type {
@@ -2031,12 +1754,6 @@ func (o DeploymentIoTJobAbortCriteriaOutput) ToDeploymentIoTJobAbortCriteriaOutp
 
 func (o DeploymentIoTJobAbortCriteriaOutput) ToDeploymentIoTJobAbortCriteriaOutputWithContext(ctx context.Context) DeploymentIoTJobAbortCriteriaOutput {
 	return o
-}
-
-func (o DeploymentIoTJobAbortCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentIoTJobAbortCriteria] {
-	return pulumix.Output[DeploymentIoTJobAbortCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeploymentIoTJobAbortCriteriaOutput) Action() DeploymentIoTJobAbortCriteriaActionOutput {
@@ -2067,12 +1784,6 @@ func (o DeploymentIoTJobAbortCriteriaArrayOutput) ToDeploymentIoTJobAbortCriteri
 
 func (o DeploymentIoTJobAbortCriteriaArrayOutput) ToDeploymentIoTJobAbortCriteriaArrayOutputWithContext(ctx context.Context) DeploymentIoTJobAbortCriteriaArrayOutput {
 	return o
-}
-
-func (o DeploymentIoTJobAbortCriteriaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentIoTJobAbortCriteria] {
-	return pulumix.Output[[]DeploymentIoTJobAbortCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeploymentIoTJobAbortCriteriaArrayOutput) Index(i pulumi.IntInput) DeploymentIoTJobAbortCriteriaOutput {
@@ -2116,12 +1827,6 @@ func (i DeploymentIoTJobConfigurationArgs) ToDeploymentIoTJobConfigurationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobConfigurationOutput)
 }
 
-func (i DeploymentIoTJobConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentIoTJobConfiguration] {
-	return pulumix.Output[DeploymentIoTJobConfiguration]{
-		OutputState: i.ToDeploymentIoTJobConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DeploymentIoTJobConfigurationArgs) ToDeploymentIoTJobConfigurationPtrOutput() DeploymentIoTJobConfigurationPtrOutput {
 	return i.ToDeploymentIoTJobConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2163,12 +1868,6 @@ func (i *deploymentIoTJobConfigurationPtrType) ToDeploymentIoTJobConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobConfigurationPtrOutput)
 }
 
-func (i *deploymentIoTJobConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentIoTJobConfiguration] {
-	return pulumix.Output[*DeploymentIoTJobConfiguration]{
-		OutputState: i.ToDeploymentIoTJobConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeploymentIoTJobConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DeploymentIoTJobConfigurationOutput) ElementType() reflect.Type {
@@ -2191,12 +1890,6 @@ func (o DeploymentIoTJobConfigurationOutput) ToDeploymentIoTJobConfigurationPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentIoTJobConfiguration) *DeploymentIoTJobConfiguration {
 		return &v
 	}).(DeploymentIoTJobConfigurationPtrOutput)
-}
-
-func (o DeploymentIoTJobConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentIoTJobConfiguration] {
-	return pulumix.Output[DeploymentIoTJobConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeploymentIoTJobConfigurationOutput) AbortConfig() DeploymentIoTJobAbortConfigPtrOutput {
@@ -2225,12 +1918,6 @@ func (o DeploymentIoTJobConfigurationPtrOutput) ToDeploymentIoTJobConfigurationP
 
 func (o DeploymentIoTJobConfigurationPtrOutput) ToDeploymentIoTJobConfigurationPtrOutputWithContext(ctx context.Context) DeploymentIoTJobConfigurationPtrOutput {
 	return o
-}
-
-func (o DeploymentIoTJobConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentIoTJobConfiguration] {
-	return pulumix.Output[*DeploymentIoTJobConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeploymentIoTJobConfigurationPtrOutput) Elem() DeploymentIoTJobConfigurationOutput {
@@ -2303,12 +1990,6 @@ func (i DeploymentIoTJobExecutionsRolloutConfigArgs) ToDeploymentIoTJobExecution
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobExecutionsRolloutConfigOutput)
 }
 
-func (i DeploymentIoTJobExecutionsRolloutConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentIoTJobExecutionsRolloutConfig] {
-	return pulumix.Output[DeploymentIoTJobExecutionsRolloutConfig]{
-		OutputState: i.ToDeploymentIoTJobExecutionsRolloutConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DeploymentIoTJobExecutionsRolloutConfigArgs) ToDeploymentIoTJobExecutionsRolloutConfigPtrOutput() DeploymentIoTJobExecutionsRolloutConfigPtrOutput {
 	return i.ToDeploymentIoTJobExecutionsRolloutConfigPtrOutputWithContext(context.Background())
 }
@@ -2350,12 +2031,6 @@ func (i *deploymentIoTJobExecutionsRolloutConfigPtrType) ToDeploymentIoTJobExecu
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobExecutionsRolloutConfigPtrOutput)
 }
 
-func (i *deploymentIoTJobExecutionsRolloutConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentIoTJobExecutionsRolloutConfig] {
-	return pulumix.Output[*DeploymentIoTJobExecutionsRolloutConfig]{
-		OutputState: i.ToDeploymentIoTJobExecutionsRolloutConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeploymentIoTJobExecutionsRolloutConfigOutput struct{ *pulumi.OutputState }
 
 func (DeploymentIoTJobExecutionsRolloutConfigOutput) ElementType() reflect.Type {
@@ -2380,12 +2055,6 @@ func (o DeploymentIoTJobExecutionsRolloutConfigOutput) ToDeploymentIoTJobExecuti
 	}).(DeploymentIoTJobExecutionsRolloutConfigPtrOutput)
 }
 
-func (o DeploymentIoTJobExecutionsRolloutConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentIoTJobExecutionsRolloutConfig] {
-	return pulumix.Output[DeploymentIoTJobExecutionsRolloutConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeploymentIoTJobExecutionsRolloutConfigOutput) ExponentialRate() DeploymentIoTJobExponentialRolloutRatePtrOutput {
 	return o.ApplyT(func(v DeploymentIoTJobExecutionsRolloutConfig) *DeploymentIoTJobExponentialRolloutRate {
 		return v.ExponentialRate
@@ -2408,12 +2077,6 @@ func (o DeploymentIoTJobExecutionsRolloutConfigPtrOutput) ToDeploymentIoTJobExec
 
 func (o DeploymentIoTJobExecutionsRolloutConfigPtrOutput) ToDeploymentIoTJobExecutionsRolloutConfigPtrOutputWithContext(ctx context.Context) DeploymentIoTJobExecutionsRolloutConfigPtrOutput {
 	return o
-}
-
-func (o DeploymentIoTJobExecutionsRolloutConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentIoTJobExecutionsRolloutConfig] {
-	return pulumix.Output[*DeploymentIoTJobExecutionsRolloutConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeploymentIoTJobExecutionsRolloutConfigPtrOutput) Elem() DeploymentIoTJobExecutionsRolloutConfigOutput {
@@ -2479,12 +2142,6 @@ func (i DeploymentIoTJobExponentialRolloutRateArgs) ToDeploymentIoTJobExponentia
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobExponentialRolloutRateOutput)
 }
 
-func (i DeploymentIoTJobExponentialRolloutRateArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentIoTJobExponentialRolloutRate] {
-	return pulumix.Output[DeploymentIoTJobExponentialRolloutRate]{
-		OutputState: i.ToDeploymentIoTJobExponentialRolloutRateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DeploymentIoTJobExponentialRolloutRateArgs) ToDeploymentIoTJobExponentialRolloutRatePtrOutput() DeploymentIoTJobExponentialRolloutRatePtrOutput {
 	return i.ToDeploymentIoTJobExponentialRolloutRatePtrOutputWithContext(context.Background())
 }
@@ -2526,12 +2183,6 @@ func (i *deploymentIoTJobExponentialRolloutRatePtrType) ToDeploymentIoTJobExpone
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobExponentialRolloutRatePtrOutput)
 }
 
-func (i *deploymentIoTJobExponentialRolloutRatePtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentIoTJobExponentialRolloutRate] {
-	return pulumix.Output[*DeploymentIoTJobExponentialRolloutRate]{
-		OutputState: i.ToDeploymentIoTJobExponentialRolloutRatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeploymentIoTJobExponentialRolloutRateOutput struct{ *pulumi.OutputState }
 
 func (DeploymentIoTJobExponentialRolloutRateOutput) ElementType() reflect.Type {
@@ -2554,12 +2205,6 @@ func (o DeploymentIoTJobExponentialRolloutRateOutput) ToDeploymentIoTJobExponent
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentIoTJobExponentialRolloutRate) *DeploymentIoTJobExponentialRolloutRate {
 		return &v
 	}).(DeploymentIoTJobExponentialRolloutRatePtrOutput)
-}
-
-func (o DeploymentIoTJobExponentialRolloutRateOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentIoTJobExponentialRolloutRate] {
-	return pulumix.Output[DeploymentIoTJobExponentialRolloutRate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeploymentIoTJobExponentialRolloutRateOutput) BaseRatePerMinute() pulumi.IntOutput {
@@ -2588,12 +2233,6 @@ func (o DeploymentIoTJobExponentialRolloutRatePtrOutput) ToDeploymentIoTJobExpon
 
 func (o DeploymentIoTJobExponentialRolloutRatePtrOutput) ToDeploymentIoTJobExponentialRolloutRatePtrOutputWithContext(ctx context.Context) DeploymentIoTJobExponentialRolloutRatePtrOutput {
 	return o
-}
-
-func (o DeploymentIoTJobExponentialRolloutRatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentIoTJobExponentialRolloutRate] {
-	return pulumix.Output[*DeploymentIoTJobExponentialRolloutRate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeploymentIoTJobExponentialRolloutRatePtrOutput) Elem() DeploymentIoTJobExponentialRolloutRateOutput {
@@ -2662,12 +2301,6 @@ func (i DeploymentIoTJobRateIncreaseCriteriaArgs) ToDeploymentIoTJobRateIncrease
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobRateIncreaseCriteriaOutput)
 }
 
-func (i DeploymentIoTJobRateIncreaseCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentIoTJobRateIncreaseCriteria] {
-	return pulumix.Output[DeploymentIoTJobRateIncreaseCriteria]{
-		OutputState: i.ToDeploymentIoTJobRateIncreaseCriteriaOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DeploymentIoTJobRateIncreaseCriteriaArgs) ToDeploymentIoTJobRateIncreaseCriteriaPtrOutput() DeploymentIoTJobRateIncreaseCriteriaPtrOutput {
 	return i.ToDeploymentIoTJobRateIncreaseCriteriaPtrOutputWithContext(context.Background())
 }
@@ -2709,12 +2342,6 @@ func (i *deploymentIoTJobRateIncreaseCriteriaPtrType) ToDeploymentIoTJobRateIncr
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobRateIncreaseCriteriaPtrOutput)
 }
 
-func (i *deploymentIoTJobRateIncreaseCriteriaPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentIoTJobRateIncreaseCriteria] {
-	return pulumix.Output[*DeploymentIoTJobRateIncreaseCriteria]{
-		OutputState: i.ToDeploymentIoTJobRateIncreaseCriteriaPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeploymentIoTJobRateIncreaseCriteriaOutput struct{ *pulumi.OutputState }
 
 func (DeploymentIoTJobRateIncreaseCriteriaOutput) ElementType() reflect.Type {
@@ -2739,12 +2366,6 @@ func (o DeploymentIoTJobRateIncreaseCriteriaOutput) ToDeploymentIoTJobRateIncrea
 	}).(DeploymentIoTJobRateIncreaseCriteriaPtrOutput)
 }
 
-func (o DeploymentIoTJobRateIncreaseCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentIoTJobRateIncreaseCriteria] {
-	return pulumix.Output[DeploymentIoTJobRateIncreaseCriteria]{
-		OutputState: o.OutputState,
-	}
-}
-
 type DeploymentIoTJobRateIncreaseCriteriaPtrOutput struct{ *pulumi.OutputState }
 
 func (DeploymentIoTJobRateIncreaseCriteriaPtrOutput) ElementType() reflect.Type {
@@ -2757,12 +2378,6 @@ func (o DeploymentIoTJobRateIncreaseCriteriaPtrOutput) ToDeploymentIoTJobRateInc
 
 func (o DeploymentIoTJobRateIncreaseCriteriaPtrOutput) ToDeploymentIoTJobRateIncreaseCriteriaPtrOutputWithContext(ctx context.Context) DeploymentIoTJobRateIncreaseCriteriaPtrOutput {
 	return o
-}
-
-func (o DeploymentIoTJobRateIncreaseCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentIoTJobRateIncreaseCriteria] {
-	return pulumix.Output[*DeploymentIoTJobRateIncreaseCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeploymentIoTJobRateIncreaseCriteriaPtrOutput) Elem() DeploymentIoTJobRateIncreaseCriteriaOutput {
@@ -2806,12 +2421,6 @@ func (i DeploymentIoTJobTimeoutConfigArgs) ToDeploymentIoTJobTimeoutConfigOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobTimeoutConfigOutput)
 }
 
-func (i DeploymentIoTJobTimeoutConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentIoTJobTimeoutConfig] {
-	return pulumix.Output[DeploymentIoTJobTimeoutConfig]{
-		OutputState: i.ToDeploymentIoTJobTimeoutConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DeploymentIoTJobTimeoutConfigArgs) ToDeploymentIoTJobTimeoutConfigPtrOutput() DeploymentIoTJobTimeoutConfigPtrOutput {
 	return i.ToDeploymentIoTJobTimeoutConfigPtrOutputWithContext(context.Background())
 }
@@ -2853,12 +2462,6 @@ func (i *deploymentIoTJobTimeoutConfigPtrType) ToDeploymentIoTJobTimeoutConfigPt
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIoTJobTimeoutConfigPtrOutput)
 }
 
-func (i *deploymentIoTJobTimeoutConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentIoTJobTimeoutConfig] {
-	return pulumix.Output[*DeploymentIoTJobTimeoutConfig]{
-		OutputState: i.ToDeploymentIoTJobTimeoutConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeploymentIoTJobTimeoutConfigOutput struct{ *pulumi.OutputState }
 
 func (DeploymentIoTJobTimeoutConfigOutput) ElementType() reflect.Type {
@@ -2883,12 +2486,6 @@ func (o DeploymentIoTJobTimeoutConfigOutput) ToDeploymentIoTJobTimeoutConfigPtrO
 	}).(DeploymentIoTJobTimeoutConfigPtrOutput)
 }
 
-func (o DeploymentIoTJobTimeoutConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentIoTJobTimeoutConfig] {
-	return pulumix.Output[DeploymentIoTJobTimeoutConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeploymentIoTJobTimeoutConfigOutput) InProgressTimeoutInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DeploymentIoTJobTimeoutConfig) *int { return v.InProgressTimeoutInMinutes }).(pulumi.IntPtrOutput)
 }
@@ -2905,12 +2502,6 @@ func (o DeploymentIoTJobTimeoutConfigPtrOutput) ToDeploymentIoTJobTimeoutConfigP
 
 func (o DeploymentIoTJobTimeoutConfigPtrOutput) ToDeploymentIoTJobTimeoutConfigPtrOutputWithContext(ctx context.Context) DeploymentIoTJobTimeoutConfigPtrOutput {
 	return o
-}
-
-func (o DeploymentIoTJobTimeoutConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentIoTJobTimeoutConfig] {
-	return pulumix.Output[*DeploymentIoTJobTimeoutConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeploymentIoTJobTimeoutConfigPtrOutput) Elem() DeploymentIoTJobTimeoutConfigOutput {
@@ -2967,12 +2558,6 @@ func (i DeploymentPoliciesArgs) ToDeploymentPoliciesOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentPoliciesOutput)
 }
 
-func (i DeploymentPoliciesArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentPolicies] {
-	return pulumix.Output[DeploymentPolicies]{
-		OutputState: i.ToDeploymentPoliciesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DeploymentPoliciesArgs) ToDeploymentPoliciesPtrOutput() DeploymentPoliciesPtrOutput {
 	return i.ToDeploymentPoliciesPtrOutputWithContext(context.Background())
 }
@@ -3014,12 +2599,6 @@ func (i *deploymentPoliciesPtrType) ToDeploymentPoliciesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentPoliciesPtrOutput)
 }
 
-func (i *deploymentPoliciesPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentPolicies] {
-	return pulumix.Output[*DeploymentPolicies]{
-		OutputState: i.ToDeploymentPoliciesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeploymentPoliciesOutput struct{ *pulumi.OutputState }
 
 func (DeploymentPoliciesOutput) ElementType() reflect.Type {
@@ -3042,12 +2621,6 @@ func (o DeploymentPoliciesOutput) ToDeploymentPoliciesPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentPolicies) *DeploymentPolicies {
 		return &v
 	}).(DeploymentPoliciesPtrOutput)
-}
-
-func (o DeploymentPoliciesOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentPolicies] {
-	return pulumix.Output[DeploymentPolicies]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeploymentPoliciesOutput) ComponentUpdatePolicy() DeploymentComponentUpdatePolicyPtrOutput {
@@ -3076,12 +2649,6 @@ func (o DeploymentPoliciesPtrOutput) ToDeploymentPoliciesPtrOutput() DeploymentP
 
 func (o DeploymentPoliciesPtrOutput) ToDeploymentPoliciesPtrOutputWithContext(ctx context.Context) DeploymentPoliciesPtrOutput {
 	return o
-}
-
-func (o DeploymentPoliciesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentPolicies] {
-	return pulumix.Output[*DeploymentPolicies]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeploymentPoliciesPtrOutput) Elem() DeploymentPoliciesOutput {

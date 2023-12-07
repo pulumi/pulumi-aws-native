@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::MediaTailor::VodSource Resource Type
@@ -119,12 +118,6 @@ func (i *VodSource) ToVodSourceOutputWithContext(ctx context.Context) VodSourceO
 	return pulumi.ToOutputWithContext(ctx, i).(VodSourceOutput)
 }
 
-func (i *VodSource) ToOutput(ctx context.Context) pulumix.Output[*VodSource] {
-	return pulumix.Output[*VodSource]{
-		OutputState: i.ToVodSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VodSourceOutput struct{ *pulumi.OutputState }
 
 func (VodSourceOutput) ElementType() reflect.Type {
@@ -137,12 +130,6 @@ func (o VodSourceOutput) ToVodSourceOutput() VodSourceOutput {
 
 func (o VodSourceOutput) ToVodSourceOutputWithContext(ctx context.Context) VodSourceOutput {
 	return o
-}
-
-func (o VodSourceOutput) ToOutput(ctx context.Context) pulumix.Output[*VodSource] {
-	return pulumix.Output[*VodSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>The ARN of the VOD source.</p>

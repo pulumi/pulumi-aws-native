@@ -49,12 +49,6 @@ func (o MultiplexStateEnumOutput) ToMultiplexStateEnumPtrOutputWithContext(ctx c
 	}).(MultiplexStateEnumPtrOutput)
 }
 
-func (o MultiplexStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[MultiplexStateEnum] {
-	return pulumix.Output[MultiplexStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MultiplexStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -88,12 +82,6 @@ func (o MultiplexStateEnumPtrOutput) ToMultiplexStateEnumPtrOutput() MultiplexSt
 
 func (o MultiplexStateEnumPtrOutput) ToMultiplexStateEnumPtrOutputWithContext(ctx context.Context) MultiplexStateEnumPtrOutput {
 	return o
-}
-
-func (o MultiplexStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MultiplexStateEnum] {
-	return pulumix.Output[*MultiplexStateEnum]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiplexStateEnumPtrOutput) Elem() MultiplexStateEnumOutput {
@@ -193,12 +181,6 @@ func (o MultiplexprogramPreferredChannelPipelineOutput) ToMultiplexprogramPrefer
 	}).(MultiplexprogramPreferredChannelPipelinePtrOutput)
 }
 
-func (o MultiplexprogramPreferredChannelPipelineOutput) ToOutput(ctx context.Context) pulumix.Output[MultiplexprogramPreferredChannelPipeline] {
-	return pulumix.Output[MultiplexprogramPreferredChannelPipeline]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MultiplexprogramPreferredChannelPipelineOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -232,12 +214,6 @@ func (o MultiplexprogramPreferredChannelPipelinePtrOutput) ToMultiplexprogramPre
 
 func (o MultiplexprogramPreferredChannelPipelinePtrOutput) ToMultiplexprogramPreferredChannelPipelinePtrOutputWithContext(ctx context.Context) MultiplexprogramPreferredChannelPipelinePtrOutput {
 	return o
-}
-
-func (o MultiplexprogramPreferredChannelPipelinePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MultiplexprogramPreferredChannelPipeline] {
-	return pulumix.Output[*MultiplexprogramPreferredChannelPipeline]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiplexprogramPreferredChannelPipelinePtrOutput) Elem() MultiplexprogramPreferredChannelPipelineOutput {

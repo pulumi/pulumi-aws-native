@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::UserHierarchyGroup
@@ -121,12 +120,6 @@ func (i *UserHierarchyGroup) ToUserHierarchyGroupOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(UserHierarchyGroupOutput)
 }
 
-func (i *UserHierarchyGroup) ToOutput(ctx context.Context) pulumix.Output[*UserHierarchyGroup] {
-	return pulumix.Output[*UserHierarchyGroup]{
-		OutputState: i.ToUserHierarchyGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserHierarchyGroupOutput struct{ *pulumi.OutputState }
 
 func (UserHierarchyGroupOutput) ElementType() reflect.Type {
@@ -139,12 +132,6 @@ func (o UserHierarchyGroupOutput) ToUserHierarchyGroupOutput() UserHierarchyGrou
 
 func (o UserHierarchyGroupOutput) ToUserHierarchyGroupOutputWithContext(ctx context.Context) UserHierarchyGroupOutput {
 	return o
-}
-
-func (o UserHierarchyGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*UserHierarchyGroup] {
-	return pulumix.Output[*UserHierarchyGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The identifier of the Amazon Connect instance.

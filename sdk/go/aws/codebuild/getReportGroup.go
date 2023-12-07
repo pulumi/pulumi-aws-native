@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CodeBuild::ReportGroup
@@ -68,12 +67,6 @@ func (o LookupReportGroupResultOutput) ToLookupReportGroupResultOutput() LookupR
 
 func (o LookupReportGroupResultOutput) ToLookupReportGroupResultOutputWithContext(ctx context.Context) LookupReportGroupResultOutput {
 	return o
-}
-
-func (o LookupReportGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupReportGroupResult] {
-	return pulumix.Output[LookupReportGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupReportGroupResultOutput) Arn() pulumi.StringPtrOutput {

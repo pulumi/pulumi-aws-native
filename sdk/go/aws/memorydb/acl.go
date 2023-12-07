@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::MemoryDB::ACL
@@ -113,12 +112,6 @@ func (i *Acl) ToAclOutputWithContext(ctx context.Context) AclOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AclOutput)
 }
 
-func (i *Acl) ToOutput(ctx context.Context) pulumix.Output[*Acl] {
-	return pulumix.Output[*Acl]{
-		OutputState: i.ToAclOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AclOutput struct{ *pulumi.OutputState }
 
 func (AclOutput) ElementType() reflect.Type {
@@ -131,12 +124,6 @@ func (o AclOutput) ToAclOutput() AclOutput {
 
 func (o AclOutput) ToAclOutputWithContext(ctx context.Context) AclOutput {
 	return o
-}
-
-func (o AclOutput) ToOutput(ctx context.Context) pulumix.Output[*Acl] {
-	return pulumix.Output[*Acl]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the acl.

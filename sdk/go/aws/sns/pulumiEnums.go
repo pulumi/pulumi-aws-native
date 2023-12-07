@@ -82,12 +82,6 @@ func (o TopicLoggingConfigProtocolOutput) ToTopicLoggingConfigProtocolPtrOutputW
 	}).(TopicLoggingConfigProtocolPtrOutput)
 }
 
-func (o TopicLoggingConfigProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[TopicLoggingConfigProtocol] {
-	return pulumix.Output[TopicLoggingConfigProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicLoggingConfigProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -121,12 +115,6 @@ func (o TopicLoggingConfigProtocolPtrOutput) ToTopicLoggingConfigProtocolPtrOutp
 
 func (o TopicLoggingConfigProtocolPtrOutput) ToTopicLoggingConfigProtocolPtrOutputWithContext(ctx context.Context) TopicLoggingConfigProtocolPtrOutput {
 	return o
-}
-
-func (o TopicLoggingConfigProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicLoggingConfigProtocol] {
-	return pulumix.Output[*TopicLoggingConfigProtocol]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicLoggingConfigProtocolPtrOutput) Elem() TopicLoggingConfigProtocolOutput {

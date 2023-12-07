@@ -80,12 +80,6 @@ func (o AddonResolveConflictsOutput) ToAddonResolveConflictsPtrOutputWithContext
 	}).(AddonResolveConflictsPtrOutput)
 }
 
-func (o AddonResolveConflictsOutput) ToOutput(ctx context.Context) pulumix.Output[AddonResolveConflicts] {
-	return pulumix.Output[AddonResolveConflicts]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AddonResolveConflictsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o AddonResolveConflictsPtrOutput) ToAddonResolveConflictsPtrOutput() Addon
 
 func (o AddonResolveConflictsPtrOutput) ToAddonResolveConflictsPtrOutputWithContext(ctx context.Context) AddonResolveConflictsPtrOutput {
 	return o
-}
-
-func (o AddonResolveConflictsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AddonResolveConflicts] {
-	return pulumix.Output[*AddonResolveConflicts]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AddonResolveConflictsPtrOutput) Elem() AddonResolveConflictsOutput {
@@ -263,12 +251,6 @@ func (o ClusterKubernetesNetworkConfigIpFamilyOutput) ToClusterKubernetesNetwork
 	}).(ClusterKubernetesNetworkConfigIpFamilyPtrOutput)
 }
 
-func (o ClusterKubernetesNetworkConfigIpFamilyOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterKubernetesNetworkConfigIpFamily] {
-	return pulumix.Output[ClusterKubernetesNetworkConfigIpFamily]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterKubernetesNetworkConfigIpFamilyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -302,12 +284,6 @@ func (o ClusterKubernetesNetworkConfigIpFamilyPtrOutput) ToClusterKubernetesNetw
 
 func (o ClusterKubernetesNetworkConfigIpFamilyPtrOutput) ToClusterKubernetesNetworkConfigIpFamilyPtrOutputWithContext(ctx context.Context) ClusterKubernetesNetworkConfigIpFamilyPtrOutput {
 	return o
-}
-
-func (o ClusterKubernetesNetworkConfigIpFamilyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterKubernetesNetworkConfigIpFamily] {
-	return pulumix.Output[*ClusterKubernetesNetworkConfigIpFamily]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterKubernetesNetworkConfigIpFamilyPtrOutput) Elem() ClusterKubernetesNetworkConfigIpFamilyOutput {
@@ -449,12 +425,6 @@ func (o ClusterLoggingTypeConfigTypeOutput) ToClusterLoggingTypeConfigTypePtrOut
 	}).(ClusterLoggingTypeConfigTypePtrOutput)
 }
 
-func (o ClusterLoggingTypeConfigTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterLoggingTypeConfigType] {
-	return pulumix.Output[ClusterLoggingTypeConfigType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterLoggingTypeConfigTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -488,12 +458,6 @@ func (o ClusterLoggingTypeConfigTypePtrOutput) ToClusterLoggingTypeConfigTypePtr
 
 func (o ClusterLoggingTypeConfigTypePtrOutput) ToClusterLoggingTypeConfigTypePtrOutputWithContext(ctx context.Context) ClusterLoggingTypeConfigTypePtrOutput {
 	return o
-}
-
-func (o ClusterLoggingTypeConfigTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterLoggingTypeConfigType] {
-	return pulumix.Output[*ClusterLoggingTypeConfigType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterLoggingTypeConfigTypePtrOutput) Elem() ClusterLoggingTypeConfigTypeOutput {
@@ -631,12 +595,6 @@ func (o IdentityProviderConfigTypeOutput) ToIdentityProviderConfigTypePtrOutputW
 	}).(IdentityProviderConfigTypePtrOutput)
 }
 
-func (o IdentityProviderConfigTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IdentityProviderConfigType] {
-	return pulumix.Output[IdentityProviderConfigType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IdentityProviderConfigTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -670,12 +628,6 @@ func (o IdentityProviderConfigTypePtrOutput) ToIdentityProviderConfigTypePtrOutp
 
 func (o IdentityProviderConfigTypePtrOutput) ToIdentityProviderConfigTypePtrOutputWithContext(ctx context.Context) IdentityProviderConfigTypePtrOutput {
 	return o
-}
-
-func (o IdentityProviderConfigTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderConfigType] {
-	return pulumix.Output[*IdentityProviderConfigType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdentityProviderConfigTypePtrOutput) Elem() IdentityProviderConfigTypeOutput {

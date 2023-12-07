@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::EC2::TransitGatewayConnect type
@@ -75,12 +74,6 @@ func (o LookupTransitGatewayConnectResultOutput) ToLookupTransitGatewayConnectRe
 
 func (o LookupTransitGatewayConnectResultOutput) ToLookupTransitGatewayConnectResultOutputWithContext(ctx context.Context) LookupTransitGatewayConnectResultOutput {
 	return o
-}
-
-func (o LookupTransitGatewayConnectResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTransitGatewayConnectResult] {
-	return pulumix.Output[LookupTransitGatewayConnectResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The creation time.

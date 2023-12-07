@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Glue::SecurityConfiguration
@@ -65,12 +64,6 @@ func (o LookupSecurityConfigurationResultOutput) ToLookupSecurityConfigurationRe
 
 func (o LookupSecurityConfigurationResultOutput) ToLookupSecurityConfigurationResultOutputWithContext(ctx context.Context) LookupSecurityConfigurationResultOutput {
 	return o
-}
-
-func (o LookupSecurityConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSecurityConfigurationResult] {
-	return pulumix.Output[LookupSecurityConfigurationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupSecurityConfigurationResultOutput) EncryptionConfiguration() SecurityConfigurationEncryptionConfigurationPtrOutput {

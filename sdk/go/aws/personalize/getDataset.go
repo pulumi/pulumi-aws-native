@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Personalize::Dataset.
@@ -68,12 +67,6 @@ func (o LookupDatasetResultOutput) ToLookupDatasetResultOutput() LookupDatasetRe
 
 func (o LookupDatasetResultOutput) ToLookupDatasetResultOutputWithContext(ctx context.Context) LookupDatasetResultOutput {
 	return o
-}
-
-func (o LookupDatasetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDatasetResult] {
-	return pulumix.Output[LookupDatasetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the dataset

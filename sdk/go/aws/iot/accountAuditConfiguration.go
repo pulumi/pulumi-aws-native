@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Configures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.
@@ -119,12 +118,6 @@ func (i *AccountAuditConfiguration) ToAccountAuditConfigurationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(AccountAuditConfigurationOutput)
 }
 
-func (i *AccountAuditConfiguration) ToOutput(ctx context.Context) pulumix.Output[*AccountAuditConfiguration] {
-	return pulumix.Output[*AccountAuditConfiguration]{
-		OutputState: i.ToAccountAuditConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountAuditConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AccountAuditConfigurationOutput) ElementType() reflect.Type {
@@ -137,12 +130,6 @@ func (o AccountAuditConfigurationOutput) ToAccountAuditConfigurationOutput() Acc
 
 func (o AccountAuditConfigurationOutput) ToAccountAuditConfigurationOutputWithContext(ctx context.Context) AccountAuditConfigurationOutput {
 	return o
-}
-
-func (o AccountAuditConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountAuditConfiguration] {
-	return pulumix.Output[*AccountAuditConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).

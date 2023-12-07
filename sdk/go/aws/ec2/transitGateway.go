@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::TransitGateway
@@ -129,12 +128,6 @@ func (i *TransitGateway) ToTransitGatewayOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayOutput)
 }
 
-func (i *TransitGateway) ToOutput(ctx context.Context) pulumix.Output[*TransitGateway] {
-	return pulumix.Output[*TransitGateway]{
-		OutputState: i.ToTransitGatewayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransitGatewayOutput struct{ *pulumi.OutputState }
 
 func (TransitGatewayOutput) ElementType() reflect.Type {
@@ -147,12 +140,6 @@ func (o TransitGatewayOutput) ToTransitGatewayOutput() TransitGatewayOutput {
 
 func (o TransitGatewayOutput) ToTransitGatewayOutputWithContext(ctx context.Context) TransitGatewayOutput {
 	return o
-}
-
-func (o TransitGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*TransitGateway] {
-	return pulumix.Output[*TransitGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransitGatewayOutput) AmazonSideAsn() pulumi.IntPtrOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::SecurityGroupEgress
@@ -65,12 +64,6 @@ func (o LookupSecurityGroupEgressResultOutput) ToLookupSecurityGroupEgressResult
 
 func (o LookupSecurityGroupEgressResultOutput) ToLookupSecurityGroupEgressResultOutputWithContext(ctx context.Context) LookupSecurityGroupEgressResultOutput {
 	return o
-}
-
-func (o LookupSecurityGroupEgressResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSecurityGroupEgressResult] {
-	return pulumix.Output[LookupSecurityGroupEgressResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupSecurityGroupEgressResultOutput) Description() pulumi.StringPtrOutput {

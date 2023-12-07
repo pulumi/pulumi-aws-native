@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Macie CustomDataIdentifier resource schema
@@ -71,12 +70,6 @@ func (o LookupCustomDataIdentifierResultOutput) ToLookupCustomDataIdentifierResu
 
 func (o LookupCustomDataIdentifierResultOutput) ToLookupCustomDataIdentifierResultOutputWithContext(ctx context.Context) LookupCustomDataIdentifierResultOutput {
 	return o
-}
-
-func (o LookupCustomDataIdentifierResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCustomDataIdentifierResult] {
-	return pulumix.Output[LookupCustomDataIdentifierResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Custom data identifier ARN.

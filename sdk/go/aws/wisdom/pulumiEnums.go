@@ -77,12 +77,6 @@ func (o AssistantAssociationAssociationTypeOutput) ToAssistantAssociationAssocia
 	}).(AssistantAssociationAssociationTypePtrOutput)
 }
 
-func (o AssistantAssociationAssociationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AssistantAssociationAssociationType] {
-	return pulumix.Output[AssistantAssociationAssociationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssistantAssociationAssociationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -116,12 +110,6 @@ func (o AssistantAssociationAssociationTypePtrOutput) ToAssistantAssociationAsso
 
 func (o AssistantAssociationAssociationTypePtrOutput) ToAssistantAssociationAssociationTypePtrOutputWithContext(ctx context.Context) AssistantAssociationAssociationTypePtrOutput {
 	return o
-}
-
-func (o AssistantAssociationAssociationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssistantAssociationAssociationType] {
-	return pulumix.Output[*AssistantAssociationAssociationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssistantAssociationAssociationTypePtrOutput) Elem() AssistantAssociationAssociationTypeOutput {
@@ -258,12 +246,6 @@ func (o AssistantTypeOutput) ToAssistantTypePtrOutputWithContext(ctx context.Con
 	}).(AssistantTypePtrOutput)
 }
 
-func (o AssistantTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AssistantType] {
-	return pulumix.Output[AssistantType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssistantTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -297,12 +279,6 @@ func (o AssistantTypePtrOutput) ToAssistantTypePtrOutput() AssistantTypePtrOutpu
 
 func (o AssistantTypePtrOutput) ToAssistantTypePtrOutputWithContext(ctx context.Context) AssistantTypePtrOutput {
 	return o
-}
-
-func (o AssistantTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssistantType] {
-	return pulumix.Output[*AssistantType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssistantTypePtrOutput) Elem() AssistantTypeOutput {
@@ -440,12 +416,6 @@ func (o KnowledgeBaseTypeOutput) ToKnowledgeBaseTypePtrOutputWithContext(ctx con
 	}).(KnowledgeBaseTypePtrOutput)
 }
 
-func (o KnowledgeBaseTypeOutput) ToOutput(ctx context.Context) pulumix.Output[KnowledgeBaseType] {
-	return pulumix.Output[KnowledgeBaseType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KnowledgeBaseTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -479,12 +449,6 @@ func (o KnowledgeBaseTypePtrOutput) ToKnowledgeBaseTypePtrOutput() KnowledgeBase
 
 func (o KnowledgeBaseTypePtrOutput) ToKnowledgeBaseTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseTypePtrOutput {
 	return o
-}
-
-func (o KnowledgeBaseTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KnowledgeBaseType] {
-	return pulumix.Output[*KnowledgeBaseType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KnowledgeBaseTypePtrOutput) Elem() KnowledgeBaseTypeOutput {

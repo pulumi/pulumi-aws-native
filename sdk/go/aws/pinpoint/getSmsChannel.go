@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::SMSChannel
@@ -67,12 +66,6 @@ func (o LookupSmsChannelResultOutput) ToLookupSmsChannelResultOutput() LookupSms
 
 func (o LookupSmsChannelResultOutput) ToLookupSmsChannelResultOutputWithContext(ctx context.Context) LookupSmsChannelResultOutput {
 	return o
-}
-
-func (o LookupSmsChannelResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSmsChannelResult] {
-	return pulumix.Output[LookupSmsChannelResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupSmsChannelResultOutput) Enabled() pulumi.BoolPtrOutput {

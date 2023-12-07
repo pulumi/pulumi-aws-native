@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Logs::DeliverySource.
@@ -75,12 +74,6 @@ func (o LookupDeliverySourceResultOutput) ToLookupDeliverySourceResultOutput() L
 
 func (o LookupDeliverySourceResultOutput) ToLookupDeliverySourceResultOutputWithContext(ctx context.Context) LookupDeliverySourceResultOutput {
 	return o
-}
-
-func (o LookupDeliverySourceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDeliverySourceResult] {
-	return pulumix.Output[LookupDeliverySourceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the Aqueduct Source.

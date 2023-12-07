@@ -78,12 +78,6 @@ func (o SignalingChannelTypeOutput) ToSignalingChannelTypePtrOutputWithContext(c
 	}).(SignalingChannelTypePtrOutput)
 }
 
-func (o SignalingChannelTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SignalingChannelType] {
-	return pulumix.Output[SignalingChannelType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SignalingChannelTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o SignalingChannelTypePtrOutput) ToSignalingChannelTypePtrOutput() Signali
 
 func (o SignalingChannelTypePtrOutput) ToSignalingChannelTypePtrOutputWithContext(ctx context.Context) SignalingChannelTypePtrOutput {
 	return o
-}
-
-func (o SignalingChannelTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SignalingChannelType] {
-	return pulumix.Output[*SignalingChannelType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SignalingChannelTypePtrOutput) Elem() SignalingChannelTypeOutput {

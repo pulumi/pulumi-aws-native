@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Greengrass::LoggerDefinitionVersion
@@ -64,12 +63,6 @@ func (o LookupLoggerDefinitionVersionResultOutput) ToLookupLoggerDefinitionVersi
 
 func (o LookupLoggerDefinitionVersionResultOutput) ToLookupLoggerDefinitionVersionResultOutputWithContext(ctx context.Context) LookupLoggerDefinitionVersionResultOutput {
 	return o
-}
-
-func (o LookupLoggerDefinitionVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLoggerDefinitionVersionResult] {
-	return pulumix.Output[LookupLoggerDefinitionVersionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupLoggerDefinitionVersionResultOutput) Id() pulumi.StringPtrOutput {

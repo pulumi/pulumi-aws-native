@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Enable a resource that has been published in the CloudFormation Registry.
@@ -159,12 +158,6 @@ func (i *TypeActivation) ToTypeActivationOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(TypeActivationOutput)
 }
 
-func (i *TypeActivation) ToOutput(ctx context.Context) pulumix.Output[*TypeActivation] {
-	return pulumix.Output[*TypeActivation]{
-		OutputState: i.ToTypeActivationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TypeActivationOutput struct{ *pulumi.OutputState }
 
 func (TypeActivationOutput) ElementType() reflect.Type {
@@ -177,12 +170,6 @@ func (o TypeActivationOutput) ToTypeActivationOutput() TypeActivationOutput {
 
 func (o TypeActivationOutput) ToTypeActivationOutputWithContext(ctx context.Context) TypeActivationOutput {
 	return o
-}
-
-func (o TypeActivationOutput) ToOutput(ctx context.Context) pulumix.Output[*TypeActivation] {
-	return pulumix.Output[*TypeActivation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the extension.

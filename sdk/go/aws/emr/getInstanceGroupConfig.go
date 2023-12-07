@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EMR::InstanceGroupConfig
@@ -66,12 +65,6 @@ func (o LookupInstanceGroupConfigResultOutput) ToLookupInstanceGroupConfigResult
 
 func (o LookupInstanceGroupConfigResultOutput) ToLookupInstanceGroupConfigResultOutputWithContext(ctx context.Context) LookupInstanceGroupConfigResultOutput {
 	return o
-}
-
-func (o LookupInstanceGroupConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupInstanceGroupConfigResult] {
-	return pulumix.Output[LookupInstanceGroupConfigResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupInstanceGroupConfigResultOutput) AutoScalingPolicy() InstanceGroupConfigAutoScalingPolicyPtrOutput {

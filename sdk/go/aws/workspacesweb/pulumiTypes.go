@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -41,12 +40,6 @@ func (i BrowserSettingsEncryptionContextMapArgs) ToBrowserSettingsEncryptionCont
 
 func (i BrowserSettingsEncryptionContextMapArgs) ToBrowserSettingsEncryptionContextMapOutputWithContext(ctx context.Context) BrowserSettingsEncryptionContextMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BrowserSettingsEncryptionContextMapOutput)
-}
-
-func (i BrowserSettingsEncryptionContextMapArgs) ToOutput(ctx context.Context) pulumix.Output[BrowserSettingsEncryptionContextMap] {
-	return pulumix.Output[BrowserSettingsEncryptionContextMap]{
-		OutputState: i.ToBrowserSettingsEncryptionContextMapOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i BrowserSettingsEncryptionContextMapArgs) ToBrowserSettingsEncryptionContextMapPtrOutput() BrowserSettingsEncryptionContextMapPtrOutput {
@@ -90,12 +83,6 @@ func (i *browserSettingsEncryptionContextMapPtrType) ToBrowserSettingsEncryption
 	return pulumi.ToOutputWithContext(ctx, i).(BrowserSettingsEncryptionContextMapPtrOutput)
 }
 
-func (i *browserSettingsEncryptionContextMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*BrowserSettingsEncryptionContextMap] {
-	return pulumix.Output[*BrowserSettingsEncryptionContextMap]{
-		OutputState: i.ToBrowserSettingsEncryptionContextMapPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BrowserSettingsEncryptionContextMapOutput struct{ *pulumi.OutputState }
 
 func (BrowserSettingsEncryptionContextMapOutput) ElementType() reflect.Type {
@@ -120,12 +107,6 @@ func (o BrowserSettingsEncryptionContextMapOutput) ToBrowserSettingsEncryptionCo
 	}).(BrowserSettingsEncryptionContextMapPtrOutput)
 }
 
-func (o BrowserSettingsEncryptionContextMapOutput) ToOutput(ctx context.Context) pulumix.Output[BrowserSettingsEncryptionContextMap] {
-	return pulumix.Output[BrowserSettingsEncryptionContextMap]{
-		OutputState: o.OutputState,
-	}
-}
-
 type BrowserSettingsEncryptionContextMapPtrOutput struct{ *pulumi.OutputState }
 
 func (BrowserSettingsEncryptionContextMapPtrOutput) ElementType() reflect.Type {
@@ -138,12 +119,6 @@ func (o BrowserSettingsEncryptionContextMapPtrOutput) ToBrowserSettingsEncryptio
 
 func (o BrowserSettingsEncryptionContextMapPtrOutput) ToBrowserSettingsEncryptionContextMapPtrOutputWithContext(ctx context.Context) BrowserSettingsEncryptionContextMapPtrOutput {
 	return o
-}
-
-func (o BrowserSettingsEncryptionContextMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BrowserSettingsEncryptionContextMap] {
-	return pulumix.Output[*BrowserSettingsEncryptionContextMap]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BrowserSettingsEncryptionContextMapPtrOutput) Elem() BrowserSettingsEncryptionContextMapOutput {
@@ -189,12 +164,6 @@ func (i BrowserSettingsTagArgs) ToBrowserSettingsTagOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(BrowserSettingsTagOutput)
 }
 
-func (i BrowserSettingsTagArgs) ToOutput(ctx context.Context) pulumix.Output[BrowserSettingsTag] {
-	return pulumix.Output[BrowserSettingsTag]{
-		OutputState: i.ToBrowserSettingsTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BrowserSettingsTagArrayInput is an input type that accepts BrowserSettingsTagArray and BrowserSettingsTagArrayOutput values.
 // You can construct a concrete instance of `BrowserSettingsTagArrayInput` via:
 //
@@ -220,12 +189,6 @@ func (i BrowserSettingsTagArray) ToBrowserSettingsTagArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(BrowserSettingsTagArrayOutput)
 }
 
-func (i BrowserSettingsTagArray) ToOutput(ctx context.Context) pulumix.Output[[]BrowserSettingsTag] {
-	return pulumix.Output[[]BrowserSettingsTag]{
-		OutputState: i.ToBrowserSettingsTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BrowserSettingsTagOutput struct{ *pulumi.OutputState }
 
 func (BrowserSettingsTagOutput) ElementType() reflect.Type {
@@ -238,12 +201,6 @@ func (o BrowserSettingsTagOutput) ToBrowserSettingsTagOutput() BrowserSettingsTa
 
 func (o BrowserSettingsTagOutput) ToBrowserSettingsTagOutputWithContext(ctx context.Context) BrowserSettingsTagOutput {
 	return o
-}
-
-func (o BrowserSettingsTagOutput) ToOutput(ctx context.Context) pulumix.Output[BrowserSettingsTag] {
-	return pulumix.Output[BrowserSettingsTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BrowserSettingsTagOutput) Key() pulumi.StringOutput {
@@ -266,12 +223,6 @@ func (o BrowserSettingsTagArrayOutput) ToBrowserSettingsTagArrayOutput() Browser
 
 func (o BrowserSettingsTagArrayOutput) ToBrowserSettingsTagArrayOutputWithContext(ctx context.Context) BrowserSettingsTagArrayOutput {
 	return o
-}
-
-func (o BrowserSettingsTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BrowserSettingsTag] {
-	return pulumix.Output[[]BrowserSettingsTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BrowserSettingsTagArrayOutput) Index(i pulumi.IntInput) BrowserSettingsTagOutput {
@@ -309,12 +260,6 @@ func (i IdentityProviderDetailsArgs) ToIdentityProviderDetailsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderDetailsOutput)
 }
 
-func (i IdentityProviderDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[IdentityProviderDetails] {
-	return pulumix.Output[IdentityProviderDetails]{
-		OutputState: i.ToIdentityProviderDetailsOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IdentityProviderDetailsOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderDetailsOutput) ElementType() reflect.Type {
@@ -329,12 +274,6 @@ func (o IdentityProviderDetailsOutput) ToIdentityProviderDetailsOutputWithContex
 	return o
 }
 
-func (o IdentityProviderDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[IdentityProviderDetails] {
-	return pulumix.Output[IdentityProviderDetails]{
-		OutputState: o.OutputState,
-	}
-}
-
 type IdentityProviderDetailsPtrOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderDetailsPtrOutput) ElementType() reflect.Type {
@@ -347,12 +286,6 @@ func (o IdentityProviderDetailsPtrOutput) ToIdentityProviderDetailsPtrOutput() I
 
 func (o IdentityProviderDetailsPtrOutput) ToIdentityProviderDetailsPtrOutputWithContext(ctx context.Context) IdentityProviderDetailsPtrOutput {
 	return o
-}
-
-func (o IdentityProviderDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderDetails] {
-	return pulumix.Output[*IdentityProviderDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdentityProviderDetailsPtrOutput) Elem() IdentityProviderDetailsOutput {
@@ -392,12 +325,6 @@ func (i IpAccessSettingsEncryptionContextMapArgs) ToIpAccessSettingsEncryptionCo
 
 func (i IpAccessSettingsEncryptionContextMapArgs) ToIpAccessSettingsEncryptionContextMapOutputWithContext(ctx context.Context) IpAccessSettingsEncryptionContextMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IpAccessSettingsEncryptionContextMapOutput)
-}
-
-func (i IpAccessSettingsEncryptionContextMapArgs) ToOutput(ctx context.Context) pulumix.Output[IpAccessSettingsEncryptionContextMap] {
-	return pulumix.Output[IpAccessSettingsEncryptionContextMap]{
-		OutputState: i.ToIpAccessSettingsEncryptionContextMapOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i IpAccessSettingsEncryptionContextMapArgs) ToIpAccessSettingsEncryptionContextMapPtrOutput() IpAccessSettingsEncryptionContextMapPtrOutput {
@@ -441,12 +368,6 @@ func (i *ipAccessSettingsEncryptionContextMapPtrType) ToIpAccessSettingsEncrypti
 	return pulumi.ToOutputWithContext(ctx, i).(IpAccessSettingsEncryptionContextMapPtrOutput)
 }
 
-func (i *ipAccessSettingsEncryptionContextMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*IpAccessSettingsEncryptionContextMap] {
-	return pulumix.Output[*IpAccessSettingsEncryptionContextMap]{
-		OutputState: i.ToIpAccessSettingsEncryptionContextMapPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IpAccessSettingsEncryptionContextMapOutput struct{ *pulumi.OutputState }
 
 func (IpAccessSettingsEncryptionContextMapOutput) ElementType() reflect.Type {
@@ -471,12 +392,6 @@ func (o IpAccessSettingsEncryptionContextMapOutput) ToIpAccessSettingsEncryption
 	}).(IpAccessSettingsEncryptionContextMapPtrOutput)
 }
 
-func (o IpAccessSettingsEncryptionContextMapOutput) ToOutput(ctx context.Context) pulumix.Output[IpAccessSettingsEncryptionContextMap] {
-	return pulumix.Output[IpAccessSettingsEncryptionContextMap]{
-		OutputState: o.OutputState,
-	}
-}
-
 type IpAccessSettingsEncryptionContextMapPtrOutput struct{ *pulumi.OutputState }
 
 func (IpAccessSettingsEncryptionContextMapPtrOutput) ElementType() reflect.Type {
@@ -489,12 +404,6 @@ func (o IpAccessSettingsEncryptionContextMapPtrOutput) ToIpAccessSettingsEncrypt
 
 func (o IpAccessSettingsEncryptionContextMapPtrOutput) ToIpAccessSettingsEncryptionContextMapPtrOutputWithContext(ctx context.Context) IpAccessSettingsEncryptionContextMapPtrOutput {
 	return o
-}
-
-func (o IpAccessSettingsEncryptionContextMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IpAccessSettingsEncryptionContextMap] {
-	return pulumix.Output[*IpAccessSettingsEncryptionContextMap]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IpAccessSettingsEncryptionContextMapPtrOutput) Elem() IpAccessSettingsEncryptionContextMapOutput {
@@ -542,12 +451,6 @@ func (i IpAccessSettingsIpRuleArgs) ToIpAccessSettingsIpRuleOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(IpAccessSettingsIpRuleOutput)
 }
 
-func (i IpAccessSettingsIpRuleArgs) ToOutput(ctx context.Context) pulumix.Output[IpAccessSettingsIpRule] {
-	return pulumix.Output[IpAccessSettingsIpRule]{
-		OutputState: i.ToIpAccessSettingsIpRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IpAccessSettingsIpRuleArrayInput is an input type that accepts IpAccessSettingsIpRuleArray and IpAccessSettingsIpRuleArrayOutput values.
 // You can construct a concrete instance of `IpAccessSettingsIpRuleArrayInput` via:
 //
@@ -573,12 +476,6 @@ func (i IpAccessSettingsIpRuleArray) ToIpAccessSettingsIpRuleArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(IpAccessSettingsIpRuleArrayOutput)
 }
 
-func (i IpAccessSettingsIpRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]IpAccessSettingsIpRule] {
-	return pulumix.Output[[]IpAccessSettingsIpRule]{
-		OutputState: i.ToIpAccessSettingsIpRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IpAccessSettingsIpRuleOutput struct{ *pulumi.OutputState }
 
 func (IpAccessSettingsIpRuleOutput) ElementType() reflect.Type {
@@ -591,12 +488,6 @@ func (o IpAccessSettingsIpRuleOutput) ToIpAccessSettingsIpRuleOutput() IpAccessS
 
 func (o IpAccessSettingsIpRuleOutput) ToIpAccessSettingsIpRuleOutputWithContext(ctx context.Context) IpAccessSettingsIpRuleOutput {
 	return o
-}
-
-func (o IpAccessSettingsIpRuleOutput) ToOutput(ctx context.Context) pulumix.Output[IpAccessSettingsIpRule] {
-	return pulumix.Output[IpAccessSettingsIpRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IpAccessSettingsIpRuleOutput) Description() pulumi.StringPtrOutput {
@@ -620,12 +511,6 @@ func (o IpAccessSettingsIpRuleArrayOutput) ToIpAccessSettingsIpRuleArrayOutput()
 
 func (o IpAccessSettingsIpRuleArrayOutput) ToIpAccessSettingsIpRuleArrayOutputWithContext(ctx context.Context) IpAccessSettingsIpRuleArrayOutput {
 	return o
-}
-
-func (o IpAccessSettingsIpRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IpAccessSettingsIpRule] {
-	return pulumix.Output[[]IpAccessSettingsIpRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IpAccessSettingsIpRuleArrayOutput) Index(i pulumi.IntInput) IpAccessSettingsIpRuleOutput {
@@ -667,12 +552,6 @@ func (i IpAccessSettingsTagArgs) ToIpAccessSettingsTagOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(IpAccessSettingsTagOutput)
 }
 
-func (i IpAccessSettingsTagArgs) ToOutput(ctx context.Context) pulumix.Output[IpAccessSettingsTag] {
-	return pulumix.Output[IpAccessSettingsTag]{
-		OutputState: i.ToIpAccessSettingsTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IpAccessSettingsTagArrayInput is an input type that accepts IpAccessSettingsTagArray and IpAccessSettingsTagArrayOutput values.
 // You can construct a concrete instance of `IpAccessSettingsTagArrayInput` via:
 //
@@ -698,12 +577,6 @@ func (i IpAccessSettingsTagArray) ToIpAccessSettingsTagArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(IpAccessSettingsTagArrayOutput)
 }
 
-func (i IpAccessSettingsTagArray) ToOutput(ctx context.Context) pulumix.Output[[]IpAccessSettingsTag] {
-	return pulumix.Output[[]IpAccessSettingsTag]{
-		OutputState: i.ToIpAccessSettingsTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IpAccessSettingsTagOutput struct{ *pulumi.OutputState }
 
 func (IpAccessSettingsTagOutput) ElementType() reflect.Type {
@@ -716,12 +589,6 @@ func (o IpAccessSettingsTagOutput) ToIpAccessSettingsTagOutput() IpAccessSetting
 
 func (o IpAccessSettingsTagOutput) ToIpAccessSettingsTagOutputWithContext(ctx context.Context) IpAccessSettingsTagOutput {
 	return o
-}
-
-func (o IpAccessSettingsTagOutput) ToOutput(ctx context.Context) pulumix.Output[IpAccessSettingsTag] {
-	return pulumix.Output[IpAccessSettingsTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IpAccessSettingsTagOutput) Key() pulumi.StringOutput {
@@ -744,12 +611,6 @@ func (o IpAccessSettingsTagArrayOutput) ToIpAccessSettingsTagArrayOutput() IpAcc
 
 func (o IpAccessSettingsTagArrayOutput) ToIpAccessSettingsTagArrayOutputWithContext(ctx context.Context) IpAccessSettingsTagArrayOutput {
 	return o
-}
-
-func (o IpAccessSettingsTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IpAccessSettingsTag] {
-	return pulumix.Output[[]IpAccessSettingsTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IpAccessSettingsTagArrayOutput) Index(i pulumi.IntInput) IpAccessSettingsTagOutput {
@@ -791,12 +652,6 @@ func (i NetworkSettingsTagArgs) ToNetworkSettingsTagOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSettingsTagOutput)
 }
 
-func (i NetworkSettingsTagArgs) ToOutput(ctx context.Context) pulumix.Output[NetworkSettingsTag] {
-	return pulumix.Output[NetworkSettingsTag]{
-		OutputState: i.ToNetworkSettingsTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkSettingsTagArrayInput is an input type that accepts NetworkSettingsTagArray and NetworkSettingsTagArrayOutput values.
 // You can construct a concrete instance of `NetworkSettingsTagArrayInput` via:
 //
@@ -822,12 +677,6 @@ func (i NetworkSettingsTagArray) ToNetworkSettingsTagArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSettingsTagArrayOutput)
 }
 
-func (i NetworkSettingsTagArray) ToOutput(ctx context.Context) pulumix.Output[[]NetworkSettingsTag] {
-	return pulumix.Output[[]NetworkSettingsTag]{
-		OutputState: i.ToNetworkSettingsTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkSettingsTagOutput struct{ *pulumi.OutputState }
 
 func (NetworkSettingsTagOutput) ElementType() reflect.Type {
@@ -840,12 +689,6 @@ func (o NetworkSettingsTagOutput) ToNetworkSettingsTagOutput() NetworkSettingsTa
 
 func (o NetworkSettingsTagOutput) ToNetworkSettingsTagOutputWithContext(ctx context.Context) NetworkSettingsTagOutput {
 	return o
-}
-
-func (o NetworkSettingsTagOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkSettingsTag] {
-	return pulumix.Output[NetworkSettingsTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkSettingsTagOutput) Key() pulumi.StringOutput {
@@ -868,12 +711,6 @@ func (o NetworkSettingsTagArrayOutput) ToNetworkSettingsTagArrayOutput() Network
 
 func (o NetworkSettingsTagArrayOutput) ToNetworkSettingsTagArrayOutputWithContext(ctx context.Context) NetworkSettingsTagArrayOutput {
 	return o
-}
-
-func (o NetworkSettingsTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]NetworkSettingsTag] {
-	return pulumix.Output[[]NetworkSettingsTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkSettingsTagArrayOutput) Index(i pulumi.IntInput) NetworkSettingsTagOutput {
@@ -909,12 +746,6 @@ func (i PortalEncryptionContextMapArgs) ToPortalEncryptionContextMapOutput() Por
 
 func (i PortalEncryptionContextMapArgs) ToPortalEncryptionContextMapOutputWithContext(ctx context.Context) PortalEncryptionContextMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PortalEncryptionContextMapOutput)
-}
-
-func (i PortalEncryptionContextMapArgs) ToOutput(ctx context.Context) pulumix.Output[PortalEncryptionContextMap] {
-	return pulumix.Output[PortalEncryptionContextMap]{
-		OutputState: i.ToPortalEncryptionContextMapOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i PortalEncryptionContextMapArgs) ToPortalEncryptionContextMapPtrOutput() PortalEncryptionContextMapPtrOutput {
@@ -958,12 +789,6 @@ func (i *portalEncryptionContextMapPtrType) ToPortalEncryptionContextMapPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(PortalEncryptionContextMapPtrOutput)
 }
 
-func (i *portalEncryptionContextMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*PortalEncryptionContextMap] {
-	return pulumix.Output[*PortalEncryptionContextMap]{
-		OutputState: i.ToPortalEncryptionContextMapPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PortalEncryptionContextMapOutput struct{ *pulumi.OutputState }
 
 func (PortalEncryptionContextMapOutput) ElementType() reflect.Type {
@@ -988,12 +813,6 @@ func (o PortalEncryptionContextMapOutput) ToPortalEncryptionContextMapPtrOutputW
 	}).(PortalEncryptionContextMapPtrOutput)
 }
 
-func (o PortalEncryptionContextMapOutput) ToOutput(ctx context.Context) pulumix.Output[PortalEncryptionContextMap] {
-	return pulumix.Output[PortalEncryptionContextMap]{
-		OutputState: o.OutputState,
-	}
-}
-
 type PortalEncryptionContextMapPtrOutput struct{ *pulumi.OutputState }
 
 func (PortalEncryptionContextMapPtrOutput) ElementType() reflect.Type {
@@ -1006,12 +825,6 @@ func (o PortalEncryptionContextMapPtrOutput) ToPortalEncryptionContextMapPtrOutp
 
 func (o PortalEncryptionContextMapPtrOutput) ToPortalEncryptionContextMapPtrOutputWithContext(ctx context.Context) PortalEncryptionContextMapPtrOutput {
 	return o
-}
-
-func (o PortalEncryptionContextMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PortalEncryptionContextMap] {
-	return pulumix.Output[*PortalEncryptionContextMap]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PortalEncryptionContextMapPtrOutput) Elem() PortalEncryptionContextMapOutput {
@@ -1057,12 +870,6 @@ func (i PortalTagArgs) ToPortalTagOutputWithContext(ctx context.Context) PortalT
 	return pulumi.ToOutputWithContext(ctx, i).(PortalTagOutput)
 }
 
-func (i PortalTagArgs) ToOutput(ctx context.Context) pulumix.Output[PortalTag] {
-	return pulumix.Output[PortalTag]{
-		OutputState: i.ToPortalTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PortalTagArrayInput is an input type that accepts PortalTagArray and PortalTagArrayOutput values.
 // You can construct a concrete instance of `PortalTagArrayInput` via:
 //
@@ -1088,12 +895,6 @@ func (i PortalTagArray) ToPortalTagArrayOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(PortalTagArrayOutput)
 }
 
-func (i PortalTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PortalTag] {
-	return pulumix.Output[[]PortalTag]{
-		OutputState: i.ToPortalTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PortalTagOutput struct{ *pulumi.OutputState }
 
 func (PortalTagOutput) ElementType() reflect.Type {
@@ -1106,12 +907,6 @@ func (o PortalTagOutput) ToPortalTagOutput() PortalTagOutput {
 
 func (o PortalTagOutput) ToPortalTagOutputWithContext(ctx context.Context) PortalTagOutput {
 	return o
-}
-
-func (o PortalTagOutput) ToOutput(ctx context.Context) pulumix.Output[PortalTag] {
-	return pulumix.Output[PortalTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PortalTagOutput) Key() pulumi.StringOutput {
@@ -1134,12 +929,6 @@ func (o PortalTagArrayOutput) ToPortalTagArrayOutput() PortalTagArrayOutput {
 
 func (o PortalTagArrayOutput) ToPortalTagArrayOutputWithContext(ctx context.Context) PortalTagArrayOutput {
 	return o
-}
-
-func (o PortalTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PortalTag] {
-	return pulumix.Output[[]PortalTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PortalTagArrayOutput) Index(i pulumi.IntInput) PortalTagOutput {
@@ -1181,12 +970,6 @@ func (i TrustStoreTagArgs) ToTrustStoreTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreTagOutput)
 }
 
-func (i TrustStoreTagArgs) ToOutput(ctx context.Context) pulumix.Output[TrustStoreTag] {
-	return pulumix.Output[TrustStoreTag]{
-		OutputState: i.ToTrustStoreTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TrustStoreTagArrayInput is an input type that accepts TrustStoreTagArray and TrustStoreTagArrayOutput values.
 // You can construct a concrete instance of `TrustStoreTagArrayInput` via:
 //
@@ -1212,12 +995,6 @@ func (i TrustStoreTagArray) ToTrustStoreTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(TrustStoreTagArrayOutput)
 }
 
-func (i TrustStoreTagArray) ToOutput(ctx context.Context) pulumix.Output[[]TrustStoreTag] {
-	return pulumix.Output[[]TrustStoreTag]{
-		OutputState: i.ToTrustStoreTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TrustStoreTagOutput struct{ *pulumi.OutputState }
 
 func (TrustStoreTagOutput) ElementType() reflect.Type {
@@ -1230,12 +1007,6 @@ func (o TrustStoreTagOutput) ToTrustStoreTagOutput() TrustStoreTagOutput {
 
 func (o TrustStoreTagOutput) ToTrustStoreTagOutputWithContext(ctx context.Context) TrustStoreTagOutput {
 	return o
-}
-
-func (o TrustStoreTagOutput) ToOutput(ctx context.Context) pulumix.Output[TrustStoreTag] {
-	return pulumix.Output[TrustStoreTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrustStoreTagOutput) Key() pulumi.StringOutput {
@@ -1258,12 +1029,6 @@ func (o TrustStoreTagArrayOutput) ToTrustStoreTagArrayOutput() TrustStoreTagArra
 
 func (o TrustStoreTagArrayOutput) ToTrustStoreTagArrayOutputWithContext(ctx context.Context) TrustStoreTagArrayOutput {
 	return o
-}
-
-func (o TrustStoreTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TrustStoreTag] {
-	return pulumix.Output[[]TrustStoreTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrustStoreTagArrayOutput) Index(i pulumi.IntInput) TrustStoreTagOutput {
@@ -1305,12 +1070,6 @@ func (i UserAccessLoggingSettingsTagArgs) ToUserAccessLoggingSettingsTagOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(UserAccessLoggingSettingsTagOutput)
 }
 
-func (i UserAccessLoggingSettingsTagArgs) ToOutput(ctx context.Context) pulumix.Output[UserAccessLoggingSettingsTag] {
-	return pulumix.Output[UserAccessLoggingSettingsTag]{
-		OutputState: i.ToUserAccessLoggingSettingsTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserAccessLoggingSettingsTagArrayInput is an input type that accepts UserAccessLoggingSettingsTagArray and UserAccessLoggingSettingsTagArrayOutput values.
 // You can construct a concrete instance of `UserAccessLoggingSettingsTagArrayInput` via:
 //
@@ -1336,12 +1095,6 @@ func (i UserAccessLoggingSettingsTagArray) ToUserAccessLoggingSettingsTagArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(UserAccessLoggingSettingsTagArrayOutput)
 }
 
-func (i UserAccessLoggingSettingsTagArray) ToOutput(ctx context.Context) pulumix.Output[[]UserAccessLoggingSettingsTag] {
-	return pulumix.Output[[]UserAccessLoggingSettingsTag]{
-		OutputState: i.ToUserAccessLoggingSettingsTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserAccessLoggingSettingsTagOutput struct{ *pulumi.OutputState }
 
 func (UserAccessLoggingSettingsTagOutput) ElementType() reflect.Type {
@@ -1354,12 +1107,6 @@ func (o UserAccessLoggingSettingsTagOutput) ToUserAccessLoggingSettingsTagOutput
 
 func (o UserAccessLoggingSettingsTagOutput) ToUserAccessLoggingSettingsTagOutputWithContext(ctx context.Context) UserAccessLoggingSettingsTagOutput {
 	return o
-}
-
-func (o UserAccessLoggingSettingsTagOutput) ToOutput(ctx context.Context) pulumix.Output[UserAccessLoggingSettingsTag] {
-	return pulumix.Output[UserAccessLoggingSettingsTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserAccessLoggingSettingsTagOutput) Key() pulumi.StringOutput {
@@ -1382,12 +1129,6 @@ func (o UserAccessLoggingSettingsTagArrayOutput) ToUserAccessLoggingSettingsTagA
 
 func (o UserAccessLoggingSettingsTagArrayOutput) ToUserAccessLoggingSettingsTagArrayOutputWithContext(ctx context.Context) UserAccessLoggingSettingsTagArrayOutput {
 	return o
-}
-
-func (o UserAccessLoggingSettingsTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UserAccessLoggingSettingsTag] {
-	return pulumix.Output[[]UserAccessLoggingSettingsTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserAccessLoggingSettingsTagArrayOutput) Index(i pulumi.IntInput) UserAccessLoggingSettingsTagOutput {
@@ -1431,12 +1172,6 @@ func (i UserSettingsCookieSpecificationArgs) ToUserSettingsCookieSpecificationOu
 	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsCookieSpecificationOutput)
 }
 
-func (i UserSettingsCookieSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[UserSettingsCookieSpecification] {
-	return pulumix.Output[UserSettingsCookieSpecification]{
-		OutputState: i.ToUserSettingsCookieSpecificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserSettingsCookieSpecificationArrayInput is an input type that accepts UserSettingsCookieSpecificationArray and UserSettingsCookieSpecificationArrayOutput values.
 // You can construct a concrete instance of `UserSettingsCookieSpecificationArrayInput` via:
 //
@@ -1462,12 +1197,6 @@ func (i UserSettingsCookieSpecificationArray) ToUserSettingsCookieSpecificationA
 	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsCookieSpecificationArrayOutput)
 }
 
-func (i UserSettingsCookieSpecificationArray) ToOutput(ctx context.Context) pulumix.Output[[]UserSettingsCookieSpecification] {
-	return pulumix.Output[[]UserSettingsCookieSpecification]{
-		OutputState: i.ToUserSettingsCookieSpecificationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserSettingsCookieSpecificationOutput struct{ *pulumi.OutputState }
 
 func (UserSettingsCookieSpecificationOutput) ElementType() reflect.Type {
@@ -1480,12 +1209,6 @@ func (o UserSettingsCookieSpecificationOutput) ToUserSettingsCookieSpecification
 
 func (o UserSettingsCookieSpecificationOutput) ToUserSettingsCookieSpecificationOutputWithContext(ctx context.Context) UserSettingsCookieSpecificationOutput {
 	return o
-}
-
-func (o UserSettingsCookieSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[UserSettingsCookieSpecification] {
-	return pulumix.Output[UserSettingsCookieSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserSettingsCookieSpecificationOutput) Domain() pulumi.StringOutput {
@@ -1512,12 +1235,6 @@ func (o UserSettingsCookieSpecificationArrayOutput) ToUserSettingsCookieSpecific
 
 func (o UserSettingsCookieSpecificationArrayOutput) ToUserSettingsCookieSpecificationArrayOutputWithContext(ctx context.Context) UserSettingsCookieSpecificationArrayOutput {
 	return o
-}
-
-func (o UserSettingsCookieSpecificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UserSettingsCookieSpecification] {
-	return pulumix.Output[[]UserSettingsCookieSpecification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserSettingsCookieSpecificationArrayOutput) Index(i pulumi.IntInput) UserSettingsCookieSpecificationOutput {
@@ -1557,12 +1274,6 @@ func (i UserSettingsCookieSynchronizationConfigurationArgs) ToUserSettingsCookie
 
 func (i UserSettingsCookieSynchronizationConfigurationArgs) ToUserSettingsCookieSynchronizationConfigurationOutputWithContext(ctx context.Context) UserSettingsCookieSynchronizationConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsCookieSynchronizationConfigurationOutput)
-}
-
-func (i UserSettingsCookieSynchronizationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[UserSettingsCookieSynchronizationConfiguration] {
-	return pulumix.Output[UserSettingsCookieSynchronizationConfiguration]{
-		OutputState: i.ToUserSettingsCookieSynchronizationConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i UserSettingsCookieSynchronizationConfigurationArgs) ToUserSettingsCookieSynchronizationConfigurationPtrOutput() UserSettingsCookieSynchronizationConfigurationPtrOutput {
@@ -1606,12 +1317,6 @@ func (i *userSettingsCookieSynchronizationConfigurationPtrType) ToUserSettingsCo
 	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsCookieSynchronizationConfigurationPtrOutput)
 }
 
-func (i *userSettingsCookieSynchronizationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserSettingsCookieSynchronizationConfiguration] {
-	return pulumix.Output[*UserSettingsCookieSynchronizationConfiguration]{
-		OutputState: i.ToUserSettingsCookieSynchronizationConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserSettingsCookieSynchronizationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (UserSettingsCookieSynchronizationConfigurationOutput) ElementType() reflect.Type {
@@ -1634,12 +1339,6 @@ func (o UserSettingsCookieSynchronizationConfigurationOutput) ToUserSettingsCook
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserSettingsCookieSynchronizationConfiguration) *UserSettingsCookieSynchronizationConfiguration {
 		return &v
 	}).(UserSettingsCookieSynchronizationConfigurationPtrOutput)
-}
-
-func (o UserSettingsCookieSynchronizationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[UserSettingsCookieSynchronizationConfiguration] {
-	return pulumix.Output[UserSettingsCookieSynchronizationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserSettingsCookieSynchronizationConfigurationOutput) Allowlist() UserSettingsCookieSpecificationArrayOutput {
@@ -1666,12 +1365,6 @@ func (o UserSettingsCookieSynchronizationConfigurationPtrOutput) ToUserSettingsC
 
 func (o UserSettingsCookieSynchronizationConfigurationPtrOutput) ToUserSettingsCookieSynchronizationConfigurationPtrOutputWithContext(ctx context.Context) UserSettingsCookieSynchronizationConfigurationPtrOutput {
 	return o
-}
-
-func (o UserSettingsCookieSynchronizationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserSettingsCookieSynchronizationConfiguration] {
-	return pulumix.Output[*UserSettingsCookieSynchronizationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserSettingsCookieSynchronizationConfigurationPtrOutput) Elem() UserSettingsCookieSynchronizationConfigurationOutput {
@@ -1731,12 +1424,6 @@ func (i UserSettingsEncryptionContextMapArgs) ToUserSettingsEncryptionContextMap
 	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsEncryptionContextMapOutput)
 }
 
-func (i UserSettingsEncryptionContextMapArgs) ToOutput(ctx context.Context) pulumix.Output[UserSettingsEncryptionContextMap] {
-	return pulumix.Output[UserSettingsEncryptionContextMap]{
-		OutputState: i.ToUserSettingsEncryptionContextMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserSettingsEncryptionContextMapArgs) ToUserSettingsEncryptionContextMapPtrOutput() UserSettingsEncryptionContextMapPtrOutput {
 	return i.ToUserSettingsEncryptionContextMapPtrOutputWithContext(context.Background())
 }
@@ -1778,12 +1465,6 @@ func (i *userSettingsEncryptionContextMapPtrType) ToUserSettingsEncryptionContex
 	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsEncryptionContextMapPtrOutput)
 }
 
-func (i *userSettingsEncryptionContextMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserSettingsEncryptionContextMap] {
-	return pulumix.Output[*UserSettingsEncryptionContextMap]{
-		OutputState: i.ToUserSettingsEncryptionContextMapPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserSettingsEncryptionContextMapOutput struct{ *pulumi.OutputState }
 
 func (UserSettingsEncryptionContextMapOutput) ElementType() reflect.Type {
@@ -1808,12 +1489,6 @@ func (o UserSettingsEncryptionContextMapOutput) ToUserSettingsEncryptionContextM
 	}).(UserSettingsEncryptionContextMapPtrOutput)
 }
 
-func (o UserSettingsEncryptionContextMapOutput) ToOutput(ctx context.Context) pulumix.Output[UserSettingsEncryptionContextMap] {
-	return pulumix.Output[UserSettingsEncryptionContextMap]{
-		OutputState: o.OutputState,
-	}
-}
-
 type UserSettingsEncryptionContextMapPtrOutput struct{ *pulumi.OutputState }
 
 func (UserSettingsEncryptionContextMapPtrOutput) ElementType() reflect.Type {
@@ -1826,12 +1501,6 @@ func (o UserSettingsEncryptionContextMapPtrOutput) ToUserSettingsEncryptionConte
 
 func (o UserSettingsEncryptionContextMapPtrOutput) ToUserSettingsEncryptionContextMapPtrOutputWithContext(ctx context.Context) UserSettingsEncryptionContextMapPtrOutput {
 	return o
-}
-
-func (o UserSettingsEncryptionContextMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserSettingsEncryptionContextMap] {
-	return pulumix.Output[*UserSettingsEncryptionContextMap]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserSettingsEncryptionContextMapPtrOutput) Elem() UserSettingsEncryptionContextMapOutput {
@@ -1877,12 +1546,6 @@ func (i UserSettingsTagArgs) ToUserSettingsTagOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsTagOutput)
 }
 
-func (i UserSettingsTagArgs) ToOutput(ctx context.Context) pulumix.Output[UserSettingsTag] {
-	return pulumix.Output[UserSettingsTag]{
-		OutputState: i.ToUserSettingsTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserSettingsTagArrayInput is an input type that accepts UserSettingsTagArray and UserSettingsTagArrayOutput values.
 // You can construct a concrete instance of `UserSettingsTagArrayInput` via:
 //
@@ -1908,12 +1571,6 @@ func (i UserSettingsTagArray) ToUserSettingsTagArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsTagArrayOutput)
 }
 
-func (i UserSettingsTagArray) ToOutput(ctx context.Context) pulumix.Output[[]UserSettingsTag] {
-	return pulumix.Output[[]UserSettingsTag]{
-		OutputState: i.ToUserSettingsTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserSettingsTagOutput struct{ *pulumi.OutputState }
 
 func (UserSettingsTagOutput) ElementType() reflect.Type {
@@ -1926,12 +1583,6 @@ func (o UserSettingsTagOutput) ToUserSettingsTagOutput() UserSettingsTagOutput {
 
 func (o UserSettingsTagOutput) ToUserSettingsTagOutputWithContext(ctx context.Context) UserSettingsTagOutput {
 	return o
-}
-
-func (o UserSettingsTagOutput) ToOutput(ctx context.Context) pulumix.Output[UserSettingsTag] {
-	return pulumix.Output[UserSettingsTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserSettingsTagOutput) Key() pulumi.StringOutput {
@@ -1954,12 +1605,6 @@ func (o UserSettingsTagArrayOutput) ToUserSettingsTagArrayOutput() UserSettingsT
 
 func (o UserSettingsTagArrayOutput) ToUserSettingsTagArrayOutputWithContext(ctx context.Context) UserSettingsTagArrayOutput {
 	return o
-}
-
-func (o UserSettingsTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UserSettingsTag] {
-	return pulumix.Output[[]UserSettingsTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserSettingsTagArrayOutput) Index(i pulumi.IntInput) UserSettingsTagOutput {

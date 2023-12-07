@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i AccessPointVpcConfigurationArgs) ToAccessPointVpcConfigurationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointVpcConfigurationOutput)
 }
 
-func (i AccessPointVpcConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPointVpcConfiguration] {
-	return pulumix.Output[AccessPointVpcConfiguration]{
-		OutputState: i.ToAccessPointVpcConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccessPointVpcConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AccessPointVpcConfigurationOutput) ElementType() reflect.Type {
@@ -65,12 +58,6 @@ func (o AccessPointVpcConfigurationOutput) ToAccessPointVpcConfigurationOutput()
 
 func (o AccessPointVpcConfigurationOutput) ToAccessPointVpcConfigurationOutputWithContext(ctx context.Context) AccessPointVpcConfigurationOutput {
 	return o
-}
-
-func (o AccessPointVpcConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPointVpcConfiguration] {
-	return pulumix.Output[AccessPointVpcConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Virtual Private Cloud (VPC) Id from which AccessPoint will allow requests.
@@ -111,12 +98,6 @@ func (i BucketAbortIncompleteMultipartUploadArgs) ToBucketAbortIncompleteMultipa
 
 func (i BucketAbortIncompleteMultipartUploadArgs) ToBucketAbortIncompleteMultipartUploadOutputWithContext(ctx context.Context) BucketAbortIncompleteMultipartUploadOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAbortIncompleteMultipartUploadOutput)
-}
-
-func (i BucketAbortIncompleteMultipartUploadArgs) ToOutput(ctx context.Context) pulumix.Output[BucketAbortIncompleteMultipartUpload] {
-	return pulumix.Output[BucketAbortIncompleteMultipartUpload]{
-		OutputState: i.ToBucketAbortIncompleteMultipartUploadOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i BucketAbortIncompleteMultipartUploadArgs) ToBucketAbortIncompleteMultipartUploadPtrOutput() BucketAbortIncompleteMultipartUploadPtrOutput {
@@ -160,12 +141,6 @@ func (i *bucketAbortIncompleteMultipartUploadPtrType) ToBucketAbortIncompleteMul
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAbortIncompleteMultipartUploadPtrOutput)
 }
 
-func (i *bucketAbortIncompleteMultipartUploadPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketAbortIncompleteMultipartUpload] {
-	return pulumix.Output[*BucketAbortIncompleteMultipartUpload]{
-		OutputState: i.ToBucketAbortIncompleteMultipartUploadPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies the days since the initiation of an incomplete multipart upload that Amazon S3Outposts will wait before permanently removing all parts of the upload.
 type BucketAbortIncompleteMultipartUploadOutput struct{ *pulumi.OutputState }
 
@@ -191,12 +166,6 @@ func (o BucketAbortIncompleteMultipartUploadOutput) ToBucketAbortIncompleteMulti
 	}).(BucketAbortIncompleteMultipartUploadPtrOutput)
 }
 
-func (o BucketAbortIncompleteMultipartUploadOutput) ToOutput(ctx context.Context) pulumix.Output[BucketAbortIncompleteMultipartUpload] {
-	return pulumix.Output[BucketAbortIncompleteMultipartUpload]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the number of days after which Amazon S3Outposts aborts an incomplete multipart upload.
 func (o BucketAbortIncompleteMultipartUploadOutput) DaysAfterInitiation() pulumi.IntOutput {
 	return o.ApplyT(func(v BucketAbortIncompleteMultipartUpload) int { return v.DaysAfterInitiation }).(pulumi.IntOutput)
@@ -214,12 +183,6 @@ func (o BucketAbortIncompleteMultipartUploadPtrOutput) ToBucketAbortIncompleteMu
 
 func (o BucketAbortIncompleteMultipartUploadPtrOutput) ToBucketAbortIncompleteMultipartUploadPtrOutputWithContext(ctx context.Context) BucketAbortIncompleteMultipartUploadPtrOutput {
 	return o
-}
-
-func (o BucketAbortIncompleteMultipartUploadPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketAbortIncompleteMultipartUpload] {
-	return pulumix.Output[*BucketAbortIncompleteMultipartUpload]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketAbortIncompleteMultipartUploadPtrOutput) Elem() BucketAbortIncompleteMultipartUploadOutput {
@@ -286,12 +249,6 @@ func (i BucketFilterAndOperatorPropertiesArgs) ToBucketFilterAndOperatorProperti
 	return pulumi.ToOutputWithContext(ctx, i).(BucketFilterAndOperatorPropertiesOutput)
 }
 
-func (i BucketFilterAndOperatorPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[BucketFilterAndOperatorProperties] {
-	return pulumix.Output[BucketFilterAndOperatorProperties]{
-		OutputState: i.ToBucketFilterAndOperatorPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketFilterAndOperatorPropertiesArgs) ToBucketFilterAndOperatorPropertiesPtrOutput() BucketFilterAndOperatorPropertiesPtrOutput {
 	return i.ToBucketFilterAndOperatorPropertiesPtrOutputWithContext(context.Background())
 }
@@ -333,12 +290,6 @@ func (i *bucketFilterAndOperatorPropertiesPtrType) ToBucketFilterAndOperatorProp
 	return pulumi.ToOutputWithContext(ctx, i).(BucketFilterAndOperatorPropertiesPtrOutput)
 }
 
-func (i *bucketFilterAndOperatorPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketFilterAndOperatorProperties] {
-	return pulumix.Output[*BucketFilterAndOperatorProperties]{
-		OutputState: i.ToBucketFilterAndOperatorPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketFilterAndOperatorPropertiesOutput struct{ *pulumi.OutputState }
 
 func (BucketFilterAndOperatorPropertiesOutput) ElementType() reflect.Type {
@@ -363,12 +314,6 @@ func (o BucketFilterAndOperatorPropertiesOutput) ToBucketFilterAndOperatorProper
 	}).(BucketFilterAndOperatorPropertiesPtrOutput)
 }
 
-func (o BucketFilterAndOperatorPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[BucketFilterAndOperatorProperties] {
-	return pulumix.Output[BucketFilterAndOperatorProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Prefix identifies one or more objects to which the rule applies.
 func (o BucketFilterAndOperatorPropertiesOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketFilterAndOperatorProperties) *string { return v.Prefix }).(pulumi.StringPtrOutput)
@@ -391,12 +336,6 @@ func (o BucketFilterAndOperatorPropertiesPtrOutput) ToBucketFilterAndOperatorPro
 
 func (o BucketFilterAndOperatorPropertiesPtrOutput) ToBucketFilterAndOperatorPropertiesPtrOutputWithContext(ctx context.Context) BucketFilterAndOperatorPropertiesPtrOutput {
 	return o
-}
-
-func (o BucketFilterAndOperatorPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketFilterAndOperatorProperties] {
-	return pulumix.Output[*BucketFilterAndOperatorProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketFilterAndOperatorPropertiesPtrOutput) Elem() BucketFilterAndOperatorPropertiesOutput {
@@ -464,12 +403,6 @@ func (i BucketFilterTagArgs) ToBucketFilterTagOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(BucketFilterTagOutput)
 }
 
-func (i BucketFilterTagArgs) ToOutput(ctx context.Context) pulumix.Output[BucketFilterTag] {
-	return pulumix.Output[BucketFilterTag]{
-		OutputState: i.ToBucketFilterTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketFilterTagArgs) ToBucketFilterTagPtrOutput() BucketFilterTagPtrOutput {
 	return i.ToBucketFilterTagPtrOutputWithContext(context.Background())
 }
@@ -511,12 +444,6 @@ func (i *bucketFilterTagPtrType) ToBucketFilterTagPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(BucketFilterTagPtrOutput)
 }
 
-func (i *bucketFilterTagPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketFilterTag] {
-	return pulumix.Output[*BucketFilterTag]{
-		OutputState: i.ToBucketFilterTagPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketFilterTagArrayInput is an input type that accepts BucketFilterTagArray and BucketFilterTagArrayOutput values.
 // You can construct a concrete instance of `BucketFilterTagArrayInput` via:
 //
@@ -540,12 +467,6 @@ func (i BucketFilterTagArray) ToBucketFilterTagArrayOutput() BucketFilterTagArra
 
 func (i BucketFilterTagArray) ToBucketFilterTagArrayOutputWithContext(ctx context.Context) BucketFilterTagArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketFilterTagArrayOutput)
-}
-
-func (i BucketFilterTagArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketFilterTag] {
-	return pulumix.Output[[]BucketFilterTag]{
-		OutputState: i.ToBucketFilterTagArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Tag used to identify a subset of objects for an Amazon S3Outposts bucket.
@@ -573,12 +494,6 @@ func (o BucketFilterTagOutput) ToBucketFilterTagPtrOutputWithContext(ctx context
 	}).(BucketFilterTagPtrOutput)
 }
 
-func (o BucketFilterTagOutput) ToOutput(ctx context.Context) pulumix.Output[BucketFilterTag] {
-	return pulumix.Output[BucketFilterTag]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketFilterTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketFilterTag) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -599,12 +514,6 @@ func (o BucketFilterTagPtrOutput) ToBucketFilterTagPtrOutput() BucketFilterTagPt
 
 func (o BucketFilterTagPtrOutput) ToBucketFilterTagPtrOutputWithContext(ctx context.Context) BucketFilterTagPtrOutput {
 	return o
-}
-
-func (o BucketFilterTagPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketFilterTag] {
-	return pulumix.Output[*BucketFilterTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketFilterTagPtrOutput) Elem() BucketFilterTagOutput {
@@ -649,12 +558,6 @@ func (o BucketFilterTagArrayOutput) ToBucketFilterTagArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o BucketFilterTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketFilterTag] {
-	return pulumix.Output[[]BucketFilterTag]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketFilterTagArrayOutput) Index(i pulumi.IntInput) BucketFilterTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketFilterTag {
 		return vs[0].([]BucketFilterTag)[vs[1].(int)]
@@ -692,12 +595,6 @@ func (i BucketLifecycleConfigurationArgs) ToBucketLifecycleConfigurationOutput()
 
 func (i BucketLifecycleConfigurationArgs) ToBucketLifecycleConfigurationOutputWithContext(ctx context.Context) BucketLifecycleConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationOutput)
-}
-
-func (i BucketLifecycleConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfiguration] {
-	return pulumix.Output[BucketLifecycleConfiguration]{
-		OutputState: i.ToBucketLifecycleConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i BucketLifecycleConfigurationArgs) ToBucketLifecycleConfigurationPtrOutput() BucketLifecycleConfigurationPtrOutput {
@@ -741,12 +638,6 @@ func (i *bucketLifecycleConfigurationPtrType) ToBucketLifecycleConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationPtrOutput)
 }
 
-func (i *bucketLifecycleConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfiguration] {
-	return pulumix.Output[*BucketLifecycleConfiguration]{
-		OutputState: i.ToBucketLifecycleConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketLifecycleConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleConfigurationOutput) ElementType() reflect.Type {
@@ -771,12 +662,6 @@ func (o BucketLifecycleConfigurationOutput) ToBucketLifecycleConfigurationPtrOut
 	}).(BucketLifecycleConfigurationPtrOutput)
 }
 
-func (o BucketLifecycleConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfiguration] {
-	return pulumix.Output[BucketLifecycleConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A list of lifecycle rules for individual objects in an Amazon S3Outposts bucket.
 func (o BucketLifecycleConfigurationOutput) Rules() BucketRuleArrayOutput {
 	return o.ApplyT(func(v BucketLifecycleConfiguration) []BucketRule { return v.Rules }).(BucketRuleArrayOutput)
@@ -794,12 +679,6 @@ func (o BucketLifecycleConfigurationPtrOutput) ToBucketLifecycleConfigurationPtr
 
 func (o BucketLifecycleConfigurationPtrOutput) ToBucketLifecycleConfigurationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationPtrOutput {
 	return o
-}
-
-func (o BucketLifecycleConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfiguration] {
-	return pulumix.Output[*BucketLifecycleConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketLifecycleConfigurationPtrOutput) Elem() BucketLifecycleConfigurationOutput {
@@ -875,12 +754,6 @@ func (i BucketRuleArgs) ToBucketRuleOutputWithContext(ctx context.Context) Bucke
 	return pulumi.ToOutputWithContext(ctx, i).(BucketRuleOutput)
 }
 
-func (i BucketRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketRule] {
-	return pulumix.Output[BucketRule]{
-		OutputState: i.ToBucketRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketRuleArrayInput is an input type that accepts BucketRuleArray and BucketRuleArrayOutput values.
 // You can construct a concrete instance of `BucketRuleArrayInput` via:
 //
@@ -906,12 +779,6 @@ func (i BucketRuleArray) ToBucketRuleArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BucketRuleArrayOutput)
 }
 
-func (i BucketRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketRule] {
-	return pulumix.Output[[]BucketRule]{
-		OutputState: i.ToBucketRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies lifecycle rules for an Amazon S3Outposts bucket. You must specify at least one of the following: AbortIncompleteMultipartUpload, ExpirationDate, ExpirationInDays.
 type BucketRuleOutput struct{ *pulumi.OutputState }
 
@@ -925,12 +792,6 @@ func (o BucketRuleOutput) ToBucketRuleOutput() BucketRuleOutput {
 
 func (o BucketRuleOutput) ToBucketRuleOutputWithContext(ctx context.Context) BucketRuleOutput {
 	return o
-}
-
-func (o BucketRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketRule] {
-	return pulumix.Output[BucketRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a lifecycle rule that stops incomplete multipart uploads to an Amazon S3Outposts bucket.
@@ -974,12 +835,6 @@ func (o BucketRuleArrayOutput) ToBucketRuleArrayOutput() BucketRuleArrayOutput {
 
 func (o BucketRuleArrayOutput) ToBucketRuleArrayOutputWithContext(ctx context.Context) BucketRuleArrayOutput {
 	return o
-}
-
-func (o BucketRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketRule] {
-	return pulumix.Output[[]BucketRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketRuleArrayOutput) Index(i pulumi.IntInput) BucketRuleOutput {
@@ -1031,12 +886,6 @@ func (i BucketRuleFilterPropertiesArgs) ToBucketRuleFilterPropertiesOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BucketRuleFilterPropertiesOutput)
 }
 
-func (i BucketRuleFilterPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[BucketRuleFilterProperties] {
-	return pulumix.Output[BucketRuleFilterProperties]{
-		OutputState: i.ToBucketRuleFilterPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketRuleFilterPropertiesArgs) ToBucketRuleFilterPropertiesPtrOutput() BucketRuleFilterPropertiesPtrOutput {
 	return i.ToBucketRuleFilterPropertiesPtrOutputWithContext(context.Background())
 }
@@ -1078,12 +927,6 @@ func (i *bucketRuleFilterPropertiesPtrType) ToBucketRuleFilterPropertiesPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketRuleFilterPropertiesPtrOutput)
 }
 
-func (i *bucketRuleFilterPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketRuleFilterProperties] {
-	return pulumix.Output[*BucketRuleFilterProperties]{
-		OutputState: i.ToBucketRuleFilterPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The container for the filter of the lifecycle rule.
 type BucketRuleFilterPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -1107,12 +950,6 @@ func (o BucketRuleFilterPropertiesOutput) ToBucketRuleFilterPropertiesPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketRuleFilterProperties) *BucketRuleFilterProperties {
 		return &v
 	}).(BucketRuleFilterPropertiesPtrOutput)
-}
-
-func (o BucketRuleFilterPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[BucketRuleFilterProperties] {
-	return pulumix.Output[BucketRuleFilterProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The container for the AND condition for the lifecycle rule. A combination of Prefix and 1 or more Tags OR a minimum of 2 or more tags.
@@ -1142,12 +979,6 @@ func (o BucketRuleFilterPropertiesPtrOutput) ToBucketRuleFilterPropertiesPtrOutp
 
 func (o BucketRuleFilterPropertiesPtrOutput) ToBucketRuleFilterPropertiesPtrOutputWithContext(ctx context.Context) BucketRuleFilterPropertiesPtrOutput {
 	return o
-}
-
-func (o BucketRuleFilterPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketRuleFilterProperties] {
-	return pulumix.Output[*BucketRuleFilterProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketRuleFilterPropertiesPtrOutput) Elem() BucketRuleFilterPropertiesOutput {
@@ -1223,12 +1054,6 @@ func (i BucketTagArgs) ToBucketTagOutputWithContext(ctx context.Context) BucketT
 	return pulumi.ToOutputWithContext(ctx, i).(BucketTagOutput)
 }
 
-func (i BucketTagArgs) ToOutput(ctx context.Context) pulumix.Output[BucketTag] {
-	return pulumix.Output[BucketTag]{
-		OutputState: i.ToBucketTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketTagArrayInput is an input type that accepts BucketTagArray and BucketTagArrayOutput values.
 // You can construct a concrete instance of `BucketTagArrayInput` via:
 //
@@ -1254,12 +1079,6 @@ func (i BucketTagArray) ToBucketTagArrayOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(BucketTagArrayOutput)
 }
 
-func (i BucketTagArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketTag] {
-	return pulumix.Output[[]BucketTag]{
-		OutputState: i.ToBucketTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketTagOutput struct{ *pulumi.OutputState }
 
 func (BucketTagOutput) ElementType() reflect.Type {
@@ -1272,12 +1091,6 @@ func (o BucketTagOutput) ToBucketTagOutput() BucketTagOutput {
 
 func (o BucketTagOutput) ToBucketTagOutputWithContext(ctx context.Context) BucketTagOutput {
 	return o
-}
-
-func (o BucketTagOutput) ToOutput(ctx context.Context) pulumix.Output[BucketTag] {
-	return pulumix.Output[BucketTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketTagOutput) Key() pulumi.StringOutput {
@@ -1300,12 +1113,6 @@ func (o BucketTagArrayOutput) ToBucketTagArrayOutput() BucketTagArrayOutput {
 
 func (o BucketTagArrayOutput) ToBucketTagArrayOutputWithContext(ctx context.Context) BucketTagArrayOutput {
 	return o
-}
-
-func (o BucketTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketTag] {
-	return pulumix.Output[[]BucketTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketTagArrayOutput) Index(i pulumi.IntInput) BucketTagOutput {
@@ -1351,12 +1158,6 @@ func (i EndpointFailedReasonArgs) ToEndpointFailedReasonOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointFailedReasonOutput)
 }
 
-func (i EndpointFailedReasonArgs) ToOutput(ctx context.Context) pulumix.Output[EndpointFailedReason] {
-	return pulumix.Output[EndpointFailedReason]{
-		OutputState: i.ToEndpointFailedReasonOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i EndpointFailedReasonArgs) ToEndpointFailedReasonPtrOutput() EndpointFailedReasonPtrOutput {
 	return i.ToEndpointFailedReasonPtrOutputWithContext(context.Background())
 }
@@ -1398,12 +1199,6 @@ func (i *endpointFailedReasonPtrType) ToEndpointFailedReasonPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointFailedReasonPtrOutput)
 }
 
-func (i *endpointFailedReasonPtrType) ToOutput(ctx context.Context) pulumix.Output[*EndpointFailedReason] {
-	return pulumix.Output[*EndpointFailedReason]{
-		OutputState: i.ToEndpointFailedReasonPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointFailedReasonOutput struct{ *pulumi.OutputState }
 
 func (EndpointFailedReasonOutput) ElementType() reflect.Type {
@@ -1428,12 +1223,6 @@ func (o EndpointFailedReasonOutput) ToEndpointFailedReasonPtrOutputWithContext(c
 	}).(EndpointFailedReasonPtrOutput)
 }
 
-func (o EndpointFailedReasonOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointFailedReason] {
-	return pulumix.Output[EndpointFailedReason]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The failure code, if any, for a create or delete endpoint operation.
 func (o EndpointFailedReasonOutput) ErrorCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointFailedReason) *string { return v.ErrorCode }).(pulumi.StringPtrOutput)
@@ -1456,12 +1245,6 @@ func (o EndpointFailedReasonPtrOutput) ToEndpointFailedReasonPtrOutput() Endpoin
 
 func (o EndpointFailedReasonPtrOutput) ToEndpointFailedReasonPtrOutputWithContext(ctx context.Context) EndpointFailedReasonPtrOutput {
 	return o
-}
-
-func (o EndpointFailedReasonPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointFailedReason] {
-	return pulumix.Output[*EndpointFailedReason]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointFailedReasonPtrOutput) Elem() EndpointFailedReasonOutput {
@@ -1514,12 +1297,6 @@ func (o EndpointNetworkInterfaceOutput) ToEndpointNetworkInterfaceOutputWithCont
 	return o
 }
 
-func (o EndpointNetworkInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[EndpointNetworkInterface] {
-	return pulumix.Output[EndpointNetworkInterface]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EndpointNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointNetworkInterface) string { return v.NetworkInterfaceId }).(pulumi.StringOutput)
 }
@@ -1536,12 +1313,6 @@ func (o EndpointNetworkInterfaceArrayOutput) ToEndpointNetworkInterfaceArrayOutp
 
 func (o EndpointNetworkInterfaceArrayOutput) ToEndpointNetworkInterfaceArrayOutputWithContext(ctx context.Context) EndpointNetworkInterfaceArrayOutput {
 	return o
-}
-
-func (o EndpointNetworkInterfaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EndpointNetworkInterface] {
-	return pulumix.Output[[]EndpointNetworkInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) EndpointNetworkInterfaceOutput {

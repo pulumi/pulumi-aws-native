@@ -80,12 +80,6 @@ func (o RobotApplicationRobotSoftwareSuiteNameOutput) ToRobotApplicationRobotSof
 	}).(RobotApplicationRobotSoftwareSuiteNamePtrOutput)
 }
 
-func (o RobotApplicationRobotSoftwareSuiteNameOutput) ToOutput(ctx context.Context) pulumix.Output[RobotApplicationRobotSoftwareSuiteName] {
-	return pulumix.Output[RobotApplicationRobotSoftwareSuiteName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RobotApplicationRobotSoftwareSuiteNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o RobotApplicationRobotSoftwareSuiteNamePtrOutput) ToRobotApplicationRobot
 
 func (o RobotApplicationRobotSoftwareSuiteNamePtrOutput) ToRobotApplicationRobotSoftwareSuiteNamePtrOutputWithContext(ctx context.Context) RobotApplicationRobotSoftwareSuiteNamePtrOutput {
 	return o
-}
-
-func (o RobotApplicationRobotSoftwareSuiteNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RobotApplicationRobotSoftwareSuiteName] {
-	return pulumix.Output[*RobotApplicationRobotSoftwareSuiteName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RobotApplicationRobotSoftwareSuiteNamePtrOutput) Elem() RobotApplicationRobotSoftwareSuiteNameOutput {
@@ -264,12 +252,6 @@ func (o RobotApplicationRobotSoftwareSuiteVersionOutput) ToRobotApplicationRobot
 	}).(RobotApplicationRobotSoftwareSuiteVersionPtrOutput)
 }
 
-func (o RobotApplicationRobotSoftwareSuiteVersionOutput) ToOutput(ctx context.Context) pulumix.Output[RobotApplicationRobotSoftwareSuiteVersion] {
-	return pulumix.Output[RobotApplicationRobotSoftwareSuiteVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RobotApplicationRobotSoftwareSuiteVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -303,12 +285,6 @@ func (o RobotApplicationRobotSoftwareSuiteVersionPtrOutput) ToRobotApplicationRo
 
 func (o RobotApplicationRobotSoftwareSuiteVersionPtrOutput) ToRobotApplicationRobotSoftwareSuiteVersionPtrOutputWithContext(ctx context.Context) RobotApplicationRobotSoftwareSuiteVersionPtrOutput {
 	return o
-}
-
-func (o RobotApplicationRobotSoftwareSuiteVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RobotApplicationRobotSoftwareSuiteVersion] {
-	return pulumix.Output[*RobotApplicationRobotSoftwareSuiteVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RobotApplicationRobotSoftwareSuiteVersionPtrOutput) Elem() RobotApplicationRobotSoftwareSuiteVersionOutput {
@@ -448,12 +424,6 @@ func (o RobotApplicationSourceConfigArchitectureOutput) ToRobotApplicationSource
 	}).(RobotApplicationSourceConfigArchitecturePtrOutput)
 }
 
-func (o RobotApplicationSourceConfigArchitectureOutput) ToOutput(ctx context.Context) pulumix.Output[RobotApplicationSourceConfigArchitecture] {
-	return pulumix.Output[RobotApplicationSourceConfigArchitecture]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RobotApplicationSourceConfigArchitectureOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -487,12 +457,6 @@ func (o RobotApplicationSourceConfigArchitecturePtrOutput) ToRobotApplicationSou
 
 func (o RobotApplicationSourceConfigArchitecturePtrOutput) ToRobotApplicationSourceConfigArchitecturePtrOutputWithContext(ctx context.Context) RobotApplicationSourceConfigArchitecturePtrOutput {
 	return o
-}
-
-func (o RobotApplicationSourceConfigArchitecturePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RobotApplicationSourceConfigArchitecture] {
-	return pulumix.Output[*RobotApplicationSourceConfigArchitecture]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RobotApplicationSourceConfigArchitecturePtrOutput) Elem() RobotApplicationSourceConfigArchitectureOutput {
@@ -632,12 +596,6 @@ func (o RobotArchitectureOutput) ToRobotArchitecturePtrOutputWithContext(ctx con
 	}).(RobotArchitecturePtrOutput)
 }
 
-func (o RobotArchitectureOutput) ToOutput(ctx context.Context) pulumix.Output[RobotArchitecture] {
-	return pulumix.Output[RobotArchitecture]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RobotArchitectureOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -671,12 +629,6 @@ func (o RobotArchitecturePtrOutput) ToRobotArchitecturePtrOutput() RobotArchitec
 
 func (o RobotArchitecturePtrOutput) ToRobotArchitecturePtrOutputWithContext(ctx context.Context) RobotArchitecturePtrOutput {
 	return o
-}
-
-func (o RobotArchitecturePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RobotArchitecture] {
-	return pulumix.Output[*RobotArchitecture]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RobotArchitecturePtrOutput) Elem() RobotArchitectureOutput {
@@ -814,12 +766,6 @@ func (o SimulationApplicationRenderingEngineNameOutput) ToSimulationApplicationR
 	}).(SimulationApplicationRenderingEngineNamePtrOutput)
 }
 
-func (o SimulationApplicationRenderingEngineNameOutput) ToOutput(ctx context.Context) pulumix.Output[SimulationApplicationRenderingEngineName] {
-	return pulumix.Output[SimulationApplicationRenderingEngineName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SimulationApplicationRenderingEngineNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -853,12 +799,6 @@ func (o SimulationApplicationRenderingEngineNamePtrOutput) ToSimulationApplicati
 
 func (o SimulationApplicationRenderingEngineNamePtrOutput) ToSimulationApplicationRenderingEngineNamePtrOutputWithContext(ctx context.Context) SimulationApplicationRenderingEngineNamePtrOutput {
 	return o
-}
-
-func (o SimulationApplicationRenderingEngineNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SimulationApplicationRenderingEngineName] {
-	return pulumix.Output[*SimulationApplicationRenderingEngineName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SimulationApplicationRenderingEngineNamePtrOutput) Elem() SimulationApplicationRenderingEngineNameOutput {
@@ -998,12 +938,6 @@ func (o SimulationApplicationRobotSoftwareSuiteNameOutput) ToSimulationApplicati
 	}).(SimulationApplicationRobotSoftwareSuiteNamePtrOutput)
 }
 
-func (o SimulationApplicationRobotSoftwareSuiteNameOutput) ToOutput(ctx context.Context) pulumix.Output[SimulationApplicationRobotSoftwareSuiteName] {
-	return pulumix.Output[SimulationApplicationRobotSoftwareSuiteName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SimulationApplicationRobotSoftwareSuiteNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1037,12 +971,6 @@ func (o SimulationApplicationRobotSoftwareSuiteNamePtrOutput) ToSimulationApplic
 
 func (o SimulationApplicationRobotSoftwareSuiteNamePtrOutput) ToSimulationApplicationRobotSoftwareSuiteNamePtrOutputWithContext(ctx context.Context) SimulationApplicationRobotSoftwareSuiteNamePtrOutput {
 	return o
-}
-
-func (o SimulationApplicationRobotSoftwareSuiteNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SimulationApplicationRobotSoftwareSuiteName] {
-	return pulumix.Output[*SimulationApplicationRobotSoftwareSuiteName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SimulationApplicationRobotSoftwareSuiteNamePtrOutput) Elem() SimulationApplicationRobotSoftwareSuiteNameOutput {
@@ -1183,12 +1111,6 @@ func (o SimulationApplicationRobotSoftwareSuiteVersionOutput) ToSimulationApplic
 	}).(SimulationApplicationRobotSoftwareSuiteVersionPtrOutput)
 }
 
-func (o SimulationApplicationRobotSoftwareSuiteVersionOutput) ToOutput(ctx context.Context) pulumix.Output[SimulationApplicationRobotSoftwareSuiteVersion] {
-	return pulumix.Output[SimulationApplicationRobotSoftwareSuiteVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SimulationApplicationRobotSoftwareSuiteVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1222,12 +1144,6 @@ func (o SimulationApplicationRobotSoftwareSuiteVersionPtrOutput) ToSimulationApp
 
 func (o SimulationApplicationRobotSoftwareSuiteVersionPtrOutput) ToSimulationApplicationRobotSoftwareSuiteVersionPtrOutputWithContext(ctx context.Context) SimulationApplicationRobotSoftwareSuiteVersionPtrOutput {
 	return o
-}
-
-func (o SimulationApplicationRobotSoftwareSuiteVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SimulationApplicationRobotSoftwareSuiteVersion] {
-	return pulumix.Output[*SimulationApplicationRobotSoftwareSuiteVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SimulationApplicationRobotSoftwareSuiteVersionPtrOutput) Elem() SimulationApplicationRobotSoftwareSuiteVersionOutput {
@@ -1367,12 +1283,6 @@ func (o SimulationApplicationSimulationSoftwareSuiteNameOutput) ToSimulationAppl
 	}).(SimulationApplicationSimulationSoftwareSuiteNamePtrOutput)
 }
 
-func (o SimulationApplicationSimulationSoftwareSuiteNameOutput) ToOutput(ctx context.Context) pulumix.Output[SimulationApplicationSimulationSoftwareSuiteName] {
-	return pulumix.Output[SimulationApplicationSimulationSoftwareSuiteName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SimulationApplicationSimulationSoftwareSuiteNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1406,12 +1316,6 @@ func (o SimulationApplicationSimulationSoftwareSuiteNamePtrOutput) ToSimulationA
 
 func (o SimulationApplicationSimulationSoftwareSuiteNamePtrOutput) ToSimulationApplicationSimulationSoftwareSuiteNamePtrOutputWithContext(ctx context.Context) SimulationApplicationSimulationSoftwareSuiteNamePtrOutput {
 	return o
-}
-
-func (o SimulationApplicationSimulationSoftwareSuiteNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SimulationApplicationSimulationSoftwareSuiteName] {
-	return pulumix.Output[*SimulationApplicationSimulationSoftwareSuiteName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SimulationApplicationSimulationSoftwareSuiteNamePtrOutput) Elem() SimulationApplicationSimulationSoftwareSuiteNameOutput {
@@ -1555,12 +1459,6 @@ func (o SimulationApplicationSimulationSoftwareSuiteVersionOutput) ToSimulationA
 	}).(SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput)
 }
 
-func (o SimulationApplicationSimulationSoftwareSuiteVersionOutput) ToOutput(ctx context.Context) pulumix.Output[SimulationApplicationSimulationSoftwareSuiteVersion] {
-	return pulumix.Output[SimulationApplicationSimulationSoftwareSuiteVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SimulationApplicationSimulationSoftwareSuiteVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1594,12 +1492,6 @@ func (o SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput) ToSimulati
 
 func (o SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput) ToSimulationApplicationSimulationSoftwareSuiteVersionPtrOutputWithContext(ctx context.Context) SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput {
 	return o
-}
-
-func (o SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SimulationApplicationSimulationSoftwareSuiteVersion] {
-	return pulumix.Output[*SimulationApplicationSimulationSoftwareSuiteVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput) Elem() SimulationApplicationSimulationSoftwareSuiteVersionOutput {
@@ -1739,12 +1631,6 @@ func (o SimulationApplicationSourceConfigArchitectureOutput) ToSimulationApplica
 	}).(SimulationApplicationSourceConfigArchitecturePtrOutput)
 }
 
-func (o SimulationApplicationSourceConfigArchitectureOutput) ToOutput(ctx context.Context) pulumix.Output[SimulationApplicationSourceConfigArchitecture] {
-	return pulumix.Output[SimulationApplicationSourceConfigArchitecture]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SimulationApplicationSourceConfigArchitectureOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1778,12 +1664,6 @@ func (o SimulationApplicationSourceConfigArchitecturePtrOutput) ToSimulationAppl
 
 func (o SimulationApplicationSourceConfigArchitecturePtrOutput) ToSimulationApplicationSourceConfigArchitecturePtrOutputWithContext(ctx context.Context) SimulationApplicationSourceConfigArchitecturePtrOutput {
 	return o
-}
-
-func (o SimulationApplicationSourceConfigArchitecturePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SimulationApplicationSourceConfigArchitecture] {
-	return pulumix.Output[*SimulationApplicationSourceConfigArchitecture]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SimulationApplicationSourceConfigArchitecturePtrOutput) Elem() SimulationApplicationSourceConfigArchitectureOutput {

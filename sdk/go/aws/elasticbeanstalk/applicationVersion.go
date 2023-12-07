@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ElasticBeanstalk::ApplicationVersion
@@ -117,12 +116,6 @@ func (i *ApplicationVersion) ToApplicationVersionOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionOutput)
 }
 
-func (i *ApplicationVersion) ToOutput(ctx context.Context) pulumix.Output[*ApplicationVersion] {
-	return pulumix.Output[*ApplicationVersion]{
-		OutputState: i.ToApplicationVersionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApplicationVersionOutput struct{ *pulumi.OutputState }
 
 func (ApplicationVersionOutput) ElementType() reflect.Type {
@@ -135,12 +128,6 @@ func (o ApplicationVersionOutput) ToApplicationVersionOutput() ApplicationVersio
 
 func (o ApplicationVersionOutput) ToApplicationVersionOutputWithContext(ctx context.Context) ApplicationVersionOutput {
 	return o
-}
-
-func (o ApplicationVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationVersion] {
-	return pulumix.Output[*ApplicationVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Elastic Beanstalk application that is associated with this application version.

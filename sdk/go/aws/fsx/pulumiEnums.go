@@ -79,12 +79,6 @@ func (o DataRepositoryAssociationEventTypeOutput) ToDataRepositoryAssociationEve
 	}).(DataRepositoryAssociationEventTypePtrOutput)
 }
 
-func (o DataRepositoryAssociationEventTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DataRepositoryAssociationEventType] {
-	return pulumix.Output[DataRepositoryAssociationEventType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataRepositoryAssociationEventTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o DataRepositoryAssociationEventTypePtrOutput) ToDataRepositoryAssociation
 
 func (o DataRepositoryAssociationEventTypePtrOutput) ToDataRepositoryAssociationEventTypePtrOutputWithContext(ctx context.Context) DataRepositoryAssociationEventTypePtrOutput {
 	return o
-}
-
-func (o DataRepositoryAssociationEventTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataRepositoryAssociationEventType] {
-	return pulumix.Output[*DataRepositoryAssociationEventType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataRepositoryAssociationEventTypePtrOutput) Elem() DataRepositoryAssociationEventTypeOutput {
@@ -219,12 +207,6 @@ func (i DataRepositoryAssociationEventTypeArray) ToDataRepositoryAssociationEven
 	return pulumi.ToOutputWithContext(ctx, i).(DataRepositoryAssociationEventTypeArrayOutput)
 }
 
-func (i DataRepositoryAssociationEventTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]DataRepositoryAssociationEventType] {
-	return pulumix.Output[[]DataRepositoryAssociationEventType]{
-		OutputState: i.ToDataRepositoryAssociationEventTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataRepositoryAssociationEventTypeArrayOutput struct{ *pulumi.OutputState }
 
 func (DataRepositoryAssociationEventTypeArrayOutput) ElementType() reflect.Type {
@@ -237,12 +219,6 @@ func (o DataRepositoryAssociationEventTypeArrayOutput) ToDataRepositoryAssociati
 
 func (o DataRepositoryAssociationEventTypeArrayOutput) ToDataRepositoryAssociationEventTypeArrayOutputWithContext(ctx context.Context) DataRepositoryAssociationEventTypeArrayOutput {
 	return o
-}
-
-func (o DataRepositoryAssociationEventTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataRepositoryAssociationEventType] {
-	return pulumix.Output[[]DataRepositoryAssociationEventType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataRepositoryAssociationEventTypeArrayOutput) Index(i pulumi.IntInput) DataRepositoryAssociationEventTypeOutput {
