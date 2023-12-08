@@ -1,7 +1,6 @@
 AWS::Cognito::IdentityPool
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
-AWS::Lambda::EventInvokeConfig
 AWS::SNS::TopicPolicy
 AWSQS::EKS::Cluster
 AWSQS::Kubernetes::Get
