@@ -130,7 +130,8 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : true
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
   },
   "additionalProperties" : false,
   "required" : [ "FileSystemId", "FileSystemPath", "DataRepositoryPath" ],

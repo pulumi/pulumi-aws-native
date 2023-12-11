@@ -193,6 +193,9 @@ AWS::CustomerProfiles::Domain
 AWS::CustomerProfiles::EventStream
 AWS::CustomerProfiles::Integration
 AWS::CustomerProfiles::ObjectType
+AWS::DMS::DataProvider
+AWS::DMS::InstanceProfile
+AWS::DMS::MigrationProject
 AWS::DMS::ReplicationConfig
 AWS::DataBrew::Dataset
 AWS::DataBrew::Job
@@ -251,6 +254,7 @@ AWS::EC2::IPAMPoolCidr
 AWS::EC2::IPAMResourceDiscovery
 AWS::EC2::IPAMResourceDiscoveryAssociation
 AWS::EC2::IPAMScope
+AWS::EC2::Instance
 AWS::EC2::InstanceConnectEndpoint
 AWS::EC2::InternetGateway
 AWS::EC2::KeyPair
@@ -272,6 +276,7 @@ AWS::EC2::PlacementGroup
 AWS::EC2::PrefixList
 AWS::EC2::Route
 AWS::EC2::RouteTable
+AWS::EC2::SecurityGroupEgress
 AWS::EC2::SpotFleet
 AWS::EC2::Subnet
 AWS::EC2::SubnetCidrBlock
@@ -348,6 +353,8 @@ AWS::ElasticLoadBalancingV2::TrustStoreRevocation
 AWS::EntityResolution::IdMappingWorkflow
 AWS::EntityResolution::MatchingWorkflow
 AWS::EntityResolution::SchemaMapping
+AWS::EventSchemas::Discoverer
+AWS::EventSchemas::Registry
 AWS::EventSchemas::RegistryPolicy
 AWS::Events::ApiDestination
 AWS::Events::Archive
@@ -361,6 +368,7 @@ AWS::Evidently::Launch
 AWS::Evidently::Project
 AWS::Evidently::Segment
 AWS::FIS::ExperimentTemplate
+AWS::FIS::TargetAccountConfiguration
 AWS::FMS::NotificationChannel
 AWS::FMS::Policy
 AWS::FMS::ResourceSet

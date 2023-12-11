@@ -100,16 +100,16 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "devicefarm:CreateProject", "devicefarm:TagResource" ]
+      "permissions" : [ "devicefarm:CreateProject", "devicefarm:TagResource", "devicefarm:GetProject", "devicefarm:ListTagsForResource", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "ec2:CreateNetworkInterface", "iam:CreateServiceLinkedRole" ]
     },
     "read" : {
       "permissions" : [ "devicefarm:GetProject", "devicefarm:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "devicefarm:UpdateProject", "devicefarm:TagResource", "devicefarm:UntagResource", "devicefarm:ListTagsForResource" ]
+      "permissions" : [ "devicefarm:UpdateProject", "devicefarm:TagResource", "devicefarm:UntagResource", "devicefarm:ListTagsForResource", "devicefarm:GetProject", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "ec2:CreateNetworkInterface", "iam:CreateServiceLinkedRole" ]
     },
     "delete" : {
-      "permissions" : [ "devicefarm:DeleteProject" ]
+      "permissions" : [ "devicefarm:DeleteProject", "devicefarm:UntagResource", "devicefarm:GetProject", "devicefarm:ListTagsForResource" ]
     },
     "list" : {
       "permissions" : [ "devicefarm:ListProjects" ]

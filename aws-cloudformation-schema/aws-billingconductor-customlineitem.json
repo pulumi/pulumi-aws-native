@@ -180,6 +180,11 @@
       "type" : "string",
       "enum" : [ "USD", "CNY" ]
     },
+    "AccountId" : {
+      "type" : "string",
+      "description" : "The account which this custom line item will be charged to",
+      "pattern" : "[0-9]{12}"
+    },
     "Tags" : {
       "type" : "array",
       "uniqueItems" : true,
@@ -199,7 +204,7 @@
   },
   "required" : [ "Name", "BillingGroupArn" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreationTime", "/properties/LastModifiedTime", "/properties/AssociationSize", "/properties/CurrencyCode", "/properties/ProductCode" ],
-  "createOnlyProperties" : [ "/properties/BillingGroupArn", "/properties/BillingPeriodRange/InclusiveStartBillingPeriod", "/properties/BillingPeriodRange/ExclusiveEndBillingPeriod", "/properties/CustomLineItemChargeDetails/Type" ],
+  "createOnlyProperties" : [ "/properties/BillingGroupArn", "/properties/AccountId", "/properties/BillingPeriodRange/InclusiveStartBillingPeriod", "/properties/BillingPeriodRange/ExclusiveEndBillingPeriod", "/properties/CustomLineItemChargeDetails/Type" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
