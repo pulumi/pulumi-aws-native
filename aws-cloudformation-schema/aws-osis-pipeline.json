@@ -3,6 +3,30 @@
   "description" : "An OpenSearch Ingestion Service Data Prepper pipeline running Data Prepper.",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-osis.git",
   "definitions" : {
+    "BufferOptions" : {
+      "description" : "Key-value pairs to configure buffering.",
+      "type" : "object",
+      "properties" : {
+        "PersistentBufferEnabled" : {
+          "type" : "boolean",
+          "description" : "Whether persistent buffering should be enabled."
+        }
+      },
+      "required" : [ "PersistentBufferEnabled" ],
+      "additionalProperties" : false
+    },
+    "EncryptionAtRestOptions" : {
+      "description" : "Key-value pairs to configure encryption at rest.",
+      "type" : "object",
+      "properties" : {
+        "KmsKeyArn" : {
+          "type" : "string",
+          "description" : "The KMS key to use for encrypting data. By default an AWS owned key is used"
+        }
+      },
+      "required" : [ "KmsKeyArn" ],
+      "additionalProperties" : false
+    },
     "LogPublishingOptions" : {
       "description" : "Key-value pairs to configure log publishing.",
       "type" : "object",
@@ -22,6 +46,7 @@
               "pattern" : "\\/aws\\/vendedlogs\\/[\\.\\-_/#A-Za-z0-9]+"
             }
           },
+          "required" : [ "LogGroup" ],
           "additionalProperties" : false
         }
       },
@@ -74,6 +99,7 @@
           }
         }
       },
+      "required" : [ "SubnetIds" ],
       "additionalProperties" : false
     },
     "VpcEndpoint" : {
@@ -96,6 +122,12 @@
     }
   },
   "properties" : {
+    "BufferOptions" : {
+      "$ref" : "#/definitions/BufferOptions"
+    },
+    "EncryptionAtRestOptions" : {
+      "$ref" : "#/definitions/EncryptionAtRestOptions"
+    },
     "LogPublishingOptions" : {
       "$ref" : "#/definitions/LogPublishingOptions"
     },
@@ -175,16 +207,16 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "osis:CreatePipeline", "osis:GetPipeline", "osis:ListTagsForResource", "iam:PassRole", "iam:CreateServiceLinkedRole" ]
+      "permissions" : [ "osis:CreatePipeline", "osis:GetPipeline", "osis:TagResource", "osis:ListTagsForResource", "iam:PassRole", "iam:CreateServiceLinkedRole", "logs:CreateLogDelivery", "kms:DescribeKey" ]
     },
     "read" : {
       "permissions" : [ "osis:GetPipeline", "osis:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "osis:UpdatePipeline", "osis:ListTagsForResource", "osis:TagResource", "osis:UntagResource", "iam:PassRole" ]
+      "permissions" : [ "osis:UpdatePipeline", "osis:GetPipeline", "osis:ListTagsForResource", "osis:TagResource", "osis:UntagResource", "iam:PassRole", "logs:GetLogDelivery", "logs:UpdateLogDelivery", "logs:ListLogDeliveries", "kms:DescribeKey" ]
     },
     "delete" : {
-      "permissions" : [ "osis:DeletePipeline" ]
+      "permissions" : [ "osis:DeletePipeline", "osis:GetPipeline", "logs:GetLogDelivery", "logs:DeleteLogDelivery", "logs:ListLogDeliveries" ]
     },
     "list" : {
       "permissions" : [ "osis:ListPipelines" ]

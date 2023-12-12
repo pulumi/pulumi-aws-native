@@ -21,11 +21,11 @@
       "permissions" : [ "autoscaling:*", "managed-fleets:GetAutoScalingGroup" ]
     },
     "create" : {
-      "permissions" : [ "autoscaling:*", "cloudwatch:PutMetricAlarm", "ec2:DescribeAccountAttributes", "ec2:DescribeAvailabilityZones", "ec2:DescribeImages", "ec2:DescribeInstanceAttribute", "ec2:DescribeInstances", "ec2:DescribeInstanceTypes", "ec2:DescribeInstanceTypeOfferings", "ec2:DescribeKeyPairs", "ec2:DescribeLaunchTemplateVersions", "ec2:DescribePlacementGroups", "ec2:DescribeSecurityGroups", "ec2:DescribeSpotInstanceRequests", "ec2:DescribeSubnets", "ec2:DescribeVpcClassicLink", "ec2:GetInstanceTypesFromInstanceRequirements", "ec2:RunInstances", "elasticloadbalancing:DescribeLoadBalancers", "elasticloadbalancing:DescribeTargetGroups", "iam:CreateServiceLinkedRole", "iam:PassRole", "managed-fleets:GetAutoScalingGroup", "managed-fleets:CreateAutoScalingGroup", "ssm:GetParameters" ],
+      "permissions" : [ "autoscaling:*", "cloudwatch:PutMetricAlarm", "ec2:Describe*", "ec2:GetInstanceTypesFromInstanceRequirements", "ec2:RunInstances", "elasticloadbalancing:DescribeLoadBalancers", "elasticloadbalancing:DescribeTargetGroups", "iam:CreateServiceLinkedRole", "iam:PassRole", "managed-fleets:GetAutoScalingGroup", "managed-fleets:CreateAutoScalingGroup", "ssm:GetParameters" ],
       "timeoutInMinutes" : 120
     },
     "update" : {
-      "permissions" : [ "autoscaling:*", "cloudwatch:PutMetricAlarm", "ec2:DescribeAccountAttributes", "ec2:DescribeAvailabilityZones", "ec2:DescribeImages", "ec2:DescribeInstanceAttribute", "ec2:DescribeInstances", "ec2:DescribeInstanceTypes", "ec2:DescribeInstanceTypeOfferings", "ec2:DescribeKeyPairs", "ec2:DescribeLaunchTemplateVersions", "ec2:DescribePlacementGroups", "ec2:DescribeSecurityGroups", "ec2:DescribeSpotInstanceRequests", "ec2:DescribeSubnets", "ec2:DescribeVpcClassicLink", "ec2:GetInstanceTypesFromInstanceRequirements", "ec2:RunInstances", "elasticloadbalancing:DescribeLoadBalancers", "elasticloadbalancing:DescribeTargetGroups", "iam:CreateServiceLinkedRole", "iam:PassRole", "managed-fleets:GetAutoScalingGroup", "managed-fleets:RegisterAutoScalingGroup", "managed-fleets:DeregisterAutoScalingGroup", "managed-fleets:UpdateAutoScalingGroup", "ssm:GetParameters" ],
+      "permissions" : [ "autoscaling:*", "cloudwatch:PutMetricAlarm", "ec2:Describe*", "ec2:GetInstanceTypesFromInstanceRequirements", "ec2:RunInstances", "elasticloadbalancing:DescribeLoadBalancers", "elasticloadbalancing:DescribeTargetGroups", "iam:CreateServiceLinkedRole", "iam:PassRole", "managed-fleets:GetAutoScalingGroup", "managed-fleets:RegisterAutoScalingGroup", "managed-fleets:DeregisterAutoScalingGroup", "managed-fleets:UpdateAutoScalingGroup", "ssm:GetParameters" ],
       "timeoutInMinutes" : 480
     },
     "list" : {
@@ -448,7 +448,8 @@
         "TotalLocalStorageGB" : {
           "$ref" : "#/definitions/TotalLocalStorageGBRequest"
         }
-      }
+      },
+      "required" : [ "MemoryMiB", "VCpuCount" ]
     }
   },
   "properties" : {

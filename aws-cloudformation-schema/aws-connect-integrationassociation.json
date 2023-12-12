@@ -12,7 +12,7 @@
     "IntegrationType" : {
       "description" : "Specifies the integration type to be associated with the instance",
       "type" : "string",
-      "enum" : [ "LEX_BOT", "LAMBDA_FUNCTION" ]
+      "enum" : [ "LEX_BOT", "LAMBDA_FUNCTION", "APPLICATION" ]
     },
     "InstanceId" : {
       "description" : "Amazon Connect instance identifier",
@@ -54,19 +54,19 @@
   "primaryIdentifier" : [ "/properties/InstanceId", "/properties/IntegrationType", "/properties/IntegrationArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "connect:AssociateBot", "connect:AssociateLambdaFunction", "connect:ListBots", "connect:ListLambdaFunctions", "lambda:addPermission", "lex:GetBot", "lex:DescribeBotAlias", "lex:CreateResourcePolicy", "lex:UpdateResourcePolicy", "lex:CreateResourcePolicyStatement", "lambda:AddPermission", "iam:PutRolePolicy" ]
+      "permissions" : [ "connect:DescribeInstance", "ds:DescribeDirectories", "app-integrations:CreateEventIntegrationAssociation", "mobiletargeting:GetApp", "cases:GetDomain", "wisdom:GetAssistant", "wisdom:GetKnowledgeBase", "wisdom:TagResource", "voiceid:DescribeDomain", "events:PutTargets", "events:PutRule", "connect:AssociateBot", "connect:AssociateLambdaFunction", "connect:CreateIntegrationAssociation", "connect:ListBots", "connect:ListLambdaFunctions", "connect:ListIntegrationAssociations", "lambda:addPermission", "lex:GetBot", "lex:DescribeBotAlias", "lex:CreateResourcePolicy", "lex:UpdateResourcePolicy", "lex:CreateResourcePolicyStatement", "lambda:AddPermission", "app-integrations:GetApplication", "iam:AttachRolePolicy", "iam:CreateServiceLinkedRole", "iam:GetRolePolicy", "iam:PutRolePolicy" ]
     },
     "read" : {
-      "permissions" : [ "connect:ListBots", "connect:ListLambdaFunctions" ]
+      "permissions" : [ "connect:ListBots", "connect:ListLambdaFunctions", "connect:ListIntegrationAssociations" ]
     },
     "update" : {
       "permissions" : [ ]
     },
     "delete" : {
-      "permissions" : [ "connect:DisassociateBot", "connect:DisassociateLambdaFunction", "connect:ListBots", "connect:ListLambdaFunctions", "lex:DeleteResourcePolicy", "lex:DeleteResourcePolicyStatement", "lambda:RemovePermission", "iam:PutRolePolicy" ]
+      "permissions" : [ "connect:DescribeInstance", "ds:DescribeDirectories", "app-integrations:DeleteEventIntegrationAssociation", "events:ListTargetsByRule", "events:RemoveTargets", "events:DeleteRule", "connect:DisassociateBot", "connect:DisassociateLambdaFunction", "connect:DeleteIntegrationAssociation", "connect:ListBots", "connect:ListLambdaFunctions", "connect:ListIntegrationAssociations", "lex:DeleteResourcePolicy", "lex:DeleteResourcePolicyStatement", "lambda:RemovePermission", "iam:GetRolePolicy", "iam:DeleteRolePolicy", "iam:PutRolePolicy" ]
     },
     "list" : {
-      "permissions" : [ "connect:ListBots", "connect:ListLambdaFunctions" ]
+      "permissions" : [ "connect:ListBots", "connect:ListLambdaFunctions", "connect:ListIntegrationAssociations" ]
     }
   }
 }

@@ -52,6 +52,9 @@
         },
         "DisplayName" : {
           "$ref" : "#/definitions/Name"
+        },
+        "PaymentConfiguration" : {
+          "$ref" : "#/definitions/PaymentConfiguration"
         }
       },
       "required" : [ "AccountId", "DisplayName", "MemberAbilities" ],
@@ -83,6 +86,26 @@
       "maxLength" : 100,
       "minLength" : 1,
       "pattern" : "^(?!\\s*$)[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDBFF-\\uDC00\\uDFFF\\t]*$"
+    },
+    "PaymentConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "QueryCompute" : {
+          "$ref" : "#/definitions/QueryComputePaymentConfig"
+        }
+      },
+      "required" : [ "QueryCompute" ]
+    },
+    "QueryComputePaymentConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "IsResponsible" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "IsResponsible" ]
     }
   },
   "properties" : {
@@ -137,11 +160,14 @@
     },
     "QueryLogStatus" : {
       "$ref" : "#/definitions/CollaborationQueryLogStatus"
+    },
+    "CreatorPaymentConfiguration" : {
+      "$ref" : "#/definitions/PaymentConfiguration"
     }
   },
   "required" : [ "CreatorDisplayName", "CreatorMemberAbilities", "Members", "Name", "Description", "QueryLogStatus" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CollaborationIdentifier" ],
-  "createOnlyProperties" : [ "/properties/CreatorDisplayName", "/properties/CreatorMemberAbilities", "/properties/DataEncryptionMetadata", "/properties/QueryLogStatus", "/properties/Members" ],
+  "createOnlyProperties" : [ "/properties/CreatorDisplayName", "/properties/CreatorMemberAbilities", "/properties/DataEncryptionMetadata", "/properties/QueryLogStatus", "/properties/Members", "/properties/CreatorPaymentConfiguration" ],
   "primaryIdentifier" : [ "/properties/CollaborationIdentifier" ],
   "tagging" : {
     "taggable" : true,
