@@ -3,6 +3,9 @@
   "description" : "Resource Type definition for AWS::SNS::Subscription",
   "additionalProperties" : false,
   "properties" : {
+    "ReplayPolicy" : {
+      "type" : "object"
+    },
     "RawMessageDelivery" : {
       "type" : "boolean"
     },

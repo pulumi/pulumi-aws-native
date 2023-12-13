@@ -114,8 +114,10 @@
       "description" : "<p>Contains a map of the key-value pairs for the resource tag or tags assigned to the dataset.</p>"
     }
   },
+  "createOnlyProperties" : [ "/properties/ResourceIdentifier" ],
   "readOnlyProperties" : [ "/Properties/ReplicationConfigArn" ],
   "primaryIdentifier" : [ "/properties/ReplicationConfigArn" ],
+  "additionalIdentifiers" : [ [ "/properties/ReplicationConfigIdentifier" ] ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
@@ -126,19 +128,19 @@
   "additionalProperties" : false,
   "handlers" : {
     "create" : {
-      "permissions" : [ "dms:CreateReplicationConfig", "dms:AddTagsToResource", "dms:ListTagsForResource" ]
+      "permissions" : [ "dms:CreateReplicationConfig", "dms:AddTagsToResource", "dms:ListTagsForResource", "iam:CreateServiceLinkedRole", "iam:AttachRolePolicy", "iam:PutRolePolicy", "iam:UpdateRoleDescription" ]
     },
     "read" : {
       "permissions" : [ "dms:DescribeReplicationConfigs", "dms:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "dms:ModifyReplicationConfig", "dms:AddTagsToResource", "dms:RemoveTagsToResource", "dms:ListTagsForResource" ]
+      "permissions" : [ "dms:ModifyReplicationConfig", "dms:AddTagsToResource", "dms:RemoveTagsToResource", "dms:ListTagsForResource", "iam:CreateServiceLinkedRole", "iam:AttachRolePolicy", "iam:PutRolePolicy", "iam:UpdateRoleDescription" ]
     },
     "list" : {
       "permissions" : [ "dms:DescribeReplicationConfigs", "dms:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "dms:DescribeReplicationConfigs", "dms:DeleteReplicationConfig", "dms:ListTagsForResource" ]
+      "permissions" : [ "dms:DescribeReplicationConfigs", "dms:DeleteReplicationConfig", "dms:ListTagsForResource", "iam:DeleteServiceLinkedRole", "iam:GetServiceLinkedRoleDeletionStatus" ]
     }
   }
 }

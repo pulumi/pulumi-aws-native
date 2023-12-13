@@ -11,7 +11,7 @@
       "permissions" : [ "ecs:DescribeServices" ]
     },
     "create" : {
-      "permissions" : [ "ecs:CreateService", "ecs:DescribeServices", "iam:PassRole" ],
+      "permissions" : [ "ecs:CreateService", "ecs:DescribeServices", "iam:PassRole", "ecs:TagResource" ],
       "timeoutInMinutes" : 180
     },
     "update" : {
