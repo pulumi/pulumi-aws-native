@@ -498,7 +498,7 @@
       "timeoutInMinutes" : 2160
     },
     "delete" : {
-      "permissions" : [ "rds:DeleteDBInstance", "rds:DescribeDBInstances" ],
+      "permissions" : [ "rds:CreateDBSnapshot", "rds:DeleteDBInstance", "rds:DescribeDBInstances" ],
       "timeoutInMinutes" : 2160
     },
     "list" : {

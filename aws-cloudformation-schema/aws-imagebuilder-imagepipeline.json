@@ -1,90 +1,41 @@
 {
-  "typeName" : "AWS::ImageBuilder::ImagePipeline",
-  "description" : "Resource schema for AWS::ImageBuilder::ImagePipeline",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-imagebuilder.git",
-  "properties" : {
-    "Arn" : {
-      "description" : "The Amazon Resource Name (ARN) of the image pipeline.",
-      "type" : "string"
+  "tagging" : {
+    "taggable" : false
+  },
+  "oneOf" : [ {
+    "required" : [ "Name", "ContainerRecipeArn", "InfrastructureConfigurationArn" ]
+  }, {
+    "required" : [ "Name", "ImageRecipeArn", "InfrastructureConfigurationArn" ]
+  } ],
+  "handlers" : {
+    "read" : {
+      "permissions" : [ "imagebuilder:GetImagePipeline" ]
     },
-    "Name" : {
-      "description" : "The name of the image pipeline.",
-      "type" : "string"
+    "create" : {
+      "permissions" : [ "ecr:BatchGetRepositoryScanningConfiguration", "iam:GetRole", "iam:PassRole", "iam:CreateServiceLinkedRole", "imagebuilder:TagResource", "imagebuilder:GetImagePipeline", "imagebuilder:GetImageRecipe", "imagebuilder:GetInfrastructureConfiguration", "imagebuilder:GetDistributionConfiguration", "imagebuilder:CreateImagePipeline", "imagebuilder:GetWorkflow", "inspector2:BatchGetAccountStatus" ]
     },
-    "Description" : {
-      "description" : "The description of the image pipeline.",
-      "type" : "string"
+    "update" : {
+      "permissions" : [ "iam:PassRole", "imagebuilder:GetImagePipeline", "imagebuilder:UpdateImagePipeline", "imagebuilder:GetWorkflow" ]
     },
-    "ImageTestsConfiguration" : {
-      "description" : "The image tests configuration of the image pipeline.",
-      "$ref" : "#/definitions/ImageTestsConfiguration"
+    "list" : {
+      "permissions" : [ "imagebuilder:ListImagePipelines" ]
     },
-    "Status" : {
-      "description" : "The status of the image pipeline.",
-      "type" : "string",
-      "enum" : [ "DISABLED", "ENABLED" ]
-    },
-    "Schedule" : {
-      "description" : "The schedule of the image pipeline.",
-      "$ref" : "#/definitions/Schedule"
-    },
-    "ImageRecipeArn" : {
-      "description" : "The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.",
-      "type" : "string"
-    },
-    "ContainerRecipeArn" : {
-      "description" : "The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.",
-      "type" : "string"
-    },
-    "DistributionConfigurationArn" : {
-      "description" : "The Amazon Resource Name (ARN) of the distribution configuration associated with this image pipeline.",
-      "type" : "string"
-    },
-    "InfrastructureConfigurationArn" : {
-      "description" : "The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.",
-      "type" : "string"
-    },
-    "EnhancedImageMetadataEnabled" : {
-      "description" : "Collects additional information about the image being created, including the operating system (OS) version and package list.",
-      "type" : "boolean"
-    },
-    "ImageScanningConfiguration" : {
-      "description" : "Contains settings for vulnerability scans.",
-      "$ref" : "#/definitions/ImageScanningConfiguration"
-    },
-    "Tags" : {
-      "description" : "The tags of this image pipeline.",
-      "type" : "object",
-      "additionalProperties" : false,
-      "patternProperties" : {
-        ".{1,}" : {
-          "type" : "string"
-        }
-      }
+    "delete" : {
+      "permissions" : [ "imagebuilder:UnTagResource", "imagebuilder:GetImagePipeline", "imagebuilder:DeleteImagePipeline" ]
     }
   },
+  "typeName" : "AWS::ImageBuilder::ImagePipeline",
+  "readOnlyProperties" : [ "/properties/Arn" ],
+  "description" : "Resource schema for AWS::ImageBuilder::ImagePipeline",
+  "createOnlyProperties" : [ "/properties/Name" ],
+  "additionalProperties" : false,
+  "primaryIdentifier" : [ "/properties/Arn" ],
   "definitions" : {
-    "ImageTestsConfiguration" : {
-      "description" : "Image tests configuration.",
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "ImageTestsEnabled" : {
-          "description" : "Defines if tests should be executed when building this image.",
-          "type" : "boolean"
-        },
-        "TimeoutMinutes" : {
-          "description" : "The maximum time in minutes that tests are permitted to run.",
-          "type" : "integer",
-          "minimum" : 60,
-          "maximum" : 1440
-        }
-      }
-    },
     "ImageScanningConfiguration" : {
       "description" : "Determines if tests should run after building the image. Image Builder defaults to enable tests to run following the image build, before image distribution.",
-      "type" : "object",
       "additionalProperties" : false,
+      "type" : "object",
       "properties" : {
         "EcrConfiguration" : {
           "description" : "Contains ECR settings for vulnerability scans.",
@@ -98,13 +49,13 @@
     },
     "EcrConfiguration" : {
       "description" : "Settings for Image Builder to configure the ECR repository and output container images that are scanned.",
-      "type" : "object",
       "additionalProperties" : false,
+      "type" : "object",
       "properties" : {
         "ContainerTags" : {
           "description" : "Tags for Image Builder to apply the output container image that is scanned. Tags can help you identify and manage your scanned images.",
-          "type" : "array",
           "insertionOrder" : true,
+          "type" : "array",
           "items" : {
             "type" : "string"
           }
@@ -117,8 +68,8 @@
     },
     "Schedule" : {
       "description" : "The schedule of the image pipeline.",
-      "type" : "object",
       "additionalProperties" : false,
+      "type" : "object",
       "properties" : {
         "ScheduleExpression" : {
           "description" : "The expression determines how often EC2 Image Builder evaluates your pipelineExecutionStartCondition.",
@@ -130,35 +81,84 @@
           "enum" : [ "EXPRESSION_MATCH_ONLY", "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE" ]
         }
       }
+    },
+    "ImageTestsConfiguration" : {
+      "description" : "Image tests configuration.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "TimeoutMinutes" : {
+          "description" : "The maximum time in minutes that tests are permitted to run.",
+          "maximum" : 1440,
+          "type" : "integer",
+          "minimum" : 60
+        },
+        "ImageTestsEnabled" : {
+          "description" : "Defines if tests should be executed when building this image.",
+          "type" : "boolean"
+        }
+      }
     }
   },
-  "additionalProperties" : false,
-  "oneOf" : [ {
-    "required" : [ "Name", "ContainerRecipeArn", "InfrastructureConfigurationArn" ]
-  }, {
-    "required" : [ "Name", "ImageRecipeArn", "InfrastructureConfigurationArn" ]
-  } ],
-  "primaryIdentifier" : [ "/properties/Arn" ],
-  "readOnlyProperties" : [ "/properties/Arn" ],
-  "createOnlyProperties" : [ "/properties/Name" ],
-  "tagging" : {
-    "taggable" : false
-  },
-  "handlers" : {
-    "create" : {
-      "permissions" : [ "ecr:BatchGetRepositoryScanningConfiguration", "iam:GetRole", "iam:CreateServiceLinkedRole", "imagebuilder:TagResource", "imagebuilder:GetImagePipeline", "imagebuilder:GetImageRecipe", "imagebuilder:GetInfrastructureConfiguration", "imagebuilder:GetDistributionConfiguration", "imagebuilder:CreateImagePipeline", "inspector2:BatchGetAccountStatus" ]
+  "properties" : {
+    "Status" : {
+      "description" : "The status of the image pipeline.",
+      "type" : "string",
+      "enum" : [ "DISABLED", "ENABLED" ]
     },
-    "update" : {
-      "permissions" : [ "imagebuilder:GetImagePipeline", "imagebuilder:UpdateImagePipeline" ]
+    "ImageScanningConfiguration" : {
+      "description" : "Contains settings for vulnerability scans.",
+      "$ref" : "#/definitions/ImageScanningConfiguration"
     },
-    "read" : {
-      "permissions" : [ "imagebuilder:GetImagePipeline" ]
+    "Description" : {
+      "description" : "The description of the image pipeline.",
+      "type" : "string"
     },
-    "delete" : {
-      "permissions" : [ "imagebuilder:UnTagResource", "imagebuilder:GetImagePipeline", "imagebuilder:DeleteImagePipeline" ]
+    "ContainerRecipeArn" : {
+      "description" : "The Amazon Resource Name (ARN) of the container recipe that defines how images are configured and tested.",
+      "type" : "string"
     },
-    "list" : {
-      "permissions" : [ "imagebuilder:ListImagePipelines" ]
+    "Name" : {
+      "description" : "The name of the image pipeline.",
+      "type" : "string"
+    },
+    "InfrastructureConfigurationArn" : {
+      "description" : "The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.",
+      "type" : "string"
+    },
+    "ImageRecipeArn" : {
+      "description" : "The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.",
+      "type" : "string"
+    },
+    "DistributionConfigurationArn" : {
+      "description" : "The Amazon Resource Name (ARN) of the distribution configuration associated with this image pipeline.",
+      "type" : "string"
+    },
+    "Schedule" : {
+      "description" : "The schedule of the image pipeline.",
+      "$ref" : "#/definitions/Schedule"
+    },
+    "ImageTestsConfiguration" : {
+      "description" : "The image tests configuration of the image pipeline.",
+      "$ref" : "#/definitions/ImageTestsConfiguration"
+    },
+    "Arn" : {
+      "description" : "The Amazon Resource Name (ARN) of the image pipeline.",
+      "type" : "string"
+    },
+    "EnhancedImageMetadataEnabled" : {
+      "description" : "Collects additional information about the image being created, including the operating system (OS) version and package list.",
+      "type" : "boolean"
+    },
+    "Tags" : {
+      "patternProperties" : {
+        ".{1,}" : {
+          "type" : "string"
+        }
+      },
+      "description" : "The tags of this image pipeline.",
+      "additionalProperties" : false,
+      "type" : "object"
     }
   }
 }

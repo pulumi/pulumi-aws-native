@@ -71,16 +71,16 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "devicefarm:CreateInstanceProfile", "devicefarm:TagResource" ]
+      "permissions" : [ "devicefarm:CreateInstanceProfile", "devicefarm:TagResource", "devicefarm:GetInstanceProfile", "devicefarm:ListTagsForResource" ]
     },
     "read" : {
       "permissions" : [ "devicefarm:GetInstanceProfile", "devicefarm:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "devicefarm:UpdateInstanceProfile", "devicefarm:TagResource", "devicefarm:UntagResource", "devicefarm:ListTagsForResource" ]
+      "permissions" : [ "devicefarm:UpdateInstanceProfile", "devicefarm:TagResource", "devicefarm:UntagResource", "devicefarm:ListTagsForResource", "devicefarm:GetInstanceProfile" ]
     },
     "delete" : {
-      "permissions" : [ "devicefarm:DeleteInstanceProfile" ]
+      "permissions" : [ "devicefarm:DeleteInstanceProfile", "devicefarm:UntagResource", "devicefarm:GetInstanceProfile", "devicefarm:ListTagsForResource" ]
     },
     "list" : {
       "permissions" : [ "devicefarm:ListInstanceProfiles" ]
