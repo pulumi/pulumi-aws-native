@@ -79,12 +79,6 @@ func (o PolicyFirewallDeploymentModelOutput) ToPolicyFirewallDeploymentModelPtrO
 	}).(PolicyFirewallDeploymentModelPtrOutput)
 }
 
-func (o PolicyFirewallDeploymentModelOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyFirewallDeploymentModel] {
-	return pulumix.Output[PolicyFirewallDeploymentModel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PolicyFirewallDeploymentModelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o PolicyFirewallDeploymentModelPtrOutput) ToPolicyFirewallDeploymentModelP
 
 func (o PolicyFirewallDeploymentModelPtrOutput) ToPolicyFirewallDeploymentModelPtrOutputWithContext(ctx context.Context) PolicyFirewallDeploymentModelPtrOutput {
 	return o
-}
-
-func (o PolicyFirewallDeploymentModelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyFirewallDeploymentModel] {
-	return pulumix.Output[*PolicyFirewallDeploymentModel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyFirewallDeploymentModelPtrOutput) Elem() PolicyFirewallDeploymentModelOutput {
@@ -270,12 +258,6 @@ func (o PolicyTypeOutput) ToPolicyTypePtrOutputWithContext(ctx context.Context) 
 	}).(PolicyTypePtrOutput)
 }
 
-func (o PolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyType] {
-	return pulumix.Output[PolicyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -309,12 +291,6 @@ func (o PolicyTypePtrOutput) ToPolicyTypePtrOutput() PolicyTypePtrOutput {
 
 func (o PolicyTypePtrOutput) ToPolicyTypePtrOutputWithContext(ctx context.Context) PolicyTypePtrOutput {
 	return o
-}
-
-func (o PolicyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyType] {
-	return pulumix.Output[*PolicyType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyTypePtrOutput) Elem() PolicyTypeOutput {

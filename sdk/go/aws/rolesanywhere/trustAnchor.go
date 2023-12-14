@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::RolesAnywhere::TrustAnchor Resource Type.
@@ -108,12 +107,6 @@ func (i *TrustAnchor) ToTrustAnchorOutputWithContext(ctx context.Context) TrustA
 	return pulumi.ToOutputWithContext(ctx, i).(TrustAnchorOutput)
 }
 
-func (i *TrustAnchor) ToOutput(ctx context.Context) pulumix.Output[*TrustAnchor] {
-	return pulumix.Output[*TrustAnchor]{
-		OutputState: i.ToTrustAnchorOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TrustAnchorOutput struct{ *pulumi.OutputState }
 
 func (TrustAnchorOutput) ElementType() reflect.Type {
@@ -126,12 +119,6 @@ func (o TrustAnchorOutput) ToTrustAnchorOutput() TrustAnchorOutput {
 
 func (o TrustAnchorOutput) ToTrustAnchorOutputWithContext(ctx context.Context) TrustAnchorOutput {
 	return o
-}
-
-func (o TrustAnchorOutput) ToOutput(ctx context.Context) pulumix.Output[*TrustAnchor] {
-	return pulumix.Output[*TrustAnchor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrustAnchorOutput) Enabled() pulumi.BoolPtrOutput {

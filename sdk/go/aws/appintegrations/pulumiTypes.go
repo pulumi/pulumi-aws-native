@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i DataIntegrationFileConfigurationArgs) ToDataIntegrationFileConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationFileConfigurationOutput)
 }
 
-func (i DataIntegrationFileConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DataIntegrationFileConfiguration] {
-	return pulumix.Output[DataIntegrationFileConfiguration]{
-		OutputState: i.ToDataIntegrationFileConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataIntegrationFileConfigurationArgs) ToDataIntegrationFileConfigurationPtrOutput() DataIntegrationFileConfigurationPtrOutput {
 	return i.ToDataIntegrationFileConfigurationPtrOutputWithContext(context.Background())
 }
@@ -100,12 +93,6 @@ func (i *dataIntegrationFileConfigurationPtrType) ToDataIntegrationFileConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationFileConfigurationPtrOutput)
 }
 
-func (i *dataIntegrationFileConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataIntegrationFileConfiguration] {
-	return pulumix.Output[*DataIntegrationFileConfiguration]{
-		OutputState: i.ToDataIntegrationFileConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The configuration for what files should be pulled from the source.
 type DataIntegrationFileConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -131,12 +118,6 @@ func (o DataIntegrationFileConfigurationOutput) ToDataIntegrationFileConfigurati
 	}).(DataIntegrationFileConfigurationPtrOutput)
 }
 
-func (o DataIntegrationFileConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DataIntegrationFileConfiguration] {
-	return pulumix.Output[DataIntegrationFileConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Restrictions for what files should be pulled from the source.
 func (o DataIntegrationFileConfigurationOutput) Filters() pulumi.AnyOutput {
 	return o.ApplyT(func(v DataIntegrationFileConfiguration) interface{} { return v.Filters }).(pulumi.AnyOutput)
@@ -159,12 +140,6 @@ func (o DataIntegrationFileConfigurationPtrOutput) ToDataIntegrationFileConfigur
 
 func (o DataIntegrationFileConfigurationPtrOutput) ToDataIntegrationFileConfigurationPtrOutputWithContext(ctx context.Context) DataIntegrationFileConfigurationPtrOutput {
 	return o
-}
-
-func (o DataIntegrationFileConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataIntegrationFileConfiguration] {
-	return pulumix.Output[*DataIntegrationFileConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataIntegrationFileConfigurationPtrOutput) Elem() DataIntegrationFileConfigurationOutput {
@@ -228,12 +203,6 @@ func (i DataIntegrationObjectConfigurationArgs) ToDataIntegrationObjectConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationObjectConfigurationOutput)
 }
 
-func (i DataIntegrationObjectConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[DataIntegrationObjectConfiguration] {
-	return pulumix.Output[DataIntegrationObjectConfiguration]{
-		OutputState: i.ToDataIntegrationObjectConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataIntegrationObjectConfigurationArgs) ToDataIntegrationObjectConfigurationPtrOutput() DataIntegrationObjectConfigurationPtrOutput {
 	return i.ToDataIntegrationObjectConfigurationPtrOutputWithContext(context.Background())
 }
@@ -275,12 +244,6 @@ func (i *dataIntegrationObjectConfigurationPtrType) ToDataIntegrationObjectConfi
 	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationObjectConfigurationPtrOutput)
 }
 
-func (i *dataIntegrationObjectConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataIntegrationObjectConfiguration] {
-	return pulumix.Output[*DataIntegrationObjectConfiguration]{
-		OutputState: i.ToDataIntegrationObjectConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The configuration for what data should be pulled from the source.
 type DataIntegrationObjectConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -306,12 +269,6 @@ func (o DataIntegrationObjectConfigurationOutput) ToDataIntegrationObjectConfigu
 	}).(DataIntegrationObjectConfigurationPtrOutput)
 }
 
-func (o DataIntegrationObjectConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[DataIntegrationObjectConfiguration] {
-	return pulumix.Output[DataIntegrationObjectConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 type DataIntegrationObjectConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (DataIntegrationObjectConfigurationPtrOutput) ElementType() reflect.Type {
@@ -324,12 +281,6 @@ func (o DataIntegrationObjectConfigurationPtrOutput) ToDataIntegrationObjectConf
 
 func (o DataIntegrationObjectConfigurationPtrOutput) ToDataIntegrationObjectConfigurationPtrOutputWithContext(ctx context.Context) DataIntegrationObjectConfigurationPtrOutput {
 	return o
-}
-
-func (o DataIntegrationObjectConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataIntegrationObjectConfiguration] {
-	return pulumix.Output[*DataIntegrationObjectConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataIntegrationObjectConfigurationPtrOutput) Elem() DataIntegrationObjectConfigurationOutput {
@@ -383,12 +334,6 @@ func (i DataIntegrationScheduleConfigArgs) ToDataIntegrationScheduleConfigOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationScheduleConfigOutput)
 }
 
-func (i DataIntegrationScheduleConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DataIntegrationScheduleConfig] {
-	return pulumix.Output[DataIntegrationScheduleConfig]{
-		OutputState: i.ToDataIntegrationScheduleConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DataIntegrationScheduleConfigArgs) ToDataIntegrationScheduleConfigPtrOutput() DataIntegrationScheduleConfigPtrOutput {
 	return i.ToDataIntegrationScheduleConfigPtrOutputWithContext(context.Background())
 }
@@ -430,12 +375,6 @@ func (i *dataIntegrationScheduleConfigPtrType) ToDataIntegrationScheduleConfigPt
 	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationScheduleConfigPtrOutput)
 }
 
-func (i *dataIntegrationScheduleConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DataIntegrationScheduleConfig] {
-	return pulumix.Output[*DataIntegrationScheduleConfig]{
-		OutputState: i.ToDataIntegrationScheduleConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataIntegrationScheduleConfigOutput struct{ *pulumi.OutputState }
 
 func (DataIntegrationScheduleConfigOutput) ElementType() reflect.Type {
@@ -458,12 +397,6 @@ func (o DataIntegrationScheduleConfigOutput) ToDataIntegrationScheduleConfigPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataIntegrationScheduleConfig) *DataIntegrationScheduleConfig {
 		return &v
 	}).(DataIntegrationScheduleConfigPtrOutput)
-}
-
-func (o DataIntegrationScheduleConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DataIntegrationScheduleConfig] {
-	return pulumix.Output[DataIntegrationScheduleConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The start date for objects to import in the first flow run. Epoch or ISO timestamp format is supported.
@@ -493,12 +426,6 @@ func (o DataIntegrationScheduleConfigPtrOutput) ToDataIntegrationScheduleConfigP
 
 func (o DataIntegrationScheduleConfigPtrOutput) ToDataIntegrationScheduleConfigPtrOutputWithContext(ctx context.Context) DataIntegrationScheduleConfigPtrOutput {
 	return o
-}
-
-func (o DataIntegrationScheduleConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DataIntegrationScheduleConfig] {
-	return pulumix.Output[*DataIntegrationScheduleConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataIntegrationScheduleConfigPtrOutput) Elem() DataIntegrationScheduleConfigOutput {
@@ -580,12 +507,6 @@ func (i DataIntegrationTagArgs) ToDataIntegrationTagOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationTagOutput)
 }
 
-func (i DataIntegrationTagArgs) ToOutput(ctx context.Context) pulumix.Output[DataIntegrationTag] {
-	return pulumix.Output[DataIntegrationTag]{
-		OutputState: i.ToDataIntegrationTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataIntegrationTagArrayInput is an input type that accepts DataIntegrationTagArray and DataIntegrationTagArrayOutput values.
 // You can construct a concrete instance of `DataIntegrationTagArrayInput` via:
 //
@@ -611,12 +532,6 @@ func (i DataIntegrationTagArray) ToDataIntegrationTagArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DataIntegrationTagArrayOutput)
 }
 
-func (i DataIntegrationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DataIntegrationTag] {
-	return pulumix.Output[[]DataIntegrationTag]{
-		OutputState: i.ToDataIntegrationTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A label for tagging DataIntegration resources
 type DataIntegrationTagOutput struct{ *pulumi.OutputState }
 
@@ -630,12 +545,6 @@ func (o DataIntegrationTagOutput) ToDataIntegrationTagOutput() DataIntegrationTa
 
 func (o DataIntegrationTagOutput) ToDataIntegrationTagOutputWithContext(ctx context.Context) DataIntegrationTagOutput {
 	return o
-}
-
-func (o DataIntegrationTagOutput) ToOutput(ctx context.Context) pulumix.Output[DataIntegrationTag] {
-	return pulumix.Output[DataIntegrationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A key to identify the tag.
@@ -660,12 +569,6 @@ func (o DataIntegrationTagArrayOutput) ToDataIntegrationTagArrayOutput() DataInt
 
 func (o DataIntegrationTagArrayOutput) ToDataIntegrationTagArrayOutputWithContext(ctx context.Context) DataIntegrationTagArrayOutput {
 	return o
-}
-
-func (o DataIntegrationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataIntegrationTag] {
-	return pulumix.Output[[]DataIntegrationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataIntegrationTagArrayOutput) Index(i pulumi.IntInput) DataIntegrationTagOutput {
@@ -707,12 +610,6 @@ func (i EventIntegrationEventFilterArgs) ToEventIntegrationEventFilterOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationEventFilterOutput)
 }
 
-func (i EventIntegrationEventFilterArgs) ToOutput(ctx context.Context) pulumix.Output[EventIntegrationEventFilter] {
-	return pulumix.Output[EventIntegrationEventFilter]{
-		OutputState: i.ToEventIntegrationEventFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventIntegrationEventFilterOutput struct{ *pulumi.OutputState }
 
 func (EventIntegrationEventFilterOutput) ElementType() reflect.Type {
@@ -725,12 +622,6 @@ func (o EventIntegrationEventFilterOutput) ToEventIntegrationEventFilterOutput()
 
 func (o EventIntegrationEventFilterOutput) ToEventIntegrationEventFilterOutputWithContext(ctx context.Context) EventIntegrationEventFilterOutput {
 	return o
-}
-
-func (o EventIntegrationEventFilterOutput) ToOutput(ctx context.Context) pulumix.Output[EventIntegrationEventFilter] {
-	return pulumix.Output[EventIntegrationEventFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The source of the events.
@@ -775,12 +666,6 @@ func (i EventIntegrationTagArgs) ToEventIntegrationTagOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationTagOutput)
 }
 
-func (i EventIntegrationTagArgs) ToOutput(ctx context.Context) pulumix.Output[EventIntegrationTag] {
-	return pulumix.Output[EventIntegrationTag]{
-		OutputState: i.ToEventIntegrationTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventIntegrationTagArrayInput is an input type that accepts EventIntegrationTagArray and EventIntegrationTagArrayOutput values.
 // You can construct a concrete instance of `EventIntegrationTagArrayInput` via:
 //
@@ -806,12 +691,6 @@ func (i EventIntegrationTagArray) ToEventIntegrationTagArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationTagArrayOutput)
 }
 
-func (i EventIntegrationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]EventIntegrationTag] {
-	return pulumix.Output[[]EventIntegrationTag]{
-		OutputState: i.ToEventIntegrationTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventIntegrationTagOutput struct{ *pulumi.OutputState }
 
 func (EventIntegrationTagOutput) ElementType() reflect.Type {
@@ -824,12 +703,6 @@ func (o EventIntegrationTagOutput) ToEventIntegrationTagOutput() EventIntegratio
 
 func (o EventIntegrationTagOutput) ToEventIntegrationTagOutputWithContext(ctx context.Context) EventIntegrationTagOutput {
 	return o
-}
-
-func (o EventIntegrationTagOutput) ToOutput(ctx context.Context) pulumix.Output[EventIntegrationTag] {
-	return pulumix.Output[EventIntegrationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A key to identify the tag.
@@ -854,12 +727,6 @@ func (o EventIntegrationTagArrayOutput) ToEventIntegrationTagArrayOutput() Event
 
 func (o EventIntegrationTagArrayOutput) ToEventIntegrationTagArrayOutputWithContext(ctx context.Context) EventIntegrationTagArrayOutput {
 	return o
-}
-
-func (o EventIntegrationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventIntegrationTag] {
-	return pulumix.Output[[]EventIntegrationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventIntegrationTagArrayOutput) Index(i pulumi.IntInput) EventIntegrationTagOutput {

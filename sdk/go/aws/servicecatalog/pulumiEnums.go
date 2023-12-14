@@ -79,12 +79,6 @@ func (o CloudFormationProvisionedProductAcceptLanguageOutput) ToCloudFormationPr
 	}).(CloudFormationProvisionedProductAcceptLanguagePtrOutput)
 }
 
-func (o CloudFormationProvisionedProductAcceptLanguageOutput) ToOutput(ctx context.Context) pulumix.Output[CloudFormationProvisionedProductAcceptLanguage] {
-	return pulumix.Output[CloudFormationProvisionedProductAcceptLanguage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CloudFormationProvisionedProductAcceptLanguageOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o CloudFormationProvisionedProductAcceptLanguagePtrOutput) ToCloudFormatio
 
 func (o CloudFormationProvisionedProductAcceptLanguagePtrOutput) ToCloudFormationProvisionedProductAcceptLanguagePtrOutputWithContext(ctx context.Context) CloudFormationProvisionedProductAcceptLanguagePtrOutput {
 	return o
-}
-
-func (o CloudFormationProvisionedProductAcceptLanguagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CloudFormationProvisionedProductAcceptLanguage] {
-	return pulumix.Output[*CloudFormationProvisionedProductAcceptLanguage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CloudFormationProvisionedProductAcceptLanguagePtrOutput) Elem() CloudFormationProvisionedProductAcceptLanguageOutput {
@@ -262,12 +250,6 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesStackSetOperation
 	}).(CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypePtrOutput)
 }
 
-func (o CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType] {
-	return pulumix.Output[CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +283,6 @@ func (o CloudFormationProvisionedProductProvisioningPreferencesStackSetOperation
 
 func (o CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypePtrOutput) ToCloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypePtrOutputWithContext(ctx context.Context) CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypePtrOutput {
 	return o
-}
-
-func (o CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType] {
-	return pulumix.Output[*CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypePtrOutput) Elem() CloudFormationProvisionedProductProvisioningPreferencesStackSetOperationTypeOutput {
@@ -445,12 +421,6 @@ func (o ServiceActionAcceptLanguageOutput) ToServiceActionAcceptLanguagePtrOutpu
 	}).(ServiceActionAcceptLanguagePtrOutput)
 }
 
-func (o ServiceActionAcceptLanguageOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceActionAcceptLanguage] {
-	return pulumix.Output[ServiceActionAcceptLanguage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceActionAcceptLanguageOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -484,12 +454,6 @@ func (o ServiceActionAcceptLanguagePtrOutput) ToServiceActionAcceptLanguagePtrOu
 
 func (o ServiceActionAcceptLanguagePtrOutput) ToServiceActionAcceptLanguagePtrOutputWithContext(ctx context.Context) ServiceActionAcceptLanguagePtrOutput {
 	return o
-}
-
-func (o ServiceActionAcceptLanguagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceActionAcceptLanguage] {
-	return pulumix.Output[*ServiceActionAcceptLanguage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceActionAcceptLanguagePtrOutput) Elem() ServiceActionAcceptLanguageOutput {
@@ -626,12 +590,6 @@ func (o ServiceActionDefinitionTypeOutput) ToServiceActionDefinitionTypePtrOutpu
 	}).(ServiceActionDefinitionTypePtrOutput)
 }
 
-func (o ServiceActionDefinitionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceActionDefinitionType] {
-	return pulumix.Output[ServiceActionDefinitionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceActionDefinitionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -665,12 +623,6 @@ func (o ServiceActionDefinitionTypePtrOutput) ToServiceActionDefinitionTypePtrOu
 
 func (o ServiceActionDefinitionTypePtrOutput) ToServiceActionDefinitionTypePtrOutputWithContext(ctx context.Context) ServiceActionDefinitionTypePtrOutput {
 	return o
-}
-
-func (o ServiceActionDefinitionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceActionDefinitionType] {
-	return pulumix.Output[*ServiceActionDefinitionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceActionDefinitionTypePtrOutput) Elem() ServiceActionDefinitionTypeOutput {

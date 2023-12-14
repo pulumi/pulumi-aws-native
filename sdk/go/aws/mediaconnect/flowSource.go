@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::MediaConnect::FlowSource
@@ -209,12 +208,6 @@ func (i *FlowSource) ToFlowSourceOutputWithContext(ctx context.Context) FlowSour
 	return pulumi.ToOutputWithContext(ctx, i).(FlowSourceOutput)
 }
 
-func (i *FlowSource) ToOutput(ctx context.Context) pulumix.Output[*FlowSource] {
-	return pulumix.Output[*FlowSource]{
-		OutputState: i.ToFlowSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowSourceOutput struct{ *pulumi.OutputState }
 
 func (FlowSourceOutput) ElementType() reflect.Type {
@@ -227,12 +220,6 @@ func (o FlowSourceOutput) ToFlowSourceOutput() FlowSourceOutput {
 
 func (o FlowSourceOutput) ToFlowSourceOutputWithContext(ctx context.Context) FlowSourceOutput {
 	return o
-}
-
-func (o FlowSourceOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSource] {
-	return pulumix.Output[*FlowSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The type of encryption that is used on the content ingested from this source.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppConfig::HostedConfigurationVersion
@@ -64,12 +63,6 @@ func (o LookupHostedConfigurationVersionResultOutput) ToLookupHostedConfiguratio
 
 func (o LookupHostedConfigurationVersionResultOutput) ToLookupHostedConfigurationVersionResultOutputWithContext(ctx context.Context) LookupHostedConfigurationVersionResultOutput {
 	return o
-}
-
-func (o LookupHostedConfigurationVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupHostedConfigurationVersionResult] {
-	return pulumix.Output[LookupHostedConfigurationVersionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupHostedConfigurationVersionResultOutput) Id() pulumi.StringPtrOutput {

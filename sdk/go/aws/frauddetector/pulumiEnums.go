@@ -77,12 +77,6 @@ func (o DetectorEventVariableDataSourceOutput) ToDetectorEventVariableDataSource
 	}).(DetectorEventVariableDataSourcePtrOutput)
 }
 
-func (o DetectorEventVariableDataSourceOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorEventVariableDataSource] {
-	return pulumix.Output[DetectorEventVariableDataSource]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorEventVariableDataSourceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -116,12 +110,6 @@ func (o DetectorEventVariableDataSourcePtrOutput) ToDetectorEventVariableDataSou
 
 func (o DetectorEventVariableDataSourcePtrOutput) ToDetectorEventVariableDataSourcePtrOutputWithContext(ctx context.Context) DetectorEventVariableDataSourcePtrOutput {
 	return o
-}
-
-func (o DetectorEventVariableDataSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorEventVariableDataSource] {
-	return pulumix.Output[*DetectorEventVariableDataSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DetectorEventVariableDataSourcePtrOutput) Elem() DetectorEventVariableDataSourceOutput {
@@ -261,12 +249,6 @@ func (o DetectorEventVariableDataTypeOutput) ToDetectorEventVariableDataTypePtrO
 	}).(DetectorEventVariableDataTypePtrOutput)
 }
 
-func (o DetectorEventVariableDataTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorEventVariableDataType] {
-	return pulumix.Output[DetectorEventVariableDataType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorEventVariableDataTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -300,12 +282,6 @@ func (o DetectorEventVariableDataTypePtrOutput) ToDetectorEventVariableDataTypeP
 
 func (o DetectorEventVariableDataTypePtrOutput) ToDetectorEventVariableDataTypePtrOutputWithContext(ctx context.Context) DetectorEventVariableDataTypePtrOutput {
 	return o
-}
-
-func (o DetectorEventVariableDataTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorEventVariableDataType] {
-	return pulumix.Output[*DetectorEventVariableDataType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DetectorEventVariableDataTypePtrOutput) Elem() DetectorEventVariableDataTypeOutput {
@@ -474,12 +450,6 @@ func (o DetectorEventVariableVariableTypeOutput) ToDetectorEventVariableVariable
 	}).(DetectorEventVariableVariableTypePtrOutput)
 }
 
-func (o DetectorEventVariableVariableTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorEventVariableVariableType] {
-	return pulumix.Output[DetectorEventVariableVariableType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorEventVariableVariableTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -513,12 +483,6 @@ func (o DetectorEventVariableVariableTypePtrOutput) ToDetectorEventVariableVaria
 
 func (o DetectorEventVariableVariableTypePtrOutput) ToDetectorEventVariableVariableTypePtrOutputWithContext(ctx context.Context) DetectorEventVariableVariableTypePtrOutput {
 	return o
-}
-
-func (o DetectorEventVariableVariableTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorEventVariableVariableType] {
-	return pulumix.Output[*DetectorEventVariableVariableType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DetectorEventVariableVariableTypePtrOutput) Elem() DetectorEventVariableVariableTypeOutput {
@@ -656,12 +620,6 @@ func (o DetectorRuleExecutionModeOutput) ToDetectorRuleExecutionModePtrOutputWit
 	}).(DetectorRuleExecutionModePtrOutput)
 }
 
-func (o DetectorRuleExecutionModeOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorRuleExecutionMode] {
-	return pulumix.Output[DetectorRuleExecutionMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorRuleExecutionModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -695,12 +653,6 @@ func (o DetectorRuleExecutionModePtrOutput) ToDetectorRuleExecutionModePtrOutput
 
 func (o DetectorRuleExecutionModePtrOutput) ToDetectorRuleExecutionModePtrOutputWithContext(ctx context.Context) DetectorRuleExecutionModePtrOutput {
 	return o
-}
-
-func (o DetectorRuleExecutionModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorRuleExecutionMode] {
-	return pulumix.Output[*DetectorRuleExecutionMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DetectorRuleExecutionModePtrOutput) Elem() DetectorRuleExecutionModeOutput {
@@ -837,12 +789,6 @@ func (o DetectorRuleLanguageOutput) ToDetectorRuleLanguagePtrOutputWithContext(c
 	}).(DetectorRuleLanguagePtrOutput)
 }
 
-func (o DetectorRuleLanguageOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorRuleLanguage] {
-	return pulumix.Output[DetectorRuleLanguage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorRuleLanguageOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -876,12 +822,6 @@ func (o DetectorRuleLanguagePtrOutput) ToDetectorRuleLanguagePtrOutput() Detecto
 
 func (o DetectorRuleLanguagePtrOutput) ToDetectorRuleLanguagePtrOutputWithContext(ctx context.Context) DetectorRuleLanguagePtrOutput {
 	return o
-}
-
-func (o DetectorRuleLanguagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorRuleLanguage] {
-	return pulumix.Output[*DetectorRuleLanguage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DetectorRuleLanguagePtrOutput) Elem() DetectorRuleLanguageOutput {
@@ -1020,12 +960,6 @@ func (o DetectorVersionStatusOutput) ToDetectorVersionStatusPtrOutputWithContext
 	}).(DetectorVersionStatusPtrOutput)
 }
 
-func (o DetectorVersionStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DetectorVersionStatus] {
-	return pulumix.Output[DetectorVersionStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DetectorVersionStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1059,12 +993,6 @@ func (o DetectorVersionStatusPtrOutput) ToDetectorVersionStatusPtrOutput() Detec
 
 func (o DetectorVersionStatusPtrOutput) ToDetectorVersionStatusPtrOutputWithContext(ctx context.Context) DetectorVersionStatusPtrOutput {
 	return o
-}
-
-func (o DetectorVersionStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DetectorVersionStatus] {
-	return pulumix.Output[*DetectorVersionStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DetectorVersionStatusPtrOutput) Elem() DetectorVersionStatusOutput {
@@ -1201,12 +1129,6 @@ func (o EventTypeEventVariableDataSourceOutput) ToEventTypeEventVariableDataSour
 	}).(EventTypeEventVariableDataSourcePtrOutput)
 }
 
-func (o EventTypeEventVariableDataSourceOutput) ToOutput(ctx context.Context) pulumix.Output[EventTypeEventVariableDataSource] {
-	return pulumix.Output[EventTypeEventVariableDataSource]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventTypeEventVariableDataSourceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1240,12 +1162,6 @@ func (o EventTypeEventVariableDataSourcePtrOutput) ToEventTypeEventVariableDataS
 
 func (o EventTypeEventVariableDataSourcePtrOutput) ToEventTypeEventVariableDataSourcePtrOutputWithContext(ctx context.Context) EventTypeEventVariableDataSourcePtrOutput {
 	return o
-}
-
-func (o EventTypeEventVariableDataSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventTypeEventVariableDataSource] {
-	return pulumix.Output[*EventTypeEventVariableDataSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventTypeEventVariableDataSourcePtrOutput) Elem() EventTypeEventVariableDataSourceOutput {
@@ -1385,12 +1301,6 @@ func (o EventTypeEventVariableDataTypeOutput) ToEventTypeEventVariableDataTypePt
 	}).(EventTypeEventVariableDataTypePtrOutput)
 }
 
-func (o EventTypeEventVariableDataTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EventTypeEventVariableDataType] {
-	return pulumix.Output[EventTypeEventVariableDataType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventTypeEventVariableDataTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1424,12 +1334,6 @@ func (o EventTypeEventVariableDataTypePtrOutput) ToEventTypeEventVariableDataTyp
 
 func (o EventTypeEventVariableDataTypePtrOutput) ToEventTypeEventVariableDataTypePtrOutputWithContext(ctx context.Context) EventTypeEventVariableDataTypePtrOutput {
 	return o
-}
-
-func (o EventTypeEventVariableDataTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventTypeEventVariableDataType] {
-	return pulumix.Output[*EventTypeEventVariableDataType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventTypeEventVariableDataTypePtrOutput) Elem() EventTypeEventVariableDataTypeOutput {
@@ -1598,12 +1502,6 @@ func (o EventTypeEventVariableVariableTypeOutput) ToEventTypeEventVariableVariab
 	}).(EventTypeEventVariableVariableTypePtrOutput)
 }
 
-func (o EventTypeEventVariableVariableTypeOutput) ToOutput(ctx context.Context) pulumix.Output[EventTypeEventVariableVariableType] {
-	return pulumix.Output[EventTypeEventVariableVariableType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventTypeEventVariableVariableTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1637,12 +1535,6 @@ func (o EventTypeEventVariableVariableTypePtrOutput) ToEventTypeEventVariableVar
 
 func (o EventTypeEventVariableVariableTypePtrOutput) ToEventTypeEventVariableVariableTypePtrOutputWithContext(ctx context.Context) EventTypeEventVariableVariableTypePtrOutput {
 	return o
-}
-
-func (o EventTypeEventVariableVariableTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventTypeEventVariableVariableType] {
-	return pulumix.Output[*EventTypeEventVariableVariableType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventTypeEventVariableVariableTypePtrOutput) Elem() EventTypeEventVariableVariableTypeOutput {
@@ -1781,12 +1673,6 @@ func (o VariableDataSourceOutput) ToVariableDataSourcePtrOutputWithContext(ctx c
 	}).(VariableDataSourcePtrOutput)
 }
 
-func (o VariableDataSourceOutput) ToOutput(ctx context.Context) pulumix.Output[VariableDataSource] {
-	return pulumix.Output[VariableDataSource]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VariableDataSourceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1820,12 +1706,6 @@ func (o VariableDataSourcePtrOutput) ToVariableDataSourcePtrOutput() VariableDat
 
 func (o VariableDataSourcePtrOutput) ToVariableDataSourcePtrOutputWithContext(ctx context.Context) VariableDataSourcePtrOutput {
 	return o
-}
-
-func (o VariableDataSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VariableDataSource] {
-	return pulumix.Output[*VariableDataSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VariableDataSourcePtrOutput) Elem() VariableDataSourceOutput {
@@ -1966,12 +1846,6 @@ func (o VariableDataTypeOutput) ToVariableDataTypePtrOutputWithContext(ctx conte
 	}).(VariableDataTypePtrOutput)
 }
 
-func (o VariableDataTypeOutput) ToOutput(ctx context.Context) pulumix.Output[VariableDataType] {
-	return pulumix.Output[VariableDataType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VariableDataTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2005,12 +1879,6 @@ func (o VariableDataTypePtrOutput) ToVariableDataTypePtrOutput() VariableDataTyp
 
 func (o VariableDataTypePtrOutput) ToVariableDataTypePtrOutputWithContext(ctx context.Context) VariableDataTypePtrOutput {
 	return o
-}
-
-func (o VariableDataTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VariableDataType] {
-	return pulumix.Output[*VariableDataType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VariableDataTypePtrOutput) Elem() VariableDataTypeOutput {
@@ -2180,12 +2048,6 @@ func (o VariableTypeOutput) ToVariableTypePtrOutputWithContext(ctx context.Conte
 	}).(VariableTypePtrOutput)
 }
 
-func (o VariableTypeOutput) ToOutput(ctx context.Context) pulumix.Output[VariableType] {
-	return pulumix.Output[VariableType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VariableTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2219,12 +2081,6 @@ func (o VariableTypePtrOutput) ToVariableTypePtrOutput() VariableTypePtrOutput {
 
 func (o VariableTypePtrOutput) ToVariableTypePtrOutputWithContext(ctx context.Context) VariableTypePtrOutput {
 	return o
-}
-
-func (o VariableTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VariableType] {
-	return pulumix.Output[*VariableType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VariableTypePtrOutput) Elem() VariableTypeOutput {

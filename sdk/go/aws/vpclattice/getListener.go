@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a listener for a service. Before you start using your Amazon VPC Lattice service, you must add one or more listeners. A listener is a process that checks for connection requests to your services.
@@ -69,12 +68,6 @@ func (o LookupListenerResultOutput) ToLookupListenerResultOutput() LookupListene
 
 func (o LookupListenerResultOutput) ToLookupListenerResultOutputWithContext(ctx context.Context) LookupListenerResultOutput {
 	return o
-}
-
-func (o LookupListenerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupListenerResult] {
-	return pulumix.Output[LookupListenerResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupListenerResultOutput) Arn() pulumi.StringPtrOutput {

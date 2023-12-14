@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into AWS IoT Events. This is done by sending messages as *inputs* to AWS IoT Events. For more information, see [How to Use AWS IoT Events](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *AWS IoT Events Developer Guide*.
@@ -122,12 +121,6 @@ func (i *Input) ToInputOutputWithContext(ctx context.Context) InputOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InputOutput)
 }
 
-func (i *Input) ToOutput(ctx context.Context) pulumix.Output[*Input] {
-	return pulumix.Output[*Input]{
-		OutputState: i.ToInputOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InputOutput struct{ *pulumi.OutputState }
 
 func (InputOutput) ElementType() reflect.Type {
@@ -140,12 +133,6 @@ func (o InputOutput) ToInputOutput() InputOutput {
 
 func (o InputOutput) ToInputOutputWithContext(ctx context.Context) InputOutput {
 	return o
-}
-
-func (o InputOutput) ToOutput(ctx context.Context) pulumix.Output[*Input] {
-	return pulumix.Output[*Input]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InputOutput) InputDefinition() InputDefinitionOutput {

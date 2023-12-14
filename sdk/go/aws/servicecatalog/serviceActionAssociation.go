@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema for AWS::ServiceCatalog::ServiceActionAssociation
@@ -112,12 +111,6 @@ func (i *ServiceActionAssociation) ToServiceActionAssociationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceActionAssociationOutput)
 }
 
-func (i *ServiceActionAssociation) ToOutput(ctx context.Context) pulumix.Output[*ServiceActionAssociation] {
-	return pulumix.Output[*ServiceActionAssociation]{
-		OutputState: i.ToServiceActionAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceActionAssociationOutput struct{ *pulumi.OutputState }
 
 func (ServiceActionAssociationOutput) ElementType() reflect.Type {
@@ -130,12 +123,6 @@ func (o ServiceActionAssociationOutput) ToServiceActionAssociationOutput() Servi
 
 func (o ServiceActionAssociationOutput) ToServiceActionAssociationOutputWithContext(ctx context.Context) ServiceActionAssociationOutput {
 	return o
-}
-
-func (o ServiceActionAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceActionAssociation] {
-	return pulumix.Output[*ServiceActionAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceActionAssociationOutput) ProductId() pulumi.StringOutput {

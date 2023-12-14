@@ -44,12 +44,6 @@ func (o BotAliasStatusOutput) ToBotAliasStatusPtrOutputWithContext(ctx context.C
 	}).(BotAliasStatusPtrOutput)
 }
 
-func (o BotAliasStatusOutput) ToOutput(ctx context.Context) pulumix.Output[BotAliasStatus] {
-	return pulumix.Output[BotAliasStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotAliasStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -83,12 +77,6 @@ func (o BotAliasStatusPtrOutput) ToBotAliasStatusPtrOutput() BotAliasStatusPtrOu
 
 func (o BotAliasStatusPtrOutput) ToBotAliasStatusPtrOutputWithContext(ctx context.Context) BotAliasStatusPtrOutput {
 	return o
-}
-
-func (o BotAliasStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotAliasStatus] {
-	return pulumix.Output[*BotAliasStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BotAliasStatusPtrOutput) Elem() BotAliasStatusOutput {
@@ -182,12 +170,6 @@ func (o BotAudioRecognitionStrategyOutput) ToBotAudioRecognitionStrategyPtrOutpu
 	}).(BotAudioRecognitionStrategyPtrOutput)
 }
 
-func (o BotAudioRecognitionStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[BotAudioRecognitionStrategy] {
-	return pulumix.Output[BotAudioRecognitionStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotAudioRecognitionStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -221,12 +203,6 @@ func (o BotAudioRecognitionStrategyPtrOutput) ToBotAudioRecognitionStrategyPtrOu
 
 func (o BotAudioRecognitionStrategyPtrOutput) ToBotAudioRecognitionStrategyPtrOutputWithContext(ctx context.Context) BotAudioRecognitionStrategyPtrOutput {
 	return o
-}
-
-func (o BotAudioRecognitionStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotAudioRecognitionStrategy] {
-	return pulumix.Output[*BotAudioRecognitionStrategy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BotAudioRecognitionStrategyPtrOutput) Elem() BotAudioRecognitionStrategyOutput {
@@ -372,12 +348,6 @@ func (o BotDialogActionTypeOutput) ToBotDialogActionTypePtrOutputWithContext(ctx
 	}).(BotDialogActionTypePtrOutput)
 }
 
-func (o BotDialogActionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BotDialogActionType] {
-	return pulumix.Output[BotDialogActionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotDialogActionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -411,12 +381,6 @@ func (o BotDialogActionTypePtrOutput) ToBotDialogActionTypePtrOutput() BotDialog
 
 func (o BotDialogActionTypePtrOutput) ToBotDialogActionTypePtrOutputWithContext(ctx context.Context) BotDialogActionTypePtrOutput {
 	return o
-}
-
-func (o BotDialogActionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotDialogActionType] {
-	return pulumix.Output[*BotDialogActionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BotDialogActionTypePtrOutput) Elem() BotDialogActionTypeOutput {
@@ -555,12 +519,6 @@ func (o BotMessageSelectionStrategyOutput) ToBotMessageSelectionStrategyPtrOutpu
 	}).(BotMessageSelectionStrategyPtrOutput)
 }
 
-func (o BotMessageSelectionStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[BotMessageSelectionStrategy] {
-	return pulumix.Output[BotMessageSelectionStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotMessageSelectionStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -594,12 +552,6 @@ func (o BotMessageSelectionStrategyPtrOutput) ToBotMessageSelectionStrategyPtrOu
 
 func (o BotMessageSelectionStrategyPtrOutput) ToBotMessageSelectionStrategyPtrOutputWithContext(ctx context.Context) BotMessageSelectionStrategyPtrOutput {
 	return o
-}
-
-func (o BotMessageSelectionStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotMessageSelectionStrategy] {
-	return pulumix.Output[*BotMessageSelectionStrategy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BotMessageSelectionStrategyPtrOutput) Elem() BotMessageSelectionStrategyOutput {
@@ -738,12 +690,6 @@ func (o BotObfuscationSettingObfuscationSettingTypeOutput) ToBotObfuscationSetti
 	}).(BotObfuscationSettingObfuscationSettingTypePtrOutput)
 }
 
-func (o BotObfuscationSettingObfuscationSettingTypeOutput) ToOutput(ctx context.Context) pulumix.Output[BotObfuscationSettingObfuscationSettingType] {
-	return pulumix.Output[BotObfuscationSettingObfuscationSettingType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotObfuscationSettingObfuscationSettingTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -777,12 +723,6 @@ func (o BotObfuscationSettingObfuscationSettingTypePtrOutput) ToBotObfuscationSe
 
 func (o BotObfuscationSettingObfuscationSettingTypePtrOutput) ToBotObfuscationSettingObfuscationSettingTypePtrOutputWithContext(ctx context.Context) BotObfuscationSettingObfuscationSettingTypePtrOutput {
 	return o
-}
-
-func (o BotObfuscationSettingObfuscationSettingTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotObfuscationSettingObfuscationSettingType] {
-	return pulumix.Output[*BotObfuscationSettingObfuscationSettingType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BotObfuscationSettingObfuscationSettingTypePtrOutput) Elem() BotObfuscationSettingObfuscationSettingTypeOutput {
@@ -920,12 +860,6 @@ func (o BotSlotConstraintOutput) ToBotSlotConstraintPtrOutputWithContext(ctx con
 	}).(BotSlotConstraintPtrOutput)
 }
 
-func (o BotSlotConstraintOutput) ToOutput(ctx context.Context) pulumix.Output[BotSlotConstraint] {
-	return pulumix.Output[BotSlotConstraint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotSlotConstraintOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -959,12 +893,6 @@ func (o BotSlotConstraintPtrOutput) ToBotSlotConstraintPtrOutput() BotSlotConstr
 
 func (o BotSlotConstraintPtrOutput) ToBotSlotConstraintPtrOutputWithContext(ctx context.Context) BotSlotConstraintPtrOutput {
 	return o
-}
-
-func (o BotSlotConstraintPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotSlotConstraint] {
-	return pulumix.Output[*BotSlotConstraint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BotSlotConstraintPtrOutput) Elem() BotSlotConstraintOutput {
@@ -1103,12 +1031,6 @@ func (o BotSlotShapeOutput) ToBotSlotShapePtrOutputWithContext(ctx context.Conte
 	}).(BotSlotShapePtrOutput)
 }
 
-func (o BotSlotShapeOutput) ToOutput(ctx context.Context) pulumix.Output[BotSlotShape] {
-	return pulumix.Output[BotSlotShape]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotSlotShapeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1142,12 +1064,6 @@ func (o BotSlotShapePtrOutput) ToBotSlotShapePtrOutput() BotSlotShapePtrOutput {
 
 func (o BotSlotShapePtrOutput) ToBotSlotShapePtrOutputWithContext(ctx context.Context) BotSlotShapePtrOutput {
 	return o
-}
-
-func (o BotSlotShapePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotSlotShape] {
-	return pulumix.Output[*BotSlotShape]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BotSlotShapePtrOutput) Elem() BotSlotShapeOutput {
@@ -1285,12 +1201,6 @@ func (o BotSlotValueResolutionStrategyOutput) ToBotSlotValueResolutionStrategyPt
 	}).(BotSlotValueResolutionStrategyPtrOutput)
 }
 
-func (o BotSlotValueResolutionStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[BotSlotValueResolutionStrategy] {
-	return pulumix.Output[BotSlotValueResolutionStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotSlotValueResolutionStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1324,12 +1234,6 @@ func (o BotSlotValueResolutionStrategyPtrOutput) ToBotSlotValueResolutionStrateg
 
 func (o BotSlotValueResolutionStrategyPtrOutput) ToBotSlotValueResolutionStrategyPtrOutputWithContext(ctx context.Context) BotSlotValueResolutionStrategyPtrOutput {
 	return o
-}
-
-func (o BotSlotValueResolutionStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotSlotValueResolutionStrategy] {
-	return pulumix.Output[*BotSlotValueResolutionStrategy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BotSlotValueResolutionStrategyPtrOutput) Elem() BotSlotValueResolutionStrategyOutput {
@@ -1468,12 +1372,6 @@ func (o BotVoiceSettingsEngineOutput) ToBotVoiceSettingsEnginePtrOutputWithConte
 	}).(BotVoiceSettingsEnginePtrOutput)
 }
 
-func (o BotVoiceSettingsEngineOutput) ToOutput(ctx context.Context) pulumix.Output[BotVoiceSettingsEngine] {
-	return pulumix.Output[BotVoiceSettingsEngine]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BotVoiceSettingsEngineOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1507,12 +1405,6 @@ func (o BotVoiceSettingsEnginePtrOutput) ToBotVoiceSettingsEnginePtrOutput() Bot
 
 func (o BotVoiceSettingsEnginePtrOutput) ToBotVoiceSettingsEnginePtrOutputWithContext(ctx context.Context) BotVoiceSettingsEnginePtrOutput {
 	return o
-}
-
-func (o BotVoiceSettingsEnginePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BotVoiceSettingsEngine] {
-	return pulumix.Output[*BotVoiceSettingsEngine]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BotVoiceSettingsEnginePtrOutput) Elem() BotVoiceSettingsEngineOutput {

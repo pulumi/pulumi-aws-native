@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A custom line item is an one time charge that is applied to a specific billing group's bill.
@@ -131,12 +130,6 @@ func (i *CustomLineItem) ToCustomLineItemOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CustomLineItemOutput)
 }
 
-func (i *CustomLineItem) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItem] {
-	return pulumix.Output[*CustomLineItem]{
-		OutputState: i.ToCustomLineItemOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CustomLineItemOutput struct{ *pulumi.OutputState }
 
 func (CustomLineItemOutput) ElementType() reflect.Type {
@@ -149,12 +142,6 @@ func (o CustomLineItemOutput) ToCustomLineItemOutput() CustomLineItemOutput {
 
 func (o CustomLineItemOutput) ToCustomLineItemOutputWithContext(ctx context.Context) CustomLineItemOutput {
 	return o
-}
-
-func (o CustomLineItemOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomLineItem] {
-	return pulumix.Output[*CustomLineItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::Prompt
@@ -123,12 +122,6 @@ func (i *Prompt) ToPromptOutputWithContext(ctx context.Context) PromptOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PromptOutput)
 }
 
-func (i *Prompt) ToOutput(ctx context.Context) pulumix.Output[*Prompt] {
-	return pulumix.Output[*Prompt]{
-		OutputState: i.ToPromptOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PromptOutput struct{ *pulumi.OutputState }
 
 func (PromptOutput) ElementType() reflect.Type {
@@ -141,12 +134,6 @@ func (o PromptOutput) ToPromptOutput() PromptOutput {
 
 func (o PromptOutput) ToPromptOutputWithContext(ctx context.Context) PromptOutput {
 	return o
-}
-
-func (o PromptOutput) ToOutput(ctx context.Context) pulumix.Output[*Prompt] {
-	return pulumix.Output[*Prompt]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the prompt.

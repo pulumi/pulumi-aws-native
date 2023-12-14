@@ -78,12 +78,6 @@ func (o ChannelDestinationTypeOutput) ToChannelDestinationTypePtrOutputWithConte
 	}).(ChannelDestinationTypePtrOutput)
 }
 
-func (o ChannelDestinationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelDestinationType] {
-	return pulumix.Output[ChannelDestinationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelDestinationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o ChannelDestinationTypePtrOutput) ToChannelDestinationTypePtrOutput() Cha
 
 func (o ChannelDestinationTypePtrOutput) ToChannelDestinationTypePtrOutputWithContext(ctx context.Context) ChannelDestinationTypePtrOutput {
 	return o
-}
-
-func (o ChannelDestinationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelDestinationType] {
-	return pulumix.Output[*ChannelDestinationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelDestinationTypePtrOutput) Elem() ChannelDestinationTypeOutput {
@@ -262,12 +250,6 @@ func (o TrailEventSelectorReadWriteTypeOutput) ToTrailEventSelectorReadWriteType
 	}).(TrailEventSelectorReadWriteTypePtrOutput)
 }
 
-func (o TrailEventSelectorReadWriteTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TrailEventSelectorReadWriteType] {
-	return pulumix.Output[TrailEventSelectorReadWriteType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TrailEventSelectorReadWriteTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -301,12 +283,6 @@ func (o TrailEventSelectorReadWriteTypePtrOutput) ToTrailEventSelectorReadWriteT
 
 func (o TrailEventSelectorReadWriteTypePtrOutput) ToTrailEventSelectorReadWriteTypePtrOutputWithContext(ctx context.Context) TrailEventSelectorReadWriteTypePtrOutput {
 	return o
-}
-
-func (o TrailEventSelectorReadWriteTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TrailEventSelectorReadWriteType] {
-	return pulumix.Output[*TrailEventSelectorReadWriteType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrailEventSelectorReadWriteTypePtrOutput) Elem() TrailEventSelectorReadWriteTypeOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Represents a table that can be queried within a collaboration
@@ -71,12 +70,6 @@ func (o LookupConfiguredTableAssociationResultOutput) ToLookupConfiguredTableAss
 
 func (o LookupConfiguredTableAssociationResultOutput) ToLookupConfiguredTableAssociationResultOutputWithContext(ctx context.Context) LookupConfiguredTableAssociationResultOutput {
 	return o
-}
-
-func (o LookupConfiguredTableAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupConfiguredTableAssociationResult] {
-	return pulumix.Output[LookupConfiguredTableAssociationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupConfiguredTableAssociationResultOutput) Arn() pulumi.StringPtrOutput {

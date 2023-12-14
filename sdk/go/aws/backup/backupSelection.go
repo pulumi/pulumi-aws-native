@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Backup::BackupSelection
@@ -106,12 +105,6 @@ func (i *BackupSelection) ToBackupSelectionOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(BackupSelectionOutput)
 }
 
-func (i *BackupSelection) ToOutput(ctx context.Context) pulumix.Output[*BackupSelection] {
-	return pulumix.Output[*BackupSelection]{
-		OutputState: i.ToBackupSelectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BackupSelectionOutput struct{ *pulumi.OutputState }
 
 func (BackupSelectionOutput) ElementType() reflect.Type {
@@ -124,12 +117,6 @@ func (o BackupSelectionOutput) ToBackupSelectionOutput() BackupSelectionOutput {
 
 func (o BackupSelectionOutput) ToBackupSelectionOutputWithContext(ctx context.Context) BackupSelectionOutput {
 	return o
-}
-
-func (o BackupSelectionOutput) ToOutput(ctx context.Context) pulumix.Output[*BackupSelection] {
-	return pulumix.Output[*BackupSelection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BackupSelectionOutput) BackupPlanId() pulumi.StringOutput {

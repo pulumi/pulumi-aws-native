@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for LookoutEquipment InferenceScheduler.
@@ -79,12 +78,6 @@ func (o LookupInferenceSchedulerResultOutput) ToLookupInferenceSchedulerResultOu
 
 func (o LookupInferenceSchedulerResultOutput) ToLookupInferenceSchedulerResultOutputWithContext(ctx context.Context) LookupInferenceSchedulerResultOutput {
 	return o
-}
-
-func (o LookupInferenceSchedulerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupInferenceSchedulerResult] {
-	return pulumix.Output[LookupInferenceSchedulerResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A period of time (in minutes) by which inference on the data is delayed after the data starts.

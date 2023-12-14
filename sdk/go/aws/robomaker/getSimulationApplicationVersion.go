@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::RoboMaker::SimulationApplicationVersion resource creates an AWS RoboMaker SimulationApplicationVersion. This helps you control which code your simulation uses.
@@ -65,12 +64,6 @@ func (o LookupSimulationApplicationVersionResultOutput) ToLookupSimulationApplic
 
 func (o LookupSimulationApplicationVersionResultOutput) ToLookupSimulationApplicationVersionResultOutputWithContext(ctx context.Context) LookupSimulationApplicationVersionResultOutput {
 	return o
-}
-
-func (o LookupSimulationApplicationVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSimulationApplicationVersionResult] {
-	return pulumix.Output[LookupSimulationApplicationVersionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupSimulationApplicationVersionResultOutput) ApplicationVersion() pulumi.StringPtrOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -43,12 +42,6 @@ func (i ApplicationInstanceManifestOverridesPayloadArgs) ToApplicationInstanceMa
 
 func (i ApplicationInstanceManifestOverridesPayloadArgs) ToApplicationInstanceManifestOverridesPayloadOutputWithContext(ctx context.Context) ApplicationInstanceManifestOverridesPayloadOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInstanceManifestOverridesPayloadOutput)
-}
-
-func (i ApplicationInstanceManifestOverridesPayloadArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationInstanceManifestOverridesPayload] {
-	return pulumix.Output[ApplicationInstanceManifestOverridesPayload]{
-		OutputState: i.ToApplicationInstanceManifestOverridesPayloadOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ApplicationInstanceManifestOverridesPayloadArgs) ToApplicationInstanceManifestOverridesPayloadPtrOutput() ApplicationInstanceManifestOverridesPayloadPtrOutput {
@@ -92,12 +85,6 @@ func (i *applicationInstanceManifestOverridesPayloadPtrType) ToApplicationInstan
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInstanceManifestOverridesPayloadPtrOutput)
 }
 
-func (i *applicationInstanceManifestOverridesPayloadPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationInstanceManifestOverridesPayload] {
-	return pulumix.Output[*ApplicationInstanceManifestOverridesPayload]{
-		OutputState: i.ToApplicationInstanceManifestOverridesPayloadPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApplicationInstanceManifestOverridesPayloadOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInstanceManifestOverridesPayloadOutput) ElementType() reflect.Type {
@@ -122,12 +109,6 @@ func (o ApplicationInstanceManifestOverridesPayloadOutput) ToApplicationInstance
 	}).(ApplicationInstanceManifestOverridesPayloadPtrOutput)
 }
 
-func (o ApplicationInstanceManifestOverridesPayloadOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationInstanceManifestOverridesPayload] {
-	return pulumix.Output[ApplicationInstanceManifestOverridesPayload]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationInstanceManifestOverridesPayloadOutput) PayloadData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationInstanceManifestOverridesPayload) *string { return v.PayloadData }).(pulumi.StringPtrOutput)
 }
@@ -144,12 +125,6 @@ func (o ApplicationInstanceManifestOverridesPayloadPtrOutput) ToApplicationInsta
 
 func (o ApplicationInstanceManifestOverridesPayloadPtrOutput) ToApplicationInstanceManifestOverridesPayloadPtrOutputWithContext(ctx context.Context) ApplicationInstanceManifestOverridesPayloadPtrOutput {
 	return o
-}
-
-func (o ApplicationInstanceManifestOverridesPayloadPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationInstanceManifestOverridesPayload] {
-	return pulumix.Output[*ApplicationInstanceManifestOverridesPayload]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationInstanceManifestOverridesPayloadPtrOutput) Elem() ApplicationInstanceManifestOverridesPayloadOutput {
@@ -202,12 +177,6 @@ func (i ApplicationInstanceManifestPayloadArgs) ToApplicationInstanceManifestPay
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInstanceManifestPayloadOutput)
 }
 
-func (i ApplicationInstanceManifestPayloadArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationInstanceManifestPayload] {
-	return pulumix.Output[ApplicationInstanceManifestPayload]{
-		OutputState: i.ToApplicationInstanceManifestPayloadOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApplicationInstanceManifestPayloadOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInstanceManifestPayloadOutput) ElementType() reflect.Type {
@@ -220,12 +189,6 @@ func (o ApplicationInstanceManifestPayloadOutput) ToApplicationInstanceManifestP
 
 func (o ApplicationInstanceManifestPayloadOutput) ToApplicationInstanceManifestPayloadOutputWithContext(ctx context.Context) ApplicationInstanceManifestPayloadOutput {
 	return o
-}
-
-func (o ApplicationInstanceManifestPayloadOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationInstanceManifestPayload] {
-	return pulumix.Output[ApplicationInstanceManifestPayload]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationInstanceManifestPayloadOutput) PayloadData() pulumi.StringPtrOutput {
@@ -269,12 +232,6 @@ func (i ApplicationInstanceTagArgs) ToApplicationInstanceTagOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInstanceTagOutput)
 }
 
-func (i ApplicationInstanceTagArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationInstanceTag] {
-	return pulumix.Output[ApplicationInstanceTag]{
-		OutputState: i.ToApplicationInstanceTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApplicationInstanceTagArrayInput is an input type that accepts ApplicationInstanceTagArray and ApplicationInstanceTagArrayOutput values.
 // You can construct a concrete instance of `ApplicationInstanceTagArrayInput` via:
 //
@@ -300,12 +257,6 @@ func (i ApplicationInstanceTagArray) ToApplicationInstanceTagArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInstanceTagArrayOutput)
 }
 
-func (i ApplicationInstanceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationInstanceTag] {
-	return pulumix.Output[[]ApplicationInstanceTag]{
-		OutputState: i.ToApplicationInstanceTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApplicationInstanceTagOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInstanceTagOutput) ElementType() reflect.Type {
@@ -318,12 +269,6 @@ func (o ApplicationInstanceTagOutput) ToApplicationInstanceTagOutput() Applicati
 
 func (o ApplicationInstanceTagOutput) ToApplicationInstanceTagOutputWithContext(ctx context.Context) ApplicationInstanceTagOutput {
 	return o
-}
-
-func (o ApplicationInstanceTagOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationInstanceTag] {
-	return pulumix.Output[ApplicationInstanceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A string used to identify this tag
@@ -348,12 +293,6 @@ func (o ApplicationInstanceTagArrayOutput) ToApplicationInstanceTagArrayOutput()
 
 func (o ApplicationInstanceTagArrayOutput) ToApplicationInstanceTagArrayOutputWithContext(ctx context.Context) ApplicationInstanceTagArrayOutput {
 	return o
-}
-
-func (o ApplicationInstanceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationInstanceTag] {
-	return pulumix.Output[[]ApplicationInstanceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationInstanceTagArrayOutput) Index(i pulumi.IntInput) ApplicationInstanceTagOutput {
@@ -401,12 +340,6 @@ func (i PackageStorageLocationArgs) ToPackageStorageLocationOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PackageStorageLocationOutput)
 }
 
-func (i PackageStorageLocationArgs) ToOutput(ctx context.Context) pulumix.Output[PackageStorageLocation] {
-	return pulumix.Output[PackageStorageLocation]{
-		OutputState: i.ToPackageStorageLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PackageStorageLocationArgs) ToPackageStorageLocationPtrOutput() PackageStorageLocationPtrOutput {
 	return i.ToPackageStorageLocationPtrOutputWithContext(context.Background())
 }
@@ -448,12 +381,6 @@ func (i *packageStorageLocationPtrType) ToPackageStorageLocationPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(PackageStorageLocationPtrOutput)
 }
 
-func (i *packageStorageLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PackageStorageLocation] {
-	return pulumix.Output[*PackageStorageLocation]{
-		OutputState: i.ToPackageStorageLocationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PackageStorageLocationOutput struct{ *pulumi.OutputState }
 
 func (PackageStorageLocationOutput) ElementType() reflect.Type {
@@ -476,12 +403,6 @@ func (o PackageStorageLocationOutput) ToPackageStorageLocationPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackageStorageLocation) *PackageStorageLocation {
 		return &v
 	}).(PackageStorageLocationPtrOutput)
-}
-
-func (o PackageStorageLocationOutput) ToOutput(ctx context.Context) pulumix.Output[PackageStorageLocation] {
-	return pulumix.Output[PackageStorageLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackageStorageLocationOutput) BinaryPrefixLocation() pulumi.StringPtrOutput {
@@ -516,12 +437,6 @@ func (o PackageStorageLocationPtrOutput) ToPackageStorageLocationPtrOutput() Pac
 
 func (o PackageStorageLocationPtrOutput) ToPackageStorageLocationPtrOutputWithContext(ctx context.Context) PackageStorageLocationPtrOutput {
 	return o
-}
-
-func (o PackageStorageLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackageStorageLocation] {
-	return pulumix.Output[*PackageStorageLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackageStorageLocationPtrOutput) Elem() PackageStorageLocationOutput {
@@ -612,12 +527,6 @@ func (i PackageTagArgs) ToPackageTagOutputWithContext(ctx context.Context) Packa
 	return pulumi.ToOutputWithContext(ctx, i).(PackageTagOutput)
 }
 
-func (i PackageTagArgs) ToOutput(ctx context.Context) pulumix.Output[PackageTag] {
-	return pulumix.Output[PackageTag]{
-		OutputState: i.ToPackageTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PackageTagArrayInput is an input type that accepts PackageTagArray and PackageTagArrayOutput values.
 // You can construct a concrete instance of `PackageTagArrayInput` via:
 //
@@ -643,12 +552,6 @@ func (i PackageTagArray) ToPackageTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(PackageTagArrayOutput)
 }
 
-func (i PackageTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PackageTag] {
-	return pulumix.Output[[]PackageTag]{
-		OutputState: i.ToPackageTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PackageTagOutput struct{ *pulumi.OutputState }
 
 func (PackageTagOutput) ElementType() reflect.Type {
@@ -661,12 +564,6 @@ func (o PackageTagOutput) ToPackageTagOutput() PackageTagOutput {
 
 func (o PackageTagOutput) ToPackageTagOutputWithContext(ctx context.Context) PackageTagOutput {
 	return o
-}
-
-func (o PackageTagOutput) ToOutput(ctx context.Context) pulumix.Output[PackageTag] {
-	return pulumix.Output[PackageTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackageTagOutput) Key() pulumi.StringOutput {
@@ -689,12 +586,6 @@ func (o PackageTagArrayOutput) ToPackageTagArrayOutput() PackageTagArrayOutput {
 
 func (o PackageTagArrayOutput) ToPackageTagArrayOutputWithContext(ctx context.Context) PackageTagArrayOutput {
 	return o
-}
-
-func (o PackageTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PackageTag] {
-	return pulumix.Output[[]PackageTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackageTagArrayOutput) Index(i pulumi.IntInput) PackageTagOutput {

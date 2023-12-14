@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -51,12 +50,6 @@ func (i AccessGrantGranteeArgs) ToAccessGrantGranteeOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantGranteeOutput)
 }
 
-func (i AccessGrantGranteeArgs) ToOutput(ctx context.Context) pulumix.Output[AccessGrantGrantee] {
-	return pulumix.Output[AccessGrantGrantee]{
-		OutputState: i.ToAccessGrantGranteeOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccessGrantGranteeOutput struct{ *pulumi.OutputState }
 
 func (AccessGrantGranteeOutput) ElementType() reflect.Type {
@@ -69,12 +62,6 @@ func (o AccessGrantGranteeOutput) ToAccessGrantGranteeOutput() AccessGrantGrante
 
 func (o AccessGrantGranteeOutput) ToAccessGrantGranteeOutputWithContext(ctx context.Context) AccessGrantGranteeOutput {
 	return o
-}
-
-func (o AccessGrantGranteeOutput) ToOutput(ctx context.Context) pulumix.Output[AccessGrantGrantee] {
-	return pulumix.Output[AccessGrantGrantee]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The unique identifier of the Grantee
@@ -99,12 +86,6 @@ func (o AccessGrantGranteePtrOutput) ToAccessGrantGranteePtrOutput() AccessGrant
 
 func (o AccessGrantGranteePtrOutput) ToAccessGrantGranteePtrOutputWithContext(ctx context.Context) AccessGrantGranteePtrOutput {
 	return o
-}
-
-func (o AccessGrantGranteePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessGrantGrantee] {
-	return pulumix.Output[*AccessGrantGrantee]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessGrantGranteePtrOutput) Elem() AccessGrantGranteeOutput {
@@ -170,12 +151,6 @@ func (i AccessGrantTagArgs) ToAccessGrantTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantTagOutput)
 }
 
-func (i AccessGrantTagArgs) ToOutput(ctx context.Context) pulumix.Output[AccessGrantTag] {
-	return pulumix.Output[AccessGrantTag]{
-		OutputState: i.ToAccessGrantTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccessGrantTagArrayInput is an input type that accepts AccessGrantTagArray and AccessGrantTagArrayOutput values.
 // You can construct a concrete instance of `AccessGrantTagArrayInput` via:
 //
@@ -201,12 +176,6 @@ func (i AccessGrantTagArray) ToAccessGrantTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantTagArrayOutput)
 }
 
-func (i AccessGrantTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AccessGrantTag] {
-	return pulumix.Output[[]AccessGrantTag]{
-		OutputState: i.ToAccessGrantTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccessGrantTagOutput struct{ *pulumi.OutputState }
 
 func (AccessGrantTagOutput) ElementType() reflect.Type {
@@ -219,12 +188,6 @@ func (o AccessGrantTagOutput) ToAccessGrantTagOutput() AccessGrantTagOutput {
 
 func (o AccessGrantTagOutput) ToAccessGrantTagOutputWithContext(ctx context.Context) AccessGrantTagOutput {
 	return o
-}
-
-func (o AccessGrantTagOutput) ToOutput(ctx context.Context) pulumix.Output[AccessGrantTag] {
-	return pulumix.Output[AccessGrantTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessGrantTagOutput) Key() pulumi.StringOutput {
@@ -247,12 +210,6 @@ func (o AccessGrantTagArrayOutput) ToAccessGrantTagArrayOutput() AccessGrantTagA
 
 func (o AccessGrantTagArrayOutput) ToAccessGrantTagArrayOutputWithContext(ctx context.Context) AccessGrantTagArrayOutput {
 	return o
-}
-
-func (o AccessGrantTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccessGrantTag] {
-	return pulumix.Output[[]AccessGrantTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessGrantTagArrayOutput) Index(i pulumi.IntInput) AccessGrantTagOutput {
@@ -294,12 +251,6 @@ func (i AccessGrantsInstanceTagArgs) ToAccessGrantsInstanceTagOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantsInstanceTagOutput)
 }
 
-func (i AccessGrantsInstanceTagArgs) ToOutput(ctx context.Context) pulumix.Output[AccessGrantsInstanceTag] {
-	return pulumix.Output[AccessGrantsInstanceTag]{
-		OutputState: i.ToAccessGrantsInstanceTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccessGrantsInstanceTagArrayInput is an input type that accepts AccessGrantsInstanceTagArray and AccessGrantsInstanceTagArrayOutput values.
 // You can construct a concrete instance of `AccessGrantsInstanceTagArrayInput` via:
 //
@@ -325,12 +276,6 @@ func (i AccessGrantsInstanceTagArray) ToAccessGrantsInstanceTagArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantsInstanceTagArrayOutput)
 }
 
-func (i AccessGrantsInstanceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AccessGrantsInstanceTag] {
-	return pulumix.Output[[]AccessGrantsInstanceTag]{
-		OutputState: i.ToAccessGrantsInstanceTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccessGrantsInstanceTagOutput struct{ *pulumi.OutputState }
 
 func (AccessGrantsInstanceTagOutput) ElementType() reflect.Type {
@@ -343,12 +288,6 @@ func (o AccessGrantsInstanceTagOutput) ToAccessGrantsInstanceTagOutput() AccessG
 
 func (o AccessGrantsInstanceTagOutput) ToAccessGrantsInstanceTagOutputWithContext(ctx context.Context) AccessGrantsInstanceTagOutput {
 	return o
-}
-
-func (o AccessGrantsInstanceTagOutput) ToOutput(ctx context.Context) pulumix.Output[AccessGrantsInstanceTag] {
-	return pulumix.Output[AccessGrantsInstanceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessGrantsInstanceTagOutput) Key() pulumi.StringOutput {
@@ -371,12 +310,6 @@ func (o AccessGrantsInstanceTagArrayOutput) ToAccessGrantsInstanceTagArrayOutput
 
 func (o AccessGrantsInstanceTagArrayOutput) ToAccessGrantsInstanceTagArrayOutputWithContext(ctx context.Context) AccessGrantsInstanceTagArrayOutput {
 	return o
-}
-
-func (o AccessGrantsInstanceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccessGrantsInstanceTag] {
-	return pulumix.Output[[]AccessGrantsInstanceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessGrantsInstanceTagArrayOutput) Index(i pulumi.IntInput) AccessGrantsInstanceTagOutput {
@@ -416,12 +349,6 @@ func (i AccessGrantsLocationConfigurationArgs) ToAccessGrantsLocationConfigurati
 
 func (i AccessGrantsLocationConfigurationArgs) ToAccessGrantsLocationConfigurationOutputWithContext(ctx context.Context) AccessGrantsLocationConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantsLocationConfigurationOutput)
-}
-
-func (i AccessGrantsLocationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AccessGrantsLocationConfiguration] {
-	return pulumix.Output[AccessGrantsLocationConfiguration]{
-		OutputState: i.ToAccessGrantsLocationConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i AccessGrantsLocationConfigurationArgs) ToAccessGrantsLocationConfigurationPtrOutput() AccessGrantsLocationConfigurationPtrOutput {
@@ -465,12 +392,6 @@ func (i *accessGrantsLocationConfigurationPtrType) ToAccessGrantsLocationConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantsLocationConfigurationPtrOutput)
 }
 
-func (i *accessGrantsLocationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccessGrantsLocationConfiguration] {
-	return pulumix.Output[*AccessGrantsLocationConfiguration]{
-		OutputState: i.ToAccessGrantsLocationConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccessGrantsLocationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AccessGrantsLocationConfigurationOutput) ElementType() reflect.Type {
@@ -495,12 +416,6 @@ func (o AccessGrantsLocationConfigurationOutput) ToAccessGrantsLocationConfigura
 	}).(AccessGrantsLocationConfigurationPtrOutput)
 }
 
-func (o AccessGrantsLocationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AccessGrantsLocationConfiguration] {
-	return pulumix.Output[AccessGrantsLocationConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The S3 sub prefix of a registered location in your S3 Access Grants instance
 func (o AccessGrantsLocationConfigurationOutput) S3SubPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessGrantsLocationConfiguration) string { return v.S3SubPrefix }).(pulumi.StringOutput)
@@ -518,12 +433,6 @@ func (o AccessGrantsLocationConfigurationPtrOutput) ToAccessGrantsLocationConfig
 
 func (o AccessGrantsLocationConfigurationPtrOutput) ToAccessGrantsLocationConfigurationPtrOutputWithContext(ctx context.Context) AccessGrantsLocationConfigurationPtrOutput {
 	return o
-}
-
-func (o AccessGrantsLocationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessGrantsLocationConfiguration] {
-	return pulumix.Output[*AccessGrantsLocationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessGrantsLocationConfigurationPtrOutput) Elem() AccessGrantsLocationConfigurationOutput {
@@ -579,12 +488,6 @@ func (i AccessGrantsLocationTagArgs) ToAccessGrantsLocationTagOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantsLocationTagOutput)
 }
 
-func (i AccessGrantsLocationTagArgs) ToOutput(ctx context.Context) pulumix.Output[AccessGrantsLocationTag] {
-	return pulumix.Output[AccessGrantsLocationTag]{
-		OutputState: i.ToAccessGrantsLocationTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccessGrantsLocationTagArrayInput is an input type that accepts AccessGrantsLocationTagArray and AccessGrantsLocationTagArrayOutput values.
 // You can construct a concrete instance of `AccessGrantsLocationTagArrayInput` via:
 //
@@ -610,12 +513,6 @@ func (i AccessGrantsLocationTagArray) ToAccessGrantsLocationTagArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AccessGrantsLocationTagArrayOutput)
 }
 
-func (i AccessGrantsLocationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AccessGrantsLocationTag] {
-	return pulumix.Output[[]AccessGrantsLocationTag]{
-		OutputState: i.ToAccessGrantsLocationTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccessGrantsLocationTagOutput struct{ *pulumi.OutputState }
 
 func (AccessGrantsLocationTagOutput) ElementType() reflect.Type {
@@ -628,12 +525,6 @@ func (o AccessGrantsLocationTagOutput) ToAccessGrantsLocationTagOutput() AccessG
 
 func (o AccessGrantsLocationTagOutput) ToAccessGrantsLocationTagOutputWithContext(ctx context.Context) AccessGrantsLocationTagOutput {
 	return o
-}
-
-func (o AccessGrantsLocationTagOutput) ToOutput(ctx context.Context) pulumix.Output[AccessGrantsLocationTag] {
-	return pulumix.Output[AccessGrantsLocationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessGrantsLocationTagOutput) Key() pulumi.StringOutput {
@@ -656,12 +547,6 @@ func (o AccessGrantsLocationTagArrayOutput) ToAccessGrantsLocationTagArrayOutput
 
 func (o AccessGrantsLocationTagArrayOutput) ToAccessGrantsLocationTagArrayOutputWithContext(ctx context.Context) AccessGrantsLocationTagArrayOutput {
 	return o
-}
-
-func (o AccessGrantsLocationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccessGrantsLocationTag] {
-	return pulumix.Output[[]AccessGrantsLocationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessGrantsLocationTagArrayOutput) Index(i pulumi.IntInput) AccessGrantsLocationTagOutput {
@@ -725,12 +610,6 @@ func (i AccessPointPublicAccessBlockConfigurationArgs) ToAccessPointPublicAccess
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPublicAccessBlockConfigurationOutput)
 }
 
-func (i AccessPointPublicAccessBlockConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPointPublicAccessBlockConfiguration] {
-	return pulumix.Output[AccessPointPublicAccessBlockConfiguration]{
-		OutputState: i.ToAccessPointPublicAccessBlockConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccessPointPublicAccessBlockConfigurationArgs) ToAccessPointPublicAccessBlockConfigurationPtrOutput() AccessPointPublicAccessBlockConfigurationPtrOutput {
 	return i.ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(context.Background())
 }
@@ -772,12 +651,6 @@ func (i *accessPointPublicAccessBlockConfigurationPtrType) ToAccessPointPublicAc
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointPublicAccessBlockConfigurationPtrOutput)
 }
 
-func (i *accessPointPublicAccessBlockConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccessPointPublicAccessBlockConfiguration] {
-	return pulumix.Output[*AccessPointPublicAccessBlockConfiguration]{
-		OutputState: i.ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccessPointPublicAccessBlockConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AccessPointPublicAccessBlockConfigurationOutput) ElementType() reflect.Type {
@@ -800,12 +673,6 @@ func (o AccessPointPublicAccessBlockConfigurationOutput) ToAccessPointPublicAcce
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessPointPublicAccessBlockConfiguration) *AccessPointPublicAccessBlockConfiguration {
 		return &v
 	}).(AccessPointPublicAccessBlockConfigurationPtrOutput)
-}
-
-func (o AccessPointPublicAccessBlockConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPointPublicAccessBlockConfiguration] {
-	return pulumix.Output[AccessPointPublicAccessBlockConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
@@ -845,12 +712,6 @@ func (o AccessPointPublicAccessBlockConfigurationPtrOutput) ToAccessPointPublicA
 
 func (o AccessPointPublicAccessBlockConfigurationPtrOutput) ToAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) AccessPointPublicAccessBlockConfigurationPtrOutput {
 	return o
-}
-
-func (o AccessPointPublicAccessBlockConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPointPublicAccessBlockConfiguration] {
-	return pulumix.Output[*AccessPointPublicAccessBlockConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessPointPublicAccessBlockConfigurationPtrOutput) Elem() AccessPointPublicAccessBlockConfigurationOutput {
@@ -943,12 +804,6 @@ func (i AccessPointVpcConfigurationArgs) ToAccessPointVpcConfigurationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointVpcConfigurationOutput)
 }
 
-func (i AccessPointVpcConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AccessPointVpcConfiguration] {
-	return pulumix.Output[AccessPointVpcConfiguration]{
-		OutputState: i.ToAccessPointVpcConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccessPointVpcConfigurationArgs) ToAccessPointVpcConfigurationPtrOutput() AccessPointVpcConfigurationPtrOutput {
 	return i.ToAccessPointVpcConfigurationPtrOutputWithContext(context.Background())
 }
@@ -990,12 +845,6 @@ func (i *accessPointVpcConfigurationPtrType) ToAccessPointVpcConfigurationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(AccessPointVpcConfigurationPtrOutput)
 }
 
-func (i *accessPointVpcConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccessPointVpcConfiguration] {
-	return pulumix.Output[*AccessPointVpcConfiguration]{
-		OutputState: i.ToAccessPointVpcConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The Virtual Private Cloud (VPC) configuration for a bucket access point.
 type AccessPointVpcConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1021,12 +870,6 @@ func (o AccessPointVpcConfigurationOutput) ToAccessPointVpcConfigurationPtrOutpu
 	}).(AccessPointVpcConfigurationPtrOutput)
 }
 
-func (o AccessPointVpcConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPointVpcConfiguration] {
-	return pulumix.Output[AccessPointVpcConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // If this field is specified, this access point will only allow connections from the specified VPC ID.
 func (o AccessPointVpcConfigurationOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessPointVpcConfiguration) *string { return v.VpcId }).(pulumi.StringPtrOutput)
@@ -1044,12 +887,6 @@ func (o AccessPointVpcConfigurationPtrOutput) ToAccessPointVpcConfigurationPtrOu
 
 func (o AccessPointVpcConfigurationPtrOutput) ToAccessPointVpcConfigurationPtrOutputWithContext(ctx context.Context) AccessPointVpcConfigurationPtrOutput {
 	return o
-}
-
-func (o AccessPointVpcConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPointVpcConfiguration] {
-	return pulumix.Output[*AccessPointVpcConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessPointVpcConfigurationPtrOutput) Elem() AccessPointVpcConfigurationOutput {
@@ -1107,12 +944,6 @@ func (i BucketAbortIncompleteMultipartUploadArgs) ToBucketAbortIncompleteMultipa
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAbortIncompleteMultipartUploadOutput)
 }
 
-func (i BucketAbortIncompleteMultipartUploadArgs) ToOutput(ctx context.Context) pulumix.Output[BucketAbortIncompleteMultipartUpload] {
-	return pulumix.Output[BucketAbortIncompleteMultipartUpload]{
-		OutputState: i.ToBucketAbortIncompleteMultipartUploadOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketAbortIncompleteMultipartUploadArgs) ToBucketAbortIncompleteMultipartUploadPtrOutput() BucketAbortIncompleteMultipartUploadPtrOutput {
 	return i.ToBucketAbortIncompleteMultipartUploadPtrOutputWithContext(context.Background())
 }
@@ -1154,12 +985,6 @@ func (i *bucketAbortIncompleteMultipartUploadPtrType) ToBucketAbortIncompleteMul
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAbortIncompleteMultipartUploadPtrOutput)
 }
 
-func (i *bucketAbortIncompleteMultipartUploadPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketAbortIncompleteMultipartUpload] {
-	return pulumix.Output[*BucketAbortIncompleteMultipartUpload]{
-		OutputState: i.ToBucketAbortIncompleteMultipartUploadPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
 type BucketAbortIncompleteMultipartUploadOutput struct{ *pulumi.OutputState }
 
@@ -1185,12 +1010,6 @@ func (o BucketAbortIncompleteMultipartUploadOutput) ToBucketAbortIncompleteMulti
 	}).(BucketAbortIncompleteMultipartUploadPtrOutput)
 }
 
-func (o BucketAbortIncompleteMultipartUploadOutput) ToOutput(ctx context.Context) pulumix.Output[BucketAbortIncompleteMultipartUpload] {
-	return pulumix.Output[BucketAbortIncompleteMultipartUpload]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
 func (o BucketAbortIncompleteMultipartUploadOutput) DaysAfterInitiation() pulumi.IntOutput {
 	return o.ApplyT(func(v BucketAbortIncompleteMultipartUpload) int { return v.DaysAfterInitiation }).(pulumi.IntOutput)
@@ -1208,12 +1027,6 @@ func (o BucketAbortIncompleteMultipartUploadPtrOutput) ToBucketAbortIncompleteMu
 
 func (o BucketAbortIncompleteMultipartUploadPtrOutput) ToBucketAbortIncompleteMultipartUploadPtrOutputWithContext(ctx context.Context) BucketAbortIncompleteMultipartUploadPtrOutput {
 	return o
-}
-
-func (o BucketAbortIncompleteMultipartUploadPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketAbortIncompleteMultipartUpload] {
-	return pulumix.Output[*BucketAbortIncompleteMultipartUpload]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketAbortIncompleteMultipartUploadPtrOutput) Elem() BucketAbortIncompleteMultipartUploadOutput {
@@ -1269,12 +1082,6 @@ func (i BucketAccelerateConfigurationArgs) ToBucketAccelerateConfigurationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAccelerateConfigurationOutput)
 }
 
-func (i BucketAccelerateConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketAccelerateConfiguration] {
-	return pulumix.Output[BucketAccelerateConfiguration]{
-		OutputState: i.ToBucketAccelerateConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketAccelerateConfigurationArgs) ToBucketAccelerateConfigurationPtrOutput() BucketAccelerateConfigurationPtrOutput {
 	return i.ToBucketAccelerateConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1316,12 +1123,6 @@ func (i *bucketAccelerateConfigurationPtrType) ToBucketAccelerateConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAccelerateConfigurationPtrOutput)
 }
 
-func (i *bucketAccelerateConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketAccelerateConfiguration] {
-	return pulumix.Output[*BucketAccelerateConfiguration]{
-		OutputState: i.ToBucketAccelerateConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketAccelerateConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketAccelerateConfigurationOutput) ElementType() reflect.Type {
@@ -1346,12 +1147,6 @@ func (o BucketAccelerateConfigurationOutput) ToBucketAccelerateConfigurationPtrO
 	}).(BucketAccelerateConfigurationPtrOutput)
 }
 
-func (o BucketAccelerateConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketAccelerateConfiguration] {
-	return pulumix.Output[BucketAccelerateConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Configures the transfer acceleration state for an Amazon S3 bucket.
 func (o BucketAccelerateConfigurationOutput) AccelerationStatus() BucketAccelerateConfigurationAccelerationStatusOutput {
 	return o.ApplyT(func(v BucketAccelerateConfiguration) BucketAccelerateConfigurationAccelerationStatus {
@@ -1371,12 +1166,6 @@ func (o BucketAccelerateConfigurationPtrOutput) ToBucketAccelerateConfigurationP
 
 func (o BucketAccelerateConfigurationPtrOutput) ToBucketAccelerateConfigurationPtrOutputWithContext(ctx context.Context) BucketAccelerateConfigurationPtrOutput {
 	return o
-}
-
-func (o BucketAccelerateConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketAccelerateConfiguration] {
-	return pulumix.Output[*BucketAccelerateConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketAccelerateConfigurationPtrOutput) Elem() BucketAccelerateConfigurationOutput {
@@ -1432,12 +1221,6 @@ func (i BucketAccessControlTranslationArgs) ToBucketAccessControlTranslationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAccessControlTranslationOutput)
 }
 
-func (i BucketAccessControlTranslationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketAccessControlTranslation] {
-	return pulumix.Output[BucketAccessControlTranslation]{
-		OutputState: i.ToBucketAccessControlTranslationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketAccessControlTranslationArgs) ToBucketAccessControlTranslationPtrOutput() BucketAccessControlTranslationPtrOutput {
 	return i.ToBucketAccessControlTranslationPtrOutputWithContext(context.Background())
 }
@@ -1479,12 +1262,6 @@ func (i *bucketAccessControlTranslationPtrType) ToBucketAccessControlTranslation
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAccessControlTranslationPtrOutput)
 }
 
-func (i *bucketAccessControlTranslationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketAccessControlTranslation] {
-	return pulumix.Output[*BucketAccessControlTranslation]{
-		OutputState: i.ToBucketAccessControlTranslationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object.
 type BucketAccessControlTranslationOutput struct{ *pulumi.OutputState }
 
@@ -1510,12 +1287,6 @@ func (o BucketAccessControlTranslationOutput) ToBucketAccessControlTranslationPt
 	}).(BucketAccessControlTranslationPtrOutput)
 }
 
-func (o BucketAccessControlTranslationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketAccessControlTranslation] {
-	return pulumix.Output[BucketAccessControlTranslation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketAccessControlTranslationOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketAccessControlTranslation) string { return v.Owner }).(pulumi.StringOutput)
 }
@@ -1532,12 +1303,6 @@ func (o BucketAccessControlTranslationPtrOutput) ToBucketAccessControlTranslatio
 
 func (o BucketAccessControlTranslationPtrOutput) ToBucketAccessControlTranslationPtrOutputWithContext(ctx context.Context) BucketAccessControlTranslationPtrOutput {
 	return o
-}
-
-func (o BucketAccessControlTranslationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketAccessControlTranslation] {
-	return pulumix.Output[*BucketAccessControlTranslation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketAccessControlTranslationPtrOutput) Elem() BucketAccessControlTranslationOutput {
@@ -1602,12 +1367,6 @@ func (i BucketAnalyticsConfigurationArgs) ToBucketAnalyticsConfigurationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAnalyticsConfigurationOutput)
 }
 
-func (i BucketAnalyticsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketAnalyticsConfiguration] {
-	return pulumix.Output[BucketAnalyticsConfiguration]{
-		OutputState: i.ToBucketAnalyticsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketAnalyticsConfigurationArrayInput is an input type that accepts BucketAnalyticsConfigurationArray and BucketAnalyticsConfigurationArrayOutput values.
 // You can construct a concrete instance of `BucketAnalyticsConfigurationArrayInput` via:
 //
@@ -1633,12 +1392,6 @@ func (i BucketAnalyticsConfigurationArray) ToBucketAnalyticsConfigurationArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAnalyticsConfigurationArrayOutput)
 }
 
-func (i BucketAnalyticsConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketAnalyticsConfiguration] {
-	return pulumix.Output[[]BucketAnalyticsConfiguration]{
-		OutputState: i.ToBucketAnalyticsConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
 type BucketAnalyticsConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1652,12 +1405,6 @@ func (o BucketAnalyticsConfigurationOutput) ToBucketAnalyticsConfigurationOutput
 
 func (o BucketAnalyticsConfigurationOutput) ToBucketAnalyticsConfigurationOutputWithContext(ctx context.Context) BucketAnalyticsConfigurationOutput {
 	return o
-}
-
-func (o BucketAnalyticsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketAnalyticsConfiguration] {
-	return pulumix.Output[BucketAnalyticsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID that identifies the analytics configuration.
@@ -1690,12 +1437,6 @@ func (o BucketAnalyticsConfigurationArrayOutput) ToBucketAnalyticsConfigurationA
 
 func (o BucketAnalyticsConfigurationArrayOutput) ToBucketAnalyticsConfigurationArrayOutputWithContext(ctx context.Context) BucketAnalyticsConfigurationArrayOutput {
 	return o
-}
-
-func (o BucketAnalyticsConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketAnalyticsConfiguration] {
-	return pulumix.Output[[]BucketAnalyticsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketAnalyticsConfigurationArrayOutput) Index(i pulumi.IntInput) BucketAnalyticsConfigurationOutput {
@@ -1733,12 +1474,6 @@ func (i BucketCorsConfigurationArgs) ToBucketCorsConfigurationOutput() BucketCor
 
 func (i BucketCorsConfigurationArgs) ToBucketCorsConfigurationOutputWithContext(ctx context.Context) BucketCorsConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketCorsConfigurationOutput)
-}
-
-func (i BucketCorsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketCorsConfiguration] {
-	return pulumix.Output[BucketCorsConfiguration]{
-		OutputState: i.ToBucketCorsConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i BucketCorsConfigurationArgs) ToBucketCorsConfigurationPtrOutput() BucketCorsConfigurationPtrOutput {
@@ -1782,12 +1517,6 @@ func (i *bucketCorsConfigurationPtrType) ToBucketCorsConfigurationPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(BucketCorsConfigurationPtrOutput)
 }
 
-func (i *bucketCorsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketCorsConfiguration] {
-	return pulumix.Output[*BucketCorsConfiguration]{
-		OutputState: i.ToBucketCorsConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketCorsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketCorsConfigurationOutput) ElementType() reflect.Type {
@@ -1812,12 +1541,6 @@ func (o BucketCorsConfigurationOutput) ToBucketCorsConfigurationPtrOutputWithCon
 	}).(BucketCorsConfigurationPtrOutput)
 }
 
-func (o BucketCorsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketCorsConfiguration] {
-	return pulumix.Output[BucketCorsConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketCorsConfigurationOutput) CorsRules() BucketCorsRuleArrayOutput {
 	return o.ApplyT(func(v BucketCorsConfiguration) []BucketCorsRule { return v.CorsRules }).(BucketCorsRuleArrayOutput)
 }
@@ -1834,12 +1557,6 @@ func (o BucketCorsConfigurationPtrOutput) ToBucketCorsConfigurationPtrOutput() B
 
 func (o BucketCorsConfigurationPtrOutput) ToBucketCorsConfigurationPtrOutputWithContext(ctx context.Context) BucketCorsConfigurationPtrOutput {
 	return o
-}
-
-func (o BucketCorsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketCorsConfiguration] {
-	return pulumix.Output[*BucketCorsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketCorsConfigurationPtrOutput) Elem() BucketCorsConfigurationOutput {
@@ -1916,12 +1633,6 @@ func (i BucketCorsRuleArgs) ToBucketCorsRuleOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(BucketCorsRuleOutput)
 }
 
-func (i BucketCorsRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketCorsRule] {
-	return pulumix.Output[BucketCorsRule]{
-		OutputState: i.ToBucketCorsRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketCorsRuleArrayInput is an input type that accepts BucketCorsRuleArray and BucketCorsRuleArrayOutput values.
 // You can construct a concrete instance of `BucketCorsRuleArrayInput` via:
 //
@@ -1947,12 +1658,6 @@ func (i BucketCorsRuleArray) ToBucketCorsRuleArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(BucketCorsRuleArrayOutput)
 }
 
-func (i BucketCorsRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketCorsRule] {
-	return pulumix.Output[[]BucketCorsRule]{
-		OutputState: i.ToBucketCorsRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.
 type BucketCorsRuleOutput struct{ *pulumi.OutputState }
 
@@ -1966,12 +1671,6 @@ func (o BucketCorsRuleOutput) ToBucketCorsRuleOutput() BucketCorsRuleOutput {
 
 func (o BucketCorsRuleOutput) ToBucketCorsRuleOutputWithContext(ctx context.Context) BucketCorsRuleOutput {
 	return o
-}
-
-func (o BucketCorsRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketCorsRule] {
-	return pulumix.Output[BucketCorsRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Headers that are specified in the Access-Control-Request-Headers header.
@@ -2018,12 +1717,6 @@ func (o BucketCorsRuleArrayOutput) ToBucketCorsRuleArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o BucketCorsRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketCorsRule] {
-	return pulumix.Output[[]BucketCorsRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketCorsRuleArrayOutput) Index(i pulumi.IntInput) BucketCorsRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketCorsRule {
 		return vs[0].([]BucketCorsRule)[vs[1].(int)]
@@ -2067,12 +1760,6 @@ func (i BucketDataExportArgs) ToBucketDataExportOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BucketDataExportOutput)
 }
 
-func (i BucketDataExportArgs) ToOutput(ctx context.Context) pulumix.Output[BucketDataExport] {
-	return pulumix.Output[BucketDataExport]{
-		OutputState: i.ToBucketDataExportOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketDataExportArgs) ToBucketDataExportPtrOutput() BucketDataExportPtrOutput {
 	return i.ToBucketDataExportPtrOutputWithContext(context.Background())
 }
@@ -2114,12 +1801,6 @@ func (i *bucketDataExportPtrType) ToBucketDataExportPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(BucketDataExportPtrOutput)
 }
 
-func (i *bucketDataExportPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketDataExport] {
-	return pulumix.Output[*BucketDataExport]{
-		OutputState: i.ToBucketDataExportPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies how data related to the storage class analysis for an Amazon S3 bucket should be exported.
 type BucketDataExportOutput struct{ *pulumi.OutputState }
 
@@ -2145,12 +1826,6 @@ func (o BucketDataExportOutput) ToBucketDataExportPtrOutputWithContext(ctx conte
 	}).(BucketDataExportPtrOutput)
 }
 
-func (o BucketDataExportOutput) ToOutput(ctx context.Context) pulumix.Output[BucketDataExport] {
-	return pulumix.Output[BucketDataExport]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketDataExportOutput) Destination() BucketDestinationOutput {
 	return o.ApplyT(func(v BucketDataExport) BucketDestination { return v.Destination }).(BucketDestinationOutput)
 }
@@ -2172,12 +1847,6 @@ func (o BucketDataExportPtrOutput) ToBucketDataExportPtrOutput() BucketDataExpor
 
 func (o BucketDataExportPtrOutput) ToBucketDataExportPtrOutputWithContext(ctx context.Context) BucketDataExportPtrOutput {
 	return o
-}
-
-func (o BucketDataExportPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketDataExport] {
-	return pulumix.Output[*BucketDataExport]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketDataExportPtrOutput) Elem() BucketDataExportOutput {
@@ -2246,12 +1915,6 @@ func (i BucketDefaultRetentionArgs) ToBucketDefaultRetentionOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BucketDefaultRetentionOutput)
 }
 
-func (i BucketDefaultRetentionArgs) ToOutput(ctx context.Context) pulumix.Output[BucketDefaultRetention] {
-	return pulumix.Output[BucketDefaultRetention]{
-		OutputState: i.ToBucketDefaultRetentionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketDefaultRetentionArgs) ToBucketDefaultRetentionPtrOutput() BucketDefaultRetentionPtrOutput {
 	return i.ToBucketDefaultRetentionPtrOutputWithContext(context.Background())
 }
@@ -2293,12 +1956,6 @@ func (i *bucketDefaultRetentionPtrType) ToBucketDefaultRetentionPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(BucketDefaultRetentionPtrOutput)
 }
 
-func (i *bucketDefaultRetentionPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketDefaultRetention] {
-	return pulumix.Output[*BucketDefaultRetention]{
-		OutputState: i.ToBucketDefaultRetentionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The default retention period that you want to apply to new objects placed in the specified bucket.
 type BucketDefaultRetentionOutput struct{ *pulumi.OutputState }
 
@@ -2322,12 +1979,6 @@ func (o BucketDefaultRetentionOutput) ToBucketDefaultRetentionPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketDefaultRetention) *BucketDefaultRetention {
 		return &v
 	}).(BucketDefaultRetentionPtrOutput)
-}
-
-func (o BucketDefaultRetentionOutput) ToOutput(ctx context.Context) pulumix.Output[BucketDefaultRetention] {
-	return pulumix.Output[BucketDefaultRetention]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketDefaultRetentionOutput) Days() pulumi.IntPtrOutput {
@@ -2354,12 +2005,6 @@ func (o BucketDefaultRetentionPtrOutput) ToBucketDefaultRetentionPtrOutput() Buc
 
 func (o BucketDefaultRetentionPtrOutput) ToBucketDefaultRetentionPtrOutputWithContext(ctx context.Context) BucketDefaultRetentionPtrOutput {
 	return o
-}
-
-func (o BucketDefaultRetentionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketDefaultRetention] {
-	return pulumix.Output[*BucketDefaultRetention]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketDefaultRetentionPtrOutput) Elem() BucketDefaultRetentionOutput {
@@ -2430,12 +2075,6 @@ func (i BucketDeleteMarkerReplicationArgs) ToBucketDeleteMarkerReplicationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BucketDeleteMarkerReplicationOutput)
 }
 
-func (i BucketDeleteMarkerReplicationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketDeleteMarkerReplication] {
-	return pulumix.Output[BucketDeleteMarkerReplication]{
-		OutputState: i.ToBucketDeleteMarkerReplicationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketDeleteMarkerReplicationArgs) ToBucketDeleteMarkerReplicationPtrOutput() BucketDeleteMarkerReplicationPtrOutput {
 	return i.ToBucketDeleteMarkerReplicationPtrOutputWithContext(context.Background())
 }
@@ -2477,12 +2116,6 @@ func (i *bucketDeleteMarkerReplicationPtrType) ToBucketDeleteMarkerReplicationPt
 	return pulumi.ToOutputWithContext(ctx, i).(BucketDeleteMarkerReplicationPtrOutput)
 }
 
-func (i *bucketDeleteMarkerReplicationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketDeleteMarkerReplication] {
-	return pulumix.Output[*BucketDeleteMarkerReplication]{
-		OutputState: i.ToBucketDeleteMarkerReplicationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketDeleteMarkerReplicationOutput struct{ *pulumi.OutputState }
 
 func (BucketDeleteMarkerReplicationOutput) ElementType() reflect.Type {
@@ -2507,12 +2140,6 @@ func (o BucketDeleteMarkerReplicationOutput) ToBucketDeleteMarkerReplicationPtrO
 	}).(BucketDeleteMarkerReplicationPtrOutput)
 }
 
-func (o BucketDeleteMarkerReplicationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketDeleteMarkerReplication] {
-	return pulumix.Output[BucketDeleteMarkerReplication]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketDeleteMarkerReplicationOutput) Status() BucketDeleteMarkerReplicationStatusPtrOutput {
 	return o.ApplyT(func(v BucketDeleteMarkerReplication) *BucketDeleteMarkerReplicationStatus { return v.Status }).(BucketDeleteMarkerReplicationStatusPtrOutput)
 }
@@ -2529,12 +2156,6 @@ func (o BucketDeleteMarkerReplicationPtrOutput) ToBucketDeleteMarkerReplicationP
 
 func (o BucketDeleteMarkerReplicationPtrOutput) ToBucketDeleteMarkerReplicationPtrOutputWithContext(ctx context.Context) BucketDeleteMarkerReplicationPtrOutput {
 	return o
-}
-
-func (o BucketDeleteMarkerReplicationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketDeleteMarkerReplication] {
-	return pulumix.Output[*BucketDeleteMarkerReplication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketDeleteMarkerReplicationPtrOutput) Elem() BucketDeleteMarkerReplicationOutput {
@@ -2603,12 +2224,6 @@ func (i BucketDestinationArgs) ToBucketDestinationOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(BucketDestinationOutput)
 }
 
-func (i BucketDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketDestination] {
-	return pulumix.Output[BucketDestination]{
-		OutputState: i.ToBucketDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketDestinationArgs) ToBucketDestinationPtrOutput() BucketDestinationPtrOutput {
 	return i.ToBucketDestinationPtrOutputWithContext(context.Background())
 }
@@ -2650,12 +2265,6 @@ func (i *bucketDestinationPtrType) ToBucketDestinationPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(BucketDestinationPtrOutput)
 }
 
-func (i *bucketDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketDestination] {
-	return pulumix.Output[*BucketDestination]{
-		OutputState: i.ToBucketDestinationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket and S3 Replication Time Control (S3 RTC).
 type BucketDestinationOutput struct{ *pulumi.OutputState }
 
@@ -2679,12 +2288,6 @@ func (o BucketDestinationOutput) ToBucketDestinationPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketDestination) *BucketDestination {
 		return &v
 	}).(BucketDestinationPtrOutput)
-}
-
-func (o BucketDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketDestination] {
-	return pulumix.Output[BucketDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The account ID that owns the destination S3 bucket.
@@ -2719,12 +2322,6 @@ func (o BucketDestinationPtrOutput) ToBucketDestinationPtrOutput() BucketDestina
 
 func (o BucketDestinationPtrOutput) ToBucketDestinationPtrOutputWithContext(ctx context.Context) BucketDestinationPtrOutput {
 	return o
-}
-
-func (o BucketDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketDestination] {
-	return pulumix.Output[*BucketDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketDestinationPtrOutput) Elem() BucketDestinationOutput {
@@ -2812,12 +2409,6 @@ func (i BucketEncryptionArgs) ToBucketEncryptionOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BucketEncryptionOutput)
 }
 
-func (i BucketEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[BucketEncryption] {
-	return pulumix.Output[BucketEncryption]{
-		OutputState: i.ToBucketEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketEncryptionArgs) ToBucketEncryptionPtrOutput() BucketEncryptionPtrOutput {
 	return i.ToBucketEncryptionPtrOutputWithContext(context.Background())
 }
@@ -2859,12 +2450,6 @@ func (i *bucketEncryptionPtrType) ToBucketEncryptionPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(BucketEncryptionPtrOutput)
 }
 
-func (i *bucketEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketEncryption] {
-	return pulumix.Output[*BucketEncryption]{
-		OutputState: i.ToBucketEncryptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies default encryption for a bucket using server-side encryption with either Amazon S3-managed keys (SSE-S3) or AWS KMS-managed keys (SSE-KMS).
 type BucketEncryptionOutput struct{ *pulumi.OutputState }
 
@@ -2890,12 +2475,6 @@ func (o BucketEncryptionOutput) ToBucketEncryptionPtrOutputWithContext(ctx conte
 	}).(BucketEncryptionPtrOutput)
 }
 
-func (o BucketEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[BucketEncryption] {
-	return pulumix.Output[BucketEncryption]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the default server-side-encryption configuration.
 func (o BucketEncryptionOutput) ServerSideEncryptionConfiguration() BucketServerSideEncryptionRuleArrayOutput {
 	return o.ApplyT(func(v BucketEncryption) []BucketServerSideEncryptionRule { return v.ServerSideEncryptionConfiguration }).(BucketServerSideEncryptionRuleArrayOutput)
@@ -2913,12 +2492,6 @@ func (o BucketEncryptionPtrOutput) ToBucketEncryptionPtrOutput() BucketEncryptio
 
 func (o BucketEncryptionPtrOutput) ToBucketEncryptionPtrOutputWithContext(ctx context.Context) BucketEncryptionPtrOutput {
 	return o
-}
-
-func (o BucketEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketEncryption] {
-	return pulumix.Output[*BucketEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketEncryptionPtrOutput) Elem() BucketEncryptionOutput {
@@ -2976,12 +2549,6 @@ func (i BucketEncryptionConfigurationArgs) ToBucketEncryptionConfigurationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BucketEncryptionConfigurationOutput)
 }
 
-func (i BucketEncryptionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketEncryptionConfiguration] {
-	return pulumix.Output[BucketEncryptionConfiguration]{
-		OutputState: i.ToBucketEncryptionConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketEncryptionConfigurationArgs) ToBucketEncryptionConfigurationPtrOutput() BucketEncryptionConfigurationPtrOutput {
 	return i.ToBucketEncryptionConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3023,12 +2590,6 @@ func (i *bucketEncryptionConfigurationPtrType) ToBucketEncryptionConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(BucketEncryptionConfigurationPtrOutput)
 }
 
-func (i *bucketEncryptionConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketEncryptionConfiguration] {
-	return pulumix.Output[*BucketEncryptionConfiguration]{
-		OutputState: i.ToBucketEncryptionConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies encryption-related information for an Amazon S3 bucket that is a destination for replicated objects.
 type BucketEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -3054,12 +2615,6 @@ func (o BucketEncryptionConfigurationOutput) ToBucketEncryptionConfigurationPtrO
 	}).(BucketEncryptionConfigurationPtrOutput)
 }
 
-func (o BucketEncryptionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketEncryptionConfiguration] {
-	return pulumix.Output[BucketEncryptionConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the ID (Key ARN or Alias ARN) of the customer managed customer master key (CMK) stored in AWS Key Management Service (KMS) for the destination bucket.
 func (o BucketEncryptionConfigurationOutput) ReplicaKmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketEncryptionConfiguration) string { return v.ReplicaKmsKeyId }).(pulumi.StringOutput)
@@ -3077,12 +2632,6 @@ func (o BucketEncryptionConfigurationPtrOutput) ToBucketEncryptionConfigurationP
 
 func (o BucketEncryptionConfigurationPtrOutput) ToBucketEncryptionConfigurationPtrOutputWithContext(ctx context.Context) BucketEncryptionConfigurationPtrOutput {
 	return o
-}
-
-func (o BucketEncryptionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketEncryptionConfiguration] {
-	return pulumix.Output[*BucketEncryptionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketEncryptionConfigurationPtrOutput) Elem() BucketEncryptionConfigurationOutput {
@@ -3140,12 +2689,6 @@ func (i BucketEventBridgeConfigurationArgs) ToBucketEventBridgeConfigurationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BucketEventBridgeConfigurationOutput)
 }
 
-func (i BucketEventBridgeConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketEventBridgeConfiguration] {
-	return pulumix.Output[BucketEventBridgeConfiguration]{
-		OutputState: i.ToBucketEventBridgeConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketEventBridgeConfigurationArgs) ToBucketEventBridgeConfigurationPtrOutput() BucketEventBridgeConfigurationPtrOutput {
 	return i.ToBucketEventBridgeConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3187,12 +2730,6 @@ func (i *bucketEventBridgeConfigurationPtrType) ToBucketEventBridgeConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(BucketEventBridgeConfigurationPtrOutput)
 }
 
-func (i *bucketEventBridgeConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketEventBridgeConfiguration] {
-	return pulumix.Output[*BucketEventBridgeConfiguration]{
-		OutputState: i.ToBucketEventBridgeConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Describes the Amazon EventBridge notification configuration for an Amazon S3 bucket.
 type BucketEventBridgeConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -3218,12 +2755,6 @@ func (o BucketEventBridgeConfigurationOutput) ToBucketEventBridgeConfigurationPt
 	}).(BucketEventBridgeConfigurationPtrOutput)
 }
 
-func (o BucketEventBridgeConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketEventBridgeConfiguration] {
-	return pulumix.Output[BucketEventBridgeConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies whether to send notifications to Amazon EventBridge when events occur in an Amazon S3 bucket.
 func (o BucketEventBridgeConfigurationOutput) EventBridgeEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BucketEventBridgeConfiguration) bool { return v.EventBridgeEnabled }).(pulumi.BoolOutput)
@@ -3241,12 +2772,6 @@ func (o BucketEventBridgeConfigurationPtrOutput) ToBucketEventBridgeConfiguratio
 
 func (o BucketEventBridgeConfigurationPtrOutput) ToBucketEventBridgeConfigurationPtrOutputWithContext(ctx context.Context) BucketEventBridgeConfigurationPtrOutput {
 	return o
-}
-
-func (o BucketEventBridgeConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketEventBridgeConfiguration] {
-	return pulumix.Output[*BucketEventBridgeConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketEventBridgeConfigurationPtrOutput) Elem() BucketEventBridgeConfigurationOutput {
@@ -3304,12 +2829,6 @@ func (i BucketFilterRuleArgs) ToBucketFilterRuleOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BucketFilterRuleOutput)
 }
 
-func (i BucketFilterRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketFilterRule] {
-	return pulumix.Output[BucketFilterRule]{
-		OutputState: i.ToBucketFilterRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketFilterRuleArrayInput is an input type that accepts BucketFilterRuleArray and BucketFilterRuleArrayOutput values.
 // You can construct a concrete instance of `BucketFilterRuleArrayInput` via:
 //
@@ -3335,12 +2854,6 @@ func (i BucketFilterRuleArray) ToBucketFilterRuleArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BucketFilterRuleArrayOutput)
 }
 
-func (i BucketFilterRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketFilterRule] {
-	return pulumix.Output[[]BucketFilterRule]{
-		OutputState: i.ToBucketFilterRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies the Amazon S3 object key name to filter on and whether to filter on the suffix or prefix of the key name.
 type BucketFilterRuleOutput struct{ *pulumi.OutputState }
 
@@ -3354,12 +2867,6 @@ func (o BucketFilterRuleOutput) ToBucketFilterRuleOutput() BucketFilterRuleOutpu
 
 func (o BucketFilterRuleOutput) ToBucketFilterRuleOutputWithContext(ctx context.Context) BucketFilterRuleOutput {
 	return o
-}
-
-func (o BucketFilterRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketFilterRule] {
-	return pulumix.Output[BucketFilterRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketFilterRuleOutput) Name() pulumi.StringOutput {
@@ -3382,12 +2889,6 @@ func (o BucketFilterRuleArrayOutput) ToBucketFilterRuleArrayOutput() BucketFilte
 
 func (o BucketFilterRuleArrayOutput) ToBucketFilterRuleArrayOutputWithContext(ctx context.Context) BucketFilterRuleArrayOutput {
 	return o
-}
-
-func (o BucketFilterRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketFilterRule] {
-	return pulumix.Output[[]BucketFilterRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketFilterRuleArrayOutput) Index(i pulumi.IntInput) BucketFilterRuleOutput {
@@ -3445,12 +2946,6 @@ func (i BucketIntelligentTieringConfigurationArgs) ToBucketIntelligentTieringCon
 	return pulumi.ToOutputWithContext(ctx, i).(BucketIntelligentTieringConfigurationOutput)
 }
 
-func (i BucketIntelligentTieringConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketIntelligentTieringConfiguration] {
-	return pulumix.Output[BucketIntelligentTieringConfiguration]{
-		OutputState: i.ToBucketIntelligentTieringConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketIntelligentTieringConfigurationArrayInput is an input type that accepts BucketIntelligentTieringConfigurationArray and BucketIntelligentTieringConfigurationArrayOutput values.
 // You can construct a concrete instance of `BucketIntelligentTieringConfigurationArrayInput` via:
 //
@@ -3476,12 +2971,6 @@ func (i BucketIntelligentTieringConfigurationArray) ToBucketIntelligentTieringCo
 	return pulumi.ToOutputWithContext(ctx, i).(BucketIntelligentTieringConfigurationArrayOutput)
 }
 
-func (i BucketIntelligentTieringConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketIntelligentTieringConfiguration] {
-	return pulumix.Output[[]BucketIntelligentTieringConfiguration]{
-		OutputState: i.ToBucketIntelligentTieringConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketIntelligentTieringConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketIntelligentTieringConfigurationOutput) ElementType() reflect.Type {
@@ -3494,12 +2983,6 @@ func (o BucketIntelligentTieringConfigurationOutput) ToBucketIntelligentTieringC
 
 func (o BucketIntelligentTieringConfigurationOutput) ToBucketIntelligentTieringConfigurationOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationOutput {
 	return o
-}
-
-func (o BucketIntelligentTieringConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketIntelligentTieringConfiguration] {
-	return pulumix.Output[BucketIntelligentTieringConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID used to identify the S3 Intelligent-Tiering configuration.
@@ -3541,12 +3024,6 @@ func (o BucketIntelligentTieringConfigurationArrayOutput) ToBucketIntelligentTie
 
 func (o BucketIntelligentTieringConfigurationArrayOutput) ToBucketIntelligentTieringConfigurationArrayOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationArrayOutput {
 	return o
-}
-
-func (o BucketIntelligentTieringConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketIntelligentTieringConfiguration] {
-	return pulumix.Output[[]BucketIntelligentTieringConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketIntelligentTieringConfigurationArrayOutput) Index(i pulumi.IntInput) BucketIntelligentTieringConfigurationOutput {
@@ -3610,12 +3087,6 @@ func (i BucketInventoryConfigurationArgs) ToBucketInventoryConfigurationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(BucketInventoryConfigurationOutput)
 }
 
-func (i BucketInventoryConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketInventoryConfiguration] {
-	return pulumix.Output[BucketInventoryConfiguration]{
-		OutputState: i.ToBucketInventoryConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketInventoryConfigurationArrayInput is an input type that accepts BucketInventoryConfigurationArray and BucketInventoryConfigurationArrayOutput values.
 // You can construct a concrete instance of `BucketInventoryConfigurationArrayInput` via:
 //
@@ -3641,12 +3112,6 @@ func (i BucketInventoryConfigurationArray) ToBucketInventoryConfigurationArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketInventoryConfigurationArrayOutput)
 }
 
-func (i BucketInventoryConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketInventoryConfiguration] {
-	return pulumix.Output[[]BucketInventoryConfiguration]{
-		OutputState: i.ToBucketInventoryConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketInventoryConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketInventoryConfigurationOutput) ElementType() reflect.Type {
@@ -3659,12 +3124,6 @@ func (o BucketInventoryConfigurationOutput) ToBucketInventoryConfigurationOutput
 
 func (o BucketInventoryConfigurationOutput) ToBucketInventoryConfigurationOutputWithContext(ctx context.Context) BucketInventoryConfigurationOutput {
 	return o
-}
-
-func (o BucketInventoryConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketInventoryConfiguration] {
-	return pulumix.Output[BucketInventoryConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketInventoryConfigurationOutput) Destination() BucketDestinationOutput {
@@ -3721,12 +3180,6 @@ func (o BucketInventoryConfigurationArrayOutput) ToBucketInventoryConfigurationA
 	return o
 }
 
-func (o BucketInventoryConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketInventoryConfiguration] {
-	return pulumix.Output[[]BucketInventoryConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketInventoryConfigurationArrayOutput) Index(i pulumi.IntInput) BucketInventoryConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketInventoryConfiguration {
 		return vs[0].([]BucketInventoryConfiguration)[vs[1].(int)]
@@ -3776,12 +3229,6 @@ func (i BucketLambdaConfigurationArgs) ToBucketLambdaConfigurationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLambdaConfigurationOutput)
 }
 
-func (i BucketLambdaConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLambdaConfiguration] {
-	return pulumix.Output[BucketLambdaConfiguration]{
-		OutputState: i.ToBucketLambdaConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketLambdaConfigurationArrayInput is an input type that accepts BucketLambdaConfigurationArray and BucketLambdaConfigurationArrayOutput values.
 // You can construct a concrete instance of `BucketLambdaConfigurationArrayInput` via:
 //
@@ -3807,12 +3254,6 @@ func (i BucketLambdaConfigurationArray) ToBucketLambdaConfigurationArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLambdaConfigurationArrayOutput)
 }
 
-func (i BucketLambdaConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketLambdaConfiguration] {
-	return pulumix.Output[[]BucketLambdaConfiguration]{
-		OutputState: i.ToBucketLambdaConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Describes the AWS Lambda functions to invoke and the events for which to invoke them.
 type BucketLambdaConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -3826,12 +3267,6 @@ func (o BucketLambdaConfigurationOutput) ToBucketLambdaConfigurationOutput() Buc
 
 func (o BucketLambdaConfigurationOutput) ToBucketLambdaConfigurationOutputWithContext(ctx context.Context) BucketLambdaConfigurationOutput {
 	return o
-}
-
-func (o BucketLambdaConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLambdaConfiguration] {
-	return pulumix.Output[BucketLambdaConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon S3 bucket event for which to invoke the AWS Lambda function.
@@ -3861,12 +3296,6 @@ func (o BucketLambdaConfigurationArrayOutput) ToBucketLambdaConfigurationArrayOu
 
 func (o BucketLambdaConfigurationArrayOutput) ToBucketLambdaConfigurationArrayOutputWithContext(ctx context.Context) BucketLambdaConfigurationArrayOutput {
 	return o
-}
-
-func (o BucketLambdaConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketLambdaConfiguration] {
-	return pulumix.Output[[]BucketLambdaConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketLambdaConfigurationArrayOutput) Index(i pulumi.IntInput) BucketLambdaConfigurationOutput {
@@ -3906,12 +3335,6 @@ func (i BucketLifecycleConfigurationArgs) ToBucketLifecycleConfigurationOutput()
 
 func (i BucketLifecycleConfigurationArgs) ToBucketLifecycleConfigurationOutputWithContext(ctx context.Context) BucketLifecycleConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationOutput)
-}
-
-func (i BucketLifecycleConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfiguration] {
-	return pulumix.Output[BucketLifecycleConfiguration]{
-		OutputState: i.ToBucketLifecycleConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i BucketLifecycleConfigurationArgs) ToBucketLifecycleConfigurationPtrOutput() BucketLifecycleConfigurationPtrOutput {
@@ -3955,12 +3378,6 @@ func (i *bucketLifecycleConfigurationPtrType) ToBucketLifecycleConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLifecycleConfigurationPtrOutput)
 }
 
-func (i *bucketLifecycleConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfiguration] {
-	return pulumix.Output[*BucketLifecycleConfiguration]{
-		OutputState: i.ToBucketLifecycleConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketLifecycleConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketLifecycleConfigurationOutput) ElementType() reflect.Type {
@@ -3985,12 +3402,6 @@ func (o BucketLifecycleConfigurationOutput) ToBucketLifecycleConfigurationPtrOut
 	}).(BucketLifecycleConfigurationPtrOutput)
 }
 
-func (o BucketLifecycleConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLifecycleConfiguration] {
-	return pulumix.Output[BucketLifecycleConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A lifecycle rule for individual objects in an Amazon S3 bucket.
 func (o BucketLifecycleConfigurationOutput) Rules() BucketRuleArrayOutput {
 	return o.ApplyT(func(v BucketLifecycleConfiguration) []BucketRule { return v.Rules }).(BucketRuleArrayOutput)
@@ -4008,12 +3419,6 @@ func (o BucketLifecycleConfigurationPtrOutput) ToBucketLifecycleConfigurationPtr
 
 func (o BucketLifecycleConfigurationPtrOutput) ToBucketLifecycleConfigurationPtrOutputWithContext(ctx context.Context) BucketLifecycleConfigurationPtrOutput {
 	return o
-}
-
-func (o BucketLifecycleConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketLifecycleConfiguration] {
-	return pulumix.Output[*BucketLifecycleConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketLifecycleConfigurationPtrOutput) Elem() BucketLifecycleConfigurationOutput {
@@ -4071,12 +3476,6 @@ func (i BucketLoggingConfigurationArgs) ToBucketLoggingConfigurationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingConfigurationOutput)
 }
 
-func (i BucketLoggingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketLoggingConfiguration] {
-	return pulumix.Output[BucketLoggingConfiguration]{
-		OutputState: i.ToBucketLoggingConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketLoggingConfigurationArgs) ToBucketLoggingConfigurationPtrOutput() BucketLoggingConfigurationPtrOutput {
 	return i.ToBucketLoggingConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4118,12 +3517,6 @@ func (i *bucketLoggingConfigurationPtrType) ToBucketLoggingConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketLoggingConfigurationPtrOutput)
 }
 
-func (i *bucketLoggingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketLoggingConfiguration] {
-	return pulumix.Output[*BucketLoggingConfiguration]{
-		OutputState: i.ToBucketLoggingConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketLoggingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketLoggingConfigurationOutput) ElementType() reflect.Type {
@@ -4148,12 +3541,6 @@ func (o BucketLoggingConfigurationOutput) ToBucketLoggingConfigurationPtrOutputW
 	}).(BucketLoggingConfigurationPtrOutput)
 }
 
-func (o BucketLoggingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketLoggingConfiguration] {
-	return pulumix.Output[BucketLoggingConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The name of an Amazon S3 bucket where Amazon S3 store server access log files. You can store log files in any bucket that you own. By default, logs are stored in the bucket where the LoggingConfiguration property is defined.
 func (o BucketLoggingConfigurationOutput) DestinationBucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLoggingConfiguration) *string { return v.DestinationBucketName }).(pulumi.StringPtrOutput)
@@ -4175,12 +3562,6 @@ func (o BucketLoggingConfigurationPtrOutput) ToBucketLoggingConfigurationPtrOutp
 
 func (o BucketLoggingConfigurationPtrOutput) ToBucketLoggingConfigurationPtrOutputWithContext(ctx context.Context) BucketLoggingConfigurationPtrOutput {
 	return o
-}
-
-func (o BucketLoggingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketLoggingConfiguration] {
-	return pulumix.Output[*BucketLoggingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketLoggingConfigurationPtrOutput) Elem() BucketLoggingConfigurationOutput {
@@ -4245,12 +3626,6 @@ func (i BucketMetricsArgs) ToBucketMetricsOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BucketMetricsOutput)
 }
 
-func (i BucketMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[BucketMetrics] {
-	return pulumix.Output[BucketMetrics]{
-		OutputState: i.ToBucketMetricsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketMetricsArgs) ToBucketMetricsPtrOutput() BucketMetricsPtrOutput {
 	return i.ToBucketMetricsPtrOutputWithContext(context.Background())
 }
@@ -4292,12 +3667,6 @@ func (i *bucketMetricsPtrType) ToBucketMetricsPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(BucketMetricsPtrOutput)
 }
 
-func (i *bucketMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketMetrics] {
-	return pulumix.Output[*BucketMetrics]{
-		OutputState: i.ToBucketMetricsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketMetricsOutput struct{ *pulumi.OutputState }
 
 func (BucketMetricsOutput) ElementType() reflect.Type {
@@ -4322,12 +3691,6 @@ func (o BucketMetricsOutput) ToBucketMetricsPtrOutputWithContext(ctx context.Con
 	}).(BucketMetricsPtrOutput)
 }
 
-func (o BucketMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[BucketMetrics] {
-	return pulumix.Output[BucketMetrics]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketMetricsOutput) EventThreshold() BucketReplicationTimeValuePtrOutput {
 	return o.ApplyT(func(v BucketMetrics) *BucketReplicationTimeValue { return v.EventThreshold }).(BucketReplicationTimeValuePtrOutput)
 }
@@ -4348,12 +3711,6 @@ func (o BucketMetricsPtrOutput) ToBucketMetricsPtrOutput() BucketMetricsPtrOutpu
 
 func (o BucketMetricsPtrOutput) ToBucketMetricsPtrOutputWithContext(ctx context.Context) BucketMetricsPtrOutput {
 	return o
-}
-
-func (o BucketMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketMetrics] {
-	return pulumix.Output[*BucketMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketMetricsPtrOutput) Elem() BucketMetricsOutput {
@@ -4421,12 +3778,6 @@ func (i BucketMetricsConfigurationArgs) ToBucketMetricsConfigurationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BucketMetricsConfigurationOutput)
 }
 
-func (i BucketMetricsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketMetricsConfiguration] {
-	return pulumix.Output[BucketMetricsConfiguration]{
-		OutputState: i.ToBucketMetricsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketMetricsConfigurationArrayInput is an input type that accepts BucketMetricsConfigurationArray and BucketMetricsConfigurationArrayOutput values.
 // You can construct a concrete instance of `BucketMetricsConfigurationArrayInput` via:
 //
@@ -4452,12 +3803,6 @@ func (i BucketMetricsConfigurationArray) ToBucketMetricsConfigurationArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BucketMetricsConfigurationArrayOutput)
 }
 
-func (i BucketMetricsConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketMetricsConfiguration] {
-	return pulumix.Output[[]BucketMetricsConfiguration]{
-		OutputState: i.ToBucketMetricsConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketMetricsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketMetricsConfigurationOutput) ElementType() reflect.Type {
@@ -4470,12 +3815,6 @@ func (o BucketMetricsConfigurationOutput) ToBucketMetricsConfigurationOutput() B
 
 func (o BucketMetricsConfigurationOutput) ToBucketMetricsConfigurationOutputWithContext(ctx context.Context) BucketMetricsConfigurationOutput {
 	return o
-}
-
-func (o BucketMetricsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketMetricsConfiguration] {
-	return pulumix.Output[BucketMetricsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketMetricsConfigurationOutput) AccessPointArn() pulumi.StringPtrOutput {
@@ -4506,12 +3845,6 @@ func (o BucketMetricsConfigurationArrayOutput) ToBucketMetricsConfigurationArray
 
 func (o BucketMetricsConfigurationArrayOutput) ToBucketMetricsConfigurationArrayOutputWithContext(ctx context.Context) BucketMetricsConfigurationArrayOutput {
 	return o
-}
-
-func (o BucketMetricsConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketMetricsConfiguration] {
-	return pulumix.Output[[]BucketMetricsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketMetricsConfigurationArrayOutput) Index(i pulumi.IntInput) BucketMetricsConfigurationOutput {
@@ -4559,12 +3892,6 @@ func (i BucketNoncurrentVersionExpirationArgs) ToBucketNoncurrentVersionExpirati
 	return pulumi.ToOutputWithContext(ctx, i).(BucketNoncurrentVersionExpirationOutput)
 }
 
-func (i BucketNoncurrentVersionExpirationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketNoncurrentVersionExpiration] {
-	return pulumix.Output[BucketNoncurrentVersionExpiration]{
-		OutputState: i.ToBucketNoncurrentVersionExpirationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketNoncurrentVersionExpirationArgs) ToBucketNoncurrentVersionExpirationPtrOutput() BucketNoncurrentVersionExpirationPtrOutput {
 	return i.ToBucketNoncurrentVersionExpirationPtrOutputWithContext(context.Background())
 }
@@ -4606,12 +3933,6 @@ func (i *bucketNoncurrentVersionExpirationPtrType) ToBucketNoncurrentVersionExpi
 	return pulumi.ToOutputWithContext(ctx, i).(BucketNoncurrentVersionExpirationPtrOutput)
 }
 
-func (i *bucketNoncurrentVersionExpirationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketNoncurrentVersionExpiration] {
-	return pulumix.Output[*BucketNoncurrentVersionExpiration]{
-		OutputState: i.ToBucketNoncurrentVersionExpirationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Container for the expiration rule that describes when noncurrent objects are expired. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 expire noncurrent object versions at a specific period in the object's lifetime
 type BucketNoncurrentVersionExpirationOutput struct{ *pulumi.OutputState }
 
@@ -4637,12 +3958,6 @@ func (o BucketNoncurrentVersionExpirationOutput) ToBucketNoncurrentVersionExpira
 	}).(BucketNoncurrentVersionExpirationPtrOutput)
 }
 
-func (o BucketNoncurrentVersionExpirationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketNoncurrentVersionExpiration] {
-	return pulumix.Output[BucketNoncurrentVersionExpiration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specified the number of newer noncurrent and current versions that must exists before performing the associated action
 func (o BucketNoncurrentVersionExpirationOutput) NewerNoncurrentVersions() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketNoncurrentVersionExpiration) *int { return v.NewerNoncurrentVersions }).(pulumi.IntPtrOutput)
@@ -4665,12 +3980,6 @@ func (o BucketNoncurrentVersionExpirationPtrOutput) ToBucketNoncurrentVersionExp
 
 func (o BucketNoncurrentVersionExpirationPtrOutput) ToBucketNoncurrentVersionExpirationPtrOutputWithContext(ctx context.Context) BucketNoncurrentVersionExpirationPtrOutput {
 	return o
-}
-
-func (o BucketNoncurrentVersionExpirationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketNoncurrentVersionExpiration] {
-	return pulumix.Output[*BucketNoncurrentVersionExpiration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketNoncurrentVersionExpirationPtrOutput) Elem() BucketNoncurrentVersionExpirationOutput {
@@ -4746,12 +4055,6 @@ func (i BucketNoncurrentVersionTransitionArgs) ToBucketNoncurrentVersionTransiti
 	return pulumi.ToOutputWithContext(ctx, i).(BucketNoncurrentVersionTransitionOutput)
 }
 
-func (i BucketNoncurrentVersionTransitionArgs) ToOutput(ctx context.Context) pulumix.Output[BucketNoncurrentVersionTransition] {
-	return pulumix.Output[BucketNoncurrentVersionTransition]{
-		OutputState: i.ToBucketNoncurrentVersionTransitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketNoncurrentVersionTransitionArgs) ToBucketNoncurrentVersionTransitionPtrOutput() BucketNoncurrentVersionTransitionPtrOutput {
 	return i.ToBucketNoncurrentVersionTransitionPtrOutputWithContext(context.Background())
 }
@@ -4793,12 +4096,6 @@ func (i *bucketNoncurrentVersionTransitionPtrType) ToBucketNoncurrentVersionTran
 	return pulumi.ToOutputWithContext(ctx, i).(BucketNoncurrentVersionTransitionPtrOutput)
 }
 
-func (i *bucketNoncurrentVersionTransitionPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketNoncurrentVersionTransition] {
-	return pulumix.Output[*BucketNoncurrentVersionTransition]{
-		OutputState: i.ToBucketNoncurrentVersionTransitionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketNoncurrentVersionTransitionArrayInput is an input type that accepts BucketNoncurrentVersionTransitionArray and BucketNoncurrentVersionTransitionArrayOutput values.
 // You can construct a concrete instance of `BucketNoncurrentVersionTransitionArrayInput` via:
 //
@@ -4824,12 +4121,6 @@ func (i BucketNoncurrentVersionTransitionArray) ToBucketNoncurrentVersionTransit
 	return pulumi.ToOutputWithContext(ctx, i).(BucketNoncurrentVersionTransitionArrayOutput)
 }
 
-func (i BucketNoncurrentVersionTransitionArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketNoncurrentVersionTransition] {
-	return pulumix.Output[[]BucketNoncurrentVersionTransition]{
-		OutputState: i.ToBucketNoncurrentVersionTransitionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING, GLACIER_IR, GLACIER, or DEEP_ARCHIVE storage class at a specific period in the object's lifetime.
 type BucketNoncurrentVersionTransitionOutput struct{ *pulumi.OutputState }
 
@@ -4853,12 +4144,6 @@ func (o BucketNoncurrentVersionTransitionOutput) ToBucketNoncurrentVersionTransi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketNoncurrentVersionTransition) *BucketNoncurrentVersionTransition {
 		return &v
 	}).(BucketNoncurrentVersionTransitionPtrOutput)
-}
-
-func (o BucketNoncurrentVersionTransitionOutput) ToOutput(ctx context.Context) pulumix.Output[BucketNoncurrentVersionTransition] {
-	return pulumix.Output[BucketNoncurrentVersionTransition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specified the number of newer noncurrent and current versions that must exists before performing the associated action
@@ -4890,12 +4175,6 @@ func (o BucketNoncurrentVersionTransitionPtrOutput) ToBucketNoncurrentVersionTra
 
 func (o BucketNoncurrentVersionTransitionPtrOutput) ToBucketNoncurrentVersionTransitionPtrOutputWithContext(ctx context.Context) BucketNoncurrentVersionTransitionPtrOutput {
 	return o
-}
-
-func (o BucketNoncurrentVersionTransitionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketNoncurrentVersionTransition] {
-	return pulumix.Output[*BucketNoncurrentVersionTransition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketNoncurrentVersionTransitionPtrOutput) Elem() BucketNoncurrentVersionTransitionOutput {
@@ -4952,12 +4231,6 @@ func (o BucketNoncurrentVersionTransitionArrayOutput) ToBucketNoncurrentVersionT
 	return o
 }
 
-func (o BucketNoncurrentVersionTransitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketNoncurrentVersionTransition] {
-	return pulumix.Output[[]BucketNoncurrentVersionTransition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketNoncurrentVersionTransitionArrayOutput) Index(i pulumi.IntInput) BucketNoncurrentVersionTransitionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketNoncurrentVersionTransition {
 		return vs[0].([]BucketNoncurrentVersionTransition)[vs[1].(int)]
@@ -5003,12 +4276,6 @@ func (i BucketNotificationConfigurationArgs) ToBucketNotificationConfigurationOu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationConfigurationOutput)
 }
 
-func (i BucketNotificationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketNotificationConfiguration] {
-	return pulumix.Output[BucketNotificationConfiguration]{
-		OutputState: i.ToBucketNotificationConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketNotificationConfigurationArgs) ToBucketNotificationConfigurationPtrOutput() BucketNotificationConfigurationPtrOutput {
 	return i.ToBucketNotificationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -5050,12 +4317,6 @@ func (i *bucketNotificationConfigurationPtrType) ToBucketNotificationConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationConfigurationPtrOutput)
 }
 
-func (i *bucketNotificationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketNotificationConfiguration] {
-	return pulumix.Output[*BucketNotificationConfiguration]{
-		OutputState: i.ToBucketNotificationConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Describes the notification configuration for an Amazon S3 bucket.
 type BucketNotificationConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -5079,12 +4340,6 @@ func (o BucketNotificationConfigurationOutput) ToBucketNotificationConfiguration
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketNotificationConfiguration) *BucketNotificationConfiguration {
 		return &v
 	}).(BucketNotificationConfigurationPtrOutput)
-}
-
-func (o BucketNotificationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketNotificationConfiguration] {
-	return pulumix.Output[BucketNotificationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketNotificationConfigurationOutput) EventBridgeConfiguration() BucketEventBridgeConfigurationPtrOutput {
@@ -5117,12 +4372,6 @@ func (o BucketNotificationConfigurationPtrOutput) ToBucketNotificationConfigurat
 
 func (o BucketNotificationConfigurationPtrOutput) ToBucketNotificationConfigurationPtrOutputWithContext(ctx context.Context) BucketNotificationConfigurationPtrOutput {
 	return o
-}
-
-func (o BucketNotificationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketNotificationConfiguration] {
-	return pulumix.Output[*BucketNotificationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketNotificationConfigurationPtrOutput) Elem() BucketNotificationConfigurationOutput {
@@ -5204,12 +4453,6 @@ func (i BucketNotificationFilterArgs) ToBucketNotificationFilterOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationFilterOutput)
 }
 
-func (i BucketNotificationFilterArgs) ToOutput(ctx context.Context) pulumix.Output[BucketNotificationFilter] {
-	return pulumix.Output[BucketNotificationFilter]{
-		OutputState: i.ToBucketNotificationFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketNotificationFilterArgs) ToBucketNotificationFilterPtrOutput() BucketNotificationFilterPtrOutput {
 	return i.ToBucketNotificationFilterPtrOutputWithContext(context.Background())
 }
@@ -5251,12 +4494,6 @@ func (i *bucketNotificationFilterPtrType) ToBucketNotificationFilterPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationFilterPtrOutput)
 }
 
-func (i *bucketNotificationFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketNotificationFilter] {
-	return pulumix.Output[*BucketNotificationFilter]{
-		OutputState: i.ToBucketNotificationFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies object key name filtering rules.
 type BucketNotificationFilterOutput struct{ *pulumi.OutputState }
 
@@ -5282,12 +4519,6 @@ func (o BucketNotificationFilterOutput) ToBucketNotificationFilterPtrOutputWithC
 	}).(BucketNotificationFilterPtrOutput)
 }
 
-func (o BucketNotificationFilterOutput) ToOutput(ctx context.Context) pulumix.Output[BucketNotificationFilter] {
-	return pulumix.Output[BucketNotificationFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketNotificationFilterOutput) S3Key() BucketS3KeyFilterOutput {
 	return o.ApplyT(func(v BucketNotificationFilter) BucketS3KeyFilter { return v.S3Key }).(BucketS3KeyFilterOutput)
 }
@@ -5304,12 +4535,6 @@ func (o BucketNotificationFilterPtrOutput) ToBucketNotificationFilterPtrOutput()
 
 func (o BucketNotificationFilterPtrOutput) ToBucketNotificationFilterPtrOutputWithContext(ctx context.Context) BucketNotificationFilterPtrOutput {
 	return o
-}
-
-func (o BucketNotificationFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketNotificationFilter] {
-	return pulumix.Output[*BucketNotificationFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketNotificationFilterPtrOutput) Elem() BucketNotificationFilterOutput {
@@ -5364,12 +4589,6 @@ func (i BucketObjectLockConfigurationArgs) ToBucketObjectLockConfigurationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationOutput)
 }
 
-func (i BucketObjectLockConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketObjectLockConfiguration] {
-	return pulumix.Output[BucketObjectLockConfiguration]{
-		OutputState: i.ToBucketObjectLockConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketObjectLockConfigurationArgs) ToBucketObjectLockConfigurationPtrOutput() BucketObjectLockConfigurationPtrOutput {
 	return i.ToBucketObjectLockConfigurationPtrOutputWithContext(context.Background())
 }
@@ -5411,12 +4630,6 @@ func (i *bucketObjectLockConfigurationPtrType) ToBucketObjectLockConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockConfigurationPtrOutput)
 }
 
-func (i *bucketObjectLockConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectLockConfiguration] {
-	return pulumix.Output[*BucketObjectLockConfiguration]{
-		OutputState: i.ToBucketObjectLockConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketObjectLockConfigurationOutput struct{ *pulumi.OutputState }
 
 func (BucketObjectLockConfigurationOutput) ElementType() reflect.Type {
@@ -5441,12 +4654,6 @@ func (o BucketObjectLockConfigurationOutput) ToBucketObjectLockConfigurationPtrO
 	}).(BucketObjectLockConfigurationPtrOutput)
 }
 
-func (o BucketObjectLockConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketObjectLockConfiguration] {
-	return pulumix.Output[BucketObjectLockConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketObjectLockConfigurationOutput) ObjectLockEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketObjectLockConfiguration) *string { return v.ObjectLockEnabled }).(pulumi.StringPtrOutput)
 }
@@ -5467,12 +4674,6 @@ func (o BucketObjectLockConfigurationPtrOutput) ToBucketObjectLockConfigurationP
 
 func (o BucketObjectLockConfigurationPtrOutput) ToBucketObjectLockConfigurationPtrOutputWithContext(ctx context.Context) BucketObjectLockConfigurationPtrOutput {
 	return o
-}
-
-func (o BucketObjectLockConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectLockConfiguration] {
-	return pulumix.Output[*BucketObjectLockConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketObjectLockConfigurationPtrOutput) Elem() BucketObjectLockConfigurationOutput {
@@ -5536,12 +4737,6 @@ func (i BucketObjectLockRuleArgs) ToBucketObjectLockRuleOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockRuleOutput)
 }
 
-func (i BucketObjectLockRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketObjectLockRule] {
-	return pulumix.Output[BucketObjectLockRule]{
-		OutputState: i.ToBucketObjectLockRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketObjectLockRuleArgs) ToBucketObjectLockRulePtrOutput() BucketObjectLockRulePtrOutput {
 	return i.ToBucketObjectLockRulePtrOutputWithContext(context.Background())
 }
@@ -5583,12 +4778,6 @@ func (i *bucketObjectLockRulePtrType) ToBucketObjectLockRulePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BucketObjectLockRulePtrOutput)
 }
 
-func (i *bucketObjectLockRulePtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectLockRule] {
-	return pulumix.Output[*BucketObjectLockRule]{
-		OutputState: i.ToBucketObjectLockRulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The Object Lock rule in place for the specified object.
 type BucketObjectLockRuleOutput struct{ *pulumi.OutputState }
 
@@ -5614,12 +4803,6 @@ func (o BucketObjectLockRuleOutput) ToBucketObjectLockRulePtrOutputWithContext(c
 	}).(BucketObjectLockRulePtrOutput)
 }
 
-func (o BucketObjectLockRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketObjectLockRule] {
-	return pulumix.Output[BucketObjectLockRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketObjectLockRuleOutput) DefaultRetention() BucketDefaultRetentionPtrOutput {
 	return o.ApplyT(func(v BucketObjectLockRule) *BucketDefaultRetention { return v.DefaultRetention }).(BucketDefaultRetentionPtrOutput)
 }
@@ -5636,12 +4819,6 @@ func (o BucketObjectLockRulePtrOutput) ToBucketObjectLockRulePtrOutput() BucketO
 
 func (o BucketObjectLockRulePtrOutput) ToBucketObjectLockRulePtrOutputWithContext(ctx context.Context) BucketObjectLockRulePtrOutput {
 	return o
-}
-
-func (o BucketObjectLockRulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketObjectLockRule] {
-	return pulumix.Output[*BucketObjectLockRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketObjectLockRulePtrOutput) Elem() BucketObjectLockRuleOutput {
@@ -5694,12 +4871,6 @@ func (i BucketOwnershipControlsArgs) ToBucketOwnershipControlsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsOutput)
 }
 
-func (i BucketOwnershipControlsArgs) ToOutput(ctx context.Context) pulumix.Output[BucketOwnershipControls] {
-	return pulumix.Output[BucketOwnershipControls]{
-		OutputState: i.ToBucketOwnershipControlsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketOwnershipControlsArgs) ToBucketOwnershipControlsPtrOutput() BucketOwnershipControlsPtrOutput {
 	return i.ToBucketOwnershipControlsPtrOutputWithContext(context.Background())
 }
@@ -5741,12 +4912,6 @@ func (i *bucketOwnershipControlsPtrType) ToBucketOwnershipControlsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsPtrOutput)
 }
 
-func (i *bucketOwnershipControlsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketOwnershipControls] {
-	return pulumix.Output[*BucketOwnershipControls]{
-		OutputState: i.ToBucketOwnershipControlsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketOwnershipControlsOutput struct{ *pulumi.OutputState }
 
 func (BucketOwnershipControlsOutput) ElementType() reflect.Type {
@@ -5771,12 +4936,6 @@ func (o BucketOwnershipControlsOutput) ToBucketOwnershipControlsPtrOutputWithCon
 	}).(BucketOwnershipControlsPtrOutput)
 }
 
-func (o BucketOwnershipControlsOutput) ToOutput(ctx context.Context) pulumix.Output[BucketOwnershipControls] {
-	return pulumix.Output[BucketOwnershipControls]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketOwnershipControlsOutput) Rules() BucketOwnershipControlsRuleArrayOutput {
 	return o.ApplyT(func(v BucketOwnershipControls) []BucketOwnershipControlsRule { return v.Rules }).(BucketOwnershipControlsRuleArrayOutput)
 }
@@ -5793,12 +4952,6 @@ func (o BucketOwnershipControlsPtrOutput) ToBucketOwnershipControlsPtrOutput() B
 
 func (o BucketOwnershipControlsPtrOutput) ToBucketOwnershipControlsPtrOutputWithContext(ctx context.Context) BucketOwnershipControlsPtrOutput {
 	return o
-}
-
-func (o BucketOwnershipControlsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketOwnershipControls] {
-	return pulumix.Output[*BucketOwnershipControls]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketOwnershipControlsPtrOutput) Elem() BucketOwnershipControlsOutput {
@@ -5853,12 +5006,6 @@ func (i BucketOwnershipControlsRuleArgs) ToBucketOwnershipControlsRuleOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsRuleOutput)
 }
 
-func (i BucketOwnershipControlsRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketOwnershipControlsRule] {
-	return pulumix.Output[BucketOwnershipControlsRule]{
-		OutputState: i.ToBucketOwnershipControlsRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketOwnershipControlsRuleArrayInput is an input type that accepts BucketOwnershipControlsRuleArray and BucketOwnershipControlsRuleArrayOutput values.
 // You can construct a concrete instance of `BucketOwnershipControlsRuleArrayInput` via:
 //
@@ -5884,12 +5031,6 @@ func (i BucketOwnershipControlsRuleArray) ToBucketOwnershipControlsRuleArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsRuleArrayOutput)
 }
 
-func (i BucketOwnershipControlsRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketOwnershipControlsRule] {
-	return pulumix.Output[[]BucketOwnershipControlsRule]{
-		OutputState: i.ToBucketOwnershipControlsRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketOwnershipControlsRuleOutput struct{ *pulumi.OutputState }
 
 func (BucketOwnershipControlsRuleOutput) ElementType() reflect.Type {
@@ -5902,12 +5043,6 @@ func (o BucketOwnershipControlsRuleOutput) ToBucketOwnershipControlsRuleOutput()
 
 func (o BucketOwnershipControlsRuleOutput) ToBucketOwnershipControlsRuleOutputWithContext(ctx context.Context) BucketOwnershipControlsRuleOutput {
 	return o
-}
-
-func (o BucketOwnershipControlsRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketOwnershipControlsRule] {
-	return pulumix.Output[BucketOwnershipControlsRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies an object ownership rule.
@@ -5929,12 +5064,6 @@ func (o BucketOwnershipControlsRuleArrayOutput) ToBucketOwnershipControlsRuleArr
 
 func (o BucketOwnershipControlsRuleArrayOutput) ToBucketOwnershipControlsRuleArrayOutputWithContext(ctx context.Context) BucketOwnershipControlsRuleArrayOutput {
 	return o
-}
-
-func (o BucketOwnershipControlsRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketOwnershipControlsRule] {
-	return pulumix.Output[[]BucketOwnershipControlsRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketOwnershipControlsRuleArrayOutput) Index(i pulumi.IntInput) BucketOwnershipControlsRuleOutput {
@@ -6002,12 +5131,6 @@ func (i BucketPublicAccessBlockConfigurationArgs) ToBucketPublicAccessBlockConfi
 	return pulumi.ToOutputWithContext(ctx, i).(BucketPublicAccessBlockConfigurationOutput)
 }
 
-func (i BucketPublicAccessBlockConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketPublicAccessBlockConfiguration] {
-	return pulumix.Output[BucketPublicAccessBlockConfiguration]{
-		OutputState: i.ToBucketPublicAccessBlockConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketPublicAccessBlockConfigurationArgs) ToBucketPublicAccessBlockConfigurationPtrOutput() BucketPublicAccessBlockConfigurationPtrOutput {
 	return i.ToBucketPublicAccessBlockConfigurationPtrOutputWithContext(context.Background())
 }
@@ -6049,12 +5172,6 @@ func (i *bucketPublicAccessBlockConfigurationPtrType) ToBucketPublicAccessBlockC
 	return pulumi.ToOutputWithContext(ctx, i).(BucketPublicAccessBlockConfigurationPtrOutput)
 }
 
-func (i *bucketPublicAccessBlockConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketPublicAccessBlockConfiguration] {
-	return pulumix.Output[*BucketPublicAccessBlockConfiguration]{
-		OutputState: i.ToBucketPublicAccessBlockConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Configuration that defines how Amazon S3 handles public access.
 type BucketPublicAccessBlockConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -6078,12 +5195,6 @@ func (o BucketPublicAccessBlockConfigurationOutput) ToBucketPublicAccessBlockCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketPublicAccessBlockConfiguration) *BucketPublicAccessBlockConfiguration {
 		return &v
 	}).(BucketPublicAccessBlockConfigurationPtrOutput)
-}
-
-func (o BucketPublicAccessBlockConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketPublicAccessBlockConfiguration] {
-	return pulumix.Output[BucketPublicAccessBlockConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to TRUE causes the following behavior:
@@ -6124,12 +5235,6 @@ func (o BucketPublicAccessBlockConfigurationPtrOutput) ToBucketPublicAccessBlock
 
 func (o BucketPublicAccessBlockConfigurationPtrOutput) ToBucketPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) BucketPublicAccessBlockConfigurationPtrOutput {
 	return o
-}
-
-func (o BucketPublicAccessBlockConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketPublicAccessBlockConfiguration] {
-	return pulumix.Output[*BucketPublicAccessBlockConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketPublicAccessBlockConfigurationPtrOutput) Elem() BucketPublicAccessBlockConfigurationOutput {
@@ -6231,12 +5336,6 @@ func (i BucketQueueConfigurationArgs) ToBucketQueueConfigurationOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BucketQueueConfigurationOutput)
 }
 
-func (i BucketQueueConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketQueueConfiguration] {
-	return pulumix.Output[BucketQueueConfiguration]{
-		OutputState: i.ToBucketQueueConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketQueueConfigurationArrayInput is an input type that accepts BucketQueueConfigurationArray and BucketQueueConfigurationArrayOutput values.
 // You can construct a concrete instance of `BucketQueueConfigurationArrayInput` via:
 //
@@ -6262,12 +5361,6 @@ func (i BucketQueueConfigurationArray) ToBucketQueueConfigurationArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BucketQueueConfigurationArrayOutput)
 }
 
-func (i BucketQueueConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketQueueConfiguration] {
-	return pulumix.Output[[]BucketQueueConfiguration]{
-		OutputState: i.ToBucketQueueConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.
 type BucketQueueConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -6281,12 +5374,6 @@ func (o BucketQueueConfigurationOutput) ToBucketQueueConfigurationOutput() Bucke
 
 func (o BucketQueueConfigurationOutput) ToBucketQueueConfigurationOutputWithContext(ctx context.Context) BucketQueueConfigurationOutput {
 	return o
-}
-
-func (o BucketQueueConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketQueueConfiguration] {
-	return pulumix.Output[BucketQueueConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon S3 bucket event about which you want to publish messages to Amazon SQS.
@@ -6316,12 +5403,6 @@ func (o BucketQueueConfigurationArrayOutput) ToBucketQueueConfigurationArrayOutp
 
 func (o BucketQueueConfigurationArrayOutput) ToBucketQueueConfigurationArrayOutputWithContext(ctx context.Context) BucketQueueConfigurationArrayOutput {
 	return o
-}
-
-func (o BucketQueueConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketQueueConfiguration] {
-	return pulumix.Output[[]BucketQueueConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketQueueConfigurationArrayOutput) Index(i pulumi.IntInput) BucketQueueConfigurationOutput {
@@ -6369,12 +5450,6 @@ func (i BucketRedirectAllRequestsToArgs) ToBucketRedirectAllRequestsToOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BucketRedirectAllRequestsToOutput)
 }
 
-func (i BucketRedirectAllRequestsToArgs) ToOutput(ctx context.Context) pulumix.Output[BucketRedirectAllRequestsTo] {
-	return pulumix.Output[BucketRedirectAllRequestsTo]{
-		OutputState: i.ToBucketRedirectAllRequestsToOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketRedirectAllRequestsToArgs) ToBucketRedirectAllRequestsToPtrOutput() BucketRedirectAllRequestsToPtrOutput {
 	return i.ToBucketRedirectAllRequestsToPtrOutputWithContext(context.Background())
 }
@@ -6416,12 +5491,6 @@ func (i *bucketRedirectAllRequestsToPtrType) ToBucketRedirectAllRequestsToPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(BucketRedirectAllRequestsToPtrOutput)
 }
 
-func (i *bucketRedirectAllRequestsToPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketRedirectAllRequestsTo] {
-	return pulumix.Output[*BucketRedirectAllRequestsTo]{
-		OutputState: i.ToBucketRedirectAllRequestsToPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.
 type BucketRedirectAllRequestsToOutput struct{ *pulumi.OutputState }
 
@@ -6447,12 +5516,6 @@ func (o BucketRedirectAllRequestsToOutput) ToBucketRedirectAllRequestsToPtrOutpu
 	}).(BucketRedirectAllRequestsToPtrOutput)
 }
 
-func (o BucketRedirectAllRequestsToOutput) ToOutput(ctx context.Context) pulumix.Output[BucketRedirectAllRequestsTo] {
-	return pulumix.Output[BucketRedirectAllRequestsTo]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Name of the host where requests are redirected.
 func (o BucketRedirectAllRequestsToOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketRedirectAllRequestsTo) string { return v.HostName }).(pulumi.StringOutput)
@@ -6475,12 +5538,6 @@ func (o BucketRedirectAllRequestsToPtrOutput) ToBucketRedirectAllRequestsToPtrOu
 
 func (o BucketRedirectAllRequestsToPtrOutput) ToBucketRedirectAllRequestsToPtrOutputWithContext(ctx context.Context) BucketRedirectAllRequestsToPtrOutput {
 	return o
-}
-
-func (o BucketRedirectAllRequestsToPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketRedirectAllRequestsTo] {
-	return pulumix.Output[*BucketRedirectAllRequestsTo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketRedirectAllRequestsToPtrOutput) Elem() BucketRedirectAllRequestsToOutput {
@@ -6564,12 +5621,6 @@ func (i BucketRedirectRuleArgs) ToBucketRedirectRuleOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(BucketRedirectRuleOutput)
 }
 
-func (i BucketRedirectRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketRedirectRule] {
-	return pulumix.Output[BucketRedirectRule]{
-		OutputState: i.ToBucketRedirectRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies how requests are redirected. In the event of an error, you can specify a different error code to return.
 type BucketRedirectRuleOutput struct{ *pulumi.OutputState }
 
@@ -6583,12 +5634,6 @@ func (o BucketRedirectRuleOutput) ToBucketRedirectRuleOutput() BucketRedirectRul
 
 func (o BucketRedirectRuleOutput) ToBucketRedirectRuleOutputWithContext(ctx context.Context) BucketRedirectRuleOutput {
 	return o
-}
-
-func (o BucketRedirectRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketRedirectRule] {
-	return pulumix.Output[BucketRedirectRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The host name to use in the redirect request.
@@ -6649,12 +5694,6 @@ func (i BucketReplicaModificationsArgs) ToBucketReplicaModificationsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicaModificationsOutput)
 }
 
-func (i BucketReplicaModificationsArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicaModifications] {
-	return pulumix.Output[BucketReplicaModifications]{
-		OutputState: i.ToBucketReplicaModificationsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketReplicaModificationsArgs) ToBucketReplicaModificationsPtrOutput() BucketReplicaModificationsPtrOutput {
 	return i.ToBucketReplicaModificationsPtrOutputWithContext(context.Background())
 }
@@ -6696,12 +5735,6 @@ func (i *bucketReplicaModificationsPtrType) ToBucketReplicaModificationsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicaModificationsPtrOutput)
 }
 
-func (i *bucketReplicaModificationsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicaModifications] {
-	return pulumix.Output[*BucketReplicaModifications]{
-		OutputState: i.ToBucketReplicaModificationsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketReplicaModificationsOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicaModificationsOutput) ElementType() reflect.Type {
@@ -6726,12 +5759,6 @@ func (o BucketReplicaModificationsOutput) ToBucketReplicaModificationsPtrOutputW
 	}).(BucketReplicaModificationsPtrOutput)
 }
 
-func (o BucketReplicaModificationsOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicaModifications] {
-	return pulumix.Output[BucketReplicaModifications]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies whether Amazon S3 replicates modifications on replicas.
 func (o BucketReplicaModificationsOutput) Status() BucketReplicaModificationsStatusOutput {
 	return o.ApplyT(func(v BucketReplicaModifications) BucketReplicaModificationsStatus { return v.Status }).(BucketReplicaModificationsStatusOutput)
@@ -6749,12 +5776,6 @@ func (o BucketReplicaModificationsPtrOutput) ToBucketReplicaModificationsPtrOutp
 
 func (o BucketReplicaModificationsPtrOutput) ToBucketReplicaModificationsPtrOutputWithContext(ctx context.Context) BucketReplicaModificationsPtrOutput {
 	return o
-}
-
-func (o BucketReplicaModificationsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicaModifications] {
-	return pulumix.Output[*BucketReplicaModifications]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketReplicaModificationsPtrOutput) Elem() BucketReplicaModificationsOutput {
@@ -6816,12 +5837,6 @@ func (i BucketReplicationConfigurationArgs) ToBucketReplicationConfigurationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationOutput)
 }
 
-func (i BucketReplicationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfiguration] {
-	return pulumix.Output[BucketReplicationConfiguration]{
-		OutputState: i.ToBucketReplicationConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketReplicationConfigurationArgs) ToBucketReplicationConfigurationPtrOutput() BucketReplicationConfigurationPtrOutput {
 	return i.ToBucketReplicationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -6863,12 +5878,6 @@ func (i *bucketReplicationConfigurationPtrType) ToBucketReplicationConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationPtrOutput)
 }
 
-func (i *bucketReplicationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfiguration] {
-	return pulumix.Output[*BucketReplicationConfiguration]{
-		OutputState: i.ToBucketReplicationConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB.
 type BucketReplicationConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -6894,12 +5903,6 @@ func (o BucketReplicationConfigurationOutput) ToBucketReplicationConfigurationPt
 	}).(BucketReplicationConfigurationPtrOutput)
 }
 
-func (o BucketReplicationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationConfiguration] {
-	return pulumix.Output[BucketReplicationConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that Amazon S3 assumes when replicating objects.
 func (o BucketReplicationConfigurationOutput) Role() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketReplicationConfiguration) string { return v.Role }).(pulumi.StringOutput)
@@ -6922,12 +5925,6 @@ func (o BucketReplicationConfigurationPtrOutput) ToBucketReplicationConfiguratio
 
 func (o BucketReplicationConfigurationPtrOutput) ToBucketReplicationConfigurationPtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationPtrOutput {
 	return o
-}
-
-func (o BucketReplicationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationConfiguration] {
-	return pulumix.Output[*BucketReplicationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketReplicationConfigurationPtrOutput) Elem() BucketReplicationConfigurationOutput {
@@ -7007,12 +6004,6 @@ func (i BucketReplicationDestinationArgs) ToBucketReplicationDestinationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationDestinationOutput)
 }
 
-func (i BucketReplicationDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationDestination] {
-	return pulumix.Output[BucketReplicationDestination]{
-		OutputState: i.ToBucketReplicationDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies which Amazon S3 bucket to store replicated objects in and their storage class.
 type BucketReplicationDestinationOutput struct{ *pulumi.OutputState }
 
@@ -7026,12 +6017,6 @@ func (o BucketReplicationDestinationOutput) ToBucketReplicationDestinationOutput
 
 func (o BucketReplicationDestinationOutput) ToBucketReplicationDestinationOutputWithContext(ctx context.Context) BucketReplicationDestinationOutput {
 	return o
-}
-
-func (o BucketReplicationDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationDestination] {
-	return pulumix.Output[BucketReplicationDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketReplicationDestinationOutput) AccessControlTranslation() BucketAccessControlTranslationPtrOutput {
@@ -7118,12 +6103,6 @@ func (i BucketReplicationRuleArgs) ToBucketReplicationRuleOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationRuleOutput)
 }
 
-func (i BucketReplicationRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationRule] {
-	return pulumix.Output[BucketReplicationRule]{
-		OutputState: i.ToBucketReplicationRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketReplicationRuleArrayInput is an input type that accepts BucketReplicationRuleArray and BucketReplicationRuleArrayOutput values.
 // You can construct a concrete instance of `BucketReplicationRuleArrayInput` via:
 //
@@ -7149,12 +6128,6 @@ func (i BucketReplicationRuleArray) ToBucketReplicationRuleArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationRuleArrayOutput)
 }
 
-func (i BucketReplicationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketReplicationRule] {
-	return pulumix.Output[[]BucketReplicationRule]{
-		OutputState: i.ToBucketReplicationRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies which Amazon S3 objects to replicate and where to store the replicas.
 type BucketReplicationRuleOutput struct{ *pulumi.OutputState }
 
@@ -7168,12 +6141,6 @@ func (o BucketReplicationRuleOutput) ToBucketReplicationRuleOutput() BucketRepli
 
 func (o BucketReplicationRuleOutput) ToBucketReplicationRuleOutputWithContext(ctx context.Context) BucketReplicationRuleOutput {
 	return o
-}
-
-func (o BucketReplicationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationRule] {
-	return pulumix.Output[BucketReplicationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketReplicationRuleOutput) DeleteMarkerReplication() BucketDeleteMarkerReplicationPtrOutput {
@@ -7225,12 +6192,6 @@ func (o BucketReplicationRuleArrayOutput) ToBucketReplicationRuleArrayOutputWith
 	return o
 }
 
-func (o BucketReplicationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketReplicationRule] {
-	return pulumix.Output[[]BucketReplicationRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketReplicationRuleArrayOutput) Index(i pulumi.IntInput) BucketReplicationRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketReplicationRule {
 		return vs[0].([]BucketReplicationRule)[vs[1].(int)]
@@ -7268,12 +6229,6 @@ func (i BucketReplicationRuleAndOperatorArgs) ToBucketReplicationRuleAndOperator
 
 func (i BucketReplicationRuleAndOperatorArgs) ToBucketReplicationRuleAndOperatorOutputWithContext(ctx context.Context) BucketReplicationRuleAndOperatorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationRuleAndOperatorOutput)
-}
-
-func (i BucketReplicationRuleAndOperatorArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationRuleAndOperator] {
-	return pulumix.Output[BucketReplicationRuleAndOperator]{
-		OutputState: i.ToBucketReplicationRuleAndOperatorOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i BucketReplicationRuleAndOperatorArgs) ToBucketReplicationRuleAndOperatorPtrOutput() BucketReplicationRuleAndOperatorPtrOutput {
@@ -7317,12 +6272,6 @@ func (i *bucketReplicationRuleAndOperatorPtrType) ToBucketReplicationRuleAndOper
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationRuleAndOperatorPtrOutput)
 }
 
-func (i *bucketReplicationRuleAndOperatorPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationRuleAndOperator] {
-	return pulumix.Output[*BucketReplicationRuleAndOperator]{
-		OutputState: i.ToBucketReplicationRuleAndOperatorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketReplicationRuleAndOperatorOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationRuleAndOperatorOutput) ElementType() reflect.Type {
@@ -7347,12 +6296,6 @@ func (o BucketReplicationRuleAndOperatorOutput) ToBucketReplicationRuleAndOperat
 	}).(BucketReplicationRuleAndOperatorPtrOutput)
 }
 
-func (o BucketReplicationRuleAndOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationRuleAndOperator] {
-	return pulumix.Output[BucketReplicationRuleAndOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketReplicationRuleAndOperatorOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketReplicationRuleAndOperator) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -7373,12 +6316,6 @@ func (o BucketReplicationRuleAndOperatorPtrOutput) ToBucketReplicationRuleAndOpe
 
 func (o BucketReplicationRuleAndOperatorPtrOutput) ToBucketReplicationRuleAndOperatorPtrOutputWithContext(ctx context.Context) BucketReplicationRuleAndOperatorPtrOutput {
 	return o
-}
-
-func (o BucketReplicationRuleAndOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationRuleAndOperator] {
-	return pulumix.Output[*BucketReplicationRuleAndOperator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketReplicationRuleAndOperatorPtrOutput) Elem() BucketReplicationRuleAndOperatorOutput {
@@ -7444,12 +6381,6 @@ func (i BucketReplicationRuleFilterArgs) ToBucketReplicationRuleFilterOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationRuleFilterOutput)
 }
 
-func (i BucketReplicationRuleFilterArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationRuleFilter] {
-	return pulumix.Output[BucketReplicationRuleFilter]{
-		OutputState: i.ToBucketReplicationRuleFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketReplicationRuleFilterArgs) ToBucketReplicationRuleFilterPtrOutput() BucketReplicationRuleFilterPtrOutput {
 	return i.ToBucketReplicationRuleFilterPtrOutputWithContext(context.Background())
 }
@@ -7491,12 +6422,6 @@ func (i *bucketReplicationRuleFilterPtrType) ToBucketReplicationRuleFilterPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationRuleFilterPtrOutput)
 }
 
-func (i *bucketReplicationRuleFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationRuleFilter] {
-	return pulumix.Output[*BucketReplicationRuleFilter]{
-		OutputState: i.ToBucketReplicationRuleFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketReplicationRuleFilterOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationRuleFilterOutput) ElementType() reflect.Type {
@@ -7519,12 +6444,6 @@ func (o BucketReplicationRuleFilterOutput) ToBucketReplicationRuleFilterPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketReplicationRuleFilter) *BucketReplicationRuleFilter {
 		return &v
 	}).(BucketReplicationRuleFilterPtrOutput)
-}
-
-func (o BucketReplicationRuleFilterOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationRuleFilter] {
-	return pulumix.Output[BucketReplicationRuleFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketReplicationRuleFilterOutput) And() BucketReplicationRuleAndOperatorPtrOutput {
@@ -7551,12 +6470,6 @@ func (o BucketReplicationRuleFilterPtrOutput) ToBucketReplicationRuleFilterPtrOu
 
 func (o BucketReplicationRuleFilterPtrOutput) ToBucketReplicationRuleFilterPtrOutputWithContext(ctx context.Context) BucketReplicationRuleFilterPtrOutput {
 	return o
-}
-
-func (o BucketReplicationRuleFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationRuleFilter] {
-	return pulumix.Output[*BucketReplicationRuleFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketReplicationRuleFilterPtrOutput) Elem() BucketReplicationRuleFilterOutput {
@@ -7629,12 +6542,6 @@ func (i BucketReplicationTimeArgs) ToBucketReplicationTimeOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationTimeOutput)
 }
 
-func (i BucketReplicationTimeArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationTime] {
-	return pulumix.Output[BucketReplicationTime]{
-		OutputState: i.ToBucketReplicationTimeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketReplicationTimeArgs) ToBucketReplicationTimePtrOutput() BucketReplicationTimePtrOutput {
 	return i.ToBucketReplicationTimePtrOutputWithContext(context.Background())
 }
@@ -7676,12 +6583,6 @@ func (i *bucketReplicationTimePtrType) ToBucketReplicationTimePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationTimePtrOutput)
 }
 
-func (i *bucketReplicationTimePtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationTime] {
-	return pulumix.Output[*BucketReplicationTime]{
-		OutputState: i.ToBucketReplicationTimePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketReplicationTimeOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationTimeOutput) ElementType() reflect.Type {
@@ -7706,12 +6607,6 @@ func (o BucketReplicationTimeOutput) ToBucketReplicationTimePtrOutputWithContext
 	}).(BucketReplicationTimePtrOutput)
 }
 
-func (o BucketReplicationTimeOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationTime] {
-	return pulumix.Output[BucketReplicationTime]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketReplicationTimeOutput) Status() BucketReplicationTimeStatusOutput {
 	return o.ApplyT(func(v BucketReplicationTime) BucketReplicationTimeStatus { return v.Status }).(BucketReplicationTimeStatusOutput)
 }
@@ -7732,12 +6627,6 @@ func (o BucketReplicationTimePtrOutput) ToBucketReplicationTimePtrOutput() Bucke
 
 func (o BucketReplicationTimePtrOutput) ToBucketReplicationTimePtrOutputWithContext(ctx context.Context) BucketReplicationTimePtrOutput {
 	return o
-}
-
-func (o BucketReplicationTimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationTime] {
-	return pulumix.Output[*BucketReplicationTime]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketReplicationTimePtrOutput) Elem() BucketReplicationTimeOutput {
@@ -7799,12 +6688,6 @@ func (i BucketReplicationTimeValueArgs) ToBucketReplicationTimeValueOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationTimeValueOutput)
 }
 
-func (i BucketReplicationTimeValueArgs) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationTimeValue] {
-	return pulumix.Output[BucketReplicationTimeValue]{
-		OutputState: i.ToBucketReplicationTimeValueOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketReplicationTimeValueArgs) ToBucketReplicationTimeValuePtrOutput() BucketReplicationTimeValuePtrOutput {
 	return i.ToBucketReplicationTimeValuePtrOutputWithContext(context.Background())
 }
@@ -7846,12 +6729,6 @@ func (i *bucketReplicationTimeValuePtrType) ToBucketReplicationTimeValuePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationTimeValuePtrOutput)
 }
 
-func (i *bucketReplicationTimeValuePtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationTimeValue] {
-	return pulumix.Output[*BucketReplicationTimeValue]{
-		OutputState: i.ToBucketReplicationTimeValuePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketReplicationTimeValueOutput struct{ *pulumi.OutputState }
 
 func (BucketReplicationTimeValueOutput) ElementType() reflect.Type {
@@ -7876,12 +6753,6 @@ func (o BucketReplicationTimeValueOutput) ToBucketReplicationTimeValuePtrOutputW
 	}).(BucketReplicationTimeValuePtrOutput)
 }
 
-func (o BucketReplicationTimeValueOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationTimeValue] {
-	return pulumix.Output[BucketReplicationTimeValue]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketReplicationTimeValueOutput) Minutes() pulumi.IntOutput {
 	return o.ApplyT(func(v BucketReplicationTimeValue) int { return v.Minutes }).(pulumi.IntOutput)
 }
@@ -7898,12 +6769,6 @@ func (o BucketReplicationTimeValuePtrOutput) ToBucketReplicationTimeValuePtrOutp
 
 func (o BucketReplicationTimeValuePtrOutput) ToBucketReplicationTimeValuePtrOutputWithContext(ctx context.Context) BucketReplicationTimeValuePtrOutput {
 	return o
-}
-
-func (o BucketReplicationTimeValuePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationTimeValue] {
-	return pulumix.Output[*BucketReplicationTimeValue]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketReplicationTimeValuePtrOutput) Elem() BucketReplicationTimeValueOutput {
@@ -7962,12 +6827,6 @@ func (i BucketRoutingRuleArgs) ToBucketRoutingRuleOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(BucketRoutingRuleOutput)
 }
 
-func (i BucketRoutingRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketRoutingRule] {
-	return pulumix.Output[BucketRoutingRule]{
-		OutputState: i.ToBucketRoutingRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketRoutingRuleArrayInput is an input type that accepts BucketRoutingRuleArray and BucketRoutingRuleArrayOutput values.
 // You can construct a concrete instance of `BucketRoutingRuleArrayInput` via:
 //
@@ -7993,12 +6852,6 @@ func (i BucketRoutingRuleArray) ToBucketRoutingRuleArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(BucketRoutingRuleArrayOutput)
 }
 
-func (i BucketRoutingRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketRoutingRule] {
-	return pulumix.Output[[]BucketRoutingRule]{
-		OutputState: i.ToBucketRoutingRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies the redirect behavior and when a redirect is applied.
 type BucketRoutingRuleOutput struct{ *pulumi.OutputState }
 
@@ -8012,12 +6865,6 @@ func (o BucketRoutingRuleOutput) ToBucketRoutingRuleOutput() BucketRoutingRuleOu
 
 func (o BucketRoutingRuleOutput) ToBucketRoutingRuleOutputWithContext(ctx context.Context) BucketRoutingRuleOutput {
 	return o
-}
-
-func (o BucketRoutingRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketRoutingRule] {
-	return pulumix.Output[BucketRoutingRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.
@@ -8041,12 +6888,6 @@ func (o BucketRoutingRuleArrayOutput) ToBucketRoutingRuleArrayOutput() BucketRou
 
 func (o BucketRoutingRuleArrayOutput) ToBucketRoutingRuleArrayOutputWithContext(ctx context.Context) BucketRoutingRuleArrayOutput {
 	return o
-}
-
-func (o BucketRoutingRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketRoutingRule] {
-	return pulumix.Output[[]BucketRoutingRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketRoutingRuleArrayOutput) Index(i pulumi.IntInput) BucketRoutingRuleOutput {
@@ -8094,12 +6935,6 @@ func (i BucketRoutingRuleConditionArgs) ToBucketRoutingRuleConditionOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BucketRoutingRuleConditionOutput)
 }
 
-func (i BucketRoutingRuleConditionArgs) ToOutput(ctx context.Context) pulumix.Output[BucketRoutingRuleCondition] {
-	return pulumix.Output[BucketRoutingRuleCondition]{
-		OutputState: i.ToBucketRoutingRuleConditionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketRoutingRuleConditionArgs) ToBucketRoutingRuleConditionPtrOutput() BucketRoutingRuleConditionPtrOutput {
 	return i.ToBucketRoutingRuleConditionPtrOutputWithContext(context.Background())
 }
@@ -8141,12 +6976,6 @@ func (i *bucketRoutingRuleConditionPtrType) ToBucketRoutingRuleConditionPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketRoutingRuleConditionPtrOutput)
 }
 
-func (i *bucketRoutingRuleConditionPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketRoutingRuleCondition] {
-	return pulumix.Output[*BucketRoutingRuleCondition]{
-		OutputState: i.ToBucketRoutingRuleConditionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A container for describing a condition that must be met for the specified redirect to apply.You must specify at least one of HttpErrorCodeReturnedEquals and KeyPrefixEquals
 type BucketRoutingRuleConditionOutput struct{ *pulumi.OutputState }
 
@@ -8172,12 +7001,6 @@ func (o BucketRoutingRuleConditionOutput) ToBucketRoutingRuleConditionPtrOutputW
 	}).(BucketRoutingRuleConditionPtrOutput)
 }
 
-func (o BucketRoutingRuleConditionOutput) ToOutput(ctx context.Context) pulumix.Output[BucketRoutingRuleCondition] {
-	return pulumix.Output[BucketRoutingRuleCondition]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The HTTP error code when the redirect is applied.
 func (o BucketRoutingRuleConditionOutput) HttpErrorCodeReturnedEquals() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketRoutingRuleCondition) *string { return v.HttpErrorCodeReturnedEquals }).(pulumi.StringPtrOutput)
@@ -8200,12 +7023,6 @@ func (o BucketRoutingRuleConditionPtrOutput) ToBucketRoutingRuleConditionPtrOutp
 
 func (o BucketRoutingRuleConditionPtrOutput) ToBucketRoutingRuleConditionPtrOutputWithContext(ctx context.Context) BucketRoutingRuleConditionPtrOutput {
 	return o
-}
-
-func (o BucketRoutingRuleConditionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketRoutingRuleCondition] {
-	return pulumix.Output[*BucketRoutingRuleCondition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketRoutingRuleConditionPtrOutput) Elem() BucketRoutingRuleConditionOutput {
@@ -8301,12 +7118,6 @@ func (i BucketRuleArgs) ToBucketRuleOutputWithContext(ctx context.Context) Bucke
 	return pulumi.ToOutputWithContext(ctx, i).(BucketRuleOutput)
 }
 
-func (i BucketRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketRule] {
-	return pulumix.Output[BucketRule]{
-		OutputState: i.ToBucketRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketRuleArrayInput is an input type that accepts BucketRuleArray and BucketRuleArrayOutput values.
 // You can construct a concrete instance of `BucketRuleArrayInput` via:
 //
@@ -8332,12 +7143,6 @@ func (i BucketRuleArray) ToBucketRuleArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BucketRuleArrayOutput)
 }
 
-func (i BucketRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketRule] {
-	return pulumix.Output[[]BucketRule]{
-		OutputState: i.ToBucketRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // You must specify at least one of the following properties: AbortIncompleteMultipartUpload, ExpirationDate, ExpirationInDays, NoncurrentVersionExpirationInDays, NoncurrentVersionTransition, NoncurrentVersionTransitions, Transition, or Transitions.
 type BucketRuleOutput struct{ *pulumi.OutputState }
 
@@ -8351,12 +7156,6 @@ func (o BucketRuleOutput) ToBucketRuleOutput() BucketRuleOutput {
 
 func (o BucketRuleOutput) ToBucketRuleOutputWithContext(ctx context.Context) BucketRuleOutput {
 	return o
-}
-
-func (o BucketRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketRule] {
-	return pulumix.Output[BucketRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketRuleOutput) AbortIncompleteMultipartUpload() BucketAbortIncompleteMultipartUploadPtrOutput {
@@ -8437,12 +7236,6 @@ func (o BucketRuleArrayOutput) ToBucketRuleArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o BucketRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketRule] {
-	return pulumix.Output[[]BucketRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketRuleArrayOutput) Index(i pulumi.IntInput) BucketRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketRule {
 		return vs[0].([]BucketRule)[vs[1].(int)]
@@ -8480,12 +7273,6 @@ func (i BucketS3KeyFilterArgs) ToBucketS3KeyFilterOutput() BucketS3KeyFilterOutp
 
 func (i BucketS3KeyFilterArgs) ToBucketS3KeyFilterOutputWithContext(ctx context.Context) BucketS3KeyFilterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketS3KeyFilterOutput)
-}
-
-func (i BucketS3KeyFilterArgs) ToOutput(ctx context.Context) pulumix.Output[BucketS3KeyFilter] {
-	return pulumix.Output[BucketS3KeyFilter]{
-		OutputState: i.ToBucketS3KeyFilterOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i BucketS3KeyFilterArgs) ToBucketS3KeyFilterPtrOutput() BucketS3KeyFilterPtrOutput {
@@ -8529,12 +7316,6 @@ func (i *bucketS3KeyFilterPtrType) ToBucketS3KeyFilterPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(BucketS3KeyFilterPtrOutput)
 }
 
-func (i *bucketS3KeyFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketS3KeyFilter] {
-	return pulumix.Output[*BucketS3KeyFilter]{
-		OutputState: i.ToBucketS3KeyFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A container for object key name prefix and suffix filtering rules.
 type BucketS3KeyFilterOutput struct{ *pulumi.OutputState }
 
@@ -8560,12 +7341,6 @@ func (o BucketS3KeyFilterOutput) ToBucketS3KeyFilterPtrOutputWithContext(ctx con
 	}).(BucketS3KeyFilterPtrOutput)
 }
 
-func (o BucketS3KeyFilterOutput) ToOutput(ctx context.Context) pulumix.Output[BucketS3KeyFilter] {
-	return pulumix.Output[BucketS3KeyFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketS3KeyFilterOutput) Rules() BucketFilterRuleArrayOutput {
 	return o.ApplyT(func(v BucketS3KeyFilter) []BucketFilterRule { return v.Rules }).(BucketFilterRuleArrayOutput)
 }
@@ -8582,12 +7357,6 @@ func (o BucketS3KeyFilterPtrOutput) ToBucketS3KeyFilterPtrOutput() BucketS3KeyFi
 
 func (o BucketS3KeyFilterPtrOutput) ToBucketS3KeyFilterPtrOutputWithContext(ctx context.Context) BucketS3KeyFilterPtrOutput {
 	return o
-}
-
-func (o BucketS3KeyFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketS3KeyFilter] {
-	return pulumix.Output[*BucketS3KeyFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketS3KeyFilterPtrOutput) Elem() BucketS3KeyFilterOutput {
@@ -8646,12 +7415,6 @@ func (i BucketServerSideEncryptionByDefaultArgs) ToBucketServerSideEncryptionByD
 	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionByDefaultOutput)
 }
 
-func (i BucketServerSideEncryptionByDefaultArgs) ToOutput(ctx context.Context) pulumix.Output[BucketServerSideEncryptionByDefault] {
-	return pulumix.Output[BucketServerSideEncryptionByDefault]{
-		OutputState: i.ToBucketServerSideEncryptionByDefaultOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketServerSideEncryptionByDefaultArgs) ToBucketServerSideEncryptionByDefaultPtrOutput() BucketServerSideEncryptionByDefaultPtrOutput {
 	return i.ToBucketServerSideEncryptionByDefaultPtrOutputWithContext(context.Background())
 }
@@ -8693,12 +7456,6 @@ func (i *bucketServerSideEncryptionByDefaultPtrType) ToBucketServerSideEncryptio
 	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionByDefaultPtrOutput)
 }
 
-func (i *bucketServerSideEncryptionByDefaultPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketServerSideEncryptionByDefault] {
-	return pulumix.Output[*BucketServerSideEncryptionByDefault]{
-		OutputState: i.ToBucketServerSideEncryptionByDefaultPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
 type BucketServerSideEncryptionByDefaultOutput struct{ *pulumi.OutputState }
 
@@ -8724,12 +7481,6 @@ func (o BucketServerSideEncryptionByDefaultOutput) ToBucketServerSideEncryptionB
 	}).(BucketServerSideEncryptionByDefaultPtrOutput)
 }
 
-func (o BucketServerSideEncryptionByDefaultOutput) ToOutput(ctx context.Context) pulumix.Output[BucketServerSideEncryptionByDefault] {
-	return pulumix.Output[BucketServerSideEncryptionByDefault]{
-		OutputState: o.OutputState,
-	}
-}
-
 // "KMSMasterKeyID" can only be used when you set the value of SSEAlgorithm as aws:kms or aws:kms:dsse.
 func (o BucketServerSideEncryptionByDefaultOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketServerSideEncryptionByDefault) *string { return v.KmsMasterKeyId }).(pulumi.StringPtrOutput)
@@ -8753,12 +7504,6 @@ func (o BucketServerSideEncryptionByDefaultPtrOutput) ToBucketServerSideEncrypti
 
 func (o BucketServerSideEncryptionByDefaultPtrOutput) ToBucketServerSideEncryptionByDefaultPtrOutputWithContext(ctx context.Context) BucketServerSideEncryptionByDefaultPtrOutput {
 	return o
-}
-
-func (o BucketServerSideEncryptionByDefaultPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketServerSideEncryptionByDefault] {
-	return pulumix.Output[*BucketServerSideEncryptionByDefault]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketServerSideEncryptionByDefaultPtrOutput) Elem() BucketServerSideEncryptionByDefaultOutput {
@@ -8827,12 +7572,6 @@ func (i BucketServerSideEncryptionRuleArgs) ToBucketServerSideEncryptionRuleOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionRuleOutput)
 }
 
-func (i BucketServerSideEncryptionRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BucketServerSideEncryptionRule] {
-	return pulumix.Output[BucketServerSideEncryptionRule]{
-		OutputState: i.ToBucketServerSideEncryptionRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketServerSideEncryptionRuleArrayInput is an input type that accepts BucketServerSideEncryptionRuleArray and BucketServerSideEncryptionRuleArrayOutput values.
 // You can construct a concrete instance of `BucketServerSideEncryptionRuleArrayInput` via:
 //
@@ -8858,12 +7597,6 @@ func (i BucketServerSideEncryptionRuleArray) ToBucketServerSideEncryptionRuleArr
 	return pulumi.ToOutputWithContext(ctx, i).(BucketServerSideEncryptionRuleArrayOutput)
 }
 
-func (i BucketServerSideEncryptionRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketServerSideEncryptionRule] {
-	return pulumix.Output[[]BucketServerSideEncryptionRule]{
-		OutputState: i.ToBucketServerSideEncryptionRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies the default server-side encryption configuration.
 type BucketServerSideEncryptionRuleOutput struct{ *pulumi.OutputState }
 
@@ -8877,12 +7610,6 @@ func (o BucketServerSideEncryptionRuleOutput) ToBucketServerSideEncryptionRuleOu
 
 func (o BucketServerSideEncryptionRuleOutput) ToBucketServerSideEncryptionRuleOutputWithContext(ctx context.Context) BucketServerSideEncryptionRuleOutput {
 	return o
-}
-
-func (o BucketServerSideEncryptionRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BucketServerSideEncryptionRule] {
-	return pulumix.Output[BucketServerSideEncryptionRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS (SSE-KMS) for new objects in the bucket. Existing objects are not affected. Setting the BucketKeyEnabled element to true causes Amazon S3 to use an S3 Bucket Key. By default, S3 Bucket Key is not enabled.
@@ -8908,12 +7635,6 @@ func (o BucketServerSideEncryptionRuleArrayOutput) ToBucketServerSideEncryptionR
 
 func (o BucketServerSideEncryptionRuleArrayOutput) ToBucketServerSideEncryptionRuleArrayOutputWithContext(ctx context.Context) BucketServerSideEncryptionRuleArrayOutput {
 	return o
-}
-
-func (o BucketServerSideEncryptionRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketServerSideEncryptionRule] {
-	return pulumix.Output[[]BucketServerSideEncryptionRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketServerSideEncryptionRuleArrayOutput) Index(i pulumi.IntInput) BucketServerSideEncryptionRuleOutput {
@@ -8961,12 +7682,6 @@ func (i BucketSourceSelectionCriteriaArgs) ToBucketSourceSelectionCriteriaOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BucketSourceSelectionCriteriaOutput)
 }
 
-func (i BucketSourceSelectionCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[BucketSourceSelectionCriteria] {
-	return pulumix.Output[BucketSourceSelectionCriteria]{
-		OutputState: i.ToBucketSourceSelectionCriteriaOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketSourceSelectionCriteriaArgs) ToBucketSourceSelectionCriteriaPtrOutput() BucketSourceSelectionCriteriaPtrOutput {
 	return i.ToBucketSourceSelectionCriteriaPtrOutputWithContext(context.Background())
 }
@@ -9008,12 +7723,6 @@ func (i *bucketSourceSelectionCriteriaPtrType) ToBucketSourceSelectionCriteriaPt
 	return pulumi.ToOutputWithContext(ctx, i).(BucketSourceSelectionCriteriaPtrOutput)
 }
 
-func (i *bucketSourceSelectionCriteriaPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketSourceSelectionCriteria] {
-	return pulumix.Output[*BucketSourceSelectionCriteria]{
-		OutputState: i.ToBucketSourceSelectionCriteriaPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A container that describes additional filters for identifying the source objects that you want to replicate.
 type BucketSourceSelectionCriteriaOutput struct{ *pulumi.OutputState }
 
@@ -9039,12 +7748,6 @@ func (o BucketSourceSelectionCriteriaOutput) ToBucketSourceSelectionCriteriaPtrO
 	}).(BucketSourceSelectionCriteriaPtrOutput)
 }
 
-func (o BucketSourceSelectionCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[BucketSourceSelectionCriteria] {
-	return pulumix.Output[BucketSourceSelectionCriteria]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A filter that you can specify for selection for modifications on replicas.
 func (o BucketSourceSelectionCriteriaOutput) ReplicaModifications() BucketReplicaModificationsPtrOutput {
 	return o.ApplyT(func(v BucketSourceSelectionCriteria) *BucketReplicaModifications { return v.ReplicaModifications }).(BucketReplicaModificationsPtrOutput)
@@ -9067,12 +7770,6 @@ func (o BucketSourceSelectionCriteriaPtrOutput) ToBucketSourceSelectionCriteriaP
 
 func (o BucketSourceSelectionCriteriaPtrOutput) ToBucketSourceSelectionCriteriaPtrOutputWithContext(ctx context.Context) BucketSourceSelectionCriteriaPtrOutput {
 	return o
-}
-
-func (o BucketSourceSelectionCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketSourceSelectionCriteria] {
-	return pulumix.Output[*BucketSourceSelectionCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketSourceSelectionCriteriaPtrOutput) Elem() BucketSourceSelectionCriteriaOutput {
@@ -9140,12 +7837,6 @@ func (i BucketSseKmsEncryptedObjectsArgs) ToBucketSseKmsEncryptedObjectsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(BucketSseKmsEncryptedObjectsOutput)
 }
 
-func (i BucketSseKmsEncryptedObjectsArgs) ToOutput(ctx context.Context) pulumix.Output[BucketSseKmsEncryptedObjects] {
-	return pulumix.Output[BucketSseKmsEncryptedObjects]{
-		OutputState: i.ToBucketSseKmsEncryptedObjectsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketSseKmsEncryptedObjectsArgs) ToBucketSseKmsEncryptedObjectsPtrOutput() BucketSseKmsEncryptedObjectsPtrOutput {
 	return i.ToBucketSseKmsEncryptedObjectsPtrOutputWithContext(context.Background())
 }
@@ -9187,12 +7878,6 @@ func (i *bucketSseKmsEncryptedObjectsPtrType) ToBucketSseKmsEncryptedObjectsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(BucketSseKmsEncryptedObjectsPtrOutput)
 }
 
-func (i *bucketSseKmsEncryptedObjectsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketSseKmsEncryptedObjects] {
-	return pulumix.Output[*BucketSseKmsEncryptedObjects]{
-		OutputState: i.ToBucketSseKmsEncryptedObjectsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A container for filter information for the selection of S3 objects encrypted with AWS KMS.
 type BucketSseKmsEncryptedObjectsOutput struct{ *pulumi.OutputState }
 
@@ -9218,12 +7903,6 @@ func (o BucketSseKmsEncryptedObjectsOutput) ToBucketSseKmsEncryptedObjectsPtrOut
 	}).(BucketSseKmsEncryptedObjectsPtrOutput)
 }
 
-func (o BucketSseKmsEncryptedObjectsOutput) ToOutput(ctx context.Context) pulumix.Output[BucketSseKmsEncryptedObjects] {
-	return pulumix.Output[BucketSseKmsEncryptedObjects]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies whether Amazon S3 replicates objects created with server-side encryption using a customer master key (CMK) stored in AWS Key Management Service.
 func (o BucketSseKmsEncryptedObjectsOutput) Status() BucketSseKmsEncryptedObjectsStatusOutput {
 	return o.ApplyT(func(v BucketSseKmsEncryptedObjects) BucketSseKmsEncryptedObjectsStatus { return v.Status }).(BucketSseKmsEncryptedObjectsStatusOutput)
@@ -9241,12 +7920,6 @@ func (o BucketSseKmsEncryptedObjectsPtrOutput) ToBucketSseKmsEncryptedObjectsPtr
 
 func (o BucketSseKmsEncryptedObjectsPtrOutput) ToBucketSseKmsEncryptedObjectsPtrOutputWithContext(ctx context.Context) BucketSseKmsEncryptedObjectsPtrOutput {
 	return o
-}
-
-func (o BucketSseKmsEncryptedObjectsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketSseKmsEncryptedObjects] {
-	return pulumix.Output[*BucketSseKmsEncryptedObjects]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketSseKmsEncryptedObjectsPtrOutput) Elem() BucketSseKmsEncryptedObjectsOutput {
@@ -9302,12 +7975,6 @@ func (i BucketStorageClassAnalysisArgs) ToBucketStorageClassAnalysisOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BucketStorageClassAnalysisOutput)
 }
 
-func (i BucketStorageClassAnalysisArgs) ToOutput(ctx context.Context) pulumix.Output[BucketStorageClassAnalysis] {
-	return pulumix.Output[BucketStorageClassAnalysis]{
-		OutputState: i.ToBucketStorageClassAnalysisOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes for an Amazon S3 bucket.
 type BucketStorageClassAnalysisOutput struct{ *pulumi.OutputState }
 
@@ -9321,12 +7988,6 @@ func (o BucketStorageClassAnalysisOutput) ToBucketStorageClassAnalysisOutput() B
 
 func (o BucketStorageClassAnalysisOutput) ToBucketStorageClassAnalysisOutputWithContext(ctx context.Context) BucketStorageClassAnalysisOutput {
 	return o
-}
-
-func (o BucketStorageClassAnalysisOutput) ToOutput(ctx context.Context) pulumix.Output[BucketStorageClassAnalysis] {
-	return pulumix.Output[BucketStorageClassAnalysis]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketStorageClassAnalysisOutput) DataExport() BucketDataExportPtrOutput {
@@ -9366,12 +8027,6 @@ func (i BucketTagArgs) ToBucketTagOutputWithContext(ctx context.Context) BucketT
 	return pulumi.ToOutputWithContext(ctx, i).(BucketTagOutput)
 }
 
-func (i BucketTagArgs) ToOutput(ctx context.Context) pulumix.Output[BucketTag] {
-	return pulumix.Output[BucketTag]{
-		OutputState: i.ToBucketTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketTagArrayInput is an input type that accepts BucketTagArray and BucketTagArrayOutput values.
 // You can construct a concrete instance of `BucketTagArrayInput` via:
 //
@@ -9397,12 +8052,6 @@ func (i BucketTagArray) ToBucketTagArrayOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(BucketTagArrayOutput)
 }
 
-func (i BucketTagArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketTag] {
-	return pulumix.Output[[]BucketTag]{
-		OutputState: i.ToBucketTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketTagOutput struct{ *pulumi.OutputState }
 
 func (BucketTagOutput) ElementType() reflect.Type {
@@ -9415,12 +8064,6 @@ func (o BucketTagOutput) ToBucketTagOutput() BucketTagOutput {
 
 func (o BucketTagOutput) ToBucketTagOutputWithContext(ctx context.Context) BucketTagOutput {
 	return o
-}
-
-func (o BucketTagOutput) ToOutput(ctx context.Context) pulumix.Output[BucketTag] {
-	return pulumix.Output[BucketTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketTagOutput) Key() pulumi.StringOutput {
@@ -9443,12 +8086,6 @@ func (o BucketTagArrayOutput) ToBucketTagArrayOutput() BucketTagArrayOutput {
 
 func (o BucketTagArrayOutput) ToBucketTagArrayOutputWithContext(ctx context.Context) BucketTagArrayOutput {
 	return o
-}
-
-func (o BucketTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketTag] {
-	return pulumix.Output[[]BucketTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketTagArrayOutput) Index(i pulumi.IntInput) BucketTagOutput {
@@ -9492,12 +8129,6 @@ func (i BucketTagFilterArgs) ToBucketTagFilterOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(BucketTagFilterOutput)
 }
 
-func (i BucketTagFilterArgs) ToOutput(ctx context.Context) pulumix.Output[BucketTagFilter] {
-	return pulumix.Output[BucketTagFilter]{
-		OutputState: i.ToBucketTagFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketTagFilterArgs) ToBucketTagFilterPtrOutput() BucketTagFilterPtrOutput {
 	return i.ToBucketTagFilterPtrOutputWithContext(context.Background())
 }
@@ -9539,12 +8170,6 @@ func (i *bucketTagFilterPtrType) ToBucketTagFilterPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(BucketTagFilterPtrOutput)
 }
 
-func (i *bucketTagFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketTagFilter] {
-	return pulumix.Output[*BucketTagFilter]{
-		OutputState: i.ToBucketTagFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketTagFilterArrayInput is an input type that accepts BucketTagFilterArray and BucketTagFilterArrayOutput values.
 // You can construct a concrete instance of `BucketTagFilterArrayInput` via:
 //
@@ -9568,12 +8193,6 @@ func (i BucketTagFilterArray) ToBucketTagFilterArrayOutput() BucketTagFilterArra
 
 func (i BucketTagFilterArray) ToBucketTagFilterArrayOutputWithContext(ctx context.Context) BucketTagFilterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketTagFilterArrayOutput)
-}
-
-func (i BucketTagFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketTagFilter] {
-	return pulumix.Output[[]BucketTagFilter]{
-		OutputState: i.ToBucketTagFilterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Tags to use to identify a subset of objects for an Amazon S3 bucket.
@@ -9601,12 +8220,6 @@ func (o BucketTagFilterOutput) ToBucketTagFilterPtrOutputWithContext(ctx context
 	}).(BucketTagFilterPtrOutput)
 }
 
-func (o BucketTagFilterOutput) ToOutput(ctx context.Context) pulumix.Output[BucketTagFilter] {
-	return pulumix.Output[BucketTagFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketTagFilterOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketTagFilter) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -9627,12 +8240,6 @@ func (o BucketTagFilterPtrOutput) ToBucketTagFilterPtrOutput() BucketTagFilterPt
 
 func (o BucketTagFilterPtrOutput) ToBucketTagFilterPtrOutputWithContext(ctx context.Context) BucketTagFilterPtrOutput {
 	return o
-}
-
-func (o BucketTagFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketTagFilter] {
-	return pulumix.Output[*BucketTagFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketTagFilterPtrOutput) Elem() BucketTagFilterOutput {
@@ -9675,12 +8282,6 @@ func (o BucketTagFilterArrayOutput) ToBucketTagFilterArrayOutput() BucketTagFilt
 
 func (o BucketTagFilterArrayOutput) ToBucketTagFilterArrayOutputWithContext(ctx context.Context) BucketTagFilterArrayOutput {
 	return o
-}
-
-func (o BucketTagFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketTagFilter] {
-	return pulumix.Output[[]BucketTagFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketTagFilterArrayOutput) Index(i pulumi.IntInput) BucketTagFilterOutput {
@@ -9726,12 +8327,6 @@ func (i BucketTieringArgs) ToBucketTieringOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BucketTieringOutput)
 }
 
-func (i BucketTieringArgs) ToOutput(ctx context.Context) pulumix.Output[BucketTiering] {
-	return pulumix.Output[BucketTiering]{
-		OutputState: i.ToBucketTieringOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketTieringArrayInput is an input type that accepts BucketTieringArray and BucketTieringArrayOutput values.
 // You can construct a concrete instance of `BucketTieringArrayInput` via:
 //
@@ -9757,12 +8352,6 @@ func (i BucketTieringArray) ToBucketTieringArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BucketTieringArrayOutput)
 }
 
-func (i BucketTieringArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketTiering] {
-	return pulumix.Output[[]BucketTiering]{
-		OutputState: i.ToBucketTieringArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketTieringOutput struct{ *pulumi.OutputState }
 
 func (BucketTieringOutput) ElementType() reflect.Type {
@@ -9775,12 +8364,6 @@ func (o BucketTieringOutput) ToBucketTieringOutput() BucketTieringOutput {
 
 func (o BucketTieringOutput) ToBucketTieringOutputWithContext(ctx context.Context) BucketTieringOutput {
 	return o
-}
-
-func (o BucketTieringOutput) ToOutput(ctx context.Context) pulumix.Output[BucketTiering] {
-	return pulumix.Output[BucketTiering]{
-		OutputState: o.OutputState,
-	}
 }
 
 // S3 Intelligent-Tiering access tier. See Storage class for automatically optimizing frequently and infrequently accessed objects for a list of access tiers in the S3 Intelligent-Tiering storage class.
@@ -9805,12 +8388,6 @@ func (o BucketTieringArrayOutput) ToBucketTieringArrayOutput() BucketTieringArra
 
 func (o BucketTieringArrayOutput) ToBucketTieringArrayOutputWithContext(ctx context.Context) BucketTieringArrayOutput {
 	return o
-}
-
-func (o BucketTieringArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketTiering] {
-	return pulumix.Output[[]BucketTiering]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketTieringArrayOutput) Index(i pulumi.IntInput) BucketTieringOutput {
@@ -9862,12 +8439,6 @@ func (i BucketTopicConfigurationArgs) ToBucketTopicConfigurationOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BucketTopicConfigurationOutput)
 }
 
-func (i BucketTopicConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketTopicConfiguration] {
-	return pulumix.Output[BucketTopicConfiguration]{
-		OutputState: i.ToBucketTopicConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketTopicConfigurationArrayInput is an input type that accepts BucketTopicConfigurationArray and BucketTopicConfigurationArrayOutput values.
 // You can construct a concrete instance of `BucketTopicConfigurationArrayInput` via:
 //
@@ -9893,12 +8464,6 @@ func (i BucketTopicConfigurationArray) ToBucketTopicConfigurationArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BucketTopicConfigurationArrayOutput)
 }
 
-func (i BucketTopicConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketTopicConfiguration] {
-	return pulumix.Output[[]BucketTopicConfiguration]{
-		OutputState: i.ToBucketTopicConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The topic to which notifications are sent and the events for which notifications are generated.
 type BucketTopicConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -9912,12 +8477,6 @@ func (o BucketTopicConfigurationOutput) ToBucketTopicConfigurationOutput() Bucke
 
 func (o BucketTopicConfigurationOutput) ToBucketTopicConfigurationOutputWithContext(ctx context.Context) BucketTopicConfigurationOutput {
 	return o
-}
-
-func (o BucketTopicConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketTopicConfiguration] {
-	return pulumix.Output[BucketTopicConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon S3 bucket event about which to send notifications.
@@ -9947,12 +8506,6 @@ func (o BucketTopicConfigurationArrayOutput) ToBucketTopicConfigurationArrayOutp
 
 func (o BucketTopicConfigurationArrayOutput) ToBucketTopicConfigurationArrayOutputWithContext(ctx context.Context) BucketTopicConfigurationArrayOutput {
 	return o
-}
-
-func (o BucketTopicConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketTopicConfiguration] {
-	return pulumix.Output[[]BucketTopicConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketTopicConfigurationArrayOutput) Index(i pulumi.IntInput) BucketTopicConfigurationOutput {
@@ -9998,12 +8551,6 @@ func (i BucketTransitionArgs) ToBucketTransitionOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BucketTransitionOutput)
 }
 
-func (i BucketTransitionArgs) ToOutput(ctx context.Context) pulumix.Output[BucketTransition] {
-	return pulumix.Output[BucketTransition]{
-		OutputState: i.ToBucketTransitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketTransitionArgs) ToBucketTransitionPtrOutput() BucketTransitionPtrOutput {
 	return i.ToBucketTransitionPtrOutputWithContext(context.Background())
 }
@@ -10045,12 +8592,6 @@ func (i *bucketTransitionPtrType) ToBucketTransitionPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(BucketTransitionPtrOutput)
 }
 
-func (i *bucketTransitionPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketTransition] {
-	return pulumix.Output[*BucketTransition]{
-		OutputState: i.ToBucketTransitionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketTransitionArrayInput is an input type that accepts BucketTransitionArray and BucketTransitionArrayOutput values.
 // You can construct a concrete instance of `BucketTransitionArrayInput` via:
 //
@@ -10074,12 +8615,6 @@ func (i BucketTransitionArray) ToBucketTransitionArrayOutput() BucketTransitionA
 
 func (i BucketTransitionArray) ToBucketTransitionArrayOutputWithContext(ctx context.Context) BucketTransitionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketTransitionArrayOutput)
-}
-
-func (i BucketTransitionArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketTransition] {
-	return pulumix.Output[[]BucketTransition]{
-		OutputState: i.ToBucketTransitionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // You must specify at least one of "TransitionDate" and "TransitionInDays"
@@ -10107,12 +8642,6 @@ func (o BucketTransitionOutput) ToBucketTransitionPtrOutputWithContext(ctx conte
 	}).(BucketTransitionPtrOutput)
 }
 
-func (o BucketTransitionOutput) ToOutput(ctx context.Context) pulumix.Output[BucketTransition] {
-	return pulumix.Output[BucketTransition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketTransitionOutput) StorageClass() BucketTransitionStorageClassOutput {
 	return o.ApplyT(func(v BucketTransition) BucketTransitionStorageClass { return v.StorageClass }).(BucketTransitionStorageClassOutput)
 }
@@ -10137,12 +8666,6 @@ func (o BucketTransitionPtrOutput) ToBucketTransitionPtrOutput() BucketTransitio
 
 func (o BucketTransitionPtrOutput) ToBucketTransitionPtrOutputWithContext(ctx context.Context) BucketTransitionPtrOutput {
 	return o
-}
-
-func (o BucketTransitionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketTransition] {
-	return pulumix.Output[*BucketTransition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketTransitionPtrOutput) Elem() BucketTransitionOutput {
@@ -10196,12 +8719,6 @@ func (o BucketTransitionArrayOutput) ToBucketTransitionArrayOutputWithContext(ct
 	return o
 }
 
-func (o BucketTransitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketTransition] {
-	return pulumix.Output[[]BucketTransition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketTransitionArrayOutput) Index(i pulumi.IntInput) BucketTransitionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketTransition {
 		return vs[0].([]BucketTransition)[vs[1].(int)]
@@ -10241,12 +8758,6 @@ func (i BucketVersioningConfigurationArgs) ToBucketVersioningConfigurationOutput
 
 func (i BucketVersioningConfigurationArgs) ToBucketVersioningConfigurationOutputWithContext(ctx context.Context) BucketVersioningConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketVersioningConfigurationOutput)
-}
-
-func (i BucketVersioningConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketVersioningConfiguration] {
-	return pulumix.Output[BucketVersioningConfiguration]{
-		OutputState: i.ToBucketVersioningConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i BucketVersioningConfigurationArgs) ToBucketVersioningConfigurationPtrOutput() BucketVersioningConfigurationPtrOutput {
@@ -10290,12 +8801,6 @@ func (i *bucketVersioningConfigurationPtrType) ToBucketVersioningConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(BucketVersioningConfigurationPtrOutput)
 }
 
-func (i *bucketVersioningConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketVersioningConfiguration] {
-	return pulumix.Output[*BucketVersioningConfiguration]{
-		OutputState: i.ToBucketVersioningConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Describes the versioning state of an Amazon S3 bucket.
 type BucketVersioningConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -10321,12 +8826,6 @@ func (o BucketVersioningConfigurationOutput) ToBucketVersioningConfigurationPtrO
 	}).(BucketVersioningConfigurationPtrOutput)
 }
 
-func (o BucketVersioningConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketVersioningConfiguration] {
-	return pulumix.Output[BucketVersioningConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The versioning state of the bucket.
 func (o BucketVersioningConfigurationOutput) Status() BucketVersioningConfigurationStatusOutput {
 	return o.ApplyT(func(v BucketVersioningConfiguration) BucketVersioningConfigurationStatus { return v.Status }).(BucketVersioningConfigurationStatusOutput)
@@ -10344,12 +8843,6 @@ func (o BucketVersioningConfigurationPtrOutput) ToBucketVersioningConfigurationP
 
 func (o BucketVersioningConfigurationPtrOutput) ToBucketVersioningConfigurationPtrOutputWithContext(ctx context.Context) BucketVersioningConfigurationPtrOutput {
 	return o
-}
-
-func (o BucketVersioningConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketVersioningConfiguration] {
-	return pulumix.Output[*BucketVersioningConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketVersioningConfigurationPtrOutput) Elem() BucketVersioningConfigurationOutput {
@@ -10415,12 +8908,6 @@ func (i BucketWebsiteConfigurationArgs) ToBucketWebsiteConfigurationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationOutput)
 }
 
-func (i BucketWebsiteConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[BucketWebsiteConfiguration] {
-	return pulumix.Output[BucketWebsiteConfiguration]{
-		OutputState: i.ToBucketWebsiteConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketWebsiteConfigurationArgs) ToBucketWebsiteConfigurationPtrOutput() BucketWebsiteConfigurationPtrOutput {
 	return i.ToBucketWebsiteConfigurationPtrOutputWithContext(context.Background())
 }
@@ -10462,12 +8949,6 @@ func (i *bucketWebsiteConfigurationPtrType) ToBucketWebsiteConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(BucketWebsiteConfigurationPtrOutput)
 }
 
-func (i *bucketWebsiteConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketWebsiteConfiguration] {
-	return pulumix.Output[*BucketWebsiteConfiguration]{
-		OutputState: i.ToBucketWebsiteConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies website configuration parameters for an Amazon S3 bucket.
 type BucketWebsiteConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -10491,12 +8972,6 @@ func (o BucketWebsiteConfigurationOutput) ToBucketWebsiteConfigurationPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketWebsiteConfiguration) *BucketWebsiteConfiguration {
 		return &v
 	}).(BucketWebsiteConfigurationPtrOutput)
-}
-
-func (o BucketWebsiteConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[BucketWebsiteConfiguration] {
-	return pulumix.Output[BucketWebsiteConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the error document for the website.
@@ -10529,12 +9004,6 @@ func (o BucketWebsiteConfigurationPtrOutput) ToBucketWebsiteConfigurationPtrOutp
 
 func (o BucketWebsiteConfigurationPtrOutput) ToBucketWebsiteConfigurationPtrOutputWithContext(ctx context.Context) BucketWebsiteConfigurationPtrOutput {
 	return o
-}
-
-func (o BucketWebsiteConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketWebsiteConfiguration] {
-	return pulumix.Output[*BucketWebsiteConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketWebsiteConfigurationPtrOutput) Elem() BucketWebsiteConfigurationOutput {
@@ -10640,12 +9109,6 @@ func (i MultiRegionAccessPointPublicAccessBlockConfigurationArgs) ToMultiRegionA
 	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointPublicAccessBlockConfigurationOutput)
 }
 
-func (i MultiRegionAccessPointPublicAccessBlockConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MultiRegionAccessPointPublicAccessBlockConfiguration] {
-	return pulumix.Output[MultiRegionAccessPointPublicAccessBlockConfiguration]{
-		OutputState: i.ToMultiRegionAccessPointPublicAccessBlockConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MultiRegionAccessPointPublicAccessBlockConfigurationArgs) ToMultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput() MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput {
 	return i.ToMultiRegionAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(context.Background())
 }
@@ -10687,12 +9150,6 @@ func (i *multiRegionAccessPointPublicAccessBlockConfigurationPtrType) ToMultiReg
 	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput)
 }
 
-func (i *multiRegionAccessPointPublicAccessBlockConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MultiRegionAccessPointPublicAccessBlockConfiguration] {
-	return pulumix.Output[*MultiRegionAccessPointPublicAccessBlockConfiguration]{
-		OutputState: i.ToMultiRegionAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MultiRegionAccessPointPublicAccessBlockConfigurationOutput struct{ *pulumi.OutputState }
 
 func (MultiRegionAccessPointPublicAccessBlockConfigurationOutput) ElementType() reflect.Type {
@@ -10715,12 +9172,6 @@ func (o MultiRegionAccessPointPublicAccessBlockConfigurationOutput) ToMultiRegio
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiRegionAccessPointPublicAccessBlockConfiguration) *MultiRegionAccessPointPublicAccessBlockConfiguration {
 		return &v
 	}).(MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput)
-}
-
-func (o MultiRegionAccessPointPublicAccessBlockConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MultiRegionAccessPointPublicAccessBlockConfiguration] {
-	return pulumix.Output[MultiRegionAccessPointPublicAccessBlockConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in this account. Setting this element to TRUE causes the following behavior:
@@ -10760,12 +9211,6 @@ func (o MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput) ToMultiRe
 
 func (o MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput) ToMultiRegionAccessPointPublicAccessBlockConfigurationPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput {
 	return o
-}
-
-func (o MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MultiRegionAccessPointPublicAccessBlockConfiguration] {
-	return pulumix.Output[*MultiRegionAccessPointPublicAccessBlockConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiRegionAccessPointPublicAccessBlockConfigurationPtrOutput) Elem() MultiRegionAccessPointPublicAccessBlockConfigurationOutput {
@@ -10856,12 +9301,6 @@ func (i MultiRegionAccessPointRegionArgs) ToMultiRegionAccessPointRegionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointRegionOutput)
 }
 
-func (i MultiRegionAccessPointRegionArgs) ToOutput(ctx context.Context) pulumix.Output[MultiRegionAccessPointRegion] {
-	return pulumix.Output[MultiRegionAccessPointRegion]{
-		OutputState: i.ToMultiRegionAccessPointRegionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MultiRegionAccessPointRegionArrayInput is an input type that accepts MultiRegionAccessPointRegionArray and MultiRegionAccessPointRegionArrayOutput values.
 // You can construct a concrete instance of `MultiRegionAccessPointRegionArrayInput` via:
 //
@@ -10887,12 +9326,6 @@ func (i MultiRegionAccessPointRegionArray) ToMultiRegionAccessPointRegionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointRegionArrayOutput)
 }
 
-func (i MultiRegionAccessPointRegionArray) ToOutput(ctx context.Context) pulumix.Output[[]MultiRegionAccessPointRegion] {
-	return pulumix.Output[[]MultiRegionAccessPointRegion]{
-		OutputState: i.ToMultiRegionAccessPointRegionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MultiRegionAccessPointRegionOutput struct{ *pulumi.OutputState }
 
 func (MultiRegionAccessPointRegionOutput) ElementType() reflect.Type {
@@ -10905,12 +9338,6 @@ func (o MultiRegionAccessPointRegionOutput) ToMultiRegionAccessPointRegionOutput
 
 func (o MultiRegionAccessPointRegionOutput) ToMultiRegionAccessPointRegionOutputWithContext(ctx context.Context) MultiRegionAccessPointRegionOutput {
 	return o
-}
-
-func (o MultiRegionAccessPointRegionOutput) ToOutput(ctx context.Context) pulumix.Output[MultiRegionAccessPointRegion] {
-	return pulumix.Output[MultiRegionAccessPointRegion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiRegionAccessPointRegionOutput) Bucket() pulumi.StringOutput {
@@ -10933,12 +9360,6 @@ func (o MultiRegionAccessPointRegionArrayOutput) ToMultiRegionAccessPointRegionA
 
 func (o MultiRegionAccessPointRegionArrayOutput) ToMultiRegionAccessPointRegionArrayOutputWithContext(ctx context.Context) MultiRegionAccessPointRegionArrayOutput {
 	return o
-}
-
-func (o MultiRegionAccessPointRegionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MultiRegionAccessPointRegion] {
-	return pulumix.Output[[]MultiRegionAccessPointRegion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiRegionAccessPointRegionArrayOutput) Index(i pulumi.IntInput) MultiRegionAccessPointRegionOutput {
@@ -10968,12 +9389,6 @@ func (o PolicyStatusPropertiesOutput) ToPolicyStatusPropertiesOutputWithContext(
 	return o
 }
 
-func (o PolicyStatusPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyStatusProperties] {
-	return pulumix.Output[PolicyStatusProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies whether the policy is public or not.
 func (o PolicyStatusPropertiesOutput) IsPublic() MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicOutput {
 	return o.ApplyT(func(v PolicyStatusProperties) MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic {
@@ -10993,12 +9408,6 @@ func (o PolicyStatusPropertiesPtrOutput) ToPolicyStatusPropertiesPtrOutput() Pol
 
 func (o PolicyStatusPropertiesPtrOutput) ToPolicyStatusPropertiesPtrOutputWithContext(ctx context.Context) PolicyStatusPropertiesPtrOutput {
 	return o
-}
-
-func (o PolicyStatusPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyStatusProperties] {
-	return pulumix.Output[*PolicyStatusProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyStatusPropertiesPtrOutput) Elem() PolicyStatusPropertiesOutput {
@@ -11064,12 +9473,6 @@ func (i StorageLensAccountLevelArgs) ToStorageLensAccountLevelOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAccountLevelOutput)
 }
 
-func (i StorageLensAccountLevelArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensAccountLevel] {
-	return pulumix.Output[StorageLensAccountLevel]{
-		OutputState: i.ToStorageLensAccountLevelOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Account-level metrics configurations.
 type StorageLensAccountLevelOutput struct{ *pulumi.OutputState }
 
@@ -11083,12 +9486,6 @@ func (o StorageLensAccountLevelOutput) ToStorageLensAccountLevelOutput() Storage
 
 func (o StorageLensAccountLevelOutput) ToStorageLensAccountLevelOutputWithContext(ctx context.Context) StorageLensAccountLevelOutput {
 	return o
-}
-
-func (o StorageLensAccountLevelOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensAccountLevel] {
-	return pulumix.Output[StorageLensAccountLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensAccountLevelOutput) ActivityMetrics() StorageLensActivityMetricsPtrOutput {
@@ -11156,12 +9553,6 @@ func (i StorageLensActivityMetricsArgs) ToStorageLensActivityMetricsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensActivityMetricsOutput)
 }
 
-func (i StorageLensActivityMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensActivityMetrics] {
-	return pulumix.Output[StorageLensActivityMetrics]{
-		OutputState: i.ToStorageLensActivityMetricsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensActivityMetricsArgs) ToStorageLensActivityMetricsPtrOutput() StorageLensActivityMetricsPtrOutput {
 	return i.ToStorageLensActivityMetricsPtrOutputWithContext(context.Background())
 }
@@ -11203,12 +9594,6 @@ func (i *storageLensActivityMetricsPtrType) ToStorageLensActivityMetricsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensActivityMetricsPtrOutput)
 }
 
-func (i *storageLensActivityMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensActivityMetrics] {
-	return pulumix.Output[*StorageLensActivityMetrics]{
-		OutputState: i.ToStorageLensActivityMetricsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Enables activity metrics.
 type StorageLensActivityMetricsOutput struct{ *pulumi.OutputState }
 
@@ -11234,12 +9619,6 @@ func (o StorageLensActivityMetricsOutput) ToStorageLensActivityMetricsPtrOutputW
 	}).(StorageLensActivityMetricsPtrOutput)
 }
 
-func (o StorageLensActivityMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensActivityMetrics] {
-	return pulumix.Output[StorageLensActivityMetrics]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies whether activity metrics are enabled or disabled.
 func (o StorageLensActivityMetricsOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensActivityMetrics) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
@@ -11257,12 +9636,6 @@ func (o StorageLensActivityMetricsPtrOutput) ToStorageLensActivityMetricsPtrOutp
 
 func (o StorageLensActivityMetricsPtrOutput) ToStorageLensActivityMetricsPtrOutputWithContext(ctx context.Context) StorageLensActivityMetricsPtrOutput {
 	return o
-}
-
-func (o StorageLensActivityMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensActivityMetrics] {
-	return pulumix.Output[*StorageLensActivityMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensActivityMetricsPtrOutput) Elem() StorageLensActivityMetricsOutput {
@@ -11320,12 +9693,6 @@ func (i StorageLensAdvancedCostOptimizationMetricsArgs) ToStorageLensAdvancedCos
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAdvancedCostOptimizationMetricsOutput)
 }
 
-func (i StorageLensAdvancedCostOptimizationMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensAdvancedCostOptimizationMetrics] {
-	return pulumix.Output[StorageLensAdvancedCostOptimizationMetrics]{
-		OutputState: i.ToStorageLensAdvancedCostOptimizationMetricsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensAdvancedCostOptimizationMetricsArgs) ToStorageLensAdvancedCostOptimizationMetricsPtrOutput() StorageLensAdvancedCostOptimizationMetricsPtrOutput {
 	return i.ToStorageLensAdvancedCostOptimizationMetricsPtrOutputWithContext(context.Background())
 }
@@ -11367,12 +9734,6 @@ func (i *storageLensAdvancedCostOptimizationMetricsPtrType) ToStorageLensAdvance
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAdvancedCostOptimizationMetricsPtrOutput)
 }
 
-func (i *storageLensAdvancedCostOptimizationMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensAdvancedCostOptimizationMetrics] {
-	return pulumix.Output[*StorageLensAdvancedCostOptimizationMetrics]{
-		OutputState: i.ToStorageLensAdvancedCostOptimizationMetricsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Enables advanced cost optimization metrics.
 type StorageLensAdvancedCostOptimizationMetricsOutput struct{ *pulumi.OutputState }
 
@@ -11398,12 +9759,6 @@ func (o StorageLensAdvancedCostOptimizationMetricsOutput) ToStorageLensAdvancedC
 	}).(StorageLensAdvancedCostOptimizationMetricsPtrOutput)
 }
 
-func (o StorageLensAdvancedCostOptimizationMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensAdvancedCostOptimizationMetrics] {
-	return pulumix.Output[StorageLensAdvancedCostOptimizationMetrics]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies whether advanced cost optimization metrics are enabled or disabled.
 func (o StorageLensAdvancedCostOptimizationMetricsOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensAdvancedCostOptimizationMetrics) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
@@ -11421,12 +9776,6 @@ func (o StorageLensAdvancedCostOptimizationMetricsPtrOutput) ToStorageLensAdvanc
 
 func (o StorageLensAdvancedCostOptimizationMetricsPtrOutput) ToStorageLensAdvancedCostOptimizationMetricsPtrOutputWithContext(ctx context.Context) StorageLensAdvancedCostOptimizationMetricsPtrOutput {
 	return o
-}
-
-func (o StorageLensAdvancedCostOptimizationMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensAdvancedCostOptimizationMetrics] {
-	return pulumix.Output[*StorageLensAdvancedCostOptimizationMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensAdvancedCostOptimizationMetricsPtrOutput) Elem() StorageLensAdvancedCostOptimizationMetricsOutput {
@@ -11484,12 +9833,6 @@ func (i StorageLensAdvancedDataProtectionMetricsArgs) ToStorageLensAdvancedDataP
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAdvancedDataProtectionMetricsOutput)
 }
 
-func (i StorageLensAdvancedDataProtectionMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensAdvancedDataProtectionMetrics] {
-	return pulumix.Output[StorageLensAdvancedDataProtectionMetrics]{
-		OutputState: i.ToStorageLensAdvancedDataProtectionMetricsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensAdvancedDataProtectionMetricsArgs) ToStorageLensAdvancedDataProtectionMetricsPtrOutput() StorageLensAdvancedDataProtectionMetricsPtrOutput {
 	return i.ToStorageLensAdvancedDataProtectionMetricsPtrOutputWithContext(context.Background())
 }
@@ -11531,12 +9874,6 @@ func (i *storageLensAdvancedDataProtectionMetricsPtrType) ToStorageLensAdvancedD
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAdvancedDataProtectionMetricsPtrOutput)
 }
 
-func (i *storageLensAdvancedDataProtectionMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensAdvancedDataProtectionMetrics] {
-	return pulumix.Output[*StorageLensAdvancedDataProtectionMetrics]{
-		OutputState: i.ToStorageLensAdvancedDataProtectionMetricsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Enables advanced data protection metrics.
 type StorageLensAdvancedDataProtectionMetricsOutput struct{ *pulumi.OutputState }
 
@@ -11562,12 +9899,6 @@ func (o StorageLensAdvancedDataProtectionMetricsOutput) ToStorageLensAdvancedDat
 	}).(StorageLensAdvancedDataProtectionMetricsPtrOutput)
 }
 
-func (o StorageLensAdvancedDataProtectionMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensAdvancedDataProtectionMetrics] {
-	return pulumix.Output[StorageLensAdvancedDataProtectionMetrics]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies whether advanced data protection metrics are enabled or disabled.
 func (o StorageLensAdvancedDataProtectionMetricsOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensAdvancedDataProtectionMetrics) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
@@ -11585,12 +9916,6 @@ func (o StorageLensAdvancedDataProtectionMetricsPtrOutput) ToStorageLensAdvanced
 
 func (o StorageLensAdvancedDataProtectionMetricsPtrOutput) ToStorageLensAdvancedDataProtectionMetricsPtrOutputWithContext(ctx context.Context) StorageLensAdvancedDataProtectionMetricsPtrOutput {
 	return o
-}
-
-func (o StorageLensAdvancedDataProtectionMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensAdvancedDataProtectionMetrics] {
-	return pulumix.Output[*StorageLensAdvancedDataProtectionMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensAdvancedDataProtectionMetricsPtrOutput) Elem() StorageLensAdvancedDataProtectionMetricsOutput {
@@ -11646,12 +9971,6 @@ func (i StorageLensAwsOrgArgs) ToStorageLensAwsOrgOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAwsOrgOutput)
 }
 
-func (i StorageLensAwsOrgArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensAwsOrg] {
-	return pulumix.Output[StorageLensAwsOrg]{
-		OutputState: i.ToStorageLensAwsOrgOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensAwsOrgArgs) ToStorageLensAwsOrgPtrOutput() StorageLensAwsOrgPtrOutput {
 	return i.ToStorageLensAwsOrgPtrOutputWithContext(context.Background())
 }
@@ -11693,12 +10012,6 @@ func (i *storageLensAwsOrgPtrType) ToStorageLensAwsOrgPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensAwsOrgPtrOutput)
 }
 
-func (i *storageLensAwsOrgPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensAwsOrg] {
-	return pulumix.Output[*StorageLensAwsOrg]{
-		OutputState: i.ToStorageLensAwsOrgPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The AWS Organizations ARN to use in the Amazon S3 Storage Lens configuration.
 type StorageLensAwsOrgOutput struct{ *pulumi.OutputState }
 
@@ -11724,12 +10037,6 @@ func (o StorageLensAwsOrgOutput) ToStorageLensAwsOrgPtrOutputWithContext(ctx con
 	}).(StorageLensAwsOrgPtrOutput)
 }
 
-func (o StorageLensAwsOrgOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensAwsOrg] {
-	return pulumix.Output[StorageLensAwsOrg]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StorageLensAwsOrgOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensAwsOrg) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -11746,12 +10053,6 @@ func (o StorageLensAwsOrgPtrOutput) ToStorageLensAwsOrgPtrOutput() StorageLensAw
 
 func (o StorageLensAwsOrgPtrOutput) ToStorageLensAwsOrgPtrOutputWithContext(ctx context.Context) StorageLensAwsOrgPtrOutput {
 	return o
-}
-
-func (o StorageLensAwsOrgPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensAwsOrg] {
-	return pulumix.Output[*StorageLensAwsOrg]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensAwsOrgPtrOutput) Elem() StorageLensAwsOrgOutput {
@@ -11814,12 +10115,6 @@ func (i StorageLensBucketLevelArgs) ToStorageLensBucketLevelOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensBucketLevelOutput)
 }
 
-func (i StorageLensBucketLevelArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensBucketLevel] {
-	return pulumix.Output[StorageLensBucketLevel]{
-		OutputState: i.ToStorageLensBucketLevelOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Bucket-level metrics configurations.
 type StorageLensBucketLevelOutput struct{ *pulumi.OutputState }
 
@@ -11833,12 +10128,6 @@ func (o StorageLensBucketLevelOutput) ToStorageLensBucketLevelOutput() StorageLe
 
 func (o StorageLensBucketLevelOutput) ToStorageLensBucketLevelOutputWithContext(ctx context.Context) StorageLensBucketLevelOutput {
 	return o
-}
-
-func (o StorageLensBucketLevelOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensBucketLevel] {
-	return pulumix.Output[StorageLensBucketLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensBucketLevelOutput) ActivityMetrics() StorageLensActivityMetricsPtrOutput {
@@ -11902,12 +10191,6 @@ func (i StorageLensBucketsAndRegionsArgs) ToStorageLensBucketsAndRegionsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensBucketsAndRegionsOutput)
 }
 
-func (i StorageLensBucketsAndRegionsArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensBucketsAndRegions] {
-	return pulumix.Output[StorageLensBucketsAndRegions]{
-		OutputState: i.ToStorageLensBucketsAndRegionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensBucketsAndRegionsArgs) ToStorageLensBucketsAndRegionsPtrOutput() StorageLensBucketsAndRegionsPtrOutput {
 	return i.ToStorageLensBucketsAndRegionsPtrOutputWithContext(context.Background())
 }
@@ -11949,12 +10232,6 @@ func (i *storageLensBucketsAndRegionsPtrType) ToStorageLensBucketsAndRegionsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensBucketsAndRegionsPtrOutput)
 }
 
-func (i *storageLensBucketsAndRegionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensBucketsAndRegions] {
-	return pulumix.Output[*StorageLensBucketsAndRegions]{
-		OutputState: i.ToStorageLensBucketsAndRegionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // S3 buckets and Regions to include/exclude in the Amazon S3 Storage Lens configuration.
 type StorageLensBucketsAndRegionsOutput struct{ *pulumi.OutputState }
 
@@ -11980,12 +10257,6 @@ func (o StorageLensBucketsAndRegionsOutput) ToStorageLensBucketsAndRegionsPtrOut
 	}).(StorageLensBucketsAndRegionsPtrOutput)
 }
 
-func (o StorageLensBucketsAndRegionsOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensBucketsAndRegions] {
-	return pulumix.Output[StorageLensBucketsAndRegions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StorageLensBucketsAndRegionsOutput) Buckets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StorageLensBucketsAndRegions) []string { return v.Buckets }).(pulumi.StringArrayOutput)
 }
@@ -12006,12 +10277,6 @@ func (o StorageLensBucketsAndRegionsPtrOutput) ToStorageLensBucketsAndRegionsPtr
 
 func (o StorageLensBucketsAndRegionsPtrOutput) ToStorageLensBucketsAndRegionsPtrOutputWithContext(ctx context.Context) StorageLensBucketsAndRegionsPtrOutput {
 	return o
-}
-
-func (o StorageLensBucketsAndRegionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensBucketsAndRegions] {
-	return pulumix.Output[*StorageLensBucketsAndRegions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensBucketsAndRegionsPtrOutput) Elem() StorageLensBucketsAndRegionsOutput {
@@ -12077,12 +10342,6 @@ func (i StorageLensCloudWatchMetricsArgs) ToStorageLensCloudWatchMetricsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensCloudWatchMetricsOutput)
 }
 
-func (i StorageLensCloudWatchMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensCloudWatchMetrics] {
-	return pulumix.Output[StorageLensCloudWatchMetrics]{
-		OutputState: i.ToStorageLensCloudWatchMetricsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensCloudWatchMetricsArgs) ToStorageLensCloudWatchMetricsPtrOutput() StorageLensCloudWatchMetricsPtrOutput {
 	return i.ToStorageLensCloudWatchMetricsPtrOutputWithContext(context.Background())
 }
@@ -12124,12 +10383,6 @@ func (i *storageLensCloudWatchMetricsPtrType) ToStorageLensCloudWatchMetricsPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensCloudWatchMetricsPtrOutput)
 }
 
-func (i *storageLensCloudWatchMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensCloudWatchMetrics] {
-	return pulumix.Output[*StorageLensCloudWatchMetrics]{
-		OutputState: i.ToStorageLensCloudWatchMetricsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CloudWatch metrics settings for the Amazon S3 Storage Lens metrics export.
 type StorageLensCloudWatchMetricsOutput struct{ *pulumi.OutputState }
 
@@ -12155,12 +10408,6 @@ func (o StorageLensCloudWatchMetricsOutput) ToStorageLensCloudWatchMetricsPtrOut
 	}).(StorageLensCloudWatchMetricsPtrOutput)
 }
 
-func (o StorageLensCloudWatchMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensCloudWatchMetrics] {
-	return pulumix.Output[StorageLensCloudWatchMetrics]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies whether CloudWatch metrics are enabled or disabled.
 func (o StorageLensCloudWatchMetricsOutput) IsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v StorageLensCloudWatchMetrics) bool { return v.IsEnabled }).(pulumi.BoolOutput)
@@ -12178,12 +10425,6 @@ func (o StorageLensCloudWatchMetricsPtrOutput) ToStorageLensCloudWatchMetricsPtr
 
 func (o StorageLensCloudWatchMetricsPtrOutput) ToStorageLensCloudWatchMetricsPtrOutputWithContext(ctx context.Context) StorageLensCloudWatchMetricsPtrOutput {
 	return o
-}
-
-func (o StorageLensCloudWatchMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensCloudWatchMetrics] {
-	return pulumix.Output[*StorageLensCloudWatchMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensCloudWatchMetricsPtrOutput) Elem() StorageLensCloudWatchMetricsOutput {
@@ -12257,12 +10498,6 @@ func (i StorageLensConfigurationArgs) ToStorageLensConfigurationOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensConfigurationOutput)
 }
 
-func (i StorageLensConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfiguration] {
-	return pulumix.Output[StorageLensConfiguration]{
-		OutputState: i.ToStorageLensConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies the details of Amazon S3 Storage Lens configuration.
 type StorageLensConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -12276,12 +10511,6 @@ func (o StorageLensConfigurationOutput) ToStorageLensConfigurationOutput() Stora
 
 func (o StorageLensConfigurationOutput) ToStorageLensConfigurationOutputWithContext(ctx context.Context) StorageLensConfigurationOutput {
 	return o
-}
-
-func (o StorageLensConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensConfiguration] {
-	return pulumix.Output[StorageLensConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensConfigurationOutput) AccountLevel() StorageLensAccountLevelOutput {
@@ -12353,12 +10582,6 @@ func (i StorageLensDataExportArgs) ToStorageLensDataExportOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensDataExportOutput)
 }
 
-func (i StorageLensDataExportArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensDataExport] {
-	return pulumix.Output[StorageLensDataExport]{
-		OutputState: i.ToStorageLensDataExportOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensDataExportArgs) ToStorageLensDataExportPtrOutput() StorageLensDataExportPtrOutput {
 	return i.ToStorageLensDataExportPtrOutputWithContext(context.Background())
 }
@@ -12400,12 +10623,6 @@ func (i *storageLensDataExportPtrType) ToStorageLensDataExportPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensDataExportPtrOutput)
 }
 
-func (i *storageLensDataExportPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensDataExport] {
-	return pulumix.Output[*StorageLensDataExport]{
-		OutputState: i.ToStorageLensDataExportPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies how Amazon S3 Storage Lens metrics should be exported.
 type StorageLensDataExportOutput struct{ *pulumi.OutputState }
 
@@ -12431,12 +10648,6 @@ func (o StorageLensDataExportOutput) ToStorageLensDataExportPtrOutputWithContext
 	}).(StorageLensDataExportPtrOutput)
 }
 
-func (o StorageLensDataExportOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensDataExport] {
-	return pulumix.Output[StorageLensDataExport]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StorageLensDataExportOutput) CloudWatchMetrics() StorageLensCloudWatchMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensDataExport) *StorageLensCloudWatchMetrics { return v.CloudWatchMetrics }).(StorageLensCloudWatchMetricsPtrOutput)
 }
@@ -12457,12 +10668,6 @@ func (o StorageLensDataExportPtrOutput) ToStorageLensDataExportPtrOutput() Stora
 
 func (o StorageLensDataExportPtrOutput) ToStorageLensDataExportPtrOutputWithContext(ctx context.Context) StorageLensDataExportPtrOutput {
 	return o
-}
-
-func (o StorageLensDataExportPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensDataExport] {
-	return pulumix.Output[*StorageLensDataExport]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensDataExportPtrOutput) Elem() StorageLensDataExportOutput {
@@ -12528,12 +10733,6 @@ func (i StorageLensDetailedStatusCodesMetricsArgs) ToStorageLensDetailedStatusCo
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensDetailedStatusCodesMetricsOutput)
 }
 
-func (i StorageLensDetailedStatusCodesMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensDetailedStatusCodesMetrics] {
-	return pulumix.Output[StorageLensDetailedStatusCodesMetrics]{
-		OutputState: i.ToStorageLensDetailedStatusCodesMetricsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensDetailedStatusCodesMetricsArgs) ToStorageLensDetailedStatusCodesMetricsPtrOutput() StorageLensDetailedStatusCodesMetricsPtrOutput {
 	return i.ToStorageLensDetailedStatusCodesMetricsPtrOutputWithContext(context.Background())
 }
@@ -12575,12 +10774,6 @@ func (i *storageLensDetailedStatusCodesMetricsPtrType) ToStorageLensDetailedStat
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensDetailedStatusCodesMetricsPtrOutput)
 }
 
-func (i *storageLensDetailedStatusCodesMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensDetailedStatusCodesMetrics] {
-	return pulumix.Output[*StorageLensDetailedStatusCodesMetrics]{
-		OutputState: i.ToStorageLensDetailedStatusCodesMetricsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Enables detailed status codes metrics.
 type StorageLensDetailedStatusCodesMetricsOutput struct{ *pulumi.OutputState }
 
@@ -12606,12 +10799,6 @@ func (o StorageLensDetailedStatusCodesMetricsOutput) ToStorageLensDetailedStatus
 	}).(StorageLensDetailedStatusCodesMetricsPtrOutput)
 }
 
-func (o StorageLensDetailedStatusCodesMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensDetailedStatusCodesMetrics] {
-	return pulumix.Output[StorageLensDetailedStatusCodesMetrics]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies whether detailed status codes metrics are enabled or disabled.
 func (o StorageLensDetailedStatusCodesMetricsOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensDetailedStatusCodesMetrics) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
@@ -12629,12 +10816,6 @@ func (o StorageLensDetailedStatusCodesMetricsPtrOutput) ToStorageLensDetailedSta
 
 func (o StorageLensDetailedStatusCodesMetricsPtrOutput) ToStorageLensDetailedStatusCodesMetricsPtrOutputWithContext(ctx context.Context) StorageLensDetailedStatusCodesMetricsPtrOutput {
 	return o
-}
-
-func (o StorageLensDetailedStatusCodesMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensDetailedStatusCodesMetrics] {
-	return pulumix.Output[*StorageLensDetailedStatusCodesMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensDetailedStatusCodesMetricsPtrOutput) Elem() StorageLensDetailedStatusCodesMetricsOutput {
@@ -12688,12 +10869,6 @@ func (i StorageLensEncryptionArgs) ToStorageLensEncryptionOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensEncryptionOutput)
 }
 
-func (i StorageLensEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensEncryption] {
-	return pulumix.Output[StorageLensEncryption]{
-		OutputState: i.ToStorageLensEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensEncryptionArgs) ToStorageLensEncryptionPtrOutput() StorageLensEncryptionPtrOutput {
 	return i.ToStorageLensEncryptionPtrOutputWithContext(context.Background())
 }
@@ -12735,12 +10910,6 @@ func (i *storageLensEncryptionPtrType) ToStorageLensEncryptionPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensEncryptionPtrOutput)
 }
 
-func (i *storageLensEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensEncryption] {
-	return pulumix.Output[*StorageLensEncryption]{
-		OutputState: i.ToStorageLensEncryptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Configures the server-side encryption for Amazon S3 Storage Lens report files with either S3-managed keys (SSE-S3) or KMS-managed keys (SSE-KMS).
 type StorageLensEncryptionOutput struct{ *pulumi.OutputState }
 
@@ -12766,12 +10935,6 @@ func (o StorageLensEncryptionOutput) ToStorageLensEncryptionPtrOutputWithContext
 	}).(StorageLensEncryptionPtrOutput)
 }
 
-func (o StorageLensEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensEncryption] {
-	return pulumix.Output[StorageLensEncryption]{
-		OutputState: o.OutputState,
-	}
-}
-
 type StorageLensEncryptionPtrOutput struct{ *pulumi.OutputState }
 
 func (StorageLensEncryptionPtrOutput) ElementType() reflect.Type {
@@ -12784,12 +10947,6 @@ func (o StorageLensEncryptionPtrOutput) ToStorageLensEncryptionPtrOutput() Stora
 
 func (o StorageLensEncryptionPtrOutput) ToStorageLensEncryptionPtrOutputWithContext(ctx context.Context) StorageLensEncryptionPtrOutput {
 	return o
-}
-
-func (o StorageLensEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensEncryption] {
-	return pulumix.Output[*StorageLensEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensEncryptionPtrOutput) Elem() StorageLensEncryptionOutput {
@@ -12843,12 +11000,6 @@ func (i StorageLensGroupAndArgs) ToStorageLensGroupAndOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupAndOutput)
 }
 
-func (i StorageLensGroupAndArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupAnd] {
-	return pulumix.Output[StorageLensGroupAnd]{
-		OutputState: i.ToStorageLensGroupAndOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensGroupAndArgs) ToStorageLensGroupAndPtrOutput() StorageLensGroupAndPtrOutput {
 	return i.ToStorageLensGroupAndPtrOutputWithContext(context.Background())
 }
@@ -12890,12 +11041,6 @@ func (i *storageLensGroupAndPtrType) ToStorageLensGroupAndPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupAndPtrOutput)
 }
 
-func (i *storageLensGroupAndPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupAnd] {
-	return pulumix.Output[*StorageLensGroupAnd]{
-		OutputState: i.ToStorageLensGroupAndPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The Storage Lens group will include objects that match all of the specified filter values.
 type StorageLensGroupAndOutput struct{ *pulumi.OutputState }
 
@@ -12919,12 +11064,6 @@ func (o StorageLensGroupAndOutput) ToStorageLensGroupAndPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensGroupAnd) *StorageLensGroupAnd {
 		return &v
 	}).(StorageLensGroupAndPtrOutput)
-}
-
-func (o StorageLensGroupAndOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupAnd] {
-	return pulumix.Output[StorageLensGroupAnd]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensGroupAndOutput) MatchAnyPrefix() pulumi.StringArrayOutput {
@@ -12959,12 +11098,6 @@ func (o StorageLensGroupAndPtrOutput) ToStorageLensGroupAndPtrOutput() StorageLe
 
 func (o StorageLensGroupAndPtrOutput) ToStorageLensGroupAndPtrOutputWithContext(ctx context.Context) StorageLensGroupAndPtrOutput {
 	return o
-}
-
-func (o StorageLensGroupAndPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupAnd] {
-	return pulumix.Output[*StorageLensGroupAnd]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensGroupAndPtrOutput) Elem() StorageLensGroupAndOutput {
@@ -13067,12 +11200,6 @@ func (i StorageLensGroupFilterArgs) ToStorageLensGroupFilterOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupFilterOutput)
 }
 
-func (i StorageLensGroupFilterArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupFilter] {
-	return pulumix.Output[StorageLensGroupFilter]{
-		OutputState: i.ToStorageLensGroupFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Sets the Storage Lens Group filter.
 type StorageLensGroupFilterOutput struct{ *pulumi.OutputState }
 
@@ -13086,12 +11213,6 @@ func (o StorageLensGroupFilterOutput) ToStorageLensGroupFilterOutput() StorageLe
 
 func (o StorageLensGroupFilterOutput) ToStorageLensGroupFilterOutputWithContext(ctx context.Context) StorageLensGroupFilterOutput {
 	return o
-}
-
-func (o StorageLensGroupFilterOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupFilter] {
-	return pulumix.Output[StorageLensGroupFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensGroupFilterOutput) And() StorageLensGroupAndPtrOutput {
@@ -13134,12 +11255,6 @@ func (o StorageLensGroupFilterPtrOutput) ToStorageLensGroupFilterPtrOutput() Sto
 
 func (o StorageLensGroupFilterPtrOutput) ToStorageLensGroupFilterPtrOutputWithContext(ctx context.Context) StorageLensGroupFilterPtrOutput {
 	return o
-}
-
-func (o StorageLensGroupFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupFilter] {
-	return pulumix.Output[*StorageLensGroupFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensGroupFilterPtrOutput) Elem() StorageLensGroupFilterOutput {
@@ -13248,12 +11363,6 @@ func (i StorageLensGroupLevelArgs) ToStorageLensGroupLevelOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupLevelOutput)
 }
 
-func (i StorageLensGroupLevelArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupLevel] {
-	return pulumix.Output[StorageLensGroupLevel]{
-		OutputState: i.ToStorageLensGroupLevelOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensGroupLevelArgs) ToStorageLensGroupLevelPtrOutput() StorageLensGroupLevelPtrOutput {
 	return i.ToStorageLensGroupLevelPtrOutputWithContext(context.Background())
 }
@@ -13295,12 +11404,6 @@ func (i *storageLensGroupLevelPtrType) ToStorageLensGroupLevelPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupLevelPtrOutput)
 }
 
-func (i *storageLensGroupLevelPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupLevel] {
-	return pulumix.Output[*StorageLensGroupLevel]{
-		OutputState: i.ToStorageLensGroupLevelPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies the details of Amazon S3 Storage Lens Group configuration.
 type StorageLensGroupLevelOutput struct{ *pulumi.OutputState }
 
@@ -13326,12 +11429,6 @@ func (o StorageLensGroupLevelOutput) ToStorageLensGroupLevelPtrOutputWithContext
 	}).(StorageLensGroupLevelPtrOutput)
 }
 
-func (o StorageLensGroupLevelOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupLevel] {
-	return pulumix.Output[StorageLensGroupLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StorageLensGroupLevelOutput) StorageLensGroupSelectionCriteria() StorageLensGroupSelectionCriteriaPtrOutput {
 	return o.ApplyT(func(v StorageLensGroupLevel) *StorageLensGroupSelectionCriteria {
 		return v.StorageLensGroupSelectionCriteria
@@ -13350,12 +11447,6 @@ func (o StorageLensGroupLevelPtrOutput) ToStorageLensGroupLevelPtrOutput() Stora
 
 func (o StorageLensGroupLevelPtrOutput) ToStorageLensGroupLevelPtrOutputWithContext(ctx context.Context) StorageLensGroupLevelPtrOutput {
 	return o
-}
-
-func (o StorageLensGroupLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupLevel] {
-	return pulumix.Output[*StorageLensGroupLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensGroupLevelPtrOutput) Elem() StorageLensGroupLevelOutput {
@@ -13416,12 +11507,6 @@ func (i StorageLensGroupMatchObjectAgeArgs) ToStorageLensGroupMatchObjectAgeOutp
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupMatchObjectAgeOutput)
 }
 
-func (i StorageLensGroupMatchObjectAgeArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupMatchObjectAge] {
-	return pulumix.Output[StorageLensGroupMatchObjectAge]{
-		OutputState: i.ToStorageLensGroupMatchObjectAgeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensGroupMatchObjectAgeArgs) ToStorageLensGroupMatchObjectAgePtrOutput() StorageLensGroupMatchObjectAgePtrOutput {
 	return i.ToStorageLensGroupMatchObjectAgePtrOutputWithContext(context.Background())
 }
@@ -13463,12 +11548,6 @@ func (i *storageLensGroupMatchObjectAgePtrType) ToStorageLensGroupMatchObjectAge
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupMatchObjectAgePtrOutput)
 }
 
-func (i *storageLensGroupMatchObjectAgePtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupMatchObjectAge] {
-	return pulumix.Output[*StorageLensGroupMatchObjectAge]{
-		OutputState: i.ToStorageLensGroupMatchObjectAgePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Filter to match all of the specified values for the minimum and maximum object age.
 type StorageLensGroupMatchObjectAgeOutput struct{ *pulumi.OutputState }
 
@@ -13494,12 +11573,6 @@ func (o StorageLensGroupMatchObjectAgeOutput) ToStorageLensGroupMatchObjectAgePt
 	}).(StorageLensGroupMatchObjectAgePtrOutput)
 }
 
-func (o StorageLensGroupMatchObjectAgeOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupMatchObjectAge] {
-	return pulumix.Output[StorageLensGroupMatchObjectAge]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Minimum object age to which the rule applies.
 func (o StorageLensGroupMatchObjectAgeOutput) DaysGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StorageLensGroupMatchObjectAge) *int { return v.DaysGreaterThan }).(pulumi.IntPtrOutput)
@@ -13522,12 +11595,6 @@ func (o StorageLensGroupMatchObjectAgePtrOutput) ToStorageLensGroupMatchObjectAg
 
 func (o StorageLensGroupMatchObjectAgePtrOutput) ToStorageLensGroupMatchObjectAgePtrOutputWithContext(ctx context.Context) StorageLensGroupMatchObjectAgePtrOutput {
 	return o
-}
-
-func (o StorageLensGroupMatchObjectAgePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupMatchObjectAge] {
-	return pulumix.Output[*StorageLensGroupMatchObjectAge]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensGroupMatchObjectAgePtrOutput) Elem() StorageLensGroupMatchObjectAgeOutput {
@@ -13599,12 +11666,6 @@ func (i StorageLensGroupMatchObjectSizeArgs) ToStorageLensGroupMatchObjectSizeOu
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupMatchObjectSizeOutput)
 }
 
-func (i StorageLensGroupMatchObjectSizeArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupMatchObjectSize] {
-	return pulumix.Output[StorageLensGroupMatchObjectSize]{
-		OutputState: i.ToStorageLensGroupMatchObjectSizeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensGroupMatchObjectSizeArgs) ToStorageLensGroupMatchObjectSizePtrOutput() StorageLensGroupMatchObjectSizePtrOutput {
 	return i.ToStorageLensGroupMatchObjectSizePtrOutputWithContext(context.Background())
 }
@@ -13646,12 +11707,6 @@ func (i *storageLensGroupMatchObjectSizePtrType) ToStorageLensGroupMatchObjectSi
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupMatchObjectSizePtrOutput)
 }
 
-func (i *storageLensGroupMatchObjectSizePtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupMatchObjectSize] {
-	return pulumix.Output[*StorageLensGroupMatchObjectSize]{
-		OutputState: i.ToStorageLensGroupMatchObjectSizePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Filter to match all of the specified values for the minimum and maximum object size.
 type StorageLensGroupMatchObjectSizeOutput struct{ *pulumi.OutputState }
 
@@ -13677,12 +11732,6 @@ func (o StorageLensGroupMatchObjectSizeOutput) ToStorageLensGroupMatchObjectSize
 	}).(StorageLensGroupMatchObjectSizePtrOutput)
 }
 
-func (o StorageLensGroupMatchObjectSizeOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupMatchObjectSize] {
-	return pulumix.Output[StorageLensGroupMatchObjectSize]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Minimum object size to which the rule applies.
 func (o StorageLensGroupMatchObjectSizeOutput) BytesGreaterThan() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v StorageLensGroupMatchObjectSize) *int { return v.BytesGreaterThan }).(pulumi.IntPtrOutput)
@@ -13705,12 +11754,6 @@ func (o StorageLensGroupMatchObjectSizePtrOutput) ToStorageLensGroupMatchObjectS
 
 func (o StorageLensGroupMatchObjectSizePtrOutput) ToStorageLensGroupMatchObjectSizePtrOutputWithContext(ctx context.Context) StorageLensGroupMatchObjectSizePtrOutput {
 	return o
-}
-
-func (o StorageLensGroupMatchObjectSizePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupMatchObjectSize] {
-	return pulumix.Output[*StorageLensGroupMatchObjectSize]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensGroupMatchObjectSizePtrOutput) Elem() StorageLensGroupMatchObjectSizeOutput {
@@ -13784,12 +11827,6 @@ func (i StorageLensGroupOrArgs) ToStorageLensGroupOrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupOrOutput)
 }
 
-func (i StorageLensGroupOrArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupOr] {
-	return pulumix.Output[StorageLensGroupOr]{
-		OutputState: i.ToStorageLensGroupOrOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensGroupOrArgs) ToStorageLensGroupOrPtrOutput() StorageLensGroupOrPtrOutput {
 	return i.ToStorageLensGroupOrPtrOutputWithContext(context.Background())
 }
@@ -13831,12 +11868,6 @@ func (i *storageLensGroupOrPtrType) ToStorageLensGroupOrPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupOrPtrOutput)
 }
 
-func (i *storageLensGroupOrPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupOr] {
-	return pulumix.Output[*StorageLensGroupOr]{
-		OutputState: i.ToStorageLensGroupOrPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The Storage Lens group will include objects that match any of the specified filter values.
 type StorageLensGroupOrOutput struct{ *pulumi.OutputState }
 
@@ -13860,12 +11891,6 @@ func (o StorageLensGroupOrOutput) ToStorageLensGroupOrPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensGroupOr) *StorageLensGroupOr {
 		return &v
 	}).(StorageLensGroupOrPtrOutput)
-}
-
-func (o StorageLensGroupOrOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupOr] {
-	return pulumix.Output[StorageLensGroupOr]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensGroupOrOutput) MatchAnyPrefix() pulumi.StringArrayOutput {
@@ -13900,12 +11925,6 @@ func (o StorageLensGroupOrPtrOutput) ToStorageLensGroupOrPtrOutput() StorageLens
 
 func (o StorageLensGroupOrPtrOutput) ToStorageLensGroupOrPtrOutputWithContext(ctx context.Context) StorageLensGroupOrPtrOutput {
 	return o
-}
-
-func (o StorageLensGroupOrPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupOr] {
-	return pulumix.Output[*StorageLensGroupOr]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensGroupOrPtrOutput) Elem() StorageLensGroupOrOutput {
@@ -13998,12 +12017,6 @@ func (i StorageLensGroupSelectionCriteriaArgs) ToStorageLensGroupSelectionCriter
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupSelectionCriteriaOutput)
 }
 
-func (i StorageLensGroupSelectionCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupSelectionCriteria] {
-	return pulumix.Output[StorageLensGroupSelectionCriteria]{
-		OutputState: i.ToStorageLensGroupSelectionCriteriaOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensGroupSelectionCriteriaArgs) ToStorageLensGroupSelectionCriteriaPtrOutput() StorageLensGroupSelectionCriteriaPtrOutput {
 	return i.ToStorageLensGroupSelectionCriteriaPtrOutputWithContext(context.Background())
 }
@@ -14045,12 +12058,6 @@ func (i *storageLensGroupSelectionCriteriaPtrType) ToStorageLensGroupSelectionCr
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupSelectionCriteriaPtrOutput)
 }
 
-func (i *storageLensGroupSelectionCriteriaPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupSelectionCriteria] {
-	return pulumix.Output[*StorageLensGroupSelectionCriteria]{
-		OutputState: i.ToStorageLensGroupSelectionCriteriaPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Selection criteria for Storage Lens Group level metrics
 type StorageLensGroupSelectionCriteriaOutput struct{ *pulumi.OutputState }
 
@@ -14076,12 +12083,6 @@ func (o StorageLensGroupSelectionCriteriaOutput) ToStorageLensGroupSelectionCrit
 	}).(StorageLensGroupSelectionCriteriaPtrOutput)
 }
 
-func (o StorageLensGroupSelectionCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupSelectionCriteria] {
-	return pulumix.Output[StorageLensGroupSelectionCriteria]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StorageLensGroupSelectionCriteriaOutput) Exclude() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v StorageLensGroupSelectionCriteria) []string { return v.Exclude }).(pulumi.StringArrayOutput)
 }
@@ -14102,12 +12103,6 @@ func (o StorageLensGroupSelectionCriteriaPtrOutput) ToStorageLensGroupSelectionC
 
 func (o StorageLensGroupSelectionCriteriaPtrOutput) ToStorageLensGroupSelectionCriteriaPtrOutputWithContext(ctx context.Context) StorageLensGroupSelectionCriteriaPtrOutput {
 	return o
-}
-
-func (o StorageLensGroupSelectionCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensGroupSelectionCriteria] {
-	return pulumix.Output[*StorageLensGroupSelectionCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensGroupSelectionCriteriaPtrOutput) Elem() StorageLensGroupSelectionCriteriaOutput {
@@ -14171,12 +12166,6 @@ func (i StorageLensGroupTagArgs) ToStorageLensGroupTagOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupTagOutput)
 }
 
-func (i StorageLensGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupTag] {
-	return pulumix.Output[StorageLensGroupTag]{
-		OutputState: i.ToStorageLensGroupTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StorageLensGroupTagArrayInput is an input type that accepts StorageLensGroupTagArray and StorageLensGroupTagArrayOutput values.
 // You can construct a concrete instance of `StorageLensGroupTagArrayInput` via:
 //
@@ -14202,12 +12191,6 @@ func (i StorageLensGroupTagArray) ToStorageLensGroupTagArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensGroupTagArrayOutput)
 }
 
-func (i StorageLensGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]StorageLensGroupTag] {
-	return pulumix.Output[[]StorageLensGroupTag]{
-		OutputState: i.ToStorageLensGroupTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensGroupTagOutput struct{ *pulumi.OutputState }
 
 func (StorageLensGroupTagOutput) ElementType() reflect.Type {
@@ -14220,12 +12203,6 @@ func (o StorageLensGroupTagOutput) ToStorageLensGroupTagOutput() StorageLensGrou
 
 func (o StorageLensGroupTagOutput) ToStorageLensGroupTagOutputWithContext(ctx context.Context) StorageLensGroupTagOutput {
 	return o
-}
-
-func (o StorageLensGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensGroupTag] {
-	return pulumix.Output[StorageLensGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensGroupTagOutput) Key() pulumi.StringOutput {
@@ -14248,12 +12225,6 @@ func (o StorageLensGroupTagArrayOutput) ToStorageLensGroupTagArrayOutput() Stora
 
 func (o StorageLensGroupTagArrayOutput) ToStorageLensGroupTagArrayOutputWithContext(ctx context.Context) StorageLensGroupTagArrayOutput {
 	return o
-}
-
-func (o StorageLensGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StorageLensGroupTag] {
-	return pulumix.Output[[]StorageLensGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensGroupTagArrayOutput) Index(i pulumi.IntInput) StorageLensGroupTagOutput {
@@ -14293,12 +12264,6 @@ func (i StorageLensPrefixLevelArgs) ToStorageLensPrefixLevelOutput() StorageLens
 
 func (i StorageLensPrefixLevelArgs) ToStorageLensPrefixLevelOutputWithContext(ctx context.Context) StorageLensPrefixLevelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensPrefixLevelOutput)
-}
-
-func (i StorageLensPrefixLevelArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensPrefixLevel] {
-	return pulumix.Output[StorageLensPrefixLevel]{
-		OutputState: i.ToStorageLensPrefixLevelOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i StorageLensPrefixLevelArgs) ToStorageLensPrefixLevelPtrOutput() StorageLensPrefixLevelPtrOutput {
@@ -14342,12 +12307,6 @@ func (i *storageLensPrefixLevelPtrType) ToStorageLensPrefixLevelPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensPrefixLevelPtrOutput)
 }
 
-func (i *storageLensPrefixLevelPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensPrefixLevel] {
-	return pulumix.Output[*StorageLensPrefixLevel]{
-		OutputState: i.ToStorageLensPrefixLevelPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Prefix-level metrics configurations.
 type StorageLensPrefixLevelOutput struct{ *pulumi.OutputState }
 
@@ -14373,12 +12332,6 @@ func (o StorageLensPrefixLevelOutput) ToStorageLensPrefixLevelPtrOutputWithConte
 	}).(StorageLensPrefixLevelPtrOutput)
 }
 
-func (o StorageLensPrefixLevelOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensPrefixLevel] {
-	return pulumix.Output[StorageLensPrefixLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StorageLensPrefixLevelOutput) StorageMetrics() StorageLensPrefixLevelStorageMetricsOutput {
 	return o.ApplyT(func(v StorageLensPrefixLevel) StorageLensPrefixLevelStorageMetrics { return v.StorageMetrics }).(StorageLensPrefixLevelStorageMetricsOutput)
 }
@@ -14395,12 +12348,6 @@ func (o StorageLensPrefixLevelPtrOutput) ToStorageLensPrefixLevelPtrOutput() Sto
 
 func (o StorageLensPrefixLevelPtrOutput) ToStorageLensPrefixLevelPtrOutputWithContext(ctx context.Context) StorageLensPrefixLevelPtrOutput {
 	return o
-}
-
-func (o StorageLensPrefixLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensPrefixLevel] {
-	return pulumix.Output[*StorageLensPrefixLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensPrefixLevelPtrOutput) Elem() StorageLensPrefixLevelOutput {
@@ -14457,12 +12404,6 @@ func (i StorageLensPrefixLevelStorageMetricsArgs) ToStorageLensPrefixLevelStorag
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensPrefixLevelStorageMetricsOutput)
 }
 
-func (i StorageLensPrefixLevelStorageMetricsArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensPrefixLevelStorageMetrics] {
-	return pulumix.Output[StorageLensPrefixLevelStorageMetrics]{
-		OutputState: i.ToStorageLensPrefixLevelStorageMetricsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensPrefixLevelStorageMetricsArgs) ToStorageLensPrefixLevelStorageMetricsPtrOutput() StorageLensPrefixLevelStorageMetricsPtrOutput {
 	return i.ToStorageLensPrefixLevelStorageMetricsPtrOutputWithContext(context.Background())
 }
@@ -14504,12 +12445,6 @@ func (i *storageLensPrefixLevelStorageMetricsPtrType) ToStorageLensPrefixLevelSt
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensPrefixLevelStorageMetricsPtrOutput)
 }
 
-func (i *storageLensPrefixLevelStorageMetricsPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensPrefixLevelStorageMetrics] {
-	return pulumix.Output[*StorageLensPrefixLevelStorageMetrics]{
-		OutputState: i.ToStorageLensPrefixLevelStorageMetricsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensPrefixLevelStorageMetricsOutput struct{ *pulumi.OutputState }
 
 func (StorageLensPrefixLevelStorageMetricsOutput) ElementType() reflect.Type {
@@ -14534,12 +12469,6 @@ func (o StorageLensPrefixLevelStorageMetricsOutput) ToStorageLensPrefixLevelStor
 	}).(StorageLensPrefixLevelStorageMetricsPtrOutput)
 }
 
-func (o StorageLensPrefixLevelStorageMetricsOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensPrefixLevelStorageMetrics] {
-	return pulumix.Output[StorageLensPrefixLevelStorageMetrics]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies whether prefix-level storage metrics are enabled or disabled.
 func (o StorageLensPrefixLevelStorageMetricsOutput) IsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StorageLensPrefixLevelStorageMetrics) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
@@ -14561,12 +12490,6 @@ func (o StorageLensPrefixLevelStorageMetricsPtrOutput) ToStorageLensPrefixLevelS
 
 func (o StorageLensPrefixLevelStorageMetricsPtrOutput) ToStorageLensPrefixLevelStorageMetricsPtrOutputWithContext(ctx context.Context) StorageLensPrefixLevelStorageMetricsPtrOutput {
 	return o
-}
-
-func (o StorageLensPrefixLevelStorageMetricsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensPrefixLevelStorageMetrics] {
-	return pulumix.Output[*StorageLensPrefixLevelStorageMetrics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensPrefixLevelStorageMetricsPtrOutput) Elem() StorageLensPrefixLevelStorageMetricsOutput {
@@ -14651,12 +12574,6 @@ func (i StorageLensS3BucketDestinationArgs) ToStorageLensS3BucketDestinationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensS3BucketDestinationOutput)
 }
 
-func (i StorageLensS3BucketDestinationArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensS3BucketDestination] {
-	return pulumix.Output[StorageLensS3BucketDestination]{
-		OutputState: i.ToStorageLensS3BucketDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensS3BucketDestinationArgs) ToStorageLensS3BucketDestinationPtrOutput() StorageLensS3BucketDestinationPtrOutput {
 	return i.ToStorageLensS3BucketDestinationPtrOutputWithContext(context.Background())
 }
@@ -14698,12 +12615,6 @@ func (i *storageLensS3BucketDestinationPtrType) ToStorageLensS3BucketDestination
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensS3BucketDestinationPtrOutput)
 }
 
-func (i *storageLensS3BucketDestinationPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensS3BucketDestination] {
-	return pulumix.Output[*StorageLensS3BucketDestination]{
-		OutputState: i.ToStorageLensS3BucketDestinationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // S3 bucket destination settings for the Amazon S3 Storage Lens metrics export.
 type StorageLensS3BucketDestinationOutput struct{ *pulumi.OutputState }
 
@@ -14727,12 +12638,6 @@ func (o StorageLensS3BucketDestinationOutput) ToStorageLensS3BucketDestinationPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensS3BucketDestination) *StorageLensS3BucketDestination {
 		return &v
 	}).(StorageLensS3BucketDestinationPtrOutput)
-}
-
-func (o StorageLensS3BucketDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensS3BucketDestination] {
-	return pulumix.Output[StorageLensS3BucketDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The AWS account ID that owns the destination S3 bucket.
@@ -14778,12 +12683,6 @@ func (o StorageLensS3BucketDestinationPtrOutput) ToStorageLensS3BucketDestinatio
 
 func (o StorageLensS3BucketDestinationPtrOutput) ToStorageLensS3BucketDestinationPtrOutputWithContext(ctx context.Context) StorageLensS3BucketDestinationPtrOutput {
 	return o
-}
-
-func (o StorageLensS3BucketDestinationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensS3BucketDestination] {
-	return pulumix.Output[*StorageLensS3BucketDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensS3BucketDestinationPtrOutput) Elem() StorageLensS3BucketDestinationOutput {
@@ -14898,12 +12797,6 @@ func (i StorageLensSelectionCriteriaArgs) ToStorageLensSelectionCriteriaOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensSelectionCriteriaOutput)
 }
 
-func (i StorageLensSelectionCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensSelectionCriteria] {
-	return pulumix.Output[StorageLensSelectionCriteria]{
-		OutputState: i.ToStorageLensSelectionCriteriaOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i StorageLensSelectionCriteriaArgs) ToStorageLensSelectionCriteriaPtrOutput() StorageLensSelectionCriteriaPtrOutput {
 	return i.ToStorageLensSelectionCriteriaPtrOutputWithContext(context.Background())
 }
@@ -14945,12 +12838,6 @@ func (i *storageLensSelectionCriteriaPtrType) ToStorageLensSelectionCriteriaPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensSelectionCriteriaPtrOutput)
 }
 
-func (i *storageLensSelectionCriteriaPtrType) ToOutput(ctx context.Context) pulumix.Output[*StorageLensSelectionCriteria] {
-	return pulumix.Output[*StorageLensSelectionCriteria]{
-		OutputState: i.ToStorageLensSelectionCriteriaPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Selection criteria for prefix-level metrics.
 type StorageLensSelectionCriteriaOutput struct{ *pulumi.OutputState }
 
@@ -14974,12 +12861,6 @@ func (o StorageLensSelectionCriteriaOutput) ToStorageLensSelectionCriteriaPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v StorageLensSelectionCriteria) *StorageLensSelectionCriteria {
 		return &v
 	}).(StorageLensSelectionCriteriaPtrOutput)
-}
-
-func (o StorageLensSelectionCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensSelectionCriteria] {
-	return pulumix.Output[StorageLensSelectionCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Delimiter to divide S3 key into hierarchy of prefixes.
@@ -15009,12 +12890,6 @@ func (o StorageLensSelectionCriteriaPtrOutput) ToStorageLensSelectionCriteriaPtr
 
 func (o StorageLensSelectionCriteriaPtrOutput) ToStorageLensSelectionCriteriaPtrOutputWithContext(ctx context.Context) StorageLensSelectionCriteriaPtrOutput {
 	return o
-}
-
-func (o StorageLensSelectionCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensSelectionCriteria] {
-	return pulumix.Output[*StorageLensSelectionCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensSelectionCriteriaPtrOutput) Elem() StorageLensSelectionCriteriaOutput {
@@ -15090,12 +12965,6 @@ func (i StorageLensTagArgs) ToStorageLensTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensTagOutput)
 }
 
-func (i StorageLensTagArgs) ToOutput(ctx context.Context) pulumix.Output[StorageLensTag] {
-	return pulumix.Output[StorageLensTag]{
-		OutputState: i.ToStorageLensTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StorageLensTagArrayInput is an input type that accepts StorageLensTagArray and StorageLensTagArrayOutput values.
 // You can construct a concrete instance of `StorageLensTagArrayInput` via:
 //
@@ -15121,12 +12990,6 @@ func (i StorageLensTagArray) ToStorageLensTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(StorageLensTagArrayOutput)
 }
 
-func (i StorageLensTagArray) ToOutput(ctx context.Context) pulumix.Output[[]StorageLensTag] {
-	return pulumix.Output[[]StorageLensTag]{
-		OutputState: i.ToStorageLensTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StorageLensTagOutput struct{ *pulumi.OutputState }
 
 func (StorageLensTagOutput) ElementType() reflect.Type {
@@ -15139,12 +13002,6 @@ func (o StorageLensTagOutput) ToStorageLensTagOutput() StorageLensTagOutput {
 
 func (o StorageLensTagOutput) ToStorageLensTagOutputWithContext(ctx context.Context) StorageLensTagOutput {
 	return o
-}
-
-func (o StorageLensTagOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensTag] {
-	return pulumix.Output[StorageLensTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensTagOutput) Key() pulumi.StringOutput {
@@ -15167,12 +13024,6 @@ func (o StorageLensTagArrayOutput) ToStorageLensTagArrayOutput() StorageLensTagA
 
 func (o StorageLensTagArrayOutput) ToStorageLensTagArrayOutputWithContext(ctx context.Context) StorageLensTagArrayOutput {
 	return o
-}
-
-func (o StorageLensTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StorageLensTag] {
-	return pulumix.Output[[]StorageLensTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StorageLensTagArrayOutput) Index(i pulumi.IntInput) StorageLensTagOutput {

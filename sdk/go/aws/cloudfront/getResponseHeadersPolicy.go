@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFront::ResponseHeadersPolicy
@@ -66,12 +65,6 @@ func (o LookupResponseHeadersPolicyResultOutput) ToLookupResponseHeadersPolicyRe
 
 func (o LookupResponseHeadersPolicyResultOutput) ToLookupResponseHeadersPolicyResultOutputWithContext(ctx context.Context) LookupResponseHeadersPolicyResultOutput {
 	return o
-}
-
-func (o LookupResponseHeadersPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResponseHeadersPolicyResult] {
-	return pulumix.Output[LookupResponseHeadersPolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupResponseHeadersPolicyResultOutput) Id() pulumi.StringPtrOutput {

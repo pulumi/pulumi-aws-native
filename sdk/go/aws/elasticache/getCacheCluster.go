@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ElastiCache::CacheCluster
@@ -86,12 +85,6 @@ func (o LookupCacheClusterResultOutput) ToLookupCacheClusterResultOutput() Looku
 
 func (o LookupCacheClusterResultOutput) ToLookupCacheClusterResultOutputWithContext(ctx context.Context) LookupCacheClusterResultOutput {
 	return o
-}
-
-func (o LookupCacheClusterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCacheClusterResult] {
-	return pulumix.Output[LookupCacheClusterResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupCacheClusterResultOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Backup::RestoreTestingPlan Resource Type
@@ -117,12 +116,6 @@ func (i *RestoreTestingPlan) ToRestoreTestingPlanOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(RestoreTestingPlanOutput)
 }
 
-func (i *RestoreTestingPlan) ToOutput(ctx context.Context) pulumix.Output[*RestoreTestingPlan] {
-	return pulumix.Output[*RestoreTestingPlan]{
-		OutputState: i.ToRestoreTestingPlanOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RestoreTestingPlanOutput struct{ *pulumi.OutputState }
 
 func (RestoreTestingPlanOutput) ElementType() reflect.Type {
@@ -135,12 +128,6 @@ func (o RestoreTestingPlanOutput) ToRestoreTestingPlanOutput() RestoreTestingPla
 
 func (o RestoreTestingPlanOutput) ToRestoreTestingPlanOutputWithContext(ctx context.Context) RestoreTestingPlanOutput {
 	return o
-}
-
-func (o RestoreTestingPlanOutput) ToOutput(ctx context.Context) pulumix.Output[*RestoreTestingPlan] {
-	return pulumix.Output[*RestoreTestingPlan]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RestoreTestingPlanOutput) RecoveryPointSelection() RestoreTestingPlanRestoreTestingRecoveryPointSelectionOutput {

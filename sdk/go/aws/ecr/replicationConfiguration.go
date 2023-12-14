@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::ECR::ReplicationConfiguration resource configures the replication destinations for an Amazon Elastic Container Registry (Amazon Private ECR). For more information, see https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication.html
@@ -96,12 +95,6 @@ func (i *ReplicationConfiguration) ToReplicationConfigurationOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationOutput)
 }
 
-func (i *ReplicationConfiguration) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfiguration] {
-	return pulumix.Output[*ReplicationConfiguration]{
-		OutputState: i.ToReplicationConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ReplicationConfigurationOutput) ElementType() reflect.Type {
@@ -114,12 +107,6 @@ func (o ReplicationConfigurationOutput) ToReplicationConfigurationOutput() Repli
 
 func (o ReplicationConfigurationOutput) ToReplicationConfigurationOutputWithContext(ctx context.Context) ReplicationConfigurationOutput {
 	return o
-}
-
-func (o ReplicationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfiguration] {
-	return pulumix.Output[*ReplicationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The RegistryId associated with the aws account.

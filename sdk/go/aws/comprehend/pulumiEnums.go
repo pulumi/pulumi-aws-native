@@ -78,12 +78,6 @@ func (o DocumentClassifierAugmentedManifestsListItemSplitOutput) ToDocumentClass
 	}).(DocumentClassifierAugmentedManifestsListItemSplitPtrOutput)
 }
 
-func (o DocumentClassifierAugmentedManifestsListItemSplitOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierAugmentedManifestsListItemSplit] {
-	return pulumix.Output[DocumentClassifierAugmentedManifestsListItemSplit]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentClassifierAugmentedManifestsListItemSplitOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o DocumentClassifierAugmentedManifestsListItemSplitPtrOutput) ToDocumentCl
 
 func (o DocumentClassifierAugmentedManifestsListItemSplitPtrOutput) ToDocumentClassifierAugmentedManifestsListItemSplitPtrOutputWithContext(ctx context.Context) DocumentClassifierAugmentedManifestsListItemSplitPtrOutput {
 	return o
-}
-
-func (o DocumentClassifierAugmentedManifestsListItemSplitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifierAugmentedManifestsListItemSplit] {
-	return pulumix.Output[*DocumentClassifierAugmentedManifestsListItemSplit]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentClassifierAugmentedManifestsListItemSplitPtrOutput) Elem() DocumentClassifierAugmentedManifestsListItemSplitOutput {
@@ -260,12 +248,6 @@ func (o DocumentClassifierDocumentReaderConfigDocumentReadActionOutput) ToDocume
 	}).(DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput)
 }
 
-func (o DocumentClassifierDocumentReaderConfigDocumentReadActionOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierDocumentReaderConfigDocumentReadAction] {
-	return pulumix.Output[DocumentClassifierDocumentReaderConfigDocumentReadAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentClassifierDocumentReaderConfigDocumentReadActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -299,12 +281,6 @@ func (o DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput) ToDoc
 
 func (o DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput) ToDocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput {
 	return o
-}
-
-func (o DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifierDocumentReaderConfigDocumentReadAction] {
-	return pulumix.Output[*DocumentClassifierDocumentReaderConfigDocumentReadAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentClassifierDocumentReaderConfigDocumentReadActionPtrOutput) Elem() DocumentClassifierDocumentReaderConfigDocumentReadActionOutput {
@@ -442,12 +418,6 @@ func (o DocumentClassifierDocumentReaderConfigDocumentReadModeOutput) ToDocument
 	}).(DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput)
 }
 
-func (o DocumentClassifierDocumentReaderConfigDocumentReadModeOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierDocumentReaderConfigDocumentReadMode] {
-	return pulumix.Output[DocumentClassifierDocumentReaderConfigDocumentReadMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentClassifierDocumentReaderConfigDocumentReadModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -481,12 +451,6 @@ func (o DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput) ToDocum
 
 func (o DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput) ToDocumentClassifierDocumentReaderConfigDocumentReadModePtrOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput {
 	return o
-}
-
-func (o DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifierDocumentReaderConfigDocumentReadMode] {
-	return pulumix.Output[*DocumentClassifierDocumentReaderConfigDocumentReadMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentClassifierDocumentReaderConfigDocumentReadModePtrOutput) Elem() DocumentClassifierDocumentReaderConfigDocumentReadModeOutput {
@@ -624,12 +588,6 @@ func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput) ToDocument
 	}).(DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput)
 }
 
-func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierDocumentReaderConfigFeatureTypesItem] {
-	return pulumix.Output[DocumentClassifierDocumentReaderConfigFeatureTypesItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -663,12 +621,6 @@ func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput) ToDocum
 
 func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput) ToDocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput {
 	return o
-}
-
-func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifierDocumentReaderConfigFeatureTypesItem] {
-	return pulumix.Output[*DocumentClassifierDocumentReaderConfigFeatureTypesItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemPtrOutput) Elem() DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput {
@@ -764,12 +716,6 @@ func (i DocumentClassifierDocumentReaderConfigFeatureTypesItemArray) ToDocumentC
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput)
 }
 
-func (i DocumentClassifierDocumentReaderConfigFeatureTypesItemArray) ToOutput(ctx context.Context) pulumix.Output[[]DocumentClassifierDocumentReaderConfigFeatureTypesItem] {
-	return pulumix.Output[[]DocumentClassifierDocumentReaderConfigFeatureTypesItem]{
-		OutputState: i.ToDocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput struct{ *pulumi.OutputState }
 
 func (DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput) ElementType() reflect.Type {
@@ -782,12 +728,6 @@ func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput) ToDoc
 
 func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput) ToDocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutputWithContext(ctx context.Context) DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput {
 	return o
-}
-
-func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DocumentClassifierDocumentReaderConfigFeatureTypesItem] {
-	return pulumix.Output[[]DocumentClassifierDocumentReaderConfigFeatureTypesItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentClassifierDocumentReaderConfigFeatureTypesItemArrayOutput) Index(i pulumi.IntInput) DocumentClassifierDocumentReaderConfigFeatureTypesItemOutput {
@@ -863,12 +803,6 @@ func (o DocumentClassifierInputDataConfigDataFormatOutput) ToDocumentClassifierI
 	}).(DocumentClassifierInputDataConfigDataFormatPtrOutput)
 }
 
-func (o DocumentClassifierInputDataConfigDataFormatOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierInputDataConfigDataFormat] {
-	return pulumix.Output[DocumentClassifierInputDataConfigDataFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentClassifierInputDataConfigDataFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -902,12 +836,6 @@ func (o DocumentClassifierInputDataConfigDataFormatPtrOutput) ToDocumentClassifi
 
 func (o DocumentClassifierInputDataConfigDataFormatPtrOutput) ToDocumentClassifierInputDataConfigDataFormatPtrOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigDataFormatPtrOutput {
 	return o
-}
-
-func (o DocumentClassifierInputDataConfigDataFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifierInputDataConfigDataFormat] {
-	return pulumix.Output[*DocumentClassifierInputDataConfigDataFormat]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentClassifierInputDataConfigDataFormatPtrOutput) Elem() DocumentClassifierInputDataConfigDataFormatOutput {
@@ -1045,12 +973,6 @@ func (o DocumentClassifierInputDataConfigDocumentTypeOutput) ToDocumentClassifie
 	}).(DocumentClassifierInputDataConfigDocumentTypePtrOutput)
 }
 
-func (o DocumentClassifierInputDataConfigDocumentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierInputDataConfigDocumentType] {
-	return pulumix.Output[DocumentClassifierInputDataConfigDocumentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentClassifierInputDataConfigDocumentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1084,12 +1006,6 @@ func (o DocumentClassifierInputDataConfigDocumentTypePtrOutput) ToDocumentClassi
 
 func (o DocumentClassifierInputDataConfigDocumentTypePtrOutput) ToDocumentClassifierInputDataConfigDocumentTypePtrOutputWithContext(ctx context.Context) DocumentClassifierInputDataConfigDocumentTypePtrOutput {
 	return o
-}
-
-func (o DocumentClassifierInputDataConfigDocumentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifierInputDataConfigDocumentType] {
-	return pulumix.Output[*DocumentClassifierInputDataConfigDocumentType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentClassifierInputDataConfigDocumentTypePtrOutput) Elem() DocumentClassifierInputDataConfigDocumentTypeOutput {
@@ -1231,12 +1147,6 @@ func (o DocumentClassifierLanguageCodeOutput) ToDocumentClassifierLanguageCodePt
 	}).(DocumentClassifierLanguageCodePtrOutput)
 }
 
-func (o DocumentClassifierLanguageCodeOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierLanguageCode] {
-	return pulumix.Output[DocumentClassifierLanguageCode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentClassifierLanguageCodeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1270,12 +1180,6 @@ func (o DocumentClassifierLanguageCodePtrOutput) ToDocumentClassifierLanguageCod
 
 func (o DocumentClassifierLanguageCodePtrOutput) ToDocumentClassifierLanguageCodePtrOutputWithContext(ctx context.Context) DocumentClassifierLanguageCodePtrOutput {
 	return o
-}
-
-func (o DocumentClassifierLanguageCodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifierLanguageCode] {
-	return pulumix.Output[*DocumentClassifierLanguageCode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentClassifierLanguageCodePtrOutput) Elem() DocumentClassifierLanguageCodeOutput {
@@ -1413,12 +1317,6 @@ func (o DocumentClassifierModeOutput) ToDocumentClassifierModePtrOutputWithConte
 	}).(DocumentClassifierModePtrOutput)
 }
 
-func (o DocumentClassifierModeOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentClassifierMode] {
-	return pulumix.Output[DocumentClassifierMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentClassifierModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1452,12 +1350,6 @@ func (o DocumentClassifierModePtrOutput) ToDocumentClassifierModePtrOutput() Doc
 
 func (o DocumentClassifierModePtrOutput) ToDocumentClassifierModePtrOutputWithContext(ctx context.Context) DocumentClassifierModePtrOutput {
 	return o
-}
-
-func (o DocumentClassifierModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentClassifierMode] {
-	return pulumix.Output[*DocumentClassifierMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DocumentClassifierModePtrOutput) Elem() DocumentClassifierModeOutput {
@@ -1595,12 +1487,6 @@ func (o FlywheelDocumentClassificationConfigModeOutput) ToFlywheelDocumentClassi
 	}).(FlywheelDocumentClassificationConfigModePtrOutput)
 }
 
-func (o FlywheelDocumentClassificationConfigModeOutput) ToOutput(ctx context.Context) pulumix.Output[FlywheelDocumentClassificationConfigMode] {
-	return pulumix.Output[FlywheelDocumentClassificationConfigMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlywheelDocumentClassificationConfigModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1634,12 +1520,6 @@ func (o FlywheelDocumentClassificationConfigModePtrOutput) ToFlywheelDocumentCla
 
 func (o FlywheelDocumentClassificationConfigModePtrOutput) ToFlywheelDocumentClassificationConfigModePtrOutputWithContext(ctx context.Context) FlywheelDocumentClassificationConfigModePtrOutput {
 	return o
-}
-
-func (o FlywheelDocumentClassificationConfigModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlywheelDocumentClassificationConfigMode] {
-	return pulumix.Output[*FlywheelDocumentClassificationConfigMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlywheelDocumentClassificationConfigModePtrOutput) Elem() FlywheelDocumentClassificationConfigModeOutput {
@@ -1777,12 +1657,6 @@ func (o FlywheelModelTypeOutput) ToFlywheelModelTypePtrOutputWithContext(ctx con
 	}).(FlywheelModelTypePtrOutput)
 }
 
-func (o FlywheelModelTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlywheelModelType] {
-	return pulumix.Output[FlywheelModelType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlywheelModelTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1816,12 +1690,6 @@ func (o FlywheelModelTypePtrOutput) ToFlywheelModelTypePtrOutput() FlywheelModel
 
 func (o FlywheelModelTypePtrOutput) ToFlywheelModelTypePtrOutputWithContext(ctx context.Context) FlywheelModelTypePtrOutput {
 	return o
-}
-
-func (o FlywheelModelTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlywheelModelType] {
-	return pulumix.Output[*FlywheelModelType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlywheelModelTypePtrOutput) Elem() FlywheelModelTypeOutput {
@@ -1963,12 +1831,6 @@ func (o FlywheelTaskConfigLanguageCodeOutput) ToFlywheelTaskConfigLanguageCodePt
 	}).(FlywheelTaskConfigLanguageCodePtrOutput)
 }
 
-func (o FlywheelTaskConfigLanguageCodeOutput) ToOutput(ctx context.Context) pulumix.Output[FlywheelTaskConfigLanguageCode] {
-	return pulumix.Output[FlywheelTaskConfigLanguageCode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlywheelTaskConfigLanguageCodeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2002,12 +1864,6 @@ func (o FlywheelTaskConfigLanguageCodePtrOutput) ToFlywheelTaskConfigLanguageCod
 
 func (o FlywheelTaskConfigLanguageCodePtrOutput) ToFlywheelTaskConfigLanguageCodePtrOutputWithContext(ctx context.Context) FlywheelTaskConfigLanguageCodePtrOutput {
 	return o
-}
-
-func (o FlywheelTaskConfigLanguageCodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlywheelTaskConfigLanguageCode] {
-	return pulumix.Output[*FlywheelTaskConfigLanguageCode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlywheelTaskConfigLanguageCodePtrOutput) Elem() FlywheelTaskConfigLanguageCodeOutput {

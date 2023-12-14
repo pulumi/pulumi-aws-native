@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i BucketAccessRulesArgs) ToBucketAccessRulesOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAccessRulesOutput)
 }
 
-func (i BucketAccessRulesArgs) ToOutput(ctx context.Context) pulumix.Output[BucketAccessRules] {
-	return pulumix.Output[BucketAccessRules]{
-		OutputState: i.ToBucketAccessRulesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BucketAccessRulesArgs) ToBucketAccessRulesPtrOutput() BucketAccessRulesPtrOutput {
 	return i.ToBucketAccessRulesPtrOutputWithContext(context.Background())
 }
@@ -100,12 +93,6 @@ func (i *bucketAccessRulesPtrType) ToBucketAccessRulesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(BucketAccessRulesPtrOutput)
 }
 
-func (i *bucketAccessRulesPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketAccessRules] {
-	return pulumix.Output[*BucketAccessRules]{
-		OutputState: i.ToBucketAccessRulesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An object that sets the public accessibility of objects in the specified bucket.
 type BucketAccessRulesOutput struct{ *pulumi.OutputState }
 
@@ -131,12 +118,6 @@ func (o BucketAccessRulesOutput) ToBucketAccessRulesPtrOutputWithContext(ctx con
 	}).(BucketAccessRulesPtrOutput)
 }
 
-func (o BucketAccessRulesOutput) ToOutput(ctx context.Context) pulumix.Output[BucketAccessRules] {
-	return pulumix.Output[BucketAccessRules]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A Boolean value that indicates whether the access control list (ACL) permissions that are applied to individual objects override the getObject option that is currently specified.
 func (o BucketAccessRulesOutput) AllowPublicOverrides() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BucketAccessRules) *bool { return v.AllowPublicOverrides }).(pulumi.BoolPtrOutput)
@@ -159,12 +140,6 @@ func (o BucketAccessRulesPtrOutput) ToBucketAccessRulesPtrOutput() BucketAccessR
 
 func (o BucketAccessRulesPtrOutput) ToBucketAccessRulesPtrOutputWithContext(ctx context.Context) BucketAccessRulesPtrOutput {
 	return o
-}
-
-func (o BucketAccessRulesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketAccessRules] {
-	return pulumix.Output[*BucketAccessRules]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketAccessRulesPtrOutput) Elem() BucketAccessRulesOutput {
@@ -236,12 +211,6 @@ func (i BucketTagArgs) ToBucketTagOutputWithContext(ctx context.Context) BucketT
 	return pulumi.ToOutputWithContext(ctx, i).(BucketTagOutput)
 }
 
-func (i BucketTagArgs) ToOutput(ctx context.Context) pulumix.Output[BucketTag] {
-	return pulumix.Output[BucketTag]{
-		OutputState: i.ToBucketTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BucketTagArrayInput is an input type that accepts BucketTagArray and BucketTagArrayOutput values.
 // You can construct a concrete instance of `BucketTagArrayInput` via:
 //
@@ -267,12 +236,6 @@ func (i BucketTagArray) ToBucketTagArrayOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(BucketTagArrayOutput)
 }
 
-func (i BucketTagArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketTag] {
-	return pulumix.Output[[]BucketTag]{
-		OutputState: i.ToBucketTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type BucketTagOutput struct{ *pulumi.OutputState }
 
@@ -286,12 +249,6 @@ func (o BucketTagOutput) ToBucketTagOutput() BucketTagOutput {
 
 func (o BucketTagOutput) ToBucketTagOutputWithContext(ctx context.Context) BucketTagOutput {
 	return o
-}
-
-func (o BucketTagOutput) ToOutput(ctx context.Context) pulumix.Output[BucketTag] {
-	return pulumix.Output[BucketTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -316,12 +273,6 @@ func (o BucketTagArrayOutput) ToBucketTagArrayOutput() BucketTagArrayOutput {
 
 func (o BucketTagArrayOutput) ToBucketTagArrayOutputWithContext(ctx context.Context) BucketTagArrayOutput {
 	return o
-}
-
-func (o BucketTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketTag] {
-	return pulumix.Output[[]BucketTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketTagArrayOutput) Index(i pulumi.IntInput) BucketTagOutput {
@@ -369,12 +320,6 @@ func (i CertificateTagArgs) ToCertificateTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateTagOutput)
 }
 
-func (i CertificateTagArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateTag] {
-	return pulumix.Output[CertificateTag]{
-		OutputState: i.ToCertificateTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificateTagArrayInput is an input type that accepts CertificateTagArray and CertificateTagArrayOutput values.
 // You can construct a concrete instance of `CertificateTagArrayInput` via:
 //
@@ -400,12 +345,6 @@ func (i CertificateTagArray) ToCertificateTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateTagArrayOutput)
 }
 
-func (i CertificateTagArray) ToOutput(ctx context.Context) pulumix.Output[[]CertificateTag] {
-	return pulumix.Output[[]CertificateTag]{
-		OutputState: i.ToCertificateTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type CertificateTagOutput struct{ *pulumi.OutputState }
 
@@ -419,12 +358,6 @@ func (o CertificateTagOutput) ToCertificateTagOutput() CertificateTagOutput {
 
 func (o CertificateTagOutput) ToCertificateTagOutputWithContext(ctx context.Context) CertificateTagOutput {
 	return o
-}
-
-func (o CertificateTagOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateTag] {
-	return pulumix.Output[CertificateTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -449,12 +382,6 @@ func (o CertificateTagArrayOutput) ToCertificateTagArrayOutput() CertificateTagA
 
 func (o CertificateTagArrayOutput) ToCertificateTagArrayOutputWithContext(ctx context.Context) CertificateTagArrayOutput {
 	return o
-}
-
-func (o CertificateTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertificateTag] {
-	return pulumix.Output[[]CertificateTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateTagArrayOutput) Index(i pulumi.IntInput) CertificateTagOutput {
@@ -514,12 +441,6 @@ func (i ContainerTypeArgs) ToContainerTypeOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerTypeOutput)
 }
 
-func (i ContainerTypeArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerType] {
-	return pulumix.Output[ContainerType]{
-		OutputState: i.ToContainerTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContainerTypeArrayInput is an input type that accepts ContainerTypeArray and ContainerTypeArrayOutput values.
 // You can construct a concrete instance of `ContainerTypeArrayInput` via:
 //
@@ -545,12 +466,6 @@ func (i ContainerTypeArray) ToContainerTypeArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerTypeArrayOutput)
 }
 
-func (i ContainerTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]ContainerType] {
-	return pulumix.Output[[]ContainerType]{
-		OutputState: i.ToContainerTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Describes the settings of a container that will be launched, or that is launched, to an Amazon Lightsail container service.
 type ContainerTypeOutput struct{ *pulumi.OutputState }
 
@@ -564,12 +479,6 @@ func (o ContainerTypeOutput) ToContainerTypeOutput() ContainerTypeOutput {
 
 func (o ContainerTypeOutput) ToContainerTypeOutputWithContext(ctx context.Context) ContainerTypeOutput {
 	return o
-}
-
-func (o ContainerTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerType] {
-	return pulumix.Output[ContainerType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The launch command for the container.
@@ -611,12 +520,6 @@ func (o ContainerTypeArrayOutput) ToContainerTypeArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o ContainerTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContainerType] {
-	return pulumix.Output[[]ContainerType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContainerTypeArrayOutput) Index(i pulumi.IntInput) ContainerTypeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerType {
 		return vs[0].([]ContainerType)[vs[1].(int)]
@@ -656,12 +559,6 @@ func (i ContainerEnvironmentVariableArgs) ToContainerEnvironmentVariableOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerEnvironmentVariableOutput)
 }
 
-func (i ContainerEnvironmentVariableArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerEnvironmentVariable] {
-	return pulumix.Output[ContainerEnvironmentVariable]{
-		OutputState: i.ToContainerEnvironmentVariableOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContainerEnvironmentVariableArrayInput is an input type that accepts ContainerEnvironmentVariableArray and ContainerEnvironmentVariableArrayOutput values.
 // You can construct a concrete instance of `ContainerEnvironmentVariableArrayInput` via:
 //
@@ -687,12 +584,6 @@ func (i ContainerEnvironmentVariableArray) ToContainerEnvironmentVariableArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerEnvironmentVariableArrayOutput)
 }
 
-func (i ContainerEnvironmentVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]ContainerEnvironmentVariable] {
-	return pulumix.Output[[]ContainerEnvironmentVariable]{
-		OutputState: i.ToContainerEnvironmentVariableArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContainerEnvironmentVariableOutput struct{ *pulumi.OutputState }
 
 func (ContainerEnvironmentVariableOutput) ElementType() reflect.Type {
@@ -705,12 +596,6 @@ func (o ContainerEnvironmentVariableOutput) ToContainerEnvironmentVariableOutput
 
 func (o ContainerEnvironmentVariableOutput) ToContainerEnvironmentVariableOutputWithContext(ctx context.Context) ContainerEnvironmentVariableOutput {
 	return o
-}
-
-func (o ContainerEnvironmentVariableOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerEnvironmentVariable] {
-	return pulumix.Output[ContainerEnvironmentVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerEnvironmentVariableOutput) Value() pulumi.StringPtrOutput {
@@ -733,12 +618,6 @@ func (o ContainerEnvironmentVariableArrayOutput) ToContainerEnvironmentVariableA
 
 func (o ContainerEnvironmentVariableArrayOutput) ToContainerEnvironmentVariableArrayOutputWithContext(ctx context.Context) ContainerEnvironmentVariableArrayOutput {
 	return o
-}
-
-func (o ContainerEnvironmentVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContainerEnvironmentVariable] {
-	return pulumix.Output[[]ContainerEnvironmentVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerEnvironmentVariableArrayOutput) Index(i pulumi.IntInput) ContainerEnvironmentVariableOutput {
@@ -802,12 +681,6 @@ func (i ContainerHealthCheckConfigArgs) ToContainerHealthCheckConfigOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerHealthCheckConfigOutput)
 }
 
-func (i ContainerHealthCheckConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerHealthCheckConfig] {
-	return pulumix.Output[ContainerHealthCheckConfig]{
-		OutputState: i.ToContainerHealthCheckConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ContainerHealthCheckConfigArgs) ToContainerHealthCheckConfigPtrOutput() ContainerHealthCheckConfigPtrOutput {
 	return i.ToContainerHealthCheckConfigPtrOutputWithContext(context.Background())
 }
@@ -849,12 +722,6 @@ func (i *containerHealthCheckConfigPtrType) ToContainerHealthCheckConfigPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerHealthCheckConfigPtrOutput)
 }
 
-func (i *containerHealthCheckConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContainerHealthCheckConfig] {
-	return pulumix.Output[*ContainerHealthCheckConfig]{
-		OutputState: i.ToContainerHealthCheckConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Describes the health check configuration of an Amazon Lightsail container service.
 type ContainerHealthCheckConfigOutput struct{ *pulumi.OutputState }
 
@@ -878,12 +745,6 @@ func (o ContainerHealthCheckConfigOutput) ToContainerHealthCheckConfigPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerHealthCheckConfig) *ContainerHealthCheckConfig {
 		return &v
 	}).(ContainerHealthCheckConfigPtrOutput)
-}
-
-func (o ContainerHealthCheckConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerHealthCheckConfig] {
-	return pulumix.Output[ContainerHealthCheckConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of consecutive health checks successes required before moving the container to the Healthy state. The default value is 2.
@@ -928,12 +789,6 @@ func (o ContainerHealthCheckConfigPtrOutput) ToContainerHealthCheckConfigPtrOutp
 
 func (o ContainerHealthCheckConfigPtrOutput) ToContainerHealthCheckConfigPtrOutputWithContext(ctx context.Context) ContainerHealthCheckConfigPtrOutput {
 	return o
-}
-
-func (o ContainerHealthCheckConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerHealthCheckConfig] {
-	return pulumix.Output[*ContainerHealthCheckConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerHealthCheckConfigPtrOutput) Elem() ContainerHealthCheckConfigOutput {
@@ -1039,12 +894,6 @@ func (i ContainerPortInfoArgs) ToContainerPortInfoOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerPortInfoOutput)
 }
 
-func (i ContainerPortInfoArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerPortInfo] {
-	return pulumix.Output[ContainerPortInfo]{
-		OutputState: i.ToContainerPortInfoOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContainerPortInfoArrayInput is an input type that accepts ContainerPortInfoArray and ContainerPortInfoArrayOutput values.
 // You can construct a concrete instance of `ContainerPortInfoArrayInput` via:
 //
@@ -1070,12 +919,6 @@ func (i ContainerPortInfoArray) ToContainerPortInfoArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerPortInfoArrayOutput)
 }
 
-func (i ContainerPortInfoArray) ToOutput(ctx context.Context) pulumix.Output[[]ContainerPortInfo] {
-	return pulumix.Output[[]ContainerPortInfo]{
-		OutputState: i.ToContainerPortInfoArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContainerPortInfoOutput struct{ *pulumi.OutputState }
 
 func (ContainerPortInfoOutput) ElementType() reflect.Type {
@@ -1088,12 +931,6 @@ func (o ContainerPortInfoOutput) ToContainerPortInfoOutput() ContainerPortInfoOu
 
 func (o ContainerPortInfoOutput) ToContainerPortInfoOutputWithContext(ctx context.Context) ContainerPortInfoOutput {
 	return o
-}
-
-func (o ContainerPortInfoOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerPortInfo] {
-	return pulumix.Output[ContainerPortInfo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerPortInfoOutput) Port() pulumi.StringPtrOutput {
@@ -1116,12 +953,6 @@ func (o ContainerPortInfoArrayOutput) ToContainerPortInfoArrayOutput() Container
 
 func (o ContainerPortInfoArrayOutput) ToContainerPortInfoArrayOutputWithContext(ctx context.Context) ContainerPortInfoArrayOutput {
 	return o
-}
-
-func (o ContainerPortInfoArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContainerPortInfo] {
-	return pulumix.Output[[]ContainerPortInfo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerPortInfoArrayOutput) Index(i pulumi.IntInput) ContainerPortInfoOutput {
@@ -1165,12 +996,6 @@ func (i ContainerPrivateRegistryAccessArgs) ToContainerPrivateRegistryAccessOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerPrivateRegistryAccessOutput)
 }
 
-func (i ContainerPrivateRegistryAccessArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerPrivateRegistryAccess] {
-	return pulumix.Output[ContainerPrivateRegistryAccess]{
-		OutputState: i.ToContainerPrivateRegistryAccessOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ContainerPrivateRegistryAccessArgs) ToContainerPrivateRegistryAccessPtrOutput() ContainerPrivateRegistryAccessPtrOutput {
 	return i.ToContainerPrivateRegistryAccessPtrOutputWithContext(context.Background())
 }
@@ -1212,12 +1037,6 @@ func (i *containerPrivateRegistryAccessPtrType) ToContainerPrivateRegistryAccess
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerPrivateRegistryAccessPtrOutput)
 }
 
-func (i *containerPrivateRegistryAccessPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContainerPrivateRegistryAccess] {
-	return pulumix.Output[*ContainerPrivateRegistryAccess]{
-		OutputState: i.ToContainerPrivateRegistryAccessPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An object to describe the configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
 type ContainerPrivateRegistryAccessOutput struct{ *pulumi.OutputState }
 
@@ -1243,12 +1062,6 @@ func (o ContainerPrivateRegistryAccessOutput) ToContainerPrivateRegistryAccessPt
 	}).(ContainerPrivateRegistryAccessPtrOutput)
 }
 
-func (o ContainerPrivateRegistryAccessOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerPrivateRegistryAccess] {
-	return pulumix.Output[ContainerPrivateRegistryAccess]{
-		OutputState: o.OutputState,
-	}
-}
-
 // An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
 func (o ContainerPrivateRegistryAccessOutput) EcrImagePullerRole() ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput {
 	return o.ApplyT(func(v ContainerPrivateRegistryAccess) *ContainerPrivateRegistryAccessEcrImagePullerRoleProperties {
@@ -1268,12 +1081,6 @@ func (o ContainerPrivateRegistryAccessPtrOutput) ToContainerPrivateRegistryAcces
 
 func (o ContainerPrivateRegistryAccessPtrOutput) ToContainerPrivateRegistryAccessPtrOutputWithContext(ctx context.Context) ContainerPrivateRegistryAccessPtrOutput {
 	return o
-}
-
-func (o ContainerPrivateRegistryAccessPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerPrivateRegistryAccess] {
-	return pulumix.Output[*ContainerPrivateRegistryAccess]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerPrivateRegistryAccessPtrOutput) Elem() ContainerPrivateRegistryAccessOutput {
@@ -1335,12 +1142,6 @@ func (i ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs) ToContai
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput)
 }
 
-func (i ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerPrivateRegistryAccessEcrImagePullerRoleProperties] {
-	return pulumix.Output[ContainerPrivateRegistryAccessEcrImagePullerRoleProperties]{
-		OutputState: i.ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesArgs) ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput() ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput {
 	return i.ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutputWithContext(context.Background())
 }
@@ -1382,12 +1183,6 @@ func (i *containerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrType) ToCo
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput)
 }
 
-func (i *containerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContainerPrivateRegistryAccessEcrImagePullerRoleProperties] {
-	return pulumix.Output[*ContainerPrivateRegistryAccessEcrImagePullerRoleProperties]{
-		OutputState: i.ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An object to describe a request to activate or deactivate the role that you can use to grant an Amazon Lightsail container service access to Amazon Elastic Container Registry (Amazon ECR) private repositories.
 type ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput struct{ *pulumi.OutputState }
 
@@ -1413,12 +1208,6 @@ func (o ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput) ToCont
 	}).(ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput)
 }
 
-func (o ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerPrivateRegistryAccessEcrImagePullerRoleProperties] {
-	return pulumix.Output[ContainerPrivateRegistryAccessEcrImagePullerRoleProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A Boolean value that indicates whether to activate the role.
 func (o ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput) IsActive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ContainerPrivateRegistryAccessEcrImagePullerRoleProperties) *bool { return v.IsActive }).(pulumi.BoolPtrOutput)
@@ -1441,12 +1230,6 @@ func (o ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput) ToC
 
 func (o ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput) ToContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutputWithContext(ctx context.Context) ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput {
 	return o
-}
-
-func (o ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerPrivateRegistryAccessEcrImagePullerRoleProperties] {
-	return pulumix.Output[*ContainerPrivateRegistryAccessEcrImagePullerRoleProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesPtrOutput) Elem() ContainerPrivateRegistryAccessEcrImagePullerRolePropertiesOutput {
@@ -1516,12 +1299,6 @@ func (i ContainerPublicDomainNameArgs) ToContainerPublicDomainNameOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerPublicDomainNameOutput)
 }
 
-func (i ContainerPublicDomainNameArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerPublicDomainName] {
-	return pulumix.Output[ContainerPublicDomainName]{
-		OutputState: i.ToContainerPublicDomainNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContainerPublicDomainNameArrayInput is an input type that accepts ContainerPublicDomainNameArray and ContainerPublicDomainNameArrayOutput values.
 // You can construct a concrete instance of `ContainerPublicDomainNameArrayInput` via:
 //
@@ -1547,12 +1324,6 @@ func (i ContainerPublicDomainNameArray) ToContainerPublicDomainNameArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerPublicDomainNameArrayOutput)
 }
 
-func (i ContainerPublicDomainNameArray) ToOutput(ctx context.Context) pulumix.Output[[]ContainerPublicDomainName] {
-	return pulumix.Output[[]ContainerPublicDomainName]{
-		OutputState: i.ToContainerPublicDomainNameArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The public domain name to use with the container service, such as example.com and www.example.com.
 type ContainerPublicDomainNameOutput struct{ *pulumi.OutputState }
 
@@ -1566,12 +1337,6 @@ func (o ContainerPublicDomainNameOutput) ToContainerPublicDomainNameOutput() Con
 
 func (o ContainerPublicDomainNameOutput) ToContainerPublicDomainNameOutputWithContext(ctx context.Context) ContainerPublicDomainNameOutput {
 	return o
-}
-
-func (o ContainerPublicDomainNameOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerPublicDomainName] {
-	return pulumix.Output[ContainerPublicDomainName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerPublicDomainNameOutput) CertificateName() pulumi.StringPtrOutput {
@@ -1595,12 +1360,6 @@ func (o ContainerPublicDomainNameArrayOutput) ToContainerPublicDomainNameArrayOu
 
 func (o ContainerPublicDomainNameArrayOutput) ToContainerPublicDomainNameArrayOutputWithContext(ctx context.Context) ContainerPublicDomainNameArrayOutput {
 	return o
-}
-
-func (o ContainerPublicDomainNameArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContainerPublicDomainName] {
-	return pulumix.Output[[]ContainerPublicDomainName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerPublicDomainNameArrayOutput) Index(i pulumi.IntInput) ContainerPublicDomainNameOutput {
@@ -1652,12 +1411,6 @@ func (i ContainerPublicEndpointArgs) ToContainerPublicEndpointOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerPublicEndpointOutput)
 }
 
-func (i ContainerPublicEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerPublicEndpoint] {
-	return pulumix.Output[ContainerPublicEndpoint]{
-		OutputState: i.ToContainerPublicEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ContainerPublicEndpointArgs) ToContainerPublicEndpointPtrOutput() ContainerPublicEndpointPtrOutput {
 	return i.ToContainerPublicEndpointPtrOutputWithContext(context.Background())
 }
@@ -1699,12 +1452,6 @@ func (i *containerPublicEndpointPtrType) ToContainerPublicEndpointPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerPublicEndpointPtrOutput)
 }
 
-func (i *containerPublicEndpointPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContainerPublicEndpoint] {
-	return pulumix.Output[*ContainerPublicEndpoint]{
-		OutputState: i.ToContainerPublicEndpointPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Describes the settings of a public endpoint for an Amazon Lightsail container service.
 type ContainerPublicEndpointOutput struct{ *pulumi.OutputState }
 
@@ -1728,12 +1475,6 @@ func (o ContainerPublicEndpointOutput) ToContainerPublicEndpointPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerPublicEndpoint) *ContainerPublicEndpoint {
 		return &v
 	}).(ContainerPublicEndpointPtrOutput)
-}
-
-func (o ContainerPublicEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerPublicEndpoint] {
-	return pulumix.Output[ContainerPublicEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the container for the endpoint.
@@ -1763,12 +1504,6 @@ func (o ContainerPublicEndpointPtrOutput) ToContainerPublicEndpointPtrOutput() C
 
 func (o ContainerPublicEndpointPtrOutput) ToContainerPublicEndpointPtrOutputWithContext(ctx context.Context) ContainerPublicEndpointPtrOutput {
 	return o
-}
-
-func (o ContainerPublicEndpointPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerPublicEndpoint] {
-	return pulumix.Output[*ContainerPublicEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerPublicEndpointPtrOutput) Elem() ContainerPublicEndpointOutput {
@@ -1850,12 +1585,6 @@ func (i ContainerServiceDeploymentArgs) ToContainerServiceDeploymentOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDeploymentOutput)
 }
 
-func (i ContainerServiceDeploymentArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerServiceDeployment] {
-	return pulumix.Output[ContainerServiceDeployment]{
-		OutputState: i.ToContainerServiceDeploymentOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ContainerServiceDeploymentArgs) ToContainerServiceDeploymentPtrOutput() ContainerServiceDeploymentPtrOutput {
 	return i.ToContainerServiceDeploymentPtrOutputWithContext(context.Background())
 }
@@ -1897,12 +1626,6 @@ func (i *containerServiceDeploymentPtrType) ToContainerServiceDeploymentPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDeploymentPtrOutput)
 }
 
-func (i *containerServiceDeploymentPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContainerServiceDeployment] {
-	return pulumix.Output[*ContainerServiceDeployment]{
-		OutputState: i.ToContainerServiceDeploymentPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Describes a container deployment configuration of an Amazon Lightsail container service.
 type ContainerServiceDeploymentOutput struct{ *pulumi.OutputState }
 
@@ -1928,12 +1651,6 @@ func (o ContainerServiceDeploymentOutput) ToContainerServiceDeploymentPtrOutputW
 	}).(ContainerServiceDeploymentPtrOutput)
 }
 
-func (o ContainerServiceDeploymentOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerServiceDeployment] {
-	return pulumix.Output[ContainerServiceDeployment]{
-		OutputState: o.OutputState,
-	}
-}
-
 // An object that describes the configuration for the containers of the deployment.
 func (o ContainerServiceDeploymentOutput) Containers() ContainerTypeArrayOutput {
 	return o.ApplyT(func(v ContainerServiceDeployment) []ContainerType { return v.Containers }).(ContainerTypeArrayOutput)
@@ -1956,12 +1673,6 @@ func (o ContainerServiceDeploymentPtrOutput) ToContainerServiceDeploymentPtrOutp
 
 func (o ContainerServiceDeploymentPtrOutput) ToContainerServiceDeploymentPtrOutputWithContext(ctx context.Context) ContainerServiceDeploymentPtrOutput {
 	return o
-}
-
-func (o ContainerServiceDeploymentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerServiceDeployment] {
-	return pulumix.Output[*ContainerServiceDeployment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerServiceDeploymentPtrOutput) Elem() ContainerServiceDeploymentOutput {
@@ -2033,12 +1744,6 @@ func (i ContainerTagArgs) ToContainerTagOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerTagOutput)
 }
 
-func (i ContainerTagArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerTag] {
-	return pulumix.Output[ContainerTag]{
-		OutputState: i.ToContainerTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContainerTagArrayInput is an input type that accepts ContainerTagArray and ContainerTagArrayOutput values.
 // You can construct a concrete instance of `ContainerTagArrayInput` via:
 //
@@ -2064,12 +1769,6 @@ func (i ContainerTagArray) ToContainerTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerTagArrayOutput)
 }
 
-func (i ContainerTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ContainerTag] {
-	return pulumix.Output[[]ContainerTag]{
-		OutputState: i.ToContainerTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type ContainerTagOutput struct{ *pulumi.OutputState }
 
@@ -2083,12 +1782,6 @@ func (o ContainerTagOutput) ToContainerTagOutput() ContainerTagOutput {
 
 func (o ContainerTagOutput) ToContainerTagOutputWithContext(ctx context.Context) ContainerTagOutput {
 	return o
-}
-
-func (o ContainerTagOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerTag] {
-	return pulumix.Output[ContainerTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -2113,12 +1806,6 @@ func (o ContainerTagArrayOutput) ToContainerTagArrayOutput() ContainerTagArrayOu
 
 func (o ContainerTagArrayOutput) ToContainerTagArrayOutputWithContext(ctx context.Context) ContainerTagArrayOutput {
 	return o
-}
-
-func (o ContainerTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContainerTag] {
-	return pulumix.Output[[]ContainerTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerTagArrayOutput) Index(i pulumi.IntInput) ContainerTagOutput {
@@ -2190,12 +1877,6 @@ func (i DatabaseRelationalDatabaseParameterArgs) ToDatabaseRelationalDatabasePar
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseRelationalDatabaseParameterOutput)
 }
 
-func (i DatabaseRelationalDatabaseParameterArgs) ToOutput(ctx context.Context) pulumix.Output[DatabaseRelationalDatabaseParameter] {
-	return pulumix.Output[DatabaseRelationalDatabaseParameter]{
-		OutputState: i.ToDatabaseRelationalDatabaseParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DatabaseRelationalDatabaseParameterArrayInput is an input type that accepts DatabaseRelationalDatabaseParameterArray and DatabaseRelationalDatabaseParameterArrayOutput values.
 // You can construct a concrete instance of `DatabaseRelationalDatabaseParameterArrayInput` via:
 //
@@ -2221,12 +1902,6 @@ func (i DatabaseRelationalDatabaseParameterArray) ToDatabaseRelationalDatabasePa
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseRelationalDatabaseParameterArrayOutput)
 }
 
-func (i DatabaseRelationalDatabaseParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]DatabaseRelationalDatabaseParameter] {
-	return pulumix.Output[[]DatabaseRelationalDatabaseParameter]{
-		OutputState: i.ToDatabaseRelationalDatabaseParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Describes the parameters of the database.
 type DatabaseRelationalDatabaseParameterOutput struct{ *pulumi.OutputState }
 
@@ -2240,12 +1915,6 @@ func (o DatabaseRelationalDatabaseParameterOutput) ToDatabaseRelationalDatabaseP
 
 func (o DatabaseRelationalDatabaseParameterOutput) ToDatabaseRelationalDatabaseParameterOutputWithContext(ctx context.Context) DatabaseRelationalDatabaseParameterOutput {
 	return o
-}
-
-func (o DatabaseRelationalDatabaseParameterOutput) ToOutput(ctx context.Context) pulumix.Output[DatabaseRelationalDatabaseParameter] {
-	return pulumix.Output[DatabaseRelationalDatabaseParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the valid range of values for the parameter.
@@ -2302,12 +1971,6 @@ func (o DatabaseRelationalDatabaseParameterArrayOutput) ToDatabaseRelationalData
 	return o
 }
 
-func (o DatabaseRelationalDatabaseParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DatabaseRelationalDatabaseParameter] {
-	return pulumix.Output[[]DatabaseRelationalDatabaseParameter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatabaseRelationalDatabaseParameterArrayOutput) Index(i pulumi.IntInput) DatabaseRelationalDatabaseParameterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseRelationalDatabaseParameter {
 		return vs[0].([]DatabaseRelationalDatabaseParameter)[vs[1].(int)]
@@ -2353,12 +2016,6 @@ func (i DatabaseTagArgs) ToDatabaseTagOutputWithContext(ctx context.Context) Dat
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseTagOutput)
 }
 
-func (i DatabaseTagArgs) ToOutput(ctx context.Context) pulumix.Output[DatabaseTag] {
-	return pulumix.Output[DatabaseTag]{
-		OutputState: i.ToDatabaseTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DatabaseTagArrayInput is an input type that accepts DatabaseTagArray and DatabaseTagArrayOutput values.
 // You can construct a concrete instance of `DatabaseTagArrayInput` via:
 //
@@ -2384,12 +2041,6 @@ func (i DatabaseTagArray) ToDatabaseTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseTagArrayOutput)
 }
 
-func (i DatabaseTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DatabaseTag] {
-	return pulumix.Output[[]DatabaseTag]{
-		OutputState: i.ToDatabaseTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type DatabaseTagOutput struct{ *pulumi.OutputState }
 
@@ -2403,12 +2054,6 @@ func (o DatabaseTagOutput) ToDatabaseTagOutput() DatabaseTagOutput {
 
 func (o DatabaseTagOutput) ToDatabaseTagOutputWithContext(ctx context.Context) DatabaseTagOutput {
 	return o
-}
-
-func (o DatabaseTagOutput) ToOutput(ctx context.Context) pulumix.Output[DatabaseTag] {
-	return pulumix.Output[DatabaseTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -2433,12 +2078,6 @@ func (o DatabaseTagArrayOutput) ToDatabaseTagArrayOutput() DatabaseTagArrayOutpu
 
 func (o DatabaseTagArrayOutput) ToDatabaseTagArrayOutputWithContext(ctx context.Context) DatabaseTagArrayOutput {
 	return o
-}
-
-func (o DatabaseTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DatabaseTag] {
-	return pulumix.Output[[]DatabaseTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatabaseTagArrayOutput) Index(i pulumi.IntInput) DatabaseTagOutput {
@@ -2488,12 +2127,6 @@ func (i DiskAddOnArgs) ToDiskAddOnOutputWithContext(ctx context.Context) DiskAdd
 	return pulumi.ToOutputWithContext(ctx, i).(DiskAddOnOutput)
 }
 
-func (i DiskAddOnArgs) ToOutput(ctx context.Context) pulumix.Output[DiskAddOn] {
-	return pulumix.Output[DiskAddOn]{
-		OutputState: i.ToDiskAddOnOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DiskAddOnArrayInput is an input type that accepts DiskAddOnArray and DiskAddOnArrayOutput values.
 // You can construct a concrete instance of `DiskAddOnArrayInput` via:
 //
@@ -2519,12 +2152,6 @@ func (i DiskAddOnArray) ToDiskAddOnArrayOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DiskAddOnArrayOutput)
 }
 
-func (i DiskAddOnArray) ToOutput(ctx context.Context) pulumix.Output[[]DiskAddOn] {
-	return pulumix.Output[[]DiskAddOn]{
-		OutputState: i.ToDiskAddOnArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A addon associate with a resource.
 type DiskAddOnOutput struct{ *pulumi.OutputState }
 
@@ -2538,12 +2165,6 @@ func (o DiskAddOnOutput) ToDiskAddOnOutput() DiskAddOnOutput {
 
 func (o DiskAddOnOutput) ToDiskAddOnOutputWithContext(ctx context.Context) DiskAddOnOutput {
 	return o
-}
-
-func (o DiskAddOnOutput) ToOutput(ctx context.Context) pulumix.Output[DiskAddOn] {
-	return pulumix.Output[DiskAddOn]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The add-on type
@@ -2572,12 +2193,6 @@ func (o DiskAddOnArrayOutput) ToDiskAddOnArrayOutput() DiskAddOnArrayOutput {
 
 func (o DiskAddOnArrayOutput) ToDiskAddOnArrayOutputWithContext(ctx context.Context) DiskAddOnArrayOutput {
 	return o
-}
-
-func (o DiskAddOnArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DiskAddOn] {
-	return pulumix.Output[[]DiskAddOn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DiskAddOnArrayOutput) Index(i pulumi.IntInput) DiskAddOnOutput {
@@ -2621,12 +2236,6 @@ func (i DiskAutoSnapshotAddOnArgs) ToDiskAutoSnapshotAddOnOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DiskAutoSnapshotAddOnOutput)
 }
 
-func (i DiskAutoSnapshotAddOnArgs) ToOutput(ctx context.Context) pulumix.Output[DiskAutoSnapshotAddOn] {
-	return pulumix.Output[DiskAutoSnapshotAddOn]{
-		OutputState: i.ToDiskAutoSnapshotAddOnOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DiskAutoSnapshotAddOnArgs) ToDiskAutoSnapshotAddOnPtrOutput() DiskAutoSnapshotAddOnPtrOutput {
 	return i.ToDiskAutoSnapshotAddOnPtrOutputWithContext(context.Background())
 }
@@ -2668,12 +2277,6 @@ func (i *diskAutoSnapshotAddOnPtrType) ToDiskAutoSnapshotAddOnPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(DiskAutoSnapshotAddOnPtrOutput)
 }
 
-func (i *diskAutoSnapshotAddOnPtrType) ToOutput(ctx context.Context) pulumix.Output[*DiskAutoSnapshotAddOn] {
-	return pulumix.Output[*DiskAutoSnapshotAddOn]{
-		OutputState: i.ToDiskAutoSnapshotAddOnPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An object that represents additional parameters when enabling or modifying the automatic snapshot add-on
 type DiskAutoSnapshotAddOnOutput struct{ *pulumi.OutputState }
 
@@ -2699,12 +2302,6 @@ func (o DiskAutoSnapshotAddOnOutput) ToDiskAutoSnapshotAddOnPtrOutputWithContext
 	}).(DiskAutoSnapshotAddOnPtrOutput)
 }
 
-func (o DiskAutoSnapshotAddOnOutput) ToOutput(ctx context.Context) pulumix.Output[DiskAutoSnapshotAddOn] {
-	return pulumix.Output[DiskAutoSnapshotAddOn]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The daily time when an automatic snapshot will be created.
 func (o DiskAutoSnapshotAddOnOutput) SnapshotTimeOfDay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiskAutoSnapshotAddOn) *string { return v.SnapshotTimeOfDay }).(pulumi.StringPtrOutput)
@@ -2722,12 +2319,6 @@ func (o DiskAutoSnapshotAddOnPtrOutput) ToDiskAutoSnapshotAddOnPtrOutput() DiskA
 
 func (o DiskAutoSnapshotAddOnPtrOutput) ToDiskAutoSnapshotAddOnPtrOutputWithContext(ctx context.Context) DiskAutoSnapshotAddOnPtrOutput {
 	return o
-}
-
-func (o DiskAutoSnapshotAddOnPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DiskAutoSnapshotAddOn] {
-	return pulumix.Output[*DiskAutoSnapshotAddOn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DiskAutoSnapshotAddOnPtrOutput) Elem() DiskAutoSnapshotAddOnOutput {
@@ -2789,12 +2380,6 @@ func (i DiskLocationArgs) ToDiskLocationOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DiskLocationOutput)
 }
 
-func (i DiskLocationArgs) ToOutput(ctx context.Context) pulumix.Output[DiskLocation] {
-	return pulumix.Output[DiskLocation]{
-		OutputState: i.ToDiskLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DiskLocationArgs) ToDiskLocationPtrOutput() DiskLocationPtrOutput {
 	return i.ToDiskLocationPtrOutputWithContext(context.Background())
 }
@@ -2836,12 +2421,6 @@ func (i *diskLocationPtrType) ToDiskLocationPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DiskLocationPtrOutput)
 }
 
-func (i *diskLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*DiskLocation] {
-	return pulumix.Output[*DiskLocation]{
-		OutputState: i.ToDiskLocationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Location of a resource.
 type DiskLocationOutput struct{ *pulumi.OutputState }
 
@@ -2867,12 +2446,6 @@ func (o DiskLocationOutput) ToDiskLocationPtrOutputWithContext(ctx context.Conte
 	}).(DiskLocationPtrOutput)
 }
 
-func (o DiskLocationOutput) ToOutput(ctx context.Context) pulumix.Output[DiskLocation] {
-	return pulumix.Output[DiskLocation]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Availability Zone in which to create your disk. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
 func (o DiskLocationOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DiskLocation) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
@@ -2895,12 +2468,6 @@ func (o DiskLocationPtrOutput) ToDiskLocationPtrOutput() DiskLocationPtrOutput {
 
 func (o DiskLocationPtrOutput) ToDiskLocationPtrOutputWithContext(ctx context.Context) DiskLocationPtrOutput {
 	return o
-}
-
-func (o DiskLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DiskLocation] {
-	return pulumix.Output[*DiskLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DiskLocationPtrOutput) Elem() DiskLocationOutput {
@@ -2972,12 +2539,6 @@ func (i DiskTagArgs) ToDiskTagOutputWithContext(ctx context.Context) DiskTagOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DiskTagOutput)
 }
 
-func (i DiskTagArgs) ToOutput(ctx context.Context) pulumix.Output[DiskTag] {
-	return pulumix.Output[DiskTag]{
-		OutputState: i.ToDiskTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DiskTagArrayInput is an input type that accepts DiskTagArray and DiskTagArrayOutput values.
 // You can construct a concrete instance of `DiskTagArrayInput` via:
 //
@@ -3003,12 +2564,6 @@ func (i DiskTagArray) ToDiskTagArrayOutputWithContext(ctx context.Context) DiskT
 	return pulumi.ToOutputWithContext(ctx, i).(DiskTagArrayOutput)
 }
 
-func (i DiskTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DiskTag] {
-	return pulumix.Output[[]DiskTag]{
-		OutputState: i.ToDiskTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type DiskTagOutput struct{ *pulumi.OutputState }
 
@@ -3022,12 +2577,6 @@ func (o DiskTagOutput) ToDiskTagOutput() DiskTagOutput {
 
 func (o DiskTagOutput) ToDiskTagOutputWithContext(ctx context.Context) DiskTagOutput {
 	return o
-}
-
-func (o DiskTagOutput) ToOutput(ctx context.Context) pulumix.Output[DiskTag] {
-	return pulumix.Output[DiskTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -3052,12 +2601,6 @@ func (o DiskTagArrayOutput) ToDiskTagArrayOutput() DiskTagArrayOutput {
 
 func (o DiskTagArrayOutput) ToDiskTagArrayOutputWithContext(ctx context.Context) DiskTagArrayOutput {
 	return o
-}
-
-func (o DiskTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DiskTag] {
-	return pulumix.Output[[]DiskTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DiskTagArrayOutput) Index(i pulumi.IntInput) DiskTagOutput {
@@ -3101,12 +2644,6 @@ func (i DistributionCacheBehaviorArgs) ToDistributionCacheBehaviorOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorOutput)
 }
 
-func (i DistributionCacheBehaviorArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionCacheBehavior] {
-	return pulumix.Output[DistributionCacheBehavior]{
-		OutputState: i.ToDistributionCacheBehaviorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Describes the default cache behavior of an Amazon Lightsail content delivery network (CDN) distribution.
 type DistributionCacheBehaviorOutput struct{ *pulumi.OutputState }
 
@@ -3120,12 +2657,6 @@ func (o DistributionCacheBehaviorOutput) ToDistributionCacheBehaviorOutput() Dis
 
 func (o DistributionCacheBehaviorOutput) ToDistributionCacheBehaviorOutputWithContext(ctx context.Context) DistributionCacheBehaviorOutput {
 	return o
-}
-
-func (o DistributionCacheBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionCacheBehavior] {
-	return pulumix.Output[DistributionCacheBehavior]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The cache behavior of the distribution.
@@ -3145,12 +2676,6 @@ func (o DistributionCacheBehaviorPtrOutput) ToDistributionCacheBehaviorPtrOutput
 
 func (o DistributionCacheBehaviorPtrOutput) ToDistributionCacheBehaviorPtrOutputWithContext(ctx context.Context) DistributionCacheBehaviorPtrOutput {
 	return o
-}
-
-func (o DistributionCacheBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionCacheBehavior] {
-	return pulumix.Output[*DistributionCacheBehavior]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DistributionCacheBehaviorPtrOutput) Elem() DistributionCacheBehaviorOutput {
@@ -3212,12 +2737,6 @@ func (i DistributionCacheBehaviorPerPathArgs) ToDistributionCacheBehaviorPerPath
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorPerPathOutput)
 }
 
-func (i DistributionCacheBehaviorPerPathArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionCacheBehaviorPerPath] {
-	return pulumix.Output[DistributionCacheBehaviorPerPath]{
-		OutputState: i.ToDistributionCacheBehaviorPerPathOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DistributionCacheBehaviorPerPathArrayInput is an input type that accepts DistributionCacheBehaviorPerPathArray and DistributionCacheBehaviorPerPathArrayOutput values.
 // You can construct a concrete instance of `DistributionCacheBehaviorPerPathArrayInput` via:
 //
@@ -3243,12 +2762,6 @@ func (i DistributionCacheBehaviorPerPathArray) ToDistributionCacheBehaviorPerPat
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheBehaviorPerPathArrayOutput)
 }
 
-func (i DistributionCacheBehaviorPerPathArray) ToOutput(ctx context.Context) pulumix.Output[[]DistributionCacheBehaviorPerPath] {
-	return pulumix.Output[[]DistributionCacheBehaviorPerPath]{
-		OutputState: i.ToDistributionCacheBehaviorPerPathArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Describes the per-path cache behavior of an Amazon Lightsail content delivery network (CDN) distribution.
 type DistributionCacheBehaviorPerPathOutput struct{ *pulumi.OutputState }
 
@@ -3262,12 +2775,6 @@ func (o DistributionCacheBehaviorPerPathOutput) ToDistributionCacheBehaviorPerPa
 
 func (o DistributionCacheBehaviorPerPathOutput) ToDistributionCacheBehaviorPerPathOutputWithContext(ctx context.Context) DistributionCacheBehaviorPerPathOutput {
 	return o
-}
-
-func (o DistributionCacheBehaviorPerPathOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionCacheBehaviorPerPath] {
-	return pulumix.Output[DistributionCacheBehaviorPerPath]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The cache behavior for the specified path.
@@ -3292,12 +2799,6 @@ func (o DistributionCacheBehaviorPerPathArrayOutput) ToDistributionCacheBehavior
 
 func (o DistributionCacheBehaviorPerPathArrayOutput) ToDistributionCacheBehaviorPerPathArrayOutputWithContext(ctx context.Context) DistributionCacheBehaviorPerPathArrayOutput {
 	return o
-}
-
-func (o DistributionCacheBehaviorPerPathArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DistributionCacheBehaviorPerPath] {
-	return pulumix.Output[[]DistributionCacheBehaviorPerPath]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DistributionCacheBehaviorPerPathArrayOutput) Index(i pulumi.IntInput) DistributionCacheBehaviorPerPathOutput {
@@ -3369,12 +2870,6 @@ func (i DistributionCacheSettingsArgs) ToDistributionCacheSettingsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheSettingsOutput)
 }
 
-func (i DistributionCacheSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionCacheSettings] {
-	return pulumix.Output[DistributionCacheSettings]{
-		OutputState: i.ToDistributionCacheSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DistributionCacheSettingsArgs) ToDistributionCacheSettingsPtrOutput() DistributionCacheSettingsPtrOutput {
 	return i.ToDistributionCacheSettingsPtrOutputWithContext(context.Background())
 }
@@ -3416,12 +2911,6 @@ func (i *distributionCacheSettingsPtrType) ToDistributionCacheSettingsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheSettingsPtrOutput)
 }
 
-func (i *distributionCacheSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DistributionCacheSettings] {
-	return pulumix.Output[*DistributionCacheSettings]{
-		OutputState: i.ToDistributionCacheSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Describes the cache settings of an Amazon Lightsail content delivery network (CDN) distribution.
 type DistributionCacheSettingsOutput struct{ *pulumi.OutputState }
 
@@ -3445,12 +2934,6 @@ func (o DistributionCacheSettingsOutput) ToDistributionCacheSettingsPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionCacheSettings) *DistributionCacheSettings {
 		return &v
 	}).(DistributionCacheSettingsPtrOutput)
-}
-
-func (o DistributionCacheSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionCacheSettings] {
-	return pulumix.Output[DistributionCacheSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The HTTP methods that are processed and forwarded to the distribution's origin.
@@ -3505,12 +2988,6 @@ func (o DistributionCacheSettingsPtrOutput) ToDistributionCacheSettingsPtrOutput
 
 func (o DistributionCacheSettingsPtrOutput) ToDistributionCacheSettingsPtrOutputWithContext(ctx context.Context) DistributionCacheSettingsPtrOutput {
 	return o
-}
-
-func (o DistributionCacheSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionCacheSettings] {
-	return pulumix.Output[*DistributionCacheSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DistributionCacheSettingsPtrOutput) Elem() DistributionCacheSettingsOutput {
@@ -3642,12 +3119,6 @@ func (i DistributionCookieObjectArgs) ToDistributionCookieObjectOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCookieObjectOutput)
 }
 
-func (i DistributionCookieObjectArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionCookieObject] {
-	return pulumix.Output[DistributionCookieObject]{
-		OutputState: i.ToDistributionCookieObjectOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DistributionCookieObjectArgs) ToDistributionCookieObjectPtrOutput() DistributionCookieObjectPtrOutput {
 	return i.ToDistributionCookieObjectPtrOutputWithContext(context.Background())
 }
@@ -3689,12 +3160,6 @@ func (i *distributionCookieObjectPtrType) ToDistributionCookieObjectPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionCookieObjectPtrOutput)
 }
 
-func (i *distributionCookieObjectPtrType) ToOutput(ctx context.Context) pulumix.Output[*DistributionCookieObject] {
-	return pulumix.Output[*DistributionCookieObject]{
-		OutputState: i.ToDistributionCookieObjectPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Describes whether an Amazon Lightsail content delivery network (CDN) distribution forwards cookies to the origin and, if so, which ones.
 type DistributionCookieObjectOutput struct{ *pulumi.OutputState }
 
@@ -3720,12 +3185,6 @@ func (o DistributionCookieObjectOutput) ToDistributionCookieObjectPtrOutputWithC
 	}).(DistributionCookieObjectPtrOutput)
 }
 
-func (o DistributionCookieObjectOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionCookieObject] {
-	return pulumix.Output[DistributionCookieObject]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The specific cookies to forward to your distribution's origin.
 func (o DistributionCookieObjectOutput) CookiesAllowList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionCookieObject) []string { return v.CookiesAllowList }).(pulumi.StringArrayOutput)
@@ -3748,12 +3207,6 @@ func (o DistributionCookieObjectPtrOutput) ToDistributionCookieObjectPtrOutput()
 
 func (o DistributionCookieObjectPtrOutput) ToDistributionCookieObjectPtrOutputWithContext(ctx context.Context) DistributionCookieObjectPtrOutput {
 	return o
-}
-
-func (o DistributionCookieObjectPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionCookieObject] {
-	return pulumix.Output[*DistributionCookieObject]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DistributionCookieObjectPtrOutput) Elem() DistributionCookieObjectOutput {
@@ -3825,12 +3278,6 @@ func (i DistributionHeaderObjectArgs) ToDistributionHeaderObjectOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionHeaderObjectOutput)
 }
 
-func (i DistributionHeaderObjectArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionHeaderObject] {
-	return pulumix.Output[DistributionHeaderObject]{
-		OutputState: i.ToDistributionHeaderObjectOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DistributionHeaderObjectArgs) ToDistributionHeaderObjectPtrOutput() DistributionHeaderObjectPtrOutput {
 	return i.ToDistributionHeaderObjectPtrOutputWithContext(context.Background())
 }
@@ -3872,12 +3319,6 @@ func (i *distributionHeaderObjectPtrType) ToDistributionHeaderObjectPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionHeaderObjectPtrOutput)
 }
 
-func (i *distributionHeaderObjectPtrType) ToOutput(ctx context.Context) pulumix.Output[*DistributionHeaderObject] {
-	return pulumix.Output[*DistributionHeaderObject]{
-		OutputState: i.ToDistributionHeaderObjectPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Describes the request headers that a Lightsail distribution bases caching on.
 type DistributionHeaderObjectOutput struct{ *pulumi.OutputState }
 
@@ -3903,12 +3344,6 @@ func (o DistributionHeaderObjectOutput) ToDistributionHeaderObjectPtrOutputWithC
 	}).(DistributionHeaderObjectPtrOutput)
 }
 
-func (o DistributionHeaderObjectOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionHeaderObject] {
-	return pulumix.Output[DistributionHeaderObject]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The specific headers to forward to your distribution's origin.
 func (o DistributionHeaderObjectOutput) HeadersAllowList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionHeaderObject) []string { return v.HeadersAllowList }).(pulumi.StringArrayOutput)
@@ -3931,12 +3366,6 @@ func (o DistributionHeaderObjectPtrOutput) ToDistributionHeaderObjectPtrOutput()
 
 func (o DistributionHeaderObjectPtrOutput) ToDistributionHeaderObjectPtrOutputWithContext(ctx context.Context) DistributionHeaderObjectPtrOutput {
 	return o
-}
-
-func (o DistributionHeaderObjectPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionHeaderObject] {
-	return pulumix.Output[*DistributionHeaderObject]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DistributionHeaderObjectPtrOutput) Elem() DistributionHeaderObjectOutput {
@@ -4012,12 +3441,6 @@ func (i DistributionInputOriginArgs) ToDistributionInputOriginOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionInputOriginOutput)
 }
 
-func (i DistributionInputOriginArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionInputOrigin] {
-	return pulumix.Output[DistributionInputOrigin]{
-		OutputState: i.ToDistributionInputOriginOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Describes the origin resource of an Amazon Lightsail content delivery network (CDN) distribution.
 type DistributionInputOriginOutput struct{ *pulumi.OutputState }
 
@@ -4031,12 +3454,6 @@ func (o DistributionInputOriginOutput) ToDistributionInputOriginOutput() Distrib
 
 func (o DistributionInputOriginOutput) ToDistributionInputOriginOutputWithContext(ctx context.Context) DistributionInputOriginOutput {
 	return o
-}
-
-func (o DistributionInputOriginOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionInputOrigin] {
-	return pulumix.Output[DistributionInputOrigin]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the origin resource.
@@ -4066,12 +3483,6 @@ func (o DistributionInputOriginPtrOutput) ToDistributionInputOriginPtrOutput() D
 
 func (o DistributionInputOriginPtrOutput) ToDistributionInputOriginPtrOutputWithContext(ctx context.Context) DistributionInputOriginPtrOutput {
 	return o
-}
-
-func (o DistributionInputOriginPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionInputOrigin] {
-	return pulumix.Output[*DistributionInputOrigin]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DistributionInputOriginPtrOutput) Elem() DistributionInputOriginOutput {
@@ -4153,12 +3564,6 @@ func (i DistributionQueryStringObjectArgs) ToDistributionQueryStringObjectOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionQueryStringObjectOutput)
 }
 
-func (i DistributionQueryStringObjectArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionQueryStringObject] {
-	return pulumix.Output[DistributionQueryStringObject]{
-		OutputState: i.ToDistributionQueryStringObjectOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DistributionQueryStringObjectArgs) ToDistributionQueryStringObjectPtrOutput() DistributionQueryStringObjectPtrOutput {
 	return i.ToDistributionQueryStringObjectPtrOutputWithContext(context.Background())
 }
@@ -4200,12 +3605,6 @@ func (i *distributionQueryStringObjectPtrType) ToDistributionQueryStringObjectPt
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionQueryStringObjectPtrOutput)
 }
 
-func (i *distributionQueryStringObjectPtrType) ToOutput(ctx context.Context) pulumix.Output[*DistributionQueryStringObject] {
-	return pulumix.Output[*DistributionQueryStringObject]{
-		OutputState: i.ToDistributionQueryStringObjectPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Describes the query string parameters that an Amazon Lightsail content delivery network (CDN) distribution to bases caching on.
 type DistributionQueryStringObjectOutput struct{ *pulumi.OutputState }
 
@@ -4231,12 +3630,6 @@ func (o DistributionQueryStringObjectOutput) ToDistributionQueryStringObjectPtrO
 	}).(DistributionQueryStringObjectPtrOutput)
 }
 
-func (o DistributionQueryStringObjectOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionQueryStringObject] {
-	return pulumix.Output[DistributionQueryStringObject]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Indicates whether the distribution forwards and caches based on query strings.
 func (o DistributionQueryStringObjectOutput) Option() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DistributionQueryStringObject) *bool { return v.Option }).(pulumi.BoolPtrOutput)
@@ -4259,12 +3652,6 @@ func (o DistributionQueryStringObjectPtrOutput) ToDistributionQueryStringObjectP
 
 func (o DistributionQueryStringObjectPtrOutput) ToDistributionQueryStringObjectPtrOutputWithContext(ctx context.Context) DistributionQueryStringObjectPtrOutput {
 	return o
-}
-
-func (o DistributionQueryStringObjectPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionQueryStringObject] {
-	return pulumix.Output[*DistributionQueryStringObject]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DistributionQueryStringObjectPtrOutput) Elem() DistributionQueryStringObjectOutput {
@@ -4336,12 +3723,6 @@ func (i DistributionTagArgs) ToDistributionTagOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionTagOutput)
 }
 
-func (i DistributionTagArgs) ToOutput(ctx context.Context) pulumix.Output[DistributionTag] {
-	return pulumix.Output[DistributionTag]{
-		OutputState: i.ToDistributionTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DistributionTagArrayInput is an input type that accepts DistributionTagArray and DistributionTagArrayOutput values.
 // You can construct a concrete instance of `DistributionTagArrayInput` via:
 //
@@ -4367,12 +3748,6 @@ func (i DistributionTagArray) ToDistributionTagArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionTagArrayOutput)
 }
 
-func (i DistributionTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DistributionTag] {
-	return pulumix.Output[[]DistributionTag]{
-		OutputState: i.ToDistributionTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type DistributionTagOutput struct{ *pulumi.OutputState }
 
@@ -4386,12 +3761,6 @@ func (o DistributionTagOutput) ToDistributionTagOutput() DistributionTagOutput {
 
 func (o DistributionTagOutput) ToDistributionTagOutputWithContext(ctx context.Context) DistributionTagOutput {
 	return o
-}
-
-func (o DistributionTagOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionTag] {
-	return pulumix.Output[DistributionTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -4416,12 +3785,6 @@ func (o DistributionTagArrayOutput) ToDistributionTagArrayOutput() DistributionT
 
 func (o DistributionTagArrayOutput) ToDistributionTagArrayOutputWithContext(ctx context.Context) DistributionTagArrayOutput {
 	return o
-}
-
-func (o DistributionTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DistributionTag] {
-	return pulumix.Output[[]DistributionTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DistributionTagArrayOutput) Index(i pulumi.IntInput) DistributionTagOutput {
@@ -4471,12 +3834,6 @@ func (i InstanceAddOnArgs) ToInstanceAddOnOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAddOnOutput)
 }
 
-func (i InstanceAddOnArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceAddOn] {
-	return pulumix.Output[InstanceAddOn]{
-		OutputState: i.ToInstanceAddOnOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InstanceAddOnArrayInput is an input type that accepts InstanceAddOnArray and InstanceAddOnArrayOutput values.
 // You can construct a concrete instance of `InstanceAddOnArrayInput` via:
 //
@@ -4502,12 +3859,6 @@ func (i InstanceAddOnArray) ToInstanceAddOnArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAddOnArrayOutput)
 }
 
-func (i InstanceAddOnArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceAddOn] {
-	return pulumix.Output[[]InstanceAddOn]{
-		OutputState: i.ToInstanceAddOnArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A addon associate with a resource.
 type InstanceAddOnOutput struct{ *pulumi.OutputState }
 
@@ -4521,12 +3872,6 @@ func (o InstanceAddOnOutput) ToInstanceAddOnOutput() InstanceAddOnOutput {
 
 func (o InstanceAddOnOutput) ToInstanceAddOnOutputWithContext(ctx context.Context) InstanceAddOnOutput {
 	return o
-}
-
-func (o InstanceAddOnOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceAddOn] {
-	return pulumix.Output[InstanceAddOn]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The add-on type
@@ -4555,12 +3900,6 @@ func (o InstanceAddOnArrayOutput) ToInstanceAddOnArrayOutput() InstanceAddOnArra
 
 func (o InstanceAddOnArrayOutput) ToInstanceAddOnArrayOutputWithContext(ctx context.Context) InstanceAddOnArrayOutput {
 	return o
-}
-
-func (o InstanceAddOnArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceAddOn] {
-	return pulumix.Output[[]InstanceAddOn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceAddOnArrayOutput) Index(i pulumi.IntInput) InstanceAddOnOutput {
@@ -4604,12 +3943,6 @@ func (i InstanceAutoSnapshotAddOnArgs) ToInstanceAutoSnapshotAddOnOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAutoSnapshotAddOnOutput)
 }
 
-func (i InstanceAutoSnapshotAddOnArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceAutoSnapshotAddOn] {
-	return pulumix.Output[InstanceAutoSnapshotAddOn]{
-		OutputState: i.ToInstanceAutoSnapshotAddOnOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InstanceAutoSnapshotAddOnArgs) ToInstanceAutoSnapshotAddOnPtrOutput() InstanceAutoSnapshotAddOnPtrOutput {
 	return i.ToInstanceAutoSnapshotAddOnPtrOutputWithContext(context.Background())
 }
@@ -4651,12 +3984,6 @@ func (i *instanceAutoSnapshotAddOnPtrType) ToInstanceAutoSnapshotAddOnPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceAutoSnapshotAddOnPtrOutput)
 }
 
-func (i *instanceAutoSnapshotAddOnPtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceAutoSnapshotAddOn] {
-	return pulumix.Output[*InstanceAutoSnapshotAddOn]{
-		OutputState: i.ToInstanceAutoSnapshotAddOnPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An object that represents additional parameters when enabling or modifying the automatic snapshot add-on
 type InstanceAutoSnapshotAddOnOutput struct{ *pulumi.OutputState }
 
@@ -4682,12 +4009,6 @@ func (o InstanceAutoSnapshotAddOnOutput) ToInstanceAutoSnapshotAddOnPtrOutputWit
 	}).(InstanceAutoSnapshotAddOnPtrOutput)
 }
 
-func (o InstanceAutoSnapshotAddOnOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceAutoSnapshotAddOn] {
-	return pulumix.Output[InstanceAutoSnapshotAddOn]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The daily time when an automatic snapshot will be created.
 func (o InstanceAutoSnapshotAddOnOutput) SnapshotTimeOfDay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceAutoSnapshotAddOn) *string { return v.SnapshotTimeOfDay }).(pulumi.StringPtrOutput)
@@ -4705,12 +4026,6 @@ func (o InstanceAutoSnapshotAddOnPtrOutput) ToInstanceAutoSnapshotAddOnPtrOutput
 
 func (o InstanceAutoSnapshotAddOnPtrOutput) ToInstanceAutoSnapshotAddOnPtrOutputWithContext(ctx context.Context) InstanceAutoSnapshotAddOnPtrOutput {
 	return o
-}
-
-func (o InstanceAutoSnapshotAddOnPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceAutoSnapshotAddOn] {
-	return pulumix.Output[*InstanceAutoSnapshotAddOn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceAutoSnapshotAddOnPtrOutput) Elem() InstanceAutoSnapshotAddOnOutput {
@@ -4792,12 +4107,6 @@ func (i InstanceDiskArgs) ToInstanceDiskOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceDiskOutput)
 }
 
-func (i InstanceDiskArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceDisk] {
-	return pulumix.Output[InstanceDisk]{
-		OutputState: i.ToInstanceDiskOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InstanceDiskArrayInput is an input type that accepts InstanceDiskArray and InstanceDiskArrayOutput values.
 // You can construct a concrete instance of `InstanceDiskArrayInput` via:
 //
@@ -4823,12 +4132,6 @@ func (i InstanceDiskArray) ToInstanceDiskArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceDiskArrayOutput)
 }
 
-func (i InstanceDiskArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceDisk] {
-	return pulumix.Output[[]InstanceDisk]{
-		OutputState: i.ToInstanceDiskArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Disk associated with the Instance.
 type InstanceDiskOutput struct{ *pulumi.OutputState }
 
@@ -4842,12 +4145,6 @@ func (o InstanceDiskOutput) ToInstanceDiskOutput() InstanceDiskOutput {
 
 func (o InstanceDiskOutput) ToInstanceDiskOutputWithContext(ctx context.Context) InstanceDiskOutput {
 	return o
-}
-
-func (o InstanceDiskOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceDisk] {
-	return pulumix.Output[InstanceDisk]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Instance attached to the disk.
@@ -4899,12 +4196,6 @@ func (o InstanceDiskArrayOutput) ToInstanceDiskArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o InstanceDiskArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceDisk] {
-	return pulumix.Output[[]InstanceDisk]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InstanceDiskArrayOutput) Index(i pulumi.IntInput) InstanceDiskOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceDisk {
 		return vs[0].([]InstanceDisk)[vs[1].(int)]
@@ -4954,12 +4245,6 @@ func (i InstanceHardwareArgs) ToInstanceHardwareOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceHardwareOutput)
 }
 
-func (i InstanceHardwareArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceHardware] {
-	return pulumix.Output[InstanceHardware]{
-		OutputState: i.ToInstanceHardwareOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InstanceHardwareArgs) ToInstanceHardwarePtrOutput() InstanceHardwarePtrOutput {
 	return i.ToInstanceHardwarePtrOutputWithContext(context.Background())
 }
@@ -5001,12 +4286,6 @@ func (i *instanceHardwarePtrType) ToInstanceHardwarePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceHardwarePtrOutput)
 }
 
-func (i *instanceHardwarePtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceHardware] {
-	return pulumix.Output[*InstanceHardware]{
-		OutputState: i.ToInstanceHardwarePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Hardware of the Instance.
 type InstanceHardwareOutput struct{ *pulumi.OutputState }
 
@@ -5030,12 +4309,6 @@ func (o InstanceHardwareOutput) ToInstanceHardwarePtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceHardware) *InstanceHardware {
 		return &v
 	}).(InstanceHardwarePtrOutput)
-}
-
-func (o InstanceHardwareOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceHardware] {
-	return pulumix.Output[InstanceHardware]{
-		OutputState: o.OutputState,
-	}
 }
 
 // CPU count of the Instance.
@@ -5065,12 +4338,6 @@ func (o InstanceHardwarePtrOutput) ToInstanceHardwarePtrOutput() InstanceHardwar
 
 func (o InstanceHardwarePtrOutput) ToInstanceHardwarePtrOutputWithContext(ctx context.Context) InstanceHardwarePtrOutput {
 	return o
-}
-
-func (o InstanceHardwarePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceHardware] {
-	return pulumix.Output[*InstanceHardware]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceHardwarePtrOutput) Elem() InstanceHardwareOutput {
@@ -5152,12 +4419,6 @@ func (i InstanceLocationArgs) ToInstanceLocationOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceLocationOutput)
 }
 
-func (i InstanceLocationArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceLocation] {
-	return pulumix.Output[InstanceLocation]{
-		OutputState: i.ToInstanceLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InstanceLocationArgs) ToInstanceLocationPtrOutput() InstanceLocationPtrOutput {
 	return i.ToInstanceLocationPtrOutputWithContext(context.Background())
 }
@@ -5199,12 +4460,6 @@ func (i *instanceLocationPtrType) ToInstanceLocationPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceLocationPtrOutput)
 }
 
-func (i *instanceLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceLocation] {
-	return pulumix.Output[*InstanceLocation]{
-		OutputState: i.ToInstanceLocationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Location of a resource.
 type InstanceLocationOutput struct{ *pulumi.OutputState }
 
@@ -5230,12 +4485,6 @@ func (o InstanceLocationOutput) ToInstanceLocationPtrOutputWithContext(ctx conte
 	}).(InstanceLocationPtrOutput)
 }
 
-func (o InstanceLocationOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceLocation] {
-	return pulumix.Output[InstanceLocation]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
 func (o InstanceLocationOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceLocation) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
@@ -5258,12 +4507,6 @@ func (o InstanceLocationPtrOutput) ToInstanceLocationPtrOutput() InstanceLocatio
 
 func (o InstanceLocationPtrOutput) ToInstanceLocationPtrOutputWithContext(ctx context.Context) InstanceLocationPtrOutput {
 	return o
-}
-
-func (o InstanceLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceLocation] {
-	return pulumix.Output[*InstanceLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceLocationPtrOutput) Elem() InstanceLocationOutput {
@@ -5331,12 +4574,6 @@ func (i InstanceMonthlyTransferArgs) ToInstanceMonthlyTransferOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceMonthlyTransferOutput)
 }
 
-func (i InstanceMonthlyTransferArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceMonthlyTransfer] {
-	return pulumix.Output[InstanceMonthlyTransfer]{
-		OutputState: i.ToInstanceMonthlyTransferOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InstanceMonthlyTransferArgs) ToInstanceMonthlyTransferPtrOutput() InstanceMonthlyTransferPtrOutput {
 	return i.ToInstanceMonthlyTransferPtrOutputWithContext(context.Background())
 }
@@ -5378,12 +4615,6 @@ func (i *instanceMonthlyTransferPtrType) ToInstanceMonthlyTransferPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceMonthlyTransferPtrOutput)
 }
 
-func (i *instanceMonthlyTransferPtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceMonthlyTransfer] {
-	return pulumix.Output[*InstanceMonthlyTransfer]{
-		OutputState: i.ToInstanceMonthlyTransferPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Monthly Transfer of the Instance.
 type InstanceMonthlyTransferOutput struct{ *pulumi.OutputState }
 
@@ -5409,12 +4640,6 @@ func (o InstanceMonthlyTransferOutput) ToInstanceMonthlyTransferPtrOutputWithCon
 	}).(InstanceMonthlyTransferPtrOutput)
 }
 
-func (o InstanceMonthlyTransferOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceMonthlyTransfer] {
-	return pulumix.Output[InstanceMonthlyTransfer]{
-		OutputState: o.OutputState,
-	}
-}
-
 // GbPerMonthAllocated of the Instance.
 func (o InstanceMonthlyTransferOutput) GbPerMonthAllocated() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceMonthlyTransfer) *string { return v.GbPerMonthAllocated }).(pulumi.StringPtrOutput)
@@ -5432,12 +4657,6 @@ func (o InstanceMonthlyTransferPtrOutput) ToInstanceMonthlyTransferPtrOutput() I
 
 func (o InstanceMonthlyTransferPtrOutput) ToInstanceMonthlyTransferPtrOutputWithContext(ctx context.Context) InstanceMonthlyTransferPtrOutput {
 	return o
-}
-
-func (o InstanceMonthlyTransferPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceMonthlyTransfer] {
-	return pulumix.Output[*InstanceMonthlyTransfer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceMonthlyTransferPtrOutput) Elem() InstanceMonthlyTransferOutput {
@@ -5497,12 +4716,6 @@ func (i InstanceNetworkingArgs) ToInstanceNetworkingOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceNetworkingOutput)
 }
 
-func (i InstanceNetworkingArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceNetworking] {
-	return pulumix.Output[InstanceNetworking]{
-		OutputState: i.ToInstanceNetworkingOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InstanceNetworkingArgs) ToInstanceNetworkingPtrOutput() InstanceNetworkingPtrOutput {
 	return i.ToInstanceNetworkingPtrOutputWithContext(context.Background())
 }
@@ -5544,12 +4757,6 @@ func (i *instanceNetworkingPtrType) ToInstanceNetworkingPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceNetworkingPtrOutput)
 }
 
-func (i *instanceNetworkingPtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceNetworking] {
-	return pulumix.Output[*InstanceNetworking]{
-		OutputState: i.ToInstanceNetworkingPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Networking of the Instance.
 type InstanceNetworkingOutput struct{ *pulumi.OutputState }
 
@@ -5575,12 +4782,6 @@ func (o InstanceNetworkingOutput) ToInstanceNetworkingPtrOutputWithContext(ctx c
 	}).(InstanceNetworkingPtrOutput)
 }
 
-func (o InstanceNetworkingOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceNetworking] {
-	return pulumix.Output[InstanceNetworking]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InstanceNetworkingOutput) MonthlyTransfer() InstanceMonthlyTransferPtrOutput {
 	return o.ApplyT(func(v InstanceNetworking) *InstanceMonthlyTransfer { return v.MonthlyTransfer }).(InstanceMonthlyTransferPtrOutput)
 }
@@ -5602,12 +4803,6 @@ func (o InstanceNetworkingPtrOutput) ToInstanceNetworkingPtrOutput() InstanceNet
 
 func (o InstanceNetworkingPtrOutput) ToInstanceNetworkingPtrOutputWithContext(ctx context.Context) InstanceNetworkingPtrOutput {
 	return o
-}
-
-func (o InstanceNetworkingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceNetworking] {
-	return pulumix.Output[*InstanceNetworking]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceNetworkingPtrOutput) Elem() InstanceNetworkingOutput {
@@ -5704,12 +4899,6 @@ func (i InstancePortArgs) ToInstancePortOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, i).(InstancePortOutput)
 }
 
-func (i InstancePortArgs) ToOutput(ctx context.Context) pulumix.Output[InstancePort] {
-	return pulumix.Output[InstancePort]{
-		OutputState: i.ToInstancePortOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InstancePortArrayInput is an input type that accepts InstancePortArray and InstancePortArrayOutput values.
 // You can construct a concrete instance of `InstancePortArrayInput` via:
 //
@@ -5735,12 +4924,6 @@ func (i InstancePortArray) ToInstancePortArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(InstancePortArrayOutput)
 }
 
-func (i InstancePortArray) ToOutput(ctx context.Context) pulumix.Output[[]InstancePort] {
-	return pulumix.Output[[]InstancePort]{
-		OutputState: i.ToInstancePortArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Port of the Instance.
 type InstancePortOutput struct{ *pulumi.OutputState }
 
@@ -5754,12 +4937,6 @@ func (o InstancePortOutput) ToInstancePortOutput() InstancePortOutput {
 
 func (o InstancePortOutput) ToInstancePortOutputWithContext(ctx context.Context) InstancePortOutput {
 	return o
-}
-
-func (o InstancePortOutput) ToOutput(ctx context.Context) pulumix.Output[InstancePort] {
-	return pulumix.Output[InstancePort]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Access Direction for Protocol of the Instance(inbound/outbound).
@@ -5823,12 +5000,6 @@ func (o InstancePortArrayOutput) ToInstancePortArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o InstancePortArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstancePort] {
-	return pulumix.Output[[]InstancePort]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InstancePortArrayOutput) Index(i pulumi.IntInput) InstancePortOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstancePort {
 		return vs[0].([]InstancePort)[vs[1].(int)]
@@ -5874,12 +5045,6 @@ func (i InstanceStateTypeArgs) ToInstanceStateTypeOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceStateTypeOutput)
 }
 
-func (i InstanceStateTypeArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceStateType] {
-	return pulumix.Output[InstanceStateType]{
-		OutputState: i.ToInstanceStateTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InstanceStateTypeArgs) ToInstanceStateTypePtrOutput() InstanceStateTypePtrOutput {
 	return i.ToInstanceStateTypePtrOutputWithContext(context.Background())
 }
@@ -5921,12 +5086,6 @@ func (i *instanceStateTypePtrType) ToInstanceStateTypePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceStateTypePtrOutput)
 }
 
-func (i *instanceStateTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceStateType] {
-	return pulumix.Output[*InstanceStateType]{
-		OutputState: i.ToInstanceStateTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Current State of the Instance.
 type InstanceStateTypeOutput struct{ *pulumi.OutputState }
 
@@ -5952,12 +5111,6 @@ func (o InstanceStateTypeOutput) ToInstanceStateTypePtrOutputWithContext(ctx con
 	}).(InstanceStateTypePtrOutput)
 }
 
-func (o InstanceStateTypeOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceStateType] {
-	return pulumix.Output[InstanceStateType]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Status code of the Instance.
 func (o InstanceStateTypeOutput) Code() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceStateType) *int { return v.Code }).(pulumi.IntPtrOutput)
@@ -5980,12 +5133,6 @@ func (o InstanceStateTypePtrOutput) ToInstanceStateTypePtrOutput() InstanceState
 
 func (o InstanceStateTypePtrOutput) ToInstanceStateTypePtrOutputWithContext(ctx context.Context) InstanceStateTypePtrOutput {
 	return o
-}
-
-func (o InstanceStateTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceStateType] {
-	return pulumix.Output[*InstanceStateType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceStateTypePtrOutput) Elem() InstanceStateTypeOutput {
@@ -6057,12 +5204,6 @@ func (i InstanceTagArgs) ToInstanceTagOutputWithContext(ctx context.Context) Ins
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceTagOutput)
 }
 
-func (i InstanceTagArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceTag] {
-	return pulumix.Output[InstanceTag]{
-		OutputState: i.ToInstanceTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InstanceTagArrayInput is an input type that accepts InstanceTagArray and InstanceTagArrayOutput values.
 // You can construct a concrete instance of `InstanceTagArrayInput` via:
 //
@@ -6088,12 +5229,6 @@ func (i InstanceTagArray) ToInstanceTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceTagArrayOutput)
 }
 
-func (i InstanceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceTag] {
-	return pulumix.Output[[]InstanceTag]{
-		OutputState: i.ToInstanceTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type InstanceTagOutput struct{ *pulumi.OutputState }
 
@@ -6107,12 +5242,6 @@ func (o InstanceTagOutput) ToInstanceTagOutput() InstanceTagOutput {
 
 func (o InstanceTagOutput) ToInstanceTagOutputWithContext(ctx context.Context) InstanceTagOutput {
 	return o
-}
-
-func (o InstanceTagOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceTag] {
-	return pulumix.Output[InstanceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -6137,12 +5266,6 @@ func (o InstanceTagArrayOutput) ToInstanceTagArrayOutput() InstanceTagArrayOutpu
 
 func (o InstanceTagArrayOutput) ToInstanceTagArrayOutputWithContext(ctx context.Context) InstanceTagArrayOutput {
 	return o
-}
-
-func (o InstanceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceTag] {
-	return pulumix.Output[[]InstanceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceTagArrayOutput) Index(i pulumi.IntInput) InstanceTagOutput {
@@ -6190,12 +5313,6 @@ func (i LoadBalancerTagArgs) ToLoadBalancerTagOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerTagOutput)
 }
 
-func (i LoadBalancerTagArgs) ToOutput(ctx context.Context) pulumix.Output[LoadBalancerTag] {
-	return pulumix.Output[LoadBalancerTag]{
-		OutputState: i.ToLoadBalancerTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LoadBalancerTagArrayInput is an input type that accepts LoadBalancerTagArray and LoadBalancerTagArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerTagArrayInput` via:
 //
@@ -6221,12 +5338,6 @@ func (i LoadBalancerTagArray) ToLoadBalancerTagArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerTagArrayOutput)
 }
 
-func (i LoadBalancerTagArray) ToOutput(ctx context.Context) pulumix.Output[[]LoadBalancerTag] {
-	return pulumix.Output[[]LoadBalancerTag]{
-		OutputState: i.ToLoadBalancerTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type LoadBalancerTagOutput struct{ *pulumi.OutputState }
 
@@ -6240,12 +5351,6 @@ func (o LoadBalancerTagOutput) ToLoadBalancerTagOutput() LoadBalancerTagOutput {
 
 func (o LoadBalancerTagOutput) ToLoadBalancerTagOutputWithContext(ctx context.Context) LoadBalancerTagOutput {
 	return o
-}
-
-func (o LoadBalancerTagOutput) ToOutput(ctx context.Context) pulumix.Output[LoadBalancerTag] {
-	return pulumix.Output[LoadBalancerTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -6270,12 +5375,6 @@ func (o LoadBalancerTagArrayOutput) ToLoadBalancerTagArrayOutput() LoadBalancerT
 
 func (o LoadBalancerTagArrayOutput) ToLoadBalancerTagArrayOutputWithContext(ctx context.Context) LoadBalancerTagArrayOutput {
 	return o
-}
-
-func (o LoadBalancerTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LoadBalancerTag] {
-	return pulumix.Output[[]LoadBalancerTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoadBalancerTagArrayOutput) Index(i pulumi.IntInput) LoadBalancerTagOutput {

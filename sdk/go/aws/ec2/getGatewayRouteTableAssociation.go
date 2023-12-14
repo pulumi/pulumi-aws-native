@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates a gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.
@@ -69,12 +68,6 @@ func (o LookupGatewayRouteTableAssociationResultOutput) ToLookupGatewayRouteTabl
 
 func (o LookupGatewayRouteTableAssociationResultOutput) ToLookupGatewayRouteTableAssociationResultOutputWithContext(ctx context.Context) LookupGatewayRouteTableAssociationResultOutput {
 	return o
-}
-
-func (o LookupGatewayRouteTableAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGatewayRouteTableAssociationResult] {
-	return pulumix.Output[LookupGatewayRouteTableAssociationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The route table association ID.

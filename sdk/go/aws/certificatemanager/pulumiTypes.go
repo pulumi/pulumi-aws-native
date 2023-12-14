@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -45,12 +44,6 @@ func (i AccountExpiryEventsConfigurationArgs) ToAccountExpiryEventsConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(AccountExpiryEventsConfigurationOutput)
 }
 
-func (i AccountExpiryEventsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AccountExpiryEventsConfiguration] {
-	return pulumix.Output[AccountExpiryEventsConfiguration]{
-		OutputState: i.ToAccountExpiryEventsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountExpiryEventsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (AccountExpiryEventsConfigurationOutput) ElementType() reflect.Type {
@@ -63,12 +56,6 @@ func (o AccountExpiryEventsConfigurationOutput) ToAccountExpiryEventsConfigurati
 
 func (o AccountExpiryEventsConfigurationOutput) ToAccountExpiryEventsConfigurationOutputWithContext(ctx context.Context) AccountExpiryEventsConfigurationOutput {
 	return o
-}
-
-func (o AccountExpiryEventsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AccountExpiryEventsConfiguration] {
-	return pulumix.Output[AccountExpiryEventsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountExpiryEventsConfigurationOutput) DaysBeforeExpiry() pulumi.IntPtrOutput {
@@ -87,12 +74,6 @@ func (o AccountExpiryEventsConfigurationPtrOutput) ToAccountExpiryEventsConfigur
 
 func (o AccountExpiryEventsConfigurationPtrOutput) ToAccountExpiryEventsConfigurationPtrOutputWithContext(ctx context.Context) AccountExpiryEventsConfigurationPtrOutput {
 	return o
-}
-
-func (o AccountExpiryEventsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountExpiryEventsConfiguration] {
-	return pulumix.Output[*AccountExpiryEventsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountExpiryEventsConfigurationPtrOutput) Elem() AccountExpiryEventsConfigurationOutput {
@@ -149,12 +130,6 @@ func (i CertificateDomainValidationOptionArgs) ToCertificateDomainValidationOpti
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateDomainValidationOptionOutput)
 }
 
-func (i CertificateDomainValidationOptionArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateDomainValidationOption] {
-	return pulumix.Output[CertificateDomainValidationOption]{
-		OutputState: i.ToCertificateDomainValidationOptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificateDomainValidationOptionArrayInput is an input type that accepts CertificateDomainValidationOptionArray and CertificateDomainValidationOptionArrayOutput values.
 // You can construct a concrete instance of `CertificateDomainValidationOptionArrayInput` via:
 //
@@ -180,12 +155,6 @@ func (i CertificateDomainValidationOptionArray) ToCertificateDomainValidationOpt
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateDomainValidationOptionArrayOutput)
 }
 
-func (i CertificateDomainValidationOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]CertificateDomainValidationOption] {
-	return pulumix.Output[[]CertificateDomainValidationOption]{
-		OutputState: i.ToCertificateDomainValidationOptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateDomainValidationOptionOutput struct{ *pulumi.OutputState }
 
 func (CertificateDomainValidationOptionOutput) ElementType() reflect.Type {
@@ -198,12 +167,6 @@ func (o CertificateDomainValidationOptionOutput) ToCertificateDomainValidationOp
 
 func (o CertificateDomainValidationOptionOutput) ToCertificateDomainValidationOptionOutputWithContext(ctx context.Context) CertificateDomainValidationOptionOutput {
 	return o
-}
-
-func (o CertificateDomainValidationOptionOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateDomainValidationOption] {
-	return pulumix.Output[CertificateDomainValidationOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateDomainValidationOptionOutput) DomainName() pulumi.StringOutput {
@@ -230,12 +193,6 @@ func (o CertificateDomainValidationOptionArrayOutput) ToCertificateDomainValidat
 
 func (o CertificateDomainValidationOptionArrayOutput) ToCertificateDomainValidationOptionArrayOutputWithContext(ctx context.Context) CertificateDomainValidationOptionArrayOutput {
 	return o
-}
-
-func (o CertificateDomainValidationOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertificateDomainValidationOption] {
-	return pulumix.Output[[]CertificateDomainValidationOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateDomainValidationOptionArrayOutput) Index(i pulumi.IntInput) CertificateDomainValidationOptionOutput {
@@ -277,12 +234,6 @@ func (i CertificateTagArgs) ToCertificateTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateTagOutput)
 }
 
-func (i CertificateTagArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateTag] {
-	return pulumix.Output[CertificateTag]{
-		OutputState: i.ToCertificateTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificateTagArrayInput is an input type that accepts CertificateTagArray and CertificateTagArrayOutput values.
 // You can construct a concrete instance of `CertificateTagArrayInput` via:
 //
@@ -308,12 +259,6 @@ func (i CertificateTagArray) ToCertificateTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateTagArrayOutput)
 }
 
-func (i CertificateTagArray) ToOutput(ctx context.Context) pulumix.Output[[]CertificateTag] {
-	return pulumix.Output[[]CertificateTag]{
-		OutputState: i.ToCertificateTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateTagOutput struct{ *pulumi.OutputState }
 
 func (CertificateTagOutput) ElementType() reflect.Type {
@@ -326,12 +271,6 @@ func (o CertificateTagOutput) ToCertificateTagOutput() CertificateTagOutput {
 
 func (o CertificateTagOutput) ToCertificateTagOutputWithContext(ctx context.Context) CertificateTagOutput {
 	return o
-}
-
-func (o CertificateTagOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateTag] {
-	return pulumix.Output[CertificateTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateTagOutput) Key() pulumi.StringOutput {
@@ -354,12 +293,6 @@ func (o CertificateTagArrayOutput) ToCertificateTagArrayOutput() CertificateTagA
 
 func (o CertificateTagArrayOutput) ToCertificateTagArrayOutputWithContext(ctx context.Context) CertificateTagArrayOutput {
 	return o
-}
-
-func (o CertificateTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertificateTag] {
-	return pulumix.Output[[]CertificateTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateTagArrayOutput) Index(i pulumi.IntInput) CertificateTagOutput {

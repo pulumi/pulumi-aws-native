@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Kinesis::Stream
@@ -77,12 +76,6 @@ func (o LookupStreamResultOutput) ToLookupStreamResultOutput() LookupStreamResul
 
 func (o LookupStreamResultOutput) ToLookupStreamResultOutputWithContext(ctx context.Context) LookupStreamResultOutput {
 	return o
-}
-
-func (o LookupStreamResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStreamResult] {
-	return pulumix.Output[LookupStreamResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon resource name (ARN) of the Kinesis stream

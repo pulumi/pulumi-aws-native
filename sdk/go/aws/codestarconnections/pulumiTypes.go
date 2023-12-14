@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i ConnectionTagArgs) ToConnectionTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionTagOutput)
 }
 
-func (i ConnectionTagArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectionTag] {
-	return pulumix.Output[ConnectionTag]{
-		OutputState: i.ToConnectionTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConnectionTagArrayInput is an input type that accepts ConnectionTagArray and ConnectionTagArrayOutput values.
 // You can construct a concrete instance of `ConnectionTagArrayInput` via:
 //
@@ -84,12 +77,6 @@ func (i ConnectionTagArray) ToConnectionTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionTagArrayOutput)
 }
 
-func (i ConnectionTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ConnectionTag] {
-	return pulumix.Output[[]ConnectionTag]{
-		OutputState: i.ToConnectionTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type ConnectionTagOutput struct{ *pulumi.OutputState }
 
@@ -103,12 +90,6 @@ func (o ConnectionTagOutput) ToConnectionTagOutput() ConnectionTagOutput {
 
 func (o ConnectionTagOutput) ToConnectionTagOutputWithContext(ctx context.Context) ConnectionTagOutput {
 	return o
-}
-
-func (o ConnectionTagOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectionTag] {
-	return pulumix.Output[ConnectionTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -133,12 +114,6 @@ func (o ConnectionTagArrayOutput) ToConnectionTagArrayOutput() ConnectionTagArra
 
 func (o ConnectionTagArrayOutput) ToConnectionTagArrayOutputWithContext(ctx context.Context) ConnectionTagArrayOutput {
 	return o
-}
-
-func (o ConnectionTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConnectionTag] {
-	return pulumix.Output[[]ConnectionTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectionTagArrayOutput) Index(i pulumi.IntInput) ConnectionTagOutput {
@@ -186,12 +161,6 @@ func (i RepositoryLinkTagArgs) ToRepositoryLinkTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryLinkTagOutput)
 }
 
-func (i RepositoryLinkTagArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryLinkTag] {
-	return pulumix.Output[RepositoryLinkTag]{
-		OutputState: i.ToRepositoryLinkTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryLinkTagArrayInput is an input type that accepts RepositoryLinkTagArray and RepositoryLinkTagArrayOutput values.
 // You can construct a concrete instance of `RepositoryLinkTagArrayInput` via:
 //
@@ -217,12 +186,6 @@ func (i RepositoryLinkTagArray) ToRepositoryLinkTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryLinkTagArrayOutput)
 }
 
-func (i RepositoryLinkTagArray) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryLinkTag] {
-	return pulumix.Output[[]RepositoryLinkTag]{
-		OutputState: i.ToRepositoryLinkTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type RepositoryLinkTagOutput struct{ *pulumi.OutputState }
 
@@ -236,12 +199,6 @@ func (o RepositoryLinkTagOutput) ToRepositoryLinkTagOutput() RepositoryLinkTagOu
 
 func (o RepositoryLinkTagOutput) ToRepositoryLinkTagOutputWithContext(ctx context.Context) RepositoryLinkTagOutput {
 	return o
-}
-
-func (o RepositoryLinkTagOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryLinkTag] {
-	return pulumix.Output[RepositoryLinkTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, , ., /, =, +, and -.
@@ -266,12 +223,6 @@ func (o RepositoryLinkTagArrayOutput) ToRepositoryLinkTagArrayOutput() Repositor
 
 func (o RepositoryLinkTagArrayOutput) ToRepositoryLinkTagArrayOutputWithContext(ctx context.Context) RepositoryLinkTagArrayOutput {
 	return o
-}
-
-func (o RepositoryLinkTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryLinkTag] {
-	return pulumix.Output[[]RepositoryLinkTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryLinkTagArrayOutput) Index(i pulumi.IntInput) RepositoryLinkTagOutput {

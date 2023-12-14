@@ -78,12 +78,6 @@ func (o CalculatedAttributeDefinitionRangeUnitOutput) ToCalculatedAttributeDefin
 	}).(CalculatedAttributeDefinitionRangeUnitPtrOutput)
 }
 
-func (o CalculatedAttributeDefinitionRangeUnitOutput) ToOutput(ctx context.Context) pulumix.Output[CalculatedAttributeDefinitionRangeUnit] {
-	return pulumix.Output[CalculatedAttributeDefinitionRangeUnit]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CalculatedAttributeDefinitionRangeUnitOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -117,12 +111,6 @@ func (o CalculatedAttributeDefinitionRangeUnitPtrOutput) ToCalculatedAttributeDe
 
 func (o CalculatedAttributeDefinitionRangeUnitPtrOutput) ToCalculatedAttributeDefinitionRangeUnitPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionRangeUnitPtrOutput {
 	return o
-}
-
-func (o CalculatedAttributeDefinitionRangeUnitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CalculatedAttributeDefinitionRangeUnit] {
-	return pulumix.Output[*CalculatedAttributeDefinitionRangeUnit]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CalculatedAttributeDefinitionRangeUnitPtrOutput) Elem() CalculatedAttributeDefinitionRangeUnitOutput {
@@ -267,12 +255,6 @@ func (o CalculatedAttributeDefinitionStatisticOutput) ToCalculatedAttributeDefin
 	}).(CalculatedAttributeDefinitionStatisticPtrOutput)
 }
 
-func (o CalculatedAttributeDefinitionStatisticOutput) ToOutput(ctx context.Context) pulumix.Output[CalculatedAttributeDefinitionStatistic] {
-	return pulumix.Output[CalculatedAttributeDefinitionStatistic]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CalculatedAttributeDefinitionStatisticOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -306,12 +288,6 @@ func (o CalculatedAttributeDefinitionStatisticPtrOutput) ToCalculatedAttributeDe
 
 func (o CalculatedAttributeDefinitionStatisticPtrOutput) ToCalculatedAttributeDefinitionStatisticPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionStatisticPtrOutput {
 	return o
-}
-
-func (o CalculatedAttributeDefinitionStatisticPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CalculatedAttributeDefinitionStatistic] {
-	return pulumix.Output[*CalculatedAttributeDefinitionStatistic]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CalculatedAttributeDefinitionStatisticPtrOutput) Elem() CalculatedAttributeDefinitionStatisticOutput {
@@ -452,12 +428,6 @@ func (o CalculatedAttributeDefinitionThresholdOperatorOutput) ToCalculatedAttrib
 	}).(CalculatedAttributeDefinitionThresholdOperatorPtrOutput)
 }
 
-func (o CalculatedAttributeDefinitionThresholdOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[CalculatedAttributeDefinitionThresholdOperator] {
-	return pulumix.Output[CalculatedAttributeDefinitionThresholdOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CalculatedAttributeDefinitionThresholdOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -491,12 +461,6 @@ func (o CalculatedAttributeDefinitionThresholdOperatorPtrOutput) ToCalculatedAtt
 
 func (o CalculatedAttributeDefinitionThresholdOperatorPtrOutput) ToCalculatedAttributeDefinitionThresholdOperatorPtrOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionThresholdOperatorPtrOutput {
 	return o
-}
-
-func (o CalculatedAttributeDefinitionThresholdOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CalculatedAttributeDefinitionThresholdOperator] {
-	return pulumix.Output[*CalculatedAttributeDefinitionThresholdOperator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CalculatedAttributeDefinitionThresholdOperatorPtrOutput) Elem() CalculatedAttributeDefinitionThresholdOperatorOutput {
@@ -635,12 +599,6 @@ func (o DomainAttributeTypesSelectorAttributeMatchingModelOutput) ToDomainAttrib
 	}).(DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput)
 }
 
-func (o DomainAttributeTypesSelectorAttributeMatchingModelOutput) ToOutput(ctx context.Context) pulumix.Output[DomainAttributeTypesSelectorAttributeMatchingModel] {
-	return pulumix.Output[DomainAttributeTypesSelectorAttributeMatchingModel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainAttributeTypesSelectorAttributeMatchingModelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -674,12 +632,6 @@ func (o DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput) ToDomainAtt
 
 func (o DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput) ToDomainAttributeTypesSelectorAttributeMatchingModelPtrOutputWithContext(ctx context.Context) DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput {
 	return o
-}
-
-func (o DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainAttributeTypesSelectorAttributeMatchingModel] {
-	return pulumix.Output[*DomainAttributeTypesSelectorAttributeMatchingModel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainAttributeTypesSelectorAttributeMatchingModelPtrOutput) Elem() DomainAttributeTypesSelectorAttributeMatchingModelOutput {
@@ -818,12 +770,6 @@ func (o DomainConflictResolutionConflictResolvingModelOutput) ToDomainConflictRe
 	}).(DomainConflictResolutionConflictResolvingModelPtrOutput)
 }
 
-func (o DomainConflictResolutionConflictResolvingModelOutput) ToOutput(ctx context.Context) pulumix.Output[DomainConflictResolutionConflictResolvingModel] {
-	return pulumix.Output[DomainConflictResolutionConflictResolvingModel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainConflictResolutionConflictResolvingModelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -857,12 +803,6 @@ func (o DomainConflictResolutionConflictResolvingModelPtrOutput) ToDomainConflic
 
 func (o DomainConflictResolutionConflictResolvingModelPtrOutput) ToDomainConflictResolutionConflictResolvingModelPtrOutputWithContext(ctx context.Context) DomainConflictResolutionConflictResolvingModelPtrOutput {
 	return o
-}
-
-func (o DomainConflictResolutionConflictResolvingModelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainConflictResolutionConflictResolvingModel] {
-	return pulumix.Output[*DomainConflictResolutionConflictResolvingModel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainConflictResolutionConflictResolvingModelPtrOutput) Elem() DomainConflictResolutionConflictResolvingModelOutput {
@@ -1006,12 +946,6 @@ func (o DomainJobScheduleDayOfTheWeekOutput) ToDomainJobScheduleDayOfTheWeekPtrO
 	}).(DomainJobScheduleDayOfTheWeekPtrOutput)
 }
 
-func (o DomainJobScheduleDayOfTheWeekOutput) ToOutput(ctx context.Context) pulumix.Output[DomainJobScheduleDayOfTheWeek] {
-	return pulumix.Output[DomainJobScheduleDayOfTheWeek]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainJobScheduleDayOfTheWeekOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1045,12 +979,6 @@ func (o DomainJobScheduleDayOfTheWeekPtrOutput) ToDomainJobScheduleDayOfTheWeekP
 
 func (o DomainJobScheduleDayOfTheWeekPtrOutput) ToDomainJobScheduleDayOfTheWeekPtrOutputWithContext(ctx context.Context) DomainJobScheduleDayOfTheWeekPtrOutput {
 	return o
-}
-
-func (o DomainJobScheduleDayOfTheWeekPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainJobScheduleDayOfTheWeek] {
-	return pulumix.Output[*DomainJobScheduleDayOfTheWeek]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainJobScheduleDayOfTheWeekPtrOutput) Elem() DomainJobScheduleDayOfTheWeekOutput {
@@ -1189,12 +1117,6 @@ func (o DomainRuleBasedMatchingStatusOutput) ToDomainRuleBasedMatchingStatusPtrO
 	}).(DomainRuleBasedMatchingStatusPtrOutput)
 }
 
-func (o DomainRuleBasedMatchingStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DomainRuleBasedMatchingStatus] {
-	return pulumix.Output[DomainRuleBasedMatchingStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DomainRuleBasedMatchingStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1228,12 +1150,6 @@ func (o DomainRuleBasedMatchingStatusPtrOutput) ToDomainRuleBasedMatchingStatusP
 
 func (o DomainRuleBasedMatchingStatusPtrOutput) ToDomainRuleBasedMatchingStatusPtrOutputWithContext(ctx context.Context) DomainRuleBasedMatchingStatusPtrOutput {
 	return o
-}
-
-func (o DomainRuleBasedMatchingStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainRuleBasedMatchingStatus] {
-	return pulumix.Output[*DomainRuleBasedMatchingStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DomainRuleBasedMatchingStatusPtrOutput) Elem() DomainRuleBasedMatchingStatusOutput {
@@ -1336,12 +1252,6 @@ func (o EventStreamStateEnumOutput) ToEventStreamStateEnumPtrOutputWithContext(c
 	}).(EventStreamStateEnumPtrOutput)
 }
 
-func (o EventStreamStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[EventStreamStateEnum] {
-	return pulumix.Output[EventStreamStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventStreamStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1375,12 +1285,6 @@ func (o EventStreamStateEnumPtrOutput) ToEventStreamStateEnumPtrOutput() EventSt
 
 func (o EventStreamStateEnumPtrOutput) ToEventStreamStateEnumPtrOutputWithContext(ctx context.Context) EventStreamStateEnumPtrOutput {
 	return o
-}
-
-func (o EventStreamStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventStreamStateEnum] {
-	return pulumix.Output[*EventStreamStateEnum]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventStreamStateEnumPtrOutput) Elem() EventStreamStateEnumOutput {
@@ -1439,12 +1343,6 @@ func (o EventStreamStatusOutput) ToEventStreamStatusPtrOutputWithContext(ctx con
 	}).(EventStreamStatusPtrOutput)
 }
 
-func (o EventStreamStatusOutput) ToOutput(ctx context.Context) pulumix.Output[EventStreamStatus] {
-	return pulumix.Output[EventStreamStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventStreamStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1478,12 +1376,6 @@ func (o EventStreamStatusPtrOutput) ToEventStreamStatusPtrOutput() EventStreamSt
 
 func (o EventStreamStatusPtrOutput) ToEventStreamStatusPtrOutputWithContext(ctx context.Context) EventStreamStatusPtrOutput {
 	return o
-}
-
-func (o EventStreamStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*EventStreamStatus] {
-	return pulumix.Output[*EventStreamStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventStreamStatusPtrOutput) Elem() EventStreamStatusOutput {
@@ -1580,12 +1472,6 @@ func (o IntegrationConnectorTypeOutput) ToIntegrationConnectorTypePtrOutputWithC
 	}).(IntegrationConnectorTypePtrOutput)
 }
 
-func (o IntegrationConnectorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationConnectorType] {
-	return pulumix.Output[IntegrationConnectorType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationConnectorTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1619,12 +1505,6 @@ func (o IntegrationConnectorTypePtrOutput) ToIntegrationConnectorTypePtrOutput()
 
 func (o IntegrationConnectorTypePtrOutput) ToIntegrationConnectorTypePtrOutputWithContext(ctx context.Context) IntegrationConnectorTypePtrOutput {
 	return o
-}
-
-func (o IntegrationConnectorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationConnectorType] {
-	return pulumix.Output[*IntegrationConnectorType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationConnectorTypePtrOutput) Elem() IntegrationConnectorTypeOutput {
@@ -1776,12 +1656,6 @@ func (o IntegrationMarketoConnectorOperatorOutput) ToIntegrationMarketoConnector
 	}).(IntegrationMarketoConnectorOperatorPtrOutput)
 }
 
-func (o IntegrationMarketoConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationMarketoConnectorOperator] {
-	return pulumix.Output[IntegrationMarketoConnectorOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationMarketoConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1815,12 +1689,6 @@ func (o IntegrationMarketoConnectorOperatorPtrOutput) ToIntegrationMarketoConnec
 
 func (o IntegrationMarketoConnectorOperatorPtrOutput) ToIntegrationMarketoConnectorOperatorPtrOutputWithContext(ctx context.Context) IntegrationMarketoConnectorOperatorPtrOutput {
 	return o
-}
-
-func (o IntegrationMarketoConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationMarketoConnectorOperator] {
-	return pulumix.Output[*IntegrationMarketoConnectorOperator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationMarketoConnectorOperatorPtrOutput) Elem() IntegrationMarketoConnectorOperatorOutput {
@@ -1970,12 +1838,6 @@ func (o IntegrationOperatorPropertiesKeysOutput) ToIntegrationOperatorProperties
 	}).(IntegrationOperatorPropertiesKeysPtrOutput)
 }
 
-func (o IntegrationOperatorPropertiesKeysOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationOperatorPropertiesKeys] {
-	return pulumix.Output[IntegrationOperatorPropertiesKeys]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationOperatorPropertiesKeysOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2009,12 +1871,6 @@ func (o IntegrationOperatorPropertiesKeysPtrOutput) ToIntegrationOperatorPropert
 
 func (o IntegrationOperatorPropertiesKeysPtrOutput) ToIntegrationOperatorPropertiesKeysPtrOutputWithContext(ctx context.Context) IntegrationOperatorPropertiesKeysPtrOutput {
 	return o
-}
-
-func (o IntegrationOperatorPropertiesKeysPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationOperatorPropertiesKeys] {
-	return pulumix.Output[*IntegrationOperatorPropertiesKeys]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationOperatorPropertiesKeysPtrOutput) Elem() IntegrationOperatorPropertiesKeysOutput {
@@ -2170,12 +2026,6 @@ func (o IntegrationS3ConnectorOperatorOutput) ToIntegrationS3ConnectorOperatorPt
 	}).(IntegrationS3ConnectorOperatorPtrOutput)
 }
 
-func (o IntegrationS3ConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationS3ConnectorOperator] {
-	return pulumix.Output[IntegrationS3ConnectorOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationS3ConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2209,12 +2059,6 @@ func (o IntegrationS3ConnectorOperatorPtrOutput) ToIntegrationS3ConnectorOperato
 
 func (o IntegrationS3ConnectorOperatorPtrOutput) ToIntegrationS3ConnectorOperatorPtrOutputWithContext(ctx context.Context) IntegrationS3ConnectorOperatorPtrOutput {
 	return o
-}
-
-func (o IntegrationS3ConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationS3ConnectorOperator] {
-	return pulumix.Output[*IntegrationS3ConnectorOperator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationS3ConnectorOperatorPtrOutput) Elem() IntegrationS3ConnectorOperatorOutput {
@@ -2371,12 +2215,6 @@ func (o IntegrationSalesforceConnectorOperatorOutput) ToIntegrationSalesforceCon
 	}).(IntegrationSalesforceConnectorOperatorPtrOutput)
 }
 
-func (o IntegrationSalesforceConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationSalesforceConnectorOperator] {
-	return pulumix.Output[IntegrationSalesforceConnectorOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationSalesforceConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2410,12 +2248,6 @@ func (o IntegrationSalesforceConnectorOperatorPtrOutput) ToIntegrationSalesforce
 
 func (o IntegrationSalesforceConnectorOperatorPtrOutput) ToIntegrationSalesforceConnectorOperatorPtrOutputWithContext(ctx context.Context) IntegrationSalesforceConnectorOperatorPtrOutput {
 	return o
-}
-
-func (o IntegrationSalesforceConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationSalesforceConnectorOperator] {
-	return pulumix.Output[*IntegrationSalesforceConnectorOperator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationSalesforceConnectorOperatorPtrOutput) Elem() IntegrationSalesforceConnectorOperatorOutput {
@@ -2553,12 +2385,6 @@ func (o IntegrationScheduledTriggerPropertiesDataPullModeOutput) ToIntegrationSc
 	}).(IntegrationScheduledTriggerPropertiesDataPullModePtrOutput)
 }
 
-func (o IntegrationScheduledTriggerPropertiesDataPullModeOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationScheduledTriggerPropertiesDataPullMode] {
-	return pulumix.Output[IntegrationScheduledTriggerPropertiesDataPullMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationScheduledTriggerPropertiesDataPullModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2592,12 +2418,6 @@ func (o IntegrationScheduledTriggerPropertiesDataPullModePtrOutput) ToIntegratio
 
 func (o IntegrationScheduledTriggerPropertiesDataPullModePtrOutput) ToIntegrationScheduledTriggerPropertiesDataPullModePtrOutputWithContext(ctx context.Context) IntegrationScheduledTriggerPropertiesDataPullModePtrOutput {
 	return o
-}
-
-func (o IntegrationScheduledTriggerPropertiesDataPullModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationScheduledTriggerPropertiesDataPullMode] {
-	return pulumix.Output[*IntegrationScheduledTriggerPropertiesDataPullMode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationScheduledTriggerPropertiesDataPullModePtrOutput) Elem() IntegrationScheduledTriggerPropertiesDataPullModeOutput {
@@ -2754,12 +2574,6 @@ func (o IntegrationServiceNowConnectorOperatorOutput) ToIntegrationServiceNowCon
 	}).(IntegrationServiceNowConnectorOperatorPtrOutput)
 }
 
-func (o IntegrationServiceNowConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationServiceNowConnectorOperator] {
-	return pulumix.Output[IntegrationServiceNowConnectorOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationServiceNowConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2793,12 +2607,6 @@ func (o IntegrationServiceNowConnectorOperatorPtrOutput) ToIntegrationServiceNow
 
 func (o IntegrationServiceNowConnectorOperatorPtrOutput) ToIntegrationServiceNowConnectorOperatorPtrOutputWithContext(ctx context.Context) IntegrationServiceNowConnectorOperatorPtrOutput {
 	return o
-}
-
-func (o IntegrationServiceNowConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationServiceNowConnectorOperator] {
-	return pulumix.Output[*IntegrationServiceNowConnectorOperator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationServiceNowConnectorOperatorPtrOutput) Elem() IntegrationServiceNowConnectorOperatorOutput {
@@ -2941,12 +2749,6 @@ func (o IntegrationTaskTypeOutput) ToIntegrationTaskTypePtrOutputWithContext(ctx
 	}).(IntegrationTaskTypePtrOutput)
 }
 
-func (o IntegrationTaskTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationTaskType] {
-	return pulumix.Output[IntegrationTaskType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationTaskTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2980,12 +2782,6 @@ func (o IntegrationTaskTypePtrOutput) ToIntegrationTaskTypePtrOutput() Integrati
 
 func (o IntegrationTaskTypePtrOutput) ToIntegrationTaskTypePtrOutputWithContext(ctx context.Context) IntegrationTaskTypePtrOutput {
 	return o
-}
-
-func (o IntegrationTaskTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationTaskType] {
-	return pulumix.Output[*IntegrationTaskType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationTaskTypePtrOutput) Elem() IntegrationTaskTypeOutput {
@@ -3124,12 +2920,6 @@ func (o IntegrationTriggerTypeOutput) ToIntegrationTriggerTypePtrOutputWithConte
 	}).(IntegrationTriggerTypePtrOutput)
 }
 
-func (o IntegrationTriggerTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationTriggerType] {
-	return pulumix.Output[IntegrationTriggerType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationTriggerTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3163,12 +2953,6 @@ func (o IntegrationTriggerTypePtrOutput) ToIntegrationTriggerTypePtrOutput() Int
 
 func (o IntegrationTriggerTypePtrOutput) ToIntegrationTriggerTypePtrOutputWithContext(ctx context.Context) IntegrationTriggerTypePtrOutput {
 	return o
-}
-
-func (o IntegrationTriggerTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationTriggerType] {
-	return pulumix.Output[*IntegrationTriggerType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationTriggerTypePtrOutput) Elem() IntegrationTriggerTypeOutput {
@@ -3318,12 +3102,6 @@ func (o IntegrationZendeskConnectorOperatorOutput) ToIntegrationZendeskConnector
 	}).(IntegrationZendeskConnectorOperatorPtrOutput)
 }
 
-func (o IntegrationZendeskConnectorOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[IntegrationZendeskConnectorOperator] {
-	return pulumix.Output[IntegrationZendeskConnectorOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationZendeskConnectorOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3357,12 +3135,6 @@ func (o IntegrationZendeskConnectorOperatorPtrOutput) ToIntegrationZendeskConnec
 
 func (o IntegrationZendeskConnectorOperatorPtrOutput) ToIntegrationZendeskConnectorOperatorPtrOutputWithContext(ctx context.Context) IntegrationZendeskConnectorOperatorPtrOutput {
 	return o
-}
-
-func (o IntegrationZendeskConnectorOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationZendeskConnectorOperator] {
-	return pulumix.Output[*IntegrationZendeskConnectorOperator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationZendeskConnectorOperatorPtrOutput) Elem() IntegrationZendeskConnectorOperatorOutput {
@@ -3504,12 +3276,6 @@ func (o ObjectTypeFieldContentTypeOutput) ToObjectTypeFieldContentTypePtrOutputW
 	}).(ObjectTypeFieldContentTypePtrOutput)
 }
 
-func (o ObjectTypeFieldContentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ObjectTypeFieldContentType] {
-	return pulumix.Output[ObjectTypeFieldContentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ObjectTypeFieldContentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3543,12 +3309,6 @@ func (o ObjectTypeFieldContentTypePtrOutput) ToObjectTypeFieldContentTypePtrOutp
 
 func (o ObjectTypeFieldContentTypePtrOutput) ToObjectTypeFieldContentTypePtrOutputWithContext(ctx context.Context) ObjectTypeFieldContentTypePtrOutput {
 	return o
-}
-
-func (o ObjectTypeFieldContentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ObjectTypeFieldContentType] {
-	return pulumix.Output[*ObjectTypeFieldContentType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ObjectTypeFieldContentTypePtrOutput) Elem() ObjectTypeFieldContentTypeOutput {
@@ -3692,12 +3452,6 @@ func (o ObjectTypeKeyStandardIdentifiersItemOutput) ToObjectTypeKeyStandardIdent
 	}).(ObjectTypeKeyStandardIdentifiersItemPtrOutput)
 }
 
-func (o ObjectTypeKeyStandardIdentifiersItemOutput) ToOutput(ctx context.Context) pulumix.Output[ObjectTypeKeyStandardIdentifiersItem] {
-	return pulumix.Output[ObjectTypeKeyStandardIdentifiersItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ObjectTypeKeyStandardIdentifiersItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3731,12 +3485,6 @@ func (o ObjectTypeKeyStandardIdentifiersItemPtrOutput) ToObjectTypeKeyStandardId
 
 func (o ObjectTypeKeyStandardIdentifiersItemPtrOutput) ToObjectTypeKeyStandardIdentifiersItemPtrOutputWithContext(ctx context.Context) ObjectTypeKeyStandardIdentifiersItemPtrOutput {
 	return o
-}
-
-func (o ObjectTypeKeyStandardIdentifiersItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ObjectTypeKeyStandardIdentifiersItem] {
-	return pulumix.Output[*ObjectTypeKeyStandardIdentifiersItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ObjectTypeKeyStandardIdentifiersItemPtrOutput) Elem() ObjectTypeKeyStandardIdentifiersItemOutput {
@@ -3832,12 +3580,6 @@ func (i ObjectTypeKeyStandardIdentifiersItemArray) ToObjectTypeKeyStandardIdenti
 	return pulumi.ToOutputWithContext(ctx, i).(ObjectTypeKeyStandardIdentifiersItemArrayOutput)
 }
 
-func (i ObjectTypeKeyStandardIdentifiersItemArray) ToOutput(ctx context.Context) pulumix.Output[[]ObjectTypeKeyStandardIdentifiersItem] {
-	return pulumix.Output[[]ObjectTypeKeyStandardIdentifiersItem]{
-		OutputState: i.ToObjectTypeKeyStandardIdentifiersItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ObjectTypeKeyStandardIdentifiersItemArrayOutput struct{ *pulumi.OutputState }
 
 func (ObjectTypeKeyStandardIdentifiersItemArrayOutput) ElementType() reflect.Type {
@@ -3850,12 +3592,6 @@ func (o ObjectTypeKeyStandardIdentifiersItemArrayOutput) ToObjectTypeKeyStandard
 
 func (o ObjectTypeKeyStandardIdentifiersItemArrayOutput) ToObjectTypeKeyStandardIdentifiersItemArrayOutputWithContext(ctx context.Context) ObjectTypeKeyStandardIdentifiersItemArrayOutput {
 	return o
-}
-
-func (o ObjectTypeKeyStandardIdentifiersItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ObjectTypeKeyStandardIdentifiersItem] {
-	return pulumix.Output[[]ObjectTypeKeyStandardIdentifiersItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ObjectTypeKeyStandardIdentifiersItemArrayOutput) Index(i pulumi.IntInput) ObjectTypeKeyStandardIdentifiersItemOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for ResourceGroups::Group
@@ -117,12 +116,6 @@ func (i *Group) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupOutput)
 }
 
-func (i *Group) ToOutput(ctx context.Context) pulumix.Output[*Group] {
-	return pulumix.Output[*Group]{
-		OutputState: i.ToGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GroupOutput struct{ *pulumi.OutputState }
 
 func (GroupOutput) ElementType() reflect.Type {
@@ -135,12 +128,6 @@ func (o GroupOutput) ToGroupOutput() GroupOutput {
 
 func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return o
-}
-
-func (o GroupOutput) ToOutput(ctx context.Context) pulumix.Output[*Group] {
-	return pulumix.Output[*Group]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Resource Group ARN.

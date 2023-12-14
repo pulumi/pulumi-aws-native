@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppMesh::VirtualRouter
@@ -120,12 +119,6 @@ func (i *VirtualRouter) ToVirtualRouterOutputWithContext(ctx context.Context) Vi
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualRouterOutput)
 }
 
-func (i *VirtualRouter) ToOutput(ctx context.Context) pulumix.Output[*VirtualRouter] {
-	return pulumix.Output[*VirtualRouter]{
-		OutputState: i.ToVirtualRouterOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualRouterOutput struct{ *pulumi.OutputState }
 
 func (VirtualRouterOutput) ElementType() reflect.Type {
@@ -138,12 +131,6 @@ func (o VirtualRouterOutput) ToVirtualRouterOutput() VirtualRouterOutput {
 
 func (o VirtualRouterOutput) ToVirtualRouterOutputWithContext(ctx context.Context) VirtualRouterOutput {
 	return o
-}
-
-func (o VirtualRouterOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualRouter] {
-	return pulumix.Output[*VirtualRouter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualRouterOutput) Arn() pulumi.StringOutput {

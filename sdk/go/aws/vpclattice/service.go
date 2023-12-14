@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).
@@ -114,12 +113,6 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceOutput)
 }
 
-func (i *Service) ToOutput(ctx context.Context) pulumix.Output[*Service] {
-	return pulumix.Output[*Service]{
-		OutputState: i.ToServiceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceOutput struct{ *pulumi.OutputState }
 
 func (ServiceOutput) ElementType() reflect.Type {
@@ -132,12 +125,6 @@ func (o ServiceOutput) ToServiceOutput() ServiceOutput {
 
 func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOutput {
 	return o
-}
-
-func (o ServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*Service] {
-	return pulumix.Output[*Service]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceOutput) Arn() pulumi.StringOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i ClusterTagArgs) ToClusterTagOutputWithContext(ctx context.Context) Clust
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterTagOutput)
 }
 
-func (i ClusterTagArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterTag] {
-	return pulumix.Output[ClusterTag]{
-		OutputState: i.ToClusterTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterTagArrayInput is an input type that accepts ClusterTagArray and ClusterTagArrayOutput values.
 // You can construct a concrete instance of `ClusterTagArrayInput` via:
 //
@@ -78,12 +71,6 @@ func (i ClusterTagArray) ToClusterTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterTagArrayOutput)
 }
 
-func (i ClusterTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterTag] {
-	return pulumix.Output[[]ClusterTag]{
-		OutputState: i.ToClusterTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterTagOutput struct{ *pulumi.OutputState }
 
 func (ClusterTagOutput) ElementType() reflect.Type {
@@ -96,12 +83,6 @@ func (o ClusterTagOutput) ToClusterTagOutput() ClusterTagOutput {
 
 func (o ClusterTagOutput) ToClusterTagOutputWithContext(ctx context.Context) ClusterTagOutput {
 	return o
-}
-
-func (o ClusterTagOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterTag] {
-	return pulumix.Output[ClusterTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterTagOutput) Key() pulumi.StringOutput {
@@ -124,12 +105,6 @@ func (o ClusterTagArrayOutput) ToClusterTagArrayOutput() ClusterTagArrayOutput {
 
 func (o ClusterTagArrayOutput) ToClusterTagArrayOutputWithContext(ctx context.Context) ClusterTagArrayOutput {
 	return o
-}
-
-func (o ClusterTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterTag] {
-	return pulumix.Output[[]ClusterTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterTagArrayOutput) Index(i pulumi.IntInput) ClusterTagOutput {

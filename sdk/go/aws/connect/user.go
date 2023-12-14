@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::User
@@ -165,12 +164,6 @@ func (i *User) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserOutput)
 }
 
-func (i *User) ToOutput(ctx context.Context) pulumix.Output[*User] {
-	return pulumix.Output[*User]{
-		OutputState: i.ToUserOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserOutput struct{ *pulumi.OutputState }
 
 func (UserOutput) ElementType() reflect.Type {
@@ -183,12 +176,6 @@ func (o UserOutput) ToUserOutput() UserOutput {
 
 func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
-}
-
-func (o UserOutput) ToOutput(ctx context.Context) pulumix.Output[*User] {
-	return pulumix.Output[*User]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The identifier of the user account in the directory used for identity management.

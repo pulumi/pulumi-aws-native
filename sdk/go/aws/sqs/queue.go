@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SQS::Queue
@@ -192,12 +191,6 @@ func (i *Queue) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QueueOutput)
 }
 
-func (i *Queue) ToOutput(ctx context.Context) pulumix.Output[*Queue] {
-	return pulumix.Output[*Queue]{
-		OutputState: i.ToQueueOutputWithContext(ctx).OutputState,
-	}
-}
-
 type QueueOutput struct{ *pulumi.OutputState }
 
 func (QueueOutput) ElementType() reflect.Type {
@@ -210,12 +203,6 @@ func (o QueueOutput) ToQueueOutput() QueueOutput {
 
 func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return o
-}
-
-func (o QueueOutput) ToOutput(ctx context.Context) pulumix.Output[*Queue] {
-	return pulumix.Output[*Queue]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the queue.

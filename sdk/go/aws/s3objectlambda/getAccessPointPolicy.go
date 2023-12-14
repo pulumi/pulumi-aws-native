@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::S3ObjectLambda::AccessPointPolicy resource is an Amazon S3ObjectLambda policy type that you can use to control permissions for your S3ObjectLambda
@@ -67,12 +66,6 @@ func (o LookupAccessPointPolicyResultOutput) ToLookupAccessPointPolicyResultOutp
 
 func (o LookupAccessPointPolicyResultOutput) ToLookupAccessPointPolicyResultOutputWithContext(ctx context.Context) LookupAccessPointPolicyResultOutput {
 	return o
-}
-
-func (o LookupAccessPointPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAccessPointPolicyResult] {
-	return pulumix.Output[LookupAccessPointPolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A policy document containing permissions to add to the specified ObjectLambdaAccessPoint. For more information, see Access Policy Language Overview (https://docs.aws.amazon.com/AmazonS3/latest/dev/access-policy-language-overview.html) in the Amazon Simple Storage Service Developer Guide.

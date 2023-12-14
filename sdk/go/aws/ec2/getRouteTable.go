@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::RouteTable
@@ -69,12 +68,6 @@ func (o LookupRouteTableResultOutput) ToLookupRouteTableResultOutput() LookupRou
 
 func (o LookupRouteTableResultOutput) ToLookupRouteTableResultOutputWithContext(ctx context.Context) LookupRouteTableResultOutput {
 	return o
-}
-
-func (o LookupRouteTableResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRouteTableResult] {
-	return pulumix.Output[LookupRouteTableResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The route table ID.

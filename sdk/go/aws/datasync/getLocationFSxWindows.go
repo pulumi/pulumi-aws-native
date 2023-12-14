@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataSync::LocationFSxWindows.
@@ -71,12 +70,6 @@ func (o LookupLocationFSxWindowsResultOutput) ToLookupLocationFSxWindowsResultOu
 
 func (o LookupLocationFSxWindowsResultOutput) ToLookupLocationFSxWindowsResultOutputWithContext(ctx context.Context) LookupLocationFSxWindowsResultOutput {
 	return o
-}
-
-func (o LookupLocationFSxWindowsResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLocationFSxWindowsResult] {
-	return pulumix.Output[LookupLocationFSxWindowsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.

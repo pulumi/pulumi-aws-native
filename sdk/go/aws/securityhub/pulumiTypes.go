@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i AutomationRuleDateFilterArgs) ToAutomationRuleDateFilterOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleDateFilterOutput)
 }
 
-func (i AutomationRuleDateFilterArgs) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleDateFilter] {
-	return pulumix.Output[AutomationRuleDateFilter]{
-		OutputState: i.ToAutomationRuleDateFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutomationRuleDateFilterArrayInput is an input type that accepts AutomationRuleDateFilterArray and AutomationRuleDateFilterArrayOutput values.
 // You can construct a concrete instance of `AutomationRuleDateFilterArrayInput` via:
 //
@@ -80,12 +73,6 @@ func (i AutomationRuleDateFilterArray) ToAutomationRuleDateFilterArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleDateFilterArrayOutput)
 }
 
-func (i AutomationRuleDateFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]AutomationRuleDateFilter] {
-	return pulumix.Output[[]AutomationRuleDateFilter]{
-		OutputState: i.ToAutomationRuleDateFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutomationRuleDateFilterOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleDateFilterOutput) ElementType() reflect.Type {
@@ -98,12 +85,6 @@ func (o AutomationRuleDateFilterOutput) ToAutomationRuleDateFilterOutput() Autom
 
 func (o AutomationRuleDateFilterOutput) ToAutomationRuleDateFilterOutputWithContext(ctx context.Context) AutomationRuleDateFilterOutput {
 	return o
-}
-
-func (o AutomationRuleDateFilterOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleDateFilter] {
-	return pulumix.Output[AutomationRuleDateFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRuleDateFilterOutput) DateRange() AutomationRuleDateRangePtrOutput {
@@ -130,12 +111,6 @@ func (o AutomationRuleDateFilterArrayOutput) ToAutomationRuleDateFilterArrayOutp
 
 func (o AutomationRuleDateFilterArrayOutput) ToAutomationRuleDateFilterArrayOutputWithContext(ctx context.Context) AutomationRuleDateFilterArrayOutput {
 	return o
-}
-
-func (o AutomationRuleDateFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AutomationRuleDateFilter] {
-	return pulumix.Output[[]AutomationRuleDateFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRuleDateFilterArrayOutput) Index(i pulumi.IntInput) AutomationRuleDateFilterOutput {
@@ -175,12 +150,6 @@ func (i AutomationRuleDateRangeArgs) ToAutomationRuleDateRangeOutput() Automatio
 
 func (i AutomationRuleDateRangeArgs) ToAutomationRuleDateRangeOutputWithContext(ctx context.Context) AutomationRuleDateRangeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleDateRangeOutput)
-}
-
-func (i AutomationRuleDateRangeArgs) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleDateRange] {
-	return pulumix.Output[AutomationRuleDateRange]{
-		OutputState: i.ToAutomationRuleDateRangeOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i AutomationRuleDateRangeArgs) ToAutomationRuleDateRangePtrOutput() AutomationRuleDateRangePtrOutput {
@@ -224,12 +193,6 @@ func (i *automationRuleDateRangePtrType) ToAutomationRuleDateRangePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleDateRangePtrOutput)
 }
 
-func (i *automationRuleDateRangePtrType) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleDateRange] {
-	return pulumix.Output[*AutomationRuleDateRange]{
-		OutputState: i.ToAutomationRuleDateRangePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutomationRuleDateRangeOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleDateRangeOutput) ElementType() reflect.Type {
@@ -254,12 +217,6 @@ func (o AutomationRuleDateRangeOutput) ToAutomationRuleDateRangePtrOutputWithCon
 	}).(AutomationRuleDateRangePtrOutput)
 }
 
-func (o AutomationRuleDateRangeOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleDateRange] {
-	return pulumix.Output[AutomationRuleDateRange]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRuleDateRangeOutput) Unit() AutomationRuleDateRangeUnitOutput {
 	return o.ApplyT(func(v AutomationRuleDateRange) AutomationRuleDateRangeUnit { return v.Unit }).(AutomationRuleDateRangeUnitOutput)
 }
@@ -280,12 +237,6 @@ func (o AutomationRuleDateRangePtrOutput) ToAutomationRuleDateRangePtrOutput() A
 
 func (o AutomationRuleDateRangePtrOutput) ToAutomationRuleDateRangePtrOutputWithContext(ctx context.Context) AutomationRuleDateRangePtrOutput {
 	return o
-}
-
-func (o AutomationRuleDateRangePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleDateRange] {
-	return pulumix.Output[*AutomationRuleDateRange]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRuleDateRangePtrOutput) Elem() AutomationRuleDateRangeOutput {
@@ -351,12 +302,6 @@ func (i AutomationRuleMapFilterArgs) ToAutomationRuleMapFilterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleMapFilterOutput)
 }
 
-func (i AutomationRuleMapFilterArgs) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleMapFilter] {
-	return pulumix.Output[AutomationRuleMapFilter]{
-		OutputState: i.ToAutomationRuleMapFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutomationRuleMapFilterArrayInput is an input type that accepts AutomationRuleMapFilterArray and AutomationRuleMapFilterArrayOutput values.
 // You can construct a concrete instance of `AutomationRuleMapFilterArrayInput` via:
 //
@@ -382,12 +327,6 @@ func (i AutomationRuleMapFilterArray) ToAutomationRuleMapFilterArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleMapFilterArrayOutput)
 }
 
-func (i AutomationRuleMapFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]AutomationRuleMapFilter] {
-	return pulumix.Output[[]AutomationRuleMapFilter]{
-		OutputState: i.ToAutomationRuleMapFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutomationRuleMapFilterOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleMapFilterOutput) ElementType() reflect.Type {
@@ -400,12 +339,6 @@ func (o AutomationRuleMapFilterOutput) ToAutomationRuleMapFilterOutput() Automat
 
 func (o AutomationRuleMapFilterOutput) ToAutomationRuleMapFilterOutputWithContext(ctx context.Context) AutomationRuleMapFilterOutput {
 	return o
-}
-
-func (o AutomationRuleMapFilterOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleMapFilter] {
-	return pulumix.Output[AutomationRuleMapFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRuleMapFilterOutput) Comparison() AutomationRuleMapFilterComparisonOutput {
@@ -432,12 +365,6 @@ func (o AutomationRuleMapFilterArrayOutput) ToAutomationRuleMapFilterArrayOutput
 
 func (o AutomationRuleMapFilterArrayOutput) ToAutomationRuleMapFilterArrayOutputWithContext(ctx context.Context) AutomationRuleMapFilterArrayOutput {
 	return o
-}
-
-func (o AutomationRuleMapFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AutomationRuleMapFilter] {
-	return pulumix.Output[[]AutomationRuleMapFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRuleMapFilterArrayOutput) Index(i pulumi.IntInput) AutomationRuleMapFilterOutput {
@@ -477,12 +404,6 @@ func (i AutomationRuleNoteUpdateArgs) ToAutomationRuleNoteUpdateOutput() Automat
 
 func (i AutomationRuleNoteUpdateArgs) ToAutomationRuleNoteUpdateOutputWithContext(ctx context.Context) AutomationRuleNoteUpdateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleNoteUpdateOutput)
-}
-
-func (i AutomationRuleNoteUpdateArgs) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleNoteUpdate] {
-	return pulumix.Output[AutomationRuleNoteUpdate]{
-		OutputState: i.ToAutomationRuleNoteUpdateOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i AutomationRuleNoteUpdateArgs) ToAutomationRuleNoteUpdatePtrOutput() AutomationRuleNoteUpdatePtrOutput {
@@ -526,12 +447,6 @@ func (i *automationRuleNoteUpdatePtrType) ToAutomationRuleNoteUpdatePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleNoteUpdatePtrOutput)
 }
 
-func (i *automationRuleNoteUpdatePtrType) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleNoteUpdate] {
-	return pulumix.Output[*AutomationRuleNoteUpdate]{
-		OutputState: i.ToAutomationRuleNoteUpdatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutomationRuleNoteUpdateOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleNoteUpdateOutput) ElementType() reflect.Type {
@@ -556,12 +471,6 @@ func (o AutomationRuleNoteUpdateOutput) ToAutomationRuleNoteUpdatePtrOutputWithC
 	}).(AutomationRuleNoteUpdatePtrOutput)
 }
 
-func (o AutomationRuleNoteUpdateOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleNoteUpdate] {
-	return pulumix.Output[AutomationRuleNoteUpdate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRuleNoteUpdateOutput) Text() pulumi.StringOutput {
 	return o.ApplyT(func(v AutomationRuleNoteUpdate) string { return v.Text }).(pulumi.StringOutput)
 }
@@ -582,12 +491,6 @@ func (o AutomationRuleNoteUpdatePtrOutput) ToAutomationRuleNoteUpdatePtrOutput()
 
 func (o AutomationRuleNoteUpdatePtrOutput) ToAutomationRuleNoteUpdatePtrOutputWithContext(ctx context.Context) AutomationRuleNoteUpdatePtrOutput {
 	return o
-}
-
-func (o AutomationRuleNoteUpdatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleNoteUpdate] {
-	return pulumix.Output[*AutomationRuleNoteUpdate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRuleNoteUpdatePtrOutput) Elem() AutomationRuleNoteUpdateOutput {
@@ -653,12 +556,6 @@ func (i AutomationRuleNumberFilterArgs) ToAutomationRuleNumberFilterOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleNumberFilterOutput)
 }
 
-func (i AutomationRuleNumberFilterArgs) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleNumberFilter] {
-	return pulumix.Output[AutomationRuleNumberFilter]{
-		OutputState: i.ToAutomationRuleNumberFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutomationRuleNumberFilterArrayInput is an input type that accepts AutomationRuleNumberFilterArray and AutomationRuleNumberFilterArrayOutput values.
 // You can construct a concrete instance of `AutomationRuleNumberFilterArrayInput` via:
 //
@@ -684,12 +581,6 @@ func (i AutomationRuleNumberFilterArray) ToAutomationRuleNumberFilterArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleNumberFilterArrayOutput)
 }
 
-func (i AutomationRuleNumberFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]AutomationRuleNumberFilter] {
-	return pulumix.Output[[]AutomationRuleNumberFilter]{
-		OutputState: i.ToAutomationRuleNumberFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutomationRuleNumberFilterOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleNumberFilterOutput) ElementType() reflect.Type {
@@ -702,12 +593,6 @@ func (o AutomationRuleNumberFilterOutput) ToAutomationRuleNumberFilterOutput() A
 
 func (o AutomationRuleNumberFilterOutput) ToAutomationRuleNumberFilterOutputWithContext(ctx context.Context) AutomationRuleNumberFilterOutput {
 	return o
-}
-
-func (o AutomationRuleNumberFilterOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleNumberFilter] {
-	return pulumix.Output[AutomationRuleNumberFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRuleNumberFilterOutput) Eq() pulumi.Float64PtrOutput {
@@ -734,12 +619,6 @@ func (o AutomationRuleNumberFilterArrayOutput) ToAutomationRuleNumberFilterArray
 
 func (o AutomationRuleNumberFilterArrayOutput) ToAutomationRuleNumberFilterArrayOutputWithContext(ctx context.Context) AutomationRuleNumberFilterArrayOutput {
 	return o
-}
-
-func (o AutomationRuleNumberFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AutomationRuleNumberFilter] {
-	return pulumix.Output[[]AutomationRuleNumberFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRuleNumberFilterArrayOutput) Index(i pulumi.IntInput) AutomationRuleNumberFilterOutput {
@@ -781,12 +660,6 @@ func (i AutomationRuleRelatedFindingArgs) ToAutomationRuleRelatedFindingOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleRelatedFindingOutput)
 }
 
-func (i AutomationRuleRelatedFindingArgs) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleRelatedFinding] {
-	return pulumix.Output[AutomationRuleRelatedFinding]{
-		OutputState: i.ToAutomationRuleRelatedFindingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutomationRuleRelatedFindingArrayInput is an input type that accepts AutomationRuleRelatedFindingArray and AutomationRuleRelatedFindingArrayOutput values.
 // You can construct a concrete instance of `AutomationRuleRelatedFindingArrayInput` via:
 //
@@ -812,12 +685,6 @@ func (i AutomationRuleRelatedFindingArray) ToAutomationRuleRelatedFindingArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleRelatedFindingArrayOutput)
 }
 
-func (i AutomationRuleRelatedFindingArray) ToOutput(ctx context.Context) pulumix.Output[[]AutomationRuleRelatedFinding] {
-	return pulumix.Output[[]AutomationRuleRelatedFinding]{
-		OutputState: i.ToAutomationRuleRelatedFindingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutomationRuleRelatedFindingOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleRelatedFindingOutput) ElementType() reflect.Type {
@@ -830,12 +697,6 @@ func (o AutomationRuleRelatedFindingOutput) ToAutomationRuleRelatedFindingOutput
 
 func (o AutomationRuleRelatedFindingOutput) ToAutomationRuleRelatedFindingOutputWithContext(ctx context.Context) AutomationRuleRelatedFindingOutput {
 	return o
-}
-
-func (o AutomationRuleRelatedFindingOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleRelatedFinding] {
-	return pulumix.Output[AutomationRuleRelatedFinding]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRuleRelatedFindingOutput) Id() pulumi.StringOutput {
@@ -858,12 +719,6 @@ func (o AutomationRuleRelatedFindingArrayOutput) ToAutomationRuleRelatedFindingA
 
 func (o AutomationRuleRelatedFindingArrayOutput) ToAutomationRuleRelatedFindingArrayOutputWithContext(ctx context.Context) AutomationRuleRelatedFindingArrayOutput {
 	return o
-}
-
-func (o AutomationRuleRelatedFindingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AutomationRuleRelatedFinding] {
-	return pulumix.Output[[]AutomationRuleRelatedFinding]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRuleRelatedFindingArrayOutput) Index(i pulumi.IntInput) AutomationRuleRelatedFindingOutput {
@@ -907,12 +762,6 @@ func (i AutomationRuleSeverityUpdateArgs) ToAutomationRuleSeverityUpdateOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleSeverityUpdateOutput)
 }
 
-func (i AutomationRuleSeverityUpdateArgs) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleSeverityUpdate] {
-	return pulumix.Output[AutomationRuleSeverityUpdate]{
-		OutputState: i.ToAutomationRuleSeverityUpdateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AutomationRuleSeverityUpdateArgs) ToAutomationRuleSeverityUpdatePtrOutput() AutomationRuleSeverityUpdatePtrOutput {
 	return i.ToAutomationRuleSeverityUpdatePtrOutputWithContext(context.Background())
 }
@@ -954,12 +803,6 @@ func (i *automationRuleSeverityUpdatePtrType) ToAutomationRuleSeverityUpdatePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleSeverityUpdatePtrOutput)
 }
 
-func (i *automationRuleSeverityUpdatePtrType) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleSeverityUpdate] {
-	return pulumix.Output[*AutomationRuleSeverityUpdate]{
-		OutputState: i.ToAutomationRuleSeverityUpdatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutomationRuleSeverityUpdateOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleSeverityUpdateOutput) ElementType() reflect.Type {
@@ -982,12 +825,6 @@ func (o AutomationRuleSeverityUpdateOutput) ToAutomationRuleSeverityUpdatePtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleSeverityUpdate) *AutomationRuleSeverityUpdate {
 		return &v
 	}).(AutomationRuleSeverityUpdatePtrOutput)
-}
-
-func (o AutomationRuleSeverityUpdateOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleSeverityUpdate] {
-	return pulumix.Output[AutomationRuleSeverityUpdate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRuleSeverityUpdateOutput) Label() AutomationRuleSeverityUpdateLabelPtrOutput {
@@ -1014,12 +851,6 @@ func (o AutomationRuleSeverityUpdatePtrOutput) ToAutomationRuleSeverityUpdatePtr
 
 func (o AutomationRuleSeverityUpdatePtrOutput) ToAutomationRuleSeverityUpdatePtrOutputWithContext(ctx context.Context) AutomationRuleSeverityUpdatePtrOutput {
 	return o
-}
-
-func (o AutomationRuleSeverityUpdatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleSeverityUpdate] {
-	return pulumix.Output[*AutomationRuleSeverityUpdate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRuleSeverityUpdatePtrOutput) Elem() AutomationRuleSeverityUpdateOutput {
@@ -1092,12 +923,6 @@ func (i AutomationRuleStringFilterArgs) ToAutomationRuleStringFilterOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleStringFilterOutput)
 }
 
-func (i AutomationRuleStringFilterArgs) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleStringFilter] {
-	return pulumix.Output[AutomationRuleStringFilter]{
-		OutputState: i.ToAutomationRuleStringFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutomationRuleStringFilterArrayInput is an input type that accepts AutomationRuleStringFilterArray and AutomationRuleStringFilterArrayOutput values.
 // You can construct a concrete instance of `AutomationRuleStringFilterArrayInput` via:
 //
@@ -1123,12 +948,6 @@ func (i AutomationRuleStringFilterArray) ToAutomationRuleStringFilterArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleStringFilterArrayOutput)
 }
 
-func (i AutomationRuleStringFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]AutomationRuleStringFilter] {
-	return pulumix.Output[[]AutomationRuleStringFilter]{
-		OutputState: i.ToAutomationRuleStringFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutomationRuleStringFilterOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleStringFilterOutput) ElementType() reflect.Type {
@@ -1141,12 +960,6 @@ func (o AutomationRuleStringFilterOutput) ToAutomationRuleStringFilterOutput() A
 
 func (o AutomationRuleStringFilterOutput) ToAutomationRuleStringFilterOutputWithContext(ctx context.Context) AutomationRuleStringFilterOutput {
 	return o
-}
-
-func (o AutomationRuleStringFilterOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleStringFilter] {
-	return pulumix.Output[AutomationRuleStringFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRuleStringFilterOutput) Comparison() AutomationRuleStringFilterComparisonOutput {
@@ -1169,12 +982,6 @@ func (o AutomationRuleStringFilterArrayOutput) ToAutomationRuleStringFilterArray
 
 func (o AutomationRuleStringFilterArrayOutput) ToAutomationRuleStringFilterArrayOutputWithContext(ctx context.Context) AutomationRuleStringFilterArrayOutput {
 	return o
-}
-
-func (o AutomationRuleStringFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AutomationRuleStringFilter] {
-	return pulumix.Output[[]AutomationRuleStringFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRuleStringFilterArrayOutput) Index(i pulumi.IntInput) AutomationRuleStringFilterOutput {
@@ -1212,12 +1019,6 @@ func (i AutomationRuleTagsArgs) ToAutomationRuleTagsOutput() AutomationRuleTagsO
 
 func (i AutomationRuleTagsArgs) ToAutomationRuleTagsOutputWithContext(ctx context.Context) AutomationRuleTagsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleTagsOutput)
-}
-
-func (i AutomationRuleTagsArgs) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleTags] {
-	return pulumix.Output[AutomationRuleTags]{
-		OutputState: i.ToAutomationRuleTagsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i AutomationRuleTagsArgs) ToAutomationRuleTagsPtrOutput() AutomationRuleTagsPtrOutput {
@@ -1261,12 +1062,6 @@ func (i *automationRuleTagsPtrType) ToAutomationRuleTagsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleTagsPtrOutput)
 }
 
-func (i *automationRuleTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleTags] {
-	return pulumix.Output[*AutomationRuleTags]{
-		OutputState: i.ToAutomationRuleTagsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type AutomationRuleTagsOutput struct{ *pulumi.OutputState }
 
@@ -1292,12 +1087,6 @@ func (o AutomationRuleTagsOutput) ToAutomationRuleTagsPtrOutputWithContext(ctx c
 	}).(AutomationRuleTagsPtrOutput)
 }
 
-func (o AutomationRuleTagsOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleTags] {
-	return pulumix.Output[AutomationRuleTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 type AutomationRuleTagsPtrOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleTagsPtrOutput) ElementType() reflect.Type {
@@ -1310,12 +1099,6 @@ func (o AutomationRuleTagsPtrOutput) ToAutomationRuleTagsPtrOutput() AutomationR
 
 func (o AutomationRuleTagsPtrOutput) ToAutomationRuleTagsPtrOutputWithContext(ctx context.Context) AutomationRuleTagsPtrOutput {
 	return o
-}
-
-func (o AutomationRuleTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleTags] {
-	return pulumix.Output[*AutomationRuleTags]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRuleTagsPtrOutput) Elem() AutomationRuleTagsOutput {
@@ -1359,12 +1142,6 @@ func (i AutomationRuleWorkflowUpdateArgs) ToAutomationRuleWorkflowUpdateOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleWorkflowUpdateOutput)
 }
 
-func (i AutomationRuleWorkflowUpdateArgs) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleWorkflowUpdate] {
-	return pulumix.Output[AutomationRuleWorkflowUpdate]{
-		OutputState: i.ToAutomationRuleWorkflowUpdateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AutomationRuleWorkflowUpdateArgs) ToAutomationRuleWorkflowUpdatePtrOutput() AutomationRuleWorkflowUpdatePtrOutput {
 	return i.ToAutomationRuleWorkflowUpdatePtrOutputWithContext(context.Background())
 }
@@ -1406,12 +1183,6 @@ func (i *automationRuleWorkflowUpdatePtrType) ToAutomationRuleWorkflowUpdatePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleWorkflowUpdatePtrOutput)
 }
 
-func (i *automationRuleWorkflowUpdatePtrType) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleWorkflowUpdate] {
-	return pulumix.Output[*AutomationRuleWorkflowUpdate]{
-		OutputState: i.ToAutomationRuleWorkflowUpdatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutomationRuleWorkflowUpdateOutput struct{ *pulumi.OutputState }
 
 func (AutomationRuleWorkflowUpdateOutput) ElementType() reflect.Type {
@@ -1436,12 +1207,6 @@ func (o AutomationRuleWorkflowUpdateOutput) ToAutomationRuleWorkflowUpdatePtrOut
 	}).(AutomationRuleWorkflowUpdatePtrOutput)
 }
 
-func (o AutomationRuleWorkflowUpdateOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRuleWorkflowUpdate] {
-	return pulumix.Output[AutomationRuleWorkflowUpdate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationRuleWorkflowUpdateOutput) Status() AutomationRuleWorkflowUpdateStatusOutput {
 	return o.ApplyT(func(v AutomationRuleWorkflowUpdate) AutomationRuleWorkflowUpdateStatus { return v.Status }).(AutomationRuleWorkflowUpdateStatusOutput)
 }
@@ -1458,12 +1223,6 @@ func (o AutomationRuleWorkflowUpdatePtrOutput) ToAutomationRuleWorkflowUpdatePtr
 
 func (o AutomationRuleWorkflowUpdatePtrOutput) ToAutomationRuleWorkflowUpdatePtrOutputWithContext(ctx context.Context) AutomationRuleWorkflowUpdatePtrOutput {
 	return o
-}
-
-func (o AutomationRuleWorkflowUpdatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRuleWorkflowUpdate] {
-	return pulumix.Output[*AutomationRuleWorkflowUpdate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRuleWorkflowUpdatePtrOutput) Elem() AutomationRuleWorkflowUpdateOutput {
@@ -1514,12 +1273,6 @@ func (i AutomationRulemapArgs) ToAutomationRulemapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulemapOutput)
 }
 
-func (i AutomationRulemapArgs) ToOutput(ctx context.Context) pulumix.Output[AutomationRulemap] {
-	return pulumix.Output[AutomationRulemap]{
-		OutputState: i.ToAutomationRulemapOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AutomationRulemapArgs) ToAutomationRulemapPtrOutput() AutomationRulemapPtrOutput {
 	return i.ToAutomationRulemapPtrOutputWithContext(context.Background())
 }
@@ -1561,12 +1314,6 @@ func (i *automationRulemapPtrType) ToAutomationRulemapPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulemapPtrOutput)
 }
 
-func (i *automationRulemapPtrType) ToOutput(ctx context.Context) pulumix.Output[*AutomationRulemap] {
-	return pulumix.Output[*AutomationRulemap]{
-		OutputState: i.ToAutomationRulemapPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutomationRulemapOutput struct{ *pulumi.OutputState }
 
 func (AutomationRulemapOutput) ElementType() reflect.Type {
@@ -1591,12 +1338,6 @@ func (o AutomationRulemapOutput) ToAutomationRulemapPtrOutputWithContext(ctx con
 	}).(AutomationRulemapPtrOutput)
 }
 
-func (o AutomationRulemapOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRulemap] {
-	return pulumix.Output[AutomationRulemap]{
-		OutputState: o.OutputState,
-	}
-}
-
 type AutomationRulemapPtrOutput struct{ *pulumi.OutputState }
 
 func (AutomationRulemapPtrOutput) ElementType() reflect.Type {
@@ -1609,12 +1350,6 @@ func (o AutomationRulemapPtrOutput) ToAutomationRulemapPtrOutput() AutomationRul
 
 func (o AutomationRulemapPtrOutput) ToAutomationRulemapPtrOutputWithContext(ctx context.Context) AutomationRulemapPtrOutput {
 	return o
-}
-
-func (o AutomationRulemapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRulemap] {
-	return pulumix.Output[*AutomationRulemap]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRulemapPtrOutput) Elem() AutomationRulemapOutput {
@@ -1660,12 +1395,6 @@ func (i AutomationRulesActionArgs) ToAutomationRulesActionOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulesActionOutput)
 }
 
-func (i AutomationRulesActionArgs) ToOutput(ctx context.Context) pulumix.Output[AutomationRulesAction] {
-	return pulumix.Output[AutomationRulesAction]{
-		OutputState: i.ToAutomationRulesActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutomationRulesActionArrayInput is an input type that accepts AutomationRulesActionArray and AutomationRulesActionArrayOutput values.
 // You can construct a concrete instance of `AutomationRulesActionArrayInput` via:
 //
@@ -1691,12 +1420,6 @@ func (i AutomationRulesActionArray) ToAutomationRulesActionArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulesActionArrayOutput)
 }
 
-func (i AutomationRulesActionArray) ToOutput(ctx context.Context) pulumix.Output[[]AutomationRulesAction] {
-	return pulumix.Output[[]AutomationRulesAction]{
-		OutputState: i.ToAutomationRulesActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutomationRulesActionOutput struct{ *pulumi.OutputState }
 
 func (AutomationRulesActionOutput) ElementType() reflect.Type {
@@ -1709,12 +1432,6 @@ func (o AutomationRulesActionOutput) ToAutomationRulesActionOutput() AutomationR
 
 func (o AutomationRulesActionOutput) ToAutomationRulesActionOutputWithContext(ctx context.Context) AutomationRulesActionOutput {
 	return o
-}
-
-func (o AutomationRulesActionOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRulesAction] {
-	return pulumix.Output[AutomationRulesAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRulesActionOutput) FindingFieldsUpdate() AutomationRulesFindingFieldsUpdateOutput {
@@ -1737,12 +1454,6 @@ func (o AutomationRulesActionArrayOutput) ToAutomationRulesActionArrayOutput() A
 
 func (o AutomationRulesActionArrayOutput) ToAutomationRulesActionArrayOutputWithContext(ctx context.Context) AutomationRulesActionArrayOutput {
 	return o
-}
-
-func (o AutomationRulesActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AutomationRulesAction] {
-	return pulumix.Output[[]AutomationRulesAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRulesActionArrayOutput) Index(i pulumi.IntInput) AutomationRulesActionOutput {
@@ -1804,12 +1515,6 @@ func (i AutomationRulesFindingFieldsUpdateArgs) ToAutomationRulesFindingFieldsUp
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulesFindingFieldsUpdateOutput)
 }
 
-func (i AutomationRulesFindingFieldsUpdateArgs) ToOutput(ctx context.Context) pulumix.Output[AutomationRulesFindingFieldsUpdate] {
-	return pulumix.Output[AutomationRulesFindingFieldsUpdate]{
-		OutputState: i.ToAutomationRulesFindingFieldsUpdateOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutomationRulesFindingFieldsUpdateOutput struct{ *pulumi.OutputState }
 
 func (AutomationRulesFindingFieldsUpdateOutput) ElementType() reflect.Type {
@@ -1822,12 +1527,6 @@ func (o AutomationRulesFindingFieldsUpdateOutput) ToAutomationRulesFindingFields
 
 func (o AutomationRulesFindingFieldsUpdateOutput) ToAutomationRulesFindingFieldsUpdateOutputWithContext(ctx context.Context) AutomationRulesFindingFieldsUpdateOutput {
 	return o
-}
-
-func (o AutomationRulesFindingFieldsUpdateOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRulesFindingFieldsUpdate] {
-	return pulumix.Output[AutomationRulesFindingFieldsUpdate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRulesFindingFieldsUpdateOutput) Confidence() pulumi.IntPtrOutput {
@@ -1970,12 +1669,6 @@ func (i AutomationRulesFindingFiltersArgs) ToAutomationRulesFindingFiltersOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulesFindingFiltersOutput)
 }
 
-func (i AutomationRulesFindingFiltersArgs) ToOutput(ctx context.Context) pulumix.Output[AutomationRulesFindingFilters] {
-	return pulumix.Output[AutomationRulesFindingFilters]{
-		OutputState: i.ToAutomationRulesFindingFiltersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AutomationRulesFindingFiltersArgs) ToAutomationRulesFindingFiltersPtrOutput() AutomationRulesFindingFiltersPtrOutput {
 	return i.ToAutomationRulesFindingFiltersPtrOutputWithContext(context.Background())
 }
@@ -2017,12 +1710,6 @@ func (i *automationRulesFindingFiltersPtrType) ToAutomationRulesFindingFiltersPt
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationRulesFindingFiltersPtrOutput)
 }
 
-func (i *automationRulesFindingFiltersPtrType) ToOutput(ctx context.Context) pulumix.Output[*AutomationRulesFindingFilters] {
-	return pulumix.Output[*AutomationRulesFindingFilters]{
-		OutputState: i.ToAutomationRulesFindingFiltersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutomationRulesFindingFiltersOutput struct{ *pulumi.OutputState }
 
 func (AutomationRulesFindingFiltersOutput) ElementType() reflect.Type {
@@ -2045,12 +1732,6 @@ func (o AutomationRulesFindingFiltersOutput) ToAutomationRulesFindingFiltersPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRulesFindingFilters) *AutomationRulesFindingFilters {
 		return &v
 	}).(AutomationRulesFindingFiltersPtrOutput)
-}
-
-func (o AutomationRulesFindingFiltersOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationRulesFindingFilters] {
-	return pulumix.Output[AutomationRulesFindingFilters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRulesFindingFiltersOutput) AwsAccountId() AutomationRuleStringFilterArrayOutput {
@@ -2209,12 +1890,6 @@ func (o AutomationRulesFindingFiltersPtrOutput) ToAutomationRulesFindingFiltersP
 
 func (o AutomationRulesFindingFiltersPtrOutput) ToAutomationRulesFindingFiltersPtrOutputWithContext(ctx context.Context) AutomationRulesFindingFiltersPtrOutput {
 	return o
-}
-
-func (o AutomationRulesFindingFiltersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AutomationRulesFindingFilters] {
-	return pulumix.Output[*AutomationRulesFindingFilters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationRulesFindingFiltersPtrOutput) Elem() AutomationRulesFindingFiltersOutput {
@@ -2581,12 +2256,6 @@ func (i StandardsControlArgs) ToStandardsControlOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(StandardsControlOutput)
 }
 
-func (i StandardsControlArgs) ToOutput(ctx context.Context) pulumix.Output[StandardsControl] {
-	return pulumix.Output[StandardsControl]{
-		OutputState: i.ToStandardsControlOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StandardsControlArrayInput is an input type that accepts StandardsControlArray and StandardsControlArrayOutput values.
 // You can construct a concrete instance of `StandardsControlArrayInput` via:
 //
@@ -2612,12 +2281,6 @@ func (i StandardsControlArray) ToStandardsControlArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(StandardsControlArrayOutput)
 }
 
-func (i StandardsControlArray) ToOutput(ctx context.Context) pulumix.Output[[]StandardsControl] {
-	return pulumix.Output[[]StandardsControl]{
-		OutputState: i.ToStandardsControlArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An individual StandardsControl within the Standard.
 type StandardsControlOutput struct{ *pulumi.OutputState }
 
@@ -2631,12 +2294,6 @@ func (o StandardsControlOutput) ToStandardsControlOutput() StandardsControlOutpu
 
 func (o StandardsControlOutput) ToStandardsControlOutputWithContext(ctx context.Context) StandardsControlOutput {
 	return o
-}
-
-func (o StandardsControlOutput) ToOutput(ctx context.Context) pulumix.Output[StandardsControl] {
-	return pulumix.Output[StandardsControl]{
-		OutputState: o.OutputState,
-	}
 }
 
 // the reason the standard control is disabled
@@ -2661,12 +2318,6 @@ func (o StandardsControlArrayOutput) ToStandardsControlArrayOutput() StandardsCo
 
 func (o StandardsControlArrayOutput) ToStandardsControlArrayOutputWithContext(ctx context.Context) StandardsControlArrayOutput {
 	return o
-}
-
-func (o StandardsControlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StandardsControl] {
-	return pulumix.Output[[]StandardsControl]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StandardsControlArrayOutput) Index(i pulumi.IntInput) StandardsControlOutput {

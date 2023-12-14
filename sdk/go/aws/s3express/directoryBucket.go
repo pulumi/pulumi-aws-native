@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::S3Express::DirectoryBucket.
@@ -120,12 +119,6 @@ func (i *DirectoryBucket) ToDirectoryBucketOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryBucketOutput)
 }
 
-func (i *DirectoryBucket) ToOutput(ctx context.Context) pulumix.Output[*DirectoryBucket] {
-	return pulumix.Output[*DirectoryBucket]{
-		OutputState: i.ToDirectoryBucketOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DirectoryBucketOutput struct{ *pulumi.OutputState }
 
 func (DirectoryBucketOutput) ElementType() reflect.Type {
@@ -138,12 +131,6 @@ func (o DirectoryBucketOutput) ToDirectoryBucketOutput() DirectoryBucketOutput {
 
 func (o DirectoryBucketOutput) ToDirectoryBucketOutputWithContext(ctx context.Context) DirectoryBucketOutput {
 	return o
-}
-
-func (o DirectoryBucketOutput) ToOutput(ctx context.Context) pulumix.Output[*DirectoryBucket] {
-	return pulumix.Output[*DirectoryBucket]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Returns the Amazon Resource Name (ARN) of the specified bucket.

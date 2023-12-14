@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Budgets::Budget
@@ -65,12 +64,6 @@ func (o LookupBudgetResultOutput) ToLookupBudgetResultOutput() LookupBudgetResul
 
 func (o LookupBudgetResultOutput) ToLookupBudgetResultOutputWithContext(ctx context.Context) LookupBudgetResultOutput {
 	return o
-}
-
-func (o LookupBudgetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBudgetResult] {
-	return pulumix.Output[LookupBudgetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupBudgetResultOutput) Budget() BudgetDataPtrOutput {

@@ -80,12 +80,6 @@ func (o DestinationExpressionTypeOutput) ToDestinationExpressionTypePtrOutputWit
 	}).(DestinationExpressionTypePtrOutput)
 }
 
-func (o DestinationExpressionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DestinationExpressionType] {
-	return pulumix.Output[DestinationExpressionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DestinationExpressionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o DestinationExpressionTypePtrOutput) ToDestinationExpressionTypePtrOutput
 
 func (o DestinationExpressionTypePtrOutput) ToDestinationExpressionTypePtrOutputWithContext(ctx context.Context) DestinationExpressionTypePtrOutput {
 	return o
-}
-
-func (o DestinationExpressionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DestinationExpressionType] {
-	return pulumix.Output[*DestinationExpressionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DestinationExpressionTypePtrOutput) Elem() DestinationExpressionTypeOutput {
@@ -263,12 +251,6 @@ func (o NetworkAnalyzerConfigurationLogLevelOutput) ToNetworkAnalyzerConfigurati
 	}).(NetworkAnalyzerConfigurationLogLevelPtrOutput)
 }
 
-func (o NetworkAnalyzerConfigurationLogLevelOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkAnalyzerConfigurationLogLevel] {
-	return pulumix.Output[NetworkAnalyzerConfigurationLogLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkAnalyzerConfigurationLogLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -302,12 +284,6 @@ func (o NetworkAnalyzerConfigurationLogLevelPtrOutput) ToNetworkAnalyzerConfigur
 
 func (o NetworkAnalyzerConfigurationLogLevelPtrOutput) ToNetworkAnalyzerConfigurationLogLevelPtrOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationLogLevelPtrOutput {
 	return o
-}
-
-func (o NetworkAnalyzerConfigurationLogLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkAnalyzerConfigurationLogLevel] {
-	return pulumix.Output[*NetworkAnalyzerConfigurationLogLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkAnalyzerConfigurationLogLevelPtrOutput) Elem() NetworkAnalyzerConfigurationLogLevelOutput {
@@ -445,12 +421,6 @@ func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput) ToNetworkAnal
 	}).(NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput)
 }
 
-func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput) ToOutput(ctx context.Context) pulumix.Output[NetworkAnalyzerConfigurationWirelessDeviceFrameInfo] {
-	return pulumix.Output[NetworkAnalyzerConfigurationWirelessDeviceFrameInfo]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -484,12 +454,6 @@ func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput) ToNetworkA
 
 func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput) ToNetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutputWithContext(ctx context.Context) NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput {
 	return o
-}
-
-func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkAnalyzerConfigurationWirelessDeviceFrameInfo] {
-	return pulumix.Output[*NetworkAnalyzerConfigurationWirelessDeviceFrameInfo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput) Elem() NetworkAnalyzerConfigurationWirelessDeviceFrameInfoOutput {
@@ -627,12 +591,6 @@ func (o PartnerAccountPartnerTypeOutput) ToPartnerAccountPartnerTypePtrOutputWit
 	}).(PartnerAccountPartnerTypePtrOutput)
 }
 
-func (o PartnerAccountPartnerTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PartnerAccountPartnerType] {
-	return pulumix.Output[PartnerAccountPartnerType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PartnerAccountPartnerTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -666,12 +624,6 @@ func (o PartnerAccountPartnerTypePtrOutput) ToPartnerAccountPartnerTypePtrOutput
 
 func (o PartnerAccountPartnerTypePtrOutput) ToPartnerAccountPartnerTypePtrOutputWithContext(ctx context.Context) PartnerAccountPartnerTypePtrOutput {
 	return o
-}
-
-func (o PartnerAccountPartnerTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PartnerAccountPartnerType] {
-	return pulumix.Output[*PartnerAccountPartnerType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PartnerAccountPartnerTypePtrOutput) Elem() PartnerAccountPartnerTypeOutput {
@@ -809,12 +761,6 @@ func (o TaskDefinitionTypeOutput) ToTaskDefinitionTypePtrOutputWithContext(ctx c
 	}).(TaskDefinitionTypePtrOutput)
 }
 
-func (o TaskDefinitionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TaskDefinitionType] {
-	return pulumix.Output[TaskDefinitionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TaskDefinitionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -848,12 +794,6 @@ func (o TaskDefinitionTypePtrOutput) ToTaskDefinitionTypePtrOutput() TaskDefinit
 
 func (o TaskDefinitionTypePtrOutput) ToTaskDefinitionTypePtrOutputWithContext(ctx context.Context) TaskDefinitionTypePtrOutput {
 	return o
-}
-
-func (o TaskDefinitionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TaskDefinitionType] {
-	return pulumix.Output[*TaskDefinitionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TaskDefinitionTypePtrOutput) Elem() TaskDefinitionTypeOutput {
@@ -960,12 +900,6 @@ func (o WirelessDeviceImportTaskStatusOutput) ToWirelessDeviceImportTaskStatusPt
 	}).(WirelessDeviceImportTaskStatusPtrOutput)
 }
 
-func (o WirelessDeviceImportTaskStatusOutput) ToOutput(ctx context.Context) pulumix.Output[WirelessDeviceImportTaskStatus] {
-	return pulumix.Output[WirelessDeviceImportTaskStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WirelessDeviceImportTaskStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -999,12 +933,6 @@ func (o WirelessDeviceImportTaskStatusPtrOutput) ToWirelessDeviceImportTaskStatu
 
 func (o WirelessDeviceImportTaskStatusPtrOutput) ToWirelessDeviceImportTaskStatusPtrOutputWithContext(ctx context.Context) WirelessDeviceImportTaskStatusPtrOutput {
 	return o
-}
-
-func (o WirelessDeviceImportTaskStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WirelessDeviceImportTaskStatus] {
-	return pulumix.Output[*WirelessDeviceImportTaskStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WirelessDeviceImportTaskStatusPtrOutput) Elem() WirelessDeviceImportTaskStatusOutput {
@@ -1099,12 +1027,6 @@ func (o WirelessDeviceTypeOutput) ToWirelessDeviceTypePtrOutputWithContext(ctx c
 	}).(WirelessDeviceTypePtrOutput)
 }
 
-func (o WirelessDeviceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WirelessDeviceType] {
-	return pulumix.Output[WirelessDeviceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WirelessDeviceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1138,12 +1060,6 @@ func (o WirelessDeviceTypePtrOutput) ToWirelessDeviceTypePtrOutput() WirelessDev
 
 func (o WirelessDeviceTypePtrOutput) ToWirelessDeviceTypePtrOutputWithContext(ctx context.Context) WirelessDeviceTypePtrOutput {
 	return o
-}
-
-func (o WirelessDeviceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WirelessDeviceType] {
-	return pulumix.Output[*WirelessDeviceType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WirelessDeviceTypePtrOutput) Elem() WirelessDeviceTypeOutput {

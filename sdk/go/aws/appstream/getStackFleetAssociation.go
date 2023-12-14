@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppStream::StackFleetAssociation
@@ -66,12 +65,6 @@ func (o LookupStackFleetAssociationResultOutput) ToLookupStackFleetAssociationRe
 
 func (o LookupStackFleetAssociationResultOutput) ToLookupStackFleetAssociationResultOutputWithContext(ctx context.Context) LookupStackFleetAssociationResultOutput {
 	return o
-}
-
-func (o LookupStackFleetAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStackFleetAssociationResult] {
-	return pulumix.Output[LookupStackFleetAssociationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupStackFleetAssociationResultOutput) FleetName() pulumi.StringPtrOutput {

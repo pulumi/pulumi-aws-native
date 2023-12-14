@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::NetworkInterfacePermission
@@ -114,12 +113,6 @@ func (i *NetworkInterfacePermission) ToNetworkInterfacePermissionOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInterfacePermissionOutput)
 }
 
-func (i *NetworkInterfacePermission) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterfacePermission] {
-	return pulumix.Output[*NetworkInterfacePermission]{
-		OutputState: i.ToNetworkInterfacePermissionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkInterfacePermissionOutput struct{ *pulumi.OutputState }
 
 func (NetworkInterfacePermissionOutput) ElementType() reflect.Type {
@@ -132,12 +125,6 @@ func (o NetworkInterfacePermissionOutput) ToNetworkInterfacePermissionOutput() N
 
 func (o NetworkInterfacePermissionOutput) ToNetworkInterfacePermissionOutputWithContext(ctx context.Context) NetworkInterfacePermissionOutput {
 	return o
-}
-
-func (o NetworkInterfacePermissionOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInterfacePermission] {
-	return pulumix.Output[*NetworkInterfacePermission]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkInterfacePermissionOutput) AwsAccountId() pulumi.StringOutput {
