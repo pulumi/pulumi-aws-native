@@ -6,12 +6,6 @@
     "tagProperty" : "/properties/Tags",
     "cloudFormationSystemTags" : true
   },
-  "typeName" : "AWS::Lambda::Function",
-  "readOnlyProperties" : [ "/properties/SnapStartResponse", "/properties/SnapStartResponse/ApplyOn", "/properties/SnapStartResponse/OptimizationStatus", "/properties/Arn" ],
-  "description" : "Resource Type definition for AWS::Lambda::Function in region",
-  "createOnlyProperties" : [ "/properties/FunctionName" ],
-  "primaryIdentifier" : [ "/properties/FunctionName" ],
-  "required" : [ "Code", "Role" ],
   "handlers" : {
     "read" : {
       "permissions" : [ "lambda:GetFunction", "lambda:GetFunctionCodeSigningConfig" ]
@@ -29,8 +23,13 @@
       "permissions" : [ "lambda:DeleteFunction", "ec2:DescribeNetworkInterfaces" ]
     }
   },
-  "writeOnlyProperties" : [ "/properties/SnapStart", "/properties/SnapStart/ApplyOn", "/properties/Code", "/properties/Code/ImageUri", "/properties/Code/S3Bucket", "/properties/Code/S3Key", "/properties/Code/S3ObjectVersion", "/properties/Code/ZipFile", "/properties/Policy" ],
+  "typeName" : "AWS::Lambda::Function",
+  "readOnlyProperties" : [ "/properties/SnapStartResponse", "/properties/SnapStartResponse/ApplyOn", "/properties/SnapStartResponse/OptimizationStatus", "/properties/Arn" ],
+  "description" : "Resource Type definition for AWS::Lambda::Function in region",
+  "writeOnlyProperties" : [ "/properties/SnapStart", "/properties/SnapStart/ApplyOn", "/properties/Code", "/properties/Code/ImageUri", "/properties/Code/S3Bucket", "/properties/Code/S3Key", "/properties/Code/S3ObjectVersion", "/properties/Code/ZipFile" ],
+  "createOnlyProperties" : [ "/properties/FunctionName" ],
   "additionalProperties" : false,
+  "primaryIdentifier" : [ "/properties/FunctionName" ],
   "definitions" : {
     "ImageConfig" : {
       "additionalProperties" : false,
@@ -291,11 +290,8 @@
       "required" : [ "Size" ]
     }
   },
+  "required" : [ "Code", "Role" ],
   "properties" : {
-    "Policy" : {
-      "description" : "The resource policy of your function",
-      "type" : "object"
-    },
     "Description" : {
       "description" : "A description of the function.",
       "type" : "string",

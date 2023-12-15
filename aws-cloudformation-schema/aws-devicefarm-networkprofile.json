@@ -104,16 +104,16 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "devicefarm:CreateNetworkProfile", "devicefarm:TagResource" ]
+      "permissions" : [ "devicefarm:CreateNetworkProfile", "devicefarm:TagResource", "devicefarm:GetNetworkProfile", "devicefarm:ListTagsForResource" ]
     },
     "read" : {
       "permissions" : [ "devicefarm:GetNetworkProfile", "devicefarm:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "devicefarm:UpdateNetworkProfile", "devicefarm:TagResource", "devicefarm:UntagResource", "devicefarm:ListTagsForResource" ]
+      "permissions" : [ "devicefarm:UpdateNetworkProfile", "devicefarm:TagResource", "devicefarm:UntagResource", "devicefarm:ListTagsForResource", "devicefarm:GetNetworkProfile" ]
     },
     "delete" : {
-      "permissions" : [ "devicefarm:DeleteNetworkProfile", "devicefarm:UntagResource" ]
+      "permissions" : [ "devicefarm:DeleteNetworkProfile", "devicefarm:UntagResource", "devicefarm:GetNetworkProfile", "devicefarm:ListTagsForResource" ]
     },
     "list" : {
       "permissions" : [ "devicefarm:ListNetworkProfiles" ],

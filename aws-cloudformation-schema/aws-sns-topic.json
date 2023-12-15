@@ -121,14 +121,7 @@
           "description" : "The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch"
         }
       },
-      "required" : [ "Protocol" ],
-      "anyOf" : [ {
-        "required" : [ "SuccessFeedbackRoleArn" ]
-      }, {
-        "required" : [ "SuccessFeedbackSampleRate" ]
-      }, {
-        "required" : [ "FailureFeedbackRoleArn" ]
-      } ]
+      "required" : [ "Protocol" ]
     }
   },
   "tagging" : {
