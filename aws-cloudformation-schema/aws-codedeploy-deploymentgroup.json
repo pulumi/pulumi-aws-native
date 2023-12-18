@@ -54,6 +54,9 @@
         "$ref" : "#/definitions/EC2TagFilter"
       }
     },
+    "TerminationHookEnabled" : {
+      "type" : "boolean"
+    },
     "ECSServices" : {
       "type" : "array",
       "uniqueItems" : true,

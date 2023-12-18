@@ -82,6 +82,10 @@ AWS::AutoScaling::LifecycleHook
 AWS::AutoScaling::ScalingPolicy
 AWS::AutoScaling::ScheduledAction
 AWS::AutoScaling::WarmPool
+AWS::B2BI::Capability
+AWS::B2BI::Partnership
+AWS::B2BI::Profile
+AWS::B2BI::Transformer
 AWS::Backup::BackupPlan
 AWS::Backup::BackupSelection
 AWS::Backup::BackupVault
@@ -91,9 +95,12 @@ AWS::Backup::RestoreTestingPlan
 AWS::Backup::RestoreTestingSelection
 AWS::BackupGateway::Hypervisor
 AWS::Batch::ComputeEnvironment
+AWS::Batch::JobDefinition
 AWS::Batch::JobQueue
 AWS::Batch::SchedulingPolicy
 AWS::Budgets::BudgetsAction
+AWS::CE::AnomalyMonitor
+AWS::CE::AnomalySubscription
 AWS::CE::CostCategory
 AWS::Cassandra::Keyspace
 AWS::Cassandra::Table
@@ -193,6 +200,9 @@ AWS::CustomerProfiles::Domain
 AWS::CustomerProfiles::EventStream
 AWS::CustomerProfiles::Integration
 AWS::CustomerProfiles::ObjectType
+AWS::DMS::DataProvider
+AWS::DMS::InstanceProfile
+AWS::DMS::MigrationProject
 AWS::DMS::ReplicationConfig
 AWS::DataBrew::Dataset
 AWS::DataBrew::Job
@@ -272,6 +282,8 @@ AWS::EC2::PlacementGroup
 AWS::EC2::PrefixList
 AWS::EC2::Route
 AWS::EC2::RouteTable
+AWS::EC2::SecurityGroupEgress
+AWS::EC2::SnapshotBlockPublicAccess
 AWS::EC2::SpotFleet
 AWS::EC2::Subnet
 AWS::EC2::SubnetCidrBlock
@@ -348,7 +360,10 @@ AWS::ElasticLoadBalancingV2::TrustStoreRevocation
 AWS::EntityResolution::IdMappingWorkflow
 AWS::EntityResolution::MatchingWorkflow
 AWS::EntityResolution::SchemaMapping
+AWS::EventSchemas::Discoverer
+AWS::EventSchemas::Registry
 AWS::EventSchemas::RegistryPolicy
+AWS::EventSchemas::Schema
 AWS::Events::ApiDestination
 AWS::Events::Archive
 AWS::Events::Connection
@@ -361,6 +376,7 @@ AWS::Evidently::Launch
 AWS::Evidently::Project
 AWS::Evidently::Segment
 AWS::FIS::ExperimentTemplate
+AWS::FIS::TargetAccountConfiguration
 AWS::FMS::NotificationChannel
 AWS::FMS::Policy
 AWS::FMS::ResourceSet
@@ -433,6 +449,7 @@ AWS::ImageBuilder::ImagePipeline
 AWS::ImageBuilder::ImageRecipe
 AWS::ImageBuilder::InfrastructureConfiguration
 AWS::ImageBuilder::LifecyclePolicy
+AWS::ImageBuilder::Workflow
 AWS::Inspector::AssessmentTarget
 AWS::Inspector::AssessmentTemplate
 AWS::Inspector::ResourceGroup
@@ -443,6 +460,7 @@ AWS::IoT::Authorizer
 AWS::IoT::BillingGroup
 AWS::IoT::CACertificate
 AWS::IoT::Certificate
+AWS::IoT::CertificateProvider
 AWS::IoT::CustomMetric
 AWS::IoT::Dimension
 AWS::IoT::DomainConfiguration
@@ -812,6 +830,7 @@ AWS::Scheduler::Schedule
 AWS::Scheduler::ScheduleGroup
 AWS::SecretsManager::Secret
 AWS::SecurityHub::AutomationRule
+AWS::SecurityHub::Hub
 AWS::SecurityHub::Standard
 AWS::ServiceCatalog::CloudFormationProvisionedProduct
 AWS::ServiceCatalog::ServiceAction
