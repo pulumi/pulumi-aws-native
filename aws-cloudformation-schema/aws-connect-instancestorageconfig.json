@@ -100,7 +100,7 @@
           "$ref" : "#/definitions/EncryptionConfig"
         }
       },
-      "required" : [ "Prefix", "RetentionPeriodHours" ]
+      "required" : [ "Prefix", "RetentionPeriodHours", "EncryptionConfig" ]
     },
     "KinesisStreamConfig" : {
       "type" : "object",

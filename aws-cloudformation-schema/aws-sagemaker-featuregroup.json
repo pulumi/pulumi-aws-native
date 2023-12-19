@@ -28,6 +28,7 @@
       "type" : "array",
       "description" : "An Array of Feature Definition",
       "uniqueItems" : false,
+      "insertionOrder" : false,
       "minItems" : 1,
       "maxItems" : 2500,
       "items" : {
@@ -43,6 +44,9 @@
         },
         "EnableOnlineStore" : {
           "type" : "boolean"
+        },
+        "StorageType" : {
+          "$ref" : "#/definitions/StorageType"
         }
       }
     },
@@ -89,6 +93,7 @@
       "type" : "array",
       "description" : "An array of key-value pair to apply to this resource.",
       "uniqueItems" : false,
+      "insertionOrder" : false,
       "maxItems" : 50,
       "items" : {
         "$ref" : "#/definitions/Tag"
@@ -116,6 +121,10 @@
     "KmsKeyId" : {
       "type" : "string",
       "maxLength" : 2048
+    },
+    "StorageType" : {
+      "type" : "string",
+      "enum" : [ "Standard", "InMemory" ]
     },
     "OnlineStoreSecurityConfig" : {
       "type" : "object",
@@ -206,5 +215,12 @@
     "list" : {
       "permissions" : [ "sagemaker:ListFeatureGroups" ]
     }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags"
   }
 }
