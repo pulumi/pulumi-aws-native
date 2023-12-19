@@ -1,5 +1,7 @@
 ## Unreleased
 
+Fix: Handle PENDING status (<https://github.com/pulumi/pulumi-aws-native/issues/1219>)
+
 ## 0.90.0 (2023-12-04)
 
 ### New resources:
