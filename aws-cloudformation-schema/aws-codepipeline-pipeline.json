@@ -10,12 +10,6 @@
         "$ref" : "#/definitions/ArtifactStoreMap"
       }
     },
-    "Version" : {
-      "type" : "string"
-    },
-    "ArtifactStore" : {
-      "$ref" : "#/definitions/ArtifactStore"
-    },
     "DisableInboundStageTransitions" : {
       "type" : "array",
       "uniqueItems" : true,
@@ -33,10 +27,36 @@
     "RestartExecutionOnUpdate" : {
       "type" : "boolean"
     },
-    "Id" : {
-      "type" : "string"
+    "Triggers" : {
+      "type" : "array",
+      "uniqueItems" : true,
+      "items" : {
+        "$ref" : "#/definitions/PipelineTriggerDeclaration"
+      }
     },
     "RoleArn" : {
+      "type" : "string"
+    },
+    "Name" : {
+      "type" : "string"
+    },
+    "Variables" : {
+      "type" : "array",
+      "uniqueItems" : true,
+      "items" : {
+        "$ref" : "#/definitions/VariableDeclaration"
+      }
+    },
+    "Version" : {
+      "type" : "string"
+    },
+    "ArtifactStore" : {
+      "$ref" : "#/definitions/ArtifactStore"
+    },
+    "PipelineType" : {
+      "type" : "string"
+    },
+    "Id" : {
       "type" : "string"
     },
     "Tags" : {
@@ -45,12 +65,106 @@
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
-    },
-    "Name" : {
-      "type" : "string"
     }
   },
   "definitions" : {
+    "BlockerDeclaration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Type" : {
+          "type" : "string"
+        },
+        "Name" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Type", "Name" ]
+    },
+    "GitConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Push" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "$ref" : "#/definitions/GitPushFilter"
+          }
+        },
+        "SourceActionName" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "SourceActionName" ]
+    },
+    "ActionTypeId" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Owner" : {
+          "type" : "string"
+        },
+        "Category" : {
+          "type" : "string"
+        },
+        "Version" : {
+          "type" : "string"
+        },
+        "Provider" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Owner", "Category", "Version", "Provider" ]
+    },
+    "ArtifactStoreMap" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ArtifactStore" : {
+          "$ref" : "#/definitions/ArtifactStore"
+        },
+        "Region" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "ArtifactStore", "Region" ]
+    },
+    "PipelineTriggerDeclaration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "GitConfiguration" : {
+          "$ref" : "#/definitions/GitConfiguration"
+        },
+        "ProviderType" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "ProviderType" ]
+    },
+    "EncryptionKey" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Type" : {
+          "type" : "string"
+        },
+        "Id" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Type", "Id" ]
+    },
+    "GitPushFilter" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Tags" : {
+          "$ref" : "#/definitions/GitTagFilterCriteria"
+        }
+      }
+    },
     "ActionDeclaration" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -92,38 +206,6 @@
         }
       },
       "required" : [ "ActionTypeId", "Name" ]
-    },
-    "BlockerDeclaration" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Type" : {
-          "type" : "string"
-        },
-        "Name" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "Type", "Name" ]
-    },
-    "ActionTypeId" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "Owner" : {
-          "type" : "string"
-        },
-        "Category" : {
-          "type" : "string"
-        },
-        "Version" : {
-          "type" : "string"
-        },
-        "Provider" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "Owner", "Category", "Version", "Provider" ]
     },
     "StageDeclaration" : {
       "type" : "object",
@@ -175,18 +257,21 @@
       },
       "required" : [ "Type", "Location" ]
     },
-    "ArtifactStoreMap" : {
+    "VariableDeclaration" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "ArtifactStore" : {
-          "$ref" : "#/definitions/ArtifactStore"
+        "DefaultValue" : {
+          "type" : "string"
         },
-        "Region" : {
+        "Description" : {
+          "type" : "string"
+        },
+        "Name" : {
           "type" : "string"
         }
       },
-      "required" : [ "ArtifactStore", "Region" ]
+      "required" : [ "Name" ]
     },
     "StageTransition" : {
       "type" : "object",
@@ -201,18 +286,25 @@
       },
       "required" : [ "StageName", "Reason" ]
     },
-    "EncryptionKey" : {
+    "GitTagFilterCriteria" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "Type" : {
-          "type" : "string"
+        "Includes" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
         },
-        "Id" : {
-          "type" : "string"
+        "Excludes" : {
+          "type" : "array",
+          "uniqueItems" : true,
+          "items" : {
+            "type" : "string"
+          }
         }
-      },
-      "required" : [ "Type", "Id" ]
+      }
     },
     "Tag" : {
       "type" : "object",

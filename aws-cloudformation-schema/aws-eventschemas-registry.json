@@ -4,23 +4,24 @@
   "additionalProperties" : false,
   "properties" : {
     "RegistryName" : {
-      "type" : "string"
+      "type" : "string",
+      "description" : "The name of the schema registry."
     },
     "Description" : {
-      "type" : "string"
-    },
-    "Id" : {
-      "type" : "string"
+      "type" : "string",
+      "description" : "A description of the registry to be created."
     },
     "RegistryArn" : {
-      "type" : "string"
+      "type" : "string",
+      "description" : "The ARN of the registry."
     },
     "Tags" : {
       "type" : "array",
       "uniqueItems" : false,
       "items" : {
         "$ref" : "#/definitions/TagsEntry"
-      }
+      },
+      "description" : "Tags associated with the resource."
     }
   },
   "definitions" : {
@@ -38,7 +39,31 @@
       "required" : [ "Value", "Key" ]
     }
   },
+  "primaryIdentifier" : [ "/properties/RegistryArn" ],
+  "readOnlyProperties" : [ "/properties/RegistryArn" ],
   "createOnlyProperties" : [ "/properties/RegistryName" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/RegistryArn", "/properties/Id" ]
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "schemas:DescribeRegistry", "schemas:CreateRegistry", "schemas:TagResource" ]
+    },
+    "read" : {
+      "permissions" : [ "schemas:DescribeRegistry" ]
+    },
+    "update" : {
+      "permissions" : [ "schemas:DescribeRegistry", "schemas:UpdateRegistry", "schemas:TagResource", "schemas:UntagResource", "schemas:ListTagsForResource" ]
+    },
+    "delete" : {
+      "permissions" : [ "schemas:DescribeRegistry", "schemas:DeleteRegistry" ]
+    },
+    "list" : {
+      "permissions" : [ "schemas:ListRegistries" ]
+    }
+  }
 }
