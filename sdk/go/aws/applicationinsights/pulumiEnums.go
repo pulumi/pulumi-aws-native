@@ -80,12 +80,6 @@ func (o ApplicationAlarmSeverityOutput) ToApplicationAlarmSeverityPtrOutputWithC
 	}).(ApplicationAlarmSeverityPtrOutput)
 }
 
-func (o ApplicationAlarmSeverityOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationAlarmSeverity] {
-	return pulumix.Output[ApplicationAlarmSeverity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationAlarmSeverityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -121,12 +115,6 @@ func (o ApplicationAlarmSeverityPtrOutput) ToApplicationAlarmSeverityPtrOutputWi
 	return o
 }
 
-func (o ApplicationAlarmSeverityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationAlarmSeverity] {
-	return pulumix.Output[*ApplicationAlarmSeverity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationAlarmSeverityPtrOutput) Elem() ApplicationAlarmSeverityOutput {
 	return o.ApplyT(func(v *ApplicationAlarmSeverity) ApplicationAlarmSeverity {
 		if v != nil {
@@ -151,10 +139,12 @@ func (o ApplicationAlarmSeverityPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationAlarmSeverityInput is an input type that accepts ApplicationAlarmSeverityArgs and ApplicationAlarmSeverityOutput values.
-// You can construct a concrete instance of `ApplicationAlarmSeverityInput` via:
+// ApplicationAlarmSeverityInput is an input type that accepts values of the ApplicationAlarmSeverity enum
+// A concrete instance of `ApplicationAlarmSeverityInput` can be one of the following:
 //
-//	ApplicationAlarmSeverityArgs{...}
+//	ApplicationAlarmSeverityHigh
+//	ApplicationAlarmSeverityMedium
+//	ApplicationAlarmSeverityLow
 type ApplicationAlarmSeverityInput interface {
 	pulumi.Input
 
@@ -264,12 +254,6 @@ func (o ApplicationComponentMonitoringSettingComponentConfigurationModeOutput) T
 	}).(ApplicationComponentMonitoringSettingComponentConfigurationModePtrOutput)
 }
 
-func (o ApplicationComponentMonitoringSettingComponentConfigurationModeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationComponentMonitoringSettingComponentConfigurationMode] {
-	return pulumix.Output[ApplicationComponentMonitoringSettingComponentConfigurationMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationComponentMonitoringSettingComponentConfigurationModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -305,12 +289,6 @@ func (o ApplicationComponentMonitoringSettingComponentConfigurationModePtrOutput
 	return o
 }
 
-func (o ApplicationComponentMonitoringSettingComponentConfigurationModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationComponentMonitoringSettingComponentConfigurationMode] {
-	return pulumix.Output[*ApplicationComponentMonitoringSettingComponentConfigurationMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationComponentMonitoringSettingComponentConfigurationModePtrOutput) Elem() ApplicationComponentMonitoringSettingComponentConfigurationModeOutput {
 	return o.ApplyT(func(v *ApplicationComponentMonitoringSettingComponentConfigurationMode) ApplicationComponentMonitoringSettingComponentConfigurationMode {
 		if v != nil {
@@ -335,10 +313,12 @@ func (o ApplicationComponentMonitoringSettingComponentConfigurationModePtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationComponentMonitoringSettingComponentConfigurationModeInput is an input type that accepts ApplicationComponentMonitoringSettingComponentConfigurationModeArgs and ApplicationComponentMonitoringSettingComponentConfigurationModeOutput values.
-// You can construct a concrete instance of `ApplicationComponentMonitoringSettingComponentConfigurationModeInput` via:
+// ApplicationComponentMonitoringSettingComponentConfigurationModeInput is an input type that accepts values of the ApplicationComponentMonitoringSettingComponentConfigurationMode enum
+// A concrete instance of `ApplicationComponentMonitoringSettingComponentConfigurationModeInput` can be one of the following:
 //
-//	ApplicationComponentMonitoringSettingComponentConfigurationModeArgs{...}
+//	ApplicationComponentMonitoringSettingComponentConfigurationModeDefault
+//	ApplicationComponentMonitoringSettingComponentConfigurationModeDefaultWithOverwrite
+//	ApplicationComponentMonitoringSettingComponentConfigurationModeCustom
 type ApplicationComponentMonitoringSettingComponentConfigurationModeInput interface {
 	pulumi.Input
 
@@ -450,12 +430,6 @@ func (o ApplicationEventLevelOutput) ToApplicationEventLevelPtrOutputWithContext
 	}).(ApplicationEventLevelPtrOutput)
 }
 
-func (o ApplicationEventLevelOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationEventLevel] {
-	return pulumix.Output[ApplicationEventLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationEventLevelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -491,12 +465,6 @@ func (o ApplicationEventLevelPtrOutput) ToApplicationEventLevelPtrOutputWithCont
 	return o
 }
 
-func (o ApplicationEventLevelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationEventLevel] {
-	return pulumix.Output[*ApplicationEventLevel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationEventLevelPtrOutput) Elem() ApplicationEventLevelOutput {
 	return o.ApplyT(func(v *ApplicationEventLevel) ApplicationEventLevel {
 		if v != nil {
@@ -521,10 +489,14 @@ func (o ApplicationEventLevelPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationEventLevelInput is an input type that accepts ApplicationEventLevelArgs and ApplicationEventLevelOutput values.
-// You can construct a concrete instance of `ApplicationEventLevelInput` via:
+// ApplicationEventLevelInput is an input type that accepts values of the ApplicationEventLevel enum
+// A concrete instance of `ApplicationEventLevelInput` can be one of the following:
 //
-//	ApplicationEventLevelArgs{...}
+//	ApplicationEventLevelInformation
+//	ApplicationEventLevelWarning
+//	ApplicationEventLevelError
+//	ApplicationEventLevelCritical
+//	ApplicationEventLevelVerbose
 type ApplicationEventLevelInput interface {
 	pulumi.Input
 
@@ -590,12 +562,6 @@ func (i ApplicationEventLevelArray) ToApplicationEventLevelArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationEventLevelArrayOutput)
 }
 
-func (i ApplicationEventLevelArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationEventLevel] {
-	return pulumix.Output[[]ApplicationEventLevel]{
-		OutputState: i.ToApplicationEventLevelArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApplicationEventLevelArrayOutput struct{ *pulumi.OutputState }
 
 func (ApplicationEventLevelArrayOutput) ElementType() reflect.Type {
@@ -608,12 +574,6 @@ func (o ApplicationEventLevelArrayOutput) ToApplicationEventLevelArrayOutput() A
 
 func (o ApplicationEventLevelArrayOutput) ToApplicationEventLevelArrayOutputWithContext(ctx context.Context) ApplicationEventLevelArrayOutput {
 	return o
-}
-
-func (o ApplicationEventLevelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationEventLevel] {
-	return pulumix.Output[[]ApplicationEventLevel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationEventLevelArrayOutput) Index(i pulumi.IntInput) ApplicationEventLevelOutput {
@@ -689,12 +649,6 @@ func (o ApplicationGroupingTypeOutput) ToApplicationGroupingTypePtrOutputWithCon
 	}).(ApplicationGroupingTypePtrOutput)
 }
 
-func (o ApplicationGroupingTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationGroupingType] {
-	return pulumix.Output[ApplicationGroupingType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationGroupingTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -730,12 +684,6 @@ func (o ApplicationGroupingTypePtrOutput) ToApplicationGroupingTypePtrOutputWith
 	return o
 }
 
-func (o ApplicationGroupingTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationGroupingType] {
-	return pulumix.Output[*ApplicationGroupingType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationGroupingTypePtrOutput) Elem() ApplicationGroupingTypeOutput {
 	return o.ApplyT(func(v *ApplicationGroupingType) ApplicationGroupingType {
 		if v != nil {
@@ -760,10 +708,10 @@ func (o ApplicationGroupingTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationGroupingTypeInput is an input type that accepts ApplicationGroupingTypeArgs and ApplicationGroupingTypeOutput values.
-// You can construct a concrete instance of `ApplicationGroupingTypeInput` via:
+// ApplicationGroupingTypeInput is an input type that accepts values of the ApplicationGroupingType enum
+// A concrete instance of `ApplicationGroupingTypeInput` can be one of the following:
 //
-//	ApplicationGroupingTypeArgs{...}
+//	ApplicationGroupingTypeAccountBased
 type ApplicationGroupingTypeInput interface {
 	pulumi.Input
 
@@ -873,12 +821,6 @@ func (o ApplicationLogEncodingOutput) ToApplicationLogEncodingPtrOutputWithConte
 	}).(ApplicationLogEncodingPtrOutput)
 }
 
-func (o ApplicationLogEncodingOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationLogEncoding] {
-	return pulumix.Output[ApplicationLogEncoding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationLogEncodingOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -914,12 +856,6 @@ func (o ApplicationLogEncodingPtrOutput) ToApplicationLogEncodingPtrOutputWithCo
 	return o
 }
 
-func (o ApplicationLogEncodingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationLogEncoding] {
-	return pulumix.Output[*ApplicationLogEncoding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationLogEncodingPtrOutput) Elem() ApplicationLogEncodingOutput {
 	return o.ApplyT(func(v *ApplicationLogEncoding) ApplicationLogEncoding {
 		if v != nil {
@@ -944,10 +880,12 @@ func (o ApplicationLogEncodingPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationLogEncodingInput is an input type that accepts ApplicationLogEncodingArgs and ApplicationLogEncodingOutput values.
-// You can construct a concrete instance of `ApplicationLogEncodingInput` via:
+// ApplicationLogEncodingInput is an input type that accepts values of the ApplicationLogEncoding enum
+// A concrete instance of `ApplicationLogEncodingInput` can be one of the following:
 //
-//	ApplicationLogEncodingArgs{...}
+//	ApplicationLogEncodingUtf8
+//	ApplicationLogEncodingUtf16
+//	ApplicationLogEncodingAscii
 type ApplicationLogEncodingInput interface {
 	pulumi.Input
 
@@ -1056,12 +994,6 @@ func (o ApplicationSubComponentTypeConfigurationSubComponentTypeOutput) ToApplic
 	}).(ApplicationSubComponentTypeConfigurationSubComponentTypePtrOutput)
 }
 
-func (o ApplicationSubComponentTypeConfigurationSubComponentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationSubComponentTypeConfigurationSubComponentType] {
-	return pulumix.Output[ApplicationSubComponentTypeConfigurationSubComponentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationSubComponentTypeConfigurationSubComponentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1097,12 +1029,6 @@ func (o ApplicationSubComponentTypeConfigurationSubComponentTypePtrOutput) ToApp
 	return o
 }
 
-func (o ApplicationSubComponentTypeConfigurationSubComponentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationSubComponentTypeConfigurationSubComponentType] {
-	return pulumix.Output[*ApplicationSubComponentTypeConfigurationSubComponentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationSubComponentTypeConfigurationSubComponentTypePtrOutput) Elem() ApplicationSubComponentTypeConfigurationSubComponentTypeOutput {
 	return o.ApplyT(func(v *ApplicationSubComponentTypeConfigurationSubComponentType) ApplicationSubComponentTypeConfigurationSubComponentType {
 		if v != nil {
@@ -1127,10 +1053,11 @@ func (o ApplicationSubComponentTypeConfigurationSubComponentTypePtrOutput) ToStr
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApplicationSubComponentTypeConfigurationSubComponentTypeInput is an input type that accepts ApplicationSubComponentTypeConfigurationSubComponentTypeArgs and ApplicationSubComponentTypeConfigurationSubComponentTypeOutput values.
-// You can construct a concrete instance of `ApplicationSubComponentTypeConfigurationSubComponentTypeInput` via:
+// ApplicationSubComponentTypeConfigurationSubComponentTypeInput is an input type that accepts values of the ApplicationSubComponentTypeConfigurationSubComponentType enum
+// A concrete instance of `ApplicationSubComponentTypeConfigurationSubComponentTypeInput` can be one of the following:
 //
-//	ApplicationSubComponentTypeConfigurationSubComponentTypeArgs{...}
+//	ApplicationSubComponentTypeConfigurationSubComponentTypeAwsec2Instance
+//	ApplicationSubComponentTypeConfigurationSubComponentTypeAwsec2Volume
 type ApplicationSubComponentTypeConfigurationSubComponentTypeInput interface {
 	pulumi.Input
 

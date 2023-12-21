@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i PolicyIeMapArgs) ToPolicyIeMapOutput() PolicyIeMapOutput {
 
 func (i PolicyIeMapArgs) ToPolicyIeMapOutputWithContext(ctx context.Context) PolicyIeMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyIeMapOutput)
-}
-
-func (i PolicyIeMapArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyIeMap] {
-	return pulumix.Output[PolicyIeMap]{
-		OutputState: i.ToPolicyIeMapOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i PolicyIeMapArgs) ToPolicyIeMapPtrOutput() PolicyIeMapPtrOutput {
@@ -96,12 +89,6 @@ func (i *policyIeMapPtrType) ToPolicyIeMapPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyIeMapPtrOutput)
 }
 
-func (i *policyIeMapPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyIeMap] {
-	return pulumix.Output[*PolicyIeMap]{
-		OutputState: i.ToPolicyIeMapPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An FMS includeMap or excludeMap.
 type PolicyIeMapOutput struct{ *pulumi.OutputState }
 
@@ -127,12 +114,6 @@ func (o PolicyIeMapOutput) ToPolicyIeMapPtrOutputWithContext(ctx context.Context
 	}).(PolicyIeMapPtrOutput)
 }
 
-func (o PolicyIeMapOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyIeMap] {
-	return pulumix.Output[PolicyIeMap]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PolicyIeMapOutput) Account() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyIeMap) []string { return v.Account }).(pulumi.StringArrayOutput)
 }
@@ -153,12 +134,6 @@ func (o PolicyIeMapPtrOutput) ToPolicyIeMapPtrOutput() PolicyIeMapPtrOutput {
 
 func (o PolicyIeMapPtrOutput) ToPolicyIeMapPtrOutputWithContext(ctx context.Context) PolicyIeMapPtrOutput {
 	return o
-}
-
-func (o PolicyIeMapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyIeMap] {
-	return pulumix.Output[*PolicyIeMap]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyIeMapPtrOutput) Elem() PolicyIeMapOutput {
@@ -222,12 +197,6 @@ func (i PolicyNetworkFirewallPolicyArgs) ToPolicyNetworkFirewallPolicyOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyNetworkFirewallPolicyOutput)
 }
 
-func (i PolicyNetworkFirewallPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyNetworkFirewallPolicy] {
-	return pulumix.Output[PolicyNetworkFirewallPolicy]{
-		OutputState: i.ToPolicyNetworkFirewallPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyNetworkFirewallPolicyArgs) ToPolicyNetworkFirewallPolicyPtrOutput() PolicyNetworkFirewallPolicyPtrOutput {
 	return i.ToPolicyNetworkFirewallPolicyPtrOutputWithContext(context.Background())
 }
@@ -269,12 +238,6 @@ func (i *policyNetworkFirewallPolicyPtrType) ToPolicyNetworkFirewallPolicyPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyNetworkFirewallPolicyPtrOutput)
 }
 
-func (i *policyNetworkFirewallPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyNetworkFirewallPolicy] {
-	return pulumix.Output[*PolicyNetworkFirewallPolicy]{
-		OutputState: i.ToPolicyNetworkFirewallPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Network firewall policy.
 type PolicyNetworkFirewallPolicyOutput struct{ *pulumi.OutputState }
 
@@ -300,12 +263,6 @@ func (o PolicyNetworkFirewallPolicyOutput) ToPolicyNetworkFirewallPolicyPtrOutpu
 	}).(PolicyNetworkFirewallPolicyPtrOutput)
 }
 
-func (o PolicyNetworkFirewallPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyNetworkFirewallPolicy] {
-	return pulumix.Output[PolicyNetworkFirewallPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PolicyNetworkFirewallPolicyOutput) FirewallDeploymentModel() PolicyFirewallDeploymentModelOutput {
 	return o.ApplyT(func(v PolicyNetworkFirewallPolicy) PolicyFirewallDeploymentModel { return v.FirewallDeploymentModel }).(PolicyFirewallDeploymentModelOutput)
 }
@@ -322,12 +279,6 @@ func (o PolicyNetworkFirewallPolicyPtrOutput) ToPolicyNetworkFirewallPolicyPtrOu
 
 func (o PolicyNetworkFirewallPolicyPtrOutput) ToPolicyNetworkFirewallPolicyPtrOutputWithContext(ctx context.Context) PolicyNetworkFirewallPolicyPtrOutput {
 	return o
-}
-
-func (o PolicyNetworkFirewallPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyNetworkFirewallPolicy] {
-	return pulumix.Output[*PolicyNetworkFirewallPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyNetworkFirewallPolicyPtrOutput) Elem() PolicyNetworkFirewallPolicyOutput {
@@ -384,12 +335,6 @@ func (i PolicyOptionArgs) ToPolicyOptionOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyOptionOutput)
 }
 
-func (i PolicyOptionArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyOption] {
-	return pulumix.Output[PolicyOption]{
-		OutputState: i.ToPolicyOptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PolicyOptionArgs) ToPolicyOptionPtrOutput() PolicyOptionPtrOutput {
 	return i.ToPolicyOptionPtrOutputWithContext(context.Background())
 }
@@ -431,12 +376,6 @@ func (i *policyOptionPtrType) ToPolicyOptionPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyOptionPtrOutput)
 }
 
-func (i *policyOptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyOption] {
-	return pulumix.Output[*PolicyOption]{
-		OutputState: i.ToPolicyOptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Firewall policy option.
 type PolicyOptionOutput struct{ *pulumi.OutputState }
 
@@ -462,12 +401,6 @@ func (o PolicyOptionOutput) ToPolicyOptionPtrOutputWithContext(ctx context.Conte
 	}).(PolicyOptionPtrOutput)
 }
 
-func (o PolicyOptionOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyOption] {
-	return pulumix.Output[PolicyOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PolicyOptionOutput) NetworkFirewallPolicy() PolicyNetworkFirewallPolicyPtrOutput {
 	return o.ApplyT(func(v PolicyOption) *PolicyNetworkFirewallPolicy { return v.NetworkFirewallPolicy }).(PolicyNetworkFirewallPolicyPtrOutput)
 }
@@ -488,12 +421,6 @@ func (o PolicyOptionPtrOutput) ToPolicyOptionPtrOutput() PolicyOptionPtrOutput {
 
 func (o PolicyOptionPtrOutput) ToPolicyOptionPtrOutputWithContext(ctx context.Context) PolicyOptionPtrOutput {
 	return o
-}
-
-func (o PolicyOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyOption] {
-	return pulumix.Output[*PolicyOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyOptionPtrOutput) Elem() PolicyOptionOutput {
@@ -559,12 +486,6 @@ func (i PolicyResourceTagArgs) ToPolicyResourceTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyResourceTagOutput)
 }
 
-func (i PolicyResourceTagArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyResourceTag] {
-	return pulumix.Output[PolicyResourceTag]{
-		OutputState: i.ToPolicyResourceTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PolicyResourceTagArrayInput is an input type that accepts PolicyResourceTagArray and PolicyResourceTagArrayOutput values.
 // You can construct a concrete instance of `PolicyResourceTagArrayInput` via:
 //
@@ -590,12 +511,6 @@ func (i PolicyResourceTagArray) ToPolicyResourceTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyResourceTagArrayOutput)
 }
 
-func (i PolicyResourceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyResourceTag] {
-	return pulumix.Output[[]PolicyResourceTag]{
-		OutputState: i.ToPolicyResourceTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A resource tag.
 type PolicyResourceTagOutput struct{ *pulumi.OutputState }
 
@@ -609,12 +524,6 @@ func (o PolicyResourceTagOutput) ToPolicyResourceTagOutput() PolicyResourceTagOu
 
 func (o PolicyResourceTagOutput) ToPolicyResourceTagOutputWithContext(ctx context.Context) PolicyResourceTagOutput {
 	return o
-}
-
-func (o PolicyResourceTagOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyResourceTag] {
-	return pulumix.Output[PolicyResourceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyResourceTagOutput) Key() pulumi.StringOutput {
@@ -637,12 +546,6 @@ func (o PolicyResourceTagArrayOutput) ToPolicyResourceTagArrayOutput() PolicyRes
 
 func (o PolicyResourceTagArrayOutput) ToPolicyResourceTagArrayOutputWithContext(ctx context.Context) PolicyResourceTagArrayOutput {
 	return o
-}
-
-func (o PolicyResourceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyResourceTag] {
-	return pulumix.Output[[]PolicyResourceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyResourceTagArrayOutput) Index(i pulumi.IntInput) PolicyResourceTagOutput {
@@ -688,12 +591,6 @@ func (i PolicySecurityServicePolicyDataArgs) ToPolicySecurityServicePolicyDataOu
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataOutput)
 }
 
-func (i PolicySecurityServicePolicyDataArgs) ToOutput(ctx context.Context) pulumix.Output[PolicySecurityServicePolicyData] {
-	return pulumix.Output[PolicySecurityServicePolicyData]{
-		OutputState: i.ToPolicySecurityServicePolicyDataOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Firewall security service policy data.
 type PolicySecurityServicePolicyDataOutput struct{ *pulumi.OutputState }
 
@@ -707,12 +604,6 @@ func (o PolicySecurityServicePolicyDataOutput) ToPolicySecurityServicePolicyData
 
 func (o PolicySecurityServicePolicyDataOutput) ToPolicySecurityServicePolicyDataOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataOutput {
 	return o
-}
-
-func (o PolicySecurityServicePolicyDataOutput) ToOutput(ctx context.Context) pulumix.Output[PolicySecurityServicePolicyData] {
-	return pulumix.Output[PolicySecurityServicePolicyData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicySecurityServicePolicyDataOutput) ManagedServiceData() pulumi.StringPtrOutput {
@@ -739,12 +630,6 @@ func (o PolicySecurityServicePolicyDataPtrOutput) ToPolicySecurityServicePolicyD
 
 func (o PolicySecurityServicePolicyDataPtrOutput) ToPolicySecurityServicePolicyDataPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPtrOutput {
 	return o
-}
-
-func (o PolicySecurityServicePolicyDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicySecurityServicePolicyData] {
-	return pulumix.Output[*PolicySecurityServicePolicyData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicySecurityServicePolicyDataPtrOutput) Elem() PolicySecurityServicePolicyDataOutput {
@@ -819,12 +704,6 @@ func (i PolicyTagArgs) ToPolicyTagOutputWithContext(ctx context.Context) PolicyT
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTagOutput)
 }
 
-func (i PolicyTagArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyTag] {
-	return pulumix.Output[PolicyTag]{
-		OutputState: i.ToPolicyTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PolicyTagArrayInput is an input type that accepts PolicyTagArray and PolicyTagArrayOutput values.
 // You can construct a concrete instance of `PolicyTagArrayInput` via:
 //
@@ -850,12 +729,6 @@ func (i PolicyTagArray) ToPolicyTagArrayOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTagArrayOutput)
 }
 
-func (i PolicyTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicyTag] {
-	return pulumix.Output[[]PolicyTag]{
-		OutputState: i.ToPolicyTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A policy tag.
 type PolicyTagOutput struct{ *pulumi.OutputState }
 
@@ -869,12 +742,6 @@ func (o PolicyTagOutput) ToPolicyTagOutput() PolicyTagOutput {
 
 func (o PolicyTagOutput) ToPolicyTagOutputWithContext(ctx context.Context) PolicyTagOutput {
 	return o
-}
-
-func (o PolicyTagOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyTag] {
-	return pulumix.Output[PolicyTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyTagOutput) Key() pulumi.StringOutput {
@@ -897,12 +764,6 @@ func (o PolicyTagArrayOutput) ToPolicyTagArrayOutput() PolicyTagArrayOutput {
 
 func (o PolicyTagArrayOutput) ToPolicyTagArrayOutputWithContext(ctx context.Context) PolicyTagArrayOutput {
 	return o
-}
-
-func (o PolicyTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicyTag] {
-	return pulumix.Output[[]PolicyTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyTagArrayOutput) Index(i pulumi.IntInput) PolicyTagOutput {
@@ -942,12 +803,6 @@ func (i PolicyThirdPartyFirewallPolicyArgs) ToPolicyThirdPartyFirewallPolicyOutp
 
 func (i PolicyThirdPartyFirewallPolicyArgs) ToPolicyThirdPartyFirewallPolicyOutputWithContext(ctx context.Context) PolicyThirdPartyFirewallPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyThirdPartyFirewallPolicyOutput)
-}
-
-func (i PolicyThirdPartyFirewallPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[PolicyThirdPartyFirewallPolicy] {
-	return pulumix.Output[PolicyThirdPartyFirewallPolicy]{
-		OutputState: i.ToPolicyThirdPartyFirewallPolicyOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i PolicyThirdPartyFirewallPolicyArgs) ToPolicyThirdPartyFirewallPolicyPtrOutput() PolicyThirdPartyFirewallPolicyPtrOutput {
@@ -991,12 +846,6 @@ func (i *policyThirdPartyFirewallPolicyPtrType) ToPolicyThirdPartyFirewallPolicy
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyThirdPartyFirewallPolicyPtrOutput)
 }
 
-func (i *policyThirdPartyFirewallPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*PolicyThirdPartyFirewallPolicy] {
-	return pulumix.Output[*PolicyThirdPartyFirewallPolicy]{
-		OutputState: i.ToPolicyThirdPartyFirewallPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Third party firewall policy.
 type PolicyThirdPartyFirewallPolicyOutput struct{ *pulumi.OutputState }
 
@@ -1022,12 +871,6 @@ func (o PolicyThirdPartyFirewallPolicyOutput) ToPolicyThirdPartyFirewallPolicyPt
 	}).(PolicyThirdPartyFirewallPolicyPtrOutput)
 }
 
-func (o PolicyThirdPartyFirewallPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyThirdPartyFirewallPolicy] {
-	return pulumix.Output[PolicyThirdPartyFirewallPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PolicyThirdPartyFirewallPolicyOutput) FirewallDeploymentModel() PolicyFirewallDeploymentModelOutput {
 	return o.ApplyT(func(v PolicyThirdPartyFirewallPolicy) PolicyFirewallDeploymentModel { return v.FirewallDeploymentModel }).(PolicyFirewallDeploymentModelOutput)
 }
@@ -1044,12 +887,6 @@ func (o PolicyThirdPartyFirewallPolicyPtrOutput) ToPolicyThirdPartyFirewallPolic
 
 func (o PolicyThirdPartyFirewallPolicyPtrOutput) ToPolicyThirdPartyFirewallPolicyPtrOutputWithContext(ctx context.Context) PolicyThirdPartyFirewallPolicyPtrOutput {
 	return o
-}
-
-func (o PolicyThirdPartyFirewallPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyThirdPartyFirewallPolicy] {
-	return pulumix.Output[*PolicyThirdPartyFirewallPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyThirdPartyFirewallPolicyPtrOutput) Elem() PolicyThirdPartyFirewallPolicyOutput {
@@ -1106,12 +943,6 @@ func (i ResourceSetTagArgs) ToResourceSetTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetTagOutput)
 }
 
-func (i ResourceSetTagArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceSetTag] {
-	return pulumix.Output[ResourceSetTag]{
-		OutputState: i.ToResourceSetTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResourceSetTagArrayInput is an input type that accepts ResourceSetTagArray and ResourceSetTagArrayOutput values.
 // You can construct a concrete instance of `ResourceSetTagArrayInput` via:
 //
@@ -1137,12 +968,6 @@ func (i ResourceSetTagArray) ToResourceSetTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetTagArrayOutput)
 }
 
-func (i ResourceSetTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourceSetTag] {
-	return pulumix.Output[[]ResourceSetTag]{
-		OutputState: i.ToResourceSetTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A tag.
 type ResourceSetTagOutput struct{ *pulumi.OutputState }
 
@@ -1156,12 +981,6 @@ func (o ResourceSetTagOutput) ToResourceSetTagOutput() ResourceSetTagOutput {
 
 func (o ResourceSetTagOutput) ToResourceSetTagOutputWithContext(ctx context.Context) ResourceSetTagOutput {
 	return o
-}
-
-func (o ResourceSetTagOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceSetTag] {
-	return pulumix.Output[ResourceSetTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceSetTagOutput) Key() pulumi.StringOutput {
@@ -1184,12 +1003,6 @@ func (o ResourceSetTagArrayOutput) ToResourceSetTagArrayOutput() ResourceSetTagA
 
 func (o ResourceSetTagArrayOutput) ToResourceSetTagArrayOutputWithContext(ctx context.Context) ResourceSetTagArrayOutput {
 	return o
-}
-
-func (o ResourceSetTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourceSetTag] {
-	return pulumix.Output[[]ResourceSetTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceSetTagArrayOutput) Index(i pulumi.IntInput) ResourceSetTagOutput {

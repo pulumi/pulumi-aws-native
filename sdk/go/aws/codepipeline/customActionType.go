@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::CodePipeline::CustomActionType resource creates a custom action for activities that aren't included in the CodePipeline default actions, such as running an internally developed build process or a test suite. You can use these custom actions in the stage of a pipeline.
@@ -161,12 +160,6 @@ func (i *CustomActionType) ToCustomActionTypeOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(CustomActionTypeOutput)
 }
 
-func (i *CustomActionType) ToOutput(ctx context.Context) pulumix.Output[*CustomActionType] {
-	return pulumix.Output[*CustomActionType]{
-		OutputState: i.ToCustomActionTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CustomActionTypeOutput struct{ *pulumi.OutputState }
 
 func (CustomActionTypeOutput) ElementType() reflect.Type {
@@ -179,12 +172,6 @@ func (o CustomActionTypeOutput) ToCustomActionTypeOutput() CustomActionTypeOutpu
 
 func (o CustomActionTypeOutput) ToCustomActionTypeOutputWithContext(ctx context.Context) CustomActionTypeOutput {
 	return o
-}
-
-func (o CustomActionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomActionType] {
-	return pulumix.Output[*CustomActionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The category of the custom action, such as a build action or a test action.

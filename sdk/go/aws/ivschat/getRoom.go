@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource type definition for AWS::IVSChat::Room.
@@ -80,12 +79,6 @@ func (o LookupRoomResultOutput) ToLookupRoomResultOutput() LookupRoomResultOutpu
 
 func (o LookupRoomResultOutput) ToLookupRoomResultOutputWithContext(ctx context.Context) LookupRoomResultOutput {
 	return o
-}
-
-func (o LookupRoomResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRoomResult] {
-	return pulumix.Output[LookupRoomResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Room ARN is automatically generated on creation and assigned as the unique identifier.

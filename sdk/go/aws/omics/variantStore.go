@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::Omics::VariantStore Resource Type
@@ -119,12 +118,6 @@ func (i *VariantStore) ToVariantStoreOutputWithContext(ctx context.Context) Vari
 	return pulumi.ToOutputWithContext(ctx, i).(VariantStoreOutput)
 }
 
-func (i *VariantStore) ToOutput(ctx context.Context) pulumix.Output[*VariantStore] {
-	return pulumix.Output[*VariantStore]{
-		OutputState: i.ToVariantStoreOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VariantStoreOutput struct{ *pulumi.OutputState }
 
 func (VariantStoreOutput) ElementType() reflect.Type {
@@ -137,12 +130,6 @@ func (o VariantStoreOutput) ToVariantStoreOutput() VariantStoreOutput {
 
 func (o VariantStoreOutput) ToVariantStoreOutputWithContext(ctx context.Context) VariantStoreOutput {
 	return o
-}
-
-func (o VariantStoreOutput) ToOutput(ctx context.Context) pulumix.Output[*VariantStore] {
-	return pulumix.Output[*VariantStore]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VariantStoreOutput) CreationTime() pulumi.StringOutput {

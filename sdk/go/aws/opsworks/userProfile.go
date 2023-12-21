@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::OpsWorks::UserProfile
@@ -109,12 +108,6 @@ func (i *UserProfile) ToUserProfileOutputWithContext(ctx context.Context) UserPr
 	return pulumi.ToOutputWithContext(ctx, i).(UserProfileOutput)
 }
 
-func (i *UserProfile) ToOutput(ctx context.Context) pulumix.Output[*UserProfile] {
-	return pulumix.Output[*UserProfile]{
-		OutputState: i.ToUserProfileOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserProfileOutput struct{ *pulumi.OutputState }
 
 func (UserProfileOutput) ElementType() reflect.Type {
@@ -127,12 +120,6 @@ func (o UserProfileOutput) ToUserProfileOutput() UserProfileOutput {
 
 func (o UserProfileOutput) ToUserProfileOutputWithContext(ctx context.Context) UserProfileOutput {
 	return o
-}
-
-func (o UserProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*UserProfile] {
-	return pulumix.Output[*UserProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserProfileOutput) AllowSelfManagement() pulumi.BoolPtrOutput {

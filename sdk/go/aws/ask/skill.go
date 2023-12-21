@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for Alexa::ASK::Skill
@@ -112,12 +111,6 @@ func (i *Skill) ToSkillOutputWithContext(ctx context.Context) SkillOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SkillOutput)
 }
 
-func (i *Skill) ToOutput(ctx context.Context) pulumix.Output[*Skill] {
-	return pulumix.Output[*Skill]{
-		OutputState: i.ToSkillOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SkillOutput struct{ *pulumi.OutputState }
 
 func (SkillOutput) ElementType() reflect.Type {
@@ -130,12 +123,6 @@ func (o SkillOutput) ToSkillOutput() SkillOutput {
 
 func (o SkillOutput) ToSkillOutputWithContext(ctx context.Context) SkillOutput {
 	return o
-}
-
-func (o SkillOutput) ToOutput(ctx context.Context) pulumix.Output[*Skill] {
-	return pulumix.Output[*Skill]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SkillOutput) AuthenticationConfiguration() SkillAuthenticationConfigurationOutput {

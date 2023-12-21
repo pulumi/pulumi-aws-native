@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::RedshiftServerless::Workgroup Resource Type
@@ -67,12 +66,6 @@ func (o LookupWorkgroupResultOutput) ToLookupWorkgroupResultOutput() LookupWorkg
 
 func (o LookupWorkgroupResultOutput) ToLookupWorkgroupResultOutputWithContext(ctx context.Context) LookupWorkgroupResultOutput {
 	return o
-}
-
-func (o LookupWorkgroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupWorkgroupResult] {
-	return pulumix.Output[LookupWorkgroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupWorkgroupResultOutput) EnhancedVpcRouting() pulumi.BoolPtrOutput {

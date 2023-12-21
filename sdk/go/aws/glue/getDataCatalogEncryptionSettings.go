@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Glue::DataCatalogEncryptionSettings
@@ -65,12 +64,6 @@ func (o LookupDataCatalogEncryptionSettingsResultOutput) ToLookupDataCatalogEncr
 
 func (o LookupDataCatalogEncryptionSettingsResultOutput) ToLookupDataCatalogEncryptionSettingsResultOutputWithContext(ctx context.Context) LookupDataCatalogEncryptionSettingsResultOutput {
 	return o
-}
-
-func (o LookupDataCatalogEncryptionSettingsResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDataCatalogEncryptionSettingsResult] {
-	return pulumix.Output[LookupDataCatalogEncryptionSettingsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupDataCatalogEncryptionSettingsResultOutput) DataCatalogEncryptionSettings() DataCatalogEncryptionSettingsTypePtrOutput {

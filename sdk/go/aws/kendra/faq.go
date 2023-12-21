@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A Kendra FAQ resource
@@ -149,12 +148,6 @@ func (i *Faq) ToFaqOutputWithContext(ctx context.Context) FaqOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FaqOutput)
 }
 
-func (i *Faq) ToOutput(ctx context.Context) pulumix.Output[*Faq] {
-	return pulumix.Output[*Faq]{
-		OutputState: i.ToFaqOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FaqOutput struct{ *pulumi.OutputState }
 
 func (FaqOutput) ElementType() reflect.Type {
@@ -167,12 +160,6 @@ func (o FaqOutput) ToFaqOutput() FaqOutput {
 
 func (o FaqOutput) ToFaqOutputWithContext(ctx context.Context) FaqOutput {
 	return o
-}
-
-func (o FaqOutput) ToOutput(ctx context.Context) pulumix.Output[*Faq] {
-	return pulumix.Output[*Faq]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FaqOutput) Arn() pulumi.StringOutput {

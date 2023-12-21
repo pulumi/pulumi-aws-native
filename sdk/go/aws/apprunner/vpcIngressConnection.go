@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::AppRunner::VpcIngressConnection resource is an App Runner resource that specifies an App Runner VpcIngressConnection.
@@ -124,12 +123,6 @@ func (i *VpcIngressConnection) ToVpcIngressConnectionOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIngressConnectionOutput)
 }
 
-func (i *VpcIngressConnection) ToOutput(ctx context.Context) pulumix.Output[*VpcIngressConnection] {
-	return pulumix.Output[*VpcIngressConnection]{
-		OutputState: i.ToVpcIngressConnectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VpcIngressConnectionOutput struct{ *pulumi.OutputState }
 
 func (VpcIngressConnectionOutput) ElementType() reflect.Type {
@@ -142,12 +135,6 @@ func (o VpcIngressConnectionOutput) ToVpcIngressConnectionOutput() VpcIngressCon
 
 func (o VpcIngressConnectionOutput) ToVpcIngressConnectionOutputWithContext(ctx context.Context) VpcIngressConnectionOutput {
 	return o
-}
-
-func (o VpcIngressConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcIngressConnection] {
-	return pulumix.Output[*VpcIngressConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Domain name associated with the VPC Ingress Connection.

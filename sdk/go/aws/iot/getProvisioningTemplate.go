@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Creates a fleet provisioning template.
@@ -70,12 +69,6 @@ func (o LookupProvisioningTemplateResultOutput) ToLookupProvisioningTemplateResu
 
 func (o LookupProvisioningTemplateResultOutput) ToLookupProvisioningTemplateResultOutputWithContext(ctx context.Context) LookupProvisioningTemplateResultOutput {
 	return o
-}
-
-func (o LookupProvisioningTemplateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupProvisioningTemplateResult] {
-	return pulumix.Output[LookupProvisioningTemplateResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupProvisioningTemplateResultOutput) Description() pulumi.StringPtrOutput {

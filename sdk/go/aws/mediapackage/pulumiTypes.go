@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i AssetEgressEndpointArgs) ToAssetEgressEndpointOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AssetEgressEndpointOutput)
 }
 
-func (i AssetEgressEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[AssetEgressEndpoint] {
-	return pulumix.Output[AssetEgressEndpoint]{
-		OutputState: i.ToAssetEgressEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssetEgressEndpointArrayInput is an input type that accepts AssetEgressEndpointArray and AssetEgressEndpointArrayOutput values.
 // You can construct a concrete instance of `AssetEgressEndpointArrayInput` via:
 //
@@ -84,12 +77,6 @@ func (i AssetEgressEndpointArray) ToAssetEgressEndpointArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AssetEgressEndpointArrayOutput)
 }
 
-func (i AssetEgressEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]AssetEgressEndpoint] {
-	return pulumix.Output[[]AssetEgressEndpoint]{
-		OutputState: i.ToAssetEgressEndpointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The endpoint URL used to access an Asset using one PackagingConfiguration.
 type AssetEgressEndpointOutput struct{ *pulumi.OutputState }
 
@@ -103,12 +90,6 @@ func (o AssetEgressEndpointOutput) ToAssetEgressEndpointOutput() AssetEgressEndp
 
 func (o AssetEgressEndpointOutput) ToAssetEgressEndpointOutputWithContext(ctx context.Context) AssetEgressEndpointOutput {
 	return o
-}
-
-func (o AssetEgressEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[AssetEgressEndpoint] {
-	return pulumix.Output[AssetEgressEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the PackagingConfiguration being applied to the Asset.
@@ -133,12 +114,6 @@ func (o AssetEgressEndpointArrayOutput) ToAssetEgressEndpointArrayOutput() Asset
 
 func (o AssetEgressEndpointArrayOutput) ToAssetEgressEndpointArrayOutputWithContext(ctx context.Context) AssetEgressEndpointArrayOutput {
 	return o
-}
-
-func (o AssetEgressEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssetEgressEndpoint] {
-	return pulumix.Output[[]AssetEgressEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetEgressEndpointArrayOutput) Index(i pulumi.IntInput) AssetEgressEndpointOutput {
@@ -180,12 +155,6 @@ func (i AssetTagArgs) ToAssetTagOutputWithContext(ctx context.Context) AssetTagO
 	return pulumi.ToOutputWithContext(ctx, i).(AssetTagOutput)
 }
 
-func (i AssetTagArgs) ToOutput(ctx context.Context) pulumix.Output[AssetTag] {
-	return pulumix.Output[AssetTag]{
-		OutputState: i.ToAssetTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssetTagArrayInput is an input type that accepts AssetTagArray and AssetTagArrayOutput values.
 // You can construct a concrete instance of `AssetTagArrayInput` via:
 //
@@ -211,12 +180,6 @@ func (i AssetTagArray) ToAssetTagArrayOutputWithContext(ctx context.Context) Ass
 	return pulumi.ToOutputWithContext(ctx, i).(AssetTagArrayOutput)
 }
 
-func (i AssetTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AssetTag] {
-	return pulumix.Output[[]AssetTag]{
-		OutputState: i.ToAssetTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssetTagOutput struct{ *pulumi.OutputState }
 
 func (AssetTagOutput) ElementType() reflect.Type {
@@ -229,12 +192,6 @@ func (o AssetTagOutput) ToAssetTagOutput() AssetTagOutput {
 
 func (o AssetTagOutput) ToAssetTagOutputWithContext(ctx context.Context) AssetTagOutput {
 	return o
-}
-
-func (o AssetTagOutput) ToOutput(ctx context.Context) pulumix.Output[AssetTag] {
-	return pulumix.Output[AssetTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetTagOutput) Key() pulumi.StringOutput {
@@ -257,12 +214,6 @@ func (o AssetTagArrayOutput) ToAssetTagArrayOutput() AssetTagArrayOutput {
 
 func (o AssetTagArrayOutput) ToAssetTagArrayOutputWithContext(ctx context.Context) AssetTagArrayOutput {
 	return o
-}
-
-func (o AssetTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AssetTag] {
-	return pulumix.Output[[]AssetTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetTagArrayOutput) Index(i pulumi.IntInput) AssetTagOutput {
@@ -306,12 +257,6 @@ func (i ChannelHlsIngestArgs) ToChannelHlsIngestOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsIngestOutput)
 }
 
-func (i ChannelHlsIngestArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsIngest] {
-	return pulumix.Output[ChannelHlsIngest]{
-		OutputState: i.ToChannelHlsIngestOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ChannelHlsIngestArgs) ToChannelHlsIngestPtrOutput() ChannelHlsIngestPtrOutput {
 	return i.ToChannelHlsIngestPtrOutputWithContext(context.Background())
 }
@@ -353,12 +298,6 @@ func (i *channelHlsIngestPtrType) ToChannelHlsIngestPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelHlsIngestPtrOutput)
 }
 
-func (i *channelHlsIngestPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsIngest] {
-	return pulumix.Output[*ChannelHlsIngest]{
-		OutputState: i.ToChannelHlsIngestPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An HTTP Live Streaming (HLS) ingest resource configuration.
 type ChannelHlsIngestOutput struct{ *pulumi.OutputState }
 
@@ -384,12 +323,6 @@ func (o ChannelHlsIngestOutput) ToChannelHlsIngestPtrOutputWithContext(ctx conte
 	}).(ChannelHlsIngestPtrOutput)
 }
 
-func (o ChannelHlsIngestOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelHlsIngest] {
-	return pulumix.Output[ChannelHlsIngest]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A list of endpoints to which the source stream should be sent.
 func (o ChannelHlsIngestOutput) IngestEndpoints() ChannelIngestEndpointArrayOutput {
 	return o.ApplyT(func(v ChannelHlsIngest) []ChannelIngestEndpoint { return v.IngestEndpoints }).(ChannelIngestEndpointArrayOutput)
@@ -407,12 +340,6 @@ func (o ChannelHlsIngestPtrOutput) ToChannelHlsIngestPtrOutput() ChannelHlsInges
 
 func (o ChannelHlsIngestPtrOutput) ToChannelHlsIngestPtrOutputWithContext(ctx context.Context) ChannelHlsIngestPtrOutput {
 	return o
-}
-
-func (o ChannelHlsIngestPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelHlsIngest] {
-	return pulumix.Output[*ChannelHlsIngest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelHlsIngestPtrOutput) Elem() ChannelHlsIngestOutput {
@@ -482,12 +409,6 @@ func (i ChannelIngestEndpointArgs) ToChannelIngestEndpointOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelIngestEndpointOutput)
 }
 
-func (i ChannelIngestEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelIngestEndpoint] {
-	return pulumix.Output[ChannelIngestEndpoint]{
-		OutputState: i.ToChannelIngestEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelIngestEndpointArrayInput is an input type that accepts ChannelIngestEndpointArray and ChannelIngestEndpointArrayOutput values.
 // You can construct a concrete instance of `ChannelIngestEndpointArrayInput` via:
 //
@@ -513,12 +434,6 @@ func (i ChannelIngestEndpointArray) ToChannelIngestEndpointArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelIngestEndpointArrayOutput)
 }
 
-func (i ChannelIngestEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelIngestEndpoint] {
-	return pulumix.Output[[]ChannelIngestEndpoint]{
-		OutputState: i.ToChannelIngestEndpointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An endpoint for ingesting source content for a Channel.
 type ChannelIngestEndpointOutput struct{ *pulumi.OutputState }
 
@@ -532,12 +447,6 @@ func (o ChannelIngestEndpointOutput) ToChannelIngestEndpointOutput() ChannelInge
 
 func (o ChannelIngestEndpointOutput) ToChannelIngestEndpointOutputWithContext(ctx context.Context) ChannelIngestEndpointOutput {
 	return o
-}
-
-func (o ChannelIngestEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelIngestEndpoint] {
-	return pulumix.Output[ChannelIngestEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The system generated unique identifier for the IngestEndpoint
@@ -572,12 +481,6 @@ func (o ChannelIngestEndpointArrayOutput) ToChannelIngestEndpointArrayOutput() C
 
 func (o ChannelIngestEndpointArrayOutput) ToChannelIngestEndpointArrayOutputWithContext(ctx context.Context) ChannelIngestEndpointArrayOutput {
 	return o
-}
-
-func (o ChannelIngestEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelIngestEndpoint] {
-	return pulumix.Output[[]ChannelIngestEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelIngestEndpointArrayOutput) Index(i pulumi.IntInput) ChannelIngestEndpointOutput {
@@ -617,12 +520,6 @@ func (i ChannelLogConfigurationArgs) ToChannelLogConfigurationOutput() ChannelLo
 
 func (i ChannelLogConfigurationArgs) ToChannelLogConfigurationOutputWithContext(ctx context.Context) ChannelLogConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelLogConfigurationOutput)
-}
-
-func (i ChannelLogConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelLogConfiguration] {
-	return pulumix.Output[ChannelLogConfiguration]{
-		OutputState: i.ToChannelLogConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ChannelLogConfigurationArgs) ToChannelLogConfigurationPtrOutput() ChannelLogConfigurationPtrOutput {
@@ -666,12 +563,6 @@ func (i *channelLogConfigurationPtrType) ToChannelLogConfigurationPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelLogConfigurationPtrOutput)
 }
 
-func (i *channelLogConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ChannelLogConfiguration] {
-	return pulumix.Output[*ChannelLogConfiguration]{
-		OutputState: i.ToChannelLogConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelLogConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ChannelLogConfigurationOutput) ElementType() reflect.Type {
@@ -696,12 +587,6 @@ func (o ChannelLogConfigurationOutput) ToChannelLogConfigurationPtrOutputWithCon
 	}).(ChannelLogConfigurationPtrOutput)
 }
 
-func (o ChannelLogConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelLogConfiguration] {
-	return pulumix.Output[ChannelLogConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Sets a custom AWS CloudWatch log group name for access logs. If a log group name isn't specified, the defaults are used: /aws/MediaPackage/EgressAccessLogs for egress access logs and /aws/MediaPackage/IngressAccessLogs for ingress access logs.
 func (o ChannelLogConfigurationOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ChannelLogConfiguration) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
@@ -719,12 +604,6 @@ func (o ChannelLogConfigurationPtrOutput) ToChannelLogConfigurationPtrOutput() C
 
 func (o ChannelLogConfigurationPtrOutput) ToChannelLogConfigurationPtrOutputWithContext(ctx context.Context) ChannelLogConfigurationPtrOutput {
 	return o
-}
-
-func (o ChannelLogConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelLogConfiguration] {
-	return pulumix.Output[*ChannelLogConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelLogConfigurationPtrOutput) Elem() ChannelLogConfigurationOutput {
@@ -780,12 +659,6 @@ func (i ChannelTagArgs) ToChannelTagOutputWithContext(ctx context.Context) Chann
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagOutput)
 }
 
-func (i ChannelTagArgs) ToOutput(ctx context.Context) pulumix.Output[ChannelTag] {
-	return pulumix.Output[ChannelTag]{
-		OutputState: i.ToChannelTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelTagArrayInput is an input type that accepts ChannelTagArray and ChannelTagArrayOutput values.
 // You can construct a concrete instance of `ChannelTagArrayInput` via:
 //
@@ -811,12 +684,6 @@ func (i ChannelTagArray) ToChannelTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelTagArrayOutput)
 }
 
-func (i ChannelTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ChannelTag] {
-	return pulumix.Output[[]ChannelTag]{
-		OutputState: i.ToChannelTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelTagOutput struct{ *pulumi.OutputState }
 
 func (ChannelTagOutput) ElementType() reflect.Type {
@@ -829,12 +696,6 @@ func (o ChannelTagOutput) ToChannelTagOutput() ChannelTagOutput {
 
 func (o ChannelTagOutput) ToChannelTagOutputWithContext(ctx context.Context) ChannelTagOutput {
 	return o
-}
-
-func (o ChannelTagOutput) ToOutput(ctx context.Context) pulumix.Output[ChannelTag] {
-	return pulumix.Output[ChannelTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelTagOutput) Key() pulumi.StringOutput {
@@ -857,12 +718,6 @@ func (o ChannelTagArrayOutput) ToChannelTagArrayOutput() ChannelTagArrayOutput {
 
 func (o ChannelTagArrayOutput) ToChannelTagArrayOutputWithContext(ctx context.Context) ChannelTagArrayOutput {
 	return o
-}
-
-func (o ChannelTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ChannelTag] {
-	return pulumix.Output[[]ChannelTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelTagArrayOutput) Index(i pulumi.IntInput) ChannelTagOutput {
@@ -910,12 +765,6 @@ func (i OriginEndpointAuthorizationArgs) ToOriginEndpointAuthorizationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointAuthorizationOutput)
 }
 
-func (i OriginEndpointAuthorizationArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointAuthorization] {
-	return pulumix.Output[OriginEndpointAuthorization]{
-		OutputState: i.ToOriginEndpointAuthorizationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OriginEndpointAuthorizationArgs) ToOriginEndpointAuthorizationPtrOutput() OriginEndpointAuthorizationPtrOutput {
 	return i.ToOriginEndpointAuthorizationPtrOutputWithContext(context.Background())
 }
@@ -957,12 +806,6 @@ func (i *originEndpointAuthorizationPtrType) ToOriginEndpointAuthorizationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointAuthorizationPtrOutput)
 }
 
-func (i *originEndpointAuthorizationPtrType) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointAuthorization] {
-	return pulumix.Output[*OriginEndpointAuthorization]{
-		OutputState: i.ToOriginEndpointAuthorizationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CDN Authorization credentials
 type OriginEndpointAuthorizationOutput struct{ *pulumi.OutputState }
 
@@ -988,12 +831,6 @@ func (o OriginEndpointAuthorizationOutput) ToOriginEndpointAuthorizationPtrOutpu
 	}).(OriginEndpointAuthorizationPtrOutput)
 }
 
-func (o OriginEndpointAuthorizationOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointAuthorization] {
-	return pulumix.Output[OriginEndpointAuthorization]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Amazon Resource Name (ARN) for the secret in Secrets Manager that your Content Distribution Network (CDN) uses for authorization to access your endpoint.
 func (o OriginEndpointAuthorizationOutput) CdnIdentifierSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginEndpointAuthorization) string { return v.CdnIdentifierSecret }).(pulumi.StringOutput)
@@ -1016,12 +853,6 @@ func (o OriginEndpointAuthorizationPtrOutput) ToOriginEndpointAuthorizationPtrOu
 
 func (o OriginEndpointAuthorizationPtrOutput) ToOriginEndpointAuthorizationPtrOutputWithContext(ctx context.Context) OriginEndpointAuthorizationPtrOutput {
 	return o
-}
-
-func (o OriginEndpointAuthorizationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointAuthorization] {
-	return pulumix.Output[*OriginEndpointAuthorization]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointAuthorizationPtrOutput) Elem() OriginEndpointAuthorizationOutput {
@@ -1099,12 +930,6 @@ func (i OriginEndpointCmafEncryptionArgs) ToOriginEndpointCmafEncryptionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointCmafEncryptionOutput)
 }
 
-func (i OriginEndpointCmafEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointCmafEncryption] {
-	return pulumix.Output[OriginEndpointCmafEncryption]{
-		OutputState: i.ToOriginEndpointCmafEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OriginEndpointCmafEncryptionArgs) ToOriginEndpointCmafEncryptionPtrOutput() OriginEndpointCmafEncryptionPtrOutput {
 	return i.ToOriginEndpointCmafEncryptionPtrOutputWithContext(context.Background())
 }
@@ -1146,12 +971,6 @@ func (i *originEndpointCmafEncryptionPtrType) ToOriginEndpointCmafEncryptionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointCmafEncryptionPtrOutput)
 }
 
-func (i *originEndpointCmafEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointCmafEncryption] {
-	return pulumix.Output[*OriginEndpointCmafEncryption]{
-		OutputState: i.ToOriginEndpointCmafEncryptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A Common Media Application Format (CMAF) encryption configuration.
 type OriginEndpointCmafEncryptionOutput struct{ *pulumi.OutputState }
 
@@ -1175,12 +994,6 @@ func (o OriginEndpointCmafEncryptionOutput) ToOriginEndpointCmafEncryptionPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointCmafEncryption) *OriginEndpointCmafEncryption {
 		return &v
 	}).(OriginEndpointCmafEncryptionPtrOutput)
-}
-
-func (o OriginEndpointCmafEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointCmafEncryption] {
-	return pulumix.Output[OriginEndpointCmafEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
@@ -1216,12 +1029,6 @@ func (o OriginEndpointCmafEncryptionPtrOutput) ToOriginEndpointCmafEncryptionPtr
 
 func (o OriginEndpointCmafEncryptionPtrOutput) ToOriginEndpointCmafEncryptionPtrOutputWithContext(ctx context.Context) OriginEndpointCmafEncryptionPtrOutput {
 	return o
-}
-
-func (o OriginEndpointCmafEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointCmafEncryption] {
-	return pulumix.Output[*OriginEndpointCmafEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointCmafEncryptionPtrOutput) Elem() OriginEndpointCmafEncryptionOutput {
@@ -1320,12 +1127,6 @@ func (i OriginEndpointCmafPackageArgs) ToOriginEndpointCmafPackageOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointCmafPackageOutput)
 }
 
-func (i OriginEndpointCmafPackageArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointCmafPackage] {
-	return pulumix.Output[OriginEndpointCmafPackage]{
-		OutputState: i.ToOriginEndpointCmafPackageOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OriginEndpointCmafPackageArgs) ToOriginEndpointCmafPackagePtrOutput() OriginEndpointCmafPackagePtrOutput {
 	return i.ToOriginEndpointCmafPackagePtrOutputWithContext(context.Background())
 }
@@ -1367,12 +1168,6 @@ func (i *originEndpointCmafPackagePtrType) ToOriginEndpointCmafPackagePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointCmafPackagePtrOutput)
 }
 
-func (i *originEndpointCmafPackagePtrType) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointCmafPackage] {
-	return pulumix.Output[*OriginEndpointCmafPackage]{
-		OutputState: i.ToOriginEndpointCmafPackagePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A Common Media Application Format (CMAF) packaging configuration.
 type OriginEndpointCmafPackageOutput struct{ *pulumi.OutputState }
 
@@ -1396,12 +1191,6 @@ func (o OriginEndpointCmafPackageOutput) ToOriginEndpointCmafPackagePtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointCmafPackage) *OriginEndpointCmafPackage {
 		return &v
 	}).(OriginEndpointCmafPackagePtrOutput)
-}
-
-func (o OriginEndpointCmafPackageOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointCmafPackage] {
-	return pulumix.Output[OriginEndpointCmafPackage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointCmafPackageOutput) Encryption() OriginEndpointCmafEncryptionPtrOutput {
@@ -1439,12 +1228,6 @@ func (o OriginEndpointCmafPackagePtrOutput) ToOriginEndpointCmafPackagePtrOutput
 
 func (o OriginEndpointCmafPackagePtrOutput) ToOriginEndpointCmafPackagePtrOutputWithContext(ctx context.Context) OriginEndpointCmafPackagePtrOutput {
 	return o
-}
-
-func (o OriginEndpointCmafPackagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointCmafPackage] {
-	return pulumix.Output[*OriginEndpointCmafPackage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointCmafPackagePtrOutput) Elem() OriginEndpointCmafPackageOutput {
@@ -1542,12 +1325,6 @@ func (i OriginEndpointDashEncryptionArgs) ToOriginEndpointDashEncryptionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointDashEncryptionOutput)
 }
 
-func (i OriginEndpointDashEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointDashEncryption] {
-	return pulumix.Output[OriginEndpointDashEncryption]{
-		OutputState: i.ToOriginEndpointDashEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OriginEndpointDashEncryptionArgs) ToOriginEndpointDashEncryptionPtrOutput() OriginEndpointDashEncryptionPtrOutput {
 	return i.ToOriginEndpointDashEncryptionPtrOutputWithContext(context.Background())
 }
@@ -1589,12 +1366,6 @@ func (i *originEndpointDashEncryptionPtrType) ToOriginEndpointDashEncryptionPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointDashEncryptionPtrOutput)
 }
 
-func (i *originEndpointDashEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashEncryption] {
-	return pulumix.Output[*OriginEndpointDashEncryption]{
-		OutputState: i.ToOriginEndpointDashEncryptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
 type OriginEndpointDashEncryptionOutput struct{ *pulumi.OutputState }
 
@@ -1620,12 +1391,6 @@ func (o OriginEndpointDashEncryptionOutput) ToOriginEndpointDashEncryptionPtrOut
 	}).(OriginEndpointDashEncryptionPtrOutput)
 }
 
-func (o OriginEndpointDashEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointDashEncryption] {
-	return pulumix.Output[OriginEndpointDashEncryption]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Time (in seconds) between each encryption key rotation.
 func (o OriginEndpointDashEncryptionOutput) KeyRotationIntervalSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashEncryption) *int { return v.KeyRotationIntervalSeconds }).(pulumi.IntPtrOutput)
@@ -1647,12 +1412,6 @@ func (o OriginEndpointDashEncryptionPtrOutput) ToOriginEndpointDashEncryptionPtr
 
 func (o OriginEndpointDashEncryptionPtrOutput) ToOriginEndpointDashEncryptionPtrOutputWithContext(ctx context.Context) OriginEndpointDashEncryptionPtrOutput {
 	return o
-}
-
-func (o OriginEndpointDashEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashEncryption] {
-	return pulumix.Output[*OriginEndpointDashEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointDashEncryptionPtrOutput) Elem() OriginEndpointDashEncryptionOutput {
@@ -1773,12 +1532,6 @@ func (i OriginEndpointDashPackageArgs) ToOriginEndpointDashPackageOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointDashPackageOutput)
 }
 
-func (i OriginEndpointDashPackageArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointDashPackage] {
-	return pulumix.Output[OriginEndpointDashPackage]{
-		OutputState: i.ToOriginEndpointDashPackageOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OriginEndpointDashPackageArgs) ToOriginEndpointDashPackagePtrOutput() OriginEndpointDashPackagePtrOutput {
 	return i.ToOriginEndpointDashPackagePtrOutputWithContext(context.Background())
 }
@@ -1820,12 +1573,6 @@ func (i *originEndpointDashPackagePtrType) ToOriginEndpointDashPackagePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointDashPackagePtrOutput)
 }
 
-func (i *originEndpointDashPackagePtrType) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackage] {
-	return pulumix.Output[*OriginEndpointDashPackage]{
-		OutputState: i.ToOriginEndpointDashPackagePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
 type OriginEndpointDashPackageOutput struct{ *pulumi.OutputState }
 
@@ -1849,12 +1596,6 @@ func (o OriginEndpointDashPackageOutput) ToOriginEndpointDashPackagePtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointDashPackage) *OriginEndpointDashPackage {
 		return &v
 	}).(OriginEndpointDashPackagePtrOutput)
-}
-
-func (o OriginEndpointDashPackageOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointDashPackage] {
-	return pulumix.Output[OriginEndpointDashPackage]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
@@ -1952,12 +1693,6 @@ func (o OriginEndpointDashPackagePtrOutput) ToOriginEndpointDashPackagePtrOutput
 
 func (o OriginEndpointDashPackagePtrOutput) ToOriginEndpointDashPackagePtrOutputWithContext(ctx context.Context) OriginEndpointDashPackagePtrOutput {
 	return o
-}
-
-func (o OriginEndpointDashPackagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDashPackage] {
-	return pulumix.Output[*OriginEndpointDashPackage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointDashPackagePtrOutput) Elem() OriginEndpointDashPackageOutput {
@@ -2166,12 +1901,6 @@ func (i OriginEndpointEncryptionContractConfigurationArgs) ToOriginEndpointEncry
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointEncryptionContractConfigurationOutput)
 }
 
-func (i OriginEndpointEncryptionContractConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointEncryptionContractConfiguration] {
-	return pulumix.Output[OriginEndpointEncryptionContractConfiguration]{
-		OutputState: i.ToOriginEndpointEncryptionContractConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OriginEndpointEncryptionContractConfigurationArgs) ToOriginEndpointEncryptionContractConfigurationPtrOutput() OriginEndpointEncryptionContractConfigurationPtrOutput {
 	return i.ToOriginEndpointEncryptionContractConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2213,12 +1942,6 @@ func (i *originEndpointEncryptionContractConfigurationPtrType) ToOriginEndpointE
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointEncryptionContractConfigurationPtrOutput)
 }
 
-func (i *originEndpointEncryptionContractConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointEncryptionContractConfiguration] {
-	return pulumix.Output[*OriginEndpointEncryptionContractConfiguration]{
-		OutputState: i.ToOriginEndpointEncryptionContractConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The configuration to use for encrypting one or more content tracks separately for endpoints that use SPEKE 2.0.
 type OriginEndpointEncryptionContractConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -2242,12 +1965,6 @@ func (o OriginEndpointEncryptionContractConfigurationOutput) ToOriginEndpointEnc
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointEncryptionContractConfiguration) *OriginEndpointEncryptionContractConfiguration {
 		return &v
 	}).(OriginEndpointEncryptionContractConfigurationPtrOutput)
-}
-
-func (o OriginEndpointEncryptionContractConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointEncryptionContractConfiguration] {
-	return pulumix.Output[OriginEndpointEncryptionContractConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A collection of audio encryption presets.
@@ -2276,12 +1993,6 @@ func (o OriginEndpointEncryptionContractConfigurationPtrOutput) ToOriginEndpoint
 
 func (o OriginEndpointEncryptionContractConfigurationPtrOutput) ToOriginEndpointEncryptionContractConfigurationPtrOutputWithContext(ctx context.Context) OriginEndpointEncryptionContractConfigurationPtrOutput {
 	return o
-}
-
-func (o OriginEndpointEncryptionContractConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointEncryptionContractConfiguration] {
-	return pulumix.Output[*OriginEndpointEncryptionContractConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointEncryptionContractConfigurationPtrOutput) Elem() OriginEndpointEncryptionContractConfigurationOutput {
@@ -2363,12 +2074,6 @@ func (i OriginEndpointHlsEncryptionArgs) ToOriginEndpointHlsEncryptionOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointHlsEncryptionOutput)
 }
 
-func (i OriginEndpointHlsEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointHlsEncryption] {
-	return pulumix.Output[OriginEndpointHlsEncryption]{
-		OutputState: i.ToOriginEndpointHlsEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OriginEndpointHlsEncryptionArgs) ToOriginEndpointHlsEncryptionPtrOutput() OriginEndpointHlsEncryptionPtrOutput {
 	return i.ToOriginEndpointHlsEncryptionPtrOutputWithContext(context.Background())
 }
@@ -2410,12 +2115,6 @@ func (i *originEndpointHlsEncryptionPtrType) ToOriginEndpointHlsEncryptionPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointHlsEncryptionPtrOutput)
 }
 
-func (i *originEndpointHlsEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsEncryption] {
-	return pulumix.Output[*OriginEndpointHlsEncryption]{
-		OutputState: i.ToOriginEndpointHlsEncryptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An HTTP Live Streaming (HLS) encryption configuration.
 type OriginEndpointHlsEncryptionOutput struct{ *pulumi.OutputState }
 
@@ -2439,12 +2138,6 @@ func (o OriginEndpointHlsEncryptionOutput) ToOriginEndpointHlsEncryptionPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointHlsEncryption) *OriginEndpointHlsEncryption {
 		return &v
 	}).(OriginEndpointHlsEncryptionPtrOutput)
-}
-
-func (o OriginEndpointHlsEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointHlsEncryption] {
-	return pulumix.Output[OriginEndpointHlsEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A constant initialization vector for encryption (optional). When not specified the initialization vector will be periodically rotated.
@@ -2485,12 +2178,6 @@ func (o OriginEndpointHlsEncryptionPtrOutput) ToOriginEndpointHlsEncryptionPtrOu
 
 func (o OriginEndpointHlsEncryptionPtrOutput) ToOriginEndpointHlsEncryptionPtrOutputWithContext(ctx context.Context) OriginEndpointHlsEncryptionPtrOutput {
 	return o
-}
-
-func (o OriginEndpointHlsEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsEncryption] {
-	return pulumix.Output[*OriginEndpointHlsEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointHlsEncryptionPtrOutput) Elem() OriginEndpointHlsEncryptionOutput {
@@ -2621,12 +2308,6 @@ func (i OriginEndpointHlsManifestArgs) ToOriginEndpointHlsManifestOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointHlsManifestOutput)
 }
 
-func (i OriginEndpointHlsManifestArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointHlsManifest] {
-	return pulumix.Output[OriginEndpointHlsManifest]{
-		OutputState: i.ToOriginEndpointHlsManifestOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OriginEndpointHlsManifestArrayInput is an input type that accepts OriginEndpointHlsManifestArray and OriginEndpointHlsManifestArrayOutput values.
 // You can construct a concrete instance of `OriginEndpointHlsManifestArrayInput` via:
 //
@@ -2652,12 +2333,6 @@ func (i OriginEndpointHlsManifestArray) ToOriginEndpointHlsManifestArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointHlsManifestArrayOutput)
 }
 
-func (i OriginEndpointHlsManifestArray) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointHlsManifest] {
-	return pulumix.Output[[]OriginEndpointHlsManifest]{
-		OutputState: i.ToOriginEndpointHlsManifestArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A HTTP Live Streaming (HLS) manifest configuration.
 type OriginEndpointHlsManifestOutput struct{ *pulumi.OutputState }
 
@@ -2671,12 +2346,6 @@ func (o OriginEndpointHlsManifestOutput) ToOriginEndpointHlsManifestOutput() Ori
 
 func (o OriginEndpointHlsManifestOutput) ToOriginEndpointHlsManifestOutputWithContext(ctx context.Context) OriginEndpointHlsManifestOutput {
 	return o
-}
-
-func (o OriginEndpointHlsManifestOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointHlsManifest] {
-	return pulumix.Output[OriginEndpointHlsManifest]{
-		OutputState: o.OutputState,
-	}
 }
 
 // This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
@@ -2742,12 +2411,6 @@ func (o OriginEndpointHlsManifestArrayOutput) ToOriginEndpointHlsManifestArrayOu
 
 func (o OriginEndpointHlsManifestArrayOutput) ToOriginEndpointHlsManifestArrayOutputWithContext(ctx context.Context) OriginEndpointHlsManifestArrayOutput {
 	return o
-}
-
-func (o OriginEndpointHlsManifestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointHlsManifest] {
-	return pulumix.Output[[]OriginEndpointHlsManifest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointHlsManifestArrayOutput) Index(i pulumi.IntInput) OriginEndpointHlsManifestOutput {
@@ -2829,12 +2492,6 @@ func (i OriginEndpointHlsPackageArgs) ToOriginEndpointHlsPackageOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointHlsPackageOutput)
 }
 
-func (i OriginEndpointHlsPackageArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointHlsPackage] {
-	return pulumix.Output[OriginEndpointHlsPackage]{
-		OutputState: i.ToOriginEndpointHlsPackageOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OriginEndpointHlsPackageArgs) ToOriginEndpointHlsPackagePtrOutput() OriginEndpointHlsPackagePtrOutput {
 	return i.ToOriginEndpointHlsPackagePtrOutputWithContext(context.Background())
 }
@@ -2876,12 +2533,6 @@ func (i *originEndpointHlsPackagePtrType) ToOriginEndpointHlsPackagePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointHlsPackagePtrOutput)
 }
 
-func (i *originEndpointHlsPackagePtrType) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsPackage] {
-	return pulumix.Output[*OriginEndpointHlsPackage]{
-		OutputState: i.ToOriginEndpointHlsPackagePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An HTTP Live Streaming (HLS) packaging configuration.
 type OriginEndpointHlsPackageOutput struct{ *pulumi.OutputState }
 
@@ -2905,12 +2556,6 @@ func (o OriginEndpointHlsPackageOutput) ToOriginEndpointHlsPackagePtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointHlsPackage) *OriginEndpointHlsPackage {
 		return &v
 	}).(OriginEndpointHlsPackagePtrOutput)
-}
-
-func (o OriginEndpointHlsPackageOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointHlsPackage] {
-	return pulumix.Output[OriginEndpointHlsPackage]{
-		OutputState: o.OutputState,
-	}
 }
 
 // This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
@@ -2984,12 +2629,6 @@ func (o OriginEndpointHlsPackagePtrOutput) ToOriginEndpointHlsPackagePtrOutput()
 
 func (o OriginEndpointHlsPackagePtrOutput) ToOriginEndpointHlsPackagePtrOutputWithContext(ctx context.Context) OriginEndpointHlsPackagePtrOutput {
 	return o
-}
-
-func (o OriginEndpointHlsPackagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointHlsPackage] {
-	return pulumix.Output[*OriginEndpointHlsPackage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointHlsPackagePtrOutput) Elem() OriginEndpointHlsPackageOutput {
@@ -3152,12 +2791,6 @@ func (i OriginEndpointMssEncryptionArgs) ToOriginEndpointMssEncryptionOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointMssEncryptionOutput)
 }
 
-func (i OriginEndpointMssEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointMssEncryption] {
-	return pulumix.Output[OriginEndpointMssEncryption]{
-		OutputState: i.ToOriginEndpointMssEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OriginEndpointMssEncryptionArgs) ToOriginEndpointMssEncryptionPtrOutput() OriginEndpointMssEncryptionPtrOutput {
 	return i.ToOriginEndpointMssEncryptionPtrOutputWithContext(context.Background())
 }
@@ -3199,12 +2832,6 @@ func (i *originEndpointMssEncryptionPtrType) ToOriginEndpointMssEncryptionPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointMssEncryptionPtrOutput)
 }
 
-func (i *originEndpointMssEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointMssEncryption] {
-	return pulumix.Output[*OriginEndpointMssEncryption]{
-		OutputState: i.ToOriginEndpointMssEncryptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A Microsoft Smooth Streaming (MSS) encryption configuration.
 type OriginEndpointMssEncryptionOutput struct{ *pulumi.OutputState }
 
@@ -3230,12 +2857,6 @@ func (o OriginEndpointMssEncryptionOutput) ToOriginEndpointMssEncryptionPtrOutpu
 	}).(OriginEndpointMssEncryptionPtrOutput)
 }
 
-func (o OriginEndpointMssEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointMssEncryption] {
-	return pulumix.Output[OriginEndpointMssEncryption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointMssEncryptionOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderOutput {
 	return o.ApplyT(func(v OriginEndpointMssEncryption) OriginEndpointSpekeKeyProvider { return v.SpekeKeyProvider }).(OriginEndpointSpekeKeyProviderOutput)
 }
@@ -3252,12 +2873,6 @@ func (o OriginEndpointMssEncryptionPtrOutput) ToOriginEndpointMssEncryptionPtrOu
 
 func (o OriginEndpointMssEncryptionPtrOutput) ToOriginEndpointMssEncryptionPtrOutputWithContext(ctx context.Context) OriginEndpointMssEncryptionPtrOutput {
 	return o
-}
-
-func (o OriginEndpointMssEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointMssEncryption] {
-	return pulumix.Output[*OriginEndpointMssEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointMssEncryptionPtrOutput) Elem() OriginEndpointMssEncryptionOutput {
@@ -3322,12 +2937,6 @@ func (i OriginEndpointMssPackageArgs) ToOriginEndpointMssPackageOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointMssPackageOutput)
 }
 
-func (i OriginEndpointMssPackageArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointMssPackage] {
-	return pulumix.Output[OriginEndpointMssPackage]{
-		OutputState: i.ToOriginEndpointMssPackageOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OriginEndpointMssPackageArgs) ToOriginEndpointMssPackagePtrOutput() OriginEndpointMssPackagePtrOutput {
 	return i.ToOriginEndpointMssPackagePtrOutputWithContext(context.Background())
 }
@@ -3369,12 +2978,6 @@ func (i *originEndpointMssPackagePtrType) ToOriginEndpointMssPackagePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointMssPackagePtrOutput)
 }
 
-func (i *originEndpointMssPackagePtrType) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointMssPackage] {
-	return pulumix.Output[*OriginEndpointMssPackage]{
-		OutputState: i.ToOriginEndpointMssPackagePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A Microsoft Smooth Streaming (MSS) packaging configuration.
 type OriginEndpointMssPackageOutput struct{ *pulumi.OutputState }
 
@@ -3398,12 +3001,6 @@ func (o OriginEndpointMssPackageOutput) ToOriginEndpointMssPackagePtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointMssPackage) *OriginEndpointMssPackage {
 		return &v
 	}).(OriginEndpointMssPackagePtrOutput)
-}
-
-func (o OriginEndpointMssPackageOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointMssPackage] {
-	return pulumix.Output[OriginEndpointMssPackage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointMssPackageOutput) Encryption() OriginEndpointMssEncryptionPtrOutput {
@@ -3436,12 +3033,6 @@ func (o OriginEndpointMssPackagePtrOutput) ToOriginEndpointMssPackagePtrOutput()
 
 func (o OriginEndpointMssPackagePtrOutput) ToOriginEndpointMssPackagePtrOutputWithContext(ctx context.Context) OriginEndpointMssPackagePtrOutput {
 	return o
-}
-
-func (o OriginEndpointMssPackagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointMssPackage] {
-	return pulumix.Output[*OriginEndpointMssPackage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointMssPackagePtrOutput) Elem() OriginEndpointMssPackageOutput {
@@ -3545,12 +3136,6 @@ func (i OriginEndpointSpekeKeyProviderArgs) ToOriginEndpointSpekeKeyProviderOutp
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointSpekeKeyProviderOutput)
 }
 
-func (i OriginEndpointSpekeKeyProviderArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointSpekeKeyProvider] {
-	return pulumix.Output[OriginEndpointSpekeKeyProvider]{
-		OutputState: i.ToOriginEndpointSpekeKeyProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OriginEndpointSpekeKeyProviderArgs) ToOriginEndpointSpekeKeyProviderPtrOutput() OriginEndpointSpekeKeyProviderPtrOutput {
 	return i.ToOriginEndpointSpekeKeyProviderPtrOutputWithContext(context.Background())
 }
@@ -3592,12 +3177,6 @@ func (i *originEndpointSpekeKeyProviderPtrType) ToOriginEndpointSpekeKeyProvider
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointSpekeKeyProviderPtrOutput)
 }
 
-func (i *originEndpointSpekeKeyProviderPtrType) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointSpekeKeyProvider] {
-	return pulumix.Output[*OriginEndpointSpekeKeyProvider]{
-		OutputState: i.ToOriginEndpointSpekeKeyProviderPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
 type OriginEndpointSpekeKeyProviderOutput struct{ *pulumi.OutputState }
 
@@ -3621,12 +3200,6 @@ func (o OriginEndpointSpekeKeyProviderOutput) ToOriginEndpointSpekeKeyProviderPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointSpekeKeyProvider) *OriginEndpointSpekeKeyProvider {
 		return &v
 	}).(OriginEndpointSpekeKeyProviderPtrOutput)
-}
-
-func (o OriginEndpointSpekeKeyProviderOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointSpekeKeyProvider] {
-	return pulumix.Output[OriginEndpointSpekeKeyProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service.
@@ -3672,12 +3245,6 @@ func (o OriginEndpointSpekeKeyProviderPtrOutput) ToOriginEndpointSpekeKeyProvide
 
 func (o OriginEndpointSpekeKeyProviderPtrOutput) ToOriginEndpointSpekeKeyProviderPtrOutputWithContext(ctx context.Context) OriginEndpointSpekeKeyProviderPtrOutput {
 	return o
-}
-
-func (o OriginEndpointSpekeKeyProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointSpekeKeyProvider] {
-	return pulumix.Output[*OriginEndpointSpekeKeyProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointSpekeKeyProviderPtrOutput) Elem() OriginEndpointSpekeKeyProviderOutput {
@@ -3792,12 +3359,6 @@ func (i OriginEndpointStreamSelectionArgs) ToOriginEndpointStreamSelectionOutput
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointStreamSelectionOutput)
 }
 
-func (i OriginEndpointStreamSelectionArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointStreamSelection] {
-	return pulumix.Output[OriginEndpointStreamSelection]{
-		OutputState: i.ToOriginEndpointStreamSelectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OriginEndpointStreamSelectionArgs) ToOriginEndpointStreamSelectionPtrOutput() OriginEndpointStreamSelectionPtrOutput {
 	return i.ToOriginEndpointStreamSelectionPtrOutputWithContext(context.Background())
 }
@@ -3839,12 +3400,6 @@ func (i *originEndpointStreamSelectionPtrType) ToOriginEndpointStreamSelectionPt
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointStreamSelectionPtrOutput)
 }
 
-func (i *originEndpointStreamSelectionPtrType) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointStreamSelection] {
-	return pulumix.Output[*OriginEndpointStreamSelection]{
-		OutputState: i.ToOriginEndpointStreamSelectionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A StreamSelection configuration.
 type OriginEndpointStreamSelectionOutput struct{ *pulumi.OutputState }
 
@@ -3868,12 +3423,6 @@ func (o OriginEndpointStreamSelectionOutput) ToOriginEndpointStreamSelectionPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointStreamSelection) *OriginEndpointStreamSelection {
 		return &v
 	}).(OriginEndpointStreamSelectionPtrOutput)
-}
-
-func (o OriginEndpointStreamSelectionOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointStreamSelection] {
-	return pulumix.Output[OriginEndpointStreamSelection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The maximum video bitrate (bps) to include in output.
@@ -3903,12 +3452,6 @@ func (o OriginEndpointStreamSelectionPtrOutput) ToOriginEndpointStreamSelectionP
 
 func (o OriginEndpointStreamSelectionPtrOutput) ToOriginEndpointStreamSelectionPtrOutputWithContext(ctx context.Context) OriginEndpointStreamSelectionPtrOutput {
 	return o
-}
-
-func (o OriginEndpointStreamSelectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointStreamSelection] {
-	return pulumix.Output[*OriginEndpointStreamSelection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointStreamSelectionPtrOutput) Elem() OriginEndpointStreamSelectionOutput {
@@ -3984,12 +3527,6 @@ func (i OriginEndpointTagArgs) ToOriginEndpointTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointTagOutput)
 }
 
-func (i OriginEndpointTagArgs) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointTag] {
-	return pulumix.Output[OriginEndpointTag]{
-		OutputState: i.ToOriginEndpointTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OriginEndpointTagArrayInput is an input type that accepts OriginEndpointTagArray and OriginEndpointTagArrayOutput values.
 // You can construct a concrete instance of `OriginEndpointTagArrayInput` via:
 //
@@ -4015,12 +3552,6 @@ func (i OriginEndpointTagArray) ToOriginEndpointTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointTagArrayOutput)
 }
 
-func (i OriginEndpointTagArray) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointTag] {
-	return pulumix.Output[[]OriginEndpointTag]{
-		OutputState: i.ToOriginEndpointTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OriginEndpointTagOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointTagOutput) ElementType() reflect.Type {
@@ -4033,12 +3564,6 @@ func (o OriginEndpointTagOutput) ToOriginEndpointTagOutput() OriginEndpointTagOu
 
 func (o OriginEndpointTagOutput) ToOriginEndpointTagOutputWithContext(ctx context.Context) OriginEndpointTagOutput {
 	return o
-}
-
-func (o OriginEndpointTagOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointTag] {
-	return pulumix.Output[OriginEndpointTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointTagOutput) Key() pulumi.StringOutput {
@@ -4061,12 +3586,6 @@ func (o OriginEndpointTagArrayOutput) ToOriginEndpointTagArrayOutput() OriginEnd
 
 func (o OriginEndpointTagArrayOutput) ToOriginEndpointTagArrayOutputWithContext(ctx context.Context) OriginEndpointTagArrayOutput {
 	return o
-}
-
-func (o OriginEndpointTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointTag] {
-	return pulumix.Output[[]OriginEndpointTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointTagArrayOutput) Index(i pulumi.IntInput) OriginEndpointTagOutput {
@@ -4106,12 +3625,6 @@ func (i PackagingConfigurationCmafEncryptionArgs) ToPackagingConfigurationCmafEn
 
 func (i PackagingConfigurationCmafEncryptionArgs) ToPackagingConfigurationCmafEncryptionOutputWithContext(ctx context.Context) PackagingConfigurationCmafEncryptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationCmafEncryptionOutput)
-}
-
-func (i PackagingConfigurationCmafEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationCmafEncryption] {
-	return pulumix.Output[PackagingConfigurationCmafEncryption]{
-		OutputState: i.ToPackagingConfigurationCmafEncryptionOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i PackagingConfigurationCmafEncryptionArgs) ToPackagingConfigurationCmafEncryptionPtrOutput() PackagingConfigurationCmafEncryptionPtrOutput {
@@ -4155,12 +3668,6 @@ func (i *packagingConfigurationCmafEncryptionPtrType) ToPackagingConfigurationCm
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationCmafEncryptionPtrOutput)
 }
 
-func (i *packagingConfigurationCmafEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationCmafEncryption] {
-	return pulumix.Output[*PackagingConfigurationCmafEncryption]{
-		OutputState: i.ToPackagingConfigurationCmafEncryptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A CMAF encryption configuration.
 type PackagingConfigurationCmafEncryptionOutput struct{ *pulumi.OutputState }
 
@@ -4186,12 +3693,6 @@ func (o PackagingConfigurationCmafEncryptionOutput) ToPackagingConfigurationCmaf
 	}).(PackagingConfigurationCmafEncryptionPtrOutput)
 }
 
-func (o PackagingConfigurationCmafEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationCmafEncryption] {
-	return pulumix.Output[PackagingConfigurationCmafEncryption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackagingConfigurationCmafEncryptionOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderOutput {
 	return o.ApplyT(func(v PackagingConfigurationCmafEncryption) PackagingConfigurationSpekeKeyProvider {
 		return v.SpekeKeyProvider
@@ -4210,12 +3711,6 @@ func (o PackagingConfigurationCmafEncryptionPtrOutput) ToPackagingConfigurationC
 
 func (o PackagingConfigurationCmafEncryptionPtrOutput) ToPackagingConfigurationCmafEncryptionPtrOutputWithContext(ctx context.Context) PackagingConfigurationCmafEncryptionPtrOutput {
 	return o
-}
-
-func (o PackagingConfigurationCmafEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationCmafEncryption] {
-	return pulumix.Output[*PackagingConfigurationCmafEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingConfigurationCmafEncryptionPtrOutput) Elem() PackagingConfigurationCmafEncryptionOutput {
@@ -4280,12 +3775,6 @@ func (i PackagingConfigurationCmafPackageArgs) ToPackagingConfigurationCmafPacka
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationCmafPackageOutput)
 }
 
-func (i PackagingConfigurationCmafPackageArgs) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationCmafPackage] {
-	return pulumix.Output[PackagingConfigurationCmafPackage]{
-		OutputState: i.ToPackagingConfigurationCmafPackageOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PackagingConfigurationCmafPackageArgs) ToPackagingConfigurationCmafPackagePtrOutput() PackagingConfigurationCmafPackagePtrOutput {
 	return i.ToPackagingConfigurationCmafPackagePtrOutputWithContext(context.Background())
 }
@@ -4327,12 +3816,6 @@ func (i *packagingConfigurationCmafPackagePtrType) ToPackagingConfigurationCmafP
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationCmafPackagePtrOutput)
 }
 
-func (i *packagingConfigurationCmafPackagePtrType) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationCmafPackage] {
-	return pulumix.Output[*PackagingConfigurationCmafPackage]{
-		OutputState: i.ToPackagingConfigurationCmafPackagePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A CMAF packaging configuration.
 type PackagingConfigurationCmafPackageOutput struct{ *pulumi.OutputState }
 
@@ -4356,12 +3839,6 @@ func (o PackagingConfigurationCmafPackageOutput) ToPackagingConfigurationCmafPac
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackagingConfigurationCmafPackage) *PackagingConfigurationCmafPackage {
 		return &v
 	}).(PackagingConfigurationCmafPackagePtrOutput)
-}
-
-func (o PackagingConfigurationCmafPackageOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationCmafPackage] {
-	return pulumix.Output[PackagingConfigurationCmafPackage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingConfigurationCmafPackageOutput) Encryption() PackagingConfigurationCmafEncryptionPtrOutput {
@@ -4394,12 +3871,6 @@ func (o PackagingConfigurationCmafPackagePtrOutput) ToPackagingConfigurationCmaf
 
 func (o PackagingConfigurationCmafPackagePtrOutput) ToPackagingConfigurationCmafPackagePtrOutputWithContext(ctx context.Context) PackagingConfigurationCmafPackagePtrOutput {
 	return o
-}
-
-func (o PackagingConfigurationCmafPackagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationCmafPackage] {
-	return pulumix.Output[*PackagingConfigurationCmafPackage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingConfigurationCmafPackagePtrOutput) Elem() PackagingConfigurationCmafPackageOutput {
@@ -4483,12 +3954,6 @@ func (i PackagingConfigurationDashEncryptionArgs) ToPackagingConfigurationDashEn
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationDashEncryptionOutput)
 }
 
-func (i PackagingConfigurationDashEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationDashEncryption] {
-	return pulumix.Output[PackagingConfigurationDashEncryption]{
-		OutputState: i.ToPackagingConfigurationDashEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PackagingConfigurationDashEncryptionArgs) ToPackagingConfigurationDashEncryptionPtrOutput() PackagingConfigurationDashEncryptionPtrOutput {
 	return i.ToPackagingConfigurationDashEncryptionPtrOutputWithContext(context.Background())
 }
@@ -4530,12 +3995,6 @@ func (i *packagingConfigurationDashEncryptionPtrType) ToPackagingConfigurationDa
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationDashEncryptionPtrOutput)
 }
 
-func (i *packagingConfigurationDashEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashEncryption] {
-	return pulumix.Output[*PackagingConfigurationDashEncryption]{
-		OutputState: i.ToPackagingConfigurationDashEncryptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
 type PackagingConfigurationDashEncryptionOutput struct{ *pulumi.OutputState }
 
@@ -4561,12 +4020,6 @@ func (o PackagingConfigurationDashEncryptionOutput) ToPackagingConfigurationDash
 	}).(PackagingConfigurationDashEncryptionPtrOutput)
 }
 
-func (o PackagingConfigurationDashEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationDashEncryption] {
-	return pulumix.Output[PackagingConfigurationDashEncryption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackagingConfigurationDashEncryptionOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderOutput {
 	return o.ApplyT(func(v PackagingConfigurationDashEncryption) PackagingConfigurationSpekeKeyProvider {
 		return v.SpekeKeyProvider
@@ -4585,12 +4038,6 @@ func (o PackagingConfigurationDashEncryptionPtrOutput) ToPackagingConfigurationD
 
 func (o PackagingConfigurationDashEncryptionPtrOutput) ToPackagingConfigurationDashEncryptionPtrOutputWithContext(ctx context.Context) PackagingConfigurationDashEncryptionPtrOutput {
 	return o
-}
-
-func (o PackagingConfigurationDashEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashEncryption] {
-	return pulumix.Output[*PackagingConfigurationDashEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingConfigurationDashEncryptionPtrOutput) Elem() PackagingConfigurationDashEncryptionOutput {
@@ -4663,12 +4110,6 @@ func (i PackagingConfigurationDashManifestArgs) ToPackagingConfigurationDashMani
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationDashManifestOutput)
 }
 
-func (i PackagingConfigurationDashManifestArgs) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationDashManifest] {
-	return pulumix.Output[PackagingConfigurationDashManifest]{
-		OutputState: i.ToPackagingConfigurationDashManifestOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PackagingConfigurationDashManifestArrayInput is an input type that accepts PackagingConfigurationDashManifestArray and PackagingConfigurationDashManifestArrayOutput values.
 // You can construct a concrete instance of `PackagingConfigurationDashManifestArrayInput` via:
 //
@@ -4694,12 +4135,6 @@ func (i PackagingConfigurationDashManifestArray) ToPackagingConfigurationDashMan
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationDashManifestArrayOutput)
 }
 
-func (i PackagingConfigurationDashManifestArray) ToOutput(ctx context.Context) pulumix.Output[[]PackagingConfigurationDashManifest] {
-	return pulumix.Output[[]PackagingConfigurationDashManifest]{
-		OutputState: i.ToPackagingConfigurationDashManifestArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A DASH manifest configuration.
 type PackagingConfigurationDashManifestOutput struct{ *pulumi.OutputState }
 
@@ -4713,12 +4148,6 @@ func (o PackagingConfigurationDashManifestOutput) ToPackagingConfigurationDashMa
 
 func (o PackagingConfigurationDashManifestOutput) ToPackagingConfigurationDashManifestOutputWithContext(ctx context.Context) PackagingConfigurationDashManifestOutput {
 	return o
-}
-
-func (o PackagingConfigurationDashManifestOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationDashManifest] {
-	return pulumix.Output[PackagingConfigurationDashManifest]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Determines the position of some tags in the Media Presentation Description (MPD). When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation. When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
@@ -4769,12 +4198,6 @@ func (o PackagingConfigurationDashManifestArrayOutput) ToPackagingConfigurationD
 
 func (o PackagingConfigurationDashManifestArrayOutput) ToPackagingConfigurationDashManifestArrayOutputWithContext(ctx context.Context) PackagingConfigurationDashManifestArrayOutput {
 	return o
-}
-
-func (o PackagingConfigurationDashManifestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PackagingConfigurationDashManifest] {
-	return pulumix.Output[[]PackagingConfigurationDashManifest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingConfigurationDashManifestArrayOutput) Index(i pulumi.IntInput) PackagingConfigurationDashManifestOutput {
@@ -4838,12 +4261,6 @@ func (i PackagingConfigurationDashPackageArgs) ToPackagingConfigurationDashPacka
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationDashPackageOutput)
 }
 
-func (i PackagingConfigurationDashPackageArgs) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationDashPackage] {
-	return pulumix.Output[PackagingConfigurationDashPackage]{
-		OutputState: i.ToPackagingConfigurationDashPackageOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PackagingConfigurationDashPackageArgs) ToPackagingConfigurationDashPackagePtrOutput() PackagingConfigurationDashPackagePtrOutput {
 	return i.ToPackagingConfigurationDashPackagePtrOutputWithContext(context.Background())
 }
@@ -4885,12 +4302,6 @@ func (i *packagingConfigurationDashPackagePtrType) ToPackagingConfigurationDashP
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationDashPackagePtrOutput)
 }
 
-func (i *packagingConfigurationDashPackagePtrType) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashPackage] {
-	return pulumix.Output[*PackagingConfigurationDashPackage]{
-		OutputState: i.ToPackagingConfigurationDashPackagePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
 type PackagingConfigurationDashPackageOutput struct{ *pulumi.OutputState }
 
@@ -4914,12 +4325,6 @@ func (o PackagingConfigurationDashPackageOutput) ToPackagingConfigurationDashPac
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackagingConfigurationDashPackage) *PackagingConfigurationDashPackage {
 		return &v
 	}).(PackagingConfigurationDashPackagePtrOutput)
-}
-
-func (o PackagingConfigurationDashPackageOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationDashPackage] {
-	return pulumix.Output[PackagingConfigurationDashPackage]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of DASH manifest configurations.
@@ -4971,12 +4376,6 @@ func (o PackagingConfigurationDashPackagePtrOutput) ToPackagingConfigurationDash
 
 func (o PackagingConfigurationDashPackagePtrOutput) ToPackagingConfigurationDashPackagePtrOutputWithContext(ctx context.Context) PackagingConfigurationDashPackagePtrOutput {
 	return o
-}
-
-func (o PackagingConfigurationDashPackagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationDashPackage] {
-	return pulumix.Output[*PackagingConfigurationDashPackage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingConfigurationDashPackagePtrOutput) Elem() PackagingConfigurationDashPackageOutput {
@@ -5096,12 +4495,6 @@ func (i PackagingConfigurationEncryptionContractConfigurationArgs) ToPackagingCo
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationEncryptionContractConfigurationOutput)
 }
 
-func (i PackagingConfigurationEncryptionContractConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationEncryptionContractConfiguration] {
-	return pulumix.Output[PackagingConfigurationEncryptionContractConfiguration]{
-		OutputState: i.ToPackagingConfigurationEncryptionContractConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PackagingConfigurationEncryptionContractConfigurationArgs) ToPackagingConfigurationEncryptionContractConfigurationPtrOutput() PackagingConfigurationEncryptionContractConfigurationPtrOutput {
 	return i.ToPackagingConfigurationEncryptionContractConfigurationPtrOutputWithContext(context.Background())
 }
@@ -5143,12 +4536,6 @@ func (i *packagingConfigurationEncryptionContractConfigurationPtrType) ToPackagi
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationEncryptionContractConfigurationPtrOutput)
 }
 
-func (i *packagingConfigurationEncryptionContractConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationEncryptionContractConfiguration] {
-	return pulumix.Output[*PackagingConfigurationEncryptionContractConfiguration]{
-		OutputState: i.ToPackagingConfigurationEncryptionContractConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The configuration to use for encrypting one or more content tracks separately for endpoints that use SPEKE 2.0.
 type PackagingConfigurationEncryptionContractConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -5172,12 +4559,6 @@ func (o PackagingConfigurationEncryptionContractConfigurationOutput) ToPackaging
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackagingConfigurationEncryptionContractConfiguration) *PackagingConfigurationEncryptionContractConfiguration {
 		return &v
 	}).(PackagingConfigurationEncryptionContractConfigurationPtrOutput)
-}
-
-func (o PackagingConfigurationEncryptionContractConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationEncryptionContractConfiguration] {
-	return pulumix.Output[PackagingConfigurationEncryptionContractConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A collection of audio encryption presets.
@@ -5206,12 +4587,6 @@ func (o PackagingConfigurationEncryptionContractConfigurationPtrOutput) ToPackag
 
 func (o PackagingConfigurationEncryptionContractConfigurationPtrOutput) ToPackagingConfigurationEncryptionContractConfigurationPtrOutputWithContext(ctx context.Context) PackagingConfigurationEncryptionContractConfigurationPtrOutput {
 	return o
-}
-
-func (o PackagingConfigurationEncryptionContractConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationEncryptionContractConfiguration] {
-	return pulumix.Output[*PackagingConfigurationEncryptionContractConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingConfigurationEncryptionContractConfigurationPtrOutput) Elem() PackagingConfigurationEncryptionContractConfigurationOutput {
@@ -5285,12 +4660,6 @@ func (i PackagingConfigurationHlsEncryptionArgs) ToPackagingConfigurationHlsEncr
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationHlsEncryptionOutput)
 }
 
-func (i PackagingConfigurationHlsEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationHlsEncryption] {
-	return pulumix.Output[PackagingConfigurationHlsEncryption]{
-		OutputState: i.ToPackagingConfigurationHlsEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PackagingConfigurationHlsEncryptionArgs) ToPackagingConfigurationHlsEncryptionPtrOutput() PackagingConfigurationHlsEncryptionPtrOutput {
 	return i.ToPackagingConfigurationHlsEncryptionPtrOutputWithContext(context.Background())
 }
@@ -5332,12 +4701,6 @@ func (i *packagingConfigurationHlsEncryptionPtrType) ToPackagingConfigurationHls
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationHlsEncryptionPtrOutput)
 }
 
-func (i *packagingConfigurationHlsEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationHlsEncryption] {
-	return pulumix.Output[*PackagingConfigurationHlsEncryption]{
-		OutputState: i.ToPackagingConfigurationHlsEncryptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An HTTP Live Streaming (HLS) encryption configuration.
 type PackagingConfigurationHlsEncryptionOutput struct{ *pulumi.OutputState }
 
@@ -5361,12 +4724,6 @@ func (o PackagingConfigurationHlsEncryptionOutput) ToPackagingConfigurationHlsEn
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackagingConfigurationHlsEncryption) *PackagingConfigurationHlsEncryption {
 		return &v
 	}).(PackagingConfigurationHlsEncryptionPtrOutput)
-}
-
-func (o PackagingConfigurationHlsEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationHlsEncryption] {
-	return pulumix.Output[PackagingConfigurationHlsEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An HTTP Live Streaming (HLS) encryption configuration.
@@ -5399,12 +4756,6 @@ func (o PackagingConfigurationHlsEncryptionPtrOutput) ToPackagingConfigurationHl
 
 func (o PackagingConfigurationHlsEncryptionPtrOutput) ToPackagingConfigurationHlsEncryptionPtrOutputWithContext(ctx context.Context) PackagingConfigurationHlsEncryptionPtrOutput {
 	return o
-}
-
-func (o PackagingConfigurationHlsEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationHlsEncryption] {
-	return pulumix.Output[*PackagingConfigurationHlsEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingConfigurationHlsEncryptionPtrOutput) Elem() PackagingConfigurationHlsEncryptionOutput {
@@ -5497,12 +4848,6 @@ func (i PackagingConfigurationHlsManifestArgs) ToPackagingConfigurationHlsManife
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationHlsManifestOutput)
 }
 
-func (i PackagingConfigurationHlsManifestArgs) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationHlsManifest] {
-	return pulumix.Output[PackagingConfigurationHlsManifest]{
-		OutputState: i.ToPackagingConfigurationHlsManifestOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PackagingConfigurationHlsManifestArrayInput is an input type that accepts PackagingConfigurationHlsManifestArray and PackagingConfigurationHlsManifestArrayOutput values.
 // You can construct a concrete instance of `PackagingConfigurationHlsManifestArrayInput` via:
 //
@@ -5528,12 +4873,6 @@ func (i PackagingConfigurationHlsManifestArray) ToPackagingConfigurationHlsManif
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationHlsManifestArrayOutput)
 }
 
-func (i PackagingConfigurationHlsManifestArray) ToOutput(ctx context.Context) pulumix.Output[[]PackagingConfigurationHlsManifest] {
-	return pulumix.Output[[]PackagingConfigurationHlsManifest]{
-		OutputState: i.ToPackagingConfigurationHlsManifestArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An HTTP Live Streaming (HLS) manifest configuration.
 type PackagingConfigurationHlsManifestOutput struct{ *pulumi.OutputState }
 
@@ -5547,12 +4886,6 @@ func (o PackagingConfigurationHlsManifestOutput) ToPackagingConfigurationHlsMani
 
 func (o PackagingConfigurationHlsManifestOutput) ToPackagingConfigurationHlsManifestOutputWithContext(ctx context.Context) PackagingConfigurationHlsManifestOutput {
 	return o
-}
-
-func (o PackagingConfigurationHlsManifestOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationHlsManifest] {
-	return pulumix.Output[PackagingConfigurationHlsManifest]{
-		OutputState: o.OutputState,
-	}
 }
 
 // This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source.
@@ -5599,12 +4932,6 @@ func (o PackagingConfigurationHlsManifestArrayOutput) ToPackagingConfigurationHl
 
 func (o PackagingConfigurationHlsManifestArrayOutput) ToPackagingConfigurationHlsManifestArrayOutputWithContext(ctx context.Context) PackagingConfigurationHlsManifestArrayOutput {
 	return o
-}
-
-func (o PackagingConfigurationHlsManifestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PackagingConfigurationHlsManifest] {
-	return pulumix.Output[[]PackagingConfigurationHlsManifest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingConfigurationHlsManifestArrayOutput) Index(i pulumi.IntInput) PackagingConfigurationHlsManifestOutput {
@@ -5660,12 +4987,6 @@ func (i PackagingConfigurationHlsPackageArgs) ToPackagingConfigurationHlsPackage
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationHlsPackageOutput)
 }
 
-func (i PackagingConfigurationHlsPackageArgs) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationHlsPackage] {
-	return pulumix.Output[PackagingConfigurationHlsPackage]{
-		OutputState: i.ToPackagingConfigurationHlsPackageOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PackagingConfigurationHlsPackageArgs) ToPackagingConfigurationHlsPackagePtrOutput() PackagingConfigurationHlsPackagePtrOutput {
 	return i.ToPackagingConfigurationHlsPackagePtrOutputWithContext(context.Background())
 }
@@ -5707,12 +5028,6 @@ func (i *packagingConfigurationHlsPackagePtrType) ToPackagingConfigurationHlsPac
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationHlsPackagePtrOutput)
 }
 
-func (i *packagingConfigurationHlsPackagePtrType) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationHlsPackage] {
-	return pulumix.Output[*PackagingConfigurationHlsPackage]{
-		OutputState: i.ToPackagingConfigurationHlsPackagePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An HTTP Live Streaming (HLS) packaging configuration.
 type PackagingConfigurationHlsPackageOutput struct{ *pulumi.OutputState }
 
@@ -5736,12 +5051,6 @@ func (o PackagingConfigurationHlsPackageOutput) ToPackagingConfigurationHlsPacka
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackagingConfigurationHlsPackage) *PackagingConfigurationHlsPackage {
 		return &v
 	}).(PackagingConfigurationHlsPackagePtrOutput)
-}
-
-func (o PackagingConfigurationHlsPackageOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationHlsPackage] {
-	return pulumix.Output[PackagingConfigurationHlsPackage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingConfigurationHlsPackageOutput) Encryption() PackagingConfigurationHlsEncryptionPtrOutput {
@@ -5779,12 +5088,6 @@ func (o PackagingConfigurationHlsPackagePtrOutput) ToPackagingConfigurationHlsPa
 
 func (o PackagingConfigurationHlsPackagePtrOutput) ToPackagingConfigurationHlsPackagePtrOutputWithContext(ctx context.Context) PackagingConfigurationHlsPackagePtrOutput {
 	return o
-}
-
-func (o PackagingConfigurationHlsPackagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationHlsPackage] {
-	return pulumix.Output[*PackagingConfigurationHlsPackage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingConfigurationHlsPackagePtrOutput) Elem() PackagingConfigurationHlsPackageOutput {
@@ -5878,12 +5181,6 @@ func (i PackagingConfigurationMssEncryptionArgs) ToPackagingConfigurationMssEncr
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationMssEncryptionOutput)
 }
 
-func (i PackagingConfigurationMssEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationMssEncryption] {
-	return pulumix.Output[PackagingConfigurationMssEncryption]{
-		OutputState: i.ToPackagingConfigurationMssEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PackagingConfigurationMssEncryptionArgs) ToPackagingConfigurationMssEncryptionPtrOutput() PackagingConfigurationMssEncryptionPtrOutput {
 	return i.ToPackagingConfigurationMssEncryptionPtrOutputWithContext(context.Background())
 }
@@ -5925,12 +5222,6 @@ func (i *packagingConfigurationMssEncryptionPtrType) ToPackagingConfigurationMss
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationMssEncryptionPtrOutput)
 }
 
-func (i *packagingConfigurationMssEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationMssEncryption] {
-	return pulumix.Output[*PackagingConfigurationMssEncryption]{
-		OutputState: i.ToPackagingConfigurationMssEncryptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A CMAF encryption configuration.
 type PackagingConfigurationMssEncryptionOutput struct{ *pulumi.OutputState }
 
@@ -5956,12 +5247,6 @@ func (o PackagingConfigurationMssEncryptionOutput) ToPackagingConfigurationMssEn
 	}).(PackagingConfigurationMssEncryptionPtrOutput)
 }
 
-func (o PackagingConfigurationMssEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationMssEncryption] {
-	return pulumix.Output[PackagingConfigurationMssEncryption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PackagingConfigurationMssEncryptionOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderOutput {
 	return o.ApplyT(func(v PackagingConfigurationMssEncryption) PackagingConfigurationSpekeKeyProvider {
 		return v.SpekeKeyProvider
@@ -5980,12 +5265,6 @@ func (o PackagingConfigurationMssEncryptionPtrOutput) ToPackagingConfigurationMs
 
 func (o PackagingConfigurationMssEncryptionPtrOutput) ToPackagingConfigurationMssEncryptionPtrOutputWithContext(ctx context.Context) PackagingConfigurationMssEncryptionPtrOutput {
 	return o
-}
-
-func (o PackagingConfigurationMssEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationMssEncryption] {
-	return pulumix.Output[*PackagingConfigurationMssEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingConfigurationMssEncryptionPtrOutput) Elem() PackagingConfigurationMssEncryptionOutput {
@@ -6042,12 +5321,6 @@ func (i PackagingConfigurationMssManifestArgs) ToPackagingConfigurationMssManife
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationMssManifestOutput)
 }
 
-func (i PackagingConfigurationMssManifestArgs) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationMssManifest] {
-	return pulumix.Output[PackagingConfigurationMssManifest]{
-		OutputState: i.ToPackagingConfigurationMssManifestOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PackagingConfigurationMssManifestArrayInput is an input type that accepts PackagingConfigurationMssManifestArray and PackagingConfigurationMssManifestArrayOutput values.
 // You can construct a concrete instance of `PackagingConfigurationMssManifestArrayInput` via:
 //
@@ -6073,12 +5346,6 @@ func (i PackagingConfigurationMssManifestArray) ToPackagingConfigurationMssManif
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationMssManifestArrayOutput)
 }
 
-func (i PackagingConfigurationMssManifestArray) ToOutput(ctx context.Context) pulumix.Output[[]PackagingConfigurationMssManifest] {
-	return pulumix.Output[[]PackagingConfigurationMssManifest]{
-		OutputState: i.ToPackagingConfigurationMssManifestArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A Microsoft Smooth Streaming (MSS) manifest configuration.
 type PackagingConfigurationMssManifestOutput struct{ *pulumi.OutputState }
 
@@ -6092,12 +5359,6 @@ func (o PackagingConfigurationMssManifestOutput) ToPackagingConfigurationMssMani
 
 func (o PackagingConfigurationMssManifestOutput) ToPackagingConfigurationMssManifestOutputWithContext(ctx context.Context) PackagingConfigurationMssManifestOutput {
 	return o
-}
-
-func (o PackagingConfigurationMssManifestOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationMssManifest] {
-	return pulumix.Output[PackagingConfigurationMssManifest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingConfigurationMssManifestOutput) ManifestName() pulumi.StringPtrOutput {
@@ -6122,12 +5383,6 @@ func (o PackagingConfigurationMssManifestArrayOutput) ToPackagingConfigurationMs
 
 func (o PackagingConfigurationMssManifestArrayOutput) ToPackagingConfigurationMssManifestArrayOutputWithContext(ctx context.Context) PackagingConfigurationMssManifestArrayOutput {
 	return o
-}
-
-func (o PackagingConfigurationMssManifestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PackagingConfigurationMssManifest] {
-	return pulumix.Output[[]PackagingConfigurationMssManifest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingConfigurationMssManifestArrayOutput) Index(i pulumi.IntInput) PackagingConfigurationMssManifestOutput {
@@ -6175,12 +5430,6 @@ func (i PackagingConfigurationMssPackageArgs) ToPackagingConfigurationMssPackage
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationMssPackageOutput)
 }
 
-func (i PackagingConfigurationMssPackageArgs) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationMssPackage] {
-	return pulumix.Output[PackagingConfigurationMssPackage]{
-		OutputState: i.ToPackagingConfigurationMssPackageOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PackagingConfigurationMssPackageArgs) ToPackagingConfigurationMssPackagePtrOutput() PackagingConfigurationMssPackagePtrOutput {
 	return i.ToPackagingConfigurationMssPackagePtrOutputWithContext(context.Background())
 }
@@ -6222,12 +5471,6 @@ func (i *packagingConfigurationMssPackagePtrType) ToPackagingConfigurationMssPac
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationMssPackagePtrOutput)
 }
 
-func (i *packagingConfigurationMssPackagePtrType) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationMssPackage] {
-	return pulumix.Output[*PackagingConfigurationMssPackage]{
-		OutputState: i.ToPackagingConfigurationMssPackagePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
 type PackagingConfigurationMssPackageOutput struct{ *pulumi.OutputState }
 
@@ -6251,12 +5494,6 @@ func (o PackagingConfigurationMssPackageOutput) ToPackagingConfigurationMssPacka
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackagingConfigurationMssPackage) *PackagingConfigurationMssPackage {
 		return &v
 	}).(PackagingConfigurationMssPackagePtrOutput)
-}
-
-func (o PackagingConfigurationMssPackageOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationMssPackage] {
-	return pulumix.Output[PackagingConfigurationMssPackage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingConfigurationMssPackageOutput) Encryption() PackagingConfigurationMssEncryptionPtrOutput {
@@ -6284,12 +5521,6 @@ func (o PackagingConfigurationMssPackagePtrOutput) ToPackagingConfigurationMssPa
 
 func (o PackagingConfigurationMssPackagePtrOutput) ToPackagingConfigurationMssPackagePtrOutputWithContext(ctx context.Context) PackagingConfigurationMssPackagePtrOutput {
 	return o
-}
-
-func (o PackagingConfigurationMssPackagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationMssPackage] {
-	return pulumix.Output[*PackagingConfigurationMssPackage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingConfigurationMssPackagePtrOutput) Elem() PackagingConfigurationMssPackageOutput {
@@ -6373,12 +5604,6 @@ func (i PackagingConfigurationSpekeKeyProviderArgs) ToPackagingConfigurationSpek
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationSpekeKeyProviderOutput)
 }
 
-func (i PackagingConfigurationSpekeKeyProviderArgs) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationSpekeKeyProvider] {
-	return pulumix.Output[PackagingConfigurationSpekeKeyProvider]{
-		OutputState: i.ToPackagingConfigurationSpekeKeyProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PackagingConfigurationSpekeKeyProviderArgs) ToPackagingConfigurationSpekeKeyProviderPtrOutput() PackagingConfigurationSpekeKeyProviderPtrOutput {
 	return i.ToPackagingConfigurationSpekeKeyProviderPtrOutputWithContext(context.Background())
 }
@@ -6420,12 +5645,6 @@ func (i *packagingConfigurationSpekeKeyProviderPtrType) ToPackagingConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationSpekeKeyProviderPtrOutput)
 }
 
-func (i *packagingConfigurationSpekeKeyProviderPtrType) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationSpekeKeyProvider] {
-	return pulumix.Output[*PackagingConfigurationSpekeKeyProvider]{
-		OutputState: i.ToPackagingConfigurationSpekeKeyProviderPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
 type PackagingConfigurationSpekeKeyProviderOutput struct{ *pulumi.OutputState }
 
@@ -6449,12 +5668,6 @@ func (o PackagingConfigurationSpekeKeyProviderOutput) ToPackagingConfigurationSp
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackagingConfigurationSpekeKeyProvider) *PackagingConfigurationSpekeKeyProvider {
 		return &v
 	}).(PackagingConfigurationSpekeKeyProviderPtrOutput)
-}
-
-func (o PackagingConfigurationSpekeKeyProviderOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationSpekeKeyProvider] {
-	return pulumix.Output[PackagingConfigurationSpekeKeyProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingConfigurationSpekeKeyProviderOutput) EncryptionContractConfiguration() PackagingConfigurationEncryptionContractConfigurationPtrOutput {
@@ -6489,12 +5702,6 @@ func (o PackagingConfigurationSpekeKeyProviderPtrOutput) ToPackagingConfiguratio
 
 func (o PackagingConfigurationSpekeKeyProviderPtrOutput) ToPackagingConfigurationSpekeKeyProviderPtrOutputWithContext(ctx context.Context) PackagingConfigurationSpekeKeyProviderPtrOutput {
 	return o
-}
-
-func (o PackagingConfigurationSpekeKeyProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationSpekeKeyProvider] {
-	return pulumix.Output[*PackagingConfigurationSpekeKeyProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingConfigurationSpekeKeyProviderPtrOutput) Elem() PackagingConfigurationSpekeKeyProviderOutput {
@@ -6588,12 +5795,6 @@ func (i PackagingConfigurationStreamSelectionArgs) ToPackagingConfigurationStrea
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationStreamSelectionOutput)
 }
 
-func (i PackagingConfigurationStreamSelectionArgs) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationStreamSelection] {
-	return pulumix.Output[PackagingConfigurationStreamSelection]{
-		OutputState: i.ToPackagingConfigurationStreamSelectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PackagingConfigurationStreamSelectionArgs) ToPackagingConfigurationStreamSelectionPtrOutput() PackagingConfigurationStreamSelectionPtrOutput {
 	return i.ToPackagingConfigurationStreamSelectionPtrOutputWithContext(context.Background())
 }
@@ -6635,12 +5836,6 @@ func (i *packagingConfigurationStreamSelectionPtrType) ToPackagingConfigurationS
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationStreamSelectionPtrOutput)
 }
 
-func (i *packagingConfigurationStreamSelectionPtrType) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationStreamSelection] {
-	return pulumix.Output[*PackagingConfigurationStreamSelection]{
-		OutputState: i.ToPackagingConfigurationStreamSelectionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A StreamSelection configuration.
 type PackagingConfigurationStreamSelectionOutput struct{ *pulumi.OutputState }
 
@@ -6664,12 +5859,6 @@ func (o PackagingConfigurationStreamSelectionOutput) ToPackagingConfigurationStr
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PackagingConfigurationStreamSelection) *PackagingConfigurationStreamSelection {
 		return &v
 	}).(PackagingConfigurationStreamSelectionPtrOutput)
-}
-
-func (o PackagingConfigurationStreamSelectionOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationStreamSelection] {
-	return pulumix.Output[PackagingConfigurationStreamSelection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The maximum video bitrate (bps) to include in output.
@@ -6701,12 +5890,6 @@ func (o PackagingConfigurationStreamSelectionPtrOutput) ToPackagingConfiguration
 
 func (o PackagingConfigurationStreamSelectionPtrOutput) ToPackagingConfigurationStreamSelectionPtrOutputWithContext(ctx context.Context) PackagingConfigurationStreamSelectionPtrOutput {
 	return o
-}
-
-func (o PackagingConfigurationStreamSelectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingConfigurationStreamSelection] {
-	return pulumix.Output[*PackagingConfigurationStreamSelection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingConfigurationStreamSelectionPtrOutput) Elem() PackagingConfigurationStreamSelectionOutput {
@@ -6782,12 +5965,6 @@ func (i PackagingConfigurationTagArgs) ToPackagingConfigurationTagOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationTagOutput)
 }
 
-func (i PackagingConfigurationTagArgs) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationTag] {
-	return pulumix.Output[PackagingConfigurationTag]{
-		OutputState: i.ToPackagingConfigurationTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PackagingConfigurationTagArrayInput is an input type that accepts PackagingConfigurationTagArray and PackagingConfigurationTagArrayOutput values.
 // You can construct a concrete instance of `PackagingConfigurationTagArrayInput` via:
 //
@@ -6813,12 +5990,6 @@ func (i PackagingConfigurationTagArray) ToPackagingConfigurationTagArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingConfigurationTagArrayOutput)
 }
 
-func (i PackagingConfigurationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PackagingConfigurationTag] {
-	return pulumix.Output[[]PackagingConfigurationTag]{
-		OutputState: i.ToPackagingConfigurationTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PackagingConfigurationTagOutput struct{ *pulumi.OutputState }
 
 func (PackagingConfigurationTagOutput) ElementType() reflect.Type {
@@ -6831,12 +6002,6 @@ func (o PackagingConfigurationTagOutput) ToPackagingConfigurationTagOutput() Pac
 
 func (o PackagingConfigurationTagOutput) ToPackagingConfigurationTagOutputWithContext(ctx context.Context) PackagingConfigurationTagOutput {
 	return o
-}
-
-func (o PackagingConfigurationTagOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingConfigurationTag] {
-	return pulumix.Output[PackagingConfigurationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingConfigurationTagOutput) Key() pulumi.StringOutput {
@@ -6859,12 +6024,6 @@ func (o PackagingConfigurationTagArrayOutput) ToPackagingConfigurationTagArrayOu
 
 func (o PackagingConfigurationTagArrayOutput) ToPackagingConfigurationTagArrayOutputWithContext(ctx context.Context) PackagingConfigurationTagArrayOutput {
 	return o
-}
-
-func (o PackagingConfigurationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PackagingConfigurationTag] {
-	return pulumix.Output[[]PackagingConfigurationTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingConfigurationTagArrayOutput) Index(i pulumi.IntInput) PackagingConfigurationTagOutput {
@@ -6910,12 +6069,6 @@ func (i PackagingGroupAuthorizationArgs) ToPackagingGroupAuthorizationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingGroupAuthorizationOutput)
 }
 
-func (i PackagingGroupAuthorizationArgs) ToOutput(ctx context.Context) pulumix.Output[PackagingGroupAuthorization] {
-	return pulumix.Output[PackagingGroupAuthorization]{
-		OutputState: i.ToPackagingGroupAuthorizationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PackagingGroupAuthorizationArgs) ToPackagingGroupAuthorizationPtrOutput() PackagingGroupAuthorizationPtrOutput {
 	return i.ToPackagingGroupAuthorizationPtrOutputWithContext(context.Background())
 }
@@ -6957,12 +6110,6 @@ func (i *packagingGroupAuthorizationPtrType) ToPackagingGroupAuthorizationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingGroupAuthorizationPtrOutput)
 }
 
-func (i *packagingGroupAuthorizationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PackagingGroupAuthorization] {
-	return pulumix.Output[*PackagingGroupAuthorization]{
-		OutputState: i.ToPackagingGroupAuthorizationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PackagingGroupAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (PackagingGroupAuthorizationOutput) ElementType() reflect.Type {
@@ -6987,12 +6134,6 @@ func (o PackagingGroupAuthorizationOutput) ToPackagingGroupAuthorizationPtrOutpu
 	}).(PackagingGroupAuthorizationPtrOutput)
 }
 
-func (o PackagingGroupAuthorizationOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingGroupAuthorization] {
-	return pulumix.Output[PackagingGroupAuthorization]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Amazon Resource Name (ARN) for the secret in AWS Secrets Manager that is used for CDN authorization.
 func (o PackagingGroupAuthorizationOutput) CdnIdentifierSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v PackagingGroupAuthorization) string { return v.CdnIdentifierSecret }).(pulumi.StringOutput)
@@ -7015,12 +6156,6 @@ func (o PackagingGroupAuthorizationPtrOutput) ToPackagingGroupAuthorizationPtrOu
 
 func (o PackagingGroupAuthorizationPtrOutput) ToPackagingGroupAuthorizationPtrOutputWithContext(ctx context.Context) PackagingGroupAuthorizationPtrOutput {
 	return o
-}
-
-func (o PackagingGroupAuthorizationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingGroupAuthorization] {
-	return pulumix.Output[*PackagingGroupAuthorization]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingGroupAuthorizationPtrOutput) Elem() PackagingGroupAuthorizationOutput {
@@ -7086,12 +6221,6 @@ func (i PackagingGroupLogConfigurationArgs) ToPackagingGroupLogConfigurationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingGroupLogConfigurationOutput)
 }
 
-func (i PackagingGroupLogConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PackagingGroupLogConfiguration] {
-	return pulumix.Output[PackagingGroupLogConfiguration]{
-		OutputState: i.ToPackagingGroupLogConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PackagingGroupLogConfigurationArgs) ToPackagingGroupLogConfigurationPtrOutput() PackagingGroupLogConfigurationPtrOutput {
 	return i.ToPackagingGroupLogConfigurationPtrOutputWithContext(context.Background())
 }
@@ -7133,12 +6262,6 @@ func (i *packagingGroupLogConfigurationPtrType) ToPackagingGroupLogConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingGroupLogConfigurationPtrOutput)
 }
 
-func (i *packagingGroupLogConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PackagingGroupLogConfiguration] {
-	return pulumix.Output[*PackagingGroupLogConfiguration]{
-		OutputState: i.ToPackagingGroupLogConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PackagingGroupLogConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PackagingGroupLogConfigurationOutput) ElementType() reflect.Type {
@@ -7163,12 +6286,6 @@ func (o PackagingGroupLogConfigurationOutput) ToPackagingGroupLogConfigurationPt
 	}).(PackagingGroupLogConfigurationPtrOutput)
 }
 
-func (o PackagingGroupLogConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingGroupLogConfiguration] {
-	return pulumix.Output[PackagingGroupLogConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Sets a custom AWS CloudWatch log group name for egress logs. If a log group name isn't specified, the default name is used: /aws/MediaPackage/VodEgressAccessLogs.
 func (o PackagingGroupLogConfigurationOutput) LogGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PackagingGroupLogConfiguration) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
@@ -7186,12 +6303,6 @@ func (o PackagingGroupLogConfigurationPtrOutput) ToPackagingGroupLogConfiguratio
 
 func (o PackagingGroupLogConfigurationPtrOutput) ToPackagingGroupLogConfigurationPtrOutputWithContext(ctx context.Context) PackagingGroupLogConfigurationPtrOutput {
 	return o
-}
-
-func (o PackagingGroupLogConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PackagingGroupLogConfiguration] {
-	return pulumix.Output[*PackagingGroupLogConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingGroupLogConfigurationPtrOutput) Elem() PackagingGroupLogConfigurationOutput {
@@ -7247,12 +6358,6 @@ func (i PackagingGroupTagArgs) ToPackagingGroupTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingGroupTagOutput)
 }
 
-func (i PackagingGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[PackagingGroupTag] {
-	return pulumix.Output[PackagingGroupTag]{
-		OutputState: i.ToPackagingGroupTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PackagingGroupTagArrayInput is an input type that accepts PackagingGroupTagArray and PackagingGroupTagArrayOutput values.
 // You can construct a concrete instance of `PackagingGroupTagArrayInput` via:
 //
@@ -7278,12 +6383,6 @@ func (i PackagingGroupTagArray) ToPackagingGroupTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PackagingGroupTagArrayOutput)
 }
 
-func (i PackagingGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PackagingGroupTag] {
-	return pulumix.Output[[]PackagingGroupTag]{
-		OutputState: i.ToPackagingGroupTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PackagingGroupTagOutput struct{ *pulumi.OutputState }
 
 func (PackagingGroupTagOutput) ElementType() reflect.Type {
@@ -7296,12 +6395,6 @@ func (o PackagingGroupTagOutput) ToPackagingGroupTagOutput() PackagingGroupTagOu
 
 func (o PackagingGroupTagOutput) ToPackagingGroupTagOutputWithContext(ctx context.Context) PackagingGroupTagOutput {
 	return o
-}
-
-func (o PackagingGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[PackagingGroupTag] {
-	return pulumix.Output[PackagingGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingGroupTagOutput) Key() pulumi.StringOutput {
@@ -7324,12 +6417,6 @@ func (o PackagingGroupTagArrayOutput) ToPackagingGroupTagArrayOutput() Packaging
 
 func (o PackagingGroupTagArrayOutput) ToPackagingGroupTagArrayOutputWithContext(ctx context.Context) PackagingGroupTagArrayOutput {
 	return o
-}
-
-func (o PackagingGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PackagingGroupTag] {
-	return pulumix.Output[[]PackagingGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PackagingGroupTagArrayOutput) Index(i pulumi.IntInput) PackagingGroupTagOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::Logs::LogAnomalyDetector resource specifies a CloudWatch Logs LogAnomalyDetector.
@@ -131,12 +130,6 @@ func (i *LogAnomalyDetector) ToLogAnomalyDetectorOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LogAnomalyDetectorOutput)
 }
 
-func (i *LogAnomalyDetector) ToOutput(ctx context.Context) pulumix.Output[*LogAnomalyDetector] {
-	return pulumix.Output[*LogAnomalyDetector]{
-		OutputState: i.ToLogAnomalyDetectorOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogAnomalyDetectorOutput struct{ *pulumi.OutputState }
 
 func (LogAnomalyDetectorOutput) ElementType() reflect.Type {
@@ -149,12 +142,6 @@ func (o LogAnomalyDetectorOutput) ToLogAnomalyDetectorOutput() LogAnomalyDetecto
 
 func (o LogAnomalyDetectorOutput) ToLogAnomalyDetectorOutputWithContext(ctx context.Context) LogAnomalyDetectorOutput {
 	return o
-}
-
-func (o LogAnomalyDetectorOutput) ToOutput(ctx context.Context) pulumix.Output[*LogAnomalyDetector] {
-	return pulumix.Output[*LogAnomalyDetector]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Account ID for owner of detector

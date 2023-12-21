@@ -78,12 +78,6 @@ func (o BridgeFailoverConfigStateEnumOutput) ToBridgeFailoverConfigStateEnumPtrO
 	}).(BridgeFailoverConfigStateEnumPtrOutput)
 }
 
-func (o BridgeFailoverConfigStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeFailoverConfigStateEnum] {
-	return pulumix.Output[BridgeFailoverConfigStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BridgeFailoverConfigStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o BridgeFailoverConfigStateEnumPtrOutput) ToBridgeFailoverConfigStateEnumP
 	return o
 }
 
-func (o BridgeFailoverConfigStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeFailoverConfigStateEnum] {
-	return pulumix.Output[*BridgeFailoverConfigStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BridgeFailoverConfigStateEnumPtrOutput) Elem() BridgeFailoverConfigStateEnumOutput {
 	return o.ApplyT(func(v *BridgeFailoverConfigStateEnum) BridgeFailoverConfigStateEnum {
 		if v != nil {
@@ -149,10 +137,11 @@ func (o BridgeFailoverConfigStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// BridgeFailoverConfigStateEnumInput is an input type that accepts BridgeFailoverConfigStateEnumArgs and BridgeFailoverConfigStateEnumOutput values.
-// You can construct a concrete instance of `BridgeFailoverConfigStateEnumInput` via:
+// BridgeFailoverConfigStateEnumInput is an input type that accepts values of the BridgeFailoverConfigStateEnum enum
+// A concrete instance of `BridgeFailoverConfigStateEnumInput` can be one of the following:
 //
-//	BridgeFailoverConfigStateEnumArgs{...}
+//	BridgeFailoverConfigStateEnumEnabled
+//	BridgeFailoverConfigStateEnumDisabled
 type BridgeFailoverConfigStateEnumInput interface {
 	pulumi.Input
 
@@ -259,12 +248,6 @@ func (o BridgeFailoverModeEnumOutput) ToBridgeFailoverModeEnumPtrOutputWithConte
 	}).(BridgeFailoverModeEnumPtrOutput)
 }
 
-func (o BridgeFailoverModeEnumOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeFailoverModeEnum] {
-	return pulumix.Output[BridgeFailoverModeEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BridgeFailoverModeEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -300,12 +283,6 @@ func (o BridgeFailoverModeEnumPtrOutput) ToBridgeFailoverModeEnumPtrOutputWithCo
 	return o
 }
 
-func (o BridgeFailoverModeEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeFailoverModeEnum] {
-	return pulumix.Output[*BridgeFailoverModeEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BridgeFailoverModeEnumPtrOutput) Elem() BridgeFailoverModeEnumOutput {
 	return o.ApplyT(func(v *BridgeFailoverModeEnum) BridgeFailoverModeEnum {
 		if v != nil {
@@ -330,10 +307,10 @@ func (o BridgeFailoverModeEnumPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// BridgeFailoverModeEnumInput is an input type that accepts BridgeFailoverModeEnumArgs and BridgeFailoverModeEnumOutput values.
-// You can construct a concrete instance of `BridgeFailoverModeEnumInput` via:
+// BridgeFailoverModeEnumInput is an input type that accepts values of the BridgeFailoverModeEnum enum
+// A concrete instance of `BridgeFailoverModeEnumInput` can be one of the following:
 //
-//	BridgeFailoverModeEnumArgs{...}
+//	BridgeFailoverModeEnumFailover
 type BridgeFailoverModeEnumInput interface {
 	pulumi.Input
 
@@ -443,12 +420,6 @@ func (o BridgeOutputResourceBridgeNetworkOutputProtocolOutput) ToBridgeOutputRes
 	}).(BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput)
 }
 
-func (o BridgeOutputResourceBridgeNetworkOutputProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeOutputResourceBridgeNetworkOutputProtocol] {
-	return pulumix.Output[BridgeOutputResourceBridgeNetworkOutputProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BridgeOutputResourceBridgeNetworkOutputProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -484,12 +455,6 @@ func (o BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput) ToBridgeOutput
 	return o
 }
 
-func (o BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeOutputResourceBridgeNetworkOutputProtocol] {
-	return pulumix.Output[*BridgeOutputResourceBridgeNetworkOutputProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput) Elem() BridgeOutputResourceBridgeNetworkOutputProtocolOutput {
 	return o.ApplyT(func(v *BridgeOutputResourceBridgeNetworkOutputProtocol) BridgeOutputResourceBridgeNetworkOutputProtocol {
 		if v != nil {
@@ -514,10 +479,12 @@ func (o BridgeOutputResourceBridgeNetworkOutputProtocolPtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// BridgeOutputResourceBridgeNetworkOutputProtocolInput is an input type that accepts BridgeOutputResourceBridgeNetworkOutputProtocolArgs and BridgeOutputResourceBridgeNetworkOutputProtocolOutput values.
-// You can construct a concrete instance of `BridgeOutputResourceBridgeNetworkOutputProtocolInput` via:
+// BridgeOutputResourceBridgeNetworkOutputProtocolInput is an input type that accepts values of the BridgeOutputResourceBridgeNetworkOutputProtocol enum
+// A concrete instance of `BridgeOutputResourceBridgeNetworkOutputProtocolInput` can be one of the following:
 //
-//	BridgeOutputResourceBridgeNetworkOutputProtocolArgs{...}
+//	BridgeOutputResourceBridgeNetworkOutputProtocolRtpFec
+//	BridgeOutputResourceBridgeNetworkOutputProtocolRtp
+//	BridgeOutputResourceBridgeNetworkOutputProtocolUdp
 type BridgeOutputResourceBridgeNetworkOutputProtocolInput interface {
 	pulumi.Input
 
@@ -626,12 +593,6 @@ func (o BridgeProtocolEnumOutput) ToBridgeProtocolEnumPtrOutputWithContext(ctx c
 	}).(BridgeProtocolEnumPtrOutput)
 }
 
-func (o BridgeProtocolEnumOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeProtocolEnum] {
-	return pulumix.Output[BridgeProtocolEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BridgeProtocolEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -667,12 +628,6 @@ func (o BridgeProtocolEnumPtrOutput) ToBridgeProtocolEnumPtrOutputWithContext(ct
 	return o
 }
 
-func (o BridgeProtocolEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeProtocolEnum] {
-	return pulumix.Output[*BridgeProtocolEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BridgeProtocolEnumPtrOutput) Elem() BridgeProtocolEnumOutput {
 	return o.ApplyT(func(v *BridgeProtocolEnum) BridgeProtocolEnum {
 		if v != nil {
@@ -697,10 +652,12 @@ func (o BridgeProtocolEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// BridgeProtocolEnumInput is an input type that accepts BridgeProtocolEnumArgs and BridgeProtocolEnumOutput values.
-// You can construct a concrete instance of `BridgeProtocolEnumInput` via:
+// BridgeProtocolEnumInput is an input type that accepts values of the BridgeProtocolEnum enum
+// A concrete instance of `BridgeProtocolEnumInput` can be one of the following:
 //
-//	BridgeProtocolEnumArgs{...}
+//	BridgeProtocolEnumRtpFec
+//	BridgeProtocolEnumRtp
+//	BridgeProtocolEnumUdp
 type BridgeProtocolEnumInput interface {
 	pulumi.Input
 
@@ -809,12 +766,6 @@ func (o BridgeSourceProtocolEnumOutput) ToBridgeSourceProtocolEnumPtrOutputWithC
 	}).(BridgeSourceProtocolEnumPtrOutput)
 }
 
-func (o BridgeSourceProtocolEnumOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeSourceProtocolEnum] {
-	return pulumix.Output[BridgeSourceProtocolEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BridgeSourceProtocolEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -850,12 +801,6 @@ func (o BridgeSourceProtocolEnumPtrOutput) ToBridgeSourceProtocolEnumPtrOutputWi
 	return o
 }
 
-func (o BridgeSourceProtocolEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeSourceProtocolEnum] {
-	return pulumix.Output[*BridgeSourceProtocolEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BridgeSourceProtocolEnumPtrOutput) Elem() BridgeSourceProtocolEnumOutput {
 	return o.ApplyT(func(v *BridgeSourceProtocolEnum) BridgeSourceProtocolEnum {
 		if v != nil {
@@ -880,10 +825,12 @@ func (o BridgeSourceProtocolEnumPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// BridgeSourceProtocolEnumInput is an input type that accepts BridgeSourceProtocolEnumArgs and BridgeSourceProtocolEnumOutput values.
-// You can construct a concrete instance of `BridgeSourceProtocolEnumInput` via:
+// BridgeSourceProtocolEnumInput is an input type that accepts values of the BridgeSourceProtocolEnum enum
+// A concrete instance of `BridgeSourceProtocolEnumInput` can be one of the following:
 //
-//	BridgeSourceProtocolEnumArgs{...}
+//	BridgeSourceProtocolEnumRtpFec
+//	BridgeSourceProtocolEnumRtp
+//	BridgeSourceProtocolEnumUdp
 type BridgeSourceProtocolEnumInput interface {
 	pulumi.Input
 
@@ -964,12 +911,6 @@ func (o BridgeStateEnumOutput) ToBridgeStateEnumPtrOutputWithContext(ctx context
 	}).(BridgeStateEnumPtrOutput)
 }
 
-func (o BridgeStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[BridgeStateEnum] {
-	return pulumix.Output[BridgeStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BridgeStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1003,12 +944,6 @@ func (o BridgeStateEnumPtrOutput) ToBridgeStateEnumPtrOutput() BridgeStateEnumPt
 
 func (o BridgeStateEnumPtrOutput) ToBridgeStateEnumPtrOutputWithContext(ctx context.Context) BridgeStateEnumPtrOutput {
 	return o
-}
-
-func (o BridgeStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BridgeStateEnum] {
-	return pulumix.Output[*BridgeStateEnum]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BridgeStateEnumPtrOutput) Elem() BridgeStateEnumOutput {
@@ -1104,12 +1039,6 @@ func (o FlowEncryptionAlgorithmOutput) ToFlowEncryptionAlgorithmPtrOutputWithCon
 	}).(FlowEncryptionAlgorithmPtrOutput)
 }
 
-func (o FlowEncryptionAlgorithmOutput) ToOutput(ctx context.Context) pulumix.Output[FlowEncryptionAlgorithm] {
-	return pulumix.Output[FlowEncryptionAlgorithm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowEncryptionAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1145,12 +1074,6 @@ func (o FlowEncryptionAlgorithmPtrOutput) ToFlowEncryptionAlgorithmPtrOutputWith
 	return o
 }
 
-func (o FlowEncryptionAlgorithmPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowEncryptionAlgorithm] {
-	return pulumix.Output[*FlowEncryptionAlgorithm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowEncryptionAlgorithmPtrOutput) Elem() FlowEncryptionAlgorithmOutput {
 	return o.ApplyT(func(v *FlowEncryptionAlgorithm) FlowEncryptionAlgorithm {
 		if v != nil {
@@ -1175,10 +1098,12 @@ func (o FlowEncryptionAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// FlowEncryptionAlgorithmInput is an input type that accepts FlowEncryptionAlgorithmArgs and FlowEncryptionAlgorithmOutput values.
-// You can construct a concrete instance of `FlowEncryptionAlgorithmInput` via:
+// FlowEncryptionAlgorithmInput is an input type that accepts values of the FlowEncryptionAlgorithm enum
+// A concrete instance of `FlowEncryptionAlgorithmInput` can be one of the following:
 //
-//	FlowEncryptionAlgorithmArgs{...}
+//	FlowEncryptionAlgorithmAes128
+//	FlowEncryptionAlgorithmAes192
+//	FlowEncryptionAlgorithmAes256
 type FlowEncryptionAlgorithmInput interface {
 	pulumi.Input
 
@@ -1288,12 +1213,6 @@ func (o FlowEncryptionKeyTypeOutput) ToFlowEncryptionKeyTypePtrOutputWithContext
 	}).(FlowEncryptionKeyTypePtrOutput)
 }
 
-func (o FlowEncryptionKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowEncryptionKeyType] {
-	return pulumix.Output[FlowEncryptionKeyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowEncryptionKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1329,12 +1248,6 @@ func (o FlowEncryptionKeyTypePtrOutput) ToFlowEncryptionKeyTypePtrOutputWithCont
 	return o
 }
 
-func (o FlowEncryptionKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowEncryptionKeyType] {
-	return pulumix.Output[*FlowEncryptionKeyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowEncryptionKeyTypePtrOutput) Elem() FlowEncryptionKeyTypeOutput {
 	return o.ApplyT(func(v *FlowEncryptionKeyType) FlowEncryptionKeyType {
 		if v != nil {
@@ -1359,10 +1272,12 @@ func (o FlowEncryptionKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// FlowEncryptionKeyTypeInput is an input type that accepts FlowEncryptionKeyTypeArgs and FlowEncryptionKeyTypeOutput values.
-// You can construct a concrete instance of `FlowEncryptionKeyTypeInput` via:
+// FlowEncryptionKeyTypeInput is an input type that accepts values of the FlowEncryptionKeyType enum
+// A concrete instance of `FlowEncryptionKeyTypeInput` can be one of the following:
 //
-//	FlowEncryptionKeyTypeArgs{...}
+//	FlowEncryptionKeyTypeSpeke
+//	FlowEncryptionKeyTypeStaticKey
+//	FlowEncryptionKeyTypeSrtPassword
 type FlowEncryptionKeyTypeInput interface {
 	pulumi.Input
 
@@ -1472,12 +1387,6 @@ func (o FlowEntitlementEncryptionAlgorithmOutput) ToFlowEntitlementEncryptionAlg
 	}).(FlowEntitlementEncryptionAlgorithmPtrOutput)
 }
 
-func (o FlowEntitlementEncryptionAlgorithmOutput) ToOutput(ctx context.Context) pulumix.Output[FlowEntitlementEncryptionAlgorithm] {
-	return pulumix.Output[FlowEntitlementEncryptionAlgorithm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowEntitlementEncryptionAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1513,12 +1422,6 @@ func (o FlowEntitlementEncryptionAlgorithmPtrOutput) ToFlowEntitlementEncryption
 	return o
 }
 
-func (o FlowEntitlementEncryptionAlgorithmPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowEntitlementEncryptionAlgorithm] {
-	return pulumix.Output[*FlowEntitlementEncryptionAlgorithm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowEntitlementEncryptionAlgorithmPtrOutput) Elem() FlowEntitlementEncryptionAlgorithmOutput {
 	return o.ApplyT(func(v *FlowEntitlementEncryptionAlgorithm) FlowEntitlementEncryptionAlgorithm {
 		if v != nil {
@@ -1543,10 +1446,12 @@ func (o FlowEntitlementEncryptionAlgorithmPtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// FlowEntitlementEncryptionAlgorithmInput is an input type that accepts FlowEntitlementEncryptionAlgorithmArgs and FlowEntitlementEncryptionAlgorithmOutput values.
-// You can construct a concrete instance of `FlowEntitlementEncryptionAlgorithmInput` via:
+// FlowEntitlementEncryptionAlgorithmInput is an input type that accepts values of the FlowEntitlementEncryptionAlgorithm enum
+// A concrete instance of `FlowEntitlementEncryptionAlgorithmInput` can be one of the following:
 //
-//	FlowEntitlementEncryptionAlgorithmArgs{...}
+//	FlowEntitlementEncryptionAlgorithmAes128
+//	FlowEntitlementEncryptionAlgorithmAes192
+//	FlowEntitlementEncryptionAlgorithmAes256
 type FlowEntitlementEncryptionAlgorithmInput interface {
 	pulumi.Input
 
@@ -1655,12 +1560,6 @@ func (o FlowEntitlementEncryptionKeyTypeOutput) ToFlowEntitlementEncryptionKeyTy
 	}).(FlowEntitlementEncryptionKeyTypePtrOutput)
 }
 
-func (o FlowEntitlementEncryptionKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowEntitlementEncryptionKeyType] {
-	return pulumix.Output[FlowEntitlementEncryptionKeyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowEntitlementEncryptionKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1696,12 +1595,6 @@ func (o FlowEntitlementEncryptionKeyTypePtrOutput) ToFlowEntitlementEncryptionKe
 	return o
 }
 
-func (o FlowEntitlementEncryptionKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowEntitlementEncryptionKeyType] {
-	return pulumix.Output[*FlowEntitlementEncryptionKeyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowEntitlementEncryptionKeyTypePtrOutput) Elem() FlowEntitlementEncryptionKeyTypeOutput {
 	return o.ApplyT(func(v *FlowEntitlementEncryptionKeyType) FlowEntitlementEncryptionKeyType {
 		if v != nil {
@@ -1726,10 +1619,11 @@ func (o FlowEntitlementEncryptionKeyTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// FlowEntitlementEncryptionKeyTypeInput is an input type that accepts FlowEntitlementEncryptionKeyTypeArgs and FlowEntitlementEncryptionKeyTypeOutput values.
-// You can construct a concrete instance of `FlowEntitlementEncryptionKeyTypeInput` via:
+// FlowEntitlementEncryptionKeyTypeInput is an input type that accepts values of the FlowEntitlementEncryptionKeyType enum
+// A concrete instance of `FlowEntitlementEncryptionKeyTypeInput` can be one of the following:
 //
-//	FlowEntitlementEncryptionKeyTypeArgs{...}
+//	FlowEntitlementEncryptionKeyTypeSpeke
+//	FlowEntitlementEncryptionKeyTypeStaticKey
 type FlowEntitlementEncryptionKeyTypeInput interface {
 	pulumi.Input
 
@@ -1838,12 +1732,6 @@ func (o FlowEntitlementEntitlementStatusOutput) ToFlowEntitlementEntitlementStat
 	}).(FlowEntitlementEntitlementStatusPtrOutput)
 }
 
-func (o FlowEntitlementEntitlementStatusOutput) ToOutput(ctx context.Context) pulumix.Output[FlowEntitlementEntitlementStatus] {
-	return pulumix.Output[FlowEntitlementEntitlementStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowEntitlementEntitlementStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1879,12 +1767,6 @@ func (o FlowEntitlementEntitlementStatusPtrOutput) ToFlowEntitlementEntitlementS
 	return o
 }
 
-func (o FlowEntitlementEntitlementStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowEntitlementEntitlementStatus] {
-	return pulumix.Output[*FlowEntitlementEntitlementStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowEntitlementEntitlementStatusPtrOutput) Elem() FlowEntitlementEntitlementStatusOutput {
 	return o.ApplyT(func(v *FlowEntitlementEntitlementStatus) FlowEntitlementEntitlementStatus {
 		if v != nil {
@@ -1909,10 +1791,11 @@ func (o FlowEntitlementEntitlementStatusPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// FlowEntitlementEntitlementStatusInput is an input type that accepts FlowEntitlementEntitlementStatusArgs and FlowEntitlementEntitlementStatusOutput values.
-// You can construct a concrete instance of `FlowEntitlementEntitlementStatusInput` via:
+// FlowEntitlementEntitlementStatusInput is an input type that accepts values of the FlowEntitlementEntitlementStatus enum
+// A concrete instance of `FlowEntitlementEntitlementStatusInput` can be one of the following:
 //
-//	FlowEntitlementEntitlementStatusArgs{...}
+//	FlowEntitlementEntitlementStatusEnabled
+//	FlowEntitlementEntitlementStatusDisabled
 type FlowEntitlementEntitlementStatusInput interface {
 	pulumi.Input
 
@@ -2021,12 +1904,6 @@ func (o FlowFailoverConfigFailoverModeOutput) ToFlowFailoverConfigFailoverModePt
 	}).(FlowFailoverConfigFailoverModePtrOutput)
 }
 
-func (o FlowFailoverConfigFailoverModeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowFailoverConfigFailoverMode] {
-	return pulumix.Output[FlowFailoverConfigFailoverMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowFailoverConfigFailoverModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2062,12 +1939,6 @@ func (o FlowFailoverConfigFailoverModePtrOutput) ToFlowFailoverConfigFailoverMod
 	return o
 }
 
-func (o FlowFailoverConfigFailoverModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowFailoverConfigFailoverMode] {
-	return pulumix.Output[*FlowFailoverConfigFailoverMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowFailoverConfigFailoverModePtrOutput) Elem() FlowFailoverConfigFailoverModeOutput {
 	return o.ApplyT(func(v *FlowFailoverConfigFailoverMode) FlowFailoverConfigFailoverMode {
 		if v != nil {
@@ -2092,10 +1963,11 @@ func (o FlowFailoverConfigFailoverModePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// FlowFailoverConfigFailoverModeInput is an input type that accepts FlowFailoverConfigFailoverModeArgs and FlowFailoverConfigFailoverModeOutput values.
-// You can construct a concrete instance of `FlowFailoverConfigFailoverModeInput` via:
+// FlowFailoverConfigFailoverModeInput is an input type that accepts values of the FlowFailoverConfigFailoverMode enum
+// A concrete instance of `FlowFailoverConfigFailoverModeInput` can be one of the following:
 //
-//	FlowFailoverConfigFailoverModeArgs{...}
+//	FlowFailoverConfigFailoverModeMerge
+//	FlowFailoverConfigFailoverModeFailover
 type FlowFailoverConfigFailoverModeInput interface {
 	pulumi.Input
 
@@ -2203,12 +2075,6 @@ func (o FlowFailoverConfigStateOutput) ToFlowFailoverConfigStatePtrOutputWithCon
 	}).(FlowFailoverConfigStatePtrOutput)
 }
 
-func (o FlowFailoverConfigStateOutput) ToOutput(ctx context.Context) pulumix.Output[FlowFailoverConfigState] {
-	return pulumix.Output[FlowFailoverConfigState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowFailoverConfigStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2244,12 +2110,6 @@ func (o FlowFailoverConfigStatePtrOutput) ToFlowFailoverConfigStatePtrOutputWith
 	return o
 }
 
-func (o FlowFailoverConfigStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowFailoverConfigState] {
-	return pulumix.Output[*FlowFailoverConfigState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowFailoverConfigStatePtrOutput) Elem() FlowFailoverConfigStateOutput {
 	return o.ApplyT(func(v *FlowFailoverConfigState) FlowFailoverConfigState {
 		if v != nil {
@@ -2274,10 +2134,11 @@ func (o FlowFailoverConfigStatePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// FlowFailoverConfigStateInput is an input type that accepts FlowFailoverConfigStateArgs and FlowFailoverConfigStateOutput values.
-// You can construct a concrete instance of `FlowFailoverConfigStateInput` via:
+// FlowFailoverConfigStateInput is an input type that accepts values of the FlowFailoverConfigState enum
+// A concrete instance of `FlowFailoverConfigStateInput` can be one of the following:
 //
-//	FlowFailoverConfigStateArgs{...}
+//	FlowFailoverConfigStateEnabled
+//	FlowFailoverConfigStateDisabled
 type FlowFailoverConfigStateInput interface {
 	pulumi.Input
 
@@ -2387,12 +2248,6 @@ func (o FlowOutputEncryptionAlgorithmOutput) ToFlowOutputEncryptionAlgorithmPtrO
 	}).(FlowOutputEncryptionAlgorithmPtrOutput)
 }
 
-func (o FlowOutputEncryptionAlgorithmOutput) ToOutput(ctx context.Context) pulumix.Output[FlowOutputEncryptionAlgorithm] {
-	return pulumix.Output[FlowOutputEncryptionAlgorithm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowOutputEncryptionAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2428,12 +2283,6 @@ func (o FlowOutputEncryptionAlgorithmPtrOutput) ToFlowOutputEncryptionAlgorithmP
 	return o
 }
 
-func (o FlowOutputEncryptionAlgorithmPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowOutputEncryptionAlgorithm] {
-	return pulumix.Output[*FlowOutputEncryptionAlgorithm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowOutputEncryptionAlgorithmPtrOutput) Elem() FlowOutputEncryptionAlgorithmOutput {
 	return o.ApplyT(func(v *FlowOutputEncryptionAlgorithm) FlowOutputEncryptionAlgorithm {
 		if v != nil {
@@ -2458,10 +2307,12 @@ func (o FlowOutputEncryptionAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// FlowOutputEncryptionAlgorithmInput is an input type that accepts FlowOutputEncryptionAlgorithmArgs and FlowOutputEncryptionAlgorithmOutput values.
-// You can construct a concrete instance of `FlowOutputEncryptionAlgorithmInput` via:
+// FlowOutputEncryptionAlgorithmInput is an input type that accepts values of the FlowOutputEncryptionAlgorithm enum
+// A concrete instance of `FlowOutputEncryptionAlgorithmInput` can be one of the following:
 //
-//	FlowOutputEncryptionAlgorithmArgs{...}
+//	FlowOutputEncryptionAlgorithmAes128
+//	FlowOutputEncryptionAlgorithmAes192
+//	FlowOutputEncryptionAlgorithmAes256
 type FlowOutputEncryptionAlgorithmInput interface {
 	pulumi.Input
 
@@ -2570,12 +2421,6 @@ func (o FlowOutputEncryptionKeyTypeOutput) ToFlowOutputEncryptionKeyTypePtrOutpu
 	}).(FlowOutputEncryptionKeyTypePtrOutput)
 }
 
-func (o FlowOutputEncryptionKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowOutputEncryptionKeyType] {
-	return pulumix.Output[FlowOutputEncryptionKeyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowOutputEncryptionKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2611,12 +2456,6 @@ func (o FlowOutputEncryptionKeyTypePtrOutput) ToFlowOutputEncryptionKeyTypePtrOu
 	return o
 }
 
-func (o FlowOutputEncryptionKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowOutputEncryptionKeyType] {
-	return pulumix.Output[*FlowOutputEncryptionKeyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowOutputEncryptionKeyTypePtrOutput) Elem() FlowOutputEncryptionKeyTypeOutput {
 	return o.ApplyT(func(v *FlowOutputEncryptionKeyType) FlowOutputEncryptionKeyType {
 		if v != nil {
@@ -2641,10 +2480,11 @@ func (o FlowOutputEncryptionKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// FlowOutputEncryptionKeyTypeInput is an input type that accepts FlowOutputEncryptionKeyTypeArgs and FlowOutputEncryptionKeyTypeOutput values.
-// You can construct a concrete instance of `FlowOutputEncryptionKeyTypeInput` via:
+// FlowOutputEncryptionKeyTypeInput is an input type that accepts values of the FlowOutputEncryptionKeyType enum
+// A concrete instance of `FlowOutputEncryptionKeyTypeInput` can be one of the following:
 //
-//	FlowOutputEncryptionKeyTypeArgs{...}
+//	FlowOutputEncryptionKeyTypeStaticKey
+//	FlowOutputEncryptionKeyTypeSrtPassword
 type FlowOutputEncryptionKeyTypeInput interface {
 	pulumi.Input
 
@@ -2759,12 +2599,6 @@ func (o FlowOutputProtocolOutput) ToFlowOutputProtocolPtrOutputWithContext(ctx c
 	}).(FlowOutputProtocolPtrOutput)
 }
 
-func (o FlowOutputProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[FlowOutputProtocol] {
-	return pulumix.Output[FlowOutputProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowOutputProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2800,12 +2634,6 @@ func (o FlowOutputProtocolPtrOutput) ToFlowOutputProtocolPtrOutputWithContext(ct
 	return o
 }
 
-func (o FlowOutputProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowOutputProtocol] {
-	return pulumix.Output[*FlowOutputProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowOutputProtocolPtrOutput) Elem() FlowOutputProtocolOutput {
 	return o.ApplyT(func(v *FlowOutputProtocol) FlowOutputProtocol {
 		if v != nil {
@@ -2830,10 +2658,17 @@ func (o FlowOutputProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// FlowOutputProtocolInput is an input type that accepts FlowOutputProtocolArgs and FlowOutputProtocolOutput values.
-// You can construct a concrete instance of `FlowOutputProtocolInput` via:
+// FlowOutputProtocolInput is an input type that accepts values of the FlowOutputProtocol enum
+// A concrete instance of `FlowOutputProtocolInput` can be one of the following:
 //
-//	FlowOutputProtocolArgs{...}
+//	FlowOutputProtocolZixiPush
+//	FlowOutputProtocolRtpFec
+//	FlowOutputProtocolRtp
+//	FlowOutputProtocolZixiPull
+//	FlowOutputProtocolRist
+//	FlowOutputProtocolFujitsuQos
+//	FlowOutputProtocolSrtListener
+//	FlowOutputProtocolSrtCaller
 type FlowOutputProtocolInput interface {
 	pulumi.Input
 
@@ -2943,12 +2778,6 @@ func (o FlowSourceEncryptionAlgorithmOutput) ToFlowSourceEncryptionAlgorithmPtrO
 	}).(FlowSourceEncryptionAlgorithmPtrOutput)
 }
 
-func (o FlowSourceEncryptionAlgorithmOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceEncryptionAlgorithm] {
-	return pulumix.Output[FlowSourceEncryptionAlgorithm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowSourceEncryptionAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2984,12 +2813,6 @@ func (o FlowSourceEncryptionAlgorithmPtrOutput) ToFlowSourceEncryptionAlgorithmP
 	return o
 }
 
-func (o FlowSourceEncryptionAlgorithmPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceEncryptionAlgorithm] {
-	return pulumix.Output[*FlowSourceEncryptionAlgorithm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowSourceEncryptionAlgorithmPtrOutput) Elem() FlowSourceEncryptionAlgorithmOutput {
 	return o.ApplyT(func(v *FlowSourceEncryptionAlgorithm) FlowSourceEncryptionAlgorithm {
 		if v != nil {
@@ -3014,10 +2837,12 @@ func (o FlowSourceEncryptionAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// FlowSourceEncryptionAlgorithmInput is an input type that accepts FlowSourceEncryptionAlgorithmArgs and FlowSourceEncryptionAlgorithmOutput values.
-// You can construct a concrete instance of `FlowSourceEncryptionAlgorithmInput` via:
+// FlowSourceEncryptionAlgorithmInput is an input type that accepts values of the FlowSourceEncryptionAlgorithm enum
+// A concrete instance of `FlowSourceEncryptionAlgorithmInput` can be one of the following:
 //
-//	FlowSourceEncryptionAlgorithmArgs{...}
+//	FlowSourceEncryptionAlgorithmAes128
+//	FlowSourceEncryptionAlgorithmAes192
+//	FlowSourceEncryptionAlgorithmAes256
 type FlowSourceEncryptionAlgorithmInput interface {
 	pulumi.Input
 
@@ -3127,12 +2952,6 @@ func (o FlowSourceEncryptionKeyTypeOutput) ToFlowSourceEncryptionKeyTypePtrOutpu
 	}).(FlowSourceEncryptionKeyTypePtrOutput)
 }
 
-func (o FlowSourceEncryptionKeyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceEncryptionKeyType] {
-	return pulumix.Output[FlowSourceEncryptionKeyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowSourceEncryptionKeyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3168,12 +2987,6 @@ func (o FlowSourceEncryptionKeyTypePtrOutput) ToFlowSourceEncryptionKeyTypePtrOu
 	return o
 }
 
-func (o FlowSourceEncryptionKeyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceEncryptionKeyType] {
-	return pulumix.Output[*FlowSourceEncryptionKeyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowSourceEncryptionKeyTypePtrOutput) Elem() FlowSourceEncryptionKeyTypeOutput {
 	return o.ApplyT(func(v *FlowSourceEncryptionKeyType) FlowSourceEncryptionKeyType {
 		if v != nil {
@@ -3198,10 +3011,12 @@ func (o FlowSourceEncryptionKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// FlowSourceEncryptionKeyTypeInput is an input type that accepts FlowSourceEncryptionKeyTypeArgs and FlowSourceEncryptionKeyTypeOutput values.
-// You can construct a concrete instance of `FlowSourceEncryptionKeyTypeInput` via:
+// FlowSourceEncryptionKeyTypeInput is an input type that accepts values of the FlowSourceEncryptionKeyType enum
+// A concrete instance of `FlowSourceEncryptionKeyTypeInput` can be one of the following:
 //
-//	FlowSourceEncryptionKeyTypeArgs{...}
+//	FlowSourceEncryptionKeyTypeSpeke
+//	FlowSourceEncryptionKeyTypeStaticKey
+//	FlowSourceEncryptionKeyTypeSrtPassword
 type FlowSourceEncryptionKeyTypeInput interface {
 	pulumi.Input
 
@@ -3315,12 +3130,6 @@ func (o FlowSourceProtocolOutput) ToFlowSourceProtocolPtrOutputWithContext(ctx c
 	}).(FlowSourceProtocolPtrOutput)
 }
 
-func (o FlowSourceProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[FlowSourceProtocol] {
-	return pulumix.Output[FlowSourceProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowSourceProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3356,12 +3165,6 @@ func (o FlowSourceProtocolPtrOutput) ToFlowSourceProtocolPtrOutputWithContext(ct
 	return o
 }
 
-func (o FlowSourceProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowSourceProtocol] {
-	return pulumix.Output[*FlowSourceProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowSourceProtocolPtrOutput) Elem() FlowSourceProtocolOutput {
 	return o.ApplyT(func(v *FlowSourceProtocol) FlowSourceProtocol {
 		if v != nil {
@@ -3386,10 +3189,16 @@ func (o FlowSourceProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// FlowSourceProtocolInput is an input type that accepts FlowSourceProtocolArgs and FlowSourceProtocolOutput values.
-// You can construct a concrete instance of `FlowSourceProtocolInput` via:
+// FlowSourceProtocolInput is an input type that accepts values of the FlowSourceProtocol enum
+// A concrete instance of `FlowSourceProtocolInput` can be one of the following:
 //
-//	FlowSourceProtocolArgs{...}
+//	FlowSourceProtocolZixiPush
+//	FlowSourceProtocolRtpFec
+//	FlowSourceProtocolRtp
+//	FlowSourceProtocolRist
+//	FlowSourceProtocolFujitsuQos
+//	FlowSourceProtocolSrtListener
+//	FlowSourceProtocolSrtCaller
 type FlowSourceProtocolInput interface {
 	pulumi.Input
 
@@ -3466,12 +3275,6 @@ func (o GatewayStateEnumOutput) ToGatewayStateEnumPtrOutputWithContext(ctx conte
 	}).(GatewayStateEnumPtrOutput)
 }
 
-func (o GatewayStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[GatewayStateEnum] {
-	return pulumix.Output[GatewayStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GatewayStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3505,12 +3308,6 @@ func (o GatewayStateEnumPtrOutput) ToGatewayStateEnumPtrOutput() GatewayStateEnu
 
 func (o GatewayStateEnumPtrOutput) ToGatewayStateEnumPtrOutputWithContext(ctx context.Context) GatewayStateEnumPtrOutput {
 	return o
-}
-
-func (o GatewayStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayStateEnum] {
-	return pulumix.Output[*GatewayStateEnum]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GatewayStateEnumPtrOutput) Elem() GatewayStateEnumOutput {

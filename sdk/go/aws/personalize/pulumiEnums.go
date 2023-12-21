@@ -79,12 +79,6 @@ func (o DatasetGroupDomainOutput) ToDatasetGroupDomainPtrOutputWithContext(ctx c
 	}).(DatasetGroupDomainPtrOutput)
 }
 
-func (o DatasetGroupDomainOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetGroupDomain] {
-	return pulumix.Output[DatasetGroupDomain]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetGroupDomainOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +114,6 @@ func (o DatasetGroupDomainPtrOutput) ToDatasetGroupDomainPtrOutputWithContext(ct
 	return o
 }
 
-func (o DatasetGroupDomainPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetGroupDomain] {
-	return pulumix.Output[*DatasetGroupDomain]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetGroupDomainPtrOutput) Elem() DatasetGroupDomainOutput {
 	return o.ApplyT(func(v *DatasetGroupDomain) DatasetGroupDomain {
 		if v != nil {
@@ -150,10 +138,11 @@ func (o DatasetGroupDomainPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// DatasetGroupDomainInput is an input type that accepts DatasetGroupDomainArgs and DatasetGroupDomainOutput values.
-// You can construct a concrete instance of `DatasetGroupDomainInput` via:
+// DatasetGroupDomainInput is an input type that accepts values of the DatasetGroupDomain enum
+// A concrete instance of `DatasetGroupDomainInput` can be one of the following:
 //
-//	DatasetGroupDomainArgs{...}
+//	DatasetGroupDomainEcommerce
+//	DatasetGroupDomainVideoOnDemand
 type DatasetGroupDomainInput interface {
 	pulumi.Input
 
@@ -263,12 +252,6 @@ func (o DatasetTypeOutput) ToDatasetTypePtrOutputWithContext(ctx context.Context
 	}).(DatasetTypePtrOutput)
 }
 
-func (o DatasetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetType] {
-	return pulumix.Output[DatasetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -304,12 +287,6 @@ func (o DatasetTypePtrOutput) ToDatasetTypePtrOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o DatasetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetType] {
-	return pulumix.Output[*DatasetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetTypePtrOutput) Elem() DatasetTypeOutput {
 	return o.ApplyT(func(v *DatasetType) DatasetType {
 		if v != nil {
@@ -334,10 +311,12 @@ func (o DatasetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// DatasetTypeInput is an input type that accepts DatasetTypeArgs and DatasetTypeOutput values.
-// You can construct a concrete instance of `DatasetTypeInput` via:
+// DatasetTypeInput is an input type that accepts values of the DatasetType enum
+// A concrete instance of `DatasetTypeInput` can be one of the following:
 //
-//	DatasetTypeArgs{...}
+//	DatasetTypeInteractions
+//	DatasetTypeItems
+//	DatasetTypeUsers
 type DatasetTypeInput interface {
 	pulumi.Input
 
@@ -446,12 +425,6 @@ func (o SchemaDomainOutput) ToSchemaDomainPtrOutputWithContext(ctx context.Conte
 	}).(SchemaDomainPtrOutput)
 }
 
-func (o SchemaDomainOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaDomain] {
-	return pulumix.Output[SchemaDomain]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchemaDomainOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -487,12 +460,6 @@ func (o SchemaDomainPtrOutput) ToSchemaDomainPtrOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o SchemaDomainPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaDomain] {
-	return pulumix.Output[*SchemaDomain]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchemaDomainPtrOutput) Elem() SchemaDomainOutput {
 	return o.ApplyT(func(v *SchemaDomain) SchemaDomain {
 		if v != nil {
@@ -517,10 +484,11 @@ func (o SchemaDomainPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// SchemaDomainInput is an input type that accepts SchemaDomainArgs and SchemaDomainOutput values.
-// You can construct a concrete instance of `SchemaDomainInput` via:
+// SchemaDomainInput is an input type that accepts values of the SchemaDomain enum
+// A concrete instance of `SchemaDomainInput` can be one of the following:
 //
-//	SchemaDomainArgs{...}
+//	SchemaDomainEcommerce
+//	SchemaDomainVideoOnDemand
 type SchemaDomainInput interface {
 	pulumi.Input
 
@@ -629,12 +597,6 @@ func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeOutput) ToSol
 	}).(SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutput)
 }
 
-func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType] {
-	return pulumix.Output[SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -670,12 +632,6 @@ func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutput) To
 	return o
 }
 
-func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType] {
-	return pulumix.Output[*SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutput) Elem() SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeOutput {
 	return o.ApplyT(func(v *SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType) SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType {
 		if v != nil {
@@ -700,10 +656,11 @@ func (o SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypePtrOutput) To
 	}).(pulumi.StringPtrOutput)
 }
 
-// SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeInput is an input type that accepts SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeArgs and SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeOutput values.
-// You can construct a concrete instance of `SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeInput` via:
+// SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeInput is an input type that accepts values of the SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesType enum
+// A concrete instance of `SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeInput` can be one of the following:
 //
-//	SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeArgs{...}
+//	SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeMaximize
+//	SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeMinimize
 type SolutionConfigHpoConfigPropertiesHpoObjectivePropertiesTypeInput interface {
 	pulumi.Input
 

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Logs::DeliveryDestination
@@ -77,12 +76,6 @@ func (o LookupDeliveryDestinationResultOutput) ToLookupDeliveryDestinationResult
 
 func (o LookupDeliveryDestinationResultOutput) ToLookupDeliveryDestinationResultOutputWithContext(ctx context.Context) LookupDeliveryDestinationResultOutput {
 	return o
-}
-
-func (o LookupDeliveryDestinationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDeliveryDestinationResult] {
-	return pulumix.Output[LookupDeliveryDestinationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The value of the Arn property for this object.

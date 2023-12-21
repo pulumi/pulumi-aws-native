@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ServiceCatalog::PortfolioPrincipalAssociation
@@ -118,12 +117,6 @@ func (i *PortfolioPrincipalAssociation) ToPortfolioPrincipalAssociationOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(PortfolioPrincipalAssociationOutput)
 }
 
-func (i *PortfolioPrincipalAssociation) ToOutput(ctx context.Context) pulumix.Output[*PortfolioPrincipalAssociation] {
-	return pulumix.Output[*PortfolioPrincipalAssociation]{
-		OutputState: i.ToPortfolioPrincipalAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PortfolioPrincipalAssociationOutput struct{ *pulumi.OutputState }
 
 func (PortfolioPrincipalAssociationOutput) ElementType() reflect.Type {
@@ -136,12 +129,6 @@ func (o PortfolioPrincipalAssociationOutput) ToPortfolioPrincipalAssociationOutp
 
 func (o PortfolioPrincipalAssociationOutput) ToPortfolioPrincipalAssociationOutputWithContext(ctx context.Context) PortfolioPrincipalAssociationOutput {
 	return o
-}
-
-func (o PortfolioPrincipalAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*PortfolioPrincipalAssociation] {
-	return pulumix.Output[*PortfolioPrincipalAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PortfolioPrincipalAssociationOutput) AcceptLanguage() pulumi.StringPtrOutput {

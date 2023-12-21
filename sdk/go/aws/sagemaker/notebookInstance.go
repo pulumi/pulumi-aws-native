@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::NotebookInstance
@@ -153,12 +152,6 @@ func (i *NotebookInstance) ToNotebookInstanceOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceOutput)
 }
 
-func (i *NotebookInstance) ToOutput(ctx context.Context) pulumix.Output[*NotebookInstance] {
-	return pulumix.Output[*NotebookInstance]{
-		OutputState: i.ToNotebookInstanceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotebookInstanceOutput struct{ *pulumi.OutputState }
 
 func (NotebookInstanceOutput) ElementType() reflect.Type {
@@ -171,12 +164,6 @@ func (o NotebookInstanceOutput) ToNotebookInstanceOutput() NotebookInstanceOutpu
 
 func (o NotebookInstanceOutput) ToNotebookInstanceOutputWithContext(ctx context.Context) NotebookInstanceOutput {
 	return o
-}
-
-func (o NotebookInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*NotebookInstance] {
-	return pulumix.Output[*NotebookInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotebookInstanceOutput) AcceleratorTypes() pulumi.StringArrayOutput {

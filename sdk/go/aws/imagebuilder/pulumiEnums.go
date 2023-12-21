@@ -79,12 +79,6 @@ func (o ComponentPlatformOutput) ToComponentPlatformPtrOutputWithContext(ctx con
 	}).(ComponentPlatformPtrOutput)
 }
 
-func (o ComponentPlatformOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentPlatform] {
-	return pulumix.Output[ComponentPlatform]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ComponentPlatformOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +114,6 @@ func (o ComponentPlatformPtrOutput) ToComponentPlatformPtrOutputWithContext(ctx 
 	return o
 }
 
-func (o ComponentPlatformPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComponentPlatform] {
-	return pulumix.Output[*ComponentPlatform]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ComponentPlatformPtrOutput) Elem() ComponentPlatformOutput {
 	return o.ApplyT(func(v *ComponentPlatform) ComponentPlatform {
 		if v != nil {
@@ -150,10 +138,11 @@ func (o ComponentPlatformPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// ComponentPlatformInput is an input type that accepts ComponentPlatformArgs and ComponentPlatformOutput values.
-// You can construct a concrete instance of `ComponentPlatformInput` via:
+// ComponentPlatformInput is an input type that accepts values of the ComponentPlatform enum
+// A concrete instance of `ComponentPlatformInput` can be one of the following:
 //
-//	ComponentPlatformArgs{...}
+//	ComponentPlatformWindows
+//	ComponentPlatformLinux
 type ComponentPlatformInput interface {
 	pulumi.Input
 
@@ -226,12 +215,6 @@ func (o ComponentTypeOutput) ToComponentTypePtrOutputWithContext(ctx context.Con
 	}).(ComponentTypePtrOutput)
 }
 
-func (o ComponentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ComponentType] {
-	return pulumix.Output[ComponentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ComponentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -265,12 +248,6 @@ func (o ComponentTypePtrOutput) ToComponentTypePtrOutput() ComponentTypePtrOutpu
 
 func (o ComponentTypePtrOutput) ToComponentTypePtrOutputWithContext(ctx context.Context) ComponentTypePtrOutput {
 	return o
-}
-
-func (o ComponentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ComponentType] {
-	return pulumix.Output[*ComponentType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ComponentTypePtrOutput) Elem() ComponentTypeOutput {
@@ -364,12 +341,6 @@ func (o ContainerRecipeContainerTypeOutput) ToContainerRecipeContainerTypePtrOut
 	}).(ContainerRecipeContainerTypePtrOutput)
 }
 
-func (o ContainerRecipeContainerTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeContainerType] {
-	return pulumix.Output[ContainerRecipeContainerType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContainerRecipeContainerTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -405,12 +376,6 @@ func (o ContainerRecipeContainerTypePtrOutput) ToContainerRecipeContainerTypePtr
 	return o
 }
 
-func (o ContainerRecipeContainerTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipeContainerType] {
-	return pulumix.Output[*ContainerRecipeContainerType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContainerRecipeContainerTypePtrOutput) Elem() ContainerRecipeContainerTypeOutput {
 	return o.ApplyT(func(v *ContainerRecipeContainerType) ContainerRecipeContainerType {
 		if v != nil {
@@ -435,10 +400,10 @@ func (o ContainerRecipeContainerTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// ContainerRecipeContainerTypeInput is an input type that accepts ContainerRecipeContainerTypeArgs and ContainerRecipeContainerTypeOutput values.
-// You can construct a concrete instance of `ContainerRecipeContainerTypeInput` via:
+// ContainerRecipeContainerTypeInput is an input type that accepts values of the ContainerRecipeContainerType enum
+// A concrete instance of `ContainerRecipeContainerTypeInput` can be one of the following:
 //
-//	ContainerRecipeContainerTypeArgs{...}
+//	ContainerRecipeContainerTypeDocker
 type ContainerRecipeContainerTypeInput interface {
 	pulumi.Input
 
@@ -552,12 +517,6 @@ func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeOutput) ToCo
 	}).(ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput)
 }
 
-func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType] {
-	return pulumix.Output[ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -593,12 +552,6 @@ func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput) T
 	return o
 }
 
-func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType] {
-	return pulumix.Output[*ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput) Elem() ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeOutput {
 	return o.ApplyT(func(v *ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType) ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType {
 		if v != nil {
@@ -623,10 +576,16 @@ func (o ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput) T
 	}).(pulumi.StringPtrOutput)
 }
 
-// ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeInput is an input type that accepts ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeArgs and ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeOutput values.
-// You can construct a concrete instance of `ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeInput` via:
+// ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeInput is an input type that accepts values of the ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeType enum
+// A concrete instance of `ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeInput` can be one of the following:
 //
-//	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeArgs{...}
+//	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeStandard
+//	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIo1
+//	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIo2
+//	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGp2
+//	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGp3
+//	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeSc1
+//	ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeSt1
 type ContainerRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeInput interface {
 	pulumi.Input
 
@@ -735,12 +694,6 @@ func (o ContainerRecipePlatformOverrideOutput) ToContainerRecipePlatformOverride
 	}).(ContainerRecipePlatformOverridePtrOutput)
 }
 
-func (o ContainerRecipePlatformOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipePlatformOverride] {
-	return pulumix.Output[ContainerRecipePlatformOverride]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContainerRecipePlatformOverrideOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -776,12 +729,6 @@ func (o ContainerRecipePlatformOverridePtrOutput) ToContainerRecipePlatformOverr
 	return o
 }
 
-func (o ContainerRecipePlatformOverridePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipePlatformOverride] {
-	return pulumix.Output[*ContainerRecipePlatformOverride]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContainerRecipePlatformOverridePtrOutput) Elem() ContainerRecipePlatformOverrideOutput {
 	return o.ApplyT(func(v *ContainerRecipePlatformOverride) ContainerRecipePlatformOverride {
 		if v != nil {
@@ -806,10 +753,11 @@ func (o ContainerRecipePlatformOverridePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// ContainerRecipePlatformOverrideInput is an input type that accepts ContainerRecipePlatformOverrideArgs and ContainerRecipePlatformOverrideOutput values.
-// You can construct a concrete instance of `ContainerRecipePlatformOverrideInput` via:
+// ContainerRecipePlatformOverrideInput is an input type that accepts values of the ContainerRecipePlatformOverride enum
+// A concrete instance of `ContainerRecipePlatformOverrideInput` can be one of the following:
 //
-//	ContainerRecipePlatformOverrideArgs{...}
+//	ContainerRecipePlatformOverrideWindows
+//	ContainerRecipePlatformOverrideLinux
 type ContainerRecipePlatformOverrideInput interface {
 	pulumi.Input
 
@@ -917,12 +865,6 @@ func (o ContainerRecipeTargetContainerRepositoryServiceOutput) ToContainerRecipe
 	}).(ContainerRecipeTargetContainerRepositoryServicePtrOutput)
 }
 
-func (o ContainerRecipeTargetContainerRepositoryServiceOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerRecipeTargetContainerRepositoryService] {
-	return pulumix.Output[ContainerRecipeTargetContainerRepositoryService]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContainerRecipeTargetContainerRepositoryServiceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -958,12 +900,6 @@ func (o ContainerRecipeTargetContainerRepositoryServicePtrOutput) ToContainerRec
 	return o
 }
 
-func (o ContainerRecipeTargetContainerRepositoryServicePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerRecipeTargetContainerRepositoryService] {
-	return pulumix.Output[*ContainerRecipeTargetContainerRepositoryService]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContainerRecipeTargetContainerRepositoryServicePtrOutput) Elem() ContainerRecipeTargetContainerRepositoryServiceOutput {
 	return o.ApplyT(func(v *ContainerRecipeTargetContainerRepositoryService) ContainerRecipeTargetContainerRepositoryService {
 		if v != nil {
@@ -988,10 +924,10 @@ func (o ContainerRecipeTargetContainerRepositoryServicePtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// ContainerRecipeTargetContainerRepositoryServiceInput is an input type that accepts ContainerRecipeTargetContainerRepositoryServiceArgs and ContainerRecipeTargetContainerRepositoryServiceOutput values.
-// You can construct a concrete instance of `ContainerRecipeTargetContainerRepositoryServiceInput` via:
+// ContainerRecipeTargetContainerRepositoryServiceInput is an input type that accepts values of the ContainerRecipeTargetContainerRepositoryService enum
+// A concrete instance of `ContainerRecipeTargetContainerRepositoryServiceInput` can be one of the following:
 //
-//	ContainerRecipeTargetContainerRepositoryServiceArgs{...}
+//	ContainerRecipeTargetContainerRepositoryServiceEcr
 type ContainerRecipeTargetContainerRepositoryServiceInput interface {
 	pulumi.Input
 
@@ -1099,12 +1035,6 @@ func (o DistributionConfigurationTargetContainerRepositoryServiceOutput) ToDistr
 	}).(DistributionConfigurationTargetContainerRepositoryServicePtrOutput)
 }
 
-func (o DistributionConfigurationTargetContainerRepositoryServiceOutput) ToOutput(ctx context.Context) pulumix.Output[DistributionConfigurationTargetContainerRepositoryService] {
-	return pulumix.Output[DistributionConfigurationTargetContainerRepositoryService]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DistributionConfigurationTargetContainerRepositoryServiceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1140,12 +1070,6 @@ func (o DistributionConfigurationTargetContainerRepositoryServicePtrOutput) ToDi
 	return o
 }
 
-func (o DistributionConfigurationTargetContainerRepositoryServicePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DistributionConfigurationTargetContainerRepositoryService] {
-	return pulumix.Output[*DistributionConfigurationTargetContainerRepositoryService]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DistributionConfigurationTargetContainerRepositoryServicePtrOutput) Elem() DistributionConfigurationTargetContainerRepositoryServiceOutput {
 	return o.ApplyT(func(v *DistributionConfigurationTargetContainerRepositoryService) DistributionConfigurationTargetContainerRepositoryService {
 		if v != nil {
@@ -1170,10 +1094,10 @@ func (o DistributionConfigurationTargetContainerRepositoryServicePtrOutput) ToSt
 	}).(pulumi.StringPtrOutput)
 }
 
-// DistributionConfigurationTargetContainerRepositoryServiceInput is an input type that accepts DistributionConfigurationTargetContainerRepositoryServiceArgs and DistributionConfigurationTargetContainerRepositoryServiceOutput values.
-// You can construct a concrete instance of `DistributionConfigurationTargetContainerRepositoryServiceInput` via:
+// DistributionConfigurationTargetContainerRepositoryServiceInput is an input type that accepts values of the DistributionConfigurationTargetContainerRepositoryService enum
+// A concrete instance of `DistributionConfigurationTargetContainerRepositoryServiceInput` can be one of the following:
 //
-//	DistributionConfigurationTargetContainerRepositoryServiceArgs{...}
+//	DistributionConfigurationTargetContainerRepositoryServiceEcr
 type DistributionConfigurationTargetContainerRepositoryServiceInput interface {
 	pulumi.Input
 
@@ -1282,12 +1206,6 @@ func (o ImagePipelineSchedulePipelineExecutionStartConditionOutput) ToImagePipel
 	}).(ImagePipelineSchedulePipelineExecutionStartConditionPtrOutput)
 }
 
-func (o ImagePipelineSchedulePipelineExecutionStartConditionOutput) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineSchedulePipelineExecutionStartCondition] {
-	return pulumix.Output[ImagePipelineSchedulePipelineExecutionStartCondition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ImagePipelineSchedulePipelineExecutionStartConditionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1323,12 +1241,6 @@ func (o ImagePipelineSchedulePipelineExecutionStartConditionPtrOutput) ToImagePi
 	return o
 }
 
-func (o ImagePipelineSchedulePipelineExecutionStartConditionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineSchedulePipelineExecutionStartCondition] {
-	return pulumix.Output[*ImagePipelineSchedulePipelineExecutionStartCondition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ImagePipelineSchedulePipelineExecutionStartConditionPtrOutput) Elem() ImagePipelineSchedulePipelineExecutionStartConditionOutput {
 	return o.ApplyT(func(v *ImagePipelineSchedulePipelineExecutionStartCondition) ImagePipelineSchedulePipelineExecutionStartCondition {
 		if v != nil {
@@ -1353,10 +1265,11 @@ func (o ImagePipelineSchedulePipelineExecutionStartConditionPtrOutput) ToStringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// ImagePipelineSchedulePipelineExecutionStartConditionInput is an input type that accepts ImagePipelineSchedulePipelineExecutionStartConditionArgs and ImagePipelineSchedulePipelineExecutionStartConditionOutput values.
-// You can construct a concrete instance of `ImagePipelineSchedulePipelineExecutionStartConditionInput` via:
+// ImagePipelineSchedulePipelineExecutionStartConditionInput is an input type that accepts values of the ImagePipelineSchedulePipelineExecutionStartCondition enum
+// A concrete instance of `ImagePipelineSchedulePipelineExecutionStartConditionInput` can be one of the following:
 //
-//	ImagePipelineSchedulePipelineExecutionStartConditionArgs{...}
+//	ImagePipelineSchedulePipelineExecutionStartConditionExpressionMatchOnly
+//	ImagePipelineSchedulePipelineExecutionStartConditionExpressionMatchAndDependencyUpdatesAvailable
 type ImagePipelineSchedulePipelineExecutionStartConditionInput interface {
 	pulumi.Input
 
@@ -1465,12 +1378,6 @@ func (o ImagePipelineStatusOutput) ToImagePipelineStatusPtrOutputWithContext(ctx
 	}).(ImagePipelineStatusPtrOutput)
 }
 
-func (o ImagePipelineStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineStatus] {
-	return pulumix.Output[ImagePipelineStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ImagePipelineStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1506,12 +1413,6 @@ func (o ImagePipelineStatusPtrOutput) ToImagePipelineStatusPtrOutputWithContext(
 	return o
 }
 
-func (o ImagePipelineStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineStatus] {
-	return pulumix.Output[*ImagePipelineStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ImagePipelineStatusPtrOutput) Elem() ImagePipelineStatusOutput {
 	return o.ApplyT(func(v *ImagePipelineStatus) ImagePipelineStatus {
 		if v != nil {
@@ -1536,10 +1437,11 @@ func (o ImagePipelineStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// ImagePipelineStatusInput is an input type that accepts ImagePipelineStatusArgs and ImagePipelineStatusOutput values.
-// You can construct a concrete instance of `ImagePipelineStatusInput` via:
+// ImagePipelineStatusInput is an input type that accepts values of the ImagePipelineStatus enum
+// A concrete instance of `ImagePipelineStatusInput` can be one of the following:
 //
-//	ImagePipelineStatusArgs{...}
+//	ImagePipelineStatusDisabled
+//	ImagePipelineStatusEnabled
 type ImagePipelineStatusInput interface {
 	pulumi.Input
 
@@ -1653,12 +1555,6 @@ func (o ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeOutput) ToImageR
 	}).(ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput)
 }
 
-func (o ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType] {
-	return pulumix.Output[ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1694,12 +1590,6 @@ func (o ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput) ToIma
 	return o
 }
 
-func (o ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType] {
-	return pulumix.Output[*ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput) Elem() ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeOutput {
 	return o.ApplyT(func(v *ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType) ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType {
 		if v != nil {
@@ -1724,10 +1614,16 @@ func (o ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput) ToStr
 	}).(pulumi.StringPtrOutput)
 }
 
-// ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeInput is an input type that accepts ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeArgs and ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeOutput values.
-// You can construct a concrete instance of `ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeInput` via:
+// ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeInput is an input type that accepts values of the ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType enum
+// A concrete instance of `ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeInput` can be one of the following:
 //
-//	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeArgs{...}
+//	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeStandard
+//	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIo1
+//	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeIo2
+//	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGp2
+//	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeGp3
+//	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeSc1
+//	ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeSt1
 type ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeInput interface {
 	pulumi.Input
 
@@ -1836,12 +1732,6 @@ func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput) ToIn
 	}).(InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput)
 }
 
-func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput) ToOutput(ctx context.Context) pulumix.Output[InfrastructureConfigurationInstanceMetadataOptionsHttpTokens] {
-	return pulumix.Output[InfrastructureConfigurationInstanceMetadataOptionsHttpTokens]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1877,12 +1767,6 @@ func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput) T
 	return o
 }
 
-func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InfrastructureConfigurationInstanceMetadataOptionsHttpTokens] {
-	return pulumix.Output[*InfrastructureConfigurationInstanceMetadataOptionsHttpTokens]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput) Elem() InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput {
 	return o.ApplyT(func(v *InfrastructureConfigurationInstanceMetadataOptionsHttpTokens) InfrastructureConfigurationInstanceMetadataOptionsHttpTokens {
 		if v != nil {
@@ -1907,10 +1791,11 @@ func (o InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput) T
 	}).(pulumi.StringPtrOutput)
 }
 
-// InfrastructureConfigurationInstanceMetadataOptionsHttpTokensInput is an input type that accepts InfrastructureConfigurationInstanceMetadataOptionsHttpTokensArgs and InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput values.
-// You can construct a concrete instance of `InfrastructureConfigurationInstanceMetadataOptionsHttpTokensInput` via:
+// InfrastructureConfigurationInstanceMetadataOptionsHttpTokensInput is an input type that accepts values of the InfrastructureConfigurationInstanceMetadataOptionsHttpTokens enum
+// A concrete instance of `InfrastructureConfigurationInstanceMetadataOptionsHttpTokensInput` can be one of the following:
 //
-//	InfrastructureConfigurationInstanceMetadataOptionsHttpTokensArgs{...}
+//	InfrastructureConfigurationInstanceMetadataOptionsHttpTokensRequired
+//	InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOptional
 type InfrastructureConfigurationInstanceMetadataOptionsHttpTokensInput interface {
 	pulumi.Input
 
@@ -2020,12 +1905,6 @@ func (o LifecyclePolicyActionTypeOutput) ToLifecyclePolicyActionTypePtrOutputWit
 	}).(LifecyclePolicyActionTypePtrOutput)
 }
 
-func (o LifecyclePolicyActionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyActionType] {
-	return pulumix.Output[LifecyclePolicyActionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LifecyclePolicyActionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2061,12 +1940,6 @@ func (o LifecyclePolicyActionTypePtrOutput) ToLifecyclePolicyActionTypePtrOutput
 	return o
 }
 
-func (o LifecyclePolicyActionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyActionType] {
-	return pulumix.Output[*LifecyclePolicyActionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LifecyclePolicyActionTypePtrOutput) Elem() LifecyclePolicyActionTypeOutput {
 	return o.ApplyT(func(v *LifecyclePolicyActionType) LifecyclePolicyActionType {
 		if v != nil {
@@ -2091,10 +1964,12 @@ func (o LifecyclePolicyActionTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// LifecyclePolicyActionTypeInput is an input type that accepts LifecyclePolicyActionTypeArgs and LifecyclePolicyActionTypeOutput values.
-// You can construct a concrete instance of `LifecyclePolicyActionTypeInput` via:
+// LifecyclePolicyActionTypeInput is an input type that accepts values of the LifecyclePolicyActionType enum
+// A concrete instance of `LifecyclePolicyActionTypeInput` can be one of the following:
 //
-//	LifecyclePolicyActionTypeArgs{...}
+//	LifecyclePolicyActionTypeDelete
+//	LifecyclePolicyActionTypeDeprecate
+//	LifecyclePolicyActionTypeDisable
 type LifecyclePolicyActionTypeInput interface {
 	pulumi.Input
 
@@ -2203,12 +2078,6 @@ func (o LifecyclePolicyFilterTypeOutput) ToLifecyclePolicyFilterTypePtrOutputWit
 	}).(LifecyclePolicyFilterTypePtrOutput)
 }
 
-func (o LifecyclePolicyFilterTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyFilterType] {
-	return pulumix.Output[LifecyclePolicyFilterType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LifecyclePolicyFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2244,12 +2113,6 @@ func (o LifecyclePolicyFilterTypePtrOutput) ToLifecyclePolicyFilterTypePtrOutput
 	return o
 }
 
-func (o LifecyclePolicyFilterTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyFilterType] {
-	return pulumix.Output[*LifecyclePolicyFilterType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LifecyclePolicyFilterTypePtrOutput) Elem() LifecyclePolicyFilterTypeOutput {
 	return o.ApplyT(func(v *LifecyclePolicyFilterType) LifecyclePolicyFilterType {
 		if v != nil {
@@ -2274,10 +2137,11 @@ func (o LifecyclePolicyFilterTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// LifecyclePolicyFilterTypeInput is an input type that accepts LifecyclePolicyFilterTypeArgs and LifecyclePolicyFilterTypeOutput values.
-// You can construct a concrete instance of `LifecyclePolicyFilterTypeInput` via:
+// LifecyclePolicyFilterTypeInput is an input type that accepts values of the LifecyclePolicyFilterType enum
+// A concrete instance of `LifecyclePolicyFilterTypeInput` can be one of the following:
 //
-//	LifecyclePolicyFilterTypeArgs{...}
+//	LifecyclePolicyFilterTypeAge
+//	LifecyclePolicyFilterTypeCount
 type LifecyclePolicyFilterTypeInput interface {
 	pulumi.Input
 
@@ -2386,12 +2250,6 @@ func (o LifecyclePolicyResourceTypeOutput) ToLifecyclePolicyResourceTypePtrOutpu
 	}).(LifecyclePolicyResourceTypePtrOutput)
 }
 
-func (o LifecyclePolicyResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyResourceType] {
-	return pulumix.Output[LifecyclePolicyResourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LifecyclePolicyResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2427,12 +2285,6 @@ func (o LifecyclePolicyResourceTypePtrOutput) ToLifecyclePolicyResourceTypePtrOu
 	return o
 }
 
-func (o LifecyclePolicyResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyResourceType] {
-	return pulumix.Output[*LifecyclePolicyResourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LifecyclePolicyResourceTypePtrOutput) Elem() LifecyclePolicyResourceTypeOutput {
 	return o.ApplyT(func(v *LifecyclePolicyResourceType) LifecyclePolicyResourceType {
 		if v != nil {
@@ -2457,10 +2309,11 @@ func (o LifecyclePolicyResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// LifecyclePolicyResourceTypeInput is an input type that accepts LifecyclePolicyResourceTypeArgs and LifecyclePolicyResourceTypeOutput values.
-// You can construct a concrete instance of `LifecyclePolicyResourceTypeInput` via:
+// LifecyclePolicyResourceTypeInput is an input type that accepts values of the LifecyclePolicyResourceType enum
+// A concrete instance of `LifecyclePolicyResourceTypeInput` can be one of the following:
 //
-//	LifecyclePolicyResourceTypeArgs{...}
+//	LifecyclePolicyResourceTypeAmiImage
+//	LifecyclePolicyResourceTypeContainerImage
 type LifecyclePolicyResourceTypeInput interface {
 	pulumi.Input
 
@@ -2569,12 +2422,6 @@ func (o LifecyclePolicyStatusOutput) ToLifecyclePolicyStatusPtrOutputWithContext
 	}).(LifecyclePolicyStatusPtrOutput)
 }
 
-func (o LifecyclePolicyStatusOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyStatus] {
-	return pulumix.Output[LifecyclePolicyStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LifecyclePolicyStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2610,12 +2457,6 @@ func (o LifecyclePolicyStatusPtrOutput) ToLifecyclePolicyStatusPtrOutputWithCont
 	return o
 }
 
-func (o LifecyclePolicyStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyStatus] {
-	return pulumix.Output[*LifecyclePolicyStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LifecyclePolicyStatusPtrOutput) Elem() LifecyclePolicyStatusOutput {
 	return o.ApplyT(func(v *LifecyclePolicyStatus) LifecyclePolicyStatus {
 		if v != nil {
@@ -2640,10 +2481,11 @@ func (o LifecyclePolicyStatusPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// LifecyclePolicyStatusInput is an input type that accepts LifecyclePolicyStatusArgs and LifecyclePolicyStatusOutput values.
-// You can construct a concrete instance of `LifecyclePolicyStatusInput` via:
+// LifecyclePolicyStatusInput is an input type that accepts values of the LifecyclePolicyStatus enum
+// A concrete instance of `LifecyclePolicyStatusInput` can be one of the following:
 //
-//	LifecyclePolicyStatusArgs{...}
+//	LifecyclePolicyStatusDisabled
+//	LifecyclePolicyStatusEnabled
 type LifecyclePolicyStatusInput interface {
 	pulumi.Input
 
@@ -2754,12 +2596,6 @@ func (o LifecyclePolicyTimeUnitOutput) ToLifecyclePolicyTimeUnitPtrOutputWithCon
 	}).(LifecyclePolicyTimeUnitPtrOutput)
 }
 
-func (o LifecyclePolicyTimeUnitOutput) ToOutput(ctx context.Context) pulumix.Output[LifecyclePolicyTimeUnit] {
-	return pulumix.Output[LifecyclePolicyTimeUnit]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LifecyclePolicyTimeUnitOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2795,12 +2631,6 @@ func (o LifecyclePolicyTimeUnitPtrOutput) ToLifecyclePolicyTimeUnitPtrOutputWith
 	return o
 }
 
-func (o LifecyclePolicyTimeUnitPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyTimeUnit] {
-	return pulumix.Output[*LifecyclePolicyTimeUnit]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LifecyclePolicyTimeUnitPtrOutput) Elem() LifecyclePolicyTimeUnitOutput {
 	return o.ApplyT(func(v *LifecyclePolicyTimeUnit) LifecyclePolicyTimeUnit {
 		if v != nil {
@@ -2825,10 +2655,13 @@ func (o LifecyclePolicyTimeUnitPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// LifecyclePolicyTimeUnitInput is an input type that accepts LifecyclePolicyTimeUnitArgs and LifecyclePolicyTimeUnitOutput values.
-// You can construct a concrete instance of `LifecyclePolicyTimeUnitInput` via:
+// LifecyclePolicyTimeUnitInput is an input type that accepts values of the LifecyclePolicyTimeUnit enum
+// A concrete instance of `LifecyclePolicyTimeUnitInput` can be one of the following:
 //
-//	LifecyclePolicyTimeUnitArgs{...}
+//	LifecyclePolicyTimeUnitDays
+//	LifecyclePolicyTimeUnitWeeks
+//	LifecyclePolicyTimeUnitMonths
+//	LifecyclePolicyTimeUnitYears
 type LifecyclePolicyTimeUnitInput interface {
 	pulumi.Input
 

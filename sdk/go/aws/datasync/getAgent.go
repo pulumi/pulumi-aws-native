@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataSync::Agent.
@@ -73,12 +72,6 @@ func (o LookupAgentResultOutput) ToLookupAgentResultOutput() LookupAgentResultOu
 
 func (o LookupAgentResultOutput) ToLookupAgentResultOutputWithContext(ctx context.Context) LookupAgentResultOutput {
 	return o
-}
-
-func (o LookupAgentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAgentResult] {
-	return pulumix.Output[LookupAgentResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The DataSync Agent ARN.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Macie FindingsFilter resource schema.
@@ -129,12 +128,6 @@ func (i *FindingsFilter) ToFindingsFilterOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterOutput)
 }
 
-func (i *FindingsFilter) ToOutput(ctx context.Context) pulumix.Output[*FindingsFilter] {
-	return pulumix.Output[*FindingsFilter]{
-		OutputState: i.ToFindingsFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FindingsFilterOutput struct{ *pulumi.OutputState }
 
 func (FindingsFilterOutput) ElementType() reflect.Type {
@@ -147,12 +140,6 @@ func (o FindingsFilterOutput) ToFindingsFilterOutput() FindingsFilterOutput {
 
 func (o FindingsFilterOutput) ToFindingsFilterOutputWithContext(ctx context.Context) FindingsFilterOutput {
 	return o
-}
-
-func (o FindingsFilterOutput) ToOutput(ctx context.Context) pulumix.Output[*FindingsFilter] {
-	return pulumix.Output[*FindingsFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Findings filter action.

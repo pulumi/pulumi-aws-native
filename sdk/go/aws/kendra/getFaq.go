@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A Kendra FAQ resource
@@ -71,12 +70,6 @@ func (o LookupFaqResultOutput) ToLookupFaqResultOutput() LookupFaqResultOutput {
 
 func (o LookupFaqResultOutput) ToLookupFaqResultOutputWithContext(ctx context.Context) LookupFaqResultOutput {
 	return o
-}
-
-func (o LookupFaqResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFaqResult] {
-	return pulumix.Output[LookupFaqResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupFaqResultOutput) Arn() pulumi.StringPtrOutput {

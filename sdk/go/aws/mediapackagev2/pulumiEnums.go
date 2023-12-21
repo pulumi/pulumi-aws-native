@@ -77,12 +77,6 @@ func (o OriginEndpointAdMarkerHlsOutput) ToOriginEndpointAdMarkerHlsPtrOutputWit
 	}).(OriginEndpointAdMarkerHlsPtrOutput)
 }
 
-func (o OriginEndpointAdMarkerHlsOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointAdMarkerHls] {
-	return pulumix.Output[OriginEndpointAdMarkerHls]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointAdMarkerHlsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o OriginEndpointAdMarkerHlsPtrOutput) ToOriginEndpointAdMarkerHlsPtrOutput
 	return o
 }
 
-func (o OriginEndpointAdMarkerHlsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointAdMarkerHls] {
-	return pulumix.Output[*OriginEndpointAdMarkerHls]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointAdMarkerHlsPtrOutput) Elem() OriginEndpointAdMarkerHlsOutput {
 	return o.ApplyT(func(v *OriginEndpointAdMarkerHls) OriginEndpointAdMarkerHls {
 		if v != nil {
@@ -148,10 +136,10 @@ func (o OriginEndpointAdMarkerHlsPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointAdMarkerHlsInput is an input type that accepts OriginEndpointAdMarkerHlsArgs and OriginEndpointAdMarkerHlsOutput values.
-// You can construct a concrete instance of `OriginEndpointAdMarkerHlsInput` via:
+// OriginEndpointAdMarkerHlsInput is an input type that accepts values of the OriginEndpointAdMarkerHls enum
+// A concrete instance of `OriginEndpointAdMarkerHlsInput` can be one of the following:
 //
-//	OriginEndpointAdMarkerHlsArgs{...}
+//	OriginEndpointAdMarkerHlsDaterange
 type OriginEndpointAdMarkerHlsInput interface {
 	pulumi.Input
 
@@ -259,12 +247,6 @@ func (o OriginEndpointCmafEncryptionMethodOutput) ToOriginEndpointCmafEncryption
 	}).(OriginEndpointCmafEncryptionMethodPtrOutput)
 }
 
-func (o OriginEndpointCmafEncryptionMethodOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointCmafEncryptionMethod] {
-	return pulumix.Output[OriginEndpointCmafEncryptionMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointCmafEncryptionMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -300,12 +282,6 @@ func (o OriginEndpointCmafEncryptionMethodPtrOutput) ToOriginEndpointCmafEncrypt
 	return o
 }
 
-func (o OriginEndpointCmafEncryptionMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointCmafEncryptionMethod] {
-	return pulumix.Output[*OriginEndpointCmafEncryptionMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointCmafEncryptionMethodPtrOutput) Elem() OriginEndpointCmafEncryptionMethodOutput {
 	return o.ApplyT(func(v *OriginEndpointCmafEncryptionMethod) OriginEndpointCmafEncryptionMethod {
 		if v != nil {
@@ -330,10 +306,11 @@ func (o OriginEndpointCmafEncryptionMethodPtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointCmafEncryptionMethodInput is an input type that accepts OriginEndpointCmafEncryptionMethodArgs and OriginEndpointCmafEncryptionMethodOutput values.
-// You can construct a concrete instance of `OriginEndpointCmafEncryptionMethodInput` via:
+// OriginEndpointCmafEncryptionMethodInput is an input type that accepts values of the OriginEndpointCmafEncryptionMethod enum
+// A concrete instance of `OriginEndpointCmafEncryptionMethodInput` can be one of the following:
 //
-//	OriginEndpointCmafEncryptionMethodArgs{...}
+//	OriginEndpointCmafEncryptionMethodCenc
+//	OriginEndpointCmafEncryptionMethodCbcs
 type OriginEndpointCmafEncryptionMethodInput interface {
 	pulumi.Input
 
@@ -441,12 +418,6 @@ func (o OriginEndpointContainerTypeOutput) ToOriginEndpointContainerTypePtrOutpu
 	}).(OriginEndpointContainerTypePtrOutput)
 }
 
-func (o OriginEndpointContainerTypeOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointContainerType] {
-	return pulumix.Output[OriginEndpointContainerType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointContainerTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -482,12 +453,6 @@ func (o OriginEndpointContainerTypePtrOutput) ToOriginEndpointContainerTypePtrOu
 	return o
 }
 
-func (o OriginEndpointContainerTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointContainerType] {
-	return pulumix.Output[*OriginEndpointContainerType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointContainerTypePtrOutput) Elem() OriginEndpointContainerTypeOutput {
 	return o.ApplyT(func(v *OriginEndpointContainerType) OriginEndpointContainerType {
 		if v != nil {
@@ -512,10 +477,11 @@ func (o OriginEndpointContainerTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointContainerTypeInput is an input type that accepts OriginEndpointContainerTypeArgs and OriginEndpointContainerTypeOutput values.
-// You can construct a concrete instance of `OriginEndpointContainerTypeInput` via:
+// OriginEndpointContainerTypeInput is an input type that accepts values of the OriginEndpointContainerType enum
+// A concrete instance of `OriginEndpointContainerTypeInput` can be one of the following:
 //
-//	OriginEndpointContainerTypeArgs{...}
+//	OriginEndpointContainerTypeTs
+//	OriginEndpointContainerTypeCmaf
 type OriginEndpointContainerTypeInput interface {
 	pulumi.Input
 
@@ -625,12 +591,6 @@ func (o OriginEndpointDrmSystemOutput) ToOriginEndpointDrmSystemPtrOutputWithCon
 	}).(OriginEndpointDrmSystemPtrOutput)
 }
 
-func (o OriginEndpointDrmSystemOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointDrmSystem] {
-	return pulumix.Output[OriginEndpointDrmSystem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointDrmSystemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -666,12 +626,6 @@ func (o OriginEndpointDrmSystemPtrOutput) ToOriginEndpointDrmSystemPtrOutputWith
 	return o
 }
 
-func (o OriginEndpointDrmSystemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointDrmSystem] {
-	return pulumix.Output[*OriginEndpointDrmSystem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointDrmSystemPtrOutput) Elem() OriginEndpointDrmSystemOutput {
 	return o.ApplyT(func(v *OriginEndpointDrmSystem) OriginEndpointDrmSystem {
 		if v != nil {
@@ -696,10 +650,13 @@ func (o OriginEndpointDrmSystemPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointDrmSystemInput is an input type that accepts OriginEndpointDrmSystemArgs and OriginEndpointDrmSystemOutput values.
-// You can construct a concrete instance of `OriginEndpointDrmSystemInput` via:
+// OriginEndpointDrmSystemInput is an input type that accepts values of the OriginEndpointDrmSystem enum
+// A concrete instance of `OriginEndpointDrmSystemInput` can be one of the following:
 //
-//	OriginEndpointDrmSystemArgs{...}
+//	OriginEndpointDrmSystemClearKeyAes128
+//	OriginEndpointDrmSystemFairplay
+//	OriginEndpointDrmSystemPlayready
+//	OriginEndpointDrmSystemWidevine
 type OriginEndpointDrmSystemInput interface {
 	pulumi.Input
 
@@ -765,12 +722,6 @@ func (i OriginEndpointDrmSystemArray) ToOriginEndpointDrmSystemArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointDrmSystemArrayOutput)
 }
 
-func (i OriginEndpointDrmSystemArray) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointDrmSystem] {
-	return pulumix.Output[[]OriginEndpointDrmSystem]{
-		OutputState: i.ToOriginEndpointDrmSystemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OriginEndpointDrmSystemArrayOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointDrmSystemArrayOutput) ElementType() reflect.Type {
@@ -783,12 +734,6 @@ func (o OriginEndpointDrmSystemArrayOutput) ToOriginEndpointDrmSystemArrayOutput
 
 func (o OriginEndpointDrmSystemArrayOutput) ToOriginEndpointDrmSystemArrayOutputWithContext(ctx context.Context) OriginEndpointDrmSystemArrayOutput {
 	return o
-}
-
-func (o OriginEndpointDrmSystemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointDrmSystem] {
-	return pulumix.Output[[]OriginEndpointDrmSystem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointDrmSystemArrayOutput) Index(i pulumi.IntInput) OriginEndpointDrmSystemOutput {
@@ -867,12 +812,6 @@ func (o OriginEndpointPresetSpeke20AudioOutput) ToOriginEndpointPresetSpeke20Aud
 	}).(OriginEndpointPresetSpeke20AudioPtrOutput)
 }
 
-func (o OriginEndpointPresetSpeke20AudioOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointPresetSpeke20Audio] {
-	return pulumix.Output[OriginEndpointPresetSpeke20Audio]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointPresetSpeke20AudioOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -908,12 +847,6 @@ func (o OriginEndpointPresetSpeke20AudioPtrOutput) ToOriginEndpointPresetSpeke20
 	return o
 }
 
-func (o OriginEndpointPresetSpeke20AudioPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointPresetSpeke20Audio] {
-	return pulumix.Output[*OriginEndpointPresetSpeke20Audio]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointPresetSpeke20AudioPtrOutput) Elem() OriginEndpointPresetSpeke20AudioOutput {
 	return o.ApplyT(func(v *OriginEndpointPresetSpeke20Audio) OriginEndpointPresetSpeke20Audio {
 		if v != nil {
@@ -938,10 +871,14 @@ func (o OriginEndpointPresetSpeke20AudioPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointPresetSpeke20AudioInput is an input type that accepts OriginEndpointPresetSpeke20AudioArgs and OriginEndpointPresetSpeke20AudioOutput values.
-// You can construct a concrete instance of `OriginEndpointPresetSpeke20AudioInput` via:
+// OriginEndpointPresetSpeke20AudioInput is an input type that accepts values of the OriginEndpointPresetSpeke20Audio enum
+// A concrete instance of `OriginEndpointPresetSpeke20AudioInput` can be one of the following:
 //
-//	OriginEndpointPresetSpeke20AudioArgs{...}
+//	OriginEndpointPresetSpeke20AudioPresetAudio1
+//	OriginEndpointPresetSpeke20AudioPresetAudio2
+//	OriginEndpointPresetSpeke20AudioPresetAudio3
+//	OriginEndpointPresetSpeke20AudioShared
+//	OriginEndpointPresetSpeke20AudioUnencrypted
 type OriginEndpointPresetSpeke20AudioInput interface {
 	pulumi.Input
 
@@ -1057,12 +994,6 @@ func (o OriginEndpointPresetSpeke20VideoOutput) ToOriginEndpointPresetSpeke20Vid
 	}).(OriginEndpointPresetSpeke20VideoPtrOutput)
 }
 
-func (o OriginEndpointPresetSpeke20VideoOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointPresetSpeke20Video] {
-	return pulumix.Output[OriginEndpointPresetSpeke20Video]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointPresetSpeke20VideoOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1098,12 +1029,6 @@ func (o OriginEndpointPresetSpeke20VideoPtrOutput) ToOriginEndpointPresetSpeke20
 	return o
 }
 
-func (o OriginEndpointPresetSpeke20VideoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointPresetSpeke20Video] {
-	return pulumix.Output[*OriginEndpointPresetSpeke20Video]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointPresetSpeke20VideoPtrOutput) Elem() OriginEndpointPresetSpeke20VideoOutput {
 	return o.ApplyT(func(v *OriginEndpointPresetSpeke20Video) OriginEndpointPresetSpeke20Video {
 		if v != nil {
@@ -1128,10 +1053,19 @@ func (o OriginEndpointPresetSpeke20VideoPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointPresetSpeke20VideoInput is an input type that accepts OriginEndpointPresetSpeke20VideoArgs and OriginEndpointPresetSpeke20VideoOutput values.
-// You can construct a concrete instance of `OriginEndpointPresetSpeke20VideoInput` via:
+// OriginEndpointPresetSpeke20VideoInput is an input type that accepts values of the OriginEndpointPresetSpeke20Video enum
+// A concrete instance of `OriginEndpointPresetSpeke20VideoInput` can be one of the following:
 //
-//	OriginEndpointPresetSpeke20VideoArgs{...}
+//	OriginEndpointPresetSpeke20VideoPresetVideo1
+//	OriginEndpointPresetSpeke20VideoPresetVideo2
+//	OriginEndpointPresetSpeke20VideoPresetVideo3
+//	OriginEndpointPresetSpeke20VideoPresetVideo4
+//	OriginEndpointPresetSpeke20VideoPresetVideo5
+//	OriginEndpointPresetSpeke20VideoPresetVideo6
+//	OriginEndpointPresetSpeke20VideoPresetVideo7
+//	OriginEndpointPresetSpeke20VideoPresetVideo8
+//	OriginEndpointPresetSpeke20VideoShared
+//	OriginEndpointPresetSpeke20VideoUnencrypted
 type OriginEndpointPresetSpeke20VideoInput interface {
 	pulumi.Input
 
@@ -1246,12 +1180,6 @@ func (o OriginEndpointScteFilterOutput) ToOriginEndpointScteFilterPtrOutputWithC
 	}).(OriginEndpointScteFilterPtrOutput)
 }
 
-func (o OriginEndpointScteFilterOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointScteFilter] {
-	return pulumix.Output[OriginEndpointScteFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointScteFilterOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1287,12 +1215,6 @@ func (o OriginEndpointScteFilterPtrOutput) ToOriginEndpointScteFilterPtrOutputWi
 	return o
 }
 
-func (o OriginEndpointScteFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointScteFilter] {
-	return pulumix.Output[*OriginEndpointScteFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointScteFilterPtrOutput) Elem() OriginEndpointScteFilterOutput {
 	return o.ApplyT(func(v *OriginEndpointScteFilter) OriginEndpointScteFilter {
 		if v != nil {
@@ -1317,10 +1239,18 @@ func (o OriginEndpointScteFilterPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointScteFilterInput is an input type that accepts OriginEndpointScteFilterArgs and OriginEndpointScteFilterOutput values.
-// You can construct a concrete instance of `OriginEndpointScteFilterInput` via:
+// OriginEndpointScteFilterInput is an input type that accepts values of the OriginEndpointScteFilter enum
+// A concrete instance of `OriginEndpointScteFilterInput` can be one of the following:
 //
-//	OriginEndpointScteFilterArgs{...}
+//	OriginEndpointScteFilterSpliceInsert
+//	OriginEndpointScteFilterBreak
+//	OriginEndpointScteFilterProviderAdvertisement
+//	OriginEndpointScteFilterDistributorAdvertisement
+//	OriginEndpointScteFilterProviderPlacementOpportunity
+//	OriginEndpointScteFilterDistributorPlacementOpportunity
+//	OriginEndpointScteFilterProviderOverlayPlacementOpportunity
+//	OriginEndpointScteFilterDistributorOverlayPlacementOpportunity
+//	OriginEndpointScteFilterProgram
 type OriginEndpointScteFilterInput interface {
 	pulumi.Input
 
@@ -1386,12 +1316,6 @@ func (i OriginEndpointScteFilterArray) ToOriginEndpointScteFilterArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointScteFilterArrayOutput)
 }
 
-func (i OriginEndpointScteFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointScteFilter] {
-	return pulumix.Output[[]OriginEndpointScteFilter]{
-		OutputState: i.ToOriginEndpointScteFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OriginEndpointScteFilterArrayOutput struct{ *pulumi.OutputState }
 
 func (OriginEndpointScteFilterArrayOutput) ElementType() reflect.Type {
@@ -1404,12 +1328,6 @@ func (o OriginEndpointScteFilterArrayOutput) ToOriginEndpointScteFilterArrayOutp
 
 func (o OriginEndpointScteFilterArrayOutput) ToOriginEndpointScteFilterArrayOutputWithContext(ctx context.Context) OriginEndpointScteFilterArrayOutput {
 	return o
-}
-
-func (o OriginEndpointScteFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OriginEndpointScteFilter] {
-	return pulumix.Output[[]OriginEndpointScteFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OriginEndpointScteFilterArrayOutput) Index(i pulumi.IntInput) OriginEndpointScteFilterOutput {
@@ -1485,12 +1403,6 @@ func (o OriginEndpointTsEncryptionMethodOutput) ToOriginEndpointTsEncryptionMeth
 	}).(OriginEndpointTsEncryptionMethodPtrOutput)
 }
 
-func (o OriginEndpointTsEncryptionMethodOutput) ToOutput(ctx context.Context) pulumix.Output[OriginEndpointTsEncryptionMethod] {
-	return pulumix.Output[OriginEndpointTsEncryptionMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointTsEncryptionMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1526,12 +1438,6 @@ func (o OriginEndpointTsEncryptionMethodPtrOutput) ToOriginEndpointTsEncryptionM
 	return o
 }
 
-func (o OriginEndpointTsEncryptionMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OriginEndpointTsEncryptionMethod] {
-	return pulumix.Output[*OriginEndpointTsEncryptionMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OriginEndpointTsEncryptionMethodPtrOutput) Elem() OriginEndpointTsEncryptionMethodOutput {
 	return o.ApplyT(func(v *OriginEndpointTsEncryptionMethod) OriginEndpointTsEncryptionMethod {
 		if v != nil {
@@ -1556,10 +1462,11 @@ func (o OriginEndpointTsEncryptionMethodPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// OriginEndpointTsEncryptionMethodInput is an input type that accepts OriginEndpointTsEncryptionMethodArgs and OriginEndpointTsEncryptionMethodOutput values.
-// You can construct a concrete instance of `OriginEndpointTsEncryptionMethodInput` via:
+// OriginEndpointTsEncryptionMethodInput is an input type that accepts values of the OriginEndpointTsEncryptionMethod enum
+// A concrete instance of `OriginEndpointTsEncryptionMethodInput` can be one of the following:
 //
-//	OriginEndpointTsEncryptionMethodArgs{...}
+//	OriginEndpointTsEncryptionMethodAes128
+//	OriginEndpointTsEncryptionMethodSampleAes
 type OriginEndpointTsEncryptionMethodInput interface {
 	pulumi.Input
 

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::OpsWorks::ElasticLoadBalancerAttachment
@@ -102,12 +101,6 @@ func (i *ElasticLoadBalancerAttachment) ToElasticLoadBalancerAttachmentOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticLoadBalancerAttachmentOutput)
 }
 
-func (i *ElasticLoadBalancerAttachment) ToOutput(ctx context.Context) pulumix.Output[*ElasticLoadBalancerAttachment] {
-	return pulumix.Output[*ElasticLoadBalancerAttachment]{
-		OutputState: i.ToElasticLoadBalancerAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ElasticLoadBalancerAttachmentOutput struct{ *pulumi.OutputState }
 
 func (ElasticLoadBalancerAttachmentOutput) ElementType() reflect.Type {
@@ -120,12 +113,6 @@ func (o ElasticLoadBalancerAttachmentOutput) ToElasticLoadBalancerAttachmentOutp
 
 func (o ElasticLoadBalancerAttachmentOutput) ToElasticLoadBalancerAttachmentOutputWithContext(ctx context.Context) ElasticLoadBalancerAttachmentOutput {
 	return o
-}
-
-func (o ElasticLoadBalancerAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*ElasticLoadBalancerAttachment] {
-	return pulumix.Output[*ElasticLoadBalancerAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ElasticLoadBalancerAttachmentOutput) ElasticLoadBalancerName() pulumi.StringOutput {

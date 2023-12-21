@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ElasticLoadBalancingV2::TargetGroup
@@ -97,12 +96,6 @@ func (o LookupTargetGroupResultOutput) ToLookupTargetGroupResultOutput() LookupT
 
 func (o LookupTargetGroupResultOutput) ToLookupTargetGroupResultOutputWithContext(ctx context.Context) LookupTargetGroupResultOutput {
 	return o
-}
-
-func (o LookupTargetGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTargetGroupResult] {
-	return pulumix.Output[LookupTargetGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Indicates whether health checks are enabled. If the target type is lambda, health checks are disabled by default but can be enabled. If the target type is instance, ip, or alb, health checks are always enabled and cannot be disabled.

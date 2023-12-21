@@ -80,12 +80,6 @@ func (o AccessGrantGranteeGranteeTypeOutput) ToAccessGrantGranteeGranteeTypePtrO
 	}).(AccessGrantGranteeGranteeTypePtrOutput)
 }
 
-func (o AccessGrantGranteeGranteeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AccessGrantGranteeGranteeType] {
-	return pulumix.Output[AccessGrantGranteeGranteeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccessGrantGranteeGranteeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -121,12 +115,6 @@ func (o AccessGrantGranteeGranteeTypePtrOutput) ToAccessGrantGranteeGranteeTypeP
 	return o
 }
 
-func (o AccessGrantGranteeGranteeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessGrantGranteeGranteeType] {
-	return pulumix.Output[*AccessGrantGranteeGranteeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccessGrantGranteeGranteeTypePtrOutput) Elem() AccessGrantGranteeGranteeTypeOutput {
 	return o.ApplyT(func(v *AccessGrantGranteeGranteeType) AccessGrantGranteeGranteeType {
 		if v != nil {
@@ -151,10 +139,12 @@ func (o AccessGrantGranteeGranteeTypePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// AccessGrantGranteeGranteeTypeInput is an input type that accepts AccessGrantGranteeGranteeTypeArgs and AccessGrantGranteeGranteeTypeOutput values.
-// You can construct a concrete instance of `AccessGrantGranteeGranteeTypeInput` via:
+// AccessGrantGranteeGranteeTypeInput is an input type that accepts values of the AccessGrantGranteeGranteeType enum
+// A concrete instance of `AccessGrantGranteeGranteeTypeInput` can be one of the following:
 //
-//	AccessGrantGranteeGranteeTypeArgs{...}
+//	AccessGrantGranteeGranteeTypeIam
+//	AccessGrantGranteeGranteeTypeDirectoryUser
+//	AccessGrantGranteeGranteeTypeDirectoryGroup
 type AccessGrantGranteeGranteeTypeInput interface {
 	pulumi.Input
 
@@ -264,12 +254,6 @@ func (o AccessGrantPermissionOutput) ToAccessGrantPermissionPtrOutputWithContext
 	}).(AccessGrantPermissionPtrOutput)
 }
 
-func (o AccessGrantPermissionOutput) ToOutput(ctx context.Context) pulumix.Output[AccessGrantPermission] {
-	return pulumix.Output[AccessGrantPermission]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccessGrantPermissionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -305,12 +289,6 @@ func (o AccessGrantPermissionPtrOutput) ToAccessGrantPermissionPtrOutputWithCont
 	return o
 }
 
-func (o AccessGrantPermissionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessGrantPermission] {
-	return pulumix.Output[*AccessGrantPermission]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccessGrantPermissionPtrOutput) Elem() AccessGrantPermissionOutput {
 	return o.ApplyT(func(v *AccessGrantPermission) AccessGrantPermission {
 		if v != nil {
@@ -335,10 +313,12 @@ func (o AccessGrantPermissionPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AccessGrantPermissionInput is an input type that accepts AccessGrantPermissionArgs and AccessGrantPermissionOutput values.
-// You can construct a concrete instance of `AccessGrantPermissionInput` via:
+// AccessGrantPermissionInput is an input type that accepts values of the AccessGrantPermission enum
+// A concrete instance of `AccessGrantPermissionInput` can be one of the following:
 //
-//	AccessGrantPermissionArgs{...}
+//	AccessGrantPermissionRead
+//	AccessGrantPermissionWrite
+//	AccessGrantPermissionReadwrite
 type AccessGrantPermissionInput interface {
 	pulumi.Input
 
@@ -446,12 +426,6 @@ func (o AccessGrantS3PrefixTypeOutput) ToAccessGrantS3PrefixTypePtrOutputWithCon
 	}).(AccessGrantS3PrefixTypePtrOutput)
 }
 
-func (o AccessGrantS3PrefixTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AccessGrantS3PrefixType] {
-	return pulumix.Output[AccessGrantS3PrefixType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccessGrantS3PrefixTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -487,12 +461,6 @@ func (o AccessGrantS3PrefixTypePtrOutput) ToAccessGrantS3PrefixTypePtrOutputWith
 	return o
 }
 
-func (o AccessGrantS3PrefixTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessGrantS3PrefixType] {
-	return pulumix.Output[*AccessGrantS3PrefixType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccessGrantS3PrefixTypePtrOutput) Elem() AccessGrantS3PrefixTypeOutput {
 	return o.ApplyT(func(v *AccessGrantS3PrefixType) AccessGrantS3PrefixType {
 		if v != nil {
@@ -517,10 +485,10 @@ func (o AccessGrantS3PrefixTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// AccessGrantS3PrefixTypeInput is an input type that accepts AccessGrantS3PrefixTypeArgs and AccessGrantS3PrefixTypeOutput values.
-// You can construct a concrete instance of `AccessGrantS3PrefixTypeInput` via:
+// AccessGrantS3PrefixTypeInput is an input type that accepts values of the AccessGrantS3PrefixType enum
+// A concrete instance of `AccessGrantS3PrefixTypeInput` can be one of the following:
 //
-//	AccessGrantS3PrefixTypeArgs{...}
+//	AccessGrantS3PrefixTypeObject
 type AccessGrantS3PrefixTypeInput interface {
 	pulumi.Input
 
@@ -593,12 +561,6 @@ func (o AccessPointNetworkOriginOutput) ToAccessPointNetworkOriginPtrOutputWithC
 	}).(AccessPointNetworkOriginPtrOutput)
 }
 
-func (o AccessPointNetworkOriginOutput) ToOutput(ctx context.Context) pulumix.Output[AccessPointNetworkOrigin] {
-	return pulumix.Output[AccessPointNetworkOrigin]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccessPointNetworkOriginOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -632,12 +594,6 @@ func (o AccessPointNetworkOriginPtrOutput) ToAccessPointNetworkOriginPtrOutput()
 
 func (o AccessPointNetworkOriginPtrOutput) ToAccessPointNetworkOriginPtrOutputWithContext(ctx context.Context) AccessPointNetworkOriginPtrOutput {
 	return o
-}
-
-func (o AccessPointNetworkOriginPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessPointNetworkOrigin] {
-	return pulumix.Output[*AccessPointNetworkOrigin]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessPointNetworkOriginPtrOutput) Elem() AccessPointNetworkOriginOutput {
@@ -732,12 +688,6 @@ func (o BucketAccelerateConfigurationAccelerationStatusOutput) ToBucketAccelerat
 	}).(BucketAccelerateConfigurationAccelerationStatusPtrOutput)
 }
 
-func (o BucketAccelerateConfigurationAccelerationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[BucketAccelerateConfigurationAccelerationStatus] {
-	return pulumix.Output[BucketAccelerateConfigurationAccelerationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketAccelerateConfigurationAccelerationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -773,12 +723,6 @@ func (o BucketAccelerateConfigurationAccelerationStatusPtrOutput) ToBucketAccele
 	return o
 }
 
-func (o BucketAccelerateConfigurationAccelerationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketAccelerateConfigurationAccelerationStatus] {
-	return pulumix.Output[*BucketAccelerateConfigurationAccelerationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketAccelerateConfigurationAccelerationStatusPtrOutput) Elem() BucketAccelerateConfigurationAccelerationStatusOutput {
 	return o.ApplyT(func(v *BucketAccelerateConfigurationAccelerationStatus) BucketAccelerateConfigurationAccelerationStatus {
 		if v != nil {
@@ -803,10 +747,11 @@ func (o BucketAccelerateConfigurationAccelerationStatusPtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketAccelerateConfigurationAccelerationStatusInput is an input type that accepts BucketAccelerateConfigurationAccelerationStatusArgs and BucketAccelerateConfigurationAccelerationStatusOutput values.
-// You can construct a concrete instance of `BucketAccelerateConfigurationAccelerationStatusInput` via:
+// BucketAccelerateConfigurationAccelerationStatusInput is an input type that accepts values of the BucketAccelerateConfigurationAccelerationStatus enum
+// A concrete instance of `BucketAccelerateConfigurationAccelerationStatusInput` can be one of the following:
 //
-//	BucketAccelerateConfigurationAccelerationStatusArgs{...}
+//	BucketAccelerateConfigurationAccelerationStatusEnabled
+//	BucketAccelerateConfigurationAccelerationStatusSuspended
 type BucketAccelerateConfigurationAccelerationStatusInput interface {
 	pulumi.Input
 
@@ -921,12 +866,6 @@ func (o BucketAccessControlOutput) ToBucketAccessControlPtrOutputWithContext(ctx
 	}).(BucketAccessControlPtrOutput)
 }
 
-func (o BucketAccessControlOutput) ToOutput(ctx context.Context) pulumix.Output[BucketAccessControl] {
-	return pulumix.Output[BucketAccessControl]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketAccessControlOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -962,12 +901,6 @@ func (o BucketAccessControlPtrOutput) ToBucketAccessControlPtrOutputWithContext(
 	return o
 }
 
-func (o BucketAccessControlPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketAccessControl] {
-	return pulumix.Output[*BucketAccessControl]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketAccessControlPtrOutput) Elem() BucketAccessControlOutput {
 	return o.ApplyT(func(v *BucketAccessControl) BucketAccessControl {
 		if v != nil {
@@ -992,10 +925,17 @@ func (o BucketAccessControlPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketAccessControlInput is an input type that accepts BucketAccessControlArgs and BucketAccessControlOutput values.
-// You can construct a concrete instance of `BucketAccessControlInput` via:
+// BucketAccessControlInput is an input type that accepts values of the BucketAccessControl enum
+// A concrete instance of `BucketAccessControlInput` can be one of the following:
 //
-//	BucketAccessControlArgs{...}
+//	BucketAccessControlAuthenticatedRead
+//	BucketAccessControlAwsExecRead
+//	BucketAccessControlBucketOwnerFullControl
+//	BucketAccessControlBucketOwnerRead
+//	BucketAccessControlLogDeliveryWrite
+//	BucketAccessControlPrivate
+//	BucketAccessControlPublicRead
+//	BucketAccessControlPublicReadWrite
 type BucketAccessControlInput interface {
 	pulumi.Input
 
@@ -1106,12 +1046,6 @@ func (o BucketCorsRuleAllowedMethodsItemOutput) ToBucketCorsRuleAllowedMethodsIt
 	}).(BucketCorsRuleAllowedMethodsItemPtrOutput)
 }
 
-func (o BucketCorsRuleAllowedMethodsItemOutput) ToOutput(ctx context.Context) pulumix.Output[BucketCorsRuleAllowedMethodsItem] {
-	return pulumix.Output[BucketCorsRuleAllowedMethodsItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketCorsRuleAllowedMethodsItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1147,12 +1081,6 @@ func (o BucketCorsRuleAllowedMethodsItemPtrOutput) ToBucketCorsRuleAllowedMethod
 	return o
 }
 
-func (o BucketCorsRuleAllowedMethodsItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketCorsRuleAllowedMethodsItem] {
-	return pulumix.Output[*BucketCorsRuleAllowedMethodsItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketCorsRuleAllowedMethodsItemPtrOutput) Elem() BucketCorsRuleAllowedMethodsItemOutput {
 	return o.ApplyT(func(v *BucketCorsRuleAllowedMethodsItem) BucketCorsRuleAllowedMethodsItem {
 		if v != nil {
@@ -1177,10 +1105,14 @@ func (o BucketCorsRuleAllowedMethodsItemPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketCorsRuleAllowedMethodsItemInput is an input type that accepts BucketCorsRuleAllowedMethodsItemArgs and BucketCorsRuleAllowedMethodsItemOutput values.
-// You can construct a concrete instance of `BucketCorsRuleAllowedMethodsItemInput` via:
+// BucketCorsRuleAllowedMethodsItemInput is an input type that accepts values of the BucketCorsRuleAllowedMethodsItem enum
+// A concrete instance of `BucketCorsRuleAllowedMethodsItemInput` can be one of the following:
 //
-//	BucketCorsRuleAllowedMethodsItemArgs{...}
+//	BucketCorsRuleAllowedMethodsItemGet
+//	BucketCorsRuleAllowedMethodsItemPut
+//	BucketCorsRuleAllowedMethodsItemHead
+//	BucketCorsRuleAllowedMethodsItemPost
+//	BucketCorsRuleAllowedMethodsItemDelete
 type BucketCorsRuleAllowedMethodsItemInput interface {
 	pulumi.Input
 
@@ -1246,12 +1178,6 @@ func (i BucketCorsRuleAllowedMethodsItemArray) ToBucketCorsRuleAllowedMethodsIte
 	return pulumi.ToOutputWithContext(ctx, i).(BucketCorsRuleAllowedMethodsItemArrayOutput)
 }
 
-func (i BucketCorsRuleAllowedMethodsItemArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketCorsRuleAllowedMethodsItem] {
-	return pulumix.Output[[]BucketCorsRuleAllowedMethodsItem]{
-		OutputState: i.ToBucketCorsRuleAllowedMethodsItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketCorsRuleAllowedMethodsItemArrayOutput struct{ *pulumi.OutputState }
 
 func (BucketCorsRuleAllowedMethodsItemArrayOutput) ElementType() reflect.Type {
@@ -1264,12 +1190,6 @@ func (o BucketCorsRuleAllowedMethodsItemArrayOutput) ToBucketCorsRuleAllowedMeth
 
 func (o BucketCorsRuleAllowedMethodsItemArrayOutput) ToBucketCorsRuleAllowedMethodsItemArrayOutputWithContext(ctx context.Context) BucketCorsRuleAllowedMethodsItemArrayOutput {
 	return o
-}
-
-func (o BucketCorsRuleAllowedMethodsItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketCorsRuleAllowedMethodsItem] {
-	return pulumix.Output[[]BucketCorsRuleAllowedMethodsItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketCorsRuleAllowedMethodsItemArrayOutput) Index(i pulumi.IntInput) BucketCorsRuleAllowedMethodsItemOutput {
@@ -1345,12 +1265,6 @@ func (o BucketDefaultRetentionModeOutput) ToBucketDefaultRetentionModePtrOutputW
 	}).(BucketDefaultRetentionModePtrOutput)
 }
 
-func (o BucketDefaultRetentionModeOutput) ToOutput(ctx context.Context) pulumix.Output[BucketDefaultRetentionMode] {
-	return pulumix.Output[BucketDefaultRetentionMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketDefaultRetentionModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1386,12 +1300,6 @@ func (o BucketDefaultRetentionModePtrOutput) ToBucketDefaultRetentionModePtrOutp
 	return o
 }
 
-func (o BucketDefaultRetentionModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketDefaultRetentionMode] {
-	return pulumix.Output[*BucketDefaultRetentionMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketDefaultRetentionModePtrOutput) Elem() BucketDefaultRetentionModeOutput {
 	return o.ApplyT(func(v *BucketDefaultRetentionMode) BucketDefaultRetentionMode {
 		if v != nil {
@@ -1416,10 +1324,11 @@ func (o BucketDefaultRetentionModePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketDefaultRetentionModeInput is an input type that accepts BucketDefaultRetentionModeArgs and BucketDefaultRetentionModeOutput values.
-// You can construct a concrete instance of `BucketDefaultRetentionModeInput` via:
+// BucketDefaultRetentionModeInput is an input type that accepts values of the BucketDefaultRetentionMode enum
+// A concrete instance of `BucketDefaultRetentionModeInput` can be one of the following:
 //
-//	BucketDefaultRetentionModeArgs{...}
+//	BucketDefaultRetentionModeCompliance
+//	BucketDefaultRetentionModeGovernance
 type BucketDefaultRetentionModeInput interface {
 	pulumi.Input
 
@@ -1527,12 +1436,6 @@ func (o BucketDeleteMarkerReplicationStatusOutput) ToBucketDeleteMarkerReplicati
 	}).(BucketDeleteMarkerReplicationStatusPtrOutput)
 }
 
-func (o BucketDeleteMarkerReplicationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[BucketDeleteMarkerReplicationStatus] {
-	return pulumix.Output[BucketDeleteMarkerReplicationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketDeleteMarkerReplicationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1568,12 +1471,6 @@ func (o BucketDeleteMarkerReplicationStatusPtrOutput) ToBucketDeleteMarkerReplic
 	return o
 }
 
-func (o BucketDeleteMarkerReplicationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketDeleteMarkerReplicationStatus] {
-	return pulumix.Output[*BucketDeleteMarkerReplicationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketDeleteMarkerReplicationStatusPtrOutput) Elem() BucketDeleteMarkerReplicationStatusOutput {
 	return o.ApplyT(func(v *BucketDeleteMarkerReplicationStatus) BucketDeleteMarkerReplicationStatus {
 		if v != nil {
@@ -1598,10 +1495,11 @@ func (o BucketDeleteMarkerReplicationStatusPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketDeleteMarkerReplicationStatusInput is an input type that accepts BucketDeleteMarkerReplicationStatusArgs and BucketDeleteMarkerReplicationStatusOutput values.
-// You can construct a concrete instance of `BucketDeleteMarkerReplicationStatusInput` via:
+// BucketDeleteMarkerReplicationStatusInput is an input type that accepts values of the BucketDeleteMarkerReplicationStatus enum
+// A concrete instance of `BucketDeleteMarkerReplicationStatusInput` can be one of the following:
 //
-//	BucketDeleteMarkerReplicationStatusArgs{...}
+//	BucketDeleteMarkerReplicationStatusDisabled
+//	BucketDeleteMarkerReplicationStatusEnabled
 type BucketDeleteMarkerReplicationStatusInput interface {
 	pulumi.Input
 
@@ -1711,12 +1609,6 @@ func (o BucketDestinationFormatOutput) ToBucketDestinationFormatPtrOutputWithCon
 	}).(BucketDestinationFormatPtrOutput)
 }
 
-func (o BucketDestinationFormatOutput) ToOutput(ctx context.Context) pulumix.Output[BucketDestinationFormat] {
-	return pulumix.Output[BucketDestinationFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketDestinationFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1752,12 +1644,6 @@ func (o BucketDestinationFormatPtrOutput) ToBucketDestinationFormatPtrOutputWith
 	return o
 }
 
-func (o BucketDestinationFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketDestinationFormat] {
-	return pulumix.Output[*BucketDestinationFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketDestinationFormatPtrOutput) Elem() BucketDestinationFormatOutput {
 	return o.ApplyT(func(v *BucketDestinationFormat) BucketDestinationFormat {
 		if v != nil {
@@ -1782,10 +1668,12 @@ func (o BucketDestinationFormatPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketDestinationFormatInput is an input type that accepts BucketDestinationFormatArgs and BucketDestinationFormatOutput values.
-// You can construct a concrete instance of `BucketDestinationFormatInput` via:
+// BucketDestinationFormatInput is an input type that accepts values of the BucketDestinationFormat enum
+// A concrete instance of `BucketDestinationFormatInput` can be one of the following:
 //
-//	BucketDestinationFormatArgs{...}
+//	BucketDestinationFormatCsv
+//	BucketDestinationFormatOrc
+//	BucketDestinationFormatParquet
 type BucketDestinationFormatInput interface {
 	pulumi.Input
 
@@ -1894,12 +1782,6 @@ func (o BucketIntelligentTieringConfigurationStatusOutput) ToBucketIntelligentTi
 	}).(BucketIntelligentTieringConfigurationStatusPtrOutput)
 }
 
-func (o BucketIntelligentTieringConfigurationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[BucketIntelligentTieringConfigurationStatus] {
-	return pulumix.Output[BucketIntelligentTieringConfigurationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketIntelligentTieringConfigurationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1935,12 +1817,6 @@ func (o BucketIntelligentTieringConfigurationStatusPtrOutput) ToBucketIntelligen
 	return o
 }
 
-func (o BucketIntelligentTieringConfigurationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketIntelligentTieringConfigurationStatus] {
-	return pulumix.Output[*BucketIntelligentTieringConfigurationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketIntelligentTieringConfigurationStatusPtrOutput) Elem() BucketIntelligentTieringConfigurationStatusOutput {
 	return o.ApplyT(func(v *BucketIntelligentTieringConfigurationStatus) BucketIntelligentTieringConfigurationStatus {
 		if v != nil {
@@ -1965,10 +1841,11 @@ func (o BucketIntelligentTieringConfigurationStatusPtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketIntelligentTieringConfigurationStatusInput is an input type that accepts BucketIntelligentTieringConfigurationStatusArgs and BucketIntelligentTieringConfigurationStatusOutput values.
-// You can construct a concrete instance of `BucketIntelligentTieringConfigurationStatusInput` via:
+// BucketIntelligentTieringConfigurationStatusInput is an input type that accepts values of the BucketIntelligentTieringConfigurationStatus enum
+// A concrete instance of `BucketIntelligentTieringConfigurationStatusInput` can be one of the following:
 //
-//	BucketIntelligentTieringConfigurationStatusArgs{...}
+//	BucketIntelligentTieringConfigurationStatusDisabled
+//	BucketIntelligentTieringConfigurationStatusEnabled
 type BucketIntelligentTieringConfigurationStatusInput interface {
 	pulumi.Input
 
@@ -2077,12 +1954,6 @@ func (o BucketInventoryConfigurationIncludedObjectVersionsOutput) ToBucketInvent
 	}).(BucketInventoryConfigurationIncludedObjectVersionsPtrOutput)
 }
 
-func (o BucketInventoryConfigurationIncludedObjectVersionsOutput) ToOutput(ctx context.Context) pulumix.Output[BucketInventoryConfigurationIncludedObjectVersions] {
-	return pulumix.Output[BucketInventoryConfigurationIncludedObjectVersions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketInventoryConfigurationIncludedObjectVersionsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2118,12 +1989,6 @@ func (o BucketInventoryConfigurationIncludedObjectVersionsPtrOutput) ToBucketInv
 	return o
 }
 
-func (o BucketInventoryConfigurationIncludedObjectVersionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketInventoryConfigurationIncludedObjectVersions] {
-	return pulumix.Output[*BucketInventoryConfigurationIncludedObjectVersions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketInventoryConfigurationIncludedObjectVersionsPtrOutput) Elem() BucketInventoryConfigurationIncludedObjectVersionsOutput {
 	return o.ApplyT(func(v *BucketInventoryConfigurationIncludedObjectVersions) BucketInventoryConfigurationIncludedObjectVersions {
 		if v != nil {
@@ -2148,10 +2013,11 @@ func (o BucketInventoryConfigurationIncludedObjectVersionsPtrOutput) ToStringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketInventoryConfigurationIncludedObjectVersionsInput is an input type that accepts BucketInventoryConfigurationIncludedObjectVersionsArgs and BucketInventoryConfigurationIncludedObjectVersionsOutput values.
-// You can construct a concrete instance of `BucketInventoryConfigurationIncludedObjectVersionsInput` via:
+// BucketInventoryConfigurationIncludedObjectVersionsInput is an input type that accepts values of the BucketInventoryConfigurationIncludedObjectVersions enum
+// A concrete instance of `BucketInventoryConfigurationIncludedObjectVersionsInput` can be one of the following:
 //
-//	BucketInventoryConfigurationIncludedObjectVersionsArgs{...}
+//	BucketInventoryConfigurationIncludedObjectVersionsAll
+//	BucketInventoryConfigurationIncludedObjectVersionsCurrent
 type BucketInventoryConfigurationIncludedObjectVersionsInput interface {
 	pulumi.Input
 
@@ -2269,12 +2135,6 @@ func (o BucketInventoryConfigurationOptionalFieldsItemOutput) ToBucketInventoryC
 	}).(BucketInventoryConfigurationOptionalFieldsItemPtrOutput)
 }
 
-func (o BucketInventoryConfigurationOptionalFieldsItemOutput) ToOutput(ctx context.Context) pulumix.Output[BucketInventoryConfigurationOptionalFieldsItem] {
-	return pulumix.Output[BucketInventoryConfigurationOptionalFieldsItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketInventoryConfigurationOptionalFieldsItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2310,12 +2170,6 @@ func (o BucketInventoryConfigurationOptionalFieldsItemPtrOutput) ToBucketInvento
 	return o
 }
 
-func (o BucketInventoryConfigurationOptionalFieldsItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketInventoryConfigurationOptionalFieldsItem] {
-	return pulumix.Output[*BucketInventoryConfigurationOptionalFieldsItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketInventoryConfigurationOptionalFieldsItemPtrOutput) Elem() BucketInventoryConfigurationOptionalFieldsItemOutput {
 	return o.ApplyT(func(v *BucketInventoryConfigurationOptionalFieldsItem) BucketInventoryConfigurationOptionalFieldsItem {
 		if v != nil {
@@ -2340,10 +2194,21 @@ func (o BucketInventoryConfigurationOptionalFieldsItemPtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketInventoryConfigurationOptionalFieldsItemInput is an input type that accepts BucketInventoryConfigurationOptionalFieldsItemArgs and BucketInventoryConfigurationOptionalFieldsItemOutput values.
-// You can construct a concrete instance of `BucketInventoryConfigurationOptionalFieldsItemInput` via:
+// BucketInventoryConfigurationOptionalFieldsItemInput is an input type that accepts values of the BucketInventoryConfigurationOptionalFieldsItem enum
+// A concrete instance of `BucketInventoryConfigurationOptionalFieldsItemInput` can be one of the following:
 //
-//	BucketInventoryConfigurationOptionalFieldsItemArgs{...}
+//	BucketInventoryConfigurationOptionalFieldsItemSize
+//	BucketInventoryConfigurationOptionalFieldsItemLastModifiedDate
+//	BucketInventoryConfigurationOptionalFieldsItemStorageClass
+//	BucketInventoryConfigurationOptionalFieldsItemETag
+//	BucketInventoryConfigurationOptionalFieldsItemIsMultipartUploaded
+//	BucketInventoryConfigurationOptionalFieldsItemReplicationStatus
+//	BucketInventoryConfigurationOptionalFieldsItemEncryptionStatus
+//	BucketInventoryConfigurationOptionalFieldsItemObjectLockRetainUntilDate
+//	BucketInventoryConfigurationOptionalFieldsItemObjectLockMode
+//	BucketInventoryConfigurationOptionalFieldsItemObjectLockLegalHoldStatus
+//	BucketInventoryConfigurationOptionalFieldsItemIntelligentTieringAccessTier
+//	BucketInventoryConfigurationOptionalFieldsItemBucketKeyStatus
 type BucketInventoryConfigurationOptionalFieldsItemInput interface {
 	pulumi.Input
 
@@ -2409,12 +2274,6 @@ func (i BucketInventoryConfigurationOptionalFieldsItemArray) ToBucketInventoryCo
 	return pulumi.ToOutputWithContext(ctx, i).(BucketInventoryConfigurationOptionalFieldsItemArrayOutput)
 }
 
-func (i BucketInventoryConfigurationOptionalFieldsItemArray) ToOutput(ctx context.Context) pulumix.Output[[]BucketInventoryConfigurationOptionalFieldsItem] {
-	return pulumix.Output[[]BucketInventoryConfigurationOptionalFieldsItem]{
-		OutputState: i.ToBucketInventoryConfigurationOptionalFieldsItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BucketInventoryConfigurationOptionalFieldsItemArrayOutput struct{ *pulumi.OutputState }
 
 func (BucketInventoryConfigurationOptionalFieldsItemArrayOutput) ElementType() reflect.Type {
@@ -2427,12 +2286,6 @@ func (o BucketInventoryConfigurationOptionalFieldsItemArrayOutput) ToBucketInven
 
 func (o BucketInventoryConfigurationOptionalFieldsItemArrayOutput) ToBucketInventoryConfigurationOptionalFieldsItemArrayOutputWithContext(ctx context.Context) BucketInventoryConfigurationOptionalFieldsItemArrayOutput {
 	return o
-}
-
-func (o BucketInventoryConfigurationOptionalFieldsItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BucketInventoryConfigurationOptionalFieldsItem] {
-	return pulumix.Output[[]BucketInventoryConfigurationOptionalFieldsItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BucketInventoryConfigurationOptionalFieldsItemArrayOutput) Index(i pulumi.IntInput) BucketInventoryConfigurationOptionalFieldsItemOutput {
@@ -2509,12 +2362,6 @@ func (o BucketInventoryConfigurationScheduleFrequencyOutput) ToBucketInventoryCo
 	}).(BucketInventoryConfigurationScheduleFrequencyPtrOutput)
 }
 
-func (o BucketInventoryConfigurationScheduleFrequencyOutput) ToOutput(ctx context.Context) pulumix.Output[BucketInventoryConfigurationScheduleFrequency] {
-	return pulumix.Output[BucketInventoryConfigurationScheduleFrequency]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketInventoryConfigurationScheduleFrequencyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2550,12 +2397,6 @@ func (o BucketInventoryConfigurationScheduleFrequencyPtrOutput) ToBucketInventor
 	return o
 }
 
-func (o BucketInventoryConfigurationScheduleFrequencyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketInventoryConfigurationScheduleFrequency] {
-	return pulumix.Output[*BucketInventoryConfigurationScheduleFrequency]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketInventoryConfigurationScheduleFrequencyPtrOutput) Elem() BucketInventoryConfigurationScheduleFrequencyOutput {
 	return o.ApplyT(func(v *BucketInventoryConfigurationScheduleFrequency) BucketInventoryConfigurationScheduleFrequency {
 		if v != nil {
@@ -2580,10 +2421,11 @@ func (o BucketInventoryConfigurationScheduleFrequencyPtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketInventoryConfigurationScheduleFrequencyInput is an input type that accepts BucketInventoryConfigurationScheduleFrequencyArgs and BucketInventoryConfigurationScheduleFrequencyOutput values.
-// You can construct a concrete instance of `BucketInventoryConfigurationScheduleFrequencyInput` via:
+// BucketInventoryConfigurationScheduleFrequencyInput is an input type that accepts values of the BucketInventoryConfigurationScheduleFrequency enum
+// A concrete instance of `BucketInventoryConfigurationScheduleFrequencyInput` can be one of the following:
 //
-//	BucketInventoryConfigurationScheduleFrequencyArgs{...}
+//	BucketInventoryConfigurationScheduleFrequencyDaily
+//	BucketInventoryConfigurationScheduleFrequencyWeekly
 type BucketInventoryConfigurationScheduleFrequencyInput interface {
 	pulumi.Input
 
@@ -2691,12 +2533,6 @@ func (o BucketMetricsStatusOutput) ToBucketMetricsStatusPtrOutputWithContext(ctx
 	}).(BucketMetricsStatusPtrOutput)
 }
 
-func (o BucketMetricsStatusOutput) ToOutput(ctx context.Context) pulumix.Output[BucketMetricsStatus] {
-	return pulumix.Output[BucketMetricsStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketMetricsStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2732,12 +2568,6 @@ func (o BucketMetricsStatusPtrOutput) ToBucketMetricsStatusPtrOutputWithContext(
 	return o
 }
 
-func (o BucketMetricsStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketMetricsStatus] {
-	return pulumix.Output[*BucketMetricsStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketMetricsStatusPtrOutput) Elem() BucketMetricsStatusOutput {
 	return o.ApplyT(func(v *BucketMetricsStatus) BucketMetricsStatus {
 		if v != nil {
@@ -2762,10 +2592,11 @@ func (o BucketMetricsStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketMetricsStatusInput is an input type that accepts BucketMetricsStatusArgs and BucketMetricsStatusOutput values.
-// You can construct a concrete instance of `BucketMetricsStatusInput` via:
+// BucketMetricsStatusInput is an input type that accepts values of the BucketMetricsStatus enum
+// A concrete instance of `BucketMetricsStatusInput` can be one of the following:
 //
-//	BucketMetricsStatusArgs{...}
+//	BucketMetricsStatusDisabled
+//	BucketMetricsStatusEnabled
 type BucketMetricsStatusInput interface {
 	pulumi.Input
 
@@ -2878,12 +2709,6 @@ func (o BucketNoncurrentVersionTransitionStorageClassOutput) ToBucketNoncurrentV
 	}).(BucketNoncurrentVersionTransitionStorageClassPtrOutput)
 }
 
-func (o BucketNoncurrentVersionTransitionStorageClassOutput) ToOutput(ctx context.Context) pulumix.Output[BucketNoncurrentVersionTransitionStorageClass] {
-	return pulumix.Output[BucketNoncurrentVersionTransitionStorageClass]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketNoncurrentVersionTransitionStorageClassOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2919,12 +2744,6 @@ func (o BucketNoncurrentVersionTransitionStorageClassPtrOutput) ToBucketNoncurre
 	return o
 }
 
-func (o BucketNoncurrentVersionTransitionStorageClassPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketNoncurrentVersionTransitionStorageClass] {
-	return pulumix.Output[*BucketNoncurrentVersionTransitionStorageClass]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketNoncurrentVersionTransitionStorageClassPtrOutput) Elem() BucketNoncurrentVersionTransitionStorageClassOutput {
 	return o.ApplyT(func(v *BucketNoncurrentVersionTransitionStorageClass) BucketNoncurrentVersionTransitionStorageClass {
 		if v != nil {
@@ -2949,10 +2768,15 @@ func (o BucketNoncurrentVersionTransitionStorageClassPtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketNoncurrentVersionTransitionStorageClassInput is an input type that accepts BucketNoncurrentVersionTransitionStorageClassArgs and BucketNoncurrentVersionTransitionStorageClassOutput values.
-// You can construct a concrete instance of `BucketNoncurrentVersionTransitionStorageClassInput` via:
+// BucketNoncurrentVersionTransitionStorageClassInput is an input type that accepts values of the BucketNoncurrentVersionTransitionStorageClass enum
+// A concrete instance of `BucketNoncurrentVersionTransitionStorageClassInput` can be one of the following:
 //
-//	BucketNoncurrentVersionTransitionStorageClassArgs{...}
+//	BucketNoncurrentVersionTransitionStorageClassDeepArchive
+//	BucketNoncurrentVersionTransitionStorageClassGlacier
+//	BucketNoncurrentVersionTransitionStorageClassGlacierIr
+//	BucketNoncurrentVersionTransitionStorageClassIntelligentTiering
+//	BucketNoncurrentVersionTransitionStorageClassOnezoneIa
+//	BucketNoncurrentVersionTransitionStorageClassStandardIa
 type BucketNoncurrentVersionTransitionStorageClassInput interface {
 	pulumi.Input
 
@@ -3062,12 +2886,6 @@ func (o BucketOwnershipControlsRuleObjectOwnershipOutput) ToBucketOwnershipContr
 	}).(BucketOwnershipControlsRuleObjectOwnershipPtrOutput)
 }
 
-func (o BucketOwnershipControlsRuleObjectOwnershipOutput) ToOutput(ctx context.Context) pulumix.Output[BucketOwnershipControlsRuleObjectOwnership] {
-	return pulumix.Output[BucketOwnershipControlsRuleObjectOwnership]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketOwnershipControlsRuleObjectOwnershipOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3103,12 +2921,6 @@ func (o BucketOwnershipControlsRuleObjectOwnershipPtrOutput) ToBucketOwnershipCo
 	return o
 }
 
-func (o BucketOwnershipControlsRuleObjectOwnershipPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketOwnershipControlsRuleObjectOwnership] {
-	return pulumix.Output[*BucketOwnershipControlsRuleObjectOwnership]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketOwnershipControlsRuleObjectOwnershipPtrOutput) Elem() BucketOwnershipControlsRuleObjectOwnershipOutput {
 	return o.ApplyT(func(v *BucketOwnershipControlsRuleObjectOwnership) BucketOwnershipControlsRuleObjectOwnership {
 		if v != nil {
@@ -3133,10 +2945,12 @@ func (o BucketOwnershipControlsRuleObjectOwnershipPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketOwnershipControlsRuleObjectOwnershipInput is an input type that accepts BucketOwnershipControlsRuleObjectOwnershipArgs and BucketOwnershipControlsRuleObjectOwnershipOutput values.
-// You can construct a concrete instance of `BucketOwnershipControlsRuleObjectOwnershipInput` via:
+// BucketOwnershipControlsRuleObjectOwnershipInput is an input type that accepts values of the BucketOwnershipControlsRuleObjectOwnership enum
+// A concrete instance of `BucketOwnershipControlsRuleObjectOwnershipInput` can be one of the following:
 //
-//	BucketOwnershipControlsRuleObjectOwnershipArgs{...}
+//	BucketOwnershipControlsRuleObjectOwnershipObjectWriter
+//	BucketOwnershipControlsRuleObjectOwnershipBucketOwnerPreferred
+//	BucketOwnershipControlsRuleObjectOwnershipBucketOwnerEnforced
 type BucketOwnershipControlsRuleObjectOwnershipInput interface {
 	pulumi.Input
 
@@ -3245,12 +3059,6 @@ func (o BucketRedirectAllRequestsToProtocolOutput) ToBucketRedirectAllRequestsTo
 	}).(BucketRedirectAllRequestsToProtocolPtrOutput)
 }
 
-func (o BucketRedirectAllRequestsToProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[BucketRedirectAllRequestsToProtocol] {
-	return pulumix.Output[BucketRedirectAllRequestsToProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketRedirectAllRequestsToProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3286,12 +3094,6 @@ func (o BucketRedirectAllRequestsToProtocolPtrOutput) ToBucketRedirectAllRequest
 	return o
 }
 
-func (o BucketRedirectAllRequestsToProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketRedirectAllRequestsToProtocol] {
-	return pulumix.Output[*BucketRedirectAllRequestsToProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketRedirectAllRequestsToProtocolPtrOutput) Elem() BucketRedirectAllRequestsToProtocolOutput {
 	return o.ApplyT(func(v *BucketRedirectAllRequestsToProtocol) BucketRedirectAllRequestsToProtocol {
 		if v != nil {
@@ -3316,10 +3118,11 @@ func (o BucketRedirectAllRequestsToProtocolPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketRedirectAllRequestsToProtocolInput is an input type that accepts BucketRedirectAllRequestsToProtocolArgs and BucketRedirectAllRequestsToProtocolOutput values.
-// You can construct a concrete instance of `BucketRedirectAllRequestsToProtocolInput` via:
+// BucketRedirectAllRequestsToProtocolInput is an input type that accepts values of the BucketRedirectAllRequestsToProtocol enum
+// A concrete instance of `BucketRedirectAllRequestsToProtocolInput` can be one of the following:
 //
-//	BucketRedirectAllRequestsToProtocolArgs{...}
+//	BucketRedirectAllRequestsToProtocolHttp
+//	BucketRedirectAllRequestsToProtocolHttps
 type BucketRedirectAllRequestsToProtocolInput interface {
 	pulumi.Input
 
@@ -3428,12 +3231,6 @@ func (o BucketRedirectRuleProtocolOutput) ToBucketRedirectRuleProtocolPtrOutputW
 	}).(BucketRedirectRuleProtocolPtrOutput)
 }
 
-func (o BucketRedirectRuleProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[BucketRedirectRuleProtocol] {
-	return pulumix.Output[BucketRedirectRuleProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketRedirectRuleProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3469,12 +3266,6 @@ func (o BucketRedirectRuleProtocolPtrOutput) ToBucketRedirectRuleProtocolPtrOutp
 	return o
 }
 
-func (o BucketRedirectRuleProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketRedirectRuleProtocol] {
-	return pulumix.Output[*BucketRedirectRuleProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketRedirectRuleProtocolPtrOutput) Elem() BucketRedirectRuleProtocolOutput {
 	return o.ApplyT(func(v *BucketRedirectRuleProtocol) BucketRedirectRuleProtocol {
 		if v != nil {
@@ -3499,10 +3290,11 @@ func (o BucketRedirectRuleProtocolPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketRedirectRuleProtocolInput is an input type that accepts BucketRedirectRuleProtocolArgs and BucketRedirectRuleProtocolOutput values.
-// You can construct a concrete instance of `BucketRedirectRuleProtocolInput` via:
+// BucketRedirectRuleProtocolInput is an input type that accepts values of the BucketRedirectRuleProtocol enum
+// A concrete instance of `BucketRedirectRuleProtocolInput` can be one of the following:
 //
-//	BucketRedirectRuleProtocolArgs{...}
+//	BucketRedirectRuleProtocolHttp
+//	BucketRedirectRuleProtocolHttps
 type BucketRedirectRuleProtocolInput interface {
 	pulumi.Input
 
@@ -3611,12 +3403,6 @@ func (o BucketReplicaModificationsStatusOutput) ToBucketReplicaModificationsStat
 	}).(BucketReplicaModificationsStatusPtrOutput)
 }
 
-func (o BucketReplicaModificationsStatusOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicaModificationsStatus] {
-	return pulumix.Output[BucketReplicaModificationsStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketReplicaModificationsStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3652,12 +3438,6 @@ func (o BucketReplicaModificationsStatusPtrOutput) ToBucketReplicaModificationsS
 	return o
 }
 
-func (o BucketReplicaModificationsStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicaModificationsStatus] {
-	return pulumix.Output[*BucketReplicaModificationsStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketReplicaModificationsStatusPtrOutput) Elem() BucketReplicaModificationsStatusOutput {
 	return o.ApplyT(func(v *BucketReplicaModificationsStatus) BucketReplicaModificationsStatus {
 		if v != nil {
@@ -3682,10 +3462,11 @@ func (o BucketReplicaModificationsStatusPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketReplicaModificationsStatusInput is an input type that accepts BucketReplicaModificationsStatusArgs and BucketReplicaModificationsStatusOutput values.
-// You can construct a concrete instance of `BucketReplicaModificationsStatusInput` via:
+// BucketReplicaModificationsStatusInput is an input type that accepts values of the BucketReplicaModificationsStatus enum
+// A concrete instance of `BucketReplicaModificationsStatusInput` can be one of the following:
 //
-//	BucketReplicaModificationsStatusArgs{...}
+//	BucketReplicaModificationsStatusEnabled
+//	BucketReplicaModificationsStatusDisabled
 type BucketReplicaModificationsStatusInput interface {
 	pulumi.Input
 
@@ -3800,12 +3581,6 @@ func (o BucketReplicationDestinationStorageClassOutput) ToBucketReplicationDesti
 	}).(BucketReplicationDestinationStorageClassPtrOutput)
 }
 
-func (o BucketReplicationDestinationStorageClassOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationDestinationStorageClass] {
-	return pulumix.Output[BucketReplicationDestinationStorageClass]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketReplicationDestinationStorageClassOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3841,12 +3616,6 @@ func (o BucketReplicationDestinationStorageClassPtrOutput) ToBucketReplicationDe
 	return o
 }
 
-func (o BucketReplicationDestinationStorageClassPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationDestinationStorageClass] {
-	return pulumix.Output[*BucketReplicationDestinationStorageClass]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketReplicationDestinationStorageClassPtrOutput) Elem() BucketReplicationDestinationStorageClassOutput {
 	return o.ApplyT(func(v *BucketReplicationDestinationStorageClass) BucketReplicationDestinationStorageClass {
 		if v != nil {
@@ -3871,10 +3640,17 @@ func (o BucketReplicationDestinationStorageClassPtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketReplicationDestinationStorageClassInput is an input type that accepts BucketReplicationDestinationStorageClassArgs and BucketReplicationDestinationStorageClassOutput values.
-// You can construct a concrete instance of `BucketReplicationDestinationStorageClassInput` via:
+// BucketReplicationDestinationStorageClassInput is an input type that accepts values of the BucketReplicationDestinationStorageClass enum
+// A concrete instance of `BucketReplicationDestinationStorageClassInput` can be one of the following:
 //
-//	BucketReplicationDestinationStorageClassArgs{...}
+//	BucketReplicationDestinationStorageClassDeepArchive
+//	BucketReplicationDestinationStorageClassGlacier
+//	BucketReplicationDestinationStorageClassGlacierIr
+//	BucketReplicationDestinationStorageClassIntelligentTiering
+//	BucketReplicationDestinationStorageClassOnezoneIa
+//	BucketReplicationDestinationStorageClassReducedRedundancy
+//	BucketReplicationDestinationStorageClassStandard
+//	BucketReplicationDestinationStorageClassStandardIa
 type BucketReplicationDestinationStorageClassInput interface {
 	pulumi.Input
 
@@ -3983,12 +3759,6 @@ func (o BucketReplicationRuleStatusOutput) ToBucketReplicationRuleStatusPtrOutpu
 	}).(BucketReplicationRuleStatusPtrOutput)
 }
 
-func (o BucketReplicationRuleStatusOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationRuleStatus] {
-	return pulumix.Output[BucketReplicationRuleStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketReplicationRuleStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4024,12 +3794,6 @@ func (o BucketReplicationRuleStatusPtrOutput) ToBucketReplicationRuleStatusPtrOu
 	return o
 }
 
-func (o BucketReplicationRuleStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationRuleStatus] {
-	return pulumix.Output[*BucketReplicationRuleStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketReplicationRuleStatusPtrOutput) Elem() BucketReplicationRuleStatusOutput {
 	return o.ApplyT(func(v *BucketReplicationRuleStatus) BucketReplicationRuleStatus {
 		if v != nil {
@@ -4054,10 +3818,11 @@ func (o BucketReplicationRuleStatusPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketReplicationRuleStatusInput is an input type that accepts BucketReplicationRuleStatusArgs and BucketReplicationRuleStatusOutput values.
-// You can construct a concrete instance of `BucketReplicationRuleStatusInput` via:
+// BucketReplicationRuleStatusInput is an input type that accepts values of the BucketReplicationRuleStatus enum
+// A concrete instance of `BucketReplicationRuleStatusInput` can be one of the following:
 //
-//	BucketReplicationRuleStatusArgs{...}
+//	BucketReplicationRuleStatusDisabled
+//	BucketReplicationRuleStatusEnabled
 type BucketReplicationRuleStatusInput interface {
 	pulumi.Input
 
@@ -4165,12 +3930,6 @@ func (o BucketReplicationTimeStatusOutput) ToBucketReplicationTimeStatusPtrOutpu
 	}).(BucketReplicationTimeStatusPtrOutput)
 }
 
-func (o BucketReplicationTimeStatusOutput) ToOutput(ctx context.Context) pulumix.Output[BucketReplicationTimeStatus] {
-	return pulumix.Output[BucketReplicationTimeStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketReplicationTimeStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4206,12 +3965,6 @@ func (o BucketReplicationTimeStatusPtrOutput) ToBucketReplicationTimeStatusPtrOu
 	return o
 }
 
-func (o BucketReplicationTimeStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketReplicationTimeStatus] {
-	return pulumix.Output[*BucketReplicationTimeStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketReplicationTimeStatusPtrOutput) Elem() BucketReplicationTimeStatusOutput {
 	return o.ApplyT(func(v *BucketReplicationTimeStatus) BucketReplicationTimeStatus {
 		if v != nil {
@@ -4236,10 +3989,11 @@ func (o BucketReplicationTimeStatusPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketReplicationTimeStatusInput is an input type that accepts BucketReplicationTimeStatusArgs and BucketReplicationTimeStatusOutput values.
-// You can construct a concrete instance of `BucketReplicationTimeStatusInput` via:
+// BucketReplicationTimeStatusInput is an input type that accepts values of the BucketReplicationTimeStatus enum
+// A concrete instance of `BucketReplicationTimeStatusInput` can be one of the following:
 //
-//	BucketReplicationTimeStatusArgs{...}
+//	BucketReplicationTimeStatusDisabled
+//	BucketReplicationTimeStatusEnabled
 type BucketReplicationTimeStatusInput interface {
 	pulumi.Input
 
@@ -4347,12 +4101,6 @@ func (o BucketRuleStatusOutput) ToBucketRuleStatusPtrOutputWithContext(ctx conte
 	}).(BucketRuleStatusPtrOutput)
 }
 
-func (o BucketRuleStatusOutput) ToOutput(ctx context.Context) pulumix.Output[BucketRuleStatus] {
-	return pulumix.Output[BucketRuleStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketRuleStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4388,12 +4136,6 @@ func (o BucketRuleStatusPtrOutput) ToBucketRuleStatusPtrOutputWithContext(ctx co
 	return o
 }
 
-func (o BucketRuleStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketRuleStatus] {
-	return pulumix.Output[*BucketRuleStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketRuleStatusPtrOutput) Elem() BucketRuleStatusOutput {
 	return o.ApplyT(func(v *BucketRuleStatus) BucketRuleStatus {
 		if v != nil {
@@ -4418,10 +4160,11 @@ func (o BucketRuleStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketRuleStatusInput is an input type that accepts BucketRuleStatusArgs and BucketRuleStatusOutput values.
-// You can construct a concrete instance of `BucketRuleStatusInput` via:
+// BucketRuleStatusInput is an input type that accepts values of the BucketRuleStatus enum
+// A concrete instance of `BucketRuleStatusInput` can be one of the following:
 //
-//	BucketRuleStatusArgs{...}
+//	BucketRuleStatusEnabled
+//	BucketRuleStatusDisabled
 type BucketRuleStatusInput interface {
 	pulumi.Input
 
@@ -4530,12 +4273,6 @@ func (o BucketServerSideEncryptionByDefaultSseAlgorithmOutput) ToBucketServerSid
 	}).(BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput)
 }
 
-func (o BucketServerSideEncryptionByDefaultSseAlgorithmOutput) ToOutput(ctx context.Context) pulumix.Output[BucketServerSideEncryptionByDefaultSseAlgorithm] {
-	return pulumix.Output[BucketServerSideEncryptionByDefaultSseAlgorithm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketServerSideEncryptionByDefaultSseAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4571,12 +4308,6 @@ func (o BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput) ToBucketServer
 	return o
 }
 
-func (o BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketServerSideEncryptionByDefaultSseAlgorithm] {
-	return pulumix.Output[*BucketServerSideEncryptionByDefaultSseAlgorithm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput) Elem() BucketServerSideEncryptionByDefaultSseAlgorithmOutput {
 	return o.ApplyT(func(v *BucketServerSideEncryptionByDefaultSseAlgorithm) BucketServerSideEncryptionByDefaultSseAlgorithm {
 		if v != nil {
@@ -4601,10 +4332,12 @@ func (o BucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketServerSideEncryptionByDefaultSseAlgorithmInput is an input type that accepts BucketServerSideEncryptionByDefaultSseAlgorithmArgs and BucketServerSideEncryptionByDefaultSseAlgorithmOutput values.
-// You can construct a concrete instance of `BucketServerSideEncryptionByDefaultSseAlgorithmInput` via:
+// BucketServerSideEncryptionByDefaultSseAlgorithmInput is an input type that accepts values of the BucketServerSideEncryptionByDefaultSseAlgorithm enum
+// A concrete instance of `BucketServerSideEncryptionByDefaultSseAlgorithmInput` can be one of the following:
 //
-//	BucketServerSideEncryptionByDefaultSseAlgorithmArgs{...}
+//	BucketServerSideEncryptionByDefaultSseAlgorithmAwskms
+//	BucketServerSideEncryptionByDefaultSseAlgorithmAes256
+//	BucketServerSideEncryptionByDefaultSseAlgorithmAwskmsdsse
 type BucketServerSideEncryptionByDefaultSseAlgorithmInput interface {
 	pulumi.Input
 
@@ -4713,12 +4446,6 @@ func (o BucketSseKmsEncryptedObjectsStatusOutput) ToBucketSseKmsEncryptedObjects
 	}).(BucketSseKmsEncryptedObjectsStatusPtrOutput)
 }
 
-func (o BucketSseKmsEncryptedObjectsStatusOutput) ToOutput(ctx context.Context) pulumix.Output[BucketSseKmsEncryptedObjectsStatus] {
-	return pulumix.Output[BucketSseKmsEncryptedObjectsStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketSseKmsEncryptedObjectsStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4754,12 +4481,6 @@ func (o BucketSseKmsEncryptedObjectsStatusPtrOutput) ToBucketSseKmsEncryptedObje
 	return o
 }
 
-func (o BucketSseKmsEncryptedObjectsStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketSseKmsEncryptedObjectsStatus] {
-	return pulumix.Output[*BucketSseKmsEncryptedObjectsStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketSseKmsEncryptedObjectsStatusPtrOutput) Elem() BucketSseKmsEncryptedObjectsStatusOutput {
 	return o.ApplyT(func(v *BucketSseKmsEncryptedObjectsStatus) BucketSseKmsEncryptedObjectsStatus {
 		if v != nil {
@@ -4784,10 +4505,11 @@ func (o BucketSseKmsEncryptedObjectsStatusPtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketSseKmsEncryptedObjectsStatusInput is an input type that accepts BucketSseKmsEncryptedObjectsStatusArgs and BucketSseKmsEncryptedObjectsStatusOutput values.
-// You can construct a concrete instance of `BucketSseKmsEncryptedObjectsStatusInput` via:
+// BucketSseKmsEncryptedObjectsStatusInput is an input type that accepts values of the BucketSseKmsEncryptedObjectsStatus enum
+// A concrete instance of `BucketSseKmsEncryptedObjectsStatusInput` can be one of the following:
 //
-//	BucketSseKmsEncryptedObjectsStatusArgs{...}
+//	BucketSseKmsEncryptedObjectsStatusDisabled
+//	BucketSseKmsEncryptedObjectsStatusEnabled
 type BucketSseKmsEncryptedObjectsStatusInput interface {
 	pulumi.Input
 
@@ -4896,12 +4618,6 @@ func (o BucketTieringAccessTierOutput) ToBucketTieringAccessTierPtrOutputWithCon
 	}).(BucketTieringAccessTierPtrOutput)
 }
 
-func (o BucketTieringAccessTierOutput) ToOutput(ctx context.Context) pulumix.Output[BucketTieringAccessTier] {
-	return pulumix.Output[BucketTieringAccessTier]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketTieringAccessTierOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -4937,12 +4653,6 @@ func (o BucketTieringAccessTierPtrOutput) ToBucketTieringAccessTierPtrOutputWith
 	return o
 }
 
-func (o BucketTieringAccessTierPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketTieringAccessTier] {
-	return pulumix.Output[*BucketTieringAccessTier]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketTieringAccessTierPtrOutput) Elem() BucketTieringAccessTierOutput {
 	return o.ApplyT(func(v *BucketTieringAccessTier) BucketTieringAccessTier {
 		if v != nil {
@@ -4967,10 +4677,11 @@ func (o BucketTieringAccessTierPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketTieringAccessTierInput is an input type that accepts BucketTieringAccessTierArgs and BucketTieringAccessTierOutput values.
-// You can construct a concrete instance of `BucketTieringAccessTierInput` via:
+// BucketTieringAccessTierInput is an input type that accepts values of the BucketTieringAccessTier enum
+// A concrete instance of `BucketTieringAccessTierInput` can be one of the following:
 //
-//	BucketTieringAccessTierArgs{...}
+//	BucketTieringAccessTierArchiveAccess
+//	BucketTieringAccessTierDeepArchiveAccess
 type BucketTieringAccessTierInput interface {
 	pulumi.Input
 
@@ -5082,12 +4793,6 @@ func (o BucketTransitionStorageClassOutput) ToBucketTransitionStorageClassPtrOut
 	}).(BucketTransitionStorageClassPtrOutput)
 }
 
-func (o BucketTransitionStorageClassOutput) ToOutput(ctx context.Context) pulumix.Output[BucketTransitionStorageClass] {
-	return pulumix.Output[BucketTransitionStorageClass]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketTransitionStorageClassOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5123,12 +4828,6 @@ func (o BucketTransitionStorageClassPtrOutput) ToBucketTransitionStorageClassPtr
 	return o
 }
 
-func (o BucketTransitionStorageClassPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketTransitionStorageClass] {
-	return pulumix.Output[*BucketTransitionStorageClass]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketTransitionStorageClassPtrOutput) Elem() BucketTransitionStorageClassOutput {
 	return o.ApplyT(func(v *BucketTransitionStorageClass) BucketTransitionStorageClass {
 		if v != nil {
@@ -5153,10 +4852,15 @@ func (o BucketTransitionStorageClassPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketTransitionStorageClassInput is an input type that accepts BucketTransitionStorageClassArgs and BucketTransitionStorageClassOutput values.
-// You can construct a concrete instance of `BucketTransitionStorageClassInput` via:
+// BucketTransitionStorageClassInput is an input type that accepts values of the BucketTransitionStorageClass enum
+// A concrete instance of `BucketTransitionStorageClassInput` can be one of the following:
 //
-//	BucketTransitionStorageClassArgs{...}
+//	BucketTransitionStorageClassDeepArchive
+//	BucketTransitionStorageClassGlacier
+//	BucketTransitionStorageClassGlacierIr
+//	BucketTransitionStorageClassIntelligentTiering
+//	BucketTransitionStorageClassOnezoneIa
+//	BucketTransitionStorageClassStandardIa
 type BucketTransitionStorageClassInput interface {
 	pulumi.Input
 
@@ -5265,12 +4969,6 @@ func (o BucketVersioningConfigurationStatusOutput) ToBucketVersioningConfigurati
 	}).(BucketVersioningConfigurationStatusPtrOutput)
 }
 
-func (o BucketVersioningConfigurationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[BucketVersioningConfigurationStatus] {
-	return pulumix.Output[BucketVersioningConfigurationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketVersioningConfigurationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5306,12 +5004,6 @@ func (o BucketVersioningConfigurationStatusPtrOutput) ToBucketVersioningConfigur
 	return o
 }
 
-func (o BucketVersioningConfigurationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketVersioningConfigurationStatus] {
-	return pulumix.Output[*BucketVersioningConfigurationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BucketVersioningConfigurationStatusPtrOutput) Elem() BucketVersioningConfigurationStatusOutput {
 	return o.ApplyT(func(v *BucketVersioningConfigurationStatus) BucketVersioningConfigurationStatus {
 		if v != nil {
@@ -5336,10 +5028,11 @@ func (o BucketVersioningConfigurationStatusPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// BucketVersioningConfigurationStatusInput is an input type that accepts BucketVersioningConfigurationStatusArgs and BucketVersioningConfigurationStatusOutput values.
-// You can construct a concrete instance of `BucketVersioningConfigurationStatusInput` via:
+// BucketVersioningConfigurationStatusInput is an input type that accepts values of the BucketVersioningConfigurationStatus enum
+// A concrete instance of `BucketVersioningConfigurationStatusInput` can be one of the following:
 //
-//	BucketVersioningConfigurationStatusArgs{...}
+//	BucketVersioningConfigurationStatusEnabled
+//	BucketVersioningConfigurationStatusSuspended
 type BucketVersioningConfigurationStatusInput interface {
 	pulumi.Input
 
@@ -5412,12 +5105,6 @@ func (o MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicOutput) ToMult
 	}).(MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutput)
 }
 
-func (o MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicOutput) ToOutput(ctx context.Context) pulumix.Output[MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic] {
-	return pulumix.Output[MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5451,12 +5138,6 @@ func (o MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutput) ToM
 
 func (o MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutput) ToMultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutput {
 	return o
-}
-
-func (o MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic] {
-	return pulumix.Output[*MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublic]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicPtrOutput) Elem() MultiRegionAccessPointPolicyPolicyStatusPropertiesIsPublicOutput {
@@ -5551,12 +5232,6 @@ func (o StorageLensS3BucketDestinationFormatOutput) ToStorageLensS3BucketDestina
 	}).(StorageLensS3BucketDestinationFormatPtrOutput)
 }
 
-func (o StorageLensS3BucketDestinationFormatOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensS3BucketDestinationFormat] {
-	return pulumix.Output[StorageLensS3BucketDestinationFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StorageLensS3BucketDestinationFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5592,12 +5267,6 @@ func (o StorageLensS3BucketDestinationFormatPtrOutput) ToStorageLensS3BucketDest
 	return o
 }
 
-func (o StorageLensS3BucketDestinationFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensS3BucketDestinationFormat] {
-	return pulumix.Output[*StorageLensS3BucketDestinationFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StorageLensS3BucketDestinationFormatPtrOutput) Elem() StorageLensS3BucketDestinationFormatOutput {
 	return o.ApplyT(func(v *StorageLensS3BucketDestinationFormat) StorageLensS3BucketDestinationFormat {
 		if v != nil {
@@ -5622,10 +5291,11 @@ func (o StorageLensS3BucketDestinationFormatPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// StorageLensS3BucketDestinationFormatInput is an input type that accepts StorageLensS3BucketDestinationFormatArgs and StorageLensS3BucketDestinationFormatOutput values.
-// You can construct a concrete instance of `StorageLensS3BucketDestinationFormatInput` via:
+// StorageLensS3BucketDestinationFormatInput is an input type that accepts values of the StorageLensS3BucketDestinationFormat enum
+// A concrete instance of `StorageLensS3BucketDestinationFormatInput` can be one of the following:
 //
-//	StorageLensS3BucketDestinationFormatArgs{...}
+//	StorageLensS3BucketDestinationFormatCsv
+//	StorageLensS3BucketDestinationFormatParquet
 type StorageLensS3BucketDestinationFormatInput interface {
 	pulumi.Input
 
@@ -5733,12 +5403,6 @@ func (o StorageLensS3BucketDestinationOutputSchemaVersionOutput) ToStorageLensS3
 	}).(StorageLensS3BucketDestinationOutputSchemaVersionPtrOutput)
 }
 
-func (o StorageLensS3BucketDestinationOutputSchemaVersionOutput) ToOutput(ctx context.Context) pulumix.Output[StorageLensS3BucketDestinationOutputSchemaVersion] {
-	return pulumix.Output[StorageLensS3BucketDestinationOutputSchemaVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StorageLensS3BucketDestinationOutputSchemaVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -5774,12 +5438,6 @@ func (o StorageLensS3BucketDestinationOutputSchemaVersionPtrOutput) ToStorageLen
 	return o
 }
 
-func (o StorageLensS3BucketDestinationOutputSchemaVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StorageLensS3BucketDestinationOutputSchemaVersion] {
-	return pulumix.Output[*StorageLensS3BucketDestinationOutputSchemaVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StorageLensS3BucketDestinationOutputSchemaVersionPtrOutput) Elem() StorageLensS3BucketDestinationOutputSchemaVersionOutput {
 	return o.ApplyT(func(v *StorageLensS3BucketDestinationOutputSchemaVersion) StorageLensS3BucketDestinationOutputSchemaVersion {
 		if v != nil {
@@ -5804,10 +5462,10 @@ func (o StorageLensS3BucketDestinationOutputSchemaVersionPtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// StorageLensS3BucketDestinationOutputSchemaVersionInput is an input type that accepts StorageLensS3BucketDestinationOutputSchemaVersionArgs and StorageLensS3BucketDestinationOutputSchemaVersionOutput values.
-// You can construct a concrete instance of `StorageLensS3BucketDestinationOutputSchemaVersionInput` via:
+// StorageLensS3BucketDestinationOutputSchemaVersionInput is an input type that accepts values of the StorageLensS3BucketDestinationOutputSchemaVersion enum
+// A concrete instance of `StorageLensS3BucketDestinationOutputSchemaVersionInput` can be one of the following:
 //
-//	StorageLensS3BucketDestinationOutputSchemaVersionArgs{...}
+//	StorageLensS3BucketDestinationOutputSchemaVersionV1
 type StorageLensS3BucketDestinationOutputSchemaVersionInput interface {
 	pulumi.Input
 

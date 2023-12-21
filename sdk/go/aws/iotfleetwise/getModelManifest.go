@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::IoTFleetWise::ModelManifest Resource Type
@@ -71,12 +70,6 @@ func (o LookupModelManifestResultOutput) ToLookupModelManifestResultOutput() Loo
 
 func (o LookupModelManifestResultOutput) ToLookupModelManifestResultOutputWithContext(ctx context.Context) LookupModelManifestResultOutput {
 	return o
-}
-
-func (o LookupModelManifestResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupModelManifestResult] {
-	return pulumix.Output[LookupModelManifestResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupModelManifestResultOutput) Arn() pulumi.StringPtrOutput {

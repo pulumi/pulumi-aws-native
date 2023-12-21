@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Register as a publisher in the CloudFormation Registry.
@@ -73,12 +72,6 @@ func (o LookupPublisherResultOutput) ToLookupPublisherResultOutput() LookupPubli
 
 func (o LookupPublisherResultOutput) ToLookupPublisherResultOutputWithContext(ctx context.Context) LookupPublisherResultOutput {
 	return o
-}
-
-func (o LookupPublisherResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPublisherResult] {
-	return pulumix.Output[LookupPublisherResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The type of account used as the identity provider when registering this publisher with CloudFormation.

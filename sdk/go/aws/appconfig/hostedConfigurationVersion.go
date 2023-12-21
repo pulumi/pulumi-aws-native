@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppConfig::HostedConfigurationVersion
@@ -133,12 +132,6 @@ func (i *HostedConfigurationVersion) ToHostedConfigurationVersionOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(HostedConfigurationVersionOutput)
 }
 
-func (i *HostedConfigurationVersion) ToOutput(ctx context.Context) pulumix.Output[*HostedConfigurationVersion] {
-	return pulumix.Output[*HostedConfigurationVersion]{
-		OutputState: i.ToHostedConfigurationVersionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HostedConfigurationVersionOutput struct{ *pulumi.OutputState }
 
 func (HostedConfigurationVersionOutput) ElementType() reflect.Type {
@@ -151,12 +144,6 @@ func (o HostedConfigurationVersionOutput) ToHostedConfigurationVersionOutput() H
 
 func (o HostedConfigurationVersionOutput) ToHostedConfigurationVersionOutputWithContext(ctx context.Context) HostedConfigurationVersionOutput {
 	return o
-}
-
-func (o HostedConfigurationVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*HostedConfigurationVersion] {
-	return pulumix.Output[*HostedConfigurationVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HostedConfigurationVersionOutput) ApplicationId() pulumi.StringOutput {

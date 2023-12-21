@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::ManagedBlockchain::com.amazonaws.taiga.webservice.api#Accessor Resource Type
@@ -68,12 +67,6 @@ func (o LookupAccessorResultOutput) ToLookupAccessorResultOutput() LookupAccesso
 
 func (o LookupAccessorResultOutput) ToLookupAccessorResultOutputWithContext(ctx context.Context) LookupAccessorResultOutput {
 	return o
-}
-
-func (o LookupAccessorResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAccessorResult] {
-	return pulumix.Output[LookupAccessorResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupAccessorResultOutput) Arn() pulumi.StringPtrOutput {

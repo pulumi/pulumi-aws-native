@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::MediaTailor::LiveSource Resource Type
@@ -71,12 +70,6 @@ func (o LookupLiveSourceResultOutput) ToLookupLiveSourceResultOutput() LookupLiv
 
 func (o LookupLiveSourceResultOutput) ToLookupLiveSourceResultOutputWithContext(ctx context.Context) LookupLiveSourceResultOutput {
 	return o
-}
-
-func (o LookupLiveSourceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLiveSourceResult] {
-	return pulumix.Output[LookupLiveSourceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>The ARN of the live source.</p>

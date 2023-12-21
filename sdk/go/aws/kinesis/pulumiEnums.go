@@ -78,12 +78,6 @@ func (o StreamEncryptionEncryptionTypeOutput) ToStreamEncryptionEncryptionTypePt
 	}).(StreamEncryptionEncryptionTypePtrOutput)
 }
 
-func (o StreamEncryptionEncryptionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[StreamEncryptionEncryptionType] {
-	return pulumix.Output[StreamEncryptionEncryptionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StreamEncryptionEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o StreamEncryptionEncryptionTypePtrOutput) ToStreamEncryptionEncryptionTyp
 	return o
 }
 
-func (o StreamEncryptionEncryptionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamEncryptionEncryptionType] {
-	return pulumix.Output[*StreamEncryptionEncryptionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StreamEncryptionEncryptionTypePtrOutput) Elem() StreamEncryptionEncryptionTypeOutput {
 	return o.ApplyT(func(v *StreamEncryptionEncryptionType) StreamEncryptionEncryptionType {
 		if v != nil {
@@ -149,10 +137,10 @@ func (o StreamEncryptionEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// StreamEncryptionEncryptionTypeInput is an input type that accepts StreamEncryptionEncryptionTypeArgs and StreamEncryptionEncryptionTypeOutput values.
-// You can construct a concrete instance of `StreamEncryptionEncryptionTypeInput` via:
+// StreamEncryptionEncryptionTypeInput is an input type that accepts values of the StreamEncryptionEncryptionType enum
+// A concrete instance of `StreamEncryptionEncryptionTypeInput` can be one of the following:
 //
-//	StreamEncryptionEncryptionTypeArgs{...}
+//	StreamEncryptionEncryptionTypeKms
 type StreamEncryptionEncryptionTypeInput interface {
 	pulumi.Input
 
@@ -261,12 +249,6 @@ func (o StreamModeDetailsStreamModeOutput) ToStreamModeDetailsStreamModePtrOutpu
 	}).(StreamModeDetailsStreamModePtrOutput)
 }
 
-func (o StreamModeDetailsStreamModeOutput) ToOutput(ctx context.Context) pulumix.Output[StreamModeDetailsStreamMode] {
-	return pulumix.Output[StreamModeDetailsStreamMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StreamModeDetailsStreamModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -302,12 +284,6 @@ func (o StreamModeDetailsStreamModePtrOutput) ToStreamModeDetailsStreamModePtrOu
 	return o
 }
 
-func (o StreamModeDetailsStreamModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamModeDetailsStreamMode] {
-	return pulumix.Output[*StreamModeDetailsStreamMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StreamModeDetailsStreamModePtrOutput) Elem() StreamModeDetailsStreamModeOutput {
 	return o.ApplyT(func(v *StreamModeDetailsStreamMode) StreamModeDetailsStreamMode {
 		if v != nil {
@@ -332,10 +308,11 @@ func (o StreamModeDetailsStreamModePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// StreamModeDetailsStreamModeInput is an input type that accepts StreamModeDetailsStreamModeArgs and StreamModeDetailsStreamModeOutput values.
-// You can construct a concrete instance of `StreamModeDetailsStreamModeInput` via:
+// StreamModeDetailsStreamModeInput is an input type that accepts values of the StreamModeDetailsStreamMode enum
+// A concrete instance of `StreamModeDetailsStreamModeInput` can be one of the following:
 //
-//	StreamModeDetailsStreamModeArgs{...}
+//	StreamModeDetailsStreamModeOnDemand
+//	StreamModeDetailsStreamModeProvisioned
 type StreamModeDetailsStreamModeInput interface {
 	pulumi.Input
 

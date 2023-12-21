@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::PinpointEmail::ConfigurationSetEventDestination
@@ -110,12 +109,6 @@ func (i *ConfigurationSetEventDestination) ToConfigurationSetEventDestinationOut
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationSetEventDestinationOutput)
 }
 
-func (i *ConfigurationSetEventDestination) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestination] {
-	return pulumix.Output[*ConfigurationSetEventDestination]{
-		OutputState: i.ToConfigurationSetEventDestinationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationSetEventDestinationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetEventDestinationOutput) ElementType() reflect.Type {
@@ -128,12 +121,6 @@ func (o ConfigurationSetEventDestinationOutput) ToConfigurationSetEventDestinati
 
 func (o ConfigurationSetEventDestinationOutput) ToConfigurationSetEventDestinationOutputWithContext(ctx context.Context) ConfigurationSetEventDestinationOutput {
 	return o
-}
-
-func (o ConfigurationSetEventDestinationOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationSetEventDestination] {
-	return pulumix.Output[*ConfigurationSetEventDestination]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationSetEventDestinationOutput) ConfigurationSetName() pulumi.StringOutput {

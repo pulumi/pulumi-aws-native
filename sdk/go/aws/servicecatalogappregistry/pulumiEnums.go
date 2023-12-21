@@ -78,12 +78,6 @@ func (o ResourceAssociationResourceTypeOutput) ToResourceAssociationResourceType
 	}).(ResourceAssociationResourceTypePtrOutput)
 }
 
-func (o ResourceAssociationResourceTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceAssociationResourceType] {
-	return pulumix.Output[ResourceAssociationResourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceAssociationResourceTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o ResourceAssociationResourceTypePtrOutput) ToResourceAssociationResourceT
 	return o
 }
 
-func (o ResourceAssociationResourceTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceAssociationResourceType] {
-	return pulumix.Output[*ResourceAssociationResourceType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceAssociationResourceTypePtrOutput) Elem() ResourceAssociationResourceTypeOutput {
 	return o.ApplyT(func(v *ResourceAssociationResourceType) ResourceAssociationResourceType {
 		if v != nil {
@@ -149,10 +137,10 @@ func (o ResourceAssociationResourceTypePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// ResourceAssociationResourceTypeInput is an input type that accepts ResourceAssociationResourceTypeArgs and ResourceAssociationResourceTypeOutput values.
-// You can construct a concrete instance of `ResourceAssociationResourceTypeInput` via:
+// ResourceAssociationResourceTypeInput is an input type that accepts values of the ResourceAssociationResourceType enum
+// A concrete instance of `ResourceAssociationResourceTypeInput` can be one of the following:
 //
-//	ResourceAssociationResourceTypeArgs{...}
+//	ResourceAssociationResourceTypeCfnStack
 type ResourceAssociationResourceTypeInput interface {
 	pulumi.Input
 

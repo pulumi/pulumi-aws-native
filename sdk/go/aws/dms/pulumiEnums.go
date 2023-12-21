@@ -80,12 +80,6 @@ func (o ReplicationConfigReplicationTypeOutput) ToReplicationConfigReplicationTy
 	}).(ReplicationConfigReplicationTypePtrOutput)
 }
 
-func (o ReplicationConfigReplicationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigReplicationType] {
-	return pulumix.Output[ReplicationConfigReplicationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicationConfigReplicationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -121,12 +115,6 @@ func (o ReplicationConfigReplicationTypePtrOutput) ToReplicationConfigReplicatio
 	return o
 }
 
-func (o ReplicationConfigReplicationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfigReplicationType] {
-	return pulumix.Output[*ReplicationConfigReplicationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicationConfigReplicationTypePtrOutput) Elem() ReplicationConfigReplicationTypeOutput {
 	return o.ApplyT(func(v *ReplicationConfigReplicationType) ReplicationConfigReplicationType {
 		if v != nil {
@@ -151,10 +139,12 @@ func (o ReplicationConfigReplicationTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// ReplicationConfigReplicationTypeInput is an input type that accepts ReplicationConfigReplicationTypeArgs and ReplicationConfigReplicationTypeOutput values.
-// You can construct a concrete instance of `ReplicationConfigReplicationTypeInput` via:
+// ReplicationConfigReplicationTypeInput is an input type that accepts values of the ReplicationConfigReplicationType enum
+// A concrete instance of `ReplicationConfigReplicationTypeInput` can be one of the following:
 //
-//	ReplicationConfigReplicationTypeArgs{...}
+//	ReplicationConfigReplicationTypeFullLoad
+//	ReplicationConfigReplicationTypeFullLoadAndCdc
+//	ReplicationConfigReplicationTypeCdc
 type ReplicationConfigReplicationTypeInput interface {
 	pulumi.Input
 

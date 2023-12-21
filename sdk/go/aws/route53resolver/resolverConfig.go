@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Route53Resolver::ResolverConfig.
@@ -115,12 +114,6 @@ func (i *ResolverConfig) ToResolverConfigOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverConfigOutput)
 }
 
-func (i *ResolverConfig) ToOutput(ctx context.Context) pulumix.Output[*ResolverConfig] {
-	return pulumix.Output[*ResolverConfig]{
-		OutputState: i.ToResolverConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResolverConfigOutput struct{ *pulumi.OutputState }
 
 func (ResolverConfigOutput) ElementType() reflect.Type {
@@ -133,12 +126,6 @@ func (o ResolverConfigOutput) ToResolverConfigOutput() ResolverConfigOutput {
 
 func (o ResolverConfigOutput) ToResolverConfigOutputWithContext(ctx context.Context) ResolverConfigOutput {
 	return o
-}
-
-func (o ResolverConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverConfig] {
-	return pulumix.Output[*ResolverConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ResolverAutodefinedReverseStatus, possible values are ENABLING, ENABLED, DISABLING AND DISABLED.

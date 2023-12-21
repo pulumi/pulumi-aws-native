@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An example resource schema demonstrating some basic constructs and validation rules.
@@ -106,12 +105,6 @@ func (i *SuiteDefinition) ToSuiteDefinitionOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(SuiteDefinitionOutput)
 }
 
-func (i *SuiteDefinition) ToOutput(ctx context.Context) pulumix.Output[*SuiteDefinition] {
-	return pulumix.Output[*SuiteDefinition]{
-		OutputState: i.ToSuiteDefinitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SuiteDefinitionOutput struct{ *pulumi.OutputState }
 
 func (SuiteDefinitionOutput) ElementType() reflect.Type {
@@ -124,12 +117,6 @@ func (o SuiteDefinitionOutput) ToSuiteDefinitionOutput() SuiteDefinitionOutput {
 
 func (o SuiteDefinitionOutput) ToSuiteDefinitionOutputWithContext(ctx context.Context) SuiteDefinitionOutput {
 	return o
-}
-
-func (o SuiteDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*SuiteDefinition] {
-	return pulumix.Output[*SuiteDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource name for the suite definition.

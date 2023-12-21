@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::DocDBElastic::Cluster Amazon DocumentDB (with MongoDB compatibility) Elastic Scale resource describes a Cluster
@@ -142,12 +141,6 @@ func (i *Cluster) ToClusterOutputWithContext(ctx context.Context) ClusterOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutput)
 }
 
-func (i *Cluster) ToOutput(ctx context.Context) pulumix.Output[*Cluster] {
-	return pulumix.Output[*Cluster]{
-		OutputState: i.ToClusterOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterOutput struct{ *pulumi.OutputState }
 
 func (ClusterOutput) ElementType() reflect.Type {
@@ -160,12 +153,6 @@ func (o ClusterOutput) ToClusterOutput() ClusterOutput {
 
 func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOutput {
 	return o
-}
-
-func (o ClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*Cluster] {
-	return pulumix.Output[*Cluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterOutput) AdminUserName() pulumi.StringOutput {

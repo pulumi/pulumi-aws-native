@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::AutoScaling::WarmPool.
@@ -67,12 +66,6 @@ func (o LookupWarmPoolResultOutput) ToLookupWarmPoolResultOutput() LookupWarmPoo
 
 func (o LookupWarmPoolResultOutput) ToLookupWarmPoolResultOutputWithContext(ctx context.Context) LookupWarmPoolResultOutput {
 	return o
-}
-
-func (o LookupWarmPoolResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupWarmPoolResult] {
-	return pulumix.Output[LookupWarmPoolResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupWarmPoolResultOutput) InstanceReusePolicy() WarmPoolInstanceReusePolicyPtrOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -51,12 +50,6 @@ func (i ConnectorApacheKafkaClusterArgs) ToConnectorApacheKafkaClusterOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorApacheKafkaClusterOutput)
 }
 
-func (i ConnectorApacheKafkaClusterArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorApacheKafkaCluster] {
-	return pulumix.Output[ConnectorApacheKafkaCluster]{
-		OutputState: i.ToConnectorApacheKafkaClusterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Details of how to connect to an Apache Kafka cluster.
 type ConnectorApacheKafkaClusterOutput struct{ *pulumi.OutputState }
 
@@ -70,12 +63,6 @@ func (o ConnectorApacheKafkaClusterOutput) ToConnectorApacheKafkaClusterOutput()
 
 func (o ConnectorApacheKafkaClusterOutput) ToConnectorApacheKafkaClusterOutputWithContext(ctx context.Context) ConnectorApacheKafkaClusterOutput {
 	return o
-}
-
-func (o ConnectorApacheKafkaClusterOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorApacheKafkaCluster] {
-	return pulumix.Output[ConnectorApacheKafkaCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The bootstrap servers string of the Apache Kafka cluster.
@@ -134,12 +121,6 @@ func (i ConnectorAutoScalingArgs) ToConnectorAutoScalingOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAutoScalingOutput)
 }
 
-func (i ConnectorAutoScalingArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorAutoScaling] {
-	return pulumix.Output[ConnectorAutoScaling]{
-		OutputState: i.ToConnectorAutoScalingOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorAutoScalingArgs) ToConnectorAutoScalingPtrOutput() ConnectorAutoScalingPtrOutput {
 	return i.ToConnectorAutoScalingPtrOutputWithContext(context.Background())
 }
@@ -181,12 +162,6 @@ func (i *connectorAutoScalingPtrType) ToConnectorAutoScalingPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorAutoScalingPtrOutput)
 }
 
-func (i *connectorAutoScalingPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorAutoScaling] {
-	return pulumix.Output[*ConnectorAutoScaling]{
-		OutputState: i.ToConnectorAutoScalingPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Details about auto scaling of a connector.
 type ConnectorAutoScalingOutput struct{ *pulumi.OutputState }
 
@@ -210,12 +185,6 @@ func (o ConnectorAutoScalingOutput) ToConnectorAutoScalingPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorAutoScaling) *ConnectorAutoScaling {
 		return &v
 	}).(ConnectorAutoScalingPtrOutput)
-}
-
-func (o ConnectorAutoScalingOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorAutoScaling] {
-	return pulumix.Output[ConnectorAutoScaling]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The maximum number of workers for a connector.
@@ -253,12 +222,6 @@ func (o ConnectorAutoScalingPtrOutput) ToConnectorAutoScalingPtrOutput() Connect
 
 func (o ConnectorAutoScalingPtrOutput) ToConnectorAutoScalingPtrOutputWithContext(ctx context.Context) ConnectorAutoScalingPtrOutput {
 	return o
-}
-
-func (o ConnectorAutoScalingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorAutoScaling] {
-	return pulumix.Output[*ConnectorAutoScaling]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorAutoScalingPtrOutput) Elem() ConnectorAutoScalingOutput {
@@ -354,12 +317,6 @@ func (i ConnectorCapacityArgs) ToConnectorCapacityOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCapacityOutput)
 }
 
-func (i ConnectorCapacityArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorCapacity] {
-	return pulumix.Output[ConnectorCapacity]{
-		OutputState: i.ToConnectorCapacityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Information about the capacity allocated to the connector.
 type ConnectorCapacityOutput struct{ *pulumi.OutputState }
 
@@ -373,12 +330,6 @@ func (o ConnectorCapacityOutput) ToConnectorCapacityOutput() ConnectorCapacityOu
 
 func (o ConnectorCapacityOutput) ToConnectorCapacityOutputWithContext(ctx context.Context) ConnectorCapacityOutput {
 	return o
-}
-
-func (o ConnectorCapacityOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorCapacity] {
-	return pulumix.Output[ConnectorCapacity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorCapacityOutput) AutoScaling() ConnectorAutoScalingPtrOutput {
@@ -401,12 +352,6 @@ func (o ConnectorCapacityPtrOutput) ToConnectorCapacityPtrOutput() ConnectorCapa
 
 func (o ConnectorCapacityPtrOutput) ToConnectorCapacityPtrOutputWithContext(ctx context.Context) ConnectorCapacityPtrOutput {
 	return o
-}
-
-func (o ConnectorCapacityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorCapacity] {
-	return pulumix.Output[*ConnectorCapacity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorCapacityPtrOutput) Elem() ConnectorCapacityOutput {
@@ -476,12 +421,6 @@ func (i ConnectorCloudWatchLogsLogDeliveryArgs) ToConnectorCloudWatchLogsLogDeli
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCloudWatchLogsLogDeliveryOutput)
 }
 
-func (i ConnectorCloudWatchLogsLogDeliveryArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorCloudWatchLogsLogDelivery] {
-	return pulumix.Output[ConnectorCloudWatchLogsLogDelivery]{
-		OutputState: i.ToConnectorCloudWatchLogsLogDeliveryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorCloudWatchLogsLogDeliveryArgs) ToConnectorCloudWatchLogsLogDeliveryPtrOutput() ConnectorCloudWatchLogsLogDeliveryPtrOutput {
 	return i.ToConnectorCloudWatchLogsLogDeliveryPtrOutputWithContext(context.Background())
 }
@@ -523,12 +462,6 @@ func (i *connectorCloudWatchLogsLogDeliveryPtrType) ToConnectorCloudWatchLogsLog
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCloudWatchLogsLogDeliveryPtrOutput)
 }
 
-func (i *connectorCloudWatchLogsLogDeliveryPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorCloudWatchLogsLogDelivery] {
-	return pulumix.Output[*ConnectorCloudWatchLogsLogDelivery]{
-		OutputState: i.ToConnectorCloudWatchLogsLogDeliveryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Details about delivering logs to Amazon CloudWatch Logs.
 type ConnectorCloudWatchLogsLogDeliveryOutput struct{ *pulumi.OutputState }
 
@@ -554,12 +487,6 @@ func (o ConnectorCloudWatchLogsLogDeliveryOutput) ToConnectorCloudWatchLogsLogDe
 	}).(ConnectorCloudWatchLogsLogDeliveryPtrOutput)
 }
 
-func (o ConnectorCloudWatchLogsLogDeliveryOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorCloudWatchLogsLogDelivery] {
-	return pulumix.Output[ConnectorCloudWatchLogsLogDelivery]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies whether the logs get sent to the specified CloudWatch Logs destination.
 func (o ConnectorCloudWatchLogsLogDeliveryOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ConnectorCloudWatchLogsLogDelivery) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -582,12 +509,6 @@ func (o ConnectorCloudWatchLogsLogDeliveryPtrOutput) ToConnectorCloudWatchLogsLo
 
 func (o ConnectorCloudWatchLogsLogDeliveryPtrOutput) ToConnectorCloudWatchLogsLogDeliveryPtrOutputWithContext(ctx context.Context) ConnectorCloudWatchLogsLogDeliveryPtrOutput {
 	return o
-}
-
-func (o ConnectorCloudWatchLogsLogDeliveryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorCloudWatchLogsLogDelivery] {
-	return pulumix.Output[*ConnectorCloudWatchLogsLogDelivery]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorCloudWatchLogsLogDeliveryPtrOutput) Elem() ConnectorCloudWatchLogsLogDeliveryOutput {
@@ -659,12 +580,6 @@ func (i ConnectorCustomPluginArgs) ToConnectorCustomPluginOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorCustomPluginOutput)
 }
 
-func (i ConnectorCustomPluginArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorCustomPlugin] {
-	return pulumix.Output[ConnectorCustomPlugin]{
-		OutputState: i.ToConnectorCustomPluginOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Details about a custom plugin.
 type ConnectorCustomPluginOutput struct{ *pulumi.OutputState }
 
@@ -678,12 +593,6 @@ func (o ConnectorCustomPluginOutput) ToConnectorCustomPluginOutput() ConnectorCu
 
 func (o ConnectorCustomPluginOutput) ToConnectorCustomPluginOutputWithContext(ctx context.Context) ConnectorCustomPluginOutput {
 	return o
-}
-
-func (o ConnectorCustomPluginOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorCustomPlugin] {
-	return pulumix.Output[ConnectorCustomPlugin]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the custom plugin to use.
@@ -735,12 +644,6 @@ func (i ConnectorFirehoseLogDeliveryArgs) ToConnectorFirehoseLogDeliveryOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorFirehoseLogDeliveryOutput)
 }
 
-func (i ConnectorFirehoseLogDeliveryArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorFirehoseLogDelivery] {
-	return pulumix.Output[ConnectorFirehoseLogDelivery]{
-		OutputState: i.ToConnectorFirehoseLogDeliveryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorFirehoseLogDeliveryArgs) ToConnectorFirehoseLogDeliveryPtrOutput() ConnectorFirehoseLogDeliveryPtrOutput {
 	return i.ToConnectorFirehoseLogDeliveryPtrOutputWithContext(context.Background())
 }
@@ -782,12 +685,6 @@ func (i *connectorFirehoseLogDeliveryPtrType) ToConnectorFirehoseLogDeliveryPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorFirehoseLogDeliveryPtrOutput)
 }
 
-func (i *connectorFirehoseLogDeliveryPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorFirehoseLogDelivery] {
-	return pulumix.Output[*ConnectorFirehoseLogDelivery]{
-		OutputState: i.ToConnectorFirehoseLogDeliveryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Details about delivering logs to Amazon Kinesis Data Firehose.
 type ConnectorFirehoseLogDeliveryOutput struct{ *pulumi.OutputState }
 
@@ -813,12 +710,6 @@ func (o ConnectorFirehoseLogDeliveryOutput) ToConnectorFirehoseLogDeliveryPtrOut
 	}).(ConnectorFirehoseLogDeliveryPtrOutput)
 }
 
-func (o ConnectorFirehoseLogDeliveryOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorFirehoseLogDelivery] {
-	return pulumix.Output[ConnectorFirehoseLogDelivery]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The Kinesis Data Firehose delivery stream that is the destination for log delivery.
 func (o ConnectorFirehoseLogDeliveryOutput) DeliveryStream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorFirehoseLogDelivery) *string { return v.DeliveryStream }).(pulumi.StringPtrOutput)
@@ -841,12 +732,6 @@ func (o ConnectorFirehoseLogDeliveryPtrOutput) ToConnectorFirehoseLogDeliveryPtr
 
 func (o ConnectorFirehoseLogDeliveryPtrOutput) ToConnectorFirehoseLogDeliveryPtrOutputWithContext(ctx context.Context) ConnectorFirehoseLogDeliveryPtrOutput {
 	return o
-}
-
-func (o ConnectorFirehoseLogDeliveryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorFirehoseLogDelivery] {
-	return pulumix.Output[*ConnectorFirehoseLogDelivery]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorFirehoseLogDeliveryPtrOutput) Elem() ConnectorFirehoseLogDeliveryOutput {
@@ -912,12 +797,6 @@ func (i ConnectorKafkaClusterArgs) ToConnectorKafkaClusterOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterOutput)
 }
 
-func (i ConnectorKafkaClusterArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorKafkaCluster] {
-	return pulumix.Output[ConnectorKafkaCluster]{
-		OutputState: i.ToConnectorKafkaClusterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Details of how to connect to the Kafka cluster.
 type ConnectorKafkaClusterOutput struct{ *pulumi.OutputState }
 
@@ -931,12 +810,6 @@ func (o ConnectorKafkaClusterOutput) ToConnectorKafkaClusterOutput() ConnectorKa
 
 func (o ConnectorKafkaClusterOutput) ToConnectorKafkaClusterOutputWithContext(ctx context.Context) ConnectorKafkaClusterOutput {
 	return o
-}
-
-func (o ConnectorKafkaClusterOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorKafkaCluster] {
-	return pulumix.Output[ConnectorKafkaCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorKafkaClusterOutput) ApacheKafkaCluster() ConnectorApacheKafkaClusterOutput {
@@ -976,12 +849,6 @@ func (i ConnectorKafkaClusterClientAuthenticationArgs) ToConnectorKafkaClusterCl
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterClientAuthenticationOutput)
 }
 
-func (i ConnectorKafkaClusterClientAuthenticationArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorKafkaClusterClientAuthentication] {
-	return pulumix.Output[ConnectorKafkaClusterClientAuthentication]{
-		OutputState: i.ToConnectorKafkaClusterClientAuthenticationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Details of the client authentication used by the Kafka cluster.
 type ConnectorKafkaClusterClientAuthenticationOutput struct{ *pulumi.OutputState }
 
@@ -995,12 +862,6 @@ func (o ConnectorKafkaClusterClientAuthenticationOutput) ToConnectorKafkaCluster
 
 func (o ConnectorKafkaClusterClientAuthenticationOutput) ToConnectorKafkaClusterClientAuthenticationOutputWithContext(ctx context.Context) ConnectorKafkaClusterClientAuthenticationOutput {
 	return o
-}
-
-func (o ConnectorKafkaClusterClientAuthenticationOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorKafkaClusterClientAuthentication] {
-	return pulumix.Output[ConnectorKafkaClusterClientAuthentication]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorKafkaClusterClientAuthenticationOutput) AuthenticationType() ConnectorKafkaClusterClientAuthenticationTypeOutput {
@@ -1042,12 +903,6 @@ func (i ConnectorKafkaClusterEncryptionInTransitArgs) ToConnectorKafkaClusterEnc
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorKafkaClusterEncryptionInTransitOutput)
 }
 
-func (i ConnectorKafkaClusterEncryptionInTransitArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorKafkaClusterEncryptionInTransit] {
-	return pulumix.Output[ConnectorKafkaClusterEncryptionInTransit]{
-		OutputState: i.ToConnectorKafkaClusterEncryptionInTransitOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Details of encryption in transit to the Kafka cluster.
 type ConnectorKafkaClusterEncryptionInTransitOutput struct{ *pulumi.OutputState }
 
@@ -1061,12 +916,6 @@ func (o ConnectorKafkaClusterEncryptionInTransitOutput) ToConnectorKafkaClusterE
 
 func (o ConnectorKafkaClusterEncryptionInTransitOutput) ToConnectorKafkaClusterEncryptionInTransitOutputWithContext(ctx context.Context) ConnectorKafkaClusterEncryptionInTransitOutput {
 	return o
-}
-
-func (o ConnectorKafkaClusterEncryptionInTransitOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorKafkaClusterEncryptionInTransit] {
-	return pulumix.Output[ConnectorKafkaClusterEncryptionInTransit]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorKafkaClusterEncryptionInTransitOutput) EncryptionType() ConnectorKafkaClusterEncryptionInTransitTypeOutput {
@@ -1106,12 +955,6 @@ func (i ConnectorLogDeliveryArgs) ToConnectorLogDeliveryOutput() ConnectorLogDel
 
 func (i ConnectorLogDeliveryArgs) ToConnectorLogDeliveryOutputWithContext(ctx context.Context) ConnectorLogDeliveryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorLogDeliveryOutput)
-}
-
-func (i ConnectorLogDeliveryArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorLogDelivery] {
-	return pulumix.Output[ConnectorLogDelivery]{
-		OutputState: i.ToConnectorLogDeliveryOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ConnectorLogDeliveryArgs) ToConnectorLogDeliveryPtrOutput() ConnectorLogDeliveryPtrOutput {
@@ -1155,12 +998,6 @@ func (i *connectorLogDeliveryPtrType) ToConnectorLogDeliveryPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorLogDeliveryPtrOutput)
 }
 
-func (i *connectorLogDeliveryPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorLogDelivery] {
-	return pulumix.Output[*ConnectorLogDelivery]{
-		OutputState: i.ToConnectorLogDeliveryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Details of what logs are delivered and where they are delivered.
 type ConnectorLogDeliveryOutput struct{ *pulumi.OutputState }
 
@@ -1186,12 +1023,6 @@ func (o ConnectorLogDeliveryOutput) ToConnectorLogDeliveryPtrOutputWithContext(c
 	}).(ConnectorLogDeliveryPtrOutput)
 }
 
-func (o ConnectorLogDeliveryOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorLogDelivery] {
-	return pulumix.Output[ConnectorLogDelivery]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectorLogDeliveryOutput) WorkerLogDelivery() ConnectorWorkerLogDeliveryOutput {
 	return o.ApplyT(func(v ConnectorLogDelivery) ConnectorWorkerLogDelivery { return v.WorkerLogDelivery }).(ConnectorWorkerLogDeliveryOutput)
 }
@@ -1208,12 +1039,6 @@ func (o ConnectorLogDeliveryPtrOutput) ToConnectorLogDeliveryPtrOutput() Connect
 
 func (o ConnectorLogDeliveryPtrOutput) ToConnectorLogDeliveryPtrOutputWithContext(ctx context.Context) ConnectorLogDeliveryPtrOutput {
 	return o
-}
-
-func (o ConnectorLogDeliveryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorLogDelivery] {
-	return pulumix.Output[*ConnectorLogDelivery]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorLogDeliveryPtrOutput) Elem() ConnectorLogDeliveryOutput {
@@ -1268,12 +1093,6 @@ func (i ConnectorPluginArgs) ToConnectorPluginOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorPluginOutput)
 }
 
-func (i ConnectorPluginArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorPlugin] {
-	return pulumix.Output[ConnectorPlugin]{
-		OutputState: i.ToConnectorPluginOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConnectorPluginArrayInput is an input type that accepts ConnectorPluginArray and ConnectorPluginArrayOutput values.
 // You can construct a concrete instance of `ConnectorPluginArrayInput` via:
 //
@@ -1299,12 +1118,6 @@ func (i ConnectorPluginArray) ToConnectorPluginArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorPluginArrayOutput)
 }
 
-func (i ConnectorPluginArray) ToOutput(ctx context.Context) pulumix.Output[[]ConnectorPlugin] {
-	return pulumix.Output[[]ConnectorPlugin]{
-		OutputState: i.ToConnectorPluginArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Details about a Kafka Connect plugin which will be used with the connector.
 type ConnectorPluginOutput struct{ *pulumi.OutputState }
 
@@ -1318,12 +1131,6 @@ func (o ConnectorPluginOutput) ToConnectorPluginOutput() ConnectorPluginOutput {
 
 func (o ConnectorPluginOutput) ToConnectorPluginOutputWithContext(ctx context.Context) ConnectorPluginOutput {
 	return o
-}
-
-func (o ConnectorPluginOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorPlugin] {
-	return pulumix.Output[ConnectorPlugin]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorPluginOutput) CustomPlugin() ConnectorCustomPluginOutput {
@@ -1342,12 +1149,6 @@ func (o ConnectorPluginArrayOutput) ToConnectorPluginArrayOutput() ConnectorPlug
 
 func (o ConnectorPluginArrayOutput) ToConnectorPluginArrayOutputWithContext(ctx context.Context) ConnectorPluginArrayOutput {
 	return o
-}
-
-func (o ConnectorPluginArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConnectorPlugin] {
-	return pulumix.Output[[]ConnectorPlugin]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorPluginArrayOutput) Index(i pulumi.IntInput) ConnectorPluginOutput {
@@ -1395,12 +1196,6 @@ func (i ConnectorProvisionedCapacityArgs) ToConnectorProvisionedCapacityOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProvisionedCapacityOutput)
 }
 
-func (i ConnectorProvisionedCapacityArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorProvisionedCapacity] {
-	return pulumix.Output[ConnectorProvisionedCapacity]{
-		OutputState: i.ToConnectorProvisionedCapacityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorProvisionedCapacityArgs) ToConnectorProvisionedCapacityPtrOutput() ConnectorProvisionedCapacityPtrOutput {
 	return i.ToConnectorProvisionedCapacityPtrOutputWithContext(context.Background())
 }
@@ -1442,12 +1237,6 @@ func (i *connectorProvisionedCapacityPtrType) ToConnectorProvisionedCapacityPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorProvisionedCapacityPtrOutput)
 }
 
-func (i *connectorProvisionedCapacityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProvisionedCapacity] {
-	return pulumix.Output[*ConnectorProvisionedCapacity]{
-		OutputState: i.ToConnectorProvisionedCapacityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Details about a fixed capacity allocated to a connector.
 type ConnectorProvisionedCapacityOutput struct{ *pulumi.OutputState }
 
@@ -1473,12 +1262,6 @@ func (o ConnectorProvisionedCapacityOutput) ToConnectorProvisionedCapacityPtrOut
 	}).(ConnectorProvisionedCapacityPtrOutput)
 }
 
-func (o ConnectorProvisionedCapacityOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorProvisionedCapacity] {
-	return pulumix.Output[ConnectorProvisionedCapacity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies how many MSK Connect Units (MCU) are allocated to the connector.
 func (o ConnectorProvisionedCapacityOutput) McuCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ConnectorProvisionedCapacity) *int { return v.McuCount }).(pulumi.IntPtrOutput)
@@ -1501,12 +1284,6 @@ func (o ConnectorProvisionedCapacityPtrOutput) ToConnectorProvisionedCapacityPtr
 
 func (o ConnectorProvisionedCapacityPtrOutput) ToConnectorProvisionedCapacityPtrOutputWithContext(ctx context.Context) ConnectorProvisionedCapacityPtrOutput {
 	return o
-}
-
-func (o ConnectorProvisionedCapacityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorProvisionedCapacity] {
-	return pulumix.Output[*ConnectorProvisionedCapacity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorProvisionedCapacityPtrOutput) Elem() ConnectorProvisionedCapacityOutput {
@@ -1582,12 +1359,6 @@ func (i ConnectorS3LogDeliveryArgs) ToConnectorS3LogDeliveryOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorS3LogDeliveryOutput)
 }
 
-func (i ConnectorS3LogDeliveryArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorS3LogDelivery] {
-	return pulumix.Output[ConnectorS3LogDelivery]{
-		OutputState: i.ToConnectorS3LogDeliveryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorS3LogDeliveryArgs) ToConnectorS3LogDeliveryPtrOutput() ConnectorS3LogDeliveryPtrOutput {
 	return i.ToConnectorS3LogDeliveryPtrOutputWithContext(context.Background())
 }
@@ -1629,12 +1400,6 @@ func (i *connectorS3LogDeliveryPtrType) ToConnectorS3LogDeliveryPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorS3LogDeliveryPtrOutput)
 }
 
-func (i *connectorS3LogDeliveryPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorS3LogDelivery] {
-	return pulumix.Output[*ConnectorS3LogDelivery]{
-		OutputState: i.ToConnectorS3LogDeliveryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Details about delivering logs to Amazon S3.
 type ConnectorS3LogDeliveryOutput struct{ *pulumi.OutputState }
 
@@ -1658,12 +1423,6 @@ func (o ConnectorS3LogDeliveryOutput) ToConnectorS3LogDeliveryPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorS3LogDelivery) *ConnectorS3LogDelivery {
 		return &v
 	}).(ConnectorS3LogDeliveryPtrOutput)
-}
-
-func (o ConnectorS3LogDeliveryOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorS3LogDelivery] {
-	return pulumix.Output[ConnectorS3LogDelivery]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the S3 bucket that is the destination for log delivery.
@@ -1693,12 +1452,6 @@ func (o ConnectorS3LogDeliveryPtrOutput) ToConnectorS3LogDeliveryPtrOutput() Con
 
 func (o ConnectorS3LogDeliveryPtrOutput) ToConnectorS3LogDeliveryPtrOutputWithContext(ctx context.Context) ConnectorS3LogDeliveryPtrOutput {
 	return o
-}
-
-func (o ConnectorS3LogDeliveryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorS3LogDelivery] {
-	return pulumix.Output[*ConnectorS3LogDelivery]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorS3LogDeliveryPtrOutput) Elem() ConnectorS3LogDeliveryOutput {
@@ -1776,12 +1529,6 @@ func (i ConnectorScaleInPolicyArgs) ToConnectorScaleInPolicyOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorScaleInPolicyOutput)
 }
 
-func (i ConnectorScaleInPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorScaleInPolicy] {
-	return pulumix.Output[ConnectorScaleInPolicy]{
-		OutputState: i.ToConnectorScaleInPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorScaleInPolicyArgs) ToConnectorScaleInPolicyPtrOutput() ConnectorScaleInPolicyPtrOutput {
 	return i.ToConnectorScaleInPolicyPtrOutputWithContext(context.Background())
 }
@@ -1823,12 +1570,6 @@ func (i *connectorScaleInPolicyPtrType) ToConnectorScaleInPolicyPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorScaleInPolicyPtrOutput)
 }
 
-func (i *connectorScaleInPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorScaleInPolicy] {
-	return pulumix.Output[*ConnectorScaleInPolicy]{
-		OutputState: i.ToConnectorScaleInPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Information about the scale in policy of the connector.
 type ConnectorScaleInPolicyOutput struct{ *pulumi.OutputState }
 
@@ -1854,12 +1595,6 @@ func (o ConnectorScaleInPolicyOutput) ToConnectorScaleInPolicyPtrOutputWithConte
 	}).(ConnectorScaleInPolicyPtrOutput)
 }
 
-func (o ConnectorScaleInPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorScaleInPolicy] {
-	return pulumix.Output[ConnectorScaleInPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the CPU utilization percentage threshold at which connector scale in should trigger.
 func (o ConnectorScaleInPolicyOutput) CpuUtilizationPercentage() pulumi.IntOutput {
 	return o.ApplyT(func(v ConnectorScaleInPolicy) int { return v.CpuUtilizationPercentage }).(pulumi.IntOutput)
@@ -1877,12 +1612,6 @@ func (o ConnectorScaleInPolicyPtrOutput) ToConnectorScaleInPolicyPtrOutput() Con
 
 func (o ConnectorScaleInPolicyPtrOutput) ToConnectorScaleInPolicyPtrOutputWithContext(ctx context.Context) ConnectorScaleInPolicyPtrOutput {
 	return o
-}
-
-func (o ConnectorScaleInPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorScaleInPolicy] {
-	return pulumix.Output[*ConnectorScaleInPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorScaleInPolicyPtrOutput) Elem() ConnectorScaleInPolicyOutput {
@@ -1940,12 +1669,6 @@ func (i ConnectorScaleOutPolicyArgs) ToConnectorScaleOutPolicyOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorScaleOutPolicyOutput)
 }
 
-func (i ConnectorScaleOutPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorScaleOutPolicy] {
-	return pulumix.Output[ConnectorScaleOutPolicy]{
-		OutputState: i.ToConnectorScaleOutPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorScaleOutPolicyArgs) ToConnectorScaleOutPolicyPtrOutput() ConnectorScaleOutPolicyPtrOutput {
 	return i.ToConnectorScaleOutPolicyPtrOutputWithContext(context.Background())
 }
@@ -1987,12 +1710,6 @@ func (i *connectorScaleOutPolicyPtrType) ToConnectorScaleOutPolicyPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorScaleOutPolicyPtrOutput)
 }
 
-func (i *connectorScaleOutPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorScaleOutPolicy] {
-	return pulumix.Output[*ConnectorScaleOutPolicy]{
-		OutputState: i.ToConnectorScaleOutPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Information about the scale out policy of the connector.
 type ConnectorScaleOutPolicyOutput struct{ *pulumi.OutputState }
 
@@ -2018,12 +1735,6 @@ func (o ConnectorScaleOutPolicyOutput) ToConnectorScaleOutPolicyPtrOutputWithCon
 	}).(ConnectorScaleOutPolicyPtrOutput)
 }
 
-func (o ConnectorScaleOutPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorScaleOutPolicy] {
-	return pulumix.Output[ConnectorScaleOutPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the CPU utilization percentage threshold at which connector scale out should trigger.
 func (o ConnectorScaleOutPolicyOutput) CpuUtilizationPercentage() pulumi.IntOutput {
 	return o.ApplyT(func(v ConnectorScaleOutPolicy) int { return v.CpuUtilizationPercentage }).(pulumi.IntOutput)
@@ -2041,12 +1752,6 @@ func (o ConnectorScaleOutPolicyPtrOutput) ToConnectorScaleOutPolicyPtrOutput() C
 
 func (o ConnectorScaleOutPolicyPtrOutput) ToConnectorScaleOutPolicyPtrOutputWithContext(ctx context.Context) ConnectorScaleOutPolicyPtrOutput {
 	return o
-}
-
-func (o ConnectorScaleOutPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorScaleOutPolicy] {
-	return pulumix.Output[*ConnectorScaleOutPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorScaleOutPolicyPtrOutput) Elem() ConnectorScaleOutPolicyOutput {
@@ -2108,12 +1813,6 @@ func (i ConnectorVpcArgs) ToConnectorVpcOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorVpcOutput)
 }
 
-func (i ConnectorVpcArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorVpc] {
-	return pulumix.Output[ConnectorVpc]{
-		OutputState: i.ToConnectorVpcOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Information about a VPC used with the connector.
 type ConnectorVpcOutput struct{ *pulumi.OutputState }
 
@@ -2127,12 +1826,6 @@ func (o ConnectorVpcOutput) ToConnectorVpcOutput() ConnectorVpcOutput {
 
 func (o ConnectorVpcOutput) ToConnectorVpcOutputWithContext(ctx context.Context) ConnectorVpcOutput {
 	return o
-}
-
-func (o ConnectorVpcOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorVpc] {
-	return pulumix.Output[ConnectorVpc]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The AWS security groups to associate with the elastic network interfaces in order to specify what the connector has access to.
@@ -2184,12 +1877,6 @@ func (i ConnectorWorkerConfigurationArgs) ToConnectorWorkerConfigurationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorWorkerConfigurationOutput)
 }
 
-func (i ConnectorWorkerConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorWorkerConfiguration] {
-	return pulumix.Output[ConnectorWorkerConfiguration]{
-		OutputState: i.ToConnectorWorkerConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorWorkerConfigurationArgs) ToConnectorWorkerConfigurationPtrOutput() ConnectorWorkerConfigurationPtrOutput {
 	return i.ToConnectorWorkerConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2231,12 +1918,6 @@ func (i *connectorWorkerConfigurationPtrType) ToConnectorWorkerConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorWorkerConfigurationPtrOutput)
 }
 
-func (i *connectorWorkerConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorWorkerConfiguration] {
-	return pulumix.Output[*ConnectorWorkerConfiguration]{
-		OutputState: i.ToConnectorWorkerConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies the worker configuration to use with the connector.
 type ConnectorWorkerConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -2262,12 +1943,6 @@ func (o ConnectorWorkerConfigurationOutput) ToConnectorWorkerConfigurationPtrOut
 	}).(ConnectorWorkerConfigurationPtrOutput)
 }
 
-func (o ConnectorWorkerConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorWorkerConfiguration] {
-	return pulumix.Output[ConnectorWorkerConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The revision of the worker configuration to use.
 func (o ConnectorWorkerConfigurationOutput) Revision() pulumi.IntOutput {
 	return o.ApplyT(func(v ConnectorWorkerConfiguration) int { return v.Revision }).(pulumi.IntOutput)
@@ -2290,12 +1965,6 @@ func (o ConnectorWorkerConfigurationPtrOutput) ToConnectorWorkerConfigurationPtr
 
 func (o ConnectorWorkerConfigurationPtrOutput) ToConnectorWorkerConfigurationPtrOutputWithContext(ctx context.Context) ConnectorWorkerConfigurationPtrOutput {
 	return o
-}
-
-func (o ConnectorWorkerConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorWorkerConfiguration] {
-	return pulumix.Output[*ConnectorWorkerConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorWorkerConfigurationPtrOutput) Elem() ConnectorWorkerConfigurationOutput {
@@ -2365,12 +2034,6 @@ func (i ConnectorWorkerLogDeliveryArgs) ToConnectorWorkerLogDeliveryOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorWorkerLogDeliveryOutput)
 }
 
-func (i ConnectorWorkerLogDeliveryArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorWorkerLogDelivery] {
-	return pulumix.Output[ConnectorWorkerLogDelivery]{
-		OutputState: i.ToConnectorWorkerLogDeliveryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConnectorWorkerLogDeliveryArgs) ToConnectorWorkerLogDeliveryPtrOutput() ConnectorWorkerLogDeliveryPtrOutput {
 	return i.ToConnectorWorkerLogDeliveryPtrOutputWithContext(context.Background())
 }
@@ -2412,12 +2075,6 @@ func (i *connectorWorkerLogDeliveryPtrType) ToConnectorWorkerLogDeliveryPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorWorkerLogDeliveryPtrOutput)
 }
 
-func (i *connectorWorkerLogDeliveryPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorWorkerLogDelivery] {
-	return pulumix.Output[*ConnectorWorkerLogDelivery]{
-		OutputState: i.ToConnectorWorkerLogDeliveryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Specifies where worker logs are delivered.
 type ConnectorWorkerLogDeliveryOutput struct{ *pulumi.OutputState }
 
@@ -2441,12 +2098,6 @@ func (o ConnectorWorkerLogDeliveryOutput) ToConnectorWorkerLogDeliveryPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectorWorkerLogDelivery) *ConnectorWorkerLogDelivery {
 		return &v
 	}).(ConnectorWorkerLogDeliveryPtrOutput)
-}
-
-func (o ConnectorWorkerLogDeliveryOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorWorkerLogDelivery] {
-	return pulumix.Output[ConnectorWorkerLogDelivery]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorWorkerLogDeliveryOutput) CloudWatchLogs() ConnectorCloudWatchLogsLogDeliveryPtrOutput {
@@ -2473,12 +2124,6 @@ func (o ConnectorWorkerLogDeliveryPtrOutput) ToConnectorWorkerLogDeliveryPtrOutp
 
 func (o ConnectorWorkerLogDeliveryPtrOutput) ToConnectorWorkerLogDeliveryPtrOutputWithContext(ctx context.Context) ConnectorWorkerLogDeliveryPtrOutput {
 	return o
-}
-
-func (o ConnectorWorkerLogDeliveryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorWorkerLogDelivery] {
-	return pulumix.Output[*ConnectorWorkerLogDelivery]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorWorkerLogDeliveryPtrOutput) Elem() ConnectorWorkerLogDeliveryOutput {

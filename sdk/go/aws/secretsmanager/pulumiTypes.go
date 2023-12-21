@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -65,12 +64,6 @@ func (i RotationScheduleHostedRotationLambdaArgs) ToRotationScheduleHostedRotati
 	return pulumi.ToOutputWithContext(ctx, i).(RotationScheduleHostedRotationLambdaOutput)
 }
 
-func (i RotationScheduleHostedRotationLambdaArgs) ToOutput(ctx context.Context) pulumix.Output[RotationScheduleHostedRotationLambda] {
-	return pulumix.Output[RotationScheduleHostedRotationLambda]{
-		OutputState: i.ToRotationScheduleHostedRotationLambdaOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RotationScheduleHostedRotationLambdaArgs) ToRotationScheduleHostedRotationLambdaPtrOutput() RotationScheduleHostedRotationLambdaPtrOutput {
 	return i.ToRotationScheduleHostedRotationLambdaPtrOutputWithContext(context.Background())
 }
@@ -112,12 +105,6 @@ func (i *rotationScheduleHostedRotationLambdaPtrType) ToRotationScheduleHostedRo
 	return pulumi.ToOutputWithContext(ctx, i).(RotationScheduleHostedRotationLambdaPtrOutput)
 }
 
-func (i *rotationScheduleHostedRotationLambdaPtrType) ToOutput(ctx context.Context) pulumix.Output[*RotationScheduleHostedRotationLambda] {
-	return pulumix.Output[*RotationScheduleHostedRotationLambda]{
-		OutputState: i.ToRotationScheduleHostedRotationLambdaPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RotationScheduleHostedRotationLambdaOutput struct{ *pulumi.OutputState }
 
 func (RotationScheduleHostedRotationLambdaOutput) ElementType() reflect.Type {
@@ -140,12 +127,6 @@ func (o RotationScheduleHostedRotationLambdaOutput) ToRotationScheduleHostedRota
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RotationScheduleHostedRotationLambda) *RotationScheduleHostedRotationLambda {
 		return &v
 	}).(RotationScheduleHostedRotationLambdaPtrOutput)
-}
-
-func (o RotationScheduleHostedRotationLambdaOutput) ToOutput(ctx context.Context) pulumix.Output[RotationScheduleHostedRotationLambda] {
-	return pulumix.Output[RotationScheduleHostedRotationLambda]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RotationScheduleHostedRotationLambdaOutput) ExcludeCharacters() pulumi.StringPtrOutput {
@@ -204,12 +185,6 @@ func (o RotationScheduleHostedRotationLambdaPtrOutput) ToRotationScheduleHostedR
 
 func (o RotationScheduleHostedRotationLambdaPtrOutput) ToRotationScheduleHostedRotationLambdaPtrOutputWithContext(ctx context.Context) RotationScheduleHostedRotationLambdaPtrOutput {
 	return o
-}
-
-func (o RotationScheduleHostedRotationLambdaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RotationScheduleHostedRotationLambda] {
-	return pulumix.Output[*RotationScheduleHostedRotationLambda]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RotationScheduleHostedRotationLambdaPtrOutput) Elem() RotationScheduleHostedRotationLambdaOutput {
@@ -356,12 +331,6 @@ func (i RotationScheduleRotationRulesArgs) ToRotationScheduleRotationRulesOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RotationScheduleRotationRulesOutput)
 }
 
-func (i RotationScheduleRotationRulesArgs) ToOutput(ctx context.Context) pulumix.Output[RotationScheduleRotationRules] {
-	return pulumix.Output[RotationScheduleRotationRules]{
-		OutputState: i.ToRotationScheduleRotationRulesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RotationScheduleRotationRulesArgs) ToRotationScheduleRotationRulesPtrOutput() RotationScheduleRotationRulesPtrOutput {
 	return i.ToRotationScheduleRotationRulesPtrOutputWithContext(context.Background())
 }
@@ -403,12 +372,6 @@ func (i *rotationScheduleRotationRulesPtrType) ToRotationScheduleRotationRulesPt
 	return pulumi.ToOutputWithContext(ctx, i).(RotationScheduleRotationRulesPtrOutput)
 }
 
-func (i *rotationScheduleRotationRulesPtrType) ToOutput(ctx context.Context) pulumix.Output[*RotationScheduleRotationRules] {
-	return pulumix.Output[*RotationScheduleRotationRules]{
-		OutputState: i.ToRotationScheduleRotationRulesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RotationScheduleRotationRulesOutput struct{ *pulumi.OutputState }
 
 func (RotationScheduleRotationRulesOutput) ElementType() reflect.Type {
@@ -431,12 +394,6 @@ func (o RotationScheduleRotationRulesOutput) ToRotationScheduleRotationRulesPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RotationScheduleRotationRules) *RotationScheduleRotationRules {
 		return &v
 	}).(RotationScheduleRotationRulesPtrOutput)
-}
-
-func (o RotationScheduleRotationRulesOutput) ToOutput(ctx context.Context) pulumix.Output[RotationScheduleRotationRules] {
-	return pulumix.Output[RotationScheduleRotationRules]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RotationScheduleRotationRulesOutput) AutomaticallyAfterDays() pulumi.IntPtrOutput {
@@ -463,12 +420,6 @@ func (o RotationScheduleRotationRulesPtrOutput) ToRotationScheduleRotationRulesP
 
 func (o RotationScheduleRotationRulesPtrOutput) ToRotationScheduleRotationRulesPtrOutputWithContext(ctx context.Context) RotationScheduleRotationRulesPtrOutput {
 	return o
-}
-
-func (o RotationScheduleRotationRulesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RotationScheduleRotationRules] {
-	return pulumix.Output[*RotationScheduleRotationRules]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RotationScheduleRotationRulesPtrOutput) Elem() RotationScheduleRotationRulesOutput {
@@ -577,12 +528,6 @@ func (i SecretGenerateSecretStringArgs) ToSecretGenerateSecretStringOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(SecretGenerateSecretStringOutput)
 }
 
-func (i SecretGenerateSecretStringArgs) ToOutput(ctx context.Context) pulumix.Output[SecretGenerateSecretString] {
-	return pulumix.Output[SecretGenerateSecretString]{
-		OutputState: i.ToSecretGenerateSecretStringOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SecretGenerateSecretStringArgs) ToSecretGenerateSecretStringPtrOutput() SecretGenerateSecretStringPtrOutput {
 	return i.ToSecretGenerateSecretStringPtrOutputWithContext(context.Background())
 }
@@ -624,12 +569,6 @@ func (i *secretGenerateSecretStringPtrType) ToSecretGenerateSecretStringPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(SecretGenerateSecretStringPtrOutput)
 }
 
-func (i *secretGenerateSecretStringPtrType) ToOutput(ctx context.Context) pulumix.Output[*SecretGenerateSecretString] {
-	return pulumix.Output[*SecretGenerateSecretString]{
-		OutputState: i.ToSecretGenerateSecretStringPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SecretGenerateSecretStringOutput struct{ *pulumi.OutputState }
 
 func (SecretGenerateSecretStringOutput) ElementType() reflect.Type {
@@ -652,12 +591,6 @@ func (o SecretGenerateSecretStringOutput) ToSecretGenerateSecretStringPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecretGenerateSecretString) *SecretGenerateSecretString {
 		return &v
 	}).(SecretGenerateSecretStringPtrOutput)
-}
-
-func (o SecretGenerateSecretStringOutput) ToOutput(ctx context.Context) pulumix.Output[SecretGenerateSecretString] {
-	return pulumix.Output[SecretGenerateSecretString]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A string that excludes characters in the generated password. By default, all characters from the included sets can be used. The string can be a minimum length of 0 characters and a maximum length of 7168 characters.
@@ -722,12 +655,6 @@ func (o SecretGenerateSecretStringPtrOutput) ToSecretGenerateSecretStringPtrOutp
 
 func (o SecretGenerateSecretStringPtrOutput) ToSecretGenerateSecretStringPtrOutputWithContext(ctx context.Context) SecretGenerateSecretStringPtrOutput {
 	return o
-}
-
-func (o SecretGenerateSecretStringPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SecretGenerateSecretString] {
-	return pulumix.Output[*SecretGenerateSecretString]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SecretGenerateSecretStringPtrOutput) Elem() SecretGenerateSecretStringOutput {
@@ -879,12 +806,6 @@ func (i SecretReplicaRegionArgs) ToSecretReplicaRegionOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SecretReplicaRegionOutput)
 }
 
-func (i SecretReplicaRegionArgs) ToOutput(ctx context.Context) pulumix.Output[SecretReplicaRegion] {
-	return pulumix.Output[SecretReplicaRegion]{
-		OutputState: i.ToSecretReplicaRegionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SecretReplicaRegionArrayInput is an input type that accepts SecretReplicaRegionArray and SecretReplicaRegionArrayOutput values.
 // You can construct a concrete instance of `SecretReplicaRegionArrayInput` via:
 //
@@ -910,12 +831,6 @@ func (i SecretReplicaRegionArray) ToSecretReplicaRegionArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SecretReplicaRegionArrayOutput)
 }
 
-func (i SecretReplicaRegionArray) ToOutput(ctx context.Context) pulumix.Output[[]SecretReplicaRegion] {
-	return pulumix.Output[[]SecretReplicaRegion]{
-		OutputState: i.ToSecretReplicaRegionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A custom type that specifies a Region and the KmsKeyId for a replica secret.
 type SecretReplicaRegionOutput struct{ *pulumi.OutputState }
 
@@ -929,12 +844,6 @@ func (o SecretReplicaRegionOutput) ToSecretReplicaRegionOutput() SecretReplicaRe
 
 func (o SecretReplicaRegionOutput) ToSecretReplicaRegionOutputWithContext(ctx context.Context) SecretReplicaRegionOutput {
 	return o
-}
-
-func (o SecretReplicaRegionOutput) ToOutput(ctx context.Context) pulumix.Output[SecretReplicaRegion] {
-	return pulumix.Output[SecretReplicaRegion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN, key ID, or alias of the KMS key to encrypt the secret. If you don't include this field, Secrets Manager uses aws/secretsmanager.
@@ -959,12 +868,6 @@ func (o SecretReplicaRegionArrayOutput) ToSecretReplicaRegionArrayOutput() Secre
 
 func (o SecretReplicaRegionArrayOutput) ToSecretReplicaRegionArrayOutputWithContext(ctx context.Context) SecretReplicaRegionArrayOutput {
 	return o
-}
-
-func (o SecretReplicaRegionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SecretReplicaRegion] {
-	return pulumix.Output[[]SecretReplicaRegion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SecretReplicaRegionArrayOutput) Index(i pulumi.IntInput) SecretReplicaRegionOutput {
@@ -1012,12 +915,6 @@ func (i SecretTagArgs) ToSecretTagOutputWithContext(ctx context.Context) SecretT
 	return pulumi.ToOutputWithContext(ctx, i).(SecretTagOutput)
 }
 
-func (i SecretTagArgs) ToOutput(ctx context.Context) pulumix.Output[SecretTag] {
-	return pulumix.Output[SecretTag]{
-		OutputState: i.ToSecretTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SecretTagArrayInput is an input type that accepts SecretTagArray and SecretTagArrayOutput values.
 // You can construct a concrete instance of `SecretTagArrayInput` via:
 //
@@ -1043,12 +940,6 @@ func (i SecretTagArray) ToSecretTagArrayOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(SecretTagArrayOutput)
 }
 
-func (i SecretTagArray) ToOutput(ctx context.Context) pulumix.Output[[]SecretTag] {
-	return pulumix.Output[[]SecretTag]{
-		OutputState: i.ToSecretTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A list of tags to attach to the secret. Each tag is a key and value pair of strings in a JSON text string.
 type SecretTagOutput struct{ *pulumi.OutputState }
 
@@ -1062,12 +953,6 @@ func (o SecretTagOutput) ToSecretTagOutput() SecretTagOutput {
 
 func (o SecretTagOutput) ToSecretTagOutputWithContext(ctx context.Context) SecretTagOutput {
 	return o
-}
-
-func (o SecretTagOutput) ToOutput(ctx context.Context) pulumix.Output[SecretTag] {
-	return pulumix.Output[SecretTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The value for the tag. You can specify a value that's 1 to 256 characters in length.
@@ -1092,12 +977,6 @@ func (o SecretTagArrayOutput) ToSecretTagArrayOutput() SecretTagArrayOutput {
 
 func (o SecretTagArrayOutput) ToSecretTagArrayOutputWithContext(ctx context.Context) SecretTagArrayOutput {
 	return o
-}
-
-func (o SecretTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SecretTag] {
-	return pulumix.Output[[]SecretTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SecretTagArrayOutput) Index(i pulumi.IntInput) SecretTagOutput {

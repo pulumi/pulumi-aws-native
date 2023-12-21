@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::MediaConvert::Preset
@@ -69,12 +68,6 @@ func (o LookupPresetResultOutput) ToLookupPresetResultOutput() LookupPresetResul
 
 func (o LookupPresetResultOutput) ToLookupPresetResultOutputWithContext(ctx context.Context) LookupPresetResultOutput {
 	return o
-}
-
-func (o LookupPresetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPresetResult] {
-	return pulumix.Output[LookupPresetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupPresetResultOutput) Arn() pulumi.StringPtrOutput {

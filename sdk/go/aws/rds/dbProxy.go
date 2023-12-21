@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::RDS::DBProxy
@@ -172,12 +171,6 @@ func (i *DbProxy) ToDbProxyOutputWithContext(ctx context.Context) DbProxyOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(DbProxyOutput)
 }
 
-func (i *DbProxy) ToOutput(ctx context.Context) pulumix.Output[*DbProxy] {
-	return pulumix.Output[*DbProxy]{
-		OutputState: i.ToDbProxyOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DbProxyOutput struct{ *pulumi.OutputState }
 
 func (DbProxyOutput) ElementType() reflect.Type {
@@ -190,12 +183,6 @@ func (o DbProxyOutput) ToDbProxyOutput() DbProxyOutput {
 
 func (o DbProxyOutput) ToDbProxyOutputWithContext(ctx context.Context) DbProxyOutput {
 	return o
-}
-
-func (o DbProxyOutput) ToOutput(ctx context.Context) pulumix.Output[*DbProxy] {
-	return pulumix.Output[*DbProxy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The authorization mechanism that the proxy uses.

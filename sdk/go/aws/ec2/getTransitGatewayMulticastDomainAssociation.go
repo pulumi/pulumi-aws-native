@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::EC2::TransitGatewayMulticastDomainAssociation type
@@ -79,12 +78,6 @@ func (o LookupTransitGatewayMulticastDomainAssociationResultOutput) ToLookupTran
 
 func (o LookupTransitGatewayMulticastDomainAssociationResultOutput) ToLookupTransitGatewayMulticastDomainAssociationResultOutputWithContext(ctx context.Context) LookupTransitGatewayMulticastDomainAssociationResultOutput {
 	return o
-}
-
-func (o LookupTransitGatewayMulticastDomainAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTransitGatewayMulticastDomainAssociationResult] {
-	return pulumix.Output[LookupTransitGatewayMulticastDomainAssociationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the resource.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::ImageBuilder::ImagePipeline
@@ -89,12 +88,6 @@ func (o LookupImagePipelineResultOutput) ToLookupImagePipelineResultOutput() Loo
 
 func (o LookupImagePipelineResultOutput) ToLookupImagePipelineResultOutputWithContext(ctx context.Context) LookupImagePipelineResultOutput {
 	return o
-}
-
-func (o LookupImagePipelineResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupImagePipelineResult] {
-	return pulumix.Output[LookupImagePipelineResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the image pipeline.

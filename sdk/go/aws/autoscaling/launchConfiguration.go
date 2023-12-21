@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::AutoScaling::LaunchConfiguration resource specifies the launch configuration that can be used by an Auto Scaling group to configure Amazon EC2 instances.
@@ -230,12 +229,6 @@ func (i *LaunchConfiguration) ToLaunchConfigurationOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationOutput)
 }
 
-func (i *LaunchConfiguration) ToOutput(ctx context.Context) pulumix.Output[*LaunchConfiguration] {
-	return pulumix.Output[*LaunchConfiguration]{
-		OutputState: i.ToLaunchConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LaunchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LaunchConfigurationOutput) ElementType() reflect.Type {
@@ -248,12 +241,6 @@ func (o LaunchConfigurationOutput) ToLaunchConfigurationOutput() LaunchConfigura
 
 func (o LaunchConfigurationOutput) ToLaunchConfigurationOutputWithContext(ctx context.Context) LaunchConfigurationOutput {
 	return o
-}
-
-func (o LaunchConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*LaunchConfiguration] {
-	return pulumix.Output[*LaunchConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // For Auto Scaling groups that are running in a virtual private cloud (VPC), specifies whether to assign a public IP address to the group's instances.

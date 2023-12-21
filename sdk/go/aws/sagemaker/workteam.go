@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::Workteam
@@ -112,12 +111,6 @@ func (i *Workteam) ToWorkteamOutputWithContext(ctx context.Context) WorkteamOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WorkteamOutput)
 }
 
-func (i *Workteam) ToOutput(ctx context.Context) pulumix.Output[*Workteam] {
-	return pulumix.Output[*Workteam]{
-		OutputState: i.ToWorkteamOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkteamOutput struct{ *pulumi.OutputState }
 
 func (WorkteamOutput) ElementType() reflect.Type {
@@ -130,12 +123,6 @@ func (o WorkteamOutput) ToWorkteamOutput() WorkteamOutput {
 
 func (o WorkteamOutput) ToWorkteamOutputWithContext(ctx context.Context) WorkteamOutput {
 	return o
-}
-
-func (o WorkteamOutput) ToOutput(ctx context.Context) pulumix.Output[*Workteam] {
-	return pulumix.Output[*Workteam]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkteamOutput) Description() pulumi.StringPtrOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An object representing an Amazon EKS IdentityProviderConfig.
@@ -130,12 +129,6 @@ func (i *IdentityProviderConfig) ToIdentityProviderConfigOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigOutput)
 }
 
-func (i *IdentityProviderConfig) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderConfig] {
-	return pulumix.Output[*IdentityProviderConfig]{
-		OutputState: i.ToIdentityProviderConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IdentityProviderConfigOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderConfigOutput) ElementType() reflect.Type {
@@ -148,12 +141,6 @@ func (o IdentityProviderConfigOutput) ToIdentityProviderConfigOutput() IdentityP
 
 func (o IdentityProviderConfigOutput) ToIdentityProviderConfigOutputWithContext(ctx context.Context) IdentityProviderConfigOutput {
 	return o
-}
-
-func (o IdentityProviderConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderConfig] {
-	return pulumix.Output[*IdentityProviderConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the identity provider configuration.

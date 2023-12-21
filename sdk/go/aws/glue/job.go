@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Glue::Job
@@ -160,12 +159,6 @@ func (i *Job) ToJobOutputWithContext(ctx context.Context) JobOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobOutput)
 }
 
-func (i *Job) ToOutput(ctx context.Context) pulumix.Output[*Job] {
-	return pulumix.Output[*Job]{
-		OutputState: i.ToJobOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobOutput struct{ *pulumi.OutputState }
 
 func (JobOutput) ElementType() reflect.Type {
@@ -178,12 +171,6 @@ func (o JobOutput) ToJobOutput() JobOutput {
 
 func (o JobOutput) ToJobOutputWithContext(ctx context.Context) JobOutput {
 	return o
-}
-
-func (o JobOutput) ToOutput(ctx context.Context) pulumix.Output[*Job] {
-	return pulumix.Output[*Job]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobOutput) AllocatedCapacity() pulumi.Float64PtrOutput {

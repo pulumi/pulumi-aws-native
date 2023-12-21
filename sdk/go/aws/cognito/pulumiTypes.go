@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i IdentityPoolCognitoIdentityProviderArgs) ToIdentityPoolCognitoIdentityPr
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolCognitoIdentityProviderOutput)
 }
 
-func (i IdentityPoolCognitoIdentityProviderArgs) ToOutput(ctx context.Context) pulumix.Output[IdentityPoolCognitoIdentityProvider] {
-	return pulumix.Output[IdentityPoolCognitoIdentityProvider]{
-		OutputState: i.ToIdentityPoolCognitoIdentityProviderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IdentityPoolCognitoIdentityProviderArrayInput is an input type that accepts IdentityPoolCognitoIdentityProviderArray and IdentityPoolCognitoIdentityProviderArrayOutput values.
 // You can construct a concrete instance of `IdentityPoolCognitoIdentityProviderArrayInput` via:
 //
@@ -80,12 +73,6 @@ func (i IdentityPoolCognitoIdentityProviderArray) ToIdentityPoolCognitoIdentityP
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolCognitoIdentityProviderArrayOutput)
 }
 
-func (i IdentityPoolCognitoIdentityProviderArray) ToOutput(ctx context.Context) pulumix.Output[[]IdentityPoolCognitoIdentityProvider] {
-	return pulumix.Output[[]IdentityPoolCognitoIdentityProvider]{
-		OutputState: i.ToIdentityPoolCognitoIdentityProviderArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IdentityPoolCognitoIdentityProviderOutput struct{ *pulumi.OutputState }
 
 func (IdentityPoolCognitoIdentityProviderOutput) ElementType() reflect.Type {
@@ -98,12 +85,6 @@ func (o IdentityPoolCognitoIdentityProviderOutput) ToIdentityPoolCognitoIdentity
 
 func (o IdentityPoolCognitoIdentityProviderOutput) ToIdentityPoolCognitoIdentityProviderOutputWithContext(ctx context.Context) IdentityPoolCognitoIdentityProviderOutput {
 	return o
-}
-
-func (o IdentityPoolCognitoIdentityProviderOutput) ToOutput(ctx context.Context) pulumix.Output[IdentityPoolCognitoIdentityProvider] {
-	return pulumix.Output[IdentityPoolCognitoIdentityProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdentityPoolCognitoIdentityProviderOutput) ClientId() pulumi.StringPtrOutput {
@@ -130,12 +111,6 @@ func (o IdentityPoolCognitoIdentityProviderArrayOutput) ToIdentityPoolCognitoIde
 
 func (o IdentityPoolCognitoIdentityProviderArrayOutput) ToIdentityPoolCognitoIdentityProviderArrayOutputWithContext(ctx context.Context) IdentityPoolCognitoIdentityProviderArrayOutput {
 	return o
-}
-
-func (o IdentityPoolCognitoIdentityProviderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IdentityPoolCognitoIdentityProvider] {
-	return pulumix.Output[[]IdentityPoolCognitoIdentityProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdentityPoolCognitoIdentityProviderArrayOutput) Index(i pulumi.IntInput) IdentityPoolCognitoIdentityProviderOutput {
@@ -179,12 +154,6 @@ func (i IdentityPoolCognitoStreamsArgs) ToIdentityPoolCognitoStreamsOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolCognitoStreamsOutput)
 }
 
-func (i IdentityPoolCognitoStreamsArgs) ToOutput(ctx context.Context) pulumix.Output[IdentityPoolCognitoStreams] {
-	return pulumix.Output[IdentityPoolCognitoStreams]{
-		OutputState: i.ToIdentityPoolCognitoStreamsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i IdentityPoolCognitoStreamsArgs) ToIdentityPoolCognitoStreamsPtrOutput() IdentityPoolCognitoStreamsPtrOutput {
 	return i.ToIdentityPoolCognitoStreamsPtrOutputWithContext(context.Background())
 }
@@ -226,12 +195,6 @@ func (i *identityPoolCognitoStreamsPtrType) ToIdentityPoolCognitoStreamsPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolCognitoStreamsPtrOutput)
 }
 
-func (i *identityPoolCognitoStreamsPtrType) ToOutput(ctx context.Context) pulumix.Output[*IdentityPoolCognitoStreams] {
-	return pulumix.Output[*IdentityPoolCognitoStreams]{
-		OutputState: i.ToIdentityPoolCognitoStreamsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IdentityPoolCognitoStreamsOutput struct{ *pulumi.OutputState }
 
 func (IdentityPoolCognitoStreamsOutput) ElementType() reflect.Type {
@@ -254,12 +217,6 @@ func (o IdentityPoolCognitoStreamsOutput) ToIdentityPoolCognitoStreamsPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityPoolCognitoStreams) *IdentityPoolCognitoStreams {
 		return &v
 	}).(IdentityPoolCognitoStreamsPtrOutput)
-}
-
-func (o IdentityPoolCognitoStreamsOutput) ToOutput(ctx context.Context) pulumix.Output[IdentityPoolCognitoStreams] {
-	return pulumix.Output[IdentityPoolCognitoStreams]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdentityPoolCognitoStreamsOutput) RoleArn() pulumi.StringPtrOutput {
@@ -286,12 +243,6 @@ func (o IdentityPoolCognitoStreamsPtrOutput) ToIdentityPoolCognitoStreamsPtrOutp
 
 func (o IdentityPoolCognitoStreamsPtrOutput) ToIdentityPoolCognitoStreamsPtrOutputWithContext(ctx context.Context) IdentityPoolCognitoStreamsPtrOutput {
 	return o
-}
-
-func (o IdentityPoolCognitoStreamsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityPoolCognitoStreams] {
-	return pulumix.Output[*IdentityPoolCognitoStreams]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdentityPoolCognitoStreamsPtrOutput) Elem() IdentityPoolCognitoStreamsOutput {
@@ -364,12 +315,6 @@ func (i IdentityPoolPushSyncArgs) ToIdentityPoolPushSyncOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolPushSyncOutput)
 }
 
-func (i IdentityPoolPushSyncArgs) ToOutput(ctx context.Context) pulumix.Output[IdentityPoolPushSync] {
-	return pulumix.Output[IdentityPoolPushSync]{
-		OutputState: i.ToIdentityPoolPushSyncOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i IdentityPoolPushSyncArgs) ToIdentityPoolPushSyncPtrOutput() IdentityPoolPushSyncPtrOutput {
 	return i.ToIdentityPoolPushSyncPtrOutputWithContext(context.Background())
 }
@@ -411,12 +356,6 @@ func (i *identityPoolPushSyncPtrType) ToIdentityPoolPushSyncPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolPushSyncPtrOutput)
 }
 
-func (i *identityPoolPushSyncPtrType) ToOutput(ctx context.Context) pulumix.Output[*IdentityPoolPushSync] {
-	return pulumix.Output[*IdentityPoolPushSync]{
-		OutputState: i.ToIdentityPoolPushSyncPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IdentityPoolPushSyncOutput struct{ *pulumi.OutputState }
 
 func (IdentityPoolPushSyncOutput) ElementType() reflect.Type {
@@ -441,12 +380,6 @@ func (o IdentityPoolPushSyncOutput) ToIdentityPoolPushSyncPtrOutputWithContext(c
 	}).(IdentityPoolPushSyncPtrOutput)
 }
 
-func (o IdentityPoolPushSyncOutput) ToOutput(ctx context.Context) pulumix.Output[IdentityPoolPushSync] {
-	return pulumix.Output[IdentityPoolPushSync]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IdentityPoolPushSyncOutput) ApplicationArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IdentityPoolPushSync) []string { return v.ApplicationArns }).(pulumi.StringArrayOutput)
 }
@@ -467,12 +400,6 @@ func (o IdentityPoolPushSyncPtrOutput) ToIdentityPoolPushSyncPtrOutput() Identit
 
 func (o IdentityPoolPushSyncPtrOutput) ToIdentityPoolPushSyncPtrOutputWithContext(ctx context.Context) IdentityPoolPushSyncPtrOutput {
 	return o
-}
-
-func (o IdentityPoolPushSyncPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityPoolPushSync] {
-	return pulumix.Output[*IdentityPoolPushSync]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdentityPoolPushSyncPtrOutput) Elem() IdentityPoolPushSyncOutput {
@@ -534,12 +461,6 @@ func (i LogDeliveryConfigurationCloudWatchLogsConfigurationArgs) ToLogDeliveryCo
 	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationCloudWatchLogsConfigurationOutput)
 }
 
-func (i LogDeliveryConfigurationCloudWatchLogsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LogDeliveryConfigurationCloudWatchLogsConfiguration] {
-	return pulumix.Output[LogDeliveryConfigurationCloudWatchLogsConfiguration]{
-		OutputState: i.ToLogDeliveryConfigurationCloudWatchLogsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i LogDeliveryConfigurationCloudWatchLogsConfigurationArgs) ToLogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput() LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput {
 	return i.ToLogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutputWithContext(context.Background())
 }
@@ -581,12 +502,6 @@ func (i *logDeliveryConfigurationCloudWatchLogsConfigurationPtrType) ToLogDelive
 	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput)
 }
 
-func (i *logDeliveryConfigurationCloudWatchLogsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*LogDeliveryConfigurationCloudWatchLogsConfiguration] {
-	return pulumix.Output[*LogDeliveryConfigurationCloudWatchLogsConfiguration]{
-		OutputState: i.ToLogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogDeliveryConfigurationCloudWatchLogsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LogDeliveryConfigurationCloudWatchLogsConfigurationOutput) ElementType() reflect.Type {
@@ -611,12 +526,6 @@ func (o LogDeliveryConfigurationCloudWatchLogsConfigurationOutput) ToLogDelivery
 	}).(LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput)
 }
 
-func (o LogDeliveryConfigurationCloudWatchLogsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LogDeliveryConfigurationCloudWatchLogsConfiguration] {
-	return pulumix.Output[LogDeliveryConfigurationCloudWatchLogsConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LogDeliveryConfigurationCloudWatchLogsConfigurationOutput) LogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LogDeliveryConfigurationCloudWatchLogsConfiguration) *string { return v.LogGroupArn }).(pulumi.StringPtrOutput)
 }
@@ -633,12 +542,6 @@ func (o LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput) ToLogDeliv
 
 func (o LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput) ToLogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutputWithContext(ctx context.Context) LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput {
 	return o
-}
-
-func (o LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LogDeliveryConfigurationCloudWatchLogsConfiguration] {
-	return pulumix.Output[*LogDeliveryConfigurationCloudWatchLogsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput) Elem() LogDeliveryConfigurationCloudWatchLogsConfigurationOutput {
@@ -695,12 +598,6 @@ func (i LogDeliveryConfigurationLogConfigurationArgs) ToLogDeliveryConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationLogConfigurationOutput)
 }
 
-func (i LogDeliveryConfigurationLogConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LogDeliveryConfigurationLogConfiguration] {
-	return pulumix.Output[LogDeliveryConfigurationLogConfiguration]{
-		OutputState: i.ToLogDeliveryConfigurationLogConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LogDeliveryConfigurationLogConfigurationArrayInput is an input type that accepts LogDeliveryConfigurationLogConfigurationArray and LogDeliveryConfigurationLogConfigurationArrayOutput values.
 // You can construct a concrete instance of `LogDeliveryConfigurationLogConfigurationArrayInput` via:
 //
@@ -726,12 +623,6 @@ func (i LogDeliveryConfigurationLogConfigurationArray) ToLogDeliveryConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(LogDeliveryConfigurationLogConfigurationArrayOutput)
 }
 
-func (i LogDeliveryConfigurationLogConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]LogDeliveryConfigurationLogConfiguration] {
-	return pulumix.Output[[]LogDeliveryConfigurationLogConfiguration]{
-		OutputState: i.ToLogDeliveryConfigurationLogConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogDeliveryConfigurationLogConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LogDeliveryConfigurationLogConfigurationOutput) ElementType() reflect.Type {
@@ -744,12 +635,6 @@ func (o LogDeliveryConfigurationLogConfigurationOutput) ToLogDeliveryConfigurati
 
 func (o LogDeliveryConfigurationLogConfigurationOutput) ToLogDeliveryConfigurationLogConfigurationOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationOutput {
 	return o
-}
-
-func (o LogDeliveryConfigurationLogConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LogDeliveryConfigurationLogConfiguration] {
-	return pulumix.Output[LogDeliveryConfigurationLogConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogDeliveryConfigurationLogConfigurationOutput) CloudWatchLogsConfiguration() LogDeliveryConfigurationCloudWatchLogsConfigurationPtrOutput {
@@ -778,12 +663,6 @@ func (o LogDeliveryConfigurationLogConfigurationArrayOutput) ToLogDeliveryConfig
 
 func (o LogDeliveryConfigurationLogConfigurationArrayOutput) ToLogDeliveryConfigurationLogConfigurationArrayOutputWithContext(ctx context.Context) LogDeliveryConfigurationLogConfigurationArrayOutput {
 	return o
-}
-
-func (o LogDeliveryConfigurationLogConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LogDeliveryConfigurationLogConfiguration] {
-	return pulumix.Output[[]LogDeliveryConfigurationLogConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogDeliveryConfigurationLogConfigurationArrayOutput) Index(i pulumi.IntInput) LogDeliveryConfigurationLogConfigurationOutput {
@@ -821,12 +700,6 @@ func (i UserPoolAccountRecoverySettingArgs) ToUserPoolAccountRecoverySettingOutp
 
 func (i UserPoolAccountRecoverySettingArgs) ToUserPoolAccountRecoverySettingOutputWithContext(ctx context.Context) UserPoolAccountRecoverySettingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolAccountRecoverySettingOutput)
-}
-
-func (i UserPoolAccountRecoverySettingArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolAccountRecoverySetting] {
-	return pulumix.Output[UserPoolAccountRecoverySetting]{
-		OutputState: i.ToUserPoolAccountRecoverySettingOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i UserPoolAccountRecoverySettingArgs) ToUserPoolAccountRecoverySettingPtrOutput() UserPoolAccountRecoverySettingPtrOutput {
@@ -870,12 +743,6 @@ func (i *userPoolAccountRecoverySettingPtrType) ToUserPoolAccountRecoverySetting
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolAccountRecoverySettingPtrOutput)
 }
 
-func (i *userPoolAccountRecoverySettingPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolAccountRecoverySetting] {
-	return pulumix.Output[*UserPoolAccountRecoverySetting]{
-		OutputState: i.ToUserPoolAccountRecoverySettingPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolAccountRecoverySettingOutput struct{ *pulumi.OutputState }
 
 func (UserPoolAccountRecoverySettingOutput) ElementType() reflect.Type {
@@ -900,12 +767,6 @@ func (o UserPoolAccountRecoverySettingOutput) ToUserPoolAccountRecoverySettingPt
 	}).(UserPoolAccountRecoverySettingPtrOutput)
 }
 
-func (o UserPoolAccountRecoverySettingOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolAccountRecoverySetting] {
-	return pulumix.Output[UserPoolAccountRecoverySetting]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserPoolAccountRecoverySettingOutput) RecoveryMechanisms() UserPoolRecoveryOptionArrayOutput {
 	return o.ApplyT(func(v UserPoolAccountRecoverySetting) []UserPoolRecoveryOption { return v.RecoveryMechanisms }).(UserPoolRecoveryOptionArrayOutput)
 }
@@ -922,12 +783,6 @@ func (o UserPoolAccountRecoverySettingPtrOutput) ToUserPoolAccountRecoverySettin
 
 func (o UserPoolAccountRecoverySettingPtrOutput) ToUserPoolAccountRecoverySettingPtrOutputWithContext(ctx context.Context) UserPoolAccountRecoverySettingPtrOutput {
 	return o
-}
-
-func (o UserPoolAccountRecoverySettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolAccountRecoverySetting] {
-	return pulumix.Output[*UserPoolAccountRecoverySetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolAccountRecoverySettingPtrOutput) Elem() UserPoolAccountRecoverySettingOutput {
@@ -980,12 +835,6 @@ func (i UserPoolAddOnsArgs) ToUserPoolAddOnsOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolAddOnsOutput)
 }
 
-func (i UserPoolAddOnsArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolAddOns] {
-	return pulumix.Output[UserPoolAddOns]{
-		OutputState: i.ToUserPoolAddOnsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolAddOnsArgs) ToUserPoolAddOnsPtrOutput() UserPoolAddOnsPtrOutput {
 	return i.ToUserPoolAddOnsPtrOutputWithContext(context.Background())
 }
@@ -1027,12 +876,6 @@ func (i *userPoolAddOnsPtrType) ToUserPoolAddOnsPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolAddOnsPtrOutput)
 }
 
-func (i *userPoolAddOnsPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolAddOns] {
-	return pulumix.Output[*UserPoolAddOns]{
-		OutputState: i.ToUserPoolAddOnsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolAddOnsOutput struct{ *pulumi.OutputState }
 
 func (UserPoolAddOnsOutput) ElementType() reflect.Type {
@@ -1057,12 +900,6 @@ func (o UserPoolAddOnsOutput) ToUserPoolAddOnsPtrOutputWithContext(ctx context.C
 	}).(UserPoolAddOnsPtrOutput)
 }
 
-func (o UserPoolAddOnsOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolAddOns] {
-	return pulumix.Output[UserPoolAddOns]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserPoolAddOnsOutput) AdvancedSecurityMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolAddOns) *string { return v.AdvancedSecurityMode }).(pulumi.StringPtrOutput)
 }
@@ -1079,12 +916,6 @@ func (o UserPoolAddOnsPtrOutput) ToUserPoolAddOnsPtrOutput() UserPoolAddOnsPtrOu
 
 func (o UserPoolAddOnsPtrOutput) ToUserPoolAddOnsPtrOutputWithContext(ctx context.Context) UserPoolAddOnsPtrOutput {
 	return o
-}
-
-func (o UserPoolAddOnsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolAddOns] {
-	return pulumix.Output[*UserPoolAddOns]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolAddOnsPtrOutput) Elem() UserPoolAddOnsOutput {
@@ -1141,12 +972,6 @@ func (i UserPoolAdminCreateUserConfigArgs) ToUserPoolAdminCreateUserConfigOutput
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolAdminCreateUserConfigOutput)
 }
 
-func (i UserPoolAdminCreateUserConfigArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolAdminCreateUserConfig] {
-	return pulumix.Output[UserPoolAdminCreateUserConfig]{
-		OutputState: i.ToUserPoolAdminCreateUserConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolAdminCreateUserConfigArgs) ToUserPoolAdminCreateUserConfigPtrOutput() UserPoolAdminCreateUserConfigPtrOutput {
 	return i.ToUserPoolAdminCreateUserConfigPtrOutputWithContext(context.Background())
 }
@@ -1188,12 +1013,6 @@ func (i *userPoolAdminCreateUserConfigPtrType) ToUserPoolAdminCreateUserConfigPt
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolAdminCreateUserConfigPtrOutput)
 }
 
-func (i *userPoolAdminCreateUserConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolAdminCreateUserConfig] {
-	return pulumix.Output[*UserPoolAdminCreateUserConfig]{
-		OutputState: i.ToUserPoolAdminCreateUserConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolAdminCreateUserConfigOutput struct{ *pulumi.OutputState }
 
 func (UserPoolAdminCreateUserConfigOutput) ElementType() reflect.Type {
@@ -1216,12 +1035,6 @@ func (o UserPoolAdminCreateUserConfigOutput) ToUserPoolAdminCreateUserConfigPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolAdminCreateUserConfig) *UserPoolAdminCreateUserConfig {
 		return &v
 	}).(UserPoolAdminCreateUserConfigPtrOutput)
-}
-
-func (o UserPoolAdminCreateUserConfigOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolAdminCreateUserConfig] {
-	return pulumix.Output[UserPoolAdminCreateUserConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolAdminCreateUserConfigOutput) AllowAdminCreateUserOnly() pulumi.BoolPtrOutput {
@@ -1248,12 +1061,6 @@ func (o UserPoolAdminCreateUserConfigPtrOutput) ToUserPoolAdminCreateUserConfigP
 
 func (o UserPoolAdminCreateUserConfigPtrOutput) ToUserPoolAdminCreateUserConfigPtrOutputWithContext(ctx context.Context) UserPoolAdminCreateUserConfigPtrOutput {
 	return o
-}
-
-func (o UserPoolAdminCreateUserConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolAdminCreateUserConfig] {
-	return pulumix.Output[*UserPoolAdminCreateUserConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolAdminCreateUserConfigPtrOutput) Elem() UserPoolAdminCreateUserConfigOutput {
@@ -1332,12 +1139,6 @@ func (i UserPoolClientAnalyticsConfigurationArgs) ToUserPoolClientAnalyticsConfi
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientAnalyticsConfigurationOutput)
 }
 
-func (i UserPoolClientAnalyticsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolClientAnalyticsConfiguration] {
-	return pulumix.Output[UserPoolClientAnalyticsConfiguration]{
-		OutputState: i.ToUserPoolClientAnalyticsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolClientAnalyticsConfigurationArgs) ToUserPoolClientAnalyticsConfigurationPtrOutput() UserPoolClientAnalyticsConfigurationPtrOutput {
 	return i.ToUserPoolClientAnalyticsConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1379,12 +1180,6 @@ func (i *userPoolClientAnalyticsConfigurationPtrType) ToUserPoolClientAnalyticsC
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientAnalyticsConfigurationPtrOutput)
 }
 
-func (i *userPoolClientAnalyticsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolClientAnalyticsConfiguration] {
-	return pulumix.Output[*UserPoolClientAnalyticsConfiguration]{
-		OutputState: i.ToUserPoolClientAnalyticsConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolClientAnalyticsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (UserPoolClientAnalyticsConfigurationOutput) ElementType() reflect.Type {
@@ -1407,12 +1202,6 @@ func (o UserPoolClientAnalyticsConfigurationOutput) ToUserPoolClientAnalyticsCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolClientAnalyticsConfiguration) *UserPoolClientAnalyticsConfiguration {
 		return &v
 	}).(UserPoolClientAnalyticsConfigurationPtrOutput)
-}
-
-func (o UserPoolClientAnalyticsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolClientAnalyticsConfiguration] {
-	return pulumix.Output[UserPoolClientAnalyticsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolClientAnalyticsConfigurationOutput) ApplicationArn() pulumi.StringPtrOutput {
@@ -1447,12 +1236,6 @@ func (o UserPoolClientAnalyticsConfigurationPtrOutput) ToUserPoolClientAnalytics
 
 func (o UserPoolClientAnalyticsConfigurationPtrOutput) ToUserPoolClientAnalyticsConfigurationPtrOutputWithContext(ctx context.Context) UserPoolClientAnalyticsConfigurationPtrOutput {
 	return o
-}
-
-func (o UserPoolClientAnalyticsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolClientAnalyticsConfiguration] {
-	return pulumix.Output[*UserPoolClientAnalyticsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolClientAnalyticsConfigurationPtrOutput) Elem() UserPoolClientAnalyticsConfigurationOutput {
@@ -1545,12 +1328,6 @@ func (i UserPoolClientTokenValidityUnitsArgs) ToUserPoolClientTokenValidityUnits
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientTokenValidityUnitsOutput)
 }
 
-func (i UserPoolClientTokenValidityUnitsArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolClientTokenValidityUnits] {
-	return pulumix.Output[UserPoolClientTokenValidityUnits]{
-		OutputState: i.ToUserPoolClientTokenValidityUnitsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolClientTokenValidityUnitsArgs) ToUserPoolClientTokenValidityUnitsPtrOutput() UserPoolClientTokenValidityUnitsPtrOutput {
 	return i.ToUserPoolClientTokenValidityUnitsPtrOutputWithContext(context.Background())
 }
@@ -1592,12 +1369,6 @@ func (i *userPoolClientTokenValidityUnitsPtrType) ToUserPoolClientTokenValidityU
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientTokenValidityUnitsPtrOutput)
 }
 
-func (i *userPoolClientTokenValidityUnitsPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolClientTokenValidityUnits] {
-	return pulumix.Output[*UserPoolClientTokenValidityUnits]{
-		OutputState: i.ToUserPoolClientTokenValidityUnitsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolClientTokenValidityUnitsOutput struct{ *pulumi.OutputState }
 
 func (UserPoolClientTokenValidityUnitsOutput) ElementType() reflect.Type {
@@ -1620,12 +1391,6 @@ func (o UserPoolClientTokenValidityUnitsOutput) ToUserPoolClientTokenValidityUni
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolClientTokenValidityUnits) *UserPoolClientTokenValidityUnits {
 		return &v
 	}).(UserPoolClientTokenValidityUnitsPtrOutput)
-}
-
-func (o UserPoolClientTokenValidityUnitsOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolClientTokenValidityUnits] {
-	return pulumix.Output[UserPoolClientTokenValidityUnits]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolClientTokenValidityUnitsOutput) AccessToken() pulumi.StringPtrOutput {
@@ -1652,12 +1417,6 @@ func (o UserPoolClientTokenValidityUnitsPtrOutput) ToUserPoolClientTokenValidity
 
 func (o UserPoolClientTokenValidityUnitsPtrOutput) ToUserPoolClientTokenValidityUnitsPtrOutputWithContext(ctx context.Context) UserPoolClientTokenValidityUnitsPtrOutput {
 	return o
-}
-
-func (o UserPoolClientTokenValidityUnitsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolClientTokenValidityUnits] {
-	return pulumix.Output[*UserPoolClientTokenValidityUnits]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolClientTokenValidityUnitsPtrOutput) Elem() UserPoolClientTokenValidityUnitsOutput {
@@ -1730,12 +1489,6 @@ func (i UserPoolCustomEmailSenderArgs) ToUserPoolCustomEmailSenderOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolCustomEmailSenderOutput)
 }
 
-func (i UserPoolCustomEmailSenderArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolCustomEmailSender] {
-	return pulumix.Output[UserPoolCustomEmailSender]{
-		OutputState: i.ToUserPoolCustomEmailSenderOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolCustomEmailSenderArgs) ToUserPoolCustomEmailSenderPtrOutput() UserPoolCustomEmailSenderPtrOutput {
 	return i.ToUserPoolCustomEmailSenderPtrOutputWithContext(context.Background())
 }
@@ -1777,12 +1530,6 @@ func (i *userPoolCustomEmailSenderPtrType) ToUserPoolCustomEmailSenderPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolCustomEmailSenderPtrOutput)
 }
 
-func (i *userPoolCustomEmailSenderPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolCustomEmailSender] {
-	return pulumix.Output[*UserPoolCustomEmailSender]{
-		OutputState: i.ToUserPoolCustomEmailSenderPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolCustomEmailSenderOutput struct{ *pulumi.OutputState }
 
 func (UserPoolCustomEmailSenderOutput) ElementType() reflect.Type {
@@ -1807,12 +1554,6 @@ func (o UserPoolCustomEmailSenderOutput) ToUserPoolCustomEmailSenderPtrOutputWit
 	}).(UserPoolCustomEmailSenderPtrOutput)
 }
 
-func (o UserPoolCustomEmailSenderOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolCustomEmailSender] {
-	return pulumix.Output[UserPoolCustomEmailSender]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserPoolCustomEmailSenderOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolCustomEmailSender) *string { return v.LambdaArn }).(pulumi.StringPtrOutput)
 }
@@ -1833,12 +1574,6 @@ func (o UserPoolCustomEmailSenderPtrOutput) ToUserPoolCustomEmailSenderPtrOutput
 
 func (o UserPoolCustomEmailSenderPtrOutput) ToUserPoolCustomEmailSenderPtrOutputWithContext(ctx context.Context) UserPoolCustomEmailSenderPtrOutput {
 	return o
-}
-
-func (o UserPoolCustomEmailSenderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolCustomEmailSender] {
-	return pulumix.Output[*UserPoolCustomEmailSender]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolCustomEmailSenderPtrOutput) Elem() UserPoolCustomEmailSenderOutput {
@@ -1902,12 +1637,6 @@ func (i UserPoolCustomSmsSenderArgs) ToUserPoolCustomSmsSenderOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolCustomSmsSenderOutput)
 }
 
-func (i UserPoolCustomSmsSenderArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolCustomSmsSender] {
-	return pulumix.Output[UserPoolCustomSmsSender]{
-		OutputState: i.ToUserPoolCustomSmsSenderOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolCustomSmsSenderArgs) ToUserPoolCustomSmsSenderPtrOutput() UserPoolCustomSmsSenderPtrOutput {
 	return i.ToUserPoolCustomSmsSenderPtrOutputWithContext(context.Background())
 }
@@ -1949,12 +1678,6 @@ func (i *userPoolCustomSmsSenderPtrType) ToUserPoolCustomSmsSenderPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolCustomSmsSenderPtrOutput)
 }
 
-func (i *userPoolCustomSmsSenderPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolCustomSmsSender] {
-	return pulumix.Output[*UserPoolCustomSmsSender]{
-		OutputState: i.ToUserPoolCustomSmsSenderPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolCustomSmsSenderOutput struct{ *pulumi.OutputState }
 
 func (UserPoolCustomSmsSenderOutput) ElementType() reflect.Type {
@@ -1979,12 +1702,6 @@ func (o UserPoolCustomSmsSenderOutput) ToUserPoolCustomSmsSenderPtrOutputWithCon
 	}).(UserPoolCustomSmsSenderPtrOutput)
 }
 
-func (o UserPoolCustomSmsSenderOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolCustomSmsSender] {
-	return pulumix.Output[UserPoolCustomSmsSender]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserPoolCustomSmsSenderOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolCustomSmsSender) *string { return v.LambdaArn }).(pulumi.StringPtrOutput)
 }
@@ -2005,12 +1722,6 @@ func (o UserPoolCustomSmsSenderPtrOutput) ToUserPoolCustomSmsSenderPtrOutput() U
 
 func (o UserPoolCustomSmsSenderPtrOutput) ToUserPoolCustomSmsSenderPtrOutputWithContext(ctx context.Context) UserPoolCustomSmsSenderPtrOutput {
 	return o
-}
-
-func (o UserPoolCustomSmsSenderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolCustomSmsSender] {
-	return pulumix.Output[*UserPoolCustomSmsSender]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolCustomSmsSenderPtrOutput) Elem() UserPoolCustomSmsSenderOutput {
@@ -2074,12 +1785,6 @@ func (i UserPoolDeviceConfigurationArgs) ToUserPoolDeviceConfigurationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDeviceConfigurationOutput)
 }
 
-func (i UserPoolDeviceConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolDeviceConfiguration] {
-	return pulumix.Output[UserPoolDeviceConfiguration]{
-		OutputState: i.ToUserPoolDeviceConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolDeviceConfigurationArgs) ToUserPoolDeviceConfigurationPtrOutput() UserPoolDeviceConfigurationPtrOutput {
 	return i.ToUserPoolDeviceConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2121,12 +1826,6 @@ func (i *userPoolDeviceConfigurationPtrType) ToUserPoolDeviceConfigurationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDeviceConfigurationPtrOutput)
 }
 
-func (i *userPoolDeviceConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolDeviceConfiguration] {
-	return pulumix.Output[*UserPoolDeviceConfiguration]{
-		OutputState: i.ToUserPoolDeviceConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolDeviceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (UserPoolDeviceConfigurationOutput) ElementType() reflect.Type {
@@ -2151,12 +1850,6 @@ func (o UserPoolDeviceConfigurationOutput) ToUserPoolDeviceConfigurationPtrOutpu
 	}).(UserPoolDeviceConfigurationPtrOutput)
 }
 
-func (o UserPoolDeviceConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolDeviceConfiguration] {
-	return pulumix.Output[UserPoolDeviceConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserPoolDeviceConfigurationOutput) ChallengeRequiredOnNewDevice() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolDeviceConfiguration) *bool { return v.ChallengeRequiredOnNewDevice }).(pulumi.BoolPtrOutput)
 }
@@ -2177,12 +1870,6 @@ func (o UserPoolDeviceConfigurationPtrOutput) ToUserPoolDeviceConfigurationPtrOu
 
 func (o UserPoolDeviceConfigurationPtrOutput) ToUserPoolDeviceConfigurationPtrOutputWithContext(ctx context.Context) UserPoolDeviceConfigurationPtrOutput {
 	return o
-}
-
-func (o UserPoolDeviceConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolDeviceConfiguration] {
-	return pulumix.Output[*UserPoolDeviceConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolDeviceConfigurationPtrOutput) Elem() UserPoolDeviceConfigurationOutput {
@@ -2244,12 +1931,6 @@ func (i UserPoolDomainCustomDomainConfigTypeArgs) ToUserPoolDomainCustomDomainCo
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDomainCustomDomainConfigTypeOutput)
 }
 
-func (i UserPoolDomainCustomDomainConfigTypeArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolDomainCustomDomainConfigType] {
-	return pulumix.Output[UserPoolDomainCustomDomainConfigType]{
-		OutputState: i.ToUserPoolDomainCustomDomainConfigTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolDomainCustomDomainConfigTypeArgs) ToUserPoolDomainCustomDomainConfigTypePtrOutput() UserPoolDomainCustomDomainConfigTypePtrOutput {
 	return i.ToUserPoolDomainCustomDomainConfigTypePtrOutputWithContext(context.Background())
 }
@@ -2291,12 +1972,6 @@ func (i *userPoolDomainCustomDomainConfigTypePtrType) ToUserPoolDomainCustomDoma
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDomainCustomDomainConfigTypePtrOutput)
 }
 
-func (i *userPoolDomainCustomDomainConfigTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolDomainCustomDomainConfigType] {
-	return pulumix.Output[*UserPoolDomainCustomDomainConfigType]{
-		OutputState: i.ToUserPoolDomainCustomDomainConfigTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolDomainCustomDomainConfigTypeOutput struct{ *pulumi.OutputState }
 
 func (UserPoolDomainCustomDomainConfigTypeOutput) ElementType() reflect.Type {
@@ -2321,12 +1996,6 @@ func (o UserPoolDomainCustomDomainConfigTypeOutput) ToUserPoolDomainCustomDomain
 	}).(UserPoolDomainCustomDomainConfigTypePtrOutput)
 }
 
-func (o UserPoolDomainCustomDomainConfigTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolDomainCustomDomainConfigType] {
-	return pulumix.Output[UserPoolDomainCustomDomainConfigType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserPoolDomainCustomDomainConfigTypeOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolDomainCustomDomainConfigType) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
@@ -2343,12 +2012,6 @@ func (o UserPoolDomainCustomDomainConfigTypePtrOutput) ToUserPoolDomainCustomDom
 
 func (o UserPoolDomainCustomDomainConfigTypePtrOutput) ToUserPoolDomainCustomDomainConfigTypePtrOutputWithContext(ctx context.Context) UserPoolDomainCustomDomainConfigTypePtrOutput {
 	return o
-}
-
-func (o UserPoolDomainCustomDomainConfigTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolDomainCustomDomainConfigType] {
-	return pulumix.Output[*UserPoolDomainCustomDomainConfigType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolDomainCustomDomainConfigTypePtrOutput) Elem() UserPoolDomainCustomDomainConfigTypeOutput {
@@ -2409,12 +2072,6 @@ func (i UserPoolEmailConfigurationArgs) ToUserPoolEmailConfigurationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolEmailConfigurationOutput)
 }
 
-func (i UserPoolEmailConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolEmailConfiguration] {
-	return pulumix.Output[UserPoolEmailConfiguration]{
-		OutputState: i.ToUserPoolEmailConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolEmailConfigurationArgs) ToUserPoolEmailConfigurationPtrOutput() UserPoolEmailConfigurationPtrOutput {
 	return i.ToUserPoolEmailConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2456,12 +2113,6 @@ func (i *userPoolEmailConfigurationPtrType) ToUserPoolEmailConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolEmailConfigurationPtrOutput)
 }
 
-func (i *userPoolEmailConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolEmailConfiguration] {
-	return pulumix.Output[*UserPoolEmailConfiguration]{
-		OutputState: i.ToUserPoolEmailConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolEmailConfigurationOutput struct{ *pulumi.OutputState }
 
 func (UserPoolEmailConfigurationOutput) ElementType() reflect.Type {
@@ -2484,12 +2135,6 @@ func (o UserPoolEmailConfigurationOutput) ToUserPoolEmailConfigurationPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolEmailConfiguration) *UserPoolEmailConfiguration {
 		return &v
 	}).(UserPoolEmailConfigurationPtrOutput)
-}
-
-func (o UserPoolEmailConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolEmailConfiguration] {
-	return pulumix.Output[UserPoolEmailConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolEmailConfigurationOutput) ConfigurationSet() pulumi.StringPtrOutput {
@@ -2524,12 +2169,6 @@ func (o UserPoolEmailConfigurationPtrOutput) ToUserPoolEmailConfigurationPtrOutp
 
 func (o UserPoolEmailConfigurationPtrOutput) ToUserPoolEmailConfigurationPtrOutputWithContext(ctx context.Context) UserPoolEmailConfigurationPtrOutput {
 	return o
-}
-
-func (o UserPoolEmailConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolEmailConfiguration] {
-	return pulumix.Output[*UserPoolEmailConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolEmailConfigurationPtrOutput) Elem() UserPoolEmailConfigurationOutput {
@@ -2622,12 +2261,6 @@ func (i UserPoolInviteMessageTemplateArgs) ToUserPoolInviteMessageTemplateOutput
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolInviteMessageTemplateOutput)
 }
 
-func (i UserPoolInviteMessageTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolInviteMessageTemplate] {
-	return pulumix.Output[UserPoolInviteMessageTemplate]{
-		OutputState: i.ToUserPoolInviteMessageTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolInviteMessageTemplateArgs) ToUserPoolInviteMessageTemplatePtrOutput() UserPoolInviteMessageTemplatePtrOutput {
 	return i.ToUserPoolInviteMessageTemplatePtrOutputWithContext(context.Background())
 }
@@ -2669,12 +2302,6 @@ func (i *userPoolInviteMessageTemplatePtrType) ToUserPoolInviteMessageTemplatePt
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolInviteMessageTemplatePtrOutput)
 }
 
-func (i *userPoolInviteMessageTemplatePtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolInviteMessageTemplate] {
-	return pulumix.Output[*UserPoolInviteMessageTemplate]{
-		OutputState: i.ToUserPoolInviteMessageTemplatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolInviteMessageTemplateOutput struct{ *pulumi.OutputState }
 
 func (UserPoolInviteMessageTemplateOutput) ElementType() reflect.Type {
@@ -2697,12 +2324,6 @@ func (o UserPoolInviteMessageTemplateOutput) ToUserPoolInviteMessageTemplatePtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolInviteMessageTemplate) *UserPoolInviteMessageTemplate {
 		return &v
 	}).(UserPoolInviteMessageTemplatePtrOutput)
-}
-
-func (o UserPoolInviteMessageTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolInviteMessageTemplate] {
-	return pulumix.Output[UserPoolInviteMessageTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolInviteMessageTemplateOutput) EmailMessage() pulumi.StringPtrOutput {
@@ -2729,12 +2350,6 @@ func (o UserPoolInviteMessageTemplatePtrOutput) ToUserPoolInviteMessageTemplateP
 
 func (o UserPoolInviteMessageTemplatePtrOutput) ToUserPoolInviteMessageTemplatePtrOutputWithContext(ctx context.Context) UserPoolInviteMessageTemplatePtrOutput {
 	return o
-}
-
-func (o UserPoolInviteMessageTemplatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolInviteMessageTemplate] {
-	return pulumix.Output[*UserPoolInviteMessageTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolInviteMessageTemplatePtrOutput) Elem() UserPoolInviteMessageTemplateOutput {
@@ -2829,12 +2444,6 @@ func (i UserPoolLambdaConfigArgs) ToUserPoolLambdaConfigOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolLambdaConfigOutput)
 }
 
-func (i UserPoolLambdaConfigArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolLambdaConfig] {
-	return pulumix.Output[UserPoolLambdaConfig]{
-		OutputState: i.ToUserPoolLambdaConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolLambdaConfigArgs) ToUserPoolLambdaConfigPtrOutput() UserPoolLambdaConfigPtrOutput {
 	return i.ToUserPoolLambdaConfigPtrOutputWithContext(context.Background())
 }
@@ -2876,12 +2485,6 @@ func (i *userPoolLambdaConfigPtrType) ToUserPoolLambdaConfigPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolLambdaConfigPtrOutput)
 }
 
-func (i *userPoolLambdaConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolLambdaConfig] {
-	return pulumix.Output[*UserPoolLambdaConfig]{
-		OutputState: i.ToUserPoolLambdaConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolLambdaConfigOutput struct{ *pulumi.OutputState }
 
 func (UserPoolLambdaConfigOutput) ElementType() reflect.Type {
@@ -2904,12 +2507,6 @@ func (o UserPoolLambdaConfigOutput) ToUserPoolLambdaConfigPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolLambdaConfig) *UserPoolLambdaConfig {
 		return &v
 	}).(UserPoolLambdaConfigPtrOutput)
-}
-
-func (o UserPoolLambdaConfigOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolLambdaConfig] {
-	return pulumix.Output[UserPoolLambdaConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolLambdaConfigOutput) CreateAuthChallenge() pulumi.StringPtrOutput {
@@ -2976,12 +2573,6 @@ func (o UserPoolLambdaConfigPtrOutput) ToUserPoolLambdaConfigPtrOutput() UserPoo
 
 func (o UserPoolLambdaConfigPtrOutput) ToUserPoolLambdaConfigPtrOutputWithContext(ctx context.Context) UserPoolLambdaConfigPtrOutput {
 	return o
-}
-
-func (o UserPoolLambdaConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolLambdaConfig] {
-	return pulumix.Output[*UserPoolLambdaConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolLambdaConfigPtrOutput) Elem() UserPoolLambdaConfigOutput {
@@ -3144,12 +2735,6 @@ func (i UserPoolNumberAttributeConstraintsArgs) ToUserPoolNumberAttributeConstra
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolNumberAttributeConstraintsOutput)
 }
 
-func (i UserPoolNumberAttributeConstraintsArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolNumberAttributeConstraints] {
-	return pulumix.Output[UserPoolNumberAttributeConstraints]{
-		OutputState: i.ToUserPoolNumberAttributeConstraintsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolNumberAttributeConstraintsArgs) ToUserPoolNumberAttributeConstraintsPtrOutput() UserPoolNumberAttributeConstraintsPtrOutput {
 	return i.ToUserPoolNumberAttributeConstraintsPtrOutputWithContext(context.Background())
 }
@@ -3191,12 +2776,6 @@ func (i *userPoolNumberAttributeConstraintsPtrType) ToUserPoolNumberAttributeCon
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolNumberAttributeConstraintsPtrOutput)
 }
 
-func (i *userPoolNumberAttributeConstraintsPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolNumberAttributeConstraints] {
-	return pulumix.Output[*UserPoolNumberAttributeConstraints]{
-		OutputState: i.ToUserPoolNumberAttributeConstraintsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolNumberAttributeConstraintsOutput struct{ *pulumi.OutputState }
 
 func (UserPoolNumberAttributeConstraintsOutput) ElementType() reflect.Type {
@@ -3221,12 +2800,6 @@ func (o UserPoolNumberAttributeConstraintsOutput) ToUserPoolNumberAttributeConst
 	}).(UserPoolNumberAttributeConstraintsPtrOutput)
 }
 
-func (o UserPoolNumberAttributeConstraintsOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolNumberAttributeConstraints] {
-	return pulumix.Output[UserPoolNumberAttributeConstraints]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserPoolNumberAttributeConstraintsOutput) MaxValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolNumberAttributeConstraints) *string { return v.MaxValue }).(pulumi.StringPtrOutput)
 }
@@ -3247,12 +2820,6 @@ func (o UserPoolNumberAttributeConstraintsPtrOutput) ToUserPoolNumberAttributeCo
 
 func (o UserPoolNumberAttributeConstraintsPtrOutput) ToUserPoolNumberAttributeConstraintsPtrOutputWithContext(ctx context.Context) UserPoolNumberAttributeConstraintsPtrOutput {
 	return o
-}
-
-func (o UserPoolNumberAttributeConstraintsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolNumberAttributeConstraints] {
-	return pulumix.Output[*UserPoolNumberAttributeConstraints]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolNumberAttributeConstraintsPtrOutput) Elem() UserPoolNumberAttributeConstraintsOutput {
@@ -3324,12 +2891,6 @@ func (i UserPoolPasswordPolicyArgs) ToUserPoolPasswordPolicyOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolPasswordPolicyOutput)
 }
 
-func (i UserPoolPasswordPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolPasswordPolicy] {
-	return pulumix.Output[UserPoolPasswordPolicy]{
-		OutputState: i.ToUserPoolPasswordPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolPasswordPolicyArgs) ToUserPoolPasswordPolicyPtrOutput() UserPoolPasswordPolicyPtrOutput {
 	return i.ToUserPoolPasswordPolicyPtrOutputWithContext(context.Background())
 }
@@ -3371,12 +2932,6 @@ func (i *userPoolPasswordPolicyPtrType) ToUserPoolPasswordPolicyPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolPasswordPolicyPtrOutput)
 }
 
-func (i *userPoolPasswordPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolPasswordPolicy] {
-	return pulumix.Output[*UserPoolPasswordPolicy]{
-		OutputState: i.ToUserPoolPasswordPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolPasswordPolicyOutput struct{ *pulumi.OutputState }
 
 func (UserPoolPasswordPolicyOutput) ElementType() reflect.Type {
@@ -3399,12 +2954,6 @@ func (o UserPoolPasswordPolicyOutput) ToUserPoolPasswordPolicyPtrOutputWithConte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolPasswordPolicy) *UserPoolPasswordPolicy {
 		return &v
 	}).(UserPoolPasswordPolicyPtrOutput)
-}
-
-func (o UserPoolPasswordPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolPasswordPolicy] {
-	return pulumix.Output[UserPoolPasswordPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolPasswordPolicyOutput) MinimumLength() pulumi.IntPtrOutput {
@@ -3443,12 +2992,6 @@ func (o UserPoolPasswordPolicyPtrOutput) ToUserPoolPasswordPolicyPtrOutput() Use
 
 func (o UserPoolPasswordPolicyPtrOutput) ToUserPoolPasswordPolicyPtrOutputWithContext(ctx context.Context) UserPoolPasswordPolicyPtrOutput {
 	return o
-}
-
-func (o UserPoolPasswordPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolPasswordPolicy] {
-	return pulumix.Output[*UserPoolPasswordPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolPasswordPolicyPtrOutput) Elem() UserPoolPasswordPolicyOutput {
@@ -3546,12 +3089,6 @@ func (i UserPoolPoliciesArgs) ToUserPoolPoliciesOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolPoliciesOutput)
 }
 
-func (i UserPoolPoliciesArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolPolicies] {
-	return pulumix.Output[UserPoolPolicies]{
-		OutputState: i.ToUserPoolPoliciesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolPoliciesArgs) ToUserPoolPoliciesPtrOutput() UserPoolPoliciesPtrOutput {
 	return i.ToUserPoolPoliciesPtrOutputWithContext(context.Background())
 }
@@ -3593,12 +3130,6 @@ func (i *userPoolPoliciesPtrType) ToUserPoolPoliciesPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolPoliciesPtrOutput)
 }
 
-func (i *userPoolPoliciesPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolPolicies] {
-	return pulumix.Output[*UserPoolPolicies]{
-		OutputState: i.ToUserPoolPoliciesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolPoliciesOutput struct{ *pulumi.OutputState }
 
 func (UserPoolPoliciesOutput) ElementType() reflect.Type {
@@ -3623,12 +3154,6 @@ func (o UserPoolPoliciesOutput) ToUserPoolPoliciesPtrOutputWithContext(ctx conte
 	}).(UserPoolPoliciesPtrOutput)
 }
 
-func (o UserPoolPoliciesOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolPolicies] {
-	return pulumix.Output[UserPoolPolicies]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserPoolPoliciesOutput) PasswordPolicy() UserPoolPasswordPolicyPtrOutput {
 	return o.ApplyT(func(v UserPoolPolicies) *UserPoolPasswordPolicy { return v.PasswordPolicy }).(UserPoolPasswordPolicyPtrOutput)
 }
@@ -3645,12 +3170,6 @@ func (o UserPoolPoliciesPtrOutput) ToUserPoolPoliciesPtrOutput() UserPoolPolicie
 
 func (o UserPoolPoliciesPtrOutput) ToUserPoolPoliciesPtrOutputWithContext(ctx context.Context) UserPoolPoliciesPtrOutput {
 	return o
-}
-
-func (o UserPoolPoliciesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolPolicies] {
-	return pulumix.Output[*UserPoolPolicies]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolPoliciesPtrOutput) Elem() UserPoolPoliciesOutput {
@@ -3705,12 +3224,6 @@ func (i UserPoolRecoveryOptionArgs) ToUserPoolRecoveryOptionOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRecoveryOptionOutput)
 }
 
-func (i UserPoolRecoveryOptionArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolRecoveryOption] {
-	return pulumix.Output[UserPoolRecoveryOption]{
-		OutputState: i.ToUserPoolRecoveryOptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserPoolRecoveryOptionArrayInput is an input type that accepts UserPoolRecoveryOptionArray and UserPoolRecoveryOptionArrayOutput values.
 // You can construct a concrete instance of `UserPoolRecoveryOptionArrayInput` via:
 //
@@ -3736,12 +3249,6 @@ func (i UserPoolRecoveryOptionArray) ToUserPoolRecoveryOptionArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRecoveryOptionArrayOutput)
 }
 
-func (i UserPoolRecoveryOptionArray) ToOutput(ctx context.Context) pulumix.Output[[]UserPoolRecoveryOption] {
-	return pulumix.Output[[]UserPoolRecoveryOption]{
-		OutputState: i.ToUserPoolRecoveryOptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolRecoveryOptionOutput struct{ *pulumi.OutputState }
 
 func (UserPoolRecoveryOptionOutput) ElementType() reflect.Type {
@@ -3754,12 +3261,6 @@ func (o UserPoolRecoveryOptionOutput) ToUserPoolRecoveryOptionOutput() UserPoolR
 
 func (o UserPoolRecoveryOptionOutput) ToUserPoolRecoveryOptionOutputWithContext(ctx context.Context) UserPoolRecoveryOptionOutput {
 	return o
-}
-
-func (o UserPoolRecoveryOptionOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolRecoveryOption] {
-	return pulumix.Output[UserPoolRecoveryOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolRecoveryOptionOutput) Name() pulumi.StringPtrOutput {
@@ -3782,12 +3283,6 @@ func (o UserPoolRecoveryOptionArrayOutput) ToUserPoolRecoveryOptionArrayOutput()
 
 func (o UserPoolRecoveryOptionArrayOutput) ToUserPoolRecoveryOptionArrayOutputWithContext(ctx context.Context) UserPoolRecoveryOptionArrayOutput {
 	return o
-}
-
-func (o UserPoolRecoveryOptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UserPoolRecoveryOption] {
-	return pulumix.Output[[]UserPoolRecoveryOption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolRecoveryOptionArrayOutput) Index(i pulumi.IntInput) UserPoolRecoveryOptionOutput {
@@ -3829,12 +3324,6 @@ func (i UserPoolResourceServerResourceServerScopeTypeArgs) ToUserPoolResourceSer
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolResourceServerResourceServerScopeTypeOutput)
 }
 
-func (i UserPoolResourceServerResourceServerScopeTypeArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolResourceServerResourceServerScopeType] {
-	return pulumix.Output[UserPoolResourceServerResourceServerScopeType]{
-		OutputState: i.ToUserPoolResourceServerResourceServerScopeTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserPoolResourceServerResourceServerScopeTypeArrayInput is an input type that accepts UserPoolResourceServerResourceServerScopeTypeArray and UserPoolResourceServerResourceServerScopeTypeArrayOutput values.
 // You can construct a concrete instance of `UserPoolResourceServerResourceServerScopeTypeArrayInput` via:
 //
@@ -3860,12 +3349,6 @@ func (i UserPoolResourceServerResourceServerScopeTypeArray) ToUserPoolResourceSe
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolResourceServerResourceServerScopeTypeArrayOutput)
 }
 
-func (i UserPoolResourceServerResourceServerScopeTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]UserPoolResourceServerResourceServerScopeType] {
-	return pulumix.Output[[]UserPoolResourceServerResourceServerScopeType]{
-		OutputState: i.ToUserPoolResourceServerResourceServerScopeTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolResourceServerResourceServerScopeTypeOutput struct{ *pulumi.OutputState }
 
 func (UserPoolResourceServerResourceServerScopeTypeOutput) ElementType() reflect.Type {
@@ -3878,12 +3361,6 @@ func (o UserPoolResourceServerResourceServerScopeTypeOutput) ToUserPoolResourceS
 
 func (o UserPoolResourceServerResourceServerScopeTypeOutput) ToUserPoolResourceServerResourceServerScopeTypeOutputWithContext(ctx context.Context) UserPoolResourceServerResourceServerScopeTypeOutput {
 	return o
-}
-
-func (o UserPoolResourceServerResourceServerScopeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolResourceServerResourceServerScopeType] {
-	return pulumix.Output[UserPoolResourceServerResourceServerScopeType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolResourceServerResourceServerScopeTypeOutput) ScopeDescription() pulumi.StringOutput {
@@ -3906,12 +3383,6 @@ func (o UserPoolResourceServerResourceServerScopeTypeArrayOutput) ToUserPoolReso
 
 func (o UserPoolResourceServerResourceServerScopeTypeArrayOutput) ToUserPoolResourceServerResourceServerScopeTypeArrayOutputWithContext(ctx context.Context) UserPoolResourceServerResourceServerScopeTypeArrayOutput {
 	return o
-}
-
-func (o UserPoolResourceServerResourceServerScopeTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UserPoolResourceServerResourceServerScopeType] {
-	return pulumix.Output[[]UserPoolResourceServerResourceServerScopeType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolResourceServerResourceServerScopeTypeArrayOutput) Index(i pulumi.IntInput) UserPoolResourceServerResourceServerScopeTypeOutput {
@@ -3951,12 +3422,6 @@ func (i UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs) ToUser
 
 func (i UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs) ToUserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeOutputWithContext(ctx context.Context) UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeOutput)
-}
-
-func (i UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolRiskConfigurationAttachmentAccountTakeoverActionType] {
-	return pulumix.Output[UserPoolRiskConfigurationAttachmentAccountTakeoverActionType]{
-		OutputState: i.ToUserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs) ToUserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput() UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput {
@@ -4000,12 +3465,6 @@ func (i *userPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrType) To
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput)
 }
 
-func (i *userPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolRiskConfigurationAttachmentAccountTakeoverActionType] {
-	return pulumix.Output[*UserPoolRiskConfigurationAttachmentAccountTakeoverActionType]{
-		OutputState: i.ToUserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeOutput struct{ *pulumi.OutputState }
 
 func (UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeOutput) ElementType() reflect.Type {
@@ -4030,12 +3489,6 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeOutput) ToUs
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput)
 }
 
-func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolRiskConfigurationAttachmentAccountTakeoverActionType] {
-	return pulumix.Output[UserPoolRiskConfigurationAttachmentAccountTakeoverActionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeOutput) EventAction() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentAccountTakeoverActionType) string { return v.EventAction }).(pulumi.StringOutput)
 }
@@ -4056,12 +3509,6 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput) T
 
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput) ToUserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutputWithContext(ctx context.Context) UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput {
 	return o
-}
-
-func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolRiskConfigurationAttachmentAccountTakeoverActionType] {
-	return pulumix.Output[*UserPoolRiskConfigurationAttachmentAccountTakeoverActionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput) Elem() UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeOutput {
@@ -4127,12 +3574,6 @@ func (i UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgs) ToUse
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput)
 }
 
-func (i UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType] {
-	return pulumix.Output[UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType]{
-		OutputState: i.ToUserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgs) ToUserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput() UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput {
 	return i.ToUserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutputWithContext(context.Background())
 }
@@ -4174,12 +3615,6 @@ func (i *userPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrType) T
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput)
 }
 
-func (i *userPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType] {
-	return pulumix.Output[*UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType]{
-		OutputState: i.ToUserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput struct{ *pulumi.OutputState }
 
 func (UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput) ElementType() reflect.Type {
@@ -4202,12 +3637,6 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput) ToU
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType) *UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType {
 		return &v
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput)
-}
-
-func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType] {
-	return pulumix.Output[UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput) HighAction() UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput {
@@ -4240,12 +3669,6 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) 
 
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) ToUserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutputWithContext(ctx context.Context) UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput {
 	return o
-}
-
-func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType] {
-	return pulumix.Output[*UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) Elem() UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput {
@@ -4318,12 +3741,6 @@ func (i UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeA
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeOutput)
 }
 
-func (i UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType] {
-	return pulumix.Output[UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType]{
-		OutputState: i.ToUserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs) ToUserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput() UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput {
 	return i.ToUserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutputWithContext(context.Background())
 }
@@ -4365,12 +3782,6 @@ func (i *userPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput)
 }
 
-func (i *userPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType] {
-	return pulumix.Output[*UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType]{
-		OutputState: i.ToUserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeOutput struct{ *pulumi.OutputState }
 
 func (UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeOutput) ElementType() reflect.Type {
@@ -4393,12 +3804,6 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType) *UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType {
 		return &v
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput)
-}
-
-func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType] {
-	return pulumix.Output[UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeOutput) Actions() UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput {
@@ -4425,12 +3830,6 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeP
 
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput) ToUserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutputWithContext(ctx context.Context) UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput {
 	return o
-}
-
-func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType] {
-	return pulumix.Output[*UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput) Elem() UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeOutput {
@@ -4492,12 +3891,6 @@ func (i UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeArgs
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeOutput)
 }
 
-func (i UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType] {
-	return pulumix.Output[UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType]{
-		OutputState: i.ToUserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeArgs) ToUserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypePtrOutput() UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypePtrOutput {
 	return i.ToUserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypePtrOutputWithContext(context.Background())
 }
@@ -4539,12 +3932,6 @@ func (i *userPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypePtr
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypePtrOutput)
 }
 
-func (i *userPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType] {
-	return pulumix.Output[*UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType]{
-		OutputState: i.ToUserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeOutput struct{ *pulumi.OutputState }
 
 func (UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeOutput) ElementType() reflect.Type {
@@ -4569,12 +3956,6 @@ func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeOutp
 	}).(UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypePtrOutput)
 }
 
-func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType] {
-	return pulumix.Output[UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeOutput) EventAction() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType) string {
 		return v.EventAction
@@ -4593,12 +3974,6 @@ func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypePtrO
 
 func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypePtrOutput) ToUserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypePtrOutputWithContext(ctx context.Context) UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypePtrOutput {
 	return o
-}
-
-func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType] {
-	return pulumix.Output[*UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypePtrOutput) Elem() UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeOutput {
@@ -4653,12 +4028,6 @@ func (i UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeOutput)
 }
 
-func (i UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType] {
-	return pulumix.Output[UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType]{
-		OutputState: i.ToUserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs) ToUserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput() UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput {
 	return i.ToUserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutputWithContext(context.Background())
 }
@@ -4700,12 +4069,6 @@ func (i *userPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput)
 }
 
-func (i *userPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType] {
-	return pulumix.Output[*UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType]{
-		OutputState: i.ToUserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeOutput struct{ *pulumi.OutputState }
 
 func (UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeOutput) ElementType() reflect.Type {
@@ -4728,12 +4091,6 @@ func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurati
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType) *UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType {
 		return &v
 	}).(UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput)
-}
-
-func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType] {
-	return pulumix.Output[UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeOutput) Actions() UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeOutput {
@@ -4760,12 +4117,6 @@ func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurati
 
 func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput) ToUserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutputWithContext(ctx context.Context) UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput {
 	return o
-}
-
-func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType] {
-	return pulumix.Output[*UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput) Elem() UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeOutput {
@@ -4837,12 +4188,6 @@ func (i UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgs) ToUserPo
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput)
 }
 
-func (i UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolRiskConfigurationAttachmentNotifyConfigurationType] {
-	return pulumix.Output[UserPoolRiskConfigurationAttachmentNotifyConfigurationType]{
-		OutputState: i.ToUserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgs) ToUserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput() UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput {
 	return i.ToUserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutputWithContext(context.Background())
 }
@@ -4884,12 +4229,6 @@ func (i *userPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrType) ToUs
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput)
 }
 
-func (i *userPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolRiskConfigurationAttachmentNotifyConfigurationType] {
-	return pulumix.Output[*UserPoolRiskConfigurationAttachmentNotifyConfigurationType]{
-		OutputState: i.ToUserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput struct{ *pulumi.OutputState }
 
 func (UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput) ElementType() reflect.Type {
@@ -4912,12 +4251,6 @@ func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput) ToUser
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolRiskConfigurationAttachmentNotifyConfigurationType) *UserPoolRiskConfigurationAttachmentNotifyConfigurationType {
 		return &v
 	}).(UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput)
-}
-
-func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolRiskConfigurationAttachmentNotifyConfigurationType] {
-	return pulumix.Output[UserPoolRiskConfigurationAttachmentNotifyConfigurationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput) BlockEmail() UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput {
@@ -4962,12 +4295,6 @@ func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) ToU
 
 func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) ToUserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutputWithContext(ctx context.Context) UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput {
 	return o
-}
-
-func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolRiskConfigurationAttachmentNotifyConfigurationType] {
-	return pulumix.Output[*UserPoolRiskConfigurationAttachmentNotifyConfigurationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) Elem() UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput {
@@ -5069,12 +4396,6 @@ func (i UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgs) ToUserPoolRiskCo
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRiskConfigurationAttachmentNotifyEmailTypeOutput)
 }
 
-func (i UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolRiskConfigurationAttachmentNotifyEmailType] {
-	return pulumix.Output[UserPoolRiskConfigurationAttachmentNotifyEmailType]{
-		OutputState: i.ToUserPoolRiskConfigurationAttachmentNotifyEmailTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgs) ToUserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput() UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput {
 	return i.ToUserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutputWithContext(context.Background())
 }
@@ -5116,12 +4437,6 @@ func (i *userPoolRiskConfigurationAttachmentNotifyEmailTypePtrType) ToUserPoolRi
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput)
 }
 
-func (i *userPoolRiskConfigurationAttachmentNotifyEmailTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolRiskConfigurationAttachmentNotifyEmailType] {
-	return pulumix.Output[*UserPoolRiskConfigurationAttachmentNotifyEmailType]{
-		OutputState: i.ToUserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolRiskConfigurationAttachmentNotifyEmailTypeOutput struct{ *pulumi.OutputState }
 
 func (UserPoolRiskConfigurationAttachmentNotifyEmailTypeOutput) ElementType() reflect.Type {
@@ -5144,12 +4459,6 @@ func (o UserPoolRiskConfigurationAttachmentNotifyEmailTypeOutput) ToUserPoolRisk
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolRiskConfigurationAttachmentNotifyEmailType) *UserPoolRiskConfigurationAttachmentNotifyEmailType {
 		return &v
 	}).(UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput)
-}
-
-func (o UserPoolRiskConfigurationAttachmentNotifyEmailTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolRiskConfigurationAttachmentNotifyEmailType] {
-	return pulumix.Output[UserPoolRiskConfigurationAttachmentNotifyEmailType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolRiskConfigurationAttachmentNotifyEmailTypeOutput) HtmlBody() pulumi.StringPtrOutput {
@@ -5176,12 +4485,6 @@ func (o UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput) ToUserPoolR
 
 func (o UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput) ToUserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutputWithContext(ctx context.Context) UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput {
 	return o
-}
-
-func (o UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolRiskConfigurationAttachmentNotifyEmailType] {
-	return pulumix.Output[*UserPoolRiskConfigurationAttachmentNotifyEmailType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput) Elem() UserPoolRiskConfigurationAttachmentNotifyEmailTypeOutput {
@@ -5254,12 +4557,6 @@ func (i UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeOutput)
 }
 
-func (i UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType] {
-	return pulumix.Output[UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType]{
-		OutputState: i.ToUserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs) ToUserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput() UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput {
 	return i.ToUserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutputWithContext(context.Background())
 }
@@ -5301,12 +4598,6 @@ func (i *userPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrTyp
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput)
 }
 
-func (i *userPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType] {
-	return pulumix.Output[*UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType]{
-		OutputState: i.ToUserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeOutput struct{ *pulumi.OutputState }
 
 func (UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeOutput) ElementType() reflect.Type {
@@ -5329,12 +4620,6 @@ func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeOutput)
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType) *UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType {
 		return &v
 	}).(UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput)
-}
-
-func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType] {
-	return pulumix.Output[UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeOutput) BlockedIpRangeList() pulumi.StringArrayOutput {
@@ -5361,12 +4646,6 @@ func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutp
 
 func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput) ToUserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutputWithContext(ctx context.Context) UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput {
 	return o
-}
-
-func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType] {
-	return pulumix.Output[*UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput) Elem() UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeOutput {
@@ -5440,12 +4719,6 @@ func (i UserPoolSchemaAttributeArgs) ToUserPoolSchemaAttributeOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolSchemaAttributeOutput)
 }
 
-func (i UserPoolSchemaAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolSchemaAttribute] {
-	return pulumix.Output[UserPoolSchemaAttribute]{
-		OutputState: i.ToUserPoolSchemaAttributeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserPoolSchemaAttributeArrayInput is an input type that accepts UserPoolSchemaAttributeArray and UserPoolSchemaAttributeArrayOutput values.
 // You can construct a concrete instance of `UserPoolSchemaAttributeArrayInput` via:
 //
@@ -5471,12 +4744,6 @@ func (i UserPoolSchemaAttributeArray) ToUserPoolSchemaAttributeArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolSchemaAttributeArrayOutput)
 }
 
-func (i UserPoolSchemaAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]UserPoolSchemaAttribute] {
-	return pulumix.Output[[]UserPoolSchemaAttribute]{
-		OutputState: i.ToUserPoolSchemaAttributeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolSchemaAttributeOutput struct{ *pulumi.OutputState }
 
 func (UserPoolSchemaAttributeOutput) ElementType() reflect.Type {
@@ -5489,12 +4756,6 @@ func (o UserPoolSchemaAttributeOutput) ToUserPoolSchemaAttributeOutput() UserPoo
 
 func (o UserPoolSchemaAttributeOutput) ToUserPoolSchemaAttributeOutputWithContext(ctx context.Context) UserPoolSchemaAttributeOutput {
 	return o
-}
-
-func (o UserPoolSchemaAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolSchemaAttribute] {
-	return pulumix.Output[UserPoolSchemaAttribute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolSchemaAttributeOutput) AttributeDataType() pulumi.StringPtrOutput {
@@ -5543,12 +4804,6 @@ func (o UserPoolSchemaAttributeArrayOutput) ToUserPoolSchemaAttributeArrayOutput
 	return o
 }
 
-func (o UserPoolSchemaAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UserPoolSchemaAttribute] {
-	return pulumix.Output[[]UserPoolSchemaAttribute]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserPoolSchemaAttributeArrayOutput) Index(i pulumi.IntInput) UserPoolSchemaAttributeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserPoolSchemaAttribute {
 		return vs[0].([]UserPoolSchemaAttribute)[vs[1].(int)]
@@ -5588,12 +4843,6 @@ func (i UserPoolSmsConfigurationArgs) ToUserPoolSmsConfigurationOutput() UserPoo
 
 func (i UserPoolSmsConfigurationArgs) ToUserPoolSmsConfigurationOutputWithContext(ctx context.Context) UserPoolSmsConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolSmsConfigurationOutput)
-}
-
-func (i UserPoolSmsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolSmsConfiguration] {
-	return pulumix.Output[UserPoolSmsConfiguration]{
-		OutputState: i.ToUserPoolSmsConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i UserPoolSmsConfigurationArgs) ToUserPoolSmsConfigurationPtrOutput() UserPoolSmsConfigurationPtrOutput {
@@ -5637,12 +4886,6 @@ func (i *userPoolSmsConfigurationPtrType) ToUserPoolSmsConfigurationPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolSmsConfigurationPtrOutput)
 }
 
-func (i *userPoolSmsConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolSmsConfiguration] {
-	return pulumix.Output[*UserPoolSmsConfiguration]{
-		OutputState: i.ToUserPoolSmsConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolSmsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (UserPoolSmsConfigurationOutput) ElementType() reflect.Type {
@@ -5665,12 +4908,6 @@ func (o UserPoolSmsConfigurationOutput) ToUserPoolSmsConfigurationPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolSmsConfiguration) *UserPoolSmsConfiguration {
 		return &v
 	}).(UserPoolSmsConfigurationPtrOutput)
-}
-
-func (o UserPoolSmsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolSmsConfiguration] {
-	return pulumix.Output[UserPoolSmsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolSmsConfigurationOutput) ExternalId() pulumi.StringPtrOutput {
@@ -5697,12 +4934,6 @@ func (o UserPoolSmsConfigurationPtrOutput) ToUserPoolSmsConfigurationPtrOutput()
 
 func (o UserPoolSmsConfigurationPtrOutput) ToUserPoolSmsConfigurationPtrOutputWithContext(ctx context.Context) UserPoolSmsConfigurationPtrOutput {
 	return o
-}
-
-func (o UserPoolSmsConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolSmsConfiguration] {
-	return pulumix.Output[*UserPoolSmsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolSmsConfigurationPtrOutput) Elem() UserPoolSmsConfigurationOutput {
@@ -5775,12 +5006,6 @@ func (i UserPoolStringAttributeConstraintsArgs) ToUserPoolStringAttributeConstra
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolStringAttributeConstraintsOutput)
 }
 
-func (i UserPoolStringAttributeConstraintsArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolStringAttributeConstraints] {
-	return pulumix.Output[UserPoolStringAttributeConstraints]{
-		OutputState: i.ToUserPoolStringAttributeConstraintsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolStringAttributeConstraintsArgs) ToUserPoolStringAttributeConstraintsPtrOutput() UserPoolStringAttributeConstraintsPtrOutput {
 	return i.ToUserPoolStringAttributeConstraintsPtrOutputWithContext(context.Background())
 }
@@ -5822,12 +5047,6 @@ func (i *userPoolStringAttributeConstraintsPtrType) ToUserPoolStringAttributeCon
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolStringAttributeConstraintsPtrOutput)
 }
 
-func (i *userPoolStringAttributeConstraintsPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolStringAttributeConstraints] {
-	return pulumix.Output[*UserPoolStringAttributeConstraints]{
-		OutputState: i.ToUserPoolStringAttributeConstraintsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolStringAttributeConstraintsOutput struct{ *pulumi.OutputState }
 
 func (UserPoolStringAttributeConstraintsOutput) ElementType() reflect.Type {
@@ -5852,12 +5071,6 @@ func (o UserPoolStringAttributeConstraintsOutput) ToUserPoolStringAttributeConst
 	}).(UserPoolStringAttributeConstraintsPtrOutput)
 }
 
-func (o UserPoolStringAttributeConstraintsOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolStringAttributeConstraints] {
-	return pulumix.Output[UserPoolStringAttributeConstraints]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserPoolStringAttributeConstraintsOutput) MaxLength() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolStringAttributeConstraints) *string { return v.MaxLength }).(pulumi.StringPtrOutput)
 }
@@ -5878,12 +5091,6 @@ func (o UserPoolStringAttributeConstraintsPtrOutput) ToUserPoolStringAttributeCo
 
 func (o UserPoolStringAttributeConstraintsPtrOutput) ToUserPoolStringAttributeConstraintsPtrOutputWithContext(ctx context.Context) UserPoolStringAttributeConstraintsPtrOutput {
 	return o
-}
-
-func (o UserPoolStringAttributeConstraintsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolStringAttributeConstraints] {
-	return pulumix.Output[*UserPoolStringAttributeConstraints]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolStringAttributeConstraintsPtrOutput) Elem() UserPoolStringAttributeConstraintsOutput {
@@ -5947,12 +5154,6 @@ func (i UserPoolUserAttributeTypeArgs) ToUserPoolUserAttributeTypeOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUserAttributeTypeOutput)
 }
 
-func (i UserPoolUserAttributeTypeArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolUserAttributeType] {
-	return pulumix.Output[UserPoolUserAttributeType]{
-		OutputState: i.ToUserPoolUserAttributeTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserPoolUserAttributeTypeArrayInput is an input type that accepts UserPoolUserAttributeTypeArray and UserPoolUserAttributeTypeArrayOutput values.
 // You can construct a concrete instance of `UserPoolUserAttributeTypeArrayInput` via:
 //
@@ -5978,12 +5179,6 @@ func (i UserPoolUserAttributeTypeArray) ToUserPoolUserAttributeTypeArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUserAttributeTypeArrayOutput)
 }
 
-func (i UserPoolUserAttributeTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]UserPoolUserAttributeType] {
-	return pulumix.Output[[]UserPoolUserAttributeType]{
-		OutputState: i.ToUserPoolUserAttributeTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolUserAttributeTypeOutput struct{ *pulumi.OutputState }
 
 func (UserPoolUserAttributeTypeOutput) ElementType() reflect.Type {
@@ -5996,12 +5191,6 @@ func (o UserPoolUserAttributeTypeOutput) ToUserPoolUserAttributeTypeOutput() Use
 
 func (o UserPoolUserAttributeTypeOutput) ToUserPoolUserAttributeTypeOutputWithContext(ctx context.Context) UserPoolUserAttributeTypeOutput {
 	return o
-}
-
-func (o UserPoolUserAttributeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolUserAttributeType] {
-	return pulumix.Output[UserPoolUserAttributeType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolUserAttributeTypeOutput) Name() pulumi.StringPtrOutput {
@@ -6024,12 +5213,6 @@ func (o UserPoolUserAttributeTypeArrayOutput) ToUserPoolUserAttributeTypeArrayOu
 
 func (o UserPoolUserAttributeTypeArrayOutput) ToUserPoolUserAttributeTypeArrayOutputWithContext(ctx context.Context) UserPoolUserAttributeTypeArrayOutput {
 	return o
-}
-
-func (o UserPoolUserAttributeTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UserPoolUserAttributeType] {
-	return pulumix.Output[[]UserPoolUserAttributeType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolUserAttributeTypeArrayOutput) Index(i pulumi.IntInput) UserPoolUserAttributeTypeOutput {
@@ -6067,12 +5250,6 @@ func (i UserPoolUserAttributeUpdateSettingsArgs) ToUserPoolUserAttributeUpdateSe
 
 func (i UserPoolUserAttributeUpdateSettingsArgs) ToUserPoolUserAttributeUpdateSettingsOutputWithContext(ctx context.Context) UserPoolUserAttributeUpdateSettingsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUserAttributeUpdateSettingsOutput)
-}
-
-func (i UserPoolUserAttributeUpdateSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolUserAttributeUpdateSettings] {
-	return pulumix.Output[UserPoolUserAttributeUpdateSettings]{
-		OutputState: i.ToUserPoolUserAttributeUpdateSettingsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i UserPoolUserAttributeUpdateSettingsArgs) ToUserPoolUserAttributeUpdateSettingsPtrOutput() UserPoolUserAttributeUpdateSettingsPtrOutput {
@@ -6116,12 +5293,6 @@ func (i *userPoolUserAttributeUpdateSettingsPtrType) ToUserPoolUserAttributeUpda
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUserAttributeUpdateSettingsPtrOutput)
 }
 
-func (i *userPoolUserAttributeUpdateSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolUserAttributeUpdateSettings] {
-	return pulumix.Output[*UserPoolUserAttributeUpdateSettings]{
-		OutputState: i.ToUserPoolUserAttributeUpdateSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolUserAttributeUpdateSettingsOutput struct{ *pulumi.OutputState }
 
 func (UserPoolUserAttributeUpdateSettingsOutput) ElementType() reflect.Type {
@@ -6146,12 +5317,6 @@ func (o UserPoolUserAttributeUpdateSettingsOutput) ToUserPoolUserAttributeUpdate
 	}).(UserPoolUserAttributeUpdateSettingsPtrOutput)
 }
 
-func (o UserPoolUserAttributeUpdateSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolUserAttributeUpdateSettings] {
-	return pulumix.Output[UserPoolUserAttributeUpdateSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserPoolUserAttributeUpdateSettingsOutput) AttributesRequireVerificationBeforeUpdate() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserPoolUserAttributeUpdateSettings) []string {
 		return v.AttributesRequireVerificationBeforeUpdate
@@ -6170,12 +5335,6 @@ func (o UserPoolUserAttributeUpdateSettingsPtrOutput) ToUserPoolUserAttributeUpd
 
 func (o UserPoolUserAttributeUpdateSettingsPtrOutput) ToUserPoolUserAttributeUpdateSettingsPtrOutputWithContext(ctx context.Context) UserPoolUserAttributeUpdateSettingsPtrOutput {
 	return o
-}
-
-func (o UserPoolUserAttributeUpdateSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolUserAttributeUpdateSettings] {
-	return pulumix.Output[*UserPoolUserAttributeUpdateSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolUserAttributeUpdateSettingsPtrOutput) Elem() UserPoolUserAttributeUpdateSettingsOutput {
@@ -6228,12 +5387,6 @@ func (i UserPoolUsernameConfigurationArgs) ToUserPoolUsernameConfigurationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUsernameConfigurationOutput)
 }
 
-func (i UserPoolUsernameConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolUsernameConfiguration] {
-	return pulumix.Output[UserPoolUsernameConfiguration]{
-		OutputState: i.ToUserPoolUsernameConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolUsernameConfigurationArgs) ToUserPoolUsernameConfigurationPtrOutput() UserPoolUsernameConfigurationPtrOutput {
 	return i.ToUserPoolUsernameConfigurationPtrOutputWithContext(context.Background())
 }
@@ -6275,12 +5428,6 @@ func (i *userPoolUsernameConfigurationPtrType) ToUserPoolUsernameConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUsernameConfigurationPtrOutput)
 }
 
-func (i *userPoolUsernameConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolUsernameConfiguration] {
-	return pulumix.Output[*UserPoolUsernameConfiguration]{
-		OutputState: i.ToUserPoolUsernameConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolUsernameConfigurationOutput struct{ *pulumi.OutputState }
 
 func (UserPoolUsernameConfigurationOutput) ElementType() reflect.Type {
@@ -6305,12 +5452,6 @@ func (o UserPoolUsernameConfigurationOutput) ToUserPoolUsernameConfigurationPtrO
 	}).(UserPoolUsernameConfigurationPtrOutput)
 }
 
-func (o UserPoolUsernameConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolUsernameConfiguration] {
-	return pulumix.Output[UserPoolUsernameConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserPoolUsernameConfigurationOutput) CaseSensitive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolUsernameConfiguration) *bool { return v.CaseSensitive }).(pulumi.BoolPtrOutput)
 }
@@ -6327,12 +5468,6 @@ func (o UserPoolUsernameConfigurationPtrOutput) ToUserPoolUsernameConfigurationP
 
 func (o UserPoolUsernameConfigurationPtrOutput) ToUserPoolUsernameConfigurationPtrOutputWithContext(ctx context.Context) UserPoolUsernameConfigurationPtrOutput {
 	return o
-}
-
-func (o UserPoolUsernameConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolUsernameConfiguration] {
-	return pulumix.Output[*UserPoolUsernameConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolUsernameConfigurationPtrOutput) Elem() UserPoolUsernameConfigurationOutput {
@@ -6395,12 +5530,6 @@ func (i UserPoolVerificationMessageTemplateArgs) ToUserPoolVerificationMessageTe
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolVerificationMessageTemplateOutput)
 }
 
-func (i UserPoolVerificationMessageTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[UserPoolVerificationMessageTemplate] {
-	return pulumix.Output[UserPoolVerificationMessageTemplate]{
-		OutputState: i.ToUserPoolVerificationMessageTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i UserPoolVerificationMessageTemplateArgs) ToUserPoolVerificationMessageTemplatePtrOutput() UserPoolVerificationMessageTemplatePtrOutput {
 	return i.ToUserPoolVerificationMessageTemplatePtrOutputWithContext(context.Background())
 }
@@ -6442,12 +5571,6 @@ func (i *userPoolVerificationMessageTemplatePtrType) ToUserPoolVerificationMessa
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolVerificationMessageTemplatePtrOutput)
 }
 
-func (i *userPoolVerificationMessageTemplatePtrType) ToOutput(ctx context.Context) pulumix.Output[*UserPoolVerificationMessageTemplate] {
-	return pulumix.Output[*UserPoolVerificationMessageTemplate]{
-		OutputState: i.ToUserPoolVerificationMessageTemplatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolVerificationMessageTemplateOutput struct{ *pulumi.OutputState }
 
 func (UserPoolVerificationMessageTemplateOutput) ElementType() reflect.Type {
@@ -6470,12 +5593,6 @@ func (o UserPoolVerificationMessageTemplateOutput) ToUserPoolVerificationMessage
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolVerificationMessageTemplate) *UserPoolVerificationMessageTemplate {
 		return &v
 	}).(UserPoolVerificationMessageTemplatePtrOutput)
-}
-
-func (o UserPoolVerificationMessageTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[UserPoolVerificationMessageTemplate] {
-	return pulumix.Output[UserPoolVerificationMessageTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolVerificationMessageTemplateOutput) DefaultEmailOption() pulumi.StringPtrOutput {
@@ -6514,12 +5631,6 @@ func (o UserPoolVerificationMessageTemplatePtrOutput) ToUserPoolVerificationMess
 
 func (o UserPoolVerificationMessageTemplatePtrOutput) ToUserPoolVerificationMessageTemplatePtrOutputWithContext(ctx context.Context) UserPoolVerificationMessageTemplatePtrOutput {
 	return o
-}
-
-func (o UserPoolVerificationMessageTemplatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolVerificationMessageTemplate] {
-	return pulumix.Output[*UserPoolVerificationMessageTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolVerificationMessageTemplatePtrOutput) Elem() UserPoolVerificationMessageTemplateOutput {
