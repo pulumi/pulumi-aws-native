@@ -151,20 +151,32 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "SecretsManagerSecretId" : {
-          "type" : "string"
+        "LoadTimeout" : {
+          "type" : "integer"
         },
         "SetDataCaptureChanges" : {
           "type" : "boolean"
         },
-        "SecretsManagerAccessRoleArn" : {
-          "type" : "string"
+        "MaxFileSize" : {
+          "type" : "integer"
+        },
+        "KeepCsvFiles" : {
+          "type" : "boolean"
         },
         "CurrentLsn" : {
           "type" : "string"
         },
         "MaxKBytesPerRead" : {
           "type" : "integer"
+        },
+        "SecretsManagerSecretId" : {
+          "type" : "string"
+        },
+        "WriteBufferSize" : {
+          "type" : "integer"
+        },
+        "SecretsManagerAccessRoleArn" : {
+          "type" : "string"
         }
       }
     },

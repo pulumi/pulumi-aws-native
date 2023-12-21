@@ -76,7 +76,7 @@
       "required" : [ "Value", "Key" ]
     }
   },
-  "required" : [ "InstanceType" ],
+  "required" : [ "ImageId", "InstanceType" ],
   "createOnlyProperties" : [ "/properties/AutomaticStopTimeMinutes", "/properties/OwnerArn", "/properties/ConnectionType", "/properties/InstanceType", "/properties/ImageId", "/properties/SubnetId", "/properties/Repositories" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ]

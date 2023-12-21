@@ -361,6 +361,9 @@
     "AccessPolicies" : {
       "type" : "object"
     },
+    "IPAddressType" : {
+      "type" : "string"
+    },
     "EngineVersion" : {
       "type" : "string"
     },
@@ -401,6 +404,9 @@
       "$ref" : "#/definitions/AdvancedSecurityOptionsInput"
     },
     "DomainEndpoint" : {
+      "type" : "string"
+    },
+    "DomainEndpointV2" : {
       "type" : "string"
     },
     "DomainEndpoints" : {
@@ -448,7 +454,7 @@
   "additionalProperties" : false,
   "createOnlyProperties" : [ "/properties/DomainName" ],
   "conditionalCreateOnlyProperties" : [ "/properties/EncryptionAtRestOptions/properties", "/properties/AdvancedSecurityOptions/properties/Enabled" ],
-  "readOnlyProperties" : [ "/properties/Id", "/properties/Arn", "/properties/DomainArn", "/properties/DomainEndpoint", "/properties/DomainEndpoints", "/properties/ServiceSoftwareOptions", "/properties/AdvancedSecurityOptions/AnonymousAuthDisableDate" ],
+  "readOnlyProperties" : [ "/properties/Id", "/properties/Arn", "/properties/DomainArn", "/properties/DomainEndpoint", "/properties/DomainEndpointV2", "/properties/DomainEndpoints", "/properties/ServiceSoftwareOptions", "/properties/AdvancedSecurityOptions/AnonymousAuthDisableDate" ],
   "writeOnlyProperties" : [ "/properties/AdvancedSecurityOptions/MasterUserOptions", "/properties/AdvancedSecurityOptions/SAMLOptions/MasterUserName", "/properties/AdvancedSecurityOptions/SAMLOptions/MasterBackendRole" ],
   "primaryIdentifier" : [ "/properties/DomainName" ],
   "handlers" : {

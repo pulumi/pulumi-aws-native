@@ -66,16 +66,16 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "devicefarm:CreateVPCEConfiguration", "devicefarm:TagResource" ]
+      "permissions" : [ "devicefarm:CreateVPCEConfiguration", "devicefarm:TagResource", "devicefarm:GetVPCEConfiguration", "devicefarm:ListTagsForResource" ]
     },
     "read" : {
       "permissions" : [ "devicefarm:GetVPCEConfiguration", "devicefarm:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "devicefarm:UpdateVPCEConfiguration", "devicefarm:TagResource", "devicefarm:UntagResource", "devicefarm:ListTagsForResource" ]
+      "permissions" : [ "devicefarm:UpdateVPCEConfiguration", "devicefarm:GetVPCEConfiguration", "devicefarm:TagResource", "devicefarm:UntagResource", "devicefarm:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "devicefarm:DeleteVPCEConfiguration", "devicefarm:UntagResource" ]
+      "permissions" : [ "devicefarm:DeleteVPCEConfiguration", "devicefarm:UntagResource", "devicefarm:ListTagsForResource", "devicefarm:GetVPCEConfiguration" ]
     },
     "list" : {
       "permissions" : [ "devicefarm:ListVPCEConfigurations" ]

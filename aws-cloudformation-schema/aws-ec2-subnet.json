@@ -7,7 +7,7 @@
     "cloudFormationSystemTags" : true
   },
   "typeName" : "AWS::EC2::Subnet",
-  "readOnlyProperties" : [ "/properties/NetworkAclAssociationId", "/properties/SubnetId", "/properties/Ipv6CidrBlocks" ],
+  "readOnlyProperties" : [ "/properties/NetworkAclAssociationId", "/properties/SubnetId" ],
   "description" : "Resource Type definition for AWS::EC2::Subnet",
   "createOnlyProperties" : [ "/properties/VpcId", "/properties/AvailabilityZone", "/properties/AvailabilityZoneId", "/properties/CidrBlock", "/properties/OutpostArn", "/properties/Ipv6Native" ],
   "primaryIdentifier" : [ "/properties/SubnetId" ],
@@ -68,19 +68,11 @@
     "SubnetId" : {
       "type" : "string"
     },
-    "Ipv6NetmaskLength" : {
-      "description" : "The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool",
-      "type" : "integer"
-    },
     "AssignIpv6AddressOnCreation" : {
       "type" : "boolean"
     },
     "VpcId" : {
       "type" : "string"
-    },
-    "Ipv4NetmaskLength" : {
-      "description" : "The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool",
-      "type" : "integer"
     },
     "NetworkAclAssociationId" : {
       "type" : "string"
