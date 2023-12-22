@@ -1,6 +1,92 @@
 ## Unreleased
 
+## 0.91.0 (23-12-22)
+
 Fix: Handle PENDING status (<https://github.com/pulumi/pulumi-aws-native/issues/1219>)
+
+### Breaking Changes
+
+#### Resources
+
+- "aws-native:ec2:Subnet":
+    - inputs:
+        - `🟡` "ipv4NetmaskLength" missing
+        - `🟡` "ipv6NetmaskLength" missing
+    - properties:
+        - `🟡` "ipv4NetmaskLength" missing output "ipv4NetmaskLength"
+        - `🟡` "ipv6NetmaskLength" missing output "ipv6NetmaskLength"
+    - `🟢` required: "ipv6CidrBlocks" property is no longer Required
+- "aws-native:elasticache:ServerlessCache": required:
+    - `🟢` "endpoint" property is no longer Required
+    - `🟢` "readerEndpoint" property is no longer Required
+- "aws-native:lambda:Function":
+    - `🟡` inputs: "policy" missing
+    - `🟡` properties: "policy" missing output "policy"
+
+#### Functions
+
+- "aws-native:lambda:getEventInvokeConfig": inputs:
+    - `🟡` "id" missing input "id"
+    - required:
+        - `🟢` "functionName" input has changed to Required
+        - `🟢` "qualifier" input has changed to Required
+- "aws-native:route53resolver:getResolverConfig": inputs:
+    - `🟡` "id" missing input "id"
+    - `🟢` required: "resourceId" input has changed to Required
+
+#### Types
+- "aws-native:autoscaling:AutoScalingGroupInstanceRequirements": required:
+    - `🟢` "memoryMiB" property has changed to Required
+    - `🟢` "vCpuCount" property has changed to Required
+- `🟢` "aws-native:connect:InstanceStorageConfigKinesisVideoStreamConfig": required: "encryptionConfig" property has changed to Required
+- `🟢` "aws-native:osis:PipelineLogPublishingOptionsCloudWatchLogDestinationProperties": required: "logGroup" property has changed to Required
+- `🟢` "aws-native:osis:PipelineVpcOptions": required: "subnetIds" property has changed to Required
+
+### New resources
+
+- `b2bi.Capability`
+- `b2bi.Partnership`
+- `b2bi.Profile`
+- `b2bi.Transformer`
+- `batch.JobDefinition`
+- `ce.AnomalyMonitor`
+- `ce.AnomalySubscription`
+- `dms.DataProvider`
+- `dms.InstanceProfile`
+- `dms.MigrationProject`
+- `ec2.SecurityGroupEgress`
+- `ec2.SnapshotBlockPublicAccess`
+- `eks.AccessEntry`
+- `eventschemas.Discoverer`
+- `eventschemas.Registry`
+- `eventschemas.Schema`
+- `fis.TargetAccountConfiguration`
+- `imagebuilder.Workflow`
+- `iot.CertificateProvider`
+- `securityhub.Hub`
+
+### New functions
+
+- `b2bi.getCapability`
+- `b2bi.getPartnership`
+- `b2bi.getProfile`
+- `b2bi.getTransformer`
+- `batch.getJobDefinition`
+- `ce.getAnomalyMonitor`
+- `ce.getAnomalySubscription`
+- `dms.getDataProvider`
+- `dms.getInstanceProfile`
+- `dms.getMigrationProject`
+- `ec2.getSecurityGroupEgress`
+- `ec2.getSnapshotBlockPublicAccess`
+- `eks.getAccessEntry`
+- `eventschemas.getDiscoverer`
+- `eventschemas.getRegistry`
+- `eventschemas.getSchema`
+- `fis.getTargetAccountConfiguration`
+- `imagebuilder.getWorkflow`
+- `iot.getCertificateProvider`
+- `securityhub.getHub`
 
 ## 0.90.0 (2023-12-04)
 
