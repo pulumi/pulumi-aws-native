@@ -1,6 +1,6 @@
 {
   "typeName" : "AWS::Logs::Delivery",
-  "description" : "Resource Type definition for AWS::Logs::Delivery.",
+  "description" : "This structure contains information about one delivery in your account.\n\nA delivery is a connection between a logical delivery source and a logical delivery destination.\n\nFor more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-logs.git",
   "definitions" : {
     "Tag" : {
@@ -24,7 +24,7 @@
       "additionalProperties" : false
     },
     "Arn" : {
-      "description" : "Amazon Resource Names (ARNs) uniquely identify AWS resources.",
+      "description" : "Amazon Resource Name (ARN) that uniquely identify AWS resource.",
       "type" : "string",
       "minLength" : 16,
       "maxLength" : 2048,
@@ -33,36 +33,36 @@
   },
   "properties" : {
     "DeliveryId" : {
-      "description" : "The value of the Id property for this object.",
+      "description" : "The unique ID that identifies this delivery in your account.",
       "type" : "string",
       "minLength" : 1,
       "maxLength" : 64,
       "pattern" : "^[0-9A-Za-z]+$"
     },
     "Arn" : {
-      "description" : "The value of the Arn property for this object.",
+      "description" : "The Amazon Resource Name (ARN) that uniquely identifies this delivery.",
       "$ref" : "#/definitions/Arn"
     },
     "DeliverySourceName" : {
-      "description" : "The value of the DeliverySourceName property for this object.",
+      "description" : "The name of the delivery source that is associated with this delivery.",
       "type" : "string",
       "pattern" : "[\\w-]*$",
       "minLength" : 1,
       "maxLength" : 60
     },
     "DeliveryDestinationArn" : {
-      "description" : "The value of the DeliveryDestinationArn property for this object.",
+      "description" : "The ARN of the delivery destination that is associated with this delivery.",
       "$ref" : "#/definitions/Arn"
     },
     "DeliveryDestinationType" : {
-      "description" : "The value of the DeliveryDestinationType property for this object.",
+      "description" : "Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.",
       "type" : "string",
       "minLength" : 1,
       "maxLength" : 12,
       "pattern" : "^[0-9A-Za-z]+$"
     },
     "Tags" : {
-      "description" : "The value of the Tags property for this object.",
+      "description" : "The tags that have been assigned to this delivery.",
       "type" : "array",
       "uniqueItems" : true,
       "insertionOrder" : false,

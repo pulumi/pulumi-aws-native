@@ -44,6 +44,14 @@
       "description" : "The Amazon Resource Name (ARN) of the infrastructure configuration associated with this image pipeline.",
       "type" : "string"
     },
+    "Workflows" : {
+      "description" : "Workflows to define the image build process",
+      "type" : "array",
+      "insertionOrder" : true,
+      "items" : {
+        "$ref" : "#/definitions/WorkflowConfiguration"
+      }
+    },
     "EnhancedImageMetadataEnabled" : {
       "description" : "Collects additional information about the image being created, including the operating system (OS) version and package list.",
       "type" : "boolean"
@@ -51,6 +59,10 @@
     "ImageScanningConfiguration" : {
       "description" : "Contains settings for vulnerability scans.",
       "$ref" : "#/definitions/ImageScanningConfiguration"
+    },
+    "ExecutionRole" : {
+      "description" : "The execution role name/ARN for the image build, if provided",
+      "type" : "string"
     },
     "Tags" : {
       "description" : "The tags of this image pipeline.",
@@ -130,6 +142,55 @@
           "enum" : [ "EXPRESSION_MATCH_ONLY", "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE" ]
         }
       }
+    },
+    "WorkflowConfiguration" : {
+      "description" : "The workflow configuration of the image",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "WorkflowArn" : {
+          "description" : "The Amazon Resource Name (ARN) of the workflow",
+          "type" : "string"
+        },
+        "Parameters" : {
+          "description" : "The parameters associated with the workflow",
+          "type" : "array",
+          "insertionOrder" : false,
+          "items" : {
+            "$ref" : "#/definitions/WorkflowParameter"
+          }
+        },
+        "ParallelGroup" : {
+          "description" : "The parallel group name",
+          "type" : "string"
+        },
+        "OnFailure" : {
+          "description" : "Define execution decision in case of workflow failure",
+          "type" : "string",
+          "enum" : [ "CONTINUE", "ABORT" ]
+        }
+      }
+    },
+    "WorkflowParameter" : {
+      "description" : "A parameter associated with the workflow",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Name" : {
+          "type" : "string"
+        },
+        "Value" : {
+          "type" : "array",
+          "insertionOrder" : true,
+          "items" : {
+            "$ref" : "#/definitions/WorkflowParameterValue"
+          }
+        }
+      }
+    },
+    "WorkflowParameterValue" : {
+      "description" : "The value associated with the workflow parameter",
+      "type" : "string"
     }
   },
   "additionalProperties" : false,
@@ -146,10 +207,10 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "ecr:BatchGetRepositoryScanningConfiguration", "iam:GetRole", "iam:CreateServiceLinkedRole", "imagebuilder:TagResource", "imagebuilder:GetImagePipeline", "imagebuilder:GetImageRecipe", "imagebuilder:GetInfrastructureConfiguration", "imagebuilder:GetDistributionConfiguration", "imagebuilder:CreateImagePipeline", "inspector2:BatchGetAccountStatus" ]
+      "permissions" : [ "ecr:BatchGetRepositoryScanningConfiguration", "iam:GetRole", "iam:PassRole", "iam:CreateServiceLinkedRole", "imagebuilder:TagResource", "imagebuilder:GetImagePipeline", "imagebuilder:GetImageRecipe", "imagebuilder:GetInfrastructureConfiguration", "imagebuilder:GetDistributionConfiguration", "imagebuilder:CreateImagePipeline", "imagebuilder:GetWorkflow", "inspector2:BatchGetAccountStatus" ]
     },
     "update" : {
-      "permissions" : [ "imagebuilder:GetImagePipeline", "imagebuilder:UpdateImagePipeline" ]
+      "permissions" : [ "iam:PassRole", "imagebuilder:GetImagePipeline", "imagebuilder:UpdateImagePipeline", "imagebuilder:GetWorkflow" ]
     },
     "read" : {
       "permissions" : [ "imagebuilder:GetImagePipeline" ]

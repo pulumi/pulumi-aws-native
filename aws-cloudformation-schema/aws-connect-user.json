@@ -109,6 +109,41 @@
         }
       },
       "required" : [ "Key", "Value" ]
+    },
+    "UserProficiency" : {
+      "description" : "Proficiency of a user.",
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "AttributeName" : {
+          "$ref" : "#/definitions/AttributeName"
+        },
+        "AttributeValue" : {
+          "$ref" : "#/definitions/AttributeValue"
+        },
+        "Level" : {
+          "$ref" : "#/definitions/Level"
+        }
+      },
+      "required" : [ "AttributeName", "AttributeValue", "Level" ]
+    },
+    "AttributeName" : {
+      "description" : "The name of user's proficiency. You must use name of predefined attribute present in the Amazon Connect instance.",
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 64
+    },
+    "AttributeValue" : {
+      "description" : "The value of user's proficiency. You must use value of predefined attribute present in the Amazon Connect instance.",
+      "type" : "string",
+      "minLength" : 1,
+      "maxLength" : 64
+    },
+    "Level" : {
+      "description" : "The level of the proficiency. The valid values are 1, 2, 3, 4 and 5.",
+      "type" : "number",
+      "minimum" : 1.0,
+      "maximum" : 5.0
     }
   },
   "properties" : {
@@ -176,21 +211,29 @@
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
+    },
+    "UserProficiencies" : {
+      "description" : "One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.",
+      "type" : "array",
+      "insertionOrder" : false,
+      "items" : {
+        "$ref" : "#/definitions/UserProficiency"
+      }
     }
   },
   "required" : [ "InstanceArn", "PhoneConfig", "RoutingProfileArn", "SecurityProfileArns", "Username" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "connect:CreateUser", "connect:TagResource" ]
+      "permissions" : [ "connect:CreateUser", "connect:TagResource", "connect:AssociateUserProficiencies" ]
     },
     "read" : {
-      "permissions" : [ "connect:DescribeUser" ]
+      "permissions" : [ "connect:DescribeUser", "connect:ListUserProficiencies" ]
     },
     "delete" : {
       "permissions" : [ "connect:DeleteUser", "connect:UntagResource" ]
     },
     "update" : {
-      "permissions" : [ "connect:UpdateUserIdentityInfo", "connect:UpdateUserPhoneConfig", "connect:UpdateUserRoutingProfile", "connect:UpdateUserSecurityProfiles", "connect:UpdateUserHierarchy", "connect:TagResource", "connect:UntagResource" ]
+      "permissions" : [ "connect:UpdateUserIdentityInfo", "connect:UpdateUserPhoneConfig", "connect:UpdateUserRoutingProfile", "connect:UpdateUserSecurityProfiles", "connect:UpdateUserHierarchy", "connect:TagResource", "connect:UntagResource", "connect:AssociateUserProficiencies", "connect:DisassociateUserProficiencies", "connect:UpdateUserProficiencies" ]
     }
   },
   "additionalProperties" : false,

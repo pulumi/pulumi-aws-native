@@ -3,8 +3,14 @@
   "description" : "Resource Type definition for AWS::AppSync::GraphQLApi",
   "additionalProperties" : false,
   "properties" : {
+    "QueryDepthLimit" : {
+      "type" : "integer"
+    },
     "OpenIDConnectConfig" : {
       "$ref" : "#/definitions/OpenIDConnectConfig"
+    },
+    "IntrospectionConfig" : {
+      "type" : "string"
     },
     "MergedApiExecutionRoleArn" : {
       "type" : "string"
@@ -14,6 +20,9 @@
     },
     "OwnerContact" : {
       "type" : "string"
+    },
+    "ResolverCountLimit" : {
+      "type" : "integer"
     },
     "Name" : {
       "type" : "string"
@@ -64,6 +73,9 @@
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
+    },
+    "GraphQLEndpointArn" : {
+      "type" : "string"
     },
     "AuthenticationType" : {
       "type" : "string"
@@ -189,5 +201,5 @@
   },
   "required" : [ "Name", "AuthenticationType" ],
   "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/ApiId", "/properties/Id", "/properties/GraphQLDns", "/properties/GraphQLUrl", "/properties/RealtimeDns", "/properties/RealtimeUrl", "/properties/Arn" ]
+  "readOnlyProperties" : [ "/properties/ApiId", "/properties/GraphQLEndpointArn", "/properties/Id", "/properties/GraphQLDns", "/properties/GraphQLUrl", "/properties/RealtimeDns", "/properties/RealtimeUrl", "/properties/Arn" ]
 }

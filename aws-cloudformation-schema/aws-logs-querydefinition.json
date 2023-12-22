@@ -45,20 +45,22 @@
   "primaryIdentifier" : [ "/properties/QueryDefinitionId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "logs:PutQueryDefinition", "logs:DescribeQueryDefinition" ]
+      "permissions" : [ "logs:PutQueryDefinition" ]
     },
     "read" : {
-      "permissions" : [ "logs:DescribeQueryDefinition" ]
+      "permissions" : [ "logs:DescribeQueryDefinitions" ]
     },
     "update" : {
-      "permissions" : [ "logs:PutQueryDefinition", "logs:DescribeQueryDefinition", "logs:DeleteQueryDefinition" ]
+      "permissions" : [ "logs:PutQueryDefinition" ]
     },
     "delete" : {
-      "permissions" : [ "logs:DescribeQueryDefinition", "logs:DeleteQueryDefinition" ]
+      "permissions" : [ "logs:DeleteQueryDefinition" ]
     },
     "list" : {
-      "permissions" : [ "logs:DescribeQueryDefinition" ]
+      "permissions" : [ "logs:DescribeQueryDefinitions" ]
     }
   },
-  "taggable" : false
+  "tagging" : {
+    "taggable" : false
+  }
 }

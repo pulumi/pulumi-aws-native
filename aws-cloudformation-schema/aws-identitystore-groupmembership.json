@@ -55,7 +55,7 @@
   },
   "required" : [ "IdentityStoreId", "GroupId", "MemberId" ],
   "readOnlyProperties" : [ "/properties/MembershipId" ],
-  "createOnlyProperties" : [ "/properties/IdentityStoreId" ],
+  "createOnlyProperties" : [ "/properties/IdentityStoreId", "/properties/GroupId", "/properties/MemberId" ],
   "primaryIdentifier" : [ "/properties/MembershipId", "/properties/IdentityStoreId" ],
   "handlers" : {
     "create" : {
