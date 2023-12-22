@@ -2,7 +2,7 @@
 
 import * as aws from "@pulumi/aws-native";
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 30; i++) {
     new aws.iam.Role(`role-${i}`, {
         assumeRolePolicyDocument: {
             Version: "2012-10-17",

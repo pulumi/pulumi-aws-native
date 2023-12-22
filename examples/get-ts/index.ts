@@ -7,8 +7,12 @@ const logGroup = new aws.logs.LogGroup("log-test", {
   retentionInDays: 90,
 });
 
+// Wait on the id to be populated so we don't fetch the log group before it's created.
+// The name is immediately available because Pulumi generates it during the preview.
 const fetchedLogGroup = aws.logs.getLogGroupOutput({
-  logGroupName: logGroup.logGroupName.apply((n) => n ?? ""),
+  logGroupName: logGroup.id.apply(() =>
+    logGroup.logGroupName.apply((n) => n ?? "")
+  ),
 });
 
 export const arns = pulumi

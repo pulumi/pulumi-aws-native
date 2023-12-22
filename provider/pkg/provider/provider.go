@@ -1134,7 +1134,6 @@ func (p *cfnProvider) readResourceState(ctx context.Context, typeName, identifie
 
 func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *types.ProgressEvent) (*types.ProgressEvent, error) {
 	retryBackoff := retry.NewExponentialJitterBackoff(30 * time.Second)
-	var err error
 	i := 0
 	for {
 		status := pi.OperationStatus
@@ -1143,30 +1142,23 @@ func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *types
 			identifier = *pi.Identifier
 		}
 		glog.V(9).Infof("waiting for resource %q: attempt #%d status %q", identifier, i, status)
-		switch status {
-		case "SUCCESS":
-			return pi, nil
-		case "FAILED":
-			statusMessage := ""
-			if pi.StatusMessage != nil {
-				statusMessage = *pi.StatusMessage
-			}
-			return pi, errors.Errorf("operation %s failed with %q: %s", pi.Operation, pi.ErrorCode, statusMessage)
-		case "IN_PROGRESS":
-			var pause time.Duration
-			if pi.RetryAfter != nil && pi.RetryAfter.After(time.Now()) {
-				pause = pi.RetryAfter.Sub(time.Now())
-			} else {
-				pause, err = retryBackoff.BackoffDelay(i, err)
-				if err != nil {
-					return nil, err
-				}
-			}
-			glog.V(9).Infof("resource operation is in progress, pausing for %v", pause)
-			time.Sleep(pause)
-		default:
-			return nil, errors.Errorf("unknown status %q: %+v", status, pi)
+
+		finished, err := hasFinished(pi)
+		if finished || err != nil {
+			return pi, err
 		}
+
+		var pause time.Duration
+		if pi.RetryAfter != nil && pi.RetryAfter.After(time.Now()) {
+			pause = pi.RetryAfter.Sub(time.Now())
+		} else {
+			pause, err = retryBackoff.BackoffDelay(i, err)
+			if err != nil {
+				return nil, err
+			}
+		}
+		glog.V(9).Infof("resource operation is in progress, pausing for %v", pause)
+		time.Sleep(pause)
 
 		select {
 		case <-ctx.Done():
@@ -1182,6 +1174,24 @@ func (p *cfnProvider) waitForResourceOpCompletion(ctx context.Context, pi *types
 		}
 		i += 1
 		pi = output.ProgressEvent
+	}
+}
+
+func hasFinished(pi *types.ProgressEvent) (bool, error) {
+	status := pi.OperationStatus
+	switch status {
+	case "SUCCESS":
+		return true, nil
+	case "FAILED":
+		statusMessage := ""
+		if pi.StatusMessage != nil {
+			statusMessage = *pi.StatusMessage
+		}
+		return true, errors.Errorf("operation %s failed with %q: %s", pi.Operation, pi.ErrorCode, statusMessage)
+	case "IN_PROGRESS", "PENDING":
+		return false, nil
+	default:
+		return true, errors.Errorf("unknown status %q: %+v", status, pi)
 	}
 }
 
