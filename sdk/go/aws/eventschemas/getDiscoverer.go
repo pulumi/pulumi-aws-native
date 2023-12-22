@@ -24,15 +24,23 @@ func LookupDiscoverer(ctx *pulumi.Context, args *LookupDiscovererArgs, opts ...p
 }
 
 type LookupDiscovererArgs struct {
-	DiscovererId string `pulumi:"discovererId"`
+	// The ARN of the discoverer.
+	DiscovererArn string `pulumi:"discovererArn"`
 }
 
 type LookupDiscovererResult struct {
-	CrossAccount  *bool                 `pulumi:"crossAccount"`
-	Description   *string               `pulumi:"description"`
-	DiscovererArn *string               `pulumi:"discovererArn"`
-	DiscovererId  *string               `pulumi:"discovererId"`
-	Tags          []DiscovererTagsEntry `pulumi:"tags"`
+	// Defines whether event schemas from other accounts are discovered. Default is True.
+	CrossAccount *bool `pulumi:"crossAccount"`
+	// A description for the discoverer.
+	Description *string `pulumi:"description"`
+	// The ARN of the discoverer.
+	DiscovererArn *string `pulumi:"discovererArn"`
+	// The Id of the discoverer.
+	DiscovererId *string `pulumi:"discovererId"`
+	// Defines the current state of the discoverer.
+	State *string `pulumi:"state"`
+	// Tags associated with the resource.
+	Tags []DiscovererTagsEntry `pulumi:"tags"`
 }
 
 func LookupDiscovererOutput(ctx *pulumi.Context, args LookupDiscovererOutputArgs, opts ...pulumi.InvokeOption) LookupDiscovererResultOutput {
@@ -49,7 +57,8 @@ func LookupDiscovererOutput(ctx *pulumi.Context, args LookupDiscovererOutputArgs
 }
 
 type LookupDiscovererOutputArgs struct {
-	DiscovererId pulumi.StringInput `pulumi:"discovererId"`
+	// The ARN of the discoverer.
+	DiscovererArn pulumi.StringInput `pulumi:"discovererArn"`
 }
 
 func (LookupDiscovererOutputArgs) ElementType() reflect.Type {
@@ -76,22 +85,32 @@ func (o LookupDiscovererResultOutput) ToOutput(ctx context.Context) pulumix.Outp
 	}
 }
 
+// Defines whether event schemas from other accounts are discovered. Default is True.
 func (o LookupDiscovererResultOutput) CrossAccount() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDiscovererResult) *bool { return v.CrossAccount }).(pulumi.BoolPtrOutput)
 }
 
+// A description for the discoverer.
 func (o LookupDiscovererResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDiscovererResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the discoverer.
 func (o LookupDiscovererResultOutput) DiscovererArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDiscovererResult) *string { return v.DiscovererArn }).(pulumi.StringPtrOutput)
 }
 
+// The Id of the discoverer.
 func (o LookupDiscovererResultOutput) DiscovererId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDiscovererResult) *string { return v.DiscovererId }).(pulumi.StringPtrOutput)
 }
 
+// Defines the current state of the discoverer.
+func (o LookupDiscovererResultOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDiscovererResult) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+// Tags associated with the resource.
 func (o LookupDiscovererResultOutput) Tags() DiscovererTagsEntryArrayOutput {
 	return o.ApplyT(func(v LookupDiscovererResult) []DiscovererTagsEntry { return v.Tags }).(DiscovererTagsEntryArrayOutput)
 }

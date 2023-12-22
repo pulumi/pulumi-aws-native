@@ -130,7 +130,7 @@ class GroupMembership(pulumi.CustomResource):
                 raise TypeError("Missing required property 'member_id'")
             __props__.__dict__["member_id"] = member_id
             __props__.__dict__["membership_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["identity_store_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["group_id", "identity_store_id", "member_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(GroupMembership, __self__).__init__(
             'aws-native:identitystore:GroupMembership',

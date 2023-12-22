@@ -37,6 +37,10 @@ type LookupEventDataStoreResult struct {
 	CreatedTimestamp *string `pulumi:"createdTimestamp"`
 	// The ARN of the event data store.
 	EventDataStoreArn *string `pulumi:"eventDataStoreArn"`
+	// Indicates whether federation is enabled on an event data store.
+	FederationEnabled *bool `pulumi:"federationEnabled"`
+	// The ARN of the role used for event data store federation.
+	FederationRoleArn *string `pulumi:"federationRoleArn"`
 	// Indicates whether the event data store is ingesting events.
 	IngestionEnabled *bool `pulumi:"ingestionEnabled"`
 	// Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
@@ -124,6 +128,16 @@ func (o LookupEventDataStoreResultOutput) CreatedTimestamp() pulumi.StringPtrOut
 // The ARN of the event data store.
 func (o LookupEventDataStoreResultOutput) EventDataStoreArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventDataStoreResult) *string { return v.EventDataStoreArn }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether federation is enabled on an event data store.
+func (o LookupEventDataStoreResultOutput) FederationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupEventDataStoreResult) *bool { return v.FederationEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the role used for event data store federation.
+func (o LookupEventDataStoreResultOutput) FederationRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEventDataStoreResult) *string { return v.FederationRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether the event data store is ingesting events.

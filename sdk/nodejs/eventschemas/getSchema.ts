@@ -14,22 +14,50 @@ export function getSchema(args: GetSchemaArgs, opts?: pulumi.InvokeOptions): Pro
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:eventschemas:getSchema", {
-        "id": args.id,
+        "schemaArn": args.schemaArn,
     }, opts);
 }
 
 export interface GetSchemaArgs {
-    id: string;
+    /**
+     * The ARN of the schema.
+     */
+    schemaArn: string;
 }
 
 export interface GetSchemaResult {
+    /**
+     * The source of the schema definition.
+     */
     readonly content?: string;
+    /**
+     * A description of the schema.
+     */
     readonly description?: string;
-    readonly id?: string;
+    /**
+     * The last modified time of the schema.
+     */
+    readonly lastModified?: string;
+    /**
+     * The ARN of the schema.
+     */
     readonly schemaArn?: string;
+    /**
+     * The version number of the schema.
+     */
     readonly schemaVersion?: string;
+    /**
+     * Tags associated with the resource.
+     */
     readonly tags?: outputs.eventschemas.SchemaTagsEntry[];
+    /**
+     * The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
+     */
     readonly type?: string;
+    /**
+     * The date the schema version was created.
+     */
+    readonly versionCreatedDate?: string;
 }
 /**
  * Resource Type definition for AWS::EventSchemas::Schema
@@ -39,5 +67,8 @@ export function getSchemaOutput(args: GetSchemaOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetSchemaOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The ARN of the schema.
+     */
+    schemaArn: pulumi.Input<string>;
 }

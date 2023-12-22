@@ -21,9 +21,11 @@ class ServerlessCacheArgs:
                  cache_usage_limits: Optional[pulumi.Input['ServerlessCacheCacheUsageLimitsArgs']] = None,
                  daily_snapshot_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 endpoint: Optional[pulumi.Input['ServerlessCacheEndpointArgs']] = None,
                  final_snapshot_name: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  major_engine_version: Optional[pulumi.Input[str]] = None,
+                 reader_endpoint: Optional[pulumi.Input['ServerlessCacheEndpointArgs']] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  serverless_cache_name: Optional[pulumi.Input[str]] = None,
                  snapshot_arns_to_restore: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -54,12 +56,16 @@ class ServerlessCacheArgs:
             pulumi.set(__self__, "daily_snapshot_time", daily_snapshot_time)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
         if final_snapshot_name is not None:
             pulumi.set(__self__, "final_snapshot_name", final_snapshot_name)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if major_engine_version is not None:
             pulumi.set(__self__, "major_engine_version", major_engine_version)
+        if reader_endpoint is not None:
+            pulumi.set(__self__, "reader_endpoint", reader_endpoint)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if serverless_cache_name is not None:
@@ -121,6 +127,15 @@ class ServerlessCacheArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[pulumi.Input['ServerlessCacheEndpointArgs']]:
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: Optional[pulumi.Input['ServerlessCacheEndpointArgs']]):
+        pulumi.set(self, "endpoint", value)
+
+    @property
     @pulumi.getter(name="finalSnapshotName")
     def final_snapshot_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -155,6 +170,15 @@ class ServerlessCacheArgs:
     @major_engine_version.setter
     def major_engine_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "major_engine_version", value)
+
+    @property
+    @pulumi.getter(name="readerEndpoint")
+    def reader_endpoint(self) -> Optional[pulumi.Input['ServerlessCacheEndpointArgs']]:
+        return pulumi.get(self, "reader_endpoint")
+
+    @reader_endpoint.setter
+    def reader_endpoint(self, value: Optional[pulumi.Input['ServerlessCacheEndpointArgs']]):
+        pulumi.set(self, "reader_endpoint", value)
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -249,10 +273,12 @@ class ServerlessCache(pulumi.CustomResource):
                  cache_usage_limits: Optional[pulumi.Input[pulumi.InputType['ServerlessCacheCacheUsageLimitsArgs']]] = None,
                  daily_snapshot_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 endpoint: Optional[pulumi.Input[pulumi.InputType['ServerlessCacheEndpointArgs']]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  final_snapshot_name: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  major_engine_version: Optional[pulumi.Input[str]] = None,
+                 reader_endpoint: Optional[pulumi.Input[pulumi.InputType['ServerlessCacheEndpointArgs']]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  serverless_cache_name: Optional[pulumi.Input[str]] = None,
                  snapshot_arns_to_restore: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -307,10 +333,12 @@ class ServerlessCache(pulumi.CustomResource):
                  cache_usage_limits: Optional[pulumi.Input[pulumi.InputType['ServerlessCacheCacheUsageLimitsArgs']]] = None,
                  daily_snapshot_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 endpoint: Optional[pulumi.Input[pulumi.InputType['ServerlessCacheEndpointArgs']]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  final_snapshot_name: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  major_engine_version: Optional[pulumi.Input[str]] = None,
+                 reader_endpoint: Optional[pulumi.Input[pulumi.InputType['ServerlessCacheEndpointArgs']]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  serverless_cache_name: Optional[pulumi.Input[str]] = None,
                  snapshot_arns_to_restore: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -330,12 +358,14 @@ class ServerlessCache(pulumi.CustomResource):
             __props__.__dict__["cache_usage_limits"] = cache_usage_limits
             __props__.__dict__["daily_snapshot_time"] = daily_snapshot_time
             __props__.__dict__["description"] = description
+            __props__.__dict__["endpoint"] = endpoint
             if engine is None and not opts.urn:
                 raise TypeError("Missing required property 'engine'")
             __props__.__dict__["engine"] = engine
             __props__.__dict__["final_snapshot_name"] = final_snapshot_name
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["major_engine_version"] = major_engine_version
+            __props__.__dict__["reader_endpoint"] = reader_endpoint
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["serverless_cache_name"] = serverless_cache_name
             __props__.__dict__["snapshot_arns_to_restore"] = snapshot_arns_to_restore
@@ -345,9 +375,7 @@ class ServerlessCache(pulumi.CustomResource):
             __props__.__dict__["user_group_id"] = user_group_id
             __props__.__dict__["arn"] = None
             __props__.__dict__["create_time"] = None
-            __props__.__dict__["endpoint"] = None
             __props__.__dict__["full_engine_version"] = None
-            __props__.__dict__["reader_endpoint"] = None
             __props__.__dict__["status"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["engine", "kms_key_id", "major_engine_version", "serverless_cache_name", "snapshot_arns_to_restore[*]", "subnet_ids[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -434,7 +462,7 @@ class ServerlessCache(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Output['outputs.ServerlessCacheEndpoint']:
+    def endpoint(self) -> pulumi.Output[Optional['outputs.ServerlessCacheEndpoint']]:
         return pulumi.get(self, "endpoint")
 
     @property
@@ -479,7 +507,7 @@ class ServerlessCache(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="readerEndpoint")
-    def reader_endpoint(self) -> pulumi.Output['outputs.ServerlessCacheEndpoint']:
+    def reader_endpoint(self) -> pulumi.Output[Optional['outputs.ServerlessCacheEndpoint']]:
         return pulumi.get(self, "reader_endpoint")
 
     @property

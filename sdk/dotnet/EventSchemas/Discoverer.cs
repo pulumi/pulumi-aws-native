@@ -12,25 +12,48 @@ namespace Pulumi.AwsNative.EventSchemas
     /// <summary>
     /// Resource Type definition for AWS::EventSchemas::Discoverer
     /// </summary>
-    [Obsolete(@"Discoverer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:eventschemas:Discoverer")]
     public partial class Discoverer : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Defines whether event schemas from other accounts are discovered. Default is True.
+        /// </summary>
         [Output("crossAccount")]
         public Output<bool?> CrossAccount { get; private set; } = null!;
 
+        /// <summary>
+        /// A description for the discoverer.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the discoverer.
+        /// </summary>
         [Output("discovererArn")]
         public Output<string> DiscovererArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Id of the discoverer.
+        /// </summary>
         [Output("discovererId")]
         public Output<string> DiscovererId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the event bus.
+        /// </summary>
         [Output("sourceArn")]
         public Output<string> SourceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Defines the current state of the discoverer.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
+        /// Tags associated with the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.DiscovererTagsEntry>> Tags { get; private set; } = null!;
 
@@ -83,17 +106,30 @@ namespace Pulumi.AwsNative.EventSchemas
 
     public sealed class DiscovererArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Defines whether event schemas from other accounts are discovered. Default is True.
+        /// </summary>
         [Input("crossAccount")]
         public Input<bool>? CrossAccount { get; set; }
 
+        /// <summary>
+        /// A description for the discoverer.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The ARN of the event bus.
+        /// </summary>
         [Input("sourceArn", required: true)]
         public Input<string> SourceArn { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.DiscovererTagsEntryArgs>? _tags;
+
+        /// <summary>
+        /// Tags associated with the resource.
+        /// </summary>
         public InputList<Inputs.DiscovererTagsEntryArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.DiscovererTagsEntryArgs>());

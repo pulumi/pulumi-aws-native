@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
+    /// <summary>
+    /// A destination for events after they have been sent to a function for processing.
+    /// </summary>
     public sealed class EventInvokeConfigDestinationConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("onFailure")]

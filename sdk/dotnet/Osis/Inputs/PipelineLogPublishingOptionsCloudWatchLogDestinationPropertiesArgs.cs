@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.Osis.Inputs
     /// </summary>
     public sealed class PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("logGroup")]
-        public Input<string>? LogGroup { get; set; }
+        [Input("logGroup", required: true)]
+        public Input<string> LogGroup { get; set; } = null!;
 
         public PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs()
         {

@@ -64,7 +64,9 @@ namespace Pulumi.AwsNative.IdentityStore
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "groupId",
                     "identityStoreId",
+                    "memberId",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

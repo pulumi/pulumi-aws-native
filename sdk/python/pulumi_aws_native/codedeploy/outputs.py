@@ -13,9 +13,11 @@ from . import outputs
 __all__ = [
     'ApplicationTag',
     'DeploymentConfigMinimumHealthyHosts',
+    'DeploymentConfigMinimumHealthyHostsPerZone',
     'DeploymentConfigTimeBasedCanary',
     'DeploymentConfigTimeBasedLinear',
     'DeploymentConfigTrafficRoutingConfig',
+    'DeploymentConfigZonalConfig',
     'DeploymentGroupAlarm',
     'DeploymentGroupAlarmConfiguration',
     'DeploymentGroupAutoRollbackConfiguration',
@@ -65,6 +67,25 @@ class ApplicationTag(dict):
 
 @pulumi.output_type
 class DeploymentConfigMinimumHealthyHosts(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 value: int):
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DeploymentConfigMinimumHealthyHostsPerZone(dict):
     def __init__(__self__, *,
                  type: str,
                  value: int):
@@ -203,6 +224,56 @@ class DeploymentConfigTrafficRoutingConfig(dict):
     @pulumi.getter(name="timeBasedLinear")
     def time_based_linear(self) -> Optional['outputs.DeploymentConfigTimeBasedLinear']:
         return pulumi.get(self, "time_based_linear")
+
+
+@pulumi.output_type
+class DeploymentConfigZonalConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "firstZoneMonitorDurationInSeconds":
+            suggest = "first_zone_monitor_duration_in_seconds"
+        elif key == "minimumHealthyHostsPerZone":
+            suggest = "minimum_healthy_hosts_per_zone"
+        elif key == "monitorDurationInSeconds":
+            suggest = "monitor_duration_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentConfigZonalConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentConfigZonalConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentConfigZonalConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 first_zone_monitor_duration_in_seconds: Optional[int] = None,
+                 minimum_healthy_hosts_per_zone: Optional['outputs.DeploymentConfigMinimumHealthyHostsPerZone'] = None,
+                 monitor_duration_in_seconds: Optional[int] = None):
+        if first_zone_monitor_duration_in_seconds is not None:
+            pulumi.set(__self__, "first_zone_monitor_duration_in_seconds", first_zone_monitor_duration_in_seconds)
+        if minimum_healthy_hosts_per_zone is not None:
+            pulumi.set(__self__, "minimum_healthy_hosts_per_zone", minimum_healthy_hosts_per_zone)
+        if monitor_duration_in_seconds is not None:
+            pulumi.set(__self__, "monitor_duration_in_seconds", monitor_duration_in_seconds)
+
+    @property
+    @pulumi.getter(name="firstZoneMonitorDurationInSeconds")
+    def first_zone_monitor_duration_in_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "first_zone_monitor_duration_in_seconds")
+
+    @property
+    @pulumi.getter(name="minimumHealthyHostsPerZone")
+    def minimum_healthy_hosts_per_zone(self) -> Optional['outputs.DeploymentConfigMinimumHealthyHostsPerZone']:
+        return pulumi.get(self, "minimum_healthy_hosts_per_zone")
+
+    @property
+    @pulumi.getter(name="monitorDurationInSeconds")
+    def monitor_duration_in_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "monitor_duration_in_seconds")
 
 
 @pulumi.output_type

@@ -43,6 +43,14 @@ export interface GetEventDataStoreResult {
      */
     readonly eventDataStoreArn?: string;
     /**
+     * Indicates whether federation is enabled on an event data store.
+     */
+    readonly federationEnabled?: boolean;
+    /**
+     * The ARN of the role used for event data store federation.
+     */
+    readonly federationRoleArn?: string;
+    /**
      * Indicates whether the event data store is ingesting events.
      */
     readonly ingestionEnabled?: boolean;

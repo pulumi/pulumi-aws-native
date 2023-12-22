@@ -27,10 +27,13 @@ export interface GetPipelineResult {
     readonly artifactStores?: outputs.codepipeline.PipelineArtifactStoreMap[];
     readonly disableInboundStageTransitions?: outputs.codepipeline.PipelineStageTransition[];
     readonly id?: string;
+    readonly pipelineType?: string;
     readonly restartExecutionOnUpdate?: boolean;
     readonly roleArn?: string;
     readonly stages?: outputs.codepipeline.PipelineStageDeclaration[];
     readonly tags?: outputs.codepipeline.PipelineTag[];
+    readonly triggers?: outputs.codepipeline.PipelineTriggerDeclaration[];
+    readonly variables?: outputs.codepipeline.PipelineVariableDeclaration[];
     readonly version?: string;
 }
 /**

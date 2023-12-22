@@ -17,6 +17,8 @@ import (
 type Pipeline struct {
 	pulumi.CustomResourceState
 
+	BufferOptions           PipelineBufferOptionsPtrOutput           `pulumi:"bufferOptions"`
+	EncryptionAtRestOptions PipelineEncryptionAtRestOptionsPtrOutput `pulumi:"encryptionAtRestOptions"`
 	// A list of endpoints that can be used for ingesting data into a pipeline
 	IngestEndpointUrls   pulumi.StringArrayOutput              `pulumi:"ingestEndpointUrls"`
 	LogPublishingOptions PipelineLogPublishingOptionsPtrOutput `pulumi:"logPublishingOptions"`
@@ -90,7 +92,9 @@ func (PipelineState) ElementType() reflect.Type {
 }
 
 type pipelineArgs struct {
-	LogPublishingOptions *PipelineLogPublishingOptions `pulumi:"logPublishingOptions"`
+	BufferOptions           *PipelineBufferOptions           `pulumi:"bufferOptions"`
+	EncryptionAtRestOptions *PipelineEncryptionAtRestOptions `pulumi:"encryptionAtRestOptions"`
+	LogPublishingOptions    *PipelineLogPublishingOptions    `pulumi:"logPublishingOptions"`
 	// The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
 	MaxUnits int `pulumi:"maxUnits"`
 	// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
@@ -106,7 +110,9 @@ type pipelineArgs struct {
 
 // The set of arguments for constructing a Pipeline resource.
 type PipelineArgs struct {
-	LogPublishingOptions PipelineLogPublishingOptionsPtrInput
+	BufferOptions           PipelineBufferOptionsPtrInput
+	EncryptionAtRestOptions PipelineEncryptionAtRestOptionsPtrInput
+	LogPublishingOptions    PipelineLogPublishingOptionsPtrInput
 	// The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
 	MaxUnits pulumi.IntInput
 	// The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
@@ -167,6 +173,14 @@ func (o PipelineOutput) ToOutput(ctx context.Context) pulumix.Output[*Pipeline] 
 	return pulumix.Output[*Pipeline]{
 		OutputState: o.OutputState,
 	}
+}
+
+func (o PipelineOutput) BufferOptions() PipelineBufferOptionsPtrOutput {
+	return o.ApplyT(func(v *Pipeline) PipelineBufferOptionsPtrOutput { return v.BufferOptions }).(PipelineBufferOptionsPtrOutput)
+}
+
+func (o PipelineOutput) EncryptionAtRestOptions() PipelineEncryptionAtRestOptionsPtrOutput {
+	return o.ApplyT(func(v *Pipeline) PipelineEncryptionAtRestOptionsPtrOutput { return v.EncryptionAtRestOptions }).(PipelineEncryptionAtRestOptionsPtrOutput)
 }
 
 // A list of endpoints that can be used for ingesting data into a pipeline

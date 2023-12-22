@@ -56,6 +56,7 @@ namespace Pulumi.AwsNative.CleanRooms
         public readonly string? CollaborationCreatorAccountId;
         public readonly Outputs.MembershipProtectedQueryResultConfiguration? DefaultResultConfiguration;
         public readonly string? MembershipIdentifier;
+        public readonly Outputs.MembershipPaymentConfiguration? PaymentConfiguration;
         public readonly Pulumi.AwsNative.CleanRooms.MembershipQueryLogStatus? QueryLogStatus;
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
@@ -74,6 +75,8 @@ namespace Pulumi.AwsNative.CleanRooms
 
             string? membershipIdentifier,
 
+            Outputs.MembershipPaymentConfiguration? paymentConfiguration,
+
             Pulumi.AwsNative.CleanRooms.MembershipQueryLogStatus? queryLogStatus,
 
             ImmutableArray<Outputs.MembershipTag> tags)
@@ -83,6 +86,7 @@ namespace Pulumi.AwsNative.CleanRooms
             CollaborationCreatorAccountId = collaborationCreatorAccountId;
             DefaultResultConfiguration = defaultResultConfiguration;
             MembershipIdentifier = membershipIdentifier;
+            PaymentConfiguration = paymentConfiguration;
             QueryLogStatus = queryLogStatus;
             Tags = tags;
         }

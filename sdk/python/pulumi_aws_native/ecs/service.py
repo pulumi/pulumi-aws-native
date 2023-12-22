@@ -38,7 +38,8 @@ class ServiceArgs:
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_registries: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceRegistryArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]] = None,
-                 task_definition: Optional[pulumi.Input[str]] = None):
+                 task_definition: Optional[pulumi.Input[str]] = None,
+                 volume_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVolumeConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a Service resource.
         """
@@ -86,6 +87,8 @@ class ServiceArgs:
             pulumi.set(__self__, "tags", tags)
         if task_definition is not None:
             pulumi.set(__self__, "task_definition", task_definition)
+        if volume_configurations is not None:
+            pulumi.set(__self__, "volume_configurations", volume_configurations)
 
     @property
     @pulumi.getter(name="capacityProviderStrategy")
@@ -285,6 +288,15 @@ class ServiceArgs:
     def task_definition(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "task_definition", value)
 
+    @property
+    @pulumi.getter(name="volumeConfigurations")
+    def volume_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVolumeConfigurationArgs']]]]:
+        return pulumi.get(self, "volume_configurations")
+
+    @volume_configurations.setter
+    def volume_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVolumeConfigurationArgs']]]]):
+        pulumi.set(self, "volume_configurations", value)
+
 
 class Service(pulumi.CustomResource):
     @overload
@@ -313,6 +325,7 @@ class Service(pulumi.CustomResource):
                  service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceRegistryArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceTagArgs']]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
+                 volume_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceVolumeConfigurationArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ECS::Service
@@ -366,6 +379,7 @@ class Service(pulumi.CustomResource):
                  service_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceRegistryArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceTagArgs']]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
+                 volume_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceVolumeConfigurationArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -397,6 +411,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["service_registries"] = service_registries
             __props__.__dict__["tags"] = tags
             __props__.__dict__["task_definition"] = task_definition
+            __props__.__dict__["volume_configurations"] = volume_configurations
             __props__.__dict__["name"] = None
             __props__.__dict__["service_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster", "deployment_controller", "launch_type", "role", "scheduling_strategy", "service_name"])
@@ -447,6 +462,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["service_registries"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["task_definition"] = None
+        __props__.__dict__["volume_configurations"] = None
         return Service(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -568,4 +584,9 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="taskDefinition")
     def task_definition(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "task_definition")
+
+    @property
+    @pulumi.getter(name="volumeConfigurations")
+    def volume_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceVolumeConfiguration']]]:
+        return pulumi.get(self, "volume_configurations")
 

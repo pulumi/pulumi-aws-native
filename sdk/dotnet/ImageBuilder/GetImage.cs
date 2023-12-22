@@ -62,6 +62,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// The execution role name/ARN for the image build, if provided
+        /// </summary>
+        public readonly string? ExecutionRole;
+        /// <summary>
         /// The AMI ID of the EC2 AMI in current region.
         /// </summary>
         public readonly string? ImageId;
@@ -78,6 +82,8 @@ namespace Pulumi.AwsNative.ImageBuilder
         private GetImageResult(
             string? arn,
 
+            string? executionRole,
+
             string? imageId,
 
             string? imageUri,
@@ -85,6 +91,7 @@ namespace Pulumi.AwsNative.ImageBuilder
             string? name)
         {
             Arn = arn;
+            ExecutionRole = executionRole;
             ImageId = imageId;
             ImageUri = imageUri;
             Name = name;

@@ -42,17 +42,9 @@ export class Subnet extends pulumi.CustomResource {
     public readonly availabilityZoneId!: pulumi.Output<string | undefined>;
     public readonly cidrBlock!: pulumi.Output<string | undefined>;
     public readonly enableDns64!: pulumi.Output<boolean | undefined>;
-    /**
-     * The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
-     */
-    public readonly ipv4NetmaskLength!: pulumi.Output<number | undefined>;
     public readonly ipv6CidrBlock!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly ipv6CidrBlocks!: pulumi.Output<string[]>;
+    public readonly ipv6CidrBlocks!: pulumi.Output<string[] | undefined>;
     public readonly ipv6Native!: pulumi.Output<boolean | undefined>;
-    /**
-     * The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
-     */
-    public readonly ipv6NetmaskLength!: pulumi.Output<number | undefined>;
     public readonly mapPublicIpOnLaunch!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly networkAclAssociationId!: pulumi.Output<string>;
     public readonly outpostArn!: pulumi.Output<string | undefined>;
@@ -80,16 +72,14 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["availabilityZoneId"] = args ? args.availabilityZoneId : undefined;
             resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
             resourceInputs["enableDns64"] = args ? args.enableDns64 : undefined;
-            resourceInputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
             resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
+            resourceInputs["ipv6CidrBlocks"] = args ? args.ipv6CidrBlocks : undefined;
             resourceInputs["ipv6Native"] = args ? args.ipv6Native : undefined;
-            resourceInputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
             resourceInputs["mapPublicIpOnLaunch"] = args ? args.mapPublicIpOnLaunch : undefined;
             resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
             resourceInputs["privateDnsNameOptionsOnLaunch"] = args ? args.privateDnsNameOptionsOnLaunch : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
-            resourceInputs["ipv6CidrBlocks"] = undefined /*out*/;
             resourceInputs["networkAclAssociationId"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
         } else {
@@ -98,11 +88,9 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["availabilityZoneId"] = undefined /*out*/;
             resourceInputs["cidrBlock"] = undefined /*out*/;
             resourceInputs["enableDns64"] = undefined /*out*/;
-            resourceInputs["ipv4NetmaskLength"] = undefined /*out*/;
             resourceInputs["ipv6CidrBlock"] = undefined /*out*/;
             resourceInputs["ipv6CidrBlocks"] = undefined /*out*/;
             resourceInputs["ipv6Native"] = undefined /*out*/;
-            resourceInputs["ipv6NetmaskLength"] = undefined /*out*/;
             resourceInputs["mapPublicIpOnLaunch"] = undefined /*out*/;
             resourceInputs["networkAclAssociationId"] = undefined /*out*/;
             resourceInputs["outpostArn"] = undefined /*out*/;
@@ -127,16 +115,9 @@ export interface SubnetArgs {
     availabilityZoneId?: pulumi.Input<string>;
     cidrBlock?: pulumi.Input<string>;
     enableDns64?: pulumi.Input<boolean>;
-    /**
-     * The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
-     */
-    ipv4NetmaskLength?: pulumi.Input<number>;
     ipv6CidrBlock?: pulumi.Input<string>;
+    ipv6CidrBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     ipv6Native?: pulumi.Input<boolean>;
-    /**
-     * The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
-     */
-    ipv6NetmaskLength?: pulumi.Input<number>;
     mapPublicIpOnLaunch?: pulumi.Input<boolean>;
     outpostArn?: pulumi.Input<string>;
     privateDnsNameOptionsOnLaunch?: pulumi.Input<inputs.ec2.PrivateDnsNameOptionsOnLaunchPropertiesArgs>;

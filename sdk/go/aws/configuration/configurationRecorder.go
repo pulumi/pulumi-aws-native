@@ -21,6 +21,7 @@ type ConfigurationRecorder struct {
 
 	Name           pulumi.StringPtrOutput                       `pulumi:"name"`
 	RecordingGroup ConfigurationRecorderRecordingGroupPtrOutput `pulumi:"recordingGroup"`
+	RecordingMode  ConfigurationRecorderRecordingModePtrOutput  `pulumi:"recordingMode"`
 	RoleArn        pulumi.StringOutput                          `pulumi:"roleArn"`
 }
 
@@ -73,6 +74,7 @@ func (ConfigurationRecorderState) ElementType() reflect.Type {
 type configurationRecorderArgs struct {
 	Name           *string                              `pulumi:"name"`
 	RecordingGroup *ConfigurationRecorderRecordingGroup `pulumi:"recordingGroup"`
+	RecordingMode  *ConfigurationRecorderRecordingMode  `pulumi:"recordingMode"`
 	RoleArn        string                               `pulumi:"roleArn"`
 }
 
@@ -80,6 +82,7 @@ type configurationRecorderArgs struct {
 type ConfigurationRecorderArgs struct {
 	Name           pulumi.StringPtrInput
 	RecordingGroup ConfigurationRecorderRecordingGroupPtrInput
+	RecordingMode  ConfigurationRecorderRecordingModePtrInput
 	RoleArn        pulumi.StringInput
 }
 
@@ -138,6 +141,10 @@ func (o ConfigurationRecorderOutput) Name() pulumi.StringPtrOutput {
 
 func (o ConfigurationRecorderOutput) RecordingGroup() ConfigurationRecorderRecordingGroupPtrOutput {
 	return o.ApplyT(func(v *ConfigurationRecorder) ConfigurationRecorderRecordingGroupPtrOutput { return v.RecordingGroup }).(ConfigurationRecorderRecordingGroupPtrOutput)
+}
+
+func (o ConfigurationRecorderOutput) RecordingMode() ConfigurationRecorderRecordingModePtrOutput {
+	return o.ApplyT(func(v *ConfigurationRecorder) ConfigurationRecorderRecordingModePtrOutput { return v.RecordingMode }).(ConfigurationRecorderRecordingModePtrOutput)
 }
 
 func (o ConfigurationRecorderOutput) RoleArn() pulumi.StringOutput {

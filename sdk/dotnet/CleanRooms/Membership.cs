@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.CleanRooms
         [Output("membershipIdentifier")]
         public Output<string> MembershipIdentifier { get; private set; } = null!;
 
+        [Output("paymentConfiguration")]
+        public Output<Outputs.MembershipPaymentConfiguration?> PaymentConfiguration { get; private set; } = null!;
+
         [Output("queryLogStatus")]
         public Output<Pulumi.AwsNative.CleanRooms.MembershipQueryLogStatus> QueryLogStatus { get; private set; } = null!;
 
@@ -96,6 +99,9 @@ namespace Pulumi.AwsNative.CleanRooms
 
         [Input("defaultResultConfiguration")]
         public Input<Inputs.MembershipProtectedQueryResultConfigurationArgs>? DefaultResultConfiguration { get; set; }
+
+        [Input("paymentConfiguration")]
+        public Input<Inputs.MembershipPaymentConfigurationArgs>? PaymentConfiguration { get; set; }
 
         [Input("queryLogStatus", required: true)]
         public Input<Pulumi.AwsNative.CleanRooms.MembershipQueryLogStatus> QueryLogStatus { get; set; } = null!;

@@ -3739,6 +3739,286 @@ func (o ImagePipelineSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// The workflow configuration of the image
+type ImagePipelineWorkflowConfiguration struct {
+	// Define execution decision in case of workflow failure
+	OnFailure *ImagePipelineWorkflowConfigurationOnFailure `pulumi:"onFailure"`
+	// The parallel group name
+	ParallelGroup *string `pulumi:"parallelGroup"`
+	// The parameters associated with the workflow
+	Parameters []ImagePipelineWorkflowParameter `pulumi:"parameters"`
+	// The Amazon Resource Name (ARN) of the workflow
+	WorkflowArn *string `pulumi:"workflowArn"`
+}
+
+// ImagePipelineWorkflowConfigurationInput is an input type that accepts ImagePipelineWorkflowConfigurationArgs and ImagePipelineWorkflowConfigurationOutput values.
+// You can construct a concrete instance of `ImagePipelineWorkflowConfigurationInput` via:
+//
+//	ImagePipelineWorkflowConfigurationArgs{...}
+type ImagePipelineWorkflowConfigurationInput interface {
+	pulumi.Input
+
+	ToImagePipelineWorkflowConfigurationOutput() ImagePipelineWorkflowConfigurationOutput
+	ToImagePipelineWorkflowConfigurationOutputWithContext(context.Context) ImagePipelineWorkflowConfigurationOutput
+}
+
+// The workflow configuration of the image
+type ImagePipelineWorkflowConfigurationArgs struct {
+	// Define execution decision in case of workflow failure
+	OnFailure ImagePipelineWorkflowConfigurationOnFailurePtrInput `pulumi:"onFailure"`
+	// The parallel group name
+	ParallelGroup pulumi.StringPtrInput `pulumi:"parallelGroup"`
+	// The parameters associated with the workflow
+	Parameters ImagePipelineWorkflowParameterArrayInput `pulumi:"parameters"`
+	// The Amazon Resource Name (ARN) of the workflow
+	WorkflowArn pulumi.StringPtrInput `pulumi:"workflowArn"`
+}
+
+func (ImagePipelineWorkflowConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineWorkflowConfiguration)(nil)).Elem()
+}
+
+func (i ImagePipelineWorkflowConfigurationArgs) ToImagePipelineWorkflowConfigurationOutput() ImagePipelineWorkflowConfigurationOutput {
+	return i.ToImagePipelineWorkflowConfigurationOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineWorkflowConfigurationArgs) ToImagePipelineWorkflowConfigurationOutputWithContext(ctx context.Context) ImagePipelineWorkflowConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineWorkflowConfigurationOutput)
+}
+
+func (i ImagePipelineWorkflowConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineWorkflowConfiguration] {
+	return pulumix.Output[ImagePipelineWorkflowConfiguration]{
+		OutputState: i.ToImagePipelineWorkflowConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ImagePipelineWorkflowConfigurationArrayInput is an input type that accepts ImagePipelineWorkflowConfigurationArray and ImagePipelineWorkflowConfigurationArrayOutput values.
+// You can construct a concrete instance of `ImagePipelineWorkflowConfigurationArrayInput` via:
+//
+//	ImagePipelineWorkflowConfigurationArray{ ImagePipelineWorkflowConfigurationArgs{...} }
+type ImagePipelineWorkflowConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToImagePipelineWorkflowConfigurationArrayOutput() ImagePipelineWorkflowConfigurationArrayOutput
+	ToImagePipelineWorkflowConfigurationArrayOutputWithContext(context.Context) ImagePipelineWorkflowConfigurationArrayOutput
+}
+
+type ImagePipelineWorkflowConfigurationArray []ImagePipelineWorkflowConfigurationInput
+
+func (ImagePipelineWorkflowConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImagePipelineWorkflowConfiguration)(nil)).Elem()
+}
+
+func (i ImagePipelineWorkflowConfigurationArray) ToImagePipelineWorkflowConfigurationArrayOutput() ImagePipelineWorkflowConfigurationArrayOutput {
+	return i.ToImagePipelineWorkflowConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineWorkflowConfigurationArray) ToImagePipelineWorkflowConfigurationArrayOutputWithContext(ctx context.Context) ImagePipelineWorkflowConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineWorkflowConfigurationArrayOutput)
+}
+
+func (i ImagePipelineWorkflowConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]ImagePipelineWorkflowConfiguration] {
+	return pulumix.Output[[]ImagePipelineWorkflowConfiguration]{
+		OutputState: i.ToImagePipelineWorkflowConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The workflow configuration of the image
+type ImagePipelineWorkflowConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineWorkflowConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineWorkflowConfiguration)(nil)).Elem()
+}
+
+func (o ImagePipelineWorkflowConfigurationOutput) ToImagePipelineWorkflowConfigurationOutput() ImagePipelineWorkflowConfigurationOutput {
+	return o
+}
+
+func (o ImagePipelineWorkflowConfigurationOutput) ToImagePipelineWorkflowConfigurationOutputWithContext(ctx context.Context) ImagePipelineWorkflowConfigurationOutput {
+	return o
+}
+
+func (o ImagePipelineWorkflowConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineWorkflowConfiguration] {
+	return pulumix.Output[ImagePipelineWorkflowConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Define execution decision in case of workflow failure
+func (o ImagePipelineWorkflowConfigurationOutput) OnFailure() ImagePipelineWorkflowConfigurationOnFailurePtrOutput {
+	return o.ApplyT(func(v ImagePipelineWorkflowConfiguration) *ImagePipelineWorkflowConfigurationOnFailure {
+		return v.OnFailure
+	}).(ImagePipelineWorkflowConfigurationOnFailurePtrOutput)
+}
+
+// The parallel group name
+func (o ImagePipelineWorkflowConfigurationOutput) ParallelGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImagePipelineWorkflowConfiguration) *string { return v.ParallelGroup }).(pulumi.StringPtrOutput)
+}
+
+// The parameters associated with the workflow
+func (o ImagePipelineWorkflowConfigurationOutput) Parameters() ImagePipelineWorkflowParameterArrayOutput {
+	return o.ApplyT(func(v ImagePipelineWorkflowConfiguration) []ImagePipelineWorkflowParameter { return v.Parameters }).(ImagePipelineWorkflowParameterArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) of the workflow
+func (o ImagePipelineWorkflowConfigurationOutput) WorkflowArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImagePipelineWorkflowConfiguration) *string { return v.WorkflowArn }).(pulumi.StringPtrOutput)
+}
+
+type ImagePipelineWorkflowConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineWorkflowConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImagePipelineWorkflowConfiguration)(nil)).Elem()
+}
+
+func (o ImagePipelineWorkflowConfigurationArrayOutput) ToImagePipelineWorkflowConfigurationArrayOutput() ImagePipelineWorkflowConfigurationArrayOutput {
+	return o
+}
+
+func (o ImagePipelineWorkflowConfigurationArrayOutput) ToImagePipelineWorkflowConfigurationArrayOutputWithContext(ctx context.Context) ImagePipelineWorkflowConfigurationArrayOutput {
+	return o
+}
+
+func (o ImagePipelineWorkflowConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ImagePipelineWorkflowConfiguration] {
+	return pulumix.Output[[]ImagePipelineWorkflowConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ImagePipelineWorkflowConfigurationArrayOutput) Index(i pulumi.IntInput) ImagePipelineWorkflowConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImagePipelineWorkflowConfiguration {
+		return vs[0].([]ImagePipelineWorkflowConfiguration)[vs[1].(int)]
+	}).(ImagePipelineWorkflowConfigurationOutput)
+}
+
+// A parameter associated with the workflow
+type ImagePipelineWorkflowParameter struct {
+	Name  *string  `pulumi:"name"`
+	Value []string `pulumi:"value"`
+}
+
+// ImagePipelineWorkflowParameterInput is an input type that accepts ImagePipelineWorkflowParameterArgs and ImagePipelineWorkflowParameterOutput values.
+// You can construct a concrete instance of `ImagePipelineWorkflowParameterInput` via:
+//
+//	ImagePipelineWorkflowParameterArgs{...}
+type ImagePipelineWorkflowParameterInput interface {
+	pulumi.Input
+
+	ToImagePipelineWorkflowParameterOutput() ImagePipelineWorkflowParameterOutput
+	ToImagePipelineWorkflowParameterOutputWithContext(context.Context) ImagePipelineWorkflowParameterOutput
+}
+
+// A parameter associated with the workflow
+type ImagePipelineWorkflowParameterArgs struct {
+	Name  pulumi.StringPtrInput   `pulumi:"name"`
+	Value pulumi.StringArrayInput `pulumi:"value"`
+}
+
+func (ImagePipelineWorkflowParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineWorkflowParameter)(nil)).Elem()
+}
+
+func (i ImagePipelineWorkflowParameterArgs) ToImagePipelineWorkflowParameterOutput() ImagePipelineWorkflowParameterOutput {
+	return i.ToImagePipelineWorkflowParameterOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineWorkflowParameterArgs) ToImagePipelineWorkflowParameterOutputWithContext(ctx context.Context) ImagePipelineWorkflowParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineWorkflowParameterOutput)
+}
+
+func (i ImagePipelineWorkflowParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineWorkflowParameter] {
+	return pulumix.Output[ImagePipelineWorkflowParameter]{
+		OutputState: i.ToImagePipelineWorkflowParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ImagePipelineWorkflowParameterArrayInput is an input type that accepts ImagePipelineWorkflowParameterArray and ImagePipelineWorkflowParameterArrayOutput values.
+// You can construct a concrete instance of `ImagePipelineWorkflowParameterArrayInput` via:
+//
+//	ImagePipelineWorkflowParameterArray{ ImagePipelineWorkflowParameterArgs{...} }
+type ImagePipelineWorkflowParameterArrayInput interface {
+	pulumi.Input
+
+	ToImagePipelineWorkflowParameterArrayOutput() ImagePipelineWorkflowParameterArrayOutput
+	ToImagePipelineWorkflowParameterArrayOutputWithContext(context.Context) ImagePipelineWorkflowParameterArrayOutput
+}
+
+type ImagePipelineWorkflowParameterArray []ImagePipelineWorkflowParameterInput
+
+func (ImagePipelineWorkflowParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImagePipelineWorkflowParameter)(nil)).Elem()
+}
+
+func (i ImagePipelineWorkflowParameterArray) ToImagePipelineWorkflowParameterArrayOutput() ImagePipelineWorkflowParameterArrayOutput {
+	return i.ToImagePipelineWorkflowParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ImagePipelineWorkflowParameterArray) ToImagePipelineWorkflowParameterArrayOutputWithContext(ctx context.Context) ImagePipelineWorkflowParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImagePipelineWorkflowParameterArrayOutput)
+}
+
+func (i ImagePipelineWorkflowParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ImagePipelineWorkflowParameter] {
+	return pulumix.Output[[]ImagePipelineWorkflowParameter]{
+		OutputState: i.ToImagePipelineWorkflowParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A parameter associated with the workflow
+type ImagePipelineWorkflowParameterOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineWorkflowParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineWorkflowParameter)(nil)).Elem()
+}
+
+func (o ImagePipelineWorkflowParameterOutput) ToImagePipelineWorkflowParameterOutput() ImagePipelineWorkflowParameterOutput {
+	return o
+}
+
+func (o ImagePipelineWorkflowParameterOutput) ToImagePipelineWorkflowParameterOutputWithContext(ctx context.Context) ImagePipelineWorkflowParameterOutput {
+	return o
+}
+
+func (o ImagePipelineWorkflowParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineWorkflowParameter] {
+	return pulumix.Output[ImagePipelineWorkflowParameter]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ImagePipelineWorkflowParameterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImagePipelineWorkflowParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ImagePipelineWorkflowParameterOutput) Value() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ImagePipelineWorkflowParameter) []string { return v.Value }).(pulumi.StringArrayOutput)
+}
+
+type ImagePipelineWorkflowParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineWorkflowParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImagePipelineWorkflowParameter)(nil)).Elem()
+}
+
+func (o ImagePipelineWorkflowParameterArrayOutput) ToImagePipelineWorkflowParameterArrayOutput() ImagePipelineWorkflowParameterArrayOutput {
+	return o
+}
+
+func (o ImagePipelineWorkflowParameterArrayOutput) ToImagePipelineWorkflowParameterArrayOutputWithContext(ctx context.Context) ImagePipelineWorkflowParameterArrayOutput {
+	return o
+}
+
+func (o ImagePipelineWorkflowParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ImagePipelineWorkflowParameter] {
+	return pulumix.Output[[]ImagePipelineWorkflowParameter]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ImagePipelineWorkflowParameterArrayOutput) Index(i pulumi.IntInput) ImagePipelineWorkflowParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImagePipelineWorkflowParameter {
+		return vs[0].([]ImagePipelineWorkflowParameter)[vs[1].(int)]
+	}).(ImagePipelineWorkflowParameterOutput)
+}
+
 // Specify additional settings and launch scripts for your build instances.
 type ImageRecipeAdditionalInstanceConfiguration struct {
 	// Contains settings for the SSM agent on your build instance.
@@ -5170,6 +5450,284 @@ func (o ImageTestsConfigurationPtrOutput) TimeoutMinutes() pulumi.IntPtrOutput {
 		}
 		return v.TimeoutMinutes
 	}).(pulumi.IntPtrOutput)
+}
+
+// The workflow configuration of the image
+type ImageWorkflowConfiguration struct {
+	// Define execution decision in case of workflow failure
+	OnFailure *ImageWorkflowConfigurationOnFailure `pulumi:"onFailure"`
+	// The parallel group name
+	ParallelGroup *string `pulumi:"parallelGroup"`
+	// The parameters associated with the workflow
+	Parameters []ImageWorkflowParameter `pulumi:"parameters"`
+	// The Amazon Resource Name (ARN) of the workflow
+	WorkflowArn *string `pulumi:"workflowArn"`
+}
+
+// ImageWorkflowConfigurationInput is an input type that accepts ImageWorkflowConfigurationArgs and ImageWorkflowConfigurationOutput values.
+// You can construct a concrete instance of `ImageWorkflowConfigurationInput` via:
+//
+//	ImageWorkflowConfigurationArgs{...}
+type ImageWorkflowConfigurationInput interface {
+	pulumi.Input
+
+	ToImageWorkflowConfigurationOutput() ImageWorkflowConfigurationOutput
+	ToImageWorkflowConfigurationOutputWithContext(context.Context) ImageWorkflowConfigurationOutput
+}
+
+// The workflow configuration of the image
+type ImageWorkflowConfigurationArgs struct {
+	// Define execution decision in case of workflow failure
+	OnFailure ImageWorkflowConfigurationOnFailurePtrInput `pulumi:"onFailure"`
+	// The parallel group name
+	ParallelGroup pulumi.StringPtrInput `pulumi:"parallelGroup"`
+	// The parameters associated with the workflow
+	Parameters ImageWorkflowParameterArrayInput `pulumi:"parameters"`
+	// The Amazon Resource Name (ARN) of the workflow
+	WorkflowArn pulumi.StringPtrInput `pulumi:"workflowArn"`
+}
+
+func (ImageWorkflowConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageWorkflowConfiguration)(nil)).Elem()
+}
+
+func (i ImageWorkflowConfigurationArgs) ToImageWorkflowConfigurationOutput() ImageWorkflowConfigurationOutput {
+	return i.ToImageWorkflowConfigurationOutputWithContext(context.Background())
+}
+
+func (i ImageWorkflowConfigurationArgs) ToImageWorkflowConfigurationOutputWithContext(ctx context.Context) ImageWorkflowConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageWorkflowConfigurationOutput)
+}
+
+func (i ImageWorkflowConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ImageWorkflowConfiguration] {
+	return pulumix.Output[ImageWorkflowConfiguration]{
+		OutputState: i.ToImageWorkflowConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ImageWorkflowConfigurationArrayInput is an input type that accepts ImageWorkflowConfigurationArray and ImageWorkflowConfigurationArrayOutput values.
+// You can construct a concrete instance of `ImageWorkflowConfigurationArrayInput` via:
+//
+//	ImageWorkflowConfigurationArray{ ImageWorkflowConfigurationArgs{...} }
+type ImageWorkflowConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToImageWorkflowConfigurationArrayOutput() ImageWorkflowConfigurationArrayOutput
+	ToImageWorkflowConfigurationArrayOutputWithContext(context.Context) ImageWorkflowConfigurationArrayOutput
+}
+
+type ImageWorkflowConfigurationArray []ImageWorkflowConfigurationInput
+
+func (ImageWorkflowConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageWorkflowConfiguration)(nil)).Elem()
+}
+
+func (i ImageWorkflowConfigurationArray) ToImageWorkflowConfigurationArrayOutput() ImageWorkflowConfigurationArrayOutput {
+	return i.ToImageWorkflowConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ImageWorkflowConfigurationArray) ToImageWorkflowConfigurationArrayOutputWithContext(ctx context.Context) ImageWorkflowConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageWorkflowConfigurationArrayOutput)
+}
+
+func (i ImageWorkflowConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]ImageWorkflowConfiguration] {
+	return pulumix.Output[[]ImageWorkflowConfiguration]{
+		OutputState: i.ToImageWorkflowConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The workflow configuration of the image
+type ImageWorkflowConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ImageWorkflowConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageWorkflowConfiguration)(nil)).Elem()
+}
+
+func (o ImageWorkflowConfigurationOutput) ToImageWorkflowConfigurationOutput() ImageWorkflowConfigurationOutput {
+	return o
+}
+
+func (o ImageWorkflowConfigurationOutput) ToImageWorkflowConfigurationOutputWithContext(ctx context.Context) ImageWorkflowConfigurationOutput {
+	return o
+}
+
+func (o ImageWorkflowConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ImageWorkflowConfiguration] {
+	return pulumix.Output[ImageWorkflowConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Define execution decision in case of workflow failure
+func (o ImageWorkflowConfigurationOutput) OnFailure() ImageWorkflowConfigurationOnFailurePtrOutput {
+	return o.ApplyT(func(v ImageWorkflowConfiguration) *ImageWorkflowConfigurationOnFailure { return v.OnFailure }).(ImageWorkflowConfigurationOnFailurePtrOutput)
+}
+
+// The parallel group name
+func (o ImageWorkflowConfigurationOutput) ParallelGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageWorkflowConfiguration) *string { return v.ParallelGroup }).(pulumi.StringPtrOutput)
+}
+
+// The parameters associated with the workflow
+func (o ImageWorkflowConfigurationOutput) Parameters() ImageWorkflowParameterArrayOutput {
+	return o.ApplyT(func(v ImageWorkflowConfiguration) []ImageWorkflowParameter { return v.Parameters }).(ImageWorkflowParameterArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) of the workflow
+func (o ImageWorkflowConfigurationOutput) WorkflowArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageWorkflowConfiguration) *string { return v.WorkflowArn }).(pulumi.StringPtrOutput)
+}
+
+type ImageWorkflowConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ImageWorkflowConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageWorkflowConfiguration)(nil)).Elem()
+}
+
+func (o ImageWorkflowConfigurationArrayOutput) ToImageWorkflowConfigurationArrayOutput() ImageWorkflowConfigurationArrayOutput {
+	return o
+}
+
+func (o ImageWorkflowConfigurationArrayOutput) ToImageWorkflowConfigurationArrayOutputWithContext(ctx context.Context) ImageWorkflowConfigurationArrayOutput {
+	return o
+}
+
+func (o ImageWorkflowConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ImageWorkflowConfiguration] {
+	return pulumix.Output[[]ImageWorkflowConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ImageWorkflowConfigurationArrayOutput) Index(i pulumi.IntInput) ImageWorkflowConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageWorkflowConfiguration {
+		return vs[0].([]ImageWorkflowConfiguration)[vs[1].(int)]
+	}).(ImageWorkflowConfigurationOutput)
+}
+
+// A parameter associated with the workflow
+type ImageWorkflowParameter struct {
+	Name  *string  `pulumi:"name"`
+	Value []string `pulumi:"value"`
+}
+
+// ImageWorkflowParameterInput is an input type that accepts ImageWorkflowParameterArgs and ImageWorkflowParameterOutput values.
+// You can construct a concrete instance of `ImageWorkflowParameterInput` via:
+//
+//	ImageWorkflowParameterArgs{...}
+type ImageWorkflowParameterInput interface {
+	pulumi.Input
+
+	ToImageWorkflowParameterOutput() ImageWorkflowParameterOutput
+	ToImageWorkflowParameterOutputWithContext(context.Context) ImageWorkflowParameterOutput
+}
+
+// A parameter associated with the workflow
+type ImageWorkflowParameterArgs struct {
+	Name  pulumi.StringPtrInput   `pulumi:"name"`
+	Value pulumi.StringArrayInput `pulumi:"value"`
+}
+
+func (ImageWorkflowParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageWorkflowParameter)(nil)).Elem()
+}
+
+func (i ImageWorkflowParameterArgs) ToImageWorkflowParameterOutput() ImageWorkflowParameterOutput {
+	return i.ToImageWorkflowParameterOutputWithContext(context.Background())
+}
+
+func (i ImageWorkflowParameterArgs) ToImageWorkflowParameterOutputWithContext(ctx context.Context) ImageWorkflowParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageWorkflowParameterOutput)
+}
+
+func (i ImageWorkflowParameterArgs) ToOutput(ctx context.Context) pulumix.Output[ImageWorkflowParameter] {
+	return pulumix.Output[ImageWorkflowParameter]{
+		OutputState: i.ToImageWorkflowParameterOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ImageWorkflowParameterArrayInput is an input type that accepts ImageWorkflowParameterArray and ImageWorkflowParameterArrayOutput values.
+// You can construct a concrete instance of `ImageWorkflowParameterArrayInput` via:
+//
+//	ImageWorkflowParameterArray{ ImageWorkflowParameterArgs{...} }
+type ImageWorkflowParameterArrayInput interface {
+	pulumi.Input
+
+	ToImageWorkflowParameterArrayOutput() ImageWorkflowParameterArrayOutput
+	ToImageWorkflowParameterArrayOutputWithContext(context.Context) ImageWorkflowParameterArrayOutput
+}
+
+type ImageWorkflowParameterArray []ImageWorkflowParameterInput
+
+func (ImageWorkflowParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageWorkflowParameter)(nil)).Elem()
+}
+
+func (i ImageWorkflowParameterArray) ToImageWorkflowParameterArrayOutput() ImageWorkflowParameterArrayOutput {
+	return i.ToImageWorkflowParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ImageWorkflowParameterArray) ToImageWorkflowParameterArrayOutputWithContext(ctx context.Context) ImageWorkflowParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageWorkflowParameterArrayOutput)
+}
+
+func (i ImageWorkflowParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]ImageWorkflowParameter] {
+	return pulumix.Output[[]ImageWorkflowParameter]{
+		OutputState: i.ToImageWorkflowParameterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A parameter associated with the workflow
+type ImageWorkflowParameterOutput struct{ *pulumi.OutputState }
+
+func (ImageWorkflowParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageWorkflowParameter)(nil)).Elem()
+}
+
+func (o ImageWorkflowParameterOutput) ToImageWorkflowParameterOutput() ImageWorkflowParameterOutput {
+	return o
+}
+
+func (o ImageWorkflowParameterOutput) ToImageWorkflowParameterOutputWithContext(ctx context.Context) ImageWorkflowParameterOutput {
+	return o
+}
+
+func (o ImageWorkflowParameterOutput) ToOutput(ctx context.Context) pulumix.Output[ImageWorkflowParameter] {
+	return pulumix.Output[ImageWorkflowParameter]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ImageWorkflowParameterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageWorkflowParameter) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageWorkflowParameterOutput) Value() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ImageWorkflowParameter) []string { return v.Value }).(pulumi.StringArrayOutput)
+}
+
+type ImageWorkflowParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ImageWorkflowParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageWorkflowParameter)(nil)).Elem()
+}
+
+func (o ImageWorkflowParameterArrayOutput) ToImageWorkflowParameterArrayOutput() ImageWorkflowParameterArrayOutput {
+	return o
+}
+
+func (o ImageWorkflowParameterArrayOutput) ToImageWorkflowParameterArrayOutputWithContext(ctx context.Context) ImageWorkflowParameterArrayOutput {
+	return o
+}
+
+func (o ImageWorkflowParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ImageWorkflowParameter] {
+	return pulumix.Output[[]ImageWorkflowParameter]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ImageWorkflowParameterArrayOutput) Index(i pulumi.IntInput) ImageWorkflowParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageWorkflowParameter {
+		return vs[0].([]ImageWorkflowParameter)[vs[1].(int)]
+	}).(ImageWorkflowParameterOutput)
 }
 
 // The instance metadata option settings for the infrastructure configuration.
@@ -7104,6 +7662,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageTestsConfigurationPtrInput)(nil)).Elem(), ImagePipelineImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineScheduleInput)(nil)).Elem(), ImagePipelineScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineSchedulePtrInput)(nil)).Elem(), ImagePipelineScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineWorkflowConfigurationInput)(nil)).Elem(), ImagePipelineWorkflowConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineWorkflowConfigurationArrayInput)(nil)).Elem(), ImagePipelineWorkflowConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineWorkflowParameterInput)(nil)).Elem(), ImagePipelineWorkflowParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineWorkflowParameterArrayInput)(nil)).Elem(), ImagePipelineWorkflowParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeAdditionalInstanceConfigurationInput)(nil)).Elem(), ImageRecipeAdditionalInstanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeAdditionalInstanceConfigurationPtrInput)(nil)).Elem(), ImageRecipeAdditionalInstanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeComponentConfigurationInput)(nil)).Elem(), ImageRecipeComponentConfigurationArgs{})
@@ -7120,6 +7682,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageScanningConfigurationPtrInput)(nil)).Elem(), ImageScanningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageTestsConfigurationInput)(nil)).Elem(), ImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageTestsConfigurationPtrInput)(nil)).Elem(), ImageTestsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageWorkflowConfigurationInput)(nil)).Elem(), ImageWorkflowConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageWorkflowConfigurationArrayInput)(nil)).Elem(), ImageWorkflowConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageWorkflowParameterInput)(nil)).Elem(), ImageWorkflowParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageWorkflowParameterArrayInput)(nil)).Elem(), ImageWorkflowParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationInstanceMetadataOptionsInput)(nil)).Elem(), InfrastructureConfigurationInstanceMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationInstanceMetadataOptionsPtrInput)(nil)).Elem(), InfrastructureConfigurationInstanceMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationLoggingInput)(nil)).Elem(), InfrastructureConfigurationLoggingArgs{})
@@ -7181,6 +7747,10 @@ func init() {
 	pulumi.RegisterOutputType(ImagePipelineImageTestsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineScheduleOutput{})
 	pulumi.RegisterOutputType(ImagePipelineSchedulePtrOutput{})
+	pulumi.RegisterOutputType(ImagePipelineWorkflowConfigurationOutput{})
+	pulumi.RegisterOutputType(ImagePipelineWorkflowConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ImagePipelineWorkflowParameterOutput{})
+	pulumi.RegisterOutputType(ImagePipelineWorkflowParameterArrayOutput{})
 	pulumi.RegisterOutputType(ImageRecipeAdditionalInstanceConfigurationOutput{})
 	pulumi.RegisterOutputType(ImageRecipeAdditionalInstanceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImageRecipeComponentConfigurationOutput{})
@@ -7197,6 +7767,10 @@ func init() {
 	pulumi.RegisterOutputType(ImageScanningConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ImageTestsConfigurationOutput{})
 	pulumi.RegisterOutputType(ImageTestsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ImageWorkflowConfigurationOutput{})
+	pulumi.RegisterOutputType(ImageWorkflowConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ImageWorkflowParameterOutput{})
+	pulumi.RegisterOutputType(ImageWorkflowParameterArrayOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationInstanceMetadataOptionsOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationInstanceMetadataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingOutput{})

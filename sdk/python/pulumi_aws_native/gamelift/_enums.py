@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'AliasRoutingStrategyType',
     'BuildOperatingSystem',
+    'FleetApplyCapacity',
     'FleetCertificateConfigurationCertificateType',
     'FleetComputeType',
     'FleetInstanceRoleCredentialsProvider',
@@ -45,6 +46,14 @@ class BuildOperatingSystem(str, Enum):
     AMAZON_LINUX2023 = "AMAZON_LINUX_2023"
     WINDOWS2012 = "WINDOWS_2012"
     WINDOWS2016 = "WINDOWS_2016"
+
+
+class FleetApplyCapacity(str, Enum):
+    """
+    ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+    """
+    ON_UPDATE = "ON_UPDATE"
+    ON_CREATE_AND_UPDATE = "ON_CREATE_AND_UPDATE"
 
 
 class FleetCertificateConfigurationCertificateType(str, Enum):

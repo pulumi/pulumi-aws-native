@@ -44,7 +44,7 @@ export class EnvironmentEc2 extends pulumi.CustomResource {
     public readonly automaticStopTimeMinutes!: pulumi.Output<number | undefined>;
     public readonly connectionType!: pulumi.Output<string | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
-    public readonly imageId!: pulumi.Output<string | undefined>;
+    public readonly imageId!: pulumi.Output<string>;
     public readonly instanceType!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly ownerArn!: pulumi.Output<string | undefined>;
@@ -65,6 +65,9 @@ export class EnvironmentEc2 extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.imageId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'imageId'");
+            }
             if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
@@ -106,7 +109,7 @@ export interface EnvironmentEc2Args {
     automaticStopTimeMinutes?: pulumi.Input<number>;
     connectionType?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
-    imageId?: pulumi.Input<string>;
+    imageId: pulumi.Input<string>;
     instanceType: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     ownerArn?: pulumi.Input<string>;

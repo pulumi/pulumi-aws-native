@@ -2207,6 +2207,7 @@ type DeliveryStreamProcessorType string
 
 const (
 	DeliveryStreamProcessorTypeRecordDeAggregation     = DeliveryStreamProcessorType("RecordDeAggregation")
+	DeliveryStreamProcessorTypeDecompression           = DeliveryStreamProcessorType("Decompression")
 	DeliveryStreamProcessorTypeLambda                  = DeliveryStreamProcessorType("Lambda")
 	DeliveryStreamProcessorTypeMetadataExtraction      = DeliveryStreamProcessorType("MetadataExtraction")
 	DeliveryStreamProcessorTypeAppendDelimiterToRecord = DeliveryStreamProcessorType("AppendDelimiterToRecord")

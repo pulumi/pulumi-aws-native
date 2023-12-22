@@ -24,12 +24,15 @@ func LookupSecurityGroupEgress(ctx *pulumi.Context, args *LookupSecurityGroupEgr
 }
 
 type LookupSecurityGroupEgressArgs struct {
+	// The Security Group Rule Id
 	Id string `pulumi:"id"`
 }
 
 type LookupSecurityGroupEgressResult struct {
+	// Resource Type definition for an egress (outbound) security group rule.
 	Description *string `pulumi:"description"`
-	Id          *string `pulumi:"id"`
+	// The Security Group Rule Id
+	Id *string `pulumi:"id"`
 }
 
 func LookupSecurityGroupEgressOutput(ctx *pulumi.Context, args LookupSecurityGroupEgressOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityGroupEgressResultOutput {
@@ -46,6 +49,7 @@ func LookupSecurityGroupEgressOutput(ctx *pulumi.Context, args LookupSecurityGro
 }
 
 type LookupSecurityGroupEgressOutputArgs struct {
+	// The Security Group Rule Id
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -73,10 +77,12 @@ func (o LookupSecurityGroupEgressResultOutput) ToOutput(ctx context.Context) pul
 	}
 }
 
+// Resource Type definition for an egress (outbound) security group rule.
 func (o LookupSecurityGroupEgressResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSecurityGroupEgressResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The Security Group Rule Id
 func (o LookupSecurityGroupEgressResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSecurityGroupEgressResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }

@@ -23,6 +23,7 @@ type Membership struct {
 	CollaborationIdentifier       pulumi.StringOutput                                  `pulumi:"collaborationIdentifier"`
 	DefaultResultConfiguration    MembershipProtectedQueryResultConfigurationPtrOutput `pulumi:"defaultResultConfiguration"`
 	MembershipIdentifier          pulumi.StringOutput                                  `pulumi:"membershipIdentifier"`
+	PaymentConfiguration          MembershipPaymentConfigurationPtrOutput              `pulumi:"paymentConfiguration"`
 	QueryLogStatus                MembershipQueryLogStatusOutput                       `pulumi:"queryLogStatus"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
 	Tags MembershipTagArrayOutput `pulumi:"tags"`
@@ -80,6 +81,7 @@ func (MembershipState) ElementType() reflect.Type {
 type membershipArgs struct {
 	CollaborationIdentifier    string                                       `pulumi:"collaborationIdentifier"`
 	DefaultResultConfiguration *MembershipProtectedQueryResultConfiguration `pulumi:"defaultResultConfiguration"`
+	PaymentConfiguration       *MembershipPaymentConfiguration              `pulumi:"paymentConfiguration"`
 	QueryLogStatus             MembershipQueryLogStatus                     `pulumi:"queryLogStatus"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
 	Tags []MembershipTag `pulumi:"tags"`
@@ -89,6 +91,7 @@ type membershipArgs struct {
 type MembershipArgs struct {
 	CollaborationIdentifier    pulumi.StringInput
 	DefaultResultConfiguration MembershipProtectedQueryResultConfigurationPtrInput
+	PaymentConfiguration       MembershipPaymentConfigurationPtrInput
 	QueryLogStatus             MembershipQueryLogStatusInput
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
 	Tags MembershipTagArrayInput
@@ -167,6 +170,10 @@ func (o MembershipOutput) DefaultResultConfiguration() MembershipProtectedQueryR
 
 func (o MembershipOutput) MembershipIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.MembershipIdentifier }).(pulumi.StringOutput)
+}
+
+func (o MembershipOutput) PaymentConfiguration() MembershipPaymentConfigurationPtrOutput {
+	return o.ApplyT(func(v *Membership) MembershipPaymentConfigurationPtrOutput { return v.PaymentConfiguration }).(MembershipPaymentConfigurationPtrOutput)
 }
 
 func (o MembershipOutput) QueryLogStatus() MembershipQueryLogStatusOutput {

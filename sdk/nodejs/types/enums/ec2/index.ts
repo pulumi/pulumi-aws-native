@@ -391,6 +391,16 @@ export const PrefixListAddressFamily = {
  */
 export type PrefixListAddressFamily = (typeof PrefixListAddressFamily)[keyof typeof PrefixListAddressFamily];
 
+export const SnapshotBlockPublicAccessState = {
+    BlockAllSharing: "block-all-sharing",
+    BlockNewSharing: "block-new-sharing",
+} as const;
+
+/**
+ * The state of EBS Snapshot Block Public Access.
+ */
+export type SnapshotBlockPublicAccessState = (typeof SnapshotBlockPublicAccessState)[keyof typeof SnapshotBlockPublicAccessState];
+
 export const SpotFleetEbsBlockDeviceVolumeType = {
     Gp2: "gp2",
     Gp3: "gp3",

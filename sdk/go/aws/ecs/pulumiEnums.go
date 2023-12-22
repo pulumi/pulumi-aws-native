@@ -11,6 +11,188 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
+type CapacityProviderAutoScalingGroupProviderManagedDraining string
+
+const (
+	CapacityProviderAutoScalingGroupProviderManagedDrainingDisabled = CapacityProviderAutoScalingGroupProviderManagedDraining("DISABLED")
+	CapacityProviderAutoScalingGroupProviderManagedDrainingEnabled  = CapacityProviderAutoScalingGroupProviderManagedDraining("ENABLED")
+)
+
+func (CapacityProviderAutoScalingGroupProviderManagedDraining) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedDraining)(nil)).Elem()
+}
+
+func (e CapacityProviderAutoScalingGroupProviderManagedDraining) ToCapacityProviderAutoScalingGroupProviderManagedDrainingOutput() CapacityProviderAutoScalingGroupProviderManagedDrainingOutput {
+	return pulumi.ToOutput(e).(CapacityProviderAutoScalingGroupProviderManagedDrainingOutput)
+}
+
+func (e CapacityProviderAutoScalingGroupProviderManagedDraining) ToCapacityProviderAutoScalingGroupProviderManagedDrainingOutputWithContext(ctx context.Context) CapacityProviderAutoScalingGroupProviderManagedDrainingOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CapacityProviderAutoScalingGroupProviderManagedDrainingOutput)
+}
+
+func (e CapacityProviderAutoScalingGroupProviderManagedDraining) ToCapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput() CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput {
+	return e.ToCapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderAutoScalingGroupProviderManagedDraining) ToCapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutputWithContext(ctx context.Context) CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput {
+	return CapacityProviderAutoScalingGroupProviderManagedDraining(e).ToCapacityProviderAutoScalingGroupProviderManagedDrainingOutputWithContext(ctx).ToCapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutputWithContext(ctx)
+}
+
+func (e CapacityProviderAutoScalingGroupProviderManagedDraining) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderAutoScalingGroupProviderManagedDraining) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CapacityProviderAutoScalingGroupProviderManagedDraining) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CapacityProviderAutoScalingGroupProviderManagedDraining) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CapacityProviderAutoScalingGroupProviderManagedDrainingOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderAutoScalingGroupProviderManagedDrainingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedDraining)(nil)).Elem()
+}
+
+func (o CapacityProviderAutoScalingGroupProviderManagedDrainingOutput) ToCapacityProviderAutoScalingGroupProviderManagedDrainingOutput() CapacityProviderAutoScalingGroupProviderManagedDrainingOutput {
+	return o
+}
+
+func (o CapacityProviderAutoScalingGroupProviderManagedDrainingOutput) ToCapacityProviderAutoScalingGroupProviderManagedDrainingOutputWithContext(ctx context.Context) CapacityProviderAutoScalingGroupProviderManagedDrainingOutput {
+	return o
+}
+
+func (o CapacityProviderAutoScalingGroupProviderManagedDrainingOutput) ToCapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput() CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput {
+	return o.ToCapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderAutoScalingGroupProviderManagedDrainingOutput) ToCapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutputWithContext(ctx context.Context) CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderAutoScalingGroupProviderManagedDraining) *CapacityProviderAutoScalingGroupProviderManagedDraining {
+		return &v
+	}).(CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput)
+}
+
+func (o CapacityProviderAutoScalingGroupProviderManagedDrainingOutput) ToOutput(ctx context.Context) pulumix.Output[CapacityProviderAutoScalingGroupProviderManagedDraining] {
+	return pulumix.Output[CapacityProviderAutoScalingGroupProviderManagedDraining]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CapacityProviderAutoScalingGroupProviderManagedDrainingOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderAutoScalingGroupProviderManagedDrainingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderAutoScalingGroupProviderManagedDraining) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CapacityProviderAutoScalingGroupProviderManagedDrainingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderAutoScalingGroupProviderManagedDrainingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CapacityProviderAutoScalingGroupProviderManagedDraining) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput struct{ *pulumi.OutputState }
+
+func (CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapacityProviderAutoScalingGroupProviderManagedDraining)(nil)).Elem()
+}
+
+func (o CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput) ToCapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput() CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput {
+	return o
+}
+
+func (o CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput) ToCapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutputWithContext(ctx context.Context) CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput {
+	return o
+}
+
+func (o CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CapacityProviderAutoScalingGroupProviderManagedDraining] {
+	return pulumix.Output[*CapacityProviderAutoScalingGroupProviderManagedDraining]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput) Elem() CapacityProviderAutoScalingGroupProviderManagedDrainingOutput {
+	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProviderManagedDraining) CapacityProviderAutoScalingGroupProviderManagedDraining {
+		if v != nil {
+			return *v
+		}
+		var ret CapacityProviderAutoScalingGroupProviderManagedDraining
+		return ret
+	}).(CapacityProviderAutoScalingGroupProviderManagedDrainingOutput)
+}
+
+func (o CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CapacityProviderAutoScalingGroupProviderManagedDraining) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CapacityProviderAutoScalingGroupProviderManagedDrainingInput is an input type that accepts CapacityProviderAutoScalingGroupProviderManagedDrainingArgs and CapacityProviderAutoScalingGroupProviderManagedDrainingOutput values.
+// You can construct a concrete instance of `CapacityProviderAutoScalingGroupProviderManagedDrainingInput` via:
+//
+//	CapacityProviderAutoScalingGroupProviderManagedDrainingArgs{...}
+type CapacityProviderAutoScalingGroupProviderManagedDrainingInput interface {
+	pulumi.Input
+
+	ToCapacityProviderAutoScalingGroupProviderManagedDrainingOutput() CapacityProviderAutoScalingGroupProviderManagedDrainingOutput
+	ToCapacityProviderAutoScalingGroupProviderManagedDrainingOutputWithContext(context.Context) CapacityProviderAutoScalingGroupProviderManagedDrainingOutput
+}
+
+var capacityProviderAutoScalingGroupProviderManagedDrainingPtrType = reflect.TypeOf((**CapacityProviderAutoScalingGroupProviderManagedDraining)(nil)).Elem()
+
+type CapacityProviderAutoScalingGroupProviderManagedDrainingPtrInput interface {
+	pulumi.Input
+
+	ToCapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput() CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput
+	ToCapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutputWithContext(context.Context) CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput
+}
+
+type capacityProviderAutoScalingGroupProviderManagedDrainingPtr string
+
+func CapacityProviderAutoScalingGroupProviderManagedDrainingPtr(v string) CapacityProviderAutoScalingGroupProviderManagedDrainingPtrInput {
+	return (*capacityProviderAutoScalingGroupProviderManagedDrainingPtr)(&v)
+}
+
+func (*capacityProviderAutoScalingGroupProviderManagedDrainingPtr) ElementType() reflect.Type {
+	return capacityProviderAutoScalingGroupProviderManagedDrainingPtrType
+}
+
+func (in *capacityProviderAutoScalingGroupProviderManagedDrainingPtr) ToCapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput() CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput {
+	return pulumi.ToOutput(in).(CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput)
+}
+
+func (in *capacityProviderAutoScalingGroupProviderManagedDrainingPtr) ToCapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutputWithContext(ctx context.Context) CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput)
+}
+
+func (in *capacityProviderAutoScalingGroupProviderManagedDrainingPtr) ToOutput(ctx context.Context) pulumix.Output[*CapacityProviderAutoScalingGroupProviderManagedDraining] {
+	return pulumix.Output[*CapacityProviderAutoScalingGroupProviderManagedDraining]{
+		OutputState: in.ToCapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CapacityProviderAutoScalingGroupProviderManagedTerminationProtection string
 
 const (
@@ -753,6 +935,188 @@ func (in *serviceDeploymentControllerTypePtr) ToServiceDeploymentControllerTypeP
 func (in *serviceDeploymentControllerTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceDeploymentControllerType] {
 	return pulumix.Output[*ServiceDeploymentControllerType]{
 		OutputState: in.ToServiceDeploymentControllerTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ServiceEbsTagSpecificationPropagateTags string
+
+const (
+	ServiceEbsTagSpecificationPropagateTagsService        = ServiceEbsTagSpecificationPropagateTags("SERVICE")
+	ServiceEbsTagSpecificationPropagateTagsTaskDefinition = ServiceEbsTagSpecificationPropagateTags("TASK_DEFINITION")
+)
+
+func (ServiceEbsTagSpecificationPropagateTags) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEbsTagSpecificationPropagateTags)(nil)).Elem()
+}
+
+func (e ServiceEbsTagSpecificationPropagateTags) ToServiceEbsTagSpecificationPropagateTagsOutput() ServiceEbsTagSpecificationPropagateTagsOutput {
+	return pulumi.ToOutput(e).(ServiceEbsTagSpecificationPropagateTagsOutput)
+}
+
+func (e ServiceEbsTagSpecificationPropagateTags) ToServiceEbsTagSpecificationPropagateTagsOutputWithContext(ctx context.Context) ServiceEbsTagSpecificationPropagateTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceEbsTagSpecificationPropagateTagsOutput)
+}
+
+func (e ServiceEbsTagSpecificationPropagateTags) ToServiceEbsTagSpecificationPropagateTagsPtrOutput() ServiceEbsTagSpecificationPropagateTagsPtrOutput {
+	return e.ToServiceEbsTagSpecificationPropagateTagsPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceEbsTagSpecificationPropagateTags) ToServiceEbsTagSpecificationPropagateTagsPtrOutputWithContext(ctx context.Context) ServiceEbsTagSpecificationPropagateTagsPtrOutput {
+	return ServiceEbsTagSpecificationPropagateTags(e).ToServiceEbsTagSpecificationPropagateTagsOutputWithContext(ctx).ToServiceEbsTagSpecificationPropagateTagsPtrOutputWithContext(ctx)
+}
+
+func (e ServiceEbsTagSpecificationPropagateTags) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceEbsTagSpecificationPropagateTags) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceEbsTagSpecificationPropagateTags) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceEbsTagSpecificationPropagateTags) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServiceEbsTagSpecificationPropagateTagsOutput struct{ *pulumi.OutputState }
+
+func (ServiceEbsTagSpecificationPropagateTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEbsTagSpecificationPropagateTags)(nil)).Elem()
+}
+
+func (o ServiceEbsTagSpecificationPropagateTagsOutput) ToServiceEbsTagSpecificationPropagateTagsOutput() ServiceEbsTagSpecificationPropagateTagsOutput {
+	return o
+}
+
+func (o ServiceEbsTagSpecificationPropagateTagsOutput) ToServiceEbsTagSpecificationPropagateTagsOutputWithContext(ctx context.Context) ServiceEbsTagSpecificationPropagateTagsOutput {
+	return o
+}
+
+func (o ServiceEbsTagSpecificationPropagateTagsOutput) ToServiceEbsTagSpecificationPropagateTagsPtrOutput() ServiceEbsTagSpecificationPropagateTagsPtrOutput {
+	return o.ToServiceEbsTagSpecificationPropagateTagsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEbsTagSpecificationPropagateTagsOutput) ToServiceEbsTagSpecificationPropagateTagsPtrOutputWithContext(ctx context.Context) ServiceEbsTagSpecificationPropagateTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEbsTagSpecificationPropagateTags) *ServiceEbsTagSpecificationPropagateTags {
+		return &v
+	}).(ServiceEbsTagSpecificationPropagateTagsPtrOutput)
+}
+
+func (o ServiceEbsTagSpecificationPropagateTagsOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceEbsTagSpecificationPropagateTags] {
+	return pulumix.Output[ServiceEbsTagSpecificationPropagateTags]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServiceEbsTagSpecificationPropagateTagsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceEbsTagSpecificationPropagateTagsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceEbsTagSpecificationPropagateTags) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceEbsTagSpecificationPropagateTagsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEbsTagSpecificationPropagateTagsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceEbsTagSpecificationPropagateTags) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceEbsTagSpecificationPropagateTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceEbsTagSpecificationPropagateTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEbsTagSpecificationPropagateTags)(nil)).Elem()
+}
+
+func (o ServiceEbsTagSpecificationPropagateTagsPtrOutput) ToServiceEbsTagSpecificationPropagateTagsPtrOutput() ServiceEbsTagSpecificationPropagateTagsPtrOutput {
+	return o
+}
+
+func (o ServiceEbsTagSpecificationPropagateTagsPtrOutput) ToServiceEbsTagSpecificationPropagateTagsPtrOutputWithContext(ctx context.Context) ServiceEbsTagSpecificationPropagateTagsPtrOutput {
+	return o
+}
+
+func (o ServiceEbsTagSpecificationPropagateTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceEbsTagSpecificationPropagateTags] {
+	return pulumix.Output[*ServiceEbsTagSpecificationPropagateTags]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServiceEbsTagSpecificationPropagateTagsPtrOutput) Elem() ServiceEbsTagSpecificationPropagateTagsOutput {
+	return o.ApplyT(func(v *ServiceEbsTagSpecificationPropagateTags) ServiceEbsTagSpecificationPropagateTags {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEbsTagSpecificationPropagateTags
+		return ret
+	}).(ServiceEbsTagSpecificationPropagateTagsOutput)
+}
+
+func (o ServiceEbsTagSpecificationPropagateTagsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEbsTagSpecificationPropagateTagsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceEbsTagSpecificationPropagateTags) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceEbsTagSpecificationPropagateTagsInput is an input type that accepts ServiceEbsTagSpecificationPropagateTagsArgs and ServiceEbsTagSpecificationPropagateTagsOutput values.
+// You can construct a concrete instance of `ServiceEbsTagSpecificationPropagateTagsInput` via:
+//
+//	ServiceEbsTagSpecificationPropagateTagsArgs{...}
+type ServiceEbsTagSpecificationPropagateTagsInput interface {
+	pulumi.Input
+
+	ToServiceEbsTagSpecificationPropagateTagsOutput() ServiceEbsTagSpecificationPropagateTagsOutput
+	ToServiceEbsTagSpecificationPropagateTagsOutputWithContext(context.Context) ServiceEbsTagSpecificationPropagateTagsOutput
+}
+
+var serviceEbsTagSpecificationPropagateTagsPtrType = reflect.TypeOf((**ServiceEbsTagSpecificationPropagateTags)(nil)).Elem()
+
+type ServiceEbsTagSpecificationPropagateTagsPtrInput interface {
+	pulumi.Input
+
+	ToServiceEbsTagSpecificationPropagateTagsPtrOutput() ServiceEbsTagSpecificationPropagateTagsPtrOutput
+	ToServiceEbsTagSpecificationPropagateTagsPtrOutputWithContext(context.Context) ServiceEbsTagSpecificationPropagateTagsPtrOutput
+}
+
+type serviceEbsTagSpecificationPropagateTagsPtr string
+
+func ServiceEbsTagSpecificationPropagateTagsPtr(v string) ServiceEbsTagSpecificationPropagateTagsPtrInput {
+	return (*serviceEbsTagSpecificationPropagateTagsPtr)(&v)
+}
+
+func (*serviceEbsTagSpecificationPropagateTagsPtr) ElementType() reflect.Type {
+	return serviceEbsTagSpecificationPropagateTagsPtrType
+}
+
+func (in *serviceEbsTagSpecificationPropagateTagsPtr) ToServiceEbsTagSpecificationPropagateTagsPtrOutput() ServiceEbsTagSpecificationPropagateTagsPtrOutput {
+	return pulumi.ToOutput(in).(ServiceEbsTagSpecificationPropagateTagsPtrOutput)
+}
+
+func (in *serviceEbsTagSpecificationPropagateTagsPtr) ToServiceEbsTagSpecificationPropagateTagsPtrOutputWithContext(ctx context.Context) ServiceEbsTagSpecificationPropagateTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceEbsTagSpecificationPropagateTagsPtrOutput)
+}
+
+func (in *serviceEbsTagSpecificationPropagateTagsPtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceEbsTagSpecificationPropagateTags] {
+	return pulumix.Output[*ServiceEbsTagSpecificationPropagateTags]{
+		OutputState: in.ToServiceEbsTagSpecificationPropagateTagsPtrOutputWithContext(ctx).OutputState,
 	}
 }
 
@@ -2764,6 +3128,8 @@ func (in *taskSetScaleUnitPtr) ToOutput(ctx context.Context) pulumix.Output[*Tas
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedDrainingInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedDraining("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedDrainingPtrInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedDraining("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedTerminationProtection("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedTerminationProtection("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedScalingStatusInput)(nil)).Elem(), CapacityProviderManagedScalingStatus("DISABLED"))
@@ -2772,6 +3138,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAwsVpcConfigurationAssignPublicIpPtrInput)(nil)).Elem(), ServiceAwsVpcConfigurationAssignPublicIp("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentControllerTypeInput)(nil)).Elem(), ServiceDeploymentControllerType("CODE_DEPLOY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentControllerTypePtrInput)(nil)).Elem(), ServiceDeploymentControllerType("CODE_DEPLOY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEbsTagSpecificationPropagateTagsInput)(nil)).Elem(), ServiceEbsTagSpecificationPropagateTags("SERVICE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEbsTagSpecificationPropagateTagsPtrInput)(nil)).Elem(), ServiceEbsTagSpecificationPropagateTags("SERVICE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLaunchTypeInput)(nil)).Elem(), ServiceLaunchType("EC2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLaunchTypePtrInput)(nil)).Elem(), ServiceLaunchType("EC2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePlacementConstraintTypeInput)(nil)).Elem(), ServicePlacementConstraintType("distinctInstance"))
@@ -2794,6 +3162,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetLaunchTypePtrInput)(nil)).Elem(), TaskSetLaunchType("EC2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetScaleUnitInput)(nil)).Elem(), TaskSetScaleUnit("PERCENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetScaleUnitPtrInput)(nil)).Elem(), TaskSetScaleUnit("PERCENT"))
+	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedDrainingOutput{})
+	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderManagedScalingStatusOutput{})
@@ -2802,6 +3172,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationAssignPublicIpPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentControllerTypeOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentControllerTypePtrOutput{})
+	pulumi.RegisterOutputType(ServiceEbsTagSpecificationPropagateTagsOutput{})
+	pulumi.RegisterOutputType(ServiceEbsTagSpecificationPropagateTagsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLaunchTypeOutput{})
 	pulumi.RegisterOutputType(ServiceLaunchTypePtrOutput{})
 	pulumi.RegisterOutputType(ServicePlacementConstraintTypeOutput{})

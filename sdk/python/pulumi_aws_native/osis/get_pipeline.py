@@ -19,7 +19,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetPipelineResult:
-    def __init__(__self__, ingest_endpoint_urls=None, log_publishing_options=None, max_units=None, min_units=None, pipeline_arn=None, pipeline_configuration_body=None, tags=None, vpc_endpoints=None):
+    def __init__(__self__, buffer_options=None, encryption_at_rest_options=None, ingest_endpoint_urls=None, log_publishing_options=None, max_units=None, min_units=None, pipeline_arn=None, pipeline_configuration_body=None, tags=None, vpc_endpoints=None):
+        if buffer_options and not isinstance(buffer_options, dict):
+            raise TypeError("Expected argument 'buffer_options' to be a dict")
+        pulumi.set(__self__, "buffer_options", buffer_options)
+        if encryption_at_rest_options and not isinstance(encryption_at_rest_options, dict):
+            raise TypeError("Expected argument 'encryption_at_rest_options' to be a dict")
+        pulumi.set(__self__, "encryption_at_rest_options", encryption_at_rest_options)
         if ingest_endpoint_urls and not isinstance(ingest_endpoint_urls, list):
             raise TypeError("Expected argument 'ingest_endpoint_urls' to be a list")
         pulumi.set(__self__, "ingest_endpoint_urls", ingest_endpoint_urls)
@@ -44,6 +50,16 @@ class GetPipelineResult:
         if vpc_endpoints and not isinstance(vpc_endpoints, list):
             raise TypeError("Expected argument 'vpc_endpoints' to be a list")
         pulumi.set(__self__, "vpc_endpoints", vpc_endpoints)
+
+    @property
+    @pulumi.getter(name="bufferOptions")
+    def buffer_options(self) -> Optional['outputs.PipelineBufferOptions']:
+        return pulumi.get(self, "buffer_options")
+
+    @property
+    @pulumi.getter(name="encryptionAtRestOptions")
+    def encryption_at_rest_options(self) -> Optional['outputs.PipelineEncryptionAtRestOptions']:
+        return pulumi.get(self, "encryption_at_rest_options")
 
     @property
     @pulumi.getter(name="ingestEndpointUrls")
@@ -113,6 +129,8 @@ class AwaitableGetPipelineResult(GetPipelineResult):
         if False:
             yield self
         return GetPipelineResult(
+            buffer_options=self.buffer_options,
+            encryption_at_rest_options=self.encryption_at_rest_options,
             ingest_endpoint_urls=self.ingest_endpoint_urls,
             log_publishing_options=self.log_publishing_options,
             max_units=self.max_units,
@@ -137,6 +155,8 @@ def get_pipeline(pipeline_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:osis:getPipeline', __args__, opts=opts, typ=GetPipelineResult).value
 
     return AwaitableGetPipelineResult(
+        buffer_options=pulumi.get(__ret__, 'buffer_options'),
+        encryption_at_rest_options=pulumi.get(__ret__, 'encryption_at_rest_options'),
         ingest_endpoint_urls=pulumi.get(__ret__, 'ingest_endpoint_urls'),
         log_publishing_options=pulumi.get(__ret__, 'log_publishing_options'),
         max_units=pulumi.get(__ret__, 'max_units'),

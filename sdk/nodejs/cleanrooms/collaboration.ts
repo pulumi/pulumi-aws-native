@@ -41,6 +41,7 @@ export class Collaboration extends pulumi.CustomResource {
     public /*out*/ readonly collaborationIdentifier!: pulumi.Output<string>;
     public readonly creatorDisplayName!: pulumi.Output<string>;
     public readonly creatorMemberAbilities!: pulumi.Output<enums.cleanrooms.CollaborationMemberAbility[]>;
+    public readonly creatorPaymentConfiguration!: pulumi.Output<outputs.cleanrooms.CollaborationPaymentConfiguration | undefined>;
     public readonly dataEncryptionMetadata!: pulumi.Output<outputs.cleanrooms.CollaborationDataEncryptionMetadata | undefined>;
     public readonly description!: pulumi.Output<string>;
     public readonly members!: pulumi.Output<outputs.cleanrooms.CollaborationMemberSpecification[]>;
@@ -79,6 +80,7 @@ export class Collaboration extends pulumi.CustomResource {
             }
             resourceInputs["creatorDisplayName"] = args ? args.creatorDisplayName : undefined;
             resourceInputs["creatorMemberAbilities"] = args ? args.creatorMemberAbilities : undefined;
+            resourceInputs["creatorPaymentConfiguration"] = args ? args.creatorPaymentConfiguration : undefined;
             resourceInputs["dataEncryptionMetadata"] = args ? args.dataEncryptionMetadata : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["members"] = args ? args.members : undefined;
@@ -92,6 +94,7 @@ export class Collaboration extends pulumi.CustomResource {
             resourceInputs["collaborationIdentifier"] = undefined /*out*/;
             resourceInputs["creatorDisplayName"] = undefined /*out*/;
             resourceInputs["creatorMemberAbilities"] = undefined /*out*/;
+            resourceInputs["creatorPaymentConfiguration"] = undefined /*out*/;
             resourceInputs["dataEncryptionMetadata"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["members"] = undefined /*out*/;
@@ -100,7 +103,7 @@ export class Collaboration extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["creatorDisplayName", "creatorMemberAbilities[*]", "dataEncryptionMetadata", "members[*]", "queryLogStatus"] };
+        const replaceOnChanges = { replaceOnChanges: ["creatorDisplayName", "creatorMemberAbilities[*]", "creatorPaymentConfiguration", "dataEncryptionMetadata", "members[*]", "queryLogStatus"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Collaboration.__pulumiType, name, resourceInputs, opts);
     }
@@ -112,6 +115,7 @@ export class Collaboration extends pulumi.CustomResource {
 export interface CollaborationArgs {
     creatorDisplayName: pulumi.Input<string>;
     creatorMemberAbilities: pulumi.Input<pulumi.Input<enums.cleanrooms.CollaborationMemberAbility>[]>;
+    creatorPaymentConfiguration?: pulumi.Input<inputs.cleanrooms.CollaborationPaymentConfigurationArgs>;
     dataEncryptionMetadata?: pulumi.Input<inputs.cleanrooms.CollaborationDataEncryptionMetadataArgs>;
     description: pulumi.Input<string>;
     members: pulumi.Input<pulumi.Input<inputs.cleanrooms.CollaborationMemberSpecificationArgs>[]>;

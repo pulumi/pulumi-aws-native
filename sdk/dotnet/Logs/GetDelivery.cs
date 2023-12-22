@@ -12,13 +12,21 @@ namespace Pulumi.AwsNative.Logs
     public static class GetDelivery
     {
         /// <summary>
-        /// Resource Type definition for AWS::Logs::Delivery.
+        /// This structure contains information about one delivery in your account.
+        /// 
+        /// A delivery is a connection between a logical delivery source and a logical delivery destination.
+        /// 
+        /// For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).
         /// </summary>
         public static Task<GetDeliveryResult> InvokeAsync(GetDeliveryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeliveryResult>("aws-native:logs:getDelivery", args ?? new GetDeliveryArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::Logs::Delivery.
+        /// This structure contains information about one delivery in your account.
+        /// 
+        /// A delivery is a connection between a logical delivery source and a logical delivery destination.
+        /// 
+        /// For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).
         /// </summary>
         public static Output<GetDeliveryResult> Invoke(GetDeliveryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeliveryResult>("aws-native:logs:getDelivery", args ?? new GetDeliveryInvokeArgs(), options.WithDefaults());
@@ -28,7 +36,7 @@ namespace Pulumi.AwsNative.Logs
     public sealed class GetDeliveryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The value of the Id property for this object.
+        /// The unique ID that identifies this delivery in your account.
         /// </summary>
         [Input("deliveryId", required: true)]
         public string DeliveryId { get; set; } = null!;
@@ -42,7 +50,7 @@ namespace Pulumi.AwsNative.Logs
     public sealed class GetDeliveryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The value of the Id property for this object.
+        /// The unique ID that identifies this delivery in your account.
         /// </summary>
         [Input("deliveryId", required: true)]
         public Input<string> DeliveryId { get; set; } = null!;
@@ -58,19 +66,19 @@ namespace Pulumi.AwsNative.Logs
     public sealed class GetDeliveryResult
     {
         /// <summary>
-        /// The value of the Arn property for this object.
+        /// The Amazon Resource Name (ARN) that uniquely identifies this delivery.
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// The value of the DeliveryDestinationType property for this object.
+        /// Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
         /// </summary>
         public readonly string? DeliveryDestinationType;
         /// <summary>
-        /// The value of the Id property for this object.
+        /// The unique ID that identifies this delivery in your account.
         /// </summary>
         public readonly string? DeliveryId;
         /// <summary>
-        /// The value of the Tags property for this object.
+        /// The tags that have been assigned to this delivery.
         /// </summary>
         public readonly ImmutableArray<Outputs.DeliveryTag> Tags;
 

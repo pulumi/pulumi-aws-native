@@ -335,6 +335,11 @@ export const getSecurityGroupIngress: typeof import("./getSecurityGroupIngress")
 export const getSecurityGroupIngressOutput: typeof import("./getSecurityGroupIngress").getSecurityGroupIngressOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityGroupIngress","getSecurityGroupIngressOutput"], () => require("./getSecurityGroupIngress"));
 
+export { GetSnapshotBlockPublicAccessArgs, GetSnapshotBlockPublicAccessResult, GetSnapshotBlockPublicAccessOutputArgs } from "./getSnapshotBlockPublicAccess";
+export const getSnapshotBlockPublicAccess: typeof import("./getSnapshotBlockPublicAccess").getSnapshotBlockPublicAccess = null as any;
+export const getSnapshotBlockPublicAccessOutput: typeof import("./getSnapshotBlockPublicAccess").getSnapshotBlockPublicAccessOutput = null as any;
+utilities.lazyLoad(exports, ["getSnapshotBlockPublicAccess","getSnapshotBlockPublicAccessOutput"], () => require("./getSnapshotBlockPublicAccess"));
+
 export { GetSpotFleetArgs, GetSpotFleetResult, GetSpotFleetOutputArgs } from "./getSpotFleet";
 export const getSpotFleet: typeof import("./getSpotFleet").getSpotFleet = null as any;
 export const getSpotFleetOutput: typeof import("./getSpotFleet").getSpotFleetOutput = null as any;
@@ -700,6 +705,11 @@ export type SecurityGroupIngress = import("./securityGroupIngress").SecurityGrou
 export const SecurityGroupIngress: typeof import("./securityGroupIngress").SecurityGroupIngress = null as any;
 utilities.lazyLoad(exports, ["SecurityGroupIngress"], () => require("./securityGroupIngress"));
 
+export { SnapshotBlockPublicAccessArgs } from "./snapshotBlockPublicAccess";
+export type SnapshotBlockPublicAccess = import("./snapshotBlockPublicAccess").SnapshotBlockPublicAccess;
+export const SnapshotBlockPublicAccess: typeof import("./snapshotBlockPublicAccess").SnapshotBlockPublicAccess = null as any;
+utilities.lazyLoad(exports, ["SnapshotBlockPublicAccess"], () => require("./snapshotBlockPublicAccess"));
+
 export { SpotFleetArgs } from "./spotFleet";
 export type SpotFleet = import("./spotFleet").SpotFleet;
 export const SpotFleet: typeof import("./spotFleet").SpotFleet = null as any;
@@ -1015,6 +1025,8 @@ const _module = {
                 return new SecurityGroupEgress(name, <any>undefined, { urn })
             case "aws-native:ec2:SecurityGroupIngress":
                 return new SecurityGroupIngress(name, <any>undefined, { urn })
+            case "aws-native:ec2:SnapshotBlockPublicAccess":
+                return new SnapshotBlockPublicAccess(name, <any>undefined, { urn })
             case "aws-native:ec2:SpotFleet":
                 return new SpotFleet(name, <any>undefined, { urn })
             case "aws-native:ec2:Subnet":

@@ -70,6 +70,9 @@ namespace Pulumi.AwsNative.CodeDeploy
         [Output("tags")]
         public Output<ImmutableArray<Outputs.DeploymentGroupTag>> Tags { get; private set; } = null!;
 
+        [Output("terminationHookEnabled")]
+        public Output<bool?> TerminationHookEnabled { get; private set; } = null!;
+
         [Output("triggerConfigurations")]
         public Output<ImmutableArray<Outputs.DeploymentGroupTriggerConfig>> TriggerConfigurations { get; private set; } = null!;
 
@@ -201,6 +204,9 @@ namespace Pulumi.AwsNative.CodeDeploy
             get => _tags ?? (_tags = new InputList<Inputs.DeploymentGroupTagArgs>());
             set => _tags = value;
         }
+
+        [Input("terminationHookEnabled")]
+        public Input<bool>? TerminationHookEnabled { get; set; }
 
         [Input("triggerConfigurations")]
         private InputList<Inputs.DeploymentGroupTriggerConfigArgs>? _triggerConfigurations;

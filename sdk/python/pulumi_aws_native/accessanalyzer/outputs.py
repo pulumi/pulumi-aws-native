@@ -203,7 +203,7 @@ class AnalyzerUnusedAccessConfiguration(dict):
                  unused_access_age: Optional[int] = None):
         """
         The Configuration for Unused Access Analyzer
-        :param int unused_access_age: The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that haven't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+        :param int unused_access_age: The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
         """
         if unused_access_age is not None:
             pulumi.set(__self__, "unused_access_age", unused_access_age)
@@ -212,7 +212,7 @@ class AnalyzerUnusedAccessConfiguration(dict):
     @pulumi.getter(name="unusedAccessAge")
     def unused_access_age(self) -> Optional[int]:
         """
-        The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that haven't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+        The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
         """
         return pulumi.get(self, "unused_access_age")
 

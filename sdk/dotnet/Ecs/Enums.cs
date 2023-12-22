@@ -8,6 +8,34 @@ using Pulumi;
 namespace Pulumi.AwsNative.Ecs
 {
     [EnumType]
+    public readonly struct CapacityProviderAutoScalingGroupProviderManagedDraining : IEquatable<CapacityProviderAutoScalingGroupProviderManagedDraining>
+    {
+        private readonly string _value;
+
+        private CapacityProviderAutoScalingGroupProviderManagedDraining(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CapacityProviderAutoScalingGroupProviderManagedDraining Disabled { get; } = new CapacityProviderAutoScalingGroupProviderManagedDraining("DISABLED");
+        public static CapacityProviderAutoScalingGroupProviderManagedDraining Enabled { get; } = new CapacityProviderAutoScalingGroupProviderManagedDraining("ENABLED");
+
+        public static bool operator ==(CapacityProviderAutoScalingGroupProviderManagedDraining left, CapacityProviderAutoScalingGroupProviderManagedDraining right) => left.Equals(right);
+        public static bool operator !=(CapacityProviderAutoScalingGroupProviderManagedDraining left, CapacityProviderAutoScalingGroupProviderManagedDraining right) => !left.Equals(right);
+
+        public static explicit operator string(CapacityProviderAutoScalingGroupProviderManagedDraining value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CapacityProviderAutoScalingGroupProviderManagedDraining other && Equals(other);
+        public bool Equals(CapacityProviderAutoScalingGroupProviderManagedDraining other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct CapacityProviderAutoScalingGroupProviderManagedTerminationProtection : IEquatable<CapacityProviderAutoScalingGroupProviderManagedTerminationProtection>
     {
         private readonly string _value;
@@ -175,6 +203,34 @@ namespace Pulumi.AwsNative.Ecs
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ServiceDeploymentControllerType other && Equals(other);
         public bool Equals(ServiceDeploymentControllerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ServiceEbsTagSpecificationPropagateTags : IEquatable<ServiceEbsTagSpecificationPropagateTags>
+    {
+        private readonly string _value;
+
+        private ServiceEbsTagSpecificationPropagateTags(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceEbsTagSpecificationPropagateTags Service { get; } = new ServiceEbsTagSpecificationPropagateTags("SERVICE");
+        public static ServiceEbsTagSpecificationPropagateTags TaskDefinition { get; } = new ServiceEbsTagSpecificationPropagateTags("TASK_DEFINITION");
+
+        public static bool operator ==(ServiceEbsTagSpecificationPropagateTags left, ServiceEbsTagSpecificationPropagateTags right) => left.Equals(right);
+        public static bool operator !=(ServiceEbsTagSpecificationPropagateTags left, ServiceEbsTagSpecificationPropagateTags right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceEbsTagSpecificationPropagateTags value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceEbsTagSpecificationPropagateTags other && Equals(other);
+        public bool Equals(ServiceEbsTagSpecificationPropagateTags other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

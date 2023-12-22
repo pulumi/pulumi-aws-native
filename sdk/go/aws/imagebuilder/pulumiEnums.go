@@ -1580,6 +1580,189 @@ func (in *imagePipelineStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*
 	}
 }
 
+// Define execution decision in case of workflow failure
+type ImagePipelineWorkflowConfigurationOnFailure string
+
+const (
+	ImagePipelineWorkflowConfigurationOnFailureContinue = ImagePipelineWorkflowConfigurationOnFailure("CONTINUE")
+	ImagePipelineWorkflowConfigurationOnFailureAbort    = ImagePipelineWorkflowConfigurationOnFailure("ABORT")
+)
+
+func (ImagePipelineWorkflowConfigurationOnFailure) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineWorkflowConfigurationOnFailure)(nil)).Elem()
+}
+
+func (e ImagePipelineWorkflowConfigurationOnFailure) ToImagePipelineWorkflowConfigurationOnFailureOutput() ImagePipelineWorkflowConfigurationOnFailureOutput {
+	return pulumi.ToOutput(e).(ImagePipelineWorkflowConfigurationOnFailureOutput)
+}
+
+func (e ImagePipelineWorkflowConfigurationOnFailure) ToImagePipelineWorkflowConfigurationOnFailureOutputWithContext(ctx context.Context) ImagePipelineWorkflowConfigurationOnFailureOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ImagePipelineWorkflowConfigurationOnFailureOutput)
+}
+
+func (e ImagePipelineWorkflowConfigurationOnFailure) ToImagePipelineWorkflowConfigurationOnFailurePtrOutput() ImagePipelineWorkflowConfigurationOnFailurePtrOutput {
+	return e.ToImagePipelineWorkflowConfigurationOnFailurePtrOutputWithContext(context.Background())
+}
+
+func (e ImagePipelineWorkflowConfigurationOnFailure) ToImagePipelineWorkflowConfigurationOnFailurePtrOutputWithContext(ctx context.Context) ImagePipelineWorkflowConfigurationOnFailurePtrOutput {
+	return ImagePipelineWorkflowConfigurationOnFailure(e).ToImagePipelineWorkflowConfigurationOnFailureOutputWithContext(ctx).ToImagePipelineWorkflowConfigurationOnFailurePtrOutputWithContext(ctx)
+}
+
+func (e ImagePipelineWorkflowConfigurationOnFailure) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ImagePipelineWorkflowConfigurationOnFailure) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ImagePipelineWorkflowConfigurationOnFailure) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ImagePipelineWorkflowConfigurationOnFailure) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ImagePipelineWorkflowConfigurationOnFailureOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineWorkflowConfigurationOnFailureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImagePipelineWorkflowConfigurationOnFailure)(nil)).Elem()
+}
+
+func (o ImagePipelineWorkflowConfigurationOnFailureOutput) ToImagePipelineWorkflowConfigurationOnFailureOutput() ImagePipelineWorkflowConfigurationOnFailureOutput {
+	return o
+}
+
+func (o ImagePipelineWorkflowConfigurationOnFailureOutput) ToImagePipelineWorkflowConfigurationOnFailureOutputWithContext(ctx context.Context) ImagePipelineWorkflowConfigurationOnFailureOutput {
+	return o
+}
+
+func (o ImagePipelineWorkflowConfigurationOnFailureOutput) ToImagePipelineWorkflowConfigurationOnFailurePtrOutput() ImagePipelineWorkflowConfigurationOnFailurePtrOutput {
+	return o.ToImagePipelineWorkflowConfigurationOnFailurePtrOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineWorkflowConfigurationOnFailureOutput) ToImagePipelineWorkflowConfigurationOnFailurePtrOutputWithContext(ctx context.Context) ImagePipelineWorkflowConfigurationOnFailurePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImagePipelineWorkflowConfigurationOnFailure) *ImagePipelineWorkflowConfigurationOnFailure {
+		return &v
+	}).(ImagePipelineWorkflowConfigurationOnFailurePtrOutput)
+}
+
+func (o ImagePipelineWorkflowConfigurationOnFailureOutput) ToOutput(ctx context.Context) pulumix.Output[ImagePipelineWorkflowConfigurationOnFailure] {
+	return pulumix.Output[ImagePipelineWorkflowConfigurationOnFailure]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ImagePipelineWorkflowConfigurationOnFailureOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineWorkflowConfigurationOnFailureOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImagePipelineWorkflowConfigurationOnFailure) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ImagePipelineWorkflowConfigurationOnFailureOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineWorkflowConfigurationOnFailureOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImagePipelineWorkflowConfigurationOnFailure) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ImagePipelineWorkflowConfigurationOnFailurePtrOutput struct{ *pulumi.OutputState }
+
+func (ImagePipelineWorkflowConfigurationOnFailurePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImagePipelineWorkflowConfigurationOnFailure)(nil)).Elem()
+}
+
+func (o ImagePipelineWorkflowConfigurationOnFailurePtrOutput) ToImagePipelineWorkflowConfigurationOnFailurePtrOutput() ImagePipelineWorkflowConfigurationOnFailurePtrOutput {
+	return o
+}
+
+func (o ImagePipelineWorkflowConfigurationOnFailurePtrOutput) ToImagePipelineWorkflowConfigurationOnFailurePtrOutputWithContext(ctx context.Context) ImagePipelineWorkflowConfigurationOnFailurePtrOutput {
+	return o
+}
+
+func (o ImagePipelineWorkflowConfigurationOnFailurePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineWorkflowConfigurationOnFailure] {
+	return pulumix.Output[*ImagePipelineWorkflowConfigurationOnFailure]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ImagePipelineWorkflowConfigurationOnFailurePtrOutput) Elem() ImagePipelineWorkflowConfigurationOnFailureOutput {
+	return o.ApplyT(func(v *ImagePipelineWorkflowConfigurationOnFailure) ImagePipelineWorkflowConfigurationOnFailure {
+		if v != nil {
+			return *v
+		}
+		var ret ImagePipelineWorkflowConfigurationOnFailure
+		return ret
+	}).(ImagePipelineWorkflowConfigurationOnFailureOutput)
+}
+
+func (o ImagePipelineWorkflowConfigurationOnFailurePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ImagePipelineWorkflowConfigurationOnFailurePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ImagePipelineWorkflowConfigurationOnFailure) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ImagePipelineWorkflowConfigurationOnFailureInput is an input type that accepts ImagePipelineWorkflowConfigurationOnFailureArgs and ImagePipelineWorkflowConfigurationOnFailureOutput values.
+// You can construct a concrete instance of `ImagePipelineWorkflowConfigurationOnFailureInput` via:
+//
+//	ImagePipelineWorkflowConfigurationOnFailureArgs{...}
+type ImagePipelineWorkflowConfigurationOnFailureInput interface {
+	pulumi.Input
+
+	ToImagePipelineWorkflowConfigurationOnFailureOutput() ImagePipelineWorkflowConfigurationOnFailureOutput
+	ToImagePipelineWorkflowConfigurationOnFailureOutputWithContext(context.Context) ImagePipelineWorkflowConfigurationOnFailureOutput
+}
+
+var imagePipelineWorkflowConfigurationOnFailurePtrType = reflect.TypeOf((**ImagePipelineWorkflowConfigurationOnFailure)(nil)).Elem()
+
+type ImagePipelineWorkflowConfigurationOnFailurePtrInput interface {
+	pulumi.Input
+
+	ToImagePipelineWorkflowConfigurationOnFailurePtrOutput() ImagePipelineWorkflowConfigurationOnFailurePtrOutput
+	ToImagePipelineWorkflowConfigurationOnFailurePtrOutputWithContext(context.Context) ImagePipelineWorkflowConfigurationOnFailurePtrOutput
+}
+
+type imagePipelineWorkflowConfigurationOnFailurePtr string
+
+func ImagePipelineWorkflowConfigurationOnFailurePtr(v string) ImagePipelineWorkflowConfigurationOnFailurePtrInput {
+	return (*imagePipelineWorkflowConfigurationOnFailurePtr)(&v)
+}
+
+func (*imagePipelineWorkflowConfigurationOnFailurePtr) ElementType() reflect.Type {
+	return imagePipelineWorkflowConfigurationOnFailurePtrType
+}
+
+func (in *imagePipelineWorkflowConfigurationOnFailurePtr) ToImagePipelineWorkflowConfigurationOnFailurePtrOutput() ImagePipelineWorkflowConfigurationOnFailurePtrOutput {
+	return pulumi.ToOutput(in).(ImagePipelineWorkflowConfigurationOnFailurePtrOutput)
+}
+
+func (in *imagePipelineWorkflowConfigurationOnFailurePtr) ToImagePipelineWorkflowConfigurationOnFailurePtrOutputWithContext(ctx context.Context) ImagePipelineWorkflowConfigurationOnFailurePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ImagePipelineWorkflowConfigurationOnFailurePtrOutput)
+}
+
+func (in *imagePipelineWorkflowConfigurationOnFailurePtr) ToOutput(ctx context.Context) pulumix.Output[*ImagePipelineWorkflowConfigurationOnFailure] {
+	return pulumix.Output[*ImagePipelineWorkflowConfigurationOnFailure]{
+		OutputState: in.ToImagePipelineWorkflowConfigurationOnFailurePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Use to override the device's volume type.
 type ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType string
 
@@ -1765,6 +1948,189 @@ func (in *imageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtr) ToImageRe
 func (in *imageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType] {
 	return pulumix.Output[*ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType]{
 		OutputState: in.ToImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Define execution decision in case of workflow failure
+type ImageWorkflowConfigurationOnFailure string
+
+const (
+	ImageWorkflowConfigurationOnFailureContinue = ImageWorkflowConfigurationOnFailure("CONTINUE")
+	ImageWorkflowConfigurationOnFailureAbort    = ImageWorkflowConfigurationOnFailure("ABORT")
+)
+
+func (ImageWorkflowConfigurationOnFailure) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageWorkflowConfigurationOnFailure)(nil)).Elem()
+}
+
+func (e ImageWorkflowConfigurationOnFailure) ToImageWorkflowConfigurationOnFailureOutput() ImageWorkflowConfigurationOnFailureOutput {
+	return pulumi.ToOutput(e).(ImageWorkflowConfigurationOnFailureOutput)
+}
+
+func (e ImageWorkflowConfigurationOnFailure) ToImageWorkflowConfigurationOnFailureOutputWithContext(ctx context.Context) ImageWorkflowConfigurationOnFailureOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ImageWorkflowConfigurationOnFailureOutput)
+}
+
+func (e ImageWorkflowConfigurationOnFailure) ToImageWorkflowConfigurationOnFailurePtrOutput() ImageWorkflowConfigurationOnFailurePtrOutput {
+	return e.ToImageWorkflowConfigurationOnFailurePtrOutputWithContext(context.Background())
+}
+
+func (e ImageWorkflowConfigurationOnFailure) ToImageWorkflowConfigurationOnFailurePtrOutputWithContext(ctx context.Context) ImageWorkflowConfigurationOnFailurePtrOutput {
+	return ImageWorkflowConfigurationOnFailure(e).ToImageWorkflowConfigurationOnFailureOutputWithContext(ctx).ToImageWorkflowConfigurationOnFailurePtrOutputWithContext(ctx)
+}
+
+func (e ImageWorkflowConfigurationOnFailure) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ImageWorkflowConfigurationOnFailure) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ImageWorkflowConfigurationOnFailure) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ImageWorkflowConfigurationOnFailure) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ImageWorkflowConfigurationOnFailureOutput struct{ *pulumi.OutputState }
+
+func (ImageWorkflowConfigurationOnFailureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageWorkflowConfigurationOnFailure)(nil)).Elem()
+}
+
+func (o ImageWorkflowConfigurationOnFailureOutput) ToImageWorkflowConfigurationOnFailureOutput() ImageWorkflowConfigurationOnFailureOutput {
+	return o
+}
+
+func (o ImageWorkflowConfigurationOnFailureOutput) ToImageWorkflowConfigurationOnFailureOutputWithContext(ctx context.Context) ImageWorkflowConfigurationOnFailureOutput {
+	return o
+}
+
+func (o ImageWorkflowConfigurationOnFailureOutput) ToImageWorkflowConfigurationOnFailurePtrOutput() ImageWorkflowConfigurationOnFailurePtrOutput {
+	return o.ToImageWorkflowConfigurationOnFailurePtrOutputWithContext(context.Background())
+}
+
+func (o ImageWorkflowConfigurationOnFailureOutput) ToImageWorkflowConfigurationOnFailurePtrOutputWithContext(ctx context.Context) ImageWorkflowConfigurationOnFailurePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageWorkflowConfigurationOnFailure) *ImageWorkflowConfigurationOnFailure {
+		return &v
+	}).(ImageWorkflowConfigurationOnFailurePtrOutput)
+}
+
+func (o ImageWorkflowConfigurationOnFailureOutput) ToOutput(ctx context.Context) pulumix.Output[ImageWorkflowConfigurationOnFailure] {
+	return pulumix.Output[ImageWorkflowConfigurationOnFailure]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ImageWorkflowConfigurationOnFailureOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ImageWorkflowConfigurationOnFailureOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImageWorkflowConfigurationOnFailure) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ImageWorkflowConfigurationOnFailureOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ImageWorkflowConfigurationOnFailureOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ImageWorkflowConfigurationOnFailure) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ImageWorkflowConfigurationOnFailurePtrOutput struct{ *pulumi.OutputState }
+
+func (ImageWorkflowConfigurationOnFailurePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageWorkflowConfigurationOnFailure)(nil)).Elem()
+}
+
+func (o ImageWorkflowConfigurationOnFailurePtrOutput) ToImageWorkflowConfigurationOnFailurePtrOutput() ImageWorkflowConfigurationOnFailurePtrOutput {
+	return o
+}
+
+func (o ImageWorkflowConfigurationOnFailurePtrOutput) ToImageWorkflowConfigurationOnFailurePtrOutputWithContext(ctx context.Context) ImageWorkflowConfigurationOnFailurePtrOutput {
+	return o
+}
+
+func (o ImageWorkflowConfigurationOnFailurePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ImageWorkflowConfigurationOnFailure] {
+	return pulumix.Output[*ImageWorkflowConfigurationOnFailure]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ImageWorkflowConfigurationOnFailurePtrOutput) Elem() ImageWorkflowConfigurationOnFailureOutput {
+	return o.ApplyT(func(v *ImageWorkflowConfigurationOnFailure) ImageWorkflowConfigurationOnFailure {
+		if v != nil {
+			return *v
+		}
+		var ret ImageWorkflowConfigurationOnFailure
+		return ret
+	}).(ImageWorkflowConfigurationOnFailureOutput)
+}
+
+func (o ImageWorkflowConfigurationOnFailurePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ImageWorkflowConfigurationOnFailurePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ImageWorkflowConfigurationOnFailure) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ImageWorkflowConfigurationOnFailureInput is an input type that accepts ImageWorkflowConfigurationOnFailureArgs and ImageWorkflowConfigurationOnFailureOutput values.
+// You can construct a concrete instance of `ImageWorkflowConfigurationOnFailureInput` via:
+//
+//	ImageWorkflowConfigurationOnFailureArgs{...}
+type ImageWorkflowConfigurationOnFailureInput interface {
+	pulumi.Input
+
+	ToImageWorkflowConfigurationOnFailureOutput() ImageWorkflowConfigurationOnFailureOutput
+	ToImageWorkflowConfigurationOnFailureOutputWithContext(context.Context) ImageWorkflowConfigurationOnFailureOutput
+}
+
+var imageWorkflowConfigurationOnFailurePtrType = reflect.TypeOf((**ImageWorkflowConfigurationOnFailure)(nil)).Elem()
+
+type ImageWorkflowConfigurationOnFailurePtrInput interface {
+	pulumi.Input
+
+	ToImageWorkflowConfigurationOnFailurePtrOutput() ImageWorkflowConfigurationOnFailurePtrOutput
+	ToImageWorkflowConfigurationOnFailurePtrOutputWithContext(context.Context) ImageWorkflowConfigurationOnFailurePtrOutput
+}
+
+type imageWorkflowConfigurationOnFailurePtr string
+
+func ImageWorkflowConfigurationOnFailurePtr(v string) ImageWorkflowConfigurationOnFailurePtrInput {
+	return (*imageWorkflowConfigurationOnFailurePtr)(&v)
+}
+
+func (*imageWorkflowConfigurationOnFailurePtr) ElementType() reflect.Type {
+	return imageWorkflowConfigurationOnFailurePtrType
+}
+
+func (in *imageWorkflowConfigurationOnFailurePtr) ToImageWorkflowConfigurationOnFailurePtrOutput() ImageWorkflowConfigurationOnFailurePtrOutput {
+	return pulumi.ToOutput(in).(ImageWorkflowConfigurationOnFailurePtrOutput)
+}
+
+func (in *imageWorkflowConfigurationOnFailurePtr) ToImageWorkflowConfigurationOnFailurePtrOutputWithContext(ctx context.Context) ImageWorkflowConfigurationOnFailurePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ImageWorkflowConfigurationOnFailurePtrOutput)
+}
+
+func (in *imageWorkflowConfigurationOnFailurePtr) ToOutput(ctx context.Context) pulumix.Output[*ImageWorkflowConfigurationOnFailure] {
+	return pulumix.Output[*ImageWorkflowConfigurationOnFailure]{
+		OutputState: in.ToImageWorkflowConfigurationOnFailurePtrOutputWithContext(ctx).OutputState,
 	}
 }
 
@@ -2869,6 +3235,190 @@ func (in *lifecyclePolicyTimeUnitPtr) ToOutput(ctx context.Context) pulumix.Outp
 	}
 }
 
+// The type of the workflow denotes whether the workflow is used to build, test, or distribute.
+type WorkflowType string
+
+const (
+	WorkflowTypeBuild        = WorkflowType("BUILD")
+	WorkflowTypeTest         = WorkflowType("TEST")
+	WorkflowTypeDistribution = WorkflowType("DISTRIBUTION")
+)
+
+func (WorkflowType) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowType)(nil)).Elem()
+}
+
+func (e WorkflowType) ToWorkflowTypeOutput() WorkflowTypeOutput {
+	return pulumi.ToOutput(e).(WorkflowTypeOutput)
+}
+
+func (e WorkflowType) ToWorkflowTypeOutputWithContext(ctx context.Context) WorkflowTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WorkflowTypeOutput)
+}
+
+func (e WorkflowType) ToWorkflowTypePtrOutput() WorkflowTypePtrOutput {
+	return e.ToWorkflowTypePtrOutputWithContext(context.Background())
+}
+
+func (e WorkflowType) ToWorkflowTypePtrOutputWithContext(ctx context.Context) WorkflowTypePtrOutput {
+	return WorkflowType(e).ToWorkflowTypeOutputWithContext(ctx).ToWorkflowTypePtrOutputWithContext(ctx)
+}
+
+func (e WorkflowType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkflowType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkflowType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WorkflowType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WorkflowTypeOutput struct{ *pulumi.OutputState }
+
+func (WorkflowTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowType)(nil)).Elem()
+}
+
+func (o WorkflowTypeOutput) ToWorkflowTypeOutput() WorkflowTypeOutput {
+	return o
+}
+
+func (o WorkflowTypeOutput) ToWorkflowTypeOutputWithContext(ctx context.Context) WorkflowTypeOutput {
+	return o
+}
+
+func (o WorkflowTypeOutput) ToWorkflowTypePtrOutput() WorkflowTypePtrOutput {
+	return o.ToWorkflowTypePtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowTypeOutput) ToWorkflowTypePtrOutputWithContext(ctx context.Context) WorkflowTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowType) *WorkflowType {
+		return &v
+	}).(WorkflowTypePtrOutput)
+}
+
+func (o WorkflowTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WorkflowType] {
+	return pulumix.Output[WorkflowType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o WorkflowTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkflowTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkflowType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkflowTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkflowType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkflowTypePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowType)(nil)).Elem()
+}
+
+func (o WorkflowTypePtrOutput) ToWorkflowTypePtrOutput() WorkflowTypePtrOutput {
+	return o
+}
+
+func (o WorkflowTypePtrOutput) ToWorkflowTypePtrOutputWithContext(ctx context.Context) WorkflowTypePtrOutput {
+	return o
+}
+
+func (o WorkflowTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkflowType] {
+	return pulumix.Output[*WorkflowType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o WorkflowTypePtrOutput) Elem() WorkflowTypeOutput {
+	return o.ApplyT(func(v *WorkflowType) WorkflowType {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowType
+		return ret
+	}).(WorkflowTypeOutput)
+}
+
+func (o WorkflowTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkflowType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WorkflowTypeInput is an input type that accepts WorkflowTypeArgs and WorkflowTypeOutput values.
+// You can construct a concrete instance of `WorkflowTypeInput` via:
+//
+//	WorkflowTypeArgs{...}
+type WorkflowTypeInput interface {
+	pulumi.Input
+
+	ToWorkflowTypeOutput() WorkflowTypeOutput
+	ToWorkflowTypeOutputWithContext(context.Context) WorkflowTypeOutput
+}
+
+var workflowTypePtrType = reflect.TypeOf((**WorkflowType)(nil)).Elem()
+
+type WorkflowTypePtrInput interface {
+	pulumi.Input
+
+	ToWorkflowTypePtrOutput() WorkflowTypePtrOutput
+	ToWorkflowTypePtrOutputWithContext(context.Context) WorkflowTypePtrOutput
+}
+
+type workflowTypePtr string
+
+func WorkflowTypePtr(v string) WorkflowTypePtrInput {
+	return (*workflowTypePtr)(&v)
+}
+
+func (*workflowTypePtr) ElementType() reflect.Type {
+	return workflowTypePtrType
+}
+
+func (in *workflowTypePtr) ToWorkflowTypePtrOutput() WorkflowTypePtrOutput {
+	return pulumi.ToOutput(in).(WorkflowTypePtrOutput)
+}
+
+func (in *workflowTypePtr) ToWorkflowTypePtrOutputWithContext(ctx context.Context) WorkflowTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WorkflowTypePtrOutput)
+}
+
+func (in *workflowTypePtr) ToOutput(ctx context.Context) pulumix.Output[*WorkflowType] {
+	return pulumix.Output[*WorkflowType]{
+		OutputState: in.ToWorkflowTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentPlatformInput)(nil)).Elem(), ComponentPlatform("Windows"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ComponentPlatformPtrInput)(nil)).Elem(), ComponentPlatform("Windows"))
@@ -2886,8 +3436,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineSchedulePipelineExecutionStartConditionPtrInput)(nil)).Elem(), ImagePipelineSchedulePipelineExecutionStartCondition("EXPRESSION_MATCH_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineStatusInput)(nil)).Elem(), ImagePipelineStatus("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineStatusPtrInput)(nil)).Elem(), ImagePipelineStatus("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineWorkflowConfigurationOnFailureInput)(nil)).Elem(), ImagePipelineWorkflowConfigurationOnFailure("CONTINUE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineWorkflowConfigurationOnFailurePtrInput)(nil)).Elem(), ImagePipelineWorkflowConfigurationOnFailure("CONTINUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeInput)(nil)).Elem(), ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrInput)(nil)).Elem(), ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType("standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageWorkflowConfigurationOnFailureInput)(nil)).Elem(), ImageWorkflowConfigurationOnFailure("CONTINUE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageWorkflowConfigurationOnFailurePtrInput)(nil)).Elem(), ImageWorkflowConfigurationOnFailure("CONTINUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationInstanceMetadataOptionsHttpTokensInput)(nil)).Elem(), InfrastructureConfigurationInstanceMetadataOptionsHttpTokens("required"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrInput)(nil)).Elem(), InfrastructureConfigurationInstanceMetadataOptionsHttpTokens("required"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyActionTypeInput)(nil)).Elem(), LifecyclePolicyActionType("DELETE"))
@@ -2900,6 +3454,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyStatusPtrInput)(nil)).Elem(), LifecyclePolicyStatus("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyTimeUnitInput)(nil)).Elem(), LifecyclePolicyTimeUnit("DAYS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyTimeUnitPtrInput)(nil)).Elem(), LifecyclePolicyTimeUnit("DAYS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowTypeInput)(nil)).Elem(), WorkflowType("BUILD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowTypePtrInput)(nil)).Elem(), WorkflowType("BUILD"))
 	pulumi.RegisterOutputType(ComponentPlatformOutput{})
 	pulumi.RegisterOutputType(ComponentPlatformPtrOutput{})
 	pulumi.RegisterOutputType(ComponentTypeOutput{})
@@ -2918,8 +3474,12 @@ func init() {
 	pulumi.RegisterOutputType(ImagePipelineSchedulePipelineExecutionStartConditionPtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineStatusOutput{})
 	pulumi.RegisterOutputType(ImagePipelineStatusPtrOutput{})
+	pulumi.RegisterOutputType(ImagePipelineWorkflowConfigurationOnFailureOutput{})
+	pulumi.RegisterOutputType(ImagePipelineWorkflowConfigurationOnFailurePtrOutput{})
 	pulumi.RegisterOutputType(ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypeOutput{})
 	pulumi.RegisterOutputType(ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeTypePtrOutput{})
+	pulumi.RegisterOutputType(ImageWorkflowConfigurationOnFailureOutput{})
+	pulumi.RegisterOutputType(ImageWorkflowConfigurationOnFailurePtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyActionTypeOutput{})
@@ -2932,4 +3492,6 @@ func init() {
 	pulumi.RegisterOutputType(LifecyclePolicyStatusPtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyTimeUnitOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyTimeUnitPtrOutput{})
+	pulumi.RegisterOutputType(WorkflowTypeOutput{})
+	pulumi.RegisterOutputType(WorkflowTypePtrOutput{})
 }

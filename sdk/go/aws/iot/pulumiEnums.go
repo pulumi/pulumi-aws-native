@@ -921,6 +921,244 @@ func (in *certificateModePtr) ToOutput(ctx context.Context) pulumix.Output[*Cert
 	}
 }
 
+type CertificateProviderOperation string
+
+const (
+	CertificateProviderOperationCreateCertificateFromCsr = CertificateProviderOperation("CreateCertificateFromCsr")
+)
+
+func (CertificateProviderOperation) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateProviderOperation)(nil)).Elem()
+}
+
+func (e CertificateProviderOperation) ToCertificateProviderOperationOutput() CertificateProviderOperationOutput {
+	return pulumi.ToOutput(e).(CertificateProviderOperationOutput)
+}
+
+func (e CertificateProviderOperation) ToCertificateProviderOperationOutputWithContext(ctx context.Context) CertificateProviderOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CertificateProviderOperationOutput)
+}
+
+func (e CertificateProviderOperation) ToCertificateProviderOperationPtrOutput() CertificateProviderOperationPtrOutput {
+	return e.ToCertificateProviderOperationPtrOutputWithContext(context.Background())
+}
+
+func (e CertificateProviderOperation) ToCertificateProviderOperationPtrOutputWithContext(ctx context.Context) CertificateProviderOperationPtrOutput {
+	return CertificateProviderOperation(e).ToCertificateProviderOperationOutputWithContext(ctx).ToCertificateProviderOperationPtrOutputWithContext(ctx)
+}
+
+func (e CertificateProviderOperation) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CertificateProviderOperation) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CertificateProviderOperation) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CertificateProviderOperation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CertificateProviderOperationOutput struct{ *pulumi.OutputState }
+
+func (CertificateProviderOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateProviderOperation)(nil)).Elem()
+}
+
+func (o CertificateProviderOperationOutput) ToCertificateProviderOperationOutput() CertificateProviderOperationOutput {
+	return o
+}
+
+func (o CertificateProviderOperationOutput) ToCertificateProviderOperationOutputWithContext(ctx context.Context) CertificateProviderOperationOutput {
+	return o
+}
+
+func (o CertificateProviderOperationOutput) ToCertificateProviderOperationPtrOutput() CertificateProviderOperationPtrOutput {
+	return o.ToCertificateProviderOperationPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateProviderOperationOutput) ToCertificateProviderOperationPtrOutputWithContext(ctx context.Context) CertificateProviderOperationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateProviderOperation) *CertificateProviderOperation {
+		return &v
+	}).(CertificateProviderOperationPtrOutput)
+}
+
+func (o CertificateProviderOperationOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateProviderOperation] {
+	return pulumix.Output[CertificateProviderOperation]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CertificateProviderOperationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CertificateProviderOperationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CertificateProviderOperation) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CertificateProviderOperationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateProviderOperationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CertificateProviderOperation) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CertificateProviderOperationPtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateProviderOperationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateProviderOperation)(nil)).Elem()
+}
+
+func (o CertificateProviderOperationPtrOutput) ToCertificateProviderOperationPtrOutput() CertificateProviderOperationPtrOutput {
+	return o
+}
+
+func (o CertificateProviderOperationPtrOutput) ToCertificateProviderOperationPtrOutputWithContext(ctx context.Context) CertificateProviderOperationPtrOutput {
+	return o
+}
+
+func (o CertificateProviderOperationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateProviderOperation] {
+	return pulumix.Output[*CertificateProviderOperation]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CertificateProviderOperationPtrOutput) Elem() CertificateProviderOperationOutput {
+	return o.ApplyT(func(v *CertificateProviderOperation) CertificateProviderOperation {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateProviderOperation
+		return ret
+	}).(CertificateProviderOperationOutput)
+}
+
+func (o CertificateProviderOperationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateProviderOperationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CertificateProviderOperation) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CertificateProviderOperationInput is an input type that accepts CertificateProviderOperationArgs and CertificateProviderOperationOutput values.
+// You can construct a concrete instance of `CertificateProviderOperationInput` via:
+//
+//	CertificateProviderOperationArgs{...}
+type CertificateProviderOperationInput interface {
+	pulumi.Input
+
+	ToCertificateProviderOperationOutput() CertificateProviderOperationOutput
+	ToCertificateProviderOperationOutputWithContext(context.Context) CertificateProviderOperationOutput
+}
+
+var certificateProviderOperationPtrType = reflect.TypeOf((**CertificateProviderOperation)(nil)).Elem()
+
+type CertificateProviderOperationPtrInput interface {
+	pulumi.Input
+
+	ToCertificateProviderOperationPtrOutput() CertificateProviderOperationPtrOutput
+	ToCertificateProviderOperationPtrOutputWithContext(context.Context) CertificateProviderOperationPtrOutput
+}
+
+type certificateProviderOperationPtr string
+
+func CertificateProviderOperationPtr(v string) CertificateProviderOperationPtrInput {
+	return (*certificateProviderOperationPtr)(&v)
+}
+
+func (*certificateProviderOperationPtr) ElementType() reflect.Type {
+	return certificateProviderOperationPtrType
+}
+
+func (in *certificateProviderOperationPtr) ToCertificateProviderOperationPtrOutput() CertificateProviderOperationPtrOutput {
+	return pulumi.ToOutput(in).(CertificateProviderOperationPtrOutput)
+}
+
+func (in *certificateProviderOperationPtr) ToCertificateProviderOperationPtrOutputWithContext(ctx context.Context) CertificateProviderOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CertificateProviderOperationPtrOutput)
+}
+
+func (in *certificateProviderOperationPtr) ToOutput(ctx context.Context) pulumix.Output[*CertificateProviderOperation] {
+	return pulumix.Output[*CertificateProviderOperation]{
+		OutputState: in.ToCertificateProviderOperationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// CertificateProviderOperationArrayInput is an input type that accepts CertificateProviderOperationArray and CertificateProviderOperationArrayOutput values.
+// You can construct a concrete instance of `CertificateProviderOperationArrayInput` via:
+//
+//	CertificateProviderOperationArray{ CertificateProviderOperationArgs{...} }
+type CertificateProviderOperationArrayInput interface {
+	pulumi.Input
+
+	ToCertificateProviderOperationArrayOutput() CertificateProviderOperationArrayOutput
+	ToCertificateProviderOperationArrayOutputWithContext(context.Context) CertificateProviderOperationArrayOutput
+}
+
+type CertificateProviderOperationArray []CertificateProviderOperation
+
+func (CertificateProviderOperationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateProviderOperation)(nil)).Elem()
+}
+
+func (i CertificateProviderOperationArray) ToCertificateProviderOperationArrayOutput() CertificateProviderOperationArrayOutput {
+	return i.ToCertificateProviderOperationArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateProviderOperationArray) ToCertificateProviderOperationArrayOutputWithContext(ctx context.Context) CertificateProviderOperationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateProviderOperationArrayOutput)
+}
+
+func (i CertificateProviderOperationArray) ToOutput(ctx context.Context) pulumix.Output[[]CertificateProviderOperation] {
+	return pulumix.Output[[]CertificateProviderOperation]{
+		OutputState: i.ToCertificateProviderOperationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type CertificateProviderOperationArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateProviderOperationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateProviderOperation)(nil)).Elem()
+}
+
+func (o CertificateProviderOperationArrayOutput) ToCertificateProviderOperationArrayOutput() CertificateProviderOperationArrayOutput {
+	return o
+}
+
+func (o CertificateProviderOperationArrayOutput) ToCertificateProviderOperationArrayOutputWithContext(ctx context.Context) CertificateProviderOperationArrayOutput {
+	return o
+}
+
+func (o CertificateProviderOperationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertificateProviderOperation] {
+	return pulumix.Output[[]CertificateProviderOperation]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CertificateProviderOperationArrayOutput) Index(i pulumi.IntInput) CertificateProviderOperationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateProviderOperation {
+		return vs[0].([]CertificateProviderOperation)[vs[1].(int)]
+	}).(CertificateProviderOperationOutput)
+}
+
 type CertificateStatus string
 
 const (
@@ -5673,6 +5911,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CaCertificateStatusPtrInput)(nil)).Elem(), CaCertificateStatus("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateModeInput)(nil)).Elem(), CertificateMode("DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateModePtrInput)(nil)).Elem(), CertificateMode("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateProviderOperationInput)(nil)).Elem(), CertificateProviderOperation("CreateCertificateFromCsr"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateProviderOperationPtrInput)(nil)).Elem(), CertificateProviderOperation("CreateCertificateFromCsr"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateProviderOperationArrayInput)(nil)).Elem(), CertificateProviderOperationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateStatusInput)(nil)).Elem(), CertificateStatus("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateStatusPtrInput)(nil)).Elem(), CertificateStatus("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomMetricMetricTypeInput)(nil)).Elem(), CustomMetricMetricType("string-list"))
@@ -5731,6 +5972,9 @@ func init() {
 	pulumi.RegisterOutputType(CaCertificateStatusPtrOutput{})
 	pulumi.RegisterOutputType(CertificateModeOutput{})
 	pulumi.RegisterOutputType(CertificateModePtrOutput{})
+	pulumi.RegisterOutputType(CertificateProviderOperationOutput{})
+	pulumi.RegisterOutputType(CertificateProviderOperationPtrOutput{})
+	pulumi.RegisterOutputType(CertificateProviderOperationArrayOutput{})
 	pulumi.RegisterOutputType(CertificateStatusOutput{})
 	pulumi.RegisterOutputType(CertificateStatusPtrOutput{})
 	pulumi.RegisterOutputType(CustomMetricMetricTypeOutput{})

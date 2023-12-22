@@ -67,7 +67,6 @@ __all__ = [
     'InstanceLaunchTemplateSpecificationArgs',
     'InstanceLicenseSpecificationArgs',
     'InstanceNetworkInterfaceArgs',
-    'InstanceNoDeviceArgs',
     'InstancePrivateDnsNameOptionsArgs',
     'InstancePrivateIpAddressSpecificationArgs',
     'InstanceSsmAssociationArgs',
@@ -2070,7 +2069,7 @@ class InstanceBlockDeviceMappingArgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
                  ebs: Optional[pulumi.Input['InstanceEbsArgs']] = None,
-                 no_device: Optional[pulumi.Input['InstanceNoDeviceArgs']] = None,
+                 no_device: Optional[Any] = None,
                  virtual_name: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "device_name", device_name)
         if ebs is not None:
@@ -2100,11 +2099,11 @@ class InstanceBlockDeviceMappingArgs:
 
     @property
     @pulumi.getter(name="noDevice")
-    def no_device(self) -> Optional[pulumi.Input['InstanceNoDeviceArgs']]:
+    def no_device(self) -> Optional[Any]:
         return pulumi.get(self, "no_device")
 
     @no_device.setter
-    def no_device(self, value: Optional[pulumi.Input['InstanceNoDeviceArgs']]):
+    def no_device(self, value: Optional[Any]):
         pulumi.set(self, "no_device", value)
 
     @property
@@ -2590,12 +2589,6 @@ class InstanceNetworkInterfaceArgs:
     @subnet_id.setter
     def subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet_id", value)
-
-
-@pulumi.input_type
-class InstanceNoDeviceArgs:
-    def __init__(__self__):
-        pass
 
 
 @pulumi.input_type
@@ -9928,13 +9921,29 @@ class VerifiedAccessInstanceVerifiedAccessTrustProviderArgs:
 @pulumi.input_type
 class VerifiedAccessTrustProviderDeviceOptionsArgs:
     def __init__(__self__, *,
+                 public_signing_key_url: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         The options for device identity based trust providers.
+        :param pulumi.Input[str] public_signing_key_url: URL Verified Access will use to verify authenticity of the device tokens.
         :param pulumi.Input[str] tenant_id: The ID of the tenant application with the device-identity provider.
         """
+        if public_signing_key_url is not None:
+            pulumi.set(__self__, "public_signing_key_url", public_signing_key_url)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="publicSigningKeyUrl")
+    def public_signing_key_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL Verified Access will use to verify authenticity of the device tokens.
+        """
+        return pulumi.get(self, "public_signing_key_url")
+
+    @public_signing_key_url.setter
+    def public_signing_key_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_signing_key_url", value)
 
     @property
     @pulumi.getter(name="tenantId")

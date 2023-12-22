@@ -40,6 +40,7 @@ type Service struct {
 	ServiceRegistries             ServiceRegistryArrayOutput                     `pulumi:"serviceRegistries"`
 	Tags                          ServiceTagArrayOutput                          `pulumi:"tags"`
 	TaskDefinition                pulumi.StringPtrOutput                         `pulumi:"taskDefinition"`
+	VolumeConfigurations          ServiceVolumeConfigurationArrayOutput          `pulumi:"volumeConfigurations"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -113,6 +114,7 @@ type serviceArgs struct {
 	ServiceRegistries             []ServiceRegistry                     `pulumi:"serviceRegistries"`
 	Tags                          []ServiceTag                          `pulumi:"tags"`
 	TaskDefinition                *string                               `pulumi:"taskDefinition"`
+	VolumeConfigurations          []ServiceVolumeConfiguration          `pulumi:"volumeConfigurations"`
 }
 
 // The set of arguments for constructing a Service resource.
@@ -139,6 +141,7 @@ type ServiceArgs struct {
 	ServiceRegistries             ServiceRegistryArrayInput
 	Tags                          ServiceTagArrayInput
 	TaskDefinition                pulumi.StringPtrInput
+	VolumeConfigurations          ServiceVolumeConfigurationArrayInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {
@@ -284,6 +287,10 @@ func (o ServiceOutput) Tags() ServiceTagArrayOutput {
 
 func (o ServiceOutput) TaskDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.TaskDefinition }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceOutput) VolumeConfigurations() ServiceVolumeConfigurationArrayOutput {
+	return o.ApplyT(func(v *Service) ServiceVolumeConfigurationArrayOutput { return v.VolumeConfigurations }).(ServiceVolumeConfigurationArrayOutput)
 }
 
 func init() {

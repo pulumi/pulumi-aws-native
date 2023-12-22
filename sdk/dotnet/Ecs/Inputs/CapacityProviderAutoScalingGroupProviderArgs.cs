@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("autoScalingGroupArn", required: true)]
         public Input<string> AutoScalingGroupArn { get; set; } = null!;
 
+        [Input("managedDraining")]
+        public Input<Pulumi.AwsNative.Ecs.CapacityProviderAutoScalingGroupProviderManagedDraining>? ManagedDraining { get; set; }
+
         [Input("managedScaling")]
         public Input<Inputs.CapacityProviderManagedScalingArgs>? ManagedScaling { get; set; }
 

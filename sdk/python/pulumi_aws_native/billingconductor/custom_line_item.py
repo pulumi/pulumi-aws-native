@@ -18,6 +18,7 @@ __all__ = ['CustomLineItemArgs', 'CustomLineItem']
 class CustomLineItemArgs:
     def __init__(__self__, *,
                  billing_group_arn: pulumi.Input[str],
+                 account_id: Optional[pulumi.Input[str]] = None,
                  billing_period_range: Optional[pulumi.Input['CustomLineItemBillingPeriodRangeArgs']] = None,
                  custom_line_item_charge_details: Optional[pulumi.Input['CustomLineItemChargeDetailsArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -26,8 +27,11 @@ class CustomLineItemArgs:
         """
         The set of arguments for constructing a CustomLineItem resource.
         :param pulumi.Input[str] billing_group_arn: Billing Group ARN
+        :param pulumi.Input[str] account_id: The account which this custom line item will be charged to
         """
         pulumi.set(__self__, "billing_group_arn", billing_group_arn)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
         if billing_period_range is not None:
             pulumi.set(__self__, "billing_period_range", billing_period_range)
         if custom_line_item_charge_details is not None:
@@ -50,6 +54,18 @@ class CustomLineItemArgs:
     @billing_group_arn.setter
     def billing_group_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "billing_group_arn", value)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account which this custom line item will be charged to
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_id", value)
 
     @property
     @pulumi.getter(name="billingPeriodRange")
@@ -107,6 +123,7 @@ class CustomLineItem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  billing_group_arn: Optional[pulumi.Input[str]] = None,
                  billing_period_range: Optional[pulumi.Input[pulumi.InputType['CustomLineItemBillingPeriodRangeArgs']]] = None,
                  custom_line_item_charge_details: Optional[pulumi.Input[pulumi.InputType['CustomLineItemChargeDetailsArgs']]] = None,
@@ -119,6 +136,7 @@ class CustomLineItem(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_id: The account which this custom line item will be charged to
         :param pulumi.Input[str] billing_group_arn: Billing Group ARN
         """
         ...
@@ -145,6 +163,7 @@ class CustomLineItem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  billing_group_arn: Optional[pulumi.Input[str]] = None,
                  billing_period_range: Optional[pulumi.Input[pulumi.InputType['CustomLineItemBillingPeriodRangeArgs']]] = None,
                  custom_line_item_charge_details: Optional[pulumi.Input[pulumi.InputType['CustomLineItemChargeDetailsArgs']]] = None,
@@ -161,6 +180,7 @@ class CustomLineItem(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CustomLineItemArgs.__new__(CustomLineItemArgs)
 
+            __props__.__dict__["account_id"] = account_id
             if billing_group_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'billing_group_arn'")
             __props__.__dict__["billing_group_arn"] = billing_group_arn
@@ -175,7 +195,7 @@ class CustomLineItem(pulumi.CustomResource):
             __props__.__dict__["currency_code"] = None
             __props__.__dict__["last_modified_time"] = None
             __props__.__dict__["product_code"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["billing_group_arn", "billing_period_range.exclusive_end_billing_period", "billing_period_range.inclusive_start_billing_period", "custom_line_item_charge_details.type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["account_id", "billing_group_arn", "billing_period_range.exclusive_end_billing_period", "billing_period_range.inclusive_start_billing_period", "custom_line_item_charge_details.type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CustomLineItem, __self__).__init__(
             'aws-native:billingconductor:CustomLineItem',
@@ -199,6 +219,7 @@ class CustomLineItem(pulumi.CustomResource):
 
         __props__ = CustomLineItemArgs.__new__(CustomLineItemArgs)
 
+        __props__.__dict__["account_id"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["association_size"] = None
         __props__.__dict__["billing_group_arn"] = None
@@ -212,6 +233,14 @@ class CustomLineItem(pulumi.CustomResource):
         __props__.__dict__["product_code"] = None
         __props__.__dict__["tags"] = None
         return CustomLineItem(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The account which this custom line item will be charged to
+        """
+        return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter

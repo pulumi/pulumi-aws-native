@@ -53,6 +53,7 @@ namespace Pulumi.AwsNative.Configuration
     {
         public readonly string? Id;
         public readonly Outputs.ConfigurationRecorderRecordingGroup? RecordingGroup;
+        public readonly Outputs.ConfigurationRecorderRecordingMode? RecordingMode;
         public readonly string? RoleArn;
 
         [OutputConstructor]
@@ -61,10 +62,13 @@ namespace Pulumi.AwsNative.Configuration
 
             Outputs.ConfigurationRecorderRecordingGroup? recordingGroup,
 
+            Outputs.ConfigurationRecorderRecordingMode? recordingMode,
+
             string? roleArn)
         {
             Id = id;
             RecordingGroup = recordingGroup;
+            RecordingMode = recordingMode;
             RoleArn = roleArn;
         }
     }

@@ -25,6 +25,7 @@ __all__ = [
     'AutomationRulesActionArgs',
     'AutomationRulesFindingFieldsUpdateArgs',
     'AutomationRulesFindingFiltersArgs',
+    'HubTagsArgs',
     'StandardsControlArgs',
 ]
 
@@ -905,6 +906,15 @@ class AutomationRulesFindingFiltersArgs:
     @workflow_status.setter
     def workflow_status(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRuleStringFilterArgs']]]]):
         pulumi.set(self, "workflow_status", value)
+
+
+@pulumi.input_type
+class HubTagsArgs:
+    def __init__(__self__):
+        """
+        A key-value pair to associate with a resource.
+        """
+        pass
 
 
 @pulumi.input_type

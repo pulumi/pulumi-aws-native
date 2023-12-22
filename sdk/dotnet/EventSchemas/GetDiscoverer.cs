@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.EventSchemas
 
     public sealed class GetDiscovererArgs : global::Pulumi.InvokeArgs
     {
-        [Input("discovererId", required: true)]
-        public string DiscovererId { get; set; } = null!;
+        /// <summary>
+        /// The ARN of the discoverer.
+        /// </summary>
+        [Input("discovererArn", required: true)]
+        public string DiscovererArn { get; set; } = null!;
 
         public GetDiscovererArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.EventSchemas
 
     public sealed class GetDiscovererInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("discovererId", required: true)]
-        public Input<string> DiscovererId { get; set; } = null!;
+        /// <summary>
+        /// The ARN of the discoverer.
+        /// </summary>
+        [Input("discovererArn", required: true)]
+        public Input<string> DiscovererArn { get; set; } = null!;
 
         public GetDiscovererInvokeArgs()
         {
@@ -51,10 +57,29 @@ namespace Pulumi.AwsNative.EventSchemas
     [OutputType]
     public sealed class GetDiscovererResult
     {
+        /// <summary>
+        /// Defines whether event schemas from other accounts are discovered. Default is True.
+        /// </summary>
         public readonly bool? CrossAccount;
+        /// <summary>
+        /// A description for the discoverer.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The ARN of the discoverer.
+        /// </summary>
         public readonly string? DiscovererArn;
+        /// <summary>
+        /// The Id of the discoverer.
+        /// </summary>
         public readonly string? DiscovererId;
+        /// <summary>
+        /// Defines the current state of the discoverer.
+        /// </summary>
+        public readonly string? State;
+        /// <summary>
+        /// Tags associated with the resource.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DiscovererTagsEntry> Tags;
 
         [OutputConstructor]
@@ -67,12 +92,15 @@ namespace Pulumi.AwsNative.EventSchemas
 
             string? discovererId,
 
+            string? state,
+
             ImmutableArray<Outputs.DiscovererTagsEntry> tags)
         {
             CrossAccount = crossAccount;
             Description = description;
             DiscovererArn = discovererArn;
             DiscovererId = discovererId;
+            State = state;
             Tags = tags;
         }
     }

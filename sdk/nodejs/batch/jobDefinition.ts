@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::Batch::JobDefinition
- *
- * @deprecated JobDefinition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class JobDefinition extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class JobDefinition extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): JobDefinition {
-        pulumi.log.warn("JobDefinition is deprecated: JobDefinition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new JobDefinition(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,17 +37,24 @@ export class JobDefinition extends pulumi.CustomResource {
         return obj['__pulumiType'] === JobDefinition.__pulumiType;
     }
 
+    public /*out*/ readonly containerOrchestrationType!: pulumi.Output<string>;
     public readonly containerProperties!: pulumi.Output<outputs.batch.JobDefinitionContainerProperties | undefined>;
     public readonly eksProperties!: pulumi.Output<outputs.batch.JobDefinitionEksProperties | undefined>;
+    public /*out*/ readonly jobDefinitionArn!: pulumi.Output<string>;
     public readonly jobDefinitionName!: pulumi.Output<string | undefined>;
     public readonly nodeProperties!: pulumi.Output<outputs.batch.JobDefinitionNodeProperties | undefined>;
     public readonly parameters!: pulumi.Output<any | undefined>;
     public readonly platformCapabilities!: pulumi.Output<string[] | undefined>;
     public readonly propagateTags!: pulumi.Output<boolean | undefined>;
     public readonly retryStrategy!: pulumi.Output<outputs.batch.JobDefinitionRetryStrategy | undefined>;
+    public /*out*/ readonly revision!: pulumi.Output<number>;
     public readonly schedulingPriority!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * A key-value pair to associate with a resource.
+     */
     public readonly tags!: pulumi.Output<any | undefined>;
-    public readonly timeout!: pulumi.Output<outputs.batch.JobDefinitionTimeout | undefined>;
+    public readonly timeout!: pulumi.Output<outputs.batch.JobDefinitionJobTimeout | undefined>;
     public readonly type!: pulumi.Output<string>;
 
     /**
@@ -60,9 +64,7 @@ export class JobDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated JobDefinition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: JobDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("JobDefinition is deprecated: JobDefinition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -81,22 +83,30 @@ export class JobDefinition extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeout"] = args ? args.timeout : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["containerOrchestrationType"] = undefined /*out*/;
+            resourceInputs["jobDefinitionArn"] = undefined /*out*/;
+            resourceInputs["revision"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
+            resourceInputs["containerOrchestrationType"] = undefined /*out*/;
             resourceInputs["containerProperties"] = undefined /*out*/;
             resourceInputs["eksProperties"] = undefined /*out*/;
+            resourceInputs["jobDefinitionArn"] = undefined /*out*/;
             resourceInputs["jobDefinitionName"] = undefined /*out*/;
             resourceInputs["nodeProperties"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["platformCapabilities"] = undefined /*out*/;
             resourceInputs["propagateTags"] = undefined /*out*/;
             resourceInputs["retryStrategy"] = undefined /*out*/;
+            resourceInputs["revision"] = undefined /*out*/;
             resourceInputs["schedulingPriority"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["timeout"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["jobDefinitionName", "tags"] };
+        const replaceOnChanges = { replaceOnChanges: ["containerProperties", "eksProperties", "jobDefinitionName", "nodeProperties", "parameters", "platformCapabilities[*]", "propagateTags", "retryStrategy", "schedulingPriority", "timeout", "type"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(JobDefinition.__pulumiType, name, resourceInputs, opts);
     }
@@ -115,7 +125,10 @@ export interface JobDefinitionArgs {
     propagateTags?: pulumi.Input<boolean>;
     retryStrategy?: pulumi.Input<inputs.batch.JobDefinitionRetryStrategyArgs>;
     schedulingPriority?: pulumi.Input<number>;
+    /**
+     * A key-value pair to associate with a resource.
+     */
     tags?: any;
-    timeout?: pulumi.Input<inputs.batch.JobDefinitionTimeoutArgs>;
+    timeout?: pulumi.Input<inputs.batch.JobDefinitionJobTimeoutArgs>;
     type: pulumi.Input<string>;
 }

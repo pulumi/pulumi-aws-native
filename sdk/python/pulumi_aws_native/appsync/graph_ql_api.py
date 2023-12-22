@@ -271,6 +271,7 @@ class GraphQlApi(pulumi.CustomResource):
             __props__.__dict__["api_id"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["graph_ql_dns"] = None
+            __props__.__dict__["graph_ql_endpoint_arn"] = None
             __props__.__dict__["graph_ql_url"] = None
             __props__.__dict__["realtime_dns"] = None
             __props__.__dict__["realtime_url"] = None
@@ -302,6 +303,7 @@ class GraphQlApi(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["authentication_type"] = None
         __props__.__dict__["graph_ql_dns"] = None
+        __props__.__dict__["graph_ql_endpoint_arn"] = None
         __props__.__dict__["graph_ql_url"] = None
         __props__.__dict__["lambda_authorizer_config"] = None
         __props__.__dict__["log_config"] = None
@@ -346,6 +348,11 @@ class GraphQlApi(pulumi.CustomResource):
     @pulumi.getter(name="graphQlDns")
     def graph_ql_dns(self) -> pulumi.Output[str]:
         return pulumi.get(self, "graph_ql_dns")
+
+    @property
+    @pulumi.getter(name="graphQlEndpointArn")
+    def graph_ql_endpoint_arn(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "graph_ql_endpoint_arn")
 
     @property
     @pulumi.getter(name="graphQlUrl")

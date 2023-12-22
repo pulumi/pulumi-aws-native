@@ -32,11 +32,13 @@ export interface GetDomainResult {
     readonly domainArn?: string;
     readonly domainEndpoint?: string;
     readonly domainEndpointOptions?: outputs.opensearchservice.DomainEndpointOptions;
+    readonly domainEndpointV2?: string;
     readonly domainEndpoints?: any;
     readonly ebsOptions?: outputs.opensearchservice.DomainEbsOptions;
     readonly encryptionAtRestOptions?: outputs.opensearchservice.DomainEncryptionAtRestOptions;
     readonly engineVersion?: string;
     readonly id?: string;
+    readonly ipAddressType?: string;
     readonly logPublishingOptions?: any;
     readonly nodeToNodeEncryptionOptions?: outputs.opensearchservice.DomainNodeToNodeEncryptionOptions;
     readonly offPeakWindowOptions?: outputs.opensearchservice.DomainOffPeakWindowOptions;

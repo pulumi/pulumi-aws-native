@@ -8,7 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Logs::DeliveryDestination
+ * This structure contains information about one delivery destination in your account.
+ *
+ * A delivery destination is an AWS resource that represents an AWS service that logs can be sent to CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.
  */
 export class DeliveryDestination extends pulumi.CustomResource {
     /**
@@ -38,7 +40,7 @@ export class DeliveryDestination extends pulumi.CustomResource {
     }
 
     /**
-     * The value of the Arn property for this object.
+     * The Amazon Resource Name (ARN) that uniquely identifies this delivery destination.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -50,19 +52,19 @@ export class DeliveryDestination extends pulumi.CustomResource {
      */
     public readonly deliveryDestinationPolicy!: pulumi.Output<any | undefined>;
     /**
-     * The value of the DeliveryDestinationType property for this object.
+     * Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
      */
     public /*out*/ readonly deliveryDestinationType!: pulumi.Output<string>;
     /**
-     * The ARN of the Destination Resource.
+     * The ARN of the AWS resource that will receive the logs.
      */
     public readonly destinationResourceArn!: pulumi.Output<string | undefined>;
     /**
-     * The unique name of the Delivery Destination.
+     * The name of this delivery destination.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * An array of key-value pairs to apply to this resource.
+     * The tags that have been assigned to this delivery destination.
      */
     public readonly tags!: pulumi.Output<outputs.logs.DeliveryDestinationTag[] | undefined>;
 
@@ -111,15 +113,15 @@ export interface DeliveryDestinationArgs {
      */
     deliveryDestinationPolicy?: any;
     /**
-     * The ARN of the Destination Resource.
+     * The ARN of the AWS resource that will receive the logs.
      */
     destinationResourceArn?: pulumi.Input<string>;
     /**
-     * The unique name of the Delivery Destination.
+     * The name of this delivery destination.
      */
     name?: pulumi.Input<string>;
     /**
-     * An array of key-value pairs to apply to this resource.
+     * The tags that have been assigned to this delivery destination.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.logs.DeliveryDestinationTagArgs>[]>;
 }

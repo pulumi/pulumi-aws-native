@@ -226,6 +226,9 @@ class CodeSigningConfigCodeSigningPolicies(dict):
 
 @pulumi.output_type
 class EventInvokeConfigDestinationConfig(dict):
+    """
+    A destination for events after they have been sent to a function for processing.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -248,6 +251,9 @@ class EventInvokeConfigDestinationConfig(dict):
     def __init__(__self__, *,
                  on_failure: Optional['outputs.EventInvokeConfigOnFailure'] = None,
                  on_success: Optional['outputs.EventInvokeConfigOnSuccess'] = None):
+        """
+        A destination for events after they have been sent to a function for processing.
+        """
         if on_failure is not None:
             pulumi.set(__self__, "on_failure", on_failure)
         if on_success is not None:
@@ -266,25 +272,45 @@ class EventInvokeConfigDestinationConfig(dict):
 
 @pulumi.output_type
 class EventInvokeConfigOnFailure(dict):
+    """
+    The destination configuration for failed invocations.
+    """
     def __init__(__self__, *,
                  destination: str):
+        """
+        The destination configuration for failed invocations.
+        :param str destination: The Amazon Resource Name (ARN) of the destination resource.
+        """
         pulumi.set(__self__, "destination", destination)
 
     @property
     @pulumi.getter
     def destination(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the destination resource.
+        """
         return pulumi.get(self, "destination")
 
 
 @pulumi.output_type
 class EventInvokeConfigOnSuccess(dict):
+    """
+    The destination configuration for successful invocations.
+    """
     def __init__(__self__, *,
                  destination: str):
+        """
+        The destination configuration for successful invocations.
+        :param str destination: The Amazon Resource Name (ARN) of the destination resource.
+        """
         pulumi.set(__self__, "destination", destination)
 
     @property
     @pulumi.getter
     def destination(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the destination resource.
+        """
         return pulumi.get(self, "destination")
 
 

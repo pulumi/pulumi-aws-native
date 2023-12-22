@@ -14,6 +14,139 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// A key-value pair to associate with a resource.
+type DataProviderTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// DataProviderTagInput is an input type that accepts DataProviderTagArgs and DataProviderTagOutput values.
+// You can construct a concrete instance of `DataProviderTagInput` via:
+//
+//	DataProviderTagArgs{...}
+type DataProviderTagInput interface {
+	pulumi.Input
+
+	ToDataProviderTagOutput() DataProviderTagOutput
+	ToDataProviderTagOutputWithContext(context.Context) DataProviderTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type DataProviderTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DataProviderTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderTag)(nil)).Elem()
+}
+
+func (i DataProviderTagArgs) ToDataProviderTagOutput() DataProviderTagOutput {
+	return i.ToDataProviderTagOutputWithContext(context.Background())
+}
+
+func (i DataProviderTagArgs) ToDataProviderTagOutputWithContext(ctx context.Context) DataProviderTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderTagOutput)
+}
+
+func (i DataProviderTagArgs) ToOutput(ctx context.Context) pulumix.Output[DataProviderTag] {
+	return pulumix.Output[DataProviderTag]{
+		OutputState: i.ToDataProviderTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// DataProviderTagArrayInput is an input type that accepts DataProviderTagArray and DataProviderTagArrayOutput values.
+// You can construct a concrete instance of `DataProviderTagArrayInput` via:
+//
+//	DataProviderTagArray{ DataProviderTagArgs{...} }
+type DataProviderTagArrayInput interface {
+	pulumi.Input
+
+	ToDataProviderTagArrayOutput() DataProviderTagArrayOutput
+	ToDataProviderTagArrayOutputWithContext(context.Context) DataProviderTagArrayOutput
+}
+
+type DataProviderTagArray []DataProviderTagInput
+
+func (DataProviderTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataProviderTag)(nil)).Elem()
+}
+
+func (i DataProviderTagArray) ToDataProviderTagArrayOutput() DataProviderTagArrayOutput {
+	return i.ToDataProviderTagArrayOutputWithContext(context.Background())
+}
+
+func (i DataProviderTagArray) ToDataProviderTagArrayOutputWithContext(ctx context.Context) DataProviderTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataProviderTagArrayOutput)
+}
+
+func (i DataProviderTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DataProviderTag] {
+	return pulumix.Output[[]DataProviderTag]{
+		OutputState: i.ToDataProviderTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A key-value pair to associate with a resource.
+type DataProviderTagOutput struct{ *pulumi.OutputState }
+
+func (DataProviderTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderTag)(nil)).Elem()
+}
+
+func (o DataProviderTagOutput) ToDataProviderTagOutput() DataProviderTagOutput {
+	return o
+}
+
+func (o DataProviderTagOutput) ToDataProviderTagOutputWithContext(ctx context.Context) DataProviderTagOutput {
+	return o
+}
+
+func (o DataProviderTagOutput) ToOutput(ctx context.Context) pulumix.Output[DataProviderTag] {
+	return pulumix.Output[DataProviderTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o DataProviderTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DataProviderTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o DataProviderTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DataProviderTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DataProviderTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DataProviderTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataProviderTag)(nil)).Elem()
+}
+
+func (o DataProviderTagArrayOutput) ToDataProviderTagArrayOutput() DataProviderTagArrayOutput {
+	return o
+}
+
+func (o DataProviderTagArrayOutput) ToDataProviderTagArrayOutputWithContext(ctx context.Context) DataProviderTagArrayOutput {
+	return o
+}
+
+func (o DataProviderTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DataProviderTag] {
+	return pulumix.Output[[]DataProviderTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DataProviderTagArrayOutput) Index(i pulumi.IntInput) DataProviderTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataProviderTag {
+		return vs[0].([]DataProviderTag)[vs[1].(int)]
+	}).(DataProviderTagOutput)
+}
+
 type EndpointDocDbSettings struct {
 	DocsToInvestigate           *int    `pulumi:"docsToInvestigate"`
 	ExtractDocId                *bool   `pulumi:"extractDocId"`
@@ -929,10 +1062,14 @@ func (o EndpointGcpMySqlSettingsPtrOutput) Username() pulumi.StringPtrOutput {
 
 type EndpointIbmDb2Settings struct {
 	CurrentLsn                  *string `pulumi:"currentLsn"`
+	KeepCsvFiles                *bool   `pulumi:"keepCsvFiles"`
+	LoadTimeout                 *int    `pulumi:"loadTimeout"`
+	MaxFileSize                 *int    `pulumi:"maxFileSize"`
 	MaxKBytesPerRead            *int    `pulumi:"maxKBytesPerRead"`
 	SecretsManagerAccessRoleArn *string `pulumi:"secretsManagerAccessRoleArn"`
 	SecretsManagerSecretId      *string `pulumi:"secretsManagerSecretId"`
 	SetDataCaptureChanges       *bool   `pulumi:"setDataCaptureChanges"`
+	WriteBufferSize             *int    `pulumi:"writeBufferSize"`
 }
 
 // EndpointIbmDb2SettingsInput is an input type that accepts EndpointIbmDb2SettingsArgs and EndpointIbmDb2SettingsOutput values.
@@ -948,10 +1085,14 @@ type EndpointIbmDb2SettingsInput interface {
 
 type EndpointIbmDb2SettingsArgs struct {
 	CurrentLsn                  pulumi.StringPtrInput `pulumi:"currentLsn"`
+	KeepCsvFiles                pulumi.BoolPtrInput   `pulumi:"keepCsvFiles"`
+	LoadTimeout                 pulumi.IntPtrInput    `pulumi:"loadTimeout"`
+	MaxFileSize                 pulumi.IntPtrInput    `pulumi:"maxFileSize"`
 	MaxKBytesPerRead            pulumi.IntPtrInput    `pulumi:"maxKBytesPerRead"`
 	SecretsManagerAccessRoleArn pulumi.StringPtrInput `pulumi:"secretsManagerAccessRoleArn"`
 	SecretsManagerSecretId      pulumi.StringPtrInput `pulumi:"secretsManagerSecretId"`
 	SetDataCaptureChanges       pulumi.BoolPtrInput   `pulumi:"setDataCaptureChanges"`
+	WriteBufferSize             pulumi.IntPtrInput    `pulumi:"writeBufferSize"`
 }
 
 func (EndpointIbmDb2SettingsArgs) ElementType() reflect.Type {
@@ -1053,6 +1194,18 @@ func (o EndpointIbmDb2SettingsOutput) CurrentLsn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointIbmDb2Settings) *string { return v.CurrentLsn }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointIbmDb2SettingsOutput) KeepCsvFiles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointIbmDb2Settings) *bool { return v.KeepCsvFiles }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointIbmDb2SettingsOutput) LoadTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointIbmDb2Settings) *int { return v.LoadTimeout }).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointIbmDb2SettingsOutput) MaxFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointIbmDb2Settings) *int { return v.MaxFileSize }).(pulumi.IntPtrOutput)
+}
+
 func (o EndpointIbmDb2SettingsOutput) MaxKBytesPerRead() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EndpointIbmDb2Settings) *int { return v.MaxKBytesPerRead }).(pulumi.IntPtrOutput)
 }
@@ -1067,6 +1220,10 @@ func (o EndpointIbmDb2SettingsOutput) SecretsManagerSecretId() pulumi.StringPtrO
 
 func (o EndpointIbmDb2SettingsOutput) SetDataCaptureChanges() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointIbmDb2Settings) *bool { return v.SetDataCaptureChanges }).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointIbmDb2SettingsOutput) WriteBufferSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointIbmDb2Settings) *int { return v.WriteBufferSize }).(pulumi.IntPtrOutput)
 }
 
 type EndpointIbmDb2SettingsPtrOutput struct{ *pulumi.OutputState }
@@ -1108,6 +1265,33 @@ func (o EndpointIbmDb2SettingsPtrOutput) CurrentLsn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointIbmDb2SettingsPtrOutput) KeepCsvFiles() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointIbmDb2Settings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.KeepCsvFiles
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointIbmDb2SettingsPtrOutput) LoadTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointIbmDb2Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LoadTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EndpointIbmDb2SettingsPtrOutput) MaxFileSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointIbmDb2Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxFileSize
+	}).(pulumi.IntPtrOutput)
+}
+
 func (o EndpointIbmDb2SettingsPtrOutput) MaxKBytesPerRead() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EndpointIbmDb2Settings) *int {
 		if v == nil {
@@ -1142,6 +1326,15 @@ func (o EndpointIbmDb2SettingsPtrOutput) SetDataCaptureChanges() pulumi.BoolPtrO
 		}
 		return v.SetDataCaptureChanges
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o EndpointIbmDb2SettingsPtrOutput) WriteBufferSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointIbmDb2Settings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WriteBufferSize
+	}).(pulumi.IntPtrOutput)
 }
 
 type EndpointKafkaSettings struct {
@@ -6111,6 +6304,417 @@ func (o EventSubscriptionTagArrayOutput) Index(i pulumi.IntInput) EventSubscript
 	}).(EventSubscriptionTagOutput)
 }
 
+// A key-value pair to associate with a resource.
+type InstanceProfileTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// InstanceProfileTagInput is an input type that accepts InstanceProfileTagArgs and InstanceProfileTagOutput values.
+// You can construct a concrete instance of `InstanceProfileTagInput` via:
+//
+//	InstanceProfileTagArgs{...}
+type InstanceProfileTagInput interface {
+	pulumi.Input
+
+	ToInstanceProfileTagOutput() InstanceProfileTagOutput
+	ToInstanceProfileTagOutputWithContext(context.Context) InstanceProfileTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type InstanceProfileTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (InstanceProfileTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceProfileTag)(nil)).Elem()
+}
+
+func (i InstanceProfileTagArgs) ToInstanceProfileTagOutput() InstanceProfileTagOutput {
+	return i.ToInstanceProfileTagOutputWithContext(context.Background())
+}
+
+func (i InstanceProfileTagArgs) ToInstanceProfileTagOutputWithContext(ctx context.Context) InstanceProfileTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceProfileTagOutput)
+}
+
+func (i InstanceProfileTagArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceProfileTag] {
+	return pulumix.Output[InstanceProfileTag]{
+		OutputState: i.ToInstanceProfileTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// InstanceProfileTagArrayInput is an input type that accepts InstanceProfileTagArray and InstanceProfileTagArrayOutput values.
+// You can construct a concrete instance of `InstanceProfileTagArrayInput` via:
+//
+//	InstanceProfileTagArray{ InstanceProfileTagArgs{...} }
+type InstanceProfileTagArrayInput interface {
+	pulumi.Input
+
+	ToInstanceProfileTagArrayOutput() InstanceProfileTagArrayOutput
+	ToInstanceProfileTagArrayOutputWithContext(context.Context) InstanceProfileTagArrayOutput
+}
+
+type InstanceProfileTagArray []InstanceProfileTagInput
+
+func (InstanceProfileTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceProfileTag)(nil)).Elem()
+}
+
+func (i InstanceProfileTagArray) ToInstanceProfileTagArrayOutput() InstanceProfileTagArrayOutput {
+	return i.ToInstanceProfileTagArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceProfileTagArray) ToInstanceProfileTagArrayOutputWithContext(ctx context.Context) InstanceProfileTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceProfileTagArrayOutput)
+}
+
+func (i InstanceProfileTagArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceProfileTag] {
+	return pulumix.Output[[]InstanceProfileTag]{
+		OutputState: i.ToInstanceProfileTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A key-value pair to associate with a resource.
+type InstanceProfileTagOutput struct{ *pulumi.OutputState }
+
+func (InstanceProfileTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceProfileTag)(nil)).Elem()
+}
+
+func (o InstanceProfileTagOutput) ToInstanceProfileTagOutput() InstanceProfileTagOutput {
+	return o
+}
+
+func (o InstanceProfileTagOutput) ToInstanceProfileTagOutputWithContext(ctx context.Context) InstanceProfileTagOutput {
+	return o
+}
+
+func (o InstanceProfileTagOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceProfileTag] {
+	return pulumix.Output[InstanceProfileTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o InstanceProfileTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceProfileTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o InstanceProfileTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceProfileTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type InstanceProfileTagArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceProfileTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceProfileTag)(nil)).Elem()
+}
+
+func (o InstanceProfileTagArrayOutput) ToInstanceProfileTagArrayOutput() InstanceProfileTagArrayOutput {
+	return o
+}
+
+func (o InstanceProfileTagArrayOutput) ToInstanceProfileTagArrayOutputWithContext(ctx context.Context) InstanceProfileTagArrayOutput {
+	return o
+}
+
+func (o InstanceProfileTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceProfileTag] {
+	return pulumix.Output[[]InstanceProfileTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o InstanceProfileTagArrayOutput) Index(i pulumi.IntInput) InstanceProfileTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceProfileTag {
+		return vs[0].([]InstanceProfileTag)[vs[1].(int)]
+	}).(InstanceProfileTagOutput)
+}
+
+// It is an object that describes Source and Target DataProviders and credentials for connecting to databases that are used in MigrationProject
+type MigrationProjectDataProviderDescriptor struct {
+	DataProviderArn             *string `pulumi:"dataProviderArn"`
+	DataProviderIdentifier      *string `pulumi:"dataProviderIdentifier"`
+	DataProviderName            *string `pulumi:"dataProviderName"`
+	SecretsManagerAccessRoleArn *string `pulumi:"secretsManagerAccessRoleArn"`
+	SecretsManagerSecretId      *string `pulumi:"secretsManagerSecretId"`
+}
+
+// MigrationProjectDataProviderDescriptorInput is an input type that accepts MigrationProjectDataProviderDescriptorArgs and MigrationProjectDataProviderDescriptorOutput values.
+// You can construct a concrete instance of `MigrationProjectDataProviderDescriptorInput` via:
+//
+//	MigrationProjectDataProviderDescriptorArgs{...}
+type MigrationProjectDataProviderDescriptorInput interface {
+	pulumi.Input
+
+	ToMigrationProjectDataProviderDescriptorOutput() MigrationProjectDataProviderDescriptorOutput
+	ToMigrationProjectDataProviderDescriptorOutputWithContext(context.Context) MigrationProjectDataProviderDescriptorOutput
+}
+
+// It is an object that describes Source and Target DataProviders and credentials for connecting to databases that are used in MigrationProject
+type MigrationProjectDataProviderDescriptorArgs struct {
+	DataProviderArn             pulumi.StringPtrInput `pulumi:"dataProviderArn"`
+	DataProviderIdentifier      pulumi.StringPtrInput `pulumi:"dataProviderIdentifier"`
+	DataProviderName            pulumi.StringPtrInput `pulumi:"dataProviderName"`
+	SecretsManagerAccessRoleArn pulumi.StringPtrInput `pulumi:"secretsManagerAccessRoleArn"`
+	SecretsManagerSecretId      pulumi.StringPtrInput `pulumi:"secretsManagerSecretId"`
+}
+
+func (MigrationProjectDataProviderDescriptorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationProjectDataProviderDescriptor)(nil)).Elem()
+}
+
+func (i MigrationProjectDataProviderDescriptorArgs) ToMigrationProjectDataProviderDescriptorOutput() MigrationProjectDataProviderDescriptorOutput {
+	return i.ToMigrationProjectDataProviderDescriptorOutputWithContext(context.Background())
+}
+
+func (i MigrationProjectDataProviderDescriptorArgs) ToMigrationProjectDataProviderDescriptorOutputWithContext(ctx context.Context) MigrationProjectDataProviderDescriptorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationProjectDataProviderDescriptorOutput)
+}
+
+func (i MigrationProjectDataProviderDescriptorArgs) ToOutput(ctx context.Context) pulumix.Output[MigrationProjectDataProviderDescriptor] {
+	return pulumix.Output[MigrationProjectDataProviderDescriptor]{
+		OutputState: i.ToMigrationProjectDataProviderDescriptorOutputWithContext(ctx).OutputState,
+	}
+}
+
+// MigrationProjectDataProviderDescriptorArrayInput is an input type that accepts MigrationProjectDataProviderDescriptorArray and MigrationProjectDataProviderDescriptorArrayOutput values.
+// You can construct a concrete instance of `MigrationProjectDataProviderDescriptorArrayInput` via:
+//
+//	MigrationProjectDataProviderDescriptorArray{ MigrationProjectDataProviderDescriptorArgs{...} }
+type MigrationProjectDataProviderDescriptorArrayInput interface {
+	pulumi.Input
+
+	ToMigrationProjectDataProviderDescriptorArrayOutput() MigrationProjectDataProviderDescriptorArrayOutput
+	ToMigrationProjectDataProviderDescriptorArrayOutputWithContext(context.Context) MigrationProjectDataProviderDescriptorArrayOutput
+}
+
+type MigrationProjectDataProviderDescriptorArray []MigrationProjectDataProviderDescriptorInput
+
+func (MigrationProjectDataProviderDescriptorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MigrationProjectDataProviderDescriptor)(nil)).Elem()
+}
+
+func (i MigrationProjectDataProviderDescriptorArray) ToMigrationProjectDataProviderDescriptorArrayOutput() MigrationProjectDataProviderDescriptorArrayOutput {
+	return i.ToMigrationProjectDataProviderDescriptorArrayOutputWithContext(context.Background())
+}
+
+func (i MigrationProjectDataProviderDescriptorArray) ToMigrationProjectDataProviderDescriptorArrayOutputWithContext(ctx context.Context) MigrationProjectDataProviderDescriptorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationProjectDataProviderDescriptorArrayOutput)
+}
+
+func (i MigrationProjectDataProviderDescriptorArray) ToOutput(ctx context.Context) pulumix.Output[[]MigrationProjectDataProviderDescriptor] {
+	return pulumix.Output[[]MigrationProjectDataProviderDescriptor]{
+		OutputState: i.ToMigrationProjectDataProviderDescriptorArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// It is an object that describes Source and Target DataProviders and credentials for connecting to databases that are used in MigrationProject
+type MigrationProjectDataProviderDescriptorOutput struct{ *pulumi.OutputState }
+
+func (MigrationProjectDataProviderDescriptorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationProjectDataProviderDescriptor)(nil)).Elem()
+}
+
+func (o MigrationProjectDataProviderDescriptorOutput) ToMigrationProjectDataProviderDescriptorOutput() MigrationProjectDataProviderDescriptorOutput {
+	return o
+}
+
+func (o MigrationProjectDataProviderDescriptorOutput) ToMigrationProjectDataProviderDescriptorOutputWithContext(ctx context.Context) MigrationProjectDataProviderDescriptorOutput {
+	return o
+}
+
+func (o MigrationProjectDataProviderDescriptorOutput) ToOutput(ctx context.Context) pulumix.Output[MigrationProjectDataProviderDescriptor] {
+	return pulumix.Output[MigrationProjectDataProviderDescriptor]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o MigrationProjectDataProviderDescriptorOutput) DataProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrationProjectDataProviderDescriptor) *string { return v.DataProviderArn }).(pulumi.StringPtrOutput)
+}
+
+func (o MigrationProjectDataProviderDescriptorOutput) DataProviderIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrationProjectDataProviderDescriptor) *string { return v.DataProviderIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o MigrationProjectDataProviderDescriptorOutput) DataProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrationProjectDataProviderDescriptor) *string { return v.DataProviderName }).(pulumi.StringPtrOutput)
+}
+
+func (o MigrationProjectDataProviderDescriptorOutput) SecretsManagerAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrationProjectDataProviderDescriptor) *string { return v.SecretsManagerAccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o MigrationProjectDataProviderDescriptorOutput) SecretsManagerSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MigrationProjectDataProviderDescriptor) *string { return v.SecretsManagerSecretId }).(pulumi.StringPtrOutput)
+}
+
+type MigrationProjectDataProviderDescriptorArrayOutput struct{ *pulumi.OutputState }
+
+func (MigrationProjectDataProviderDescriptorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MigrationProjectDataProviderDescriptor)(nil)).Elem()
+}
+
+func (o MigrationProjectDataProviderDescriptorArrayOutput) ToMigrationProjectDataProviderDescriptorArrayOutput() MigrationProjectDataProviderDescriptorArrayOutput {
+	return o
+}
+
+func (o MigrationProjectDataProviderDescriptorArrayOutput) ToMigrationProjectDataProviderDescriptorArrayOutputWithContext(ctx context.Context) MigrationProjectDataProviderDescriptorArrayOutput {
+	return o
+}
+
+func (o MigrationProjectDataProviderDescriptorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MigrationProjectDataProviderDescriptor] {
+	return pulumix.Output[[]MigrationProjectDataProviderDescriptor]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o MigrationProjectDataProviderDescriptorArrayOutput) Index(i pulumi.IntInput) MigrationProjectDataProviderDescriptorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MigrationProjectDataProviderDescriptor {
+		return vs[0].([]MigrationProjectDataProviderDescriptor)[vs[1].(int)]
+	}).(MigrationProjectDataProviderDescriptorOutput)
+}
+
+// A key-value pair to associate with a resource.
+type MigrationProjectTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, , and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, , and -.
+	Value string `pulumi:"value"`
+}
+
+// MigrationProjectTagInput is an input type that accepts MigrationProjectTagArgs and MigrationProjectTagOutput values.
+// You can construct a concrete instance of `MigrationProjectTagInput` via:
+//
+//	MigrationProjectTagArgs{...}
+type MigrationProjectTagInput interface {
+	pulumi.Input
+
+	ToMigrationProjectTagOutput() MigrationProjectTagOutput
+	ToMigrationProjectTagOutputWithContext(context.Context) MigrationProjectTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type MigrationProjectTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, , and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, , and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (MigrationProjectTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationProjectTag)(nil)).Elem()
+}
+
+func (i MigrationProjectTagArgs) ToMigrationProjectTagOutput() MigrationProjectTagOutput {
+	return i.ToMigrationProjectTagOutputWithContext(context.Background())
+}
+
+func (i MigrationProjectTagArgs) ToMigrationProjectTagOutputWithContext(ctx context.Context) MigrationProjectTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationProjectTagOutput)
+}
+
+func (i MigrationProjectTagArgs) ToOutput(ctx context.Context) pulumix.Output[MigrationProjectTag] {
+	return pulumix.Output[MigrationProjectTag]{
+		OutputState: i.ToMigrationProjectTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// MigrationProjectTagArrayInput is an input type that accepts MigrationProjectTagArray and MigrationProjectTagArrayOutput values.
+// You can construct a concrete instance of `MigrationProjectTagArrayInput` via:
+//
+//	MigrationProjectTagArray{ MigrationProjectTagArgs{...} }
+type MigrationProjectTagArrayInput interface {
+	pulumi.Input
+
+	ToMigrationProjectTagArrayOutput() MigrationProjectTagArrayOutput
+	ToMigrationProjectTagArrayOutputWithContext(context.Context) MigrationProjectTagArrayOutput
+}
+
+type MigrationProjectTagArray []MigrationProjectTagInput
+
+func (MigrationProjectTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MigrationProjectTag)(nil)).Elem()
+}
+
+func (i MigrationProjectTagArray) ToMigrationProjectTagArrayOutput() MigrationProjectTagArrayOutput {
+	return i.ToMigrationProjectTagArrayOutputWithContext(context.Background())
+}
+
+func (i MigrationProjectTagArray) ToMigrationProjectTagArrayOutputWithContext(ctx context.Context) MigrationProjectTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MigrationProjectTagArrayOutput)
+}
+
+func (i MigrationProjectTagArray) ToOutput(ctx context.Context) pulumix.Output[[]MigrationProjectTag] {
+	return pulumix.Output[[]MigrationProjectTag]{
+		OutputState: i.ToMigrationProjectTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A key-value pair to associate with a resource.
+type MigrationProjectTagOutput struct{ *pulumi.OutputState }
+
+func (MigrationProjectTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MigrationProjectTag)(nil)).Elem()
+}
+
+func (o MigrationProjectTagOutput) ToMigrationProjectTagOutput() MigrationProjectTagOutput {
+	return o
+}
+
+func (o MigrationProjectTagOutput) ToMigrationProjectTagOutputWithContext(ctx context.Context) MigrationProjectTagOutput {
+	return o
+}
+
+func (o MigrationProjectTagOutput) ToOutput(ctx context.Context) pulumix.Output[MigrationProjectTag] {
+	return pulumix.Output[MigrationProjectTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, , and -.
+func (o MigrationProjectTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v MigrationProjectTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, , and -.
+func (o MigrationProjectTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v MigrationProjectTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type MigrationProjectTagArrayOutput struct{ *pulumi.OutputState }
+
+func (MigrationProjectTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MigrationProjectTag)(nil)).Elem()
+}
+
+func (o MigrationProjectTagArrayOutput) ToMigrationProjectTagArrayOutput() MigrationProjectTagArrayOutput {
+	return o
+}
+
+func (o MigrationProjectTagArrayOutput) ToMigrationProjectTagArrayOutputWithContext(ctx context.Context) MigrationProjectTagArrayOutput {
+	return o
+}
+
+func (o MigrationProjectTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MigrationProjectTag] {
+	return pulumix.Output[[]MigrationProjectTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o MigrationProjectTagArrayOutput) Index(i pulumi.IntInput) MigrationProjectTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MigrationProjectTag {
+		return vs[0].([]MigrationProjectTag)[vs[1].(int)]
+	}).(MigrationProjectTagOutput)
+}
+
 // Configuration parameters for provisioning a AWS DMS Serverless replication
 type ReplicationConfigComputeConfig struct {
 	AvailabilityZone           *string  `pulumi:"availabilityZone"`
@@ -6902,7 +7506,240 @@ func (o ReplicationTaskTagArrayOutput) Index(i pulumi.IntInput) ReplicationTaskT
 	}).(ReplicationTaskTagOutput)
 }
 
+// The property describes schema conversion application attributes for the migration project.
+type SchemaConversionApplicationAttributesProperties struct {
+	S3BucketPath    *string `pulumi:"s3BucketPath"`
+	S3BucketRoleArn *string `pulumi:"s3BucketRoleArn"`
+}
+
+// SchemaConversionApplicationAttributesPropertiesInput is an input type that accepts SchemaConversionApplicationAttributesPropertiesArgs and SchemaConversionApplicationAttributesPropertiesOutput values.
+// You can construct a concrete instance of `SchemaConversionApplicationAttributesPropertiesInput` via:
+//
+//	SchemaConversionApplicationAttributesPropertiesArgs{...}
+type SchemaConversionApplicationAttributesPropertiesInput interface {
+	pulumi.Input
+
+	ToSchemaConversionApplicationAttributesPropertiesOutput() SchemaConversionApplicationAttributesPropertiesOutput
+	ToSchemaConversionApplicationAttributesPropertiesOutputWithContext(context.Context) SchemaConversionApplicationAttributesPropertiesOutput
+}
+
+// The property describes schema conversion application attributes for the migration project.
+type SchemaConversionApplicationAttributesPropertiesArgs struct {
+	S3BucketPath    pulumi.StringPtrInput `pulumi:"s3BucketPath"`
+	S3BucketRoleArn pulumi.StringPtrInput `pulumi:"s3BucketRoleArn"`
+}
+
+func (SchemaConversionApplicationAttributesPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaConversionApplicationAttributesProperties)(nil)).Elem()
+}
+
+func (i SchemaConversionApplicationAttributesPropertiesArgs) ToSchemaConversionApplicationAttributesPropertiesOutput() SchemaConversionApplicationAttributesPropertiesOutput {
+	return i.ToSchemaConversionApplicationAttributesPropertiesOutputWithContext(context.Background())
+}
+
+func (i SchemaConversionApplicationAttributesPropertiesArgs) ToSchemaConversionApplicationAttributesPropertiesOutputWithContext(ctx context.Context) SchemaConversionApplicationAttributesPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaConversionApplicationAttributesPropertiesOutput)
+}
+
+func (i SchemaConversionApplicationAttributesPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[SchemaConversionApplicationAttributesProperties] {
+	return pulumix.Output[SchemaConversionApplicationAttributesProperties]{
+		OutputState: i.ToSchemaConversionApplicationAttributesPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i SchemaConversionApplicationAttributesPropertiesArgs) ToSchemaConversionApplicationAttributesPropertiesPtrOutput() SchemaConversionApplicationAttributesPropertiesPtrOutput {
+	return i.ToSchemaConversionApplicationAttributesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SchemaConversionApplicationAttributesPropertiesArgs) ToSchemaConversionApplicationAttributesPropertiesPtrOutputWithContext(ctx context.Context) SchemaConversionApplicationAttributesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaConversionApplicationAttributesPropertiesOutput).ToSchemaConversionApplicationAttributesPropertiesPtrOutputWithContext(ctx)
+}
+
+// SchemaConversionApplicationAttributesPropertiesPtrInput is an input type that accepts SchemaConversionApplicationAttributesPropertiesArgs, SchemaConversionApplicationAttributesPropertiesPtr and SchemaConversionApplicationAttributesPropertiesPtrOutput values.
+// You can construct a concrete instance of `SchemaConversionApplicationAttributesPropertiesPtrInput` via:
+//
+//	        SchemaConversionApplicationAttributesPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type SchemaConversionApplicationAttributesPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSchemaConversionApplicationAttributesPropertiesPtrOutput() SchemaConversionApplicationAttributesPropertiesPtrOutput
+	ToSchemaConversionApplicationAttributesPropertiesPtrOutputWithContext(context.Context) SchemaConversionApplicationAttributesPropertiesPtrOutput
+}
+
+type schemaConversionApplicationAttributesPropertiesPtrType SchemaConversionApplicationAttributesPropertiesArgs
+
+func SchemaConversionApplicationAttributesPropertiesPtr(v *SchemaConversionApplicationAttributesPropertiesArgs) SchemaConversionApplicationAttributesPropertiesPtrInput {
+	return (*schemaConversionApplicationAttributesPropertiesPtrType)(v)
+}
+
+func (*schemaConversionApplicationAttributesPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaConversionApplicationAttributesProperties)(nil)).Elem()
+}
+
+func (i *schemaConversionApplicationAttributesPropertiesPtrType) ToSchemaConversionApplicationAttributesPropertiesPtrOutput() SchemaConversionApplicationAttributesPropertiesPtrOutput {
+	return i.ToSchemaConversionApplicationAttributesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *schemaConversionApplicationAttributesPropertiesPtrType) ToSchemaConversionApplicationAttributesPropertiesPtrOutputWithContext(ctx context.Context) SchemaConversionApplicationAttributesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaConversionApplicationAttributesPropertiesPtrOutput)
+}
+
+func (i *schemaConversionApplicationAttributesPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*SchemaConversionApplicationAttributesProperties] {
+	return pulumix.Output[*SchemaConversionApplicationAttributesProperties]{
+		OutputState: i.ToSchemaConversionApplicationAttributesPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The property describes schema conversion application attributes for the migration project.
+type SchemaConversionApplicationAttributesPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SchemaConversionApplicationAttributesPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaConversionApplicationAttributesProperties)(nil)).Elem()
+}
+
+func (o SchemaConversionApplicationAttributesPropertiesOutput) ToSchemaConversionApplicationAttributesPropertiesOutput() SchemaConversionApplicationAttributesPropertiesOutput {
+	return o
+}
+
+func (o SchemaConversionApplicationAttributesPropertiesOutput) ToSchemaConversionApplicationAttributesPropertiesOutputWithContext(ctx context.Context) SchemaConversionApplicationAttributesPropertiesOutput {
+	return o
+}
+
+func (o SchemaConversionApplicationAttributesPropertiesOutput) ToSchemaConversionApplicationAttributesPropertiesPtrOutput() SchemaConversionApplicationAttributesPropertiesPtrOutput {
+	return o.ToSchemaConversionApplicationAttributesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SchemaConversionApplicationAttributesPropertiesOutput) ToSchemaConversionApplicationAttributesPropertiesPtrOutputWithContext(ctx context.Context) SchemaConversionApplicationAttributesPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SchemaConversionApplicationAttributesProperties) *SchemaConversionApplicationAttributesProperties {
+		return &v
+	}).(SchemaConversionApplicationAttributesPropertiesPtrOutput)
+}
+
+func (o SchemaConversionApplicationAttributesPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaConversionApplicationAttributesProperties] {
+	return pulumix.Output[SchemaConversionApplicationAttributesProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o SchemaConversionApplicationAttributesPropertiesOutput) S3BucketPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaConversionApplicationAttributesProperties) *string { return v.S3BucketPath }).(pulumi.StringPtrOutput)
+}
+
+func (o SchemaConversionApplicationAttributesPropertiesOutput) S3BucketRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaConversionApplicationAttributesProperties) *string { return v.S3BucketRoleArn }).(pulumi.StringPtrOutput)
+}
+
+type SchemaConversionApplicationAttributesPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SchemaConversionApplicationAttributesPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SchemaConversionApplicationAttributesProperties)(nil)).Elem()
+}
+
+func (o SchemaConversionApplicationAttributesPropertiesPtrOutput) ToSchemaConversionApplicationAttributesPropertiesPtrOutput() SchemaConversionApplicationAttributesPropertiesPtrOutput {
+	return o
+}
+
+func (o SchemaConversionApplicationAttributesPropertiesPtrOutput) ToSchemaConversionApplicationAttributesPropertiesPtrOutputWithContext(ctx context.Context) SchemaConversionApplicationAttributesPropertiesPtrOutput {
+	return o
+}
+
+func (o SchemaConversionApplicationAttributesPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaConversionApplicationAttributesProperties] {
+	return pulumix.Output[*SchemaConversionApplicationAttributesProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o SchemaConversionApplicationAttributesPropertiesPtrOutput) Elem() SchemaConversionApplicationAttributesPropertiesOutput {
+	return o.ApplyT(func(v *SchemaConversionApplicationAttributesProperties) SchemaConversionApplicationAttributesProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SchemaConversionApplicationAttributesProperties
+		return ret
+	}).(SchemaConversionApplicationAttributesPropertiesOutput)
+}
+
+func (o SchemaConversionApplicationAttributesPropertiesPtrOutput) S3BucketPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaConversionApplicationAttributesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3BucketPath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SchemaConversionApplicationAttributesPropertiesPtrOutput) S3BucketRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SchemaConversionApplicationAttributesProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3BucketRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// PostgreSqlSettings property identifier.
+type Settings0Properties struct {
+	PostgreSqlSettings *Settings0PropertiesPostgreSqlSettingsProperties `pulumi:"postgreSqlSettings"`
+}
+
+type Settings0PropertiesPostgreSqlSettingsProperties struct {
+	CertificateArn *string                      `pulumi:"certificateArn"`
+	DatabaseName   *string                      `pulumi:"databaseName"`
+	Port           *int                         `pulumi:"port"`
+	ServerName     *string                      `pulumi:"serverName"`
+	SslMode        *DataProviderDmsSslModeValue `pulumi:"sslMode"`
+}
+
+// MySqlSettings property identifier.
+type Settings1Properties struct {
+	MySqlSettings *Settings1PropertiesMySqlSettingsProperties `pulumi:"mySqlSettings"`
+}
+
+type Settings1PropertiesMySqlSettingsProperties struct {
+	CertificateArn *string                      `pulumi:"certificateArn"`
+	Port           *int                         `pulumi:"port"`
+	ServerName     *string                      `pulumi:"serverName"`
+	SslMode        *DataProviderDmsSslModeValue `pulumi:"sslMode"`
+}
+
+// OracleSettings property identifier.
+type Settings2Properties struct {
+	OracleSettings *Settings2PropertiesOracleSettingsProperties `pulumi:"oracleSettings"`
+}
+
+type Settings2PropertiesOracleSettingsProperties struct {
+	AsmServer                                       *string                      `pulumi:"asmServer"`
+	CertificateArn                                  *string                      `pulumi:"certificateArn"`
+	DatabaseName                                    *string                      `pulumi:"databaseName"`
+	Port                                            *int                         `pulumi:"port"`
+	SecretsManagerOracleAsmAccessRoleArn            *string                      `pulumi:"secretsManagerOracleAsmAccessRoleArn"`
+	SecretsManagerOracleAsmSecretId                 *string                      `pulumi:"secretsManagerOracleAsmSecretId"`
+	SecretsManagerSecurityDbEncryptionAccessRoleArn *string                      `pulumi:"secretsManagerSecurityDbEncryptionAccessRoleArn"`
+	SecretsManagerSecurityDbEncryptionSecretId      *string                      `pulumi:"secretsManagerSecurityDbEncryptionSecretId"`
+	ServerName                                      *string                      `pulumi:"serverName"`
+	SslMode                                         *DataProviderDmsSslModeValue `pulumi:"sslMode"`
+}
+
+// MicrosoftSqlServerSettings property identifier.
+type Settings3Properties struct {
+	MicrosoftSqlServerSettings *Settings3PropertiesMicrosoftSqlServerSettingsProperties `pulumi:"microsoftSqlServerSettings"`
+}
+
+type Settings3PropertiesMicrosoftSqlServerSettingsProperties struct {
+	CertificateArn *string                      `pulumi:"certificateArn"`
+	DatabaseName   *string                      `pulumi:"databaseName"`
+	Port           *int                         `pulumi:"port"`
+	ServerName     *string                      `pulumi:"serverName"`
+	SslMode        *DataProviderDmsSslModeValue `pulumi:"sslMode"`
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderTagInput)(nil)).Elem(), DataProviderTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderTagArrayInput)(nil)).Elem(), DataProviderTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDocDbSettingsInput)(nil)).Elem(), EndpointDocDbSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDocDbSettingsPtrInput)(nil)).Elem(), EndpointDocDbSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDynamoDbSettingsInput)(nil)).Elem(), EndpointDynamoDbSettingsArgs{})
@@ -6941,6 +7778,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTagArrayInput)(nil)).Elem(), EndpointTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionTagInput)(nil)).Elem(), EventSubscriptionTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionTagArrayInput)(nil)).Elem(), EventSubscriptionTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfileTagInput)(nil)).Elem(), InstanceProfileTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfileTagArrayInput)(nil)).Elem(), InstanceProfileTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MigrationProjectDataProviderDescriptorInput)(nil)).Elem(), MigrationProjectDataProviderDescriptorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MigrationProjectDataProviderDescriptorArrayInput)(nil)).Elem(), MigrationProjectDataProviderDescriptorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MigrationProjectTagInput)(nil)).Elem(), MigrationProjectTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MigrationProjectTagArrayInput)(nil)).Elem(), MigrationProjectTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigComputeConfigInput)(nil)).Elem(), ReplicationConfigComputeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigComputeConfigPtrInput)(nil)).Elem(), ReplicationConfigComputeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigTagInput)(nil)).Elem(), ReplicationConfigTagArgs{})
@@ -6951,6 +7794,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationSubnetGroupTagArrayInput)(nil)).Elem(), ReplicationSubnetGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationTaskTagInput)(nil)).Elem(), ReplicationTaskTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationTaskTagArrayInput)(nil)).Elem(), ReplicationTaskTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaConversionApplicationAttributesPropertiesInput)(nil)).Elem(), SchemaConversionApplicationAttributesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaConversionApplicationAttributesPropertiesPtrInput)(nil)).Elem(), SchemaConversionApplicationAttributesPropertiesArgs{})
+	pulumi.RegisterOutputType(DataProviderTagOutput{})
+	pulumi.RegisterOutputType(DataProviderTagArrayOutput{})
 	pulumi.RegisterOutputType(EndpointDocDbSettingsOutput{})
 	pulumi.RegisterOutputType(EndpointDocDbSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointDynamoDbSettingsOutput{})
@@ -6989,6 +7836,12 @@ func init() {
 	pulumi.RegisterOutputType(EndpointTagArrayOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionTagOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionTagArrayOutput{})
+	pulumi.RegisterOutputType(InstanceProfileTagOutput{})
+	pulumi.RegisterOutputType(InstanceProfileTagArrayOutput{})
+	pulumi.RegisterOutputType(MigrationProjectDataProviderDescriptorOutput{})
+	pulumi.RegisterOutputType(MigrationProjectDataProviderDescriptorArrayOutput{})
+	pulumi.RegisterOutputType(MigrationProjectTagOutput{})
+	pulumi.RegisterOutputType(MigrationProjectTagArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigComputeConfigOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigComputeConfigPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigTagOutput{})
@@ -6999,4 +7852,6 @@ func init() {
 	pulumi.RegisterOutputType(ReplicationSubnetGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationTaskTagOutput{})
 	pulumi.RegisterOutputType(ReplicationTaskTagArrayOutput{})
+	pulumi.RegisterOutputType(SchemaConversionApplicationAttributesPropertiesOutput{})
+	pulumi.RegisterOutputType(SchemaConversionApplicationAttributesPropertiesPtrOutput{})
 }

@@ -12,7 +12,6 @@ namespace Pulumi.AwsNative.Ce
     /// <summary>
     /// AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. You can use Cost Anomaly Detection by creating monitor.
     /// </summary>
-    [Obsolete(@"AnomalyMonitor is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:ce:AnomalyMonitor")]
     public partial class AnomalyMonitor : global::Pulumi.CustomResource
     {

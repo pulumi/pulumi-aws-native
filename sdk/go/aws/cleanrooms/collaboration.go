@@ -17,15 +17,16 @@ import (
 type Collaboration struct {
 	pulumi.CustomResourceState
 
-	Arn                     pulumi.StringOutput                          `pulumi:"arn"`
-	CollaborationIdentifier pulumi.StringOutput                          `pulumi:"collaborationIdentifier"`
-	CreatorDisplayName      pulumi.StringOutput                          `pulumi:"creatorDisplayName"`
-	CreatorMemberAbilities  CollaborationMemberAbilityArrayOutput        `pulumi:"creatorMemberAbilities"`
-	DataEncryptionMetadata  CollaborationDataEncryptionMetadataPtrOutput `pulumi:"dataEncryptionMetadata"`
-	Description             pulumi.StringOutput                          `pulumi:"description"`
-	Members                 CollaborationMemberSpecificationArrayOutput  `pulumi:"members"`
-	Name                    pulumi.StringOutput                          `pulumi:"name"`
-	QueryLogStatus          CollaborationQueryLogStatusOutput            `pulumi:"queryLogStatus"`
+	Arn                         pulumi.StringOutput                          `pulumi:"arn"`
+	CollaborationIdentifier     pulumi.StringOutput                          `pulumi:"collaborationIdentifier"`
+	CreatorDisplayName          pulumi.StringOutput                          `pulumi:"creatorDisplayName"`
+	CreatorMemberAbilities      CollaborationMemberAbilityArrayOutput        `pulumi:"creatorMemberAbilities"`
+	CreatorPaymentConfiguration CollaborationPaymentConfigurationPtrOutput   `pulumi:"creatorPaymentConfiguration"`
+	DataEncryptionMetadata      CollaborationDataEncryptionMetadataPtrOutput `pulumi:"dataEncryptionMetadata"`
+	Description                 pulumi.StringOutput                          `pulumi:"description"`
+	Members                     CollaborationMemberSpecificationArrayOutput  `pulumi:"members"`
+	Name                        pulumi.StringOutput                          `pulumi:"name"`
+	QueryLogStatus              CollaborationQueryLogStatusOutput            `pulumi:"queryLogStatus"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
 	Tags CollaborationTagArrayOutput `pulumi:"tags"`
 }
@@ -55,6 +56,7 @@ func NewCollaboration(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"creatorDisplayName",
 		"creatorMemberAbilities[*]",
+		"creatorPaymentConfiguration",
 		"dataEncryptionMetadata",
 		"members[*]",
 		"queryLogStatus",
@@ -93,26 +95,28 @@ func (CollaborationState) ElementType() reflect.Type {
 }
 
 type collaborationArgs struct {
-	CreatorDisplayName     string                               `pulumi:"creatorDisplayName"`
-	CreatorMemberAbilities []CollaborationMemberAbility         `pulumi:"creatorMemberAbilities"`
-	DataEncryptionMetadata *CollaborationDataEncryptionMetadata `pulumi:"dataEncryptionMetadata"`
-	Description            string                               `pulumi:"description"`
-	Members                []CollaborationMemberSpecification   `pulumi:"members"`
-	Name                   *string                              `pulumi:"name"`
-	QueryLogStatus         CollaborationQueryLogStatus          `pulumi:"queryLogStatus"`
+	CreatorDisplayName          string                               `pulumi:"creatorDisplayName"`
+	CreatorMemberAbilities      []CollaborationMemberAbility         `pulumi:"creatorMemberAbilities"`
+	CreatorPaymentConfiguration *CollaborationPaymentConfiguration   `pulumi:"creatorPaymentConfiguration"`
+	DataEncryptionMetadata      *CollaborationDataEncryptionMetadata `pulumi:"dataEncryptionMetadata"`
+	Description                 string                               `pulumi:"description"`
+	Members                     []CollaborationMemberSpecification   `pulumi:"members"`
+	Name                        *string                              `pulumi:"name"`
+	QueryLogStatus              CollaborationQueryLogStatus          `pulumi:"queryLogStatus"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
 	Tags []CollaborationTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Collaboration resource.
 type CollaborationArgs struct {
-	CreatorDisplayName     pulumi.StringInput
-	CreatorMemberAbilities CollaborationMemberAbilityArrayInput
-	DataEncryptionMetadata CollaborationDataEncryptionMetadataPtrInput
-	Description            pulumi.StringInput
-	Members                CollaborationMemberSpecificationArrayInput
-	Name                   pulumi.StringPtrInput
-	QueryLogStatus         CollaborationQueryLogStatusInput
+	CreatorDisplayName          pulumi.StringInput
+	CreatorMemberAbilities      CollaborationMemberAbilityArrayInput
+	CreatorPaymentConfiguration CollaborationPaymentConfigurationPtrInput
+	DataEncryptionMetadata      CollaborationDataEncryptionMetadataPtrInput
+	Description                 pulumi.StringInput
+	Members                     CollaborationMemberSpecificationArrayInput
+	Name                        pulumi.StringPtrInput
+	QueryLogStatus              CollaborationQueryLogStatusInput
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
 	Tags CollaborationTagArrayInput
 }
@@ -180,6 +184,12 @@ func (o CollaborationOutput) CreatorDisplayName() pulumi.StringOutput {
 
 func (o CollaborationOutput) CreatorMemberAbilities() CollaborationMemberAbilityArrayOutput {
 	return o.ApplyT(func(v *Collaboration) CollaborationMemberAbilityArrayOutput { return v.CreatorMemberAbilities }).(CollaborationMemberAbilityArrayOutput)
+}
+
+func (o CollaborationOutput) CreatorPaymentConfiguration() CollaborationPaymentConfigurationPtrOutput {
+	return o.ApplyT(func(v *Collaboration) CollaborationPaymentConfigurationPtrOutput {
+		return v.CreatorPaymentConfiguration
+	}).(CollaborationPaymentConfigurationPtrOutput)
 }
 
 func (o CollaborationOutput) DataEncryptionMetadata() CollaborationDataEncryptionMetadataPtrOutput {

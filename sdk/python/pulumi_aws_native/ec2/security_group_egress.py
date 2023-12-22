@@ -25,6 +25,15 @@ class SecurityGroupEgressInitArgs:
                  to_port: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a SecurityGroupEgress resource.
+        :param pulumi.Input[str] group_id: The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
+        :param pulumi.Input[str] ip_protocol: [VPC only] Use -1 to specify all protocols. When authorizing security group rules, specifying -1 or a protocol number other than tcp, udp, icmp, or icmpv6 allows traffic on all ports, regardless of any port range you specify. For tcp, udp, and icmp, you must specify a port range. For icmpv6, the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
+        :param pulumi.Input[str] cidr_ip: The IPv4 ranges
+        :param pulumi.Input[str] cidr_ipv6: [VPC only] The IPv6 ranges
+        :param pulumi.Input[str] description: Resource Type definition for an egress (outbound) security group rule.
+        :param pulumi.Input[str] destination_prefix_list_id: [EC2-VPC only] The ID of a prefix list.
+        :param pulumi.Input[str] destination_security_group_id: You must specify a destination security group (DestinationPrefixListId or DestinationSecurityGroupId) or a CIDR range (CidrIp or CidrIpv6).
+        :param pulumi.Input[int] from_port: The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+        :param pulumi.Input[int] to_port: The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of -1 indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
         """
         pulumi.set(__self__, "group_id", group_id)
         pulumi.set(__self__, "ip_protocol", ip_protocol)
@@ -46,6 +55,9 @@ class SecurityGroupEgressInitArgs:
     @property
     @pulumi.getter(name="groupId")
     def group_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
+        """
         return pulumi.get(self, "group_id")
 
     @group_id.setter
@@ -55,6 +67,9 @@ class SecurityGroupEgressInitArgs:
     @property
     @pulumi.getter(name="ipProtocol")
     def ip_protocol(self) -> pulumi.Input[str]:
+        """
+        [VPC only] Use -1 to specify all protocols. When authorizing security group rules, specifying -1 or a protocol number other than tcp, udp, icmp, or icmpv6 allows traffic on all ports, regardless of any port range you specify. For tcp, udp, and icmp, you must specify a port range. For icmpv6, the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
+        """
         return pulumi.get(self, "ip_protocol")
 
     @ip_protocol.setter
@@ -64,6 +79,9 @@ class SecurityGroupEgressInitArgs:
     @property
     @pulumi.getter(name="cidrIp")
     def cidr_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv4 ranges
+        """
         return pulumi.get(self, "cidr_ip")
 
     @cidr_ip.setter
@@ -73,6 +91,9 @@ class SecurityGroupEgressInitArgs:
     @property
     @pulumi.getter(name="cidrIpv6")
     def cidr_ipv6(self) -> Optional[pulumi.Input[str]]:
+        """
+        [VPC only] The IPv6 ranges
+        """
         return pulumi.get(self, "cidr_ipv6")
 
     @cidr_ipv6.setter
@@ -82,6 +103,9 @@ class SecurityGroupEgressInitArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource Type definition for an egress (outbound) security group rule.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -91,6 +115,9 @@ class SecurityGroupEgressInitArgs:
     @property
     @pulumi.getter(name="destinationPrefixListId")
     def destination_prefix_list_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        [EC2-VPC only] The ID of a prefix list.
+        """
         return pulumi.get(self, "destination_prefix_list_id")
 
     @destination_prefix_list_id.setter
@@ -100,6 +127,9 @@ class SecurityGroupEgressInitArgs:
     @property
     @pulumi.getter(name="destinationSecurityGroupId")
     def destination_security_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        You must specify a destination security group (DestinationPrefixListId or DestinationSecurityGroupId) or a CIDR range (CidrIp or CidrIpv6).
+        """
         return pulumi.get(self, "destination_security_group_id")
 
     @destination_security_group_id.setter
@@ -109,6 +139,9 @@ class SecurityGroupEgressInitArgs:
     @property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+        """
         return pulumi.get(self, "from_port")
 
     @from_port.setter
@@ -118,6 +151,9 @@ class SecurityGroupEgressInitArgs:
     @property
     @pulumi.getter(name="toPort")
     def to_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of -1 indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+        """
         return pulumi.get(self, "to_port")
 
     @to_port.setter
@@ -125,12 +161,7 @@ class SecurityGroupEgressInitArgs:
         pulumi.set(self, "to_port", value)
 
 
-warnings.warn("""SecurityGroupEgress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class SecurityGroupEgress(pulumi.CustomResource):
-    warnings.warn("""SecurityGroupEgress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -150,6 +181,15 @@ class SecurityGroupEgress(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cidr_ip: The IPv4 ranges
+        :param pulumi.Input[str] cidr_ipv6: [VPC only] The IPv6 ranges
+        :param pulumi.Input[str] description: Resource Type definition for an egress (outbound) security group rule.
+        :param pulumi.Input[str] destination_prefix_list_id: [EC2-VPC only] The ID of a prefix list.
+        :param pulumi.Input[str] destination_security_group_id: You must specify a destination security group (DestinationPrefixListId or DestinationSecurityGroupId) or a CIDR range (CidrIp or CidrIpv6).
+        :param pulumi.Input[int] from_port: The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+        :param pulumi.Input[str] group_id: The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
+        :param pulumi.Input[str] ip_protocol: [VPC only] Use -1 to specify all protocols. When authorizing security group rules, specifying -1 or a protocol number other than tcp, udp, icmp, or icmpv6 allows traffic on all ports, regardless of any port range you specify. For tcp, udp, and icmp, you must specify a port range. For icmpv6, the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
+        :param pulumi.Input[int] to_port: The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of -1 indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
         """
         ...
     @overload
@@ -185,7 +225,6 @@ class SecurityGroupEgress(pulumi.CustomResource):
                  ip_protocol: Optional[pulumi.Input[str]] = None,
                  to_port: Optional[pulumi.Input[int]] = None,
                  __props__=None):
-        pulumi.log.warn("""SecurityGroupEgress is deprecated: SecurityGroupEgress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -245,45 +284,72 @@ class SecurityGroupEgress(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cidrIp")
     def cidr_ip(self) -> pulumi.Output[Optional[str]]:
+        """
+        The IPv4 ranges
+        """
         return pulumi.get(self, "cidr_ip")
 
     @property
     @pulumi.getter(name="cidrIpv6")
     def cidr_ipv6(self) -> pulumi.Output[Optional[str]]:
+        """
+        [VPC only] The IPv6 ranges
+        """
         return pulumi.get(self, "cidr_ipv6")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Resource Type definition for an egress (outbound) security group rule.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="destinationPrefixListId")
     def destination_prefix_list_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        [EC2-VPC only] The ID of a prefix list.
+        """
         return pulumi.get(self, "destination_prefix_list_id")
 
     @property
     @pulumi.getter(name="destinationSecurityGroupId")
     def destination_security_group_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        You must specify a destination security group (DestinationPrefixListId or DestinationSecurityGroupId) or a CIDR range (CidrIp or CidrIpv6).
+        """
         return pulumi.get(self, "destination_security_group_id")
 
     @property
     @pulumi.getter(name="fromPort")
     def from_port(self) -> pulumi.Output[Optional[int]]:
+        """
+        The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+        """
         return pulumi.get(self, "from_port")
 
     @property
     @pulumi.getter(name="groupId")
     def group_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
+        """
         return pulumi.get(self, "group_id")
 
     @property
     @pulumi.getter(name="ipProtocol")
     def ip_protocol(self) -> pulumi.Output[str]:
+        """
+        [VPC only] Use -1 to specify all protocols. When authorizing security group rules, specifying -1 or a protocol number other than tcp, udp, icmp, or icmpv6 allows traffic on all ports, regardless of any port range you specify. For tcp, udp, and icmp, you must specify a port range. For icmpv6, the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
+        """
         return pulumi.get(self, "ip_protocol")
 
     @property
     @pulumi.getter(name="toPort")
     def to_port(self) -> pulumi.Output[Optional[int]]:
+        """
+        The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of -1 indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+        """
         return pulumi.get(self, "to_port")
 

@@ -28,10 +28,10 @@ namespace Pulumi.AwsNative.Route53Resolver
     public sealed class GetResolverConfigArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Id
+        /// ResourceId
         /// </summary>
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("resourceId", required: true)]
+        public string ResourceId { get; set; } = null!;
 
         public GetResolverConfigArgs()
         {
@@ -42,10 +42,10 @@ namespace Pulumi.AwsNative.Route53Resolver
     public sealed class GetResolverConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Id
+        /// ResourceId
         /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("resourceId", required: true)]
+        public Input<string> ResourceId { get; set; } = null!;
 
         public GetResolverConfigInvokeArgs()
         {

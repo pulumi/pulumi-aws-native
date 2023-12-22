@@ -1992,6 +1992,310 @@ func (o ConfigurationRecorderRecordingGroupPtrOutput) ResourceTypes() pulumi.Str
 	}).(pulumi.StringArrayOutput)
 }
 
+type ConfigurationRecorderRecordingMode struct {
+	RecordingFrequency     string                                       `pulumi:"recordingFrequency"`
+	RecordingModeOverrides []ConfigurationRecorderRecordingModeOverride `pulumi:"recordingModeOverrides"`
+}
+
+// ConfigurationRecorderRecordingModeInput is an input type that accepts ConfigurationRecorderRecordingModeArgs and ConfigurationRecorderRecordingModeOutput values.
+// You can construct a concrete instance of `ConfigurationRecorderRecordingModeInput` via:
+//
+//	ConfigurationRecorderRecordingModeArgs{...}
+type ConfigurationRecorderRecordingModeInput interface {
+	pulumi.Input
+
+	ToConfigurationRecorderRecordingModeOutput() ConfigurationRecorderRecordingModeOutput
+	ToConfigurationRecorderRecordingModeOutputWithContext(context.Context) ConfigurationRecorderRecordingModeOutput
+}
+
+type ConfigurationRecorderRecordingModeArgs struct {
+	RecordingFrequency     pulumi.StringInput                                   `pulumi:"recordingFrequency"`
+	RecordingModeOverrides ConfigurationRecorderRecordingModeOverrideArrayInput `pulumi:"recordingModeOverrides"`
+}
+
+func (ConfigurationRecorderRecordingModeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRecorderRecordingMode)(nil)).Elem()
+}
+
+func (i ConfigurationRecorderRecordingModeArgs) ToConfigurationRecorderRecordingModeOutput() ConfigurationRecorderRecordingModeOutput {
+	return i.ToConfigurationRecorderRecordingModeOutputWithContext(context.Background())
+}
+
+func (i ConfigurationRecorderRecordingModeArgs) ToConfigurationRecorderRecordingModeOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingModeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingModeOutput)
+}
+
+func (i ConfigurationRecorderRecordingModeArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationRecorderRecordingMode] {
+	return pulumix.Output[ConfigurationRecorderRecordingMode]{
+		OutputState: i.ToConfigurationRecorderRecordingModeOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ConfigurationRecorderRecordingModeArgs) ToConfigurationRecorderRecordingModePtrOutput() ConfigurationRecorderRecordingModePtrOutput {
+	return i.ToConfigurationRecorderRecordingModePtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationRecorderRecordingModeArgs) ToConfigurationRecorderRecordingModePtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingModeOutput).ToConfigurationRecorderRecordingModePtrOutputWithContext(ctx)
+}
+
+// ConfigurationRecorderRecordingModePtrInput is an input type that accepts ConfigurationRecorderRecordingModeArgs, ConfigurationRecorderRecordingModePtr and ConfigurationRecorderRecordingModePtrOutput values.
+// You can construct a concrete instance of `ConfigurationRecorderRecordingModePtrInput` via:
+//
+//	        ConfigurationRecorderRecordingModeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationRecorderRecordingModePtrInput interface {
+	pulumi.Input
+
+	ToConfigurationRecorderRecordingModePtrOutput() ConfigurationRecorderRecordingModePtrOutput
+	ToConfigurationRecorderRecordingModePtrOutputWithContext(context.Context) ConfigurationRecorderRecordingModePtrOutput
+}
+
+type configurationRecorderRecordingModePtrType ConfigurationRecorderRecordingModeArgs
+
+func ConfigurationRecorderRecordingModePtr(v *ConfigurationRecorderRecordingModeArgs) ConfigurationRecorderRecordingModePtrInput {
+	return (*configurationRecorderRecordingModePtrType)(v)
+}
+
+func (*configurationRecorderRecordingModePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationRecorderRecordingMode)(nil)).Elem()
+}
+
+func (i *configurationRecorderRecordingModePtrType) ToConfigurationRecorderRecordingModePtrOutput() ConfigurationRecorderRecordingModePtrOutput {
+	return i.ToConfigurationRecorderRecordingModePtrOutputWithContext(context.Background())
+}
+
+func (i *configurationRecorderRecordingModePtrType) ToConfigurationRecorderRecordingModePtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingModePtrOutput)
+}
+
+func (i *configurationRecorderRecordingModePtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationRecorderRecordingMode] {
+	return pulumix.Output[*ConfigurationRecorderRecordingMode]{
+		OutputState: i.ToConfigurationRecorderRecordingModePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ConfigurationRecorderRecordingModeOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationRecorderRecordingModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRecorderRecordingMode)(nil)).Elem()
+}
+
+func (o ConfigurationRecorderRecordingModeOutput) ToConfigurationRecorderRecordingModeOutput() ConfigurationRecorderRecordingModeOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingModeOutput) ToConfigurationRecorderRecordingModeOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingModeOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingModeOutput) ToConfigurationRecorderRecordingModePtrOutput() ConfigurationRecorderRecordingModePtrOutput {
+	return o.ToConfigurationRecorderRecordingModePtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationRecorderRecordingModeOutput) ToConfigurationRecorderRecordingModePtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationRecorderRecordingMode) *ConfigurationRecorderRecordingMode {
+		return &v
+	}).(ConfigurationRecorderRecordingModePtrOutput)
+}
+
+func (o ConfigurationRecorderRecordingModeOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationRecorderRecordingMode] {
+	return pulumix.Output[ConfigurationRecorderRecordingMode]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ConfigurationRecorderRecordingModeOutput) RecordingFrequency() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationRecorderRecordingMode) string { return v.RecordingFrequency }).(pulumi.StringOutput)
+}
+
+func (o ConfigurationRecorderRecordingModeOutput) RecordingModeOverrides() ConfigurationRecorderRecordingModeOverrideArrayOutput {
+	return o.ApplyT(func(v ConfigurationRecorderRecordingMode) []ConfigurationRecorderRecordingModeOverride {
+		return v.RecordingModeOverrides
+	}).(ConfigurationRecorderRecordingModeOverrideArrayOutput)
+}
+
+type ConfigurationRecorderRecordingModePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationRecorderRecordingModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationRecorderRecordingMode)(nil)).Elem()
+}
+
+func (o ConfigurationRecorderRecordingModePtrOutput) ToConfigurationRecorderRecordingModePtrOutput() ConfigurationRecorderRecordingModePtrOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingModePtrOutput) ToConfigurationRecorderRecordingModePtrOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingModePtrOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationRecorderRecordingMode] {
+	return pulumix.Output[*ConfigurationRecorderRecordingMode]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ConfigurationRecorderRecordingModePtrOutput) Elem() ConfigurationRecorderRecordingModeOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderRecordingMode) ConfigurationRecorderRecordingMode {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationRecorderRecordingMode
+		return ret
+	}).(ConfigurationRecorderRecordingModeOutput)
+}
+
+func (o ConfigurationRecorderRecordingModePtrOutput) RecordingFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderRecordingMode) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RecordingFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationRecorderRecordingModePtrOutput) RecordingModeOverrides() ConfigurationRecorderRecordingModeOverrideArrayOutput {
+	return o.ApplyT(func(v *ConfigurationRecorderRecordingMode) []ConfigurationRecorderRecordingModeOverride {
+		if v == nil {
+			return nil
+		}
+		return v.RecordingModeOverrides
+	}).(ConfigurationRecorderRecordingModeOverrideArrayOutput)
+}
+
+type ConfigurationRecorderRecordingModeOverride struct {
+	Description        *string  `pulumi:"description"`
+	RecordingFrequency string   `pulumi:"recordingFrequency"`
+	ResourceTypes      []string `pulumi:"resourceTypes"`
+}
+
+// ConfigurationRecorderRecordingModeOverrideInput is an input type that accepts ConfigurationRecorderRecordingModeOverrideArgs and ConfigurationRecorderRecordingModeOverrideOutput values.
+// You can construct a concrete instance of `ConfigurationRecorderRecordingModeOverrideInput` via:
+//
+//	ConfigurationRecorderRecordingModeOverrideArgs{...}
+type ConfigurationRecorderRecordingModeOverrideInput interface {
+	pulumi.Input
+
+	ToConfigurationRecorderRecordingModeOverrideOutput() ConfigurationRecorderRecordingModeOverrideOutput
+	ToConfigurationRecorderRecordingModeOverrideOutputWithContext(context.Context) ConfigurationRecorderRecordingModeOverrideOutput
+}
+
+type ConfigurationRecorderRecordingModeOverrideArgs struct {
+	Description        pulumi.StringPtrInput   `pulumi:"description"`
+	RecordingFrequency pulumi.StringInput      `pulumi:"recordingFrequency"`
+	ResourceTypes      pulumi.StringArrayInput `pulumi:"resourceTypes"`
+}
+
+func (ConfigurationRecorderRecordingModeOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRecorderRecordingModeOverride)(nil)).Elem()
+}
+
+func (i ConfigurationRecorderRecordingModeOverrideArgs) ToConfigurationRecorderRecordingModeOverrideOutput() ConfigurationRecorderRecordingModeOverrideOutput {
+	return i.ToConfigurationRecorderRecordingModeOverrideOutputWithContext(context.Background())
+}
+
+func (i ConfigurationRecorderRecordingModeOverrideArgs) ToConfigurationRecorderRecordingModeOverrideOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingModeOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingModeOverrideOutput)
+}
+
+func (i ConfigurationRecorderRecordingModeOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationRecorderRecordingModeOverride] {
+	return pulumix.Output[ConfigurationRecorderRecordingModeOverride]{
+		OutputState: i.ToConfigurationRecorderRecordingModeOverrideOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ConfigurationRecorderRecordingModeOverrideArrayInput is an input type that accepts ConfigurationRecorderRecordingModeOverrideArray and ConfigurationRecorderRecordingModeOverrideArrayOutput values.
+// You can construct a concrete instance of `ConfigurationRecorderRecordingModeOverrideArrayInput` via:
+//
+//	ConfigurationRecorderRecordingModeOverrideArray{ ConfigurationRecorderRecordingModeOverrideArgs{...} }
+type ConfigurationRecorderRecordingModeOverrideArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationRecorderRecordingModeOverrideArrayOutput() ConfigurationRecorderRecordingModeOverrideArrayOutput
+	ToConfigurationRecorderRecordingModeOverrideArrayOutputWithContext(context.Context) ConfigurationRecorderRecordingModeOverrideArrayOutput
+}
+
+type ConfigurationRecorderRecordingModeOverrideArray []ConfigurationRecorderRecordingModeOverrideInput
+
+func (ConfigurationRecorderRecordingModeOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationRecorderRecordingModeOverride)(nil)).Elem()
+}
+
+func (i ConfigurationRecorderRecordingModeOverrideArray) ToConfigurationRecorderRecordingModeOverrideArrayOutput() ConfigurationRecorderRecordingModeOverrideArrayOutput {
+	return i.ToConfigurationRecorderRecordingModeOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigurationRecorderRecordingModeOverrideArray) ToConfigurationRecorderRecordingModeOverrideArrayOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingModeOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationRecorderRecordingModeOverrideArrayOutput)
+}
+
+func (i ConfigurationRecorderRecordingModeOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationRecorderRecordingModeOverride] {
+	return pulumix.Output[[]ConfigurationRecorderRecordingModeOverride]{
+		OutputState: i.ToConfigurationRecorderRecordingModeOverrideArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ConfigurationRecorderRecordingModeOverrideOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationRecorderRecordingModeOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationRecorderRecordingModeOverride)(nil)).Elem()
+}
+
+func (o ConfigurationRecorderRecordingModeOverrideOutput) ToConfigurationRecorderRecordingModeOverrideOutput() ConfigurationRecorderRecordingModeOverrideOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingModeOverrideOutput) ToConfigurationRecorderRecordingModeOverrideOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingModeOverrideOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingModeOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationRecorderRecordingModeOverride] {
+	return pulumix.Output[ConfigurationRecorderRecordingModeOverride]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ConfigurationRecorderRecordingModeOverrideOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationRecorderRecordingModeOverride) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfigurationRecorderRecordingModeOverrideOutput) RecordingFrequency() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationRecorderRecordingModeOverride) string { return v.RecordingFrequency }).(pulumi.StringOutput)
+}
+
+func (o ConfigurationRecorderRecordingModeOverrideOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationRecorderRecordingModeOverride) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+type ConfigurationRecorderRecordingModeOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationRecorderRecordingModeOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationRecorderRecordingModeOverride)(nil)).Elem()
+}
+
+func (o ConfigurationRecorderRecordingModeOverrideArrayOutput) ToConfigurationRecorderRecordingModeOverrideArrayOutput() ConfigurationRecorderRecordingModeOverrideArrayOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingModeOverrideArrayOutput) ToConfigurationRecorderRecordingModeOverrideArrayOutputWithContext(ctx context.Context) ConfigurationRecorderRecordingModeOverrideArrayOutput {
+	return o
+}
+
+func (o ConfigurationRecorderRecordingModeOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationRecorderRecordingModeOverride] {
+	return pulumix.Output[[]ConfigurationRecorderRecordingModeOverride]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ConfigurationRecorderRecordingModeOverrideArrayOutput) Index(i pulumi.IntInput) ConfigurationRecorderRecordingModeOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationRecorderRecordingModeOverride {
+		return vs[0].([]ConfigurationRecorderRecordingModeOverride)[vs[1].(int)]
+	}).(ConfigurationRecorderRecordingModeOverrideOutput)
+}
+
 type ConfigurationRecorderRecordingStrategy struct {
 	UseOnly string `pulumi:"useOnly"`
 }
@@ -4083,6 +4387,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderExclusionByResourceTypesPtrInput)(nil)).Elem(), ConfigurationRecorderExclusionByResourceTypesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderRecordingGroupInput)(nil)).Elem(), ConfigurationRecorderRecordingGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderRecordingGroupPtrInput)(nil)).Elem(), ConfigurationRecorderRecordingGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderRecordingModeInput)(nil)).Elem(), ConfigurationRecorderRecordingModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderRecordingModePtrInput)(nil)).Elem(), ConfigurationRecorderRecordingModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderRecordingModeOverrideInput)(nil)).Elem(), ConfigurationRecorderRecordingModeOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderRecordingModeOverrideArrayInput)(nil)).Elem(), ConfigurationRecorderRecordingModeOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderRecordingStrategyInput)(nil)).Elem(), ConfigurationRecorderRecordingStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationRecorderRecordingStrategyPtrInput)(nil)).Elem(), ConfigurationRecorderRecordingStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackInputParameterInput)(nil)).Elem(), ConformancePackInputParameterArgs{})
@@ -4129,6 +4437,10 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationRecorderExclusionByResourceTypesPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationRecorderRecordingGroupOutput{})
 	pulumi.RegisterOutputType(ConfigurationRecorderRecordingGroupPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationRecorderRecordingModeOutput{})
+	pulumi.RegisterOutputType(ConfigurationRecorderRecordingModePtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationRecorderRecordingModeOverrideOutput{})
+	pulumi.RegisterOutputType(ConfigurationRecorderRecordingModeOverrideArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationRecorderRecordingStrategyOutput{})
 	pulumi.RegisterOutputType(ConfigurationRecorderRecordingStrategyPtrOutput{})
 	pulumi.RegisterOutputType(ConformancePackInputParameterOutput{})

@@ -67,7 +67,6 @@ export interface GetAssociationResult {
      * The targets that the SSM document sends commands to.
      */
     readonly targets?: outputs.ssm.AssociationTarget[];
-    readonly waitForSuccessTimeoutSeconds?: number;
 }
 /**
  * The AWS::SSM::Association resource associates an SSM document in AWS Systems Manager with EC2 instances that contain a configuration agent to process the document.

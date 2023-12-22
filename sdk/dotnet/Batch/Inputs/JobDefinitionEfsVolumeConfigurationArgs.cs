@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
     public sealed class JobDefinitionEfsVolumeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorizationConfig")]
-        public Input<Inputs.JobDefinitionAuthorizationConfigArgs>? AuthorizationConfig { get; set; }
+        public Input<Inputs.JobDefinitionEfsAuthorizationConfigArgs>? AuthorizationConfig { get; set; }
 
         [Input("fileSystemId", required: true)]
         public Input<string> FileSystemId { get; set; } = null!;

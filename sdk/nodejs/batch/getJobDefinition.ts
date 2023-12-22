@@ -2,9 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -14,26 +11,23 @@ export function getJobDefinition(args: GetJobDefinitionArgs, opts?: pulumi.Invok
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:batch:getJobDefinition", {
-        "id": args.id,
+        "jobDefinitionArn": args.jobDefinitionArn,
     }, opts);
 }
 
 export interface GetJobDefinitionArgs {
-    id: string;
+    jobDefinitionArn: string;
 }
 
 export interface GetJobDefinitionResult {
-    readonly containerProperties?: outputs.batch.JobDefinitionContainerProperties;
-    readonly eksProperties?: outputs.batch.JobDefinitionEksProperties;
-    readonly id?: string;
-    readonly nodeProperties?: outputs.batch.JobDefinitionNodeProperties;
-    readonly parameters?: any;
-    readonly platformCapabilities?: string[];
-    readonly propagateTags?: boolean;
-    readonly retryStrategy?: outputs.batch.JobDefinitionRetryStrategy;
-    readonly schedulingPriority?: number;
-    readonly timeout?: outputs.batch.JobDefinitionTimeout;
-    readonly type?: string;
+    readonly containerOrchestrationType?: string;
+    readonly jobDefinitionArn?: string;
+    readonly revision?: number;
+    readonly status?: string;
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    readonly tags?: any;
 }
 /**
  * Resource Type definition for AWS::Batch::JobDefinition
@@ -43,5 +37,5 @@ export function getJobDefinitionOutput(args: GetJobDefinitionOutputArgs, opts?: 
 }
 
 export interface GetJobDefinitionOutputArgs {
-    id: pulumi.Input<string>;
+    jobDefinitionArn: pulumi.Input<string>;
 }

@@ -4038,8 +4038,9 @@ func (o BucketLifecycleConfigurationPtrOutput) Rules() BucketRuleArrayOutput {
 
 type BucketLoggingConfiguration struct {
 	// The name of an Amazon S3 bucket where Amazon S3 store server access log files. You can store log files in any bucket that you own. By default, logs are stored in the bucket where the LoggingConfiguration property is defined.
-	DestinationBucketName *string `pulumi:"destinationBucketName"`
-	LogFilePrefix         *string `pulumi:"logFilePrefix"`
+	DestinationBucketName *string                      `pulumi:"destinationBucketName"`
+	LogFilePrefix         *string                      `pulumi:"logFilePrefix"`
+	TargetObjectKeyFormat *BucketTargetObjectKeyFormat `pulumi:"targetObjectKeyFormat"`
 }
 
 // BucketLoggingConfigurationInput is an input type that accepts BucketLoggingConfigurationArgs and BucketLoggingConfigurationOutput values.
@@ -4055,8 +4056,9 @@ type BucketLoggingConfigurationInput interface {
 
 type BucketLoggingConfigurationArgs struct {
 	// The name of an Amazon S3 bucket where Amazon S3 store server access log files. You can store log files in any bucket that you own. By default, logs are stored in the bucket where the LoggingConfiguration property is defined.
-	DestinationBucketName pulumi.StringPtrInput `pulumi:"destinationBucketName"`
-	LogFilePrefix         pulumi.StringPtrInput `pulumi:"logFilePrefix"`
+	DestinationBucketName pulumi.StringPtrInput               `pulumi:"destinationBucketName"`
+	LogFilePrefix         pulumi.StringPtrInput               `pulumi:"logFilePrefix"`
+	TargetObjectKeyFormat BucketTargetObjectKeyFormatPtrInput `pulumi:"targetObjectKeyFormat"`
 }
 
 func (BucketLoggingConfigurationArgs) ElementType() reflect.Type {
@@ -4163,6 +4165,10 @@ func (o BucketLoggingConfigurationOutput) LogFilePrefix() pulumi.StringPtrOutput
 	return o.ApplyT(func(v BucketLoggingConfiguration) *string { return v.LogFilePrefix }).(pulumi.StringPtrOutput)
 }
 
+func (o BucketLoggingConfigurationOutput) TargetObjectKeyFormat() BucketTargetObjectKeyFormatPtrOutput {
+	return o.ApplyT(func(v BucketLoggingConfiguration) *BucketTargetObjectKeyFormat { return v.TargetObjectKeyFormat }).(BucketTargetObjectKeyFormatPtrOutput)
+}
+
 type BucketLoggingConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (BucketLoggingConfigurationPtrOutput) ElementType() reflect.Type {
@@ -4210,6 +4216,15 @@ func (o BucketLoggingConfigurationPtrOutput) LogFilePrefix() pulumi.StringPtrOut
 		}
 		return v.LogFilePrefix
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o BucketLoggingConfigurationPtrOutput) TargetObjectKeyFormat() BucketTargetObjectKeyFormatPtrOutput {
+	return o.ApplyT(func(v *BucketLoggingConfiguration) *BucketTargetObjectKeyFormat {
+		if v == nil {
+			return nil
+		}
+		return v.TargetObjectKeyFormat
+	}).(BucketTargetObjectKeyFormatPtrOutput)
 }
 
 type BucketMetrics struct {
@@ -9687,6 +9702,151 @@ func (o BucketTagFilterArrayOutput) Index(i pulumi.IntInput) BucketTagFilterOutp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketTagFilter {
 		return vs[0].([]BucketTagFilter)[vs[1].(int)]
 	}).(BucketTagFilterOutput)
+}
+
+// Describes the key format for server access log file in the target bucket. You can choose between SimplePrefix and PartitionedPrefix.
+type BucketTargetObjectKeyFormat struct {
+}
+
+// BucketTargetObjectKeyFormatInput is an input type that accepts BucketTargetObjectKeyFormatArgs and BucketTargetObjectKeyFormatOutput values.
+// You can construct a concrete instance of `BucketTargetObjectKeyFormatInput` via:
+//
+//	BucketTargetObjectKeyFormatArgs{...}
+type BucketTargetObjectKeyFormatInput interface {
+	pulumi.Input
+
+	ToBucketTargetObjectKeyFormatOutput() BucketTargetObjectKeyFormatOutput
+	ToBucketTargetObjectKeyFormatOutputWithContext(context.Context) BucketTargetObjectKeyFormatOutput
+}
+
+// Describes the key format for server access log file in the target bucket. You can choose between SimplePrefix and PartitionedPrefix.
+type BucketTargetObjectKeyFormatArgs struct {
+}
+
+func (BucketTargetObjectKeyFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketTargetObjectKeyFormat)(nil)).Elem()
+}
+
+func (i BucketTargetObjectKeyFormatArgs) ToBucketTargetObjectKeyFormatOutput() BucketTargetObjectKeyFormatOutput {
+	return i.ToBucketTargetObjectKeyFormatOutputWithContext(context.Background())
+}
+
+func (i BucketTargetObjectKeyFormatArgs) ToBucketTargetObjectKeyFormatOutputWithContext(ctx context.Context) BucketTargetObjectKeyFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketTargetObjectKeyFormatOutput)
+}
+
+func (i BucketTargetObjectKeyFormatArgs) ToOutput(ctx context.Context) pulumix.Output[BucketTargetObjectKeyFormat] {
+	return pulumix.Output[BucketTargetObjectKeyFormat]{
+		OutputState: i.ToBucketTargetObjectKeyFormatOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i BucketTargetObjectKeyFormatArgs) ToBucketTargetObjectKeyFormatPtrOutput() BucketTargetObjectKeyFormatPtrOutput {
+	return i.ToBucketTargetObjectKeyFormatPtrOutputWithContext(context.Background())
+}
+
+func (i BucketTargetObjectKeyFormatArgs) ToBucketTargetObjectKeyFormatPtrOutputWithContext(ctx context.Context) BucketTargetObjectKeyFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketTargetObjectKeyFormatOutput).ToBucketTargetObjectKeyFormatPtrOutputWithContext(ctx)
+}
+
+// BucketTargetObjectKeyFormatPtrInput is an input type that accepts BucketTargetObjectKeyFormatArgs, BucketTargetObjectKeyFormatPtr and BucketTargetObjectKeyFormatPtrOutput values.
+// You can construct a concrete instance of `BucketTargetObjectKeyFormatPtrInput` via:
+//
+//	        BucketTargetObjectKeyFormatArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketTargetObjectKeyFormatPtrInput interface {
+	pulumi.Input
+
+	ToBucketTargetObjectKeyFormatPtrOutput() BucketTargetObjectKeyFormatPtrOutput
+	ToBucketTargetObjectKeyFormatPtrOutputWithContext(context.Context) BucketTargetObjectKeyFormatPtrOutput
+}
+
+type bucketTargetObjectKeyFormatPtrType BucketTargetObjectKeyFormatArgs
+
+func BucketTargetObjectKeyFormatPtr(v *BucketTargetObjectKeyFormatArgs) BucketTargetObjectKeyFormatPtrInput {
+	return (*bucketTargetObjectKeyFormatPtrType)(v)
+}
+
+func (*bucketTargetObjectKeyFormatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketTargetObjectKeyFormat)(nil)).Elem()
+}
+
+func (i *bucketTargetObjectKeyFormatPtrType) ToBucketTargetObjectKeyFormatPtrOutput() BucketTargetObjectKeyFormatPtrOutput {
+	return i.ToBucketTargetObjectKeyFormatPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketTargetObjectKeyFormatPtrType) ToBucketTargetObjectKeyFormatPtrOutputWithContext(ctx context.Context) BucketTargetObjectKeyFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketTargetObjectKeyFormatPtrOutput)
+}
+
+func (i *bucketTargetObjectKeyFormatPtrType) ToOutput(ctx context.Context) pulumix.Output[*BucketTargetObjectKeyFormat] {
+	return pulumix.Output[*BucketTargetObjectKeyFormat]{
+		OutputState: i.ToBucketTargetObjectKeyFormatPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Describes the key format for server access log file in the target bucket. You can choose between SimplePrefix and PartitionedPrefix.
+type BucketTargetObjectKeyFormatOutput struct{ *pulumi.OutputState }
+
+func (BucketTargetObjectKeyFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketTargetObjectKeyFormat)(nil)).Elem()
+}
+
+func (o BucketTargetObjectKeyFormatOutput) ToBucketTargetObjectKeyFormatOutput() BucketTargetObjectKeyFormatOutput {
+	return o
+}
+
+func (o BucketTargetObjectKeyFormatOutput) ToBucketTargetObjectKeyFormatOutputWithContext(ctx context.Context) BucketTargetObjectKeyFormatOutput {
+	return o
+}
+
+func (o BucketTargetObjectKeyFormatOutput) ToBucketTargetObjectKeyFormatPtrOutput() BucketTargetObjectKeyFormatPtrOutput {
+	return o.ToBucketTargetObjectKeyFormatPtrOutputWithContext(context.Background())
+}
+
+func (o BucketTargetObjectKeyFormatOutput) ToBucketTargetObjectKeyFormatPtrOutputWithContext(ctx context.Context) BucketTargetObjectKeyFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketTargetObjectKeyFormat) *BucketTargetObjectKeyFormat {
+		return &v
+	}).(BucketTargetObjectKeyFormatPtrOutput)
+}
+
+func (o BucketTargetObjectKeyFormatOutput) ToOutput(ctx context.Context) pulumix.Output[BucketTargetObjectKeyFormat] {
+	return pulumix.Output[BucketTargetObjectKeyFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
+type BucketTargetObjectKeyFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketTargetObjectKeyFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketTargetObjectKeyFormat)(nil)).Elem()
+}
+
+func (o BucketTargetObjectKeyFormatPtrOutput) ToBucketTargetObjectKeyFormatPtrOutput() BucketTargetObjectKeyFormatPtrOutput {
+	return o
+}
+
+func (o BucketTargetObjectKeyFormatPtrOutput) ToBucketTargetObjectKeyFormatPtrOutputWithContext(ctx context.Context) BucketTargetObjectKeyFormatPtrOutput {
+	return o
+}
+
+func (o BucketTargetObjectKeyFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BucketTargetObjectKeyFormat] {
+	return pulumix.Output[*BucketTargetObjectKeyFormat]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o BucketTargetObjectKeyFormatPtrOutput) Elem() BucketTargetObjectKeyFormatOutput {
+	return o.ApplyT(func(v *BucketTargetObjectKeyFormat) BucketTargetObjectKeyFormat {
+		if v != nil {
+			return *v
+		}
+		var ret BucketTargetObjectKeyFormat
+		return ret
+	}).(BucketTargetObjectKeyFormatOutput)
 }
 
 type BucketTiering struct {
@@ -15298,6 +15458,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagFilterInput)(nil)).Elem(), BucketTagFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagFilterPtrInput)(nil)).Elem(), BucketTagFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTagFilterArrayInput)(nil)).Elem(), BucketTagFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketTargetObjectKeyFormatInput)(nil)).Elem(), BucketTargetObjectKeyFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketTargetObjectKeyFormatPtrInput)(nil)).Elem(), BucketTargetObjectKeyFormatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTieringInput)(nil)).Elem(), BucketTieringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTieringArrayInput)(nil)).Elem(), BucketTieringArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketTopicConfigurationInput)(nil)).Elem(), BucketTopicConfigurationArgs{})
@@ -15476,6 +15638,8 @@ func init() {
 	pulumi.RegisterOutputType(BucketTagFilterOutput{})
 	pulumi.RegisterOutputType(BucketTagFilterPtrOutput{})
 	pulumi.RegisterOutputType(BucketTagFilterArrayOutput{})
+	pulumi.RegisterOutputType(BucketTargetObjectKeyFormatOutput{})
+	pulumi.RegisterOutputType(BucketTargetObjectKeyFormatPtrOutput{})
 	pulumi.RegisterOutputType(BucketTieringOutput{})
 	pulumi.RegisterOutputType(BucketTieringArrayOutput{})
 	pulumi.RegisterOutputType(BucketTopicConfigurationOutput{})

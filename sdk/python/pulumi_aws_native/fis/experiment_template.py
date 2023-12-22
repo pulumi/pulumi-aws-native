@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ExperimentTemplateArgs', 'ExperimentTemplate']
@@ -22,6 +23,7 @@ class ExperimentTemplateArgs:
                  tags: Any,
                  targets: pulumi.Input['ExperimentTemplateTargetMapArgs'],
                  actions: Optional[pulumi.Input['ExperimentTemplateActionMapArgs']] = None,
+                 experiment_options: Optional[pulumi.Input['ExperimentTemplateExperimentOptionsArgs']] = None,
                  log_configuration: Optional[pulumi.Input['ExperimentTemplateLogConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ExperimentTemplate resource.
@@ -33,6 +35,8 @@ class ExperimentTemplateArgs:
         pulumi.set(__self__, "targets", targets)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
+        if experiment_options is not None:
+            pulumi.set(__self__, "experiment_options", experiment_options)
         if log_configuration is not None:
             pulumi.set(__self__, "log_configuration", log_configuration)
 
@@ -91,6 +95,15 @@ class ExperimentTemplateArgs:
         pulumi.set(self, "actions", value)
 
     @property
+    @pulumi.getter(name="experimentOptions")
+    def experiment_options(self) -> Optional[pulumi.Input['ExperimentTemplateExperimentOptionsArgs']]:
+        return pulumi.get(self, "experiment_options")
+
+    @experiment_options.setter
+    def experiment_options(self, value: Optional[pulumi.Input['ExperimentTemplateExperimentOptionsArgs']]):
+        pulumi.set(self, "experiment_options", value)
+
+    @property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional[pulumi.Input['ExperimentTemplateLogConfigurationArgs']]:
         return pulumi.get(self, "log_configuration")
@@ -107,6 +120,7 @@ class ExperimentTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateActionMapArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 experiment_options: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentOptionsArgs']]] = None,
                  log_configuration: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateLogConfigurationArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateStopConditionArgs']]]]] = None,
@@ -145,6 +159,7 @@ class ExperimentTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  actions: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateActionMapArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 experiment_options: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentOptionsArgs']]] = None,
                  log_configuration: Optional[pulumi.Input[pulumi.InputType['ExperimentTemplateLogConfigurationArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stop_conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateStopConditionArgs']]]]] = None,
@@ -163,6 +178,7 @@ class ExperimentTemplate(pulumi.CustomResource):
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
+            __props__.__dict__["experiment_options"] = experiment_options
             __props__.__dict__["log_configuration"] = log_configuration
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
@@ -202,6 +218,7 @@ class ExperimentTemplate(pulumi.CustomResource):
 
         __props__.__dict__["actions"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["experiment_options"] = None
         __props__.__dict__["log_configuration"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["stop_conditions"] = None
@@ -218,6 +235,11 @@ class ExperimentTemplate(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="experimentOptions")
+    def experiment_options(self) -> pulumi.Output[Optional['outputs.ExperimentTemplateExperimentOptions']]:
+        return pulumi.get(self, "experiment_options")
 
     @property
     @pulumi.getter(name="logConfiguration")

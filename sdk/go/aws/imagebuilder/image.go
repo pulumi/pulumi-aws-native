@@ -24,6 +24,8 @@ type Image struct {
 	DistributionConfigurationArn pulumi.StringPtrOutput `pulumi:"distributionConfigurationArn"`
 	// Collects additional information about the image being created, including the operating system (OS) version and package list.
 	EnhancedImageMetadataEnabled pulumi.BoolPtrOutput `pulumi:"enhancedImageMetadataEnabled"`
+	// The execution role name/ARN for the image build, if provided
+	ExecutionRole pulumi.StringPtrOutput `pulumi:"executionRole"`
 	// The AMI ID of the EC2 AMI in current region.
 	ImageId pulumi.StringOutput `pulumi:"imageId"`
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
@@ -40,6 +42,8 @@ type Image struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The tags associated with the image.
 	Tags pulumi.AnyOutput `pulumi:"tags"`
+	// Workflows to define the image build process
+	Workflows ImageWorkflowConfigurationArrayOutput `pulumi:"workflows"`
 }
 
 // NewImage registers a new resource with the given unique name, arguments, and options.
@@ -58,6 +62,7 @@ func NewImage(ctx *pulumi.Context,
 		"imageTestsConfiguration",
 		"infrastructureConfigurationArn",
 		"tags",
+		"workflows[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -99,6 +104,8 @@ type imageArgs struct {
 	DistributionConfigurationArn *string `pulumi:"distributionConfigurationArn"`
 	// Collects additional information about the image being created, including the operating system (OS) version and package list.
 	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
+	// The execution role name/ARN for the image build, if provided
+	ExecutionRole *string `pulumi:"executionRole"`
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
 	// Contains settings for vulnerability scans.
@@ -109,6 +116,8 @@ type imageArgs struct {
 	InfrastructureConfigurationArn *string `pulumi:"infrastructureConfigurationArn"`
 	// The tags associated with the image.
 	Tags interface{} `pulumi:"tags"`
+	// Workflows to define the image build process
+	Workflows []ImageWorkflowConfiguration `pulumi:"workflows"`
 }
 
 // The set of arguments for constructing a Image resource.
@@ -119,6 +128,8 @@ type ImageArgs struct {
 	DistributionConfigurationArn pulumi.StringPtrInput
 	// Collects additional information about the image being created, including the operating system (OS) version and package list.
 	EnhancedImageMetadataEnabled pulumi.BoolPtrInput
+	// The execution role name/ARN for the image build, if provided
+	ExecutionRole pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn pulumi.StringPtrInput
 	// Contains settings for vulnerability scans.
@@ -129,6 +140,8 @@ type ImageArgs struct {
 	InfrastructureConfigurationArn pulumi.StringPtrInput
 	// The tags associated with the image.
 	Tags pulumi.Input
+	// Workflows to define the image build process
+	Workflows ImageWorkflowConfigurationArrayInput
 }
 
 func (ImageArgs) ElementType() reflect.Type {
@@ -200,6 +213,11 @@ func (o ImageOutput) EnhancedImageMetadataEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Image) pulumi.BoolPtrOutput { return v.EnhancedImageMetadataEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The execution role name/ARN for the image build, if provided
+func (o ImageOutput) ExecutionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Image) pulumi.StringPtrOutput { return v.ExecutionRole }).(pulumi.StringPtrOutput)
+}
+
 // The AMI ID of the EC2 AMI in current region.
 func (o ImageOutput) ImageId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.ImageId }).(pulumi.StringOutput)
@@ -238,6 +256,11 @@ func (o ImageOutput) Name() pulumi.StringOutput {
 // The tags associated with the image.
 func (o ImageOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Image) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+}
+
+// Workflows to define the image build process
+func (o ImageOutput) Workflows() ImageWorkflowConfigurationArrayOutput {
+	return o.ApplyT(func(v *Image) ImageWorkflowConfigurationArrayOutput { return v.Workflows }).(ImageWorkflowConfigurationArrayOutput)
 }
 
 func init() {

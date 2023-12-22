@@ -31,14 +31,17 @@ __all__ = [
     'ServiceDeploymentCircuitBreakerArgs',
     'ServiceDeploymentConfigurationArgs',
     'ServiceDeploymentControllerArgs',
+    'ServiceEbsTagSpecificationArgs',
     'ServiceLoadBalancerArgs',
     'ServiceLogConfigurationArgs',
+    'ServiceManagedEbsVolumeConfigurationArgs',
     'ServiceNetworkConfigurationArgs',
     'ServicePlacementConstraintArgs',
     'ServicePlacementStrategyArgs',
     'ServiceRegistryArgs',
     'ServiceSecretArgs',
     'ServiceTagArgs',
+    'ServiceVolumeConfigurationArgs',
     'TaskDefinitionAuthorizationConfigArgs',
     'TaskDefinitionContainerDefinitionArgs',
     'TaskDefinitionContainerDependencyArgs',
@@ -81,9 +84,12 @@ __all__ = [
 class CapacityProviderAutoScalingGroupProviderArgs:
     def __init__(__self__, *,
                  auto_scaling_group_arn: pulumi.Input[str],
+                 managed_draining: Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderManagedDraining']] = None,
                  managed_scaling: Optional[pulumi.Input['CapacityProviderManagedScalingArgs']] = None,
                  managed_termination_protection: Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderManagedTerminationProtection']] = None):
         pulumi.set(__self__, "auto_scaling_group_arn", auto_scaling_group_arn)
+        if managed_draining is not None:
+            pulumi.set(__self__, "managed_draining", managed_draining)
         if managed_scaling is not None:
             pulumi.set(__self__, "managed_scaling", managed_scaling)
         if managed_termination_protection is not None:
@@ -97,6 +103,15 @@ class CapacityProviderAutoScalingGroupProviderArgs:
     @auto_scaling_group_arn.setter
     def auto_scaling_group_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "auto_scaling_group_arn", value)
+
+    @property
+    @pulumi.getter(name="managedDraining")
+    def managed_draining(self) -> Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderManagedDraining']]:
+        return pulumi.get(self, "managed_draining")
+
+    @managed_draining.setter
+    def managed_draining(self, value: Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderManagedDraining']]):
+        pulumi.set(self, "managed_draining", value)
 
     @property
     @pulumi.getter(name="managedScaling")
@@ -868,6 +883,46 @@ class ServiceDeploymentControllerArgs:
 
 
 @pulumi.input_type
+class ServiceEbsTagSpecificationArgs:
+    def __init__(__self__, *,
+                 resource_type: pulumi.Input[str],
+                 propagate_tags: Optional[pulumi.Input['ServiceEbsTagSpecificationPropagateTags']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]] = None):
+        pulumi.set(__self__, "resource_type", resource_type)
+        if propagate_tags is not None:
+            pulumi.set(__self__, "propagate_tags", propagate_tags)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter(name="propagateTags")
+    def propagate_tags(self) -> Optional[pulumi.Input['ServiceEbsTagSpecificationPropagateTags']]:
+        return pulumi.get(self, "propagate_tags")
+
+    @propagate_tags.setter
+    def propagate_tags(self, value: Optional[pulumi.Input['ServiceEbsTagSpecificationPropagateTags']]):
+        pulumi.set(self, "propagate_tags", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
 class ServiceLoadBalancerArgs:
     def __init__(__self__, *,
                  container_name: Optional[pulumi.Input[str]] = None,
@@ -959,6 +1014,130 @@ class ServiceLogConfigurationArgs:
     @secret_options.setter
     def secret_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceSecretArgs']]]]):
         pulumi.set(self, "secret_options", value)
+
+
+@pulumi.input_type
+class ServiceManagedEbsVolumeConfigurationArgs:
+    def __init__(__self__, *,
+                 role_arn: pulumi.Input[str],
+                 encrypted: Optional[pulumi.Input[bool]] = None,
+                 filesystem_type: Optional[pulumi.Input[str]] = None,
+                 iops: Optional[pulumi.Input[int]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 size_in_gi_b: Optional[pulumi.Input[int]] = None,
+                 snapshot_id: Optional[pulumi.Input[str]] = None,
+                 tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEbsTagSpecificationArgs']]]] = None,
+                 throughput: Optional[pulumi.Input[int]] = None,
+                 volume_type: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "role_arn", role_arn)
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+        if filesystem_type is not None:
+            pulumi.set(__self__, "filesystem_type", filesystem_type)
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if size_in_gi_b is not None:
+            pulumi.set(__self__, "size_in_gi_b", size_in_gi_b)
+        if snapshot_id is not None:
+            pulumi.set(__self__, "snapshot_id", snapshot_id)
+        if tag_specifications is not None:
+            pulumi.set(__self__, "tag_specifications", tag_specifications)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+        if volume_type is not None:
+            pulumi.set(__self__, "volume_type", volume_type)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "encrypted")
+
+    @encrypted.setter
+    def encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encrypted", value)
+
+    @property
+    @pulumi.getter(name="filesystemType")
+    def filesystem_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "filesystem_type")
+
+    @filesystem_type.setter
+    def filesystem_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filesystem_type", value)
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "iops")
+
+    @iops.setter
+    def iops(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "iops", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="sizeInGiB")
+    def size_in_gi_b(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "size_in_gi_b")
+
+    @size_in_gi_b.setter
+    def size_in_gi_b(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "size_in_gi_b", value)
+
+    @property
+    @pulumi.getter(name="snapshotId")
+    def snapshot_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "snapshot_id")
+
+    @snapshot_id.setter
+    def snapshot_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snapshot_id", value)
+
+    @property
+    @pulumi.getter(name="tagSpecifications")
+    def tag_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEbsTagSpecificationArgs']]]]:
+        return pulumi.get(self, "tag_specifications")
+
+    @tag_specifications.setter
+    def tag_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEbsTagSpecificationArgs']]]]):
+        pulumi.set(self, "tag_specifications", value)
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "throughput")
+
+    @throughput.setter
+    def throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "throughput", value)
+
+    @property
+    @pulumi.getter(name="volumeType")
+    def volume_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "volume_type")
+
+    @volume_type.setter
+    def volume_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "volume_type", value)
 
 
 @pulumi.input_type
@@ -1141,6 +1320,34 @@ class ServiceTagArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ServiceVolumeConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 managed_ebs_volume: Optional[pulumi.Input['ServiceManagedEbsVolumeConfigurationArgs']] = None):
+        pulumi.set(__self__, "name", name)
+        if managed_ebs_volume is not None:
+            pulumi.set(__self__, "managed_ebs_volume", managed_ebs_volume)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="managedEbsVolume")
+    def managed_ebs_volume(self) -> Optional[pulumi.Input['ServiceManagedEbsVolumeConfigurationArgs']]:
+        return pulumi.get(self, "managed_ebs_volume")
+
+    @managed_ebs_volume.setter
+    def managed_ebs_volume(self, value: Optional[pulumi.Input['ServiceManagedEbsVolumeConfigurationArgs']]):
+        pulumi.set(self, "managed_ebs_volume", value)
 
 
 @pulumi.input_type

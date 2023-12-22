@@ -43,6 +43,10 @@ export class Route extends pulumi.CustomResource {
      */
     public /*out*/ readonly cidrBlock!: pulumi.Output<string>;
     /**
+     * The Amazon Resource Name (ARN) of the core network.
+     */
+    public readonly coreNetworkArn!: pulumi.Output<string | undefined>;
+    /**
      * The IPv4 CIDR block used for the destination match.
      */
     public readonly destinationCidrBlock!: pulumi.Output<string | undefined>;
@@ -110,6 +114,7 @@ export class Route extends pulumi.CustomResource {
                 throw new Error("Missing required property 'routeTableId'");
             }
             resourceInputs["carrierGatewayId"] = args ? args.carrierGatewayId : undefined;
+            resourceInputs["coreNetworkArn"] = args ? args.coreNetworkArn : undefined;
             resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
             resourceInputs["destinationIpv6CidrBlock"] = args ? args.destinationIpv6CidrBlock : undefined;
             resourceInputs["destinationPrefixListId"] = args ? args.destinationPrefixListId : undefined;
@@ -127,6 +132,7 @@ export class Route extends pulumi.CustomResource {
         } else {
             resourceInputs["carrierGatewayId"] = undefined /*out*/;
             resourceInputs["cidrBlock"] = undefined /*out*/;
+            resourceInputs["coreNetworkArn"] = undefined /*out*/;
             resourceInputs["destinationCidrBlock"] = undefined /*out*/;
             resourceInputs["destinationIpv6CidrBlock"] = undefined /*out*/;
             resourceInputs["destinationPrefixListId"] = undefined /*out*/;
@@ -156,6 +162,10 @@ export interface RouteArgs {
      * The ID of the carrier gateway.
      */
     carrierGatewayId?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the core network.
+     */
+    coreNetworkArn?: pulumi.Input<string>;
     /**
      * The IPv4 CIDR block used for the destination match.
      */

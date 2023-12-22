@@ -16,7 +16,13 @@ import (
 type Application struct {
 	pulumi.CustomResourceState
 
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The name of the application.
+	ApplicationName pulumi.StringOutput `pulumi:"applicationName"`
+	// The key of the AWS application tag, which is awsApplication. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value.
+	ApplicationTagKey pulumi.StringOutput `pulumi:"applicationTagKey"`
+	// The value of the AWS application tag, which is the identifier of an associated resource. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value.
+	ApplicationTagValue pulumi.StringOutput `pulumi:"applicationTagValue"`
+	Arn                 pulumi.StringOutput `pulumi:"arn"`
 	// The description of the application.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the application.
@@ -127,6 +133,21 @@ func (o ApplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*Applica
 	return pulumix.Output[*Application]{
 		OutputState: o.OutputState,
 	}
+}
+
+// The name of the application.
+func (o ApplicationOutput) ApplicationName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationName }).(pulumi.StringOutput)
+}
+
+// The key of the AWS application tag, which is awsApplication. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value.
+func (o ApplicationOutput) ApplicationTagKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationTagKey }).(pulumi.StringOutput)
+}
+
+// The value of the AWS application tag, which is the identifier of an associated resource. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value.
+func (o ApplicationOutput) ApplicationTagValue() pulumi.StringOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationTagValue }).(pulumi.StringOutput)
 }
 
 func (o ApplicationOutput) Arn() pulumi.StringOutput {

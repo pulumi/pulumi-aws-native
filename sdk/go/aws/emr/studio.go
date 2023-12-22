@@ -25,8 +25,14 @@ type Studio struct {
 	DefaultS3Location pulumi.StringOutput `pulumi:"defaultS3Location"`
 	// A detailed description of the Studio.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The AWS KMS key identifier (ARN) used to encrypt AWS EMR Studio workspace and notebook files when backed up to AWS S3.
+	EncryptionKeyArn pulumi.StringPtrOutput `pulumi:"encryptionKeyArn"`
 	// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by VpcId.
 	EngineSecurityGroupId pulumi.StringOutput `pulumi:"engineSecurityGroupId"`
+	// The ARN of the IAM Identity Center instance to create the Studio application.
+	IdcInstanceArn pulumi.StringPtrOutput `pulumi:"idcInstanceArn"`
+	// Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL. If the value is set to REQUIRED, users must be explicitly assigned to the Studio application to access the Studio.
+	IdcUserAssignment StudioIdcUserAssignmentPtrOutput `pulumi:"idcUserAssignment"`
 	// Your identity provider's authentication endpoint. Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.
 	IdpAuthUrl pulumi.StringPtrOutput `pulumi:"idpAuthUrl"`
 	// The name of relay state parameter for external Identity Provider.
@@ -41,6 +47,8 @@ type Studio struct {
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
 	Tags StudioTagArrayOutput `pulumi:"tags"`
+	// A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.
+	TrustedIdentityPropagationEnabled pulumi.BoolPtrOutput `pulumi:"trustedIdentityPropagationEnabled"`
 	// The unique Studio access URL.
 	Url pulumi.StringOutput `pulumi:"url"`
 	// The IAM user role that will be assumed by users and groups logged in to a Studio. The permissions attached to this IAM role can be scoped down for each user or group using session policies.
@@ -81,8 +89,12 @@ func NewStudio(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"authMode",
+		"encryptionKeyArn",
 		"engineSecurityGroupId",
+		"idcInstanceArn",
+		"idcUserAssignment",
 		"serviceRole",
+		"trustedIdentityPropagationEnabled",
 		"userRole",
 		"vpcId",
 		"workspaceSecurityGroupId",
@@ -127,8 +139,14 @@ type studioArgs struct {
 	DefaultS3Location string `pulumi:"defaultS3Location"`
 	// A detailed description of the Studio.
 	Description *string `pulumi:"description"`
+	// The AWS KMS key identifier (ARN) used to encrypt AWS EMR Studio workspace and notebook files when backed up to AWS S3.
+	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
 	// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by VpcId.
 	EngineSecurityGroupId string `pulumi:"engineSecurityGroupId"`
+	// The ARN of the IAM Identity Center instance to create the Studio application.
+	IdcInstanceArn *string `pulumi:"idcInstanceArn"`
+	// Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL. If the value is set to REQUIRED, users must be explicitly assigned to the Studio application to access the Studio.
+	IdcUserAssignment *StudioIdcUserAssignment `pulumi:"idcUserAssignment"`
 	// Your identity provider's authentication endpoint. Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.
 	IdpAuthUrl *string `pulumi:"idpAuthUrl"`
 	// The name of relay state parameter for external Identity Provider.
@@ -141,6 +159,8 @@ type studioArgs struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
 	Tags []StudioTag `pulumi:"tags"`
+	// A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.
+	TrustedIdentityPropagationEnabled *bool `pulumi:"trustedIdentityPropagationEnabled"`
 	// The IAM user role that will be assumed by users and groups logged in to a Studio. The permissions attached to this IAM role can be scoped down for each user or group using session policies.
 	UserRole *string `pulumi:"userRole"`
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
@@ -157,8 +177,14 @@ type StudioArgs struct {
 	DefaultS3Location pulumi.StringInput
 	// A detailed description of the Studio.
 	Description pulumi.StringPtrInput
+	// The AWS KMS key identifier (ARN) used to encrypt AWS EMR Studio workspace and notebook files when backed up to AWS S3.
+	EncryptionKeyArn pulumi.StringPtrInput
 	// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by VpcId.
 	EngineSecurityGroupId pulumi.StringInput
+	// The ARN of the IAM Identity Center instance to create the Studio application.
+	IdcInstanceArn pulumi.StringPtrInput
+	// Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL. If the value is set to REQUIRED, users must be explicitly assigned to the Studio application to access the Studio.
+	IdcUserAssignment StudioIdcUserAssignmentPtrInput
 	// Your identity provider's authentication endpoint. Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.
 	IdpAuthUrl pulumi.StringPtrInput
 	// The name of relay state parameter for external Identity Provider.
@@ -171,6 +197,8 @@ type StudioArgs struct {
 	SubnetIds pulumi.StringArrayInput
 	// A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
 	Tags StudioTagArrayInput
+	// A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.
+	TrustedIdentityPropagationEnabled pulumi.BoolPtrInput
 	// The IAM user role that will be assumed by users and groups logged in to a Studio. The permissions attached to this IAM role can be scoped down for each user or group using session policies.
 	UserRole pulumi.StringPtrInput
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
@@ -248,9 +276,24 @@ func (o StudioOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Studio) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The AWS KMS key identifier (ARN) used to encrypt AWS EMR Studio workspace and notebook files when backed up to AWS S3.
+func (o StudioOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Studio) pulumi.StringPtrOutput { return v.EncryptionKeyArn }).(pulumi.StringPtrOutput)
+}
+
 // The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by VpcId.
 func (o StudioOutput) EngineSecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.EngineSecurityGroupId }).(pulumi.StringOutput)
+}
+
+// The ARN of the IAM Identity Center instance to create the Studio application.
+func (o StudioOutput) IdcInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Studio) pulumi.StringPtrOutput { return v.IdcInstanceArn }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL. If the value is set to REQUIRED, users must be explicitly assigned to the Studio application to access the Studio.
+func (o StudioOutput) IdcUserAssignment() StudioIdcUserAssignmentPtrOutput {
+	return o.ApplyT(func(v *Studio) StudioIdcUserAssignmentPtrOutput { return v.IdcUserAssignment }).(StudioIdcUserAssignmentPtrOutput)
 }
 
 // Your identity provider's authentication endpoint. Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.
@@ -286,6 +329,11 @@ func (o StudioOutput) SubnetIds() pulumi.StringArrayOutput {
 // A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
 func (o StudioOutput) Tags() StudioTagArrayOutput {
 	return o.ApplyT(func(v *Studio) StudioTagArrayOutput { return v.Tags }).(StudioTagArrayOutput)
+}
+
+// A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.
+func (o StudioOutput) TrustedIdentityPropagationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Studio) pulumi.BoolPtrOutput { return v.TrustedIdentityPropagationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The unique Studio access URL.

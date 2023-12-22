@@ -11,6 +11,7 @@ from .authorizer import *
 from .billing_group import *
 from .ca_certificate import *
 from .certificate import *
+from .certificate_provider import *
 from .custom_metric import *
 from .dimension import *
 from .domain_configuration import *
@@ -20,6 +21,7 @@ from .get_authorizer import *
 from .get_billing_group import *
 from .get_ca_certificate import *
 from .get_certificate import *
+from .get_certificate_provider import *
 from .get_custom_metric import *
 from .get_dimension import *
 from .get_domain_configuration import *

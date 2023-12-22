@@ -18,7 +18,8 @@ class ConfigurationRecorderArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
-                 recording_group: Optional[pulumi.Input['ConfigurationRecorderRecordingGroupArgs']] = None):
+                 recording_group: Optional[pulumi.Input['ConfigurationRecorderRecordingGroupArgs']] = None,
+                 recording_mode: Optional[pulumi.Input['ConfigurationRecorderRecordingModeArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationRecorder resource.
         """
@@ -27,6 +28,8 @@ class ConfigurationRecorderArgs:
             pulumi.set(__self__, "name", name)
         if recording_group is not None:
             pulumi.set(__self__, "recording_group", recording_group)
+        if recording_mode is not None:
+            pulumi.set(__self__, "recording_mode", recording_mode)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -55,6 +58,15 @@ class ConfigurationRecorderArgs:
     def recording_group(self, value: Optional[pulumi.Input['ConfigurationRecorderRecordingGroupArgs']]):
         pulumi.set(self, "recording_group", value)
 
+    @property
+    @pulumi.getter(name="recordingMode")
+    def recording_mode(self) -> Optional[pulumi.Input['ConfigurationRecorderRecordingModeArgs']]:
+        return pulumi.get(self, "recording_mode")
+
+    @recording_mode.setter
+    def recording_mode(self, value: Optional[pulumi.Input['ConfigurationRecorderRecordingModeArgs']]):
+        pulumi.set(self, "recording_mode", value)
+
 
 warnings.warn("""ConfigurationRecorder is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
@@ -68,6 +80,7 @@ class ConfigurationRecorder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recording_group: Optional[pulumi.Input[pulumi.InputType['ConfigurationRecorderRecordingGroupArgs']]] = None,
+                 recording_mode: Optional[pulumi.Input[pulumi.InputType['ConfigurationRecorderRecordingModeArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -102,6 +115,7 @@ class ConfigurationRecorder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  recording_group: Optional[pulumi.Input[pulumi.InputType['ConfigurationRecorderRecordingGroupArgs']]] = None,
+                 recording_mode: Optional[pulumi.Input[pulumi.InputType['ConfigurationRecorderRecordingModeArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""ConfigurationRecorder is deprecated: ConfigurationRecorder is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -115,6 +129,7 @@ class ConfigurationRecorder(pulumi.CustomResource):
 
             __props__.__dict__["name"] = name
             __props__.__dict__["recording_group"] = recording_group
+            __props__.__dict__["recording_mode"] = recording_mode
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -144,6 +159,7 @@ class ConfigurationRecorder(pulumi.CustomResource):
 
         __props__.__dict__["name"] = None
         __props__.__dict__["recording_group"] = None
+        __props__.__dict__["recording_mode"] = None
         __props__.__dict__["role_arn"] = None
         return ConfigurationRecorder(resource_name, opts=opts, __props__=__props__)
 
@@ -156,6 +172,11 @@ class ConfigurationRecorder(pulumi.CustomResource):
     @pulumi.getter(name="recordingGroup")
     def recording_group(self) -> pulumi.Output[Optional['outputs.ConfigurationRecorderRecordingGroup']]:
         return pulumi.get(self, "recording_group")
+
+    @property
+    @pulumi.getter(name="recordingMode")
+    def recording_mode(self) -> pulumi.Output[Optional['outputs.ConfigurationRecorderRecordingMode']]:
+        return pulumi.get(self, "recording_mode")
 
     @property
     @pulumi.getter(name="roleArn")

@@ -54,6 +54,14 @@ export class EventDataStore extends pulumi.CustomResource {
      */
     public /*out*/ readonly eventDataStoreArn!: pulumi.Output<string>;
     /**
+     * Indicates whether federation is enabled on an event data store.
+     */
+    public readonly federationEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The ARN of the role used for event data store federation.
+     */
+    public readonly federationRoleArn!: pulumi.Output<string | undefined>;
+    /**
      * Indicates whether the event data store is ingesting events.
      */
     public readonly ingestionEnabled!: pulumi.Output<boolean | undefined>;
@@ -112,6 +120,8 @@ export class EventDataStore extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["advancedEventSelectors"] = args ? args.advancedEventSelectors : undefined;
             resourceInputs["billingMode"] = args ? args.billingMode : undefined;
+            resourceInputs["federationEnabled"] = args ? args.federationEnabled : undefined;
+            resourceInputs["federationRoleArn"] = args ? args.federationRoleArn : undefined;
             resourceInputs["ingestionEnabled"] = args ? args.ingestionEnabled : undefined;
             resourceInputs["insightSelectors"] = args ? args.insightSelectors : undefined;
             resourceInputs["insightsDestination"] = args ? args.insightsDestination : undefined;
@@ -131,6 +141,8 @@ export class EventDataStore extends pulumi.CustomResource {
             resourceInputs["billingMode"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["eventDataStoreArn"] = undefined /*out*/;
+            resourceInputs["federationEnabled"] = undefined /*out*/;
+            resourceInputs["federationRoleArn"] = undefined /*out*/;
             resourceInputs["ingestionEnabled"] = undefined /*out*/;
             resourceInputs["insightSelectors"] = undefined /*out*/;
             resourceInputs["insightsDestination"] = undefined /*out*/;
@@ -161,6 +173,14 @@ export interface EventDataStoreArgs {
      * The mode that the event data store will use to charge for event storage.
      */
     billingMode?: pulumi.Input<string>;
+    /**
+     * Indicates whether federation is enabled on an event data store.
+     */
+    federationEnabled?: pulumi.Input<boolean>;
+    /**
+     * The ARN of the role used for event data store federation.
+     */
+    federationRoleArn?: pulumi.Input<string>;
     /**
      * Indicates whether the event data store is ingesting events.
      */

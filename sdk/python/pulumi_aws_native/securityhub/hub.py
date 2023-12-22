@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['HubArgs', 'Hub']
 
@@ -17,9 +19,12 @@ class HubArgs:
                  auto_enable_controls: Optional[pulumi.Input[bool]] = None,
                  control_finding_generator: Optional[pulumi.Input[str]] = None,
                  enable_default_standards: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[Any] = None):
+                 tags: Optional[pulumi.Input['HubTagsArgs']] = None):
         """
         The set of arguments for constructing a Hub resource.
+        :param pulumi.Input[bool] auto_enable_controls: Whether to automatically enable new controls when they are added to standards that are enabled
+        :param pulumi.Input[str] control_finding_generator: This field, used when enabling Security Hub, specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to SECURITY_CONTROL, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards.  If the value for this field is set to STANDARD_CONTROL, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards.
+        :param pulumi.Input[bool] enable_default_standards: Whether to enable the security standards that Security Hub has designated as automatically enabled.
         """
         if auto_enable_controls is not None:
             pulumi.set(__self__, "auto_enable_controls", auto_enable_controls)
@@ -33,6 +38,9 @@ class HubArgs:
     @property
     @pulumi.getter(name="autoEnableControls")
     def auto_enable_controls(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to automatically enable new controls when they are added to standards that are enabled
+        """
         return pulumi.get(self, "auto_enable_controls")
 
     @auto_enable_controls.setter
@@ -42,6 +50,9 @@ class HubArgs:
     @property
     @pulumi.getter(name="controlFindingGenerator")
     def control_finding_generator(self) -> Optional[pulumi.Input[str]]:
+        """
+        This field, used when enabling Security Hub, specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to SECURITY_CONTROL, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards.  If the value for this field is set to STANDARD_CONTROL, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards.
+        """
         return pulumi.get(self, "control_finding_generator")
 
     @control_finding_generator.setter
@@ -51,6 +62,9 @@ class HubArgs:
     @property
     @pulumi.getter(name="enableDefaultStandards")
     def enable_default_standards(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable the security standards that Security Hub has designated as automatically enabled.
+        """
         return pulumi.get(self, "enable_default_standards")
 
     @enable_default_standards.setter
@@ -59,20 +73,15 @@ class HubArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[pulumi.Input['HubTagsArgs']]:
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[Any]):
+    def tags(self, value: Optional[pulumi.Input['HubTagsArgs']]):
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Hub is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Hub(pulumi.CustomResource):
-    warnings.warn("""Hub is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -80,13 +89,16 @@ class Hub(pulumi.CustomResource):
                  auto_enable_controls: Optional[pulumi.Input[bool]] = None,
                  control_finding_generator: Optional[pulumi.Input[str]] = None,
                  enable_default_standards: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[pulumi.InputType['HubTagsArgs']]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::SecurityHub::Hub
+        The AWS::SecurityHub::Hub resource represents the implementation of the AWS Security Hub service in your account. One hub resource is created for each Region in which you enable Security Hub.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_enable_controls: Whether to automatically enable new controls when they are added to standards that are enabled
+        :param pulumi.Input[str] control_finding_generator: This field, used when enabling Security Hub, specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to SECURITY_CONTROL, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards.  If the value for this field is set to STANDARD_CONTROL, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards.
+        :param pulumi.Input[bool] enable_default_standards: Whether to enable the security standards that Security Hub has designated as automatically enabled.
         """
         ...
     @overload
@@ -95,7 +107,7 @@ class Hub(pulumi.CustomResource):
                  args: Optional[HubArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::SecurityHub::Hub
+        The AWS::SecurityHub::Hub resource represents the implementation of the AWS Security Hub service in your account. One hub resource is created for each Region in which you enable Security Hub.
 
         :param str resource_name: The name of the resource.
         :param HubArgs args: The arguments to use to populate this resource's properties.
@@ -115,9 +127,8 @@ class Hub(pulumi.CustomResource):
                  auto_enable_controls: Optional[pulumi.Input[bool]] = None,
                  control_finding_generator: Optional[pulumi.Input[str]] = None,
                  enable_default_standards: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[Any] = None,
+                 tags: Optional[pulumi.Input[pulumi.InputType['HubTagsArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Hub is deprecated: Hub is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -130,6 +141,8 @@ class Hub(pulumi.CustomResource):
             __props__.__dict__["control_finding_generator"] = control_finding_generator
             __props__.__dict__["enable_default_standards"] = enable_default_standards
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["subscribed_at"] = None
         super(Hub, __self__).__init__(
             'aws-native:securityhub:Hub',
             resource_name,
@@ -152,29 +165,56 @@ class Hub(pulumi.CustomResource):
 
         __props__ = HubArgs.__new__(HubArgs)
 
+        __props__.__dict__["arn"] = None
         __props__.__dict__["auto_enable_controls"] = None
         __props__.__dict__["control_finding_generator"] = None
         __props__.__dict__["enable_default_standards"] = None
+        __props__.__dict__["subscribed_at"] = None
         __props__.__dict__["tags"] = None
         return Hub(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        An ARN is automatically created for the customer.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
     @pulumi.getter(name="autoEnableControls")
     def auto_enable_controls(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to automatically enable new controls when they are added to standards that are enabled
+        """
         return pulumi.get(self, "auto_enable_controls")
 
     @property
     @pulumi.getter(name="controlFindingGenerator")
     def control_finding_generator(self) -> pulumi.Output[Optional[str]]:
+        """
+        This field, used when enabling Security Hub, specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to SECURITY_CONTROL, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards.  If the value for this field is set to STANDARD_CONTROL, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards.
+        """
         return pulumi.get(self, "control_finding_generator")
 
     @property
     @pulumi.getter(name="enableDefaultStandards")
     def enable_default_standards(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to enable the security standards that Security Hub has designated as automatically enabled.
+        """
         return pulumi.get(self, "enable_default_standards")
 
     @property
+    @pulumi.getter(name="subscribedAt")
+    def subscribed_at(self) -> pulumi.Output[str]:
+        """
+        The date and time when Security Hub was enabled in the account.
+        """
+        return pulumi.get(self, "subscribed_at")
+
+    @property
     @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Any]]:
+    def tags(self) -> pulumi.Output[Optional['outputs.HubTags']]:
         return pulumi.get(self, "tags")
 

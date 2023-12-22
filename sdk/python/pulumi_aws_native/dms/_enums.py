@@ -5,8 +5,39 @@
 from enum import Enum
 
 __all__ = [
+    'DataProviderDmsSslModeValue',
+    'DataProviderEngine',
+    'InstanceProfileNetworkType',
     'ReplicationConfigReplicationType',
 ]
+
+
+class DataProviderDmsSslModeValue(str, Enum):
+    NONE = "none"
+    REQUIRE = "require"
+    VERIFY_CA = "verify_ca"
+    VERIFY_FULL = "verify_full"
+
+
+class DataProviderEngine(str, Enum):
+    """
+    The property describes a data engine for the data provider.
+    """
+    POSTGRESQL = "postgresql"
+    MYSQL = "mysql"
+    ORACLE = "oracle"
+    SQLSERVER = "sqlserver"
+    AURORA = "aurora"
+    AURORA_POSTGRESQL = "aurora_postgresql"
+
+
+class InstanceProfileNetworkType(str, Enum):
+    """
+    The property describes a network type for the instance profile.
+    """
+    IPV4 = "IPV4"
+    IPV6 = "IPV6"
+    DUAL = "DUAL"
 
 
 class ReplicationConfigReplicationType(str, Enum):

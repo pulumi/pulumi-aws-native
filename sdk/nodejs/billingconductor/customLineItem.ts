@@ -41,6 +41,10 @@ export class CustomLineItem extends pulumi.CustomResource {
     }
 
     /**
+     * The account which this custom line item will be charged to
+     */
+    public readonly accountId!: pulumi.Output<string | undefined>;
+    /**
      * ARN
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -84,6 +88,7 @@ export class CustomLineItem extends pulumi.CustomResource {
             if ((!args || args.billingGroupArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'billingGroupArn'");
             }
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
             resourceInputs["billingGroupArn"] = args ? args.billingGroupArn : undefined;
             resourceInputs["billingPeriodRange"] = args ? args.billingPeriodRange : undefined;
             resourceInputs["customLineItemChargeDetails"] = args ? args.customLineItemChargeDetails : undefined;
@@ -97,6 +102,7 @@ export class CustomLineItem extends pulumi.CustomResource {
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["productCode"] = undefined /*out*/;
         } else {
+            resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["associationSize"] = undefined /*out*/;
             resourceInputs["billingGroupArn"] = undefined /*out*/;
@@ -111,7 +117,7 @@ export class CustomLineItem extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["billingGroupArn", "billingPeriodRange.exclusiveEndBillingPeriod", "billingPeriodRange.inclusiveStartBillingPeriod", "customLineItemChargeDetails.type"] };
+        const replaceOnChanges = { replaceOnChanges: ["accountId", "billingGroupArn", "billingPeriodRange.exclusiveEndBillingPeriod", "billingPeriodRange.inclusiveStartBillingPeriod", "customLineItemChargeDetails.type"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CustomLineItem.__pulumiType, name, resourceInputs, opts);
     }
@@ -121,6 +127,10 @@ export class CustomLineItem extends pulumi.CustomResource {
  * The set of arguments for constructing a CustomLineItem resource.
  */
 export interface CustomLineItemArgs {
+    /**
+     * The account which this custom line item will be charged to
+     */
+    accountId?: pulumi.Input<string>;
     /**
      * Billing Group ARN
      */

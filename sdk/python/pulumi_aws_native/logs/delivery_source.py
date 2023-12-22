@@ -25,7 +25,7 @@ class DeliverySourceArgs:
         :param pulumi.Input[str] log_type: The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
         :param pulumi.Input[str] name: The unique name of the Log source.
         :param pulumi.Input[str] resource_arn: The ARN of the resource that will be sending the logs.
-        :param pulumi.Input[Sequence[pulumi.Input['DeliverySourceTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input['DeliverySourceTagArgs']]] tags: The tags that have been assigned to this delivery source.
         """
         if log_type is not None:
             pulumi.set(__self__, "log_type", log_type)
@@ -76,7 +76,7 @@ class DeliverySourceArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeliverySourceTagArgs']]]]:
         """
-        An array of key-value pairs to apply to this resource.
+        The tags that have been assigned to this delivery source.
         """
         return pulumi.get(self, "tags")
 
@@ -96,14 +96,16 @@ class DeliverySource(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliverySourceTagArgs']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::Logs::DeliverySource.
+         A delivery source is an AWS resource that sends logs to an AWS destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
+
+        Only some AWS services support being configured as a delivery source. These services are listed as Supported [V2 Permissions] in the table at [Enabling logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html).
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] log_type: The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
         :param pulumi.Input[str] name: The unique name of the Log source.
         :param pulumi.Input[str] resource_arn: The ARN of the resource that will be sending the logs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliverySourceTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliverySourceTagArgs']]]] tags: The tags that have been assigned to this delivery source.
         """
         ...
     @overload
@@ -112,7 +114,9 @@ class DeliverySource(pulumi.CustomResource):
                  args: Optional[DeliverySourceArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::Logs::DeliverySource.
+         A delivery source is an AWS resource that sends logs to an AWS destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
+
+        Only some AWS services support being configured as a delivery source. These services are listed as Supported [V2 Permissions] in the table at [Enabling logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html).
 
         :param str resource_name: The name of the resource.
         :param DeliverySourceArgs args: The arguments to use to populate this resource's properties.
@@ -186,7 +190,7 @@ class DeliverySource(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The ARN of the Aqueduct Source.
+        The Amazon Resource Name (ARN) that uniquely identifies this delivery source.
         """
         return pulumi.get(self, "arn")
 
@@ -218,7 +222,7 @@ class DeliverySource(pulumi.CustomResource):
     @pulumi.getter(name="resourceArns")
     def resource_arns(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of ARN of the resource that will be sending the logs
+        This array contains the ARN of the AWS resource that sends logs and is represented by this delivery source. Currently, only one ARN can be in the array.
         """
         return pulumi.get(self, "resource_arns")
 
@@ -226,7 +230,7 @@ class DeliverySource(pulumi.CustomResource):
     @pulumi.getter
     def service(self) -> pulumi.Output[str]:
         """
-        The service generating the log
+        The AWS service that is sending logs.
         """
         return pulumi.get(self, "service")
 
@@ -234,7 +238,7 @@ class DeliverySource(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DeliverySourceTag']]]:
         """
-        An array of key-value pairs to apply to this resource.
+        The tags that have been assigned to this delivery source.
         """
         return pulumi.get(self, "tags")
 

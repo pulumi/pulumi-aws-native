@@ -26,13 +26,16 @@ class ClusterArgs:
                  bootstrap_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterBootstrapActionConfigArgs']]]] = None,
                  configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterConfigurationArgs']]]] = None,
                  custom_ami_id: Optional[pulumi.Input[str]] = None,
+                 ebs_root_volume_iops: Optional[pulumi.Input[int]] = None,
                  ebs_root_volume_size: Optional[pulumi.Input[int]] = None,
+                 ebs_root_volume_throughput: Optional[pulumi.Input[int]] = None,
                  kerberos_attributes: Optional[pulumi.Input['ClusterKerberosAttributesArgs']] = None,
                  log_encryption_kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_uri: Optional[pulumi.Input[str]] = None,
                  managed_scaling_policy: Optional[pulumi.Input['ClusterManagedScalingPolicyArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  os_release_label: Optional[pulumi.Input[str]] = None,
+                 placement_group_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
                  scale_down_behavior: Optional[pulumi.Input[str]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
@@ -60,8 +63,12 @@ class ClusterArgs:
             pulumi.set(__self__, "configurations", configurations)
         if custom_ami_id is not None:
             pulumi.set(__self__, "custom_ami_id", custom_ami_id)
+        if ebs_root_volume_iops is not None:
+            pulumi.set(__self__, "ebs_root_volume_iops", ebs_root_volume_iops)
         if ebs_root_volume_size is not None:
             pulumi.set(__self__, "ebs_root_volume_size", ebs_root_volume_size)
+        if ebs_root_volume_throughput is not None:
+            pulumi.set(__self__, "ebs_root_volume_throughput", ebs_root_volume_throughput)
         if kerberos_attributes is not None:
             pulumi.set(__self__, "kerberos_attributes", kerberos_attributes)
         if log_encryption_kms_key_id is not None:
@@ -74,6 +81,8 @@ class ClusterArgs:
             pulumi.set(__self__, "name", name)
         if os_release_label is not None:
             pulumi.set(__self__, "os_release_label", os_release_label)
+        if placement_group_configs is not None:
+            pulumi.set(__self__, "placement_group_configs", placement_group_configs)
         if release_label is not None:
             pulumi.set(__self__, "release_label", release_label)
         if scale_down_behavior is not None:
@@ -180,6 +189,15 @@ class ClusterArgs:
         pulumi.set(self, "custom_ami_id", value)
 
     @property
+    @pulumi.getter(name="ebsRootVolumeIops")
+    def ebs_root_volume_iops(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ebs_root_volume_iops")
+
+    @ebs_root_volume_iops.setter
+    def ebs_root_volume_iops(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ebs_root_volume_iops", value)
+
+    @property
     @pulumi.getter(name="ebsRootVolumeSize")
     def ebs_root_volume_size(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "ebs_root_volume_size")
@@ -187,6 +205,15 @@ class ClusterArgs:
     @ebs_root_volume_size.setter
     def ebs_root_volume_size(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "ebs_root_volume_size", value)
+
+    @property
+    @pulumi.getter(name="ebsRootVolumeThroughput")
+    def ebs_root_volume_throughput(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ebs_root_volume_throughput")
+
+    @ebs_root_volume_throughput.setter
+    def ebs_root_volume_throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ebs_root_volume_throughput", value)
 
     @property
     @pulumi.getter(name="kerberosAttributes")
@@ -241,6 +268,15 @@ class ClusterArgs:
     @os_release_label.setter
     def os_release_label(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "os_release_label", value)
+
+    @property
+    @pulumi.getter(name="placementGroupConfigs")
+    def placement_group_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]]:
+        return pulumi.get(self, "placement_group_configs")
+
+    @placement_group_configs.setter
+    def placement_group_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterPlacementGroupConfigArgs']]]]):
+        pulumi.set(self, "placement_group_configs", value)
 
     @property
     @pulumi.getter(name="releaseLabel")
@@ -323,7 +359,9 @@ class Cluster(pulumi.CustomResource):
                  bootstrap_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterBootstrapActionConfigArgs']]]]] = None,
                  configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']]]]] = None,
                  custom_ami_id: Optional[pulumi.Input[str]] = None,
+                 ebs_root_volume_iops: Optional[pulumi.Input[int]] = None,
                  ebs_root_volume_size: Optional[pulumi.Input[int]] = None,
+                 ebs_root_volume_throughput: Optional[pulumi.Input[int]] = None,
                  instances: Optional[pulumi.Input[pulumi.InputType['ClusterJobFlowInstancesConfigArgs']]] = None,
                  job_flow_role: Optional[pulumi.Input[str]] = None,
                  kerberos_attributes: Optional[pulumi.Input[pulumi.InputType['ClusterKerberosAttributesArgs']]] = None,
@@ -332,6 +370,7 @@ class Cluster(pulumi.CustomResource):
                  managed_scaling_policy: Optional[pulumi.Input[pulumi.InputType['ClusterManagedScalingPolicyArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  os_release_label: Optional[pulumi.Input[str]] = None,
+                 placement_group_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterPlacementGroupConfigArgs']]]]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
                  scale_down_behavior: Optional[pulumi.Input[str]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
@@ -378,7 +417,9 @@ class Cluster(pulumi.CustomResource):
                  bootstrap_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterBootstrapActionConfigArgs']]]]] = None,
                  configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']]]]] = None,
                  custom_ami_id: Optional[pulumi.Input[str]] = None,
+                 ebs_root_volume_iops: Optional[pulumi.Input[int]] = None,
                  ebs_root_volume_size: Optional[pulumi.Input[int]] = None,
+                 ebs_root_volume_throughput: Optional[pulumi.Input[int]] = None,
                  instances: Optional[pulumi.Input[pulumi.InputType['ClusterJobFlowInstancesConfigArgs']]] = None,
                  job_flow_role: Optional[pulumi.Input[str]] = None,
                  kerberos_attributes: Optional[pulumi.Input[pulumi.InputType['ClusterKerberosAttributesArgs']]] = None,
@@ -387,6 +428,7 @@ class Cluster(pulumi.CustomResource):
                  managed_scaling_policy: Optional[pulumi.Input[pulumi.InputType['ClusterManagedScalingPolicyArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  os_release_label: Optional[pulumi.Input[str]] = None,
+                 placement_group_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterPlacementGroupConfigArgs']]]]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
                  scale_down_behavior: Optional[pulumi.Input[str]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
@@ -412,7 +454,9 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["bootstrap_actions"] = bootstrap_actions
             __props__.__dict__["configurations"] = configurations
             __props__.__dict__["custom_ami_id"] = custom_ami_id
+            __props__.__dict__["ebs_root_volume_iops"] = ebs_root_volume_iops
             __props__.__dict__["ebs_root_volume_size"] = ebs_root_volume_size
+            __props__.__dict__["ebs_root_volume_throughput"] = ebs_root_volume_throughput
             if instances is None and not opts.urn:
                 raise TypeError("Missing required property 'instances'")
             __props__.__dict__["instances"] = instances
@@ -425,6 +469,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["managed_scaling_policy"] = managed_scaling_policy
             __props__.__dict__["name"] = name
             __props__.__dict__["os_release_label"] = os_release_label
+            __props__.__dict__["placement_group_configs"] = placement_group_configs
             __props__.__dict__["release_label"] = release_label
             __props__.__dict__["scale_down_behavior"] = scale_down_behavior
             __props__.__dict__["security_configuration"] = security_configuration
@@ -436,7 +481,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["visible_to_all_users"] = visible_to_all_users
             __props__.__dict__["master_public_dns"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["additional_info", "applications[*]", "auto_scaling_role", "bootstrap_actions[*]", "configurations[*]", "custom_ami_id", "ebs_root_volume_size", "job_flow_role", "kerberos_attributes", "log_encryption_kms_key_id", "log_uri", "name", "os_release_label", "release_label", "scale_down_behavior", "security_configuration", "service_role", "steps[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["additional_info", "applications[*]", "auto_scaling_role", "bootstrap_actions[*]", "configurations[*]", "custom_ami_id", "ebs_root_volume_iops", "ebs_root_volume_size", "ebs_root_volume_throughput", "job_flow_role", "kerberos_attributes", "log_encryption_kms_key_id", "log_uri", "name", "os_release_label", "placement_group_configs[*]", "release_label", "scale_down_behavior", "security_configuration", "service_role", "steps[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Cluster, __self__).__init__(
             'aws-native:emr:Cluster',
@@ -467,7 +512,9 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["bootstrap_actions"] = None
         __props__.__dict__["configurations"] = None
         __props__.__dict__["custom_ami_id"] = None
+        __props__.__dict__["ebs_root_volume_iops"] = None
         __props__.__dict__["ebs_root_volume_size"] = None
+        __props__.__dict__["ebs_root_volume_throughput"] = None
         __props__.__dict__["instances"] = None
         __props__.__dict__["job_flow_role"] = None
         __props__.__dict__["kerberos_attributes"] = None
@@ -477,6 +524,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["master_public_dns"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["os_release_label"] = None
+        __props__.__dict__["placement_group_configs"] = None
         __props__.__dict__["release_label"] = None
         __props__.__dict__["scale_down_behavior"] = None
         __props__.__dict__["security_configuration"] = None
@@ -523,9 +571,19 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "custom_ami_id")
 
     @property
+    @pulumi.getter(name="ebsRootVolumeIops")
+    def ebs_root_volume_iops(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "ebs_root_volume_iops")
+
+    @property
     @pulumi.getter(name="ebsRootVolumeSize")
     def ebs_root_volume_size(self) -> pulumi.Output[Optional[int]]:
         return pulumi.get(self, "ebs_root_volume_size")
+
+    @property
+    @pulumi.getter(name="ebsRootVolumeThroughput")
+    def ebs_root_volume_throughput(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "ebs_root_volume_throughput")
 
     @property
     @pulumi.getter
@@ -571,6 +629,11 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="osReleaseLabel")
     def os_release_label(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "os_release_label")
+
+    @property
+    @pulumi.getter(name="placementGroupConfigs")
+    def placement_group_configs(self) -> pulumi.Output[Optional[Sequence['outputs.ClusterPlacementGroupConfig']]]:
+        return pulumi.get(self, "placement_group_configs")
 
     @property
     @pulumi.getter(name="releaseLabel")

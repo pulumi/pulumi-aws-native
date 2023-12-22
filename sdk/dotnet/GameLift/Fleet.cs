@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.GameLift
         public Output<Outputs.FleetAnywhereConfiguration?> AnywhereConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+        /// </summary>
+        [Output("applyCapacity")]
+        public Output<Pulumi.AwsNative.GameLift.FleetApplyCapacity?> ApplyCapacity { get; private set; } = null!;
+
+        /// <summary>
         /// A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
         /// </summary>
         [Output("buildId")]
@@ -203,6 +209,7 @@ namespace Pulumi.AwsNative.GameLift
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "applyCapacity",
                     "buildId",
                     "certificateConfiguration",
                     "computeType",
@@ -244,6 +251,12 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         [Input("anywhereConfiguration")]
         public Input<Inputs.FleetAnywhereConfigurationArgs>? AnywhereConfiguration { get; set; }
+
+        /// <summary>
+        /// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+        /// </summary>
+        [Input("applyCapacity")]
+        public Input<Pulumi.AwsNative.GameLift.FleetApplyCapacity>? ApplyCapacity { get; set; }
 
         /// <summary>
         /// A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.

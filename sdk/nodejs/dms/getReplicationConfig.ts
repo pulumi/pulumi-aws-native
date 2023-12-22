@@ -44,10 +44,6 @@ export interface GetReplicationConfigResult {
      */
     readonly replicationType?: enums.dms.ReplicationConfigReplicationType;
     /**
-     * A unique value or name that you get set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource
-     */
-    readonly resourceIdentifier?: string;
-    /**
      * The Amazon Resource Name (ARN) of the source endpoint for this AWS DMS Serverless replication configuration
      */
     readonly sourceEndpointArn?: string;

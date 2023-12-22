@@ -81,6 +81,10 @@ namespace Pulumi.AwsNative.Connect
         /// Service linked role created as part of instance creation.
         /// </summary>
         public readonly string? ServiceRole;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InstanceTag> Tags;
 
         [OutputConstructor]
         private GetInstanceResult(
@@ -94,7 +98,9 @@ namespace Pulumi.AwsNative.Connect
 
             Pulumi.AwsNative.Connect.InstanceStatus? instanceStatus,
 
-            string? serviceRole)
+            string? serviceRole,
+
+            ImmutableArray<Outputs.InstanceTag> tags)
         {
             Arn = arn;
             Attributes = attributes;
@@ -102,6 +108,7 @@ namespace Pulumi.AwsNative.Connect
             Id = id;
             InstanceStatus = instanceStatus;
             ServiceRole = serviceRole;
+            Tags = tags;
         }
     }
 }

@@ -18,7 +18,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetSubscriptionResult:
-    def __init__(__self__, delivery_policy=None, filter_policy=None, filter_policy_scope=None, id=None, raw_message_delivery=None, redrive_policy=None, region=None, subscription_role_arn=None):
+    def __init__(__self__, delivery_policy=None, filter_policy=None, filter_policy_scope=None, id=None, raw_message_delivery=None, redrive_policy=None, region=None, replay_policy=None, subscription_role_arn=None):
         if delivery_policy and not isinstance(delivery_policy, dict):
             raise TypeError("Expected argument 'delivery_policy' to be a dict")
         pulumi.set(__self__, "delivery_policy", delivery_policy)
@@ -40,6 +40,9 @@ class GetSubscriptionResult:
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
+        if replay_policy and not isinstance(replay_policy, dict):
+            raise TypeError("Expected argument 'replay_policy' to be a dict")
+        pulumi.set(__self__, "replay_policy", replay_policy)
         if subscription_role_arn and not isinstance(subscription_role_arn, str):
             raise TypeError("Expected argument 'subscription_role_arn' to be a str")
         pulumi.set(__self__, "subscription_role_arn", subscription_role_arn)
@@ -80,6 +83,11 @@ class GetSubscriptionResult:
         return pulumi.get(self, "region")
 
     @property
+    @pulumi.getter(name="replayPolicy")
+    def replay_policy(self) -> Optional[Any]:
+        return pulumi.get(self, "replay_policy")
+
+    @property
     @pulumi.getter(name="subscriptionRoleArn")
     def subscription_role_arn(self) -> Optional[str]:
         return pulumi.get(self, "subscription_role_arn")
@@ -98,6 +106,7 @@ class AwaitableGetSubscriptionResult(GetSubscriptionResult):
             raw_message_delivery=self.raw_message_delivery,
             redrive_policy=self.redrive_policy,
             region=self.region,
+            replay_policy=self.replay_policy,
             subscription_role_arn=self.subscription_role_arn)
 
 
@@ -119,6 +128,7 @@ def get_subscription(id: Optional[str] = None,
         raw_message_delivery=pulumi.get(__ret__, 'raw_message_delivery'),
         redrive_policy=pulumi.get(__ret__, 'redrive_policy'),
         region=pulumi.get(__ret__, 'region'),
+        replay_policy=pulumi.get(__ret__, 'replay_policy'),
         subscription_role_arn=pulumi.get(__ret__, 'subscription_role_arn'))
 
 

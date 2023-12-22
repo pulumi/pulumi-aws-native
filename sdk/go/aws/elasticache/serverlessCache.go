@@ -25,8 +25,8 @@ type ServerlessCache struct {
 	// The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.
 	DailySnapshotTime pulumi.StringPtrOutput `pulumi:"dailySnapshotTime"`
 	// The description of the Serverless Cache.
-	Description pulumi.StringPtrOutput        `pulumi:"description"`
-	Endpoint    ServerlessCacheEndpointOutput `pulumi:"endpoint"`
+	Description pulumi.StringPtrOutput           `pulumi:"description"`
+	Endpoint    ServerlessCacheEndpointPtrOutput `pulumi:"endpoint"`
 	// The engine name of the Serverless Cache.
 	Engine pulumi.StringOutput `pulumi:"engine"`
 	// The final snapshot name which is taken before Serverless Cache is deleted.
@@ -36,8 +36,8 @@ type ServerlessCache struct {
 	// The ID of the KMS key used to encrypt the cluster.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The major engine version of the Serverless Cache.
-	MajorEngineVersion pulumi.StringPtrOutput        `pulumi:"majorEngineVersion"`
-	ReaderEndpoint     ServerlessCacheEndpointOutput `pulumi:"readerEndpoint"`
+	MajorEngineVersion pulumi.StringPtrOutput           `pulumi:"majorEngineVersion"`
+	ReaderEndpoint     ServerlessCacheEndpointPtrOutput `pulumi:"readerEndpoint"`
 	// One or more Amazon VPC security groups associated with this Serverless Cache.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The name of the Serverless Cache. This value must be unique.
@@ -112,7 +112,8 @@ type serverlessCacheArgs struct {
 	// The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.
 	DailySnapshotTime *string `pulumi:"dailySnapshotTime"`
 	// The description of the Serverless Cache.
-	Description *string `pulumi:"description"`
+	Description *string                  `pulumi:"description"`
+	Endpoint    *ServerlessCacheEndpoint `pulumi:"endpoint"`
 	// The engine name of the Serverless Cache.
 	Engine string `pulumi:"engine"`
 	// The final snapshot name which is taken before Serverless Cache is deleted.
@@ -120,7 +121,8 @@ type serverlessCacheArgs struct {
 	// The ID of the KMS key used to encrypt the cluster.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The major engine version of the Serverless Cache.
-	MajorEngineVersion *string `pulumi:"majorEngineVersion"`
+	MajorEngineVersion *string                  `pulumi:"majorEngineVersion"`
+	ReaderEndpoint     *ServerlessCacheEndpoint `pulumi:"readerEndpoint"`
 	// One or more Amazon VPC security groups associated with this Serverless Cache.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The name of the Serverless Cache. This value must be unique.
@@ -144,6 +146,7 @@ type ServerlessCacheArgs struct {
 	DailySnapshotTime pulumi.StringPtrInput
 	// The description of the Serverless Cache.
 	Description pulumi.StringPtrInput
+	Endpoint    ServerlessCacheEndpointPtrInput
 	// The engine name of the Serverless Cache.
 	Engine pulumi.StringInput
 	// The final snapshot name which is taken before Serverless Cache is deleted.
@@ -152,6 +155,7 @@ type ServerlessCacheArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// The major engine version of the Serverless Cache.
 	MajorEngineVersion pulumi.StringPtrInput
+	ReaderEndpoint     ServerlessCacheEndpointPtrInput
 	// One or more Amazon VPC security groups associated with this Serverless Cache.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The name of the Serverless Cache. This value must be unique.
@@ -241,8 +245,8 @@ func (o ServerlessCacheOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o ServerlessCacheOutput) Endpoint() ServerlessCacheEndpointOutput {
-	return o.ApplyT(func(v *ServerlessCache) ServerlessCacheEndpointOutput { return v.Endpoint }).(ServerlessCacheEndpointOutput)
+func (o ServerlessCacheOutput) Endpoint() ServerlessCacheEndpointPtrOutput {
+	return o.ApplyT(func(v *ServerlessCache) ServerlessCacheEndpointPtrOutput { return v.Endpoint }).(ServerlessCacheEndpointPtrOutput)
 }
 
 // The engine name of the Serverless Cache.
@@ -270,8 +274,8 @@ func (o ServerlessCacheOutput) MajorEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringPtrOutput { return v.MajorEngineVersion }).(pulumi.StringPtrOutput)
 }
 
-func (o ServerlessCacheOutput) ReaderEndpoint() ServerlessCacheEndpointOutput {
-	return o.ApplyT(func(v *ServerlessCache) ServerlessCacheEndpointOutput { return v.ReaderEndpoint }).(ServerlessCacheEndpointOutput)
+func (o ServerlessCacheOutput) ReaderEndpoint() ServerlessCacheEndpointPtrOutput {
+	return o.ApplyT(func(v *ServerlessCache) ServerlessCacheEndpointPtrOutput { return v.ReaderEndpoint }).(ServerlessCacheEndpointPtrOutput)
 }
 
 // One or more Amazon VPC security groups associated with this Serverless Cache.

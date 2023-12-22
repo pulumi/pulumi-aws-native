@@ -32,6 +32,8 @@ __all__ = [
     'ImagePipelineImageScanningConfiguration',
     'ImagePipelineImageTestsConfiguration',
     'ImagePipelineSchedule',
+    'ImagePipelineWorkflowConfiguration',
+    'ImagePipelineWorkflowParameter',
     'ImageRecipeAdditionalInstanceConfiguration',
     'ImageRecipeComponentConfiguration',
     'ImageRecipeComponentParameter',
@@ -40,6 +42,8 @@ __all__ = [
     'ImageRecipeSystemsManagerAgent',
     'ImageScanningConfiguration',
     'ImageTestsConfiguration',
+    'ImageWorkflowConfiguration',
+    'ImageWorkflowParameter',
     'InfrastructureConfigurationInstanceMetadataOptions',
     'InfrastructureConfigurationLogging',
     'InfrastructureConfigurationS3Logs',
@@ -1397,6 +1401,113 @@ class ImagePipelineSchedule(dict):
 
 
 @pulumi.output_type
+class ImagePipelineWorkflowConfiguration(dict):
+    """
+    The workflow configuration of the image
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "onFailure":
+            suggest = "on_failure"
+        elif key == "parallelGroup":
+            suggest = "parallel_group"
+        elif key == "workflowArn":
+            suggest = "workflow_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImagePipelineWorkflowConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImagePipelineWorkflowConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImagePipelineWorkflowConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 on_failure: Optional['ImagePipelineWorkflowConfigurationOnFailure'] = None,
+                 parallel_group: Optional[str] = None,
+                 parameters: Optional[Sequence['outputs.ImagePipelineWorkflowParameter']] = None,
+                 workflow_arn: Optional[str] = None):
+        """
+        The workflow configuration of the image
+        :param 'ImagePipelineWorkflowConfigurationOnFailure' on_failure: Define execution decision in case of workflow failure
+        :param str parallel_group: The parallel group name
+        :param Sequence['ImagePipelineWorkflowParameter'] parameters: The parameters associated with the workflow
+        :param str workflow_arn: The Amazon Resource Name (ARN) of the workflow
+        """
+        if on_failure is not None:
+            pulumi.set(__self__, "on_failure", on_failure)
+        if parallel_group is not None:
+            pulumi.set(__self__, "parallel_group", parallel_group)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if workflow_arn is not None:
+            pulumi.set(__self__, "workflow_arn", workflow_arn)
+
+    @property
+    @pulumi.getter(name="onFailure")
+    def on_failure(self) -> Optional['ImagePipelineWorkflowConfigurationOnFailure']:
+        """
+        Define execution decision in case of workflow failure
+        """
+        return pulumi.get(self, "on_failure")
+
+    @property
+    @pulumi.getter(name="parallelGroup")
+    def parallel_group(self) -> Optional[str]:
+        """
+        The parallel group name
+        """
+        return pulumi.get(self, "parallel_group")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.ImagePipelineWorkflowParameter']]:
+        """
+        The parameters associated with the workflow
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="workflowArn")
+    def workflow_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the workflow
+        """
+        return pulumi.get(self, "workflow_arn")
+
+
+@pulumi.output_type
+class ImagePipelineWorkflowParameter(dict):
+    """
+    A parameter associated with the workflow
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 value: Optional[Sequence[str]] = None):
+        """
+        A parameter associated with the workflow
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class ImageRecipeAdditionalInstanceConfiguration(dict):
     """
     Specify additional settings and launch scripts for your build instances.
@@ -1893,6 +2004,113 @@ class ImageTestsConfiguration(dict):
         TimeoutMinutes
         """
         return pulumi.get(self, "timeout_minutes")
+
+
+@pulumi.output_type
+class ImageWorkflowConfiguration(dict):
+    """
+    The workflow configuration of the image
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "onFailure":
+            suggest = "on_failure"
+        elif key == "parallelGroup":
+            suggest = "parallel_group"
+        elif key == "workflowArn":
+            suggest = "workflow_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageWorkflowConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageWorkflowConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageWorkflowConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 on_failure: Optional['ImageWorkflowConfigurationOnFailure'] = None,
+                 parallel_group: Optional[str] = None,
+                 parameters: Optional[Sequence['outputs.ImageWorkflowParameter']] = None,
+                 workflow_arn: Optional[str] = None):
+        """
+        The workflow configuration of the image
+        :param 'ImageWorkflowConfigurationOnFailure' on_failure: Define execution decision in case of workflow failure
+        :param str parallel_group: The parallel group name
+        :param Sequence['ImageWorkflowParameter'] parameters: The parameters associated with the workflow
+        :param str workflow_arn: The Amazon Resource Name (ARN) of the workflow
+        """
+        if on_failure is not None:
+            pulumi.set(__self__, "on_failure", on_failure)
+        if parallel_group is not None:
+            pulumi.set(__self__, "parallel_group", parallel_group)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if workflow_arn is not None:
+            pulumi.set(__self__, "workflow_arn", workflow_arn)
+
+    @property
+    @pulumi.getter(name="onFailure")
+    def on_failure(self) -> Optional['ImageWorkflowConfigurationOnFailure']:
+        """
+        Define execution decision in case of workflow failure
+        """
+        return pulumi.get(self, "on_failure")
+
+    @property
+    @pulumi.getter(name="parallelGroup")
+    def parallel_group(self) -> Optional[str]:
+        """
+        The parallel group name
+        """
+        return pulumi.get(self, "parallel_group")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.ImageWorkflowParameter']]:
+        """
+        The parameters associated with the workflow
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="workflowArn")
+    def workflow_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the workflow
+        """
+        return pulumi.get(self, "workflow_arn")
+
+
+@pulumi.output_type
+class ImageWorkflowParameter(dict):
+    """
+    A parameter associated with the workflow
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 value: Optional[Sequence[str]] = None):
+        """
+        A parameter associated with the workflow
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

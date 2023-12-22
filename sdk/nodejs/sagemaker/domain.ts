@@ -83,6 +83,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly securityGroupIdForDomainBoundary!: pulumi.Output<string>;
     /**
+     * The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after October 1, 2023.
+     */
+    public /*out*/ readonly singleSignOnApplicationArn!: pulumi.Output<string>;
+    /**
      * The SSO managed application instance ID.
      */
     public /*out*/ readonly singleSignOnManagedApplicationInstanceId!: pulumi.Output<string>;
@@ -141,6 +145,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["homeEfsFileSystemId"] = undefined /*out*/;
             resourceInputs["securityGroupIdForDomainBoundary"] = undefined /*out*/;
+            resourceInputs["singleSignOnApplicationArn"] = undefined /*out*/;
             resourceInputs["singleSignOnManagedApplicationInstanceId"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         } else {
@@ -156,6 +161,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["homeEfsFileSystemId"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["securityGroupIdForDomainBoundary"] = undefined /*out*/;
+            resourceInputs["singleSignOnApplicationArn"] = undefined /*out*/;
             resourceInputs["singleSignOnManagedApplicationInstanceId"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -163,7 +169,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["appNetworkAccessType", "authMode", "domainName", "domainSettings.rStudioServerProDomainSettings.defaultResourceSpec", "kmsKeyId", "subnetIds[*]", "tags[*]", "vpcId"] };
+        const replaceOnChanges = { replaceOnChanges: ["authMode", "domainName", "domainSettings.rStudioServerProDomainSettings.defaultResourceSpec", "kmsKeyId", "tags[*]", "vpcId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Domain.__pulumiType, name, resourceInputs, opts);
     }

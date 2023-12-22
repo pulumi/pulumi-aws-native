@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Specifies the number of Avilability Zone that's used for redundancy for the bucket.
+// Specifies the number of Availability Zone that's used for redundancy for the bucket.
 type DirectoryBucketDataRedundancy string
 
 const (

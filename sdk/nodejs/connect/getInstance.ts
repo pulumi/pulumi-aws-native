@@ -50,6 +50,10 @@ export interface GetInstanceResult {
      * Service linked role created as part of instance creation.
      */
     readonly serviceRole?: string;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    readonly tags?: outputs.connect.InstanceTag[];
 }
 /**
  * Resource Type definition for AWS::Connect::Instance

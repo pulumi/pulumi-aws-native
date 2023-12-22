@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.EventSchemas
 
     public sealed class GetSchemaArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The ARN of the schema.
+        /// </summary>
+        [Input("schemaArn", required: true)]
+        public string SchemaArn { get; set; } = null!;
 
         public GetSchemaArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.EventSchemas
 
     public sealed class GetSchemaInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The ARN of the schema.
+        /// </summary>
+        [Input("schemaArn", required: true)]
+        public Input<string> SchemaArn { get; set; } = null!;
 
         public GetSchemaInvokeArgs()
         {
@@ -51,13 +57,38 @@ namespace Pulumi.AwsNative.EventSchemas
     [OutputType]
     public sealed class GetSchemaResult
     {
+        /// <summary>
+        /// The source of the schema definition.
+        /// </summary>
         public readonly string? Content;
+        /// <summary>
+        /// A description of the schema.
+        /// </summary>
         public readonly string? Description;
-        public readonly string? Id;
+        /// <summary>
+        /// The last modified time of the schema.
+        /// </summary>
+        public readonly string? LastModified;
+        /// <summary>
+        /// The ARN of the schema.
+        /// </summary>
         public readonly string? SchemaArn;
+        /// <summary>
+        /// The version number of the schema.
+        /// </summary>
         public readonly string? SchemaVersion;
+        /// <summary>
+        /// Tags associated with the resource.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SchemaTagsEntry> Tags;
+        /// <summary>
+        /// The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
+        /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// The date the schema version was created.
+        /// </summary>
+        public readonly string? VersionCreatedDate;
 
         [OutputConstructor]
         private GetSchemaResult(
@@ -65,7 +96,7 @@ namespace Pulumi.AwsNative.EventSchemas
 
             string? description,
 
-            string? id,
+            string? lastModified,
 
             string? schemaArn,
 
@@ -73,15 +104,18 @@ namespace Pulumi.AwsNative.EventSchemas
 
             ImmutableArray<Outputs.SchemaTagsEntry> tags,
 
-            string? type)
+            string? type,
+
+            string? versionCreatedDate)
         {
             Content = content;
             Description = description;
-            Id = id;
+            LastModified = lastModified;
             SchemaArn = schemaArn;
             SchemaVersion = schemaVersion;
             Tags = tags;
             Type = type;
+            VersionCreatedDate = versionCreatedDate;
         }
     }
 }

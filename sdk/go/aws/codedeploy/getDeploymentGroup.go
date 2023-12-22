@@ -45,6 +45,7 @@ type LookupDeploymentGroupResult struct {
 	OutdatedInstancesStrategy        *string                                          `pulumi:"outdatedInstancesStrategy"`
 	ServiceRoleArn                   *string                                          `pulumi:"serviceRoleArn"`
 	Tags                             []DeploymentGroupTag                             `pulumi:"tags"`
+	TerminationHookEnabled           *bool                                            `pulumi:"terminationHookEnabled"`
 	TriggerConfigurations            []DeploymentGroupTriggerConfig                   `pulumi:"triggerConfigurations"`
 }
 
@@ -159,6 +160,10 @@ func (o LookupDeploymentGroupResultOutput) ServiceRoleArn() pulumi.StringPtrOutp
 
 func (o LookupDeploymentGroupResultOutput) Tags() DeploymentGroupTagArrayOutput {
 	return o.ApplyT(func(v LookupDeploymentGroupResult) []DeploymentGroupTag { return v.Tags }).(DeploymentGroupTagArrayOutput)
+}
+
+func (o LookupDeploymentGroupResultOutput) TerminationHookEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupDeploymentGroupResult) *bool { return v.TerminationHookEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupDeploymentGroupResultOutput) TriggerConfigurations() DeploymentGroupTriggerConfigArrayOutput {

@@ -23,6 +23,7 @@ class SubscriptionArgs:
                  raw_message_delivery: Optional[pulumi.Input[bool]] = None,
                  redrive_policy: Optional[Any] = None,
                  region: Optional[pulumi.Input[str]] = None,
+                 replay_policy: Optional[Any] = None,
                  subscription_role_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Subscription resource.
@@ -43,6 +44,8 @@ class SubscriptionArgs:
             pulumi.set(__self__, "redrive_policy", redrive_policy)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if replay_policy is not None:
+            pulumi.set(__self__, "replay_policy", replay_policy)
         if subscription_role_arn is not None:
             pulumi.set(__self__, "subscription_role_arn", subscription_role_arn)
 
@@ -128,6 +131,15 @@ class SubscriptionArgs:
         pulumi.set(self, "region", value)
 
     @property
+    @pulumi.getter(name="replayPolicy")
+    def replay_policy(self) -> Optional[Any]:
+        return pulumi.get(self, "replay_policy")
+
+    @replay_policy.setter
+    def replay_policy(self, value: Optional[Any]):
+        pulumi.set(self, "replay_policy", value)
+
+    @property
     @pulumi.getter(name="subscriptionRoleArn")
     def subscription_role_arn(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "subscription_role_arn")
@@ -155,6 +167,7 @@ class Subscription(pulumi.CustomResource):
                  raw_message_delivery: Optional[pulumi.Input[bool]] = None,
                  redrive_policy: Optional[Any] = None,
                  region: Optional[pulumi.Input[str]] = None,
+                 replay_policy: Optional[Any] = None,
                  subscription_role_arn: Optional[pulumi.Input[str]] = None,
                  topic_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -196,6 +209,7 @@ class Subscription(pulumi.CustomResource):
                  raw_message_delivery: Optional[pulumi.Input[bool]] = None,
                  redrive_policy: Optional[Any] = None,
                  region: Optional[pulumi.Input[str]] = None,
+                 replay_policy: Optional[Any] = None,
                  subscription_role_arn: Optional[pulumi.Input[str]] = None,
                  topic_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -218,6 +232,7 @@ class Subscription(pulumi.CustomResource):
             __props__.__dict__["raw_message_delivery"] = raw_message_delivery
             __props__.__dict__["redrive_policy"] = redrive_policy
             __props__.__dict__["region"] = region
+            __props__.__dict__["replay_policy"] = replay_policy
             __props__.__dict__["subscription_role_arn"] = subscription_role_arn
             if topic_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_arn'")
@@ -254,6 +269,7 @@ class Subscription(pulumi.CustomResource):
         __props__.__dict__["raw_message_delivery"] = None
         __props__.__dict__["redrive_policy"] = None
         __props__.__dict__["region"] = None
+        __props__.__dict__["replay_policy"] = None
         __props__.__dict__["subscription_role_arn"] = None
         __props__.__dict__["topic_arn"] = None
         return Subscription(resource_name, opts=opts, __props__=__props__)
@@ -297,6 +313,11 @@ class Subscription(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="replayPolicy")
+    def replay_policy(self) -> pulumi.Output[Optional[Any]]:
+        return pulumi.get(self, "replay_policy")
 
     @property
     @pulumi.getter(name="subscriptionRoleArn")

@@ -25,6 +25,7 @@ export interface GetConfigurationRecorderArgs {
 export interface GetConfigurationRecorderResult {
     readonly id?: string;
     readonly recordingGroup?: outputs.configuration.ConfigurationRecorderRecordingGroup;
+    readonly recordingMode?: outputs.configuration.ConfigurationRecorderRecordingMode;
     readonly roleArn?: string;
 }
 /**

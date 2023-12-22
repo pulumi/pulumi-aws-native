@@ -40,6 +40,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Output<bool?> EnhancedImageMetadataEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// The execution role name/ARN for the image build, if provided
+        /// </summary>
+        [Output("executionRole")]
+        public Output<string?> ExecutionRole { get; private set; } = null!;
+
+        /// <summary>
         /// The AMI ID of the EC2 AMI in current region.
         /// </summary>
         [Output("imageId")]
@@ -87,6 +93,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Workflows to define the image build process
+        /// </summary>
+        [Output("workflows")]
+        public Output<ImmutableArray<Outputs.ImageWorkflowConfiguration>> Workflows { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Image resource with the given unique name, arguments, and options.
@@ -120,6 +132,7 @@ namespace Pulumi.AwsNative.ImageBuilder
                     "imageTestsConfiguration",
                     "infrastructureConfigurationArn",
                     "tags",
+                    "workflows[*]",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -162,6 +175,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Input<bool>? EnhancedImageMetadataEnabled { get; set; }
 
         /// <summary>
+        /// The execution role name/ARN for the image build, if provided
+        /// </summary>
+        [Input("executionRole")]
+        public Input<string>? ExecutionRole { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
         /// </summary>
         [Input("imageRecipeArn")]
@@ -190,6 +209,18 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }
+
+        [Input("workflows")]
+        private InputList<Inputs.ImageWorkflowConfigurationArgs>? _workflows;
+
+        /// <summary>
+        /// Workflows to define the image build process
+        /// </summary>
+        public InputList<Inputs.ImageWorkflowConfigurationArgs> Workflows
+        {
+            get => _workflows ?? (_workflows = new InputList<Inputs.ImageWorkflowConfigurationArgs>());
+            set => _workflows = value;
+        }
 
         public ImageArgs()
         {

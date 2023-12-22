@@ -42,11 +42,11 @@ export class DirectoryBucket extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, dots (.), and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az2--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+     * Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
      */
     public readonly bucketName!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the number of Avilability Zone that's used for redundancy for the bucket.
+     * Specifies the number of Availability Zone that's used for redundancy for the bucket.
      */
     public readonly dataRedundancy!: pulumi.Output<enums.s3express.DirectoryBucketDataRedundancy>;
     /**
@@ -93,11 +93,11 @@ export class DirectoryBucket extends pulumi.CustomResource {
  */
 export interface DirectoryBucketArgs {
     /**
-     * Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, dots (.), and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az2--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+     * Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
      */
     bucketName?: pulumi.Input<string>;
     /**
-     * Specifies the number of Avilability Zone that's used for redundancy for the bucket.
+     * Specifies the number of Availability Zone that's used for redundancy for the bucket.
      */
     dataRedundancy: pulumi.Input<enums.s3express.DirectoryBucketDataRedundancy>;
     /**

@@ -39,6 +39,12 @@ namespace Pulumi.AwsNative.CodeDeploy
         [Output("trafficRoutingConfig")]
         public Output<Outputs.DeploymentConfigTrafficRoutingConfig?> TrafficRoutingConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The zonal deployment config that specifies how the zonal deployment behaves
+        /// </summary>
+        [Output("zonalConfig")]
+        public Output<Outputs.DeploymentConfigZonalConfig?> ZonalConfig { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a DeploymentConfig resource with the given unique name, arguments, and options.
@@ -68,6 +74,7 @@ namespace Pulumi.AwsNative.CodeDeploy
                     "deploymentConfigName",
                     "minimumHealthyHosts",
                     "trafficRoutingConfig",
+                    "zonalConfig",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -114,6 +121,12 @@ namespace Pulumi.AwsNative.CodeDeploy
         /// </summary>
         [Input("trafficRoutingConfig")]
         public Input<Inputs.DeploymentConfigTrafficRoutingConfigArgs>? TrafficRoutingConfig { get; set; }
+
+        /// <summary>
+        /// The zonal deployment config that specifies how the zonal deployment behaves
+        /// </summary>
+        [Input("zonalConfig")]
+        public Input<Inputs.DeploymentConfigZonalConfigArgs>? ZonalConfig { get; set; }
 
         public DeploymentConfigArgs()
         {

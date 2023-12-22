@@ -46,6 +46,7 @@ export class GraphQlApi extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly authenticationType!: pulumi.Output<string>;
     public /*out*/ readonly graphQlDns!: pulumi.Output<string>;
+    public /*out*/ readonly graphQlEndpointArn!: pulumi.Output<string>;
     public /*out*/ readonly graphQlUrl!: pulumi.Output<string>;
     public readonly lambdaAuthorizerConfig!: pulumi.Output<outputs.appsync.GraphQlApiLambdaAuthorizerConfig | undefined>;
     public readonly logConfig!: pulumi.Output<outputs.appsync.GraphQlApiLogConfig | undefined>;
@@ -92,6 +93,7 @@ export class GraphQlApi extends pulumi.CustomResource {
             resourceInputs["apiId"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["graphQlDns"] = undefined /*out*/;
+            resourceInputs["graphQlEndpointArn"] = undefined /*out*/;
             resourceInputs["graphQlUrl"] = undefined /*out*/;
             resourceInputs["realtimeDns"] = undefined /*out*/;
             resourceInputs["realtimeUrl"] = undefined /*out*/;
@@ -102,6 +104,7 @@ export class GraphQlApi extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["authenticationType"] = undefined /*out*/;
             resourceInputs["graphQlDns"] = undefined /*out*/;
+            resourceInputs["graphQlEndpointArn"] = undefined /*out*/;
             resourceInputs["graphQlUrl"] = undefined /*out*/;
             resourceInputs["lambdaAuthorizerConfig"] = undefined /*out*/;
             resourceInputs["logConfig"] = undefined /*out*/;

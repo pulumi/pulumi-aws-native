@@ -11,12 +11,92 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'PipelineBufferOptions',
+    'PipelineEncryptionAtRestOptions',
     'PipelineLogPublishingOptions',
     'PipelineLogPublishingOptionsCloudWatchLogDestinationProperties',
     'PipelineTag',
     'PipelineVpcEndpoint',
     'PipelineVpcOptions',
 ]
+
+@pulumi.output_type
+class PipelineBufferOptions(dict):
+    """
+    Key-value pairs to configure buffering.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "persistentBufferEnabled":
+            suggest = "persistent_buffer_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineBufferOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineBufferOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineBufferOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 persistent_buffer_enabled: bool):
+        """
+        Key-value pairs to configure buffering.
+        :param bool persistent_buffer_enabled: Whether persistent buffering should be enabled.
+        """
+        pulumi.set(__self__, "persistent_buffer_enabled", persistent_buffer_enabled)
+
+    @property
+    @pulumi.getter(name="persistentBufferEnabled")
+    def persistent_buffer_enabled(self) -> bool:
+        """
+        Whether persistent buffering should be enabled.
+        """
+        return pulumi.get(self, "persistent_buffer_enabled")
+
+
+@pulumi.output_type
+class PipelineEncryptionAtRestOptions(dict):
+    """
+    Key-value pairs to configure encryption at rest.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineEncryptionAtRestOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineEncryptionAtRestOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineEncryptionAtRestOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_arn: str):
+        """
+        Key-value pairs to configure encryption at rest.
+        :param str kms_key_arn: The KMS key to use for encrypting data. By default an AWS owned key is used
+        """
+        pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> str:
+        """
+        The KMS key to use for encrypting data. By default an AWS owned key is used
+        """
+        return pulumi.get(self, "kms_key_arn")
+
 
 @pulumi.output_type
 class PipelineLogPublishingOptions(dict):
@@ -95,16 +175,15 @@ class PipelineLogPublishingOptionsCloudWatchLogDestinationProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 log_group: Optional[str] = None):
+                 log_group: str):
         """
         The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
         """
-        if log_group is not None:
-            pulumi.set(__self__, "log_group", log_group)
+        pulumi.set(__self__, "log_group", log_group)
 
     @property
     @pulumi.getter(name="logGroup")
-    def log_group(self) -> Optional[str]:
+    def log_group(self) -> str:
         return pulumi.get(self, "log_group")
 
 
@@ -213,10 +292,10 @@ class PipelineVpcOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "securityGroupIds":
-            suggest = "security_group_ids"
-        elif key == "subnetIds":
+        if key == "subnetIds":
             suggest = "subnet_ids"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PipelineVpcOptions. Access the value via the '{suggest}' property getter instead.")
@@ -230,17 +309,24 @@ class PipelineVpcOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 security_group_ids: Optional[Sequence[str]] = None,
-                 subnet_ids: Optional[Sequence[str]] = None):
+                 subnet_ids: Sequence[str],
+                 security_group_ids: Optional[Sequence[str]] = None):
         """
         Container for the values required to configure VPC access for the pipeline. If you don't specify these values, OpenSearch Ingestion Service creates the pipeline with a public endpoint.
-        :param Sequence[str] security_group_ids: A list of security groups associated with the VPC endpoint.
         :param Sequence[str] subnet_ids: A list of subnet IDs associated with the VPC endpoint.
+        :param Sequence[str] security_group_ids: A list of security groups associated with the VPC endpoint.
         """
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
-        if subnet_ids is not None:
-            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[str]:
+        """
+        A list of subnet IDs associated with the VPC endpoint.
+        """
+        return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter(name="securityGroupIds")
@@ -249,13 +335,5 @@ class PipelineVpcOptions(dict):
         A list of security groups associated with the VPC endpoint.
         """
         return pulumi.get(self, "security_group_ids")
-
-    @property
-    @pulumi.getter(name="subnetIds")
-    def subnet_ids(self) -> Optional[Sequence[str]]:
-        """
-        A list of subnet IDs associated with the VPC endpoint.
-        """
-        return pulumi.get(self, "subnet_ids")
 
 

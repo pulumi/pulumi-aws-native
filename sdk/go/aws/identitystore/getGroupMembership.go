@@ -31,10 +31,6 @@ type LookupGroupMembershipArgs struct {
 }
 
 type LookupGroupMembershipResult struct {
-	// The unique identifier for a group in the identity store.
-	GroupId *string `pulumi:"groupId"`
-	// An object containing the identifier of a group member.
-	MemberId *GroupMembershipMemberId `pulumi:"memberId"`
 	// The identifier for a GroupMembership in the identity store.
 	MembershipId *string `pulumi:"membershipId"`
 }
@@ -81,16 +77,6 @@ func (o LookupGroupMembershipResultOutput) ToOutput(ctx context.Context) pulumix
 	return pulumix.Output[LookupGroupMembershipResult]{
 		OutputState: o.OutputState,
 	}
-}
-
-// The unique identifier for a group in the identity store.
-func (o LookupGroupMembershipResultOutput) GroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupGroupMembershipResult) *string { return v.GroupId }).(pulumi.StringPtrOutput)
-}
-
-// An object containing the identifier of a group member.
-func (o LookupGroupMembershipResultOutput) MemberId() GroupMembershipMemberIdPtrOutput {
-	return o.ApplyT(func(v LookupGroupMembershipResult) *GroupMembershipMemberId { return v.MemberId }).(GroupMembershipMemberIdPtrOutput)
 }
 
 // The identifier for a GroupMembership in the identity store.

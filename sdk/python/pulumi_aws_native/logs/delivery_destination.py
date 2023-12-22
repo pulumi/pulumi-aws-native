@@ -27,9 +27,9 @@ class DeliveryDestinationArgs:
                The policy must be in JSON string format.
                
                Length Constraints: Maximum length of 51200
-        :param pulumi.Input[str] destination_resource_arn: The ARN of the Destination Resource.
-        :param pulumi.Input[str] name: The unique name of the Delivery Destination.
-        :param pulumi.Input[Sequence[pulumi.Input['DeliveryDestinationTagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] destination_resource_arn: The ARN of the AWS resource that will receive the logs.
+        :param pulumi.Input[str] name: The name of this delivery destination.
+        :param pulumi.Input[Sequence[pulumi.Input['DeliveryDestinationTagArgs']]] tags: The tags that have been assigned to this delivery destination.
         """
         if delivery_destination_policy is not None:
             pulumi.set(__self__, "delivery_destination_policy", delivery_destination_policy)
@@ -60,7 +60,7 @@ class DeliveryDestinationArgs:
     @pulumi.getter(name="destinationResourceArn")
     def destination_resource_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the Destination Resource.
+        The ARN of the AWS resource that will receive the logs.
         """
         return pulumi.get(self, "destination_resource_arn")
 
@@ -72,7 +72,7 @@ class DeliveryDestinationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The unique name of the Delivery Destination.
+        The name of this delivery destination.
         """
         return pulumi.get(self, "name")
 
@@ -84,7 +84,7 @@ class DeliveryDestinationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryDestinationTagArgs']]]]:
         """
-        An array of key-value pairs to apply to this resource.
+        The tags that have been assigned to this delivery destination.
         """
         return pulumi.get(self, "tags")
 
@@ -104,7 +104,9 @@ class DeliveryDestination(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryDestinationTagArgs']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::Logs::DeliveryDestination
+        This structure contains information about one delivery destination in your account.
+
+        A delivery destination is an AWS resource that represents an AWS service that logs can be sent to CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,9 +115,9 @@ class DeliveryDestination(pulumi.CustomResource):
                The policy must be in JSON string format.
                
                Length Constraints: Maximum length of 51200
-        :param pulumi.Input[str] destination_resource_arn: The ARN of the Destination Resource.
-        :param pulumi.Input[str] name: The unique name of the Delivery Destination.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryDestinationTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] destination_resource_arn: The ARN of the AWS resource that will receive the logs.
+        :param pulumi.Input[str] name: The name of this delivery destination.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryDestinationTagArgs']]]] tags: The tags that have been assigned to this delivery destination.
         """
         ...
     @overload
@@ -124,7 +126,9 @@ class DeliveryDestination(pulumi.CustomResource):
                  args: Optional[DeliveryDestinationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::Logs::DeliveryDestination
+        This structure contains information about one delivery destination in your account.
+
+        A delivery destination is an AWS resource that represents an AWS service that logs can be sent to CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.
 
         :param str resource_name: The name of the resource.
         :param DeliveryDestinationArgs args: The arguments to use to populate this resource's properties.
@@ -196,7 +200,7 @@ class DeliveryDestination(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The value of the Arn property for this object.
+        The Amazon Resource Name (ARN) that uniquely identifies this delivery destination.
         """
         return pulumi.get(self, "arn")
 
@@ -216,7 +220,7 @@ class DeliveryDestination(pulumi.CustomResource):
     @pulumi.getter(name="deliveryDestinationType")
     def delivery_destination_type(self) -> pulumi.Output[str]:
         """
-        The value of the DeliveryDestinationType property for this object.
+        Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
         """
         return pulumi.get(self, "delivery_destination_type")
 
@@ -224,7 +228,7 @@ class DeliveryDestination(pulumi.CustomResource):
     @pulumi.getter(name="destinationResourceArn")
     def destination_resource_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The ARN of the Destination Resource.
+        The ARN of the AWS resource that will receive the logs.
         """
         return pulumi.get(self, "destination_resource_arn")
 
@@ -232,7 +236,7 @@ class DeliveryDestination(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The unique name of the Delivery Destination.
+        The name of this delivery destination.
         """
         return pulumi.get(self, "name")
 
@@ -240,7 +244,7 @@ class DeliveryDestination(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DeliveryDestinationTag']]]:
         """
-        An array of key-value pairs to apply to this resource.
+        The tags that have been assigned to this delivery destination.
         """
         return pulumi.get(self, "tags")
 

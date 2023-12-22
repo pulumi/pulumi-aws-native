@@ -18,6 +18,7 @@ __all__ = ['FleetArgs', 'Fleet']
 class FleetArgs:
     def __init__(__self__, *,
                  anywhere_configuration: Optional[pulumi.Input['FleetAnywhereConfigurationArgs']] = None,
+                 apply_capacity: Optional[pulumi.Input['FleetApplyCapacity']] = None,
                  build_id: Optional[pulumi.Input[str]] = None,
                  certificate_configuration: Optional[pulumi.Input['FleetCertificateConfigurationArgs']] = None,
                  compute_type: Optional[pulumi.Input['FleetComputeType']] = None,
@@ -46,6 +47,7 @@ class FleetArgs:
         """
         The set of arguments for constructing a Fleet resource.
         :param pulumi.Input['FleetAnywhereConfigurationArgs'] anywhere_configuration: Configuration for Anywhere fleet.
+        :param pulumi.Input['FleetApplyCapacity'] apply_capacity: ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
         :param pulumi.Input[str] build_id: A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
         :param pulumi.Input['FleetCertificateConfigurationArgs'] certificate_configuration: Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.
         :param pulumi.Input['FleetComputeType'] compute_type: ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
@@ -77,6 +79,8 @@ class FleetArgs:
         """
         if anywhere_configuration is not None:
             pulumi.set(__self__, "anywhere_configuration", anywhere_configuration)
+        if apply_capacity is not None:
+            pulumi.set(__self__, "apply_capacity", apply_capacity)
         if build_id is not None:
             pulumi.set(__self__, "build_id", build_id)
         if certificate_configuration is not None:
@@ -139,6 +143,18 @@ class FleetArgs:
     @anywhere_configuration.setter
     def anywhere_configuration(self, value: Optional[pulumi.Input['FleetAnywhereConfigurationArgs']]):
         pulumi.set(self, "anywhere_configuration", value)
+
+    @property
+    @pulumi.getter(name="applyCapacity")
+    def apply_capacity(self) -> Optional[pulumi.Input['FleetApplyCapacity']]:
+        """
+        ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+        """
+        return pulumi.get(self, "apply_capacity")
+
+    @apply_capacity.setter
+    def apply_capacity(self, value: Optional[pulumi.Input['FleetApplyCapacity']]):
+        pulumi.set(self, "apply_capacity", value)
 
     @property
     @pulumi.getter(name="buildId")
@@ -448,6 +464,7 @@ class Fleet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  anywhere_configuration: Optional[pulumi.Input[pulumi.InputType['FleetAnywhereConfigurationArgs']]] = None,
+                 apply_capacity: Optional[pulumi.Input['FleetApplyCapacity']] = None,
                  build_id: Optional[pulumi.Input[str]] = None,
                  certificate_configuration: Optional[pulumi.Input[pulumi.InputType['FleetCertificateConfigurationArgs']]] = None,
                  compute_type: Optional[pulumi.Input['FleetComputeType']] = None,
@@ -480,6 +497,7 @@ class Fleet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['FleetAnywhereConfigurationArgs']] anywhere_configuration: Configuration for Anywhere fleet.
+        :param pulumi.Input['FleetApplyCapacity'] apply_capacity: ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
         :param pulumi.Input[str] build_id: A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
         :param pulumi.Input[pulumi.InputType['FleetCertificateConfigurationArgs']] certificate_configuration: Indicates whether to generate a TLS/SSL certificate for the new fleet. TLS certificates are used for encrypting traffic between game clients and game servers running on GameLift. If this parameter is not set, certificate generation is disabled. This fleet setting cannot be changed once the fleet is created.
         :param pulumi.Input['FleetComputeType'] compute_type: ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
@@ -534,6 +552,7 @@ class Fleet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  anywhere_configuration: Optional[pulumi.Input[pulumi.InputType['FleetAnywhereConfigurationArgs']]] = None,
+                 apply_capacity: Optional[pulumi.Input['FleetApplyCapacity']] = None,
                  build_id: Optional[pulumi.Input[str]] = None,
                  certificate_configuration: Optional[pulumi.Input[pulumi.InputType['FleetCertificateConfigurationArgs']]] = None,
                  compute_type: Optional[pulumi.Input['FleetComputeType']] = None,
@@ -569,6 +588,7 @@ class Fleet(pulumi.CustomResource):
             __props__ = FleetArgs.__new__(FleetArgs)
 
             __props__.__dict__["anywhere_configuration"] = anywhere_configuration
+            __props__.__dict__["apply_capacity"] = apply_capacity
             __props__.__dict__["build_id"] = build_id
             __props__.__dict__["certificate_configuration"] = certificate_configuration
             __props__.__dict__["compute_type"] = compute_type
@@ -595,7 +615,7 @@ class Fleet(pulumi.CustomResource):
             __props__.__dict__["server_launch_parameters"] = server_launch_parameters
             __props__.__dict__["server_launch_path"] = server_launch_path
             __props__.__dict__["fleet_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["build_id", "certificate_configuration", "compute_type", "ec2_instance_type", "fleet_type", "instance_role_arn", "instance_role_credentials_provider", "log_paths[*]", "peer_vpc_aws_account_id", "peer_vpc_id", "script_id", "server_launch_parameters", "server_launch_path"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["apply_capacity", "build_id", "certificate_configuration", "compute_type", "ec2_instance_type", "fleet_type", "instance_role_arn", "instance_role_credentials_provider", "log_paths[*]", "peer_vpc_aws_account_id", "peer_vpc_id", "script_id", "server_launch_parameters", "server_launch_path"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Fleet, __self__).__init__(
             'aws-native:gamelift:Fleet',
@@ -620,6 +640,7 @@ class Fleet(pulumi.CustomResource):
         __props__ = FleetArgs.__new__(FleetArgs)
 
         __props__.__dict__["anywhere_configuration"] = None
+        __props__.__dict__["apply_capacity"] = None
         __props__.__dict__["build_id"] = None
         __props__.__dict__["certificate_configuration"] = None
         __props__.__dict__["compute_type"] = None
@@ -655,6 +676,14 @@ class Fleet(pulumi.CustomResource):
         Configuration for Anywhere fleet.
         """
         return pulumi.get(self, "anywhere_configuration")
+
+    @property
+    @pulumi.getter(name="applyCapacity")
+    def apply_capacity(self) -> pulumi.Output[Optional['FleetApplyCapacity']]:
+        """
+        ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+        """
+        return pulumi.get(self, "apply_capacity")
 
     @property
     @pulumi.getter(name="buildId")

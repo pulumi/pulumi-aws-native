@@ -28,6 +28,7 @@ export interface GetMembershipResult {
     readonly collaborationCreatorAccountId?: string;
     readonly defaultResultConfiguration?: outputs.cleanrooms.MembershipProtectedQueryResultConfiguration;
     readonly membershipIdentifier?: string;
+    readonly paymentConfiguration?: outputs.cleanrooms.MembershipPaymentConfiguration;
     readonly queryLogStatus?: enums.cleanrooms.MembershipQueryLogStatus;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms membership.

@@ -22,6 +22,9 @@ namespace Pulumi.AwsNative.Configuration
         [Output("recordingGroup")]
         public Output<Outputs.ConfigurationRecorderRecordingGroup?> RecordingGroup { get; private set; } = null!;
 
+        [Output("recordingMode")]
+        public Output<Outputs.ConfigurationRecorderRecordingMode?> RecordingMode { get; private set; } = null!;
+
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
@@ -79,6 +82,9 @@ namespace Pulumi.AwsNative.Configuration
 
         [Input("recordingGroup")]
         public Input<Inputs.ConfigurationRecorderRecordingGroupArgs>? RecordingGroup { get; set; }
+
+        [Input("recordingMode")]
+        public Input<Inputs.ConfigurationRecorderRecordingModeArgs>? RecordingMode { get; set; }
 
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;

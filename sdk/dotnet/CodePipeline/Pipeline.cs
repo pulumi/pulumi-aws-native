@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.CodePipeline
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        [Output("pipelineType")]
+        public Output<string?> PipelineType { get; private set; } = null!;
+
         [Output("restartExecutionOnUpdate")]
         public Output<bool?> RestartExecutionOnUpdate { get; private set; } = null!;
 
@@ -39,6 +42,12 @@ namespace Pulumi.AwsNative.CodePipeline
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.PipelineTag>> Tags { get; private set; } = null!;
+
+        [Output("triggers")]
+        public Output<ImmutableArray<Outputs.PipelineTriggerDeclaration>> Triggers { get; private set; } = null!;
+
+        [Output("variables")]
+        public Output<ImmutableArray<Outputs.PipelineVariableDeclaration>> Variables { get; private set; } = null!;
 
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -114,6 +123,9 @@ namespace Pulumi.AwsNative.CodePipeline
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("pipelineType")]
+        public Input<string>? PipelineType { get; set; }
+
         [Input("restartExecutionOnUpdate")]
         public Input<bool>? RestartExecutionOnUpdate { get; set; }
 
@@ -134,6 +146,22 @@ namespace Pulumi.AwsNative.CodePipeline
         {
             get => _tags ?? (_tags = new InputList<Inputs.PipelineTagArgs>());
             set => _tags = value;
+        }
+
+        [Input("triggers")]
+        private InputList<Inputs.PipelineTriggerDeclarationArgs>? _triggers;
+        public InputList<Inputs.PipelineTriggerDeclarationArgs> Triggers
+        {
+            get => _triggers ?? (_triggers = new InputList<Inputs.PipelineTriggerDeclarationArgs>());
+            set => _triggers = value;
+        }
+
+        [Input("variables")]
+        private InputList<Inputs.PipelineVariableDeclarationArgs>? _variables;
+        public InputList<Inputs.PipelineVariableDeclarationArgs> Variables
+        {
+            get => _variables ?? (_variables = new InputList<Inputs.PipelineVariableDeclarationArgs>());
+            set => _variables = value;
         }
 
         public PipelineArgs()

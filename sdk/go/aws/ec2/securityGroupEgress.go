@@ -14,20 +14,27 @@ import (
 )
 
 // Resource Type definition for AWS::EC2::SecurityGroupEgress
-//
-// Deprecated: SecurityGroupEgress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type SecurityGroupEgress struct {
 	pulumi.CustomResourceState
 
-	CidrIp                     pulumi.StringPtrOutput `pulumi:"cidrIp"`
-	CidrIpv6                   pulumi.StringPtrOutput `pulumi:"cidrIpv6"`
-	Description                pulumi.StringPtrOutput `pulumi:"description"`
-	DestinationPrefixListId    pulumi.StringPtrOutput `pulumi:"destinationPrefixListId"`
+	// The IPv4 ranges
+	CidrIp pulumi.StringPtrOutput `pulumi:"cidrIp"`
+	// [VPC only] The IPv6 ranges
+	CidrIpv6 pulumi.StringPtrOutput `pulumi:"cidrIpv6"`
+	// Resource Type definition for an egress (outbound) security group rule.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// [EC2-VPC only] The ID of a prefix list.
+	DestinationPrefixListId pulumi.StringPtrOutput `pulumi:"destinationPrefixListId"`
+	// You must specify a destination security group (DestinationPrefixListId or DestinationSecurityGroupId) or a CIDR range (CidrIp or CidrIpv6).
 	DestinationSecurityGroupId pulumi.StringPtrOutput `pulumi:"destinationSecurityGroupId"`
-	FromPort                   pulumi.IntPtrOutput    `pulumi:"fromPort"`
-	GroupId                    pulumi.StringOutput    `pulumi:"groupId"`
-	IpProtocol                 pulumi.StringOutput    `pulumi:"ipProtocol"`
-	ToPort                     pulumi.IntPtrOutput    `pulumi:"toPort"`
+	// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+	FromPort pulumi.IntPtrOutput `pulumi:"fromPort"`
+	// The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
+	GroupId pulumi.StringOutput `pulumi:"groupId"`
+	// [VPC only] Use -1 to specify all protocols. When authorizing security group rules, specifying -1 or a protocol number other than tcp, udp, icmp, or icmpv6 allows traffic on all ports, regardless of any port range you specify. For tcp, udp, and icmp, you must specify a port range. For icmpv6, the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
+	IpProtocol pulumi.StringOutput `pulumi:"ipProtocol"`
+	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of -1 indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+	ToPort pulumi.IntPtrOutput `pulumi:"toPort"`
 }
 
 // NewSecurityGroupEgress registers a new resource with the given unique name, arguments, and options.
@@ -87,28 +94,46 @@ func (SecurityGroupEgressState) ElementType() reflect.Type {
 }
 
 type securityGroupEgressArgs struct {
-	CidrIp                     *string `pulumi:"cidrIp"`
-	CidrIpv6                   *string `pulumi:"cidrIpv6"`
-	Description                *string `pulumi:"description"`
-	DestinationPrefixListId    *string `pulumi:"destinationPrefixListId"`
+	// The IPv4 ranges
+	CidrIp *string `pulumi:"cidrIp"`
+	// [VPC only] The IPv6 ranges
+	CidrIpv6 *string `pulumi:"cidrIpv6"`
+	// Resource Type definition for an egress (outbound) security group rule.
+	Description *string `pulumi:"description"`
+	// [EC2-VPC only] The ID of a prefix list.
+	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
+	// You must specify a destination security group (DestinationPrefixListId or DestinationSecurityGroupId) or a CIDR range (CidrIp or CidrIpv6).
 	DestinationSecurityGroupId *string `pulumi:"destinationSecurityGroupId"`
-	FromPort                   *int    `pulumi:"fromPort"`
-	GroupId                    string  `pulumi:"groupId"`
-	IpProtocol                 string  `pulumi:"ipProtocol"`
-	ToPort                     *int    `pulumi:"toPort"`
+	// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+	FromPort *int `pulumi:"fromPort"`
+	// The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
+	GroupId string `pulumi:"groupId"`
+	// [VPC only] Use -1 to specify all protocols. When authorizing security group rules, specifying -1 or a protocol number other than tcp, udp, icmp, or icmpv6 allows traffic on all ports, regardless of any port range you specify. For tcp, udp, and icmp, you must specify a port range. For icmpv6, the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
+	IpProtocol string `pulumi:"ipProtocol"`
+	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of -1 indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+	ToPort *int `pulumi:"toPort"`
 }
 
 // The set of arguments for constructing a SecurityGroupEgress resource.
 type SecurityGroupEgressArgs struct {
-	CidrIp                     pulumi.StringPtrInput
-	CidrIpv6                   pulumi.StringPtrInput
-	Description                pulumi.StringPtrInput
-	DestinationPrefixListId    pulumi.StringPtrInput
+	// The IPv4 ranges
+	CidrIp pulumi.StringPtrInput
+	// [VPC only] The IPv6 ranges
+	CidrIpv6 pulumi.StringPtrInput
+	// Resource Type definition for an egress (outbound) security group rule.
+	Description pulumi.StringPtrInput
+	// [EC2-VPC only] The ID of a prefix list.
+	DestinationPrefixListId pulumi.StringPtrInput
+	// You must specify a destination security group (DestinationPrefixListId or DestinationSecurityGroupId) or a CIDR range (CidrIp or CidrIpv6).
 	DestinationSecurityGroupId pulumi.StringPtrInput
-	FromPort                   pulumi.IntPtrInput
-	GroupId                    pulumi.StringInput
-	IpProtocol                 pulumi.StringInput
-	ToPort                     pulumi.IntPtrInput
+	// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+	FromPort pulumi.IntPtrInput
+	// The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
+	GroupId pulumi.StringInput
+	// [VPC only] Use -1 to specify all protocols. When authorizing security group rules, specifying -1 or a protocol number other than tcp, udp, icmp, or icmpv6 allows traffic on all ports, regardless of any port range you specify. For tcp, udp, and icmp, you must specify a port range. For icmpv6, the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
+	IpProtocol pulumi.StringInput
+	// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of -1 indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+	ToPort pulumi.IntPtrInput
 }
 
 func (SecurityGroupEgressArgs) ElementType() reflect.Type {
@@ -160,38 +185,47 @@ func (o SecurityGroupEgressOutput) ToOutput(ctx context.Context) pulumix.Output[
 	}
 }
 
+// The IPv4 ranges
 func (o SecurityGroupEgressOutput) CidrIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.StringPtrOutput { return v.CidrIp }).(pulumi.StringPtrOutput)
 }
 
+// [VPC only] The IPv6 ranges
 func (o SecurityGroupEgressOutput) CidrIpv6() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.StringPtrOutput { return v.CidrIpv6 }).(pulumi.StringPtrOutput)
 }
 
+// Resource Type definition for an egress (outbound) security group rule.
 func (o SecurityGroupEgressOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// [EC2-VPC only] The ID of a prefix list.
 func (o SecurityGroupEgressOutput) DestinationPrefixListId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.StringPtrOutput { return v.DestinationPrefixListId }).(pulumi.StringPtrOutput)
 }
 
+// You must specify a destination security group (DestinationPrefixListId or DestinationSecurityGroupId) or a CIDR range (CidrIp or CidrIpv6).
 func (o SecurityGroupEgressOutput) DestinationSecurityGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.StringPtrOutput { return v.DestinationSecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
+// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
 func (o SecurityGroupEgressOutput) FromPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.IntPtrOutput { return v.FromPort }).(pulumi.IntPtrOutput)
 }
 
+// The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
 func (o SecurityGroupEgressOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
 }
 
+// [VPC only] Use -1 to specify all protocols. When authorizing security group rules, specifying -1 or a protocol number other than tcp, udp, icmp, or icmpv6 allows traffic on all ports, regardless of any port range you specify. For tcp, udp, and icmp, you must specify a port range. For icmpv6, the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
 func (o SecurityGroupEgressOutput) IpProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.StringOutput { return v.IpProtocol }).(pulumi.StringOutput)
 }
 
+// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of -1 indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
 func (o SecurityGroupEgressOutput) ToPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecurityGroupEgress) pulumi.IntPtrOutput { return v.ToPort }).(pulumi.IntPtrOutput)
 }

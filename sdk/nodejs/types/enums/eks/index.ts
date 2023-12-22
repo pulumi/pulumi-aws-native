@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AccessEntryAccessScopeType = {
+    Namespace: "namespace",
+    Cluster: "cluster",
+} as const;
+
+/**
+ * The type of the access scope.
+ */
+export type AccessEntryAccessScopeType = (typeof AccessEntryAccessScopeType)[keyof typeof AccessEntryAccessScopeType];
+
 export const AddonResolveConflicts = {
     None: "NONE",
     Overwrite: "OVERWRITE",
@@ -12,6 +22,17 @@ export const AddonResolveConflicts = {
  * Resolve parameter value conflicts
  */
 export type AddonResolveConflicts = (typeof AddonResolveConflicts)[keyof typeof AddonResolveConflicts];
+
+export const ClusterAccessConfigAuthenticationMode = {
+    ConfigMap: "CONFIG_MAP",
+    ApiAndConfigMap: "API_AND_CONFIG_MAP",
+    Api: "API",
+} as const;
+
+/**
+ * Specify the authentication mode that should be used to create your cluster.
+ */
+export type ClusterAccessConfigAuthenticationMode = (typeof ClusterAccessConfigAuthenticationMode)[keyof typeof ClusterAccessConfigAuthenticationMode];
 
 export const ClusterKubernetesNetworkConfigIpFamily = {
     Ipv4: "ipv4",

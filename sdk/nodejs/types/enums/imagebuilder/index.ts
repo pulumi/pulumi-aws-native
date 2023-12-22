@@ -94,6 +94,16 @@ export const ImagePipelineStatus = {
  */
 export type ImagePipelineStatus = (typeof ImagePipelineStatus)[keyof typeof ImagePipelineStatus];
 
+export const ImagePipelineWorkflowConfigurationOnFailure = {
+    Continue: "CONTINUE",
+    Abort: "ABORT",
+} as const;
+
+/**
+ * Define execution decision in case of workflow failure
+ */
+export type ImagePipelineWorkflowConfigurationOnFailure = (typeof ImagePipelineWorkflowConfigurationOnFailure)[keyof typeof ImagePipelineWorkflowConfigurationOnFailure];
+
 export const ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType = {
     Standard: "standard",
     Io1: "io1",
@@ -108,6 +118,16 @@ export const ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType = {
  * Use to override the device's volume type.
  */
 export type ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType = (typeof ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType)[keyof typeof ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType];
+
+export const ImageWorkflowConfigurationOnFailure = {
+    Continue: "CONTINUE",
+    Abort: "ABORT",
+} as const;
+
+/**
+ * Define execution decision in case of workflow failure
+ */
+export type ImageWorkflowConfigurationOnFailure = (typeof ImageWorkflowConfigurationOnFailure)[keyof typeof ImageWorkflowConfigurationOnFailure];
 
 export const InfrastructureConfigurationInstanceMetadataOptionsHttpTokens = {
     Required: "required",
@@ -171,3 +191,14 @@ export const LifecyclePolicyTimeUnit = {
  * A time unit.
  */
 export type LifecyclePolicyTimeUnit = (typeof LifecyclePolicyTimeUnit)[keyof typeof LifecyclePolicyTimeUnit];
+
+export const WorkflowType = {
+    Build: "BUILD",
+    Test: "TEST",
+    Distribution: "DISTRIBUTION",
+} as const;
+
+/**
+ * The type of the workflow denotes whether the workflow is used to build, test, or distribute.
+ */
+export type WorkflowType = (typeof WorkflowType)[keyof typeof WorkflowType];

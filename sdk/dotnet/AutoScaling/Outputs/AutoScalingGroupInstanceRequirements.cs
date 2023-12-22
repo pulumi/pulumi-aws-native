@@ -28,14 +28,14 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
         public readonly string? LocalStorage;
         public readonly ImmutableArray<string> LocalStorageTypes;
         public readonly Outputs.AutoScalingGroupMemoryGiBPerVCpuRequest? MemoryGiBPerVCpu;
-        public readonly Outputs.AutoScalingGroupMemoryMiBRequest? MemoryMiB;
+        public readonly Outputs.AutoScalingGroupMemoryMiBRequest MemoryMiB;
         public readonly Outputs.AutoScalingGroupNetworkBandwidthGbpsRequest? NetworkBandwidthGbps;
         public readonly Outputs.AutoScalingGroupNetworkInterfaceCountRequest? NetworkInterfaceCount;
         public readonly int? OnDemandMaxPricePercentageOverLowestPrice;
         public readonly bool? RequireHibernateSupport;
         public readonly int? SpotMaxPricePercentageOverLowestPrice;
         public readonly Outputs.AutoScalingGroupTotalLocalStorageGbRequest? TotalLocalStorageGb;
-        public readonly Outputs.AutoScalingGroupVCpuCountRequest? VCpuCount;
+        public readonly Outputs.AutoScalingGroupVCpuCountRequest VCpuCount;
 
         [OutputConstructor]
         private AutoScalingGroupInstanceRequirements(
@@ -69,7 +69,7 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
 
             Outputs.AutoScalingGroupMemoryGiBPerVCpuRequest? memoryGiBPerVCpu,
 
-            Outputs.AutoScalingGroupMemoryMiBRequest? memoryMiB,
+            Outputs.AutoScalingGroupMemoryMiBRequest memoryMiB,
 
             Outputs.AutoScalingGroupNetworkBandwidthGbpsRequest? networkBandwidthGbps,
 
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
 
             Outputs.AutoScalingGroupTotalLocalStorageGbRequest? totalLocalStorageGb,
 
-            Outputs.AutoScalingGroupVCpuCountRequest? vCpuCount)
+            Outputs.AutoScalingGroupVCpuCountRequest vCpuCount)
         {
             AcceleratorCount = acceleratorCount;
             AcceleratorManufacturers = acceleratorManufacturers;

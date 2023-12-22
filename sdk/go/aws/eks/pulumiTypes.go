@@ -14,6 +14,345 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// An access policy to associate with the current access entry.
+type AccessEntryAccessPolicy struct {
+	AccessScope AccessEntryAccessScope `pulumi:"accessScope"`
+	// The ARN of the access policy to add to the access entry.
+	PolicyArn string `pulumi:"policyArn"`
+}
+
+// AccessEntryAccessPolicyInput is an input type that accepts AccessEntryAccessPolicyArgs and AccessEntryAccessPolicyOutput values.
+// You can construct a concrete instance of `AccessEntryAccessPolicyInput` via:
+//
+//	AccessEntryAccessPolicyArgs{...}
+type AccessEntryAccessPolicyInput interface {
+	pulumi.Input
+
+	ToAccessEntryAccessPolicyOutput() AccessEntryAccessPolicyOutput
+	ToAccessEntryAccessPolicyOutputWithContext(context.Context) AccessEntryAccessPolicyOutput
+}
+
+// An access policy to associate with the current access entry.
+type AccessEntryAccessPolicyArgs struct {
+	AccessScope AccessEntryAccessScopeInput `pulumi:"accessScope"`
+	// The ARN of the access policy to add to the access entry.
+	PolicyArn pulumi.StringInput `pulumi:"policyArn"`
+}
+
+func (AccessEntryAccessPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessEntryAccessPolicy)(nil)).Elem()
+}
+
+func (i AccessEntryAccessPolicyArgs) ToAccessEntryAccessPolicyOutput() AccessEntryAccessPolicyOutput {
+	return i.ToAccessEntryAccessPolicyOutputWithContext(context.Background())
+}
+
+func (i AccessEntryAccessPolicyArgs) ToAccessEntryAccessPolicyOutputWithContext(ctx context.Context) AccessEntryAccessPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessEntryAccessPolicyOutput)
+}
+
+func (i AccessEntryAccessPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[AccessEntryAccessPolicy] {
+	return pulumix.Output[AccessEntryAccessPolicy]{
+		OutputState: i.ToAccessEntryAccessPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
+// AccessEntryAccessPolicyArrayInput is an input type that accepts AccessEntryAccessPolicyArray and AccessEntryAccessPolicyArrayOutput values.
+// You can construct a concrete instance of `AccessEntryAccessPolicyArrayInput` via:
+//
+//	AccessEntryAccessPolicyArray{ AccessEntryAccessPolicyArgs{...} }
+type AccessEntryAccessPolicyArrayInput interface {
+	pulumi.Input
+
+	ToAccessEntryAccessPolicyArrayOutput() AccessEntryAccessPolicyArrayOutput
+	ToAccessEntryAccessPolicyArrayOutputWithContext(context.Context) AccessEntryAccessPolicyArrayOutput
+}
+
+type AccessEntryAccessPolicyArray []AccessEntryAccessPolicyInput
+
+func (AccessEntryAccessPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessEntryAccessPolicy)(nil)).Elem()
+}
+
+func (i AccessEntryAccessPolicyArray) ToAccessEntryAccessPolicyArrayOutput() AccessEntryAccessPolicyArrayOutput {
+	return i.ToAccessEntryAccessPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i AccessEntryAccessPolicyArray) ToAccessEntryAccessPolicyArrayOutputWithContext(ctx context.Context) AccessEntryAccessPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessEntryAccessPolicyArrayOutput)
+}
+
+func (i AccessEntryAccessPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]AccessEntryAccessPolicy] {
+	return pulumix.Output[[]AccessEntryAccessPolicy]{
+		OutputState: i.ToAccessEntryAccessPolicyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// An access policy to associate with the current access entry.
+type AccessEntryAccessPolicyOutput struct{ *pulumi.OutputState }
+
+func (AccessEntryAccessPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessEntryAccessPolicy)(nil)).Elem()
+}
+
+func (o AccessEntryAccessPolicyOutput) ToAccessEntryAccessPolicyOutput() AccessEntryAccessPolicyOutput {
+	return o
+}
+
+func (o AccessEntryAccessPolicyOutput) ToAccessEntryAccessPolicyOutputWithContext(ctx context.Context) AccessEntryAccessPolicyOutput {
+	return o
+}
+
+func (o AccessEntryAccessPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[AccessEntryAccessPolicy] {
+	return pulumix.Output[AccessEntryAccessPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AccessEntryAccessPolicyOutput) AccessScope() AccessEntryAccessScopeOutput {
+	return o.ApplyT(func(v AccessEntryAccessPolicy) AccessEntryAccessScope { return v.AccessScope }).(AccessEntryAccessScopeOutput)
+}
+
+// The ARN of the access policy to add to the access entry.
+func (o AccessEntryAccessPolicyOutput) PolicyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessEntryAccessPolicy) string { return v.PolicyArn }).(pulumi.StringOutput)
+}
+
+type AccessEntryAccessPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessEntryAccessPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessEntryAccessPolicy)(nil)).Elem()
+}
+
+func (o AccessEntryAccessPolicyArrayOutput) ToAccessEntryAccessPolicyArrayOutput() AccessEntryAccessPolicyArrayOutput {
+	return o
+}
+
+func (o AccessEntryAccessPolicyArrayOutput) ToAccessEntryAccessPolicyArrayOutputWithContext(ctx context.Context) AccessEntryAccessPolicyArrayOutput {
+	return o
+}
+
+func (o AccessEntryAccessPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccessEntryAccessPolicy] {
+	return pulumix.Output[[]AccessEntryAccessPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AccessEntryAccessPolicyArrayOutput) Index(i pulumi.IntInput) AccessEntryAccessPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessEntryAccessPolicy {
+		return vs[0].([]AccessEntryAccessPolicy)[vs[1].(int)]
+	}).(AccessEntryAccessPolicyOutput)
+}
+
+// The access scope of the access policy.
+type AccessEntryAccessScope struct {
+	// The namespaces to associate with the access scope. Only specify if Type is set to 'namespace'.
+	Namespaces []string `pulumi:"namespaces"`
+	// The type of the access scope.
+	Type AccessEntryAccessScopeType `pulumi:"type"`
+}
+
+// AccessEntryAccessScopeInput is an input type that accepts AccessEntryAccessScopeArgs and AccessEntryAccessScopeOutput values.
+// You can construct a concrete instance of `AccessEntryAccessScopeInput` via:
+//
+//	AccessEntryAccessScopeArgs{...}
+type AccessEntryAccessScopeInput interface {
+	pulumi.Input
+
+	ToAccessEntryAccessScopeOutput() AccessEntryAccessScopeOutput
+	ToAccessEntryAccessScopeOutputWithContext(context.Context) AccessEntryAccessScopeOutput
+}
+
+// The access scope of the access policy.
+type AccessEntryAccessScopeArgs struct {
+	// The namespaces to associate with the access scope. Only specify if Type is set to 'namespace'.
+	Namespaces pulumi.StringArrayInput `pulumi:"namespaces"`
+	// The type of the access scope.
+	Type AccessEntryAccessScopeTypeInput `pulumi:"type"`
+}
+
+func (AccessEntryAccessScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessEntryAccessScope)(nil)).Elem()
+}
+
+func (i AccessEntryAccessScopeArgs) ToAccessEntryAccessScopeOutput() AccessEntryAccessScopeOutput {
+	return i.ToAccessEntryAccessScopeOutputWithContext(context.Background())
+}
+
+func (i AccessEntryAccessScopeArgs) ToAccessEntryAccessScopeOutputWithContext(ctx context.Context) AccessEntryAccessScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessEntryAccessScopeOutput)
+}
+
+func (i AccessEntryAccessScopeArgs) ToOutput(ctx context.Context) pulumix.Output[AccessEntryAccessScope] {
+	return pulumix.Output[AccessEntryAccessScope]{
+		OutputState: i.ToAccessEntryAccessScopeOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The access scope of the access policy.
+type AccessEntryAccessScopeOutput struct{ *pulumi.OutputState }
+
+func (AccessEntryAccessScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessEntryAccessScope)(nil)).Elem()
+}
+
+func (o AccessEntryAccessScopeOutput) ToAccessEntryAccessScopeOutput() AccessEntryAccessScopeOutput {
+	return o
+}
+
+func (o AccessEntryAccessScopeOutput) ToAccessEntryAccessScopeOutputWithContext(ctx context.Context) AccessEntryAccessScopeOutput {
+	return o
+}
+
+func (o AccessEntryAccessScopeOutput) ToOutput(ctx context.Context) pulumix.Output[AccessEntryAccessScope] {
+	return pulumix.Output[AccessEntryAccessScope]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The namespaces to associate with the access scope. Only specify if Type is set to 'namespace'.
+func (o AccessEntryAccessScopeOutput) Namespaces() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccessEntryAccessScope) []string { return v.Namespaces }).(pulumi.StringArrayOutput)
+}
+
+// The type of the access scope.
+func (o AccessEntryAccessScopeOutput) Type() AccessEntryAccessScopeTypeOutput {
+	return o.ApplyT(func(v AccessEntryAccessScope) AccessEntryAccessScopeType { return v.Type }).(AccessEntryAccessScopeTypeOutput)
+}
+
+// A key-value pair to associate with a resource.
+type AccessEntryTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// AccessEntryTagInput is an input type that accepts AccessEntryTagArgs and AccessEntryTagOutput values.
+// You can construct a concrete instance of `AccessEntryTagInput` via:
+//
+//	AccessEntryTagArgs{...}
+type AccessEntryTagInput interface {
+	pulumi.Input
+
+	ToAccessEntryTagOutput() AccessEntryTagOutput
+	ToAccessEntryTagOutputWithContext(context.Context) AccessEntryTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type AccessEntryTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (AccessEntryTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessEntryTag)(nil)).Elem()
+}
+
+func (i AccessEntryTagArgs) ToAccessEntryTagOutput() AccessEntryTagOutput {
+	return i.ToAccessEntryTagOutputWithContext(context.Background())
+}
+
+func (i AccessEntryTagArgs) ToAccessEntryTagOutputWithContext(ctx context.Context) AccessEntryTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessEntryTagOutput)
+}
+
+func (i AccessEntryTagArgs) ToOutput(ctx context.Context) pulumix.Output[AccessEntryTag] {
+	return pulumix.Output[AccessEntryTag]{
+		OutputState: i.ToAccessEntryTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// AccessEntryTagArrayInput is an input type that accepts AccessEntryTagArray and AccessEntryTagArrayOutput values.
+// You can construct a concrete instance of `AccessEntryTagArrayInput` via:
+//
+//	AccessEntryTagArray{ AccessEntryTagArgs{...} }
+type AccessEntryTagArrayInput interface {
+	pulumi.Input
+
+	ToAccessEntryTagArrayOutput() AccessEntryTagArrayOutput
+	ToAccessEntryTagArrayOutputWithContext(context.Context) AccessEntryTagArrayOutput
+}
+
+type AccessEntryTagArray []AccessEntryTagInput
+
+func (AccessEntryTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessEntryTag)(nil)).Elem()
+}
+
+func (i AccessEntryTagArray) ToAccessEntryTagArrayOutput() AccessEntryTagArrayOutput {
+	return i.ToAccessEntryTagArrayOutputWithContext(context.Background())
+}
+
+func (i AccessEntryTagArray) ToAccessEntryTagArrayOutputWithContext(ctx context.Context) AccessEntryTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessEntryTagArrayOutput)
+}
+
+func (i AccessEntryTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AccessEntryTag] {
+	return pulumix.Output[[]AccessEntryTag]{
+		OutputState: i.ToAccessEntryTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A key-value pair to associate with a resource.
+type AccessEntryTagOutput struct{ *pulumi.OutputState }
+
+func (AccessEntryTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessEntryTag)(nil)).Elem()
+}
+
+func (o AccessEntryTagOutput) ToAccessEntryTagOutput() AccessEntryTagOutput {
+	return o
+}
+
+func (o AccessEntryTagOutput) ToAccessEntryTagOutputWithContext(ctx context.Context) AccessEntryTagOutput {
+	return o
+}
+
+func (o AccessEntryTagOutput) ToOutput(ctx context.Context) pulumix.Output[AccessEntryTag] {
+	return pulumix.Output[AccessEntryTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o AccessEntryTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessEntryTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o AccessEntryTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessEntryTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type AccessEntryTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AccessEntryTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccessEntryTag)(nil)).Elem()
+}
+
+func (o AccessEntryTagArrayOutput) ToAccessEntryTagArrayOutput() AccessEntryTagArrayOutput {
+	return o
+}
+
+func (o AccessEntryTagArrayOutput) ToAccessEntryTagArrayOutputWithContext(ctx context.Context) AccessEntryTagArrayOutput {
+	return o
+}
+
+func (o AccessEntryTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccessEntryTag] {
+	return pulumix.Output[[]AccessEntryTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o AccessEntryTagArrayOutput) Index(i pulumi.IntInput) AccessEntryTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccessEntryTag {
+		return vs[0].([]AccessEntryTag)[vs[1].(int)]
+	}).(AccessEntryTagOutput)
+}
+
 // A key-value pair to associate with a resource.
 type AddonTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -145,6 +484,189 @@ func (o AddonTagArrayOutput) Index(i pulumi.IntInput) AddonTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AddonTag {
 		return vs[0].([]AddonTag)[vs[1].(int)]
 	}).(AddonTagOutput)
+}
+
+// An object representing the Access Config to use for the cluster.
+type ClusterAccessConfig struct {
+	// Specify the authentication mode that should be used to create your cluster.
+	AuthenticationMode *ClusterAccessConfigAuthenticationMode `pulumi:"authenticationMode"`
+	// Set this value to false to avoid creating a default cluster admin Access Entry using the IAM principal used to create the cluster.
+	BootstrapClusterCreatorAdminPermissions *bool `pulumi:"bootstrapClusterCreatorAdminPermissions"`
+}
+
+// ClusterAccessConfigInput is an input type that accepts ClusterAccessConfigArgs and ClusterAccessConfigOutput values.
+// You can construct a concrete instance of `ClusterAccessConfigInput` via:
+//
+//	ClusterAccessConfigArgs{...}
+type ClusterAccessConfigInput interface {
+	pulumi.Input
+
+	ToClusterAccessConfigOutput() ClusterAccessConfigOutput
+	ToClusterAccessConfigOutputWithContext(context.Context) ClusterAccessConfigOutput
+}
+
+// An object representing the Access Config to use for the cluster.
+type ClusterAccessConfigArgs struct {
+	// Specify the authentication mode that should be used to create your cluster.
+	AuthenticationMode ClusterAccessConfigAuthenticationModePtrInput `pulumi:"authenticationMode"`
+	// Set this value to false to avoid creating a default cluster admin Access Entry using the IAM principal used to create the cluster.
+	BootstrapClusterCreatorAdminPermissions pulumi.BoolPtrInput `pulumi:"bootstrapClusterCreatorAdminPermissions"`
+}
+
+func (ClusterAccessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAccessConfig)(nil)).Elem()
+}
+
+func (i ClusterAccessConfigArgs) ToClusterAccessConfigOutput() ClusterAccessConfigOutput {
+	return i.ToClusterAccessConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterAccessConfigArgs) ToClusterAccessConfigOutputWithContext(ctx context.Context) ClusterAccessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAccessConfigOutput)
+}
+
+func (i ClusterAccessConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterAccessConfig] {
+	return pulumix.Output[ClusterAccessConfig]{
+		OutputState: i.ToClusterAccessConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ClusterAccessConfigArgs) ToClusterAccessConfigPtrOutput() ClusterAccessConfigPtrOutput {
+	return i.ToClusterAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterAccessConfigArgs) ToClusterAccessConfigPtrOutputWithContext(ctx context.Context) ClusterAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAccessConfigOutput).ToClusterAccessConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterAccessConfigPtrInput is an input type that accepts ClusterAccessConfigArgs, ClusterAccessConfigPtr and ClusterAccessConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterAccessConfigPtrInput` via:
+//
+//	        ClusterAccessConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterAccessConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterAccessConfigPtrOutput() ClusterAccessConfigPtrOutput
+	ToClusterAccessConfigPtrOutputWithContext(context.Context) ClusterAccessConfigPtrOutput
+}
+
+type clusterAccessConfigPtrType ClusterAccessConfigArgs
+
+func ClusterAccessConfigPtr(v *ClusterAccessConfigArgs) ClusterAccessConfigPtrInput {
+	return (*clusterAccessConfigPtrType)(v)
+}
+
+func (*clusterAccessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAccessConfig)(nil)).Elem()
+}
+
+func (i *clusterAccessConfigPtrType) ToClusterAccessConfigPtrOutput() ClusterAccessConfigPtrOutput {
+	return i.ToClusterAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterAccessConfigPtrType) ToClusterAccessConfigPtrOutputWithContext(ctx context.Context) ClusterAccessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAccessConfigPtrOutput)
+}
+
+func (i *clusterAccessConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*ClusterAccessConfig] {
+	return pulumix.Output[*ClusterAccessConfig]{
+		OutputState: i.ToClusterAccessConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// An object representing the Access Config to use for the cluster.
+type ClusterAccessConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterAccessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAccessConfig)(nil)).Elem()
+}
+
+func (o ClusterAccessConfigOutput) ToClusterAccessConfigOutput() ClusterAccessConfigOutput {
+	return o
+}
+
+func (o ClusterAccessConfigOutput) ToClusterAccessConfigOutputWithContext(ctx context.Context) ClusterAccessConfigOutput {
+	return o
+}
+
+func (o ClusterAccessConfigOutput) ToClusterAccessConfigPtrOutput() ClusterAccessConfigPtrOutput {
+	return o.ToClusterAccessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterAccessConfigOutput) ToClusterAccessConfigPtrOutputWithContext(ctx context.Context) ClusterAccessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterAccessConfig) *ClusterAccessConfig {
+		return &v
+	}).(ClusterAccessConfigPtrOutput)
+}
+
+func (o ClusterAccessConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterAccessConfig] {
+	return pulumix.Output[ClusterAccessConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Specify the authentication mode that should be used to create your cluster.
+func (o ClusterAccessConfigOutput) AuthenticationMode() ClusterAccessConfigAuthenticationModePtrOutput {
+	return o.ApplyT(func(v ClusterAccessConfig) *ClusterAccessConfigAuthenticationMode { return v.AuthenticationMode }).(ClusterAccessConfigAuthenticationModePtrOutput)
+}
+
+// Set this value to false to avoid creating a default cluster admin Access Entry using the IAM principal used to create the cluster.
+func (o ClusterAccessConfigOutput) BootstrapClusterCreatorAdminPermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterAccessConfig) *bool { return v.BootstrapClusterCreatorAdminPermissions }).(pulumi.BoolPtrOutput)
+}
+
+type ClusterAccessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterAccessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAccessConfig)(nil)).Elem()
+}
+
+func (o ClusterAccessConfigPtrOutput) ToClusterAccessConfigPtrOutput() ClusterAccessConfigPtrOutput {
+	return o
+}
+
+func (o ClusterAccessConfigPtrOutput) ToClusterAccessConfigPtrOutputWithContext(ctx context.Context) ClusterAccessConfigPtrOutput {
+	return o
+}
+
+func (o ClusterAccessConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterAccessConfig] {
+	return pulumix.Output[*ClusterAccessConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ClusterAccessConfigPtrOutput) Elem() ClusterAccessConfigOutput {
+	return o.ApplyT(func(v *ClusterAccessConfig) ClusterAccessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterAccessConfig
+		return ret
+	}).(ClusterAccessConfigOutput)
+}
+
+// Specify the authentication mode that should be used to create your cluster.
+func (o ClusterAccessConfigPtrOutput) AuthenticationMode() ClusterAccessConfigAuthenticationModePtrOutput {
+	return o.ApplyT(func(v *ClusterAccessConfig) *ClusterAccessConfigAuthenticationMode {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationMode
+	}).(ClusterAccessConfigAuthenticationModePtrOutput)
+}
+
+// Set this value to false to avoid creating a default cluster admin Access Entry using the IAM principal used to create the cluster.
+func (o ClusterAccessConfigPtrOutput) BootstrapClusterCreatorAdminPermissions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterAccessConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BootstrapClusterCreatorAdminPermissions
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Specify the placement group of the control plane machines for your cluster.
@@ -3710,8 +4232,15 @@ func (o PodIdentityAssociationTagArrayOutput) Index(i pulumi.IntInput) PodIdenti
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessEntryAccessPolicyInput)(nil)).Elem(), AccessEntryAccessPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessEntryAccessPolicyArrayInput)(nil)).Elem(), AccessEntryAccessPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessEntryAccessScopeInput)(nil)).Elem(), AccessEntryAccessScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessEntryTagInput)(nil)).Elem(), AccessEntryTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessEntryTagArrayInput)(nil)).Elem(), AccessEntryTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonTagInput)(nil)).Elem(), AddonTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonTagArrayInput)(nil)).Elem(), AddonTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAccessConfigInput)(nil)).Elem(), ClusterAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAccessConfigPtrInput)(nil)).Elem(), ClusterAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterControlPlanePlacementInput)(nil)).Elem(), ClusterControlPlanePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterControlPlanePlacementPtrInput)(nil)).Elem(), ClusterControlPlanePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionConfigInput)(nil)).Elem(), ClusterEncryptionConfigArgs{})
@@ -3755,8 +4284,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupUpdateConfigPtrInput)(nil)).Elem(), NodegroupUpdateConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PodIdentityAssociationTagInput)(nil)).Elem(), PodIdentityAssociationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PodIdentityAssociationTagArrayInput)(nil)).Elem(), PodIdentityAssociationTagArray{})
+	pulumi.RegisterOutputType(AccessEntryAccessPolicyOutput{})
+	pulumi.RegisterOutputType(AccessEntryAccessPolicyArrayOutput{})
+	pulumi.RegisterOutputType(AccessEntryAccessScopeOutput{})
+	pulumi.RegisterOutputType(AccessEntryTagOutput{})
+	pulumi.RegisterOutputType(AccessEntryTagArrayOutput{})
 	pulumi.RegisterOutputType(AddonTagOutput{})
 	pulumi.RegisterOutputType(AddonTagArrayOutput{})
+	pulumi.RegisterOutputType(ClusterAccessConfigOutput{})
+	pulumi.RegisterOutputType(ClusterAccessConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterControlPlanePlacementOutput{})
 	pulumi.RegisterOutputType(ClusterControlPlanePlacementPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigOutput{})

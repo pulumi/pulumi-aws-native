@@ -23,6 +23,18 @@ export interface GetApplicationArgs {
 }
 
 export interface GetApplicationResult {
+    /**
+     * The name of the application. 
+     */
+    readonly applicationName?: string;
+    /**
+     * The key of the AWS application tag, which is awsApplication. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value.
+     */
+    readonly applicationTagKey?: string;
+    /**
+     * The value of the AWS application tag, which is the identifier of an associated resource. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value. 
+     */
+    readonly applicationTagValue?: string;
     readonly arn?: string;
     /**
      * The description of the application. 

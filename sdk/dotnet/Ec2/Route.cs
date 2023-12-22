@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> CidrBlock { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the core network.
+        /// </summary>
+        [Output("coreNetworkArn")]
+        public Output<string?> CoreNetworkArn { get; private set; } = null!;
+
+        /// <summary>
         /// The IPv4 CIDR block used for the destination match.
         /// </summary>
         [Output("destinationCidrBlock")]
@@ -162,6 +168,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("carrierGatewayId")]
         public Input<string>? CarrierGatewayId { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the core network.
+        /// </summary>
+        [Input("coreNetworkArn")]
+        public Input<string>? CoreNetworkArn { get; set; }
 
         /// <summary>
         /// The IPv4 CIDR block used for the destination match.

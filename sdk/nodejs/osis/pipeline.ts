@@ -37,6 +37,8 @@ export class Pipeline extends pulumi.CustomResource {
         return obj['__pulumiType'] === Pipeline.__pulumiType;
     }
 
+    public readonly bufferOptions!: pulumi.Output<outputs.osis.PipelineBufferOptions | undefined>;
+    public readonly encryptionAtRestOptions!: pulumi.Output<outputs.osis.PipelineEncryptionAtRestOptions | undefined>;
     /**
      * A list of endpoints that can be used for ingesting data into a pipeline
      */
@@ -92,6 +94,8 @@ export class Pipeline extends pulumi.CustomResource {
             if ((!args || args.pipelineConfigurationBody === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pipelineConfigurationBody'");
             }
+            resourceInputs["bufferOptions"] = args ? args.bufferOptions : undefined;
+            resourceInputs["encryptionAtRestOptions"] = args ? args.encryptionAtRestOptions : undefined;
             resourceInputs["logPublishingOptions"] = args ? args.logPublishingOptions : undefined;
             resourceInputs["maxUnits"] = args ? args.maxUnits : undefined;
             resourceInputs["minUnits"] = args ? args.minUnits : undefined;
@@ -103,6 +107,8 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["pipelineArn"] = undefined /*out*/;
             resourceInputs["vpcEndpoints"] = undefined /*out*/;
         } else {
+            resourceInputs["bufferOptions"] = undefined /*out*/;
+            resourceInputs["encryptionAtRestOptions"] = undefined /*out*/;
             resourceInputs["ingestEndpointUrls"] = undefined /*out*/;
             resourceInputs["logPublishingOptions"] = undefined /*out*/;
             resourceInputs["maxUnits"] = undefined /*out*/;
@@ -125,6 +131,8 @@ export class Pipeline extends pulumi.CustomResource {
  * The set of arguments for constructing a Pipeline resource.
  */
 export interface PipelineArgs {
+    bufferOptions?: pulumi.Input<inputs.osis.PipelineBufferOptionsArgs>;
+    encryptionAtRestOptions?: pulumi.Input<inputs.osis.PipelineEncryptionAtRestOptionsArgs>;
     logPublishingOptions?: pulumi.Input<inputs.osis.PipelineLogPublishingOptionsArgs>;
     /**
      * The maximum pipeline capacity, in Ingestion Compute Units (ICUs).

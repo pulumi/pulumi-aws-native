@@ -2207,6 +2207,9 @@ const (
 	BucketInventoryConfigurationOptionalFieldsItemObjectLockLegalHoldStatus    = BucketInventoryConfigurationOptionalFieldsItem("ObjectLockLegalHoldStatus")
 	BucketInventoryConfigurationOptionalFieldsItemIntelligentTieringAccessTier = BucketInventoryConfigurationOptionalFieldsItem("IntelligentTieringAccessTier")
 	BucketInventoryConfigurationOptionalFieldsItemBucketKeyStatus              = BucketInventoryConfigurationOptionalFieldsItem("BucketKeyStatus")
+	BucketInventoryConfigurationOptionalFieldsItemChecksumAlgorithm            = BucketInventoryConfigurationOptionalFieldsItem("ChecksumAlgorithm")
+	BucketInventoryConfigurationOptionalFieldsItemObjectAccessControlList      = BucketInventoryConfigurationOptionalFieldsItem("ObjectAccessControlList")
+	BucketInventoryConfigurationOptionalFieldsItemObjectOwner                  = BucketInventoryConfigurationOptionalFieldsItem("ObjectOwner")
 )
 
 func (BucketInventoryConfigurationOptionalFieldsItem) ElementType() reflect.Type {

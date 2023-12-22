@@ -10,13 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Logs
 {
     /// <summary>
-    /// Resource Type definition for AWS::Logs::DeliverySource.
+    ///  A delivery source is an AWS resource that sends logs to an AWS destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
+    /// 
+    /// Only some AWS services support being configured as a delivery source. These services are listed as Supported [V2 Permissions] in the table at [Enabling logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html).
     /// </summary>
     [AwsNativeResourceType("aws-native:logs:DeliverySource")]
     public partial class DeliverySource : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the Aqueduct Source.
+        /// The Amazon Resource Name (ARN) that uniquely identifies this delivery source.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -40,19 +42,19 @@ namespace Pulumi.AwsNative.Logs
         public Output<string?> ResourceArn { get; private set; } = null!;
 
         /// <summary>
-        /// List of ARN of the resource that will be sending the logs
+        /// This array contains the ARN of the AWS resource that sends logs and is represented by this delivery source. Currently, only one ARN can be in the array.
         /// </summary>
         [Output("resourceArns")]
         public Output<ImmutableArray<string>> ResourceArns { get; private set; } = null!;
 
         /// <summary>
-        /// The service generating the log
+        /// The AWS service that is sending logs.
         /// </summary>
         [Output("service")]
         public Output<string> Service { get; private set; } = null!;
 
         /// <summary>
-        /// An array of key-value pairs to apply to this resource.
+        /// The tags that have been assigned to this delivery source.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.DeliverySourceTag>> Tags { get; private set; } = null!;
@@ -128,7 +130,7 @@ namespace Pulumi.AwsNative.Logs
         private InputList<Inputs.DeliverySourceTagArgs>? _tags;
 
         /// <summary>
-        /// An array of key-value pairs to apply to this resource.
+        /// The tags that have been assigned to this delivery source.
         /// </summary>
         public InputList<Inputs.DeliverySourceTagArgs> Tags
         {

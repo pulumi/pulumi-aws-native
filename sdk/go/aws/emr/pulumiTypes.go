@@ -3510,6 +3510,130 @@ func (o ClusterOnDemandProvisioningSpecificationPtrOutput) AllocationStrategy() 
 	}).(pulumi.StringPtrOutput)
 }
 
+type ClusterPlacementGroupConfig struct {
+	InstanceRole      string  `pulumi:"instanceRole"`
+	PlacementStrategy *string `pulumi:"placementStrategy"`
+}
+
+// ClusterPlacementGroupConfigInput is an input type that accepts ClusterPlacementGroupConfigArgs and ClusterPlacementGroupConfigOutput values.
+// You can construct a concrete instance of `ClusterPlacementGroupConfigInput` via:
+//
+//	ClusterPlacementGroupConfigArgs{...}
+type ClusterPlacementGroupConfigInput interface {
+	pulumi.Input
+
+	ToClusterPlacementGroupConfigOutput() ClusterPlacementGroupConfigOutput
+	ToClusterPlacementGroupConfigOutputWithContext(context.Context) ClusterPlacementGroupConfigOutput
+}
+
+type ClusterPlacementGroupConfigArgs struct {
+	InstanceRole      pulumi.StringInput    `pulumi:"instanceRole"`
+	PlacementStrategy pulumi.StringPtrInput `pulumi:"placementStrategy"`
+}
+
+func (ClusterPlacementGroupConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPlacementGroupConfig)(nil)).Elem()
+}
+
+func (i ClusterPlacementGroupConfigArgs) ToClusterPlacementGroupConfigOutput() ClusterPlacementGroupConfigOutput {
+	return i.ToClusterPlacementGroupConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterPlacementGroupConfigArgs) ToClusterPlacementGroupConfigOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPlacementGroupConfigOutput)
+}
+
+func (i ClusterPlacementGroupConfigArgs) ToOutput(ctx context.Context) pulumix.Output[ClusterPlacementGroupConfig] {
+	return pulumix.Output[ClusterPlacementGroupConfig]{
+		OutputState: i.ToClusterPlacementGroupConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ClusterPlacementGroupConfigArrayInput is an input type that accepts ClusterPlacementGroupConfigArray and ClusterPlacementGroupConfigArrayOutput values.
+// You can construct a concrete instance of `ClusterPlacementGroupConfigArrayInput` via:
+//
+//	ClusterPlacementGroupConfigArray{ ClusterPlacementGroupConfigArgs{...} }
+type ClusterPlacementGroupConfigArrayInput interface {
+	pulumi.Input
+
+	ToClusterPlacementGroupConfigArrayOutput() ClusterPlacementGroupConfigArrayOutput
+	ToClusterPlacementGroupConfigArrayOutputWithContext(context.Context) ClusterPlacementGroupConfigArrayOutput
+}
+
+type ClusterPlacementGroupConfigArray []ClusterPlacementGroupConfigInput
+
+func (ClusterPlacementGroupConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterPlacementGroupConfig)(nil)).Elem()
+}
+
+func (i ClusterPlacementGroupConfigArray) ToClusterPlacementGroupConfigArrayOutput() ClusterPlacementGroupConfigArrayOutput {
+	return i.ToClusterPlacementGroupConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterPlacementGroupConfigArray) ToClusterPlacementGroupConfigArrayOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPlacementGroupConfigArrayOutput)
+}
+
+func (i ClusterPlacementGroupConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]ClusterPlacementGroupConfig] {
+	return pulumix.Output[[]ClusterPlacementGroupConfig]{
+		OutputState: i.ToClusterPlacementGroupConfigArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ClusterPlacementGroupConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterPlacementGroupConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPlacementGroupConfig)(nil)).Elem()
+}
+
+func (o ClusterPlacementGroupConfigOutput) ToClusterPlacementGroupConfigOutput() ClusterPlacementGroupConfigOutput {
+	return o
+}
+
+func (o ClusterPlacementGroupConfigOutput) ToClusterPlacementGroupConfigOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigOutput {
+	return o
+}
+
+func (o ClusterPlacementGroupConfigOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterPlacementGroupConfig] {
+	return pulumix.Output[ClusterPlacementGroupConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ClusterPlacementGroupConfigOutput) InstanceRole() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterPlacementGroupConfig) string { return v.InstanceRole }).(pulumi.StringOutput)
+}
+
+func (o ClusterPlacementGroupConfigOutput) PlacementStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterPlacementGroupConfig) *string { return v.PlacementStrategy }).(pulumi.StringPtrOutput)
+}
+
+type ClusterPlacementGroupConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterPlacementGroupConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterPlacementGroupConfig)(nil)).Elem()
+}
+
+func (o ClusterPlacementGroupConfigArrayOutput) ToClusterPlacementGroupConfigArrayOutput() ClusterPlacementGroupConfigArrayOutput {
+	return o
+}
+
+func (o ClusterPlacementGroupConfigArrayOutput) ToClusterPlacementGroupConfigArrayOutputWithContext(ctx context.Context) ClusterPlacementGroupConfigArrayOutput {
+	return o
+}
+
+func (o ClusterPlacementGroupConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ClusterPlacementGroupConfig] {
+	return pulumix.Output[[]ClusterPlacementGroupConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ClusterPlacementGroupConfigArrayOutput) Index(i pulumi.IntInput) ClusterPlacementGroupConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterPlacementGroupConfig {
+		return vs[0].([]ClusterPlacementGroupConfig)[vs[1].(int)]
+	}).(ClusterPlacementGroupConfigOutput)
+}
+
 type ClusterPlacementType struct {
 	AvailabilityZone string `pulumi:"availabilityZone"`
 }
@@ -7922,6 +8046,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterMetricDimensionArrayInput)(nil)).Elem(), ClusterMetricDimensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOnDemandProvisioningSpecificationInput)(nil)).Elem(), ClusterOnDemandProvisioningSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOnDemandProvisioningSpecificationPtrInput)(nil)).Elem(), ClusterOnDemandProvisioningSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPlacementGroupConfigInput)(nil)).Elem(), ClusterPlacementGroupConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPlacementGroupConfigArrayInput)(nil)).Elem(), ClusterPlacementGroupConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPlacementTypeInput)(nil)).Elem(), ClusterPlacementTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPlacementTypePtrInput)(nil)).Elem(), ClusterPlacementTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScalingActionInput)(nil)).Elem(), ClusterScalingActionArgs{})
@@ -8020,6 +8146,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterMetricDimensionArrayOutput{})
 	pulumi.RegisterOutputType(ClusterOnDemandProvisioningSpecificationOutput{})
 	pulumi.RegisterOutputType(ClusterOnDemandProvisioningSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(ClusterPlacementGroupConfigOutput{})
+	pulumi.RegisterOutputType(ClusterPlacementGroupConfigArrayOutput{})
 	pulumi.RegisterOutputType(ClusterPlacementTypeOutput{})
 	pulumi.RegisterOutputType(ClusterPlacementTypePtrOutput{})
 	pulumi.RegisterOutputType(ClusterScalingActionOutput{})

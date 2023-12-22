@@ -5,11 +5,21 @@
 from enum import Enum
 
 __all__ = [
+    'AccessEntryAccessScopeType',
     'AddonResolveConflicts',
+    'ClusterAccessConfigAuthenticationMode',
     'ClusterKubernetesNetworkConfigIpFamily',
     'ClusterLoggingTypeConfigType',
     'IdentityProviderConfigType',
 ]
+
+
+class AccessEntryAccessScopeType(str, Enum):
+    """
+    The type of the access scope.
+    """
+    NAMESPACE = "namespace"
+    CLUSTER = "cluster"
 
 
 class AddonResolveConflicts(str, Enum):
@@ -19,6 +29,15 @@ class AddonResolveConflicts(str, Enum):
     NONE = "NONE"
     OVERWRITE = "OVERWRITE"
     PRESERVE = "PRESERVE"
+
+
+class ClusterAccessConfigAuthenticationMode(str, Enum):
+    """
+    Specify the authentication mode that should be used to create your cluster.
+    """
+    CONFIG_MAP = "CONFIG_MAP"
+    API_AND_CONFIG_MAP = "API_AND_CONFIG_MAP"
+    API = "API"
 
 
 class ClusterKubernetesNetworkConfigIpFamily(str, Enum):

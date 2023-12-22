@@ -40,6 +40,9 @@ namespace Pulumi.AwsNative.Sns
         [Output("region")]
         public Output<string?> Region { get; private set; } = null!;
 
+        [Output("replayPolicy")]
+        public Output<object?> ReplayPolicy { get; private set; } = null!;
+
         [Output("subscriptionRoleArn")]
         public Output<string?> SubscriptionRoleArn { get; private set; } = null!;
 
@@ -120,6 +123,9 @@ namespace Pulumi.AwsNative.Sns
 
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        [Input("replayPolicy")]
+        public Input<object>? ReplayPolicy { get; set; }
 
         [Input("subscriptionRoleArn")]
         public Input<string>? SubscriptionRoleArn { get; set; }

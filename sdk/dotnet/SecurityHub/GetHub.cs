@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.SecurityHub
     public static class GetHub
     {
         /// <summary>
-        /// Resource Type definition for AWS::SecurityHub::Hub
+        /// The AWS::SecurityHub::Hub resource represents the implementation of the AWS Security Hub service in your account. One hub resource is created for each Region in which you enable Security Hub.
         /// </summary>
         public static Task<GetHubResult> InvokeAsync(GetHubArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHubResult>("aws-native:securityhub:getHub", args ?? new GetHubArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::SecurityHub::Hub
+        /// The AWS::SecurityHub::Hub resource represents the implementation of the AWS Security Hub service in your account. One hub resource is created for each Region in which you enable Security Hub.
         /// </summary>
         public static Output<GetHubResult> Invoke(GetHubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHubResult>("aws-native:securityhub:getHub", args ?? new GetHubInvokeArgs(), options.WithDefaults());
@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.SecurityHub
 
     public sealed class GetHubArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// An ARN is automatically created for the customer.
+        /// </summary>
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetHubArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.SecurityHub
 
     public sealed class GetHubInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// An ARN is automatically created for the customer.
+        /// </summary>
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetHubInvokeArgs()
         {
@@ -51,28 +57,40 @@ namespace Pulumi.AwsNative.SecurityHub
     [OutputType]
     public sealed class GetHubResult
     {
+        /// <summary>
+        /// An ARN is automatically created for the customer.
+        /// </summary>
+        public readonly string? Arn;
+        /// <summary>
+        /// Whether to automatically enable new controls when they are added to standards that are enabled
+        /// </summary>
         public readonly bool? AutoEnableControls;
+        /// <summary>
+        /// This field, used when enabling Security Hub, specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to SECURITY_CONTROL, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards.  If the value for this field is set to STANDARD_CONTROL, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards.
+        /// </summary>
         public readonly string? ControlFindingGenerator;
-        public readonly bool? EnableDefaultStandards;
-        public readonly string? Id;
-        public readonly object? Tags;
+        /// <summary>
+        /// The date and time when Security Hub was enabled in the account.
+        /// </summary>
+        public readonly string? SubscribedAt;
+        public readonly Outputs.HubTags? Tags;
 
         [OutputConstructor]
         private GetHubResult(
+            string? arn,
+
             bool? autoEnableControls,
 
             string? controlFindingGenerator,
 
-            bool? enableDefaultStandards,
+            string? subscribedAt,
 
-            string? id,
-
-            object? tags)
+            Outputs.HubTags? tags)
         {
+            Arn = arn;
             AutoEnableControls = autoEnableControls;
             ControlFindingGenerator = controlFindingGenerator;
-            EnableDefaultStandards = enableDefaultStandards;
-            Id = id;
+            SubscribedAt = subscribedAt;
             Tags = tags;
         }
     }

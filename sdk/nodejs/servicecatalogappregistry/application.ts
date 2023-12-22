@@ -37,6 +37,18 @@ export class Application extends pulumi.CustomResource {
         return obj['__pulumiType'] === Application.__pulumiType;
     }
 
+    /**
+     * The name of the application. 
+     */
+    public /*out*/ readonly applicationName!: pulumi.Output<string>;
+    /**
+     * The key of the AWS application tag, which is awsApplication. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value.
+     */
+    public /*out*/ readonly applicationTagKey!: pulumi.Output<string>;
+    /**
+     * The value of the AWS application tag, which is the identifier of an associated resource. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value. 
+     */
+    public /*out*/ readonly applicationTagValue!: pulumi.Output<string>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * The description of the application. 
@@ -62,8 +74,14 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationName"] = undefined /*out*/;
+            resourceInputs["applicationTagKey"] = undefined /*out*/;
+            resourceInputs["applicationTagValue"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
         } else {
+            resourceInputs["applicationName"] = undefined /*out*/;
+            resourceInputs["applicationTagKey"] = undefined /*out*/;
+            resourceInputs["applicationTagValue"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

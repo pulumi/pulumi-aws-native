@@ -16,11 +16,11 @@ __all__ = ['EnvironmentEc2Args', 'EnvironmentEc2']
 @pulumi.input_type
 class EnvironmentEc2Args:
     def __init__(__self__, *,
+                 image_id: pulumi.Input[str],
                  instance_type: pulumi.Input[str],
                  automatic_stop_time_minutes: Optional[pulumi.Input[int]] = None,
                  connection_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 image_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner_arn: Optional[pulumi.Input[str]] = None,
                  repositories: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentEc2RepositoryArgs']]]] = None,
@@ -29,6 +29,7 @@ class EnvironmentEc2Args:
         """
         The set of arguments for constructing a EnvironmentEc2 resource.
         """
+        pulumi.set(__self__, "image_id", image_id)
         pulumi.set(__self__, "instance_type", instance_type)
         if automatic_stop_time_minutes is not None:
             pulumi.set(__self__, "automatic_stop_time_minutes", automatic_stop_time_minutes)
@@ -36,8 +37,6 @@ class EnvironmentEc2Args:
             pulumi.set(__self__, "connection_type", connection_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if image_id is not None:
-            pulumi.set(__self__, "image_id", image_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if owner_arn is not None:
@@ -48,6 +47,15 @@ class EnvironmentEc2Args:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="imageId")
+    def image_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "image_id")
+
+    @image_id.setter
+    def image_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image_id", value)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -84,15 +92,6 @@ class EnvironmentEc2Args:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="imageId")
-    def image_id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "image_id")
-
-    @image_id.setter
-    def image_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "image_id", value)
 
     @property
     @pulumi.getter
@@ -214,6 +213,8 @@ class EnvironmentEc2(pulumi.CustomResource):
             __props__.__dict__["automatic_stop_time_minutes"] = automatic_stop_time_minutes
             __props__.__dict__["connection_type"] = connection_type
             __props__.__dict__["description"] = description
+            if image_id is None and not opts.urn:
+                raise TypeError("Missing required property 'image_id'")
             __props__.__dict__["image_id"] = image_id
             if instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_type'")
@@ -283,7 +284,7 @@ class EnvironmentEc2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="imageId")
-    def image_id(self) -> pulumi.Output[Optional[str]]:
+    def image_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "image_id")
 
     @property

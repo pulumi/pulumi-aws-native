@@ -19,13 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetConfigurationRecorderResult:
-    def __init__(__self__, id=None, recording_group=None, role_arn=None):
+    def __init__(__self__, id=None, recording_group=None, recording_mode=None, role_arn=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if recording_group and not isinstance(recording_group, dict):
             raise TypeError("Expected argument 'recording_group' to be a dict")
         pulumi.set(__self__, "recording_group", recording_group)
+        if recording_mode and not isinstance(recording_mode, dict):
+            raise TypeError("Expected argument 'recording_mode' to be a dict")
+        pulumi.set(__self__, "recording_mode", recording_mode)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -41,6 +44,11 @@ class GetConfigurationRecorderResult:
         return pulumi.get(self, "recording_group")
 
     @property
+    @pulumi.getter(name="recordingMode")
+    def recording_mode(self) -> Optional['outputs.ConfigurationRecorderRecordingMode']:
+        return pulumi.get(self, "recording_mode")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
         return pulumi.get(self, "role_arn")
@@ -54,6 +62,7 @@ class AwaitableGetConfigurationRecorderResult(GetConfigurationRecorderResult):
         return GetConfigurationRecorderResult(
             id=self.id,
             recording_group=self.recording_group,
+            recording_mode=self.recording_mode,
             role_arn=self.role_arn)
 
 
@@ -70,6 +79,7 @@ def get_configuration_recorder(id: Optional[str] = None,
     return AwaitableGetConfigurationRecorderResult(
         id=pulumi.get(__ret__, 'id'),
         recording_group=pulumi.get(__ret__, 'recording_group'),
+        recording_mode=pulumi.get(__ret__, 'recording_mode'),
         role_arn=pulumi.get(__ret__, 'role_arn'))
 
 

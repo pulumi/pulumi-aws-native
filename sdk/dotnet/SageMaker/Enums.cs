@@ -80,6 +80,9 @@ namespace Pulumi.AwsNative.SageMaker
         public static AppResourceSpecInstanceType MlP4d24xlarge { get; } = new AppResourceSpecInstanceType("ml.p4d.24xlarge");
         public static AppResourceSpecInstanceType MlP4de24xlarge { get; } = new AppResourceSpecInstanceType("ml.p4de.24xlarge");
         public static AppResourceSpecInstanceType MlGeospatialInteractive { get; } = new AppResourceSpecInstanceType("ml.geospatial.interactive");
+        public static AppResourceSpecInstanceType MlTrn12xlarge { get; } = new AppResourceSpecInstanceType("ml.trn1.2xlarge");
+        public static AppResourceSpecInstanceType MlTrn132xlarge { get; } = new AppResourceSpecInstanceType("ml.trn1.32xlarge");
+        public static AppResourceSpecInstanceType MlTrn1n32xlarge { get; } = new AppResourceSpecInstanceType("ml.trn1n.32xlarge");
 
         public static bool operator ==(AppResourceSpecInstanceType left, AppResourceSpecInstanceType right) => left.Equals(right);
         public static bool operator !=(AppResourceSpecInstanceType left, AppResourceSpecInstanceType right) => !left.Equals(right);
@@ -513,6 +516,9 @@ namespace Pulumi.AwsNative.SageMaker
         public static DomainResourceSpecInstanceType MlP4d24xlarge { get; } = new DomainResourceSpecInstanceType("ml.p4d.24xlarge");
         public static DomainResourceSpecInstanceType MlP4de24xlarge { get; } = new DomainResourceSpecInstanceType("ml.p4de.24xlarge");
         public static DomainResourceSpecInstanceType MlGeospatialInteractive { get; } = new DomainResourceSpecInstanceType("ml.geospatial.interactive");
+        public static DomainResourceSpecInstanceType MlTrn12xlarge { get; } = new DomainResourceSpecInstanceType("ml.trn1.2xlarge");
+        public static DomainResourceSpecInstanceType MlTrn132xlarge { get; } = new DomainResourceSpecInstanceType("ml.trn1.32xlarge");
+        public static DomainResourceSpecInstanceType MlTrn1n32xlarge { get; } = new DomainResourceSpecInstanceType("ml.trn1n.32xlarge");
 
         public static bool operator ==(DomainResourceSpecInstanceType left, DomainResourceSpecInstanceType right) => left.Equals(right);
         public static bool operator !=(DomainResourceSpecInstanceType left, DomainResourceSpecInstanceType right) => !left.Equals(right);
@@ -560,6 +566,37 @@ namespace Pulumi.AwsNative.SageMaker
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainUserSettingsStudioWebPortal : IEquatable<DomainUserSettingsStudioWebPortal>
+    {
+        private readonly string _value;
+
+        private DomainUserSettingsStudioWebPortal(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainUserSettingsStudioWebPortal Enabled { get; } = new DomainUserSettingsStudioWebPortal("ENABLED");
+        public static DomainUserSettingsStudioWebPortal Disabled { get; } = new DomainUserSettingsStudioWebPortal("DISABLED");
+
+        public static bool operator ==(DomainUserSettingsStudioWebPortal left, DomainUserSettingsStudioWebPortal right) => left.Equals(right);
+        public static bool operator !=(DomainUserSettingsStudioWebPortal left, DomainUserSettingsStudioWebPortal right) => !left.Equals(right);
+
+        public static explicit operator string(DomainUserSettingsStudioWebPortal value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainUserSettingsStudioWebPortal other && Equals(other);
+        public bool Equals(DomainUserSettingsStudioWebPortal other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct FeatureGroupFeatureDefinitionFeatureType : IEquatable<FeatureGroupFeatureDefinitionFeatureType>
     {
@@ -582,6 +619,34 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FeatureGroupFeatureDefinitionFeatureType other && Equals(other);
         public bool Equals(FeatureGroupFeatureDefinitionFeatureType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FeatureGroupStorageType : IEquatable<FeatureGroupStorageType>
+    {
+        private readonly string _value;
+
+        private FeatureGroupStorageType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FeatureGroupStorageType Standard { get; } = new FeatureGroupStorageType("Standard");
+        public static FeatureGroupStorageType InMemory { get; } = new FeatureGroupStorageType("InMemory");
+
+        public static bool operator ==(FeatureGroupStorageType left, FeatureGroupStorageType right) => left.Equals(right);
+        public static bool operator !=(FeatureGroupStorageType left, FeatureGroupStorageType right) => !left.Equals(right);
+
+        public static explicit operator string(FeatureGroupStorageType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FeatureGroupStorageType other && Equals(other);
+        public bool Equals(FeatureGroupStorageType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2556,6 +2621,9 @@ namespace Pulumi.AwsNative.SageMaker
         public static UserProfileResourceSpecInstanceType MlP4d24xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.p4d.24xlarge");
         public static UserProfileResourceSpecInstanceType MlP4de24xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.p4de.24xlarge");
         public static UserProfileResourceSpecInstanceType MlGeospatialInteractive { get; } = new UserProfileResourceSpecInstanceType("ml.geospatial.interactive");
+        public static UserProfileResourceSpecInstanceType MlTrn12xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.trn1.2xlarge");
+        public static UserProfileResourceSpecInstanceType MlTrn132xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.trn1.32xlarge");
+        public static UserProfileResourceSpecInstanceType MlTrn1n32xlarge { get; } = new UserProfileResourceSpecInstanceType("ml.trn1n.32xlarge");
 
         public static bool operator ==(UserProfileResourceSpecInstanceType left, UserProfileResourceSpecInstanceType right) => left.Equals(right);
         public static bool operator !=(UserProfileResourceSpecInstanceType left, UserProfileResourceSpecInstanceType right) => !left.Equals(right);
@@ -2596,6 +2664,37 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UserProfileSharingSettingsNotebookOutputOption other && Equals(other);
         public bool Equals(UserProfileSharingSettingsNotebookOutputOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
+    /// </summary>
+    [EnumType]
+    public readonly struct UserProfileUserSettingsStudioWebPortal : IEquatable<UserProfileUserSettingsStudioWebPortal>
+    {
+        private readonly string _value;
+
+        private UserProfileUserSettingsStudioWebPortal(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserProfileUserSettingsStudioWebPortal Enabled { get; } = new UserProfileUserSettingsStudioWebPortal("ENABLED");
+        public static UserProfileUserSettingsStudioWebPortal Disabled { get; } = new UserProfileUserSettingsStudioWebPortal("DISABLED");
+
+        public static bool operator ==(UserProfileUserSettingsStudioWebPortal left, UserProfileUserSettingsStudioWebPortal right) => left.Equals(right);
+        public static bool operator !=(UserProfileUserSettingsStudioWebPortal left, UserProfileUserSettingsStudioWebPortal right) => !left.Equals(right);
+
+        public static explicit operator string(UserProfileUserSettingsStudioWebPortal value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserProfileUserSettingsStudioWebPortal other && Equals(other);
+        public bool Equals(UserProfileUserSettingsStudioWebPortal other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

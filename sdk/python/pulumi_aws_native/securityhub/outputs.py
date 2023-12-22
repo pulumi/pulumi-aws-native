@@ -26,6 +26,7 @@ __all__ = [
     'AutomationRulesAction',
     'AutomationRulesFindingFieldsUpdate',
     'AutomationRulesFindingFilters',
+    'HubTags',
     'StandardsControl',
 ]
 
@@ -803,6 +804,18 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="workflowStatus")
     def workflow_status(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         return pulumi.get(self, "workflow_status")
+
+
+@pulumi.output_type
+class HubTags(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__):
+        """
+        A key-value pair to associate with a resource.
+        """
+        pass
 
 
 @pulumi.output_type

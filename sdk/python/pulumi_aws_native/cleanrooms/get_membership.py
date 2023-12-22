@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetMembershipResult:
-    def __init__(__self__, arn=None, collaboration_arn=None, collaboration_creator_account_id=None, default_result_configuration=None, membership_identifier=None, query_log_status=None, tags=None):
+    def __init__(__self__, arn=None, collaboration_arn=None, collaboration_creator_account_id=None, default_result_configuration=None, membership_identifier=None, payment_configuration=None, query_log_status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -36,6 +36,9 @@ class GetMembershipResult:
         if membership_identifier and not isinstance(membership_identifier, str):
             raise TypeError("Expected argument 'membership_identifier' to be a str")
         pulumi.set(__self__, "membership_identifier", membership_identifier)
+        if payment_configuration and not isinstance(payment_configuration, dict):
+            raise TypeError("Expected argument 'payment_configuration' to be a dict")
+        pulumi.set(__self__, "payment_configuration", payment_configuration)
         if query_log_status and not isinstance(query_log_status, str):
             raise TypeError("Expected argument 'query_log_status' to be a str")
         pulumi.set(__self__, "query_log_status", query_log_status)
@@ -69,6 +72,11 @@ class GetMembershipResult:
         return pulumi.get(self, "membership_identifier")
 
     @property
+    @pulumi.getter(name="paymentConfiguration")
+    def payment_configuration(self) -> Optional['outputs.MembershipPaymentConfiguration']:
+        return pulumi.get(self, "payment_configuration")
+
+    @property
     @pulumi.getter(name="queryLogStatus")
     def query_log_status(self) -> Optional['MembershipQueryLogStatus']:
         return pulumi.get(self, "query_log_status")
@@ -93,6 +101,7 @@ class AwaitableGetMembershipResult(GetMembershipResult):
             collaboration_creator_account_id=self.collaboration_creator_account_id,
             default_result_configuration=self.default_result_configuration,
             membership_identifier=self.membership_identifier,
+            payment_configuration=self.payment_configuration,
             query_log_status=self.query_log_status,
             tags=self.tags)
 
@@ -113,6 +122,7 @@ def get_membership(membership_identifier: Optional[str] = None,
         collaboration_creator_account_id=pulumi.get(__ret__, 'collaboration_creator_account_id'),
         default_result_configuration=pulumi.get(__ret__, 'default_result_configuration'),
         membership_identifier=pulumi.get(__ret__, 'membership_identifier'),
+        payment_configuration=pulumi.get(__ret__, 'payment_configuration'),
         query_log_status=pulumi.get(__ret__, 'query_log_status'),
         tags=pulumi.get(__ret__, 'tags'))
 

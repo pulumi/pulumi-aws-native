@@ -42,6 +42,9 @@ namespace Pulumi.AwsNative.OpenSearchService
         [Output("domainEndpointOptions")]
         public Output<Outputs.DomainEndpointOptions?> DomainEndpointOptions { get; private set; } = null!;
 
+        [Output("domainEndpointV2")]
+        public Output<string> DomainEndpointV2 { get; private set; } = null!;
+
         [Output("domainEndpoints")]
         public Output<object> DomainEndpoints { get; private set; } = null!;
 
@@ -56,6 +59,9 @@ namespace Pulumi.AwsNative.OpenSearchService
 
         [Output("engineVersion")]
         public Output<string?> EngineVersion { get; private set; } = null!;
+
+        [Output("ipAddressType")]
+        public Output<string?> IpAddressType { get; private set; } = null!;
 
         [Output("logPublishingOptions")]
         public Output<object?> LogPublishingOptions { get; private set; } = null!;
@@ -162,6 +168,9 @@ namespace Pulumi.AwsNative.OpenSearchService
 
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
+
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
 
         [Input("logPublishingOptions")]
         public Input<object>? LogPublishingOptions { get; set; }

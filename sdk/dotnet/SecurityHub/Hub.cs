@@ -10,23 +10,43 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.SecurityHub
 {
     /// <summary>
-    /// Resource Type definition for AWS::SecurityHub::Hub
+    /// The AWS::SecurityHub::Hub resource represents the implementation of the AWS Security Hub service in your account. One hub resource is created for each Region in which you enable Security Hub.
     /// </summary>
-    [Obsolete(@"Hub is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:securityhub:Hub")]
     public partial class Hub : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// An ARN is automatically created for the customer.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to automatically enable new controls when they are added to standards that are enabled
+        /// </summary>
         [Output("autoEnableControls")]
         public Output<bool?> AutoEnableControls { get; private set; } = null!;
 
+        /// <summary>
+        /// This field, used when enabling Security Hub, specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to SECURITY_CONTROL, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards.  If the value for this field is set to STANDARD_CONTROL, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards.
+        /// </summary>
         [Output("controlFindingGenerator")]
         public Output<string?> ControlFindingGenerator { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to enable the security standards that Security Hub has designated as automatically enabled.
+        /// </summary>
         [Output("enableDefaultStandards")]
         public Output<bool?> EnableDefaultStandards { get; private set; } = null!;
 
+        /// <summary>
+        /// The date and time when Security Hub was enabled in the account.
+        /// </summary>
+        [Output("subscribedAt")]
+        public Output<string> SubscribedAt { get; private set; } = null!;
+
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<Outputs.HubTags?> Tags { get; private set; } = null!;
 
 
         /// <summary>
@@ -73,17 +93,26 @@ namespace Pulumi.AwsNative.SecurityHub
 
     public sealed class HubArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to automatically enable new controls when they are added to standards that are enabled
+        /// </summary>
         [Input("autoEnableControls")]
         public Input<bool>? AutoEnableControls { get; set; }
 
+        /// <summary>
+        /// This field, used when enabling Security Hub, specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to SECURITY_CONTROL, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards.  If the value for this field is set to STANDARD_CONTROL, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards.
+        /// </summary>
         [Input("controlFindingGenerator")]
         public Input<string>? ControlFindingGenerator { get; set; }
 
+        /// <summary>
+        /// Whether to enable the security standards that Security Hub has designated as automatically enabled.
+        /// </summary>
         [Input("enableDefaultStandards")]
         public Input<bool>? EnableDefaultStandards { get; set; }
 
         [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        public Input<Inputs.HubTagsArgs>? Tags { get; set; }
 
         public HubArgs()
         {

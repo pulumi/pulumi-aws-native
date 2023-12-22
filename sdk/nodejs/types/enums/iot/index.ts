@@ -37,6 +37,12 @@ export const CertificateMode = {
 
 export type CertificateMode = (typeof CertificateMode)[keyof typeof CertificateMode];
 
+export const CertificateProviderOperation = {
+    CreateCertificateFromCsr: "CreateCertificateFromCsr",
+} as const;
+
+export type CertificateProviderOperation = (typeof CertificateProviderOperation)[keyof typeof CertificateProviderOperation];
+
 export const CertificateStatus = {
     Active: "ACTIVE",
     Inactive: "INACTIVE",

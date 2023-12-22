@@ -513,6 +513,7 @@ namespace Pulumi.AwsNative.Connect
 
         public static IntegrationAssociationIntegrationType LexBot { get; } = new IntegrationAssociationIntegrationType("LEX_BOT");
         public static IntegrationAssociationIntegrationType LambdaFunction { get; } = new IntegrationAssociationIntegrationType("LAMBDA_FUNCTION");
+        public static IntegrationAssociationIntegrationType Application { get; } = new IntegrationAssociationIntegrationType("APPLICATION");
 
         public static bool operator ==(IntegrationAssociationIntegrationType left, IntegrationAssociationIntegrationType right) => left.Equals(right);
         public static bool operator !=(IntegrationAssociationIntegrationType left, IntegrationAssociationIntegrationType right) => !left.Equals(right);
@@ -830,6 +831,8 @@ namespace Pulumi.AwsNative.Connect
         public static RuleTriggerEventSourceEventSourceName OnZendeskTicketStatusUpdate { get; } = new RuleTriggerEventSourceEventSourceName("OnZendeskTicketStatusUpdate");
         public static RuleTriggerEventSourceEventSourceName OnSalesforceCaseCreate { get; } = new RuleTriggerEventSourceEventSourceName("OnSalesforceCaseCreate");
         public static RuleTriggerEventSourceEventSourceName OnMetricDataUpdate { get; } = new RuleTriggerEventSourceEventSourceName("OnMetricDataUpdate");
+        public static RuleTriggerEventSourceEventSourceName OnCaseCreate { get; } = new RuleTriggerEventSourceEventSourceName("OnCaseCreate");
+        public static RuleTriggerEventSourceEventSourceName OnCasesUpdate { get; } = new RuleTriggerEventSourceEventSourceName("OnCasesUpdate");
 
         public static bool operator ==(RuleTriggerEventSourceEventSourceName left, RuleTriggerEventSourceEventSourceName right) => left.Equals(right);
         public static bool operator !=(RuleTriggerEventSourceEventSourceName left, RuleTriggerEventSourceEventSourceName right) => !left.Equals(right);

@@ -25,11 +25,13 @@ type Domain struct {
 	DomainArn                   pulumi.StringOutput                         `pulumi:"domainArn"`
 	DomainEndpoint              pulumi.StringOutput                         `pulumi:"domainEndpoint"`
 	DomainEndpointOptions       DomainEndpointOptionsPtrOutput              `pulumi:"domainEndpointOptions"`
+	DomainEndpointV2            pulumi.StringOutput                         `pulumi:"domainEndpointV2"`
 	DomainEndpoints             pulumi.AnyOutput                            `pulumi:"domainEndpoints"`
 	DomainName                  pulumi.StringPtrOutput                      `pulumi:"domainName"`
 	EbsOptions                  DomainEbsOptionsPtrOutput                   `pulumi:"ebsOptions"`
 	EncryptionAtRestOptions     DomainEncryptionAtRestOptionsPtrOutput      `pulumi:"encryptionAtRestOptions"`
 	EngineVersion               pulumi.StringPtrOutput                      `pulumi:"engineVersion"`
+	IpAddressType               pulumi.StringPtrOutput                      `pulumi:"ipAddressType"`
 	LogPublishingOptions        pulumi.AnyOutput                            `pulumi:"logPublishingOptions"`
 	NodeToNodeEncryptionOptions DomainNodeToNodeEncryptionOptionsPtrOutput  `pulumi:"nodeToNodeEncryptionOptions"`
 	OffPeakWindowOptions        DomainOffPeakWindowOptionsPtrOutput         `pulumi:"offPeakWindowOptions"`
@@ -95,6 +97,7 @@ type domainArgs struct {
 	EbsOptions                  *DomainEbsOptions                   `pulumi:"ebsOptions"`
 	EncryptionAtRestOptions     *DomainEncryptionAtRestOptions      `pulumi:"encryptionAtRestOptions"`
 	EngineVersion               *string                             `pulumi:"engineVersion"`
+	IpAddressType               *string                             `pulumi:"ipAddressType"`
 	LogPublishingOptions        interface{}                         `pulumi:"logPublishingOptions"`
 	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions  `pulumi:"nodeToNodeEncryptionOptions"`
 	OffPeakWindowOptions        *DomainOffPeakWindowOptions         `pulumi:"offPeakWindowOptions"`
@@ -117,6 +120,7 @@ type DomainArgs struct {
 	EbsOptions                  DomainEbsOptionsPtrInput
 	EncryptionAtRestOptions     DomainEncryptionAtRestOptionsPtrInput
 	EngineVersion               pulumi.StringPtrInput
+	IpAddressType               pulumi.StringPtrInput
 	LogPublishingOptions        pulumi.Input
 	NodeToNodeEncryptionOptions DomainNodeToNodeEncryptionOptionsPtrInput
 	OffPeakWindowOptions        DomainOffPeakWindowOptionsPtrInput
@@ -212,6 +216,10 @@ func (o DomainOutput) DomainEndpointOptions() DomainEndpointOptionsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainEndpointOptionsPtrOutput { return v.DomainEndpointOptions }).(DomainEndpointOptionsPtrOutput)
 }
 
+func (o DomainOutput) DomainEndpointV2() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.DomainEndpointV2 }).(pulumi.StringOutput)
+}
+
 func (o DomainOutput) DomainEndpoints() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Domain) pulumi.AnyOutput { return v.DomainEndpoints }).(pulumi.AnyOutput)
 }
@@ -230,6 +238,10 @@ func (o DomainOutput) EncryptionAtRestOptions() DomainEncryptionAtRestOptionsPtr
 
 func (o DomainOutput) EngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.EngineVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
 func (o DomainOutput) LogPublishingOptions() pulumi.AnyOutput {

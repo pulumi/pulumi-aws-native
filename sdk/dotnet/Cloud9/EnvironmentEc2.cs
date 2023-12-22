@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.Cloud9
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("imageId")]
-        public Output<string?> ImageId { get; private set; } = null!;
+        public Output<string> ImageId { get; private set; } = null!;
 
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
@@ -113,8 +113,8 @@ namespace Pulumi.AwsNative.Cloud9
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("imageId")]
-        public Input<string>? ImageId { get; set; }
+        [Input("imageId", required: true)]
+        public Input<string> ImageId { get; set; } = null!;
 
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;

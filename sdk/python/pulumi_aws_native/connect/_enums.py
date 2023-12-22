@@ -190,6 +190,7 @@ class IntegrationAssociationIntegrationType(str, Enum):
     """
     LEX_BOT = "LEX_BOT"
     LAMBDA_FUNCTION = "LAMBDA_FUNCTION"
+    APPLICATION = "APPLICATION"
 
 
 class QueueStatus(str, Enum):
@@ -277,6 +278,8 @@ class RuleTriggerEventSourceEventSourceName(str, Enum):
     ON_ZENDESK_TICKET_STATUS_UPDATE = "OnZendeskTicketStatusUpdate"
     ON_SALESFORCE_CASE_CREATE = "OnSalesforceCaseCreate"
     ON_METRIC_DATA_UPDATE = "OnMetricDataUpdate"
+    ON_CASE_CREATE = "OnCaseCreate"
+    ON_CASES_UPDATE = "OnCasesUpdate"
 
 
 class TaskTemplateFieldType(str, Enum):

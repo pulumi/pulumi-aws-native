@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.Batch
 
     public sealed class GetJobDefinitionArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("jobDefinitionArn", required: true)]
+        public string JobDefinitionArn { get; set; } = null!;
 
         public GetJobDefinitionArgs()
         {
@@ -38,8 +38,8 @@ namespace Pulumi.AwsNative.Batch
 
     public sealed class GetJobDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("jobDefinitionArn", required: true)]
+        public Input<string> JobDefinitionArn { get; set; } = null!;
 
         public GetJobDefinitionInvokeArgs()
         {
@@ -51,53 +51,32 @@ namespace Pulumi.AwsNative.Batch
     [OutputType]
     public sealed class GetJobDefinitionResult
     {
-        public readonly Outputs.JobDefinitionContainerProperties? ContainerProperties;
-        public readonly Outputs.JobDefinitionEksProperties? EksProperties;
-        public readonly string? Id;
-        public readonly Outputs.JobDefinitionNodeProperties? NodeProperties;
-        public readonly object? Parameters;
-        public readonly ImmutableArray<string> PlatformCapabilities;
-        public readonly bool? PropagateTags;
-        public readonly Outputs.JobDefinitionRetryStrategy? RetryStrategy;
-        public readonly int? SchedulingPriority;
-        public readonly Outputs.JobDefinitionTimeout? Timeout;
-        public readonly string? Type;
+        public readonly string? ContainerOrchestrationType;
+        public readonly string? JobDefinitionArn;
+        public readonly int? Revision;
+        public readonly string? Status;
+        /// <summary>
+        /// A key-value pair to associate with a resource.
+        /// </summary>
+        public readonly object? Tags;
 
         [OutputConstructor]
         private GetJobDefinitionResult(
-            Outputs.JobDefinitionContainerProperties? containerProperties,
+            string? containerOrchestrationType,
 
-            Outputs.JobDefinitionEksProperties? eksProperties,
+            string? jobDefinitionArn,
 
-            string? id,
+            int? revision,
 
-            Outputs.JobDefinitionNodeProperties? nodeProperties,
+            string? status,
 
-            object? parameters,
-
-            ImmutableArray<string> platformCapabilities,
-
-            bool? propagateTags,
-
-            Outputs.JobDefinitionRetryStrategy? retryStrategy,
-
-            int? schedulingPriority,
-
-            Outputs.JobDefinitionTimeout? timeout,
-
-            string? type)
+            object? tags)
         {
-            ContainerProperties = containerProperties;
-            EksProperties = eksProperties;
-            Id = id;
-            NodeProperties = nodeProperties;
-            Parameters = parameters;
-            PlatformCapabilities = platformCapabilities;
-            PropagateTags = propagateTags;
-            RetryStrategy = retryStrategy;
-            SchedulingPriority = schedulingPriority;
-            Timeout = timeout;
-            Type = type;
+            ContainerOrchestrationType = containerOrchestrationType;
+            JobDefinitionArn = jobDefinitionArn;
+            Revision = revision;
+            Status = status;
+            Tags = tags;
         }
     }
 }

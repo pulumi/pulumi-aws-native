@@ -72,6 +72,37 @@ namespace Pulumi.AwsNative.GameLift
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+    /// </summary>
+    [EnumType]
+    public readonly struct FleetApplyCapacity : IEquatable<FleetApplyCapacity>
+    {
+        private readonly string _value;
+
+        private FleetApplyCapacity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetApplyCapacity OnUpdate { get; } = new FleetApplyCapacity("ON_UPDATE");
+        public static FleetApplyCapacity OnCreateAndUpdate { get; } = new FleetApplyCapacity("ON_CREATE_AND_UPDATE");
+
+        public static bool operator ==(FleetApplyCapacity left, FleetApplyCapacity right) => left.Equals(right);
+        public static bool operator !=(FleetApplyCapacity left, FleetApplyCapacity right) => !left.Equals(right);
+
+        public static explicit operator string(FleetApplyCapacity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetApplyCapacity other && Equals(other);
+        public bool Equals(FleetApplyCapacity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct FleetCertificateConfigurationCertificateType : IEquatable<FleetCertificateConfigurationCertificateType>
     {

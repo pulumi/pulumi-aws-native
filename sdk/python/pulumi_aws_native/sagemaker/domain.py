@@ -290,9 +290,10 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["domain_id"] = None
             __props__.__dict__["home_efs_file_system_id"] = None
             __props__.__dict__["security_group_id_for_domain_boundary"] = None
+            __props__.__dict__["single_sign_on_application_arn"] = None
             __props__.__dict__["single_sign_on_managed_application_instance_id"] = None
             __props__.__dict__["url"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["app_network_access_type", "auth_mode", "domain_name", "domain_settings.r_studio_server_pro_domain_settings.default_resource_spec", "kms_key_id", "subnet_ids[*]", "tags[*]", "vpc_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["auth_mode", "domain_name", "domain_settings.r_studio_server_pro_domain_settings.default_resource_spec", "kms_key_id", "tags[*]", "vpc_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Domain, __self__).__init__(
             'aws-native:sagemaker:Domain',
@@ -328,6 +329,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["home_efs_file_system_id"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["security_group_id_for_domain_boundary"] = None
+        __props__.__dict__["single_sign_on_application_arn"] = None
         __props__.__dict__["single_sign_on_managed_application_instance_id"] = None
         __props__.__dict__["subnet_ids"] = None
         __props__.__dict__["tags"] = None
@@ -427,6 +429,14 @@ class Domain(pulumi.CustomResource):
         The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
         """
         return pulumi.get(self, "security_group_id_for_domain_boundary")
+
+    @property
+    @pulumi.getter(name="singleSignOnApplicationArn")
+    def single_sign_on_application_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after October 1, 2023.
+        """
+        return pulumi.get(self, "single_sign_on_application_arn")
 
     @property
     @pulumi.getter(name="singleSignOnManagedApplicationInstanceId")

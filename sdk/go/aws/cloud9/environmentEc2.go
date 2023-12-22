@@ -23,7 +23,7 @@ type EnvironmentEc2 struct {
 	AutomaticStopTimeMinutes pulumi.IntPtrOutput                 `pulumi:"automaticStopTimeMinutes"`
 	ConnectionType           pulumi.StringPtrOutput              `pulumi:"connectionType"`
 	Description              pulumi.StringPtrOutput              `pulumi:"description"`
-	ImageId                  pulumi.StringPtrOutput              `pulumi:"imageId"`
+	ImageId                  pulumi.StringOutput                 `pulumi:"imageId"`
 	InstanceType             pulumi.StringOutput                 `pulumi:"instanceType"`
 	Name                     pulumi.StringPtrOutput              `pulumi:"name"`
 	OwnerArn                 pulumi.StringPtrOutput              `pulumi:"ownerArn"`
@@ -39,6 +39,9 @@ func NewEnvironmentEc2(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ImageId == nil {
+		return nil, errors.New("invalid value for required argument 'ImageId'")
+	}
 	if args.InstanceType == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceType'")
 	}
@@ -88,7 +91,7 @@ type environmentEc2Args struct {
 	AutomaticStopTimeMinutes *int                       `pulumi:"automaticStopTimeMinutes"`
 	ConnectionType           *string                    `pulumi:"connectionType"`
 	Description              *string                    `pulumi:"description"`
-	ImageId                  *string                    `pulumi:"imageId"`
+	ImageId                  string                     `pulumi:"imageId"`
 	InstanceType             string                     `pulumi:"instanceType"`
 	Name                     *string                    `pulumi:"name"`
 	OwnerArn                 *string                    `pulumi:"ownerArn"`
@@ -102,7 +105,7 @@ type EnvironmentEc2Args struct {
 	AutomaticStopTimeMinutes pulumi.IntPtrInput
 	ConnectionType           pulumi.StringPtrInput
 	Description              pulumi.StringPtrInput
-	ImageId                  pulumi.StringPtrInput
+	ImageId                  pulumi.StringInput
 	InstanceType             pulumi.StringInput
 	Name                     pulumi.StringPtrInput
 	OwnerArn                 pulumi.StringPtrInput
@@ -176,8 +179,8 @@ func (o EnvironmentEc2Output) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentEc2) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o EnvironmentEc2Output) ImageId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EnvironmentEc2) pulumi.StringPtrOutput { return v.ImageId }).(pulumi.StringPtrOutput)
+func (o EnvironmentEc2Output) ImageId() pulumi.StringOutput {
+	return o.ApplyT(func(v *EnvironmentEc2) pulumi.StringOutput { return v.ImageId }).(pulumi.StringOutput)
 }
 
 func (o EnvironmentEc2Output) InstanceType() pulumi.StringOutput {

@@ -19,7 +19,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetApplicationResult:
-    def __init__(__self__, arn=None, description=None, id=None, name=None, tags=None):
+    def __init__(__self__, application_name=None, application_tag_key=None, application_tag_value=None, arn=None, description=None, id=None, name=None, tags=None):
+        if application_name and not isinstance(application_name, str):
+            raise TypeError("Expected argument 'application_name' to be a str")
+        pulumi.set(__self__, "application_name", application_name)
+        if application_tag_key and not isinstance(application_tag_key, str):
+            raise TypeError("Expected argument 'application_tag_key' to be a str")
+        pulumi.set(__self__, "application_tag_key", application_tag_key)
+        if application_tag_value and not isinstance(application_tag_value, str):
+            raise TypeError("Expected argument 'application_tag_value' to be a str")
+        pulumi.set(__self__, "application_tag_value", application_tag_value)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -35,6 +44,30 @@ class GetApplicationResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> Optional[str]:
+        """
+        The name of the application. 
+        """
+        return pulumi.get(self, "application_name")
+
+    @property
+    @pulumi.getter(name="applicationTagKey")
+    def application_tag_key(self) -> Optional[str]:
+        """
+        The key of the AWS application tag, which is awsApplication. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value.
+        """
+        return pulumi.get(self, "application_tag_key")
+
+    @property
+    @pulumi.getter(name="applicationTagValue")
+    def application_tag_value(self) -> Optional[str]:
+        """
+        The value of the AWS application tag, which is the identifier of an associated resource. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value. 
+        """
+        return pulumi.get(self, "application_tag_value")
 
     @property
     @pulumi.getter
@@ -74,6 +107,9 @@ class AwaitableGetApplicationResult(GetApplicationResult):
         if False:
             yield self
         return GetApplicationResult(
+            application_name=self.application_name,
+            application_tag_key=self.application_tag_key,
+            application_tag_value=self.application_tag_value,
             arn=self.arn,
             description=self.description,
             id=self.id,
@@ -92,6 +128,9 @@ def get_application(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:servicecatalogappregistry:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
+        application_name=pulumi.get(__ret__, 'application_name'),
+        application_tag_key=pulumi.get(__ret__, 'application_tag_key'),
+        application_tag_value=pulumi.get(__ret__, 'application_tag_value'),
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
         id=pulumi.get(__ret__, 'id'),

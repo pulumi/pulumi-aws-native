@@ -8,9 +8,11 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'ExperimentTemplateActionMapArgs',
+    'ExperimentTemplateExperimentOptionsArgs',
     'ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs',
     'ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs',
     'ExperimentTemplateLogConfigurationArgs',
@@ -25,6 +27,45 @@ class ExperimentTemplateActionMapArgs:
         The actions for the experiment.
         """
         pass
+
+
+@pulumi.input_type
+class ExperimentTemplateExperimentOptionsArgs:
+    def __init__(__self__, *,
+                 account_targeting: Optional[pulumi.Input['ExperimentTemplateExperimentOptionsAccountTargeting']] = None,
+                 empty_target_resolution_mode: Optional[pulumi.Input['ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode']] = None):
+        """
+        :param pulumi.Input['ExperimentTemplateExperimentOptionsAccountTargeting'] account_targeting: The account targeting setting for the experiment template.
+        :param pulumi.Input['ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode'] empty_target_resolution_mode: The target resolution failure mode for the experiment template.
+        """
+        if account_targeting is not None:
+            pulumi.set(__self__, "account_targeting", account_targeting)
+        if empty_target_resolution_mode is not None:
+            pulumi.set(__self__, "empty_target_resolution_mode", empty_target_resolution_mode)
+
+    @property
+    @pulumi.getter(name="accountTargeting")
+    def account_targeting(self) -> Optional[pulumi.Input['ExperimentTemplateExperimentOptionsAccountTargeting']]:
+        """
+        The account targeting setting for the experiment template.
+        """
+        return pulumi.get(self, "account_targeting")
+
+    @account_targeting.setter
+    def account_targeting(self, value: Optional[pulumi.Input['ExperimentTemplateExperimentOptionsAccountTargeting']]):
+        pulumi.set(self, "account_targeting", value)
+
+    @property
+    @pulumi.getter(name="emptyTargetResolutionMode")
+    def empty_target_resolution_mode(self) -> Optional[pulumi.Input['ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode']]:
+        """
+        The target resolution failure mode for the experiment template.
+        """
+        return pulumi.get(self, "empty_target_resolution_mode")
+
+    @empty_target_resolution_mode.setter
+    def empty_target_resolution_mode(self, value: Optional[pulumi.Input['ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode']]):
+        pulumi.set(self, "empty_target_resolution_mode", value)
 
 
 @pulumi.input_type

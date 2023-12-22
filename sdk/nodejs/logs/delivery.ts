@@ -8,7 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Logs::Delivery.
+ * This structure contains information about one delivery in your account.
+ *
+ * A delivery is a connection between a logical delivery source and a logical delivery destination.
+ *
+ * For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).
  */
 export class Delivery extends pulumi.CustomResource {
     /**
@@ -38,27 +42,27 @@ export class Delivery extends pulumi.CustomResource {
     }
 
     /**
-     * The value of the Arn property for this object.
+     * The Amazon Resource Name (ARN) that uniquely identifies this delivery.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The value of the DeliveryDestinationArn property for this object.
+     * The ARN of the delivery destination that is associated with this delivery.
      */
     public readonly deliveryDestinationArn!: pulumi.Output<string>;
     /**
-     * The value of the DeliveryDestinationType property for this object.
+     * Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
      */
     public /*out*/ readonly deliveryDestinationType!: pulumi.Output<string>;
     /**
-     * The value of the Id property for this object.
+     * The unique ID that identifies this delivery in your account.
      */
     public /*out*/ readonly deliveryId!: pulumi.Output<string>;
     /**
-     * The value of the DeliverySourceName property for this object.
+     * The name of the delivery source that is associated with this delivery.
      */
     public readonly deliverySourceName!: pulumi.Output<string>;
     /**
-     * The value of the Tags property for this object.
+     * The tags that have been assigned to this delivery.
      */
     public readonly tags!: pulumi.Output<outputs.logs.DeliveryTag[] | undefined>;
 
@@ -105,15 +109,15 @@ export class Delivery extends pulumi.CustomResource {
  */
 export interface DeliveryArgs {
     /**
-     * The value of the DeliveryDestinationArn property for this object.
+     * The ARN of the delivery destination that is associated with this delivery.
      */
     deliveryDestinationArn: pulumi.Input<string>;
     /**
-     * The value of the DeliverySourceName property for this object.
+     * The name of the delivery source that is associated with this delivery.
      */
     deliverySourceName: pulumi.Input<string>;
     /**
-     * The value of the Tags property for this object.
+     * The tags that have been assigned to this delivery.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.logs.DeliveryTagArgs>[]>;
 }

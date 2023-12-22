@@ -181,6 +181,7 @@ export type InstanceStorageConfigStorageType = (typeof InstanceStorageConfigStor
 export const IntegrationAssociationIntegrationType = {
     LexBot: "LEX_BOT",
     LambdaFunction: "LAMBDA_FUNCTION",
+    Application: "APPLICATION",
 } as const;
 
 /**
@@ -288,6 +289,8 @@ export const RuleTriggerEventSourceEventSourceName = {
     OnZendeskTicketStatusUpdate: "OnZendeskTicketStatusUpdate",
     OnSalesforceCaseCreate: "OnSalesforceCaseCreate",
     OnMetricDataUpdate: "OnMetricDataUpdate",
+    OnCaseCreate: "OnCaseCreate",
+    OnCasesUpdate: "OnCasesUpdate",
 } as const;
 
 /**

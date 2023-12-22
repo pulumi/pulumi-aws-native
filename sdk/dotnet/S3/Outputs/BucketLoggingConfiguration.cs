@@ -18,15 +18,19 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// </summary>
         public readonly string? DestinationBucketName;
         public readonly string? LogFilePrefix;
+        public readonly Outputs.BucketTargetObjectKeyFormat? TargetObjectKeyFormat;
 
         [OutputConstructor]
         private BucketLoggingConfiguration(
             string? destinationBucketName,
 
-            string? logFilePrefix)
+            string? logFilePrefix,
+
+            Outputs.BucketTargetObjectKeyFormat? targetObjectKeyFormat)
         {
             DestinationBucketName = destinationBucketName;
             LogFilePrefix = logFilePrefix;
+            TargetObjectKeyFormat = targetObjectKeyFormat;
         }
     }
 }

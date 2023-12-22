@@ -6932,6 +6932,178 @@ func (o KeyGroupConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type KeyValueStoreImportSource struct {
+	SourceArn  string `pulumi:"sourceArn"`
+	SourceType string `pulumi:"sourceType"`
+}
+
+// KeyValueStoreImportSourceInput is an input type that accepts KeyValueStoreImportSourceArgs and KeyValueStoreImportSourceOutput values.
+// You can construct a concrete instance of `KeyValueStoreImportSourceInput` via:
+//
+//	KeyValueStoreImportSourceArgs{...}
+type KeyValueStoreImportSourceInput interface {
+	pulumi.Input
+
+	ToKeyValueStoreImportSourceOutput() KeyValueStoreImportSourceOutput
+	ToKeyValueStoreImportSourceOutputWithContext(context.Context) KeyValueStoreImportSourceOutput
+}
+
+type KeyValueStoreImportSourceArgs struct {
+	SourceArn  pulumi.StringInput `pulumi:"sourceArn"`
+	SourceType pulumi.StringInput `pulumi:"sourceType"`
+}
+
+func (KeyValueStoreImportSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyValueStoreImportSource)(nil)).Elem()
+}
+
+func (i KeyValueStoreImportSourceArgs) ToKeyValueStoreImportSourceOutput() KeyValueStoreImportSourceOutput {
+	return i.ToKeyValueStoreImportSourceOutputWithContext(context.Background())
+}
+
+func (i KeyValueStoreImportSourceArgs) ToKeyValueStoreImportSourceOutputWithContext(ctx context.Context) KeyValueStoreImportSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyValueStoreImportSourceOutput)
+}
+
+func (i KeyValueStoreImportSourceArgs) ToOutput(ctx context.Context) pulumix.Output[KeyValueStoreImportSource] {
+	return pulumix.Output[KeyValueStoreImportSource]{
+		OutputState: i.ToKeyValueStoreImportSourceOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i KeyValueStoreImportSourceArgs) ToKeyValueStoreImportSourcePtrOutput() KeyValueStoreImportSourcePtrOutput {
+	return i.ToKeyValueStoreImportSourcePtrOutputWithContext(context.Background())
+}
+
+func (i KeyValueStoreImportSourceArgs) ToKeyValueStoreImportSourcePtrOutputWithContext(ctx context.Context) KeyValueStoreImportSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyValueStoreImportSourceOutput).ToKeyValueStoreImportSourcePtrOutputWithContext(ctx)
+}
+
+// KeyValueStoreImportSourcePtrInput is an input type that accepts KeyValueStoreImportSourceArgs, KeyValueStoreImportSourcePtr and KeyValueStoreImportSourcePtrOutput values.
+// You can construct a concrete instance of `KeyValueStoreImportSourcePtrInput` via:
+//
+//	        KeyValueStoreImportSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type KeyValueStoreImportSourcePtrInput interface {
+	pulumi.Input
+
+	ToKeyValueStoreImportSourcePtrOutput() KeyValueStoreImportSourcePtrOutput
+	ToKeyValueStoreImportSourcePtrOutputWithContext(context.Context) KeyValueStoreImportSourcePtrOutput
+}
+
+type keyValueStoreImportSourcePtrType KeyValueStoreImportSourceArgs
+
+func KeyValueStoreImportSourcePtr(v *KeyValueStoreImportSourceArgs) KeyValueStoreImportSourcePtrInput {
+	return (*keyValueStoreImportSourcePtrType)(v)
+}
+
+func (*keyValueStoreImportSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyValueStoreImportSource)(nil)).Elem()
+}
+
+func (i *keyValueStoreImportSourcePtrType) ToKeyValueStoreImportSourcePtrOutput() KeyValueStoreImportSourcePtrOutput {
+	return i.ToKeyValueStoreImportSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *keyValueStoreImportSourcePtrType) ToKeyValueStoreImportSourcePtrOutputWithContext(ctx context.Context) KeyValueStoreImportSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyValueStoreImportSourcePtrOutput)
+}
+
+func (i *keyValueStoreImportSourcePtrType) ToOutput(ctx context.Context) pulumix.Output[*KeyValueStoreImportSource] {
+	return pulumix.Output[*KeyValueStoreImportSource]{
+		OutputState: i.ToKeyValueStoreImportSourcePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type KeyValueStoreImportSourceOutput struct{ *pulumi.OutputState }
+
+func (KeyValueStoreImportSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyValueStoreImportSource)(nil)).Elem()
+}
+
+func (o KeyValueStoreImportSourceOutput) ToKeyValueStoreImportSourceOutput() KeyValueStoreImportSourceOutput {
+	return o
+}
+
+func (o KeyValueStoreImportSourceOutput) ToKeyValueStoreImportSourceOutputWithContext(ctx context.Context) KeyValueStoreImportSourceOutput {
+	return o
+}
+
+func (o KeyValueStoreImportSourceOutput) ToKeyValueStoreImportSourcePtrOutput() KeyValueStoreImportSourcePtrOutput {
+	return o.ToKeyValueStoreImportSourcePtrOutputWithContext(context.Background())
+}
+
+func (o KeyValueStoreImportSourceOutput) ToKeyValueStoreImportSourcePtrOutputWithContext(ctx context.Context) KeyValueStoreImportSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyValueStoreImportSource) *KeyValueStoreImportSource {
+		return &v
+	}).(KeyValueStoreImportSourcePtrOutput)
+}
+
+func (o KeyValueStoreImportSourceOutput) ToOutput(ctx context.Context) pulumix.Output[KeyValueStoreImportSource] {
+	return pulumix.Output[KeyValueStoreImportSource]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o KeyValueStoreImportSourceOutput) SourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyValueStoreImportSource) string { return v.SourceArn }).(pulumi.StringOutput)
+}
+
+func (o KeyValueStoreImportSourceOutput) SourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyValueStoreImportSource) string { return v.SourceType }).(pulumi.StringOutput)
+}
+
+type KeyValueStoreImportSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyValueStoreImportSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyValueStoreImportSource)(nil)).Elem()
+}
+
+func (o KeyValueStoreImportSourcePtrOutput) ToKeyValueStoreImportSourcePtrOutput() KeyValueStoreImportSourcePtrOutput {
+	return o
+}
+
+func (o KeyValueStoreImportSourcePtrOutput) ToKeyValueStoreImportSourcePtrOutputWithContext(ctx context.Context) KeyValueStoreImportSourcePtrOutput {
+	return o
+}
+
+func (o KeyValueStoreImportSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KeyValueStoreImportSource] {
+	return pulumix.Output[*KeyValueStoreImportSource]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o KeyValueStoreImportSourcePtrOutput) Elem() KeyValueStoreImportSourceOutput {
+	return o.ApplyT(func(v *KeyValueStoreImportSource) KeyValueStoreImportSource {
+		if v != nil {
+			return *v
+		}
+		var ret KeyValueStoreImportSource
+		return ret
+	}).(KeyValueStoreImportSourceOutput)
+}
+
+func (o KeyValueStoreImportSourcePtrOutput) SourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyValueStoreImportSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KeyValueStoreImportSourcePtrOutput) SourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyValueStoreImportSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceType
+	}).(pulumi.StringPtrOutput)
+}
+
 type MonitoringSubscriptionType struct {
 	RealtimeMetricsSubscriptionConfig *MonitoringSubscriptionRealtimeMetricsSubscriptionConfig `pulumi:"realtimeMetricsSubscriptionConfig"`
 }
@@ -12132,6 +12304,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionMetadataInput)(nil)).Elem(), FunctionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionMetadataPtrInput)(nil)).Elem(), FunctionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyGroupConfigInput)(nil)).Elem(), KeyGroupConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyValueStoreImportSourceInput)(nil)).Elem(), KeyValueStoreImportSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyValueStoreImportSourcePtrInput)(nil)).Elem(), KeyValueStoreImportSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionTypeInput)(nil)).Elem(), MonitoringSubscriptionTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigInput)(nil)).Elem(), MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrInput)(nil)).Elem(), MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs{})
@@ -12267,6 +12441,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionMetadataPtrOutput{})
 	pulumi.RegisterOutputType(KeyGroupConfigOutput{})
 	pulumi.RegisterOutputType(KeyGroupConfigPtrOutput{})
+	pulumi.RegisterOutputType(KeyValueStoreImportSourceOutput{})
+	pulumi.RegisterOutputType(KeyValueStoreImportSourcePtrOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionTypeOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionTypePtrOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput{})

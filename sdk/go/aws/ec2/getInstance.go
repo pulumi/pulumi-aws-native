@@ -24,7 +24,7 @@ func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulum
 }
 
 type LookupInstanceArgs struct {
-	Id string `pulumi:"id"`
+	InstanceId string `pulumi:"instanceId"`
 }
 
 type LookupInstanceResult struct {
@@ -36,7 +36,7 @@ type LookupInstanceResult struct {
 	EbsOptimized                      *bool                          `pulumi:"ebsOptimized"`
 	HostId                            *string                        `pulumi:"hostId"`
 	IamInstanceProfile                *string                        `pulumi:"iamInstanceProfile"`
-	Id                                *string                        `pulumi:"id"`
+	InstanceId                        *string                        `pulumi:"instanceId"`
 	InstanceInitiatedShutdownBehavior *string                        `pulumi:"instanceInitiatedShutdownBehavior"`
 	InstanceType                      *string                        `pulumi:"instanceType"`
 	KernelId                          *string                        `pulumi:"kernelId"`
@@ -71,7 +71,7 @@ func LookupInstanceOutput(ctx *pulumi.Context, args LookupInstanceOutputArgs, op
 }
 
 type LookupInstanceOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	InstanceId pulumi.StringInput `pulumi:"instanceId"`
 }
 
 func (LookupInstanceOutputArgs) ElementType() reflect.Type {
@@ -130,8 +130,8 @@ func (o LookupInstanceResultOutput) IamInstanceProfile() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupInstanceResult) *string { return v.IamInstanceProfile }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupInstanceResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupInstanceResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o LookupInstanceResultOutput) InstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupInstanceResult) *string { return v.InstanceId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupInstanceResultOutput) InstanceInitiatedShutdownBehavior() pulumi.StringPtrOutput {

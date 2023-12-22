@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPipelineResult:
-    def __init__(__self__, artifact_store=None, artifact_stores=None, disable_inbound_stage_transitions=None, id=None, restart_execution_on_update=None, role_arn=None, stages=None, tags=None, version=None):
+    def __init__(__self__, artifact_store=None, artifact_stores=None, disable_inbound_stage_transitions=None, id=None, pipeline_type=None, restart_execution_on_update=None, role_arn=None, stages=None, tags=None, triggers=None, variables=None, version=None):
         if artifact_store and not isinstance(artifact_store, dict):
             raise TypeError("Expected argument 'artifact_store' to be a dict")
         pulumi.set(__self__, "artifact_store", artifact_store)
@@ -32,6 +32,9 @@ class GetPipelineResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if pipeline_type and not isinstance(pipeline_type, str):
+            raise TypeError("Expected argument 'pipeline_type' to be a str")
+        pulumi.set(__self__, "pipeline_type", pipeline_type)
         if restart_execution_on_update and not isinstance(restart_execution_on_update, bool):
             raise TypeError("Expected argument 'restart_execution_on_update' to be a bool")
         pulumi.set(__self__, "restart_execution_on_update", restart_execution_on_update)
@@ -44,6 +47,12 @@ class GetPipelineResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if triggers and not isinstance(triggers, list):
+            raise TypeError("Expected argument 'triggers' to be a list")
+        pulumi.set(__self__, "triggers", triggers)
+        if variables and not isinstance(variables, list):
+            raise TypeError("Expected argument 'variables' to be a list")
+        pulumi.set(__self__, "variables", variables)
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
@@ -69,6 +78,11 @@ class GetPipelineResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="pipelineType")
+    def pipeline_type(self) -> Optional[str]:
+        return pulumi.get(self, "pipeline_type")
+
+    @property
     @pulumi.getter(name="restartExecutionOnUpdate")
     def restart_execution_on_update(self) -> Optional[bool]:
         return pulumi.get(self, "restart_execution_on_update")
@@ -90,6 +104,16 @@ class GetPipelineResult:
 
     @property
     @pulumi.getter
+    def triggers(self) -> Optional[Sequence['outputs.PipelineTriggerDeclaration']]:
+        return pulumi.get(self, "triggers")
+
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[Sequence['outputs.PipelineVariableDeclaration']]:
+        return pulumi.get(self, "variables")
+
+    @property
+    @pulumi.getter
     def version(self) -> Optional[str]:
         return pulumi.get(self, "version")
 
@@ -104,10 +128,13 @@ class AwaitableGetPipelineResult(GetPipelineResult):
             artifact_stores=self.artifact_stores,
             disable_inbound_stage_transitions=self.disable_inbound_stage_transitions,
             id=self.id,
+            pipeline_type=self.pipeline_type,
             restart_execution_on_update=self.restart_execution_on_update,
             role_arn=self.role_arn,
             stages=self.stages,
             tags=self.tags,
+            triggers=self.triggers,
+            variables=self.variables,
             version=self.version)
 
 
@@ -126,10 +153,13 @@ def get_pipeline(id: Optional[str] = None,
         artifact_stores=pulumi.get(__ret__, 'artifact_stores'),
         disable_inbound_stage_transitions=pulumi.get(__ret__, 'disable_inbound_stage_transitions'),
         id=pulumi.get(__ret__, 'id'),
+        pipeline_type=pulumi.get(__ret__, 'pipeline_type'),
         restart_execution_on_update=pulumi.get(__ret__, 'restart_execution_on_update'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         stages=pulumi.get(__ret__, 'stages'),
         tags=pulumi.get(__ret__, 'tags'),
+        triggers=pulumi.get(__ret__, 'triggers'),
+        variables=pulumi.get(__ret__, 'variables'),
         version=pulumi.get(__ret__, 'version'))
 
 

@@ -25,6 +25,7 @@ type GraphQlApi struct {
 	Arn                               pulumi.StringOutput                                   `pulumi:"arn"`
 	AuthenticationType                pulumi.StringOutput                                   `pulumi:"authenticationType"`
 	GraphQlDns                        pulumi.StringOutput                                   `pulumi:"graphQlDns"`
+	GraphQlEndpointArn                pulumi.StringOutput                                   `pulumi:"graphQlEndpointArn"`
 	GraphQlUrl                        pulumi.StringOutput                                   `pulumi:"graphQlUrl"`
 	LambdaAuthorizerConfig            GraphQlApiLambdaAuthorizerConfigPtrOutput             `pulumi:"lambdaAuthorizerConfig"`
 	LogConfig                         GraphQlApiLogConfigPtrOutput                          `pulumi:"logConfig"`
@@ -188,6 +189,10 @@ func (o GraphQlApiOutput) AuthenticationType() pulumi.StringOutput {
 
 func (o GraphQlApiOutput) GraphQlDns() pulumi.StringOutput {
 	return o.ApplyT(func(v *GraphQlApi) pulumi.StringOutput { return v.GraphQlDns }).(pulumi.StringOutput)
+}
+
+func (o GraphQlApiOutput) GraphQlEndpointArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *GraphQlApi) pulumi.StringOutput { return v.GraphQlEndpointArn }).(pulumi.StringOutput)
 }
 
 func (o GraphQlApiOutput) GraphQlUrl() pulumi.StringOutput {

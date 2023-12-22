@@ -31,6 +31,8 @@ type LookupImageArgs struct {
 type LookupImageResult struct {
 	// The Amazon Resource Name (ARN) of the image.
 	Arn *string `pulumi:"arn"`
+	// The execution role name/ARN for the image build, if provided
+	ExecutionRole *string `pulumi:"executionRole"`
 	// The AMI ID of the EC2 AMI in current region.
 	ImageId *string `pulumi:"imageId"`
 	// URI for containers created in current Region with default ECR image tag
@@ -84,6 +86,11 @@ func (o LookupImageResultOutput) ToOutput(ctx context.Context) pulumix.Output[Lo
 // The Amazon Resource Name (ARN) of the image.
 func (o LookupImageResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImageResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The execution role name/ARN for the image build, if provided
+func (o LookupImageResultOutput) ExecutionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImageResult) *string { return v.ExecutionRole }).(pulumi.StringPtrOutput)
 }
 
 // The AMI ID of the EC2 AMI in current region.

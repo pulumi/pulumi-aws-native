@@ -39,6 +39,8 @@ type LookupImagePipelineResult struct {
 	DistributionConfigurationArn *string `pulumi:"distributionConfigurationArn"`
 	// Collects additional information about the image being created, including the operating system (OS) version and package list.
 	EnhancedImageMetadataEnabled *bool `pulumi:"enhancedImageMetadataEnabled"`
+	// The execution role name/ARN for the image build, if provided
+	ExecutionRole *string `pulumi:"executionRole"`
 	// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 	ImageRecipeArn *string `pulumi:"imageRecipeArn"`
 	// Contains settings for vulnerability scans.
@@ -53,6 +55,8 @@ type LookupImagePipelineResult struct {
 	Status *ImagePipelineStatus `pulumi:"status"`
 	// The tags of this image pipeline.
 	Tags interface{} `pulumi:"tags"`
+	// Workflows to define the image build process
+	Workflows []ImagePipelineWorkflowConfiguration `pulumi:"workflows"`
 }
 
 func LookupImagePipelineOutput(ctx *pulumi.Context, args LookupImagePipelineOutputArgs, opts ...pulumi.InvokeOption) LookupImagePipelineResultOutput {
@@ -122,6 +126,11 @@ func (o LookupImagePipelineResultOutput) EnhancedImageMetadataEnabled() pulumi.B
 	return o.ApplyT(func(v LookupImagePipelineResult) *bool { return v.EnhancedImageMetadataEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The execution role name/ARN for the image build, if provided
+func (o LookupImagePipelineResultOutput) ExecutionRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) *string { return v.ExecutionRole }).(pulumi.StringPtrOutput)
+}
+
 // The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
 func (o LookupImagePipelineResultOutput) ImageRecipeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImagePipelineResult) *string { return v.ImageRecipeArn }).(pulumi.StringPtrOutput)
@@ -159,6 +168,11 @@ func (o LookupImagePipelineResultOutput) Status() ImagePipelineStatusPtrOutput {
 // The tags of this image pipeline.
 func (o LookupImagePipelineResultOutput) Tags() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupImagePipelineResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
+}
+
+// Workflows to define the image build process
+func (o LookupImagePipelineResultOutput) Workflows() ImagePipelineWorkflowConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupImagePipelineResult) []ImagePipelineWorkflowConfiguration { return v.Workflows }).(ImagePipelineWorkflowConfigurationArrayOutput)
 }
 
 func init() {

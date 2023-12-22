@@ -121,6 +121,9 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["application_name"] = None
+            __props__.__dict__["application_tag_key"] = None
+            __props__.__dict__["application_tag_value"] = None
             __props__.__dict__["arn"] = None
         super(Application, __self__).__init__(
             'aws-native:servicecatalogappregistry:Application',
@@ -144,11 +147,38 @@ class Application(pulumi.CustomResource):
 
         __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
+        __props__.__dict__["application_name"] = None
+        __props__.__dict__["application_tag_key"] = None
+        __props__.__dict__["application_tag_value"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> pulumi.Output[str]:
+        """
+        The name of the application. 
+        """
+        return pulumi.get(self, "application_name")
+
+    @property
+    @pulumi.getter(name="applicationTagKey")
+    def application_tag_key(self) -> pulumi.Output[str]:
+        """
+        The key of the AWS application tag, which is awsApplication. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value.
+        """
+        return pulumi.get(self, "application_tag_key")
+
+    @property
+    @pulumi.getter(name="applicationTagValue")
+    def application_tag_value(self) -> pulumi.Output[str]:
+        """
+        The value of the AWS application tag, which is the identifier of an associated resource. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value. 
+        """
+        return pulumi.get(self, "application_tag_value")
 
     @property
     @pulumi.getter

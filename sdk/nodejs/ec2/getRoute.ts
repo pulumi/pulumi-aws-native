@@ -37,6 +37,10 @@ export interface GetRouteResult {
      */
     readonly cidrBlock?: string;
     /**
+     * The Amazon Resource Name (ARN) of the core network.
+     */
+    readonly coreNetworkArn?: string;
+    /**
      * The ID of the egress-only internet gateway.
      */
     readonly egressOnlyInternetGatewayId?: string;

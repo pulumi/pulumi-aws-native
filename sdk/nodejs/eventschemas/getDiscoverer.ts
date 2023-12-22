@@ -14,19 +14,41 @@ export function getDiscoverer(args: GetDiscovererArgs, opts?: pulumi.InvokeOptio
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:eventschemas:getDiscoverer", {
-        "discovererId": args.discovererId,
+        "discovererArn": args.discovererArn,
     }, opts);
 }
 
 export interface GetDiscovererArgs {
-    discovererId: string;
+    /**
+     * The ARN of the discoverer.
+     */
+    discovererArn: string;
 }
 
 export interface GetDiscovererResult {
+    /**
+     * Defines whether event schemas from other accounts are discovered. Default is True.
+     */
     readonly crossAccount?: boolean;
+    /**
+     * A description for the discoverer.
+     */
     readonly description?: string;
+    /**
+     * The ARN of the discoverer.
+     */
     readonly discovererArn?: string;
+    /**
+     * The Id of the discoverer.
+     */
     readonly discovererId?: string;
+    /**
+     * Defines the current state of the discoverer.
+     */
+    readonly state?: string;
+    /**
+     * Tags associated with the resource.
+     */
     readonly tags?: outputs.eventschemas.DiscovererTagsEntry[];
 }
 /**
@@ -37,5 +59,8 @@ export function getDiscovererOutput(args: GetDiscovererOutputArgs, opts?: pulumi
 }
 
 export interface GetDiscovererOutputArgs {
-    discovererId: pulumi.Input<string>;
+    /**
+     * The ARN of the discoverer.
+     */
+    discovererArn: pulumi.Input<string>;
 }

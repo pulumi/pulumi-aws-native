@@ -10,6 +10,7 @@ __all__ = [
     'CaCertificateCertificateMode',
     'CaCertificateStatus',
     'CertificateMode',
+    'CertificateProviderOperation',
     'CertificateStatus',
     'CustomMetricMetricType',
     'DimensionType',
@@ -63,6 +64,10 @@ class CaCertificateStatus(str, Enum):
 class CertificateMode(str, Enum):
     DEFAULT = "DEFAULT"
     SNI_ONLY = "SNI_ONLY"
+
+
+class CertificateProviderOperation(str, Enum):
+    CREATE_CERTIFICATE_FROM_CSR = "CreateCertificateFromCsr"
 
 
 class CertificateStatus(str, Enum):

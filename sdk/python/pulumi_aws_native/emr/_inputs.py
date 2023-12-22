@@ -31,6 +31,7 @@ __all__ = [
     'ClusterManagedScalingPolicyArgs',
     'ClusterMetricDimensionArgs',
     'ClusterOnDemandProvisioningSpecificationArgs',
+    'ClusterPlacementGroupConfigArgs',
     'ClusterPlacementTypeArgs',
     'ClusterScalingActionArgs',
     'ClusterScalingConstraintsArgs',
@@ -1177,6 +1178,34 @@ class ClusterOnDemandProvisioningSpecificationArgs:
     @allocation_strategy.setter
     def allocation_strategy(self, value: pulumi.Input[str]):
         pulumi.set(self, "allocation_strategy", value)
+
+
+@pulumi.input_type
+class ClusterPlacementGroupConfigArgs:
+    def __init__(__self__, *,
+                 instance_role: pulumi.Input[str],
+                 placement_strategy: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "instance_role", instance_role)
+        if placement_strategy is not None:
+            pulumi.set(__self__, "placement_strategy", placement_strategy)
+
+    @property
+    @pulumi.getter(name="instanceRole")
+    def instance_role(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "instance_role")
+
+    @instance_role.setter
+    def instance_role(self, value: pulumi.Input[str]):
+        pulumi.set(self, "instance_role", value)
+
+    @property
+    @pulumi.getter(name="placementStrategy")
+    def placement_strategy(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "placement_strategy")
+
+    @placement_strategy.setter
+    def placement_strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "placement_strategy", value)
 
 
 @pulumi.input_type

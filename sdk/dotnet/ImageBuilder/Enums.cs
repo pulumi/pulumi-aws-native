@@ -289,6 +289,37 @@ namespace Pulumi.AwsNative.ImageBuilder
     }
 
     /// <summary>
+    /// Define execution decision in case of workflow failure
+    /// </summary>
+    [EnumType]
+    public readonly struct ImagePipelineWorkflowConfigurationOnFailure : IEquatable<ImagePipelineWorkflowConfigurationOnFailure>
+    {
+        private readonly string _value;
+
+        private ImagePipelineWorkflowConfigurationOnFailure(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ImagePipelineWorkflowConfigurationOnFailure Continue { get; } = new ImagePipelineWorkflowConfigurationOnFailure("CONTINUE");
+        public static ImagePipelineWorkflowConfigurationOnFailure Abort { get; } = new ImagePipelineWorkflowConfigurationOnFailure("ABORT");
+
+        public static bool operator ==(ImagePipelineWorkflowConfigurationOnFailure left, ImagePipelineWorkflowConfigurationOnFailure right) => left.Equals(right);
+        public static bool operator !=(ImagePipelineWorkflowConfigurationOnFailure left, ImagePipelineWorkflowConfigurationOnFailure right) => !left.Equals(right);
+
+        public static explicit operator string(ImagePipelineWorkflowConfigurationOnFailure value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ImagePipelineWorkflowConfigurationOnFailure other && Equals(other);
+        public bool Equals(ImagePipelineWorkflowConfigurationOnFailure other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Use to override the device's volume type.
     /// </summary>
     [EnumType]
@@ -317,6 +348,37 @@ namespace Pulumi.AwsNative.ImageBuilder
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType other && Equals(other);
         public bool Equals(ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Define execution decision in case of workflow failure
+    /// </summary>
+    [EnumType]
+    public readonly struct ImageWorkflowConfigurationOnFailure : IEquatable<ImageWorkflowConfigurationOnFailure>
+    {
+        private readonly string _value;
+
+        private ImageWorkflowConfigurationOnFailure(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ImageWorkflowConfigurationOnFailure Continue { get; } = new ImageWorkflowConfigurationOnFailure("CONTINUE");
+        public static ImageWorkflowConfigurationOnFailure Abort { get; } = new ImageWorkflowConfigurationOnFailure("ABORT");
+
+        public static bool operator ==(ImageWorkflowConfigurationOnFailure left, ImageWorkflowConfigurationOnFailure right) => left.Equals(right);
+        public static bool operator !=(ImageWorkflowConfigurationOnFailure left, ImageWorkflowConfigurationOnFailure right) => !left.Equals(right);
+
+        public static explicit operator string(ImageWorkflowConfigurationOnFailure value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ImageWorkflowConfigurationOnFailure other && Equals(other);
+        public bool Equals(ImageWorkflowConfigurationOnFailure other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -506,6 +568,38 @@ namespace Pulumi.AwsNative.ImageBuilder
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is LifecyclePolicyTimeUnit other && Equals(other);
         public bool Equals(LifecyclePolicyTimeUnit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the workflow denotes whether the workflow is used to build, test, or distribute.
+    /// </summary>
+    [EnumType]
+    public readonly struct WorkflowType : IEquatable<WorkflowType>
+    {
+        private readonly string _value;
+
+        private WorkflowType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkflowType Build { get; } = new WorkflowType("BUILD");
+        public static WorkflowType Test { get; } = new WorkflowType("TEST");
+        public static WorkflowType Distribution { get; } = new WorkflowType("DISTRIBUTION");
+
+        public static bool operator ==(WorkflowType left, WorkflowType right) => left.Equals(right);
+        public static bool operator !=(WorkflowType left, WorkflowType right) => !left.Equals(right);
+
+        public static explicit operator string(WorkflowType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkflowType other && Equals(other);
+        public bool Equals(WorkflowType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

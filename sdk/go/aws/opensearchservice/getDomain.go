@@ -37,11 +37,13 @@ type LookupDomainResult struct {
 	DomainArn                   *string                             `pulumi:"domainArn"`
 	DomainEndpoint              *string                             `pulumi:"domainEndpoint"`
 	DomainEndpointOptions       *DomainEndpointOptions              `pulumi:"domainEndpointOptions"`
+	DomainEndpointV2            *string                             `pulumi:"domainEndpointV2"`
 	DomainEndpoints             interface{}                         `pulumi:"domainEndpoints"`
 	EbsOptions                  *DomainEbsOptions                   `pulumi:"ebsOptions"`
 	EncryptionAtRestOptions     *DomainEncryptionAtRestOptions      `pulumi:"encryptionAtRestOptions"`
 	EngineVersion               *string                             `pulumi:"engineVersion"`
 	Id                          *string                             `pulumi:"id"`
+	IpAddressType               *string                             `pulumi:"ipAddressType"`
 	LogPublishingOptions        interface{}                         `pulumi:"logPublishingOptions"`
 	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions  `pulumi:"nodeToNodeEncryptionOptions"`
 	OffPeakWindowOptions        *DomainOffPeakWindowOptions         `pulumi:"offPeakWindowOptions"`
@@ -130,6 +132,10 @@ func (o LookupDomainResultOutput) DomainEndpointOptions() DomainEndpointOptionsP
 	return o.ApplyT(func(v LookupDomainResult) *DomainEndpointOptions { return v.DomainEndpointOptions }).(DomainEndpointOptionsPtrOutput)
 }
 
+func (o LookupDomainResultOutput) DomainEndpointV2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.DomainEndpointV2 }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupDomainResultOutput) DomainEndpoints() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupDomainResult) interface{} { return v.DomainEndpoints }).(pulumi.AnyOutput)
 }
@@ -148,6 +154,10 @@ func (o LookupDomainResultOutput) EngineVersion() pulumi.StringPtrOutput {
 
 func (o LookupDomainResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDomainResultOutput) IpAddressType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupDomainResultOutput) LogPublishingOptions() pulumi.AnyOutput {

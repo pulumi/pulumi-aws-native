@@ -115,12 +115,6 @@ namespace Pulumi.AwsNative.Lambda
         public Output<Pulumi.AwsNative.Lambda.FunctionPackageType?> PackageType { get; private set; } = null!;
 
         /// <summary>
-        /// The resource policy of your function
-        /// </summary>
-        [Output("policy")]
-        public Output<object?> Policy { get; private set; } = null!;
-
-        /// <summary>
         /// The number of simultaneous executions to reserve for the function.
         /// </summary>
         [Output("reservedConcurrentExecutions")]
@@ -338,12 +332,6 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         [Input("packageType")]
         public Input<Pulumi.AwsNative.Lambda.FunctionPackageType>? PackageType { get; set; }
-
-        /// <summary>
-        /// The resource policy of your function
-        /// </summary>
-        [Input("policy")]
-        public Input<object>? Policy { get; set; }
 
         /// <summary>
         /// The number of simultaneous executions to reserve for the function.

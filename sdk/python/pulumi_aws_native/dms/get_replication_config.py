@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetReplicationConfigResult:
-    def __init__(__self__, compute_config=None, replication_config_arn=None, replication_config_identifier=None, replication_settings=None, replication_type=None, resource_identifier=None, source_endpoint_arn=None, supplemental_settings=None, table_mappings=None, tags=None, target_endpoint_arn=None):
+    def __init__(__self__, compute_config=None, replication_config_arn=None, replication_config_identifier=None, replication_settings=None, replication_type=None, source_endpoint_arn=None, supplemental_settings=None, table_mappings=None, tags=None, target_endpoint_arn=None):
         if compute_config and not isinstance(compute_config, dict):
             raise TypeError("Expected argument 'compute_config' to be a dict")
         pulumi.set(__self__, "compute_config", compute_config)
@@ -36,9 +36,6 @@ class GetReplicationConfigResult:
         if replication_type and not isinstance(replication_type, str):
             raise TypeError("Expected argument 'replication_type' to be a str")
         pulumi.set(__self__, "replication_type", replication_type)
-        if resource_identifier and not isinstance(resource_identifier, str):
-            raise TypeError("Expected argument 'resource_identifier' to be a str")
-        pulumi.set(__self__, "resource_identifier", resource_identifier)
         if source_endpoint_arn and not isinstance(source_endpoint_arn, str):
             raise TypeError("Expected argument 'source_endpoint_arn' to be a str")
         pulumi.set(__self__, "source_endpoint_arn", source_endpoint_arn)
@@ -93,14 +90,6 @@ class GetReplicationConfigResult:
         return pulumi.get(self, "replication_type")
 
     @property
-    @pulumi.getter(name="resourceIdentifier")
-    def resource_identifier(self) -> Optional[str]:
-        """
-        A unique value or name that you get set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource
-        """
-        return pulumi.get(self, "resource_identifier")
-
-    @property
     @pulumi.getter(name="sourceEndpointArn")
     def source_endpoint_arn(self) -> Optional[str]:
         """
@@ -152,7 +141,6 @@ class AwaitableGetReplicationConfigResult(GetReplicationConfigResult):
             replication_config_identifier=self.replication_config_identifier,
             replication_settings=self.replication_settings,
             replication_type=self.replication_type,
-            resource_identifier=self.resource_identifier,
             source_endpoint_arn=self.source_endpoint_arn,
             supplemental_settings=self.supplemental_settings,
             table_mappings=self.table_mappings,
@@ -179,7 +167,6 @@ def get_replication_config(replication_config_arn: Optional[str] = None,
         replication_config_identifier=pulumi.get(__ret__, 'replication_config_identifier'),
         replication_settings=pulumi.get(__ret__, 'replication_settings'),
         replication_type=pulumi.get(__ret__, 'replication_type'),
-        resource_identifier=pulumi.get(__ret__, 'resource_identifier'),
         source_endpoint_arn=pulumi.get(__ret__, 'source_endpoint_arn'),
         supplemental_settings=pulumi.get(__ret__, 'supplemental_settings'),
         table_mappings=pulumi.get(__ret__, 'table_mappings'),

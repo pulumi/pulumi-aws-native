@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.Osis.Outputs
     [OutputType]
     public sealed class PipelineLogPublishingOptionsCloudWatchLogDestinationProperties
     {
-        public readonly string? LogGroup;
+        public readonly string LogGroup;
 
         [OutputConstructor]
-        private PipelineLogPublishingOptionsCloudWatchLogDestinationProperties(string? logGroup)
+        private PipelineLogPublishingOptionsCloudWatchLogDestinationProperties(string logGroup)
         {
             LogGroup = logGroup;
         }

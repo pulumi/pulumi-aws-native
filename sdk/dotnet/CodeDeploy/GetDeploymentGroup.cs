@@ -68,6 +68,7 @@ namespace Pulumi.AwsNative.CodeDeploy
         public readonly string? OutdatedInstancesStrategy;
         public readonly string? ServiceRoleArn;
         public readonly ImmutableArray<Outputs.DeploymentGroupTag> Tags;
+        public readonly bool? TerminationHookEnabled;
         public readonly ImmutableArray<Outputs.DeploymentGroupTriggerConfig> TriggerConfigurations;
 
         [OutputConstructor]
@@ -106,6 +107,8 @@ namespace Pulumi.AwsNative.CodeDeploy
 
             ImmutableArray<Outputs.DeploymentGroupTag> tags,
 
+            bool? terminationHookEnabled,
+
             ImmutableArray<Outputs.DeploymentGroupTriggerConfig> triggerConfigurations)
         {
             AlarmConfiguration = alarmConfiguration;
@@ -125,6 +128,7 @@ namespace Pulumi.AwsNative.CodeDeploy
             OutdatedInstancesStrategy = outdatedInstancesStrategy;
             ServiceRoleArn = serviceRoleArn;
             Tags = tags;
+            TerminationHookEnabled = terminationHookEnabled;
             TriggerConfigurations = triggerConfigurations;
         }
     }

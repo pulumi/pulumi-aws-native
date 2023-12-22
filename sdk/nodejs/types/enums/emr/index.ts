@@ -12,6 +12,16 @@ export const StudioAuthMode = {
  */
 export type StudioAuthMode = (typeof StudioAuthMode)[keyof typeof StudioAuthMode];
 
+export const StudioIdcUserAssignment = {
+    Required: "REQUIRED",
+    Optional: "OPTIONAL",
+} as const;
+
+/**
+ * Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL. If the value is set to REQUIRED, users must be explicitly assigned to the Studio application to access the Studio.
+ */
+export type StudioIdcUserAssignment = (typeof StudioIdcUserAssignment)[keyof typeof StudioIdcUserAssignment];
+
 export const StudioSessionMappingIdentityType = {
     User: "USER",
     Group: "GROUP",

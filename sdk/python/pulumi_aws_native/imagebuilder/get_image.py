@@ -18,10 +18,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetImageResult:
-    def __init__(__self__, arn=None, image_id=None, image_uri=None, name=None):
+    def __init__(__self__, arn=None, execution_role=None, image_id=None, image_uri=None, name=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if execution_role and not isinstance(execution_role, str):
+            raise TypeError("Expected argument 'execution_role' to be a str")
+        pulumi.set(__self__, "execution_role", execution_role)
         if image_id and not isinstance(image_id, str):
             raise TypeError("Expected argument 'image_id' to be a str")
         pulumi.set(__self__, "image_id", image_id)
@@ -39,6 +42,14 @@ class GetImageResult:
         The Amazon Resource Name (ARN) of the image.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="executionRole")
+    def execution_role(self) -> Optional[str]:
+        """
+        The execution role name/ARN for the image build, if provided
+        """
+        return pulumi.get(self, "execution_role")
 
     @property
     @pulumi.getter(name="imageId")
@@ -72,6 +83,7 @@ class AwaitableGetImageResult(GetImageResult):
             yield self
         return GetImageResult(
             arn=self.arn,
+            execution_role=self.execution_role,
             image_id=self.image_id,
             image_uri=self.image_uri,
             name=self.name)
@@ -92,6 +104,7 @@ def get_image(arn: Optional[str] = None,
 
     return AwaitableGetImageResult(
         arn=pulumi.get(__ret__, 'arn'),
+        execution_role=pulumi.get(__ret__, 'execution_role'),
         image_id=pulumi.get(__ret__, 'image_id'),
         image_uri=pulumi.get(__ret__, 'image_uri'),
         name=pulumi.get(__ret__, 'name'))

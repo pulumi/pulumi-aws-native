@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainResult:
-    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, cluster_config=None, cognito_options=None, domain_arn=None, domain_endpoint=None, domain_endpoint_options=None, domain_endpoints=None, ebs_options=None, encryption_at_rest_options=None, engine_version=None, id=None, log_publishing_options=None, node_to_node_encryption_options=None, off_peak_window_options=None, service_software_options=None, snapshot_options=None, software_update_options=None, tags=None, vpc_options=None):
+    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, cluster_config=None, cognito_options=None, domain_arn=None, domain_endpoint=None, domain_endpoint_options=None, domain_endpoint_v2=None, domain_endpoints=None, ebs_options=None, encryption_at_rest_options=None, engine_version=None, id=None, ip_address_type=None, log_publishing_options=None, node_to_node_encryption_options=None, off_peak_window_options=None, service_software_options=None, snapshot_options=None, software_update_options=None, tags=None, vpc_options=None):
         if access_policies and not isinstance(access_policies, dict):
             raise TypeError("Expected argument 'access_policies' to be a dict")
         pulumi.set(__self__, "access_policies", access_policies)
@@ -47,6 +47,9 @@ class GetDomainResult:
         if domain_endpoint_options and not isinstance(domain_endpoint_options, dict):
             raise TypeError("Expected argument 'domain_endpoint_options' to be a dict")
         pulumi.set(__self__, "domain_endpoint_options", domain_endpoint_options)
+        if domain_endpoint_v2 and not isinstance(domain_endpoint_v2, str):
+            raise TypeError("Expected argument 'domain_endpoint_v2' to be a str")
+        pulumi.set(__self__, "domain_endpoint_v2", domain_endpoint_v2)
         if domain_endpoints and not isinstance(domain_endpoints, dict):
             raise TypeError("Expected argument 'domain_endpoints' to be a dict")
         pulumi.set(__self__, "domain_endpoints", domain_endpoints)
@@ -62,6 +65,9 @@ class GetDomainResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if ip_address_type and not isinstance(ip_address_type, str):
+            raise TypeError("Expected argument 'ip_address_type' to be a str")
+        pulumi.set(__self__, "ip_address_type", ip_address_type)
         if log_publishing_options and not isinstance(log_publishing_options, dict):
             raise TypeError("Expected argument 'log_publishing_options' to be a dict")
         pulumi.set(__self__, "log_publishing_options", log_publishing_options)
@@ -133,6 +139,11 @@ class GetDomainResult:
         return pulumi.get(self, "domain_endpoint_options")
 
     @property
+    @pulumi.getter(name="domainEndpointV2")
+    def domain_endpoint_v2(self) -> Optional[str]:
+        return pulumi.get(self, "domain_endpoint_v2")
+
+    @property
     @pulumi.getter(name="domainEndpoints")
     def domain_endpoints(self) -> Optional[Any]:
         return pulumi.get(self, "domain_endpoints")
@@ -156,6 +167,11 @@ class GetDomainResult:
     @pulumi.getter
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[str]:
+        return pulumi.get(self, "ip_address_type")
 
     @property
     @pulumi.getter(name="logPublishingOptions")
@@ -216,11 +232,13 @@ class AwaitableGetDomainResult(GetDomainResult):
             domain_arn=self.domain_arn,
             domain_endpoint=self.domain_endpoint,
             domain_endpoint_options=self.domain_endpoint_options,
+            domain_endpoint_v2=self.domain_endpoint_v2,
             domain_endpoints=self.domain_endpoints,
             ebs_options=self.ebs_options,
             encryption_at_rest_options=self.encryption_at_rest_options,
             engine_version=self.engine_version,
             id=self.id,
+            ip_address_type=self.ip_address_type,
             log_publishing_options=self.log_publishing_options,
             node_to_node_encryption_options=self.node_to_node_encryption_options,
             off_peak_window_options=self.off_peak_window_options,
@@ -251,11 +269,13 @@ def get_domain(domain_name: Optional[str] = None,
         domain_arn=pulumi.get(__ret__, 'domain_arn'),
         domain_endpoint=pulumi.get(__ret__, 'domain_endpoint'),
         domain_endpoint_options=pulumi.get(__ret__, 'domain_endpoint_options'),
+        domain_endpoint_v2=pulumi.get(__ret__, 'domain_endpoint_v2'),
         domain_endpoints=pulumi.get(__ret__, 'domain_endpoints'),
         ebs_options=pulumi.get(__ret__, 'ebs_options'),
         encryption_at_rest_options=pulumi.get(__ret__, 'encryption_at_rest_options'),
         engine_version=pulumi.get(__ret__, 'engine_version'),
         id=pulumi.get(__ret__, 'id'),
+        ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
         log_publishing_options=pulumi.get(__ret__, 'log_publishing_options'),
         node_to_node_encryption_options=pulumi.get(__ret__, 'node_to_node_encryption_options'),
         off_peak_window_options=pulumi.get(__ret__, 'off_peak_window_options'),

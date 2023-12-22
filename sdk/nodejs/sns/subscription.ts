@@ -45,6 +45,7 @@ export class Subscription extends pulumi.CustomResource {
     public readonly rawMessageDelivery!: pulumi.Output<boolean | undefined>;
     public readonly redrivePolicy!: pulumi.Output<any | undefined>;
     public readonly region!: pulumi.Output<string | undefined>;
+    public readonly replayPolicy!: pulumi.Output<any | undefined>;
     public readonly subscriptionRoleArn!: pulumi.Output<string | undefined>;
     public readonly topicArn!: pulumi.Output<string>;
 
@@ -75,6 +76,7 @@ export class Subscription extends pulumi.CustomResource {
             resourceInputs["rawMessageDelivery"] = args ? args.rawMessageDelivery : undefined;
             resourceInputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["replayPolicy"] = args ? args.replayPolicy : undefined;
             resourceInputs["subscriptionRoleArn"] = args ? args.subscriptionRoleArn : undefined;
             resourceInputs["topicArn"] = args ? args.topicArn : undefined;
         } else {
@@ -86,6 +88,7 @@ export class Subscription extends pulumi.CustomResource {
             resourceInputs["rawMessageDelivery"] = undefined /*out*/;
             resourceInputs["redrivePolicy"] = undefined /*out*/;
             resourceInputs["region"] = undefined /*out*/;
+            resourceInputs["replayPolicy"] = undefined /*out*/;
             resourceInputs["subscriptionRoleArn"] = undefined /*out*/;
             resourceInputs["topicArn"] = undefined /*out*/;
         }
@@ -108,6 +111,7 @@ export interface SubscriptionArgs {
     rawMessageDelivery?: pulumi.Input<boolean>;
     redrivePolicy?: any;
     region?: pulumi.Input<string>;
+    replayPolicy?: any;
     subscriptionRoleArn?: pulumi.Input<string>;
     topicArn: pulumi.Input<string>;
 }

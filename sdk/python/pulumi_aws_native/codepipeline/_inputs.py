@@ -20,11 +20,16 @@ __all__ = [
     'PipelineArtifactStoreArgs',
     'PipelineBlockerDeclarationArgs',
     'PipelineEncryptionKeyArgs',
+    'PipelineGitConfigurationArgs',
+    'PipelineGitPushFilterArgs',
+    'PipelineGitTagFilterCriteriaArgs',
     'PipelineInputArtifactArgs',
     'PipelineOutputArtifactArgs',
     'PipelineStageDeclarationArgs',
     'PipelineStageTransitionArgs',
     'PipelineTagArgs',
+    'PipelineTriggerDeclarationArgs',
+    'PipelineVariableDeclarationArgs',
     'WebhookAuthConfigurationArgs',
     'WebhookFilterRuleArgs',
 ]
@@ -563,6 +568,80 @@ class PipelineEncryptionKeyArgs:
 
 
 @pulumi.input_type
+class PipelineGitConfigurationArgs:
+    def __init__(__self__, *,
+                 source_action_name: pulumi.Input[str],
+                 push: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineGitPushFilterArgs']]]] = None):
+        pulumi.set(__self__, "source_action_name", source_action_name)
+        if push is not None:
+            pulumi.set(__self__, "push", push)
+
+    @property
+    @pulumi.getter(name="sourceActionName")
+    def source_action_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "source_action_name")
+
+    @source_action_name.setter
+    def source_action_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_action_name", value)
+
+    @property
+    @pulumi.getter
+    def push(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineGitPushFilterArgs']]]]:
+        return pulumi.get(self, "push")
+
+    @push.setter
+    def push(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineGitPushFilterArgs']]]]):
+        pulumi.set(self, "push", value)
+
+
+@pulumi.input_type
+class PipelineGitPushFilterArgs:
+    def __init__(__self__, *,
+                 tags: Optional[pulumi.Input['PipelineGitTagFilterCriteriaArgs']] = None):
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input['PipelineGitTagFilterCriteriaArgs']]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input['PipelineGitTagFilterCriteriaArgs']]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class PipelineGitTagFilterCriteriaArgs:
+    def __init__(__self__, *,
+                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if excludes is not None:
+            pulumi.set(__self__, "excludes", excludes)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
+
+    @property
+    @pulumi.getter
+    def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "excludes")
+
+    @excludes.setter
+    def excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excludes", value)
+
+    @property
+    @pulumi.getter
+    def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "includes")
+
+    @includes.setter
+    def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "includes", value)
+
+
+@pulumi.input_type
 class PipelineInputArtifactArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str]):
@@ -685,6 +764,74 @@ class PipelineTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class PipelineTriggerDeclarationArgs:
+    def __init__(__self__, *,
+                 provider_type: pulumi.Input[str],
+                 git_configuration: Optional[pulumi.Input['PipelineGitConfigurationArgs']] = None):
+        pulumi.set(__self__, "provider_type", provider_type)
+        if git_configuration is not None:
+            pulumi.set(__self__, "git_configuration", git_configuration)
+
+    @property
+    @pulumi.getter(name="providerType")
+    def provider_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "provider_type")
+
+    @provider_type.setter
+    def provider_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "provider_type", value)
+
+    @property
+    @pulumi.getter(name="gitConfiguration")
+    def git_configuration(self) -> Optional[pulumi.Input['PipelineGitConfigurationArgs']]:
+        return pulumi.get(self, "git_configuration")
+
+    @git_configuration.setter
+    def git_configuration(self, value: Optional[pulumi.Input['PipelineGitConfigurationArgs']]):
+        pulumi.set(self, "git_configuration", value)
+
+
+@pulumi.input_type
+class PipelineVariableDeclarationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 default_value: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "name", name)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default_value")
+
+    @default_value.setter
+    def default_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
 
 @pulumi.input_type

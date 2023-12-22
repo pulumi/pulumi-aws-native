@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.Osis.Inputs
             set => _securityGroupIds = value;
         }
 
-        [Input("subnetIds")]
+        [Input("subnetIds", required: true)]
         private InputList<string>? _subnetIds;
 
         /// <summary>

@@ -29,6 +29,7 @@ export interface GetGraphQlApiResult {
     readonly arn?: string;
     readonly authenticationType?: string;
     readonly graphQlDns?: string;
+    readonly graphQlEndpointArn?: string;
     readonly graphQlUrl?: string;
     readonly id?: string;
     readonly lambdaAuthorizerConfig?: outputs.appsync.GraphQlApiLambdaAuthorizerConfig;

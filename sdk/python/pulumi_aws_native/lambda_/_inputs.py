@@ -158,6 +158,9 @@ class EventInvokeConfigDestinationConfigArgs:
     def __init__(__self__, *,
                  on_failure: Optional[pulumi.Input['EventInvokeConfigOnFailureArgs']] = None,
                  on_success: Optional[pulumi.Input['EventInvokeConfigOnSuccessArgs']] = None):
+        """
+        A destination for events after they have been sent to a function for processing.
+        """
         if on_failure is not None:
             pulumi.set(__self__, "on_failure", on_failure)
         if on_success is not None:
@@ -186,11 +189,18 @@ class EventInvokeConfigDestinationConfigArgs:
 class EventInvokeConfigOnFailureArgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[str]):
+        """
+        The destination configuration for failed invocations.
+        :param pulumi.Input[str] destination: The Amazon Resource Name (ARN) of the destination resource.
+        """
         pulumi.set(__self__, "destination", destination)
 
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the destination resource.
+        """
         return pulumi.get(self, "destination")
 
     @destination.setter
@@ -202,11 +212,18 @@ class EventInvokeConfigOnFailureArgs:
 class EventInvokeConfigOnSuccessArgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[str]):
+        """
+        The destination configuration for successful invocations.
+        :param pulumi.Input[str] destination: The Amazon Resource Name (ARN) of the destination resource.
+        """
         pulumi.set(__self__, "destination", destination)
 
     @property
     @pulumi.getter
     def destination(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the destination resource.
+        """
         return pulumi.get(self, "destination")
 
     @destination.setter

@@ -42,8 +42,16 @@ __all__ = [
     'DeviceFleetTagArgs',
     'DeviceTagArgs',
     'DeviceArgs',
+    'DomainCodeEditorAppSettingsArgs',
+    'DomainCodeRepositoryArgs',
+    'DomainCustomFileSystemConfigArgs',
     'DomainCustomImageArgs',
+    'DomainCustomPosixUserConfigArgs',
+    'DomainDefaultEbsStorageSettingsArgs',
     'DomainDefaultSpaceSettingsArgs',
+    'DomainDefaultSpaceStorageSettingsArgs',
+    'DomainEfsFileSystemConfigArgs',
+    'DomainJupyterLabAppSettingsArgs',
     'DomainJupyterServerAppSettingsArgs',
     'DomainKernelGatewayAppSettingsArgs',
     'DomainRSessionAppSettingsArgs',
@@ -275,7 +283,15 @@ __all__ = [
     'SpaceResourceSpecArgs',
     'SpaceSettingsArgs',
     'SpaceTagArgs',
+    'UserProfileCodeEditorAppSettingsArgs',
+    'UserProfileCodeRepositoryArgs',
+    'UserProfileCustomFileSystemConfigArgs',
     'UserProfileCustomImageArgs',
+    'UserProfileCustomPosixUserConfigArgs',
+    'UserProfileDefaultEbsStorageSettingsArgs',
+    'UserProfileDefaultSpaceStorageSettingsArgs',
+    'UserProfileEfsFileSystemConfigArgs',
+    'UserProfileJupyterLabAppSettingsArgs',
     'UserProfileJupyterServerAppSettingsArgs',
     'UserProfileKernelGatewayAppSettingsArgs',
     'UserProfileRStudioServerProAppSettingsArgs',
@@ -1617,6 +1633,85 @@ class DeviceArgs:
 
 
 @pulumi.input_type
+class DomainCodeEditorAppSettingsArgs:
+    def __init__(__self__, *,
+                 default_resource_spec: Optional[pulumi.Input['DomainResourceSpecArgs']] = None,
+                 lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The CodeEditor app settings.
+        :param pulumi.Input['DomainResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: A list of LifecycleConfigArns available for use with CodeEditor apps.
+        """
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if lifecycle_config_arns is not None:
+            pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional[pulumi.Input['DomainResourceSpecArgs']]:
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
+        """
+        return pulumi.get(self, "default_resource_spec")
+
+    @default_resource_spec.setter
+    def default_resource_spec(self, value: Optional[pulumi.Input['DomainResourceSpecArgs']]):
+        pulumi.set(self, "default_resource_spec", value)
+
+    @property
+    @pulumi.getter(name="lifecycleConfigArns")
+    def lifecycle_config_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of LifecycleConfigArns available for use with CodeEditor apps.
+        """
+        return pulumi.get(self, "lifecycle_config_arns")
+
+    @lifecycle_config_arns.setter
+    def lifecycle_config_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "lifecycle_config_arns", value)
+
+
+@pulumi.input_type
+class DomainCodeRepositoryArgs:
+    def __init__(__self__, *,
+                 repository_url: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] repository_url: A CodeRepository (valid URL) to be used within Jupyter's Git extension.
+        """
+        pulumi.set(__self__, "repository_url", repository_url)
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> pulumi.Input[str]:
+        """
+        A CodeRepository (valid URL) to be used within Jupyter's Git extension.
+        """
+        return pulumi.get(self, "repository_url")
+
+    @repository_url.setter
+    def repository_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_url", value)
+
+
+@pulumi.input_type
+class DomainCustomFileSystemConfigArgs:
+    def __init__(__self__, *,
+                 efs_file_system_config: Optional[pulumi.Input['DomainEfsFileSystemConfigArgs']] = None):
+        if efs_file_system_config is not None:
+            pulumi.set(__self__, "efs_file_system_config", efs_file_system_config)
+
+    @property
+    @pulumi.getter(name="efsFileSystemConfig")
+    def efs_file_system_config(self) -> Optional[pulumi.Input['DomainEfsFileSystemConfigArgs']]:
+        return pulumi.get(self, "efs_file_system_config")
+
+    @efs_file_system_config.setter
+    def efs_file_system_config(self, value: Optional[pulumi.Input['DomainEfsFileSystemConfigArgs']]):
+        pulumi.set(self, "efs_file_system_config", value)
+
+
+@pulumi.input_type
 class DomainCustomImageArgs:
     def __init__(__self__, *,
                  app_image_config_name: pulumi.Input[str],
@@ -1668,6 +1763,71 @@ class DomainCustomImageArgs:
     @image_version_number.setter
     def image_version_number(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "image_version_number", value)
+
+
+@pulumi.input_type
+class DomainCustomPosixUserConfigArgs:
+    def __init__(__self__, *,
+                 gid: pulumi.Input[int],
+                 uid: pulumi.Input[int]):
+        pulumi.set(__self__, "gid", gid)
+        pulumi.set(__self__, "uid", uid)
+
+    @property
+    @pulumi.getter
+    def gid(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "gid")
+
+    @gid.setter
+    def gid(self, value: pulumi.Input[int]):
+        pulumi.set(self, "gid", value)
+
+    @property
+    @pulumi.getter
+    def uid(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "uid")
+
+    @uid.setter
+    def uid(self, value: pulumi.Input[int]):
+        pulumi.set(self, "uid", value)
+
+
+@pulumi.input_type
+class DomainDefaultEbsStorageSettingsArgs:
+    def __init__(__self__, *,
+                 default_ebs_volume_size_in_gb: pulumi.Input[int],
+                 maximum_ebs_volume_size_in_gb: pulumi.Input[int]):
+        """
+        Properties related to the Amazon Elastic Block Store volume. Must be provided if storage type is Amazon EBS and must not be provided if storage type is not Amazon EBS
+        :param pulumi.Input[int] default_ebs_volume_size_in_gb: Default size of the Amazon EBS volume in Gb
+        :param pulumi.Input[int] maximum_ebs_volume_size_in_gb: Maximum size of the Amazon EBS volume in Gb. Must be greater than or equal to the DefaultEbsVolumeSizeInGb.
+        """
+        pulumi.set(__self__, "default_ebs_volume_size_in_gb", default_ebs_volume_size_in_gb)
+        pulumi.set(__self__, "maximum_ebs_volume_size_in_gb", maximum_ebs_volume_size_in_gb)
+
+    @property
+    @pulumi.getter(name="defaultEbsVolumeSizeInGb")
+    def default_ebs_volume_size_in_gb(self) -> pulumi.Input[int]:
+        """
+        Default size of the Amazon EBS volume in Gb
+        """
+        return pulumi.get(self, "default_ebs_volume_size_in_gb")
+
+    @default_ebs_volume_size_in_gb.setter
+    def default_ebs_volume_size_in_gb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "default_ebs_volume_size_in_gb", value)
+
+    @property
+    @pulumi.getter(name="maximumEbsVolumeSizeInGb")
+    def maximum_ebs_volume_size_in_gb(self) -> pulumi.Input[int]:
+        """
+        Maximum size of the Amazon EBS volume in Gb. Must be greater than or equal to the DefaultEbsVolumeSizeInGb.
+        """
+        return pulumi.get(self, "maximum_ebs_volume_size_in_gb")
+
+    @maximum_ebs_volume_size_in_gb.setter
+    def maximum_ebs_volume_size_in_gb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "maximum_ebs_volume_size_in_gb", value)
 
 
 @pulumi.input_type
@@ -1739,6 +1899,126 @@ class DomainDefaultSpaceSettingsArgs:
     @security_groups.setter
     def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "security_groups", value)
+
+
+@pulumi.input_type
+class DomainDefaultSpaceStorageSettingsArgs:
+    def __init__(__self__, *,
+                 default_ebs_storage_settings: Optional[pulumi.Input['DomainDefaultEbsStorageSettingsArgs']] = None):
+        """
+        Default storage settings for a space.
+        """
+        if default_ebs_storage_settings is not None:
+            pulumi.set(__self__, "default_ebs_storage_settings", default_ebs_storage_settings)
+
+    @property
+    @pulumi.getter(name="defaultEbsStorageSettings")
+    def default_ebs_storage_settings(self) -> Optional[pulumi.Input['DomainDefaultEbsStorageSettingsArgs']]:
+        return pulumi.get(self, "default_ebs_storage_settings")
+
+    @default_ebs_storage_settings.setter
+    def default_ebs_storage_settings(self, value: Optional[pulumi.Input['DomainDefaultEbsStorageSettingsArgs']]):
+        pulumi.set(self, "default_ebs_storage_settings", value)
+
+
+@pulumi.input_type
+class DomainEfsFileSystemConfigArgs:
+    def __init__(__self__, *,
+                 file_system_id: pulumi.Input[str],
+                 file_system_path: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        if file_system_path is not None:
+            pulumi.set(__self__, "file_system_path", file_system_path)
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "file_system_id")
+
+    @file_system_id.setter
+    def file_system_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system_id", value)
+
+    @property
+    @pulumi.getter(name="fileSystemPath")
+    def file_system_path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "file_system_path")
+
+    @file_system_path.setter
+    def file_system_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_system_path", value)
+
+
+@pulumi.input_type
+class DomainJupyterLabAppSettingsArgs:
+    def __init__(__self__, *,
+                 code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['DomainCodeRepositoryArgs']]]] = None,
+                 custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['DomainCustomImageArgs']]]] = None,
+                 default_resource_spec: Optional[pulumi.Input['DomainResourceSpecArgs']] = None,
+                 lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The JupyterLab app settings.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainCodeRepositoryArgs']]] code_repositories: A list of CodeRepositories available for use with JupyterLab apps.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainCustomImageArgs']]] custom_images: A list of custom images for use for JupyterLab apps.
+        :param pulumi.Input['DomainResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: A list of LifecycleConfigArns available for use with JupyterLab apps.
+        """
+        if code_repositories is not None:
+            pulumi.set(__self__, "code_repositories", code_repositories)
+        if custom_images is not None:
+            pulumi.set(__self__, "custom_images", custom_images)
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if lifecycle_config_arns is not None:
+            pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="codeRepositories")
+    def code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainCodeRepositoryArgs']]]]:
+        """
+        A list of CodeRepositories available for use with JupyterLab apps.
+        """
+        return pulumi.get(self, "code_repositories")
+
+    @code_repositories.setter
+    def code_repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainCodeRepositoryArgs']]]]):
+        pulumi.set(self, "code_repositories", value)
+
+    @property
+    @pulumi.getter(name="customImages")
+    def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainCustomImageArgs']]]]:
+        """
+        A list of custom images for use for JupyterLab apps.
+        """
+        return pulumi.get(self, "custom_images")
+
+    @custom_images.setter
+    def custom_images(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainCustomImageArgs']]]]):
+        pulumi.set(self, "custom_images", value)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional[pulumi.Input['DomainResourceSpecArgs']]:
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
+        """
+        return pulumi.get(self, "default_resource_spec")
+
+    @default_resource_spec.setter
+    def default_resource_spec(self, value: Optional[pulumi.Input['DomainResourceSpecArgs']]):
+        pulumi.set(self, "default_resource_spec", value)
+
+    @property
+    @pulumi.getter(name="lifecycleConfigArns")
+    def lifecycle_config_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of LifecycleConfigArns available for use with JupyterLab apps.
+        """
+        return pulumi.get(self, "lifecycle_config_arns")
+
+    @lifecycle_config_arns.setter
+    def lifecycle_config_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "lifecycle_config_arns", value)
 
 
 @pulumi.input_type
@@ -2138,21 +2418,40 @@ class DomainTagArgs:
 class DomainUserSettingsArgs:
     def __init__(__self__, *,
                  execution_role: pulumi.Input[str],
+                 code_editor_app_settings: Optional[pulumi.Input['DomainCodeEditorAppSettingsArgs']] = None,
+                 custom_file_system_configs: Optional[pulumi.Input[Sequence[pulumi.Input['DomainCustomFileSystemConfigArgs']]]] = None,
+                 custom_posix_user_config: Optional[pulumi.Input['DomainCustomPosixUserConfigArgs']] = None,
+                 default_landing_uri: Optional[pulumi.Input[str]] = None,
+                 jupyter_lab_app_settings: Optional[pulumi.Input['DomainJupyterLabAppSettingsArgs']] = None,
                  jupyter_server_app_settings: Optional[pulumi.Input['DomainJupyterServerAppSettingsArgs']] = None,
                  kernel_gateway_app_settings: Optional[pulumi.Input['DomainKernelGatewayAppSettingsArgs']] = None,
                  r_session_app_settings: Optional[pulumi.Input['DomainRSessionAppSettingsArgs']] = None,
                  r_studio_server_pro_app_settings: Optional[pulumi.Input['DomainRStudioServerProAppSettingsArgs']] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 sharing_settings: Optional[pulumi.Input['DomainSharingSettingsArgs']] = None):
+                 sharing_settings: Optional[pulumi.Input['DomainSharingSettingsArgs']] = None,
+                 space_storage_settings: Optional[pulumi.Input['DomainDefaultSpaceStorageSettingsArgs']] = None,
+                 studio_web_portal: Optional[pulumi.Input['DomainUserSettingsStudioWebPortal']] = None):
         """
         A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
         :param pulumi.Input[str] execution_role: The execution role for the user.
+        :param pulumi.Input[str] default_landing_uri: Defines which Amazon SageMaker application users are directed to by default.
         :param pulumi.Input['DomainJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings.
         :param pulumi.Input['DomainKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         :param pulumi.Input['DomainSharingSettingsArgs'] sharing_settings: The sharing settings.
+        :param pulumi.Input['DomainUserSettingsStudioWebPortal'] studio_web_portal: Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
         """
         pulumi.set(__self__, "execution_role", execution_role)
+        if code_editor_app_settings is not None:
+            pulumi.set(__self__, "code_editor_app_settings", code_editor_app_settings)
+        if custom_file_system_configs is not None:
+            pulumi.set(__self__, "custom_file_system_configs", custom_file_system_configs)
+        if custom_posix_user_config is not None:
+            pulumi.set(__self__, "custom_posix_user_config", custom_posix_user_config)
+        if default_landing_uri is not None:
+            pulumi.set(__self__, "default_landing_uri", default_landing_uri)
+        if jupyter_lab_app_settings is not None:
+            pulumi.set(__self__, "jupyter_lab_app_settings", jupyter_lab_app_settings)
         if jupyter_server_app_settings is not None:
             pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
@@ -2165,6 +2464,10 @@ class DomainUserSettingsArgs:
             pulumi.set(__self__, "security_groups", security_groups)
         if sharing_settings is not None:
             pulumi.set(__self__, "sharing_settings", sharing_settings)
+        if space_storage_settings is not None:
+            pulumi.set(__self__, "space_storage_settings", space_storage_settings)
+        if studio_web_portal is not None:
+            pulumi.set(__self__, "studio_web_portal", studio_web_portal)
 
     @property
     @pulumi.getter(name="executionRole")
@@ -2177,6 +2480,54 @@ class DomainUserSettingsArgs:
     @execution_role.setter
     def execution_role(self, value: pulumi.Input[str]):
         pulumi.set(self, "execution_role", value)
+
+    @property
+    @pulumi.getter(name="codeEditorAppSettings")
+    def code_editor_app_settings(self) -> Optional[pulumi.Input['DomainCodeEditorAppSettingsArgs']]:
+        return pulumi.get(self, "code_editor_app_settings")
+
+    @code_editor_app_settings.setter
+    def code_editor_app_settings(self, value: Optional[pulumi.Input['DomainCodeEditorAppSettingsArgs']]):
+        pulumi.set(self, "code_editor_app_settings", value)
+
+    @property
+    @pulumi.getter(name="customFileSystemConfigs")
+    def custom_file_system_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainCustomFileSystemConfigArgs']]]]:
+        return pulumi.get(self, "custom_file_system_configs")
+
+    @custom_file_system_configs.setter
+    def custom_file_system_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainCustomFileSystemConfigArgs']]]]):
+        pulumi.set(self, "custom_file_system_configs", value)
+
+    @property
+    @pulumi.getter(name="customPosixUserConfig")
+    def custom_posix_user_config(self) -> Optional[pulumi.Input['DomainCustomPosixUserConfigArgs']]:
+        return pulumi.get(self, "custom_posix_user_config")
+
+    @custom_posix_user_config.setter
+    def custom_posix_user_config(self, value: Optional[pulumi.Input['DomainCustomPosixUserConfigArgs']]):
+        pulumi.set(self, "custom_posix_user_config", value)
+
+    @property
+    @pulumi.getter(name="defaultLandingUri")
+    def default_landing_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Defines which Amazon SageMaker application users are directed to by default.
+        """
+        return pulumi.get(self, "default_landing_uri")
+
+    @default_landing_uri.setter
+    def default_landing_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_landing_uri", value)
+
+    @property
+    @pulumi.getter(name="jupyterLabAppSettings")
+    def jupyter_lab_app_settings(self) -> Optional[pulumi.Input['DomainJupyterLabAppSettingsArgs']]:
+        return pulumi.get(self, "jupyter_lab_app_settings")
+
+    @jupyter_lab_app_settings.setter
+    def jupyter_lab_app_settings(self, value: Optional[pulumi.Input['DomainJupyterLabAppSettingsArgs']]):
+        pulumi.set(self, "jupyter_lab_app_settings", value)
 
     @property
     @pulumi.getter(name="jupyterServerAppSettings")
@@ -2243,6 +2594,27 @@ class DomainUserSettingsArgs:
     @sharing_settings.setter
     def sharing_settings(self, value: Optional[pulumi.Input['DomainSharingSettingsArgs']]):
         pulumi.set(self, "sharing_settings", value)
+
+    @property
+    @pulumi.getter(name="spaceStorageSettings")
+    def space_storage_settings(self) -> Optional[pulumi.Input['DomainDefaultSpaceStorageSettingsArgs']]:
+        return pulumi.get(self, "space_storage_settings")
+
+    @space_storage_settings.setter
+    def space_storage_settings(self, value: Optional[pulumi.Input['DomainDefaultSpaceStorageSettingsArgs']]):
+        pulumi.set(self, "space_storage_settings", value)
+
+    @property
+    @pulumi.getter(name="studioWebPortal")
+    def studio_web_portal(self) -> Optional[pulumi.Input['DomainUserSettingsStudioWebPortal']]:
+        """
+        Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
+        """
+        return pulumi.get(self, "studio_web_portal")
+
+    @studio_web_portal.setter
+    def studio_web_portal(self, value: Optional[pulumi.Input['DomainUserSettingsStudioWebPortal']]):
+        pulumi.set(self, "studio_web_portal", value)
 
 
 @pulumi.input_type
@@ -11919,11 +12291,14 @@ class OfflineStoreConfigPropertiesArgs:
 class OnlineStoreConfigPropertiesArgs:
     def __init__(__self__, *,
                  enable_online_store: Optional[pulumi.Input[bool]] = None,
-                 security_config: Optional[pulumi.Input['FeatureGroupOnlineStoreSecurityConfigArgs']] = None):
+                 security_config: Optional[pulumi.Input['FeatureGroupOnlineStoreSecurityConfigArgs']] = None,
+                 storage_type: Optional[pulumi.Input['FeatureGroupStorageType']] = None):
         if enable_online_store is not None:
             pulumi.set(__self__, "enable_online_store", enable_online_store)
         if security_config is not None:
             pulumi.set(__self__, "security_config", security_config)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
 
     @property
     @pulumi.getter(name="enableOnlineStore")
@@ -11942,6 +12317,15 @@ class OnlineStoreConfigPropertiesArgs:
     @security_config.setter
     def security_config(self, value: Optional[pulumi.Input['FeatureGroupOnlineStoreSecurityConfigArgs']]):
         pulumi.set(self, "security_config", value)
+
+    @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[pulumi.Input['FeatureGroupStorageType']]:
+        return pulumi.get(self, "storage_type")
+
+    @storage_type.setter
+    def storage_type(self, value: Optional[pulumi.Input['FeatureGroupStorageType']]):
+        pulumi.set(self, "storage_type", value)
 
 
 @pulumi.input_type
@@ -12504,6 +12888,85 @@ class SpaceTagArgs:
 
 
 @pulumi.input_type
+class UserProfileCodeEditorAppSettingsArgs:
+    def __init__(__self__, *,
+                 default_resource_spec: Optional[pulumi.Input['UserProfileResourceSpecArgs']] = None,
+                 lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The CodeEditor app settings.
+        :param pulumi.Input['UserProfileResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: A list of LifecycleConfigArns available for use with CodeEditor apps.
+        """
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if lifecycle_config_arns is not None:
+            pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional[pulumi.Input['UserProfileResourceSpecArgs']]:
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
+        """
+        return pulumi.get(self, "default_resource_spec")
+
+    @default_resource_spec.setter
+    def default_resource_spec(self, value: Optional[pulumi.Input['UserProfileResourceSpecArgs']]):
+        pulumi.set(self, "default_resource_spec", value)
+
+    @property
+    @pulumi.getter(name="lifecycleConfigArns")
+    def lifecycle_config_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of LifecycleConfigArns available for use with CodeEditor apps.
+        """
+        return pulumi.get(self, "lifecycle_config_arns")
+
+    @lifecycle_config_arns.setter
+    def lifecycle_config_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "lifecycle_config_arns", value)
+
+
+@pulumi.input_type
+class UserProfileCodeRepositoryArgs:
+    def __init__(__self__, *,
+                 repository_url: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] repository_url: A CodeRepository (valid URL) to be used within Jupyter's Git extension.
+        """
+        pulumi.set(__self__, "repository_url", repository_url)
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> pulumi.Input[str]:
+        """
+        A CodeRepository (valid URL) to be used within Jupyter's Git extension.
+        """
+        return pulumi.get(self, "repository_url")
+
+    @repository_url.setter
+    def repository_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_url", value)
+
+
+@pulumi.input_type
+class UserProfileCustomFileSystemConfigArgs:
+    def __init__(__self__, *,
+                 efs_file_system_config: Optional[pulumi.Input['UserProfileEfsFileSystemConfigArgs']] = None):
+        if efs_file_system_config is not None:
+            pulumi.set(__self__, "efs_file_system_config", efs_file_system_config)
+
+    @property
+    @pulumi.getter(name="efsFileSystemConfig")
+    def efs_file_system_config(self) -> Optional[pulumi.Input['UserProfileEfsFileSystemConfigArgs']]:
+        return pulumi.get(self, "efs_file_system_config")
+
+    @efs_file_system_config.setter
+    def efs_file_system_config(self, value: Optional[pulumi.Input['UserProfileEfsFileSystemConfigArgs']]):
+        pulumi.set(self, "efs_file_system_config", value)
+
+
+@pulumi.input_type
 class UserProfileCustomImageArgs:
     def __init__(__self__, *,
                  app_image_config_name: pulumi.Input[str],
@@ -12555,6 +13018,191 @@ class UserProfileCustomImageArgs:
     @image_version_number.setter
     def image_version_number(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "image_version_number", value)
+
+
+@pulumi.input_type
+class UserProfileCustomPosixUserConfigArgs:
+    def __init__(__self__, *,
+                 gid: pulumi.Input[int],
+                 uid: pulumi.Input[int]):
+        pulumi.set(__self__, "gid", gid)
+        pulumi.set(__self__, "uid", uid)
+
+    @property
+    @pulumi.getter
+    def gid(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "gid")
+
+    @gid.setter
+    def gid(self, value: pulumi.Input[int]):
+        pulumi.set(self, "gid", value)
+
+    @property
+    @pulumi.getter
+    def uid(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "uid")
+
+    @uid.setter
+    def uid(self, value: pulumi.Input[int]):
+        pulumi.set(self, "uid", value)
+
+
+@pulumi.input_type
+class UserProfileDefaultEbsStorageSettingsArgs:
+    def __init__(__self__, *,
+                 default_ebs_volume_size_in_gb: pulumi.Input[int],
+                 maximum_ebs_volume_size_in_gb: pulumi.Input[int]):
+        """
+        Properties related to the Amazon Elastic Block Store volume.
+        :param pulumi.Input[int] default_ebs_volume_size_in_gb: Default size of the Amazon EBS volume in Gb
+        :param pulumi.Input[int] maximum_ebs_volume_size_in_gb: Maximum size of the Amazon EBS volume in Gb. Must be greater than or equal to the DefaultEbsVolumeSizeInGb.
+        """
+        pulumi.set(__self__, "default_ebs_volume_size_in_gb", default_ebs_volume_size_in_gb)
+        pulumi.set(__self__, "maximum_ebs_volume_size_in_gb", maximum_ebs_volume_size_in_gb)
+
+    @property
+    @pulumi.getter(name="defaultEbsVolumeSizeInGb")
+    def default_ebs_volume_size_in_gb(self) -> pulumi.Input[int]:
+        """
+        Default size of the Amazon EBS volume in Gb
+        """
+        return pulumi.get(self, "default_ebs_volume_size_in_gb")
+
+    @default_ebs_volume_size_in_gb.setter
+    def default_ebs_volume_size_in_gb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "default_ebs_volume_size_in_gb", value)
+
+    @property
+    @pulumi.getter(name="maximumEbsVolumeSizeInGb")
+    def maximum_ebs_volume_size_in_gb(self) -> pulumi.Input[int]:
+        """
+        Maximum size of the Amazon EBS volume in Gb. Must be greater than or equal to the DefaultEbsVolumeSizeInGb.
+        """
+        return pulumi.get(self, "maximum_ebs_volume_size_in_gb")
+
+    @maximum_ebs_volume_size_in_gb.setter
+    def maximum_ebs_volume_size_in_gb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "maximum_ebs_volume_size_in_gb", value)
+
+
+@pulumi.input_type
+class UserProfileDefaultSpaceStorageSettingsArgs:
+    def __init__(__self__, *,
+                 default_ebs_storage_settings: Optional[pulumi.Input['UserProfileDefaultEbsStorageSettingsArgs']] = None):
+        """
+        Default storage settings for a space.
+        """
+        if default_ebs_storage_settings is not None:
+            pulumi.set(__self__, "default_ebs_storage_settings", default_ebs_storage_settings)
+
+    @property
+    @pulumi.getter(name="defaultEbsStorageSettings")
+    def default_ebs_storage_settings(self) -> Optional[pulumi.Input['UserProfileDefaultEbsStorageSettingsArgs']]:
+        return pulumi.get(self, "default_ebs_storage_settings")
+
+    @default_ebs_storage_settings.setter
+    def default_ebs_storage_settings(self, value: Optional[pulumi.Input['UserProfileDefaultEbsStorageSettingsArgs']]):
+        pulumi.set(self, "default_ebs_storage_settings", value)
+
+
+@pulumi.input_type
+class UserProfileEfsFileSystemConfigArgs:
+    def __init__(__self__, *,
+                 file_system_id: pulumi.Input[str],
+                 file_system_path: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        if file_system_path is not None:
+            pulumi.set(__self__, "file_system_path", file_system_path)
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "file_system_id")
+
+    @file_system_id.setter
+    def file_system_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system_id", value)
+
+    @property
+    @pulumi.getter(name="fileSystemPath")
+    def file_system_path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "file_system_path")
+
+    @file_system_path.setter
+    def file_system_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_system_path", value)
+
+
+@pulumi.input_type
+class UserProfileJupyterLabAppSettingsArgs:
+    def __init__(__self__, *,
+                 code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileCodeRepositoryArgs']]]] = None,
+                 custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileCustomImageArgs']]]] = None,
+                 default_resource_spec: Optional[pulumi.Input['UserProfileResourceSpecArgs']] = None,
+                 lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The JupyterLab app settings.
+        :param pulumi.Input[Sequence[pulumi.Input['UserProfileCodeRepositoryArgs']]] code_repositories: A list of CodeRepositories available for use with JupyterLab apps.
+        :param pulumi.Input[Sequence[pulumi.Input['UserProfileCustomImageArgs']]] custom_images: A list of custom images available for use for JupyterLab apps
+        :param pulumi.Input['UserProfileResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: A list of LifecycleConfigArns available for use with JupyterLab apps.
+        """
+        if code_repositories is not None:
+            pulumi.set(__self__, "code_repositories", code_repositories)
+        if custom_images is not None:
+            pulumi.set(__self__, "custom_images", custom_images)
+        if default_resource_spec is not None:
+            pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if lifecycle_config_arns is not None:
+            pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
+
+    @property
+    @pulumi.getter(name="codeRepositories")
+    def code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileCodeRepositoryArgs']]]]:
+        """
+        A list of CodeRepositories available for use with JupyterLab apps.
+        """
+        return pulumi.get(self, "code_repositories")
+
+    @code_repositories.setter
+    def code_repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileCodeRepositoryArgs']]]]):
+        pulumi.set(self, "code_repositories", value)
+
+    @property
+    @pulumi.getter(name="customImages")
+    def custom_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileCustomImageArgs']]]]:
+        """
+        A list of custom images available for use for JupyterLab apps
+        """
+        return pulumi.get(self, "custom_images")
+
+    @custom_images.setter
+    def custom_images(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileCustomImageArgs']]]]):
+        pulumi.set(self, "custom_images", value)
+
+    @property
+    @pulumi.getter(name="defaultResourceSpec")
+    def default_resource_spec(self) -> Optional[pulumi.Input['UserProfileResourceSpecArgs']]:
+        """
+        The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
+        """
+        return pulumi.get(self, "default_resource_spec")
+
+    @default_resource_spec.setter
+    def default_resource_spec(self, value: Optional[pulumi.Input['UserProfileResourceSpecArgs']]):
+        pulumi.set(self, "default_resource_spec", value)
+
+    @property
+    @pulumi.getter(name="lifecycleConfigArns")
+    def lifecycle_config_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of LifecycleConfigArns available for use with JupyterLab apps.
+        """
+        return pulumi.get(self, "lifecycle_config_arns")
+
+    @lifecycle_config_arns.setter
+    def lifecycle_config_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "lifecycle_config_arns", value)
 
 
 @pulumi.input_type
@@ -12798,22 +13446,41 @@ class UserProfileTagArgs:
 @pulumi.input_type
 class UserProfileUserSettingsArgs:
     def __init__(__self__, *,
+                 code_editor_app_settings: Optional[pulumi.Input['UserProfileCodeEditorAppSettingsArgs']] = None,
+                 custom_file_system_configs: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileCustomFileSystemConfigArgs']]]] = None,
+                 custom_posix_user_config: Optional[pulumi.Input['UserProfileCustomPosixUserConfigArgs']] = None,
+                 default_landing_uri: Optional[pulumi.Input[str]] = None,
                  execution_role: Optional[pulumi.Input[str]] = None,
+                 jupyter_lab_app_settings: Optional[pulumi.Input['UserProfileJupyterLabAppSettingsArgs']] = None,
                  jupyter_server_app_settings: Optional[pulumi.Input['UserProfileJupyterServerAppSettingsArgs']] = None,
                  kernel_gateway_app_settings: Optional[pulumi.Input['UserProfileKernelGatewayAppSettingsArgs']] = None,
                  r_studio_server_pro_app_settings: Optional[pulumi.Input['UserProfileRStudioServerProAppSettingsArgs']] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 sharing_settings: Optional[pulumi.Input['UserProfileSharingSettingsArgs']] = None):
+                 sharing_settings: Optional[pulumi.Input['UserProfileSharingSettingsArgs']] = None,
+                 space_storage_settings: Optional[pulumi.Input['UserProfileDefaultSpaceStorageSettingsArgs']] = None,
+                 studio_web_portal: Optional[pulumi.Input['UserProfileUserSettingsStudioWebPortal']] = None):
         """
         A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
+        :param pulumi.Input[str] default_landing_uri: Defines which Amazon SageMaker application users are directed to by default.
         :param pulumi.Input[str] execution_role: The user profile Amazon Resource Name (ARN).
         :param pulumi.Input['UserProfileJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings.
         :param pulumi.Input['UserProfileKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         :param pulumi.Input['UserProfileSharingSettingsArgs'] sharing_settings: The sharing settings.
+        :param pulumi.Input['UserProfileUserSettingsStudioWebPortal'] studio_web_portal: Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
         """
+        if code_editor_app_settings is not None:
+            pulumi.set(__self__, "code_editor_app_settings", code_editor_app_settings)
+        if custom_file_system_configs is not None:
+            pulumi.set(__self__, "custom_file_system_configs", custom_file_system_configs)
+        if custom_posix_user_config is not None:
+            pulumi.set(__self__, "custom_posix_user_config", custom_posix_user_config)
+        if default_landing_uri is not None:
+            pulumi.set(__self__, "default_landing_uri", default_landing_uri)
         if execution_role is not None:
             pulumi.set(__self__, "execution_role", execution_role)
+        if jupyter_lab_app_settings is not None:
+            pulumi.set(__self__, "jupyter_lab_app_settings", jupyter_lab_app_settings)
         if jupyter_server_app_settings is not None:
             pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
@@ -12824,6 +13491,49 @@ class UserProfileUserSettingsArgs:
             pulumi.set(__self__, "security_groups", security_groups)
         if sharing_settings is not None:
             pulumi.set(__self__, "sharing_settings", sharing_settings)
+        if space_storage_settings is not None:
+            pulumi.set(__self__, "space_storage_settings", space_storage_settings)
+        if studio_web_portal is not None:
+            pulumi.set(__self__, "studio_web_portal", studio_web_portal)
+
+    @property
+    @pulumi.getter(name="codeEditorAppSettings")
+    def code_editor_app_settings(self) -> Optional[pulumi.Input['UserProfileCodeEditorAppSettingsArgs']]:
+        return pulumi.get(self, "code_editor_app_settings")
+
+    @code_editor_app_settings.setter
+    def code_editor_app_settings(self, value: Optional[pulumi.Input['UserProfileCodeEditorAppSettingsArgs']]):
+        pulumi.set(self, "code_editor_app_settings", value)
+
+    @property
+    @pulumi.getter(name="customFileSystemConfigs")
+    def custom_file_system_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileCustomFileSystemConfigArgs']]]]:
+        return pulumi.get(self, "custom_file_system_configs")
+
+    @custom_file_system_configs.setter
+    def custom_file_system_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileCustomFileSystemConfigArgs']]]]):
+        pulumi.set(self, "custom_file_system_configs", value)
+
+    @property
+    @pulumi.getter(name="customPosixUserConfig")
+    def custom_posix_user_config(self) -> Optional[pulumi.Input['UserProfileCustomPosixUserConfigArgs']]:
+        return pulumi.get(self, "custom_posix_user_config")
+
+    @custom_posix_user_config.setter
+    def custom_posix_user_config(self, value: Optional[pulumi.Input['UserProfileCustomPosixUserConfigArgs']]):
+        pulumi.set(self, "custom_posix_user_config", value)
+
+    @property
+    @pulumi.getter(name="defaultLandingUri")
+    def default_landing_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Defines which Amazon SageMaker application users are directed to by default.
+        """
+        return pulumi.get(self, "default_landing_uri")
+
+    @default_landing_uri.setter
+    def default_landing_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_landing_uri", value)
 
     @property
     @pulumi.getter(name="executionRole")
@@ -12836,6 +13546,15 @@ class UserProfileUserSettingsArgs:
     @execution_role.setter
     def execution_role(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "execution_role", value)
+
+    @property
+    @pulumi.getter(name="jupyterLabAppSettings")
+    def jupyter_lab_app_settings(self) -> Optional[pulumi.Input['UserProfileJupyterLabAppSettingsArgs']]:
+        return pulumi.get(self, "jupyter_lab_app_settings")
+
+    @jupyter_lab_app_settings.setter
+    def jupyter_lab_app_settings(self, value: Optional[pulumi.Input['UserProfileJupyterLabAppSettingsArgs']]):
+        pulumi.set(self, "jupyter_lab_app_settings", value)
 
     @property
     @pulumi.getter(name="jupyterServerAppSettings")
@@ -12893,6 +13612,27 @@ class UserProfileUserSettingsArgs:
     @sharing_settings.setter
     def sharing_settings(self, value: Optional[pulumi.Input['UserProfileSharingSettingsArgs']]):
         pulumi.set(self, "sharing_settings", value)
+
+    @property
+    @pulumi.getter(name="spaceStorageSettings")
+    def space_storage_settings(self) -> Optional[pulumi.Input['UserProfileDefaultSpaceStorageSettingsArgs']]:
+        return pulumi.get(self, "space_storage_settings")
+
+    @space_storage_settings.setter
+    def space_storage_settings(self, value: Optional[pulumi.Input['UserProfileDefaultSpaceStorageSettingsArgs']]):
+        pulumi.set(self, "space_storage_settings", value)
+
+    @property
+    @pulumi.getter(name="studioWebPortal")
+    def studio_web_portal(self) -> Optional[pulumi.Input['UserProfileUserSettingsStudioWebPortal']]:
+        """
+        Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
+        """
+        return pulumi.get(self, "studio_web_portal")
+
+    @studio_web_portal.setter
+    def studio_web_portal(self, value: Optional[pulumi.Input['UserProfileUserSettingsStudioWebPortal']]):
+        pulumi.set(self, "studio_web_portal", value)
 
 
 @pulumi.input_type

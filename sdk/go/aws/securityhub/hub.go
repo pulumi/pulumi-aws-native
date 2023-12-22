@@ -12,16 +12,21 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::SecurityHub::Hub
-//
-// Deprecated: Hub is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
+// The AWS::SecurityHub::Hub resource represents the implementation of the AWS Security Hub service in your account. One hub resource is created for each Region in which you enable Security Hub.
 type Hub struct {
 	pulumi.CustomResourceState
 
-	AutoEnableControls      pulumi.BoolPtrOutput   `pulumi:"autoEnableControls"`
+	// An ARN is automatically created for the customer.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Whether to automatically enable new controls when they are added to standards that are enabled
+	AutoEnableControls pulumi.BoolPtrOutput `pulumi:"autoEnableControls"`
+	// This field, used when enabling Security Hub, specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to SECURITY_CONTROL, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards.  If the value for this field is set to STANDARD_CONTROL, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards.
 	ControlFindingGenerator pulumi.StringPtrOutput `pulumi:"controlFindingGenerator"`
-	EnableDefaultStandards  pulumi.BoolPtrOutput   `pulumi:"enableDefaultStandards"`
-	Tags                    pulumi.AnyOutput       `pulumi:"tags"`
+	// Whether to enable the security standards that Security Hub has designated as automatically enabled.
+	EnableDefaultStandards pulumi.BoolPtrOutput `pulumi:"enableDefaultStandards"`
+	// The date and time when Security Hub was enabled in the account.
+	SubscribedAt pulumi.StringOutput `pulumi:"subscribedAt"`
+	Tags         HubTagsPtrOutput    `pulumi:"tags"`
 }
 
 // NewHub registers a new resource with the given unique name, arguments, and options.
@@ -64,18 +69,24 @@ func (HubState) ElementType() reflect.Type {
 }
 
 type hubArgs struct {
-	AutoEnableControls      *bool       `pulumi:"autoEnableControls"`
-	ControlFindingGenerator *string     `pulumi:"controlFindingGenerator"`
-	EnableDefaultStandards  *bool       `pulumi:"enableDefaultStandards"`
-	Tags                    interface{} `pulumi:"tags"`
+	// Whether to automatically enable new controls when they are added to standards that are enabled
+	AutoEnableControls *bool `pulumi:"autoEnableControls"`
+	// This field, used when enabling Security Hub, specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to SECURITY_CONTROL, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards.  If the value for this field is set to STANDARD_CONTROL, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards.
+	ControlFindingGenerator *string `pulumi:"controlFindingGenerator"`
+	// Whether to enable the security standards that Security Hub has designated as automatically enabled.
+	EnableDefaultStandards *bool    `pulumi:"enableDefaultStandards"`
+	Tags                   *HubTags `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Hub resource.
 type HubArgs struct {
-	AutoEnableControls      pulumi.BoolPtrInput
+	// Whether to automatically enable new controls when they are added to standards that are enabled
+	AutoEnableControls pulumi.BoolPtrInput
+	// This field, used when enabling Security Hub, specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to SECURITY_CONTROL, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards.  If the value for this field is set to STANDARD_CONTROL, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards.
 	ControlFindingGenerator pulumi.StringPtrInput
-	EnableDefaultStandards  pulumi.BoolPtrInput
-	Tags                    pulumi.Input
+	// Whether to enable the security standards that Security Hub has designated as automatically enabled.
+	EnableDefaultStandards pulumi.BoolPtrInput
+	Tags                   HubTagsPtrInput
 }
 
 func (HubArgs) ElementType() reflect.Type {
@@ -127,20 +138,33 @@ func (o HubOutput) ToOutput(ctx context.Context) pulumix.Output[*Hub] {
 	}
 }
 
+// An ARN is automatically created for the customer.
+func (o HubOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Hub) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Whether to automatically enable new controls when they are added to standards that are enabled
 func (o HubOutput) AutoEnableControls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Hub) pulumi.BoolPtrOutput { return v.AutoEnableControls }).(pulumi.BoolPtrOutput)
 }
 
+// This field, used when enabling Security Hub, specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to SECURITY_CONTROL, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards.  If the value for this field is set to STANDARD_CONTROL, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards.
 func (o HubOutput) ControlFindingGenerator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Hub) pulumi.StringPtrOutput { return v.ControlFindingGenerator }).(pulumi.StringPtrOutput)
 }
 
+// Whether to enable the security standards that Security Hub has designated as automatically enabled.
 func (o HubOutput) EnableDefaultStandards() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Hub) pulumi.BoolPtrOutput { return v.EnableDefaultStandards }).(pulumi.BoolPtrOutput)
 }
 
-func (o HubOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Hub) pulumi.AnyOutput { return v.Tags }).(pulumi.AnyOutput)
+// The date and time when Security Hub was enabled in the account.
+func (o HubOutput) SubscribedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Hub) pulumi.StringOutput { return v.SubscribedAt }).(pulumi.StringOutput)
+}
+
+func (o HubOutput) Tags() HubTagsPtrOutput {
+	return o.ApplyT(func(v *Hub) HubTagsPtrOutput { return v.Tags }).(HubTagsPtrOutput)
 }
 
 func init() {

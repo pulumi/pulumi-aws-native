@@ -30,6 +30,11 @@ export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
 utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 
+export { CertificateProviderArgs } from "./certificateProvider";
+export type CertificateProvider = import("./certificateProvider").CertificateProvider;
+export const CertificateProvider: typeof import("./certificateProvider").CertificateProvider = null as any;
+utilities.lazyLoad(exports, ["CertificateProvider"], () => require("./certificateProvider"));
+
 export { CustomMetricArgs } from "./customMetric";
 export type CustomMetric = import("./customMetric").CustomMetric;
 export const CustomMetric: typeof import("./customMetric").CustomMetric = null as any;
@@ -74,6 +79,11 @@ export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } fr
 export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
 export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
 utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+
+export { GetCertificateProviderArgs, GetCertificateProviderResult, GetCertificateProviderOutputArgs } from "./getCertificateProvider";
+export const getCertificateProvider: typeof import("./getCertificateProvider").getCertificateProvider = null as any;
+export const getCertificateProviderOutput: typeof import("./getCertificateProvider").getCertificateProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificateProvider","getCertificateProviderOutput"], () => require("./getCertificateProvider"));
 
 export { GetCustomMetricArgs, GetCustomMetricResult, GetCustomMetricOutputArgs } from "./getCustomMetric";
 export const getCustomMetric: typeof import("./getCustomMetric").getCustomMetric = null as any;
@@ -293,6 +303,8 @@ const _module = {
                 return new CaCertificate(name, <any>undefined, { urn })
             case "aws-native:iot:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
+            case "aws-native:iot:CertificateProvider":
+                return new CertificateProvider(name, <any>undefined, { urn })
             case "aws-native:iot:CustomMetric":
                 return new CustomMetric(name, <any>undefined, { urn })
             case "aws-native:iot:Dimension":

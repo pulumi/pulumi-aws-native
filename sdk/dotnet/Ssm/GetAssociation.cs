@@ -98,7 +98,6 @@ namespace Pulumi.AwsNative.Ssm
         /// The targets that the SSM document sends commands to.
         /// </summary>
         public readonly ImmutableArray<Outputs.AssociationTarget> Targets;
-        public readonly int? WaitForSuccessTimeoutSeconds;
 
         [OutputConstructor]
         private GetAssociationResult(
@@ -134,9 +133,7 @@ namespace Pulumi.AwsNative.Ssm
 
             Pulumi.AwsNative.Ssm.AssociationSyncCompliance? syncCompliance,
 
-            ImmutableArray<Outputs.AssociationTarget> targets,
-
-            int? waitForSuccessTimeoutSeconds)
+            ImmutableArray<Outputs.AssociationTarget> targets)
         {
             ApplyOnlyAtCronInterval = applyOnlyAtCronInterval;
             AssociationId = associationId;
@@ -155,7 +152,6 @@ namespace Pulumi.AwsNative.Ssm
             ScheduleOffset = scheduleOffset;
             SyncCompliance = syncCompliance;
             Targets = targets;
-            WaitForSuccessTimeoutSeconds = waitForSuccessTimeoutSeconds;
         }
     }
 }

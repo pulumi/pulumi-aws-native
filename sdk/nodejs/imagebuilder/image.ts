@@ -54,6 +54,10 @@ export class Image extends pulumi.CustomResource {
      */
     public readonly enhancedImageMetadataEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * The execution role name/ARN for the image build, if provided
+     */
+    public readonly executionRole!: pulumi.Output<string | undefined>;
+    /**
      * The AMI ID of the EC2 AMI in current region.
      */
     public /*out*/ readonly imageId!: pulumi.Output<string>;
@@ -85,6 +89,10 @@ export class Image extends pulumi.CustomResource {
      * The tags associated with the image.
      */
     public readonly tags!: pulumi.Output<any | undefined>;
+    /**
+     * Workflows to define the image build process
+     */
+    public readonly workflows!: pulumi.Output<outputs.imagebuilder.ImageWorkflowConfiguration[] | undefined>;
 
     /**
      * Create a Image resource with the given unique name, arguments, and options.
@@ -100,11 +108,13 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["containerRecipeArn"] = args ? args.containerRecipeArn : undefined;
             resourceInputs["distributionConfigurationArn"] = args ? args.distributionConfigurationArn : undefined;
             resourceInputs["enhancedImageMetadataEnabled"] = args ? args.enhancedImageMetadataEnabled : undefined;
+            resourceInputs["executionRole"] = args ? args.executionRole : undefined;
             resourceInputs["imageRecipeArn"] = args ? args.imageRecipeArn : undefined;
             resourceInputs["imageScanningConfiguration"] = args ? args.imageScanningConfiguration : undefined;
             resourceInputs["imageTestsConfiguration"] = args ? args.imageTestsConfiguration : undefined;
             resourceInputs["infrastructureConfigurationArn"] = args ? args.infrastructureConfigurationArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workflows"] = args ? args.workflows : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["imageId"] = undefined /*out*/;
             resourceInputs["imageUri"] = undefined /*out*/;
@@ -114,6 +124,7 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["containerRecipeArn"] = undefined /*out*/;
             resourceInputs["distributionConfigurationArn"] = undefined /*out*/;
             resourceInputs["enhancedImageMetadataEnabled"] = undefined /*out*/;
+            resourceInputs["executionRole"] = undefined /*out*/;
             resourceInputs["imageId"] = undefined /*out*/;
             resourceInputs["imageRecipeArn"] = undefined /*out*/;
             resourceInputs["imageScanningConfiguration"] = undefined /*out*/;
@@ -122,9 +133,10 @@ export class Image extends pulumi.CustomResource {
             resourceInputs["infrastructureConfigurationArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["workflows"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["containerRecipeArn", "distributionConfigurationArn", "enhancedImageMetadataEnabled", "imageRecipeArn", "imageScanningConfiguration", "imageTestsConfiguration", "infrastructureConfigurationArn", "tags"] };
+        const replaceOnChanges = { replaceOnChanges: ["containerRecipeArn", "distributionConfigurationArn", "enhancedImageMetadataEnabled", "imageRecipeArn", "imageScanningConfiguration", "imageTestsConfiguration", "infrastructureConfigurationArn", "tags", "workflows[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Image.__pulumiType, name, resourceInputs, opts);
     }
@@ -147,6 +159,10 @@ export interface ImageArgs {
      */
     enhancedImageMetadataEnabled?: pulumi.Input<boolean>;
     /**
+     * The execution role name/ARN for the image build, if provided
+     */
+    executionRole?: pulumi.Input<string>;
+    /**
      * The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
      */
     imageRecipeArn?: pulumi.Input<string>;
@@ -166,4 +182,8 @@ export interface ImageArgs {
      * The tags associated with the image.
      */
     tags?: any;
+    /**
+     * Workflows to define the image build process
+     */
+    workflows?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageWorkflowConfigurationArgs>[]>;
 }

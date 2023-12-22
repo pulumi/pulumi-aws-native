@@ -88,6 +88,7 @@ import * as athena from "./athena";
 import * as auditmanager from "./auditmanager";
 import * as autoscaling from "./autoscaling";
 import * as autoscalingplans from "./autoscalingplans";
+import * as b2bi from "./b2bi";
 import * as backup from "./backup";
 import * as backupgateway from "./backupgateway";
 import * as batch from "./batch";
@@ -321,6 +322,7 @@ export {
     auditmanager,
     autoscaling,
     autoscalingplans,
+    b2bi,
     backup,
     backupgateway,
     batch,

@@ -1465,6 +1465,468 @@ func (o PipelineEncryptionKeyPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type PipelineGitConfiguration struct {
+	Push             []PipelineGitPushFilter `pulumi:"push"`
+	SourceActionName string                  `pulumi:"sourceActionName"`
+}
+
+// PipelineGitConfigurationInput is an input type that accepts PipelineGitConfigurationArgs and PipelineGitConfigurationOutput values.
+// You can construct a concrete instance of `PipelineGitConfigurationInput` via:
+//
+//	PipelineGitConfigurationArgs{...}
+type PipelineGitConfigurationInput interface {
+	pulumi.Input
+
+	ToPipelineGitConfigurationOutput() PipelineGitConfigurationOutput
+	ToPipelineGitConfigurationOutputWithContext(context.Context) PipelineGitConfigurationOutput
+}
+
+type PipelineGitConfigurationArgs struct {
+	Push             PipelineGitPushFilterArrayInput `pulumi:"push"`
+	SourceActionName pulumi.StringInput              `pulumi:"sourceActionName"`
+}
+
+func (PipelineGitConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineGitConfiguration)(nil)).Elem()
+}
+
+func (i PipelineGitConfigurationArgs) ToPipelineGitConfigurationOutput() PipelineGitConfigurationOutput {
+	return i.ToPipelineGitConfigurationOutputWithContext(context.Background())
+}
+
+func (i PipelineGitConfigurationArgs) ToPipelineGitConfigurationOutputWithContext(ctx context.Context) PipelineGitConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineGitConfigurationOutput)
+}
+
+func (i PipelineGitConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineGitConfiguration] {
+	return pulumix.Output[PipelineGitConfiguration]{
+		OutputState: i.ToPipelineGitConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i PipelineGitConfigurationArgs) ToPipelineGitConfigurationPtrOutput() PipelineGitConfigurationPtrOutput {
+	return i.ToPipelineGitConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineGitConfigurationArgs) ToPipelineGitConfigurationPtrOutputWithContext(ctx context.Context) PipelineGitConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineGitConfigurationOutput).ToPipelineGitConfigurationPtrOutputWithContext(ctx)
+}
+
+// PipelineGitConfigurationPtrInput is an input type that accepts PipelineGitConfigurationArgs, PipelineGitConfigurationPtr and PipelineGitConfigurationPtrOutput values.
+// You can construct a concrete instance of `PipelineGitConfigurationPtrInput` via:
+//
+//	        PipelineGitConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelineGitConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPipelineGitConfigurationPtrOutput() PipelineGitConfigurationPtrOutput
+	ToPipelineGitConfigurationPtrOutputWithContext(context.Context) PipelineGitConfigurationPtrOutput
+}
+
+type pipelineGitConfigurationPtrType PipelineGitConfigurationArgs
+
+func PipelineGitConfigurationPtr(v *PipelineGitConfigurationArgs) PipelineGitConfigurationPtrInput {
+	return (*pipelineGitConfigurationPtrType)(v)
+}
+
+func (*pipelineGitConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineGitConfiguration)(nil)).Elem()
+}
+
+func (i *pipelineGitConfigurationPtrType) ToPipelineGitConfigurationPtrOutput() PipelineGitConfigurationPtrOutput {
+	return i.ToPipelineGitConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineGitConfigurationPtrType) ToPipelineGitConfigurationPtrOutputWithContext(ctx context.Context) PipelineGitConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineGitConfigurationPtrOutput)
+}
+
+func (i *pipelineGitConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipelineGitConfiguration] {
+	return pulumix.Output[*PipelineGitConfiguration]{
+		OutputState: i.ToPipelineGitConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type PipelineGitConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PipelineGitConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineGitConfiguration)(nil)).Elem()
+}
+
+func (o PipelineGitConfigurationOutput) ToPipelineGitConfigurationOutput() PipelineGitConfigurationOutput {
+	return o
+}
+
+func (o PipelineGitConfigurationOutput) ToPipelineGitConfigurationOutputWithContext(ctx context.Context) PipelineGitConfigurationOutput {
+	return o
+}
+
+func (o PipelineGitConfigurationOutput) ToPipelineGitConfigurationPtrOutput() PipelineGitConfigurationPtrOutput {
+	return o.ToPipelineGitConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineGitConfigurationOutput) ToPipelineGitConfigurationPtrOutputWithContext(ctx context.Context) PipelineGitConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineGitConfiguration) *PipelineGitConfiguration {
+		return &v
+	}).(PipelineGitConfigurationPtrOutput)
+}
+
+func (o PipelineGitConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineGitConfiguration] {
+	return pulumix.Output[PipelineGitConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipelineGitConfigurationOutput) Push() PipelineGitPushFilterArrayOutput {
+	return o.ApplyT(func(v PipelineGitConfiguration) []PipelineGitPushFilter { return v.Push }).(PipelineGitPushFilterArrayOutput)
+}
+
+func (o PipelineGitConfigurationOutput) SourceActionName() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineGitConfiguration) string { return v.SourceActionName }).(pulumi.StringOutput)
+}
+
+type PipelineGitConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineGitConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineGitConfiguration)(nil)).Elem()
+}
+
+func (o PipelineGitConfigurationPtrOutput) ToPipelineGitConfigurationPtrOutput() PipelineGitConfigurationPtrOutput {
+	return o
+}
+
+func (o PipelineGitConfigurationPtrOutput) ToPipelineGitConfigurationPtrOutputWithContext(ctx context.Context) PipelineGitConfigurationPtrOutput {
+	return o
+}
+
+func (o PipelineGitConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipelineGitConfiguration] {
+	return pulumix.Output[*PipelineGitConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipelineGitConfigurationPtrOutput) Elem() PipelineGitConfigurationOutput {
+	return o.ApplyT(func(v *PipelineGitConfiguration) PipelineGitConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineGitConfiguration
+		return ret
+	}).(PipelineGitConfigurationOutput)
+}
+
+func (o PipelineGitConfigurationPtrOutput) Push() PipelineGitPushFilterArrayOutput {
+	return o.ApplyT(func(v *PipelineGitConfiguration) []PipelineGitPushFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Push
+	}).(PipelineGitPushFilterArrayOutput)
+}
+
+func (o PipelineGitConfigurationPtrOutput) SourceActionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineGitConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceActionName
+	}).(pulumi.StringPtrOutput)
+}
+
+type PipelineGitPushFilter struct {
+	Tags *PipelineGitTagFilterCriteria `pulumi:"tags"`
+}
+
+// PipelineGitPushFilterInput is an input type that accepts PipelineGitPushFilterArgs and PipelineGitPushFilterOutput values.
+// You can construct a concrete instance of `PipelineGitPushFilterInput` via:
+//
+//	PipelineGitPushFilterArgs{...}
+type PipelineGitPushFilterInput interface {
+	pulumi.Input
+
+	ToPipelineGitPushFilterOutput() PipelineGitPushFilterOutput
+	ToPipelineGitPushFilterOutputWithContext(context.Context) PipelineGitPushFilterOutput
+}
+
+type PipelineGitPushFilterArgs struct {
+	Tags PipelineGitTagFilterCriteriaPtrInput `pulumi:"tags"`
+}
+
+func (PipelineGitPushFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineGitPushFilter)(nil)).Elem()
+}
+
+func (i PipelineGitPushFilterArgs) ToPipelineGitPushFilterOutput() PipelineGitPushFilterOutput {
+	return i.ToPipelineGitPushFilterOutputWithContext(context.Background())
+}
+
+func (i PipelineGitPushFilterArgs) ToPipelineGitPushFilterOutputWithContext(ctx context.Context) PipelineGitPushFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineGitPushFilterOutput)
+}
+
+func (i PipelineGitPushFilterArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineGitPushFilter] {
+	return pulumix.Output[PipelineGitPushFilter]{
+		OutputState: i.ToPipelineGitPushFilterOutputWithContext(ctx).OutputState,
+	}
+}
+
+// PipelineGitPushFilterArrayInput is an input type that accepts PipelineGitPushFilterArray and PipelineGitPushFilterArrayOutput values.
+// You can construct a concrete instance of `PipelineGitPushFilterArrayInput` via:
+//
+//	PipelineGitPushFilterArray{ PipelineGitPushFilterArgs{...} }
+type PipelineGitPushFilterArrayInput interface {
+	pulumi.Input
+
+	ToPipelineGitPushFilterArrayOutput() PipelineGitPushFilterArrayOutput
+	ToPipelineGitPushFilterArrayOutputWithContext(context.Context) PipelineGitPushFilterArrayOutput
+}
+
+type PipelineGitPushFilterArray []PipelineGitPushFilterInput
+
+func (PipelineGitPushFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineGitPushFilter)(nil)).Elem()
+}
+
+func (i PipelineGitPushFilterArray) ToPipelineGitPushFilterArrayOutput() PipelineGitPushFilterArrayOutput {
+	return i.ToPipelineGitPushFilterArrayOutputWithContext(context.Background())
+}
+
+func (i PipelineGitPushFilterArray) ToPipelineGitPushFilterArrayOutputWithContext(ctx context.Context) PipelineGitPushFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineGitPushFilterArrayOutput)
+}
+
+func (i PipelineGitPushFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]PipelineGitPushFilter] {
+	return pulumix.Output[[]PipelineGitPushFilter]{
+		OutputState: i.ToPipelineGitPushFilterArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type PipelineGitPushFilterOutput struct{ *pulumi.OutputState }
+
+func (PipelineGitPushFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineGitPushFilter)(nil)).Elem()
+}
+
+func (o PipelineGitPushFilterOutput) ToPipelineGitPushFilterOutput() PipelineGitPushFilterOutput {
+	return o
+}
+
+func (o PipelineGitPushFilterOutput) ToPipelineGitPushFilterOutputWithContext(ctx context.Context) PipelineGitPushFilterOutput {
+	return o
+}
+
+func (o PipelineGitPushFilterOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineGitPushFilter] {
+	return pulumix.Output[PipelineGitPushFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipelineGitPushFilterOutput) Tags() PipelineGitTagFilterCriteriaPtrOutput {
+	return o.ApplyT(func(v PipelineGitPushFilter) *PipelineGitTagFilterCriteria { return v.Tags }).(PipelineGitTagFilterCriteriaPtrOutput)
+}
+
+type PipelineGitPushFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (PipelineGitPushFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineGitPushFilter)(nil)).Elem()
+}
+
+func (o PipelineGitPushFilterArrayOutput) ToPipelineGitPushFilterArrayOutput() PipelineGitPushFilterArrayOutput {
+	return o
+}
+
+func (o PipelineGitPushFilterArrayOutput) ToPipelineGitPushFilterArrayOutputWithContext(ctx context.Context) PipelineGitPushFilterArrayOutput {
+	return o
+}
+
+func (o PipelineGitPushFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PipelineGitPushFilter] {
+	return pulumix.Output[[]PipelineGitPushFilter]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipelineGitPushFilterArrayOutput) Index(i pulumi.IntInput) PipelineGitPushFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineGitPushFilter {
+		return vs[0].([]PipelineGitPushFilter)[vs[1].(int)]
+	}).(PipelineGitPushFilterOutput)
+}
+
+type PipelineGitTagFilterCriteria struct {
+	Excludes []string `pulumi:"excludes"`
+	Includes []string `pulumi:"includes"`
+}
+
+// PipelineGitTagFilterCriteriaInput is an input type that accepts PipelineGitTagFilterCriteriaArgs and PipelineGitTagFilterCriteriaOutput values.
+// You can construct a concrete instance of `PipelineGitTagFilterCriteriaInput` via:
+//
+//	PipelineGitTagFilterCriteriaArgs{...}
+type PipelineGitTagFilterCriteriaInput interface {
+	pulumi.Input
+
+	ToPipelineGitTagFilterCriteriaOutput() PipelineGitTagFilterCriteriaOutput
+	ToPipelineGitTagFilterCriteriaOutputWithContext(context.Context) PipelineGitTagFilterCriteriaOutput
+}
+
+type PipelineGitTagFilterCriteriaArgs struct {
+	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (PipelineGitTagFilterCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineGitTagFilterCriteria)(nil)).Elem()
+}
+
+func (i PipelineGitTagFilterCriteriaArgs) ToPipelineGitTagFilterCriteriaOutput() PipelineGitTagFilterCriteriaOutput {
+	return i.ToPipelineGitTagFilterCriteriaOutputWithContext(context.Background())
+}
+
+func (i PipelineGitTagFilterCriteriaArgs) ToPipelineGitTagFilterCriteriaOutputWithContext(ctx context.Context) PipelineGitTagFilterCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineGitTagFilterCriteriaOutput)
+}
+
+func (i PipelineGitTagFilterCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineGitTagFilterCriteria] {
+	return pulumix.Output[PipelineGitTagFilterCriteria]{
+		OutputState: i.ToPipelineGitTagFilterCriteriaOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i PipelineGitTagFilterCriteriaArgs) ToPipelineGitTagFilterCriteriaPtrOutput() PipelineGitTagFilterCriteriaPtrOutput {
+	return i.ToPipelineGitTagFilterCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineGitTagFilterCriteriaArgs) ToPipelineGitTagFilterCriteriaPtrOutputWithContext(ctx context.Context) PipelineGitTagFilterCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineGitTagFilterCriteriaOutput).ToPipelineGitTagFilterCriteriaPtrOutputWithContext(ctx)
+}
+
+// PipelineGitTagFilterCriteriaPtrInput is an input type that accepts PipelineGitTagFilterCriteriaArgs, PipelineGitTagFilterCriteriaPtr and PipelineGitTagFilterCriteriaPtrOutput values.
+// You can construct a concrete instance of `PipelineGitTagFilterCriteriaPtrInput` via:
+//
+//	        PipelineGitTagFilterCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelineGitTagFilterCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToPipelineGitTagFilterCriteriaPtrOutput() PipelineGitTagFilterCriteriaPtrOutput
+	ToPipelineGitTagFilterCriteriaPtrOutputWithContext(context.Context) PipelineGitTagFilterCriteriaPtrOutput
+}
+
+type pipelineGitTagFilterCriteriaPtrType PipelineGitTagFilterCriteriaArgs
+
+func PipelineGitTagFilterCriteriaPtr(v *PipelineGitTagFilterCriteriaArgs) PipelineGitTagFilterCriteriaPtrInput {
+	return (*pipelineGitTagFilterCriteriaPtrType)(v)
+}
+
+func (*pipelineGitTagFilterCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineGitTagFilterCriteria)(nil)).Elem()
+}
+
+func (i *pipelineGitTagFilterCriteriaPtrType) ToPipelineGitTagFilterCriteriaPtrOutput() PipelineGitTagFilterCriteriaPtrOutput {
+	return i.ToPipelineGitTagFilterCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineGitTagFilterCriteriaPtrType) ToPipelineGitTagFilterCriteriaPtrOutputWithContext(ctx context.Context) PipelineGitTagFilterCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineGitTagFilterCriteriaPtrOutput)
+}
+
+func (i *pipelineGitTagFilterCriteriaPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipelineGitTagFilterCriteria] {
+	return pulumix.Output[*PipelineGitTagFilterCriteria]{
+		OutputState: i.ToPipelineGitTagFilterCriteriaPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type PipelineGitTagFilterCriteriaOutput struct{ *pulumi.OutputState }
+
+func (PipelineGitTagFilterCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineGitTagFilterCriteria)(nil)).Elem()
+}
+
+func (o PipelineGitTagFilterCriteriaOutput) ToPipelineGitTagFilterCriteriaOutput() PipelineGitTagFilterCriteriaOutput {
+	return o
+}
+
+func (o PipelineGitTagFilterCriteriaOutput) ToPipelineGitTagFilterCriteriaOutputWithContext(ctx context.Context) PipelineGitTagFilterCriteriaOutput {
+	return o
+}
+
+func (o PipelineGitTagFilterCriteriaOutput) ToPipelineGitTagFilterCriteriaPtrOutput() PipelineGitTagFilterCriteriaPtrOutput {
+	return o.ToPipelineGitTagFilterCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineGitTagFilterCriteriaOutput) ToPipelineGitTagFilterCriteriaPtrOutputWithContext(ctx context.Context) PipelineGitTagFilterCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineGitTagFilterCriteria) *PipelineGitTagFilterCriteria {
+		return &v
+	}).(PipelineGitTagFilterCriteriaPtrOutput)
+}
+
+func (o PipelineGitTagFilterCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineGitTagFilterCriteria] {
+	return pulumix.Output[PipelineGitTagFilterCriteria]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipelineGitTagFilterCriteriaOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineGitTagFilterCriteria) []string { return v.Excludes }).(pulumi.StringArrayOutput)
+}
+
+func (o PipelineGitTagFilterCriteriaOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineGitTagFilterCriteria) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type PipelineGitTagFilterCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineGitTagFilterCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineGitTagFilterCriteria)(nil)).Elem()
+}
+
+func (o PipelineGitTagFilterCriteriaPtrOutput) ToPipelineGitTagFilterCriteriaPtrOutput() PipelineGitTagFilterCriteriaPtrOutput {
+	return o
+}
+
+func (o PipelineGitTagFilterCriteriaPtrOutput) ToPipelineGitTagFilterCriteriaPtrOutputWithContext(ctx context.Context) PipelineGitTagFilterCriteriaPtrOutput {
+	return o
+}
+
+func (o PipelineGitTagFilterCriteriaPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipelineGitTagFilterCriteria] {
+	return pulumix.Output[*PipelineGitTagFilterCriteria]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipelineGitTagFilterCriteriaPtrOutput) Elem() PipelineGitTagFilterCriteriaOutput {
+	return o.ApplyT(func(v *PipelineGitTagFilterCriteria) PipelineGitTagFilterCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineGitTagFilterCriteria
+		return ret
+	}).(PipelineGitTagFilterCriteriaOutput)
+}
+
+func (o PipelineGitTagFilterCriteriaPtrOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PipelineGitTagFilterCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Excludes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o PipelineGitTagFilterCriteriaPtrOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PipelineGitTagFilterCriteria) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Includes
+	}).(pulumi.StringArrayOutput)
+}
+
 type PipelineInputArtifact struct {
 	Name string `pulumi:"name"`
 }
@@ -2079,6 +2541,260 @@ func (o PipelineTagArrayOutput) Index(i pulumi.IntInput) PipelineTagOutput {
 	}).(PipelineTagOutput)
 }
 
+type PipelineTriggerDeclaration struct {
+	GitConfiguration *PipelineGitConfiguration `pulumi:"gitConfiguration"`
+	ProviderType     string                    `pulumi:"providerType"`
+}
+
+// PipelineTriggerDeclarationInput is an input type that accepts PipelineTriggerDeclarationArgs and PipelineTriggerDeclarationOutput values.
+// You can construct a concrete instance of `PipelineTriggerDeclarationInput` via:
+//
+//	PipelineTriggerDeclarationArgs{...}
+type PipelineTriggerDeclarationInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerDeclarationOutput() PipelineTriggerDeclarationOutput
+	ToPipelineTriggerDeclarationOutputWithContext(context.Context) PipelineTriggerDeclarationOutput
+}
+
+type PipelineTriggerDeclarationArgs struct {
+	GitConfiguration PipelineGitConfigurationPtrInput `pulumi:"gitConfiguration"`
+	ProviderType     pulumi.StringInput               `pulumi:"providerType"`
+}
+
+func (PipelineTriggerDeclarationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerDeclaration)(nil)).Elem()
+}
+
+func (i PipelineTriggerDeclarationArgs) ToPipelineTriggerDeclarationOutput() PipelineTriggerDeclarationOutput {
+	return i.ToPipelineTriggerDeclarationOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerDeclarationArgs) ToPipelineTriggerDeclarationOutputWithContext(ctx context.Context) PipelineTriggerDeclarationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerDeclarationOutput)
+}
+
+func (i PipelineTriggerDeclarationArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineTriggerDeclaration] {
+	return pulumix.Output[PipelineTriggerDeclaration]{
+		OutputState: i.ToPipelineTriggerDeclarationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// PipelineTriggerDeclarationArrayInput is an input type that accepts PipelineTriggerDeclarationArray and PipelineTriggerDeclarationArrayOutput values.
+// You can construct a concrete instance of `PipelineTriggerDeclarationArrayInput` via:
+//
+//	PipelineTriggerDeclarationArray{ PipelineTriggerDeclarationArgs{...} }
+type PipelineTriggerDeclarationArrayInput interface {
+	pulumi.Input
+
+	ToPipelineTriggerDeclarationArrayOutput() PipelineTriggerDeclarationArrayOutput
+	ToPipelineTriggerDeclarationArrayOutputWithContext(context.Context) PipelineTriggerDeclarationArrayOutput
+}
+
+type PipelineTriggerDeclarationArray []PipelineTriggerDeclarationInput
+
+func (PipelineTriggerDeclarationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineTriggerDeclaration)(nil)).Elem()
+}
+
+func (i PipelineTriggerDeclarationArray) ToPipelineTriggerDeclarationArrayOutput() PipelineTriggerDeclarationArrayOutput {
+	return i.ToPipelineTriggerDeclarationArrayOutputWithContext(context.Background())
+}
+
+func (i PipelineTriggerDeclarationArray) ToPipelineTriggerDeclarationArrayOutputWithContext(ctx context.Context) PipelineTriggerDeclarationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineTriggerDeclarationArrayOutput)
+}
+
+func (i PipelineTriggerDeclarationArray) ToOutput(ctx context.Context) pulumix.Output[[]PipelineTriggerDeclaration] {
+	return pulumix.Output[[]PipelineTriggerDeclaration]{
+		OutputState: i.ToPipelineTriggerDeclarationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type PipelineTriggerDeclarationOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerDeclarationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineTriggerDeclaration)(nil)).Elem()
+}
+
+func (o PipelineTriggerDeclarationOutput) ToPipelineTriggerDeclarationOutput() PipelineTriggerDeclarationOutput {
+	return o
+}
+
+func (o PipelineTriggerDeclarationOutput) ToPipelineTriggerDeclarationOutputWithContext(ctx context.Context) PipelineTriggerDeclarationOutput {
+	return o
+}
+
+func (o PipelineTriggerDeclarationOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineTriggerDeclaration] {
+	return pulumix.Output[PipelineTriggerDeclaration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipelineTriggerDeclarationOutput) GitConfiguration() PipelineGitConfigurationPtrOutput {
+	return o.ApplyT(func(v PipelineTriggerDeclaration) *PipelineGitConfiguration { return v.GitConfiguration }).(PipelineGitConfigurationPtrOutput)
+}
+
+func (o PipelineTriggerDeclarationOutput) ProviderType() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineTriggerDeclaration) string { return v.ProviderType }).(pulumi.StringOutput)
+}
+
+type PipelineTriggerDeclarationArrayOutput struct{ *pulumi.OutputState }
+
+func (PipelineTriggerDeclarationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineTriggerDeclaration)(nil)).Elem()
+}
+
+func (o PipelineTriggerDeclarationArrayOutput) ToPipelineTriggerDeclarationArrayOutput() PipelineTriggerDeclarationArrayOutput {
+	return o
+}
+
+func (o PipelineTriggerDeclarationArrayOutput) ToPipelineTriggerDeclarationArrayOutputWithContext(ctx context.Context) PipelineTriggerDeclarationArrayOutput {
+	return o
+}
+
+func (o PipelineTriggerDeclarationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PipelineTriggerDeclaration] {
+	return pulumix.Output[[]PipelineTriggerDeclaration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipelineTriggerDeclarationArrayOutput) Index(i pulumi.IntInput) PipelineTriggerDeclarationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineTriggerDeclaration {
+		return vs[0].([]PipelineTriggerDeclaration)[vs[1].(int)]
+	}).(PipelineTriggerDeclarationOutput)
+}
+
+type PipelineVariableDeclaration struct {
+	DefaultValue *string `pulumi:"defaultValue"`
+	Description  *string `pulumi:"description"`
+	Name         string  `pulumi:"name"`
+}
+
+// PipelineVariableDeclarationInput is an input type that accepts PipelineVariableDeclarationArgs and PipelineVariableDeclarationOutput values.
+// You can construct a concrete instance of `PipelineVariableDeclarationInput` via:
+//
+//	PipelineVariableDeclarationArgs{...}
+type PipelineVariableDeclarationInput interface {
+	pulumi.Input
+
+	ToPipelineVariableDeclarationOutput() PipelineVariableDeclarationOutput
+	ToPipelineVariableDeclarationOutputWithContext(context.Context) PipelineVariableDeclarationOutput
+}
+
+type PipelineVariableDeclarationArgs struct {
+	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	Description  pulumi.StringPtrInput `pulumi:"description"`
+	Name         pulumi.StringInput    `pulumi:"name"`
+}
+
+func (PipelineVariableDeclarationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineVariableDeclaration)(nil)).Elem()
+}
+
+func (i PipelineVariableDeclarationArgs) ToPipelineVariableDeclarationOutput() PipelineVariableDeclarationOutput {
+	return i.ToPipelineVariableDeclarationOutputWithContext(context.Background())
+}
+
+func (i PipelineVariableDeclarationArgs) ToPipelineVariableDeclarationOutputWithContext(ctx context.Context) PipelineVariableDeclarationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineVariableDeclarationOutput)
+}
+
+func (i PipelineVariableDeclarationArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineVariableDeclaration] {
+	return pulumix.Output[PipelineVariableDeclaration]{
+		OutputState: i.ToPipelineVariableDeclarationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// PipelineVariableDeclarationArrayInput is an input type that accepts PipelineVariableDeclarationArray and PipelineVariableDeclarationArrayOutput values.
+// You can construct a concrete instance of `PipelineVariableDeclarationArrayInput` via:
+//
+//	PipelineVariableDeclarationArray{ PipelineVariableDeclarationArgs{...} }
+type PipelineVariableDeclarationArrayInput interface {
+	pulumi.Input
+
+	ToPipelineVariableDeclarationArrayOutput() PipelineVariableDeclarationArrayOutput
+	ToPipelineVariableDeclarationArrayOutputWithContext(context.Context) PipelineVariableDeclarationArrayOutput
+}
+
+type PipelineVariableDeclarationArray []PipelineVariableDeclarationInput
+
+func (PipelineVariableDeclarationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineVariableDeclaration)(nil)).Elem()
+}
+
+func (i PipelineVariableDeclarationArray) ToPipelineVariableDeclarationArrayOutput() PipelineVariableDeclarationArrayOutput {
+	return i.ToPipelineVariableDeclarationArrayOutputWithContext(context.Background())
+}
+
+func (i PipelineVariableDeclarationArray) ToPipelineVariableDeclarationArrayOutputWithContext(ctx context.Context) PipelineVariableDeclarationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineVariableDeclarationArrayOutput)
+}
+
+func (i PipelineVariableDeclarationArray) ToOutput(ctx context.Context) pulumix.Output[[]PipelineVariableDeclaration] {
+	return pulumix.Output[[]PipelineVariableDeclaration]{
+		OutputState: i.ToPipelineVariableDeclarationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type PipelineVariableDeclarationOutput struct{ *pulumi.OutputState }
+
+func (PipelineVariableDeclarationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineVariableDeclaration)(nil)).Elem()
+}
+
+func (o PipelineVariableDeclarationOutput) ToPipelineVariableDeclarationOutput() PipelineVariableDeclarationOutput {
+	return o
+}
+
+func (o PipelineVariableDeclarationOutput) ToPipelineVariableDeclarationOutputWithContext(ctx context.Context) PipelineVariableDeclarationOutput {
+	return o
+}
+
+func (o PipelineVariableDeclarationOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineVariableDeclaration] {
+	return pulumix.Output[PipelineVariableDeclaration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipelineVariableDeclarationOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineVariableDeclaration) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+}
+
+func (o PipelineVariableDeclarationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PipelineVariableDeclaration) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o PipelineVariableDeclarationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineVariableDeclaration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type PipelineVariableDeclarationArrayOutput struct{ *pulumi.OutputState }
+
+func (PipelineVariableDeclarationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PipelineVariableDeclaration)(nil)).Elem()
+}
+
+func (o PipelineVariableDeclarationArrayOutput) ToPipelineVariableDeclarationArrayOutput() PipelineVariableDeclarationArrayOutput {
+	return o
+}
+
+func (o PipelineVariableDeclarationArrayOutput) ToPipelineVariableDeclarationArrayOutputWithContext(ctx context.Context) PipelineVariableDeclarationArrayOutput {
+	return o
+}
+
+func (o PipelineVariableDeclarationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PipelineVariableDeclaration] {
+	return pulumix.Output[[]PipelineVariableDeclaration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipelineVariableDeclarationArrayOutput) Index(i pulumi.IntInput) PipelineVariableDeclarationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PipelineVariableDeclaration {
+		return vs[0].([]PipelineVariableDeclaration)[vs[1].(int)]
+	}).(PipelineVariableDeclarationOutput)
+}
+
 type WebhookAuthConfiguration struct {
 	AllowedIpRange *string `pulumi:"allowedIpRange"`
 	SecretToken    *string `pulumi:"secretToken"`
@@ -2337,6 +3053,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineBlockerDeclarationArrayInput)(nil)).Elem(), PipelineBlockerDeclarationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineEncryptionKeyInput)(nil)).Elem(), PipelineEncryptionKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineEncryptionKeyPtrInput)(nil)).Elem(), PipelineEncryptionKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineGitConfigurationInput)(nil)).Elem(), PipelineGitConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineGitConfigurationPtrInput)(nil)).Elem(), PipelineGitConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineGitPushFilterInput)(nil)).Elem(), PipelineGitPushFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineGitPushFilterArrayInput)(nil)).Elem(), PipelineGitPushFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineGitTagFilterCriteriaInput)(nil)).Elem(), PipelineGitTagFilterCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineGitTagFilterCriteriaPtrInput)(nil)).Elem(), PipelineGitTagFilterCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineInputArtifactInput)(nil)).Elem(), PipelineInputArtifactArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineInputArtifactArrayInput)(nil)).Elem(), PipelineInputArtifactArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineOutputArtifactInput)(nil)).Elem(), PipelineOutputArtifactArgs{})
@@ -2347,6 +3069,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageTransitionArrayInput)(nil)).Elem(), PipelineStageTransitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTagInput)(nil)).Elem(), PipelineTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTagArrayInput)(nil)).Elem(), PipelineTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerDeclarationInput)(nil)).Elem(), PipelineTriggerDeclarationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerDeclarationArrayInput)(nil)).Elem(), PipelineTriggerDeclarationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineVariableDeclarationInput)(nil)).Elem(), PipelineVariableDeclarationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineVariableDeclarationArrayInput)(nil)).Elem(), PipelineVariableDeclarationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookAuthConfigurationInput)(nil)).Elem(), WebhookAuthConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookFilterRuleInput)(nil)).Elem(), WebhookFilterRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookFilterRuleArrayInput)(nil)).Elem(), WebhookFilterRuleArray{})
@@ -2368,6 +3094,12 @@ func init() {
 	pulumi.RegisterOutputType(PipelineBlockerDeclarationArrayOutput{})
 	pulumi.RegisterOutputType(PipelineEncryptionKeyOutput{})
 	pulumi.RegisterOutputType(PipelineEncryptionKeyPtrOutput{})
+	pulumi.RegisterOutputType(PipelineGitConfigurationOutput{})
+	pulumi.RegisterOutputType(PipelineGitConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PipelineGitPushFilterOutput{})
+	pulumi.RegisterOutputType(PipelineGitPushFilterArrayOutput{})
+	pulumi.RegisterOutputType(PipelineGitTagFilterCriteriaOutput{})
+	pulumi.RegisterOutputType(PipelineGitTagFilterCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(PipelineInputArtifactOutput{})
 	pulumi.RegisterOutputType(PipelineInputArtifactArrayOutput{})
 	pulumi.RegisterOutputType(PipelineOutputArtifactOutput{})
@@ -2378,6 +3110,10 @@ func init() {
 	pulumi.RegisterOutputType(PipelineStageTransitionArrayOutput{})
 	pulumi.RegisterOutputType(PipelineTagOutput{})
 	pulumi.RegisterOutputType(PipelineTagArrayOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerDeclarationOutput{})
+	pulumi.RegisterOutputType(PipelineTriggerDeclarationArrayOutput{})
+	pulumi.RegisterOutputType(PipelineVariableDeclarationOutput{})
+	pulumi.RegisterOutputType(PipelineVariableDeclarationArrayOutput{})
 	pulumi.RegisterOutputType(WebhookAuthConfigurationOutput{})
 	pulumi.RegisterOutputType(WebhookAuthConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WebhookFilterRuleOutput{})

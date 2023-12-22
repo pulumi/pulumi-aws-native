@@ -4243,9 +4243,9 @@ func (o InstanceStorageConfigKinesisStreamConfigPtrOutput) StreamArn() pulumi.St
 }
 
 type InstanceStorageConfigKinesisVideoStreamConfig struct {
-	EncryptionConfig     *InstanceStorageConfigEncryptionConfig `pulumi:"encryptionConfig"`
-	Prefix               string                                 `pulumi:"prefix"`
-	RetentionPeriodHours float64                                `pulumi:"retentionPeriodHours"`
+	EncryptionConfig     InstanceStorageConfigEncryptionConfig `pulumi:"encryptionConfig"`
+	Prefix               string                                `pulumi:"prefix"`
+	RetentionPeriodHours float64                               `pulumi:"retentionPeriodHours"`
 }
 
 // InstanceStorageConfigKinesisVideoStreamConfigInput is an input type that accepts InstanceStorageConfigKinesisVideoStreamConfigArgs and InstanceStorageConfigKinesisVideoStreamConfigOutput values.
@@ -4260,9 +4260,9 @@ type InstanceStorageConfigKinesisVideoStreamConfigInput interface {
 }
 
 type InstanceStorageConfigKinesisVideoStreamConfigArgs struct {
-	EncryptionConfig     InstanceStorageConfigEncryptionConfigPtrInput `pulumi:"encryptionConfig"`
-	Prefix               pulumi.StringInput                            `pulumi:"prefix"`
-	RetentionPeriodHours pulumi.Float64Input                           `pulumi:"retentionPeriodHours"`
+	EncryptionConfig     InstanceStorageConfigEncryptionConfigInput `pulumi:"encryptionConfig"`
+	Prefix               pulumi.StringInput                         `pulumi:"prefix"`
+	RetentionPeriodHours pulumi.Float64Input                        `pulumi:"retentionPeriodHours"`
 }
 
 func (InstanceStorageConfigKinesisVideoStreamConfigArgs) ElementType() reflect.Type {
@@ -4360,10 +4360,10 @@ func (o InstanceStorageConfigKinesisVideoStreamConfigOutput) ToOutput(ctx contex
 	}
 }
 
-func (o InstanceStorageConfigKinesisVideoStreamConfigOutput) EncryptionConfig() InstanceStorageConfigEncryptionConfigPtrOutput {
-	return o.ApplyT(func(v InstanceStorageConfigKinesisVideoStreamConfig) *InstanceStorageConfigEncryptionConfig {
+func (o InstanceStorageConfigKinesisVideoStreamConfigOutput) EncryptionConfig() InstanceStorageConfigEncryptionConfigOutput {
+	return o.ApplyT(func(v InstanceStorageConfigKinesisVideoStreamConfig) InstanceStorageConfigEncryptionConfig {
 		return v.EncryptionConfig
-	}).(InstanceStorageConfigEncryptionConfigPtrOutput)
+	}).(InstanceStorageConfigEncryptionConfigOutput)
 }
 
 func (o InstanceStorageConfigKinesisVideoStreamConfigOutput) Prefix() pulumi.StringOutput {
@@ -4409,7 +4409,7 @@ func (o InstanceStorageConfigKinesisVideoStreamConfigPtrOutput) EncryptionConfig
 		if v == nil {
 			return nil
 		}
-		return v.EncryptionConfig
+		return &v.EncryptionConfig
 	}).(InstanceStorageConfigEncryptionConfigPtrOutput)
 }
 
@@ -4618,6 +4618,139 @@ func (o InstanceStorageConfigS3ConfigPtrOutput) EncryptionConfig() InstanceStora
 		}
 		return v.EncryptionConfig
 	}).(InstanceStorageConfigEncryptionConfigPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type InstanceTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// InstanceTagInput is an input type that accepts InstanceTagArgs and InstanceTagOutput values.
+// You can construct a concrete instance of `InstanceTagInput` via:
+//
+//	InstanceTagArgs{...}
+type InstanceTagInput interface {
+	pulumi.Input
+
+	ToInstanceTagOutput() InstanceTagOutput
+	ToInstanceTagOutputWithContext(context.Context) InstanceTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type InstanceTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (InstanceTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceTag)(nil)).Elem()
+}
+
+func (i InstanceTagArgs) ToInstanceTagOutput() InstanceTagOutput {
+	return i.ToInstanceTagOutputWithContext(context.Background())
+}
+
+func (i InstanceTagArgs) ToInstanceTagOutputWithContext(ctx context.Context) InstanceTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceTagOutput)
+}
+
+func (i InstanceTagArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceTag] {
+	return pulumix.Output[InstanceTag]{
+		OutputState: i.ToInstanceTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// InstanceTagArrayInput is an input type that accepts InstanceTagArray and InstanceTagArrayOutput values.
+// You can construct a concrete instance of `InstanceTagArrayInput` via:
+//
+//	InstanceTagArray{ InstanceTagArgs{...} }
+type InstanceTagArrayInput interface {
+	pulumi.Input
+
+	ToInstanceTagArrayOutput() InstanceTagArrayOutput
+	ToInstanceTagArrayOutputWithContext(context.Context) InstanceTagArrayOutput
+}
+
+type InstanceTagArray []InstanceTagInput
+
+func (InstanceTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceTag)(nil)).Elem()
+}
+
+func (i InstanceTagArray) ToInstanceTagArrayOutput() InstanceTagArrayOutput {
+	return i.ToInstanceTagArrayOutputWithContext(context.Background())
+}
+
+func (i InstanceTagArray) ToInstanceTagArrayOutputWithContext(ctx context.Context) InstanceTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceTagArrayOutput)
+}
+
+func (i InstanceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]InstanceTag] {
+	return pulumix.Output[[]InstanceTag]{
+		OutputState: i.ToInstanceTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A key-value pair to associate with a resource.
+type InstanceTagOutput struct{ *pulumi.OutputState }
+
+func (InstanceTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceTag)(nil)).Elem()
+}
+
+func (o InstanceTagOutput) ToInstanceTagOutput() InstanceTagOutput {
+	return o
+}
+
+func (o InstanceTagOutput) ToInstanceTagOutputWithContext(ctx context.Context) InstanceTagOutput {
+	return o
+}
+
+func (o InstanceTagOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceTag] {
+	return pulumix.Output[InstanceTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o InstanceTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o InstanceTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v InstanceTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type InstanceTagArrayOutput struct{ *pulumi.OutputState }
+
+func (InstanceTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InstanceTag)(nil)).Elem()
+}
+
+func (o InstanceTagArrayOutput) ToInstanceTagArrayOutput() InstanceTagArrayOutput {
+	return o
+}
+
+func (o InstanceTagArrayOutput) ToInstanceTagArrayOutputWithContext(ctx context.Context) InstanceTagArrayOutput {
+	return o
+}
+
+func (o InstanceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InstanceTag] {
+	return pulumix.Output[[]InstanceTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o InstanceTagArrayOutput) Index(i pulumi.IntInput) InstanceTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceTag {
+		return vs[0].([]InstanceTag)[vs[1].(int)]
+	}).(InstanceTagOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -6628,9 +6761,12 @@ func (o RoutingProfileTagArrayOutput) Index(i pulumi.IntInput) RoutingProfileTag
 // The list of actions that will be executed when a rule is triggered.
 type RuleActions struct {
 	AssignContactCategoryActions []RuleAssignContactCategoryAction `pulumi:"assignContactCategoryActions"`
+	CreateCaseActions            []RuleCreateCaseAction            `pulumi:"createCaseActions"`
+	EndAssociatedTaskActions     []RuleEndAssociatedTasksAction    `pulumi:"endAssociatedTaskActions"`
 	EventBridgeActions           []RuleEventBridgeAction           `pulumi:"eventBridgeActions"`
 	SendNotificationActions      []RuleSendNotificationAction      `pulumi:"sendNotificationActions"`
 	TaskActions                  []RuleTaskAction                  `pulumi:"taskActions"`
+	UpdateCaseActions            []RuleUpdateCaseAction            `pulumi:"updateCaseActions"`
 }
 
 // RuleActionsInput is an input type that accepts RuleActionsArgs and RuleActionsOutput values.
@@ -6647,9 +6783,12 @@ type RuleActionsInput interface {
 // The list of actions that will be executed when a rule is triggered.
 type RuleActionsArgs struct {
 	AssignContactCategoryActions RuleAssignContactCategoryActionArrayInput `pulumi:"assignContactCategoryActions"`
+	CreateCaseActions            RuleCreateCaseActionArrayInput            `pulumi:"createCaseActions"`
+	EndAssociatedTaskActions     RuleEndAssociatedTasksActionArrayInput    `pulumi:"endAssociatedTaskActions"`
 	EventBridgeActions           RuleEventBridgeActionArrayInput           `pulumi:"eventBridgeActions"`
 	SendNotificationActions      RuleSendNotificationActionArrayInput      `pulumi:"sendNotificationActions"`
 	TaskActions                  RuleTaskActionArrayInput                  `pulumi:"taskActions"`
+	UpdateCaseActions            RuleUpdateCaseActionArrayInput            `pulumi:"updateCaseActions"`
 }
 
 func (RuleActionsArgs) ElementType() reflect.Type {
@@ -6695,6 +6834,14 @@ func (o RuleActionsOutput) AssignContactCategoryActions() RuleAssignContactCateg
 	return o.ApplyT(func(v RuleActions) []RuleAssignContactCategoryAction { return v.AssignContactCategoryActions }).(RuleAssignContactCategoryActionArrayOutput)
 }
 
+func (o RuleActionsOutput) CreateCaseActions() RuleCreateCaseActionArrayOutput {
+	return o.ApplyT(func(v RuleActions) []RuleCreateCaseAction { return v.CreateCaseActions }).(RuleCreateCaseActionArrayOutput)
+}
+
+func (o RuleActionsOutput) EndAssociatedTaskActions() RuleEndAssociatedTasksActionArrayOutput {
+	return o.ApplyT(func(v RuleActions) []RuleEndAssociatedTasksAction { return v.EndAssociatedTaskActions }).(RuleEndAssociatedTasksActionArrayOutput)
+}
+
 func (o RuleActionsOutput) EventBridgeActions() RuleEventBridgeActionArrayOutput {
 	return o.ApplyT(func(v RuleActions) []RuleEventBridgeAction { return v.EventBridgeActions }).(RuleEventBridgeActionArrayOutput)
 }
@@ -6705,6 +6852,10 @@ func (o RuleActionsOutput) SendNotificationActions() RuleSendNotificationActionA
 
 func (o RuleActionsOutput) TaskActions() RuleTaskActionArrayOutput {
 	return o.ApplyT(func(v RuleActions) []RuleTaskAction { return v.TaskActions }).(RuleTaskActionArrayOutput)
+}
+
+func (o RuleActionsOutput) UpdateCaseActions() RuleUpdateCaseActionArrayOutput {
+	return o.ApplyT(func(v RuleActions) []RuleUpdateCaseAction { return v.UpdateCaseActions }).(RuleUpdateCaseActionArrayOutput)
 }
 
 type RuleActionsPtrOutput struct{ *pulumi.OutputState }
@@ -6746,6 +6897,24 @@ func (o RuleActionsPtrOutput) AssignContactCategoryActions() RuleAssignContactCa
 	}).(RuleAssignContactCategoryActionArrayOutput)
 }
 
+func (o RuleActionsPtrOutput) CreateCaseActions() RuleCreateCaseActionArrayOutput {
+	return o.ApplyT(func(v *RuleActions) []RuleCreateCaseAction {
+		if v == nil {
+			return nil
+		}
+		return v.CreateCaseActions
+	}).(RuleCreateCaseActionArrayOutput)
+}
+
+func (o RuleActionsPtrOutput) EndAssociatedTaskActions() RuleEndAssociatedTasksActionArrayOutput {
+	return o.ApplyT(func(v *RuleActions) []RuleEndAssociatedTasksAction {
+		if v == nil {
+			return nil
+		}
+		return v.EndAssociatedTaskActions
+	}).(RuleEndAssociatedTasksActionArrayOutput)
+}
+
 func (o RuleActionsPtrOutput) EventBridgeActions() RuleEventBridgeActionArrayOutput {
 	return o.ApplyT(func(v *RuleActions) []RuleEventBridgeAction {
 		if v == nil {
@@ -6771,6 +6940,15 @@ func (o RuleActionsPtrOutput) TaskActions() RuleTaskActionArrayOutput {
 		}
 		return v.TaskActions
 	}).(RuleTaskActionArrayOutput)
+}
+
+func (o RuleActionsPtrOutput) UpdateCaseActions() RuleUpdateCaseActionArrayOutput {
+	return o.ApplyT(func(v *RuleActions) []RuleUpdateCaseAction {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateCaseActions
+	}).(RuleUpdateCaseActionArrayOutput)
 }
 
 // The definition for assigning contact category action.
@@ -6886,6 +7064,251 @@ func (o RuleAssignContactCategoryActionArrayOutput) Index(i pulumi.IntInput) Rul
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleAssignContactCategoryAction {
 		return vs[0].([]RuleAssignContactCategoryAction)[vs[1].(int)]
 	}).(RuleAssignContactCategoryActionOutput)
+}
+
+// The definition for create case action.
+type RuleCreateCaseAction struct {
+	Fields []RuleField `pulumi:"fields"`
+	// The Id of template.
+	TemplateId string `pulumi:"templateId"`
+}
+
+// RuleCreateCaseActionInput is an input type that accepts RuleCreateCaseActionArgs and RuleCreateCaseActionOutput values.
+// You can construct a concrete instance of `RuleCreateCaseActionInput` via:
+//
+//	RuleCreateCaseActionArgs{...}
+type RuleCreateCaseActionInput interface {
+	pulumi.Input
+
+	ToRuleCreateCaseActionOutput() RuleCreateCaseActionOutput
+	ToRuleCreateCaseActionOutputWithContext(context.Context) RuleCreateCaseActionOutput
+}
+
+// The definition for create case action.
+type RuleCreateCaseActionArgs struct {
+	Fields RuleFieldArrayInput `pulumi:"fields"`
+	// The Id of template.
+	TemplateId pulumi.StringInput `pulumi:"templateId"`
+}
+
+func (RuleCreateCaseActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleCreateCaseAction)(nil)).Elem()
+}
+
+func (i RuleCreateCaseActionArgs) ToRuleCreateCaseActionOutput() RuleCreateCaseActionOutput {
+	return i.ToRuleCreateCaseActionOutputWithContext(context.Background())
+}
+
+func (i RuleCreateCaseActionArgs) ToRuleCreateCaseActionOutputWithContext(ctx context.Context) RuleCreateCaseActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleCreateCaseActionOutput)
+}
+
+func (i RuleCreateCaseActionArgs) ToOutput(ctx context.Context) pulumix.Output[RuleCreateCaseAction] {
+	return pulumix.Output[RuleCreateCaseAction]{
+		OutputState: i.ToRuleCreateCaseActionOutputWithContext(ctx).OutputState,
+	}
+}
+
+// RuleCreateCaseActionArrayInput is an input type that accepts RuleCreateCaseActionArray and RuleCreateCaseActionArrayOutput values.
+// You can construct a concrete instance of `RuleCreateCaseActionArrayInput` via:
+//
+//	RuleCreateCaseActionArray{ RuleCreateCaseActionArgs{...} }
+type RuleCreateCaseActionArrayInput interface {
+	pulumi.Input
+
+	ToRuleCreateCaseActionArrayOutput() RuleCreateCaseActionArrayOutput
+	ToRuleCreateCaseActionArrayOutputWithContext(context.Context) RuleCreateCaseActionArrayOutput
+}
+
+type RuleCreateCaseActionArray []RuleCreateCaseActionInput
+
+func (RuleCreateCaseActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleCreateCaseAction)(nil)).Elem()
+}
+
+func (i RuleCreateCaseActionArray) ToRuleCreateCaseActionArrayOutput() RuleCreateCaseActionArrayOutput {
+	return i.ToRuleCreateCaseActionArrayOutputWithContext(context.Background())
+}
+
+func (i RuleCreateCaseActionArray) ToRuleCreateCaseActionArrayOutputWithContext(ctx context.Context) RuleCreateCaseActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleCreateCaseActionArrayOutput)
+}
+
+func (i RuleCreateCaseActionArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleCreateCaseAction] {
+	return pulumix.Output[[]RuleCreateCaseAction]{
+		OutputState: i.ToRuleCreateCaseActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The definition for create case action.
+type RuleCreateCaseActionOutput struct{ *pulumi.OutputState }
+
+func (RuleCreateCaseActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleCreateCaseAction)(nil)).Elem()
+}
+
+func (o RuleCreateCaseActionOutput) ToRuleCreateCaseActionOutput() RuleCreateCaseActionOutput {
+	return o
+}
+
+func (o RuleCreateCaseActionOutput) ToRuleCreateCaseActionOutputWithContext(ctx context.Context) RuleCreateCaseActionOutput {
+	return o
+}
+
+func (o RuleCreateCaseActionOutput) ToOutput(ctx context.Context) pulumix.Output[RuleCreateCaseAction] {
+	return pulumix.Output[RuleCreateCaseAction]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RuleCreateCaseActionOutput) Fields() RuleFieldArrayOutput {
+	return o.ApplyT(func(v RuleCreateCaseAction) []RuleField { return v.Fields }).(RuleFieldArrayOutput)
+}
+
+// The Id of template.
+func (o RuleCreateCaseActionOutput) TemplateId() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleCreateCaseAction) string { return v.TemplateId }).(pulumi.StringOutput)
+}
+
+type RuleCreateCaseActionArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleCreateCaseActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleCreateCaseAction)(nil)).Elem()
+}
+
+func (o RuleCreateCaseActionArrayOutput) ToRuleCreateCaseActionArrayOutput() RuleCreateCaseActionArrayOutput {
+	return o
+}
+
+func (o RuleCreateCaseActionArrayOutput) ToRuleCreateCaseActionArrayOutputWithContext(ctx context.Context) RuleCreateCaseActionArrayOutput {
+	return o
+}
+
+func (o RuleCreateCaseActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleCreateCaseAction] {
+	return pulumix.Output[[]RuleCreateCaseAction]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RuleCreateCaseActionArrayOutput) Index(i pulumi.IntInput) RuleCreateCaseActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleCreateCaseAction {
+		return vs[0].([]RuleCreateCaseAction)[vs[1].(int)]
+	}).(RuleCreateCaseActionOutput)
+}
+
+// The definition for ending associated task action.
+type RuleEndAssociatedTasksAction struct {
+}
+
+// RuleEndAssociatedTasksActionInput is an input type that accepts RuleEndAssociatedTasksActionArgs and RuleEndAssociatedTasksActionOutput values.
+// You can construct a concrete instance of `RuleEndAssociatedTasksActionInput` via:
+//
+//	RuleEndAssociatedTasksActionArgs{...}
+type RuleEndAssociatedTasksActionInput interface {
+	pulumi.Input
+
+	ToRuleEndAssociatedTasksActionOutput() RuleEndAssociatedTasksActionOutput
+	ToRuleEndAssociatedTasksActionOutputWithContext(context.Context) RuleEndAssociatedTasksActionOutput
+}
+
+// The definition for ending associated task action.
+type RuleEndAssociatedTasksActionArgs struct {
+}
+
+func (RuleEndAssociatedTasksActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleEndAssociatedTasksAction)(nil)).Elem()
+}
+
+func (i RuleEndAssociatedTasksActionArgs) ToRuleEndAssociatedTasksActionOutput() RuleEndAssociatedTasksActionOutput {
+	return i.ToRuleEndAssociatedTasksActionOutputWithContext(context.Background())
+}
+
+func (i RuleEndAssociatedTasksActionArgs) ToRuleEndAssociatedTasksActionOutputWithContext(ctx context.Context) RuleEndAssociatedTasksActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleEndAssociatedTasksActionOutput)
+}
+
+func (i RuleEndAssociatedTasksActionArgs) ToOutput(ctx context.Context) pulumix.Output[RuleEndAssociatedTasksAction] {
+	return pulumix.Output[RuleEndAssociatedTasksAction]{
+		OutputState: i.ToRuleEndAssociatedTasksActionOutputWithContext(ctx).OutputState,
+	}
+}
+
+// RuleEndAssociatedTasksActionArrayInput is an input type that accepts RuleEndAssociatedTasksActionArray and RuleEndAssociatedTasksActionArrayOutput values.
+// You can construct a concrete instance of `RuleEndAssociatedTasksActionArrayInput` via:
+//
+//	RuleEndAssociatedTasksActionArray{ RuleEndAssociatedTasksActionArgs{...} }
+type RuleEndAssociatedTasksActionArrayInput interface {
+	pulumi.Input
+
+	ToRuleEndAssociatedTasksActionArrayOutput() RuleEndAssociatedTasksActionArrayOutput
+	ToRuleEndAssociatedTasksActionArrayOutputWithContext(context.Context) RuleEndAssociatedTasksActionArrayOutput
+}
+
+type RuleEndAssociatedTasksActionArray []RuleEndAssociatedTasksActionInput
+
+func (RuleEndAssociatedTasksActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleEndAssociatedTasksAction)(nil)).Elem()
+}
+
+func (i RuleEndAssociatedTasksActionArray) ToRuleEndAssociatedTasksActionArrayOutput() RuleEndAssociatedTasksActionArrayOutput {
+	return i.ToRuleEndAssociatedTasksActionArrayOutputWithContext(context.Background())
+}
+
+func (i RuleEndAssociatedTasksActionArray) ToRuleEndAssociatedTasksActionArrayOutputWithContext(ctx context.Context) RuleEndAssociatedTasksActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleEndAssociatedTasksActionArrayOutput)
+}
+
+func (i RuleEndAssociatedTasksActionArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleEndAssociatedTasksAction] {
+	return pulumix.Output[[]RuleEndAssociatedTasksAction]{
+		OutputState: i.ToRuleEndAssociatedTasksActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The definition for ending associated task action.
+type RuleEndAssociatedTasksActionOutput struct{ *pulumi.OutputState }
+
+func (RuleEndAssociatedTasksActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleEndAssociatedTasksAction)(nil)).Elem()
+}
+
+func (o RuleEndAssociatedTasksActionOutput) ToRuleEndAssociatedTasksActionOutput() RuleEndAssociatedTasksActionOutput {
+	return o
+}
+
+func (o RuleEndAssociatedTasksActionOutput) ToRuleEndAssociatedTasksActionOutputWithContext(ctx context.Context) RuleEndAssociatedTasksActionOutput {
+	return o
+}
+
+func (o RuleEndAssociatedTasksActionOutput) ToOutput(ctx context.Context) pulumix.Output[RuleEndAssociatedTasksAction] {
+	return pulumix.Output[RuleEndAssociatedTasksAction]{
+		OutputState: o.OutputState,
+	}
+}
+
+type RuleEndAssociatedTasksActionArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleEndAssociatedTasksActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleEndAssociatedTasksAction)(nil)).Elem()
+}
+
+func (o RuleEndAssociatedTasksActionArrayOutput) ToRuleEndAssociatedTasksActionArrayOutput() RuleEndAssociatedTasksActionArrayOutput {
+	return o
+}
+
+func (o RuleEndAssociatedTasksActionArrayOutput) ToRuleEndAssociatedTasksActionArrayOutputWithContext(ctx context.Context) RuleEndAssociatedTasksActionArrayOutput {
+	return o
+}
+
+func (o RuleEndAssociatedTasksActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleEndAssociatedTasksAction] {
+	return pulumix.Output[[]RuleEndAssociatedTasksAction]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RuleEndAssociatedTasksActionArrayOutput) Index(i pulumi.IntInput) RuleEndAssociatedTasksActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleEndAssociatedTasksAction {
+		return vs[0].([]RuleEndAssociatedTasksAction)[vs[1].(int)]
+	}).(RuleEndAssociatedTasksActionOutput)
 }
 
 // The definition for event bridge action.
@@ -7010,6 +7433,218 @@ func (o RuleEventBridgeActionArrayOutput) Index(i pulumi.IntInput) RuleEventBrid
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleEventBridgeAction {
 		return vs[0].([]RuleEventBridgeAction)[vs[1].(int)]
 	}).(RuleEventBridgeActionOutput)
+}
+
+// The field of the case.
+type RuleField struct {
+	// The Id of the field
+	Id    string         `pulumi:"id"`
+	Value RuleFieldValue `pulumi:"value"`
+}
+
+// RuleFieldInput is an input type that accepts RuleFieldArgs and RuleFieldOutput values.
+// You can construct a concrete instance of `RuleFieldInput` via:
+//
+//	RuleFieldArgs{...}
+type RuleFieldInput interface {
+	pulumi.Input
+
+	ToRuleFieldOutput() RuleFieldOutput
+	ToRuleFieldOutputWithContext(context.Context) RuleFieldOutput
+}
+
+// The field of the case.
+type RuleFieldArgs struct {
+	// The Id of the field
+	Id    pulumi.StringInput  `pulumi:"id"`
+	Value RuleFieldValueInput `pulumi:"value"`
+}
+
+func (RuleFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleField)(nil)).Elem()
+}
+
+func (i RuleFieldArgs) ToRuleFieldOutput() RuleFieldOutput {
+	return i.ToRuleFieldOutputWithContext(context.Background())
+}
+
+func (i RuleFieldArgs) ToRuleFieldOutputWithContext(ctx context.Context) RuleFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleFieldOutput)
+}
+
+func (i RuleFieldArgs) ToOutput(ctx context.Context) pulumix.Output[RuleField] {
+	return pulumix.Output[RuleField]{
+		OutputState: i.ToRuleFieldOutputWithContext(ctx).OutputState,
+	}
+}
+
+// RuleFieldArrayInput is an input type that accepts RuleFieldArray and RuleFieldArrayOutput values.
+// You can construct a concrete instance of `RuleFieldArrayInput` via:
+//
+//	RuleFieldArray{ RuleFieldArgs{...} }
+type RuleFieldArrayInput interface {
+	pulumi.Input
+
+	ToRuleFieldArrayOutput() RuleFieldArrayOutput
+	ToRuleFieldArrayOutputWithContext(context.Context) RuleFieldArrayOutput
+}
+
+type RuleFieldArray []RuleFieldInput
+
+func (RuleFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleField)(nil)).Elem()
+}
+
+func (i RuleFieldArray) ToRuleFieldArrayOutput() RuleFieldArrayOutput {
+	return i.ToRuleFieldArrayOutputWithContext(context.Background())
+}
+
+func (i RuleFieldArray) ToRuleFieldArrayOutputWithContext(ctx context.Context) RuleFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleFieldArrayOutput)
+}
+
+func (i RuleFieldArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleField] {
+	return pulumix.Output[[]RuleField]{
+		OutputState: i.ToRuleFieldArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The field of the case.
+type RuleFieldOutput struct{ *pulumi.OutputState }
+
+func (RuleFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleField)(nil)).Elem()
+}
+
+func (o RuleFieldOutput) ToRuleFieldOutput() RuleFieldOutput {
+	return o
+}
+
+func (o RuleFieldOutput) ToRuleFieldOutputWithContext(ctx context.Context) RuleFieldOutput {
+	return o
+}
+
+func (o RuleFieldOutput) ToOutput(ctx context.Context) pulumix.Output[RuleField] {
+	return pulumix.Output[RuleField]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The Id of the field
+func (o RuleFieldOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleField) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o RuleFieldOutput) Value() RuleFieldValueOutput {
+	return o.ApplyT(func(v RuleField) RuleFieldValue { return v.Value }).(RuleFieldValueOutput)
+}
+
+type RuleFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleField)(nil)).Elem()
+}
+
+func (o RuleFieldArrayOutput) ToRuleFieldArrayOutput() RuleFieldArrayOutput {
+	return o
+}
+
+func (o RuleFieldArrayOutput) ToRuleFieldArrayOutputWithContext(ctx context.Context) RuleFieldArrayOutput {
+	return o
+}
+
+func (o RuleFieldArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleField] {
+	return pulumix.Output[[]RuleField]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RuleFieldArrayOutput) Index(i pulumi.IntInput) RuleFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleField {
+		return vs[0].([]RuleField)[vs[1].(int)]
+	}).(RuleFieldOutput)
+}
+
+// The value of the field.
+type RuleFieldValue struct {
+	BooleanValue *bool       `pulumi:"booleanValue"`
+	DoubleValue  *float64    `pulumi:"doubleValue"`
+	EmptyValue   interface{} `pulumi:"emptyValue"`
+	StringValue  *string     `pulumi:"stringValue"`
+}
+
+// RuleFieldValueInput is an input type that accepts RuleFieldValueArgs and RuleFieldValueOutput values.
+// You can construct a concrete instance of `RuleFieldValueInput` via:
+//
+//	RuleFieldValueArgs{...}
+type RuleFieldValueInput interface {
+	pulumi.Input
+
+	ToRuleFieldValueOutput() RuleFieldValueOutput
+	ToRuleFieldValueOutputWithContext(context.Context) RuleFieldValueOutput
+}
+
+// The value of the field.
+type RuleFieldValueArgs struct {
+	BooleanValue pulumi.BoolPtrInput    `pulumi:"booleanValue"`
+	DoubleValue  pulumi.Float64PtrInput `pulumi:"doubleValue"`
+	EmptyValue   pulumi.Input           `pulumi:"emptyValue"`
+	StringValue  pulumi.StringPtrInput  `pulumi:"stringValue"`
+}
+
+func (RuleFieldValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleFieldValue)(nil)).Elem()
+}
+
+func (i RuleFieldValueArgs) ToRuleFieldValueOutput() RuleFieldValueOutput {
+	return i.ToRuleFieldValueOutputWithContext(context.Background())
+}
+
+func (i RuleFieldValueArgs) ToRuleFieldValueOutputWithContext(ctx context.Context) RuleFieldValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleFieldValueOutput)
+}
+
+func (i RuleFieldValueArgs) ToOutput(ctx context.Context) pulumix.Output[RuleFieldValue] {
+	return pulumix.Output[RuleFieldValue]{
+		OutputState: i.ToRuleFieldValueOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The value of the field.
+type RuleFieldValueOutput struct{ *pulumi.OutputState }
+
+func (RuleFieldValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleFieldValue)(nil)).Elem()
+}
+
+func (o RuleFieldValueOutput) ToRuleFieldValueOutput() RuleFieldValueOutput {
+	return o
+}
+
+func (o RuleFieldValueOutput) ToRuleFieldValueOutputWithContext(ctx context.Context) RuleFieldValueOutput {
+	return o
+}
+
+func (o RuleFieldValueOutput) ToOutput(ctx context.Context) pulumix.Output[RuleFieldValue] {
+	return pulumix.Output[RuleFieldValue]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RuleFieldValueOutput) BooleanValue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RuleFieldValue) *bool { return v.BooleanValue }).(pulumi.BoolPtrOutput)
+}
+
+func (o RuleFieldValueOutput) DoubleValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v RuleFieldValue) *float64 { return v.DoubleValue }).(pulumi.Float64PtrOutput)
+}
+
+func (o RuleFieldValueOutput) EmptyValue() pulumi.AnyOutput {
+	return o.ApplyT(func(v RuleFieldValue) interface{} { return v.EmptyValue }).(pulumi.AnyOutput)
+}
+
+func (o RuleFieldValueOutput) StringValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleFieldValue) *string { return v.StringValue }).(pulumi.StringPtrOutput)
 }
 
 // The type of notification recipient.
@@ -7603,6 +8238,127 @@ func (o RuleTriggerEventSourceOutput) EventSourceName() RuleTriggerEventSourceEv
 // The Amazon Resource Name (ARN) for the AppIntegration association.
 func (o RuleTriggerEventSourceOutput) IntegrationAssociationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleTriggerEventSource) *string { return v.IntegrationAssociationArn }).(pulumi.StringPtrOutput)
+}
+
+// The definition for update case action.
+type RuleUpdateCaseAction struct {
+	Fields []RuleField `pulumi:"fields"`
+}
+
+// RuleUpdateCaseActionInput is an input type that accepts RuleUpdateCaseActionArgs and RuleUpdateCaseActionOutput values.
+// You can construct a concrete instance of `RuleUpdateCaseActionInput` via:
+//
+//	RuleUpdateCaseActionArgs{...}
+type RuleUpdateCaseActionInput interface {
+	pulumi.Input
+
+	ToRuleUpdateCaseActionOutput() RuleUpdateCaseActionOutput
+	ToRuleUpdateCaseActionOutputWithContext(context.Context) RuleUpdateCaseActionOutput
+}
+
+// The definition for update case action.
+type RuleUpdateCaseActionArgs struct {
+	Fields RuleFieldArrayInput `pulumi:"fields"`
+}
+
+func (RuleUpdateCaseActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleUpdateCaseAction)(nil)).Elem()
+}
+
+func (i RuleUpdateCaseActionArgs) ToRuleUpdateCaseActionOutput() RuleUpdateCaseActionOutput {
+	return i.ToRuleUpdateCaseActionOutputWithContext(context.Background())
+}
+
+func (i RuleUpdateCaseActionArgs) ToRuleUpdateCaseActionOutputWithContext(ctx context.Context) RuleUpdateCaseActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleUpdateCaseActionOutput)
+}
+
+func (i RuleUpdateCaseActionArgs) ToOutput(ctx context.Context) pulumix.Output[RuleUpdateCaseAction] {
+	return pulumix.Output[RuleUpdateCaseAction]{
+		OutputState: i.ToRuleUpdateCaseActionOutputWithContext(ctx).OutputState,
+	}
+}
+
+// RuleUpdateCaseActionArrayInput is an input type that accepts RuleUpdateCaseActionArray and RuleUpdateCaseActionArrayOutput values.
+// You can construct a concrete instance of `RuleUpdateCaseActionArrayInput` via:
+//
+//	RuleUpdateCaseActionArray{ RuleUpdateCaseActionArgs{...} }
+type RuleUpdateCaseActionArrayInput interface {
+	pulumi.Input
+
+	ToRuleUpdateCaseActionArrayOutput() RuleUpdateCaseActionArrayOutput
+	ToRuleUpdateCaseActionArrayOutputWithContext(context.Context) RuleUpdateCaseActionArrayOutput
+}
+
+type RuleUpdateCaseActionArray []RuleUpdateCaseActionInput
+
+func (RuleUpdateCaseActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleUpdateCaseAction)(nil)).Elem()
+}
+
+func (i RuleUpdateCaseActionArray) ToRuleUpdateCaseActionArrayOutput() RuleUpdateCaseActionArrayOutput {
+	return i.ToRuleUpdateCaseActionArrayOutputWithContext(context.Background())
+}
+
+func (i RuleUpdateCaseActionArray) ToRuleUpdateCaseActionArrayOutputWithContext(ctx context.Context) RuleUpdateCaseActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleUpdateCaseActionArrayOutput)
+}
+
+func (i RuleUpdateCaseActionArray) ToOutput(ctx context.Context) pulumix.Output[[]RuleUpdateCaseAction] {
+	return pulumix.Output[[]RuleUpdateCaseAction]{
+		OutputState: i.ToRuleUpdateCaseActionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The definition for update case action.
+type RuleUpdateCaseActionOutput struct{ *pulumi.OutputState }
+
+func (RuleUpdateCaseActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleUpdateCaseAction)(nil)).Elem()
+}
+
+func (o RuleUpdateCaseActionOutput) ToRuleUpdateCaseActionOutput() RuleUpdateCaseActionOutput {
+	return o
+}
+
+func (o RuleUpdateCaseActionOutput) ToRuleUpdateCaseActionOutputWithContext(ctx context.Context) RuleUpdateCaseActionOutput {
+	return o
+}
+
+func (o RuleUpdateCaseActionOutput) ToOutput(ctx context.Context) pulumix.Output[RuleUpdateCaseAction] {
+	return pulumix.Output[RuleUpdateCaseAction]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RuleUpdateCaseActionOutput) Fields() RuleFieldArrayOutput {
+	return o.ApplyT(func(v RuleUpdateCaseAction) []RuleField { return v.Fields }).(RuleFieldArrayOutput)
+}
+
+type RuleUpdateCaseActionArrayOutput struct{ *pulumi.OutputState }
+
+func (RuleUpdateCaseActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RuleUpdateCaseAction)(nil)).Elem()
+}
+
+func (o RuleUpdateCaseActionArrayOutput) ToRuleUpdateCaseActionArrayOutput() RuleUpdateCaseActionArrayOutput {
+	return o
+}
+
+func (o RuleUpdateCaseActionArrayOutput) ToRuleUpdateCaseActionArrayOutputWithContext(ctx context.Context) RuleUpdateCaseActionArrayOutput {
+	return o
+}
+
+func (o RuleUpdateCaseActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RuleUpdateCaseAction] {
+	return pulumix.Output[[]RuleUpdateCaseAction]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RuleUpdateCaseActionArrayOutput) Index(i pulumi.IntInput) RuleUpdateCaseActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleUpdateCaseAction {
+		return vs[0].([]RuleUpdateCaseAction)[vs[1].(int)]
+	}).(RuleUpdateCaseActionOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -9527,6 +10283,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigKinesisVideoStreamConfigPtrInput)(nil)).Elem(), InstanceStorageConfigKinesisVideoStreamConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigS3ConfigInput)(nil)).Elem(), InstanceStorageConfigS3ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigS3ConfigPtrInput)(nil)).Elem(), InstanceStorageConfigS3ConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceTagInput)(nil)).Elem(), InstanceTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceTagArrayInput)(nil)).Elem(), InstanceTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PhoneNumberTagInput)(nil)).Elem(), PhoneNumberTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PhoneNumberTagArrayInput)(nil)).Elem(), PhoneNumberTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptTagInput)(nil)).Elem(), PromptTagArgs{})
@@ -9556,8 +10314,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleActionsInput)(nil)).Elem(), RuleActionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleAssignContactCategoryActionInput)(nil)).Elem(), RuleAssignContactCategoryActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleAssignContactCategoryActionArrayInput)(nil)).Elem(), RuleAssignContactCategoryActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleCreateCaseActionInput)(nil)).Elem(), RuleCreateCaseActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleCreateCaseActionArrayInput)(nil)).Elem(), RuleCreateCaseActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleEndAssociatedTasksActionInput)(nil)).Elem(), RuleEndAssociatedTasksActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleEndAssociatedTasksActionArrayInput)(nil)).Elem(), RuleEndAssociatedTasksActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleEventBridgeActionInput)(nil)).Elem(), RuleEventBridgeActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleEventBridgeActionArrayInput)(nil)).Elem(), RuleEventBridgeActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleFieldInput)(nil)).Elem(), RuleFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleFieldArrayInput)(nil)).Elem(), RuleFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleFieldValueInput)(nil)).Elem(), RuleFieldValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleNotificationRecipientTypeInput)(nil)).Elem(), RuleNotificationRecipientTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionInput)(nil)).Elem(), RuleSendNotificationActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSendNotificationActionArrayInput)(nil)).Elem(), RuleSendNotificationActionArray{})
@@ -9566,6 +10331,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleTaskActionInput)(nil)).Elem(), RuleTaskActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleTaskActionArrayInput)(nil)).Elem(), RuleTaskActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleTriggerEventSourceInput)(nil)).Elem(), RuleTriggerEventSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleUpdateCaseActionInput)(nil)).Elem(), RuleUpdateCaseActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleUpdateCaseActionArrayInput)(nil)).Elem(), RuleUpdateCaseActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileTagInput)(nil)).Elem(), SecurityProfileTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileTagArrayInput)(nil)).Elem(), SecurityProfileTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskTemplateDefaultFieldValueInput)(nil)).Elem(), TaskTemplateDefaultFieldValueArgs{})
@@ -9646,6 +10413,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceStorageConfigKinesisVideoStreamConfigPtrOutput{})
 	pulumi.RegisterOutputType(InstanceStorageConfigS3ConfigOutput{})
 	pulumi.RegisterOutputType(InstanceStorageConfigS3ConfigPtrOutput{})
+	pulumi.RegisterOutputType(InstanceTagOutput{})
+	pulumi.RegisterOutputType(InstanceTagArrayOutput{})
 	pulumi.RegisterOutputType(PhoneNumberTagOutput{})
 	pulumi.RegisterOutputType(PhoneNumberTagArrayOutput{})
 	pulumi.RegisterOutputType(PromptTagOutput{})
@@ -9677,8 +10446,15 @@ func init() {
 	pulumi.RegisterOutputType(RuleActionsPtrOutput{})
 	pulumi.RegisterOutputType(RuleAssignContactCategoryActionOutput{})
 	pulumi.RegisterOutputType(RuleAssignContactCategoryActionArrayOutput{})
+	pulumi.RegisterOutputType(RuleCreateCaseActionOutput{})
+	pulumi.RegisterOutputType(RuleCreateCaseActionArrayOutput{})
+	pulumi.RegisterOutputType(RuleEndAssociatedTasksActionOutput{})
+	pulumi.RegisterOutputType(RuleEndAssociatedTasksActionArrayOutput{})
 	pulumi.RegisterOutputType(RuleEventBridgeActionOutput{})
 	pulumi.RegisterOutputType(RuleEventBridgeActionArrayOutput{})
+	pulumi.RegisterOutputType(RuleFieldOutput{})
+	pulumi.RegisterOutputType(RuleFieldArrayOutput{})
+	pulumi.RegisterOutputType(RuleFieldValueOutput{})
 	pulumi.RegisterOutputType(RuleNotificationRecipientTypeOutput{})
 	pulumi.RegisterOutputType(RuleSendNotificationActionOutput{})
 	pulumi.RegisterOutputType(RuleSendNotificationActionArrayOutput{})
@@ -9687,6 +10463,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleTaskActionOutput{})
 	pulumi.RegisterOutputType(RuleTaskActionArrayOutput{})
 	pulumi.RegisterOutputType(RuleTriggerEventSourceOutput{})
+	pulumi.RegisterOutputType(RuleUpdateCaseActionOutput{})
+	pulumi.RegisterOutputType(RuleUpdateCaseActionArrayOutput{})
 	pulumi.RegisterOutputType(SecurityProfileTagOutput{})
 	pulumi.RegisterOutputType(SecurityProfileTagArrayOutput{})
 	pulumi.RegisterOutputType(TaskTemplateDefaultFieldValueOutput{})

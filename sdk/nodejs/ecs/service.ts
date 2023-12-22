@@ -61,6 +61,7 @@ export class Service extends pulumi.CustomResource {
     public readonly serviceRegistries!: pulumi.Output<outputs.ecs.ServiceRegistry[] | undefined>;
     public readonly tags!: pulumi.Output<outputs.ecs.ServiceTag[] | undefined>;
     public readonly taskDefinition!: pulumi.Output<string | undefined>;
+    public readonly volumeConfigurations!: pulumi.Output<outputs.ecs.ServiceVolumeConfiguration[] | undefined>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -95,6 +96,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["taskDefinition"] = args ? args.taskDefinition : undefined;
+            resourceInputs["volumeConfigurations"] = args ? args.volumeConfigurations : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["serviceArn"] = undefined /*out*/;
         } else {
@@ -122,6 +124,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["serviceRegistries"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["taskDefinition"] = undefined /*out*/;
+            resourceInputs["volumeConfigurations"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["cluster", "deploymentController", "launchType", "role", "schedulingStrategy", "serviceName"] };
@@ -156,4 +159,5 @@ export interface ServiceArgs {
     serviceRegistries?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceRegistryArgs>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceTagArgs>[]>;
     taskDefinition?: pulumi.Input<string>;
+    volumeConfigurations?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceVolumeConfigurationArgs>[]>;
 }

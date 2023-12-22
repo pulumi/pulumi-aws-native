@@ -2818,6 +2818,90 @@ type ServerlessCacheEndpoint struct {
 	Port *int `pulumi:"port"`
 }
 
+// ServerlessCacheEndpointInput is an input type that accepts ServerlessCacheEndpointArgs and ServerlessCacheEndpointOutput values.
+// You can construct a concrete instance of `ServerlessCacheEndpointInput` via:
+//
+//	ServerlessCacheEndpointArgs{...}
+type ServerlessCacheEndpointInput interface {
+	pulumi.Input
+
+	ToServerlessCacheEndpointOutput() ServerlessCacheEndpointOutput
+	ToServerlessCacheEndpointOutputWithContext(context.Context) ServerlessCacheEndpointOutput
+}
+
+// The address and the port.
+type ServerlessCacheEndpointArgs struct {
+	// Endpoint address.
+	Address pulumi.StringPtrInput `pulumi:"address"`
+	// Endpoint port.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+}
+
+func (ServerlessCacheEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCacheEndpoint)(nil)).Elem()
+}
+
+func (i ServerlessCacheEndpointArgs) ToServerlessCacheEndpointOutput() ServerlessCacheEndpointOutput {
+	return i.ToServerlessCacheEndpointOutputWithContext(context.Background())
+}
+
+func (i ServerlessCacheEndpointArgs) ToServerlessCacheEndpointOutputWithContext(ctx context.Context) ServerlessCacheEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheEndpointOutput)
+}
+
+func (i ServerlessCacheEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[ServerlessCacheEndpoint] {
+	return pulumix.Output[ServerlessCacheEndpoint]{
+		OutputState: i.ToServerlessCacheEndpointOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ServerlessCacheEndpointArgs) ToServerlessCacheEndpointPtrOutput() ServerlessCacheEndpointPtrOutput {
+	return i.ToServerlessCacheEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i ServerlessCacheEndpointArgs) ToServerlessCacheEndpointPtrOutputWithContext(ctx context.Context) ServerlessCacheEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheEndpointOutput).ToServerlessCacheEndpointPtrOutputWithContext(ctx)
+}
+
+// ServerlessCacheEndpointPtrInput is an input type that accepts ServerlessCacheEndpointArgs, ServerlessCacheEndpointPtr and ServerlessCacheEndpointPtrOutput values.
+// You can construct a concrete instance of `ServerlessCacheEndpointPtrInput` via:
+//
+//	        ServerlessCacheEndpointArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerlessCacheEndpointPtrInput interface {
+	pulumi.Input
+
+	ToServerlessCacheEndpointPtrOutput() ServerlessCacheEndpointPtrOutput
+	ToServerlessCacheEndpointPtrOutputWithContext(context.Context) ServerlessCacheEndpointPtrOutput
+}
+
+type serverlessCacheEndpointPtrType ServerlessCacheEndpointArgs
+
+func ServerlessCacheEndpointPtr(v *ServerlessCacheEndpointArgs) ServerlessCacheEndpointPtrInput {
+	return (*serverlessCacheEndpointPtrType)(v)
+}
+
+func (*serverlessCacheEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerlessCacheEndpoint)(nil)).Elem()
+}
+
+func (i *serverlessCacheEndpointPtrType) ToServerlessCacheEndpointPtrOutput() ServerlessCacheEndpointPtrOutput {
+	return i.ToServerlessCacheEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *serverlessCacheEndpointPtrType) ToServerlessCacheEndpointPtrOutputWithContext(ctx context.Context) ServerlessCacheEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheEndpointPtrOutput)
+}
+
+func (i *serverlessCacheEndpointPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerlessCacheEndpoint] {
+	return pulumix.Output[*ServerlessCacheEndpoint]{
+		OutputState: i.ToServerlessCacheEndpointPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // The address and the port.
 type ServerlessCacheEndpointOutput struct{ *pulumi.OutputState }
 
@@ -2831,6 +2915,16 @@ func (o ServerlessCacheEndpointOutput) ToServerlessCacheEndpointOutput() Serverl
 
 func (o ServerlessCacheEndpointOutput) ToServerlessCacheEndpointOutputWithContext(ctx context.Context) ServerlessCacheEndpointOutput {
 	return o
+}
+
+func (o ServerlessCacheEndpointOutput) ToServerlessCacheEndpointPtrOutput() ServerlessCacheEndpointPtrOutput {
+	return o.ToServerlessCacheEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o ServerlessCacheEndpointOutput) ToServerlessCacheEndpointPtrOutputWithContext(ctx context.Context) ServerlessCacheEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerlessCacheEndpoint) *ServerlessCacheEndpoint {
+		return &v
+	}).(ServerlessCacheEndpointPtrOutput)
 }
 
 func (o ServerlessCacheEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[ServerlessCacheEndpoint] {
@@ -3464,6 +3558,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheDataStoragePtrInput)(nil)).Elem(), ServerlessCacheDataStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheEcpuPerSecondInput)(nil)).Elem(), ServerlessCacheEcpuPerSecondArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheEcpuPerSecondPtrInput)(nil)).Elem(), ServerlessCacheEcpuPerSecondArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheEndpointInput)(nil)).Elem(), ServerlessCacheEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheEndpointPtrInput)(nil)).Elem(), ServerlessCacheEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheTagInput)(nil)).Elem(), ServerlessCacheTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCacheTagArrayInput)(nil)).Elem(), ServerlessCacheTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetGroupTagInput)(nil)).Elem(), SubnetGroupTagArgs{})

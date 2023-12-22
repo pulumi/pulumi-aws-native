@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda
 {
     /// <summary>
-    /// Resource Type definition for AWS::Lambda::EventInvokeConfig
+    /// The AWS::Lambda::EventInvokeConfig resource configures options for asynchronous invocation on a version or an alias.
     /// </summary>
     [AwsNativeResourceType("aws-native:lambda:EventInvokeConfig")]
     public partial class EventInvokeConfig : global::Pulumi.CustomResource
@@ -18,15 +18,27 @@ namespace Pulumi.AwsNative.Lambda
         [Output("destinationConfig")]
         public Output<Outputs.EventInvokeConfigDestinationConfig?> DestinationConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Lambda function.
+        /// </summary>
         [Output("functionName")]
         public Output<string> FunctionName { get; private set; } = null!;
 
+        /// <summary>
+        /// The maximum age of a request that Lambda sends to a function for processing.
+        /// </summary>
         [Output("maximumEventAgeInSeconds")]
         public Output<int?> MaximumEventAgeInSeconds { get; private set; } = null!;
 
+        /// <summary>
+        /// The maximum number of times to retry when the function returns an error.
+        /// </summary>
         [Output("maximumRetryAttempts")]
         public Output<int?> MaximumRetryAttempts { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of a version or alias.
+        /// </summary>
         [Output("qualifier")]
         public Output<string> Qualifier { get; private set; } = null!;
 
@@ -83,15 +95,27 @@ namespace Pulumi.AwsNative.Lambda
         [Input("destinationConfig")]
         public Input<Inputs.EventInvokeConfigDestinationConfigArgs>? DestinationConfig { get; set; }
 
+        /// <summary>
+        /// The name of the Lambda function.
+        /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum age of a request that Lambda sends to a function for processing.
+        /// </summary>
         [Input("maximumEventAgeInSeconds")]
         public Input<int>? MaximumEventAgeInSeconds { get; set; }
 
+        /// <summary>
+        /// The maximum number of times to retry when the function returns an error.
+        /// </summary>
         [Input("maximumRetryAttempts")]
         public Input<int>? MaximumRetryAttempts { get; set; }
 
+        /// <summary>
+        /// The identifier of a version or alias.
+        /// </summary>
         [Input("qualifier", required: true)]
         public Input<string> Qualifier { get; set; } = null!;
 

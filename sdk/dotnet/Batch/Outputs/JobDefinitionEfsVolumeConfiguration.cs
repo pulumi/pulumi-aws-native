@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
     [OutputType]
     public sealed class JobDefinitionEfsVolumeConfiguration
     {
-        public readonly Outputs.JobDefinitionAuthorizationConfig? AuthorizationConfig;
+        public readonly Outputs.JobDefinitionEfsAuthorizationConfig? AuthorizationConfig;
         public readonly string FileSystemId;
         public readonly string? RootDirectory;
         public readonly string? TransitEncryption;
@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
         [OutputConstructor]
         private JobDefinitionEfsVolumeConfiguration(
-            Outputs.JobDefinitionAuthorizationConfig? authorizationConfig,
+            Outputs.JobDefinitionEfsAuthorizationConfig? authorizationConfig,
 
             string fileSystemId,
 

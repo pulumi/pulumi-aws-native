@@ -44,7 +44,9 @@ func NewGroupMembership(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'MemberId'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"groupId",
 		"identityStoreId",
+		"memberId",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

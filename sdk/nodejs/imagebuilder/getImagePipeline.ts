@@ -47,6 +47,10 @@ export interface GetImagePipelineResult {
      */
     readonly enhancedImageMetadataEnabled?: boolean;
     /**
+     * The execution role name/ARN for the image build, if provided
+     */
+    readonly executionRole?: string;
+    /**
      * The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
      */
     readonly imageRecipeArn?: string;
@@ -74,6 +78,10 @@ export interface GetImagePipelineResult {
      * The tags of this image pipeline.
      */
     readonly tags?: any;
+    /**
+     * Workflows to define the image build process
+     */
+    readonly workflows?: outputs.imagebuilder.ImagePipelineWorkflowConfiguration[];
 }
 /**
  * Resource schema for AWS::ImageBuilder::ImagePipeline

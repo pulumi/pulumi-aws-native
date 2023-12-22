@@ -33,6 +33,8 @@ type Instance struct {
 	InstanceStatus InstanceStatusOutput `pulumi:"instanceStatus"`
 	// Service linked role created as part of instance creation.
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
+	// An array of key-value pairs to apply to this resource.
+	Tags InstanceTagArrayOutput `pulumi:"tags"`
 }
 
 // NewInstance registers a new resource with the given unique name, arguments, and options.
@@ -95,6 +97,8 @@ type instanceArgs struct {
 	IdentityManagementType InstanceIdentityManagementType `pulumi:"identityManagementType"`
 	// Alias of the new directory created as part of new instance creation.
 	InstanceAlias *string `pulumi:"instanceAlias"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []InstanceTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Instance resource.
@@ -107,6 +111,8 @@ type InstanceArgs struct {
 	IdentityManagementType InstanceIdentityManagementTypeInput
 	// Alias of the new directory created as part of new instance creation.
 	InstanceAlias pulumi.StringPtrInput
+	// An array of key-value pairs to apply to this resource.
+	Tags InstanceTagArrayInput
 }
 
 func (InstanceArgs) ElementType() reflect.Type {
@@ -196,6 +202,11 @@ func (o InstanceOutput) InstanceStatus() InstanceStatusOutput {
 // Service linked role created as part of instance creation.
 func (o InstanceOutput) ServiceRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.ServiceRole }).(pulumi.StringOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o InstanceOutput) Tags() InstanceTagArrayOutput {
+	return o.ApplyT(func(v *Instance) InstanceTagArrayOutput { return v.Tags }).(InstanceTagArrayOutput)
 }
 
 func init() {

@@ -19,7 +19,9 @@ __all__ = [
     'DomainRStudioServerProAppSettingsUserGroup',
     'DomainResourceSpecInstanceType',
     'DomainSharingSettingsNotebookOutputOption',
+    'DomainUserSettingsStudioWebPortal',
     'FeatureGroupFeatureDefinitionFeatureType',
+    'FeatureGroupStorageType',
     'FeatureGroupTableFormat',
     'ImageVersionJobType',
     'ImageVersionProcessor',
@@ -80,6 +82,7 @@ __all__ = [
     'UserProfileRStudioServerProAppSettingsUserGroup',
     'UserProfileResourceSpecInstanceType',
     'UserProfileSharingSettingsNotebookOutputOption',
+    'UserProfileUserSettingsStudioWebPortal',
 ]
 
 
@@ -147,6 +150,9 @@ class AppResourceSpecInstanceType(str, Enum):
     ML_P4D24XLARGE = "ml.p4d.24xlarge"
     ML_P4DE24XLARGE = "ml.p4de.24xlarge"
     ML_GEOSPATIAL_INTERACTIVE = "ml.geospatial.interactive"
+    ML_TRN12XLARGE = "ml.trn1.2xlarge"
+    ML_TRN132XLARGE = "ml.trn1.32xlarge"
+    ML_TRN1N32XLARGE = "ml.trn1n.32xlarge"
 
 
 class AppType(str, Enum):
@@ -304,6 +310,9 @@ class DomainResourceSpecInstanceType(str, Enum):
     ML_P4D24XLARGE = "ml.p4d.24xlarge"
     ML_P4DE24XLARGE = "ml.p4de.24xlarge"
     ML_GEOSPATIAL_INTERACTIVE = "ml.geospatial.interactive"
+    ML_TRN12XLARGE = "ml.trn1.2xlarge"
+    ML_TRN132XLARGE = "ml.trn1.32xlarge"
+    ML_TRN1N32XLARGE = "ml.trn1n.32xlarge"
 
 
 class DomainSharingSettingsNotebookOutputOption(str, Enum):
@@ -314,10 +323,23 @@ class DomainSharingSettingsNotebookOutputOption(str, Enum):
     DISABLED = "Disabled"
 
 
+class DomainUserSettingsStudioWebPortal(str, Enum):
+    """
+    Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
 class FeatureGroupFeatureDefinitionFeatureType(str, Enum):
     INTEGRAL = "Integral"
     FRACTIONAL = "Fractional"
     STRING = "String"
+
+
+class FeatureGroupStorageType(str, Enum):
+    STANDARD = "Standard"
+    IN_MEMORY = "InMemory"
 
 
 class FeatureGroupTableFormat(str, Enum):
@@ -944,6 +966,9 @@ class UserProfileResourceSpecInstanceType(str, Enum):
     ML_P4D24XLARGE = "ml.p4d.24xlarge"
     ML_P4DE24XLARGE = "ml.p4de.24xlarge"
     ML_GEOSPATIAL_INTERACTIVE = "ml.geospatial.interactive"
+    ML_TRN12XLARGE = "ml.trn1.2xlarge"
+    ML_TRN132XLARGE = "ml.trn1.32xlarge"
+    ML_TRN1N32XLARGE = "ml.trn1n.32xlarge"
 
 
 class UserProfileSharingSettingsNotebookOutputOption(str, Enum):
@@ -952,3 +977,11 @@ class UserProfileSharingSettingsNotebookOutputOption(str, Enum):
     """
     ALLOWED = "Allowed"
     DISABLED = "Disabled"
+
+
+class UserProfileUserSettingsStudioWebPortal(str, Enum):
+    """
+    Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"

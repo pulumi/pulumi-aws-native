@@ -17,24 +17,36 @@ namespace Pulumi.AwsNative.Connect.Outputs
     public sealed class RuleActions
     {
         public readonly ImmutableArray<Outputs.RuleAssignContactCategoryAction> AssignContactCategoryActions;
+        public readonly ImmutableArray<Outputs.RuleCreateCaseAction> CreateCaseActions;
+        public readonly ImmutableArray<Outputs.RuleEndAssociatedTasksAction> EndAssociatedTaskActions;
         public readonly ImmutableArray<Outputs.RuleEventBridgeAction> EventBridgeActions;
         public readonly ImmutableArray<Outputs.RuleSendNotificationAction> SendNotificationActions;
         public readonly ImmutableArray<Outputs.RuleTaskAction> TaskActions;
+        public readonly ImmutableArray<Outputs.RuleUpdateCaseAction> UpdateCaseActions;
 
         [OutputConstructor]
         private RuleActions(
             ImmutableArray<Outputs.RuleAssignContactCategoryAction> assignContactCategoryActions,
 
+            ImmutableArray<Outputs.RuleCreateCaseAction> createCaseActions,
+
+            ImmutableArray<Outputs.RuleEndAssociatedTasksAction> endAssociatedTaskActions,
+
             ImmutableArray<Outputs.RuleEventBridgeAction> eventBridgeActions,
 
             ImmutableArray<Outputs.RuleSendNotificationAction> sendNotificationActions,
 
-            ImmutableArray<Outputs.RuleTaskAction> taskActions)
+            ImmutableArray<Outputs.RuleTaskAction> taskActions,
+
+            ImmutableArray<Outputs.RuleUpdateCaseAction> updateCaseActions)
         {
             AssignContactCategoryActions = assignContactCategoryActions;
+            CreateCaseActions = createCaseActions;
+            EndAssociatedTaskActions = endAssociatedTaskActions;
             EventBridgeActions = eventBridgeActions;
             SendNotificationActions = sendNotificationActions;
             TaskActions = taskActions;
+            UpdateCaseActions = updateCaseActions;
         }
     }
 }

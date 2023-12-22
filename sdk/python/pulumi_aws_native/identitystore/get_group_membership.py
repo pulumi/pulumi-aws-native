@@ -8,7 +8,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = [
     'GetGroupMembershipResult',
@@ -19,32 +18,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetGroupMembershipResult:
-    def __init__(__self__, group_id=None, member_id=None, membership_id=None):
-        if group_id and not isinstance(group_id, str):
-            raise TypeError("Expected argument 'group_id' to be a str")
-        pulumi.set(__self__, "group_id", group_id)
-        if member_id and not isinstance(member_id, dict):
-            raise TypeError("Expected argument 'member_id' to be a dict")
-        pulumi.set(__self__, "member_id", member_id)
+    def __init__(__self__, membership_id=None):
         if membership_id and not isinstance(membership_id, str):
             raise TypeError("Expected argument 'membership_id' to be a str")
         pulumi.set(__self__, "membership_id", membership_id)
-
-    @property
-    @pulumi.getter(name="groupId")
-    def group_id(self) -> Optional[str]:
-        """
-        The unique identifier for a group in the identity store.
-        """
-        return pulumi.get(self, "group_id")
-
-    @property
-    @pulumi.getter(name="memberId")
-    def member_id(self) -> Optional['outputs.GroupMembershipMemberId']:
-        """
-        An object containing the identifier of a group member.
-        """
-        return pulumi.get(self, "member_id")
 
     @property
     @pulumi.getter(name="membershipId")
@@ -61,8 +38,6 @@ class AwaitableGetGroupMembershipResult(GetGroupMembershipResult):
         if False:
             yield self
         return GetGroupMembershipResult(
-            group_id=self.group_id,
-            member_id=self.member_id,
             membership_id=self.membership_id)
 
 
@@ -83,8 +58,6 @@ def get_group_membership(identity_store_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:identitystore:getGroupMembership', __args__, opts=opts, typ=GetGroupMembershipResult).value
 
     return AwaitableGetGroupMembershipResult(
-        group_id=pulumi.get(__ret__, 'group_id'),
-        member_id=pulumi.get(__ret__, 'member_id'),
         membership_id=pulumi.get(__ret__, 'membership_id'))
 
 

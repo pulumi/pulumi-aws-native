@@ -53,6 +53,7 @@ __all__ = [
     'FunctionConfigArgs',
     'FunctionMetadataArgs',
     'KeyGroupConfigArgs',
+    'KeyValueStoreImportSourceArgs',
     'MonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs',
     'MonitoringSubscriptionArgs',
     'OriginAccessControlConfigArgs',
@@ -2274,6 +2275,33 @@ class KeyGroupConfigArgs:
     @comment.setter
     def comment(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "comment", value)
+
+
+@pulumi.input_type
+class KeyValueStoreImportSourceArgs:
+    def __init__(__self__, *,
+                 source_arn: pulumi.Input[str],
+                 source_type: pulumi.Input[str]):
+        pulumi.set(__self__, "source_arn", source_arn)
+        pulumi.set(__self__, "source_type", source_type)
+
+    @property
+    @pulumi.getter(name="sourceArn")
+    def source_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "source_arn")
+
+    @source_arn.setter
+    def source_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_arn", value)
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "source_type")
+
+    @source_type.setter
+    def source_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_type", value)
 
 
 @pulumi.input_type

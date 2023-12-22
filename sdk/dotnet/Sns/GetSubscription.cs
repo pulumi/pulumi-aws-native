@@ -58,6 +58,7 @@ namespace Pulumi.AwsNative.Sns
         public readonly bool? RawMessageDelivery;
         public readonly object? RedrivePolicy;
         public readonly string? Region;
+        public readonly object? ReplayPolicy;
         public readonly string? SubscriptionRoleArn;
 
         [OutputConstructor]
@@ -76,6 +77,8 @@ namespace Pulumi.AwsNative.Sns
 
             string? region,
 
+            object? replayPolicy,
+
             string? subscriptionRoleArn)
         {
             DeliveryPolicy = deliveryPolicy;
@@ -85,6 +88,7 @@ namespace Pulumi.AwsNative.Sns
             RawMessageDelivery = rawMessageDelivery;
             RedrivePolicy = redrivePolicy;
             Region = region;
+            ReplayPolicy = replayPolicy;
             SubscriptionRoleArn = subscriptionRoleArn;
         }
     }

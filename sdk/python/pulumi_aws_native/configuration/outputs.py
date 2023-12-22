@@ -23,6 +23,8 @@ __all__ = [
     'ConfigurationAggregatorTag',
     'ConfigurationRecorderExclusionByResourceTypes',
     'ConfigurationRecorderRecordingGroup',
+    'ConfigurationRecorderRecordingMode',
+    'ConfigurationRecorderRecordingModeOverride',
     'ConfigurationRecorderRecordingStrategy',
     'ConformancePackInputParameter',
     'DeliveryChannelConfigSnapshotDeliveryProperties',
@@ -638,6 +640,91 @@ class ConfigurationRecorderRecordingGroup(dict):
     @pulumi.getter(name="resourceTypes")
     def resource_types(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "resource_types")
+
+
+@pulumi.output_type
+class ConfigurationRecorderRecordingMode(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordingFrequency":
+            suggest = "recording_frequency"
+        elif key == "recordingModeOverrides":
+            suggest = "recording_mode_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationRecorderRecordingMode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationRecorderRecordingMode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationRecorderRecordingMode.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 recording_frequency: str,
+                 recording_mode_overrides: Optional[Sequence['outputs.ConfigurationRecorderRecordingModeOverride']] = None):
+        pulumi.set(__self__, "recording_frequency", recording_frequency)
+        if recording_mode_overrides is not None:
+            pulumi.set(__self__, "recording_mode_overrides", recording_mode_overrides)
+
+    @property
+    @pulumi.getter(name="recordingFrequency")
+    def recording_frequency(self) -> str:
+        return pulumi.get(self, "recording_frequency")
+
+    @property
+    @pulumi.getter(name="recordingModeOverrides")
+    def recording_mode_overrides(self) -> Optional[Sequence['outputs.ConfigurationRecorderRecordingModeOverride']]:
+        return pulumi.get(self, "recording_mode_overrides")
+
+
+@pulumi.output_type
+class ConfigurationRecorderRecordingModeOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordingFrequency":
+            suggest = "recording_frequency"
+        elif key == "resourceTypes":
+            suggest = "resource_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationRecorderRecordingModeOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationRecorderRecordingModeOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationRecorderRecordingModeOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 recording_frequency: str,
+                 resource_types: Sequence[str],
+                 description: Optional[str] = None):
+        pulumi.set(__self__, "recording_frequency", recording_frequency)
+        pulumi.set(__self__, "resource_types", resource_types)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="recordingFrequency")
+    def recording_frequency(self) -> str:
+        return pulumi.get(self, "recording_frequency")
+
+    @property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Sequence[str]:
+        return pulumi.get(self, "resource_types")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
 
 
 @pulumi.output_type

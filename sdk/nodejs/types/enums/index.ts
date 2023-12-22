@@ -12,6 +12,7 @@ import * as appsync from "./appsync";
 import * as arczonalshift from "./arczonalshift";
 import * as athena from "./athena";
 import * as auditmanager from "./auditmanager";
+import * as b2bi from "./b2bi";
 import * as backup from "./backup";
 import * as batch from "./batch";
 import * as billingconductor from "./billingconductor";
@@ -47,6 +48,7 @@ import * as entityresolution from "./entityresolution";
 import * as events from "./events";
 import * as evidently from "./evidently";
 import * as finspace from "./finspace";
+import * as fis from "./fis";
 import * as fms from "./fms";
 import * as forecast from "./forecast";
 import * as frauddetector from "./frauddetector";
@@ -163,6 +165,7 @@ export {
     arczonalshift,
     athena,
     auditmanager,
+    b2bi,
     backup,
     batch,
     billingconductor,
@@ -198,6 +201,7 @@ export {
     events,
     evidently,
     finspace,
+    fis,
     fms,
     forecast,
     frauddetector,

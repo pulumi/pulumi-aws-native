@@ -37,7 +37,7 @@ class GetDeliveryResult:
     @pulumi.getter
     def arn(self) -> Optional[str]:
         """
-        The value of the Arn property for this object.
+        The Amazon Resource Name (ARN) that uniquely identifies this delivery.
         """
         return pulumi.get(self, "arn")
 
@@ -45,7 +45,7 @@ class GetDeliveryResult:
     @pulumi.getter(name="deliveryDestinationType")
     def delivery_destination_type(self) -> Optional[str]:
         """
-        The value of the DeliveryDestinationType property for this object.
+        Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
         """
         return pulumi.get(self, "delivery_destination_type")
 
@@ -53,7 +53,7 @@ class GetDeliveryResult:
     @pulumi.getter(name="deliveryId")
     def delivery_id(self) -> Optional[str]:
         """
-        The value of the Id property for this object.
+        The unique ID that identifies this delivery in your account.
         """
         return pulumi.get(self, "delivery_id")
 
@@ -61,7 +61,7 @@ class GetDeliveryResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.DeliveryTag']]:
         """
-        The value of the Tags property for this object.
+        The tags that have been assigned to this delivery.
         """
         return pulumi.get(self, "tags")
 
@@ -81,10 +81,14 @@ class AwaitableGetDeliveryResult(GetDeliveryResult):
 def get_delivery(delivery_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeliveryResult:
     """
-    Resource Type definition for AWS::Logs::Delivery.
+    This structure contains information about one delivery in your account.
+
+    A delivery is a connection between a logical delivery source and a logical delivery destination.
+
+    For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).
 
 
-    :param str delivery_id: The value of the Id property for this object.
+    :param str delivery_id: The unique ID that identifies this delivery in your account.
     """
     __args__ = dict()
     __args__['deliveryId'] = delivery_id
@@ -102,9 +106,13 @@ def get_delivery(delivery_id: Optional[str] = None,
 def get_delivery_output(delivery_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeliveryResult]:
     """
-    Resource Type definition for AWS::Logs::Delivery.
+    This structure contains information about one delivery in your account.
+
+    A delivery is a connection between a logical delivery source and a logical delivery destination.
+
+    For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).
 
 
-    :param str delivery_id: The value of the Id property for this object.
+    :param str delivery_id: The unique ID that identifies this delivery in your account.
     """
     ...

@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
+    /// <summary>
+    /// The destination configuration for successful invocations.
+    /// </summary>
     [OutputType]
     public sealed class EventInvokeConfigOnSuccess
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the destination resource.
+        /// </summary>
         public readonly string Destination;
 
         [OutputConstructor]

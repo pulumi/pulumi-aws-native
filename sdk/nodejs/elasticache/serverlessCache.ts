@@ -54,7 +54,7 @@ export class ServerlessCache extends pulumi.CustomResource {
      * The description of the Serverless Cache.
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly endpoint!: pulumi.Output<outputs.elasticache.ServerlessCacheEndpoint>;
+    public readonly endpoint!: pulumi.Output<outputs.elasticache.ServerlessCacheEndpoint | undefined>;
     /**
      * The engine name of the Serverless Cache.
      */
@@ -75,7 +75,7 @@ export class ServerlessCache extends pulumi.CustomResource {
      * The major engine version of the Serverless Cache.
      */
     public readonly majorEngineVersion!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly readerEndpoint!: pulumi.Output<outputs.elasticache.ServerlessCacheEndpoint>;
+    public readonly readerEndpoint!: pulumi.Output<outputs.elasticache.ServerlessCacheEndpoint | undefined>;
     /**
      * One or more Amazon VPC security groups associated with this Serverless Cache.
      */
@@ -126,10 +126,12 @@ export class ServerlessCache extends pulumi.CustomResource {
             resourceInputs["cacheUsageLimits"] = args ? args.cacheUsageLimits : undefined;
             resourceInputs["dailySnapshotTime"] = args ? args.dailySnapshotTime : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
             resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["finalSnapshotName"] = args ? args.finalSnapshotName : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["majorEngineVersion"] = args ? args.majorEngineVersion : undefined;
+            resourceInputs["readerEndpoint"] = args ? args.readerEndpoint : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["serverlessCacheName"] = args ? args.serverlessCacheName : undefined;
             resourceInputs["snapshotArnsToRestore"] = args ? args.snapshotArnsToRestore : undefined;
@@ -139,9 +141,7 @@ export class ServerlessCache extends pulumi.CustomResource {
             resourceInputs["userGroupId"] = args ? args.userGroupId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
-            resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["fullEngineVersion"] = undefined /*out*/;
-            resourceInputs["readerEndpoint"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
@@ -185,6 +185,7 @@ export interface ServerlessCacheArgs {
      * The description of the Serverless Cache.
      */
     description?: pulumi.Input<string>;
+    endpoint?: pulumi.Input<inputs.elasticache.ServerlessCacheEndpointArgs>;
     /**
      * The engine name of the Serverless Cache.
      */
@@ -201,6 +202,7 @@ export interface ServerlessCacheArgs {
      * The major engine version of the Serverless Cache.
      */
     majorEngineVersion?: pulumi.Input<string>;
+    readerEndpoint?: pulumi.Input<inputs.elasticache.ServerlessCacheEndpointArgs>;
     /**
      * One or more Amazon VPC security groups associated with this Serverless Cache.
      */

@@ -28,15 +28,18 @@ type LookupPipelineArgs struct {
 }
 
 type LookupPipelineResult struct {
-	ArtifactStore                  *PipelineArtifactStore     `pulumi:"artifactStore"`
-	ArtifactStores                 []PipelineArtifactStoreMap `pulumi:"artifactStores"`
-	DisableInboundStageTransitions []PipelineStageTransition  `pulumi:"disableInboundStageTransitions"`
-	Id                             *string                    `pulumi:"id"`
-	RestartExecutionOnUpdate       *bool                      `pulumi:"restartExecutionOnUpdate"`
-	RoleArn                        *string                    `pulumi:"roleArn"`
-	Stages                         []PipelineStageDeclaration `pulumi:"stages"`
-	Tags                           []PipelineTag              `pulumi:"tags"`
-	Version                        *string                    `pulumi:"version"`
+	ArtifactStore                  *PipelineArtifactStore        `pulumi:"artifactStore"`
+	ArtifactStores                 []PipelineArtifactStoreMap    `pulumi:"artifactStores"`
+	DisableInboundStageTransitions []PipelineStageTransition     `pulumi:"disableInboundStageTransitions"`
+	Id                             *string                       `pulumi:"id"`
+	PipelineType                   *string                       `pulumi:"pipelineType"`
+	RestartExecutionOnUpdate       *bool                         `pulumi:"restartExecutionOnUpdate"`
+	RoleArn                        *string                       `pulumi:"roleArn"`
+	Stages                         []PipelineStageDeclaration    `pulumi:"stages"`
+	Tags                           []PipelineTag                 `pulumi:"tags"`
+	Triggers                       []PipelineTriggerDeclaration  `pulumi:"triggers"`
+	Variables                      []PipelineVariableDeclaration `pulumi:"variables"`
+	Version                        *string                       `pulumi:"version"`
 }
 
 func LookupPipelineOutput(ctx *pulumi.Context, args LookupPipelineOutputArgs, opts ...pulumi.InvokeOption) LookupPipelineResultOutput {
@@ -96,6 +99,10 @@ func (o LookupPipelineResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPipelineResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupPipelineResultOutput) PipelineType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPipelineResult) *string { return v.PipelineType }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupPipelineResultOutput) RestartExecutionOnUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupPipelineResult) *bool { return v.RestartExecutionOnUpdate }).(pulumi.BoolPtrOutput)
 }
@@ -110,6 +117,14 @@ func (o LookupPipelineResultOutput) Stages() PipelineStageDeclarationArrayOutput
 
 func (o LookupPipelineResultOutput) Tags() PipelineTagArrayOutput {
 	return o.ApplyT(func(v LookupPipelineResult) []PipelineTag { return v.Tags }).(PipelineTagArrayOutput)
+}
+
+func (o LookupPipelineResultOutput) Triggers() PipelineTriggerDeclarationArrayOutput {
+	return o.ApplyT(func(v LookupPipelineResult) []PipelineTriggerDeclaration { return v.Triggers }).(PipelineTriggerDeclarationArrayOutput)
+}
+
+func (o LookupPipelineResultOutput) Variables() PipelineVariableDeclarationArrayOutput {
+	return o.ApplyT(func(v LookupPipelineResult) []PipelineVariableDeclaration { return v.Variables }).(PipelineVariableDeclarationArrayOutput)
 }
 
 func (o LookupPipelineResultOutput) Version() pulumi.StringPtrOutput {

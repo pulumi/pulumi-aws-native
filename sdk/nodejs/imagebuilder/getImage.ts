@@ -28,6 +28,10 @@ export interface GetImageResult {
      */
     readonly arn?: string;
     /**
+     * The execution role name/ARN for the image build, if provided
+     */
+    readonly executionRole?: string;
+    /**
      * The AMI ID of the EC2 AMI in current region.
      */
     readonly imageId?: string;

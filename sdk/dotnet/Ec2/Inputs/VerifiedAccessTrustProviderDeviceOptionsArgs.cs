@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Ec2.Inputs
     public sealed class VerifiedAccessTrustProviderDeviceOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// URL Verified Access will use to verify authenticity of the device tokens.
+        /// </summary>
+        [Input("publicSigningKeyUrl")]
+        public Input<string>? PublicSigningKeyUrl { get; set; }
+
+        /// <summary>
         /// The ID of the tenant application with the device-identity provider.
         /// </summary>
         [Input("tenantId")]

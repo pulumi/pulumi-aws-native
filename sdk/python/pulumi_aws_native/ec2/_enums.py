@@ -44,6 +44,7 @@ __all__ = [
     'NetworkInsightsAnalysisStatus',
     'NetworkInsightsPathProtocol',
     'PrefixListAddressFamily',
+    'SnapshotBlockPublicAccessState',
     'SpotFleetEbsBlockDeviceVolumeType',
     'SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem',
     'SpotFleetInstanceRequirementsRequestAcceleratorNamesItem',
@@ -375,6 +376,14 @@ class PrefixListAddressFamily(str, Enum):
     """
     I_PV4 = "IPv4"
     I_PV6 = "IPv6"
+
+
+class SnapshotBlockPublicAccessState(str, Enum):
+    """
+    The state of EBS Snapshot Block Public Access.
+    """
+    BLOCK_ALL_SHARING = "block-all-sharing"
+    BLOCK_NEW_SHARING = "block-new-sharing"
 
 
 class SpotFleetEbsBlockDeviceVolumeType(str, Enum):

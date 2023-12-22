@@ -17,6 +17,12 @@ namespace Pulumi.AwsNative.BillingConductor
     public partial class CustomLineItem : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The account which this custom line item will be charged to
+        /// </summary>
+        [Output("accountId")]
+        public Output<string?> AccountId { get; private set; } = null!;
+
+        /// <summary>
         /// ARN
         /// </summary>
         [Output("arn")]
@@ -92,6 +98,7 @@ namespace Pulumi.AwsNative.BillingConductor
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "accountId",
                     "billingGroupArn",
                     "billingPeriodRange.exclusiveEndBillingPeriod",
                     "billingPeriodRange.inclusiveStartBillingPeriod",
@@ -119,6 +126,12 @@ namespace Pulumi.AwsNative.BillingConductor
 
     public sealed class CustomLineItemArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The account which this custom line item will be charged to
+        /// </summary>
+        [Input("accountId")]
+        public Input<string>? AccountId { get; set; }
+
         /// <summary>
         /// Billing Group ARN
         /// </summary>

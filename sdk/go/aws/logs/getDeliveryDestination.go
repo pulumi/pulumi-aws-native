@@ -12,7 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::Logs::DeliveryDestination
+// This structure contains information about one delivery destination in your account.
+//
+// A delivery destination is an AWS resource that represents an AWS service that logs can be sent to CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.
 func LookupDeliveryDestination(ctx *pulumi.Context, args *LookupDeliveryDestinationArgs, opts ...pulumi.InvokeOption) (*LookupDeliveryDestinationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDeliveryDestinationResult
@@ -24,12 +26,12 @@ func LookupDeliveryDestination(ctx *pulumi.Context, args *LookupDeliveryDestinat
 }
 
 type LookupDeliveryDestinationArgs struct {
-	// The unique name of the Delivery Destination.
+	// The name of this delivery destination.
 	Name string `pulumi:"name"`
 }
 
 type LookupDeliveryDestinationResult struct {
-	// The value of the Arn property for this object.
+	// The Amazon Resource Name (ARN) that uniquely identifies this delivery destination.
 	Arn *string `pulumi:"arn"`
 	// IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
 	//
@@ -37,9 +39,9 @@ type LookupDeliveryDestinationResult struct {
 	//
 	// Length Constraints: Maximum length of 51200
 	DeliveryDestinationPolicy interface{} `pulumi:"deliveryDestinationPolicy"`
-	// The value of the DeliveryDestinationType property for this object.
+	// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
 	DeliveryDestinationType *string `pulumi:"deliveryDestinationType"`
-	// An array of key-value pairs to apply to this resource.
+	// The tags that have been assigned to this delivery destination.
 	Tags []DeliveryDestinationTag `pulumi:"tags"`
 }
 
@@ -57,7 +59,7 @@ func LookupDeliveryDestinationOutput(ctx *pulumi.Context, args LookupDeliveryDes
 }
 
 type LookupDeliveryDestinationOutputArgs struct {
-	// The unique name of the Delivery Destination.
+	// The name of this delivery destination.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -85,7 +87,7 @@ func (o LookupDeliveryDestinationResultOutput) ToOutput(ctx context.Context) pul
 	}
 }
 
-// The value of the Arn property for this object.
+// The Amazon Resource Name (ARN) that uniquely identifies this delivery destination.
 func (o LookupDeliveryDestinationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeliveryDestinationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -99,12 +101,12 @@ func (o LookupDeliveryDestinationResultOutput) DeliveryDestinationPolicy() pulum
 	return o.ApplyT(func(v LookupDeliveryDestinationResult) interface{} { return v.DeliveryDestinationPolicy }).(pulumi.AnyOutput)
 }
 
-// The value of the DeliveryDestinationType property for this object.
+// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
 func (o LookupDeliveryDestinationResultOutput) DeliveryDestinationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeliveryDestinationResult) *string { return v.DeliveryDestinationType }).(pulumi.StringPtrOutput)
 }
 
-// An array of key-value pairs to apply to this resource.
+// The tags that have been assigned to this delivery destination.
 func (o LookupDeliveryDestinationResultOutput) Tags() DeliveryDestinationTagArrayOutput {
 	return o.ApplyT(func(v LookupDeliveryDestinationResult) []DeliveryDestinationTag { return v.Tags }).(DeliveryDestinationTagArrayOutput)
 }

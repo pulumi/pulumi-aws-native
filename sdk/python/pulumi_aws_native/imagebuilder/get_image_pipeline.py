@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetImagePipelineResult:
-    def __init__(__self__, arn=None, container_recipe_arn=None, description=None, distribution_configuration_arn=None, enhanced_image_metadata_enabled=None, image_recipe_arn=None, image_scanning_configuration=None, image_tests_configuration=None, infrastructure_configuration_arn=None, schedule=None, status=None, tags=None):
+    def __init__(__self__, arn=None, container_recipe_arn=None, description=None, distribution_configuration_arn=None, enhanced_image_metadata_enabled=None, execution_role=None, image_recipe_arn=None, image_scanning_configuration=None, image_tests_configuration=None, infrastructure_configuration_arn=None, schedule=None, status=None, tags=None, workflows=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -36,6 +36,9 @@ class GetImagePipelineResult:
         if enhanced_image_metadata_enabled and not isinstance(enhanced_image_metadata_enabled, bool):
             raise TypeError("Expected argument 'enhanced_image_metadata_enabled' to be a bool")
         pulumi.set(__self__, "enhanced_image_metadata_enabled", enhanced_image_metadata_enabled)
+        if execution_role and not isinstance(execution_role, str):
+            raise TypeError("Expected argument 'execution_role' to be a str")
+        pulumi.set(__self__, "execution_role", execution_role)
         if image_recipe_arn and not isinstance(image_recipe_arn, str):
             raise TypeError("Expected argument 'image_recipe_arn' to be a str")
         pulumi.set(__self__, "image_recipe_arn", image_recipe_arn)
@@ -57,6 +60,9 @@ class GetImagePipelineResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if workflows and not isinstance(workflows, list):
+            raise TypeError("Expected argument 'workflows' to be a list")
+        pulumi.set(__self__, "workflows", workflows)
 
     @property
     @pulumi.getter
@@ -97,6 +103,14 @@ class GetImagePipelineResult:
         Collects additional information about the image being created, including the operating system (OS) version and package list.
         """
         return pulumi.get(self, "enhanced_image_metadata_enabled")
+
+    @property
+    @pulumi.getter(name="executionRole")
+    def execution_role(self) -> Optional[str]:
+        """
+        The execution role name/ARN for the image build, if provided
+        """
+        return pulumi.get(self, "execution_role")
 
     @property
     @pulumi.getter(name="imageRecipeArn")
@@ -154,6 +168,14 @@ class GetImagePipelineResult:
         """
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter
+    def workflows(self) -> Optional[Sequence['outputs.ImagePipelineWorkflowConfiguration']]:
+        """
+        Workflows to define the image build process
+        """
+        return pulumi.get(self, "workflows")
+
 
 class AwaitableGetImagePipelineResult(GetImagePipelineResult):
     # pylint: disable=using-constant-test
@@ -166,13 +188,15 @@ class AwaitableGetImagePipelineResult(GetImagePipelineResult):
             description=self.description,
             distribution_configuration_arn=self.distribution_configuration_arn,
             enhanced_image_metadata_enabled=self.enhanced_image_metadata_enabled,
+            execution_role=self.execution_role,
             image_recipe_arn=self.image_recipe_arn,
             image_scanning_configuration=self.image_scanning_configuration,
             image_tests_configuration=self.image_tests_configuration,
             infrastructure_configuration_arn=self.infrastructure_configuration_arn,
             schedule=self.schedule,
             status=self.status,
-            tags=self.tags)
+            tags=self.tags,
+            workflows=self.workflows)
 
 
 def get_image_pipeline(arn: Optional[str] = None,
@@ -194,13 +218,15 @@ def get_image_pipeline(arn: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         distribution_configuration_arn=pulumi.get(__ret__, 'distribution_configuration_arn'),
         enhanced_image_metadata_enabled=pulumi.get(__ret__, 'enhanced_image_metadata_enabled'),
+        execution_role=pulumi.get(__ret__, 'execution_role'),
         image_recipe_arn=pulumi.get(__ret__, 'image_recipe_arn'),
         image_scanning_configuration=pulumi.get(__ret__, 'image_scanning_configuration'),
         image_tests_configuration=pulumi.get(__ret__, 'image_tests_configuration'),
         infrastructure_configuration_arn=pulumi.get(__ret__, 'infrastructure_configuration_arn'),
         schedule=pulumi.get(__ret__, 'schedule'),
         status=pulumi.get(__ret__, 'status'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        workflows=pulumi.get(__ret__, 'workflows'))
 
 
 @_utilities.lift_output_func(get_image_pipeline)

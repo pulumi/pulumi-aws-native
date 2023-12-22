@@ -46,6 +46,10 @@ func NewReplicationConfig(ctx *pulumi.Context,
 		args = &ReplicationConfigArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"resourceIdentifier",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ReplicationConfig
 	err := ctx.RegisterResource("aws-native:dms:ReplicationConfig", name, args, &resource, opts...)

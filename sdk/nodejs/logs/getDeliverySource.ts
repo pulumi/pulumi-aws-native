@@ -8,7 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Logs::DeliverySource.
+ *  A delivery source is an AWS resource that sends logs to an AWS destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
+ *
+ * Only some AWS services support being configured as a delivery source. These services are listed as Supported [V2 Permissions] in the table at [Enabling logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html).
  */
 export function getDeliverySource(args: GetDeliverySourceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeliverySourceResult> {
 
@@ -27,7 +29,7 @@ export interface GetDeliverySourceArgs {
 
 export interface GetDeliverySourceResult {
     /**
-     * The ARN of the Aqueduct Source.
+     * The Amazon Resource Name (ARN) that uniquely identifies this delivery source.
      */
     readonly arn?: string;
     /**
@@ -35,20 +37,22 @@ export interface GetDeliverySourceResult {
      */
     readonly logType?: string;
     /**
-     * List of ARN of the resource that will be sending the logs
+     * This array contains the ARN of the AWS resource that sends logs and is represented by this delivery source. Currently, only one ARN can be in the array.
      */
     readonly resourceArns?: string[];
     /**
-     * The service generating the log
+     * The AWS service that is sending logs.
      */
     readonly service?: string;
     /**
-     * An array of key-value pairs to apply to this resource.
+     * The tags that have been assigned to this delivery source.
      */
     readonly tags?: outputs.logs.DeliverySourceTag[];
 }
 /**
- * Resource Type definition for AWS::Logs::DeliverySource.
+ *  A delivery source is an AWS resource that sends logs to an AWS destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
+ *
+ * Only some AWS services support being configured as a delivery source. These services are listed as Supported [V2 Permissions] in the table at [Enabling logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html).
  */
 export function getDeliverySourceOutput(args: GetDeliverySourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeliverySourceResult> {
     return pulumi.output(args).apply((a: any) => getDeliverySource(a, opts))

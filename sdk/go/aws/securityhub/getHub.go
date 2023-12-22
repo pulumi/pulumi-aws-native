@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::SecurityHub::Hub
+// The AWS::SecurityHub::Hub resource represents the implementation of the AWS Security Hub service in your account. One hub resource is created for each Region in which you enable Security Hub.
 func LookupHub(ctx *pulumi.Context, args *LookupHubArgs, opts ...pulumi.InvokeOption) (*LookupHubResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHubResult
@@ -24,15 +24,20 @@ func LookupHub(ctx *pulumi.Context, args *LookupHubArgs, opts ...pulumi.InvokeOp
 }
 
 type LookupHubArgs struct {
-	Id string `pulumi:"id"`
+	// An ARN is automatically created for the customer.
+	Arn string `pulumi:"arn"`
 }
 
 type LookupHubResult struct {
-	AutoEnableControls      *bool       `pulumi:"autoEnableControls"`
-	ControlFindingGenerator *string     `pulumi:"controlFindingGenerator"`
-	EnableDefaultStandards  *bool       `pulumi:"enableDefaultStandards"`
-	Id                      *string     `pulumi:"id"`
-	Tags                    interface{} `pulumi:"tags"`
+	// An ARN is automatically created for the customer.
+	Arn *string `pulumi:"arn"`
+	// Whether to automatically enable new controls when they are added to standards that are enabled
+	AutoEnableControls *bool `pulumi:"autoEnableControls"`
+	// This field, used when enabling Security Hub, specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to SECURITY_CONTROL, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards.  If the value for this field is set to STANDARD_CONTROL, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards.
+	ControlFindingGenerator *string `pulumi:"controlFindingGenerator"`
+	// The date and time when Security Hub was enabled in the account.
+	SubscribedAt *string  `pulumi:"subscribedAt"`
+	Tags         *HubTags `pulumi:"tags"`
 }
 
 func LookupHubOutput(ctx *pulumi.Context, args LookupHubOutputArgs, opts ...pulumi.InvokeOption) LookupHubResultOutput {
@@ -49,7 +54,8 @@ func LookupHubOutput(ctx *pulumi.Context, args LookupHubOutputArgs, opts ...pulu
 }
 
 type LookupHubOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// An ARN is automatically created for the customer.
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupHubOutputArgs) ElementType() reflect.Type {
@@ -76,24 +82,28 @@ func (o LookupHubResultOutput) ToOutput(ctx context.Context) pulumix.Output[Look
 	}
 }
 
+// An ARN is automatically created for the customer.
+func (o LookupHubResultOutput) Arn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHubResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// Whether to automatically enable new controls when they are added to standards that are enabled
 func (o LookupHubResultOutput) AutoEnableControls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupHubResult) *bool { return v.AutoEnableControls }).(pulumi.BoolPtrOutput)
 }
 
+// This field, used when enabling Security Hub, specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to SECURITY_CONTROL, Security Hub generates a single finding for a control check even when the check applies to multiple enabled standards.  If the value for this field is set to STANDARD_CONTROL, Security Hub generates separate findings for a control check when the check applies to multiple enabled standards.
 func (o LookupHubResultOutput) ControlFindingGenerator() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupHubResult) *string { return v.ControlFindingGenerator }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupHubResultOutput) EnableDefaultStandards() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupHubResult) *bool { return v.EnableDefaultStandards }).(pulumi.BoolPtrOutput)
+// The date and time when Security Hub was enabled in the account.
+func (o LookupHubResultOutput) SubscribedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupHubResult) *string { return v.SubscribedAt }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupHubResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupHubResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupHubResultOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupHubResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
+func (o LookupHubResultOutput) Tags() HubTagsPtrOutput {
+	return o.ApplyT(func(v LookupHubResult) *HubTags { return v.Tags }).(HubTagsPtrOutput)
 }
 
 func init() {

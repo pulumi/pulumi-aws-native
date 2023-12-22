@@ -310,6 +310,178 @@ func (o DeploymentConfigMinimumHealthyHostsPtrOutput) Value() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
+type DeploymentConfigMinimumHealthyHostsPerZone struct {
+	Type  string `pulumi:"type"`
+	Value int    `pulumi:"value"`
+}
+
+// DeploymentConfigMinimumHealthyHostsPerZoneInput is an input type that accepts DeploymentConfigMinimumHealthyHostsPerZoneArgs and DeploymentConfigMinimumHealthyHostsPerZoneOutput values.
+// You can construct a concrete instance of `DeploymentConfigMinimumHealthyHostsPerZoneInput` via:
+//
+//	DeploymentConfigMinimumHealthyHostsPerZoneArgs{...}
+type DeploymentConfigMinimumHealthyHostsPerZoneInput interface {
+	pulumi.Input
+
+	ToDeploymentConfigMinimumHealthyHostsPerZoneOutput() DeploymentConfigMinimumHealthyHostsPerZoneOutput
+	ToDeploymentConfigMinimumHealthyHostsPerZoneOutputWithContext(context.Context) DeploymentConfigMinimumHealthyHostsPerZoneOutput
+}
+
+type DeploymentConfigMinimumHealthyHostsPerZoneArgs struct {
+	Type  pulumi.StringInput `pulumi:"type"`
+	Value pulumi.IntInput    `pulumi:"value"`
+}
+
+func (DeploymentConfigMinimumHealthyHostsPerZoneArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfigMinimumHealthyHostsPerZone)(nil)).Elem()
+}
+
+func (i DeploymentConfigMinimumHealthyHostsPerZoneArgs) ToDeploymentConfigMinimumHealthyHostsPerZoneOutput() DeploymentConfigMinimumHealthyHostsPerZoneOutput {
+	return i.ToDeploymentConfigMinimumHealthyHostsPerZoneOutputWithContext(context.Background())
+}
+
+func (i DeploymentConfigMinimumHealthyHostsPerZoneArgs) ToDeploymentConfigMinimumHealthyHostsPerZoneOutputWithContext(ctx context.Context) DeploymentConfigMinimumHealthyHostsPerZoneOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigMinimumHealthyHostsPerZoneOutput)
+}
+
+func (i DeploymentConfigMinimumHealthyHostsPerZoneArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentConfigMinimumHealthyHostsPerZone] {
+	return pulumix.Output[DeploymentConfigMinimumHealthyHostsPerZone]{
+		OutputState: i.ToDeploymentConfigMinimumHealthyHostsPerZoneOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DeploymentConfigMinimumHealthyHostsPerZoneArgs) ToDeploymentConfigMinimumHealthyHostsPerZonePtrOutput() DeploymentConfigMinimumHealthyHostsPerZonePtrOutput {
+	return i.ToDeploymentConfigMinimumHealthyHostsPerZonePtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentConfigMinimumHealthyHostsPerZoneArgs) ToDeploymentConfigMinimumHealthyHostsPerZonePtrOutputWithContext(ctx context.Context) DeploymentConfigMinimumHealthyHostsPerZonePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigMinimumHealthyHostsPerZoneOutput).ToDeploymentConfigMinimumHealthyHostsPerZonePtrOutputWithContext(ctx)
+}
+
+// DeploymentConfigMinimumHealthyHostsPerZonePtrInput is an input type that accepts DeploymentConfigMinimumHealthyHostsPerZoneArgs, DeploymentConfigMinimumHealthyHostsPerZonePtr and DeploymentConfigMinimumHealthyHostsPerZonePtrOutput values.
+// You can construct a concrete instance of `DeploymentConfigMinimumHealthyHostsPerZonePtrInput` via:
+//
+//	        DeploymentConfigMinimumHealthyHostsPerZoneArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentConfigMinimumHealthyHostsPerZonePtrInput interface {
+	pulumi.Input
+
+	ToDeploymentConfigMinimumHealthyHostsPerZonePtrOutput() DeploymentConfigMinimumHealthyHostsPerZonePtrOutput
+	ToDeploymentConfigMinimumHealthyHostsPerZonePtrOutputWithContext(context.Context) DeploymentConfigMinimumHealthyHostsPerZonePtrOutput
+}
+
+type deploymentConfigMinimumHealthyHostsPerZonePtrType DeploymentConfigMinimumHealthyHostsPerZoneArgs
+
+func DeploymentConfigMinimumHealthyHostsPerZonePtr(v *DeploymentConfigMinimumHealthyHostsPerZoneArgs) DeploymentConfigMinimumHealthyHostsPerZonePtrInput {
+	return (*deploymentConfigMinimumHealthyHostsPerZonePtrType)(v)
+}
+
+func (*deploymentConfigMinimumHealthyHostsPerZonePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentConfigMinimumHealthyHostsPerZone)(nil)).Elem()
+}
+
+func (i *deploymentConfigMinimumHealthyHostsPerZonePtrType) ToDeploymentConfigMinimumHealthyHostsPerZonePtrOutput() DeploymentConfigMinimumHealthyHostsPerZonePtrOutput {
+	return i.ToDeploymentConfigMinimumHealthyHostsPerZonePtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentConfigMinimumHealthyHostsPerZonePtrType) ToDeploymentConfigMinimumHealthyHostsPerZonePtrOutputWithContext(ctx context.Context) DeploymentConfigMinimumHealthyHostsPerZonePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigMinimumHealthyHostsPerZonePtrOutput)
+}
+
+func (i *deploymentConfigMinimumHealthyHostsPerZonePtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentConfigMinimumHealthyHostsPerZone] {
+	return pulumix.Output[*DeploymentConfigMinimumHealthyHostsPerZone]{
+		OutputState: i.ToDeploymentConfigMinimumHealthyHostsPerZonePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DeploymentConfigMinimumHealthyHostsPerZoneOutput struct{ *pulumi.OutputState }
+
+func (DeploymentConfigMinimumHealthyHostsPerZoneOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfigMinimumHealthyHostsPerZone)(nil)).Elem()
+}
+
+func (o DeploymentConfigMinimumHealthyHostsPerZoneOutput) ToDeploymentConfigMinimumHealthyHostsPerZoneOutput() DeploymentConfigMinimumHealthyHostsPerZoneOutput {
+	return o
+}
+
+func (o DeploymentConfigMinimumHealthyHostsPerZoneOutput) ToDeploymentConfigMinimumHealthyHostsPerZoneOutputWithContext(ctx context.Context) DeploymentConfigMinimumHealthyHostsPerZoneOutput {
+	return o
+}
+
+func (o DeploymentConfigMinimumHealthyHostsPerZoneOutput) ToDeploymentConfigMinimumHealthyHostsPerZonePtrOutput() DeploymentConfigMinimumHealthyHostsPerZonePtrOutput {
+	return o.ToDeploymentConfigMinimumHealthyHostsPerZonePtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentConfigMinimumHealthyHostsPerZoneOutput) ToDeploymentConfigMinimumHealthyHostsPerZonePtrOutputWithContext(ctx context.Context) DeploymentConfigMinimumHealthyHostsPerZonePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentConfigMinimumHealthyHostsPerZone) *DeploymentConfigMinimumHealthyHostsPerZone {
+		return &v
+	}).(DeploymentConfigMinimumHealthyHostsPerZonePtrOutput)
+}
+
+func (o DeploymentConfigMinimumHealthyHostsPerZoneOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentConfigMinimumHealthyHostsPerZone] {
+	return pulumix.Output[DeploymentConfigMinimumHealthyHostsPerZone]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeploymentConfigMinimumHealthyHostsPerZoneOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DeploymentConfigMinimumHealthyHostsPerZone) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o DeploymentConfigMinimumHealthyHostsPerZoneOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v DeploymentConfigMinimumHealthyHostsPerZone) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type DeploymentConfigMinimumHealthyHostsPerZonePtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentConfigMinimumHealthyHostsPerZonePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentConfigMinimumHealthyHostsPerZone)(nil)).Elem()
+}
+
+func (o DeploymentConfigMinimumHealthyHostsPerZonePtrOutput) ToDeploymentConfigMinimumHealthyHostsPerZonePtrOutput() DeploymentConfigMinimumHealthyHostsPerZonePtrOutput {
+	return o
+}
+
+func (o DeploymentConfigMinimumHealthyHostsPerZonePtrOutput) ToDeploymentConfigMinimumHealthyHostsPerZonePtrOutputWithContext(ctx context.Context) DeploymentConfigMinimumHealthyHostsPerZonePtrOutput {
+	return o
+}
+
+func (o DeploymentConfigMinimumHealthyHostsPerZonePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentConfigMinimumHealthyHostsPerZone] {
+	return pulumix.Output[*DeploymentConfigMinimumHealthyHostsPerZone]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeploymentConfigMinimumHealthyHostsPerZonePtrOutput) Elem() DeploymentConfigMinimumHealthyHostsPerZoneOutput {
+	return o.ApplyT(func(v *DeploymentConfigMinimumHealthyHostsPerZone) DeploymentConfigMinimumHealthyHostsPerZone {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentConfigMinimumHealthyHostsPerZone
+		return ret
+	}).(DeploymentConfigMinimumHealthyHostsPerZoneOutput)
+}
+
+func (o DeploymentConfigMinimumHealthyHostsPerZonePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeploymentConfigMinimumHealthyHostsPerZone) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeploymentConfigMinimumHealthyHostsPerZonePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentConfigMinimumHealthyHostsPerZone) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
 type DeploymentConfigTimeBasedCanary struct {
 	CanaryInterval   int `pulumi:"canaryInterval"`
 	CanaryPercentage int `pulumi:"canaryPercentage"`
@@ -843,6 +1015,195 @@ func (o DeploymentConfigTrafficRoutingConfigPtrOutput) Type() pulumi.StringPtrOu
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+type DeploymentConfigZonalConfig struct {
+	FirstZoneMonitorDurationInSeconds *int                                        `pulumi:"firstZoneMonitorDurationInSeconds"`
+	MinimumHealthyHostsPerZone        *DeploymentConfigMinimumHealthyHostsPerZone `pulumi:"minimumHealthyHostsPerZone"`
+	MonitorDurationInSeconds          *int                                        `pulumi:"monitorDurationInSeconds"`
+}
+
+// DeploymentConfigZonalConfigInput is an input type that accepts DeploymentConfigZonalConfigArgs and DeploymentConfigZonalConfigOutput values.
+// You can construct a concrete instance of `DeploymentConfigZonalConfigInput` via:
+//
+//	DeploymentConfigZonalConfigArgs{...}
+type DeploymentConfigZonalConfigInput interface {
+	pulumi.Input
+
+	ToDeploymentConfigZonalConfigOutput() DeploymentConfigZonalConfigOutput
+	ToDeploymentConfigZonalConfigOutputWithContext(context.Context) DeploymentConfigZonalConfigOutput
+}
+
+type DeploymentConfigZonalConfigArgs struct {
+	FirstZoneMonitorDurationInSeconds pulumi.IntPtrInput                                 `pulumi:"firstZoneMonitorDurationInSeconds"`
+	MinimumHealthyHostsPerZone        DeploymentConfigMinimumHealthyHostsPerZonePtrInput `pulumi:"minimumHealthyHostsPerZone"`
+	MonitorDurationInSeconds          pulumi.IntPtrInput                                 `pulumi:"monitorDurationInSeconds"`
+}
+
+func (DeploymentConfigZonalConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfigZonalConfig)(nil)).Elem()
+}
+
+func (i DeploymentConfigZonalConfigArgs) ToDeploymentConfigZonalConfigOutput() DeploymentConfigZonalConfigOutput {
+	return i.ToDeploymentConfigZonalConfigOutputWithContext(context.Background())
+}
+
+func (i DeploymentConfigZonalConfigArgs) ToDeploymentConfigZonalConfigOutputWithContext(ctx context.Context) DeploymentConfigZonalConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigZonalConfigOutput)
+}
+
+func (i DeploymentConfigZonalConfigArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentConfigZonalConfig] {
+	return pulumix.Output[DeploymentConfigZonalConfig]{
+		OutputState: i.ToDeploymentConfigZonalConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DeploymentConfigZonalConfigArgs) ToDeploymentConfigZonalConfigPtrOutput() DeploymentConfigZonalConfigPtrOutput {
+	return i.ToDeploymentConfigZonalConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DeploymentConfigZonalConfigArgs) ToDeploymentConfigZonalConfigPtrOutputWithContext(ctx context.Context) DeploymentConfigZonalConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigZonalConfigOutput).ToDeploymentConfigZonalConfigPtrOutputWithContext(ctx)
+}
+
+// DeploymentConfigZonalConfigPtrInput is an input type that accepts DeploymentConfigZonalConfigArgs, DeploymentConfigZonalConfigPtr and DeploymentConfigZonalConfigPtrOutput values.
+// You can construct a concrete instance of `DeploymentConfigZonalConfigPtrInput` via:
+//
+//	        DeploymentConfigZonalConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeploymentConfigZonalConfigPtrInput interface {
+	pulumi.Input
+
+	ToDeploymentConfigZonalConfigPtrOutput() DeploymentConfigZonalConfigPtrOutput
+	ToDeploymentConfigZonalConfigPtrOutputWithContext(context.Context) DeploymentConfigZonalConfigPtrOutput
+}
+
+type deploymentConfigZonalConfigPtrType DeploymentConfigZonalConfigArgs
+
+func DeploymentConfigZonalConfigPtr(v *DeploymentConfigZonalConfigArgs) DeploymentConfigZonalConfigPtrInput {
+	return (*deploymentConfigZonalConfigPtrType)(v)
+}
+
+func (*deploymentConfigZonalConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentConfigZonalConfig)(nil)).Elem()
+}
+
+func (i *deploymentConfigZonalConfigPtrType) ToDeploymentConfigZonalConfigPtrOutput() DeploymentConfigZonalConfigPtrOutput {
+	return i.ToDeploymentConfigZonalConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *deploymentConfigZonalConfigPtrType) ToDeploymentConfigZonalConfigPtrOutputWithContext(ctx context.Context) DeploymentConfigZonalConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentConfigZonalConfigPtrOutput)
+}
+
+func (i *deploymentConfigZonalConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentConfigZonalConfig] {
+	return pulumix.Output[*DeploymentConfigZonalConfig]{
+		OutputState: i.ToDeploymentConfigZonalConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DeploymentConfigZonalConfigOutput struct{ *pulumi.OutputState }
+
+func (DeploymentConfigZonalConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentConfigZonalConfig)(nil)).Elem()
+}
+
+func (o DeploymentConfigZonalConfigOutput) ToDeploymentConfigZonalConfigOutput() DeploymentConfigZonalConfigOutput {
+	return o
+}
+
+func (o DeploymentConfigZonalConfigOutput) ToDeploymentConfigZonalConfigOutputWithContext(ctx context.Context) DeploymentConfigZonalConfigOutput {
+	return o
+}
+
+func (o DeploymentConfigZonalConfigOutput) ToDeploymentConfigZonalConfigPtrOutput() DeploymentConfigZonalConfigPtrOutput {
+	return o.ToDeploymentConfigZonalConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DeploymentConfigZonalConfigOutput) ToDeploymentConfigZonalConfigPtrOutputWithContext(ctx context.Context) DeploymentConfigZonalConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentConfigZonalConfig) *DeploymentConfigZonalConfig {
+		return &v
+	}).(DeploymentConfigZonalConfigPtrOutput)
+}
+
+func (o DeploymentConfigZonalConfigOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentConfigZonalConfig] {
+	return pulumix.Output[DeploymentConfigZonalConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeploymentConfigZonalConfigOutput) FirstZoneMonitorDurationInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentConfigZonalConfig) *int { return v.FirstZoneMonitorDurationInSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o DeploymentConfigZonalConfigOutput) MinimumHealthyHostsPerZone() DeploymentConfigMinimumHealthyHostsPerZonePtrOutput {
+	return o.ApplyT(func(v DeploymentConfigZonalConfig) *DeploymentConfigMinimumHealthyHostsPerZone {
+		return v.MinimumHealthyHostsPerZone
+	}).(DeploymentConfigMinimumHealthyHostsPerZonePtrOutput)
+}
+
+func (o DeploymentConfigZonalConfigOutput) MonitorDurationInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeploymentConfigZonalConfig) *int { return v.MonitorDurationInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type DeploymentConfigZonalConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DeploymentConfigZonalConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeploymentConfigZonalConfig)(nil)).Elem()
+}
+
+func (o DeploymentConfigZonalConfigPtrOutput) ToDeploymentConfigZonalConfigPtrOutput() DeploymentConfigZonalConfigPtrOutput {
+	return o
+}
+
+func (o DeploymentConfigZonalConfigPtrOutput) ToDeploymentConfigZonalConfigPtrOutputWithContext(ctx context.Context) DeploymentConfigZonalConfigPtrOutput {
+	return o
+}
+
+func (o DeploymentConfigZonalConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentConfigZonalConfig] {
+	return pulumix.Output[*DeploymentConfigZonalConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeploymentConfigZonalConfigPtrOutput) Elem() DeploymentConfigZonalConfigOutput {
+	return o.ApplyT(func(v *DeploymentConfigZonalConfig) DeploymentConfigZonalConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DeploymentConfigZonalConfig
+		return ret
+	}).(DeploymentConfigZonalConfigOutput)
+}
+
+func (o DeploymentConfigZonalConfigPtrOutput) FirstZoneMonitorDurationInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentConfigZonalConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FirstZoneMonitorDurationInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DeploymentConfigZonalConfigPtrOutput) MinimumHealthyHostsPerZone() DeploymentConfigMinimumHealthyHostsPerZonePtrOutput {
+	return o.ApplyT(func(v *DeploymentConfigZonalConfig) *DeploymentConfigMinimumHealthyHostsPerZone {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumHealthyHostsPerZone
+	}).(DeploymentConfigMinimumHealthyHostsPerZonePtrOutput)
+}
+
+func (o DeploymentConfigZonalConfigPtrOutput) MonitorDurationInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeploymentConfigZonalConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MonitorDurationInSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 type DeploymentGroupAlarm struct {
@@ -4860,12 +5221,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTagArrayInput)(nil)).Elem(), ApplicationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigMinimumHealthyHostsInput)(nil)).Elem(), DeploymentConfigMinimumHealthyHostsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigMinimumHealthyHostsPtrInput)(nil)).Elem(), DeploymentConfigMinimumHealthyHostsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigMinimumHealthyHostsPerZoneInput)(nil)).Elem(), DeploymentConfigMinimumHealthyHostsPerZoneArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigMinimumHealthyHostsPerZonePtrInput)(nil)).Elem(), DeploymentConfigMinimumHealthyHostsPerZoneArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigTimeBasedCanaryInput)(nil)).Elem(), DeploymentConfigTimeBasedCanaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigTimeBasedCanaryPtrInput)(nil)).Elem(), DeploymentConfigTimeBasedCanaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigTimeBasedLinearInput)(nil)).Elem(), DeploymentConfigTimeBasedLinearArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigTimeBasedLinearPtrInput)(nil)).Elem(), DeploymentConfigTimeBasedLinearArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigTrafficRoutingConfigInput)(nil)).Elem(), DeploymentConfigTrafficRoutingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigTrafficRoutingConfigPtrInput)(nil)).Elem(), DeploymentConfigTrafficRoutingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigZonalConfigInput)(nil)).Elem(), DeploymentConfigZonalConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentConfigZonalConfigPtrInput)(nil)).Elem(), DeploymentConfigZonalConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupAlarmInput)(nil)).Elem(), DeploymentGroupAlarmArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupAlarmArrayInput)(nil)).Elem(), DeploymentGroupAlarmArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupAlarmConfigurationInput)(nil)).Elem(), DeploymentGroupAlarmConfigurationArgs{})
@@ -4922,12 +5287,16 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationTagArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentConfigMinimumHealthyHostsOutput{})
 	pulumi.RegisterOutputType(DeploymentConfigMinimumHealthyHostsPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentConfigMinimumHealthyHostsPerZoneOutput{})
+	pulumi.RegisterOutputType(DeploymentConfigMinimumHealthyHostsPerZonePtrOutput{})
 	pulumi.RegisterOutputType(DeploymentConfigTimeBasedCanaryOutput{})
 	pulumi.RegisterOutputType(DeploymentConfigTimeBasedCanaryPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentConfigTimeBasedLinearOutput{})
 	pulumi.RegisterOutputType(DeploymentConfigTimeBasedLinearPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentConfigTrafficRoutingConfigOutput{})
 	pulumi.RegisterOutputType(DeploymentConfigTrafficRoutingConfigPtrOutput{})
+	pulumi.RegisterOutputType(DeploymentConfigZonalConfigOutput{})
+	pulumi.RegisterOutputType(DeploymentConfigZonalConfigPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupAlarmOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupAlarmArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupAlarmConfigurationOutput{})

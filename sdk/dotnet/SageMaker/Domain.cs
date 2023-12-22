@@ -85,6 +85,12 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<string> SecurityGroupIdForDomainBoundary { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after October 1, 2023.
+        /// </summary>
+        [Output("singleSignOnApplicationArn")]
+        public Output<string> SingleSignOnApplicationArn { get; private set; } = null!;
+
+        /// <summary>
         /// The SSO managed application instance ID.
         /// </summary>
         [Output("singleSignOnManagedApplicationInstanceId")]
@@ -139,12 +145,10 @@ namespace Pulumi.AwsNative.SageMaker
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "appNetworkAccessType",
                     "authMode",
                     "domainName",
                     "domainSettings.rStudioServerProDomainSettings.defaultResourceSpec",
                     "kmsKeyId",
-                    "subnetIds[*]",
                     "tags[*]",
                     "vpcId",
                 },

@@ -24,6 +24,8 @@ type DeploymentConfig struct {
 	MinimumHealthyHosts DeploymentConfigMinimumHealthyHostsPtrOutput `pulumi:"minimumHealthyHosts"`
 	// The configuration that specifies how the deployment traffic is routed.
 	TrafficRoutingConfig DeploymentConfigTrafficRoutingConfigPtrOutput `pulumi:"trafficRoutingConfig"`
+	// The zonal deployment config that specifies how the zonal deployment behaves
+	ZonalConfig DeploymentConfigZonalConfigPtrOutput `pulumi:"zonalConfig"`
 }
 
 // NewDeploymentConfig registers a new resource with the given unique name, arguments, and options.
@@ -38,6 +40,7 @@ func NewDeploymentConfig(ctx *pulumi.Context,
 		"deploymentConfigName",
 		"minimumHealthyHosts",
 		"trafficRoutingConfig",
+		"zonalConfig",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -81,6 +84,8 @@ type deploymentConfigArgs struct {
 	MinimumHealthyHosts *DeploymentConfigMinimumHealthyHosts `pulumi:"minimumHealthyHosts"`
 	// The configuration that specifies how the deployment traffic is routed.
 	TrafficRoutingConfig *DeploymentConfigTrafficRoutingConfig `pulumi:"trafficRoutingConfig"`
+	// The zonal deployment config that specifies how the zonal deployment behaves
+	ZonalConfig *DeploymentConfigZonalConfig `pulumi:"zonalConfig"`
 }
 
 // The set of arguments for constructing a DeploymentConfig resource.
@@ -93,6 +98,8 @@ type DeploymentConfigArgs struct {
 	MinimumHealthyHosts DeploymentConfigMinimumHealthyHostsPtrInput
 	// The configuration that specifies how the deployment traffic is routed.
 	TrafficRoutingConfig DeploymentConfigTrafficRoutingConfigPtrInput
+	// The zonal deployment config that specifies how the zonal deployment behaves
+	ZonalConfig DeploymentConfigZonalConfigPtrInput
 }
 
 func (DeploymentConfigArgs) ElementType() reflect.Type {
@@ -162,6 +169,11 @@ func (o DeploymentConfigOutput) MinimumHealthyHosts() DeploymentConfigMinimumHea
 // The configuration that specifies how the deployment traffic is routed.
 func (o DeploymentConfigOutput) TrafficRoutingConfig() DeploymentConfigTrafficRoutingConfigPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfig) DeploymentConfigTrafficRoutingConfigPtrOutput { return v.TrafficRoutingConfig }).(DeploymentConfigTrafficRoutingConfigPtrOutput)
+}
+
+// The zonal deployment config that specifies how the zonal deployment behaves
+func (o DeploymentConfigOutput) ZonalConfig() DeploymentConfigZonalConfigPtrOutput {
+	return o.ApplyT(func(v *DeploymentConfig) DeploymentConfigZonalConfigPtrOutput { return v.ZonalConfig }).(DeploymentConfigZonalConfigPtrOutput)
 }
 
 func init() {

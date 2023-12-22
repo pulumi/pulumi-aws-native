@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDiscovererResult:
-    def __init__(__self__, cross_account=None, description=None, discoverer_arn=None, discoverer_id=None, tags=None):
+    def __init__(__self__, cross_account=None, description=None, discoverer_arn=None, discoverer_id=None, state=None, tags=None):
         if cross_account and not isinstance(cross_account, bool):
             raise TypeError("Expected argument 'cross_account' to be a bool")
         pulumi.set(__self__, "cross_account", cross_account)
@@ -32,6 +32,9 @@ class GetDiscovererResult:
         if discoverer_id and not isinstance(discoverer_id, str):
             raise TypeError("Expected argument 'discoverer_id' to be a str")
         pulumi.set(__self__, "discoverer_id", discoverer_id)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -39,26 +42,49 @@ class GetDiscovererResult:
     @property
     @pulumi.getter(name="crossAccount")
     def cross_account(self) -> Optional[bool]:
+        """
+        Defines whether event schemas from other accounts are discovered. Default is True.
+        """
         return pulumi.get(self, "cross_account")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description for the discoverer.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="discovererArn")
     def discoverer_arn(self) -> Optional[str]:
+        """
+        The ARN of the discoverer.
+        """
         return pulumi.get(self, "discoverer_arn")
 
     @property
     @pulumi.getter(name="discovererId")
     def discoverer_id(self) -> Optional[str]:
+        """
+        The Id of the discoverer.
+        """
         return pulumi.get(self, "discoverer_id")
 
     @property
     @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Defines the current state of the discoverer.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.DiscovererTagsEntry']]:
+        """
+        Tags associated with the resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -72,16 +98,20 @@ class AwaitableGetDiscovererResult(GetDiscovererResult):
             description=self.description,
             discoverer_arn=self.discoverer_arn,
             discoverer_id=self.discoverer_id,
+            state=self.state,
             tags=self.tags)
 
 
-def get_discoverer(discoverer_id: Optional[str] = None,
+def get_discoverer(discoverer_arn: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiscovererResult:
     """
     Resource Type definition for AWS::EventSchemas::Discoverer
+
+
+    :param str discoverer_arn: The ARN of the discoverer.
     """
     __args__ = dict()
-    __args__['discovererId'] = discoverer_id
+    __args__['discovererArn'] = discoverer_arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:eventschemas:getDiscoverer', __args__, opts=opts, typ=GetDiscovererResult).value
 
@@ -90,13 +120,17 @@ def get_discoverer(discoverer_id: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         discoverer_arn=pulumi.get(__ret__, 'discoverer_arn'),
         discoverer_id=pulumi.get(__ret__, 'discoverer_id'),
+        state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_discoverer)
-def get_discoverer_output(discoverer_id: Optional[pulumi.Input[str]] = None,
+def get_discoverer_output(discoverer_arn: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiscovererResult]:
     """
     Resource Type definition for AWS::EventSchemas::Discoverer
+
+
+    :param str discoverer_arn: The ARN of the discoverer.
     """
     ...

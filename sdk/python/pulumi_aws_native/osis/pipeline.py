@@ -19,6 +19,8 @@ class PipelineArgs:
                  max_units: pulumi.Input[int],
                  min_units: pulumi.Input[int],
                  pipeline_configuration_body: pulumi.Input[str],
+                 buffer_options: Optional[pulumi.Input['PipelineBufferOptionsArgs']] = None,
+                 encryption_at_rest_options: Optional[pulumi.Input['PipelineEncryptionAtRestOptionsArgs']] = None,
                  log_publishing_options: Optional[pulumi.Input['PipelineLogPublishingOptionsArgs']] = None,
                  pipeline_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]] = None,
@@ -34,6 +36,10 @@ class PipelineArgs:
         pulumi.set(__self__, "max_units", max_units)
         pulumi.set(__self__, "min_units", min_units)
         pulumi.set(__self__, "pipeline_configuration_body", pipeline_configuration_body)
+        if buffer_options is not None:
+            pulumi.set(__self__, "buffer_options", buffer_options)
+        if encryption_at_rest_options is not None:
+            pulumi.set(__self__, "encryption_at_rest_options", encryption_at_rest_options)
         if log_publishing_options is not None:
             pulumi.set(__self__, "log_publishing_options", log_publishing_options)
         if pipeline_name is not None:
@@ -78,6 +84,24 @@ class PipelineArgs:
     @pipeline_configuration_body.setter
     def pipeline_configuration_body(self, value: pulumi.Input[str]):
         pulumi.set(self, "pipeline_configuration_body", value)
+
+    @property
+    @pulumi.getter(name="bufferOptions")
+    def buffer_options(self) -> Optional[pulumi.Input['PipelineBufferOptionsArgs']]:
+        return pulumi.get(self, "buffer_options")
+
+    @buffer_options.setter
+    def buffer_options(self, value: Optional[pulumi.Input['PipelineBufferOptionsArgs']]):
+        pulumi.set(self, "buffer_options", value)
+
+    @property
+    @pulumi.getter(name="encryptionAtRestOptions")
+    def encryption_at_rest_options(self) -> Optional[pulumi.Input['PipelineEncryptionAtRestOptionsArgs']]:
+        return pulumi.get(self, "encryption_at_rest_options")
+
+    @encryption_at_rest_options.setter
+    def encryption_at_rest_options(self, value: Optional[pulumi.Input['PipelineEncryptionAtRestOptionsArgs']]):
+        pulumi.set(self, "encryption_at_rest_options", value)
 
     @property
     @pulumi.getter(name="logPublishingOptions")
@@ -127,6 +151,8 @@ class Pipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 buffer_options: Optional[pulumi.Input[pulumi.InputType['PipelineBufferOptionsArgs']]] = None,
+                 encryption_at_rest_options: Optional[pulumi.Input[pulumi.InputType['PipelineEncryptionAtRestOptionsArgs']]] = None,
                  log_publishing_options: Optional[pulumi.Input[pulumi.InputType['PipelineLogPublishingOptionsArgs']]] = None,
                  max_units: Optional[pulumi.Input[int]] = None,
                  min_units: Optional[pulumi.Input[int]] = None,
@@ -170,6 +196,8 @@ class Pipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 buffer_options: Optional[pulumi.Input[pulumi.InputType['PipelineBufferOptionsArgs']]] = None,
+                 encryption_at_rest_options: Optional[pulumi.Input[pulumi.InputType['PipelineEncryptionAtRestOptionsArgs']]] = None,
                  log_publishing_options: Optional[pulumi.Input[pulumi.InputType['PipelineLogPublishingOptionsArgs']]] = None,
                  max_units: Optional[pulumi.Input[int]] = None,
                  min_units: Optional[pulumi.Input[int]] = None,
@@ -186,6 +214,8 @@ class Pipeline(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PipelineArgs.__new__(PipelineArgs)
 
+            __props__.__dict__["buffer_options"] = buffer_options
+            __props__.__dict__["encryption_at_rest_options"] = encryption_at_rest_options
             __props__.__dict__["log_publishing_options"] = log_publishing_options
             if max_units is None and not opts.urn:
                 raise TypeError("Missing required property 'max_units'")
@@ -226,6 +256,8 @@ class Pipeline(pulumi.CustomResource):
 
         __props__ = PipelineArgs.__new__(PipelineArgs)
 
+        __props__.__dict__["buffer_options"] = None
+        __props__.__dict__["encryption_at_rest_options"] = None
         __props__.__dict__["ingest_endpoint_urls"] = None
         __props__.__dict__["log_publishing_options"] = None
         __props__.__dict__["max_units"] = None
@@ -237,6 +269,16 @@ class Pipeline(pulumi.CustomResource):
         __props__.__dict__["vpc_endpoints"] = None
         __props__.__dict__["vpc_options"] = None
         return Pipeline(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="bufferOptions")
+    def buffer_options(self) -> pulumi.Output[Optional['outputs.PipelineBufferOptions']]:
+        return pulumi.get(self, "buffer_options")
+
+    @property
+    @pulumi.getter(name="encryptionAtRestOptions")
+    def encryption_at_rest_options(self) -> pulumi.Output[Optional['outputs.PipelineEncryptionAtRestOptions']]:
+        return pulumi.get(self, "encryption_at_rest_options")
 
     @property
     @pulumi.getter(name="ingestEndpointUrls")

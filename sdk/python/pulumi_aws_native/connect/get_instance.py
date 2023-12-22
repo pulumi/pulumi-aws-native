@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetInstanceResult:
-    def __init__(__self__, arn=None, attributes=None, created_time=None, id=None, instance_status=None, service_role=None):
+    def __init__(__self__, arn=None, attributes=None, created_time=None, id=None, instance_status=None, service_role=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,6 +39,9 @@ class GetInstanceResult:
         if service_role and not isinstance(service_role, str):
             raise TypeError("Expected argument 'service_role' to be a str")
         pulumi.set(__self__, "service_role", service_role)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -88,6 +91,14 @@ class GetInstanceResult:
         """
         return pulumi.get(self, "service_role")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.InstanceTag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetInstanceResult(GetInstanceResult):
     # pylint: disable=using-constant-test
@@ -100,7 +111,8 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             created_time=self.created_time,
             id=self.id,
             instance_status=self.instance_status,
-            service_role=self.service_role)
+            service_role=self.service_role,
+            tags=self.tags)
 
 
 def get_instance(arn: Optional[str] = None,
@@ -122,7 +134,8 @@ def get_instance(arn: Optional[str] = None,
         created_time=pulumi.get(__ret__, 'created_time'),
         id=pulumi.get(__ret__, 'id'),
         instance_status=pulumi.get(__ret__, 'instance_status'),
-        service_role=pulumi.get(__ret__, 'service_role'))
+        service_role=pulumi.get(__ret__, 'service_role'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_instance)

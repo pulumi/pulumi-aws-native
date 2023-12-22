@@ -151,6 +151,9 @@ class BucketInventoryConfigurationOptionalFieldsItem(str, Enum):
     OBJECT_LOCK_LEGAL_HOLD_STATUS = "ObjectLockLegalHoldStatus"
     INTELLIGENT_TIERING_ACCESS_TIER = "IntelligentTieringAccessTier"
     BUCKET_KEY_STATUS = "BucketKeyStatus"
+    CHECKSUM_ALGORITHM = "ChecksumAlgorithm"
+    OBJECT_ACCESS_CONTROL_LIST = "ObjectAccessControlList"
+    OBJECT_OWNER = "ObjectOwner"
 
 
 class BucketInventoryConfigurationScheduleFrequency(str, Enum):

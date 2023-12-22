@@ -718,14 +718,14 @@ type AutoScalingGroupInstanceRequirements struct {
 	LocalStorage                              *string                                           `pulumi:"localStorage"`
 	LocalStorageTypes                         []string                                          `pulumi:"localStorageTypes"`
 	MemoryGiBPerVCpu                          *AutoScalingGroupMemoryGiBPerVCpuRequest          `pulumi:"memoryGiBPerVCpu"`
-	MemoryMiB                                 *AutoScalingGroupMemoryMiBRequest                 `pulumi:"memoryMiB"`
+	MemoryMiB                                 AutoScalingGroupMemoryMiBRequest                  `pulumi:"memoryMiB"`
 	NetworkBandwidthGbps                      *AutoScalingGroupNetworkBandwidthGbpsRequest      `pulumi:"networkBandwidthGbps"`
 	NetworkInterfaceCount                     *AutoScalingGroupNetworkInterfaceCountRequest     `pulumi:"networkInterfaceCount"`
 	OnDemandMaxPricePercentageOverLowestPrice *int                                              `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	RequireHibernateSupport                   *bool                                             `pulumi:"requireHibernateSupport"`
 	SpotMaxPricePercentageOverLowestPrice     *int                                              `pulumi:"spotMaxPricePercentageOverLowestPrice"`
 	TotalLocalStorageGb                       *AutoScalingGroupTotalLocalStorageGbRequest       `pulumi:"totalLocalStorageGb"`
-	VCpuCount                                 *AutoScalingGroupVCpuCountRequest                 `pulumi:"vCpuCount"`
+	VCpuCount                                 AutoScalingGroupVCpuCountRequest                  `pulumi:"vCpuCount"`
 }
 
 // AutoScalingGroupInstanceRequirementsInput is an input type that accepts AutoScalingGroupInstanceRequirementsArgs and AutoScalingGroupInstanceRequirementsOutput values.
@@ -755,14 +755,14 @@ type AutoScalingGroupInstanceRequirementsArgs struct {
 	LocalStorage                              pulumi.StringPtrInput                                    `pulumi:"localStorage"`
 	LocalStorageTypes                         pulumi.StringArrayInput                                  `pulumi:"localStorageTypes"`
 	MemoryGiBPerVCpu                          AutoScalingGroupMemoryGiBPerVCpuRequestPtrInput          `pulumi:"memoryGiBPerVCpu"`
-	MemoryMiB                                 AutoScalingGroupMemoryMiBRequestPtrInput                 `pulumi:"memoryMiB"`
+	MemoryMiB                                 AutoScalingGroupMemoryMiBRequestInput                    `pulumi:"memoryMiB"`
 	NetworkBandwidthGbps                      AutoScalingGroupNetworkBandwidthGbpsRequestPtrInput      `pulumi:"networkBandwidthGbps"`
 	NetworkInterfaceCount                     AutoScalingGroupNetworkInterfaceCountRequestPtrInput     `pulumi:"networkInterfaceCount"`
 	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput                                       `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
 	RequireHibernateSupport                   pulumi.BoolPtrInput                                      `pulumi:"requireHibernateSupport"`
 	SpotMaxPricePercentageOverLowestPrice     pulumi.IntPtrInput                                       `pulumi:"spotMaxPricePercentageOverLowestPrice"`
 	TotalLocalStorageGb                       AutoScalingGroupTotalLocalStorageGbRequestPtrInput       `pulumi:"totalLocalStorageGb"`
-	VCpuCount                                 AutoScalingGroupVCpuCountRequestPtrInput                 `pulumi:"vCpuCount"`
+	VCpuCount                                 AutoScalingGroupVCpuCountRequestInput                    `pulumi:"vCpuCount"`
 }
 
 func (AutoScalingGroupInstanceRequirementsArgs) ElementType() reflect.Type {
@@ -928,8 +928,8 @@ func (o AutoScalingGroupInstanceRequirementsOutput) MemoryGiBPerVCpu() AutoScali
 	}).(AutoScalingGroupMemoryGiBPerVCpuRequestPtrOutput)
 }
 
-func (o AutoScalingGroupInstanceRequirementsOutput) MemoryMiB() AutoScalingGroupMemoryMiBRequestPtrOutput {
-	return o.ApplyT(func(v AutoScalingGroupInstanceRequirements) *AutoScalingGroupMemoryMiBRequest { return v.MemoryMiB }).(AutoScalingGroupMemoryMiBRequestPtrOutput)
+func (o AutoScalingGroupInstanceRequirementsOutput) MemoryMiB() AutoScalingGroupMemoryMiBRequestOutput {
+	return o.ApplyT(func(v AutoScalingGroupInstanceRequirements) AutoScalingGroupMemoryMiBRequest { return v.MemoryMiB }).(AutoScalingGroupMemoryMiBRequestOutput)
 }
 
 func (o AutoScalingGroupInstanceRequirementsOutput) NetworkBandwidthGbps() AutoScalingGroupNetworkBandwidthGbpsRequestPtrOutput {
@@ -962,8 +962,8 @@ func (o AutoScalingGroupInstanceRequirementsOutput) TotalLocalStorageGb() AutoSc
 	}).(AutoScalingGroupTotalLocalStorageGbRequestPtrOutput)
 }
 
-func (o AutoScalingGroupInstanceRequirementsOutput) VCpuCount() AutoScalingGroupVCpuCountRequestPtrOutput {
-	return o.ApplyT(func(v AutoScalingGroupInstanceRequirements) *AutoScalingGroupVCpuCountRequest { return v.VCpuCount }).(AutoScalingGroupVCpuCountRequestPtrOutput)
+func (o AutoScalingGroupInstanceRequirementsOutput) VCpuCount() AutoScalingGroupVCpuCountRequestOutput {
+	return o.ApplyT(func(v AutoScalingGroupInstanceRequirements) AutoScalingGroupVCpuCountRequest { return v.VCpuCount }).(AutoScalingGroupVCpuCountRequestOutput)
 }
 
 type AutoScalingGroupInstanceRequirementsPtrOutput struct{ *pulumi.OutputState }
@@ -1136,7 +1136,7 @@ func (o AutoScalingGroupInstanceRequirementsPtrOutput) MemoryMiB() AutoScalingGr
 		if v == nil {
 			return nil
 		}
-		return v.MemoryMiB
+		return &v.MemoryMiB
 	}).(AutoScalingGroupMemoryMiBRequestPtrOutput)
 }
 
@@ -1199,7 +1199,7 @@ func (o AutoScalingGroupInstanceRequirementsPtrOutput) VCpuCount() AutoScalingGr
 		if v == nil {
 			return nil
 		}
-		return v.VCpuCount
+		return &v.VCpuCount
 	}).(AutoScalingGroupVCpuCountRequestPtrOutput)
 }
 

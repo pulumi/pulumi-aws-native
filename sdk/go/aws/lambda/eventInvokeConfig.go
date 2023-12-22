@@ -13,15 +13,19 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::Lambda::EventInvokeConfig
+// The AWS::Lambda::EventInvokeConfig resource configures options for asynchronous invocation on a version or an alias.
 type EventInvokeConfig struct {
 	pulumi.CustomResourceState
 
-	DestinationConfig        EventInvokeConfigDestinationConfigPtrOutput `pulumi:"destinationConfig"`
-	FunctionName             pulumi.StringOutput                         `pulumi:"functionName"`
-	MaximumEventAgeInSeconds pulumi.IntPtrOutput                         `pulumi:"maximumEventAgeInSeconds"`
-	MaximumRetryAttempts     pulumi.IntPtrOutput                         `pulumi:"maximumRetryAttempts"`
-	Qualifier                pulumi.StringOutput                         `pulumi:"qualifier"`
+	DestinationConfig EventInvokeConfigDestinationConfigPtrOutput `pulumi:"destinationConfig"`
+	// The name of the Lambda function.
+	FunctionName pulumi.StringOutput `pulumi:"functionName"`
+	// The maximum age of a request that Lambda sends to a function for processing.
+	MaximumEventAgeInSeconds pulumi.IntPtrOutput `pulumi:"maximumEventAgeInSeconds"`
+	// The maximum number of times to retry when the function returns an error.
+	MaximumRetryAttempts pulumi.IntPtrOutput `pulumi:"maximumRetryAttempts"`
+	// The identifier of a version or alias.
+	Qualifier pulumi.StringOutput `pulumi:"qualifier"`
 }
 
 // NewEventInvokeConfig registers a new resource with the given unique name, arguments, and options.
@@ -75,20 +79,28 @@ func (EventInvokeConfigState) ElementType() reflect.Type {
 }
 
 type eventInvokeConfigArgs struct {
-	DestinationConfig        *EventInvokeConfigDestinationConfig `pulumi:"destinationConfig"`
-	FunctionName             string                              `pulumi:"functionName"`
-	MaximumEventAgeInSeconds *int                                `pulumi:"maximumEventAgeInSeconds"`
-	MaximumRetryAttempts     *int                                `pulumi:"maximumRetryAttempts"`
-	Qualifier                string                              `pulumi:"qualifier"`
+	DestinationConfig *EventInvokeConfigDestinationConfig `pulumi:"destinationConfig"`
+	// The name of the Lambda function.
+	FunctionName string `pulumi:"functionName"`
+	// The maximum age of a request that Lambda sends to a function for processing.
+	MaximumEventAgeInSeconds *int `pulumi:"maximumEventAgeInSeconds"`
+	// The maximum number of times to retry when the function returns an error.
+	MaximumRetryAttempts *int `pulumi:"maximumRetryAttempts"`
+	// The identifier of a version or alias.
+	Qualifier string `pulumi:"qualifier"`
 }
 
 // The set of arguments for constructing a EventInvokeConfig resource.
 type EventInvokeConfigArgs struct {
-	DestinationConfig        EventInvokeConfigDestinationConfigPtrInput
-	FunctionName             pulumi.StringInput
+	DestinationConfig EventInvokeConfigDestinationConfigPtrInput
+	// The name of the Lambda function.
+	FunctionName pulumi.StringInput
+	// The maximum age of a request that Lambda sends to a function for processing.
 	MaximumEventAgeInSeconds pulumi.IntPtrInput
-	MaximumRetryAttempts     pulumi.IntPtrInput
-	Qualifier                pulumi.StringInput
+	// The maximum number of times to retry when the function returns an error.
+	MaximumRetryAttempts pulumi.IntPtrInput
+	// The identifier of a version or alias.
+	Qualifier pulumi.StringInput
 }
 
 func (EventInvokeConfigArgs) ElementType() reflect.Type {
@@ -144,18 +156,22 @@ func (o EventInvokeConfigOutput) DestinationConfig() EventInvokeConfigDestinatio
 	return o.ApplyT(func(v *EventInvokeConfig) EventInvokeConfigDestinationConfigPtrOutput { return v.DestinationConfig }).(EventInvokeConfigDestinationConfigPtrOutput)
 }
 
+// The name of the Lambda function.
 func (o EventInvokeConfigOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventInvokeConfig) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
 }
 
+// The maximum age of a request that Lambda sends to a function for processing.
 func (o EventInvokeConfigOutput) MaximumEventAgeInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventInvokeConfig) pulumi.IntPtrOutput { return v.MaximumEventAgeInSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The maximum number of times to retry when the function returns an error.
 func (o EventInvokeConfigOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventInvokeConfig) pulumi.IntPtrOutput { return v.MaximumRetryAttempts }).(pulumi.IntPtrOutput)
 }
 
+// The identifier of a version or alias.
 func (o EventInvokeConfigOutput) Qualifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventInvokeConfig) pulumi.StringOutput { return v.Qualifier }).(pulumi.StringOutput)
 }

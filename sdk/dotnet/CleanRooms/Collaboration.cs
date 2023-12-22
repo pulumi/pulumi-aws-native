@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CleanRooms
         [Output("creatorMemberAbilities")]
         public Output<ImmutableArray<Pulumi.AwsNative.CleanRooms.CollaborationMemberAbility>> CreatorMemberAbilities { get; private set; } = null!;
 
+        [Output("creatorPaymentConfiguration")]
+        public Output<Outputs.CollaborationPaymentConfiguration?> CreatorPaymentConfiguration { get; private set; } = null!;
+
         [Output("dataEncryptionMetadata")]
         public Output<Outputs.CollaborationDataEncryptionMetadata?> DataEncryptionMetadata { get; private set; } = null!;
 
@@ -75,6 +78,7 @@ namespace Pulumi.AwsNative.CleanRooms
                 {
                     "creatorDisplayName",
                     "creatorMemberAbilities[*]",
+                    "creatorPaymentConfiguration",
                     "dataEncryptionMetadata",
                     "members[*]",
                     "queryLogStatus",
@@ -111,6 +115,9 @@ namespace Pulumi.AwsNative.CleanRooms
             get => _creatorMemberAbilities ?? (_creatorMemberAbilities = new InputList<Pulumi.AwsNative.CleanRooms.CollaborationMemberAbility>());
             set => _creatorMemberAbilities = value;
         }
+
+        [Input("creatorPaymentConfiguration")]
+        public Input<Inputs.CollaborationPaymentConfigurationArgs>? CreatorPaymentConfiguration { get; set; }
 
         [Input("dataEncryptionMetadata")]
         public Input<Inputs.CollaborationDataEncryptionMetadataArgs>? DataEncryptionMetadata { get; set; }

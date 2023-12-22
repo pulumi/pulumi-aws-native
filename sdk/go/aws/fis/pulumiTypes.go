@@ -159,6 +159,190 @@ func (o ExperimentTemplateActionMapPtrOutput) Elem() ExperimentTemplateActionMap
 	}).(ExperimentTemplateActionMapOutput)
 }
 
+type ExperimentTemplateExperimentOptions struct {
+	// The account targeting setting for the experiment template.
+	AccountTargeting *ExperimentTemplateExperimentOptionsAccountTargeting `pulumi:"accountTargeting"`
+	// The target resolution failure mode for the experiment template.
+	EmptyTargetResolutionMode *ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode `pulumi:"emptyTargetResolutionMode"`
+}
+
+// ExperimentTemplateExperimentOptionsInput is an input type that accepts ExperimentTemplateExperimentOptionsArgs and ExperimentTemplateExperimentOptionsOutput values.
+// You can construct a concrete instance of `ExperimentTemplateExperimentOptionsInput` via:
+//
+//	ExperimentTemplateExperimentOptionsArgs{...}
+type ExperimentTemplateExperimentOptionsInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateExperimentOptionsOutput() ExperimentTemplateExperimentOptionsOutput
+	ToExperimentTemplateExperimentOptionsOutputWithContext(context.Context) ExperimentTemplateExperimentOptionsOutput
+}
+
+type ExperimentTemplateExperimentOptionsArgs struct {
+	// The account targeting setting for the experiment template.
+	AccountTargeting ExperimentTemplateExperimentOptionsAccountTargetingPtrInput `pulumi:"accountTargeting"`
+	// The target resolution failure mode for the experiment template.
+	EmptyTargetResolutionMode ExperimentTemplateExperimentOptionsEmptyTargetResolutionModePtrInput `pulumi:"emptyTargetResolutionMode"`
+}
+
+func (ExperimentTemplateExperimentOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateExperimentOptions)(nil)).Elem()
+}
+
+func (i ExperimentTemplateExperimentOptionsArgs) ToExperimentTemplateExperimentOptionsOutput() ExperimentTemplateExperimentOptionsOutput {
+	return i.ToExperimentTemplateExperimentOptionsOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateExperimentOptionsArgs) ToExperimentTemplateExperimentOptionsOutputWithContext(ctx context.Context) ExperimentTemplateExperimentOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentOptionsOutput)
+}
+
+func (i ExperimentTemplateExperimentOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateExperimentOptions] {
+	return pulumix.Output[ExperimentTemplateExperimentOptions]{
+		OutputState: i.ToExperimentTemplateExperimentOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ExperimentTemplateExperimentOptionsArgs) ToExperimentTemplateExperimentOptionsPtrOutput() ExperimentTemplateExperimentOptionsPtrOutput {
+	return i.ToExperimentTemplateExperimentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateExperimentOptionsArgs) ToExperimentTemplateExperimentOptionsPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentOptionsOutput).ToExperimentTemplateExperimentOptionsPtrOutputWithContext(ctx)
+}
+
+// ExperimentTemplateExperimentOptionsPtrInput is an input type that accepts ExperimentTemplateExperimentOptionsArgs, ExperimentTemplateExperimentOptionsPtr and ExperimentTemplateExperimentOptionsPtrOutput values.
+// You can construct a concrete instance of `ExperimentTemplateExperimentOptionsPtrInput` via:
+//
+//	        ExperimentTemplateExperimentOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExperimentTemplateExperimentOptionsPtrInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateExperimentOptionsPtrOutput() ExperimentTemplateExperimentOptionsPtrOutput
+	ToExperimentTemplateExperimentOptionsPtrOutputWithContext(context.Context) ExperimentTemplateExperimentOptionsPtrOutput
+}
+
+type experimentTemplateExperimentOptionsPtrType ExperimentTemplateExperimentOptionsArgs
+
+func ExperimentTemplateExperimentOptionsPtr(v *ExperimentTemplateExperimentOptionsArgs) ExperimentTemplateExperimentOptionsPtrInput {
+	return (*experimentTemplateExperimentOptionsPtrType)(v)
+}
+
+func (*experimentTemplateExperimentOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTemplateExperimentOptions)(nil)).Elem()
+}
+
+func (i *experimentTemplateExperimentOptionsPtrType) ToExperimentTemplateExperimentOptionsPtrOutput() ExperimentTemplateExperimentOptionsPtrOutput {
+	return i.ToExperimentTemplateExperimentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *experimentTemplateExperimentOptionsPtrType) ToExperimentTemplateExperimentOptionsPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentOptionsPtrOutput)
+}
+
+func (i *experimentTemplateExperimentOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ExperimentTemplateExperimentOptions] {
+	return pulumix.Output[*ExperimentTemplateExperimentOptions]{
+		OutputState: i.ToExperimentTemplateExperimentOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ExperimentTemplateExperimentOptionsOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateExperimentOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateExperimentOptions)(nil)).Elem()
+}
+
+func (o ExperimentTemplateExperimentOptionsOutput) ToExperimentTemplateExperimentOptionsOutput() ExperimentTemplateExperimentOptionsOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentOptionsOutput) ToExperimentTemplateExperimentOptionsOutputWithContext(ctx context.Context) ExperimentTemplateExperimentOptionsOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentOptionsOutput) ToExperimentTemplateExperimentOptionsPtrOutput() ExperimentTemplateExperimentOptionsPtrOutput {
+	return o.ToExperimentTemplateExperimentOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ExperimentTemplateExperimentOptionsOutput) ToExperimentTemplateExperimentOptionsPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperimentTemplateExperimentOptions) *ExperimentTemplateExperimentOptions {
+		return &v
+	}).(ExperimentTemplateExperimentOptionsPtrOutput)
+}
+
+func (o ExperimentTemplateExperimentOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[ExperimentTemplateExperimentOptions] {
+	return pulumix.Output[ExperimentTemplateExperimentOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The account targeting setting for the experiment template.
+func (o ExperimentTemplateExperimentOptionsOutput) AccountTargeting() ExperimentTemplateExperimentOptionsAccountTargetingPtrOutput {
+	return o.ApplyT(func(v ExperimentTemplateExperimentOptions) *ExperimentTemplateExperimentOptionsAccountTargeting {
+		return v.AccountTargeting
+	}).(ExperimentTemplateExperimentOptionsAccountTargetingPtrOutput)
+}
+
+// The target resolution failure mode for the experiment template.
+func (o ExperimentTemplateExperimentOptionsOutput) EmptyTargetResolutionMode() ExperimentTemplateExperimentOptionsEmptyTargetResolutionModePtrOutput {
+	return o.ApplyT(func(v ExperimentTemplateExperimentOptions) *ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode {
+		return v.EmptyTargetResolutionMode
+	}).(ExperimentTemplateExperimentOptionsEmptyTargetResolutionModePtrOutput)
+}
+
+type ExperimentTemplateExperimentOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateExperimentOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTemplateExperimentOptions)(nil)).Elem()
+}
+
+func (o ExperimentTemplateExperimentOptionsPtrOutput) ToExperimentTemplateExperimentOptionsPtrOutput() ExperimentTemplateExperimentOptionsPtrOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentOptionsPtrOutput) ToExperimentTemplateExperimentOptionsPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentOptionsPtrOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ExperimentTemplateExperimentOptions] {
+	return pulumix.Output[*ExperimentTemplateExperimentOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ExperimentTemplateExperimentOptionsPtrOutput) Elem() ExperimentTemplateExperimentOptionsOutput {
+	return o.ApplyT(func(v *ExperimentTemplateExperimentOptions) ExperimentTemplateExperimentOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ExperimentTemplateExperimentOptions
+		return ret
+	}).(ExperimentTemplateExperimentOptionsOutput)
+}
+
+// The account targeting setting for the experiment template.
+func (o ExperimentTemplateExperimentOptionsPtrOutput) AccountTargeting() ExperimentTemplateExperimentOptionsAccountTargetingPtrOutput {
+	return o.ApplyT(func(v *ExperimentTemplateExperimentOptions) *ExperimentTemplateExperimentOptionsAccountTargeting {
+		if v == nil {
+			return nil
+		}
+		return v.AccountTargeting
+	}).(ExperimentTemplateExperimentOptionsAccountTargetingPtrOutput)
+}
+
+// The target resolution failure mode for the experiment template.
+func (o ExperimentTemplateExperimentOptionsPtrOutput) EmptyTargetResolutionMode() ExperimentTemplateExperimentOptionsEmptyTargetResolutionModePtrOutput {
+	return o.ApplyT(func(v *ExperimentTemplateExperimentOptions) *ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode {
+		if v == nil {
+			return nil
+		}
+		return v.EmptyTargetResolutionMode
+	}).(ExperimentTemplateExperimentOptionsEmptyTargetResolutionModePtrOutput)
+}
+
 type ExperimentTemplateLogConfiguration struct {
 	CloudWatchLogsConfiguration *ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties `pulumi:"cloudWatchLogsConfiguration"`
 	LogSchemaVersion            int                                                                      `pulumi:"logSchemaVersion"`
@@ -896,6 +1080,8 @@ func (o ExperimentTemplateTargetMapPtrOutput) Elem() ExperimentTemplateTargetMap
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateActionMapInput)(nil)).Elem(), ExperimentTemplateActionMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateActionMapPtrInput)(nil)).Elem(), ExperimentTemplateActionMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateExperimentOptionsInput)(nil)).Elem(), ExperimentTemplateExperimentOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateExperimentOptionsPtrInput)(nil)).Elem(), ExperimentTemplateExperimentOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateLogConfigurationInput)(nil)).Elem(), ExperimentTemplateLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateLogConfigurationPtrInput)(nil)).Elem(), ExperimentTemplateLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesInput)(nil)).Elem(), ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs{})
@@ -907,6 +1093,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateTargetMapInput)(nil)).Elem(), ExperimentTemplateTargetMapArgs{})
 	pulumi.RegisterOutputType(ExperimentTemplateActionMapOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateActionMapPtrOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateExperimentOptionsOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateExperimentOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateLogConfigurationOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesOutput{})

@@ -58,6 +58,10 @@ namespace Pulumi.AwsNative.SageMaker
     public sealed class GetDomainResult
     {
         /// <summary>
+        /// Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
+        /// </summary>
+        public readonly Pulumi.AwsNative.SageMaker.DomainAppNetworkAccessType? AppNetworkAccessType;
+        /// <summary>
         /// The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
         /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.DomainAppSecurityGroupManagement? AppSecurityGroupManagement;
@@ -87,9 +91,17 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public readonly string? SecurityGroupIdForDomainBoundary;
         /// <summary>
+        /// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after October 1, 2023.
+        /// </summary>
+        public readonly string? SingleSignOnApplicationArn;
+        /// <summary>
         /// The SSO managed application instance ID.
         /// </summary>
         public readonly string? SingleSignOnManagedApplicationInstanceId;
+        /// <summary>
+        /// The VPC subnets that Studio uses for communication.
+        /// </summary>
+        public readonly ImmutableArray<string> SubnetIds;
         /// <summary>
         /// The URL to the created domain.
         /// </summary>
@@ -97,6 +109,8 @@ namespace Pulumi.AwsNative.SageMaker
 
         [OutputConstructor]
         private GetDomainResult(
+            Pulumi.AwsNative.SageMaker.DomainAppNetworkAccessType? appNetworkAccessType,
+
             Pulumi.AwsNative.SageMaker.DomainAppSecurityGroupManagement? appSecurityGroupManagement,
 
             Outputs.DomainDefaultSpaceSettings? defaultSpaceSettings,
@@ -113,10 +127,15 @@ namespace Pulumi.AwsNative.SageMaker
 
             string? securityGroupIdForDomainBoundary,
 
+            string? singleSignOnApplicationArn,
+
             string? singleSignOnManagedApplicationInstanceId,
+
+            ImmutableArray<string> subnetIds,
 
             string? url)
         {
+            AppNetworkAccessType = appNetworkAccessType;
             AppSecurityGroupManagement = appSecurityGroupManagement;
             DefaultSpaceSettings = defaultSpaceSettings;
             DefaultUserSettings = defaultUserSettings;
@@ -125,7 +144,9 @@ namespace Pulumi.AwsNative.SageMaker
             DomainSettings = domainSettings;
             HomeEfsFileSystemId = homeEfsFileSystemId;
             SecurityGroupIdForDomainBoundary = securityGroupIdForDomainBoundary;
+            SingleSignOnApplicationArn = singleSignOnApplicationArn;
             SingleSignOnManagedApplicationInstanceId = singleSignOnManagedApplicationInstanceId;
+            SubnetIds = subnetIds;
             Url = url;
         }
     }

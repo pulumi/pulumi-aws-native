@@ -2542,6 +2542,151 @@ func (o AutomationRulesFindingFiltersPtrOutput) WorkflowStatus() AutomationRuleS
 	}).(AutomationRuleStringFilterArrayOutput)
 }
 
+// A key-value pair to associate with a resource.
+type HubTags struct {
+}
+
+// HubTagsInput is an input type that accepts HubTagsArgs and HubTagsOutput values.
+// You can construct a concrete instance of `HubTagsInput` via:
+//
+//	HubTagsArgs{...}
+type HubTagsInput interface {
+	pulumi.Input
+
+	ToHubTagsOutput() HubTagsOutput
+	ToHubTagsOutputWithContext(context.Context) HubTagsOutput
+}
+
+// A key-value pair to associate with a resource.
+type HubTagsArgs struct {
+}
+
+func (HubTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubTags)(nil)).Elem()
+}
+
+func (i HubTagsArgs) ToHubTagsOutput() HubTagsOutput {
+	return i.ToHubTagsOutputWithContext(context.Background())
+}
+
+func (i HubTagsArgs) ToHubTagsOutputWithContext(ctx context.Context) HubTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubTagsOutput)
+}
+
+func (i HubTagsArgs) ToOutput(ctx context.Context) pulumix.Output[HubTags] {
+	return pulumix.Output[HubTags]{
+		OutputState: i.ToHubTagsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i HubTagsArgs) ToHubTagsPtrOutput() HubTagsPtrOutput {
+	return i.ToHubTagsPtrOutputWithContext(context.Background())
+}
+
+func (i HubTagsArgs) ToHubTagsPtrOutputWithContext(ctx context.Context) HubTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubTagsOutput).ToHubTagsPtrOutputWithContext(ctx)
+}
+
+// HubTagsPtrInput is an input type that accepts HubTagsArgs, HubTagsPtr and HubTagsPtrOutput values.
+// You can construct a concrete instance of `HubTagsPtrInput` via:
+//
+//	        HubTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type HubTagsPtrInput interface {
+	pulumi.Input
+
+	ToHubTagsPtrOutput() HubTagsPtrOutput
+	ToHubTagsPtrOutputWithContext(context.Context) HubTagsPtrOutput
+}
+
+type hubTagsPtrType HubTagsArgs
+
+func HubTagsPtr(v *HubTagsArgs) HubTagsPtrInput {
+	return (*hubTagsPtrType)(v)
+}
+
+func (*hubTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HubTags)(nil)).Elem()
+}
+
+func (i *hubTagsPtrType) ToHubTagsPtrOutput() HubTagsPtrOutput {
+	return i.ToHubTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *hubTagsPtrType) ToHubTagsPtrOutputWithContext(ctx context.Context) HubTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubTagsPtrOutput)
+}
+
+func (i *hubTagsPtrType) ToOutput(ctx context.Context) pulumix.Output[*HubTags] {
+	return pulumix.Output[*HubTags]{
+		OutputState: i.ToHubTagsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A key-value pair to associate with a resource.
+type HubTagsOutput struct{ *pulumi.OutputState }
+
+func (HubTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubTags)(nil)).Elem()
+}
+
+func (o HubTagsOutput) ToHubTagsOutput() HubTagsOutput {
+	return o
+}
+
+func (o HubTagsOutput) ToHubTagsOutputWithContext(ctx context.Context) HubTagsOutput {
+	return o
+}
+
+func (o HubTagsOutput) ToHubTagsPtrOutput() HubTagsPtrOutput {
+	return o.ToHubTagsPtrOutputWithContext(context.Background())
+}
+
+func (o HubTagsOutput) ToHubTagsPtrOutputWithContext(ctx context.Context) HubTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HubTags) *HubTags {
+		return &v
+	}).(HubTagsPtrOutput)
+}
+
+func (o HubTagsOutput) ToOutput(ctx context.Context) pulumix.Output[HubTags] {
+	return pulumix.Output[HubTags]{
+		OutputState: o.OutputState,
+	}
+}
+
+type HubTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (HubTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HubTags)(nil)).Elem()
+}
+
+func (o HubTagsPtrOutput) ToHubTagsPtrOutput() HubTagsPtrOutput {
+	return o
+}
+
+func (o HubTagsPtrOutput) ToHubTagsPtrOutputWithContext(ctx context.Context) HubTagsPtrOutput {
+	return o
+}
+
+func (o HubTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HubTags] {
+	return pulumix.Output[*HubTags]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o HubTagsPtrOutput) Elem() HubTagsOutput {
+	return o.ApplyT(func(v *HubTags) HubTags {
+		if v != nil {
+			return *v
+		}
+		var ret HubTags
+		return ret
+	}).(HubTagsOutput)
+}
+
 // An individual StandardsControl within the Standard.
 type StandardsControl struct {
 	// the reason the standard control is disabled
@@ -2703,6 +2848,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesFindingFieldsUpdateInput)(nil)).Elem(), AutomationRulesFindingFieldsUpdateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesFindingFiltersInput)(nil)).Elem(), AutomationRulesFindingFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRulesFindingFiltersPtrInput)(nil)).Elem(), AutomationRulesFindingFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HubTagsInput)(nil)).Elem(), HubTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HubTagsPtrInput)(nil)).Elem(), HubTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StandardsControlInput)(nil)).Elem(), StandardsControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StandardsControlArrayInput)(nil)).Elem(), StandardsControlArray{})
 	pulumi.RegisterOutputType(AutomationRuleDateFilterOutput{})
@@ -2732,6 +2879,8 @@ func init() {
 	pulumi.RegisterOutputType(AutomationRulesFindingFieldsUpdateOutput{})
 	pulumi.RegisterOutputType(AutomationRulesFindingFiltersOutput{})
 	pulumi.RegisterOutputType(AutomationRulesFindingFiltersPtrOutput{})
+	pulumi.RegisterOutputType(HubTagsOutput{})
+	pulumi.RegisterOutputType(HubTagsPtrOutput{})
 	pulumi.RegisterOutputType(StandardsControlOutput{})
 	pulumi.RegisterOutputType(StandardsControlArrayOutput{})
 }

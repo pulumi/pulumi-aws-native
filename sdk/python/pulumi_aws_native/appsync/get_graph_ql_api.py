@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGraphQlApiResult:
-    def __init__(__self__, additional_authentication_providers=None, api_id=None, api_type=None, arn=None, authentication_type=None, graph_ql_dns=None, graph_ql_url=None, id=None, lambda_authorizer_config=None, log_config=None, merged_api_execution_role_arn=None, name=None, open_id_connect_config=None, owner_contact=None, realtime_dns=None, realtime_url=None, tags=None, user_pool_config=None, visibility=None, xray_enabled=None):
+    def __init__(__self__, additional_authentication_providers=None, api_id=None, api_type=None, arn=None, authentication_type=None, graph_ql_dns=None, graph_ql_endpoint_arn=None, graph_ql_url=None, id=None, lambda_authorizer_config=None, log_config=None, merged_api_execution_role_arn=None, name=None, open_id_connect_config=None, owner_contact=None, realtime_dns=None, realtime_url=None, tags=None, user_pool_config=None, visibility=None, xray_enabled=None):
         if additional_authentication_providers and not isinstance(additional_authentication_providers, list):
             raise TypeError("Expected argument 'additional_authentication_providers' to be a list")
         pulumi.set(__self__, "additional_authentication_providers", additional_authentication_providers)
@@ -38,6 +38,9 @@ class GetGraphQlApiResult:
         if graph_ql_dns and not isinstance(graph_ql_dns, str):
             raise TypeError("Expected argument 'graph_ql_dns' to be a str")
         pulumi.set(__self__, "graph_ql_dns", graph_ql_dns)
+        if graph_ql_endpoint_arn and not isinstance(graph_ql_endpoint_arn, str):
+            raise TypeError("Expected argument 'graph_ql_endpoint_arn' to be a str")
+        pulumi.set(__self__, "graph_ql_endpoint_arn", graph_ql_endpoint_arn)
         if graph_ql_url and not isinstance(graph_ql_url, str):
             raise TypeError("Expected argument 'graph_ql_url' to be a str")
         pulumi.set(__self__, "graph_ql_url", graph_ql_url)
@@ -110,6 +113,11 @@ class GetGraphQlApiResult:
     @pulumi.getter(name="graphQlDns")
     def graph_ql_dns(self) -> Optional[str]:
         return pulumi.get(self, "graph_ql_dns")
+
+    @property
+    @pulumi.getter(name="graphQlEndpointArn")
+    def graph_ql_endpoint_arn(self) -> Optional[str]:
+        return pulumi.get(self, "graph_ql_endpoint_arn")
 
     @property
     @pulumi.getter(name="graphQlUrl")
@@ -194,6 +202,7 @@ class AwaitableGetGraphQlApiResult(GetGraphQlApiResult):
             arn=self.arn,
             authentication_type=self.authentication_type,
             graph_ql_dns=self.graph_ql_dns,
+            graph_ql_endpoint_arn=self.graph_ql_endpoint_arn,
             graph_ql_url=self.graph_ql_url,
             id=self.id,
             lambda_authorizer_config=self.lambda_authorizer_config,
@@ -227,6 +236,7 @@ def get_graph_ql_api(id: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         authentication_type=pulumi.get(__ret__, 'authentication_type'),
         graph_ql_dns=pulumi.get(__ret__, 'graph_ql_dns'),
+        graph_ql_endpoint_arn=pulumi.get(__ret__, 'graph_ql_endpoint_arn'),
         graph_ql_url=pulumi.get(__ret__, 'graph_ql_url'),
         id=pulumi.get(__ret__, 'id'),
         lambda_authorizer_config=pulumi.get(__ret__, 'lambda_authorizer_config'),

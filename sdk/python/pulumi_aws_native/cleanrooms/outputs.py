@@ -18,6 +18,8 @@ __all__ = [
     'AnalysisTemplateTag',
     'CollaborationDataEncryptionMetadata',
     'CollaborationMemberSpecification',
+    'CollaborationPaymentConfiguration',
+    'CollaborationQueryComputePaymentConfig',
     'CollaborationTag',
     'ConfiguredTableAggregateColumn',
     'ConfiguredTableAggregationConstraint',
@@ -33,9 +35,11 @@ __all__ = [
     'ConfiguredTableGlueTableReference',
     'ConfiguredTableTableReference',
     'ConfiguredTableTag',
+    'MembershipPaymentConfiguration',
     'MembershipProtectedQueryOutputConfiguration',
     'MembershipProtectedQueryResultConfiguration',
     'MembershipProtectedQueryS3OutputConfiguration',
+    'MembershipQueryComputePaymentConfig',
     'MembershipTag',
 ]
 
@@ -210,6 +214,8 @@ class CollaborationMemberSpecification(dict):
             suggest = "display_name"
         elif key == "memberAbilities":
             suggest = "member_abilities"
+        elif key == "paymentConfiguration":
+            suggest = "payment_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CollaborationMemberSpecification. Access the value via the '{suggest}' property getter instead.")
@@ -225,10 +231,13 @@ class CollaborationMemberSpecification(dict):
     def __init__(__self__, *,
                  account_id: str,
                  display_name: str,
-                 member_abilities: Sequence['CollaborationMemberAbility']):
+                 member_abilities: Sequence['CollaborationMemberAbility'],
+                 payment_configuration: Optional['outputs.CollaborationPaymentConfiguration'] = None):
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "member_abilities", member_abilities)
+        if payment_configuration is not None:
+            pulumi.set(__self__, "payment_configuration", payment_configuration)
 
     @property
     @pulumi.getter(name="accountId")
@@ -244,6 +253,69 @@ class CollaborationMemberSpecification(dict):
     @pulumi.getter(name="memberAbilities")
     def member_abilities(self) -> Sequence['CollaborationMemberAbility']:
         return pulumi.get(self, "member_abilities")
+
+    @property
+    @pulumi.getter(name="paymentConfiguration")
+    def payment_configuration(self) -> Optional['outputs.CollaborationPaymentConfiguration']:
+        return pulumi.get(self, "payment_configuration")
+
+
+@pulumi.output_type
+class CollaborationPaymentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryCompute":
+            suggest = "query_compute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CollaborationPaymentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CollaborationPaymentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CollaborationPaymentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 query_compute: 'outputs.CollaborationQueryComputePaymentConfig'):
+        pulumi.set(__self__, "query_compute", query_compute)
+
+    @property
+    @pulumi.getter(name="queryCompute")
+    def query_compute(self) -> 'outputs.CollaborationQueryComputePaymentConfig':
+        return pulumi.get(self, "query_compute")
+
+
+@pulumi.output_type
+class CollaborationQueryComputePaymentConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isResponsible":
+            suggest = "is_responsible"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CollaborationQueryComputePaymentConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CollaborationQueryComputePaymentConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CollaborationQueryComputePaymentConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_responsible: bool):
+        pulumi.set(__self__, "is_responsible", is_responsible)
+
+    @property
+    @pulumi.getter(name="isResponsible")
+    def is_responsible(self) -> bool:
+        return pulumi.get(self, "is_responsible")
 
 
 @pulumi.output_type
@@ -672,6 +744,35 @@ class ConfiguredTableTag(dict):
 
 
 @pulumi.output_type
+class MembershipPaymentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryCompute":
+            suggest = "query_compute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MembershipPaymentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MembershipPaymentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MembershipPaymentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 query_compute: 'outputs.MembershipQueryComputePaymentConfig'):
+        pulumi.set(__self__, "query_compute", query_compute)
+
+    @property
+    @pulumi.getter(name="queryCompute")
+    def query_compute(self) -> 'outputs.MembershipQueryComputePaymentConfig':
+        return pulumi.get(self, "query_compute")
+
+
+@pulumi.output_type
 class MembershipProtectedQueryOutputConfiguration(dict):
     def __init__(__self__, *,
                  s3: 'outputs.MembershipProtectedQueryS3OutputConfiguration'):
@@ -766,6 +867,35 @@ class MembershipProtectedQueryS3OutputConfiguration(dict):
     @pulumi.getter(name="keyPrefix")
     def key_prefix(self) -> Optional[str]:
         return pulumi.get(self, "key_prefix")
+
+
+@pulumi.output_type
+class MembershipQueryComputePaymentConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isResponsible":
+            suggest = "is_responsible"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MembershipQueryComputePaymentConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MembershipQueryComputePaymentConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MembershipQueryComputePaymentConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_responsible: bool):
+        pulumi.set(__self__, "is_responsible", is_responsible)
+
+    @property
+    @pulumi.getter(name="isResponsible")
+    def is_responsible(self) -> bool:
+        return pulumi.get(self, "is_responsible")
 
 
 @pulumi.output_type

@@ -43,6 +43,7 @@ export class Membership extends pulumi.CustomResource {
     public readonly collaborationIdentifier!: pulumi.Output<string>;
     public readonly defaultResultConfiguration!: pulumi.Output<outputs.cleanrooms.MembershipProtectedQueryResultConfiguration | undefined>;
     public /*out*/ readonly membershipIdentifier!: pulumi.Output<string>;
+    public readonly paymentConfiguration!: pulumi.Output<outputs.cleanrooms.MembershipPaymentConfiguration | undefined>;
     public readonly queryLogStatus!: pulumi.Output<enums.cleanrooms.MembershipQueryLogStatus>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
@@ -68,6 +69,7 @@ export class Membership extends pulumi.CustomResource {
             }
             resourceInputs["collaborationIdentifier"] = args ? args.collaborationIdentifier : undefined;
             resourceInputs["defaultResultConfiguration"] = args ? args.defaultResultConfiguration : undefined;
+            resourceInputs["paymentConfiguration"] = args ? args.paymentConfiguration : undefined;
             resourceInputs["queryLogStatus"] = args ? args.queryLogStatus : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -81,6 +83,7 @@ export class Membership extends pulumi.CustomResource {
             resourceInputs["collaborationIdentifier"] = undefined /*out*/;
             resourceInputs["defaultResultConfiguration"] = undefined /*out*/;
             resourceInputs["membershipIdentifier"] = undefined /*out*/;
+            resourceInputs["paymentConfiguration"] = undefined /*out*/;
             resourceInputs["queryLogStatus"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -97,6 +100,7 @@ export class Membership extends pulumi.CustomResource {
 export interface MembershipArgs {
     collaborationIdentifier: pulumi.Input<string>;
     defaultResultConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipProtectedQueryResultConfigurationArgs>;
+    paymentConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipPaymentConfigurationArgs>;
     queryLogStatus: pulumi.Input<enums.cleanrooms.MembershipQueryLogStatus>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms membership.

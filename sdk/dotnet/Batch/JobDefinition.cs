@@ -12,15 +12,20 @@ namespace Pulumi.AwsNative.Batch
     /// <summary>
     /// Resource Type definition for AWS::Batch::JobDefinition
     /// </summary>
-    [Obsolete(@"JobDefinition is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:batch:JobDefinition")]
     public partial class JobDefinition : global::Pulumi.CustomResource
     {
+        [Output("containerOrchestrationType")]
+        public Output<string> ContainerOrchestrationType { get; private set; } = null!;
+
         [Output("containerProperties")]
         public Output<Outputs.JobDefinitionContainerProperties?> ContainerProperties { get; private set; } = null!;
 
         [Output("eksProperties")]
         public Output<Outputs.JobDefinitionEksProperties?> EksProperties { get; private set; } = null!;
+
+        [Output("jobDefinitionArn")]
+        public Output<string> JobDefinitionArn { get; private set; } = null!;
 
         [Output("jobDefinitionName")]
         public Output<string?> JobDefinitionName { get; private set; } = null!;
@@ -40,14 +45,23 @@ namespace Pulumi.AwsNative.Batch
         [Output("retryStrategy")]
         public Output<Outputs.JobDefinitionRetryStrategy?> RetryStrategy { get; private set; } = null!;
 
+        [Output("revision")]
+        public Output<int> Revision { get; private set; } = null!;
+
         [Output("schedulingPriority")]
         public Output<int?> SchedulingPriority { get; private set; } = null!;
 
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// A key-value pair to associate with a resource.
+        /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
 
         [Output("timeout")]
-        public Output<Outputs.JobDefinitionTimeout?> Timeout { get; private set; } = null!;
+        public Output<Outputs.JobDefinitionJobTimeout?> Timeout { get; private set; } = null!;
 
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -77,8 +91,17 @@ namespace Pulumi.AwsNative.Batch
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "containerProperties",
+                    "eksProperties",
                     "jobDefinitionName",
-                    "tags",
+                    "nodeProperties",
+                    "parameters",
+                    "platformCapabilities[*]",
+                    "propagateTags",
+                    "retryStrategy",
+                    "schedulingPriority",
+                    "timeout",
+                    "type",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -134,11 +157,14 @@ namespace Pulumi.AwsNative.Batch
         [Input("schedulingPriority")]
         public Input<int>? SchedulingPriority { get; set; }
 
+        /// <summary>
+        /// A key-value pair to associate with a resource.
+        /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }
 
         [Input("timeout")]
-        public Input<Inputs.JobDefinitionTimeoutArgs>? Timeout { get; set; }
+        public Input<Inputs.JobDefinitionJobTimeoutArgs>? Timeout { get; set; }
 
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

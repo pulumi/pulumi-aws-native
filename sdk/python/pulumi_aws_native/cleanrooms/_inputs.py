@@ -16,6 +16,8 @@ __all__ = [
     'AnalysisTemplateTagArgs',
     'CollaborationDataEncryptionMetadataArgs',
     'CollaborationMemberSpecificationArgs',
+    'CollaborationPaymentConfigurationArgs',
+    'CollaborationQueryComputePaymentConfigArgs',
     'CollaborationTagArgs',
     'ConfiguredTableAggregateColumnArgs',
     'ConfiguredTableAggregationConstraintArgs',
@@ -31,9 +33,11 @@ __all__ = [
     'ConfiguredTableGlueTableReferenceArgs',
     'ConfiguredTableTableReferenceArgs',
     'ConfiguredTableTagArgs',
+    'MembershipPaymentConfigurationArgs',
     'MembershipProtectedQueryOutputConfigurationArgs',
     'MembershipProtectedQueryResultConfigurationArgs',
     'MembershipProtectedQueryS3OutputConfigurationArgs',
+    'MembershipQueryComputePaymentConfigArgs',
     'MembershipTagArgs',
 ]
 
@@ -173,10 +177,13 @@ class CollaborationMemberSpecificationArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[str],
                  display_name: pulumi.Input[str],
-                 member_abilities: pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]):
+                 member_abilities: pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]],
+                 payment_configuration: Optional[pulumi.Input['CollaborationPaymentConfigurationArgs']] = None):
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "member_abilities", member_abilities)
+        if payment_configuration is not None:
+            pulumi.set(__self__, "payment_configuration", payment_configuration)
 
     @property
     @pulumi.getter(name="accountId")
@@ -204,6 +211,47 @@ class CollaborationMemberSpecificationArgs:
     @member_abilities.setter
     def member_abilities(self, value: pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]):
         pulumi.set(self, "member_abilities", value)
+
+    @property
+    @pulumi.getter(name="paymentConfiguration")
+    def payment_configuration(self) -> Optional[pulumi.Input['CollaborationPaymentConfigurationArgs']]:
+        return pulumi.get(self, "payment_configuration")
+
+    @payment_configuration.setter
+    def payment_configuration(self, value: Optional[pulumi.Input['CollaborationPaymentConfigurationArgs']]):
+        pulumi.set(self, "payment_configuration", value)
+
+
+@pulumi.input_type
+class CollaborationPaymentConfigurationArgs:
+    def __init__(__self__, *,
+                 query_compute: pulumi.Input['CollaborationQueryComputePaymentConfigArgs']):
+        pulumi.set(__self__, "query_compute", query_compute)
+
+    @property
+    @pulumi.getter(name="queryCompute")
+    def query_compute(self) -> pulumi.Input['CollaborationQueryComputePaymentConfigArgs']:
+        return pulumi.get(self, "query_compute")
+
+    @query_compute.setter
+    def query_compute(self, value: pulumi.Input['CollaborationQueryComputePaymentConfigArgs']):
+        pulumi.set(self, "query_compute", value)
+
+
+@pulumi.input_type
+class CollaborationQueryComputePaymentConfigArgs:
+    def __init__(__self__, *,
+                 is_responsible: pulumi.Input[bool]):
+        pulumi.set(__self__, "is_responsible", is_responsible)
+
+    @property
+    @pulumi.getter(name="isResponsible")
+    def is_responsible(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "is_responsible")
+
+    @is_responsible.setter
+    def is_responsible(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_responsible", value)
 
 
 @pulumi.input_type
@@ -638,6 +686,22 @@ class ConfiguredTableTagArgs:
 
 
 @pulumi.input_type
+class MembershipPaymentConfigurationArgs:
+    def __init__(__self__, *,
+                 query_compute: pulumi.Input['MembershipQueryComputePaymentConfigArgs']):
+        pulumi.set(__self__, "query_compute", query_compute)
+
+    @property
+    @pulumi.getter(name="queryCompute")
+    def query_compute(self) -> pulumi.Input['MembershipQueryComputePaymentConfigArgs']:
+        return pulumi.get(self, "query_compute")
+
+    @query_compute.setter
+    def query_compute(self, value: pulumi.Input['MembershipQueryComputePaymentConfigArgs']):
+        pulumi.set(self, "query_compute", value)
+
+
+@pulumi.input_type
 class MembershipProtectedQueryOutputConfigurationArgs:
     def __init__(__self__, *,
                  s3: pulumi.Input['MembershipProtectedQueryS3OutputConfigurationArgs']):
@@ -718,6 +782,22 @@ class MembershipProtectedQueryS3OutputConfigurationArgs:
     @key_prefix.setter
     def key_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_prefix", value)
+
+
+@pulumi.input_type
+class MembershipQueryComputePaymentConfigArgs:
+    def __init__(__self__, *,
+                 is_responsible: pulumi.Input[bool]):
+        pulumi.set(__self__, "is_responsible", is_responsible)
+
+    @property
+    @pulumi.getter(name="isResponsible")
+    def is_responsible(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "is_responsible")
+
+    @is_responsible.setter
+    def is_responsible(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_responsible", value)
 
 
 @pulumi.input_type

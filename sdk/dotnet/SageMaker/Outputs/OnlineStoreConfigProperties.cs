@@ -15,15 +15,19 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     {
         public readonly bool? EnableOnlineStore;
         public readonly Outputs.FeatureGroupOnlineStoreSecurityConfig? SecurityConfig;
+        public readonly Pulumi.AwsNative.SageMaker.FeatureGroupStorageType? StorageType;
 
         [OutputConstructor]
         private OnlineStoreConfigProperties(
             bool? enableOnlineStore,
 
-            Outputs.FeatureGroupOnlineStoreSecurityConfig? securityConfig)
+            Outputs.FeatureGroupOnlineStoreSecurityConfig? securityConfig,
+
+            Pulumi.AwsNative.SageMaker.FeatureGroupStorageType? storageType)
         {
             EnableOnlineStore = enableOnlineStore;
             SecurityConfig = securityConfig;
+            StorageType = storageType;
         }
     }
 }

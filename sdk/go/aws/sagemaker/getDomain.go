@@ -29,6 +29,8 @@ type LookupDomainArgs struct {
 }
 
 type LookupDomainResult struct {
+	// Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
+	AppNetworkAccessType *DomainAppNetworkAccessType `pulumi:"appNetworkAccessType"`
 	// The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
 	AppSecurityGroupManagement *DomainAppSecurityGroupManagement `pulumi:"appSecurityGroupManagement"`
 	// The default space settings.
@@ -44,8 +46,12 @@ type LookupDomainResult struct {
 	HomeEfsFileSystemId *string `pulumi:"homeEfsFileSystemId"`
 	// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
 	SecurityGroupIdForDomainBoundary *string `pulumi:"securityGroupIdForDomainBoundary"`
+	// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after October 1, 2023.
+	SingleSignOnApplicationArn *string `pulumi:"singleSignOnApplicationArn"`
 	// The SSO managed application instance ID.
 	SingleSignOnManagedApplicationInstanceId *string `pulumi:"singleSignOnManagedApplicationInstanceId"`
+	// The VPC subnets that Studio uses for communication.
+	SubnetIds []string `pulumi:"subnetIds"`
 	// The URL to the created domain.
 	Url *string `pulumi:"url"`
 }
@@ -92,6 +98,11 @@ func (o LookupDomainResultOutput) ToOutput(ctx context.Context) pulumix.Output[L
 	}
 }
 
+// Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
+func (o LookupDomainResultOutput) AppNetworkAccessType() DomainAppNetworkAccessTypePtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *DomainAppNetworkAccessType { return v.AppNetworkAccessType }).(DomainAppNetworkAccessTypePtrOutput)
+}
+
 // The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
 func (o LookupDomainResultOutput) AppSecurityGroupManagement() DomainAppSecurityGroupManagementPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainAppSecurityGroupManagement { return v.AppSecurityGroupManagement }).(DomainAppSecurityGroupManagementPtrOutput)
@@ -131,9 +142,19 @@ func (o LookupDomainResultOutput) SecurityGroupIdForDomainBoundary() pulumi.Stri
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.SecurityGroupIdForDomainBoundary }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after October 1, 2023.
+func (o LookupDomainResultOutput) SingleSignOnApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.SingleSignOnApplicationArn }).(pulumi.StringPtrOutput)
+}
+
 // The SSO managed application instance ID.
 func (o LookupDomainResultOutput) SingleSignOnManagedApplicationInstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.SingleSignOnManagedApplicationInstanceId }).(pulumi.StringPtrOutput)
+}
+
+// The VPC subnets that Studio uses for communication.
+func (o LookupDomainResultOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
 // The URL to the created domain.

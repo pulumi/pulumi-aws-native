@@ -22,6 +22,7 @@ class CollaborationArgs:
                  description: pulumi.Input[str],
                  members: pulumi.Input[Sequence[pulumi.Input['CollaborationMemberSpecificationArgs']]],
                  query_log_status: pulumi.Input['CollaborationQueryLogStatus'],
+                 creator_payment_configuration: Optional[pulumi.Input['CollaborationPaymentConfigurationArgs']] = None,
                  data_encryption_metadata: Optional[pulumi.Input['CollaborationDataEncryptionMetadataArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationTagArgs']]]] = None):
@@ -34,6 +35,8 @@ class CollaborationArgs:
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "members", members)
         pulumi.set(__self__, "query_log_status", query_log_status)
+        if creator_payment_configuration is not None:
+            pulumi.set(__self__, "creator_payment_configuration", creator_payment_configuration)
         if data_encryption_metadata is not None:
             pulumi.set(__self__, "data_encryption_metadata", data_encryption_metadata)
         if name is not None:
@@ -87,6 +90,15 @@ class CollaborationArgs:
         pulumi.set(self, "query_log_status", value)
 
     @property
+    @pulumi.getter(name="creatorPaymentConfiguration")
+    def creator_payment_configuration(self) -> Optional[pulumi.Input['CollaborationPaymentConfigurationArgs']]:
+        return pulumi.get(self, "creator_payment_configuration")
+
+    @creator_payment_configuration.setter
+    def creator_payment_configuration(self, value: Optional[pulumi.Input['CollaborationPaymentConfigurationArgs']]):
+        pulumi.set(self, "creator_payment_configuration", value)
+
+    @property
     @pulumi.getter(name="dataEncryptionMetadata")
     def data_encryption_metadata(self) -> Optional[pulumi.Input['CollaborationDataEncryptionMetadataArgs']]:
         return pulumi.get(self, "data_encryption_metadata")
@@ -124,6 +136,7 @@ class Collaboration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  creator_display_name: Optional[pulumi.Input[str]] = None,
                  creator_member_abilities: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]] = None,
+                 creator_payment_configuration: Optional[pulumi.Input[pulumi.InputType['CollaborationPaymentConfigurationArgs']]] = None,
                  data_encryption_metadata: Optional[pulumi.Input[pulumi.InputType['CollaborationDataEncryptionMetadataArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CollaborationMemberSpecificationArgs']]]]] = None,
@@ -164,6 +177,7 @@ class Collaboration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  creator_display_name: Optional[pulumi.Input[str]] = None,
                  creator_member_abilities: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]] = None,
+                 creator_payment_configuration: Optional[pulumi.Input[pulumi.InputType['CollaborationPaymentConfigurationArgs']]] = None,
                  data_encryption_metadata: Optional[pulumi.Input[pulumi.InputType['CollaborationDataEncryptionMetadataArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CollaborationMemberSpecificationArgs']]]]] = None,
@@ -185,6 +199,7 @@ class Collaboration(pulumi.CustomResource):
             if creator_member_abilities is None and not opts.urn:
                 raise TypeError("Missing required property 'creator_member_abilities'")
             __props__.__dict__["creator_member_abilities"] = creator_member_abilities
+            __props__.__dict__["creator_payment_configuration"] = creator_payment_configuration
             __props__.__dict__["data_encryption_metadata"] = data_encryption_metadata
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
@@ -199,7 +214,7 @@ class Collaboration(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["collaboration_identifier"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["creator_display_name", "creator_member_abilities[*]", "data_encryption_metadata", "members[*]", "query_log_status"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["creator_display_name", "creator_member_abilities[*]", "creator_payment_configuration", "data_encryption_metadata", "members[*]", "query_log_status"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Collaboration, __self__).__init__(
             'aws-native:cleanrooms:Collaboration',
@@ -227,6 +242,7 @@ class Collaboration(pulumi.CustomResource):
         __props__.__dict__["collaboration_identifier"] = None
         __props__.__dict__["creator_display_name"] = None
         __props__.__dict__["creator_member_abilities"] = None
+        __props__.__dict__["creator_payment_configuration"] = None
         __props__.__dict__["data_encryption_metadata"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["members"] = None
@@ -254,6 +270,11 @@ class Collaboration(pulumi.CustomResource):
     @pulumi.getter(name="creatorMemberAbilities")
     def creator_member_abilities(self) -> pulumi.Output[Sequence['CollaborationMemberAbility']]:
         return pulumi.get(self, "creator_member_abilities")
+
+    @property
+    @pulumi.getter(name="creatorPaymentConfiguration")
+    def creator_payment_configuration(self) -> pulumi.Output[Optional['outputs.CollaborationPaymentConfiguration']]:
+        return pulumi.get(self, "creator_payment_configuration")
 
     @property
     @pulumi.getter(name="dataEncryptionMetadata")

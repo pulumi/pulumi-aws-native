@@ -33,6 +33,7 @@ type LookupMembershipResult struct {
 	CollaborationCreatorAccountId *string                                      `pulumi:"collaborationCreatorAccountId"`
 	DefaultResultConfiguration    *MembershipProtectedQueryResultConfiguration `pulumi:"defaultResultConfiguration"`
 	MembershipIdentifier          *string                                      `pulumi:"membershipIdentifier"`
+	PaymentConfiguration          *MembershipPaymentConfiguration              `pulumi:"paymentConfiguration"`
 	QueryLogStatus                *MembershipQueryLogStatus                    `pulumi:"queryLogStatus"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
 	Tags []MembershipTag `pulumi:"tags"`
@@ -99,6 +100,10 @@ func (o LookupMembershipResultOutput) DefaultResultConfiguration() MembershipPro
 
 func (o LookupMembershipResultOutput) MembershipIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMembershipResult) *string { return v.MembershipIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupMembershipResultOutput) PaymentConfiguration() MembershipPaymentConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupMembershipResult) *MembershipPaymentConfiguration { return v.PaymentConfiguration }).(MembershipPaymentConfigurationPtrOutput)
 }
 
 func (o LookupMembershipResultOutput) QueryLogStatus() MembershipQueryLogStatusPtrOutput {

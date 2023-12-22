@@ -14,18 +14,29 @@ export function getRegistry(args: GetRegistryArgs, opts?: pulumi.InvokeOptions):
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:eventschemas:getRegistry", {
-        "id": args.id,
+        "registryArn": args.registryArn,
     }, opts);
 }
 
 export interface GetRegistryArgs {
-    id: string;
+    /**
+     * The ARN of the registry.
+     */
+    registryArn: string;
 }
 
 export interface GetRegistryResult {
+    /**
+     * A description of the registry to be created.
+     */
     readonly description?: string;
-    readonly id?: string;
+    /**
+     * The ARN of the registry.
+     */
     readonly registryArn?: string;
+    /**
+     * Tags associated with the resource.
+     */
     readonly tags?: outputs.eventschemas.RegistryTagsEntry[];
 }
 /**
@@ -36,5 +47,8 @@ export function getRegistryOutput(args: GetRegistryOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetRegistryOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The ARN of the registry.
+     */
+    registryArn: pulumi.Input<string>;
 }

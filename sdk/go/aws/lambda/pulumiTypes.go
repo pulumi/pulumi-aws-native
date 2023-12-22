@@ -725,6 +725,7 @@ func (o CodeSigningConfigCodeSigningPoliciesPtrOutput) UntrustedArtifactOnDeploy
 	}).(CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeploymentPtrOutput)
 }
 
+// A destination for events after they have been sent to a function for processing.
 type EventInvokeConfigDestinationConfig struct {
 	OnFailure *EventInvokeConfigOnFailure `pulumi:"onFailure"`
 	OnSuccess *EventInvokeConfigOnSuccess `pulumi:"onSuccess"`
@@ -741,6 +742,7 @@ type EventInvokeConfigDestinationConfigInput interface {
 	ToEventInvokeConfigDestinationConfigOutputWithContext(context.Context) EventInvokeConfigDestinationConfigOutput
 }
 
+// A destination for events after they have been sent to a function for processing.
 type EventInvokeConfigDestinationConfigArgs struct {
 	OnFailure EventInvokeConfigOnFailurePtrInput `pulumi:"onFailure"`
 	OnSuccess EventInvokeConfigOnSuccessPtrInput `pulumi:"onSuccess"`
@@ -811,6 +813,7 @@ func (i *eventInvokeConfigDestinationConfigPtrType) ToOutput(ctx context.Context
 	}
 }
 
+// A destination for events after they have been sent to a function for processing.
 type EventInvokeConfigDestinationConfigOutput struct{ *pulumi.OutputState }
 
 func (EventInvokeConfigDestinationConfigOutput) ElementType() reflect.Type {
@@ -897,7 +900,9 @@ func (o EventInvokeConfigDestinationConfigPtrOutput) OnSuccess() EventInvokeConf
 	}).(EventInvokeConfigOnSuccessPtrOutput)
 }
 
+// The destination configuration for failed invocations.
 type EventInvokeConfigOnFailure struct {
+	// The Amazon Resource Name (ARN) of the destination resource.
 	Destination string `pulumi:"destination"`
 }
 
@@ -912,7 +917,9 @@ type EventInvokeConfigOnFailureInput interface {
 	ToEventInvokeConfigOnFailureOutputWithContext(context.Context) EventInvokeConfigOnFailureOutput
 }
 
+// The destination configuration for failed invocations.
 type EventInvokeConfigOnFailureArgs struct {
+	// The Amazon Resource Name (ARN) of the destination resource.
 	Destination pulumi.StringInput `pulumi:"destination"`
 }
 
@@ -981,6 +988,7 @@ func (i *eventInvokeConfigOnFailurePtrType) ToOutput(ctx context.Context) pulumi
 	}
 }
 
+// The destination configuration for failed invocations.
 type EventInvokeConfigOnFailureOutput struct{ *pulumi.OutputState }
 
 func (EventInvokeConfigOnFailureOutput) ElementType() reflect.Type {
@@ -1011,6 +1019,7 @@ func (o EventInvokeConfigOnFailureOutput) ToOutput(ctx context.Context) pulumix.
 	}
 }
 
+// The Amazon Resource Name (ARN) of the destination resource.
 func (o EventInvokeConfigOnFailureOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v EventInvokeConfigOnFailure) string { return v.Destination }).(pulumi.StringOutput)
 }
@@ -1045,6 +1054,7 @@ func (o EventInvokeConfigOnFailurePtrOutput) Elem() EventInvokeConfigOnFailureOu
 	}).(EventInvokeConfigOnFailureOutput)
 }
 
+// The Amazon Resource Name (ARN) of the destination resource.
 func (o EventInvokeConfigOnFailurePtrOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventInvokeConfigOnFailure) *string {
 		if v == nil {
@@ -1054,7 +1064,9 @@ func (o EventInvokeConfigOnFailurePtrOutput) Destination() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The destination configuration for successful invocations.
 type EventInvokeConfigOnSuccess struct {
+	// The Amazon Resource Name (ARN) of the destination resource.
 	Destination string `pulumi:"destination"`
 }
 
@@ -1069,7 +1081,9 @@ type EventInvokeConfigOnSuccessInput interface {
 	ToEventInvokeConfigOnSuccessOutputWithContext(context.Context) EventInvokeConfigOnSuccessOutput
 }
 
+// The destination configuration for successful invocations.
 type EventInvokeConfigOnSuccessArgs struct {
+	// The Amazon Resource Name (ARN) of the destination resource.
 	Destination pulumi.StringInput `pulumi:"destination"`
 }
 
@@ -1138,6 +1152,7 @@ func (i *eventInvokeConfigOnSuccessPtrType) ToOutput(ctx context.Context) pulumi
 	}
 }
 
+// The destination configuration for successful invocations.
 type EventInvokeConfigOnSuccessOutput struct{ *pulumi.OutputState }
 
 func (EventInvokeConfigOnSuccessOutput) ElementType() reflect.Type {
@@ -1168,6 +1183,7 @@ func (o EventInvokeConfigOnSuccessOutput) ToOutput(ctx context.Context) pulumix.
 	}
 }
 
+// The Amazon Resource Name (ARN) of the destination resource.
 func (o EventInvokeConfigOnSuccessOutput) Destination() pulumi.StringOutput {
 	return o.ApplyT(func(v EventInvokeConfigOnSuccess) string { return v.Destination }).(pulumi.StringOutput)
 }
@@ -1202,6 +1218,7 @@ func (o EventInvokeConfigOnSuccessPtrOutput) Elem() EventInvokeConfigOnSuccessOu
 	}).(EventInvokeConfigOnSuccessOutput)
 }
 
+// The Amazon Resource Name (ARN) of the destination resource.
 func (o EventInvokeConfigOnSuccessPtrOutput) Destination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventInvokeConfigOnSuccess) *string {
 		if v == nil {

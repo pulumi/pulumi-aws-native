@@ -15,26 +15,26 @@ namespace Pulumi.AwsNative.Batch.Outputs
     {
         public readonly ImmutableArray<string> Command;
         public readonly ImmutableArray<Outputs.JobDefinitionEnvironment> Environment;
-        public readonly Outputs.JobDefinitionEphemeralStorage? EphemeralStorage;
+        public readonly Outputs.JobDefinitionContainerPropertiesEphemeralStorageProperties? EphemeralStorage;
         public readonly string? ExecutionRoleArn;
-        public readonly Outputs.JobDefinitionFargatePlatformConfiguration? FargatePlatformConfiguration;
+        public readonly Outputs.JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties? FargatePlatformConfiguration;
         public readonly string Image;
         public readonly string? InstanceType;
         public readonly string? JobRoleArn;
-        public readonly Outputs.JobDefinitionLinuxParameters? LinuxParameters;
-        public readonly Outputs.JobDefinitionLogConfiguration? LogConfiguration;
+        public readonly Outputs.JobDefinitionContainerPropertiesLinuxParametersProperties? LinuxParameters;
+        public readonly Outputs.JobDefinitionContainerPropertiesLogConfigurationProperties? LogConfiguration;
         public readonly int? Memory;
-        public readonly ImmutableArray<Outputs.JobDefinitionMountPoints> MountPoints;
-        public readonly Outputs.JobDefinitionNetworkConfiguration? NetworkConfiguration;
+        public readonly ImmutableArray<Outputs.JobDefinitionMountPoint> MountPoints;
+        public readonly Outputs.JobDefinitionContainerPropertiesNetworkConfigurationProperties? NetworkConfiguration;
         public readonly bool? Privileged;
         public readonly bool? ReadonlyRootFilesystem;
         public readonly ImmutableArray<Outputs.JobDefinitionResourceRequirement> ResourceRequirements;
-        public readonly Outputs.JobDefinitionRuntimePlatform? RuntimePlatform;
+        public readonly Outputs.JobDefinitionContainerPropertiesRuntimePlatformProperties? RuntimePlatform;
         public readonly ImmutableArray<Outputs.JobDefinitionSecret> Secrets;
         public readonly ImmutableArray<Outputs.JobDefinitionUlimit> Ulimits;
         public readonly string? User;
         public readonly int? Vcpus;
-        public readonly ImmutableArray<Outputs.JobDefinitionVolumes> Volumes;
+        public readonly ImmutableArray<Outputs.JobDefinitionVolume> Volumes;
 
         [OutputConstructor]
         private JobDefinitionContainerProperties(
@@ -42,11 +42,11 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             ImmutableArray<Outputs.JobDefinitionEnvironment> environment,
 
-            Outputs.JobDefinitionEphemeralStorage? ephemeralStorage,
+            Outputs.JobDefinitionContainerPropertiesEphemeralStorageProperties? ephemeralStorage,
 
             string? executionRoleArn,
 
-            Outputs.JobDefinitionFargatePlatformConfiguration? fargatePlatformConfiguration,
+            Outputs.JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties? fargatePlatformConfiguration,
 
             string image,
 
@@ -54,15 +54,15 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             string? jobRoleArn,
 
-            Outputs.JobDefinitionLinuxParameters? linuxParameters,
+            Outputs.JobDefinitionContainerPropertiesLinuxParametersProperties? linuxParameters,
 
-            Outputs.JobDefinitionLogConfiguration? logConfiguration,
+            Outputs.JobDefinitionContainerPropertiesLogConfigurationProperties? logConfiguration,
 
             int? memory,
 
-            ImmutableArray<Outputs.JobDefinitionMountPoints> mountPoints,
+            ImmutableArray<Outputs.JobDefinitionMountPoint> mountPoints,
 
-            Outputs.JobDefinitionNetworkConfiguration? networkConfiguration,
+            Outputs.JobDefinitionContainerPropertiesNetworkConfigurationProperties? networkConfiguration,
 
             bool? privileged,
 
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             ImmutableArray<Outputs.JobDefinitionResourceRequirement> resourceRequirements,
 
-            Outputs.JobDefinitionRuntimePlatform? runtimePlatform,
+            Outputs.JobDefinitionContainerPropertiesRuntimePlatformProperties? runtimePlatform,
 
             ImmutableArray<Outputs.JobDefinitionSecret> secrets,
 
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             int? vcpus,
 
-            ImmutableArray<Outputs.JobDefinitionVolumes> volumes)
+            ImmutableArray<Outputs.JobDefinitionVolume> volumes)
         {
             Command = command;
             Environment = environment;

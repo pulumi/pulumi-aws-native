@@ -16,6 +16,7 @@ var _ = internal.GetEnvOrDefault
 
 type CapacityProviderAutoScalingGroupProvider struct {
 	AutoScalingGroupArn          string                                                                `pulumi:"autoScalingGroupArn"`
+	ManagedDraining              *CapacityProviderAutoScalingGroupProviderManagedDraining              `pulumi:"managedDraining"`
 	ManagedScaling               *CapacityProviderManagedScaling                                       `pulumi:"managedScaling"`
 	ManagedTerminationProtection *CapacityProviderAutoScalingGroupProviderManagedTerminationProtection `pulumi:"managedTerminationProtection"`
 }
@@ -33,6 +34,7 @@ type CapacityProviderAutoScalingGroupProviderInput interface {
 
 type CapacityProviderAutoScalingGroupProviderArgs struct {
 	AutoScalingGroupArn          pulumi.StringInput                                                           `pulumi:"autoScalingGroupArn"`
+	ManagedDraining              CapacityProviderAutoScalingGroupProviderManagedDrainingPtrInput              `pulumi:"managedDraining"`
 	ManagedScaling               CapacityProviderManagedScalingPtrInput                                       `pulumi:"managedScaling"`
 	ManagedTerminationProtection CapacityProviderAutoScalingGroupProviderManagedTerminationProtectionPtrInput `pulumi:"managedTerminationProtection"`
 }
@@ -77,6 +79,12 @@ func (o CapacityProviderAutoScalingGroupProviderOutput) ToOutput(ctx context.Con
 
 func (o CapacityProviderAutoScalingGroupProviderOutput) AutoScalingGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) string { return v.AutoScalingGroupArn }).(pulumi.StringOutput)
+}
+
+func (o CapacityProviderAutoScalingGroupProviderOutput) ManagedDraining() CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput {
+	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) *CapacityProviderAutoScalingGroupProviderManagedDraining {
+		return v.ManagedDraining
+	}).(CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput)
 }
 
 func (o CapacityProviderAutoScalingGroupProviderOutput) ManagedScaling() CapacityProviderManagedScalingPtrOutput {
@@ -128,6 +136,15 @@ func (o CapacityProviderAutoScalingGroupProviderPtrOutput) AutoScalingGroupArn()
 		}
 		return &v.AutoScalingGroupArn
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedDraining() CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput {
+	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *CapacityProviderAutoScalingGroupProviderManagedDraining {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedDraining
+	}).(CapacityProviderAutoScalingGroupProviderManagedDrainingPtrOutput)
 }
 
 func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedScaling() CapacityProviderManagedScalingPtrOutput {
@@ -3244,6 +3261,136 @@ func (o ServiceDeploymentControllerPtrOutput) Type() ServiceDeploymentController
 	}).(ServiceDeploymentControllerTypePtrOutput)
 }
 
+type ServiceEbsTagSpecification struct {
+	PropagateTags *ServiceEbsTagSpecificationPropagateTags `pulumi:"propagateTags"`
+	ResourceType  string                                   `pulumi:"resourceType"`
+	Tags          []ServiceTag                             `pulumi:"tags"`
+}
+
+// ServiceEbsTagSpecificationInput is an input type that accepts ServiceEbsTagSpecificationArgs and ServiceEbsTagSpecificationOutput values.
+// You can construct a concrete instance of `ServiceEbsTagSpecificationInput` via:
+//
+//	ServiceEbsTagSpecificationArgs{...}
+type ServiceEbsTagSpecificationInput interface {
+	pulumi.Input
+
+	ToServiceEbsTagSpecificationOutput() ServiceEbsTagSpecificationOutput
+	ToServiceEbsTagSpecificationOutputWithContext(context.Context) ServiceEbsTagSpecificationOutput
+}
+
+type ServiceEbsTagSpecificationArgs struct {
+	PropagateTags ServiceEbsTagSpecificationPropagateTagsPtrInput `pulumi:"propagateTags"`
+	ResourceType  pulumi.StringInput                              `pulumi:"resourceType"`
+	Tags          ServiceTagArrayInput                            `pulumi:"tags"`
+}
+
+func (ServiceEbsTagSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEbsTagSpecification)(nil)).Elem()
+}
+
+func (i ServiceEbsTagSpecificationArgs) ToServiceEbsTagSpecificationOutput() ServiceEbsTagSpecificationOutput {
+	return i.ToServiceEbsTagSpecificationOutputWithContext(context.Background())
+}
+
+func (i ServiceEbsTagSpecificationArgs) ToServiceEbsTagSpecificationOutputWithContext(ctx context.Context) ServiceEbsTagSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEbsTagSpecificationOutput)
+}
+
+func (i ServiceEbsTagSpecificationArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceEbsTagSpecification] {
+	return pulumix.Output[ServiceEbsTagSpecification]{
+		OutputState: i.ToServiceEbsTagSpecificationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ServiceEbsTagSpecificationArrayInput is an input type that accepts ServiceEbsTagSpecificationArray and ServiceEbsTagSpecificationArrayOutput values.
+// You can construct a concrete instance of `ServiceEbsTagSpecificationArrayInput` via:
+//
+//	ServiceEbsTagSpecificationArray{ ServiceEbsTagSpecificationArgs{...} }
+type ServiceEbsTagSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToServiceEbsTagSpecificationArrayOutput() ServiceEbsTagSpecificationArrayOutput
+	ToServiceEbsTagSpecificationArrayOutputWithContext(context.Context) ServiceEbsTagSpecificationArrayOutput
+}
+
+type ServiceEbsTagSpecificationArray []ServiceEbsTagSpecificationInput
+
+func (ServiceEbsTagSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEbsTagSpecification)(nil)).Elem()
+}
+
+func (i ServiceEbsTagSpecificationArray) ToServiceEbsTagSpecificationArrayOutput() ServiceEbsTagSpecificationArrayOutput {
+	return i.ToServiceEbsTagSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceEbsTagSpecificationArray) ToServiceEbsTagSpecificationArrayOutputWithContext(ctx context.Context) ServiceEbsTagSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEbsTagSpecificationArrayOutput)
+}
+
+func (i ServiceEbsTagSpecificationArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEbsTagSpecification] {
+	return pulumix.Output[[]ServiceEbsTagSpecification]{
+		OutputState: i.ToServiceEbsTagSpecificationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ServiceEbsTagSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ServiceEbsTagSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEbsTagSpecification)(nil)).Elem()
+}
+
+func (o ServiceEbsTagSpecificationOutput) ToServiceEbsTagSpecificationOutput() ServiceEbsTagSpecificationOutput {
+	return o
+}
+
+func (o ServiceEbsTagSpecificationOutput) ToServiceEbsTagSpecificationOutputWithContext(ctx context.Context) ServiceEbsTagSpecificationOutput {
+	return o
+}
+
+func (o ServiceEbsTagSpecificationOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceEbsTagSpecification] {
+	return pulumix.Output[ServiceEbsTagSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServiceEbsTagSpecificationOutput) PropagateTags() ServiceEbsTagSpecificationPropagateTagsPtrOutput {
+	return o.ApplyT(func(v ServiceEbsTagSpecification) *ServiceEbsTagSpecificationPropagateTags { return v.PropagateTags }).(ServiceEbsTagSpecificationPropagateTagsPtrOutput)
+}
+
+func (o ServiceEbsTagSpecificationOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEbsTagSpecification) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+func (o ServiceEbsTagSpecificationOutput) Tags() ServiceTagArrayOutput {
+	return o.ApplyT(func(v ServiceEbsTagSpecification) []ServiceTag { return v.Tags }).(ServiceTagArrayOutput)
+}
+
+type ServiceEbsTagSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceEbsTagSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEbsTagSpecification)(nil)).Elem()
+}
+
+func (o ServiceEbsTagSpecificationArrayOutput) ToServiceEbsTagSpecificationArrayOutput() ServiceEbsTagSpecificationArrayOutput {
+	return o
+}
+
+func (o ServiceEbsTagSpecificationArrayOutput) ToServiceEbsTagSpecificationArrayOutputWithContext(ctx context.Context) ServiceEbsTagSpecificationArrayOutput {
+	return o
+}
+
+func (o ServiceEbsTagSpecificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceEbsTagSpecification] {
+	return pulumix.Output[[]ServiceEbsTagSpecification]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServiceEbsTagSpecificationArrayOutput) Index(i pulumi.IntInput) ServiceEbsTagSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEbsTagSpecification {
+		return vs[0].([]ServiceEbsTagSpecification)[vs[1].(int)]
+	}).(ServiceEbsTagSpecificationOutput)
+}
+
 type ServiceLoadBalancer struct {
 	ContainerName    *string `pulumi:"containerName"`
 	ContainerPort    *int    `pulumi:"containerPort"`
@@ -3565,6 +3712,298 @@ func (o ServiceLogConfigurationPtrOutput) SecretOptions() ServiceSecretArrayOutp
 		}
 		return v.SecretOptions
 	}).(ServiceSecretArrayOutput)
+}
+
+type ServiceManagedEbsVolumeConfiguration struct {
+	Encrypted         *bool                        `pulumi:"encrypted"`
+	FilesystemType    *string                      `pulumi:"filesystemType"`
+	Iops              *int                         `pulumi:"iops"`
+	KmsKeyId          *string                      `pulumi:"kmsKeyId"`
+	RoleArn           string                       `pulumi:"roleArn"`
+	SizeInGiB         *int                         `pulumi:"sizeInGiB"`
+	SnapshotId        *string                      `pulumi:"snapshotId"`
+	TagSpecifications []ServiceEbsTagSpecification `pulumi:"tagSpecifications"`
+	Throughput        *int                         `pulumi:"throughput"`
+	VolumeType        *string                      `pulumi:"volumeType"`
+}
+
+// ServiceManagedEbsVolumeConfigurationInput is an input type that accepts ServiceManagedEbsVolumeConfigurationArgs and ServiceManagedEbsVolumeConfigurationOutput values.
+// You can construct a concrete instance of `ServiceManagedEbsVolumeConfigurationInput` via:
+//
+//	ServiceManagedEbsVolumeConfigurationArgs{...}
+type ServiceManagedEbsVolumeConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceManagedEbsVolumeConfigurationOutput() ServiceManagedEbsVolumeConfigurationOutput
+	ToServiceManagedEbsVolumeConfigurationOutputWithContext(context.Context) ServiceManagedEbsVolumeConfigurationOutput
+}
+
+type ServiceManagedEbsVolumeConfigurationArgs struct {
+	Encrypted         pulumi.BoolPtrInput                  `pulumi:"encrypted"`
+	FilesystemType    pulumi.StringPtrInput                `pulumi:"filesystemType"`
+	Iops              pulumi.IntPtrInput                   `pulumi:"iops"`
+	KmsKeyId          pulumi.StringPtrInput                `pulumi:"kmsKeyId"`
+	RoleArn           pulumi.StringInput                   `pulumi:"roleArn"`
+	SizeInGiB         pulumi.IntPtrInput                   `pulumi:"sizeInGiB"`
+	SnapshotId        pulumi.StringPtrInput                `pulumi:"snapshotId"`
+	TagSpecifications ServiceEbsTagSpecificationArrayInput `pulumi:"tagSpecifications"`
+	Throughput        pulumi.IntPtrInput                   `pulumi:"throughput"`
+	VolumeType        pulumi.StringPtrInput                `pulumi:"volumeType"`
+}
+
+func (ServiceManagedEbsVolumeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceManagedEbsVolumeConfiguration)(nil)).Elem()
+}
+
+func (i ServiceManagedEbsVolumeConfigurationArgs) ToServiceManagedEbsVolumeConfigurationOutput() ServiceManagedEbsVolumeConfigurationOutput {
+	return i.ToServiceManagedEbsVolumeConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceManagedEbsVolumeConfigurationArgs) ToServiceManagedEbsVolumeConfigurationOutputWithContext(ctx context.Context) ServiceManagedEbsVolumeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceManagedEbsVolumeConfigurationOutput)
+}
+
+func (i ServiceManagedEbsVolumeConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceManagedEbsVolumeConfiguration] {
+	return pulumix.Output[ServiceManagedEbsVolumeConfiguration]{
+		OutputState: i.ToServiceManagedEbsVolumeConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ServiceManagedEbsVolumeConfigurationArgs) ToServiceManagedEbsVolumeConfigurationPtrOutput() ServiceManagedEbsVolumeConfigurationPtrOutput {
+	return i.ToServiceManagedEbsVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceManagedEbsVolumeConfigurationArgs) ToServiceManagedEbsVolumeConfigurationPtrOutputWithContext(ctx context.Context) ServiceManagedEbsVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceManagedEbsVolumeConfigurationOutput).ToServiceManagedEbsVolumeConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceManagedEbsVolumeConfigurationPtrInput is an input type that accepts ServiceManagedEbsVolumeConfigurationArgs, ServiceManagedEbsVolumeConfigurationPtr and ServiceManagedEbsVolumeConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceManagedEbsVolumeConfigurationPtrInput` via:
+//
+//	        ServiceManagedEbsVolumeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceManagedEbsVolumeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceManagedEbsVolumeConfigurationPtrOutput() ServiceManagedEbsVolumeConfigurationPtrOutput
+	ToServiceManagedEbsVolumeConfigurationPtrOutputWithContext(context.Context) ServiceManagedEbsVolumeConfigurationPtrOutput
+}
+
+type serviceManagedEbsVolumeConfigurationPtrType ServiceManagedEbsVolumeConfigurationArgs
+
+func ServiceManagedEbsVolumeConfigurationPtr(v *ServiceManagedEbsVolumeConfigurationArgs) ServiceManagedEbsVolumeConfigurationPtrInput {
+	return (*serviceManagedEbsVolumeConfigurationPtrType)(v)
+}
+
+func (*serviceManagedEbsVolumeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceManagedEbsVolumeConfiguration)(nil)).Elem()
+}
+
+func (i *serviceManagedEbsVolumeConfigurationPtrType) ToServiceManagedEbsVolumeConfigurationPtrOutput() ServiceManagedEbsVolumeConfigurationPtrOutput {
+	return i.ToServiceManagedEbsVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceManagedEbsVolumeConfigurationPtrType) ToServiceManagedEbsVolumeConfigurationPtrOutputWithContext(ctx context.Context) ServiceManagedEbsVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceManagedEbsVolumeConfigurationPtrOutput)
+}
+
+func (i *serviceManagedEbsVolumeConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceManagedEbsVolumeConfiguration] {
+	return pulumix.Output[*ServiceManagedEbsVolumeConfiguration]{
+		OutputState: i.ToServiceManagedEbsVolumeConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ServiceManagedEbsVolumeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceManagedEbsVolumeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceManagedEbsVolumeConfiguration)(nil)).Elem()
+}
+
+func (o ServiceManagedEbsVolumeConfigurationOutput) ToServiceManagedEbsVolumeConfigurationOutput() ServiceManagedEbsVolumeConfigurationOutput {
+	return o
+}
+
+func (o ServiceManagedEbsVolumeConfigurationOutput) ToServiceManagedEbsVolumeConfigurationOutputWithContext(ctx context.Context) ServiceManagedEbsVolumeConfigurationOutput {
+	return o
+}
+
+func (o ServiceManagedEbsVolumeConfigurationOutput) ToServiceManagedEbsVolumeConfigurationPtrOutput() ServiceManagedEbsVolumeConfigurationPtrOutput {
+	return o.ToServiceManagedEbsVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceManagedEbsVolumeConfigurationOutput) ToServiceManagedEbsVolumeConfigurationPtrOutputWithContext(ctx context.Context) ServiceManagedEbsVolumeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceManagedEbsVolumeConfiguration) *ServiceManagedEbsVolumeConfiguration {
+		return &v
+	}).(ServiceManagedEbsVolumeConfigurationPtrOutput)
+}
+
+func (o ServiceManagedEbsVolumeConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceManagedEbsVolumeConfiguration] {
+	return pulumix.Output[ServiceManagedEbsVolumeConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServiceManagedEbsVolumeConfigurationOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceManagedEbsVolumeConfigurationOutput) FilesystemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *string { return v.FilesystemType }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceManagedEbsVolumeConfigurationOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceManagedEbsVolumeConfigurationOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceManagedEbsVolumeConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o ServiceManagedEbsVolumeConfigurationOutput) SizeInGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *int { return v.SizeInGiB }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceManagedEbsVolumeConfigurationOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceManagedEbsVolumeConfigurationOutput) TagSpecifications() ServiceEbsTagSpecificationArrayOutput {
+	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) []ServiceEbsTagSpecification { return v.TagSpecifications }).(ServiceEbsTagSpecificationArrayOutput)
+}
+
+func (o ServiceManagedEbsVolumeConfigurationOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceManagedEbsVolumeConfigurationOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *string { return v.VolumeType }).(pulumi.StringPtrOutput)
+}
+
+type ServiceManagedEbsVolumeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceManagedEbsVolumeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceManagedEbsVolumeConfiguration)(nil)).Elem()
+}
+
+func (o ServiceManagedEbsVolumeConfigurationPtrOutput) ToServiceManagedEbsVolumeConfigurationPtrOutput() ServiceManagedEbsVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceManagedEbsVolumeConfigurationPtrOutput) ToServiceManagedEbsVolumeConfigurationPtrOutputWithContext(ctx context.Context) ServiceManagedEbsVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceManagedEbsVolumeConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceManagedEbsVolumeConfiguration] {
+	return pulumix.Output[*ServiceManagedEbsVolumeConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServiceManagedEbsVolumeConfigurationPtrOutput) Elem() ServiceManagedEbsVolumeConfigurationOutput {
+	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) ServiceManagedEbsVolumeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceManagedEbsVolumeConfiguration
+		return ret
+	}).(ServiceManagedEbsVolumeConfigurationOutput)
+}
+
+func (o ServiceManagedEbsVolumeConfigurationPtrOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Encrypted
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceManagedEbsVolumeConfigurationPtrOutput) FilesystemType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FilesystemType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceManagedEbsVolumeConfigurationPtrOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceManagedEbsVolumeConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceManagedEbsVolumeConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceManagedEbsVolumeConfigurationPtrOutput) SizeInGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SizeInGiB
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceManagedEbsVolumeConfigurationPtrOutput) SnapshotId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceManagedEbsVolumeConfigurationPtrOutput) TagSpecifications() ServiceEbsTagSpecificationArrayOutput {
+	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) []ServiceEbsTagSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.TagSpecifications
+	}).(ServiceEbsTagSpecificationArrayOutput)
+}
+
+func (o ServiceManagedEbsVolumeConfigurationPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceManagedEbsVolumeConfigurationPtrOutput) VolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeType
+	}).(pulumi.StringPtrOutput)
 }
 
 type ServiceNetworkConfiguration struct {
@@ -4354,6 +4793,130 @@ func (o ServiceTagArrayOutput) Index(i pulumi.IntInput) ServiceTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceTag {
 		return vs[0].([]ServiceTag)[vs[1].(int)]
 	}).(ServiceTagOutput)
+}
+
+type ServiceVolumeConfiguration struct {
+	ManagedEbsVolume *ServiceManagedEbsVolumeConfiguration `pulumi:"managedEbsVolume"`
+	Name             string                                `pulumi:"name"`
+}
+
+// ServiceVolumeConfigurationInput is an input type that accepts ServiceVolumeConfigurationArgs and ServiceVolumeConfigurationOutput values.
+// You can construct a concrete instance of `ServiceVolumeConfigurationInput` via:
+//
+//	ServiceVolumeConfigurationArgs{...}
+type ServiceVolumeConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceVolumeConfigurationOutput() ServiceVolumeConfigurationOutput
+	ToServiceVolumeConfigurationOutputWithContext(context.Context) ServiceVolumeConfigurationOutput
+}
+
+type ServiceVolumeConfigurationArgs struct {
+	ManagedEbsVolume ServiceManagedEbsVolumeConfigurationPtrInput `pulumi:"managedEbsVolume"`
+	Name             pulumi.StringInput                           `pulumi:"name"`
+}
+
+func (ServiceVolumeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceVolumeConfiguration)(nil)).Elem()
+}
+
+func (i ServiceVolumeConfigurationArgs) ToServiceVolumeConfigurationOutput() ServiceVolumeConfigurationOutput {
+	return i.ToServiceVolumeConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceVolumeConfigurationArgs) ToServiceVolumeConfigurationOutputWithContext(ctx context.Context) ServiceVolumeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceVolumeConfigurationOutput)
+}
+
+func (i ServiceVolumeConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceVolumeConfiguration] {
+	return pulumix.Output[ServiceVolumeConfiguration]{
+		OutputState: i.ToServiceVolumeConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ServiceVolumeConfigurationArrayInput is an input type that accepts ServiceVolumeConfigurationArray and ServiceVolumeConfigurationArrayOutput values.
+// You can construct a concrete instance of `ServiceVolumeConfigurationArrayInput` via:
+//
+//	ServiceVolumeConfigurationArray{ ServiceVolumeConfigurationArgs{...} }
+type ServiceVolumeConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToServiceVolumeConfigurationArrayOutput() ServiceVolumeConfigurationArrayOutput
+	ToServiceVolumeConfigurationArrayOutputWithContext(context.Context) ServiceVolumeConfigurationArrayOutput
+}
+
+type ServiceVolumeConfigurationArray []ServiceVolumeConfigurationInput
+
+func (ServiceVolumeConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceVolumeConfiguration)(nil)).Elem()
+}
+
+func (i ServiceVolumeConfigurationArray) ToServiceVolumeConfigurationArrayOutput() ServiceVolumeConfigurationArrayOutput {
+	return i.ToServiceVolumeConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceVolumeConfigurationArray) ToServiceVolumeConfigurationArrayOutputWithContext(ctx context.Context) ServiceVolumeConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceVolumeConfigurationArrayOutput)
+}
+
+func (i ServiceVolumeConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceVolumeConfiguration] {
+	return pulumix.Output[[]ServiceVolumeConfiguration]{
+		OutputState: i.ToServiceVolumeConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ServiceVolumeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceVolumeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceVolumeConfiguration)(nil)).Elem()
+}
+
+func (o ServiceVolumeConfigurationOutput) ToServiceVolumeConfigurationOutput() ServiceVolumeConfigurationOutput {
+	return o
+}
+
+func (o ServiceVolumeConfigurationOutput) ToServiceVolumeConfigurationOutputWithContext(ctx context.Context) ServiceVolumeConfigurationOutput {
+	return o
+}
+
+func (o ServiceVolumeConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceVolumeConfiguration] {
+	return pulumix.Output[ServiceVolumeConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServiceVolumeConfigurationOutput) ManagedEbsVolume() ServiceManagedEbsVolumeConfigurationPtrOutput {
+	return o.ApplyT(func(v ServiceVolumeConfiguration) *ServiceManagedEbsVolumeConfiguration { return v.ManagedEbsVolume }).(ServiceManagedEbsVolumeConfigurationPtrOutput)
+}
+
+func (o ServiceVolumeConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceVolumeConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ServiceVolumeConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceVolumeConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceVolumeConfiguration)(nil)).Elem()
+}
+
+func (o ServiceVolumeConfigurationArrayOutput) ToServiceVolumeConfigurationArrayOutput() ServiceVolumeConfigurationArrayOutput {
+	return o
+}
+
+func (o ServiceVolumeConfigurationArrayOutput) ToServiceVolumeConfigurationArrayOutputWithContext(ctx context.Context) ServiceVolumeConfigurationArrayOutput {
+	return o
+}
+
+func (o ServiceVolumeConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceVolumeConfiguration] {
+	return pulumix.Output[[]ServiceVolumeConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ServiceVolumeConfigurationArrayOutput) Index(i pulumi.IntInput) ServiceVolumeConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceVolumeConfiguration {
+		return vs[0].([]ServiceVolumeConfiguration)[vs[1].(int)]
+	}).(ServiceVolumeConfigurationOutput)
 }
 
 type TaskDefinitionAuthorizationConfig struct {
@@ -10231,10 +10794,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationPtrInput)(nil)).Elem(), ServiceDeploymentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentControllerInput)(nil)).Elem(), ServiceDeploymentControllerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentControllerPtrInput)(nil)).Elem(), ServiceDeploymentControllerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEbsTagSpecificationInput)(nil)).Elem(), ServiceEbsTagSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEbsTagSpecificationArrayInput)(nil)).Elem(), ServiceEbsTagSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLoadBalancerInput)(nil)).Elem(), ServiceLoadBalancerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLoadBalancerArrayInput)(nil)).Elem(), ServiceLoadBalancerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLogConfigurationInput)(nil)).Elem(), ServiceLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLogConfigurationPtrInput)(nil)).Elem(), ServiceLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceManagedEbsVolumeConfigurationInput)(nil)).Elem(), ServiceManagedEbsVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceManagedEbsVolumeConfigurationPtrInput)(nil)).Elem(), ServiceManagedEbsVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkConfigurationInput)(nil)).Elem(), ServiceNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkConfigurationPtrInput)(nil)).Elem(), ServiceNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServicePlacementConstraintInput)(nil)).Elem(), ServicePlacementConstraintArgs{})
@@ -10247,6 +10814,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSecretArrayInput)(nil)).Elem(), ServiceSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTagInput)(nil)).Elem(), ServiceTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTagArrayInput)(nil)).Elem(), ServiceTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVolumeConfigurationInput)(nil)).Elem(), ServiceVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVolumeConfigurationArrayInput)(nil)).Elem(), ServiceVolumeConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionAuthorizationConfigInput)(nil)).Elem(), TaskDefinitionAuthorizationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionAuthorizationConfigPtrInput)(nil)).Elem(), TaskDefinitionAuthorizationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionContainerDefinitionInput)(nil)).Elem(), TaskDefinitionContainerDefinitionArgs{})
@@ -10359,10 +10928,14 @@ func init() {
 	pulumi.RegisterOutputType(ServiceDeploymentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentControllerOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentControllerPtrOutput{})
+	pulumi.RegisterOutputType(ServiceEbsTagSpecificationOutput{})
+	pulumi.RegisterOutputType(ServiceEbsTagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(ServiceLoadBalancerOutput{})
 	pulumi.RegisterOutputType(ServiceLoadBalancerArrayOutput{})
 	pulumi.RegisterOutputType(ServiceLogConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ServiceManagedEbsVolumeConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceManagedEbsVolumeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServicePlacementConstraintOutput{})
@@ -10375,6 +10948,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceSecretArrayOutput{})
 	pulumi.RegisterOutputType(ServiceTagOutput{})
 	pulumi.RegisterOutputType(ServiceTagArrayOutput{})
+	pulumi.RegisterOutputType(ServiceVolumeConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceVolumeConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionAuthorizationConfigOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionAuthorizationConfigPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionContainerDefinitionOutput{})

@@ -44,10 +44,13 @@ export class Pipeline extends pulumi.CustomResource {
     public readonly artifactStores!: pulumi.Output<outputs.codepipeline.PipelineArtifactStoreMap[] | undefined>;
     public readonly disableInboundStageTransitions!: pulumi.Output<outputs.codepipeline.PipelineStageTransition[] | undefined>;
     public readonly name!: pulumi.Output<string | undefined>;
+    public readonly pipelineType!: pulumi.Output<string | undefined>;
     public readonly restartExecutionOnUpdate!: pulumi.Output<boolean | undefined>;
     public readonly roleArn!: pulumi.Output<string>;
     public readonly stages!: pulumi.Output<outputs.codepipeline.PipelineStageDeclaration[]>;
     public readonly tags!: pulumi.Output<outputs.codepipeline.PipelineTag[] | undefined>;
+    public readonly triggers!: pulumi.Output<outputs.codepipeline.PipelineTriggerDeclaration[] | undefined>;
+    public readonly variables!: pulumi.Output<outputs.codepipeline.PipelineVariableDeclaration[] | undefined>;
     public /*out*/ readonly version!: pulumi.Output<string>;
 
     /**
@@ -73,20 +76,26 @@ export class Pipeline extends pulumi.CustomResource {
             resourceInputs["artifactStores"] = args ? args.artifactStores : undefined;
             resourceInputs["disableInboundStageTransitions"] = args ? args.disableInboundStageTransitions : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["pipelineType"] = args ? args.pipelineType : undefined;
             resourceInputs["restartExecutionOnUpdate"] = args ? args.restartExecutionOnUpdate : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["stages"] = args ? args.stages : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["triggers"] = args ? args.triggers : undefined;
+            resourceInputs["variables"] = args ? args.variables : undefined;
             resourceInputs["version"] = undefined /*out*/;
         } else {
             resourceInputs["artifactStore"] = undefined /*out*/;
             resourceInputs["artifactStores"] = undefined /*out*/;
             resourceInputs["disableInboundStageTransitions"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["pipelineType"] = undefined /*out*/;
             resourceInputs["restartExecutionOnUpdate"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["stages"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["triggers"] = undefined /*out*/;
+            resourceInputs["variables"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -104,8 +113,11 @@ export interface PipelineArgs {
     artifactStores?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineArtifactStoreMapArgs>[]>;
     disableInboundStageTransitions?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStageTransitionArgs>[]>;
     name?: pulumi.Input<string>;
+    pipelineType?: pulumi.Input<string>;
     restartExecutionOnUpdate?: pulumi.Input<boolean>;
     roleArn: pulumi.Input<string>;
     stages: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineStageDeclarationArgs>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineTagArgs>[]>;
+    triggers?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineTriggerDeclarationArgs>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineVariableDeclarationArgs>[]>;
 }

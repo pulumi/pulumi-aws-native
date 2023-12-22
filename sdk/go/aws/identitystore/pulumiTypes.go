@@ -81,48 +81,7 @@ func (o GroupMembershipMemberIdOutput) UserId() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupMembershipMemberId) string { return v.UserId }).(pulumi.StringOutput)
 }
 
-type GroupMembershipMemberIdPtrOutput struct{ *pulumi.OutputState }
-
-func (GroupMembershipMemberIdPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupMembershipMemberId)(nil)).Elem()
-}
-
-func (o GroupMembershipMemberIdPtrOutput) ToGroupMembershipMemberIdPtrOutput() GroupMembershipMemberIdPtrOutput {
-	return o
-}
-
-func (o GroupMembershipMemberIdPtrOutput) ToGroupMembershipMemberIdPtrOutputWithContext(ctx context.Context) GroupMembershipMemberIdPtrOutput {
-	return o
-}
-
-func (o GroupMembershipMemberIdPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupMembershipMemberId] {
-	return pulumix.Output[*GroupMembershipMemberId]{
-		OutputState: o.OutputState,
-	}
-}
-
-func (o GroupMembershipMemberIdPtrOutput) Elem() GroupMembershipMemberIdOutput {
-	return o.ApplyT(func(v *GroupMembershipMemberId) GroupMembershipMemberId {
-		if v != nil {
-			return *v
-		}
-		var ret GroupMembershipMemberId
-		return ret
-	}).(GroupMembershipMemberIdOutput)
-}
-
-// The identifier for a user in the identity store.
-func (o GroupMembershipMemberIdPtrOutput) UserId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GroupMembershipMemberId) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.UserId
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupMembershipMemberIdInput)(nil)).Elem(), GroupMembershipMemberIdArgs{})
 	pulumi.RegisterOutputType(GroupMembershipMemberIdOutput{})
-	pulumi.RegisterOutputType(GroupMembershipMemberIdPtrOutput{})
 }

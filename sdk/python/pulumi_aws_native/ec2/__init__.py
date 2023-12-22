@@ -72,6 +72,7 @@ from .get_route_table import *
 from .get_security_group import *
 from .get_security_group_egress import *
 from .get_security_group_ingress import *
+from .get_snapshot_block_public_access import *
 from .get_spot_fleet import *
 from .get_subnet import *
 from .get_subnet_cidr_block import *
@@ -145,6 +146,7 @@ from .route_table import *
 from .security_group import *
 from .security_group_egress import *
 from .security_group_ingress import *
+from .snapshot_block_public_access import *
 from .spot_fleet import *
 from .subnet import *
 from .subnet_cidr_block import *

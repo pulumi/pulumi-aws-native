@@ -78,6 +78,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         public readonly bool? EnhancedImageMetadataEnabled;
         /// <summary>
+        /// The execution role name/ARN for the image build, if provided
+        /// </summary>
+        public readonly string? ExecutionRole;
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
         /// </summary>
         public readonly string? ImageRecipeArn;
@@ -105,6 +109,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// The tags of this image pipeline.
         /// </summary>
         public readonly object? Tags;
+        /// <summary>
+        /// Workflows to define the image build process
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ImagePipelineWorkflowConfiguration> Workflows;
 
         [OutputConstructor]
         private GetImagePipelineResult(
@@ -118,6 +126,8 @@ namespace Pulumi.AwsNative.ImageBuilder
 
             bool? enhancedImageMetadataEnabled,
 
+            string? executionRole,
+
             string? imageRecipeArn,
 
             Outputs.ImagePipelineImageScanningConfiguration? imageScanningConfiguration,
@@ -130,13 +140,16 @@ namespace Pulumi.AwsNative.ImageBuilder
 
             Pulumi.AwsNative.ImageBuilder.ImagePipelineStatus? status,
 
-            object? tags)
+            object? tags,
+
+            ImmutableArray<Outputs.ImagePipelineWorkflowConfiguration> workflows)
         {
             Arn = arn;
             ContainerRecipeArn = containerRecipeArn;
             Description = description;
             DistributionConfigurationArn = distributionConfigurationArn;
             EnhancedImageMetadataEnabled = enhancedImageMetadataEnabled;
+            ExecutionRole = executionRole;
             ImageRecipeArn = imageRecipeArn;
             ImageScanningConfiguration = imageScanningConfiguration;
             ImageTestsConfiguration = imageTestsConfiguration;
@@ -144,6 +157,7 @@ namespace Pulumi.AwsNative.ImageBuilder
             Schedule = schedule;
             Status = status;
             Tags = tags;
+            Workflows = workflows;
         }
     }
 }

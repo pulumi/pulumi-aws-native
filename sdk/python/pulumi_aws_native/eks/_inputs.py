@@ -11,7 +11,11 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AccessEntryAccessPolicyArgs',
+    'AccessEntryAccessScopeArgs',
+    'AccessEntryTagArgs',
     'AddonTagArgs',
+    'ClusterAccessConfigArgs',
     'ClusterControlPlanePlacementArgs',
     'ClusterEncryptionConfigArgs',
     'ClusterKubernetesNetworkConfigArgs',
@@ -35,6 +39,117 @@ __all__ = [
     'NodegroupUpdateConfigArgs',
     'PodIdentityAssociationTagArgs',
 ]
+
+@pulumi.input_type
+class AccessEntryAccessPolicyArgs:
+    def __init__(__self__, *,
+                 access_scope: pulumi.Input['AccessEntryAccessScopeArgs'],
+                 policy_arn: pulumi.Input[str]):
+        """
+        An access policy to associate with the current access entry.
+        :param pulumi.Input[str] policy_arn: The ARN of the access policy to add to the access entry.
+        """
+        pulumi.set(__self__, "access_scope", access_scope)
+        pulumi.set(__self__, "policy_arn", policy_arn)
+
+    @property
+    @pulumi.getter(name="accessScope")
+    def access_scope(self) -> pulumi.Input['AccessEntryAccessScopeArgs']:
+        return pulumi.get(self, "access_scope")
+
+    @access_scope.setter
+    def access_scope(self, value: pulumi.Input['AccessEntryAccessScopeArgs']):
+        pulumi.set(self, "access_scope", value)
+
+    @property
+    @pulumi.getter(name="policyArn")
+    def policy_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the access policy to add to the access entry.
+        """
+        return pulumi.get(self, "policy_arn")
+
+    @policy_arn.setter
+    def policy_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy_arn", value)
+
+
+@pulumi.input_type
+class AccessEntryAccessScopeArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['AccessEntryAccessScopeType'],
+                 namespaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The access scope of the access policy.
+        :param pulumi.Input['AccessEntryAccessScopeType'] type: The type of the access scope.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] namespaces: The namespaces to associate with the access scope. Only specify if Type is set to 'namespace'.
+        """
+        pulumi.set(__self__, "type", type)
+        if namespaces is not None:
+            pulumi.set(__self__, "namespaces", namespaces)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['AccessEntryAccessScopeType']:
+        """
+        The type of the access scope.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['AccessEntryAccessScopeType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def namespaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The namespaces to associate with the access scope. Only specify if Type is set to 'namespace'.
+        """
+        return pulumi.get(self, "namespaces")
+
+    @namespaces.setter
+    def namespaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "namespaces", value)
+
+
+@pulumi.input_type
+class AccessEntryTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class AddonTagArgs:
@@ -72,6 +187,46 @@ class AddonTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ClusterAccessConfigArgs:
+    def __init__(__self__, *,
+                 authentication_mode: Optional[pulumi.Input['ClusterAccessConfigAuthenticationMode']] = None,
+                 bootstrap_cluster_creator_admin_permissions: Optional[pulumi.Input[bool]] = None):
+        """
+        An object representing the Access Config to use for the cluster.
+        :param pulumi.Input['ClusterAccessConfigAuthenticationMode'] authentication_mode: Specify the authentication mode that should be used to create your cluster.
+        :param pulumi.Input[bool] bootstrap_cluster_creator_admin_permissions: Set this value to false to avoid creating a default cluster admin Access Entry using the IAM principal used to create the cluster.
+        """
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
+        if bootstrap_cluster_creator_admin_permissions is not None:
+            pulumi.set(__self__, "bootstrap_cluster_creator_admin_permissions", bootstrap_cluster_creator_admin_permissions)
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[pulumi.Input['ClusterAccessConfigAuthenticationMode']]:
+        """
+        Specify the authentication mode that should be used to create your cluster.
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @authentication_mode.setter
+    def authentication_mode(self, value: Optional[pulumi.Input['ClusterAccessConfigAuthenticationMode']]):
+        pulumi.set(self, "authentication_mode", value)
+
+    @property
+    @pulumi.getter(name="bootstrapClusterCreatorAdminPermissions")
+    def bootstrap_cluster_creator_admin_permissions(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set this value to false to avoid creating a default cluster admin Access Entry using the IAM principal used to create the cluster.
+        """
+        return pulumi.get(self, "bootstrap_cluster_creator_admin_permissions")
+
+    @bootstrap_cluster_creator_admin_permissions.setter
+    def bootstrap_cluster_creator_admin_permissions(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bootstrap_cluster_creator_admin_permissions", value)
 
 
 @pulumi.input_type

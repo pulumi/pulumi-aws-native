@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.Connect.Inputs
 
     public sealed class InstanceStorageConfigKinesisVideoStreamConfigArgs : global::Pulumi.ResourceArgs
     {
-        [Input("encryptionConfig")]
-        public Input<Inputs.InstanceStorageConfigEncryptionConfigArgs>? EncryptionConfig { get; set; }
+        [Input("encryptionConfig", required: true)]
+        public Input<Inputs.InstanceStorageConfigEncryptionConfigArgs> EncryptionConfig { get; set; } = null!;
 
         [Input("prefix", required: true)]
         public Input<string> Prefix { get; set; } = null!;

@@ -10,13 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Logs
 {
     /// <summary>
-    /// Resource Type definition for AWS::Logs::DeliveryDestination
+    /// This structure contains information about one delivery destination in your account.
+    /// 
+    /// A delivery destination is an AWS resource that represents an AWS service that logs can be sent to CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.
     /// </summary>
     [AwsNativeResourceType("aws-native:logs:DeliveryDestination")]
     public partial class DeliveryDestination : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The value of the Arn property for this object.
+        /// The Amazon Resource Name (ARN) that uniquely identifies this delivery destination.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -32,25 +34,25 @@ namespace Pulumi.AwsNative.Logs
         public Output<object?> DeliveryDestinationPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The value of the DeliveryDestinationType property for this object.
+        /// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
         /// </summary>
         [Output("deliveryDestinationType")]
         public Output<string> DeliveryDestinationType { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the Destination Resource.
+        /// The ARN of the AWS resource that will receive the logs.
         /// </summary>
         [Output("destinationResourceArn")]
         public Output<string?> DestinationResourceArn { get; private set; } = null!;
 
         /// <summary>
-        /// The unique name of the Delivery Destination.
+        /// The name of this delivery destination.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// An array of key-value pairs to apply to this resource.
+        /// The tags that have been assigned to this delivery destination.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.DeliveryDestinationTag>> Tags { get; private set; } = null!;
@@ -116,13 +118,13 @@ namespace Pulumi.AwsNative.Logs
         public Input<object>? DeliveryDestinationPolicy { get; set; }
 
         /// <summary>
-        /// The ARN of the Destination Resource.
+        /// The ARN of the AWS resource that will receive the logs.
         /// </summary>
         [Input("destinationResourceArn")]
         public Input<string>? DestinationResourceArn { get; set; }
 
         /// <summary>
-        /// The unique name of the Delivery Destination.
+        /// The name of this delivery destination.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -131,7 +133,7 @@ namespace Pulumi.AwsNative.Logs
         private InputList<Inputs.DeliveryDestinationTagArgs>? _tags;
 
         /// <summary>
-        /// An array of key-value pairs to apply to this resource.
+        /// The tags that have been assigned to this delivery destination.
         /// </summary>
         public InputList<Inputs.DeliveryDestinationTagArgs> Tags
         {

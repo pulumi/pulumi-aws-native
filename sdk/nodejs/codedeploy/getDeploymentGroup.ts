@@ -40,6 +40,7 @@ export interface GetDeploymentGroupResult {
     readonly outdatedInstancesStrategy?: string;
     readonly serviceRoleArn?: string;
     readonly tags?: outputs.codedeploy.DeploymentGroupTag[];
+    readonly terminationHookEnabled?: boolean;
     readonly triggerConfigurations?: outputs.codedeploy.DeploymentGroupTriggerConfig[];
 }
 /**

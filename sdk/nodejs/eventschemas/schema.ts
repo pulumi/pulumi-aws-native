@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::EventSchemas::Schema
- *
- * @deprecated Schema is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Schema extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Schema extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Schema {
-        pulumi.log.warn("Schema is deprecated: Schema is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Schema(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,14 +37,46 @@ export class Schema extends pulumi.CustomResource {
         return obj['__pulumiType'] === Schema.__pulumiType;
     }
 
+    /**
+     * The source of the schema definition.
+     */
     public readonly content!: pulumi.Output<string>;
+    /**
+     * A description of the schema.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The last modified time of the schema.
+     */
+    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    /**
+     * The name of the schema registry.
+     */
     public readonly registryName!: pulumi.Output<string>;
+    /**
+     * The ARN of the schema.
+     */
     public /*out*/ readonly schemaArn!: pulumi.Output<string>;
+    /**
+     * The name of the schema.
+     */
     public readonly schemaName!: pulumi.Output<string | undefined>;
+    /**
+     * The version number of the schema.
+     */
     public /*out*/ readonly schemaVersion!: pulumi.Output<string>;
+    /**
+     * Tags associated with the resource.
+     */
     public readonly tags!: pulumi.Output<outputs.eventschemas.SchemaTagsEntry[] | undefined>;
+    /**
+     * The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
+     */
     public readonly type!: pulumi.Output<string>;
+    /**
+     * The date the schema version was created.
+     */
+    public /*out*/ readonly versionCreatedDate!: pulumi.Output<string>;
 
     /**
      * Create a Schema resource with the given unique name, arguments, and options.
@@ -56,9 +85,7 @@ export class Schema extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Schema is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SchemaArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Schema is deprecated: Schema is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -77,17 +104,21 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["schemaName"] = args ? args.schemaName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["lastModified"] = undefined /*out*/;
             resourceInputs["schemaArn"] = undefined /*out*/;
             resourceInputs["schemaVersion"] = undefined /*out*/;
+            resourceInputs["versionCreatedDate"] = undefined /*out*/;
         } else {
             resourceInputs["content"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
             resourceInputs["registryName"] = undefined /*out*/;
             resourceInputs["schemaArn"] = undefined /*out*/;
             resourceInputs["schemaName"] = undefined /*out*/;
             resourceInputs["schemaVersion"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["versionCreatedDate"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["registryName", "schemaName"] };
@@ -100,10 +131,28 @@ export class Schema extends pulumi.CustomResource {
  * The set of arguments for constructing a Schema resource.
  */
 export interface SchemaArgs {
+    /**
+     * The source of the schema definition.
+     */
     content: pulumi.Input<string>;
+    /**
+     * A description of the schema.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the schema registry.
+     */
     registryName: pulumi.Input<string>;
+    /**
+     * The name of the schema.
+     */
     schemaName?: pulumi.Input<string>;
+    /**
+     * Tags associated with the resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.eventschemas.SchemaTagsEntryArgs>[]>;
+    /**
+     * The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
+     */
     type: pulumi.Input<string>;
 }

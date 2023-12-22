@@ -34,6 +34,7 @@ class DeploymentGroupArgs:
                  on_premises_tag_set: Optional[pulumi.Input['DeploymentGroupOnPremisesTagSetArgs']] = None,
                  outdated_instances_strategy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTagArgs']]]] = None,
+                 termination_hook_enabled: Optional[pulumi.Input[bool]] = None,
                  trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigArgs']]]] = None):
         """
         The set of arguments for constructing a DeploymentGroup resource.
@@ -72,6 +73,8 @@ class DeploymentGroupArgs:
             pulumi.set(__self__, "outdated_instances_strategy", outdated_instances_strategy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if termination_hook_enabled is not None:
+            pulumi.set(__self__, "termination_hook_enabled", termination_hook_enabled)
         if trigger_configurations is not None:
             pulumi.set(__self__, "trigger_configurations", trigger_configurations)
 
@@ -238,6 +241,15 @@ class DeploymentGroupArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="terminationHookEnabled")
+    def termination_hook_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "termination_hook_enabled")
+
+    @termination_hook_enabled.setter
+    def termination_hook_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "termination_hook_enabled", value)
+
+    @property
     @pulumi.getter(name="triggerConfigurations")
     def trigger_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupTriggerConfigArgs']]]]:
         return pulumi.get(self, "trigger_configurations")
@@ -275,6 +287,7 @@ class DeploymentGroup(pulumi.CustomResource):
                  outdated_instances_strategy: Optional[pulumi.Input[str]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTagArgs']]]]] = None,
+                 termination_hook_enabled: Optional[pulumi.Input[bool]] = None,
                  trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTriggerConfigArgs']]]]] = None,
                  __props__=None):
         """
@@ -325,6 +338,7 @@ class DeploymentGroup(pulumi.CustomResource):
                  outdated_instances_strategy: Optional[pulumi.Input[str]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTagArgs']]]]] = None,
+                 termination_hook_enabled: Optional[pulumi.Input[bool]] = None,
                  trigger_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeploymentGroupTriggerConfigArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""DeploymentGroup is deprecated: DeploymentGroup is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
@@ -358,6 +372,7 @@ class DeploymentGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_role_arn'")
             __props__.__dict__["service_role_arn"] = service_role_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["termination_hook_enabled"] = termination_hook_enabled
             __props__.__dict__["trigger_configurations"] = trigger_configurations
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["application_name", "deployment_group_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -401,6 +416,7 @@ class DeploymentGroup(pulumi.CustomResource):
         __props__.__dict__["outdated_instances_strategy"] = None
         __props__.__dict__["service_role_arn"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["termination_hook_enabled"] = None
         __props__.__dict__["trigger_configurations"] = None
         return DeploymentGroup(resource_name, opts=opts, __props__=__props__)
 
@@ -493,6 +509,11 @@ class DeploymentGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DeploymentGroupTag']]]:
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="terminationHookEnabled")
+    def termination_hook_enabled(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "termination_hook_enabled")
 
     @property
     @pulumi.getter(name="triggerConfigurations")

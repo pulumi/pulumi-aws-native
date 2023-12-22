@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAssociationResult:
-    def __init__(__self__, apply_only_at_cron_interval=None, association_id=None, association_name=None, automation_target_parameter_name=None, calendar_names=None, compliance_severity=None, document_version=None, instance_id=None, max_concurrency=None, max_errors=None, name=None, output_location=None, parameters=None, schedule_expression=None, schedule_offset=None, sync_compliance=None, targets=None, wait_for_success_timeout_seconds=None):
+    def __init__(__self__, apply_only_at_cron_interval=None, association_id=None, association_name=None, automation_target_parameter_name=None, calendar_names=None, compliance_severity=None, document_version=None, instance_id=None, max_concurrency=None, max_errors=None, name=None, output_location=None, parameters=None, schedule_expression=None, schedule_offset=None, sync_compliance=None, targets=None):
         if apply_only_at_cron_interval and not isinstance(apply_only_at_cron_interval, bool):
             raise TypeError("Expected argument 'apply_only_at_cron_interval' to be a bool")
         pulumi.set(__self__, "apply_only_at_cron_interval", apply_only_at_cron_interval)
@@ -72,9 +72,6 @@ class GetAssociationResult:
         if targets and not isinstance(targets, list):
             raise TypeError("Expected argument 'targets' to be a list")
         pulumi.set(__self__, "targets", targets)
-        if wait_for_success_timeout_seconds and not isinstance(wait_for_success_timeout_seconds, int):
-            raise TypeError("Expected argument 'wait_for_success_timeout_seconds' to be a int")
-        pulumi.set(__self__, "wait_for_success_timeout_seconds", wait_for_success_timeout_seconds)
 
     @property
     @pulumi.getter(name="applyOnlyAtCronInterval")
@@ -185,11 +182,6 @@ class GetAssociationResult:
         """
         return pulumi.get(self, "targets")
 
-    @property
-    @pulumi.getter(name="waitForSuccessTimeoutSeconds")
-    def wait_for_success_timeout_seconds(self) -> Optional[int]:
-        return pulumi.get(self, "wait_for_success_timeout_seconds")
-
 
 class AwaitableGetAssociationResult(GetAssociationResult):
     # pylint: disable=using-constant-test
@@ -213,8 +205,7 @@ class AwaitableGetAssociationResult(GetAssociationResult):
             schedule_expression=self.schedule_expression,
             schedule_offset=self.schedule_offset,
             sync_compliance=self.sync_compliance,
-            targets=self.targets,
-            wait_for_success_timeout_seconds=self.wait_for_success_timeout_seconds)
+            targets=self.targets)
 
 
 def get_association(association_id: Optional[str] = None,
@@ -247,8 +238,7 @@ def get_association(association_id: Optional[str] = None,
         schedule_expression=pulumi.get(__ret__, 'schedule_expression'),
         schedule_offset=pulumi.get(__ret__, 'schedule_offset'),
         sync_compliance=pulumi.get(__ret__, 'sync_compliance'),
-        targets=pulumi.get(__ret__, 'targets'),
-        wait_for_success_timeout_seconds=pulumi.get(__ret__, 'wait_for_success_timeout_seconds'))
+        targets=pulumi.get(__ret__, 'targets'))
 
 
 @_utilities.lift_output_func(get_association)

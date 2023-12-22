@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AwsNative.S3Express
 {
     /// <summary>
-    /// Specifies the number of Avilability Zone that's used for redundancy for the bucket.
+    /// Specifies the number of Availability Zone that's used for redundancy for the bucket.
     /// </summary>
     [EnumType]
     public readonly struct DirectoryBucketDataRedundancy : IEquatable<DirectoryBucketDataRedundancy>

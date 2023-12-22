@@ -28,14 +28,10 @@ type LookupSubnetArgs struct {
 }
 
 type LookupSubnetResult struct {
-	AssignIpv6AddressOnCreation *bool `pulumi:"assignIpv6AddressOnCreation"`
-	EnableDns64                 *bool `pulumi:"enableDns64"`
-	// The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
-	Ipv4NetmaskLength *int     `pulumi:"ipv4NetmaskLength"`
-	Ipv6CidrBlock     *string  `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlocks    []string `pulumi:"ipv6CidrBlocks"`
-	// The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
-	Ipv6NetmaskLength             *int                                     `pulumi:"ipv6NetmaskLength"`
+	AssignIpv6AddressOnCreation   *bool                                    `pulumi:"assignIpv6AddressOnCreation"`
+	EnableDns64                   *bool                                    `pulumi:"enableDns64"`
+	Ipv6CidrBlock                 *string                                  `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlocks                []string                                 `pulumi:"ipv6CidrBlocks"`
 	MapPublicIpOnLaunch           *bool                                    `pulumi:"mapPublicIpOnLaunch"`
 	NetworkAclAssociationId       *string                                  `pulumi:"networkAclAssociationId"`
 	PrivateDnsNameOptionsOnLaunch *PrivateDnsNameOptionsOnLaunchProperties `pulumi:"privateDnsNameOptionsOnLaunch"`
@@ -92,22 +88,12 @@ func (o LookupSubnetResultOutput) EnableDns64() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupSubnetResult) *bool { return v.EnableDns64 }).(pulumi.BoolPtrOutput)
 }
 
-// The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
-func (o LookupSubnetResultOutput) Ipv4NetmaskLength() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LookupSubnetResult) *int { return v.Ipv4NetmaskLength }).(pulumi.IntPtrOutput)
-}
-
 func (o LookupSubnetResultOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubnetResult) *string { return v.Ipv6CidrBlock }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupSubnetResultOutput) Ipv6CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSubnetResult) []string { return v.Ipv6CidrBlocks }).(pulumi.StringArrayOutput)
-}
-
-// The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
-func (o LookupSubnetResultOutput) Ipv6NetmaskLength() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LookupSubnetResult) *int { return v.Ipv6NetmaskLength }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupSubnetResultOutput) MapPublicIpOnLaunch() pulumi.BoolPtrOutput {

@@ -26,6 +26,7 @@ class DomainArgs:
                  ebs_options: Optional[pulumi.Input['DomainEbsOptionsArgs']] = None,
                  encryption_at_rest_options: Optional[pulumi.Input['DomainEncryptionAtRestOptionsArgs']] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
+                 ip_address_type: Optional[pulumi.Input[str]] = None,
                  log_publishing_options: Optional[Any] = None,
                  node_to_node_encryption_options: Optional[pulumi.Input['DomainNodeToNodeEncryptionOptionsArgs']] = None,
                  off_peak_window_options: Optional[pulumi.Input['DomainOffPeakWindowOptionsArgs']] = None,
@@ -57,6 +58,8 @@ class DomainArgs:
             pulumi.set(__self__, "encryption_at_rest_options", encryption_at_rest_options)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if log_publishing_options is not None:
             pulumi.set(__self__, "log_publishing_options", log_publishing_options)
         if node_to_node_encryption_options is not None:
@@ -163,6 +166,15 @@ class DomainArgs:
         pulumi.set(self, "engine_version", value)
 
     @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address_type", value)
+
+    @property
     @pulumi.getter(name="logPublishingOptions")
     def log_publishing_options(self) -> Optional[Any]:
         return pulumi.get(self, "log_publishing_options")
@@ -244,6 +256,7 @@ class Domain(pulumi.CustomResource):
                  ebs_options: Optional[pulumi.Input[pulumi.InputType['DomainEbsOptionsArgs']]] = None,
                  encryption_at_rest_options: Optional[pulumi.Input[pulumi.InputType['DomainEncryptionAtRestOptionsArgs']]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
+                 ip_address_type: Optional[pulumi.Input[str]] = None,
                  log_publishing_options: Optional[Any] = None,
                  node_to_node_encryption_options: Optional[pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionOptionsArgs']]] = None,
                  off_peak_window_options: Optional[pulumi.Input[pulumi.InputType['DomainOffPeakWindowOptionsArgs']]] = None,
@@ -293,6 +306,7 @@ class Domain(pulumi.CustomResource):
                  ebs_options: Optional[pulumi.Input[pulumi.InputType['DomainEbsOptionsArgs']]] = None,
                  encryption_at_rest_options: Optional[pulumi.Input[pulumi.InputType['DomainEncryptionAtRestOptionsArgs']]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
+                 ip_address_type: Optional[pulumi.Input[str]] = None,
                  log_publishing_options: Optional[Any] = None,
                  node_to_node_encryption_options: Optional[pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionOptionsArgs']]] = None,
                  off_peak_window_options: Optional[pulumi.Input[pulumi.InputType['DomainOffPeakWindowOptionsArgs']]] = None,
@@ -319,6 +333,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["ebs_options"] = ebs_options
             __props__.__dict__["encryption_at_rest_options"] = encryption_at_rest_options
             __props__.__dict__["engine_version"] = engine_version
+            __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["log_publishing_options"] = log_publishing_options
             __props__.__dict__["node_to_node_encryption_options"] = node_to_node_encryption_options
             __props__.__dict__["off_peak_window_options"] = off_peak_window_options
@@ -329,6 +344,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["domain_arn"] = None
             __props__.__dict__["domain_endpoint"] = None
+            __props__.__dict__["domain_endpoint_v2"] = None
             __props__.__dict__["domain_endpoints"] = None
             __props__.__dict__["service_software_options"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain_name"])
@@ -364,11 +380,13 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["domain_arn"] = None
         __props__.__dict__["domain_endpoint"] = None
         __props__.__dict__["domain_endpoint_options"] = None
+        __props__.__dict__["domain_endpoint_v2"] = None
         __props__.__dict__["domain_endpoints"] = None
         __props__.__dict__["domain_name"] = None
         __props__.__dict__["ebs_options"] = None
         __props__.__dict__["encryption_at_rest_options"] = None
         __props__.__dict__["engine_version"] = None
+        __props__.__dict__["ip_address_type"] = None
         __props__.__dict__["log_publishing_options"] = None
         __props__.__dict__["node_to_node_encryption_options"] = None
         __props__.__dict__["off_peak_window_options"] = None
@@ -425,6 +443,11 @@ class Domain(pulumi.CustomResource):
         return pulumi.get(self, "domain_endpoint_options")
 
     @property
+    @pulumi.getter(name="domainEndpointV2")
+    def domain_endpoint_v2(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "domain_endpoint_v2")
+
+    @property
     @pulumi.getter(name="domainEndpoints")
     def domain_endpoints(self) -> pulumi.Output[Any]:
         return pulumi.get(self, "domain_endpoints")
@@ -448,6 +471,11 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "engine_version")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "ip_address_type")
 
     @property
     @pulumi.getter(name="logPublishingOptions")

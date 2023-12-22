@@ -20,6 +20,7 @@ class MembershipArgs:
                  collaboration_identifier: pulumi.Input[str],
                  query_log_status: pulumi.Input['MembershipQueryLogStatus'],
                  default_result_configuration: Optional[pulumi.Input['MembershipProtectedQueryResultConfigurationArgs']] = None,
+                 payment_configuration: Optional[pulumi.Input['MembershipPaymentConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['MembershipTagArgs']]]] = None):
         """
         The set of arguments for constructing a Membership resource.
@@ -29,6 +30,8 @@ class MembershipArgs:
         pulumi.set(__self__, "query_log_status", query_log_status)
         if default_result_configuration is not None:
             pulumi.set(__self__, "default_result_configuration", default_result_configuration)
+        if payment_configuration is not None:
+            pulumi.set(__self__, "payment_configuration", payment_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -60,6 +63,15 @@ class MembershipArgs:
         pulumi.set(self, "default_result_configuration", value)
 
     @property
+    @pulumi.getter(name="paymentConfiguration")
+    def payment_configuration(self) -> Optional[pulumi.Input['MembershipPaymentConfigurationArgs']]:
+        return pulumi.get(self, "payment_configuration")
+
+    @payment_configuration.setter
+    def payment_configuration(self, value: Optional[pulumi.Input['MembershipPaymentConfigurationArgs']]):
+        pulumi.set(self, "payment_configuration", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MembershipTagArgs']]]]:
         """
@@ -79,6 +91,7 @@ class Membership(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collaboration_identifier: Optional[pulumi.Input[str]] = None,
                  default_result_configuration: Optional[pulumi.Input[pulumi.InputType['MembershipProtectedQueryResultConfigurationArgs']]] = None,
+                 payment_configuration: Optional[pulumi.Input[pulumi.InputType['MembershipPaymentConfigurationArgs']]] = None,
                  query_log_status: Optional[pulumi.Input['MembershipQueryLogStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MembershipTagArgs']]]]] = None,
                  __props__=None):
@@ -115,6 +128,7 @@ class Membership(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  collaboration_identifier: Optional[pulumi.Input[str]] = None,
                  default_result_configuration: Optional[pulumi.Input[pulumi.InputType['MembershipProtectedQueryResultConfigurationArgs']]] = None,
+                 payment_configuration: Optional[pulumi.Input[pulumi.InputType['MembershipPaymentConfigurationArgs']]] = None,
                  query_log_status: Optional[pulumi.Input['MembershipQueryLogStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MembershipTagArgs']]]]] = None,
                  __props__=None):
@@ -130,6 +144,7 @@ class Membership(pulumi.CustomResource):
                 raise TypeError("Missing required property 'collaboration_identifier'")
             __props__.__dict__["collaboration_identifier"] = collaboration_identifier
             __props__.__dict__["default_result_configuration"] = default_result_configuration
+            __props__.__dict__["payment_configuration"] = payment_configuration
             if query_log_status is None and not opts.urn:
                 raise TypeError("Missing required property 'query_log_status'")
             __props__.__dict__["query_log_status"] = query_log_status
@@ -168,6 +183,7 @@ class Membership(pulumi.CustomResource):
         __props__.__dict__["collaboration_identifier"] = None
         __props__.__dict__["default_result_configuration"] = None
         __props__.__dict__["membership_identifier"] = None
+        __props__.__dict__["payment_configuration"] = None
         __props__.__dict__["query_log_status"] = None
         __props__.__dict__["tags"] = None
         return Membership(resource_name, opts=opts, __props__=__props__)
@@ -201,6 +217,11 @@ class Membership(pulumi.CustomResource):
     @pulumi.getter(name="membershipIdentifier")
     def membership_identifier(self) -> pulumi.Output[str]:
         return pulumi.get(self, "membership_identifier")
+
+    @property
+    @pulumi.getter(name="paymentConfiguration")
+    def payment_configuration(self) -> pulumi.Output[Optional['outputs.MembershipPaymentConfiguration']]:
+        return pulumi.get(self, "payment_configuration")
 
     @property
     @pulumi.getter(name="queryLogStatus")

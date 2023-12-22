@@ -19,13 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetRegistryResult:
-    def __init__(__self__, description=None, id=None, registry_arn=None, tags=None):
+    def __init__(__self__, description=None, registry_arn=None, tags=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if registry_arn and not isinstance(registry_arn, str):
             raise TypeError("Expected argument 'registry_arn' to be a str")
         pulumi.set(__self__, "registry_arn", registry_arn)
@@ -36,21 +33,25 @@ class GetRegistryResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A description of the registry to be created.
+        """
         return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="registryArn")
     def registry_arn(self) -> Optional[str]:
+        """
+        The ARN of the registry.
+        """
         return pulumi.get(self, "registry_arn")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.RegistryTagsEntry']]:
+        """
+        Tags associated with the resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -61,32 +62,36 @@ class AwaitableGetRegistryResult(GetRegistryResult):
             yield self
         return GetRegistryResult(
             description=self.description,
-            id=self.id,
             registry_arn=self.registry_arn,
             tags=self.tags)
 
 
-def get_registry(id: Optional[str] = None,
+def get_registry(registry_arn: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryResult:
     """
     Resource Type definition for AWS::EventSchemas::Registry
+
+
+    :param str registry_arn: The ARN of the registry.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['registryArn'] = registry_arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:eventschemas:getRegistry', __args__, opts=opts, typ=GetRegistryResult).value
 
     return AwaitableGetRegistryResult(
         description=pulumi.get(__ret__, 'description'),
-        id=pulumi.get(__ret__, 'id'),
         registry_arn=pulumi.get(__ret__, 'registry_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_registry)
-def get_registry_output(id: Optional[pulumi.Input[str]] = None,
+def get_registry_output(registry_arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryResult]:
     """
     Resource Type definition for AWS::EventSchemas::Registry
+
+
+    :param str registry_arn: The ARN of the registry.
     """
     ...

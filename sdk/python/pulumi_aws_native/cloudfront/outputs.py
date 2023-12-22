@@ -54,6 +54,7 @@ __all__ = [
     'FunctionConfig',
     'FunctionMetadata',
     'KeyGroupConfig',
+    'KeyValueStoreImportSource',
     'MonitoringSubscription',
     'MonitoringSubscriptionRealtimeMetricsSubscriptionConfig',
     'OriginAccessControlConfig',
@@ -2336,6 +2337,44 @@ class KeyGroupConfig(dict):
     @pulumi.getter
     def comment(self) -> Optional[str]:
         return pulumi.get(self, "comment")
+
+
+@pulumi.output_type
+class KeyValueStoreImportSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceArn":
+            suggest = "source_arn"
+        elif key == "sourceType":
+            suggest = "source_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyValueStoreImportSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyValueStoreImportSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyValueStoreImportSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_arn: str,
+                 source_type: str):
+        pulumi.set(__self__, "source_arn", source_arn)
+        pulumi.set(__self__, "source_type", source_type)
+
+    @property
+    @pulumi.getter(name="sourceArn")
+    def source_arn(self) -> str:
+        return pulumi.get(self, "source_arn")
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> str:
+        return pulumi.get(self, "source_type")
 
 
 @pulumi.output_type

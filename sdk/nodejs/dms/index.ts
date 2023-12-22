@@ -10,6 +10,11 @@ export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
 utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 
+export { DataProviderArgs } from "./dataProvider";
+export type DataProvider = import("./dataProvider").DataProvider;
+export const DataProvider: typeof import("./dataProvider").DataProvider = null as any;
+utilities.lazyLoad(exports, ["DataProvider"], () => require("./dataProvider"));
+
 export { EndpointArgs } from "./endpoint";
 export type Endpoint = import("./endpoint").Endpoint;
 export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
@@ -25,6 +30,11 @@ export const getCertificate: typeof import("./getCertificate").getCertificate = 
 export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
 utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
 
+export { GetDataProviderArgs, GetDataProviderResult, GetDataProviderOutputArgs } from "./getDataProvider";
+export const getDataProvider: typeof import("./getDataProvider").getDataProvider = null as any;
+export const getDataProviderOutput: typeof import("./getDataProvider").getDataProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getDataProvider","getDataProviderOutput"], () => require("./getDataProvider"));
+
 export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./getEndpoint";
 export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
 export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
@@ -34,6 +44,16 @@ export { GetEventSubscriptionArgs, GetEventSubscriptionResult, GetEventSubscript
 export const getEventSubscription: typeof import("./getEventSubscription").getEventSubscription = null as any;
 export const getEventSubscriptionOutput: typeof import("./getEventSubscription").getEventSubscriptionOutput = null as any;
 utilities.lazyLoad(exports, ["getEventSubscription","getEventSubscriptionOutput"], () => require("./getEventSubscription"));
+
+export { GetInstanceProfileArgs, GetInstanceProfileResult, GetInstanceProfileOutputArgs } from "./getInstanceProfile";
+export const getInstanceProfile: typeof import("./getInstanceProfile").getInstanceProfile = null as any;
+export const getInstanceProfileOutput: typeof import("./getInstanceProfile").getInstanceProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getInstanceProfile","getInstanceProfileOutput"], () => require("./getInstanceProfile"));
+
+export { GetMigrationProjectArgs, GetMigrationProjectResult, GetMigrationProjectOutputArgs } from "./getMigrationProject";
+export const getMigrationProject: typeof import("./getMigrationProject").getMigrationProject = null as any;
+export const getMigrationProjectOutput: typeof import("./getMigrationProject").getMigrationProjectOutput = null as any;
+utilities.lazyLoad(exports, ["getMigrationProject","getMigrationProjectOutput"], () => require("./getMigrationProject"));
 
 export { GetReplicationConfigArgs, GetReplicationConfigResult, GetReplicationConfigOutputArgs } from "./getReplicationConfig";
 export const getReplicationConfig: typeof import("./getReplicationConfig").getReplicationConfig = null as any;
@@ -54,6 +74,16 @@ export { GetReplicationTaskArgs, GetReplicationTaskResult, GetReplicationTaskOut
 export const getReplicationTask: typeof import("./getReplicationTask").getReplicationTask = null as any;
 export const getReplicationTaskOutput: typeof import("./getReplicationTask").getReplicationTaskOutput = null as any;
 utilities.lazyLoad(exports, ["getReplicationTask","getReplicationTaskOutput"], () => require("./getReplicationTask"));
+
+export { InstanceProfileArgs } from "./instanceProfile";
+export type InstanceProfile = import("./instanceProfile").InstanceProfile;
+export const InstanceProfile: typeof import("./instanceProfile").InstanceProfile = null as any;
+utilities.lazyLoad(exports, ["InstanceProfile"], () => require("./instanceProfile"));
+
+export { MigrationProjectArgs } from "./migrationProject";
+export type MigrationProject = import("./migrationProject").MigrationProject;
+export const MigrationProject: typeof import("./migrationProject").MigrationProject = null as any;
+utilities.lazyLoad(exports, ["MigrationProject"], () => require("./migrationProject"));
 
 export { ReplicationConfigArgs } from "./replicationConfig";
 export type ReplicationConfig = import("./replicationConfig").ReplicationConfig;
@@ -85,10 +115,16 @@ const _module = {
         switch (type) {
             case "aws-native:dms:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
+            case "aws-native:dms:DataProvider":
+                return new DataProvider(name, <any>undefined, { urn })
             case "aws-native:dms:Endpoint":
                 return new Endpoint(name, <any>undefined, { urn })
             case "aws-native:dms:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
+            case "aws-native:dms:InstanceProfile":
+                return new InstanceProfile(name, <any>undefined, { urn })
+            case "aws-native:dms:MigrationProject":
+                return new MigrationProject(name, <any>undefined, { urn })
             case "aws-native:dms:ReplicationConfig":
                 return new ReplicationConfig(name, <any>undefined, { urn })
             case "aws-native:dms:ReplicationInstance":

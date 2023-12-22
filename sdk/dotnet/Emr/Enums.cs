@@ -39,6 +39,37 @@ namespace Pulumi.AwsNative.Emr
     }
 
     /// <summary>
+    /// Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL. If the value is set to REQUIRED, users must be explicitly assigned to the Studio application to access the Studio.
+    /// </summary>
+    [EnumType]
+    public readonly struct StudioIdcUserAssignment : IEquatable<StudioIdcUserAssignment>
+    {
+        private readonly string _value;
+
+        private StudioIdcUserAssignment(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StudioIdcUserAssignment Required { get; } = new StudioIdcUserAssignment("REQUIRED");
+        public static StudioIdcUserAssignment Optional { get; } = new StudioIdcUserAssignment("OPTIONAL");
+
+        public static bool operator ==(StudioIdcUserAssignment left, StudioIdcUserAssignment right) => left.Equals(right);
+        public static bool operator !=(StudioIdcUserAssignment left, StudioIdcUserAssignment right) => !left.Equals(right);
+
+        public static explicit operator string(StudioIdcUserAssignment value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StudioIdcUserAssignment other && Equals(other);
+        public bool Equals(StudioIdcUserAssignment other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies whether the identity to map to the Studio is a user or a group.
     /// </summary>
     [EnumType]

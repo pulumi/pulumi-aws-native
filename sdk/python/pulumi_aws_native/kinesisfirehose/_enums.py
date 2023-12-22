@@ -95,6 +95,7 @@ class DeliveryStreamHttpEndpointRequestConfigurationContentEncoding(str, Enum):
 
 class DeliveryStreamProcessorType(str, Enum):
     RECORD_DE_AGGREGATION = "RecordDeAggregation"
+    DECOMPRESSION = "Decompression"
     LAMBDA_ = "Lambda"
     METADATA_EXTRACTION = "MetadataExtraction"
     APPEND_DELIMITER_TO_RECORD = "AppendDelimiterToRecord"

@@ -58,6 +58,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
     public readonly outdatedInstancesStrategy!: pulumi.Output<string | undefined>;
     public readonly serviceRoleArn!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<outputs.codedeploy.DeploymentGroupTag[] | undefined>;
+    public readonly terminationHookEnabled!: pulumi.Output<boolean | undefined>;
     public readonly triggerConfigurations!: pulumi.Output<outputs.codedeploy.DeploymentGroupTriggerConfig[] | undefined>;
 
     /**
@@ -97,6 +98,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
             resourceInputs["outdatedInstancesStrategy"] = args ? args.outdatedInstancesStrategy : undefined;
             resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["terminationHookEnabled"] = args ? args.terminationHookEnabled : undefined;
             resourceInputs["triggerConfigurations"] = args ? args.triggerConfigurations : undefined;
         } else {
             resourceInputs["alarmConfiguration"] = undefined /*out*/;
@@ -117,6 +119,7 @@ export class DeploymentGroup extends pulumi.CustomResource {
             resourceInputs["outdatedInstancesStrategy"] = undefined /*out*/;
             resourceInputs["serviceRoleArn"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["terminationHookEnabled"] = undefined /*out*/;
             resourceInputs["triggerConfigurations"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -148,5 +151,6 @@ export interface DeploymentGroupArgs {
     outdatedInstancesStrategy?: pulumi.Input<string>;
     serviceRoleArn: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupTagArgs>[]>;
+    terminationHookEnabled?: pulumi.Input<boolean>;
     triggerConfigurations?: pulumi.Input<pulumi.Input<inputs.codedeploy.DeploymentGroupTriggerConfigArgs>[]>;
 }

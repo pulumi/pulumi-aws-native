@@ -46,11 +46,13 @@ export class Domain extends pulumi.CustomResource {
     public /*out*/ readonly domainArn!: pulumi.Output<string>;
     public /*out*/ readonly domainEndpoint!: pulumi.Output<string>;
     public readonly domainEndpointOptions!: pulumi.Output<outputs.opensearchservice.DomainEndpointOptions | undefined>;
+    public /*out*/ readonly domainEndpointV2!: pulumi.Output<string>;
     public /*out*/ readonly domainEndpoints!: pulumi.Output<any>;
     public readonly domainName!: pulumi.Output<string | undefined>;
     public readonly ebsOptions!: pulumi.Output<outputs.opensearchservice.DomainEbsOptions | undefined>;
     public readonly encryptionAtRestOptions!: pulumi.Output<outputs.opensearchservice.DomainEncryptionAtRestOptions | undefined>;
     public readonly engineVersion!: pulumi.Output<string | undefined>;
+    public readonly ipAddressType!: pulumi.Output<string | undefined>;
     public readonly logPublishingOptions!: pulumi.Output<any | undefined>;
     public readonly nodeToNodeEncryptionOptions!: pulumi.Output<outputs.opensearchservice.DomainNodeToNodeEncryptionOptions | undefined>;
     public readonly offPeakWindowOptions!: pulumi.Output<outputs.opensearchservice.DomainOffPeakWindowOptions | undefined>;
@@ -84,6 +86,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["ebsOptions"] = args ? args.ebsOptions : undefined;
             resourceInputs["encryptionAtRestOptions"] = args ? args.encryptionAtRestOptions : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["logPublishingOptions"] = args ? args.logPublishingOptions : undefined;
             resourceInputs["nodeToNodeEncryptionOptions"] = args ? args.nodeToNodeEncryptionOptions : undefined;
             resourceInputs["offPeakWindowOptions"] = args ? args.offPeakWindowOptions : undefined;
@@ -94,6 +97,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["domainArn"] = undefined /*out*/;
             resourceInputs["domainEndpoint"] = undefined /*out*/;
+            resourceInputs["domainEndpointV2"] = undefined /*out*/;
             resourceInputs["domainEndpoints"] = undefined /*out*/;
             resourceInputs["serviceSoftwareOptions"] = undefined /*out*/;
         } else {
@@ -106,11 +110,13 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["domainArn"] = undefined /*out*/;
             resourceInputs["domainEndpoint"] = undefined /*out*/;
             resourceInputs["domainEndpointOptions"] = undefined /*out*/;
+            resourceInputs["domainEndpointV2"] = undefined /*out*/;
             resourceInputs["domainEndpoints"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["ebsOptions"] = undefined /*out*/;
             resourceInputs["encryptionAtRestOptions"] = undefined /*out*/;
             resourceInputs["engineVersion"] = undefined /*out*/;
+            resourceInputs["ipAddressType"] = undefined /*out*/;
             resourceInputs["logPublishingOptions"] = undefined /*out*/;
             resourceInputs["nodeToNodeEncryptionOptions"] = undefined /*out*/;
             resourceInputs["offPeakWindowOptions"] = undefined /*out*/;
@@ -141,6 +147,7 @@ export interface DomainArgs {
     ebsOptions?: pulumi.Input<inputs.opensearchservice.DomainEbsOptionsArgs>;
     encryptionAtRestOptions?: pulumi.Input<inputs.opensearchservice.DomainEncryptionAtRestOptionsArgs>;
     engineVersion?: pulumi.Input<string>;
+    ipAddressType?: pulumi.Input<string>;
     logPublishingOptions?: any;
     nodeToNodeEncryptionOptions?: pulumi.Input<inputs.opensearchservice.DomainNodeToNodeEncryptionOptionsArgs>;
     offPeakWindowOptions?: pulumi.Input<inputs.opensearchservice.DomainOffPeakWindowOptionsArgs>;

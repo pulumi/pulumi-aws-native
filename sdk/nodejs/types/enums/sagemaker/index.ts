@@ -63,6 +63,9 @@ export const AppResourceSpecInstanceType = {
     MlP4d24xlarge: "ml.p4d.24xlarge",
     MlP4de24xlarge: "ml.p4de.24xlarge",
     MlGeospatialInteractive: "ml.geospatial.interactive",
+    MlTrn12xlarge: "ml.trn1.2xlarge",
+    MlTrn132xlarge: "ml.trn1.32xlarge",
+    MlTrn1n32xlarge: "ml.trn1n.32xlarge",
 } as const;
 
 /**
@@ -244,6 +247,9 @@ export const DomainResourceSpecInstanceType = {
     MlP4d24xlarge: "ml.p4d.24xlarge",
     MlP4de24xlarge: "ml.p4de.24xlarge",
     MlGeospatialInteractive: "ml.geospatial.interactive",
+    MlTrn12xlarge: "ml.trn1.2xlarge",
+    MlTrn132xlarge: "ml.trn1.32xlarge",
+    MlTrn1n32xlarge: "ml.trn1n.32xlarge",
 } as const;
 
 /**
@@ -261,6 +267,16 @@ export const DomainSharingSettingsNotebookOutputOption = {
  */
 export type DomainSharingSettingsNotebookOutputOption = (typeof DomainSharingSettingsNotebookOutputOption)[keyof typeof DomainSharingSettingsNotebookOutputOption];
 
+export const DomainUserSettingsStudioWebPortal = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
+ */
+export type DomainUserSettingsStudioWebPortal = (typeof DomainUserSettingsStudioWebPortal)[keyof typeof DomainUserSettingsStudioWebPortal];
+
 export const FeatureGroupFeatureDefinitionFeatureType = {
     Integral: "Integral",
     Fractional: "Fractional",
@@ -268,6 +284,13 @@ export const FeatureGroupFeatureDefinitionFeatureType = {
 } as const;
 
 export type FeatureGroupFeatureDefinitionFeatureType = (typeof FeatureGroupFeatureDefinitionFeatureType)[keyof typeof FeatureGroupFeatureDefinitionFeatureType];
+
+export const FeatureGroupStorageType = {
+    Standard: "Standard",
+    InMemory: "InMemory",
+} as const;
+
+export type FeatureGroupStorageType = (typeof FeatureGroupStorageType)[keyof typeof FeatureGroupStorageType];
 
 export const FeatureGroupTableFormat = {
     Iceberg: "Iceberg",
@@ -1006,6 +1029,9 @@ export const UserProfileResourceSpecInstanceType = {
     MlP4d24xlarge: "ml.p4d.24xlarge",
     MlP4de24xlarge: "ml.p4de.24xlarge",
     MlGeospatialInteractive: "ml.geospatial.interactive",
+    MlTrn12xlarge: "ml.trn1.2xlarge",
+    MlTrn132xlarge: "ml.trn1.32xlarge",
+    MlTrn1n32xlarge: "ml.trn1n.32xlarge",
 } as const;
 
 /**
@@ -1022,3 +1048,13 @@ export const UserProfileSharingSettingsNotebookOutputOption = {
  * Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
  */
 export type UserProfileSharingSettingsNotebookOutputOption = (typeof UserProfileSharingSettingsNotebookOutputOption)[keyof typeof UserProfileSharingSettingsNotebookOutputOption];
+
+export const UserProfileUserSettingsStudioWebPortal = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
+ */
+export type UserProfileUserSettingsStudioWebPortal = (typeof UserProfileUserSettingsStudioWebPortal)[keyof typeof UserProfileUserSettingsStudioWebPortal];

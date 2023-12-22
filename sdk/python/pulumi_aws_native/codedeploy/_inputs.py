@@ -11,10 +11,12 @@ from .. import _utilities
 
 __all__ = [
     'ApplicationTagArgs',
+    'DeploymentConfigMinimumHealthyHostsPerZoneArgs',
     'DeploymentConfigMinimumHealthyHostsArgs',
     'DeploymentConfigTimeBasedCanaryArgs',
     'DeploymentConfigTimeBasedLinearArgs',
     'DeploymentConfigTrafficRoutingConfigArgs',
+    'DeploymentConfigZonalConfigArgs',
     'DeploymentGroupAlarmConfigurationArgs',
     'DeploymentGroupAlarmArgs',
     'DeploymentGroupAutoRollbackConfigurationArgs',
@@ -67,6 +69,33 @@ class ApplicationTagArgs:
 
     @value.setter
     def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class DeploymentConfigMinimumHealthyHostsPerZoneArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[int]):
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
         pulumi.set(self, "value", value)
 
 
@@ -189,6 +218,47 @@ class DeploymentConfigTrafficRoutingConfigArgs:
     @time_based_linear.setter
     def time_based_linear(self, value: Optional[pulumi.Input['DeploymentConfigTimeBasedLinearArgs']]):
         pulumi.set(self, "time_based_linear", value)
+
+
+@pulumi.input_type
+class DeploymentConfigZonalConfigArgs:
+    def __init__(__self__, *,
+                 first_zone_monitor_duration_in_seconds: Optional[pulumi.Input[int]] = None,
+                 minimum_healthy_hosts_per_zone: Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsPerZoneArgs']] = None,
+                 monitor_duration_in_seconds: Optional[pulumi.Input[int]] = None):
+        if first_zone_monitor_duration_in_seconds is not None:
+            pulumi.set(__self__, "first_zone_monitor_duration_in_seconds", first_zone_monitor_duration_in_seconds)
+        if minimum_healthy_hosts_per_zone is not None:
+            pulumi.set(__self__, "minimum_healthy_hosts_per_zone", minimum_healthy_hosts_per_zone)
+        if monitor_duration_in_seconds is not None:
+            pulumi.set(__self__, "monitor_duration_in_seconds", monitor_duration_in_seconds)
+
+    @property
+    @pulumi.getter(name="firstZoneMonitorDurationInSeconds")
+    def first_zone_monitor_duration_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "first_zone_monitor_duration_in_seconds")
+
+    @first_zone_monitor_duration_in_seconds.setter
+    def first_zone_monitor_duration_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "first_zone_monitor_duration_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="minimumHealthyHostsPerZone")
+    def minimum_healthy_hosts_per_zone(self) -> Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsPerZoneArgs']]:
+        return pulumi.get(self, "minimum_healthy_hosts_per_zone")
+
+    @minimum_healthy_hosts_per_zone.setter
+    def minimum_healthy_hosts_per_zone(self, value: Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsPerZoneArgs']]):
+        pulumi.set(self, "minimum_healthy_hosts_per_zone", value)
+
+    @property
+    @pulumi.getter(name="monitorDurationInSeconds")
+    def monitor_duration_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "monitor_duration_in_seconds")
+
+    @monitor_duration_in_seconds.setter
+    def monitor_duration_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "monitor_duration_in_seconds", value)
 
 
 @pulumi.input_type

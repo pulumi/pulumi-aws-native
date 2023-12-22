@@ -19,9 +19,9 @@ type DirectoryBucket struct {
 
 	// Returns the Amazon Resource Name (ARN) of the specified bucket.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, dots (.), and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az2--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+	// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
 	BucketName pulumi.StringPtrOutput `pulumi:"bucketName"`
-	// Specifies the number of Avilability Zone that's used for redundancy for the bucket.
+	// Specifies the number of Availability Zone that's used for redundancy for the bucket.
 	DataRedundancy DirectoryBucketDataRedundancyOutput `pulumi:"dataRedundancy"`
 	// Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.
 	LocationName pulumi.StringOutput `pulumi:"locationName"`
@@ -79,9 +79,9 @@ func (DirectoryBucketState) ElementType() reflect.Type {
 }
 
 type directoryBucketArgs struct {
-	// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, dots (.), and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az2--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+	// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
 	BucketName *string `pulumi:"bucketName"`
-	// Specifies the number of Avilability Zone that's used for redundancy for the bucket.
+	// Specifies the number of Availability Zone that's used for redundancy for the bucket.
 	DataRedundancy DirectoryBucketDataRedundancy `pulumi:"dataRedundancy"`
 	// Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.
 	LocationName string `pulumi:"locationName"`
@@ -89,9 +89,9 @@ type directoryBucketArgs struct {
 
 // The set of arguments for constructing a DirectoryBucket resource.
 type DirectoryBucketArgs struct {
-	// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, dots (.), and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az2--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+	// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
 	BucketName pulumi.StringPtrInput
-	// Specifies the number of Avilability Zone that's used for redundancy for the bucket.
+	// Specifies the number of Availability Zone that's used for redundancy for the bucket.
 	DataRedundancy DirectoryBucketDataRedundancyInput
 	// Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.
 	LocationName pulumi.StringInput
@@ -151,12 +151,12 @@ func (o DirectoryBucketOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, dots (.), and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az2--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
 func (o DirectoryBucketOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringPtrOutput { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the number of Avilability Zone that's used for redundancy for the bucket.
+// Specifies the number of Availability Zone that's used for redundancy for the bucket.
 func (o DirectoryBucketOutput) DataRedundancy() DirectoryBucketDataRedundancyOutput {
 	return o.ApplyT(func(v *DirectoryBucket) DirectoryBucketDataRedundancyOutput { return v.DataRedundancy }).(DirectoryBucketDataRedundancyOutput)
 }

@@ -75,10 +75,6 @@ namespace Pulumi.AwsNative.Dms
         /// </summary>
         public readonly Pulumi.AwsNative.Dms.ReplicationConfigReplicationType? ReplicationType;
         /// <summary>
-        /// A unique value or name that you get set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource
-        /// </summary>
-        public readonly string? ResourceIdentifier;
-        /// <summary>
         /// The Amazon Resource Name (ARN) of the source endpoint for this AWS DMS Serverless replication configuration
         /// </summary>
         public readonly string? SourceEndpointArn;
@@ -111,8 +107,6 @@ namespace Pulumi.AwsNative.Dms
 
             Pulumi.AwsNative.Dms.ReplicationConfigReplicationType? replicationType,
 
-            string? resourceIdentifier,
-
             string? sourceEndpointArn,
 
             object? supplementalSettings,
@@ -128,7 +122,6 @@ namespace Pulumi.AwsNative.Dms
             ReplicationConfigIdentifier = replicationConfigIdentifier;
             ReplicationSettings = replicationSettings;
             ReplicationType = replicationType;
-            ResourceIdentifier = resourceIdentifier;
             SourceEndpointArn = sourceEndpointArn;
             SupplementalSettings = supplementalSettings;
             TableMappings = tableMappings;

@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.Osis
     [AwsNativeResourceType("aws-native:osis:Pipeline")]
     public partial class Pipeline : global::Pulumi.CustomResource
     {
+        [Output("bufferOptions")]
+        public Output<Outputs.PipelineBufferOptions?> BufferOptions { get; private set; } = null!;
+
+        [Output("encryptionAtRestOptions")]
+        public Output<Outputs.PipelineEncryptionAtRestOptions?> EncryptionAtRestOptions { get; private set; } = null!;
+
         /// <summary>
         /// A list of endpoints that can be used for ingesting data into a pipeline
         /// </summary>
@@ -118,6 +124,12 @@ namespace Pulumi.AwsNative.Osis
 
     public sealed class PipelineArgs : global::Pulumi.ResourceArgs
     {
+        [Input("bufferOptions")]
+        public Input<Inputs.PipelineBufferOptionsArgs>? BufferOptions { get; set; }
+
+        [Input("encryptionAtRestOptions")]
+        public Input<Inputs.PipelineEncryptionAtRestOptionsArgs>? EncryptionAtRestOptions { get; set; }
+
         [Input("logPublishingOptions")]
         public Input<Inputs.PipelineLogPublishingOptionsArgs>? LogPublishingOptions { get; set; }
 

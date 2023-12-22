@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.ElastiCache
         public Output<string?> Description { get; private set; } = null!;
 
         [Output("endpoint")]
-        public Output<Outputs.ServerlessCacheEndpoint> Endpoint { get; private set; } = null!;
+        public Output<Outputs.ServerlessCacheEndpoint?> Endpoint { get; private set; } = null!;
 
         /// <summary>
         /// The engine name of the Serverless Cache.
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.ElastiCache
         public Output<string?> MajorEngineVersion { get; private set; } = null!;
 
         [Output("readerEndpoint")]
-        public Output<Outputs.ServerlessCacheEndpoint> ReaderEndpoint { get; private set; } = null!;
+        public Output<Outputs.ServerlessCacheEndpoint?> ReaderEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// One or more Amazon VPC security groups associated with this Serverless Cache.
@@ -195,6 +195,9 @@ namespace Pulumi.AwsNative.ElastiCache
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("endpoint")]
+        public Input<Inputs.ServerlessCacheEndpointArgs>? Endpoint { get; set; }
+
         /// <summary>
         /// The engine name of the Serverless Cache.
         /// </summary>
@@ -218,6 +221,9 @@ namespace Pulumi.AwsNative.ElastiCache
         /// </summary>
         [Input("majorEngineVersion")]
         public Input<string>? MajorEngineVersion { get; set; }
+
+        [Input("readerEndpoint")]
+        public Input<Inputs.ServerlessCacheEndpointArgs>? ReaderEndpoint { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;

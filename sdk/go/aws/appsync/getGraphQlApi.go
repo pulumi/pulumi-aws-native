@@ -34,6 +34,7 @@ type LookupGraphQlApiResult struct {
 	Arn                               *string                                      `pulumi:"arn"`
 	AuthenticationType                *string                                      `pulumi:"authenticationType"`
 	GraphQlDns                        *string                                      `pulumi:"graphQlDns"`
+	GraphQlEndpointArn                *string                                      `pulumi:"graphQlEndpointArn"`
 	GraphQlUrl                        *string                                      `pulumi:"graphQlUrl"`
 	Id                                *string                                      `pulumi:"id"`
 	LambdaAuthorizerConfig            *GraphQlApiLambdaAuthorizerConfig            `pulumi:"lambdaAuthorizerConfig"`
@@ -115,6 +116,10 @@ func (o LookupGraphQlApiResultOutput) AuthenticationType() pulumi.StringPtrOutpu
 
 func (o LookupGraphQlApiResultOutput) GraphQlDns() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGraphQlApiResult) *string { return v.GraphQlDns }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupGraphQlApiResultOutput) GraphQlEndpointArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGraphQlApiResult) *string { return v.GraphQlEndpointArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupGraphQlApiResultOutput) GraphQlUrl() pulumi.StringPtrOutput {

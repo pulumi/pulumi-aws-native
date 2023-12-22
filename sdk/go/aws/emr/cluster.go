@@ -19,31 +19,34 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	AdditionalInfo        pulumi.AnyOutput                        `pulumi:"additionalInfo"`
-	Applications          ClusterApplicationArrayOutput           `pulumi:"applications"`
-	AutoScalingRole       pulumi.StringPtrOutput                  `pulumi:"autoScalingRole"`
-	AutoTerminationPolicy ClusterAutoTerminationPolicyPtrOutput   `pulumi:"autoTerminationPolicy"`
-	BootstrapActions      ClusterBootstrapActionConfigArrayOutput `pulumi:"bootstrapActions"`
-	Configurations        ClusterConfigurationArrayOutput         `pulumi:"configurations"`
-	CustomAmiId           pulumi.StringPtrOutput                  `pulumi:"customAmiId"`
-	EbsRootVolumeSize     pulumi.IntPtrOutput                     `pulumi:"ebsRootVolumeSize"`
-	Instances             ClusterJobFlowInstancesConfigOutput     `pulumi:"instances"`
-	JobFlowRole           pulumi.StringOutput                     `pulumi:"jobFlowRole"`
-	KerberosAttributes    ClusterKerberosAttributesPtrOutput      `pulumi:"kerberosAttributes"`
-	LogEncryptionKmsKeyId pulumi.StringPtrOutput                  `pulumi:"logEncryptionKmsKeyId"`
-	LogUri                pulumi.StringPtrOutput                  `pulumi:"logUri"`
-	ManagedScalingPolicy  ClusterManagedScalingPolicyPtrOutput    `pulumi:"managedScalingPolicy"`
-	MasterPublicDns       pulumi.StringOutput                     `pulumi:"masterPublicDns"`
-	Name                  pulumi.StringOutput                     `pulumi:"name"`
-	OsReleaseLabel        pulumi.StringPtrOutput                  `pulumi:"osReleaseLabel"`
-	ReleaseLabel          pulumi.StringPtrOutput                  `pulumi:"releaseLabel"`
-	ScaleDownBehavior     pulumi.StringPtrOutput                  `pulumi:"scaleDownBehavior"`
-	SecurityConfiguration pulumi.StringPtrOutput                  `pulumi:"securityConfiguration"`
-	ServiceRole           pulumi.StringOutput                     `pulumi:"serviceRole"`
-	StepConcurrencyLevel  pulumi.IntPtrOutput                     `pulumi:"stepConcurrencyLevel"`
-	Steps                 ClusterStepConfigArrayOutput            `pulumi:"steps"`
-	Tags                  ClusterTagArrayOutput                   `pulumi:"tags"`
-	VisibleToAllUsers     pulumi.BoolPtrOutput                    `pulumi:"visibleToAllUsers"`
+	AdditionalInfo          pulumi.AnyOutput                        `pulumi:"additionalInfo"`
+	Applications            ClusterApplicationArrayOutput           `pulumi:"applications"`
+	AutoScalingRole         pulumi.StringPtrOutput                  `pulumi:"autoScalingRole"`
+	AutoTerminationPolicy   ClusterAutoTerminationPolicyPtrOutput   `pulumi:"autoTerminationPolicy"`
+	BootstrapActions        ClusterBootstrapActionConfigArrayOutput `pulumi:"bootstrapActions"`
+	Configurations          ClusterConfigurationArrayOutput         `pulumi:"configurations"`
+	CustomAmiId             pulumi.StringPtrOutput                  `pulumi:"customAmiId"`
+	EbsRootVolumeIops       pulumi.IntPtrOutput                     `pulumi:"ebsRootVolumeIops"`
+	EbsRootVolumeSize       pulumi.IntPtrOutput                     `pulumi:"ebsRootVolumeSize"`
+	EbsRootVolumeThroughput pulumi.IntPtrOutput                     `pulumi:"ebsRootVolumeThroughput"`
+	Instances               ClusterJobFlowInstancesConfigOutput     `pulumi:"instances"`
+	JobFlowRole             pulumi.StringOutput                     `pulumi:"jobFlowRole"`
+	KerberosAttributes      ClusterKerberosAttributesPtrOutput      `pulumi:"kerberosAttributes"`
+	LogEncryptionKmsKeyId   pulumi.StringPtrOutput                  `pulumi:"logEncryptionKmsKeyId"`
+	LogUri                  pulumi.StringPtrOutput                  `pulumi:"logUri"`
+	ManagedScalingPolicy    ClusterManagedScalingPolicyPtrOutput    `pulumi:"managedScalingPolicy"`
+	MasterPublicDns         pulumi.StringOutput                     `pulumi:"masterPublicDns"`
+	Name                    pulumi.StringOutput                     `pulumi:"name"`
+	OsReleaseLabel          pulumi.StringPtrOutput                  `pulumi:"osReleaseLabel"`
+	PlacementGroupConfigs   ClusterPlacementGroupConfigArrayOutput  `pulumi:"placementGroupConfigs"`
+	ReleaseLabel            pulumi.StringPtrOutput                  `pulumi:"releaseLabel"`
+	ScaleDownBehavior       pulumi.StringPtrOutput                  `pulumi:"scaleDownBehavior"`
+	SecurityConfiguration   pulumi.StringPtrOutput                  `pulumi:"securityConfiguration"`
+	ServiceRole             pulumi.StringOutput                     `pulumi:"serviceRole"`
+	StepConcurrencyLevel    pulumi.IntPtrOutput                     `pulumi:"stepConcurrencyLevel"`
+	Steps                   ClusterStepConfigArrayOutput            `pulumi:"steps"`
+	Tags                    ClusterTagArrayOutput                   `pulumi:"tags"`
+	VisibleToAllUsers       pulumi.BoolPtrOutput                    `pulumi:"visibleToAllUsers"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -69,13 +72,16 @@ func NewCluster(ctx *pulumi.Context,
 		"bootstrapActions[*]",
 		"configurations[*]",
 		"customAmiId",
+		"ebsRootVolumeIops",
 		"ebsRootVolumeSize",
+		"ebsRootVolumeThroughput",
 		"jobFlowRole",
 		"kerberosAttributes",
 		"logEncryptionKmsKeyId",
 		"logUri",
 		"name",
 		"osReleaseLabel",
+		"placementGroupConfigs[*]",
 		"releaseLabel",
 		"scaleDownBehavior",
 		"securityConfiguration",
@@ -116,58 +122,64 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	AdditionalInfo        interface{}                    `pulumi:"additionalInfo"`
-	Applications          []ClusterApplication           `pulumi:"applications"`
-	AutoScalingRole       *string                        `pulumi:"autoScalingRole"`
-	AutoTerminationPolicy *ClusterAutoTerminationPolicy  `pulumi:"autoTerminationPolicy"`
-	BootstrapActions      []ClusterBootstrapActionConfig `pulumi:"bootstrapActions"`
-	Configurations        []ClusterConfiguration         `pulumi:"configurations"`
-	CustomAmiId           *string                        `pulumi:"customAmiId"`
-	EbsRootVolumeSize     *int                           `pulumi:"ebsRootVolumeSize"`
-	Instances             ClusterJobFlowInstancesConfig  `pulumi:"instances"`
-	JobFlowRole           string                         `pulumi:"jobFlowRole"`
-	KerberosAttributes    *ClusterKerberosAttributes     `pulumi:"kerberosAttributes"`
-	LogEncryptionKmsKeyId *string                        `pulumi:"logEncryptionKmsKeyId"`
-	LogUri                *string                        `pulumi:"logUri"`
-	ManagedScalingPolicy  *ClusterManagedScalingPolicy   `pulumi:"managedScalingPolicy"`
-	Name                  *string                        `pulumi:"name"`
-	OsReleaseLabel        *string                        `pulumi:"osReleaseLabel"`
-	ReleaseLabel          *string                        `pulumi:"releaseLabel"`
-	ScaleDownBehavior     *string                        `pulumi:"scaleDownBehavior"`
-	SecurityConfiguration *string                        `pulumi:"securityConfiguration"`
-	ServiceRole           string                         `pulumi:"serviceRole"`
-	StepConcurrencyLevel  *int                           `pulumi:"stepConcurrencyLevel"`
-	Steps                 []ClusterStepConfig            `pulumi:"steps"`
-	Tags                  []ClusterTag                   `pulumi:"tags"`
-	VisibleToAllUsers     *bool                          `pulumi:"visibleToAllUsers"`
+	AdditionalInfo          interface{}                    `pulumi:"additionalInfo"`
+	Applications            []ClusterApplication           `pulumi:"applications"`
+	AutoScalingRole         *string                        `pulumi:"autoScalingRole"`
+	AutoTerminationPolicy   *ClusterAutoTerminationPolicy  `pulumi:"autoTerminationPolicy"`
+	BootstrapActions        []ClusterBootstrapActionConfig `pulumi:"bootstrapActions"`
+	Configurations          []ClusterConfiguration         `pulumi:"configurations"`
+	CustomAmiId             *string                        `pulumi:"customAmiId"`
+	EbsRootVolumeIops       *int                           `pulumi:"ebsRootVolumeIops"`
+	EbsRootVolumeSize       *int                           `pulumi:"ebsRootVolumeSize"`
+	EbsRootVolumeThroughput *int                           `pulumi:"ebsRootVolumeThroughput"`
+	Instances               ClusterJobFlowInstancesConfig  `pulumi:"instances"`
+	JobFlowRole             string                         `pulumi:"jobFlowRole"`
+	KerberosAttributes      *ClusterKerberosAttributes     `pulumi:"kerberosAttributes"`
+	LogEncryptionKmsKeyId   *string                        `pulumi:"logEncryptionKmsKeyId"`
+	LogUri                  *string                        `pulumi:"logUri"`
+	ManagedScalingPolicy    *ClusterManagedScalingPolicy   `pulumi:"managedScalingPolicy"`
+	Name                    *string                        `pulumi:"name"`
+	OsReleaseLabel          *string                        `pulumi:"osReleaseLabel"`
+	PlacementGroupConfigs   []ClusterPlacementGroupConfig  `pulumi:"placementGroupConfigs"`
+	ReleaseLabel            *string                        `pulumi:"releaseLabel"`
+	ScaleDownBehavior       *string                        `pulumi:"scaleDownBehavior"`
+	SecurityConfiguration   *string                        `pulumi:"securityConfiguration"`
+	ServiceRole             string                         `pulumi:"serviceRole"`
+	StepConcurrencyLevel    *int                           `pulumi:"stepConcurrencyLevel"`
+	Steps                   []ClusterStepConfig            `pulumi:"steps"`
+	Tags                    []ClusterTag                   `pulumi:"tags"`
+	VisibleToAllUsers       *bool                          `pulumi:"visibleToAllUsers"`
 }
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	AdditionalInfo        pulumi.Input
-	Applications          ClusterApplicationArrayInput
-	AutoScalingRole       pulumi.StringPtrInput
-	AutoTerminationPolicy ClusterAutoTerminationPolicyPtrInput
-	BootstrapActions      ClusterBootstrapActionConfigArrayInput
-	Configurations        ClusterConfigurationArrayInput
-	CustomAmiId           pulumi.StringPtrInput
-	EbsRootVolumeSize     pulumi.IntPtrInput
-	Instances             ClusterJobFlowInstancesConfigInput
-	JobFlowRole           pulumi.StringInput
-	KerberosAttributes    ClusterKerberosAttributesPtrInput
-	LogEncryptionKmsKeyId pulumi.StringPtrInput
-	LogUri                pulumi.StringPtrInput
-	ManagedScalingPolicy  ClusterManagedScalingPolicyPtrInput
-	Name                  pulumi.StringPtrInput
-	OsReleaseLabel        pulumi.StringPtrInput
-	ReleaseLabel          pulumi.StringPtrInput
-	ScaleDownBehavior     pulumi.StringPtrInput
-	SecurityConfiguration pulumi.StringPtrInput
-	ServiceRole           pulumi.StringInput
-	StepConcurrencyLevel  pulumi.IntPtrInput
-	Steps                 ClusterStepConfigArrayInput
-	Tags                  ClusterTagArrayInput
-	VisibleToAllUsers     pulumi.BoolPtrInput
+	AdditionalInfo          pulumi.Input
+	Applications            ClusterApplicationArrayInput
+	AutoScalingRole         pulumi.StringPtrInput
+	AutoTerminationPolicy   ClusterAutoTerminationPolicyPtrInput
+	BootstrapActions        ClusterBootstrapActionConfigArrayInput
+	Configurations          ClusterConfigurationArrayInput
+	CustomAmiId             pulumi.StringPtrInput
+	EbsRootVolumeIops       pulumi.IntPtrInput
+	EbsRootVolumeSize       pulumi.IntPtrInput
+	EbsRootVolumeThroughput pulumi.IntPtrInput
+	Instances               ClusterJobFlowInstancesConfigInput
+	JobFlowRole             pulumi.StringInput
+	KerberosAttributes      ClusterKerberosAttributesPtrInput
+	LogEncryptionKmsKeyId   pulumi.StringPtrInput
+	LogUri                  pulumi.StringPtrInput
+	ManagedScalingPolicy    ClusterManagedScalingPolicyPtrInput
+	Name                    pulumi.StringPtrInput
+	OsReleaseLabel          pulumi.StringPtrInput
+	PlacementGroupConfigs   ClusterPlacementGroupConfigArrayInput
+	ReleaseLabel            pulumi.StringPtrInput
+	ScaleDownBehavior       pulumi.StringPtrInput
+	SecurityConfiguration   pulumi.StringPtrInput
+	ServiceRole             pulumi.StringInput
+	StepConcurrencyLevel    pulumi.IntPtrInput
+	Steps                   ClusterStepConfigArrayInput
+	Tags                    ClusterTagArrayInput
+	VisibleToAllUsers       pulumi.BoolPtrInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {
@@ -247,8 +259,16 @@ func (o ClusterOutput) CustomAmiId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.CustomAmiId }).(pulumi.StringPtrOutput)
 }
 
+func (o ClusterOutput) EbsRootVolumeIops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.EbsRootVolumeIops }).(pulumi.IntPtrOutput)
+}
+
 func (o ClusterOutput) EbsRootVolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.EbsRootVolumeSize }).(pulumi.IntPtrOutput)
+}
+
+func (o ClusterOutput) EbsRootVolumeThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.EbsRootVolumeThroughput }).(pulumi.IntPtrOutput)
 }
 
 func (o ClusterOutput) Instances() ClusterJobFlowInstancesConfigOutput {
@@ -285,6 +305,10 @@ func (o ClusterOutput) Name() pulumi.StringOutput {
 
 func (o ClusterOutput) OsReleaseLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.OsReleaseLabel }).(pulumi.StringPtrOutput)
+}
+
+func (o ClusterOutput) PlacementGroupConfigs() ClusterPlacementGroupConfigArrayOutput {
+	return o.ApplyT(func(v *Cluster) ClusterPlacementGroupConfigArrayOutput { return v.PlacementGroupConfigs }).(ClusterPlacementGroupConfigArrayOutput)
 }
 
 func (o ClusterOutput) ReleaseLabel() pulumi.StringPtrOutput {

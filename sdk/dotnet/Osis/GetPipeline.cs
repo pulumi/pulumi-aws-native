@@ -57,6 +57,8 @@ namespace Pulumi.AwsNative.Osis
     [OutputType]
     public sealed class GetPipelineResult
     {
+        public readonly Outputs.PipelineBufferOptions? BufferOptions;
+        public readonly Outputs.PipelineEncryptionAtRestOptions? EncryptionAtRestOptions;
         /// <summary>
         /// A list of endpoints that can be used for ingesting data into a pipeline
         /// </summary>
@@ -89,6 +91,10 @@ namespace Pulumi.AwsNative.Osis
 
         [OutputConstructor]
         private GetPipelineResult(
+            Outputs.PipelineBufferOptions? bufferOptions,
+
+            Outputs.PipelineEncryptionAtRestOptions? encryptionAtRestOptions,
+
             ImmutableArray<string> ingestEndpointUrls,
 
             Outputs.PipelineLogPublishingOptions? logPublishingOptions,
@@ -105,6 +111,8 @@ namespace Pulumi.AwsNative.Osis
 
             ImmutableArray<Outputs.PipelineVpcEndpoint> vpcEndpoints)
         {
+            BufferOptions = bufferOptions;
+            EncryptionAtRestOptions = encryptionAtRestOptions;
             IngestEndpointUrls = ingestEndpointUrls;
             LogPublishingOptions = logPublishingOptions;
             MaxUnits = maxUnits;

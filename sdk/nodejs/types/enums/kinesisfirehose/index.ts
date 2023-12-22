@@ -96,6 +96,7 @@ export type DeliveryStreamHttpEndpointRequestConfigurationContentEncoding = (typ
 
 export const DeliveryStreamProcessorType = {
     RecordDeAggregation: "RecordDeAggregation",
+    Decompression: "Decompression",
     Lambda: "Lambda",
     MetadataExtraction: "MetadataExtraction",
     AppendDelimiterToRecord: "AppendDelimiterToRecord",

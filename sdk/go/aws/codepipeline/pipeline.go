@@ -19,15 +19,18 @@ import (
 type Pipeline struct {
 	pulumi.CustomResourceState
 
-	ArtifactStore                  PipelineArtifactStorePtrOutput      `pulumi:"artifactStore"`
-	ArtifactStores                 PipelineArtifactStoreMapArrayOutput `pulumi:"artifactStores"`
-	DisableInboundStageTransitions PipelineStageTransitionArrayOutput  `pulumi:"disableInboundStageTransitions"`
-	Name                           pulumi.StringPtrOutput              `pulumi:"name"`
-	RestartExecutionOnUpdate       pulumi.BoolPtrOutput                `pulumi:"restartExecutionOnUpdate"`
-	RoleArn                        pulumi.StringOutput                 `pulumi:"roleArn"`
-	Stages                         PipelineStageDeclarationArrayOutput `pulumi:"stages"`
-	Tags                           PipelineTagArrayOutput              `pulumi:"tags"`
-	Version                        pulumi.StringOutput                 `pulumi:"version"`
+	ArtifactStore                  PipelineArtifactStorePtrOutput         `pulumi:"artifactStore"`
+	ArtifactStores                 PipelineArtifactStoreMapArrayOutput    `pulumi:"artifactStores"`
+	DisableInboundStageTransitions PipelineStageTransitionArrayOutput     `pulumi:"disableInboundStageTransitions"`
+	Name                           pulumi.StringPtrOutput                 `pulumi:"name"`
+	PipelineType                   pulumi.StringPtrOutput                 `pulumi:"pipelineType"`
+	RestartExecutionOnUpdate       pulumi.BoolPtrOutput                   `pulumi:"restartExecutionOnUpdate"`
+	RoleArn                        pulumi.StringOutput                    `pulumi:"roleArn"`
+	Stages                         PipelineStageDeclarationArrayOutput    `pulumi:"stages"`
+	Tags                           PipelineTagArrayOutput                 `pulumi:"tags"`
+	Triggers                       PipelineTriggerDeclarationArrayOutput  `pulumi:"triggers"`
+	Variables                      PipelineVariableDeclarationArrayOutput `pulumi:"variables"`
+	Version                        pulumi.StringOutput                    `pulumi:"version"`
 }
 
 // NewPipeline registers a new resource with the given unique name, arguments, and options.
@@ -80,14 +83,17 @@ func (PipelineState) ElementType() reflect.Type {
 }
 
 type pipelineArgs struct {
-	ArtifactStore                  *PipelineArtifactStore     `pulumi:"artifactStore"`
-	ArtifactStores                 []PipelineArtifactStoreMap `pulumi:"artifactStores"`
-	DisableInboundStageTransitions []PipelineStageTransition  `pulumi:"disableInboundStageTransitions"`
-	Name                           *string                    `pulumi:"name"`
-	RestartExecutionOnUpdate       *bool                      `pulumi:"restartExecutionOnUpdate"`
-	RoleArn                        string                     `pulumi:"roleArn"`
-	Stages                         []PipelineStageDeclaration `pulumi:"stages"`
-	Tags                           []PipelineTag              `pulumi:"tags"`
+	ArtifactStore                  *PipelineArtifactStore        `pulumi:"artifactStore"`
+	ArtifactStores                 []PipelineArtifactStoreMap    `pulumi:"artifactStores"`
+	DisableInboundStageTransitions []PipelineStageTransition     `pulumi:"disableInboundStageTransitions"`
+	Name                           *string                       `pulumi:"name"`
+	PipelineType                   *string                       `pulumi:"pipelineType"`
+	RestartExecutionOnUpdate       *bool                         `pulumi:"restartExecutionOnUpdate"`
+	RoleArn                        string                        `pulumi:"roleArn"`
+	Stages                         []PipelineStageDeclaration    `pulumi:"stages"`
+	Tags                           []PipelineTag                 `pulumi:"tags"`
+	Triggers                       []PipelineTriggerDeclaration  `pulumi:"triggers"`
+	Variables                      []PipelineVariableDeclaration `pulumi:"variables"`
 }
 
 // The set of arguments for constructing a Pipeline resource.
@@ -96,10 +102,13 @@ type PipelineArgs struct {
 	ArtifactStores                 PipelineArtifactStoreMapArrayInput
 	DisableInboundStageTransitions PipelineStageTransitionArrayInput
 	Name                           pulumi.StringPtrInput
+	PipelineType                   pulumi.StringPtrInput
 	RestartExecutionOnUpdate       pulumi.BoolPtrInput
 	RoleArn                        pulumi.StringInput
 	Stages                         PipelineStageDeclarationArrayInput
 	Tags                           PipelineTagArrayInput
+	Triggers                       PipelineTriggerDeclarationArrayInput
+	Variables                      PipelineVariableDeclarationArrayInput
 }
 
 func (PipelineArgs) ElementType() reflect.Type {
@@ -167,6 +176,10 @@ func (o PipelineOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+func (o PipelineOutput) PipelineType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pipeline) pulumi.StringPtrOutput { return v.PipelineType }).(pulumi.StringPtrOutput)
+}
+
 func (o PipelineOutput) RestartExecutionOnUpdate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.BoolPtrOutput { return v.RestartExecutionOnUpdate }).(pulumi.BoolPtrOutput)
 }
@@ -181,6 +194,14 @@ func (o PipelineOutput) Stages() PipelineStageDeclarationArrayOutput {
 
 func (o PipelineOutput) Tags() PipelineTagArrayOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineTagArrayOutput { return v.Tags }).(PipelineTagArrayOutput)
+}
+
+func (o PipelineOutput) Triggers() PipelineTriggerDeclarationArrayOutput {
+	return o.ApplyT(func(v *Pipeline) PipelineTriggerDeclarationArrayOutput { return v.Triggers }).(PipelineTriggerDeclarationArrayOutput)
+}
+
+func (o PipelineOutput) Variables() PipelineVariableDeclarationArrayOutput {
+	return o.ApplyT(func(v *Pipeline) PipelineVariableDeclarationArrayOutput { return v.Variables }).(PipelineVariableDeclarationArrayOutput)
 }
 
 func (o PipelineOutput) Version() pulumi.StringOutput {

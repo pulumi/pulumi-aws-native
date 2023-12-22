@@ -115,6 +115,8 @@ export class ReplicationConfig extends pulumi.CustomResource {
             resourceInputs["targetEndpointArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["resourceIdentifier"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ReplicationConfig.__pulumiType, name, resourceInputs, opts);
     }
 }

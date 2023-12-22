@@ -432,7 +432,7 @@
       "timeoutInMinutes" : 2160
     },
     "delete" : {
-      "permissions" : [ "rds:DeleteDBCluster", "rds:DeleteDBInstance", "rds:DescribeDBClusters", "rds:DescribeGlobalClusters", "rds:RemoveFromGlobalCluster" ]
+      "permissions" : [ "rds:CreateDBClusterSnapshot", "rds:DeleteDBCluster", "rds:DeleteDBInstance", "rds:DescribeDBClusters", "rds:DescribeGlobalClusters", "rds:RemoveFromGlobalCluster" ]
     },
     "list" : {
       "permissions" : [ "rds:DescribeDBClusters" ]

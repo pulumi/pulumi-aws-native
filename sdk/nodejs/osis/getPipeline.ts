@@ -26,6 +26,8 @@ export interface GetPipelineArgs {
 }
 
 export interface GetPipelineResult {
+    readonly bufferOptions?: outputs.osis.PipelineBufferOptions;
+    readonly encryptionAtRestOptions?: outputs.osis.PipelineEncryptionAtRestOptions;
     /**
      * A list of endpoints that can be used for ingesting data into a pipeline
      */

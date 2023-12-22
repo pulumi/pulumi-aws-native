@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccessEntryArgs } from "./accessEntry";
+export type AccessEntry = import("./accessEntry").AccessEntry;
+export const AccessEntry: typeof import("./accessEntry").AccessEntry = null as any;
+utilities.lazyLoad(exports, ["AccessEntry"], () => require("./accessEntry"));
+
 export { AddonArgs } from "./addon";
 export type Addon = import("./addon").Addon;
 export const Addon: typeof import("./addon").Addon = null as any;
@@ -19,6 +24,11 @@ export { FargateProfileArgs } from "./fargateProfile";
 export type FargateProfile = import("./fargateProfile").FargateProfile;
 export const FargateProfile: typeof import("./fargateProfile").FargateProfile = null as any;
 utilities.lazyLoad(exports, ["FargateProfile"], () => require("./fargateProfile"));
+
+export { GetAccessEntryArgs, GetAccessEntryResult, GetAccessEntryOutputArgs } from "./getAccessEntry";
+export const getAccessEntry: typeof import("./getAccessEntry").getAccessEntry = null as any;
+export const getAccessEntryOutput: typeof import("./getAccessEntry").getAccessEntryOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessEntry","getAccessEntryOutput"], () => require("./getAccessEntry"));
 
 export { GetAddonArgs, GetAddonResult, GetAddonOutputArgs } from "./getAddon";
 export const getAddon: typeof import("./getAddon").getAddon = null as any;
@@ -73,6 +83,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:eks:AccessEntry":
+                return new AccessEntry(name, <any>undefined, { urn })
             case "aws-native:eks:Addon":
                 return new Addon(name, <any>undefined, { urn })
             case "aws-native:eks:Cluster":

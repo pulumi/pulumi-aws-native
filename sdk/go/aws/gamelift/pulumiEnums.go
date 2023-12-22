@@ -380,6 +380,189 @@ func (in *buildOperatingSystemPtr) ToOutput(ctx context.Context) pulumix.Output[
 	}
 }
 
+// ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+type FleetApplyCapacity string
+
+const (
+	FleetApplyCapacityOnUpdate          = FleetApplyCapacity("ON_UPDATE")
+	FleetApplyCapacityOnCreateAndUpdate = FleetApplyCapacity("ON_CREATE_AND_UPDATE")
+)
+
+func (FleetApplyCapacity) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetApplyCapacity)(nil)).Elem()
+}
+
+func (e FleetApplyCapacity) ToFleetApplyCapacityOutput() FleetApplyCapacityOutput {
+	return pulumi.ToOutput(e).(FleetApplyCapacityOutput)
+}
+
+func (e FleetApplyCapacity) ToFleetApplyCapacityOutputWithContext(ctx context.Context) FleetApplyCapacityOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetApplyCapacityOutput)
+}
+
+func (e FleetApplyCapacity) ToFleetApplyCapacityPtrOutput() FleetApplyCapacityPtrOutput {
+	return e.ToFleetApplyCapacityPtrOutputWithContext(context.Background())
+}
+
+func (e FleetApplyCapacity) ToFleetApplyCapacityPtrOutputWithContext(ctx context.Context) FleetApplyCapacityPtrOutput {
+	return FleetApplyCapacity(e).ToFleetApplyCapacityOutputWithContext(ctx).ToFleetApplyCapacityPtrOutputWithContext(ctx)
+}
+
+func (e FleetApplyCapacity) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetApplyCapacity) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetApplyCapacity) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetApplyCapacity) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetApplyCapacityOutput struct{ *pulumi.OutputState }
+
+func (FleetApplyCapacityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetApplyCapacity)(nil)).Elem()
+}
+
+func (o FleetApplyCapacityOutput) ToFleetApplyCapacityOutput() FleetApplyCapacityOutput {
+	return o
+}
+
+func (o FleetApplyCapacityOutput) ToFleetApplyCapacityOutputWithContext(ctx context.Context) FleetApplyCapacityOutput {
+	return o
+}
+
+func (o FleetApplyCapacityOutput) ToFleetApplyCapacityPtrOutput() FleetApplyCapacityPtrOutput {
+	return o.ToFleetApplyCapacityPtrOutputWithContext(context.Background())
+}
+
+func (o FleetApplyCapacityOutput) ToFleetApplyCapacityPtrOutputWithContext(ctx context.Context) FleetApplyCapacityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetApplyCapacity) *FleetApplyCapacity {
+		return &v
+	}).(FleetApplyCapacityPtrOutput)
+}
+
+func (o FleetApplyCapacityOutput) ToOutput(ctx context.Context) pulumix.Output[FleetApplyCapacity] {
+	return pulumix.Output[FleetApplyCapacity]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FleetApplyCapacityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetApplyCapacityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetApplyCapacity) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetApplyCapacityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetApplyCapacityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetApplyCapacity) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetApplyCapacityPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetApplyCapacityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetApplyCapacity)(nil)).Elem()
+}
+
+func (o FleetApplyCapacityPtrOutput) ToFleetApplyCapacityPtrOutput() FleetApplyCapacityPtrOutput {
+	return o
+}
+
+func (o FleetApplyCapacityPtrOutput) ToFleetApplyCapacityPtrOutputWithContext(ctx context.Context) FleetApplyCapacityPtrOutput {
+	return o
+}
+
+func (o FleetApplyCapacityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetApplyCapacity] {
+	return pulumix.Output[*FleetApplyCapacity]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FleetApplyCapacityPtrOutput) Elem() FleetApplyCapacityOutput {
+	return o.ApplyT(func(v *FleetApplyCapacity) FleetApplyCapacity {
+		if v != nil {
+			return *v
+		}
+		var ret FleetApplyCapacity
+		return ret
+	}).(FleetApplyCapacityOutput)
+}
+
+func (o FleetApplyCapacityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetApplyCapacityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetApplyCapacity) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetApplyCapacityInput is an input type that accepts FleetApplyCapacityArgs and FleetApplyCapacityOutput values.
+// You can construct a concrete instance of `FleetApplyCapacityInput` via:
+//
+//	FleetApplyCapacityArgs{...}
+type FleetApplyCapacityInput interface {
+	pulumi.Input
+
+	ToFleetApplyCapacityOutput() FleetApplyCapacityOutput
+	ToFleetApplyCapacityOutputWithContext(context.Context) FleetApplyCapacityOutput
+}
+
+var fleetApplyCapacityPtrType = reflect.TypeOf((**FleetApplyCapacity)(nil)).Elem()
+
+type FleetApplyCapacityPtrInput interface {
+	pulumi.Input
+
+	ToFleetApplyCapacityPtrOutput() FleetApplyCapacityPtrOutput
+	ToFleetApplyCapacityPtrOutputWithContext(context.Context) FleetApplyCapacityPtrOutput
+}
+
+type fleetApplyCapacityPtr string
+
+func FleetApplyCapacityPtr(v string) FleetApplyCapacityPtrInput {
+	return (*fleetApplyCapacityPtr)(&v)
+}
+
+func (*fleetApplyCapacityPtr) ElementType() reflect.Type {
+	return fleetApplyCapacityPtrType
+}
+
+func (in *fleetApplyCapacityPtr) ToFleetApplyCapacityPtrOutput() FleetApplyCapacityPtrOutput {
+	return pulumi.ToOutput(in).(FleetApplyCapacityPtrOutput)
+}
+
+func (in *fleetApplyCapacityPtr) ToFleetApplyCapacityPtrOutputWithContext(ctx context.Context) FleetApplyCapacityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetApplyCapacityPtrOutput)
+}
+
+func (in *fleetApplyCapacityPtr) ToOutput(ctx context.Context) pulumix.Output[*FleetApplyCapacity] {
+	return pulumix.Output[*FleetApplyCapacity]{
+		OutputState: in.ToFleetApplyCapacityPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FleetCertificateConfigurationCertificateType string
 
 const (
@@ -3754,6 +3937,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingStrategyTypePtrInput)(nil)).Elem(), AliasRoutingStrategyType("SIMPLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildOperatingSystemInput)(nil)).Elem(), BuildOperatingSystem("AMAZON_LINUX"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildOperatingSystemPtrInput)(nil)).Elem(), BuildOperatingSystem("AMAZON_LINUX"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetApplyCapacityInput)(nil)).Elem(), FleetApplyCapacity("ON_UPDATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetApplyCapacityPtrInput)(nil)).Elem(), FleetApplyCapacity("ON_UPDATE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetCertificateConfigurationCertificateTypeInput)(nil)).Elem(), FleetCertificateConfigurationCertificateType("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetCertificateConfigurationCertificateTypePtrInput)(nil)).Elem(), FleetCertificateConfigurationCertificateType("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeTypeInput)(nil)).Elem(), FleetComputeType("EC2"))
@@ -3795,6 +3980,8 @@ func init() {
 	pulumi.RegisterOutputType(AliasRoutingStrategyTypePtrOutput{})
 	pulumi.RegisterOutputType(BuildOperatingSystemOutput{})
 	pulumi.RegisterOutputType(BuildOperatingSystemPtrOutput{})
+	pulumi.RegisterOutputType(FleetApplyCapacityOutput{})
+	pulumi.RegisterOutputType(FleetApplyCapacityPtrOutput{})
 	pulumi.RegisterOutputType(FleetCertificateConfigurationCertificateTypeOutput{})
 	pulumi.RegisterOutputType(FleetCertificateConfigurationCertificateTypePtrOutput{})
 	pulumi.RegisterOutputType(FleetComputeTypeOutput{})

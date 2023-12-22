@@ -20,7 +20,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainResult:
-    def __init__(__self__, app_security_group_management=None, default_space_settings=None, default_user_settings=None, domain_arn=None, domain_id=None, domain_settings=None, home_efs_file_system_id=None, security_group_id_for_domain_boundary=None, single_sign_on_managed_application_instance_id=None, url=None):
+    def __init__(__self__, app_network_access_type=None, app_security_group_management=None, default_space_settings=None, default_user_settings=None, domain_arn=None, domain_id=None, domain_settings=None, home_efs_file_system_id=None, security_group_id_for_domain_boundary=None, single_sign_on_application_arn=None, single_sign_on_managed_application_instance_id=None, subnet_ids=None, url=None):
+        if app_network_access_type and not isinstance(app_network_access_type, str):
+            raise TypeError("Expected argument 'app_network_access_type' to be a str")
+        pulumi.set(__self__, "app_network_access_type", app_network_access_type)
         if app_security_group_management and not isinstance(app_security_group_management, str):
             raise TypeError("Expected argument 'app_security_group_management' to be a str")
         pulumi.set(__self__, "app_security_group_management", app_security_group_management)
@@ -45,12 +48,26 @@ class GetDomainResult:
         if security_group_id_for_domain_boundary and not isinstance(security_group_id_for_domain_boundary, str):
             raise TypeError("Expected argument 'security_group_id_for_domain_boundary' to be a str")
         pulumi.set(__self__, "security_group_id_for_domain_boundary", security_group_id_for_domain_boundary)
+        if single_sign_on_application_arn and not isinstance(single_sign_on_application_arn, str):
+            raise TypeError("Expected argument 'single_sign_on_application_arn' to be a str")
+        pulumi.set(__self__, "single_sign_on_application_arn", single_sign_on_application_arn)
         if single_sign_on_managed_application_instance_id and not isinstance(single_sign_on_managed_application_instance_id, str):
             raise TypeError("Expected argument 'single_sign_on_managed_application_instance_id' to be a str")
         pulumi.set(__self__, "single_sign_on_managed_application_instance_id", single_sign_on_managed_application_instance_id)
+        if subnet_ids and not isinstance(subnet_ids, list):
+            raise TypeError("Expected argument 'subnet_ids' to be a list")
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
         if url and not isinstance(url, str):
             raise TypeError("Expected argument 'url' to be a str")
         pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="appNetworkAccessType")
+    def app_network_access_type(self) -> Optional['DomainAppNetworkAccessType']:
+        """
+        Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
+        """
+        return pulumi.get(self, "app_network_access_type")
 
     @property
     @pulumi.getter(name="appSecurityGroupManagement")
@@ -114,12 +131,28 @@ class GetDomainResult:
         return pulumi.get(self, "security_group_id_for_domain_boundary")
 
     @property
+    @pulumi.getter(name="singleSignOnApplicationArn")
+    def single_sign_on_application_arn(self) -> Optional[str]:
+        """
+        The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after October 1, 2023.
+        """
+        return pulumi.get(self, "single_sign_on_application_arn")
+
+    @property
     @pulumi.getter(name="singleSignOnManagedApplicationInstanceId")
     def single_sign_on_managed_application_instance_id(self) -> Optional[str]:
         """
         The SSO managed application instance ID.
         """
         return pulumi.get(self, "single_sign_on_managed_application_instance_id")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[Sequence[str]]:
+        """
+        The VPC subnets that Studio uses for communication.
+        """
+        return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
@@ -136,6 +169,7 @@ class AwaitableGetDomainResult(GetDomainResult):
         if False:
             yield self
         return GetDomainResult(
+            app_network_access_type=self.app_network_access_type,
             app_security_group_management=self.app_security_group_management,
             default_space_settings=self.default_space_settings,
             default_user_settings=self.default_user_settings,
@@ -144,7 +178,9 @@ class AwaitableGetDomainResult(GetDomainResult):
             domain_settings=self.domain_settings,
             home_efs_file_system_id=self.home_efs_file_system_id,
             security_group_id_for_domain_boundary=self.security_group_id_for_domain_boundary,
+            single_sign_on_application_arn=self.single_sign_on_application_arn,
             single_sign_on_managed_application_instance_id=self.single_sign_on_managed_application_instance_id,
+            subnet_ids=self.subnet_ids,
             url=self.url)
 
 
@@ -162,6 +198,7 @@ def get_domain(domain_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:sagemaker:getDomain', __args__, opts=opts, typ=GetDomainResult).value
 
     return AwaitableGetDomainResult(
+        app_network_access_type=pulumi.get(__ret__, 'app_network_access_type'),
         app_security_group_management=pulumi.get(__ret__, 'app_security_group_management'),
         default_space_settings=pulumi.get(__ret__, 'default_space_settings'),
         default_user_settings=pulumi.get(__ret__, 'default_user_settings'),
@@ -170,7 +207,9 @@ def get_domain(domain_id: Optional[str] = None,
         domain_settings=pulumi.get(__ret__, 'domain_settings'),
         home_efs_file_system_id=pulumi.get(__ret__, 'home_efs_file_system_id'),
         security_group_id_for_domain_boundary=pulumi.get(__ret__, 'security_group_id_for_domain_boundary'),
+        single_sign_on_application_arn=pulumi.get(__ret__, 'single_sign_on_application_arn'),
         single_sign_on_managed_application_instance_id=pulumi.get(__ret__, 'single_sign_on_managed_application_instance_id'),
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         url=pulumi.get(__ret__, 'url'))
 
 

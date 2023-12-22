@@ -27,6 +27,10 @@ export interface GetDomainArgs {
 
 export interface GetDomainResult {
     /**
+     * Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
+     */
+    readonly appNetworkAccessType?: enums.sagemaker.DomainAppNetworkAccessType;
+    /**
      * The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
      */
     readonly appSecurityGroupManagement?: enums.sagemaker.DomainAppSecurityGroupManagement;
@@ -56,9 +60,17 @@ export interface GetDomainResult {
      */
     readonly securityGroupIdForDomainBoundary?: string;
     /**
+     * The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after October 1, 2023.
+     */
+    readonly singleSignOnApplicationArn?: string;
+    /**
      * The SSO managed application instance ID.
      */
     readonly singleSignOnManagedApplicationInstanceId?: string;
+    /**
+     * The VPC subnets that Studio uses for communication.
+     */
+    readonly subnetIds?: string[];
     /**
      * The URL to the created domain.
      */

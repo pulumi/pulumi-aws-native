@@ -21,11 +21,16 @@ __all__ = [
     'PipelineArtifactStoreMap',
     'PipelineBlockerDeclaration',
     'PipelineEncryptionKey',
+    'PipelineGitConfiguration',
+    'PipelineGitPushFilter',
+    'PipelineGitTagFilterCriteria',
     'PipelineInputArtifact',
     'PipelineOutputArtifact',
     'PipelineStageDeclaration',
     'PipelineStageTransition',
     'PipelineTag',
+    'PipelineTriggerDeclaration',
+    'PipelineVariableDeclaration',
     'WebhookAuthConfiguration',
     'WebhookFilterRule',
 ]
@@ -526,6 +531,77 @@ class PipelineEncryptionKey(dict):
 
 
 @pulumi.output_type
+class PipelineGitConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceActionName":
+            suggest = "source_action_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineGitConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineGitConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineGitConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_action_name: str,
+                 push: Optional[Sequence['outputs.PipelineGitPushFilter']] = None):
+        pulumi.set(__self__, "source_action_name", source_action_name)
+        if push is not None:
+            pulumi.set(__self__, "push", push)
+
+    @property
+    @pulumi.getter(name="sourceActionName")
+    def source_action_name(self) -> str:
+        return pulumi.get(self, "source_action_name")
+
+    @property
+    @pulumi.getter
+    def push(self) -> Optional[Sequence['outputs.PipelineGitPushFilter']]:
+        return pulumi.get(self, "push")
+
+
+@pulumi.output_type
+class PipelineGitPushFilter(dict):
+    def __init__(__self__, *,
+                 tags: Optional['outputs.PipelineGitTagFilterCriteria'] = None):
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional['outputs.PipelineGitTagFilterCriteria']:
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class PipelineGitTagFilterCriteria(dict):
+    def __init__(__self__, *,
+                 excludes: Optional[Sequence[str]] = None,
+                 includes: Optional[Sequence[str]] = None):
+        if excludes is not None:
+            pulumi.set(__self__, "excludes", excludes)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
+
+    @property
+    @pulumi.getter
+    def excludes(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "excludes")
+
+    @property
+    @pulumi.getter
+    def includes(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "includes")
+
+
+@pulumi.output_type
 class PipelineInputArtifact(dict):
     def __init__(__self__, *,
                  name: str):
@@ -629,6 +705,90 @@ class PipelineTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class PipelineTriggerDeclaration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "providerType":
+            suggest = "provider_type"
+        elif key == "gitConfiguration":
+            suggest = "git_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineTriggerDeclaration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineTriggerDeclaration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineTriggerDeclaration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provider_type: str,
+                 git_configuration: Optional['outputs.PipelineGitConfiguration'] = None):
+        pulumi.set(__self__, "provider_type", provider_type)
+        if git_configuration is not None:
+            pulumi.set(__self__, "git_configuration", git_configuration)
+
+    @property
+    @pulumi.getter(name="providerType")
+    def provider_type(self) -> str:
+        return pulumi.get(self, "provider_type")
+
+    @property
+    @pulumi.getter(name="gitConfiguration")
+    def git_configuration(self) -> Optional['outputs.PipelineGitConfiguration']:
+        return pulumi.get(self, "git_configuration")
+
+
+@pulumi.output_type
+class PipelineVariableDeclaration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineVariableDeclaration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineVariableDeclaration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineVariableDeclaration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 default_value: Optional[str] = None,
+                 description: Optional[str] = None):
+        pulumi.set(__self__, "name", name)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[str]:
+        return pulumi.get(self, "default_value")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
 
 
 @pulumi.output_type

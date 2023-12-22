@@ -24,14 +24,17 @@ func LookupRegistry(ctx *pulumi.Context, args *LookupRegistryArgs, opts ...pulum
 }
 
 type LookupRegistryArgs struct {
-	Id string `pulumi:"id"`
+	// The ARN of the registry.
+	RegistryArn string `pulumi:"registryArn"`
 }
 
 type LookupRegistryResult struct {
-	Description *string             `pulumi:"description"`
-	Id          *string             `pulumi:"id"`
-	RegistryArn *string             `pulumi:"registryArn"`
-	Tags        []RegistryTagsEntry `pulumi:"tags"`
+	// A description of the registry to be created.
+	Description *string `pulumi:"description"`
+	// The ARN of the registry.
+	RegistryArn *string `pulumi:"registryArn"`
+	// Tags associated with the resource.
+	Tags []RegistryTagsEntry `pulumi:"tags"`
 }
 
 func LookupRegistryOutput(ctx *pulumi.Context, args LookupRegistryOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryResultOutput {
@@ -48,7 +51,8 @@ func LookupRegistryOutput(ctx *pulumi.Context, args LookupRegistryOutputArgs, op
 }
 
 type LookupRegistryOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The ARN of the registry.
+	RegistryArn pulumi.StringInput `pulumi:"registryArn"`
 }
 
 func (LookupRegistryOutputArgs) ElementType() reflect.Type {
@@ -75,18 +79,17 @@ func (o LookupRegistryResultOutput) ToOutput(ctx context.Context) pulumix.Output
 	}
 }
 
+// A description of the registry to be created.
 func (o LookupRegistryResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRegistryResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupRegistryResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupRegistryResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
+// The ARN of the registry.
 func (o LookupRegistryResultOutput) RegistryArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRegistryResult) *string { return v.RegistryArn }).(pulumi.StringPtrOutput)
 }
 
+// Tags associated with the resource.
 func (o LookupRegistryResultOutput) Tags() RegistryTagsEntryArrayOutput {
 	return o.ApplyT(func(v LookupRegistryResult) []RegistryTagsEntry { return v.Tags }).(RegistryTagsEntryArrayOutput)
 }

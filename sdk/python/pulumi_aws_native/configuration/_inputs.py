@@ -22,6 +22,8 @@ __all__ = [
     'ConfigurationAggregatorTagArgs',
     'ConfigurationRecorderExclusionByResourceTypesArgs',
     'ConfigurationRecorderRecordingGroupArgs',
+    'ConfigurationRecorderRecordingModeOverrideArgs',
+    'ConfigurationRecorderRecordingModeArgs',
     'ConfigurationRecorderRecordingStrategyArgs',
     'ConformancePackInputParameterArgs',
     'DeliveryChannelConfigSnapshotDeliveryPropertiesArgs',
@@ -571,6 +573,73 @@ class ConfigurationRecorderRecordingGroupArgs:
     @resource_types.setter
     def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resource_types", value)
+
+
+@pulumi.input_type
+class ConfigurationRecorderRecordingModeOverrideArgs:
+    def __init__(__self__, *,
+                 recording_frequency: pulumi.Input[str],
+                 resource_types: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 description: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "recording_frequency", recording_frequency)
+        pulumi.set(__self__, "resource_types", resource_types)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="recordingFrequency")
+    def recording_frequency(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "recording_frequency")
+
+    @recording_frequency.setter
+    def recording_frequency(self, value: pulumi.Input[str]):
+        pulumi.set(self, "recording_frequency", value)
+
+    @property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "resource_types")
+
+    @resource_types.setter
+    def resource_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "resource_types", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class ConfigurationRecorderRecordingModeArgs:
+    def __init__(__self__, *,
+                 recording_frequency: pulumi.Input[str],
+                 recording_mode_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationRecorderRecordingModeOverrideArgs']]]] = None):
+        pulumi.set(__self__, "recording_frequency", recording_frequency)
+        if recording_mode_overrides is not None:
+            pulumi.set(__self__, "recording_mode_overrides", recording_mode_overrides)
+
+    @property
+    @pulumi.getter(name="recordingFrequency")
+    def recording_frequency(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "recording_frequency")
+
+    @recording_frequency.setter
+    def recording_frequency(self, value: pulumi.Input[str]):
+        pulumi.set(self, "recording_frequency", value)
+
+    @property
+    @pulumi.getter(name="recordingModeOverrides")
+    def recording_mode_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationRecorderRecordingModeOverrideArgs']]]]:
+        return pulumi.get(self, "recording_mode_overrides")
+
+    @recording_mode_overrides.setter
+    def recording_mode_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationRecorderRecordingModeOverrideArgs']]]]):
+        pulumi.set(self, "recording_mode_overrides", value)
 
 
 @pulumi.input_type

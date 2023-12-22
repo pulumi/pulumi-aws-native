@@ -11,6 +11,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'DataProviderTagArgs',
     'EndpointDocDbSettingsArgs',
     'EndpointDynamoDbSettingsArgs',
     'EndpointElasticsearchSettingsArgs',
@@ -30,12 +31,62 @@ __all__ = [
     'EndpointSybaseSettingsArgs',
     'EndpointTagArgs',
     'EventSubscriptionTagArgs',
+    'InstanceProfileTagArgs',
+    'MigrationProjectDataProviderDescriptorArgs',
+    'MigrationProjectTagArgs',
     'ReplicationConfigComputeConfigArgs',
     'ReplicationConfigTagArgs',
     'ReplicationInstanceTagArgs',
     'ReplicationSubnetGroupTagArgs',
     'ReplicationTaskTagArgs',
+    'SchemaConversionApplicationAttributesPropertiesArgs',
+    'Settings0PropertiesPostgreSqlSettingsPropertiesArgs',
+    'Settings0PropertiesArgs',
+    'Settings1PropertiesMySqlSettingsPropertiesArgs',
+    'Settings1PropertiesArgs',
+    'Settings2PropertiesOracleSettingsPropertiesArgs',
+    'Settings2PropertiesArgs',
+    'Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs',
+    'Settings3PropertiesArgs',
 ]
+
+@pulumi.input_type
+class DataProviderTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class EndpointDocDbSettingsArgs:
@@ -337,12 +388,22 @@ class EndpointGcpMySqlSettingsArgs:
 class EndpointIbmDb2SettingsArgs:
     def __init__(__self__, *,
                  current_lsn: Optional[pulumi.Input[str]] = None,
+                 keep_csv_files: Optional[pulumi.Input[bool]] = None,
+                 load_timeout: Optional[pulumi.Input[int]] = None,
+                 max_file_size: Optional[pulumi.Input[int]] = None,
                  max_k_bytes_per_read: Optional[pulumi.Input[int]] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
                  secrets_manager_secret_id: Optional[pulumi.Input[str]] = None,
-                 set_data_capture_changes: Optional[pulumi.Input[bool]] = None):
+                 set_data_capture_changes: Optional[pulumi.Input[bool]] = None,
+                 write_buffer_size: Optional[pulumi.Input[int]] = None):
         if current_lsn is not None:
             pulumi.set(__self__, "current_lsn", current_lsn)
+        if keep_csv_files is not None:
+            pulumi.set(__self__, "keep_csv_files", keep_csv_files)
+        if load_timeout is not None:
+            pulumi.set(__self__, "load_timeout", load_timeout)
+        if max_file_size is not None:
+            pulumi.set(__self__, "max_file_size", max_file_size)
         if max_k_bytes_per_read is not None:
             pulumi.set(__self__, "max_k_bytes_per_read", max_k_bytes_per_read)
         if secrets_manager_access_role_arn is not None:
@@ -351,6 +412,8 @@ class EndpointIbmDb2SettingsArgs:
             pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
         if set_data_capture_changes is not None:
             pulumi.set(__self__, "set_data_capture_changes", set_data_capture_changes)
+        if write_buffer_size is not None:
+            pulumi.set(__self__, "write_buffer_size", write_buffer_size)
 
     @property
     @pulumi.getter(name="currentLsn")
@@ -360,6 +423,33 @@ class EndpointIbmDb2SettingsArgs:
     @current_lsn.setter
     def current_lsn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "current_lsn", value)
+
+    @property
+    @pulumi.getter(name="keepCsvFiles")
+    def keep_csv_files(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "keep_csv_files")
+
+    @keep_csv_files.setter
+    def keep_csv_files(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "keep_csv_files", value)
+
+    @property
+    @pulumi.getter(name="loadTimeout")
+    def load_timeout(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "load_timeout")
+
+    @load_timeout.setter
+    def load_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "load_timeout", value)
+
+    @property
+    @pulumi.getter(name="maxFileSize")
+    def max_file_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_file_size")
+
+    @max_file_size.setter
+    def max_file_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_file_size", value)
 
     @property
     @pulumi.getter(name="maxKBytesPerRead")
@@ -396,6 +486,15 @@ class EndpointIbmDb2SettingsArgs:
     @set_data_capture_changes.setter
     def set_data_capture_changes(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "set_data_capture_changes", value)
+
+    @property
+    @pulumi.getter(name="writeBufferSize")
+    def write_buffer_size(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "write_buffer_size")
+
+    @write_buffer_size.setter
+    def write_buffer_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "write_buffer_size", value)
 
 
 @pulumi.input_type
@@ -2925,6 +3024,150 @@ class EventSubscriptionTagArgs:
 
 
 @pulumi.input_type
+class InstanceProfileTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class MigrationProjectDataProviderDescriptorArgs:
+    def __init__(__self__, *,
+                 data_provider_arn: Optional[pulumi.Input[str]] = None,
+                 data_provider_identifier: Optional[pulumi.Input[str]] = None,
+                 data_provider_name: Optional[pulumi.Input[str]] = None,
+                 secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
+                 secrets_manager_secret_id: Optional[pulumi.Input[str]] = None):
+        """
+        It is an object that describes Source and Target DataProviders and credentials for connecting to databases that are used in MigrationProject
+        """
+        if data_provider_arn is not None:
+            pulumi.set(__self__, "data_provider_arn", data_provider_arn)
+        if data_provider_identifier is not None:
+            pulumi.set(__self__, "data_provider_identifier", data_provider_identifier)
+        if data_provider_name is not None:
+            pulumi.set(__self__, "data_provider_name", data_provider_name)
+        if secrets_manager_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+        if secrets_manager_secret_id is not None:
+            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+
+    @property
+    @pulumi.getter(name="dataProviderArn")
+    def data_provider_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "data_provider_arn")
+
+    @data_provider_arn.setter
+    def data_provider_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_provider_arn", value)
+
+    @property
+    @pulumi.getter(name="dataProviderIdentifier")
+    def data_provider_identifier(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "data_provider_identifier")
+
+    @data_provider_identifier.setter
+    def data_provider_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_provider_identifier", value)
+
+    @property
+    @pulumi.getter(name="dataProviderName")
+    def data_provider_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "data_provider_name")
+
+    @data_provider_name.setter
+    def data_provider_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_provider_name", value)
+
+    @property
+    @pulumi.getter(name="secretsManagerAccessRoleArn")
+    def secrets_manager_access_role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "secrets_manager_access_role_arn")
+
+    @secrets_manager_access_role_arn.setter
+    def secrets_manager_access_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secrets_manager_access_role_arn", value)
+
+    @property
+    @pulumi.getter(name="secretsManagerSecretId")
+    def secrets_manager_secret_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "secrets_manager_secret_id")
+
+    @secrets_manager_secret_id.setter
+    def secrets_manager_secret_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secrets_manager_secret_id", value)
+
+
+@pulumi.input_type
+class MigrationProjectTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair to associate with a resource.
+        :param pulumi.Input[str] key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, , and -.
+        :param pulumi.Input[str] value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, , and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, , and -.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, , and -.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class ReplicationConfigComputeConfigArgs:
     def __init__(__self__, *,
                  max_capacity_units: pulumi.Input[int],
@@ -3157,5 +3400,425 @@ class ReplicationTaskTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SchemaConversionApplicationAttributesPropertiesArgs:
+    def __init__(__self__, *,
+                 s3_bucket_path: Optional[pulumi.Input[str]] = None,
+                 s3_bucket_role_arn: Optional[pulumi.Input[str]] = None):
+        """
+        The property describes schema conversion application attributes for the migration project.
+        """
+        if s3_bucket_path is not None:
+            pulumi.set(__self__, "s3_bucket_path", s3_bucket_path)
+        if s3_bucket_role_arn is not None:
+            pulumi.set(__self__, "s3_bucket_role_arn", s3_bucket_role_arn)
+
+    @property
+    @pulumi.getter(name="s3BucketPath")
+    def s3_bucket_path(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "s3_bucket_path")
+
+    @s3_bucket_path.setter
+    def s3_bucket_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_bucket_path", value)
+
+    @property
+    @pulumi.getter(name="s3BucketRoleArn")
+    def s3_bucket_role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "s3_bucket_role_arn")
+
+    @s3_bucket_role_arn.setter
+    def s3_bucket_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_bucket_role_arn", value)
+
+
+@pulumi.input_type
+class Settings0PropertiesPostgreSqlSettingsPropertiesArgs:
+    def __init__(__self__, *,
+                 certificate_arn: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
+                 ssl_mode: Optional[pulumi.Input['DataProviderDmsSslModeValue']] = None):
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if ssl_mode is not None:
+            pulumi.set(__self__, "ssl_mode", ssl_mode)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> Optional[pulumi.Input['DataProviderDmsSslModeValue']]:
+        return pulumi.get(self, "ssl_mode")
+
+    @ssl_mode.setter
+    def ssl_mode(self, value: Optional[pulumi.Input['DataProviderDmsSslModeValue']]):
+        pulumi.set(self, "ssl_mode", value)
+
+
+@pulumi.input_type
+class Settings0PropertiesArgs:
+    def __init__(__self__, *,
+                 postgre_sql_settings: Optional[pulumi.Input['Settings0PropertiesPostgreSqlSettingsPropertiesArgs']] = None):
+        """
+        PostgreSqlSettings property identifier.
+        """
+        if postgre_sql_settings is not None:
+            pulumi.set(__self__, "postgre_sql_settings", postgre_sql_settings)
+
+    @property
+    @pulumi.getter(name="postgreSqlSettings")
+    def postgre_sql_settings(self) -> Optional[pulumi.Input['Settings0PropertiesPostgreSqlSettingsPropertiesArgs']]:
+        return pulumi.get(self, "postgre_sql_settings")
+
+    @postgre_sql_settings.setter
+    def postgre_sql_settings(self, value: Optional[pulumi.Input['Settings0PropertiesPostgreSqlSettingsPropertiesArgs']]):
+        pulumi.set(self, "postgre_sql_settings", value)
+
+
+@pulumi.input_type
+class Settings1PropertiesMySqlSettingsPropertiesArgs:
+    def __init__(__self__, *,
+                 certificate_arn: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
+                 ssl_mode: Optional[pulumi.Input['DataProviderDmsSslModeValue']] = None):
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if ssl_mode is not None:
+            pulumi.set(__self__, "ssl_mode", ssl_mode)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> Optional[pulumi.Input['DataProviderDmsSslModeValue']]:
+        return pulumi.get(self, "ssl_mode")
+
+    @ssl_mode.setter
+    def ssl_mode(self, value: Optional[pulumi.Input['DataProviderDmsSslModeValue']]):
+        pulumi.set(self, "ssl_mode", value)
+
+
+@pulumi.input_type
+class Settings1PropertiesArgs:
+    def __init__(__self__, *,
+                 my_sql_settings: Optional[pulumi.Input['Settings1PropertiesMySqlSettingsPropertiesArgs']] = None):
+        """
+        MySqlSettings property identifier.
+        """
+        if my_sql_settings is not None:
+            pulumi.set(__self__, "my_sql_settings", my_sql_settings)
+
+    @property
+    @pulumi.getter(name="mySqlSettings")
+    def my_sql_settings(self) -> Optional[pulumi.Input['Settings1PropertiesMySqlSettingsPropertiesArgs']]:
+        return pulumi.get(self, "my_sql_settings")
+
+    @my_sql_settings.setter
+    def my_sql_settings(self, value: Optional[pulumi.Input['Settings1PropertiesMySqlSettingsPropertiesArgs']]):
+        pulumi.set(self, "my_sql_settings", value)
+
+
+@pulumi.input_type
+class Settings2PropertiesOracleSettingsPropertiesArgs:
+    def __init__(__self__, *,
+                 asm_server: Optional[pulumi.Input[str]] = None,
+                 certificate_arn: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 secrets_manager_oracle_asm_access_role_arn: Optional[pulumi.Input[str]] = None,
+                 secrets_manager_oracle_asm_secret_id: Optional[pulumi.Input[str]] = None,
+                 secrets_manager_security_db_encryption_access_role_arn: Optional[pulumi.Input[str]] = None,
+                 secrets_manager_security_db_encryption_secret_id: Optional[pulumi.Input[str]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
+                 ssl_mode: Optional[pulumi.Input['DataProviderDmsSslModeValue']] = None):
+        if asm_server is not None:
+            pulumi.set(__self__, "asm_server", asm_server)
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if secrets_manager_oracle_asm_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_oracle_asm_access_role_arn", secrets_manager_oracle_asm_access_role_arn)
+        if secrets_manager_oracle_asm_secret_id is not None:
+            pulumi.set(__self__, "secrets_manager_oracle_asm_secret_id", secrets_manager_oracle_asm_secret_id)
+        if secrets_manager_security_db_encryption_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_security_db_encryption_access_role_arn", secrets_manager_security_db_encryption_access_role_arn)
+        if secrets_manager_security_db_encryption_secret_id is not None:
+            pulumi.set(__self__, "secrets_manager_security_db_encryption_secret_id", secrets_manager_security_db_encryption_secret_id)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if ssl_mode is not None:
+            pulumi.set(__self__, "ssl_mode", ssl_mode)
+
+    @property
+    @pulumi.getter(name="asmServer")
+    def asm_server(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "asm_server")
+
+    @asm_server.setter
+    def asm_server(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "asm_server", value)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="secretsManagerOracleAsmAccessRoleArn")
+    def secrets_manager_oracle_asm_access_role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "secrets_manager_oracle_asm_access_role_arn")
+
+    @secrets_manager_oracle_asm_access_role_arn.setter
+    def secrets_manager_oracle_asm_access_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secrets_manager_oracle_asm_access_role_arn", value)
+
+    @property
+    @pulumi.getter(name="secretsManagerOracleAsmSecretId")
+    def secrets_manager_oracle_asm_secret_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "secrets_manager_oracle_asm_secret_id")
+
+    @secrets_manager_oracle_asm_secret_id.setter
+    def secrets_manager_oracle_asm_secret_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secrets_manager_oracle_asm_secret_id", value)
+
+    @property
+    @pulumi.getter(name="secretsManagerSecurityDbEncryptionAccessRoleArn")
+    def secrets_manager_security_db_encryption_access_role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "secrets_manager_security_db_encryption_access_role_arn")
+
+    @secrets_manager_security_db_encryption_access_role_arn.setter
+    def secrets_manager_security_db_encryption_access_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secrets_manager_security_db_encryption_access_role_arn", value)
+
+    @property
+    @pulumi.getter(name="secretsManagerSecurityDbEncryptionSecretId")
+    def secrets_manager_security_db_encryption_secret_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "secrets_manager_security_db_encryption_secret_id")
+
+    @secrets_manager_security_db_encryption_secret_id.setter
+    def secrets_manager_security_db_encryption_secret_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secrets_manager_security_db_encryption_secret_id", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> Optional[pulumi.Input['DataProviderDmsSslModeValue']]:
+        return pulumi.get(self, "ssl_mode")
+
+    @ssl_mode.setter
+    def ssl_mode(self, value: Optional[pulumi.Input['DataProviderDmsSslModeValue']]):
+        pulumi.set(self, "ssl_mode", value)
+
+
+@pulumi.input_type
+class Settings2PropertiesArgs:
+    def __init__(__self__, *,
+                 oracle_settings: Optional[pulumi.Input['Settings2PropertiesOracleSettingsPropertiesArgs']] = None):
+        """
+        OracleSettings property identifier.
+        """
+        if oracle_settings is not None:
+            pulumi.set(__self__, "oracle_settings", oracle_settings)
+
+    @property
+    @pulumi.getter(name="oracleSettings")
+    def oracle_settings(self) -> Optional[pulumi.Input['Settings2PropertiesOracleSettingsPropertiesArgs']]:
+        return pulumi.get(self, "oracle_settings")
+
+    @oracle_settings.setter
+    def oracle_settings(self, value: Optional[pulumi.Input['Settings2PropertiesOracleSettingsPropertiesArgs']]):
+        pulumi.set(self, "oracle_settings", value)
+
+
+@pulumi.input_type
+class Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs:
+    def __init__(__self__, *,
+                 certificate_arn: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 server_name: Optional[pulumi.Input[str]] = None,
+                 ssl_mode: Optional[pulumi.Input['DataProviderDmsSslModeValue']] = None):
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if ssl_mode is not None:
+            pulumi.set(__self__, "ssl_mode", ssl_mode)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> Optional[pulumi.Input['DataProviderDmsSslModeValue']]:
+        return pulumi.get(self, "ssl_mode")
+
+    @ssl_mode.setter
+    def ssl_mode(self, value: Optional[pulumi.Input['DataProviderDmsSslModeValue']]):
+        pulumi.set(self, "ssl_mode", value)
+
+
+@pulumi.input_type
+class Settings3PropertiesArgs:
+    def __init__(__self__, *,
+                 microsoft_sql_server_settings: Optional[pulumi.Input['Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs']] = None):
+        """
+        MicrosoftSqlServerSettings property identifier.
+        """
+        if microsoft_sql_server_settings is not None:
+            pulumi.set(__self__, "microsoft_sql_server_settings", microsoft_sql_server_settings)
+
+    @property
+    @pulumi.getter(name="microsoftSqlServerSettings")
+    def microsoft_sql_server_settings(self) -> Optional[pulumi.Input['Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs']]:
+        return pulumi.get(self, "microsoft_sql_server_settings")
+
+    @microsoft_sql_server_settings.setter
+    def microsoft_sql_server_settings(self, value: Optional[pulumi.Input['Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs']]):
+        pulumi.set(self, "microsoft_sql_server_settings", value)
 
 

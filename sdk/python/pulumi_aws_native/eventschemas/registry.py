@@ -21,6 +21,9 @@ class RegistryArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryTagsEntryArgs']]]] = None):
         """
         The set of arguments for constructing a Registry resource.
+        :param pulumi.Input[str] description: A description of the registry to be created.
+        :param pulumi.Input[str] registry_name: The name of the schema registry.
+        :param pulumi.Input[Sequence[pulumi.Input['RegistryTagsEntryArgs']]] tags: Tags associated with the resource.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -32,6 +35,9 @@ class RegistryArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the registry to be created.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -41,6 +47,9 @@ class RegistryArgs:
     @property
     @pulumi.getter(name="registryName")
     def registry_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the schema registry.
+        """
         return pulumi.get(self, "registry_name")
 
     @registry_name.setter
@@ -50,6 +59,9 @@ class RegistryArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryTagsEntryArgs']]]]:
+        """
+        Tags associated with the resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -57,12 +69,7 @@ class RegistryArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Registry is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Registry(pulumi.CustomResource):
-    warnings.warn("""Registry is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -76,6 +83,9 @@ class Registry(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: A description of the registry to be created.
+        :param pulumi.Input[str] registry_name: The name of the schema registry.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryTagsEntryArgs']]]] tags: Tags associated with the resource.
         """
         ...
     @overload
@@ -105,7 +115,6 @@ class Registry(pulumi.CustomResource):
                  registry_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegistryTagsEntryArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Registry is deprecated: Registry is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -151,20 +160,32 @@ class Registry(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the registry to be created.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="registryArn")
     def registry_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the registry.
+        """
         return pulumi.get(self, "registry_arn")
 
     @property
     @pulumi.getter(name="registryName")
     def registry_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the schema registry.
+        """
         return pulumi.get(self, "registry_name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.RegistryTagsEntry']]]:
+        """
+        Tags associated with the resource.
+        """
         return pulumi.get(self, "tags")
 

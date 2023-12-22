@@ -171,6 +171,8 @@ class AutoScalingGroupInstanceMaintenancePolicyArgs:
 @pulumi.input_type
 class AutoScalingGroupInstanceRequirementsArgs:
     def __init__(__self__, *,
+                 memory_mi_b: pulumi.Input['AutoScalingGroupMemoryMiBRequestArgs'],
+                 v_cpu_count: pulumi.Input['AutoScalingGroupVCpuCountRequestArgs'],
                  accelerator_count: Optional[pulumi.Input['AutoScalingGroupAcceleratorCountRequestArgs']] = None,
                  accelerator_manufacturers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  accelerator_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -186,14 +188,14 @@ class AutoScalingGroupInstanceRequirementsArgs:
                  local_storage: Optional[pulumi.Input[str]] = None,
                  local_storage_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  memory_gi_b_per_v_cpu: Optional[pulumi.Input['AutoScalingGroupMemoryGiBPerVCpuRequestArgs']] = None,
-                 memory_mi_b: Optional[pulumi.Input['AutoScalingGroupMemoryMiBRequestArgs']] = None,
                  network_bandwidth_gbps: Optional[pulumi.Input['AutoScalingGroupNetworkBandwidthGbpsRequestArgs']] = None,
                  network_interface_count: Optional[pulumi.Input['AutoScalingGroupNetworkInterfaceCountRequestArgs']] = None,
                  on_demand_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
                  require_hibernate_support: Optional[pulumi.Input[bool]] = None,
                  spot_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
-                 total_local_storage_gb: Optional[pulumi.Input['AutoScalingGroupTotalLocalStorageGbRequestArgs']] = None,
-                 v_cpu_count: Optional[pulumi.Input['AutoScalingGroupVCpuCountRequestArgs']] = None):
+                 total_local_storage_gb: Optional[pulumi.Input['AutoScalingGroupTotalLocalStorageGbRequestArgs']] = None):
+        pulumi.set(__self__, "memory_mi_b", memory_mi_b)
+        pulumi.set(__self__, "v_cpu_count", v_cpu_count)
         if accelerator_count is not None:
             pulumi.set(__self__, "accelerator_count", accelerator_count)
         if accelerator_manufacturers is not None:
@@ -224,8 +226,6 @@ class AutoScalingGroupInstanceRequirementsArgs:
             pulumi.set(__self__, "local_storage_types", local_storage_types)
         if memory_gi_b_per_v_cpu is not None:
             pulumi.set(__self__, "memory_gi_b_per_v_cpu", memory_gi_b_per_v_cpu)
-        if memory_mi_b is not None:
-            pulumi.set(__self__, "memory_mi_b", memory_mi_b)
         if network_bandwidth_gbps is not None:
             pulumi.set(__self__, "network_bandwidth_gbps", network_bandwidth_gbps)
         if network_interface_count is not None:
@@ -238,8 +238,24 @@ class AutoScalingGroupInstanceRequirementsArgs:
             pulumi.set(__self__, "spot_max_price_percentage_over_lowest_price", spot_max_price_percentage_over_lowest_price)
         if total_local_storage_gb is not None:
             pulumi.set(__self__, "total_local_storage_gb", total_local_storage_gb)
-        if v_cpu_count is not None:
-            pulumi.set(__self__, "v_cpu_count", v_cpu_count)
+
+    @property
+    @pulumi.getter(name="memoryMiB")
+    def memory_mi_b(self) -> pulumi.Input['AutoScalingGroupMemoryMiBRequestArgs']:
+        return pulumi.get(self, "memory_mi_b")
+
+    @memory_mi_b.setter
+    def memory_mi_b(self, value: pulumi.Input['AutoScalingGroupMemoryMiBRequestArgs']):
+        pulumi.set(self, "memory_mi_b", value)
+
+    @property
+    @pulumi.getter(name="vCpuCount")
+    def v_cpu_count(self) -> pulumi.Input['AutoScalingGroupVCpuCountRequestArgs']:
+        return pulumi.get(self, "v_cpu_count")
+
+    @v_cpu_count.setter
+    def v_cpu_count(self, value: pulumi.Input['AutoScalingGroupVCpuCountRequestArgs']):
+        pulumi.set(self, "v_cpu_count", value)
 
     @property
     @pulumi.getter(name="acceleratorCount")
@@ -377,15 +393,6 @@ class AutoScalingGroupInstanceRequirementsArgs:
         pulumi.set(self, "memory_gi_b_per_v_cpu", value)
 
     @property
-    @pulumi.getter(name="memoryMiB")
-    def memory_mi_b(self) -> Optional[pulumi.Input['AutoScalingGroupMemoryMiBRequestArgs']]:
-        return pulumi.get(self, "memory_mi_b")
-
-    @memory_mi_b.setter
-    def memory_mi_b(self, value: Optional[pulumi.Input['AutoScalingGroupMemoryMiBRequestArgs']]):
-        pulumi.set(self, "memory_mi_b", value)
-
-    @property
     @pulumi.getter(name="networkBandwidthGbps")
     def network_bandwidth_gbps(self) -> Optional[pulumi.Input['AutoScalingGroupNetworkBandwidthGbpsRequestArgs']]:
         return pulumi.get(self, "network_bandwidth_gbps")
@@ -438,15 +445,6 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @total_local_storage_gb.setter
     def total_local_storage_gb(self, value: Optional[pulumi.Input['AutoScalingGroupTotalLocalStorageGbRequestArgs']]):
         pulumi.set(self, "total_local_storage_gb", value)
-
-    @property
-    @pulumi.getter(name="vCpuCount")
-    def v_cpu_count(self) -> Optional[pulumi.Input['AutoScalingGroupVCpuCountRequestArgs']]:
-        return pulumi.get(self, "v_cpu_count")
-
-    @v_cpu_count.setter
-    def v_cpu_count(self, value: Optional[pulumi.Input['AutoScalingGroupVCpuCountRequestArgs']]):
-        pulumi.set(self, "v_cpu_count", value)
 
 
 @pulumi.input_type

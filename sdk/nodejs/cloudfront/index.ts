@@ -60,6 +60,11 @@ export const getKeyGroup: typeof import("./getKeyGroup").getKeyGroup = null as a
 export const getKeyGroupOutput: typeof import("./getKeyGroup").getKeyGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getKeyGroup","getKeyGroupOutput"], () => require("./getKeyGroup"));
 
+export { GetKeyValueStoreArgs, GetKeyValueStoreResult, GetKeyValueStoreOutputArgs } from "./getKeyValueStore";
+export const getKeyValueStore: typeof import("./getKeyValueStore").getKeyValueStore = null as any;
+export const getKeyValueStoreOutput: typeof import("./getKeyValueStore").getKeyValueStoreOutput = null as any;
+utilities.lazyLoad(exports, ["getKeyValueStore","getKeyValueStoreOutput"], () => require("./getKeyValueStore"));
+
 export { GetMonitoringSubscriptionArgs, GetMonitoringSubscriptionResult, GetMonitoringSubscriptionOutputArgs } from "./getMonitoringSubscription";
 export const getMonitoringSubscription: typeof import("./getMonitoringSubscription").getMonitoringSubscription = null as any;
 export const getMonitoringSubscriptionOutput: typeof import("./getMonitoringSubscription").getMonitoringSubscriptionOutput = null as any;
@@ -99,6 +104,11 @@ export { KeyGroupArgs } from "./keyGroup";
 export type KeyGroup = import("./keyGroup").KeyGroup;
 export const KeyGroup: typeof import("./keyGroup").KeyGroup = null as any;
 utilities.lazyLoad(exports, ["KeyGroup"], () => require("./keyGroup"));
+
+export { KeyValueStoreArgs } from "./keyValueStore";
+export type KeyValueStore = import("./keyValueStore").KeyValueStore;
+export const KeyValueStore: typeof import("./keyValueStore").KeyValueStore = null as any;
+utilities.lazyLoad(exports, ["KeyValueStore"], () => require("./keyValueStore"));
 
 export { MonitoringSubscriptionArgs } from "./monitoringSubscription";
 export type MonitoringSubscription = import("./monitoringSubscription").MonitoringSubscription;
@@ -155,6 +165,8 @@ const _module = {
                 return new Function(name, <any>undefined, { urn })
             case "aws-native:cloudfront:KeyGroup":
                 return new KeyGroup(name, <any>undefined, { urn })
+            case "aws-native:cloudfront:KeyValueStore":
+                return new KeyValueStore(name, <any>undefined, { urn })
             case "aws-native:cloudfront:MonitoringSubscription":
                 return new MonitoringSubscription(name, <any>undefined, { urn })
             case "aws-native:cloudfront:OriginAccessControl":

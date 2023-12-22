@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetSecurityGroupEgressArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Security Group Rule Id
+        /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetSecurityGroupEgressInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Security Group Rule Id
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.Ec2
     [OutputType]
     public sealed class GetSecurityGroupEgressResult
     {
+        /// <summary>
+        /// Resource Type definition for an egress (outbound) security group rule.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The Security Group Rule Id
+        /// </summary>
         public readonly string? Id;
 
         [OutputConstructor]

@@ -85,7 +85,7 @@ export class GroupMembership extends pulumi.CustomResource {
             resourceInputs["membershipId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["identityStoreId"] };
+        const replaceOnChanges = { replaceOnChanges: ["groupId", "identityStoreId", "memberId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(GroupMembership.__pulumiType, name, resourceInputs, opts);
     }

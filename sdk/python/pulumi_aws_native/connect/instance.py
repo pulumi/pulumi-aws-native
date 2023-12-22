@@ -20,13 +20,15 @@ class InstanceArgs:
                  attributes: pulumi.Input['InstanceAttributesArgs'],
                  identity_management_type: pulumi.Input['InstanceIdentityManagementType'],
                  directory_id: Optional[pulumi.Input[str]] = None,
-                 instance_alias: Optional[pulumi.Input[str]] = None):
+                 instance_alias: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceTagArgs']]]] = None):
         """
         The set of arguments for constructing a Instance resource.
         :param pulumi.Input['InstanceAttributesArgs'] attributes: The attributes for the instance.
         :param pulumi.Input['InstanceIdentityManagementType'] identity_management_type: Specifies the type of directory integration for new instance.
         :param pulumi.Input[str] directory_id: Existing directoryId user wants to map to the new Connect instance.
         :param pulumi.Input[str] instance_alias: Alias of the new directory created as part of new instance creation.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "attributes", attributes)
         pulumi.set(__self__, "identity_management_type", identity_management_type)
@@ -34,6 +36,8 @@ class InstanceArgs:
             pulumi.set(__self__, "directory_id", directory_id)
         if instance_alias is not None:
             pulumi.set(__self__, "instance_alias", instance_alias)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -83,6 +87,18 @@ class InstanceArgs:
     def instance_alias(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance_alias", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceTagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class Instance(pulumi.CustomResource):
     @overload
@@ -93,6 +109,7 @@ class Instance(pulumi.CustomResource):
                  directory_id: Optional[pulumi.Input[str]] = None,
                  identity_management_type: Optional[pulumi.Input['InstanceIdentityManagementType']] = None,
                  instance_alias: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceTagArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::Instance
@@ -103,6 +120,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] directory_id: Existing directoryId user wants to map to the new Connect instance.
         :param pulumi.Input['InstanceIdentityManagementType'] identity_management_type: Specifies the type of directory integration for new instance.
         :param pulumi.Input[str] instance_alias: Alias of the new directory created as part of new instance creation.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -132,6 +150,7 @@ class Instance(pulumi.CustomResource):
                  directory_id: Optional[pulumi.Input[str]] = None,
                  identity_management_type: Optional[pulumi.Input['InstanceIdentityManagementType']] = None,
                  instance_alias: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -149,6 +168,7 @@ class Instance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'identity_management_type'")
             __props__.__dict__["identity_management_type"] = identity_management_type
             __props__.__dict__["instance_alias"] = instance_alias
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_time"] = None
             __props__.__dict__["instance_status"] = None
@@ -185,6 +205,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["instance_alias"] = None
         __props__.__dict__["instance_status"] = None
         __props__.__dict__["service_role"] = None
+        __props__.__dict__["tags"] = None
         return Instance(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -250,4 +271,12 @@ class Instance(pulumi.CustomResource):
         Service linked role created as part of instance creation.
         """
         return pulumi.get(self, "service_role")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.InstanceTag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 

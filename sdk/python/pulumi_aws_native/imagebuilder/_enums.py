@@ -14,13 +14,16 @@ __all__ = [
     'DistributionConfigurationTargetContainerRepositoryService',
     'ImagePipelineSchedulePipelineExecutionStartCondition',
     'ImagePipelineStatus',
+    'ImagePipelineWorkflowConfigurationOnFailure',
     'ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType',
+    'ImageWorkflowConfigurationOnFailure',
     'InfrastructureConfigurationInstanceMetadataOptionsHttpTokens',
     'LifecyclePolicyActionType',
     'LifecyclePolicyFilterType',
     'LifecyclePolicyResourceType',
     'LifecyclePolicyStatus',
     'LifecyclePolicyTimeUnit',
+    'WorkflowType',
 ]
 
 
@@ -98,6 +101,14 @@ class ImagePipelineStatus(str, Enum):
     ENABLED = "ENABLED"
 
 
+class ImagePipelineWorkflowConfigurationOnFailure(str, Enum):
+    """
+    Define execution decision in case of workflow failure
+    """
+    CONTINUE_ = "CONTINUE"
+    ABORT = "ABORT"
+
+
 class ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType(str, Enum):
     """
     Use to override the device's volume type.
@@ -109,6 +120,14 @@ class ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType(str, Enum):
     GP3 = "gp3"
     SC1 = "sc1"
     ST1 = "st1"
+
+
+class ImageWorkflowConfigurationOnFailure(str, Enum):
+    """
+    Define execution decision in case of workflow failure
+    """
+    CONTINUE_ = "CONTINUE"
+    ABORT = "ABORT"
 
 
 class InfrastructureConfigurationInstanceMetadataOptionsHttpTokens(str, Enum):
@@ -160,3 +179,12 @@ class LifecyclePolicyTimeUnit(str, Enum):
     WEEKS = "WEEKS"
     MONTHS = "MONTHS"
     YEARS = "YEARS"
+
+
+class WorkflowType(str, Enum):
+    """
+    The type of the workflow denotes whether the workflow is used to build, test, or distribute.
+    """
+    BUILD = "BUILD"
+    TEST = "TEST"
+    DISTRIBUTION = "DISTRIBUTION"

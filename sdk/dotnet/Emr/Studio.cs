@@ -40,10 +40,28 @@ namespace Pulumi.AwsNative.Emr
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The AWS KMS key identifier (ARN) used to encrypt AWS EMR Studio workspace and notebook files when backed up to AWS S3.
+        /// </summary>
+        [Output("encryptionKeyArn")]
+        public Output<string?> EncryptionKeyArn { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by VpcId.
         /// </summary>
         [Output("engineSecurityGroupId")]
         public Output<string> EngineSecurityGroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN of the IAM Identity Center instance to create the Studio application.
+        /// </summary>
+        [Output("idcInstanceArn")]
+        public Output<string?> IdcInstanceArn { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL. If the value is set to REQUIRED, users must be explicitly assigned to the Studio application to access the Studio.
+        /// </summary>
+        [Output("idcUserAssignment")]
+        public Output<Pulumi.AwsNative.Emr.StudioIdcUserAssignment?> IdcUserAssignment { get; private set; } = null!;
 
         /// <summary>
         /// Your identity provider's authentication endpoint. Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.
@@ -86,6 +104,12 @@ namespace Pulumi.AwsNative.Emr
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.StudioTag>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.
+        /// </summary>
+        [Output("trustedIdentityPropagationEnabled")]
+        public Output<bool?> TrustedIdentityPropagationEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The unique Studio access URL.
@@ -137,8 +161,12 @@ namespace Pulumi.AwsNative.Emr
                 ReplaceOnChanges =
                 {
                     "authMode",
+                    "encryptionKeyArn",
                     "engineSecurityGroupId",
+                    "idcInstanceArn",
+                    "idcUserAssignment",
                     "serviceRole",
+                    "trustedIdentityPropagationEnabled",
                     "userRole",
                     "vpcId",
                     "workspaceSecurityGroupId",
@@ -184,10 +212,28 @@ namespace Pulumi.AwsNative.Emr
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The AWS KMS key identifier (ARN) used to encrypt AWS EMR Studio workspace and notebook files when backed up to AWS S3.
+        /// </summary>
+        [Input("encryptionKeyArn")]
+        public Input<string>? EncryptionKeyArn { get; set; }
+
+        /// <summary>
         /// The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by VpcId.
         /// </summary>
         [Input("engineSecurityGroupId", required: true)]
         public Input<string> EngineSecurityGroupId { get; set; } = null!;
+
+        /// <summary>
+        /// The ARN of the IAM Identity Center instance to create the Studio application.
+        /// </summary>
+        [Input("idcInstanceArn")]
+        public Input<string>? IdcInstanceArn { get; set; }
+
+        /// <summary>
+        /// Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL. If the value is set to REQUIRED, users must be explicitly assigned to the Studio application to access the Studio.
+        /// </summary>
+        [Input("idcUserAssignment")]
+        public Input<Pulumi.AwsNative.Emr.StudioIdcUserAssignment>? IdcUserAssignment { get; set; }
 
         /// <summary>
         /// Your identity provider's authentication endpoint. Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.
@@ -236,6 +282,12 @@ namespace Pulumi.AwsNative.Emr
             get => _tags ?? (_tags = new InputList<Inputs.StudioTagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.
+        /// </summary>
+        [Input("trustedIdentityPropagationEnabled")]
+        public Input<bool>? TrustedIdentityPropagationEnabled { get; set; }
 
         /// <summary>
         /// The IAM user role that will be assumed by users and groups logged in to a Studio. The permissions attached to this IAM role can be scoped down for each user or group using session policies.

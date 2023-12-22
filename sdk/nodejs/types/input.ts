@@ -755,7 +755,7 @@ export namespace accessanalyzer {
      */
     export interface AnalyzerUnusedAccessConfigurationArgs {
         /**
-         * The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that haven't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+         * The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
          */
         unusedAccessAge?: pulumi.Input<number>;
     }
@@ -5398,14 +5398,14 @@ export namespace autoscaling {
         localStorage?: pulumi.Input<string>;
         localStorageTypes?: pulumi.Input<pulumi.Input<string>[]>;
         memoryGiBPerVCpu?: pulumi.Input<inputs.autoscaling.AutoScalingGroupMemoryGiBPerVCpuRequestArgs>;
-        memoryMiB?: pulumi.Input<inputs.autoscaling.AutoScalingGroupMemoryMiBRequestArgs>;
+        memoryMiB: pulumi.Input<inputs.autoscaling.AutoScalingGroupMemoryMiBRequestArgs>;
         networkBandwidthGbps?: pulumi.Input<inputs.autoscaling.AutoScalingGroupNetworkBandwidthGbpsRequestArgs>;
         networkInterfaceCount?: pulumi.Input<inputs.autoscaling.AutoScalingGroupNetworkInterfaceCountRequestArgs>;
         onDemandMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
         requireHibernateSupport?: pulumi.Input<boolean>;
         spotMaxPricePercentageOverLowestPrice?: pulumi.Input<number>;
         totalLocalStorageGb?: pulumi.Input<inputs.autoscaling.AutoScalingGroupTotalLocalStorageGbRequestArgs>;
-        vCpuCount?: pulumi.Input<inputs.autoscaling.AutoScalingGroupVCpuCountRequestArgs>;
+        vCpuCount: pulumi.Input<inputs.autoscaling.AutoScalingGroupVCpuCountRequestArgs>;
     }
 
     export interface AutoScalingGroupInstancesDistributionArgs {
@@ -5741,6 +5741,62 @@ export namespace autoscalingplans {
     }
 }
 
+export namespace b2bi {
+    export interface CapabilityConfigurationPropertiesArgs {
+        edi: pulumi.Input<inputs.b2bi.CapabilityEdiConfigurationArgs>;
+    }
+
+    export interface CapabilityEdiConfigurationArgs {
+        inputLocation: pulumi.Input<inputs.b2bi.CapabilityS3LocationArgs>;
+        outputLocation: pulumi.Input<inputs.b2bi.CapabilityS3LocationArgs>;
+        transformerId: pulumi.Input<string>;
+        type: pulumi.Input<inputs.b2bi.CapabilityEdiTypePropertiesArgs>;
+    }
+
+    export interface CapabilityEdiTypePropertiesArgs {
+        x12Details: pulumi.Input<inputs.b2bi.CapabilityX12DetailsArgs>;
+    }
+
+    export interface CapabilityS3LocationArgs {
+        bucketName?: pulumi.Input<string>;
+        key?: pulumi.Input<string>;
+    }
+
+    export interface CapabilityTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface CapabilityX12DetailsArgs {
+        transactionSet?: pulumi.Input<enums.b2bi.CapabilityX12TransactionSet>;
+        version?: pulumi.Input<enums.b2bi.CapabilityX12Version>;
+    }
+
+    export interface PartnershipTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface ProfileTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface TransformerEdiTypePropertiesArgs {
+        x12Details: pulumi.Input<inputs.b2bi.TransformerX12DetailsArgs>;
+    }
+
+    export interface TransformerTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface TransformerX12DetailsArgs {
+        transactionSet?: pulumi.Input<enums.b2bi.TransformerX12TransactionSet>;
+        version?: pulumi.Input<enums.b2bi.TransformerX12Version>;
+    }
+}
+
 export namespace backup {
     export interface BackupPlanAdvancedBackupSettingResourceTypeArgs {
         backupOptions: any;
@@ -6011,34 +6067,61 @@ export namespace batch {
         terminateJobsOnUpdate?: pulumi.Input<boolean>;
     }
 
-    export interface JobDefinitionAuthorizationConfigArgs {
-        accessPointId?: pulumi.Input<string>;
-        iam?: pulumi.Input<string>;
-    }
-
     export interface JobDefinitionContainerPropertiesArgs {
         command?: pulumi.Input<pulumi.Input<string>[]>;
         environment?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEnvironmentArgs>[]>;
-        ephemeralStorage?: pulumi.Input<inputs.batch.JobDefinitionEphemeralStorageArgs>;
+        ephemeralStorage?: pulumi.Input<inputs.batch.JobDefinitionContainerPropertiesEphemeralStoragePropertiesArgs>;
         executionRoleArn?: pulumi.Input<string>;
-        fargatePlatformConfiguration?: pulumi.Input<inputs.batch.JobDefinitionFargatePlatformConfigurationArgs>;
+        fargatePlatformConfiguration?: pulumi.Input<inputs.batch.JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs>;
         image: pulumi.Input<string>;
         instanceType?: pulumi.Input<string>;
         jobRoleArn?: pulumi.Input<string>;
-        linuxParameters?: pulumi.Input<inputs.batch.JobDefinitionLinuxParametersArgs>;
-        logConfiguration?: pulumi.Input<inputs.batch.JobDefinitionLogConfigurationArgs>;
+        linuxParameters?: pulumi.Input<inputs.batch.JobDefinitionContainerPropertiesLinuxParametersPropertiesArgs>;
+        logConfiguration?: pulumi.Input<inputs.batch.JobDefinitionContainerPropertiesLogConfigurationPropertiesArgs>;
         memory?: pulumi.Input<number>;
-        mountPoints?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionMountPointsArgs>[]>;
-        networkConfiguration?: pulumi.Input<inputs.batch.JobDefinitionNetworkConfigurationArgs>;
+        mountPoints?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionMountPointArgs>[]>;
+        networkConfiguration?: pulumi.Input<inputs.batch.JobDefinitionContainerPropertiesNetworkConfigurationPropertiesArgs>;
         privileged?: pulumi.Input<boolean>;
         readonlyRootFilesystem?: pulumi.Input<boolean>;
         resourceRequirements?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionResourceRequirementArgs>[]>;
-        runtimePlatform?: pulumi.Input<inputs.batch.JobDefinitionRuntimePlatformArgs>;
+        runtimePlatform?: pulumi.Input<inputs.batch.JobDefinitionContainerPropertiesRuntimePlatformPropertiesArgs>;
         secrets?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionSecretArgs>[]>;
         ulimits?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionUlimitArgs>[]>;
         user?: pulumi.Input<string>;
         vcpus?: pulumi.Input<number>;
-        volumes?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionVolumesArgs>[]>;
+        volumes?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionVolumeArgs>[]>;
+    }
+
+    export interface JobDefinitionContainerPropertiesEphemeralStoragePropertiesArgs {
+        sizeInGiB: pulumi.Input<number>;
+    }
+
+    export interface JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs {
+        platformVersion?: pulumi.Input<string>;
+    }
+
+    export interface JobDefinitionContainerPropertiesLinuxParametersPropertiesArgs {
+        devices?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionDeviceArgs>[]>;
+        initProcessEnabled?: pulumi.Input<boolean>;
+        maxSwap?: pulumi.Input<number>;
+        sharedMemorySize?: pulumi.Input<number>;
+        swappiness?: pulumi.Input<number>;
+        tmpfs?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionTmpfsArgs>[]>;
+    }
+
+    export interface JobDefinitionContainerPropertiesLogConfigurationPropertiesArgs {
+        logDriver: pulumi.Input<string>;
+        options?: any;
+        secretOptions?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionSecretArgs>[]>;
+    }
+
+    export interface JobDefinitionContainerPropertiesNetworkConfigurationPropertiesArgs {
+        assignPublicIp?: pulumi.Input<string>;
+    }
+
+    export interface JobDefinitionContainerPropertiesRuntimePlatformPropertiesArgs {
+        cpuArchitecture?: pulumi.Input<string>;
+        operatingSystemFamily?: pulumi.Input<string>;
     }
 
     export interface JobDefinitionDeviceArgs {
@@ -6047,8 +6130,13 @@ export namespace batch {
         permissions?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface JobDefinitionEfsAuthorizationConfigArgs {
+        accessPointId?: pulumi.Input<string>;
+        iam?: pulumi.Input<string>;
+    }
+
     export interface JobDefinitionEfsVolumeConfigurationArgs {
-        authorizationConfig?: pulumi.Input<inputs.batch.JobDefinitionAuthorizationConfigArgs>;
+        authorizationConfig?: pulumi.Input<inputs.batch.JobDefinitionEfsAuthorizationConfigArgs>;
         fileSystemId: pulumi.Input<string>;
         rootDirectory?: pulumi.Input<string>;
         transitEncryption?: pulumi.Input<string>;
@@ -6100,8 +6188,21 @@ export namespace batch {
         path?: pulumi.Input<string>;
     }
 
+    export interface JobDefinitionEksMetadataArgs {
+        labels?: any;
+    }
+
+    export interface JobDefinitionEksPodPropertiesArgs {
+        containers?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksContainerArgs>[]>;
+        dnsPolicy?: pulumi.Input<string>;
+        hostNetwork?: pulumi.Input<boolean>;
+        metadata?: pulumi.Input<inputs.batch.JobDefinitionEksMetadataArgs>;
+        serviceAccountName?: pulumi.Input<string>;
+        volumes?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksVolumeArgs>[]>;
+    }
+
     export interface JobDefinitionEksPropertiesArgs {
-        podProperties?: pulumi.Input<inputs.batch.JobDefinitionPodPropertiesArgs>;
+        podProperties?: pulumi.Input<inputs.batch.JobDefinitionEksPodPropertiesArgs>;
     }
 
     export interface JobDefinitionEksSecretArgs {
@@ -6121,10 +6222,6 @@ export namespace batch {
         value?: pulumi.Input<string>;
     }
 
-    export interface JobDefinitionEphemeralStorageArgs {
-        sizeInGiB: pulumi.Input<number>;
-    }
-
     export interface JobDefinitionEvaluateOnExitArgs {
         action: pulumi.Input<string>;
         onExitCode?: pulumi.Input<string>;
@@ -6132,37 +6229,18 @@ export namespace batch {
         onStatusReason?: pulumi.Input<string>;
     }
 
-    export interface JobDefinitionFargatePlatformConfigurationArgs {
-        platformVersion?: pulumi.Input<string>;
+    export interface JobDefinitionHostArgs {
+        sourcePath?: pulumi.Input<string>;
     }
 
-    export interface JobDefinitionLinuxParametersArgs {
-        devices?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionDeviceArgs>[]>;
-        initProcessEnabled?: pulumi.Input<boolean>;
-        maxSwap?: pulumi.Input<number>;
-        sharedMemorySize?: pulumi.Input<number>;
-        swappiness?: pulumi.Input<number>;
-        tmpfs?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionTmpfsArgs>[]>;
+    export interface JobDefinitionJobTimeoutArgs {
+        attemptDurationSeconds?: pulumi.Input<number>;
     }
 
-    export interface JobDefinitionLogConfigurationArgs {
-        logDriver: pulumi.Input<string>;
-        options?: any;
-        secretOptions?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionSecretArgs>[]>;
-    }
-
-    export interface JobDefinitionMetadataArgs {
-        labels?: any;
-    }
-
-    export interface JobDefinitionMountPointsArgs {
+    export interface JobDefinitionMountPointArgs {
         containerPath?: pulumi.Input<string>;
         readOnly?: pulumi.Input<boolean>;
         sourceVolume?: pulumi.Input<string>;
-    }
-
-    export interface JobDefinitionNetworkConfigurationArgs {
-        assignPublicIp?: pulumi.Input<string>;
     }
 
     export interface JobDefinitionNodePropertiesArgs {
@@ -6176,15 +6254,6 @@ export namespace batch {
         targetNodes: pulumi.Input<string>;
     }
 
-    export interface JobDefinitionPodPropertiesArgs {
-        containers?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksContainerArgs>[]>;
-        dnsPolicy?: pulumi.Input<string>;
-        hostNetwork?: pulumi.Input<boolean>;
-        metadata?: pulumi.Input<inputs.batch.JobDefinitionMetadataArgs>;
-        serviceAccountName?: pulumi.Input<string>;
-        volumes?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEksVolumeArgs>[]>;
-    }
-
     export interface JobDefinitionResourceRequirementArgs {
         type?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
@@ -6195,18 +6264,9 @@ export namespace batch {
         evaluateOnExit?: pulumi.Input<pulumi.Input<inputs.batch.JobDefinitionEvaluateOnExitArgs>[]>;
     }
 
-    export interface JobDefinitionRuntimePlatformArgs {
-        cpuArchitecture?: pulumi.Input<string>;
-        operatingSystemFamily?: pulumi.Input<string>;
-    }
-
     export interface JobDefinitionSecretArgs {
         name: pulumi.Input<string>;
         valueFrom: pulumi.Input<string>;
-    }
-
-    export interface JobDefinitionTimeoutArgs {
-        attemptDurationSeconds?: pulumi.Input<number>;
     }
 
     export interface JobDefinitionTmpfsArgs {
@@ -6221,14 +6281,10 @@ export namespace batch {
         softLimit: pulumi.Input<number>;
     }
 
-    export interface JobDefinitionVolumesArgs {
+    export interface JobDefinitionVolumeArgs {
         efsVolumeConfiguration?: pulumi.Input<inputs.batch.JobDefinitionEfsVolumeConfigurationArgs>;
-        host?: pulumi.Input<inputs.batch.JobDefinitionVolumesHostArgs>;
+        host?: pulumi.Input<inputs.batch.JobDefinitionHostArgs>;
         name?: pulumi.Input<string>;
-    }
-
-    export interface JobDefinitionVolumesHostArgs {
-        sourcePath?: pulumi.Input<string>;
     }
 
     export interface JobQueueComputeEnvironmentOrderArgs {
@@ -6558,6 +6614,15 @@ export namespace cleanrooms {
         accountId: pulumi.Input<string>;
         displayName: pulumi.Input<string>;
         memberAbilities: pulumi.Input<pulumi.Input<enums.cleanrooms.CollaborationMemberAbility>[]>;
+        paymentConfiguration?: pulumi.Input<inputs.cleanrooms.CollaborationPaymentConfigurationArgs>;
+    }
+
+    export interface CollaborationPaymentConfigurationArgs {
+        queryCompute: pulumi.Input<inputs.cleanrooms.CollaborationQueryComputePaymentConfigArgs>;
+    }
+
+    export interface CollaborationQueryComputePaymentConfigArgs {
+        isResponsible: pulumi.Input<boolean>;
     }
 
     export interface CollaborationTagArgs {
@@ -6637,6 +6702,10 @@ export namespace cleanrooms {
         value: pulumi.Input<string>;
     }
 
+    export interface MembershipPaymentConfigurationArgs {
+        queryCompute: pulumi.Input<inputs.cleanrooms.MembershipQueryComputePaymentConfigArgs>;
+    }
+
     export interface MembershipProtectedQueryOutputConfigurationArgs {
         s3: pulumi.Input<inputs.cleanrooms.MembershipProtectedQueryS3OutputConfigurationArgs>;
     }
@@ -6650,6 +6719,10 @@ export namespace cleanrooms {
         bucket: pulumi.Input<string>;
         keyPrefix?: pulumi.Input<string>;
         resultFormat: pulumi.Input<enums.cleanrooms.MembershipResultFormat>;
+    }
+
+    export interface MembershipQueryComputePaymentConfigArgs {
+        isResponsible: pulumi.Input<boolean>;
     }
 
     export interface MembershipTagArgs {
@@ -7097,6 +7170,11 @@ export namespace cloudfront {
         comment?: pulumi.Input<string>;
         items: pulumi.Input<pulumi.Input<string>[]>;
         name: pulumi.Input<string>;
+    }
+
+    export interface KeyValueStoreImportSourceArgs {
+        sourceArn: pulumi.Input<string>;
+        sourceType: pulumi.Input<string>;
     }
 
     export interface MonitoringSubscriptionArgs {
@@ -7911,6 +7989,11 @@ export namespace codedeploy {
         value: pulumi.Input<number>;
     }
 
+    export interface DeploymentConfigMinimumHealthyHostsPerZoneArgs {
+        type: pulumi.Input<string>;
+        value: pulumi.Input<number>;
+    }
+
     export interface DeploymentConfigTimeBasedCanaryArgs {
         canaryInterval: pulumi.Input<number>;
         canaryPercentage: pulumi.Input<number>;
@@ -7925,6 +8008,12 @@ export namespace codedeploy {
         timeBasedCanary?: pulumi.Input<inputs.codedeploy.DeploymentConfigTimeBasedCanaryArgs>;
         timeBasedLinear?: pulumi.Input<inputs.codedeploy.DeploymentConfigTimeBasedLinearArgs>;
         type: pulumi.Input<string>;
+    }
+
+    export interface DeploymentConfigZonalConfigArgs {
+        firstZoneMonitorDurationInSeconds?: pulumi.Input<number>;
+        minimumHealthyHostsPerZone?: pulumi.Input<inputs.codedeploy.DeploymentConfigMinimumHealthyHostsPerZoneArgs>;
+        monitorDurationInSeconds?: pulumi.Input<number>;
     }
 
     export interface DeploymentGroupAlarmArgs {
@@ -8227,6 +8316,20 @@ export namespace codepipeline {
         type: pulumi.Input<string>;
     }
 
+    export interface PipelineGitConfigurationArgs {
+        push?: pulumi.Input<pulumi.Input<inputs.codepipeline.PipelineGitPushFilterArgs>[]>;
+        sourceActionName: pulumi.Input<string>;
+    }
+
+    export interface PipelineGitPushFilterArgs {
+        tags?: pulumi.Input<inputs.codepipeline.PipelineGitTagFilterCriteriaArgs>;
+    }
+
+    export interface PipelineGitTagFilterCriteriaArgs {
+        excludes?: pulumi.Input<pulumi.Input<string>[]>;
+        includes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface PipelineInputArtifactArgs {
         name: pulumi.Input<string>;
     }
@@ -8249,6 +8352,17 @@ export namespace codepipeline {
     export interface PipelineTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    export interface PipelineTriggerDeclarationArgs {
+        gitConfiguration?: pulumi.Input<inputs.codepipeline.PipelineGitConfigurationArgs>;
+        providerType: pulumi.Input<string>;
+    }
+
+    export interface PipelineVariableDeclarationArgs {
+        defaultValue?: pulumi.Input<string>;
+        description?: pulumi.Input<string>;
+        name: pulumi.Input<string>;
     }
 
     export interface WebhookAuthConfigurationArgs {
@@ -8770,6 +8884,17 @@ export namespace configuration {
         resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface ConfigurationRecorderRecordingModeArgs {
+        recordingFrequency: pulumi.Input<string>;
+        recordingModeOverrides?: pulumi.Input<pulumi.Input<inputs.configuration.ConfigurationRecorderRecordingModeOverrideArgs>[]>;
+    }
+
+    export interface ConfigurationRecorderRecordingModeOverrideArgs {
+        description?: pulumi.Input<string>;
+        recordingFrequency: pulumi.Input<string>;
+        resourceTypes: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface ConfigurationRecorderRecordingStrategyArgs {
         useOnly: pulumi.Input<string>;
     }
@@ -9243,7 +9368,7 @@ export namespace connect {
     }
 
     export interface InstanceStorageConfigKinesisVideoStreamConfigArgs {
-        encryptionConfig?: pulumi.Input<inputs.connect.InstanceStorageConfigEncryptionConfigArgs>;
+        encryptionConfig: pulumi.Input<inputs.connect.InstanceStorageConfigEncryptionConfigArgs>;
         prefix: pulumi.Input<string>;
         retentionPeriodHours: pulumi.Input<number>;
     }
@@ -9252,6 +9377,20 @@ export namespace connect {
         bucketName: pulumi.Input<string>;
         bucketPrefix: pulumi.Input<string>;
         encryptionConfig?: pulumi.Input<inputs.connect.InstanceStorageConfigEncryptionConfigArgs>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface InstanceTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
     }
 
     /**
@@ -9398,15 +9537,35 @@ export namespace connect {
      */
     export interface RuleActionsArgs {
         assignContactCategoryActions?: pulumi.Input<pulumi.Input<inputs.connect.RuleAssignContactCategoryActionArgs>[]>;
+        createCaseActions?: pulumi.Input<pulumi.Input<inputs.connect.RuleCreateCaseActionArgs>[]>;
+        endAssociatedTaskActions?: pulumi.Input<pulumi.Input<inputs.connect.RuleEndAssociatedTasksActionArgs>[]>;
         eventBridgeActions?: pulumi.Input<pulumi.Input<inputs.connect.RuleEventBridgeActionArgs>[]>;
         sendNotificationActions?: pulumi.Input<pulumi.Input<inputs.connect.RuleSendNotificationActionArgs>[]>;
         taskActions?: pulumi.Input<pulumi.Input<inputs.connect.RuleTaskActionArgs>[]>;
+        updateCaseActions?: pulumi.Input<pulumi.Input<inputs.connect.RuleUpdateCaseActionArgs>[]>;
     }
 
     /**
      * The definition for assigning contact category action.
      */
     export interface RuleAssignContactCategoryActionArgs {
+    }
+
+    /**
+     * The definition for create case action.
+     */
+    export interface RuleCreateCaseActionArgs {
+        fields: pulumi.Input<pulumi.Input<inputs.connect.RuleFieldArgs>[]>;
+        /**
+         * The Id of template.
+         */
+        templateId: pulumi.Input<string>;
+    }
+
+    /**
+     * The definition for ending associated task action.
+     */
+    export interface RuleEndAssociatedTasksActionArgs {
     }
 
     /**
@@ -9417,6 +9576,27 @@ export namespace connect {
          * The name of the event bridge action.
          */
         name: pulumi.Input<string>;
+    }
+
+    /**
+     * The field of the case.
+     */
+    export interface RuleFieldArgs {
+        /**
+         * The Id of the field
+         */
+        id: pulumi.Input<string>;
+        value: pulumi.Input<inputs.connect.RuleFieldValueArgs>;
+    }
+
+    /**
+     * The value of the field.
+     */
+    export interface RuleFieldValueArgs {
+        booleanValue?: pulumi.Input<boolean>;
+        doubleValue?: pulumi.Input<number>;
+        emptyValue?: any;
+        stringValue?: pulumi.Input<string>;
     }
 
     /**
@@ -9504,6 +9684,13 @@ export namespace connect {
          * The Amazon Resource Name (ARN) for the AppIntegration association.
          */
         integrationAssociationArn?: pulumi.Input<string>;
+    }
+
+    /**
+     * The definition for update case action.
+     */
+    export interface RuleUpdateCaseActionArgs {
+        fields: pulumi.Input<pulumi.Input<inputs.connect.RuleFieldArgs>[]>;
     }
 
     /**
@@ -11763,6 +11950,20 @@ export namespace dlm {
 }
 
 export namespace dms {
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface DataProviderTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
     export interface EndpointDocDbSettingsArgs {
         docsToInvestigate?: pulumi.Input<number>;
         extractDocId?: pulumi.Input<boolean>;
@@ -11800,10 +12001,14 @@ export namespace dms {
 
     export interface EndpointIbmDb2SettingsArgs {
         currentLsn?: pulumi.Input<string>;
+        keepCsvFiles?: pulumi.Input<boolean>;
+        loadTimeout?: pulumi.Input<number>;
+        maxFileSize?: pulumi.Input<number>;
         maxKBytesPerRead?: pulumi.Input<number>;
         secretsManagerAccessRoleArn?: pulumi.Input<string>;
         secretsManagerSecretId?: pulumi.Input<string>;
         setDataCaptureChanges?: pulumi.Input<boolean>;
+        writeBufferSize?: pulumi.Input<number>;
     }
 
     export interface EndpointKafkaSettingsArgs {
@@ -12054,6 +12259,45 @@ export namespace dms {
     }
 
     /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface InstanceProfileTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * It is an object that describes Source and Target DataProviders and credentials for connecting to databases that are used in MigrationProject
+     */
+    export interface MigrationProjectDataProviderDescriptorArgs {
+        dataProviderArn?: pulumi.Input<string>;
+        dataProviderIdentifier?: pulumi.Input<string>;
+        dataProviderName?: pulumi.Input<string>;
+        secretsManagerAccessRoleArn?: pulumi.Input<string>;
+        secretsManagerSecretId?: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface MigrationProjectTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, , and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, , and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
      * Configuration parameters for provisioning a AWS DMS Serverless replication
      */
     export interface ReplicationConfigComputeConfigArgs {
@@ -12096,6 +12340,78 @@ export namespace dms {
     export interface ReplicationTaskTagArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    /**
+     * The property describes schema conversion application attributes for the migration project.
+     */
+    export interface SchemaConversionApplicationAttributesPropertiesArgs {
+        s3BucketPath?: pulumi.Input<string>;
+        s3BucketRoleArn?: pulumi.Input<string>;
+    }
+
+    /**
+     * PostgreSqlSettings property identifier.
+     */
+    export interface Settings0PropertiesArgs {
+        postgreSqlSettings?: pulumi.Input<inputs.dms.Settings0PropertiesPostgreSqlSettingsPropertiesArgs>;
+    }
+
+    export interface Settings0PropertiesPostgreSqlSettingsPropertiesArgs {
+        certificateArn?: pulumi.Input<string>;
+        databaseName?: pulumi.Input<string>;
+        port?: pulumi.Input<number>;
+        serverName?: pulumi.Input<string>;
+        sslMode?: pulumi.Input<enums.dms.DataProviderDmsSslModeValue>;
+    }
+
+    /**
+     * MySqlSettings property identifier.
+     */
+    export interface Settings1PropertiesArgs {
+        mySqlSettings?: pulumi.Input<inputs.dms.Settings1PropertiesMySqlSettingsPropertiesArgs>;
+    }
+
+    export interface Settings1PropertiesMySqlSettingsPropertiesArgs {
+        certificateArn?: pulumi.Input<string>;
+        port?: pulumi.Input<number>;
+        serverName?: pulumi.Input<string>;
+        sslMode?: pulumi.Input<enums.dms.DataProviderDmsSslModeValue>;
+    }
+
+    /**
+     * OracleSettings property identifier.
+     */
+    export interface Settings2PropertiesArgs {
+        oracleSettings?: pulumi.Input<inputs.dms.Settings2PropertiesOracleSettingsPropertiesArgs>;
+    }
+
+    export interface Settings2PropertiesOracleSettingsPropertiesArgs {
+        asmServer?: pulumi.Input<string>;
+        certificateArn?: pulumi.Input<string>;
+        databaseName?: pulumi.Input<string>;
+        port?: pulumi.Input<number>;
+        secretsManagerOracleAsmAccessRoleArn?: pulumi.Input<string>;
+        secretsManagerOracleAsmSecretId?: pulumi.Input<string>;
+        secretsManagerSecurityDbEncryptionAccessRoleArn?: pulumi.Input<string>;
+        secretsManagerSecurityDbEncryptionSecretId?: pulumi.Input<string>;
+        serverName?: pulumi.Input<string>;
+        sslMode?: pulumi.Input<enums.dms.DataProviderDmsSslModeValue>;
+    }
+
+    /**
+     * MicrosoftSqlServerSettings property identifier.
+     */
+    export interface Settings3PropertiesArgs {
+        microsoftSqlServerSettings?: pulumi.Input<inputs.dms.Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs>;
+    }
+
+    export interface Settings3PropertiesMicrosoftSqlServerSettingsPropertiesArgs {
+        certificateArn?: pulumi.Input<string>;
+        databaseName?: pulumi.Input<string>;
+        port?: pulumi.Input<number>;
+        serverName?: pulumi.Input<string>;
+        sslMode?: pulumi.Input<enums.dms.DataProviderDmsSslModeValue>;
     }
 }
 
@@ -12594,7 +12910,7 @@ export namespace ec2 {
     export interface InstanceBlockDeviceMappingArgs {
         deviceName: pulumi.Input<string>;
         ebs?: pulumi.Input<inputs.ec2.InstanceEbsArgs>;
-        noDevice?: pulumi.Input<inputs.ec2.InstanceNoDeviceArgs>;
+        noDevice?: any;
         virtualName?: pulumi.Input<string>;
     }
 
@@ -12670,9 +12986,6 @@ export namespace ec2 {
         privateIpAddresses?: pulumi.Input<pulumi.Input<inputs.ec2.InstancePrivateIpAddressSpecificationArgs>[]>;
         secondaryPrivateIpAddressCount?: pulumi.Input<number>;
         subnetId?: pulumi.Input<string>;
-    }
-
-    export interface InstanceNoDeviceArgs {
     }
 
     export interface InstancePrivateDnsNameOptionsArgs {
@@ -14365,6 +14678,10 @@ export namespace ec2 {
      */
     export interface VerifiedAccessTrustProviderDeviceOptionsArgs {
         /**
+         * URL Verified Access will use to verify authenticity of the device tokens.
+         */
+        publicSigningKeyUrl?: pulumi.Input<string>;
+        /**
          * The ID of the tenant application with the device-identity provider.
          */
         tenantId?: pulumi.Input<string>;
@@ -14575,6 +14892,7 @@ export namespace ecr {
 export namespace ecs {
     export interface CapacityProviderAutoScalingGroupProviderArgs {
         autoScalingGroupArn: pulumi.Input<string>;
+        managedDraining?: pulumi.Input<enums.ecs.CapacityProviderAutoScalingGroupProviderManagedDraining>;
         managedScaling?: pulumi.Input<inputs.ecs.CapacityProviderManagedScalingArgs>;
         managedTerminationProtection?: pulumi.Input<enums.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection>;
     }
@@ -14716,6 +15034,12 @@ export namespace ecs {
         type?: pulumi.Input<enums.ecs.ServiceDeploymentControllerType>;
     }
 
+    export interface ServiceEbsTagSpecificationArgs {
+        propagateTags?: pulumi.Input<enums.ecs.ServiceEbsTagSpecificationPropagateTags>;
+        resourceType: pulumi.Input<string>;
+        tags?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceTagArgs>[]>;
+    }
+
     export interface ServiceLoadBalancerArgs {
         containerName?: pulumi.Input<string>;
         containerPort?: pulumi.Input<number>;
@@ -14727,6 +15051,19 @@ export namespace ecs {
         logDriver?: pulumi.Input<string>;
         options?: any;
         secretOptions?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceSecretArgs>[]>;
+    }
+
+    export interface ServiceManagedEbsVolumeConfigurationArgs {
+        encrypted?: pulumi.Input<boolean>;
+        filesystemType?: pulumi.Input<string>;
+        iops?: pulumi.Input<number>;
+        kmsKeyId?: pulumi.Input<string>;
+        roleArn: pulumi.Input<string>;
+        sizeInGiB?: pulumi.Input<number>;
+        snapshotId?: pulumi.Input<string>;
+        tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceEbsTagSpecificationArgs>[]>;
+        throughput?: pulumi.Input<number>;
+        volumeType?: pulumi.Input<string>;
     }
 
     export interface ServiceNetworkConfigurationArgs {
@@ -14758,6 +15095,11 @@ export namespace ecs {
     export interface ServiceTagArgs {
         key?: pulumi.Input<string>;
         value?: pulumi.Input<string>;
+    }
+
+    export interface ServiceVolumeConfigurationArgs {
+        managedEbsVolume?: pulumi.Input<inputs.ecs.ServiceManagedEbsVolumeConfigurationArgs>;
+        name: pulumi.Input<string>;
     }
 
     export interface TaskDefinitionAuthorizationConfigArgs {
@@ -15168,6 +15510,45 @@ export namespace efs {
 
 export namespace eks {
     /**
+     * An access policy to associate with the current access entry.
+     */
+    export interface AccessEntryAccessPolicyArgs {
+        accessScope: pulumi.Input<inputs.eks.AccessEntryAccessScopeArgs>;
+        /**
+         * The ARN of the access policy to add to the access entry.
+         */
+        policyArn: pulumi.Input<string>;
+    }
+
+    /**
+     * The access scope of the access policy.
+     */
+    export interface AccessEntryAccessScopeArgs {
+        /**
+         * The namespaces to associate with the access scope. Only specify if Type is set to 'namespace'.
+         */
+        namespaces?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The type of the access scope.
+         */
+        type: pulumi.Input<enums.eks.AccessEntryAccessScopeType>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface AccessEntryTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
      * A key-value pair to associate with a resource.
      */
     export interface AddonTagArgs {
@@ -15179,6 +15560,20 @@ export namespace eks {
          * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
         value: pulumi.Input<string>;
+    }
+
+    /**
+     * An object representing the Access Config to use for the cluster.
+     */
+    export interface ClusterAccessConfigArgs {
+        /**
+         * Specify the authentication mode that should be used to create your cluster.
+         */
+        authenticationMode?: pulumi.Input<enums.eks.ClusterAccessConfigAuthenticationMode>;
+        /**
+         * Set this value to false to avoid creating a default cluster admin Access Entry using the IAM principal used to create the cluster.
+         */
+        bootstrapClusterCreatorAdminPermissions?: pulumi.Input<boolean>;
     }
 
     /**
@@ -15622,6 +16017,20 @@ export namespace elasticache {
          * The maximum ECPU per second of the Serverless Cache.
          */
         maximum: pulumi.Input<number>;
+    }
+
+    /**
+     * The address and the port.
+     */
+    export interface ServerlessCacheEndpointArgs {
+        /**
+         * Endpoint address.
+         */
+        address?: pulumi.Input<string>;
+        /**
+         * Endpoint port.
+         */
+        port?: pulumi.Input<number>;
     }
 
     /**
@@ -16368,6 +16777,11 @@ export namespace emr {
 
     export interface ClusterOnDemandProvisioningSpecificationArgs {
         allocationStrategy: pulumi.Input<string>;
+    }
+
+    export interface ClusterPlacementGroupConfigArgs {
+        instanceRole: pulumi.Input<string>;
+        placementStrategy?: pulumi.Input<string>;
     }
 
     export interface ClusterPlacementTypeArgs {
@@ -17465,6 +17879,17 @@ export namespace fis {
      * The actions for the experiment.
      */
     export interface ExperimentTemplateActionMapArgs {
+    }
+
+    export interface ExperimentTemplateExperimentOptionsArgs {
+        /**
+         * The account targeting setting for the experiment template.
+         */
+        accountTargeting?: pulumi.Input<enums.fis.ExperimentTemplateExperimentOptionsAccountTargeting>;
+        /**
+         * The target resolution failure mode for the experiment template.
+         */
+        emptyTargetResolutionMode?: pulumi.Input<enums.fis.ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode>;
     }
 
     export interface ExperimentTemplateLogConfigurationArgs {
@@ -20465,6 +20890,36 @@ export namespace imagebuilder {
     }
 
     /**
+     * The workflow configuration of the image
+     */
+    export interface ImagePipelineWorkflowConfigurationArgs {
+        /**
+         * Define execution decision in case of workflow failure
+         */
+        onFailure?: pulumi.Input<enums.imagebuilder.ImagePipelineWorkflowConfigurationOnFailure>;
+        /**
+         * The parallel group name
+         */
+        parallelGroup?: pulumi.Input<string>;
+        /**
+         * The parameters associated with the workflow
+         */
+        parameters?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImagePipelineWorkflowParameterArgs>[]>;
+        /**
+         * The Amazon Resource Name (ARN) of the workflow
+         */
+        workflowArn?: pulumi.Input<string>;
+    }
+
+    /**
+     * A parameter associated with the workflow
+     */
+    export interface ImagePipelineWorkflowParameterArgs {
+        name?: pulumi.Input<string>;
+        value?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
      * Specify additional settings and launch scripts for your build instances.
      */
     export interface ImageRecipeAdditionalInstanceConfigurationArgs {
@@ -20602,6 +21057,36 @@ export namespace imagebuilder {
          * TimeoutMinutes
          */
         timeoutMinutes?: pulumi.Input<number>;
+    }
+
+    /**
+     * The workflow configuration of the image
+     */
+    export interface ImageWorkflowConfigurationArgs {
+        /**
+         * Define execution decision in case of workflow failure
+         */
+        onFailure?: pulumi.Input<enums.imagebuilder.ImageWorkflowConfigurationOnFailure>;
+        /**
+         * The parallel group name
+         */
+        parallelGroup?: pulumi.Input<string>;
+        /**
+         * The parameters associated with the workflow
+         */
+        parameters?: pulumi.Input<pulumi.Input<inputs.imagebuilder.ImageWorkflowParameterArgs>[]>;
+        /**
+         * The Amazon Resource Name (ARN) of the workflow
+         */
+        workflowArn?: pulumi.Input<string>;
+    }
+
+    /**
+     * A parameter associated with the workflow
+     */
+    export interface ImageWorkflowParameterArgs {
+        name?: pulumi.Input<string>;
+        value?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -20990,6 +21475,20 @@ export namespace iot {
      * A key-value pair to associate with a resource.
      */
     export interface CaCertificateTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface CertificateProviderTagArgs {
         /**
          * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
@@ -26013,16 +26512,31 @@ export namespace lambda {
         untrustedArtifactOnDeployment: pulumi.Input<enums.lambda.CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment>;
     }
 
+    /**
+     * A destination for events after they have been sent to a function for processing.
+     */
     export interface EventInvokeConfigDestinationConfigArgs {
         onFailure?: pulumi.Input<inputs.lambda.EventInvokeConfigOnFailureArgs>;
         onSuccess?: pulumi.Input<inputs.lambda.EventInvokeConfigOnSuccessArgs>;
     }
 
+    /**
+     * The destination configuration for failed invocations.
+     */
     export interface EventInvokeConfigOnFailureArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the destination resource.
+         */
         destination: pulumi.Input<string>;
     }
 
+    /**
+     * The destination configuration for successful invocations.
+     */
     export interface EventInvokeConfigOnSuccessArgs {
+        /**
+         * The Amazon Resource Name (ARN) of the destination resource.
+         */
         destination: pulumi.Input<string>;
     }
 
@@ -33563,6 +34077,26 @@ export namespace organizations {
 
 export namespace osis {
     /**
+     * Key-value pairs to configure buffering.
+     */
+    export interface PipelineBufferOptionsArgs {
+        /**
+         * Whether persistent buffering should be enabled.
+         */
+        persistentBufferEnabled: pulumi.Input<boolean>;
+    }
+
+    /**
+     * Key-value pairs to configure encryption at rest.
+     */
+    export interface PipelineEncryptionAtRestOptionsArgs {
+        /**
+         * The KMS key to use for encrypting data. By default an AWS owned key is used
+         */
+        kmsKeyArn: pulumi.Input<string>;
+    }
+
+    /**
      * Key-value pairs to configure log publishing.
      */
     export interface PipelineLogPublishingOptionsArgs {
@@ -33580,7 +34114,7 @@ export namespace osis {
      * The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
      */
     export interface PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs {
-        logGroup?: pulumi.Input<string>;
+        logGroup: pulumi.Input<string>;
     }
 
     /**
@@ -33608,7 +34142,7 @@ export namespace osis {
         /**
          * A list of subnet IDs associated with the VPC endpoint.
          */
-        subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+        subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     }
 }
 
@@ -47134,6 +47668,7 @@ export namespace s3 {
          */
         destinationBucketName?: pulumi.Input<string>;
         logFilePrefix?: pulumi.Input<string>;
+        targetObjectKeyFormat?: pulumi.Input<inputs.s3.BucketTargetObjectKeyFormatArgs>;
     }
 
     export interface BucketMetricsArgs {
@@ -47504,6 +48039,12 @@ export namespace s3 {
     export interface BucketTagFilterArgs {
         key: pulumi.Input<string>;
         value: pulumi.Input<string>;
+    }
+
+    /**
+     * Describes the key format for server access log file in the target bucket. You can choose between SimplePrefix and PartitionedPrefix.
+     */
+    export interface BucketTargetObjectKeyFormatArgs {
     }
 
     export interface BucketTieringArgs {
@@ -48408,6 +48949,31 @@ export namespace sagemaker {
     }
 
     /**
+     * The CodeEditor app settings.
+     */
+    export interface DomainCodeEditorAppSettingsArgs {
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
+         */
+        defaultResourceSpec?: pulumi.Input<inputs.sagemaker.DomainResourceSpecArgs>;
+        /**
+         * A list of LifecycleConfigArns available for use with CodeEditor apps.
+         */
+        lifecycleConfigArns?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DomainCodeRepositoryArgs {
+        /**
+         * A CodeRepository (valid URL) to be used within Jupyter's Git extension.
+         */
+        repositoryUrl: pulumi.Input<string>;
+    }
+
+    export interface DomainCustomFileSystemConfigArgs {
+        efsFileSystemConfig?: pulumi.Input<inputs.sagemaker.DomainEfsFileSystemConfigArgs>;
+    }
+
+    /**
      * A custom SageMaker image.
      */
     export interface DomainCustomImageArgs {
@@ -48423,6 +48989,25 @@ export namespace sagemaker {
          * The version number of the CustomImage.
          */
         imageVersionNumber?: pulumi.Input<number>;
+    }
+
+    export interface DomainCustomPosixUserConfigArgs {
+        gid: pulumi.Input<number>;
+        uid: pulumi.Input<number>;
+    }
+
+    /**
+     * Properties related to the Amazon Elastic Block Store volume. Must be provided if storage type is Amazon EBS and must not be provided if storage type is not Amazon EBS
+     */
+    export interface DomainDefaultEbsStorageSettingsArgs {
+        /**
+         * Default size of the Amazon EBS volume in Gb
+         */
+        defaultEbsVolumeSizeInGb: pulumi.Input<number>;
+        /**
+         * Maximum size of the Amazon EBS volume in Gb. Must be greater than or equal to the DefaultEbsVolumeSizeInGb.
+         */
+        maximumEbsVolumeSizeInGb: pulumi.Input<number>;
     }
 
     /**
@@ -48445,6 +49030,40 @@ export namespace sagemaker {
          * The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
          */
         securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Default storage settings for a space.
+     */
+    export interface DomainDefaultSpaceStorageSettingsArgs {
+        defaultEbsStorageSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultEbsStorageSettingsArgs>;
+    }
+
+    export interface DomainEfsFileSystemConfigArgs {
+        fileSystemId: pulumi.Input<string>;
+        fileSystemPath?: pulumi.Input<string>;
+    }
+
+    /**
+     * The JupyterLab app settings.
+     */
+    export interface DomainJupyterLabAppSettingsArgs {
+        /**
+         * A list of CodeRepositories available for use with JupyterLab apps.
+         */
+        codeRepositories?: pulumi.Input<pulumi.Input<inputs.sagemaker.DomainCodeRepositoryArgs>[]>;
+        /**
+         * A list of custom images for use for JupyterLab apps.
+         */
+        customImages?: pulumi.Input<pulumi.Input<inputs.sagemaker.DomainCustomImageArgs>[]>;
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
+         */
+        defaultResourceSpec?: pulumi.Input<inputs.sagemaker.DomainResourceSpecArgs>;
+        /**
+         * A list of LifecycleConfigArns available for use with JupyterLab apps.
+         */
+        lifecycleConfigArns?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -48569,10 +49188,18 @@ export namespace sagemaker {
      * A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
      */
     export interface DomainUserSettingsArgs {
+        codeEditorAppSettings?: pulumi.Input<inputs.sagemaker.DomainCodeEditorAppSettingsArgs>;
+        customFileSystemConfigs?: pulumi.Input<pulumi.Input<inputs.sagemaker.DomainCustomFileSystemConfigArgs>[]>;
+        customPosixUserConfig?: pulumi.Input<inputs.sagemaker.DomainCustomPosixUserConfigArgs>;
+        /**
+         * Defines which Amazon SageMaker application users are directed to by default.
+         */
+        defaultLandingUri?: pulumi.Input<string>;
         /**
          * The execution role for the user.
          */
         executionRole: pulumi.Input<string>;
+        jupyterLabAppSettings?: pulumi.Input<inputs.sagemaker.DomainJupyterLabAppSettingsArgs>;
         /**
          * The Jupyter server's app settings.
          */
@@ -48591,6 +49218,11 @@ export namespace sagemaker {
          * The sharing settings.
          */
         sharingSettings?: pulumi.Input<inputs.sagemaker.DomainSharingSettingsArgs>;
+        spaceStorageSettings?: pulumi.Input<inputs.sagemaker.DomainDefaultSpaceStorageSettingsArgs>;
+        /**
+         * Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
+         */
+        studioWebPortal?: pulumi.Input<enums.sagemaker.DomainUserSettingsStudioWebPortal>;
     }
 
     export interface EndpointAlarmArgs {
@@ -51117,6 +51749,7 @@ export namespace sagemaker {
     export interface OnlineStoreConfigPropertiesArgs {
         enableOnlineStore?: pulumi.Input<boolean>;
         securityConfig?: pulumi.Input<inputs.sagemaker.FeatureGroupOnlineStoreSecurityConfigArgs>;
+        storageType?: pulumi.Input<enums.sagemaker.FeatureGroupStorageType>;
     }
 
     export interface ParallelismConfigurationPropertiesArgs {
@@ -51284,6 +51917,31 @@ export namespace sagemaker {
     }
 
     /**
+     * The CodeEditor app settings.
+     */
+    export interface UserProfileCodeEditorAppSettingsArgs {
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
+         */
+        defaultResourceSpec?: pulumi.Input<inputs.sagemaker.UserProfileResourceSpecArgs>;
+        /**
+         * A list of LifecycleConfigArns available for use with CodeEditor apps.
+         */
+        lifecycleConfigArns?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface UserProfileCodeRepositoryArgs {
+        /**
+         * A CodeRepository (valid URL) to be used within Jupyter's Git extension.
+         */
+        repositoryUrl: pulumi.Input<string>;
+    }
+
+    export interface UserProfileCustomFileSystemConfigArgs {
+        efsFileSystemConfig?: pulumi.Input<inputs.sagemaker.UserProfileEfsFileSystemConfigArgs>;
+    }
+
+    /**
      * A custom SageMaker image.
      */
     export interface UserProfileCustomImageArgs {
@@ -51299,6 +51957,59 @@ export namespace sagemaker {
          * The version number of the CustomImage.
          */
         imageVersionNumber?: pulumi.Input<number>;
+    }
+
+    export interface UserProfileCustomPosixUserConfigArgs {
+        gid: pulumi.Input<number>;
+        uid: pulumi.Input<number>;
+    }
+
+    /**
+     * Properties related to the Amazon Elastic Block Store volume.
+     */
+    export interface UserProfileDefaultEbsStorageSettingsArgs {
+        /**
+         * Default size of the Amazon EBS volume in Gb
+         */
+        defaultEbsVolumeSizeInGb: pulumi.Input<number>;
+        /**
+         * Maximum size of the Amazon EBS volume in Gb. Must be greater than or equal to the DefaultEbsVolumeSizeInGb.
+         */
+        maximumEbsVolumeSizeInGb: pulumi.Input<number>;
+    }
+
+    /**
+     * Default storage settings for a space.
+     */
+    export interface UserProfileDefaultSpaceStorageSettingsArgs {
+        defaultEbsStorageSettings?: pulumi.Input<inputs.sagemaker.UserProfileDefaultEbsStorageSettingsArgs>;
+    }
+
+    export interface UserProfileEfsFileSystemConfigArgs {
+        fileSystemId: pulumi.Input<string>;
+        fileSystemPath?: pulumi.Input<string>;
+    }
+
+    /**
+     * The JupyterLab app settings.
+     */
+    export interface UserProfileJupyterLabAppSettingsArgs {
+        /**
+         * A list of CodeRepositories available for use with JupyterLab apps.
+         */
+        codeRepositories?: pulumi.Input<pulumi.Input<inputs.sagemaker.UserProfileCodeRepositoryArgs>[]>;
+        /**
+         * A list of custom images available for use for JupyterLab apps
+         */
+        customImages?: pulumi.Input<pulumi.Input<inputs.sagemaker.UserProfileCustomImageArgs>[]>;
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
+         */
+        defaultResourceSpec?: pulumi.Input<inputs.sagemaker.UserProfileResourceSpecArgs>;
+        /**
+         * A list of LifecycleConfigArns available for use with JupyterLab apps.
+         */
+        lifecycleConfigArns?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -51378,10 +52089,18 @@ export namespace sagemaker {
      * A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
      */
     export interface UserProfileUserSettingsArgs {
+        codeEditorAppSettings?: pulumi.Input<inputs.sagemaker.UserProfileCodeEditorAppSettingsArgs>;
+        customFileSystemConfigs?: pulumi.Input<pulumi.Input<inputs.sagemaker.UserProfileCustomFileSystemConfigArgs>[]>;
+        customPosixUserConfig?: pulumi.Input<inputs.sagemaker.UserProfileCustomPosixUserConfigArgs>;
+        /**
+         * Defines which Amazon SageMaker application users are directed to by default.
+         */
+        defaultLandingUri?: pulumi.Input<string>;
         /**
          * The user profile Amazon Resource Name (ARN).
          */
         executionRole?: pulumi.Input<string>;
+        jupyterLabAppSettings?: pulumi.Input<inputs.sagemaker.UserProfileJupyterLabAppSettingsArgs>;
         /**
          * The Jupyter server's app settings.
          */
@@ -51399,6 +52118,11 @@ export namespace sagemaker {
          * The sharing settings.
          */
         sharingSettings?: pulumi.Input<inputs.sagemaker.UserProfileSharingSettingsArgs>;
+        spaceStorageSettings?: pulumi.Input<inputs.sagemaker.UserProfileDefaultSpaceStorageSettingsArgs>;
+        /**
+         * Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
+         */
+        studioWebPortal?: pulumi.Input<enums.sagemaker.UserProfileUserSettingsStudioWebPortal>;
     }
 
     export interface WorkteamCognitoMemberDefinitionArgs {
@@ -51891,6 +52615,12 @@ export namespace securityhub {
         userDefinedFields?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleMapFilterArgs>[]>;
         verificationState?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
         workflowStatus?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRuleStringFilterArgs>[]>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface HubTagsArgs {
     }
 
     /**

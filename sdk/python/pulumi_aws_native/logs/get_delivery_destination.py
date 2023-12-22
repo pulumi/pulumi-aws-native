@@ -37,7 +37,7 @@ class GetDeliveryDestinationResult:
     @pulumi.getter
     def arn(self) -> Optional[str]:
         """
-        The value of the Arn property for this object.
+        The Amazon Resource Name (ARN) that uniquely identifies this delivery destination.
         """
         return pulumi.get(self, "arn")
 
@@ -57,7 +57,7 @@ class GetDeliveryDestinationResult:
     @pulumi.getter(name="deliveryDestinationType")
     def delivery_destination_type(self) -> Optional[str]:
         """
-        The value of the DeliveryDestinationType property for this object.
+        Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
         """
         return pulumi.get(self, "delivery_destination_type")
 
@@ -65,7 +65,7 @@ class GetDeliveryDestinationResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.DeliveryDestinationTag']]:
         """
-        An array of key-value pairs to apply to this resource.
+        The tags that have been assigned to this delivery destination.
         """
         return pulumi.get(self, "tags")
 
@@ -85,10 +85,12 @@ class AwaitableGetDeliveryDestinationResult(GetDeliveryDestinationResult):
 def get_delivery_destination(name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeliveryDestinationResult:
     """
-    Resource Type definition for AWS::Logs::DeliveryDestination
+    This structure contains information about one delivery destination in your account.
+
+    A delivery destination is an AWS resource that represents an AWS service that logs can be sent to CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.
 
 
-    :param str name: The unique name of the Delivery Destination.
+    :param str name: The name of this delivery destination.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -106,9 +108,11 @@ def get_delivery_destination(name: Optional[str] = None,
 def get_delivery_destination_output(name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeliveryDestinationResult]:
     """
-    Resource Type definition for AWS::Logs::DeliveryDestination
+    This structure contains information about one delivery destination in your account.
+
+    A delivery destination is an AWS resource that represents an AWS service that logs can be sent to CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.
 
 
-    :param str name: The unique name of the Delivery Destination.
+    :param str name: The name of this delivery destination.
     """
     ...

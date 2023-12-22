@@ -25,10 +25,14 @@ class StudioArgs:
                  vpc_id: pulumi.Input[str],
                  workspace_security_group_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption_key_arn: Optional[pulumi.Input[str]] = None,
+                 idc_instance_arn: Optional[pulumi.Input[str]] = None,
+                 idc_user_assignment: Optional[pulumi.Input['StudioIdcUserAssignment']] = None,
                  idp_auth_url: Optional[pulumi.Input[str]] = None,
                  idp_relay_state_parameter_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['StudioTagArgs']]]] = None,
+                 trusted_identity_propagation_enabled: Optional[pulumi.Input[bool]] = None,
                  user_role: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Studio resource.
@@ -40,10 +44,14 @@ class StudioArgs:
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
         :param pulumi.Input[str] workspace_security_group_id: The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by VpcId.
         :param pulumi.Input[str] description: A detailed description of the Studio.
+        :param pulumi.Input[str] encryption_key_arn: The AWS KMS key identifier (ARN) used to encrypt AWS EMR Studio workspace and notebook files when backed up to AWS S3.
+        :param pulumi.Input[str] idc_instance_arn: The ARN of the IAM Identity Center instance to create the Studio application.
+        :param pulumi.Input['StudioIdcUserAssignment'] idc_user_assignment: Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL. If the value is set to REQUIRED, users must be explicitly assigned to the Studio application to access the Studio.
         :param pulumi.Input[str] idp_auth_url: Your identity provider's authentication endpoint. Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.
         :param pulumi.Input[str] idp_relay_state_parameter_name: The name of relay state parameter for external Identity Provider.
         :param pulumi.Input[str] name: A descriptive name for the Amazon EMR Studio.
         :param pulumi.Input[Sequence[pulumi.Input['StudioTagArgs']]] tags: A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
+        :param pulumi.Input[bool] trusted_identity_propagation_enabled: A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.
         :param pulumi.Input[str] user_role: The IAM user role that will be assumed by users and groups logged in to a Studio. The permissions attached to this IAM role can be scoped down for each user or group using session policies.
         """
         pulumi.set(__self__, "auth_mode", auth_mode)
@@ -55,6 +63,12 @@ class StudioArgs:
         pulumi.set(__self__, "workspace_security_group_id", workspace_security_group_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encryption_key_arn is not None:
+            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
+        if idc_instance_arn is not None:
+            pulumi.set(__self__, "idc_instance_arn", idc_instance_arn)
+        if idc_user_assignment is not None:
+            pulumi.set(__self__, "idc_user_assignment", idc_user_assignment)
         if idp_auth_url is not None:
             pulumi.set(__self__, "idp_auth_url", idp_auth_url)
         if idp_relay_state_parameter_name is not None:
@@ -63,6 +77,8 @@ class StudioArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if trusted_identity_propagation_enabled is not None:
+            pulumi.set(__self__, "trusted_identity_propagation_enabled", trusted_identity_propagation_enabled)
         if user_role is not None:
             pulumi.set(__self__, "user_role", user_role)
 
@@ -163,6 +179,42 @@ class StudioArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS KMS key identifier (ARN) used to encrypt AWS EMR Studio workspace and notebook files when backed up to AWS S3.
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+    @encryption_key_arn.setter
+    def encryption_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_key_arn", value)
+
+    @property
+    @pulumi.getter(name="idcInstanceArn")
+    def idc_instance_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the IAM Identity Center instance to create the Studio application.
+        """
+        return pulumi.get(self, "idc_instance_arn")
+
+    @idc_instance_arn.setter
+    def idc_instance_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "idc_instance_arn", value)
+
+    @property
+    @pulumi.getter(name="idcUserAssignment")
+    def idc_user_assignment(self) -> Optional[pulumi.Input['StudioIdcUserAssignment']]:
+        """
+        Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL. If the value is set to REQUIRED, users must be explicitly assigned to the Studio application to access the Studio.
+        """
+        return pulumi.get(self, "idc_user_assignment")
+
+    @idc_user_assignment.setter
+    def idc_user_assignment(self, value: Optional[pulumi.Input['StudioIdcUserAssignment']]):
+        pulumi.set(self, "idc_user_assignment", value)
+
+    @property
     @pulumi.getter(name="idpAuthUrl")
     def idp_auth_url(self) -> Optional[pulumi.Input[str]]:
         """
@@ -211,6 +263,18 @@ class StudioArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="trustedIdentityPropagationEnabled")
+    def trusted_identity_propagation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.
+        """
+        return pulumi.get(self, "trusted_identity_propagation_enabled")
+
+    @trusted_identity_propagation_enabled.setter
+    def trusted_identity_propagation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "trusted_identity_propagation_enabled", value)
+
+    @property
     @pulumi.getter(name="userRole")
     def user_role(self) -> Optional[pulumi.Input[str]]:
         """
@@ -231,13 +295,17 @@ class Studio(pulumi.CustomResource):
                  auth_mode: Optional[pulumi.Input['StudioAuthMode']] = None,
                  default_s3_location: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  engine_security_group_id: Optional[pulumi.Input[str]] = None,
+                 idc_instance_arn: Optional[pulumi.Input[str]] = None,
+                 idc_user_assignment: Optional[pulumi.Input['StudioIdcUserAssignment']] = None,
                  idp_auth_url: Optional[pulumi.Input[str]] = None,
                  idp_relay_state_parameter_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioTagArgs']]]]] = None,
+                 trusted_identity_propagation_enabled: Optional[pulumi.Input[bool]] = None,
                  user_role: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  workspace_security_group_id: Optional[pulumi.Input[str]] = None,
@@ -250,13 +318,17 @@ class Studio(pulumi.CustomResource):
         :param pulumi.Input['StudioAuthMode'] auth_mode: Specifies whether the Studio authenticates users using single sign-on (SSO) or IAM. Amazon EMR Studio currently only supports SSO authentication.
         :param pulumi.Input[str] default_s3_location: The default Amazon S3 location to back up EMR Studio Workspaces and notebook files. A Studio user can select an alternative Amazon S3 location when creating a Workspace.
         :param pulumi.Input[str] description: A detailed description of the Studio.
+        :param pulumi.Input[str] encryption_key_arn: The AWS KMS key identifier (ARN) used to encrypt AWS EMR Studio workspace and notebook files when backed up to AWS S3.
         :param pulumi.Input[str] engine_security_group_id: The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by VpcId.
+        :param pulumi.Input[str] idc_instance_arn: The ARN of the IAM Identity Center instance to create the Studio application.
+        :param pulumi.Input['StudioIdcUserAssignment'] idc_user_assignment: Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL. If the value is set to REQUIRED, users must be explicitly assigned to the Studio application to access the Studio.
         :param pulumi.Input[str] idp_auth_url: Your identity provider's authentication endpoint. Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.
         :param pulumi.Input[str] idp_relay_state_parameter_name: The name of relay state parameter for external Identity Provider.
         :param pulumi.Input[str] name: A descriptive name for the Amazon EMR Studio.
         :param pulumi.Input[str] service_role: The IAM role that will be assumed by the Amazon EMR Studio. The service role provides a way for Amazon EMR Studio to interoperate with other AWS services.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of up to 5 subnet IDs to associate with the Studio. The subnets must belong to the VPC specified by VpcId. Studio users can create a Workspace in any of the specified subnets.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioTagArgs']]]] tags: A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
+        :param pulumi.Input[bool] trusted_identity_propagation_enabled: A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.
         :param pulumi.Input[str] user_role: The IAM user role that will be assumed by users and groups logged in to a Studio. The permissions attached to this IAM role can be scoped down for each user or group using session policies.
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
         :param pulumi.Input[str] workspace_security_group_id: The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by VpcId.
@@ -288,13 +360,17 @@ class Studio(pulumi.CustomResource):
                  auth_mode: Optional[pulumi.Input['StudioAuthMode']] = None,
                  default_s3_location: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption_key_arn: Optional[pulumi.Input[str]] = None,
                  engine_security_group_id: Optional[pulumi.Input[str]] = None,
+                 idc_instance_arn: Optional[pulumi.Input[str]] = None,
+                 idc_user_assignment: Optional[pulumi.Input['StudioIdcUserAssignment']] = None,
                  idp_auth_url: Optional[pulumi.Input[str]] = None,
                  idp_relay_state_parameter_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StudioTagArgs']]]]] = None,
+                 trusted_identity_propagation_enabled: Optional[pulumi.Input[bool]] = None,
                  user_role: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  workspace_security_group_id: Optional[pulumi.Input[str]] = None,
@@ -314,9 +390,12 @@ class Studio(pulumi.CustomResource):
                 raise TypeError("Missing required property 'default_s3_location'")
             __props__.__dict__["default_s3_location"] = default_s3_location
             __props__.__dict__["description"] = description
+            __props__.__dict__["encryption_key_arn"] = encryption_key_arn
             if engine_security_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'engine_security_group_id'")
             __props__.__dict__["engine_security_group_id"] = engine_security_group_id
+            __props__.__dict__["idc_instance_arn"] = idc_instance_arn
+            __props__.__dict__["idc_user_assignment"] = idc_user_assignment
             __props__.__dict__["idp_auth_url"] = idp_auth_url
             __props__.__dict__["idp_relay_state_parameter_name"] = idp_relay_state_parameter_name
             __props__.__dict__["name"] = name
@@ -327,6 +406,7 @@ class Studio(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["trusted_identity_propagation_enabled"] = trusted_identity_propagation_enabled
             __props__.__dict__["user_role"] = user_role
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
@@ -337,7 +417,7 @@ class Studio(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["studio_id"] = None
             __props__.__dict__["url"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["auth_mode", "engine_security_group_id", "service_role", "user_role", "vpc_id", "workspace_security_group_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["auth_mode", "encryption_key_arn", "engine_security_group_id", "idc_instance_arn", "idc_user_assignment", "service_role", "trusted_identity_propagation_enabled", "user_role", "vpc_id", "workspace_security_group_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Studio, __self__).__init__(
             'aws-native:emr:Studio',
@@ -365,7 +445,10 @@ class Studio(pulumi.CustomResource):
         __props__.__dict__["auth_mode"] = None
         __props__.__dict__["default_s3_location"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["encryption_key_arn"] = None
         __props__.__dict__["engine_security_group_id"] = None
+        __props__.__dict__["idc_instance_arn"] = None
+        __props__.__dict__["idc_user_assignment"] = None
         __props__.__dict__["idp_auth_url"] = None
         __props__.__dict__["idp_relay_state_parameter_name"] = None
         __props__.__dict__["name"] = None
@@ -373,6 +456,7 @@ class Studio(pulumi.CustomResource):
         __props__.__dict__["studio_id"] = None
         __props__.__dict__["subnet_ids"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["trusted_identity_propagation_enabled"] = None
         __props__.__dict__["url"] = None
         __props__.__dict__["user_role"] = None
         __props__.__dict__["vpc_id"] = None
@@ -412,12 +496,36 @@ class Studio(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The AWS KMS key identifier (ARN) used to encrypt AWS EMR Studio workspace and notebook files when backed up to AWS S3.
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+    @property
     @pulumi.getter(name="engineSecurityGroupId")
     def engine_security_group_id(self) -> pulumi.Output[str]:
         """
         The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by VpcId.
         """
         return pulumi.get(self, "engine_security_group_id")
+
+    @property
+    @pulumi.getter(name="idcInstanceArn")
+    def idc_instance_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the IAM Identity Center instance to create the Studio application.
+        """
+        return pulumi.get(self, "idc_instance_arn")
+
+    @property
+    @pulumi.getter(name="idcUserAssignment")
+    def idc_user_assignment(self) -> pulumi.Output[Optional['StudioIdcUserAssignment']]:
+        """
+        Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL. If the value is set to REQUIRED, users must be explicitly assigned to the Studio application to access the Studio.
+        """
+        return pulumi.get(self, "idc_user_assignment")
 
     @property
     @pulumi.getter(name="idpAuthUrl")
@@ -474,6 +582,14 @@ class Studio(pulumi.CustomResource):
         A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="trustedIdentityPropagationEnabled")
+    def trusted_identity_propagation_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.
+        """
+        return pulumi.get(self, "trusted_identity_propagation_enabled")
 
     @property
     @pulumi.getter

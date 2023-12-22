@@ -27,8 +27,11 @@ namespace Pulumi.AwsNative.EventSchemas
 
     public sealed class GetRegistryArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The ARN of the registry.
+        /// </summary>
+        [Input("registryArn", required: true)]
+        public string RegistryArn { get; set; } = null!;
 
         public GetRegistryArgs()
         {
@@ -38,8 +41,11 @@ namespace Pulumi.AwsNative.EventSchemas
 
     public sealed class GetRegistryInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The ARN of the registry.
+        /// </summary>
+        [Input("registryArn", required: true)]
+        public Input<string> RegistryArn { get; set; } = null!;
 
         public GetRegistryInvokeArgs()
         {
@@ -51,23 +57,28 @@ namespace Pulumi.AwsNative.EventSchemas
     [OutputType]
     public sealed class GetRegistryResult
     {
+        /// <summary>
+        /// A description of the registry to be created.
+        /// </summary>
         public readonly string? Description;
-        public readonly string? Id;
+        /// <summary>
+        /// The ARN of the registry.
+        /// </summary>
         public readonly string? RegistryArn;
+        /// <summary>
+        /// Tags associated with the resource.
+        /// </summary>
         public readonly ImmutableArray<Outputs.RegistryTagsEntry> Tags;
 
         [OutputConstructor]
         private GetRegistryResult(
             string? description,
 
-            string? id,
-
             string? registryArn,
 
             ImmutableArray<Outputs.RegistryTagsEntry> tags)
         {
             Description = description;
-            Id = id;
             RegistryArn = registryArn;
             Tags = tags;
         }

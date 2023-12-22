@@ -52,7 +52,7 @@ export namespace accessanalyzer {
      */
     export interface AnalyzerUnusedAccessConfiguration {
         /**
-         * The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that haven't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+         * The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
          */
         unusedAccessAge?: number;
     }
@@ -4716,14 +4716,14 @@ export namespace autoscaling {
         localStorage?: string;
         localStorageTypes?: string[];
         memoryGiBPerVCpu?: outputs.autoscaling.AutoScalingGroupMemoryGiBPerVCpuRequest;
-        memoryMiB?: outputs.autoscaling.AutoScalingGroupMemoryMiBRequest;
+        memoryMiB: outputs.autoscaling.AutoScalingGroupMemoryMiBRequest;
         networkBandwidthGbps?: outputs.autoscaling.AutoScalingGroupNetworkBandwidthGbpsRequest;
         networkInterfaceCount?: outputs.autoscaling.AutoScalingGroupNetworkInterfaceCountRequest;
         onDemandMaxPricePercentageOverLowestPrice?: number;
         requireHibernateSupport?: boolean;
         spotMaxPricePercentageOverLowestPrice?: number;
         totalLocalStorageGb?: outputs.autoscaling.AutoScalingGroupTotalLocalStorageGbRequest;
-        vCpuCount?: outputs.autoscaling.AutoScalingGroupVCpuCountRequest;
+        vCpuCount: outputs.autoscaling.AutoScalingGroupVCpuCountRequest;
     }
 
     export interface AutoScalingGroupInstancesDistribution {
@@ -5061,6 +5061,63 @@ export namespace autoscalingplans {
 
 }
 
+export namespace b2bi {
+    export interface CapabilityConfigurationProperties {
+        edi: outputs.b2bi.CapabilityEdiConfiguration;
+    }
+
+    export interface CapabilityEdiConfiguration {
+        inputLocation: outputs.b2bi.CapabilityS3Location;
+        outputLocation: outputs.b2bi.CapabilityS3Location;
+        transformerId: string;
+        type: outputs.b2bi.CapabilityEdiTypeProperties;
+    }
+
+    export interface CapabilityEdiTypeProperties {
+        x12Details: outputs.b2bi.CapabilityX12Details;
+    }
+
+    export interface CapabilityS3Location {
+        bucketName?: string;
+        key?: string;
+    }
+
+    export interface CapabilityTag {
+        key: string;
+        value: string;
+    }
+
+    export interface CapabilityX12Details {
+        transactionSet?: enums.b2bi.CapabilityX12TransactionSet;
+        version?: enums.b2bi.CapabilityX12Version;
+    }
+
+    export interface PartnershipTag {
+        key: string;
+        value: string;
+    }
+
+    export interface ProfileTag {
+        key: string;
+        value: string;
+    }
+
+    export interface TransformerEdiTypeProperties {
+        x12Details: outputs.b2bi.TransformerX12Details;
+    }
+
+    export interface TransformerTag {
+        key: string;
+        value: string;
+    }
+
+    export interface TransformerX12Details {
+        transactionSet?: enums.b2bi.TransformerX12TransactionSet;
+        version?: enums.b2bi.TransformerX12Version;
+    }
+
+}
+
 export namespace backup {
     export interface BackupPlanAdvancedBackupSettingResourceType {
         backupOptions: any;
@@ -5333,34 +5390,61 @@ export namespace batch {
         terminateJobsOnUpdate?: boolean;
     }
 
-    export interface JobDefinitionAuthorizationConfig {
-        accessPointId?: string;
-        iam?: string;
-    }
-
     export interface JobDefinitionContainerProperties {
         command?: string[];
         environment?: outputs.batch.JobDefinitionEnvironment[];
-        ephemeralStorage?: outputs.batch.JobDefinitionEphemeralStorage;
+        ephemeralStorage?: outputs.batch.JobDefinitionContainerPropertiesEphemeralStorageProperties;
         executionRoleArn?: string;
-        fargatePlatformConfiguration?: outputs.batch.JobDefinitionFargatePlatformConfiguration;
+        fargatePlatformConfiguration?: outputs.batch.JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties;
         image: string;
         instanceType?: string;
         jobRoleArn?: string;
-        linuxParameters?: outputs.batch.JobDefinitionLinuxParameters;
-        logConfiguration?: outputs.batch.JobDefinitionLogConfiguration;
+        linuxParameters?: outputs.batch.JobDefinitionContainerPropertiesLinuxParametersProperties;
+        logConfiguration?: outputs.batch.JobDefinitionContainerPropertiesLogConfigurationProperties;
         memory?: number;
-        mountPoints?: outputs.batch.JobDefinitionMountPoints[];
-        networkConfiguration?: outputs.batch.JobDefinitionNetworkConfiguration;
+        mountPoints?: outputs.batch.JobDefinitionMountPoint[];
+        networkConfiguration?: outputs.batch.JobDefinitionContainerPropertiesNetworkConfigurationProperties;
         privileged?: boolean;
         readonlyRootFilesystem?: boolean;
         resourceRequirements?: outputs.batch.JobDefinitionResourceRequirement[];
-        runtimePlatform?: outputs.batch.JobDefinitionRuntimePlatform;
+        runtimePlatform?: outputs.batch.JobDefinitionContainerPropertiesRuntimePlatformProperties;
         secrets?: outputs.batch.JobDefinitionSecret[];
         ulimits?: outputs.batch.JobDefinitionUlimit[];
         user?: string;
         vcpus?: number;
-        volumes?: outputs.batch.JobDefinitionVolumes[];
+        volumes?: outputs.batch.JobDefinitionVolume[];
+    }
+
+    export interface JobDefinitionContainerPropertiesEphemeralStorageProperties {
+        sizeInGiB: number;
+    }
+
+    export interface JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties {
+        platformVersion?: string;
+    }
+
+    export interface JobDefinitionContainerPropertiesLinuxParametersProperties {
+        devices?: outputs.batch.JobDefinitionDevice[];
+        initProcessEnabled?: boolean;
+        maxSwap?: number;
+        sharedMemorySize?: number;
+        swappiness?: number;
+        tmpfs?: outputs.batch.JobDefinitionTmpfs[];
+    }
+
+    export interface JobDefinitionContainerPropertiesLogConfigurationProperties {
+        logDriver: string;
+        options?: any;
+        secretOptions?: outputs.batch.JobDefinitionSecret[];
+    }
+
+    export interface JobDefinitionContainerPropertiesNetworkConfigurationProperties {
+        assignPublicIp?: string;
+    }
+
+    export interface JobDefinitionContainerPropertiesRuntimePlatformProperties {
+        cpuArchitecture?: string;
+        operatingSystemFamily?: string;
     }
 
     export interface JobDefinitionDevice {
@@ -5369,8 +5453,13 @@ export namespace batch {
         permissions?: string[];
     }
 
+    export interface JobDefinitionEfsAuthorizationConfig {
+        accessPointId?: string;
+        iam?: string;
+    }
+
     export interface JobDefinitionEfsVolumeConfiguration {
-        authorizationConfig?: outputs.batch.JobDefinitionAuthorizationConfig;
+        authorizationConfig?: outputs.batch.JobDefinitionEfsAuthorizationConfig;
         fileSystemId: string;
         rootDirectory?: string;
         transitEncryption?: string;
@@ -5422,8 +5511,21 @@ export namespace batch {
         path?: string;
     }
 
+    export interface JobDefinitionEksMetadata {
+        labels?: any;
+    }
+
+    export interface JobDefinitionEksPodProperties {
+        containers?: outputs.batch.JobDefinitionEksContainer[];
+        dnsPolicy?: string;
+        hostNetwork?: boolean;
+        metadata?: outputs.batch.JobDefinitionEksMetadata;
+        serviceAccountName?: string;
+        volumes?: outputs.batch.JobDefinitionEksVolume[];
+    }
+
     export interface JobDefinitionEksProperties {
-        podProperties?: outputs.batch.JobDefinitionPodProperties;
+        podProperties?: outputs.batch.JobDefinitionEksPodProperties;
     }
 
     export interface JobDefinitionEksSecret {
@@ -5443,10 +5545,6 @@ export namespace batch {
         value?: string;
     }
 
-    export interface JobDefinitionEphemeralStorage {
-        sizeInGiB: number;
-    }
-
     export interface JobDefinitionEvaluateOnExit {
         action: string;
         onExitCode?: string;
@@ -5454,37 +5552,18 @@ export namespace batch {
         onStatusReason?: string;
     }
 
-    export interface JobDefinitionFargatePlatformConfiguration {
-        platformVersion?: string;
+    export interface JobDefinitionHost {
+        sourcePath?: string;
     }
 
-    export interface JobDefinitionLinuxParameters {
-        devices?: outputs.batch.JobDefinitionDevice[];
-        initProcessEnabled?: boolean;
-        maxSwap?: number;
-        sharedMemorySize?: number;
-        swappiness?: number;
-        tmpfs?: outputs.batch.JobDefinitionTmpfs[];
+    export interface JobDefinitionJobTimeout {
+        attemptDurationSeconds?: number;
     }
 
-    export interface JobDefinitionLogConfiguration {
-        logDriver: string;
-        options?: any;
-        secretOptions?: outputs.batch.JobDefinitionSecret[];
-    }
-
-    export interface JobDefinitionMetadata {
-        labels?: any;
-    }
-
-    export interface JobDefinitionMountPoints {
+    export interface JobDefinitionMountPoint {
         containerPath?: string;
         readOnly?: boolean;
         sourceVolume?: string;
-    }
-
-    export interface JobDefinitionNetworkConfiguration {
-        assignPublicIp?: string;
     }
 
     export interface JobDefinitionNodeProperties {
@@ -5498,15 +5577,6 @@ export namespace batch {
         targetNodes: string;
     }
 
-    export interface JobDefinitionPodProperties {
-        containers?: outputs.batch.JobDefinitionEksContainer[];
-        dnsPolicy?: string;
-        hostNetwork?: boolean;
-        metadata?: outputs.batch.JobDefinitionMetadata;
-        serviceAccountName?: string;
-        volumes?: outputs.batch.JobDefinitionEksVolume[];
-    }
-
     export interface JobDefinitionResourceRequirement {
         type?: string;
         value?: string;
@@ -5517,18 +5587,9 @@ export namespace batch {
         evaluateOnExit?: outputs.batch.JobDefinitionEvaluateOnExit[];
     }
 
-    export interface JobDefinitionRuntimePlatform {
-        cpuArchitecture?: string;
-        operatingSystemFamily?: string;
-    }
-
     export interface JobDefinitionSecret {
         name: string;
         valueFrom: string;
-    }
-
-    export interface JobDefinitionTimeout {
-        attemptDurationSeconds?: number;
     }
 
     export interface JobDefinitionTmpfs {
@@ -5543,14 +5604,10 @@ export namespace batch {
         softLimit: number;
     }
 
-    export interface JobDefinitionVolumes {
+    export interface JobDefinitionVolume {
         efsVolumeConfiguration?: outputs.batch.JobDefinitionEfsVolumeConfiguration;
-        host?: outputs.batch.JobDefinitionVolumesHost;
+        host?: outputs.batch.JobDefinitionHost;
         name?: string;
-    }
-
-    export interface JobDefinitionVolumesHost {
-        sourcePath?: string;
     }
 
     export interface JobQueueComputeEnvironmentOrder {
@@ -5890,6 +5947,15 @@ export namespace cleanrooms {
         accountId: string;
         displayName: string;
         memberAbilities: enums.cleanrooms.CollaborationMemberAbility[];
+        paymentConfiguration?: outputs.cleanrooms.CollaborationPaymentConfiguration;
+    }
+
+    export interface CollaborationPaymentConfiguration {
+        queryCompute: outputs.cleanrooms.CollaborationQueryComputePaymentConfig;
+    }
+
+    export interface CollaborationQueryComputePaymentConfig {
+        isResponsible: boolean;
     }
 
     export interface CollaborationTag {
@@ -5969,6 +6035,10 @@ export namespace cleanrooms {
         value: string;
     }
 
+    export interface MembershipPaymentConfiguration {
+        queryCompute: outputs.cleanrooms.MembershipQueryComputePaymentConfig;
+    }
+
     export interface MembershipProtectedQueryOutputConfiguration {
         s3: outputs.cleanrooms.MembershipProtectedQueryS3OutputConfiguration;
     }
@@ -5982,6 +6052,10 @@ export namespace cleanrooms {
         bucket: string;
         keyPrefix?: string;
         resultFormat: enums.cleanrooms.MembershipResultFormat;
+    }
+
+    export interface MembershipQueryComputePaymentConfig {
+        isResponsible: boolean;
     }
 
     export interface MembershipTag {
@@ -6439,6 +6513,11 @@ export namespace cloudfront {
         comment?: string;
         items: string[];
         name: string;
+    }
+
+    export interface KeyValueStoreImportSource {
+        sourceArn: string;
+        sourceType: string;
     }
 
     export interface MonitoringSubscription {
@@ -7259,6 +7338,11 @@ export namespace codedeploy {
         value: number;
     }
 
+    export interface DeploymentConfigMinimumHealthyHostsPerZone {
+        type: string;
+        value: number;
+    }
+
     export interface DeploymentConfigTimeBasedCanary {
         canaryInterval: number;
         canaryPercentage: number;
@@ -7273,6 +7357,12 @@ export namespace codedeploy {
         timeBasedCanary?: outputs.codedeploy.DeploymentConfigTimeBasedCanary;
         timeBasedLinear?: outputs.codedeploy.DeploymentConfigTimeBasedLinear;
         type: string;
+    }
+
+    export interface DeploymentConfigZonalConfig {
+        firstZoneMonitorDurationInSeconds?: number;
+        minimumHealthyHostsPerZone?: outputs.codedeploy.DeploymentConfigMinimumHealthyHostsPerZone;
+        monitorDurationInSeconds?: number;
     }
 
     export interface DeploymentGroupAlarm {
@@ -7578,6 +7668,20 @@ export namespace codepipeline {
         type: string;
     }
 
+    export interface PipelineGitConfiguration {
+        push?: outputs.codepipeline.PipelineGitPushFilter[];
+        sourceActionName: string;
+    }
+
+    export interface PipelineGitPushFilter {
+        tags?: outputs.codepipeline.PipelineGitTagFilterCriteria;
+    }
+
+    export interface PipelineGitTagFilterCriteria {
+        excludes?: string[];
+        includes?: string[];
+    }
+
     export interface PipelineInputArtifact {
         name: string;
     }
@@ -7600,6 +7704,17 @@ export namespace codepipeline {
     export interface PipelineTag {
         key: string;
         value: string;
+    }
+
+    export interface PipelineTriggerDeclaration {
+        gitConfiguration?: outputs.codepipeline.PipelineGitConfiguration;
+        providerType: string;
+    }
+
+    export interface PipelineVariableDeclaration {
+        defaultValue?: string;
+        description?: string;
+        name: string;
     }
 
     export interface WebhookAuthConfiguration {
@@ -8831,6 +8946,17 @@ export namespace configuration {
         resourceTypes?: string[];
     }
 
+    export interface ConfigurationRecorderRecordingMode {
+        recordingFrequency: string;
+        recordingModeOverrides?: outputs.configuration.ConfigurationRecorderRecordingModeOverride[];
+    }
+
+    export interface ConfigurationRecorderRecordingModeOverride {
+        description?: string;
+        recordingFrequency: string;
+        resourceTypes: string[];
+    }
+
     export interface ConfigurationRecorderRecordingStrategy {
         useOnly: string;
     }
@@ -9305,7 +9431,7 @@ export namespace connect {
     }
 
     export interface InstanceStorageConfigKinesisVideoStreamConfig {
-        encryptionConfig?: outputs.connect.InstanceStorageConfigEncryptionConfig;
+        encryptionConfig: outputs.connect.InstanceStorageConfigEncryptionConfig;
         prefix: string;
         retentionPeriodHours: number;
     }
@@ -9314,6 +9440,20 @@ export namespace connect {
         bucketName: string;
         bucketPrefix: string;
         encryptionConfig?: outputs.connect.InstanceStorageConfigEncryptionConfig;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface InstanceTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
     }
 
     /**
@@ -9460,15 +9600,35 @@ export namespace connect {
      */
     export interface RuleActions {
         assignContactCategoryActions?: outputs.connect.RuleAssignContactCategoryAction[];
+        createCaseActions?: outputs.connect.RuleCreateCaseAction[];
+        endAssociatedTaskActions?: outputs.connect.RuleEndAssociatedTasksAction[];
         eventBridgeActions?: outputs.connect.RuleEventBridgeAction[];
         sendNotificationActions?: outputs.connect.RuleSendNotificationAction[];
         taskActions?: outputs.connect.RuleTaskAction[];
+        updateCaseActions?: outputs.connect.RuleUpdateCaseAction[];
     }
 
     /**
      * The definition for assigning contact category action.
      */
     export interface RuleAssignContactCategoryAction {
+    }
+
+    /**
+     * The definition for create case action.
+     */
+    export interface RuleCreateCaseAction {
+        fields: outputs.connect.RuleField[];
+        /**
+         * The Id of template.
+         */
+        templateId: string;
+    }
+
+    /**
+     * The definition for ending associated task action.
+     */
+    export interface RuleEndAssociatedTasksAction {
     }
 
     /**
@@ -9479,6 +9639,27 @@ export namespace connect {
          * The name of the event bridge action.
          */
         name: string;
+    }
+
+    /**
+     * The field of the case.
+     */
+    export interface RuleField {
+        /**
+         * The Id of the field
+         */
+        id: string;
+        value: outputs.connect.RuleFieldValue;
+    }
+
+    /**
+     * The value of the field.
+     */
+    export interface RuleFieldValue {
+        booleanValue?: boolean;
+        doubleValue?: number;
+        emptyValue?: any;
+        stringValue?: string;
     }
 
     /**
@@ -9566,6 +9747,13 @@ export namespace connect {
          * The Amazon Resource Name (ARN) for the AppIntegration association.
          */
         integrationAssociationArn?: string;
+    }
+
+    /**
+     * The definition for update case action.
+     */
+    export interface RuleUpdateCaseAction {
+        fields: outputs.connect.RuleField[];
     }
 
     /**
@@ -11868,6 +12056,20 @@ export namespace dlm {
 }
 
 export namespace dms {
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface DataProviderTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
     export interface EndpointDocDbSettings {
         docsToInvestigate?: number;
         extractDocId?: boolean;
@@ -11905,10 +12107,14 @@ export namespace dms {
 
     export interface EndpointIbmDb2Settings {
         currentLsn?: string;
+        keepCsvFiles?: boolean;
+        loadTimeout?: number;
+        maxFileSize?: number;
         maxKBytesPerRead?: number;
         secretsManagerAccessRoleArn?: string;
         secretsManagerSecretId?: string;
         setDataCaptureChanges?: boolean;
+        writeBufferSize?: number;
     }
 
     export interface EndpointKafkaSettings {
@@ -12159,6 +12365,45 @@ export namespace dms {
     }
 
     /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface InstanceProfileTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * It is an object that describes Source and Target DataProviders and credentials for connecting to databases that are used in MigrationProject
+     */
+    export interface MigrationProjectDataProviderDescriptor {
+        dataProviderArn?: string;
+        dataProviderIdentifier?: string;
+        dataProviderName?: string;
+        secretsManagerAccessRoleArn?: string;
+        secretsManagerSecretId?: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface MigrationProjectTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, , and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, , and -.
+         */
+        value: string;
+    }
+
+    /**
      * Configuration parameters for provisioning a AWS DMS Serverless replication
      */
     export interface ReplicationConfigComputeConfig {
@@ -12201,6 +12446,78 @@ export namespace dms {
     export interface ReplicationTaskTag {
         key: string;
         value: string;
+    }
+
+    /**
+     * The property describes schema conversion application attributes for the migration project.
+     */
+    export interface SchemaConversionApplicationAttributesProperties {
+        s3BucketPath?: string;
+        s3BucketRoleArn?: string;
+    }
+
+    /**
+     * PostgreSqlSettings property identifier.
+     */
+    export interface Settings0Properties {
+        postgreSqlSettings?: outputs.dms.Settings0PropertiesPostgreSqlSettingsProperties;
+    }
+
+    export interface Settings0PropertiesPostgreSqlSettingsProperties {
+        certificateArn?: string;
+        databaseName?: string;
+        port?: number;
+        serverName?: string;
+        sslMode?: enums.dms.DataProviderDmsSslModeValue;
+    }
+
+    /**
+     * MySqlSettings property identifier.
+     */
+    export interface Settings1Properties {
+        mySqlSettings?: outputs.dms.Settings1PropertiesMySqlSettingsProperties;
+    }
+
+    export interface Settings1PropertiesMySqlSettingsProperties {
+        certificateArn?: string;
+        port?: number;
+        serverName?: string;
+        sslMode?: enums.dms.DataProviderDmsSslModeValue;
+    }
+
+    /**
+     * OracleSettings property identifier.
+     */
+    export interface Settings2Properties {
+        oracleSettings?: outputs.dms.Settings2PropertiesOracleSettingsProperties;
+    }
+
+    export interface Settings2PropertiesOracleSettingsProperties {
+        asmServer?: string;
+        certificateArn?: string;
+        databaseName?: string;
+        port?: number;
+        secretsManagerOracleAsmAccessRoleArn?: string;
+        secretsManagerOracleAsmSecretId?: string;
+        secretsManagerSecurityDbEncryptionAccessRoleArn?: string;
+        secretsManagerSecurityDbEncryptionSecretId?: string;
+        serverName?: string;
+        sslMode?: enums.dms.DataProviderDmsSslModeValue;
+    }
+
+    /**
+     * MicrosoftSqlServerSettings property identifier.
+     */
+    export interface Settings3Properties {
+        microsoftSqlServerSettings?: outputs.dms.Settings3PropertiesMicrosoftSqlServerSettingsProperties;
+    }
+
+    export interface Settings3PropertiesMicrosoftSqlServerSettingsProperties {
+        certificateArn?: string;
+        databaseName?: string;
+        port?: number;
+        serverName?: string;
+        sslMode?: enums.dms.DataProviderDmsSslModeValue;
     }
 
 }
@@ -12703,7 +13020,7 @@ export namespace ec2 {
     export interface InstanceBlockDeviceMapping {
         deviceName: string;
         ebs?: outputs.ec2.InstanceEbs;
-        noDevice?: outputs.ec2.InstanceNoDevice;
+        noDevice?: any;
         virtualName?: string;
     }
 
@@ -12779,9 +13096,6 @@ export namespace ec2 {
         privateIpAddresses?: outputs.ec2.InstancePrivateIpAddressSpecification[];
         secondaryPrivateIpAddressCount?: number;
         subnetId?: string;
-    }
-
-    export interface InstanceNoDevice {
     }
 
     export interface InstancePrivateDnsNameOptions {
@@ -14643,6 +14957,10 @@ export namespace ec2 {
      */
     export interface VerifiedAccessTrustProviderDeviceOptions {
         /**
+         * URL Verified Access will use to verify authenticity of the device tokens.
+         */
+        publicSigningKeyUrl?: string;
+        /**
          * The ID of the tenant application with the device-identity provider.
          */
         tenantId?: string;
@@ -14855,6 +15173,7 @@ export namespace ecr {
 export namespace ecs {
     export interface CapacityProviderAutoScalingGroupProvider {
         autoScalingGroupArn: string;
+        managedDraining?: enums.ecs.CapacityProviderAutoScalingGroupProviderManagedDraining;
         managedScaling?: outputs.ecs.CapacityProviderManagedScaling;
         managedTerminationProtection?: enums.ecs.CapacityProviderAutoScalingGroupProviderManagedTerminationProtection;
     }
@@ -14996,6 +15315,12 @@ export namespace ecs {
         type?: enums.ecs.ServiceDeploymentControllerType;
     }
 
+    export interface ServiceEbsTagSpecification {
+        propagateTags?: enums.ecs.ServiceEbsTagSpecificationPropagateTags;
+        resourceType: string;
+        tags?: outputs.ecs.ServiceTag[];
+    }
+
     export interface ServiceLoadBalancer {
         containerName?: string;
         containerPort?: number;
@@ -15007,6 +15332,19 @@ export namespace ecs {
         logDriver?: string;
         options?: any;
         secretOptions?: outputs.ecs.ServiceSecret[];
+    }
+
+    export interface ServiceManagedEbsVolumeConfiguration {
+        encrypted?: boolean;
+        filesystemType?: string;
+        iops?: number;
+        kmsKeyId?: string;
+        roleArn: string;
+        sizeInGiB?: number;
+        snapshotId?: string;
+        tagSpecifications?: outputs.ecs.ServiceEbsTagSpecification[];
+        throughput?: number;
+        volumeType?: string;
     }
 
     export interface ServiceNetworkConfiguration {
@@ -15038,6 +15376,11 @@ export namespace ecs {
     export interface ServiceTag {
         key?: string;
         value?: string;
+    }
+
+    export interface ServiceVolumeConfiguration {
+        managedEbsVolume?: outputs.ecs.ServiceManagedEbsVolumeConfiguration;
+        name: string;
     }
 
     export interface TaskDefinitionAuthorizationConfig {
@@ -15450,6 +15793,45 @@ export namespace efs {
 
 export namespace eks {
     /**
+     * An access policy to associate with the current access entry.
+     */
+    export interface AccessEntryAccessPolicy {
+        accessScope: outputs.eks.AccessEntryAccessScope;
+        /**
+         * The ARN of the access policy to add to the access entry.
+         */
+        policyArn: string;
+    }
+
+    /**
+     * The access scope of the access policy.
+     */
+    export interface AccessEntryAccessScope {
+        /**
+         * The namespaces to associate with the access scope. Only specify if Type is set to 'namespace'.
+         */
+        namespaces?: string[];
+        /**
+         * The type of the access scope.
+         */
+        type: enums.eks.AccessEntryAccessScopeType;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface AccessEntryTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
      * A key-value pair to associate with a resource.
      */
     export interface AddonTag {
@@ -15461,6 +15843,20 @@ export namespace eks {
          * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
         value: string;
+    }
+
+    /**
+     * An object representing the Access Config to use for the cluster.
+     */
+    export interface ClusterAccessConfig {
+        /**
+         * Specify the authentication mode that should be used to create your cluster.
+         */
+        authenticationMode?: enums.eks.ClusterAccessConfigAuthenticationMode;
+        /**
+         * Set this value to false to avoid creating a default cluster admin Access Entry using the IAM principal used to create the cluster.
+         */
+        bootstrapClusterCreatorAdminPermissions?: boolean;
     }
 
     /**
@@ -16679,6 +17075,11 @@ export namespace emr {
         allocationStrategy: string;
     }
 
+    export interface ClusterPlacementGroupConfig {
+        instanceRole: string;
+        placementStrategy?: string;
+    }
+
     export interface ClusterPlacementType {
         availabilityZone: string;
     }
@@ -17782,6 +18183,17 @@ export namespace fis {
      * The actions for the experiment.
      */
     export interface ExperimentTemplateActionMap {
+    }
+
+    export interface ExperimentTemplateExperimentOptions {
+        /**
+         * The account targeting setting for the experiment template.
+         */
+        accountTargeting?: enums.fis.ExperimentTemplateExperimentOptionsAccountTargeting;
+        /**
+         * The target resolution failure mode for the experiment template.
+         */
+        emptyTargetResolutionMode?: enums.fis.ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode;
     }
 
     export interface ExperimentTemplateLogConfiguration {
@@ -20813,6 +21225,36 @@ export namespace imagebuilder {
     }
 
     /**
+     * The workflow configuration of the image
+     */
+    export interface ImagePipelineWorkflowConfiguration {
+        /**
+         * Define execution decision in case of workflow failure
+         */
+        onFailure?: enums.imagebuilder.ImagePipelineWorkflowConfigurationOnFailure;
+        /**
+         * The parallel group name
+         */
+        parallelGroup?: string;
+        /**
+         * The parameters associated with the workflow
+         */
+        parameters?: outputs.imagebuilder.ImagePipelineWorkflowParameter[];
+        /**
+         * The Amazon Resource Name (ARN) of the workflow
+         */
+        workflowArn?: string;
+    }
+
+    /**
+     * A parameter associated with the workflow
+     */
+    export interface ImagePipelineWorkflowParameter {
+        name?: string;
+        value?: string[];
+    }
+
+    /**
      * Specify additional settings and launch scripts for your build instances.
      */
     export interface ImageRecipeAdditionalInstanceConfiguration {
@@ -20950,6 +21392,36 @@ export namespace imagebuilder {
          * TimeoutMinutes
          */
         timeoutMinutes?: number;
+    }
+
+    /**
+     * The workflow configuration of the image
+     */
+    export interface ImageWorkflowConfiguration {
+        /**
+         * Define execution decision in case of workflow failure
+         */
+        onFailure?: enums.imagebuilder.ImageWorkflowConfigurationOnFailure;
+        /**
+         * The parallel group name
+         */
+        parallelGroup?: string;
+        /**
+         * The parameters associated with the workflow
+         */
+        parameters?: outputs.imagebuilder.ImageWorkflowParameter[];
+        /**
+         * The Amazon Resource Name (ARN) of the workflow
+         */
+        workflowArn?: string;
+    }
+
+    /**
+     * A parameter associated with the workflow
+     */
+    export interface ImageWorkflowParameter {
+        name?: string;
+        value?: string[];
     }
 
     /**
@@ -21342,6 +21814,20 @@ export namespace iot {
      * A key-value pair to associate with a resource.
      */
     export interface CaCertificateTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface CertificateProviderTag {
         /**
          * The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
          */
@@ -26419,16 +26905,31 @@ export namespace lambda {
         untrustedArtifactOnDeployment: enums.lambda.CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment;
     }
 
+    /**
+     * A destination for events after they have been sent to a function for processing.
+     */
     export interface EventInvokeConfigDestinationConfig {
         onFailure?: outputs.lambda.EventInvokeConfigOnFailure;
         onSuccess?: outputs.lambda.EventInvokeConfigOnSuccess;
     }
 
+    /**
+     * The destination configuration for failed invocations.
+     */
     export interface EventInvokeConfigOnFailure {
+        /**
+         * The Amazon Resource Name (ARN) of the destination resource.
+         */
         destination: string;
     }
 
+    /**
+     * The destination configuration for successful invocations.
+     */
     export interface EventInvokeConfigOnSuccess {
+        /**
+         * The Amazon Resource Name (ARN) of the destination resource.
+         */
         destination: string;
     }
 
@@ -34101,6 +34602,26 @@ export namespace organizations {
 
 export namespace osis {
     /**
+     * Key-value pairs to configure buffering.
+     */
+    export interface PipelineBufferOptions {
+        /**
+         * Whether persistent buffering should be enabled.
+         */
+        persistentBufferEnabled: boolean;
+    }
+
+    /**
+     * Key-value pairs to configure encryption at rest.
+     */
+    export interface PipelineEncryptionAtRestOptions {
+        /**
+         * The KMS key to use for encrypting data. By default an AWS owned key is used
+         */
+        kmsKeyArn: string;
+    }
+
+    /**
      * Key-value pairs to configure log publishing.
      */
     export interface PipelineLogPublishingOptions {
@@ -34118,7 +34639,7 @@ export namespace osis {
      * The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
      */
     export interface PipelineLogPublishingOptionsCloudWatchLogDestinationProperties {
-        logGroup?: string;
+        logGroup: string;
     }
 
     /**
@@ -34161,7 +34682,7 @@ export namespace osis {
         /**
          * A list of subnet IDs associated with the VPC endpoint.
          */
-        subnetIds?: string[];
+        subnetIds: string[];
     }
 
 }
@@ -47940,6 +48461,7 @@ export namespace s3 {
          */
         destinationBucketName?: string;
         logFilePrefix?: string;
+        targetObjectKeyFormat?: outputs.s3.BucketTargetObjectKeyFormat;
     }
 
     export interface BucketMetrics {
@@ -48310,6 +48832,12 @@ export namespace s3 {
     export interface BucketTagFilter {
         key: string;
         value: string;
+    }
+
+    /**
+     * Describes the key format for server access log file in the target bucket. You can choose between SimplePrefix and PartitionedPrefix.
+     */
+    export interface BucketTargetObjectKeyFormat {
     }
 
     export interface BucketTiering {
@@ -49278,6 +49806,31 @@ export namespace sagemaker {
     }
 
     /**
+     * The CodeEditor app settings.
+     */
+    export interface DomainCodeEditorAppSettings {
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
+         */
+        defaultResourceSpec?: outputs.sagemaker.DomainResourceSpec;
+        /**
+         * A list of LifecycleConfigArns available for use with CodeEditor apps.
+         */
+        lifecycleConfigArns?: string[];
+    }
+
+    export interface DomainCodeRepository {
+        /**
+         * A CodeRepository (valid URL) to be used within Jupyter's Git extension.
+         */
+        repositoryUrl: string;
+    }
+
+    export interface DomainCustomFileSystemConfig {
+        efsFileSystemConfig?: outputs.sagemaker.DomainEfsFileSystemConfig;
+    }
+
+    /**
      * A custom SageMaker image.
      */
     export interface DomainCustomImage {
@@ -49293,6 +49846,25 @@ export namespace sagemaker {
          * The version number of the CustomImage.
          */
         imageVersionNumber?: number;
+    }
+
+    export interface DomainCustomPosixUserConfig {
+        gid: number;
+        uid: number;
+    }
+
+    /**
+     * Properties related to the Amazon Elastic Block Store volume. Must be provided if storage type is Amazon EBS and must not be provided if storage type is not Amazon EBS
+     */
+    export interface DomainDefaultEbsStorageSettings {
+        /**
+         * Default size of the Amazon EBS volume in Gb
+         */
+        defaultEbsVolumeSizeInGb: number;
+        /**
+         * Maximum size of the Amazon EBS volume in Gb. Must be greater than or equal to the DefaultEbsVolumeSizeInGb.
+         */
+        maximumEbsVolumeSizeInGb: number;
     }
 
     /**
@@ -49315,6 +49887,40 @@ export namespace sagemaker {
          * The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
          */
         securityGroups?: string[];
+    }
+
+    /**
+     * Default storage settings for a space.
+     */
+    export interface DomainDefaultSpaceStorageSettings {
+        defaultEbsStorageSettings?: outputs.sagemaker.DomainDefaultEbsStorageSettings;
+    }
+
+    export interface DomainEfsFileSystemConfig {
+        fileSystemId: string;
+        fileSystemPath?: string;
+    }
+
+    /**
+     * The JupyterLab app settings.
+     */
+    export interface DomainJupyterLabAppSettings {
+        /**
+         * A list of CodeRepositories available for use with JupyterLab apps.
+         */
+        codeRepositories?: outputs.sagemaker.DomainCodeRepository[];
+        /**
+         * A list of custom images for use for JupyterLab apps.
+         */
+        customImages?: outputs.sagemaker.DomainCustomImage[];
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
+         */
+        defaultResourceSpec?: outputs.sagemaker.DomainResourceSpec;
+        /**
+         * A list of LifecycleConfigArns available for use with JupyterLab apps.
+         */
+        lifecycleConfigArns?: string[];
     }
 
     /**
@@ -49439,10 +50045,18 @@ export namespace sagemaker {
      * A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
      */
     export interface DomainUserSettings {
+        codeEditorAppSettings?: outputs.sagemaker.DomainCodeEditorAppSettings;
+        customFileSystemConfigs?: outputs.sagemaker.DomainCustomFileSystemConfig[];
+        customPosixUserConfig?: outputs.sagemaker.DomainCustomPosixUserConfig;
+        /**
+         * Defines which Amazon SageMaker application users are directed to by default.
+         */
+        defaultLandingUri?: string;
         /**
          * The execution role for the user.
          */
         executionRole: string;
+        jupyterLabAppSettings?: outputs.sagemaker.DomainJupyterLabAppSettings;
         /**
          * The Jupyter server's app settings.
          */
@@ -49461,6 +50075,11 @@ export namespace sagemaker {
          * The sharing settings.
          */
         sharingSettings?: outputs.sagemaker.DomainSharingSettings;
+        spaceStorageSettings?: outputs.sagemaker.DomainDefaultSpaceStorageSettings;
+        /**
+         * Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
+         */
+        studioWebPortal?: enums.sagemaker.DomainUserSettingsStudioWebPortal;
     }
 
     export interface EndpointAlarm {
@@ -52002,6 +52621,7 @@ export namespace sagemaker {
     export interface OnlineStoreConfigProperties {
         enableOnlineStore?: boolean;
         securityConfig?: outputs.sagemaker.FeatureGroupOnlineStoreSecurityConfig;
+        storageType?: enums.sagemaker.FeatureGroupStorageType;
     }
 
     export interface ParallelismConfigurationProperties {
@@ -52169,6 +52789,31 @@ export namespace sagemaker {
     }
 
     /**
+     * The CodeEditor app settings.
+     */
+    export interface UserProfileCodeEditorAppSettings {
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the CodeEditor app.
+         */
+        defaultResourceSpec?: outputs.sagemaker.UserProfileResourceSpec;
+        /**
+         * A list of LifecycleConfigArns available for use with CodeEditor apps.
+         */
+        lifecycleConfigArns?: string[];
+    }
+
+    export interface UserProfileCodeRepository {
+        /**
+         * A CodeRepository (valid URL) to be used within Jupyter's Git extension.
+         */
+        repositoryUrl: string;
+    }
+
+    export interface UserProfileCustomFileSystemConfig {
+        efsFileSystemConfig?: outputs.sagemaker.UserProfileEfsFileSystemConfig;
+    }
+
+    /**
      * A custom SageMaker image.
      */
     export interface UserProfileCustomImage {
@@ -52184,6 +52829,59 @@ export namespace sagemaker {
          * The version number of the CustomImage.
          */
         imageVersionNumber?: number;
+    }
+
+    export interface UserProfileCustomPosixUserConfig {
+        gid: number;
+        uid: number;
+    }
+
+    /**
+     * Properties related to the Amazon Elastic Block Store volume.
+     */
+    export interface UserProfileDefaultEbsStorageSettings {
+        /**
+         * Default size of the Amazon EBS volume in Gb
+         */
+        defaultEbsVolumeSizeInGb: number;
+        /**
+         * Maximum size of the Amazon EBS volume in Gb. Must be greater than or equal to the DefaultEbsVolumeSizeInGb.
+         */
+        maximumEbsVolumeSizeInGb: number;
+    }
+
+    /**
+     * Default storage settings for a space.
+     */
+    export interface UserProfileDefaultSpaceStorageSettings {
+        defaultEbsStorageSettings?: outputs.sagemaker.UserProfileDefaultEbsStorageSettings;
+    }
+
+    export interface UserProfileEfsFileSystemConfig {
+        fileSystemId: string;
+        fileSystemPath?: string;
+    }
+
+    /**
+     * The JupyterLab app settings.
+     */
+    export interface UserProfileJupyterLabAppSettings {
+        /**
+         * A list of CodeRepositories available for use with JupyterLab apps.
+         */
+        codeRepositories?: outputs.sagemaker.UserProfileCodeRepository[];
+        /**
+         * A list of custom images available for use for JupyterLab apps
+         */
+        customImages?: outputs.sagemaker.UserProfileCustomImage[];
+        /**
+         * The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterLab app.
+         */
+        defaultResourceSpec?: outputs.sagemaker.UserProfileResourceSpec;
+        /**
+         * A list of LifecycleConfigArns available for use with JupyterLab apps.
+         */
+        lifecycleConfigArns?: string[];
     }
 
     /**
@@ -52263,10 +52961,18 @@ export namespace sagemaker {
      * A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
      */
     export interface UserProfileUserSettings {
+        codeEditorAppSettings?: outputs.sagemaker.UserProfileCodeEditorAppSettings;
+        customFileSystemConfigs?: outputs.sagemaker.UserProfileCustomFileSystemConfig[];
+        customPosixUserConfig?: outputs.sagemaker.UserProfileCustomPosixUserConfig;
+        /**
+         * Defines which Amazon SageMaker application users are directed to by default.
+         */
+        defaultLandingUri?: string;
         /**
          * The user profile Amazon Resource Name (ARN).
          */
         executionRole?: string;
+        jupyterLabAppSettings?: outputs.sagemaker.UserProfileJupyterLabAppSettings;
         /**
          * The Jupyter server's app settings.
          */
@@ -52284,6 +52990,11 @@ export namespace sagemaker {
          * The sharing settings.
          */
         sharingSettings?: outputs.sagemaker.UserProfileSharingSettings;
+        spaceStorageSettings?: outputs.sagemaker.UserProfileDefaultSpaceStorageSettings;
+        /**
+         * Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
+         */
+        studioWebPortal?: enums.sagemaker.UserProfileUserSettingsStudioWebPortal;
     }
 
     export interface WorkteamCognitoMemberDefinition {
@@ -52779,6 +53490,12 @@ export namespace securityhub {
         userDefinedFields?: outputs.securityhub.AutomationRuleMapFilter[];
         verificationState?: outputs.securityhub.AutomationRuleStringFilter[];
         workflowStatus?: outputs.securityhub.AutomationRuleStringFilter[];
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface HubTags {
     }
 
     /**

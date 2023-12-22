@@ -16,11 +16,20 @@ export function getSecurityGroupEgress(args: GetSecurityGroupEgressArgs, opts?: 
 }
 
 export interface GetSecurityGroupEgressArgs {
+    /**
+     * The Security Group Rule Id
+     */
     id: string;
 }
 
 export interface GetSecurityGroupEgressResult {
+    /**
+     * Resource Type definition for an egress (outbound) security group rule.
+     */
     readonly description?: string;
+    /**
+     * The Security Group Rule Id
+     */
     readonly id?: string;
 }
 /**
@@ -31,5 +40,8 @@ export function getSecurityGroupEgressOutput(args: GetSecurityGroupEgressOutputA
 }
 
 export interface GetSecurityGroupEgressOutputArgs {
+    /**
+     * The Security Group Rule Id
+     */
     id: pulumi.Input<string>;
 }

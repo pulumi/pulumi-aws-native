@@ -69,6 +69,10 @@ export class Instance extends pulumi.CustomResource {
      * Service linked role created as part of instance creation.
      */
     public /*out*/ readonly serviceRole!: pulumi.Output<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.connect.InstanceTag[] | undefined>;
 
     /**
      * Create a Instance resource with the given unique name, arguments, and options.
@@ -91,6 +95,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["directoryId"] = args ? args.directoryId : undefined;
             resourceInputs["identityManagementType"] = args ? args.identityManagementType : undefined;
             resourceInputs["instanceAlias"] = args ? args.instanceAlias : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["instanceStatus"] = undefined /*out*/;
@@ -104,6 +109,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["instanceAlias"] = undefined /*out*/;
             resourceInputs["instanceStatus"] = undefined /*out*/;
             resourceInputs["serviceRole"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["directoryId", "identityManagementType", "instanceAlias"] };
@@ -132,4 +138,8 @@ export interface InstanceArgs {
      * Alias of the new directory created as part of new instance creation.
      */
     instanceAlias?: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.connect.InstanceTagArgs>[]>;
 }

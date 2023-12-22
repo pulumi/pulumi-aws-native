@@ -22,6 +22,10 @@ class DiscovererArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DiscovererTagsEntryArgs']]]] = None):
         """
         The set of arguments for constructing a Discoverer resource.
+        :param pulumi.Input[str] source_arn: The ARN of the event bus.
+        :param pulumi.Input[bool] cross_account: Defines whether event schemas from other accounts are discovered. Default is True.
+        :param pulumi.Input[str] description: A description for the discoverer.
+        :param pulumi.Input[Sequence[pulumi.Input['DiscovererTagsEntryArgs']]] tags: Tags associated with the resource.
         """
         pulumi.set(__self__, "source_arn", source_arn)
         if cross_account is not None:
@@ -34,6 +38,9 @@ class DiscovererArgs:
     @property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the event bus.
+        """
         return pulumi.get(self, "source_arn")
 
     @source_arn.setter
@@ -43,6 +50,9 @@ class DiscovererArgs:
     @property
     @pulumi.getter(name="crossAccount")
     def cross_account(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Defines whether event schemas from other accounts are discovered. Default is True.
+        """
         return pulumi.get(self, "cross_account")
 
     @cross_account.setter
@@ -52,6 +62,9 @@ class DiscovererArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description for the discoverer.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -61,6 +74,9 @@ class DiscovererArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DiscovererTagsEntryArgs']]]]:
+        """
+        Tags associated with the resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -68,12 +84,7 @@ class DiscovererArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Discoverer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Discoverer(pulumi.CustomResource):
-    warnings.warn("""Discoverer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -88,6 +99,10 @@ class Discoverer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] cross_account: Defines whether event schemas from other accounts are discovered. Default is True.
+        :param pulumi.Input[str] description: A description for the discoverer.
+        :param pulumi.Input[str] source_arn: The ARN of the event bus.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiscovererTagsEntryArgs']]]] tags: Tags associated with the resource.
         """
         ...
     @overload
@@ -118,7 +133,6 @@ class Discoverer(pulumi.CustomResource):
                  source_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DiscovererTagsEntryArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Discoverer is deprecated: Discoverer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -135,6 +149,7 @@ class Discoverer(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["discoverer_arn"] = None
             __props__.__dict__["discoverer_id"] = None
+            __props__.__dict__["state"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["source_arn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Discoverer, __self__).__init__(
@@ -164,36 +179,63 @@ class Discoverer(pulumi.CustomResource):
         __props__.__dict__["discoverer_arn"] = None
         __props__.__dict__["discoverer_id"] = None
         __props__.__dict__["source_arn"] = None
+        __props__.__dict__["state"] = None
         __props__.__dict__["tags"] = None
         return Discoverer(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="crossAccount")
     def cross_account(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Defines whether event schemas from other accounts are discovered. Default is True.
+        """
         return pulumi.get(self, "cross_account")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description for the discoverer.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="discovererArn")
     def discoverer_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the discoverer.
+        """
         return pulumi.get(self, "discoverer_arn")
 
     @property
     @pulumi.getter(name="discovererId")
     def discoverer_id(self) -> pulumi.Output[str]:
+        """
+        The Id of the discoverer.
+        """
         return pulumi.get(self, "discoverer_id")
 
     @property
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the event bus.
+        """
         return pulumi.get(self, "source_arn")
 
     @property
     @pulumi.getter
+    def state(self) -> pulumi.Output[str]:
+        """
+        Defines the current state of the discoverer.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DiscovererTagsEntry']]]:
+        """
+        Tags associated with the resource.
+        """
         return pulumi.get(self, "tags")
 

@@ -12,7 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::Logs::DeliverySource.
+//	A delivery source is an AWS resource that sends logs to an AWS destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
+//
+// Only some AWS services support being configured as a delivery source. These services are listed as Supported [V2 Permissions] in the table at [Enabling logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html).
 func LookupDeliverySource(ctx *pulumi.Context, args *LookupDeliverySourceArgs, opts ...pulumi.InvokeOption) (*LookupDeliverySourceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDeliverySourceResult
@@ -29,15 +31,15 @@ type LookupDeliverySourceArgs struct {
 }
 
 type LookupDeliverySourceResult struct {
-	// The ARN of the Aqueduct Source.
+	// The Amazon Resource Name (ARN) that uniquely identifies this delivery source.
 	Arn *string `pulumi:"arn"`
 	// The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
 	LogType *string `pulumi:"logType"`
-	// List of ARN of the resource that will be sending the logs
+	// This array contains the ARN of the AWS resource that sends logs and is represented by this delivery source. Currently, only one ARN can be in the array.
 	ResourceArns []string `pulumi:"resourceArns"`
-	// The service generating the log
+	// The AWS service that is sending logs.
 	Service *string `pulumi:"service"`
-	// An array of key-value pairs to apply to this resource.
+	// The tags that have been assigned to this delivery source.
 	Tags []DeliverySourceTag `pulumi:"tags"`
 }
 
@@ -83,7 +85,7 @@ func (o LookupDeliverySourceResultOutput) ToOutput(ctx context.Context) pulumix.
 	}
 }
 
-// The ARN of the Aqueduct Source.
+// The Amazon Resource Name (ARN) that uniquely identifies this delivery source.
 func (o LookupDeliverySourceResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeliverySourceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -93,17 +95,17 @@ func (o LookupDeliverySourceResultOutput) LogType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeliverySourceResult) *string { return v.LogType }).(pulumi.StringPtrOutput)
 }
 
-// List of ARN of the resource that will be sending the logs
+// This array contains the ARN of the AWS resource that sends logs and is represented by this delivery source. Currently, only one ARN can be in the array.
 func (o LookupDeliverySourceResultOutput) ResourceArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDeliverySourceResult) []string { return v.ResourceArns }).(pulumi.StringArrayOutput)
 }
 
-// The service generating the log
+// The AWS service that is sending logs.
 func (o LookupDeliverySourceResultOutput) Service() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeliverySourceResult) *string { return v.Service }).(pulumi.StringPtrOutput)
 }
 
-// An array of key-value pairs to apply to this resource.
+// The tags that have been assigned to this delivery source.
 func (o LookupDeliverySourceResultOutput) Tags() DeliverySourceTagArrayOutput {
 	return o.ApplyT(func(v LookupDeliverySourceResult) []DeliverySourceTag { return v.Tags }).(DeliverySourceTagArrayOutput)
 }

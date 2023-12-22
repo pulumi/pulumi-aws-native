@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class InstanceStorageConfigKinesisVideoStreamConfig
     {
-        public readonly Outputs.InstanceStorageConfigEncryptionConfig? EncryptionConfig;
+        public readonly Outputs.InstanceStorageConfigEncryptionConfig EncryptionConfig;
         public readonly string Prefix;
         public readonly double RetentionPeriodHours;
 
         [OutputConstructor]
         private InstanceStorageConfigKinesisVideoStreamConfig(
-            Outputs.InstanceStorageConfigEncryptionConfig? encryptionConfig,
+            Outputs.InstanceStorageConfigEncryptionConfig encryptionConfig,
 
             string prefix,
 

@@ -8,7 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Logs::Delivery.
+ * This structure contains information about one delivery in your account.
+ *
+ * A delivery is a connection between a logical delivery source and a logical delivery destination.
+ *
+ * For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).
  */
 export function getDelivery(args: GetDeliveryArgs, opts?: pulumi.InvokeOptions): Promise<GetDeliveryResult> {
 
@@ -20,31 +24,35 @@ export function getDelivery(args: GetDeliveryArgs, opts?: pulumi.InvokeOptions):
 
 export interface GetDeliveryArgs {
     /**
-     * The value of the Id property for this object.
+     * The unique ID that identifies this delivery in your account.
      */
     deliveryId: string;
 }
 
 export interface GetDeliveryResult {
     /**
-     * The value of the Arn property for this object.
+     * The Amazon Resource Name (ARN) that uniquely identifies this delivery.
      */
     readonly arn?: string;
     /**
-     * The value of the DeliveryDestinationType property for this object.
+     * Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
      */
     readonly deliveryDestinationType?: string;
     /**
-     * The value of the Id property for this object.
+     * The unique ID that identifies this delivery in your account.
      */
     readonly deliveryId?: string;
     /**
-     * The value of the Tags property for this object.
+     * The tags that have been assigned to this delivery.
      */
     readonly tags?: outputs.logs.DeliveryTag[];
 }
 /**
- * Resource Type definition for AWS::Logs::Delivery.
+ * This structure contains information about one delivery in your account.
+ *
+ * A delivery is a connection between a logical delivery source and a logical delivery destination.
+ *
+ * For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).
  */
 export function getDeliveryOutput(args: GetDeliveryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeliveryResult> {
     return pulumi.output(args).apply((a: any) => getDelivery(a, opts))
@@ -52,7 +60,7 @@ export function getDeliveryOutput(args: GetDeliveryOutputArgs, opts?: pulumi.Inv
 
 export interface GetDeliveryOutputArgs {
     /**
-     * The value of the Id property for this object.
+     * The unique ID that identifies this delivery in your account.
      */
     deliveryId: pulumi.Input<string>;
 }

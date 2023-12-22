@@ -40,6 +40,18 @@ namespace Pulumi.AwsNative.CloudTrail
         public Output<string> EventDataStoreArn { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether federation is enabled on an event data store.
+        /// </summary>
+        [Output("federationEnabled")]
+        public Output<bool?> FederationEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN of the role used for event data store federation.
+        /// </summary>
+        [Output("federationRoleArn")]
+        public Output<string?> FederationRoleArn { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates whether the event data store is ingesting events.
         /// </summary>
         [Output("ingestionEnabled")]
@@ -170,6 +182,18 @@ namespace Pulumi.AwsNative.CloudTrail
         /// </summary>
         [Input("billingMode")]
         public Input<string>? BillingMode { get; set; }
+
+        /// <summary>
+        /// Indicates whether federation is enabled on an event data store.
+        /// </summary>
+        [Input("federationEnabled")]
+        public Input<bool>? FederationEnabled { get; set; }
+
+        /// <summary>
+        /// The ARN of the role used for event data store federation.
+        /// </summary>
+        [Input("federationRoleArn")]
+        public Input<string>? FederationRoleArn { get; set; }
 
         /// <summary>
         /// Indicates whether the event data store is ingesting events.

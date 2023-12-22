@@ -15,11 +15,34 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class DomainUserSettingsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("codeEditorAppSettings")]
+        public Input<Inputs.DomainCodeEditorAppSettingsArgs>? CodeEditorAppSettings { get; set; }
+
+        [Input("customFileSystemConfigs")]
+        private InputList<Inputs.DomainCustomFileSystemConfigArgs>? _customFileSystemConfigs;
+        public InputList<Inputs.DomainCustomFileSystemConfigArgs> CustomFileSystemConfigs
+        {
+            get => _customFileSystemConfigs ?? (_customFileSystemConfigs = new InputList<Inputs.DomainCustomFileSystemConfigArgs>());
+            set => _customFileSystemConfigs = value;
+        }
+
+        [Input("customPosixUserConfig")]
+        public Input<Inputs.DomainCustomPosixUserConfigArgs>? CustomPosixUserConfig { get; set; }
+
+        /// <summary>
+        /// Defines which Amazon SageMaker application users are directed to by default.
+        /// </summary>
+        [Input("defaultLandingUri")]
+        public Input<string>? DefaultLandingUri { get; set; }
+
         /// <summary>
         /// The execution role for the user.
         /// </summary>
         [Input("executionRole", required: true)]
         public Input<string> ExecutionRole { get; set; } = null!;
+
+        [Input("jupyterLabAppSettings")]
+        public Input<Inputs.DomainJupyterLabAppSettingsArgs>? JupyterLabAppSettings { get; set; }
 
         /// <summary>
         /// The Jupyter server's app settings.
@@ -56,6 +79,15 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         /// </summary>
         [Input("sharingSettings")]
         public Input<Inputs.DomainSharingSettingsArgs>? SharingSettings { get; set; }
+
+        [Input("spaceStorageSettings")]
+        public Input<Inputs.DomainDefaultSpaceStorageSettingsArgs>? SpaceStorageSettings { get; set; }
+
+        /// <summary>
+        /// Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
+        /// </summary>
+        [Input("studioWebPortal")]
+        public Input<Pulumi.AwsNative.SageMaker.DomainUserSettingsStudioWebPortal>? StudioWebPortal { get; set; }
 
         public DomainUserSettingsArgs()
         {

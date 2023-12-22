@@ -1215,6 +1215,37 @@ namespace Pulumi.AwsNative.Ec2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The state of EBS Snapshot Block Public Access.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapshotBlockPublicAccessState : IEquatable<SnapshotBlockPublicAccessState>
+    {
+        private readonly string _value;
+
+        private SnapshotBlockPublicAccessState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapshotBlockPublicAccessState BlockAllSharing { get; } = new SnapshotBlockPublicAccessState("block-all-sharing");
+        public static SnapshotBlockPublicAccessState BlockNewSharing { get; } = new SnapshotBlockPublicAccessState("block-new-sharing");
+
+        public static bool operator ==(SnapshotBlockPublicAccessState left, SnapshotBlockPublicAccessState right) => left.Equals(right);
+        public static bool operator !=(SnapshotBlockPublicAccessState left, SnapshotBlockPublicAccessState right) => !left.Equals(right);
+
+        public static explicit operator string(SnapshotBlockPublicAccessState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapshotBlockPublicAccessState other && Equals(other);
+        public bool Equals(SnapshotBlockPublicAccessState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct SpotFleetEbsBlockDeviceVolumeType : IEquatable<SpotFleetEbsBlockDeviceVolumeType>
     {

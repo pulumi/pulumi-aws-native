@@ -137,6 +137,9 @@ export const BucketInventoryConfigurationOptionalFieldsItem = {
     ObjectLockLegalHoldStatus: "ObjectLockLegalHoldStatus",
     IntelligentTieringAccessTier: "IntelligentTieringAccessTier",
     BucketKeyStatus: "BucketKeyStatus",
+    ChecksumAlgorithm: "ChecksumAlgorithm",
+    ObjectAccessControlList: "ObjectAccessControlList",
+    ObjectOwner: "ObjectOwner",
 } as const;
 
 export type BucketInventoryConfigurationOptionalFieldsItem = (typeof BucketInventoryConfigurationOptionalFieldsItem)[keyof typeof BucketInventoryConfigurationOptionalFieldsItem];

@@ -27,6 +27,7 @@ export interface GetSubscriptionResult {
     readonly rawMessageDelivery?: boolean;
     readonly redrivePolicy?: any;
     readonly region?: string;
+    readonly replayPolicy?: any;
     readonly subscriptionRoleArn?: string;
 }
 /**

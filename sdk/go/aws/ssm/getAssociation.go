@@ -53,8 +53,7 @@ type LookupAssociationResult struct {
 	ScheduleOffset     *int                       `pulumi:"scheduleOffset"`
 	SyncCompliance     *AssociationSyncCompliance `pulumi:"syncCompliance"`
 	// The targets that the SSM document sends commands to.
-	Targets                      []AssociationTarget `pulumi:"targets"`
-	WaitForSuccessTimeoutSeconds *int                `pulumi:"waitForSuccessTimeoutSeconds"`
+	Targets []AssociationTarget `pulumi:"targets"`
 }
 
 func LookupAssociationOutput(ctx *pulumi.Context, args LookupAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupAssociationResultOutput {
@@ -173,10 +172,6 @@ func (o LookupAssociationResultOutput) SyncCompliance() AssociationSyncComplianc
 // The targets that the SSM document sends commands to.
 func (o LookupAssociationResultOutput) Targets() AssociationTargetArrayOutput {
 	return o.ApplyT(func(v LookupAssociationResult) []AssociationTarget { return v.Targets }).(AssociationTargetArrayOutput)
-}
-
-func (o LookupAssociationResultOutput) WaitForSuccessTimeoutSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LookupAssociationResult) *int { return v.WaitForSuccessTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
 func init() {

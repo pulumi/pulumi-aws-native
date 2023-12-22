@@ -14,15 +14,15 @@ export function getResolverConfig(args: GetResolverConfigArgs, opts?: pulumi.Inv
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:route53resolver:getResolverConfig", {
-        "id": args.id,
+        "resourceId": args.resourceId,
     }, opts);
 }
 
 export interface GetResolverConfigArgs {
     /**
-     * Id
+     * ResourceId
      */
-    id: string;
+    resourceId: string;
 }
 
 export interface GetResolverConfigResult {
@@ -48,7 +48,7 @@ export function getResolverConfigOutput(args: GetResolverConfigOutputArgs, opts?
 
 export interface GetResolverConfigOutputArgs {
     /**
-     * Id
+     * ResourceId
      */
-    id: pulumi.Input<string>;
+    resourceId: pulumi.Input<string>;
 }

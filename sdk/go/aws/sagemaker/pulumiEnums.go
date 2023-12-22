@@ -75,6 +75,9 @@ const (
 	AppResourceSpecInstanceTypeMlP4d24xlarge           = AppResourceSpecInstanceType("ml.p4d.24xlarge")
 	AppResourceSpecInstanceTypeMlP4de24xlarge          = AppResourceSpecInstanceType("ml.p4de.24xlarge")
 	AppResourceSpecInstanceTypeMlGeospatialInteractive = AppResourceSpecInstanceType("ml.geospatial.interactive")
+	AppResourceSpecInstanceTypeMlTrn12xlarge           = AppResourceSpecInstanceType("ml.trn1.2xlarge")
+	AppResourceSpecInstanceTypeMlTrn132xlarge          = AppResourceSpecInstanceType("ml.trn1.32xlarge")
+	AppResourceSpecInstanceTypeMlTrn1n32xlarge         = AppResourceSpecInstanceType("ml.trn1n.32xlarge")
 )
 
 func (AppResourceSpecInstanceType) ElementType() reflect.Type {
@@ -2332,6 +2335,9 @@ const (
 	DomainResourceSpecInstanceTypeMlP4d24xlarge           = DomainResourceSpecInstanceType("ml.p4d.24xlarge")
 	DomainResourceSpecInstanceTypeMlP4de24xlarge          = DomainResourceSpecInstanceType("ml.p4de.24xlarge")
 	DomainResourceSpecInstanceTypeMlGeospatialInteractive = DomainResourceSpecInstanceType("ml.geospatial.interactive")
+	DomainResourceSpecInstanceTypeMlTrn12xlarge           = DomainResourceSpecInstanceType("ml.trn1.2xlarge")
+	DomainResourceSpecInstanceTypeMlTrn132xlarge          = DomainResourceSpecInstanceType("ml.trn1.32xlarge")
+	DomainResourceSpecInstanceTypeMlTrn1n32xlarge         = DomainResourceSpecInstanceType("ml.trn1n.32xlarge")
 )
 
 func (DomainResourceSpecInstanceType) ElementType() reflect.Type {
@@ -2692,6 +2698,189 @@ func (in *domainSharingSettingsNotebookOutputOptionPtr) ToOutput(ctx context.Con
 	}
 }
 
+// Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
+type DomainUserSettingsStudioWebPortal string
+
+const (
+	DomainUserSettingsStudioWebPortalEnabled  = DomainUserSettingsStudioWebPortal("ENABLED")
+	DomainUserSettingsStudioWebPortalDisabled = DomainUserSettingsStudioWebPortal("DISABLED")
+)
+
+func (DomainUserSettingsStudioWebPortal) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainUserSettingsStudioWebPortal)(nil)).Elem()
+}
+
+func (e DomainUserSettingsStudioWebPortal) ToDomainUserSettingsStudioWebPortalOutput() DomainUserSettingsStudioWebPortalOutput {
+	return pulumi.ToOutput(e).(DomainUserSettingsStudioWebPortalOutput)
+}
+
+func (e DomainUserSettingsStudioWebPortal) ToDomainUserSettingsStudioWebPortalOutputWithContext(ctx context.Context) DomainUserSettingsStudioWebPortalOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainUserSettingsStudioWebPortalOutput)
+}
+
+func (e DomainUserSettingsStudioWebPortal) ToDomainUserSettingsStudioWebPortalPtrOutput() DomainUserSettingsStudioWebPortalPtrOutput {
+	return e.ToDomainUserSettingsStudioWebPortalPtrOutputWithContext(context.Background())
+}
+
+func (e DomainUserSettingsStudioWebPortal) ToDomainUserSettingsStudioWebPortalPtrOutputWithContext(ctx context.Context) DomainUserSettingsStudioWebPortalPtrOutput {
+	return DomainUserSettingsStudioWebPortal(e).ToDomainUserSettingsStudioWebPortalOutputWithContext(ctx).ToDomainUserSettingsStudioWebPortalPtrOutputWithContext(ctx)
+}
+
+func (e DomainUserSettingsStudioWebPortal) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainUserSettingsStudioWebPortal) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainUserSettingsStudioWebPortal) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainUserSettingsStudioWebPortal) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainUserSettingsStudioWebPortalOutput struct{ *pulumi.OutputState }
+
+func (DomainUserSettingsStudioWebPortalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainUserSettingsStudioWebPortal)(nil)).Elem()
+}
+
+func (o DomainUserSettingsStudioWebPortalOutput) ToDomainUserSettingsStudioWebPortalOutput() DomainUserSettingsStudioWebPortalOutput {
+	return o
+}
+
+func (o DomainUserSettingsStudioWebPortalOutput) ToDomainUserSettingsStudioWebPortalOutputWithContext(ctx context.Context) DomainUserSettingsStudioWebPortalOutput {
+	return o
+}
+
+func (o DomainUserSettingsStudioWebPortalOutput) ToDomainUserSettingsStudioWebPortalPtrOutput() DomainUserSettingsStudioWebPortalPtrOutput {
+	return o.ToDomainUserSettingsStudioWebPortalPtrOutputWithContext(context.Background())
+}
+
+func (o DomainUserSettingsStudioWebPortalOutput) ToDomainUserSettingsStudioWebPortalPtrOutputWithContext(ctx context.Context) DomainUserSettingsStudioWebPortalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainUserSettingsStudioWebPortal) *DomainUserSettingsStudioWebPortal {
+		return &v
+	}).(DomainUserSettingsStudioWebPortalPtrOutput)
+}
+
+func (o DomainUserSettingsStudioWebPortalOutput) ToOutput(ctx context.Context) pulumix.Output[DomainUserSettingsStudioWebPortal] {
+	return pulumix.Output[DomainUserSettingsStudioWebPortal]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainUserSettingsStudioWebPortalOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainUserSettingsStudioWebPortalOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainUserSettingsStudioWebPortal) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainUserSettingsStudioWebPortalOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainUserSettingsStudioWebPortalOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainUserSettingsStudioWebPortal) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainUserSettingsStudioWebPortalPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainUserSettingsStudioWebPortalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainUserSettingsStudioWebPortal)(nil)).Elem()
+}
+
+func (o DomainUserSettingsStudioWebPortalPtrOutput) ToDomainUserSettingsStudioWebPortalPtrOutput() DomainUserSettingsStudioWebPortalPtrOutput {
+	return o
+}
+
+func (o DomainUserSettingsStudioWebPortalPtrOutput) ToDomainUserSettingsStudioWebPortalPtrOutputWithContext(ctx context.Context) DomainUserSettingsStudioWebPortalPtrOutput {
+	return o
+}
+
+func (o DomainUserSettingsStudioWebPortalPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DomainUserSettingsStudioWebPortal] {
+	return pulumix.Output[*DomainUserSettingsStudioWebPortal]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DomainUserSettingsStudioWebPortalPtrOutput) Elem() DomainUserSettingsStudioWebPortalOutput {
+	return o.ApplyT(func(v *DomainUserSettingsStudioWebPortal) DomainUserSettingsStudioWebPortal {
+		if v != nil {
+			return *v
+		}
+		var ret DomainUserSettingsStudioWebPortal
+		return ret
+	}).(DomainUserSettingsStudioWebPortalOutput)
+}
+
+func (o DomainUserSettingsStudioWebPortalPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainUserSettingsStudioWebPortalPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainUserSettingsStudioWebPortal) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainUserSettingsStudioWebPortalInput is an input type that accepts DomainUserSettingsStudioWebPortalArgs and DomainUserSettingsStudioWebPortalOutput values.
+// You can construct a concrete instance of `DomainUserSettingsStudioWebPortalInput` via:
+//
+//	DomainUserSettingsStudioWebPortalArgs{...}
+type DomainUserSettingsStudioWebPortalInput interface {
+	pulumi.Input
+
+	ToDomainUserSettingsStudioWebPortalOutput() DomainUserSettingsStudioWebPortalOutput
+	ToDomainUserSettingsStudioWebPortalOutputWithContext(context.Context) DomainUserSettingsStudioWebPortalOutput
+}
+
+var domainUserSettingsStudioWebPortalPtrType = reflect.TypeOf((**DomainUserSettingsStudioWebPortal)(nil)).Elem()
+
+type DomainUserSettingsStudioWebPortalPtrInput interface {
+	pulumi.Input
+
+	ToDomainUserSettingsStudioWebPortalPtrOutput() DomainUserSettingsStudioWebPortalPtrOutput
+	ToDomainUserSettingsStudioWebPortalPtrOutputWithContext(context.Context) DomainUserSettingsStudioWebPortalPtrOutput
+}
+
+type domainUserSettingsStudioWebPortalPtr string
+
+func DomainUserSettingsStudioWebPortalPtr(v string) DomainUserSettingsStudioWebPortalPtrInput {
+	return (*domainUserSettingsStudioWebPortalPtr)(&v)
+}
+
+func (*domainUserSettingsStudioWebPortalPtr) ElementType() reflect.Type {
+	return domainUserSettingsStudioWebPortalPtrType
+}
+
+func (in *domainUserSettingsStudioWebPortalPtr) ToDomainUserSettingsStudioWebPortalPtrOutput() DomainUserSettingsStudioWebPortalPtrOutput {
+	return pulumi.ToOutput(in).(DomainUserSettingsStudioWebPortalPtrOutput)
+}
+
+func (in *domainUserSettingsStudioWebPortalPtr) ToDomainUserSettingsStudioWebPortalPtrOutputWithContext(ctx context.Context) DomainUserSettingsStudioWebPortalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainUserSettingsStudioWebPortalPtrOutput)
+}
+
+func (in *domainUserSettingsStudioWebPortalPtr) ToOutput(ctx context.Context) pulumix.Output[*DomainUserSettingsStudioWebPortal] {
+	return pulumix.Output[*DomainUserSettingsStudioWebPortal]{
+		OutputState: in.ToDomainUserSettingsStudioWebPortalPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FeatureGroupFeatureDefinitionFeatureType string
 
 const (
@@ -2872,6 +3061,188 @@ func (in *featureGroupFeatureDefinitionFeatureTypePtr) ToFeatureGroupFeatureDefi
 func (in *featureGroupFeatureDefinitionFeatureTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FeatureGroupFeatureDefinitionFeatureType] {
 	return pulumix.Output[*FeatureGroupFeatureDefinitionFeatureType]{
 		OutputState: in.ToFeatureGroupFeatureDefinitionFeatureTypePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type FeatureGroupStorageType string
+
+const (
+	FeatureGroupStorageTypeStandard = FeatureGroupStorageType("Standard")
+	FeatureGroupStorageTypeInMemory = FeatureGroupStorageType("InMemory")
+)
+
+func (FeatureGroupStorageType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupStorageType)(nil)).Elem()
+}
+
+func (e FeatureGroupStorageType) ToFeatureGroupStorageTypeOutput() FeatureGroupStorageTypeOutput {
+	return pulumi.ToOutput(e).(FeatureGroupStorageTypeOutput)
+}
+
+func (e FeatureGroupStorageType) ToFeatureGroupStorageTypeOutputWithContext(ctx context.Context) FeatureGroupStorageTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FeatureGroupStorageTypeOutput)
+}
+
+func (e FeatureGroupStorageType) ToFeatureGroupStorageTypePtrOutput() FeatureGroupStorageTypePtrOutput {
+	return e.ToFeatureGroupStorageTypePtrOutputWithContext(context.Background())
+}
+
+func (e FeatureGroupStorageType) ToFeatureGroupStorageTypePtrOutputWithContext(ctx context.Context) FeatureGroupStorageTypePtrOutput {
+	return FeatureGroupStorageType(e).ToFeatureGroupStorageTypeOutputWithContext(ctx).ToFeatureGroupStorageTypePtrOutputWithContext(ctx)
+}
+
+func (e FeatureGroupStorageType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FeatureGroupStorageType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FeatureGroupStorageType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FeatureGroupStorageType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FeatureGroupStorageTypeOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupStorageTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupStorageType)(nil)).Elem()
+}
+
+func (o FeatureGroupStorageTypeOutput) ToFeatureGroupStorageTypeOutput() FeatureGroupStorageTypeOutput {
+	return o
+}
+
+func (o FeatureGroupStorageTypeOutput) ToFeatureGroupStorageTypeOutputWithContext(ctx context.Context) FeatureGroupStorageTypeOutput {
+	return o
+}
+
+func (o FeatureGroupStorageTypeOutput) ToFeatureGroupStorageTypePtrOutput() FeatureGroupStorageTypePtrOutput {
+	return o.ToFeatureGroupStorageTypePtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupStorageTypeOutput) ToFeatureGroupStorageTypePtrOutputWithContext(ctx context.Context) FeatureGroupStorageTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeatureGroupStorageType) *FeatureGroupStorageType {
+		return &v
+	}).(FeatureGroupStorageTypePtrOutput)
+}
+
+func (o FeatureGroupStorageTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FeatureGroupStorageType] {
+	return pulumix.Output[FeatureGroupStorageType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FeatureGroupStorageTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupStorageTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FeatureGroupStorageType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FeatureGroupStorageTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupStorageTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FeatureGroupStorageType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FeatureGroupStorageTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupStorageTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupStorageType)(nil)).Elem()
+}
+
+func (o FeatureGroupStorageTypePtrOutput) ToFeatureGroupStorageTypePtrOutput() FeatureGroupStorageTypePtrOutput {
+	return o
+}
+
+func (o FeatureGroupStorageTypePtrOutput) ToFeatureGroupStorageTypePtrOutputWithContext(ctx context.Context) FeatureGroupStorageTypePtrOutput {
+	return o
+}
+
+func (o FeatureGroupStorageTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FeatureGroupStorageType] {
+	return pulumix.Output[*FeatureGroupStorageType]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FeatureGroupStorageTypePtrOutput) Elem() FeatureGroupStorageTypeOutput {
+	return o.ApplyT(func(v *FeatureGroupStorageType) FeatureGroupStorageType {
+		if v != nil {
+			return *v
+		}
+		var ret FeatureGroupStorageType
+		return ret
+	}).(FeatureGroupStorageTypeOutput)
+}
+
+func (o FeatureGroupStorageTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupStorageTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FeatureGroupStorageType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FeatureGroupStorageTypeInput is an input type that accepts FeatureGroupStorageTypeArgs and FeatureGroupStorageTypeOutput values.
+// You can construct a concrete instance of `FeatureGroupStorageTypeInput` via:
+//
+//	FeatureGroupStorageTypeArgs{...}
+type FeatureGroupStorageTypeInput interface {
+	pulumi.Input
+
+	ToFeatureGroupStorageTypeOutput() FeatureGroupStorageTypeOutput
+	ToFeatureGroupStorageTypeOutputWithContext(context.Context) FeatureGroupStorageTypeOutput
+}
+
+var featureGroupStorageTypePtrType = reflect.TypeOf((**FeatureGroupStorageType)(nil)).Elem()
+
+type FeatureGroupStorageTypePtrInput interface {
+	pulumi.Input
+
+	ToFeatureGroupStorageTypePtrOutput() FeatureGroupStorageTypePtrOutput
+	ToFeatureGroupStorageTypePtrOutputWithContext(context.Context) FeatureGroupStorageTypePtrOutput
+}
+
+type featureGroupStorageTypePtr string
+
+func FeatureGroupStorageTypePtr(v string) FeatureGroupStorageTypePtrInput {
+	return (*featureGroupStorageTypePtr)(&v)
+}
+
+func (*featureGroupStorageTypePtr) ElementType() reflect.Type {
+	return featureGroupStorageTypePtrType
+}
+
+func (in *featureGroupStorageTypePtr) ToFeatureGroupStorageTypePtrOutput() FeatureGroupStorageTypePtrOutput {
+	return pulumi.ToOutput(in).(FeatureGroupStorageTypePtrOutput)
+}
+
+func (in *featureGroupStorageTypePtr) ToFeatureGroupStorageTypePtrOutputWithContext(ctx context.Context) FeatureGroupStorageTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FeatureGroupStorageTypePtrOutput)
+}
+
+func (in *featureGroupStorageTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FeatureGroupStorageType] {
+	return pulumix.Output[*FeatureGroupStorageType]{
+		OutputState: in.ToFeatureGroupStorageTypePtrOutputWithContext(ctx).OutputState,
 	}
 }
 
@@ -12401,6 +12772,9 @@ const (
 	UserProfileResourceSpecInstanceTypeMlP4d24xlarge           = UserProfileResourceSpecInstanceType("ml.p4d.24xlarge")
 	UserProfileResourceSpecInstanceTypeMlP4de24xlarge          = UserProfileResourceSpecInstanceType("ml.p4de.24xlarge")
 	UserProfileResourceSpecInstanceTypeMlGeospatialInteractive = UserProfileResourceSpecInstanceType("ml.geospatial.interactive")
+	UserProfileResourceSpecInstanceTypeMlTrn12xlarge           = UserProfileResourceSpecInstanceType("ml.trn1.2xlarge")
+	UserProfileResourceSpecInstanceTypeMlTrn132xlarge          = UserProfileResourceSpecInstanceType("ml.trn1.32xlarge")
+	UserProfileResourceSpecInstanceTypeMlTrn1n32xlarge         = UserProfileResourceSpecInstanceType("ml.trn1n.32xlarge")
 )
 
 func (UserProfileResourceSpecInstanceType) ElementType() reflect.Type {
@@ -12761,6 +13135,189 @@ func (in *userProfileSharingSettingsNotebookOutputOptionPtr) ToOutput(ctx contex
 	}
 }
 
+// Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
+type UserProfileUserSettingsStudioWebPortal string
+
+const (
+	UserProfileUserSettingsStudioWebPortalEnabled  = UserProfileUserSettingsStudioWebPortal("ENABLED")
+	UserProfileUserSettingsStudioWebPortalDisabled = UserProfileUserSettingsStudioWebPortal("DISABLED")
+)
+
+func (UserProfileUserSettingsStudioWebPortal) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsStudioWebPortal)(nil)).Elem()
+}
+
+func (e UserProfileUserSettingsStudioWebPortal) ToUserProfileUserSettingsStudioWebPortalOutput() UserProfileUserSettingsStudioWebPortalOutput {
+	return pulumi.ToOutput(e).(UserProfileUserSettingsStudioWebPortalOutput)
+}
+
+func (e UserProfileUserSettingsStudioWebPortal) ToUserProfileUserSettingsStudioWebPortalOutputWithContext(ctx context.Context) UserProfileUserSettingsStudioWebPortalOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserProfileUserSettingsStudioWebPortalOutput)
+}
+
+func (e UserProfileUserSettingsStudioWebPortal) ToUserProfileUserSettingsStudioWebPortalPtrOutput() UserProfileUserSettingsStudioWebPortalPtrOutput {
+	return e.ToUserProfileUserSettingsStudioWebPortalPtrOutputWithContext(context.Background())
+}
+
+func (e UserProfileUserSettingsStudioWebPortal) ToUserProfileUserSettingsStudioWebPortalPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsStudioWebPortalPtrOutput {
+	return UserProfileUserSettingsStudioWebPortal(e).ToUserProfileUserSettingsStudioWebPortalOutputWithContext(ctx).ToUserProfileUserSettingsStudioWebPortalPtrOutputWithContext(ctx)
+}
+
+func (e UserProfileUserSettingsStudioWebPortal) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserProfileUserSettingsStudioWebPortal) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserProfileUserSettingsStudioWebPortal) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserProfileUserSettingsStudioWebPortal) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserProfileUserSettingsStudioWebPortalOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsStudioWebPortalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsStudioWebPortal)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsStudioWebPortalOutput) ToUserProfileUserSettingsStudioWebPortalOutput() UserProfileUserSettingsStudioWebPortalOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsStudioWebPortalOutput) ToUserProfileUserSettingsStudioWebPortalOutputWithContext(ctx context.Context) UserProfileUserSettingsStudioWebPortalOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsStudioWebPortalOutput) ToUserProfileUserSettingsStudioWebPortalPtrOutput() UserProfileUserSettingsStudioWebPortalPtrOutput {
+	return o.ToUserProfileUserSettingsStudioWebPortalPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsStudioWebPortalOutput) ToUserProfileUserSettingsStudioWebPortalPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsStudioWebPortalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsStudioWebPortal) *UserProfileUserSettingsStudioWebPortal {
+		return &v
+	}).(UserProfileUserSettingsStudioWebPortalPtrOutput)
+}
+
+func (o UserProfileUserSettingsStudioWebPortalOutput) ToOutput(ctx context.Context) pulumix.Output[UserProfileUserSettingsStudioWebPortal] {
+	return pulumix.Output[UserProfileUserSettingsStudioWebPortal]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o UserProfileUserSettingsStudioWebPortalOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsStudioWebPortalOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileUserSettingsStudioWebPortal) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserProfileUserSettingsStudioWebPortalOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsStudioWebPortalOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserProfileUserSettingsStudioWebPortal) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsStudioWebPortalPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsStudioWebPortalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsStudioWebPortal)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsStudioWebPortalPtrOutput) ToUserProfileUserSettingsStudioWebPortalPtrOutput() UserProfileUserSettingsStudioWebPortalPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsStudioWebPortalPtrOutput) ToUserProfileUserSettingsStudioWebPortalPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsStudioWebPortalPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsStudioWebPortalPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserProfileUserSettingsStudioWebPortal] {
+	return pulumix.Output[*UserProfileUserSettingsStudioWebPortal]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o UserProfileUserSettingsStudioWebPortalPtrOutput) Elem() UserProfileUserSettingsStudioWebPortalOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsStudioWebPortal) UserProfileUserSettingsStudioWebPortal {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsStudioWebPortal
+		return ret
+	}).(UserProfileUserSettingsStudioWebPortalOutput)
+}
+
+func (o UserProfileUserSettingsStudioWebPortalPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsStudioWebPortalPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserProfileUserSettingsStudioWebPortal) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserProfileUserSettingsStudioWebPortalInput is an input type that accepts UserProfileUserSettingsStudioWebPortalArgs and UserProfileUserSettingsStudioWebPortalOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsStudioWebPortalInput` via:
+//
+//	UserProfileUserSettingsStudioWebPortalArgs{...}
+type UserProfileUserSettingsStudioWebPortalInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsStudioWebPortalOutput() UserProfileUserSettingsStudioWebPortalOutput
+	ToUserProfileUserSettingsStudioWebPortalOutputWithContext(context.Context) UserProfileUserSettingsStudioWebPortalOutput
+}
+
+var userProfileUserSettingsStudioWebPortalPtrType = reflect.TypeOf((**UserProfileUserSettingsStudioWebPortal)(nil)).Elem()
+
+type UserProfileUserSettingsStudioWebPortalPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsStudioWebPortalPtrOutput() UserProfileUserSettingsStudioWebPortalPtrOutput
+	ToUserProfileUserSettingsStudioWebPortalPtrOutputWithContext(context.Context) UserProfileUserSettingsStudioWebPortalPtrOutput
+}
+
+type userProfileUserSettingsStudioWebPortalPtr string
+
+func UserProfileUserSettingsStudioWebPortalPtr(v string) UserProfileUserSettingsStudioWebPortalPtrInput {
+	return (*userProfileUserSettingsStudioWebPortalPtr)(&v)
+}
+
+func (*userProfileUserSettingsStudioWebPortalPtr) ElementType() reflect.Type {
+	return userProfileUserSettingsStudioWebPortalPtrType
+}
+
+func (in *userProfileUserSettingsStudioWebPortalPtr) ToUserProfileUserSettingsStudioWebPortalPtrOutput() UserProfileUserSettingsStudioWebPortalPtrOutput {
+	return pulumi.ToOutput(in).(UserProfileUserSettingsStudioWebPortalPtrOutput)
+}
+
+func (in *userProfileUserSettingsStudioWebPortalPtr) ToUserProfileUserSettingsStudioWebPortalPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsStudioWebPortalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserProfileUserSettingsStudioWebPortalPtrOutput)
+}
+
+func (in *userProfileUserSettingsStudioWebPortalPtr) ToOutput(ctx context.Context) pulumix.Output[*UserProfileUserSettingsStudioWebPortal] {
+	return pulumix.Output[*UserProfileUserSettingsStudioWebPortal]{
+		OutputState: in.ToUserProfileUserSettingsStudioWebPortalPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceSpecInstanceTypeInput)(nil)).Elem(), AppResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceSpecInstanceTypePtrInput)(nil)).Elem(), AppResourceSpecInstanceType("system"))
@@ -12790,8 +13347,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainResourceSpecInstanceTypePtrInput)(nil)).Elem(), DomainResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSharingSettingsNotebookOutputOptionInput)(nil)).Elem(), DomainSharingSettingsNotebookOutputOption("Allowed"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSharingSettingsNotebookOutputOptionPtrInput)(nil)).Elem(), DomainSharingSettingsNotebookOutputOption("Allowed"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserSettingsStudioWebPortalInput)(nil)).Elem(), DomainUserSettingsStudioWebPortal("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserSettingsStudioWebPortalPtrInput)(nil)).Elem(), DomainUserSettingsStudioWebPortal("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionFeatureTypeInput)(nil)).Elem(), FeatureGroupFeatureDefinitionFeatureType("Integral"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionFeatureTypePtrInput)(nil)).Elem(), FeatureGroupFeatureDefinitionFeatureType("Integral"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupStorageTypeInput)(nil)).Elem(), FeatureGroupStorageType("Standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupStorageTypePtrInput)(nil)).Elem(), FeatureGroupStorageType("Standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupTableFormatInput)(nil)).Elem(), FeatureGroupTableFormat("Iceberg"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupTableFormatPtrInput)(nil)).Elem(), FeatureGroupTableFormat("Iceberg"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionJobTypeInput)(nil)).Elem(), ImageVersionJobType("TRAINING"))
@@ -12890,6 +13451,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileResourceSpecInstanceTypePtrInput)(nil)).Elem(), UserProfileResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileSharingSettingsNotebookOutputOptionInput)(nil)).Elem(), UserProfileSharingSettingsNotebookOutputOption("Allowed"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileSharingSettingsNotebookOutputOptionPtrInput)(nil)).Elem(), UserProfileSharingSettingsNotebookOutputOption("Allowed"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsStudioWebPortalInput)(nil)).Elem(), UserProfileUserSettingsStudioWebPortal("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsStudioWebPortalPtrInput)(nil)).Elem(), UserProfileUserSettingsStudioWebPortal("ENABLED"))
 	pulumi.RegisterOutputType(AppResourceSpecInstanceTypeOutput{})
 	pulumi.RegisterOutputType(AppResourceSpecInstanceTypePtrOutput{})
 	pulumi.RegisterOutputType(AppTypeOutput{})
@@ -12918,8 +13481,12 @@ func init() {
 	pulumi.RegisterOutputType(DomainResourceSpecInstanceTypePtrOutput{})
 	pulumi.RegisterOutputType(DomainSharingSettingsNotebookOutputOptionOutput{})
 	pulumi.RegisterOutputType(DomainSharingSettingsNotebookOutputOptionPtrOutput{})
+	pulumi.RegisterOutputType(DomainUserSettingsStudioWebPortalOutput{})
+	pulumi.RegisterOutputType(DomainUserSettingsStudioWebPortalPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionFeatureTypeOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionFeatureTypePtrOutput{})
+	pulumi.RegisterOutputType(FeatureGroupStorageTypeOutput{})
+	pulumi.RegisterOutputType(FeatureGroupStorageTypePtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupTableFormatOutput{})
 	pulumi.RegisterOutputType(FeatureGroupTableFormatPtrOutput{})
 	pulumi.RegisterOutputType(ImageVersionJobTypeOutput{})
@@ -13032,4 +13599,6 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileResourceSpecInstanceTypePtrOutput{})
 	pulumi.RegisterOutputType(UserProfileSharingSettingsNotebookOutputOptionOutput{})
 	pulumi.RegisterOutputType(UserProfileSharingSettingsNotebookOutputOptionPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsStudioWebPortalOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsStudioWebPortalPtrOutput{})
 }

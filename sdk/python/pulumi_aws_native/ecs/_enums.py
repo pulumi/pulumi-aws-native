@@ -5,12 +5,14 @@
 from enum import Enum
 
 __all__ = [
+    'CapacityProviderAutoScalingGroupProviderManagedDraining',
     'CapacityProviderAutoScalingGroupProviderManagedTerminationProtection',
     'CapacityProviderManagedScalingStatus',
     'ClusterCapacityProviderAssociationsCapacityProvider',
     'ClusterCapacityProviderAssociationsCapacityProvider0',
     'ServiceAwsVpcConfigurationAssignPublicIp',
     'ServiceDeploymentControllerType',
+    'ServiceEbsTagSpecificationPropagateTags',
     'ServiceLaunchType',
     'ServicePlacementConstraintType',
     'ServicePlacementStrategyType',
@@ -23,6 +25,11 @@ __all__ = [
     'TaskSetLaunchType',
     'TaskSetScaleUnit',
 ]
+
+
+class CapacityProviderAutoScalingGroupProviderManagedDraining(str, Enum):
+    DISABLED = "DISABLED"
+    ENABLED = "ENABLED"
 
 
 class CapacityProviderAutoScalingGroupProviderManagedTerminationProtection(str, Enum):
@@ -60,6 +67,11 @@ class ServiceDeploymentControllerType(str, Enum):
     CODE_DEPLOY = "CODE_DEPLOY"
     ECS = "ECS"
     EXTERNAL = "EXTERNAL"
+
+
+class ServiceEbsTagSpecificationPropagateTags(str, Enum):
+    SERVICE = "SERVICE"
+    TASK_DEFINITION = "TASK_DEFINITION"
 
 
 class ServiceLaunchType(str, Enum):

@@ -29,11 +29,17 @@ class GetSecurityGroupEgressResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        Resource Type definition for an egress (outbound) security group rule.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The Security Group Rule Id
+        """
         return pulumi.get(self, "id")
 
 
@@ -51,6 +57,9 @@ def get_security_group_egress(id: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityGroupEgressResult:
     """
     Resource Type definition for AWS::EC2::SecurityGroupEgress
+
+
+    :param str id: The Security Group Rule Id
     """
     __args__ = dict()
     __args__['id'] = id
@@ -67,5 +76,8 @@ def get_security_group_egress_output(id: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupEgressResult]:
     """
     Resource Type definition for AWS::EC2::SecurityGroupEgress
+
+
+    :param str id: The Security Group Rule Id
     """
     ...

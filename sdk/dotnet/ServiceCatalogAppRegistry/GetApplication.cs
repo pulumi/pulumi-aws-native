@@ -51,6 +51,18 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
     [OutputType]
     public sealed class GetApplicationResult
     {
+        /// <summary>
+        /// The name of the application. 
+        /// </summary>
+        public readonly string? ApplicationName;
+        /// <summary>
+        /// The key of the AWS application tag, which is awsApplication. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value.
+        /// </summary>
+        public readonly string? ApplicationTagKey;
+        /// <summary>
+        /// The value of the AWS application tag, which is the identifier of an associated resource. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value. 
+        /// </summary>
+        public readonly string? ApplicationTagValue;
         public readonly string? Arn;
         /// <summary>
         /// The description of the application. 
@@ -65,6 +77,12 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
 
         [OutputConstructor]
         private GetApplicationResult(
+            string? applicationName,
+
+            string? applicationTagKey,
+
+            string? applicationTagValue,
+
             string? arn,
 
             string? description,
@@ -75,6 +93,9 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
 
             Outputs.ApplicationTags? tags)
         {
+            ApplicationName = applicationName;
+            ApplicationTagKey = applicationTagKey;
+            ApplicationTagValue = applicationTagValue;
             Arn = arn;
             Description = description;
             Id = id;

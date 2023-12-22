@@ -403,6 +403,9 @@ namespace Pulumi.AwsNative.S3
         public static BucketInventoryConfigurationOptionalFieldsItem ObjectLockLegalHoldStatus { get; } = new BucketInventoryConfigurationOptionalFieldsItem("ObjectLockLegalHoldStatus");
         public static BucketInventoryConfigurationOptionalFieldsItem IntelligentTieringAccessTier { get; } = new BucketInventoryConfigurationOptionalFieldsItem("IntelligentTieringAccessTier");
         public static BucketInventoryConfigurationOptionalFieldsItem BucketKeyStatus { get; } = new BucketInventoryConfigurationOptionalFieldsItem("BucketKeyStatus");
+        public static BucketInventoryConfigurationOptionalFieldsItem ChecksumAlgorithm { get; } = new BucketInventoryConfigurationOptionalFieldsItem("ChecksumAlgorithm");
+        public static BucketInventoryConfigurationOptionalFieldsItem ObjectAccessControlList { get; } = new BucketInventoryConfigurationOptionalFieldsItem("ObjectAccessControlList");
+        public static BucketInventoryConfigurationOptionalFieldsItem ObjectOwner { get; } = new BucketInventoryConfigurationOptionalFieldsItem("ObjectOwner");
 
         public static bool operator ==(BucketInventoryConfigurationOptionalFieldsItem left, BucketInventoryConfigurationOptionalFieldsItem right) => left.Equals(right);
         public static bool operator !=(BucketInventoryConfigurationOptionalFieldsItem left, BucketInventoryConfigurationOptionalFieldsItem right) => !left.Equals(right);

@@ -14,6 +14,334 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Key-value pairs to configure buffering.
+type PipelineBufferOptions struct {
+	// Whether persistent buffering should be enabled.
+	PersistentBufferEnabled bool `pulumi:"persistentBufferEnabled"`
+}
+
+// PipelineBufferOptionsInput is an input type that accepts PipelineBufferOptionsArgs and PipelineBufferOptionsOutput values.
+// You can construct a concrete instance of `PipelineBufferOptionsInput` via:
+//
+//	PipelineBufferOptionsArgs{...}
+type PipelineBufferOptionsInput interface {
+	pulumi.Input
+
+	ToPipelineBufferOptionsOutput() PipelineBufferOptionsOutput
+	ToPipelineBufferOptionsOutputWithContext(context.Context) PipelineBufferOptionsOutput
+}
+
+// Key-value pairs to configure buffering.
+type PipelineBufferOptionsArgs struct {
+	// Whether persistent buffering should be enabled.
+	PersistentBufferEnabled pulumi.BoolInput `pulumi:"persistentBufferEnabled"`
+}
+
+func (PipelineBufferOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineBufferOptions)(nil)).Elem()
+}
+
+func (i PipelineBufferOptionsArgs) ToPipelineBufferOptionsOutput() PipelineBufferOptionsOutput {
+	return i.ToPipelineBufferOptionsOutputWithContext(context.Background())
+}
+
+func (i PipelineBufferOptionsArgs) ToPipelineBufferOptionsOutputWithContext(ctx context.Context) PipelineBufferOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineBufferOptionsOutput)
+}
+
+func (i PipelineBufferOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineBufferOptions] {
+	return pulumix.Output[PipelineBufferOptions]{
+		OutputState: i.ToPipelineBufferOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i PipelineBufferOptionsArgs) ToPipelineBufferOptionsPtrOutput() PipelineBufferOptionsPtrOutput {
+	return i.ToPipelineBufferOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineBufferOptionsArgs) ToPipelineBufferOptionsPtrOutputWithContext(ctx context.Context) PipelineBufferOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineBufferOptionsOutput).ToPipelineBufferOptionsPtrOutputWithContext(ctx)
+}
+
+// PipelineBufferOptionsPtrInput is an input type that accepts PipelineBufferOptionsArgs, PipelineBufferOptionsPtr and PipelineBufferOptionsPtrOutput values.
+// You can construct a concrete instance of `PipelineBufferOptionsPtrInput` via:
+//
+//	        PipelineBufferOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelineBufferOptionsPtrInput interface {
+	pulumi.Input
+
+	ToPipelineBufferOptionsPtrOutput() PipelineBufferOptionsPtrOutput
+	ToPipelineBufferOptionsPtrOutputWithContext(context.Context) PipelineBufferOptionsPtrOutput
+}
+
+type pipelineBufferOptionsPtrType PipelineBufferOptionsArgs
+
+func PipelineBufferOptionsPtr(v *PipelineBufferOptionsArgs) PipelineBufferOptionsPtrInput {
+	return (*pipelineBufferOptionsPtrType)(v)
+}
+
+func (*pipelineBufferOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineBufferOptions)(nil)).Elem()
+}
+
+func (i *pipelineBufferOptionsPtrType) ToPipelineBufferOptionsPtrOutput() PipelineBufferOptionsPtrOutput {
+	return i.ToPipelineBufferOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineBufferOptionsPtrType) ToPipelineBufferOptionsPtrOutputWithContext(ctx context.Context) PipelineBufferOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineBufferOptionsPtrOutput)
+}
+
+func (i *pipelineBufferOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipelineBufferOptions] {
+	return pulumix.Output[*PipelineBufferOptions]{
+		OutputState: i.ToPipelineBufferOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Key-value pairs to configure buffering.
+type PipelineBufferOptionsOutput struct{ *pulumi.OutputState }
+
+func (PipelineBufferOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineBufferOptions)(nil)).Elem()
+}
+
+func (o PipelineBufferOptionsOutput) ToPipelineBufferOptionsOutput() PipelineBufferOptionsOutput {
+	return o
+}
+
+func (o PipelineBufferOptionsOutput) ToPipelineBufferOptionsOutputWithContext(ctx context.Context) PipelineBufferOptionsOutput {
+	return o
+}
+
+func (o PipelineBufferOptionsOutput) ToPipelineBufferOptionsPtrOutput() PipelineBufferOptionsPtrOutput {
+	return o.ToPipelineBufferOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineBufferOptionsOutput) ToPipelineBufferOptionsPtrOutputWithContext(ctx context.Context) PipelineBufferOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineBufferOptions) *PipelineBufferOptions {
+		return &v
+	}).(PipelineBufferOptionsPtrOutput)
+}
+
+func (o PipelineBufferOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineBufferOptions] {
+	return pulumix.Output[PipelineBufferOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Whether persistent buffering should be enabled.
+func (o PipelineBufferOptionsOutput) PersistentBufferEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v PipelineBufferOptions) bool { return v.PersistentBufferEnabled }).(pulumi.BoolOutput)
+}
+
+type PipelineBufferOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineBufferOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineBufferOptions)(nil)).Elem()
+}
+
+func (o PipelineBufferOptionsPtrOutput) ToPipelineBufferOptionsPtrOutput() PipelineBufferOptionsPtrOutput {
+	return o
+}
+
+func (o PipelineBufferOptionsPtrOutput) ToPipelineBufferOptionsPtrOutputWithContext(ctx context.Context) PipelineBufferOptionsPtrOutput {
+	return o
+}
+
+func (o PipelineBufferOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipelineBufferOptions] {
+	return pulumix.Output[*PipelineBufferOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipelineBufferOptionsPtrOutput) Elem() PipelineBufferOptionsOutput {
+	return o.ApplyT(func(v *PipelineBufferOptions) PipelineBufferOptions {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineBufferOptions
+		return ret
+	}).(PipelineBufferOptionsOutput)
+}
+
+// Whether persistent buffering should be enabled.
+func (o PipelineBufferOptionsPtrOutput) PersistentBufferEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PipelineBufferOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.PersistentBufferEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Key-value pairs to configure encryption at rest.
+type PipelineEncryptionAtRestOptions struct {
+	// The KMS key to use for encrypting data. By default an AWS owned key is used
+	KmsKeyArn string `pulumi:"kmsKeyArn"`
+}
+
+// PipelineEncryptionAtRestOptionsInput is an input type that accepts PipelineEncryptionAtRestOptionsArgs and PipelineEncryptionAtRestOptionsOutput values.
+// You can construct a concrete instance of `PipelineEncryptionAtRestOptionsInput` via:
+//
+//	PipelineEncryptionAtRestOptionsArgs{...}
+type PipelineEncryptionAtRestOptionsInput interface {
+	pulumi.Input
+
+	ToPipelineEncryptionAtRestOptionsOutput() PipelineEncryptionAtRestOptionsOutput
+	ToPipelineEncryptionAtRestOptionsOutputWithContext(context.Context) PipelineEncryptionAtRestOptionsOutput
+}
+
+// Key-value pairs to configure encryption at rest.
+type PipelineEncryptionAtRestOptionsArgs struct {
+	// The KMS key to use for encrypting data. By default an AWS owned key is used
+	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
+}
+
+func (PipelineEncryptionAtRestOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineEncryptionAtRestOptions)(nil)).Elem()
+}
+
+func (i PipelineEncryptionAtRestOptionsArgs) ToPipelineEncryptionAtRestOptionsOutput() PipelineEncryptionAtRestOptionsOutput {
+	return i.ToPipelineEncryptionAtRestOptionsOutputWithContext(context.Background())
+}
+
+func (i PipelineEncryptionAtRestOptionsArgs) ToPipelineEncryptionAtRestOptionsOutputWithContext(ctx context.Context) PipelineEncryptionAtRestOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineEncryptionAtRestOptionsOutput)
+}
+
+func (i PipelineEncryptionAtRestOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[PipelineEncryptionAtRestOptions] {
+	return pulumix.Output[PipelineEncryptionAtRestOptions]{
+		OutputState: i.ToPipelineEncryptionAtRestOptionsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i PipelineEncryptionAtRestOptionsArgs) ToPipelineEncryptionAtRestOptionsPtrOutput() PipelineEncryptionAtRestOptionsPtrOutput {
+	return i.ToPipelineEncryptionAtRestOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i PipelineEncryptionAtRestOptionsArgs) ToPipelineEncryptionAtRestOptionsPtrOutputWithContext(ctx context.Context) PipelineEncryptionAtRestOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineEncryptionAtRestOptionsOutput).ToPipelineEncryptionAtRestOptionsPtrOutputWithContext(ctx)
+}
+
+// PipelineEncryptionAtRestOptionsPtrInput is an input type that accepts PipelineEncryptionAtRestOptionsArgs, PipelineEncryptionAtRestOptionsPtr and PipelineEncryptionAtRestOptionsPtrOutput values.
+// You can construct a concrete instance of `PipelineEncryptionAtRestOptionsPtrInput` via:
+//
+//	        PipelineEncryptionAtRestOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PipelineEncryptionAtRestOptionsPtrInput interface {
+	pulumi.Input
+
+	ToPipelineEncryptionAtRestOptionsPtrOutput() PipelineEncryptionAtRestOptionsPtrOutput
+	ToPipelineEncryptionAtRestOptionsPtrOutputWithContext(context.Context) PipelineEncryptionAtRestOptionsPtrOutput
+}
+
+type pipelineEncryptionAtRestOptionsPtrType PipelineEncryptionAtRestOptionsArgs
+
+func PipelineEncryptionAtRestOptionsPtr(v *PipelineEncryptionAtRestOptionsArgs) PipelineEncryptionAtRestOptionsPtrInput {
+	return (*pipelineEncryptionAtRestOptionsPtrType)(v)
+}
+
+func (*pipelineEncryptionAtRestOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineEncryptionAtRestOptions)(nil)).Elem()
+}
+
+func (i *pipelineEncryptionAtRestOptionsPtrType) ToPipelineEncryptionAtRestOptionsPtrOutput() PipelineEncryptionAtRestOptionsPtrOutput {
+	return i.ToPipelineEncryptionAtRestOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *pipelineEncryptionAtRestOptionsPtrType) ToPipelineEncryptionAtRestOptionsPtrOutputWithContext(ctx context.Context) PipelineEncryptionAtRestOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PipelineEncryptionAtRestOptionsPtrOutput)
+}
+
+func (i *pipelineEncryptionAtRestOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*PipelineEncryptionAtRestOptions] {
+	return pulumix.Output[*PipelineEncryptionAtRestOptions]{
+		OutputState: i.ToPipelineEncryptionAtRestOptionsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Key-value pairs to configure encryption at rest.
+type PipelineEncryptionAtRestOptionsOutput struct{ *pulumi.OutputState }
+
+func (PipelineEncryptionAtRestOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineEncryptionAtRestOptions)(nil)).Elem()
+}
+
+func (o PipelineEncryptionAtRestOptionsOutput) ToPipelineEncryptionAtRestOptionsOutput() PipelineEncryptionAtRestOptionsOutput {
+	return o
+}
+
+func (o PipelineEncryptionAtRestOptionsOutput) ToPipelineEncryptionAtRestOptionsOutputWithContext(ctx context.Context) PipelineEncryptionAtRestOptionsOutput {
+	return o
+}
+
+func (o PipelineEncryptionAtRestOptionsOutput) ToPipelineEncryptionAtRestOptionsPtrOutput() PipelineEncryptionAtRestOptionsPtrOutput {
+	return o.ToPipelineEncryptionAtRestOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineEncryptionAtRestOptionsOutput) ToPipelineEncryptionAtRestOptionsPtrOutputWithContext(ctx context.Context) PipelineEncryptionAtRestOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineEncryptionAtRestOptions) *PipelineEncryptionAtRestOptions {
+		return &v
+	}).(PipelineEncryptionAtRestOptionsPtrOutput)
+}
+
+func (o PipelineEncryptionAtRestOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[PipelineEncryptionAtRestOptions] {
+	return pulumix.Output[PipelineEncryptionAtRestOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The KMS key to use for encrypting data. By default an AWS owned key is used
+func (o PipelineEncryptionAtRestOptionsOutput) KmsKeyArn() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineEncryptionAtRestOptions) string { return v.KmsKeyArn }).(pulumi.StringOutput)
+}
+
+type PipelineEncryptionAtRestOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineEncryptionAtRestOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineEncryptionAtRestOptions)(nil)).Elem()
+}
+
+func (o PipelineEncryptionAtRestOptionsPtrOutput) ToPipelineEncryptionAtRestOptionsPtrOutput() PipelineEncryptionAtRestOptionsPtrOutput {
+	return o
+}
+
+func (o PipelineEncryptionAtRestOptionsPtrOutput) ToPipelineEncryptionAtRestOptionsPtrOutputWithContext(ctx context.Context) PipelineEncryptionAtRestOptionsPtrOutput {
+	return o
+}
+
+func (o PipelineEncryptionAtRestOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PipelineEncryptionAtRestOptions] {
+	return pulumix.Output[*PipelineEncryptionAtRestOptions]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o PipelineEncryptionAtRestOptionsPtrOutput) Elem() PipelineEncryptionAtRestOptionsOutput {
+	return o.ApplyT(func(v *PipelineEncryptionAtRestOptions) PipelineEncryptionAtRestOptions {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineEncryptionAtRestOptions
+		return ret
+	}).(PipelineEncryptionAtRestOptionsOutput)
+}
+
+// The KMS key to use for encrypting data. By default an AWS owned key is used
+func (o PipelineEncryptionAtRestOptionsPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PipelineEncryptionAtRestOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // Key-value pairs to configure log publishing.
 type PipelineLogPublishingOptions struct {
 	// The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
@@ -201,7 +529,7 @@ func (o PipelineLogPublishingOptionsPtrOutput) IsLoggingEnabled() pulumi.BoolPtr
 
 // The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
 type PipelineLogPublishingOptionsCloudWatchLogDestinationProperties struct {
-	LogGroup *string `pulumi:"logGroup"`
+	LogGroup string `pulumi:"logGroup"`
 }
 
 // PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesInput is an input type that accepts PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs and PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesOutput values.
@@ -217,7 +545,7 @@ type PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesInput interfa
 
 // The destination for OpenSearch Ingestion Service logs sent to Amazon CloudWatch.
 type PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs struct {
-	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
+	LogGroup pulumi.StringInput `pulumi:"logGroup"`
 }
 
 func (PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs) ElementType() reflect.Type {
@@ -316,8 +644,8 @@ func (o PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesOutput) To
 	}
 }
 
-func (o PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesOutput) LogGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PipelineLogPublishingOptionsCloudWatchLogDestinationProperties) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
+func (o PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesOutput) LogGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v PipelineLogPublishingOptionsCloudWatchLogDestinationProperties) string { return v.LogGroup }).(pulumi.StringOutput)
 }
 
 type PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -355,7 +683,7 @@ func (o PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesPtrOutput)
 		if v == nil {
 			return nil
 		}
-		return v.LogGroup
+		return &v.LogGroup
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -746,6 +1074,10 @@ func (o PipelineVpcOptionsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineBufferOptionsInput)(nil)).Elem(), PipelineBufferOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineBufferOptionsPtrInput)(nil)).Elem(), PipelineBufferOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineEncryptionAtRestOptionsInput)(nil)).Elem(), PipelineEncryptionAtRestOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineEncryptionAtRestOptionsPtrInput)(nil)).Elem(), PipelineEncryptionAtRestOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineLogPublishingOptionsInput)(nil)).Elem(), PipelineLogPublishingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineLogPublishingOptionsPtrInput)(nil)).Elem(), PipelineLogPublishingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesInput)(nil)).Elem(), PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesArgs{})
@@ -754,6 +1086,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTagArrayInput)(nil)).Elem(), PipelineTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineVpcOptionsInput)(nil)).Elem(), PipelineVpcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineVpcOptionsPtrInput)(nil)).Elem(), PipelineVpcOptionsArgs{})
+	pulumi.RegisterOutputType(PipelineBufferOptionsOutput{})
+	pulumi.RegisterOutputType(PipelineBufferOptionsPtrOutput{})
+	pulumi.RegisterOutputType(PipelineEncryptionAtRestOptionsOutput{})
+	pulumi.RegisterOutputType(PipelineEncryptionAtRestOptionsPtrOutput{})
 	pulumi.RegisterOutputType(PipelineLogPublishingOptionsOutput{})
 	pulumi.RegisterOutputType(PipelineLogPublishingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(PipelineLogPublishingOptionsCloudWatchLogDestinationPropertiesOutput{})

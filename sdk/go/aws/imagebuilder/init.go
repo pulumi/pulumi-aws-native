@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &InfrastructureConfiguration{}
 	case "aws-native:imagebuilder:LifecyclePolicy":
 		r = &LifecyclePolicy{}
+	case "aws-native:imagebuilder:Workflow":
+		r = &Workflow{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

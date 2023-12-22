@@ -22,8 +22,11 @@ class PipelineArgs:
                  artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreMapArgs']]]] = None,
                  disable_inbound_stage_transitions: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineStageTransitionArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 pipeline_type: Optional[pulumi.Input[str]] = None,
                  restart_execution_on_update: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]] = None,
+                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTriggerDeclarationArgs']]]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineVariableDeclarationArgs']]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
         """
@@ -37,10 +40,16 @@ class PipelineArgs:
             pulumi.set(__self__, "disable_inbound_stage_transitions", disable_inbound_stage_transitions)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if pipeline_type is not None:
+            pulumi.set(__self__, "pipeline_type", pipeline_type)
         if restart_execution_on_update is not None:
             pulumi.set(__self__, "restart_execution_on_update", restart_execution_on_update)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if triggers is not None:
+            pulumi.set(__self__, "triggers", triggers)
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -97,6 +106,15 @@ class PipelineArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="pipelineType")
+    def pipeline_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "pipeline_type")
+
+    @pipeline_type.setter
+    def pipeline_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pipeline_type", value)
+
+    @property
     @pulumi.getter(name="restartExecutionOnUpdate")
     def restart_execution_on_update(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "restart_execution_on_update")
@@ -114,6 +132,24 @@ class PipelineArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter
+    def triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTriggerDeclarationArgs']]]]:
+        return pulumi.get(self, "triggers")
+
+    @triggers.setter
+    def triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineTriggerDeclarationArgs']]]]):
+        pulumi.set(self, "triggers", value)
+
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineVariableDeclarationArgs']]]]:
+        return pulumi.get(self, "variables")
+
+    @variables.setter
+    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineVariableDeclarationArgs']]]]):
+        pulumi.set(self, "variables", value)
+
 
 warnings.warn("""Pipeline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
 
@@ -129,10 +165,13 @@ class Pipeline(pulumi.CustomResource):
                  artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreMapArgs']]]]] = None,
                  disable_inbound_stage_transitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageTransitionArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 pipeline_type: Optional[pulumi.Input[str]] = None,
                  restart_execution_on_update: Optional[pulumi.Input[bool]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageDeclarationArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineTagArgs']]]]] = None,
+                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineTriggerDeclarationArgs']]]]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineVariableDeclarationArgs']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CodePipeline::Pipeline
@@ -168,10 +207,13 @@ class Pipeline(pulumi.CustomResource):
                  artifact_stores: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineArtifactStoreMapArgs']]]]] = None,
                  disable_inbound_stage_transitions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageTransitionArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 pipeline_type: Optional[pulumi.Input[str]] = None,
                  restart_execution_on_update: Optional[pulumi.Input[bool]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stages: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineStageDeclarationArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineTagArgs']]]]] = None,
+                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineTriggerDeclarationArgs']]]]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineVariableDeclarationArgs']]]]] = None,
                  __props__=None):
         pulumi.log.warn("""Pipeline is deprecated: Pipeline is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -186,6 +228,7 @@ class Pipeline(pulumi.CustomResource):
             __props__.__dict__["artifact_stores"] = artifact_stores
             __props__.__dict__["disable_inbound_stage_transitions"] = disable_inbound_stage_transitions
             __props__.__dict__["name"] = name
+            __props__.__dict__["pipeline_type"] = pipeline_type
             __props__.__dict__["restart_execution_on_update"] = restart_execution_on_update
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
@@ -194,6 +237,8 @@ class Pipeline(pulumi.CustomResource):
                 raise TypeError("Missing required property 'stages'")
             __props__.__dict__["stages"] = stages
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["triggers"] = triggers
+            __props__.__dict__["variables"] = variables
             __props__.__dict__["version"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -223,10 +268,13 @@ class Pipeline(pulumi.CustomResource):
         __props__.__dict__["artifact_stores"] = None
         __props__.__dict__["disable_inbound_stage_transitions"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["pipeline_type"] = None
         __props__.__dict__["restart_execution_on_update"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["stages"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["triggers"] = None
+        __props__.__dict__["variables"] = None
         __props__.__dict__["version"] = None
         return Pipeline(resource_name, opts=opts, __props__=__props__)
 
@@ -251,6 +299,11 @@ class Pipeline(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="pipelineType")
+    def pipeline_type(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "pipeline_type")
+
+    @property
     @pulumi.getter(name="restartExecutionOnUpdate")
     def restart_execution_on_update(self) -> pulumi.Output[Optional[bool]]:
         return pulumi.get(self, "restart_execution_on_update")
@@ -269,6 +322,16 @@ class Pipeline(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.PipelineTag']]]:
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def triggers(self) -> pulumi.Output[Optional[Sequence['outputs.PipelineTriggerDeclaration']]]:
+        return pulumi.get(self, "triggers")
+
+    @property
+    @pulumi.getter
+    def variables(self) -> pulumi.Output[Optional[Sequence['outputs.PipelineVariableDeclaration']]]:
+        return pulumi.get(self, "variables")
 
     @property
     @pulumi.getter

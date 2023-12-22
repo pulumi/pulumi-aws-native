@@ -70,6 +70,7 @@ __all__ = [
     'BucketStorageClassAnalysisArgs',
     'BucketTagFilterArgs',
     'BucketTagArgs',
+    'BucketTargetObjectKeyFormatArgs',
     'BucketTieringArgs',
     'BucketTopicConfigurationArgs',
     'BucketTransitionArgs',
@@ -1131,7 +1132,8 @@ class BucketLifecycleConfigurationArgs:
 class BucketLoggingConfigurationArgs:
     def __init__(__self__, *,
                  destination_bucket_name: Optional[pulumi.Input[str]] = None,
-                 log_file_prefix: Optional[pulumi.Input[str]] = None):
+                 log_file_prefix: Optional[pulumi.Input[str]] = None,
+                 target_object_key_format: Optional[pulumi.Input['BucketTargetObjectKeyFormatArgs']] = None):
         """
         :param pulumi.Input[str] destination_bucket_name: The name of an Amazon S3 bucket where Amazon S3 store server access log files. You can store log files in any bucket that you own. By default, logs are stored in the bucket where the LoggingConfiguration property is defined.
         """
@@ -1139,6 +1141,8 @@ class BucketLoggingConfigurationArgs:
             pulumi.set(__self__, "destination_bucket_name", destination_bucket_name)
         if log_file_prefix is not None:
             pulumi.set(__self__, "log_file_prefix", log_file_prefix)
+        if target_object_key_format is not None:
+            pulumi.set(__self__, "target_object_key_format", target_object_key_format)
 
     @property
     @pulumi.getter(name="destinationBucketName")
@@ -1160,6 +1164,15 @@ class BucketLoggingConfigurationArgs:
     @log_file_prefix.setter
     def log_file_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_file_prefix", value)
+
+    @property
+    @pulumi.getter(name="targetObjectKeyFormat")
+    def target_object_key_format(self) -> Optional[pulumi.Input['BucketTargetObjectKeyFormatArgs']]:
+        return pulumi.get(self, "target_object_key_format")
+
+    @target_object_key_format.setter
+    def target_object_key_format(self, value: Optional[pulumi.Input['BucketTargetObjectKeyFormatArgs']]):
+        pulumi.set(self, "target_object_key_format", value)
 
 
 @pulumi.input_type
@@ -2647,6 +2660,15 @@ class BucketTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class BucketTargetObjectKeyFormatArgs:
+    def __init__(__self__):
+        """
+        Describes the key format for server access log file in the target bucket. You can choose between SimplePrefix and PartitionedPrefix.
+        """
+        pass
 
 
 @pulumi.input_type

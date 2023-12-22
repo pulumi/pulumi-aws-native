@@ -26,6 +26,9 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
             set => _memberAbilities = value;
         }
 
+        [Input("paymentConfiguration")]
+        public Input<Inputs.CollaborationPaymentConfigurationArgs>? PaymentConfiguration { get; set; }
+
         public CollaborationMemberSpecificationArgs()
         {
         }

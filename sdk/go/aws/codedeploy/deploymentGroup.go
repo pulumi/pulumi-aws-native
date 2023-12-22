@@ -37,6 +37,7 @@ type DeploymentGroup struct {
 	OutdatedInstancesStrategy        pulumi.StringPtrOutput                                   `pulumi:"outdatedInstancesStrategy"`
 	ServiceRoleArn                   pulumi.StringOutput                                      `pulumi:"serviceRoleArn"`
 	Tags                             DeploymentGroupTagArrayOutput                            `pulumi:"tags"`
+	TerminationHookEnabled           pulumi.BoolPtrOutput                                     `pulumi:"terminationHookEnabled"`
 	TriggerConfigurations            DeploymentGroupTriggerConfigArrayOutput                  `pulumi:"triggerConfigurations"`
 }
 
@@ -109,6 +110,7 @@ type deploymentGroupArgs struct {
 	OutdatedInstancesStrategy        *string                                          `pulumi:"outdatedInstancesStrategy"`
 	ServiceRoleArn                   string                                           `pulumi:"serviceRoleArn"`
 	Tags                             []DeploymentGroupTag                             `pulumi:"tags"`
+	TerminationHookEnabled           *bool                                            `pulumi:"terminationHookEnabled"`
 	TriggerConfigurations            []DeploymentGroupTriggerConfig                   `pulumi:"triggerConfigurations"`
 }
 
@@ -132,6 +134,7 @@ type DeploymentGroupArgs struct {
 	OutdatedInstancesStrategy        pulumi.StringPtrInput
 	ServiceRoleArn                   pulumi.StringInput
 	Tags                             DeploymentGroupTagArrayInput
+	TerminationHookEnabled           pulumi.BoolPtrInput
 	TriggerConfigurations            DeploymentGroupTriggerConfigArrayInput
 }
 
@@ -258,6 +261,10 @@ func (o DeploymentGroupOutput) ServiceRoleArn() pulumi.StringOutput {
 
 func (o DeploymentGroupOutput) Tags() DeploymentGroupTagArrayOutput {
 	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroupTagArrayOutput { return v.Tags }).(DeploymentGroupTagArrayOutput)
+}
+
+func (o DeploymentGroupOutput) TerminationHookEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DeploymentGroup) pulumi.BoolPtrOutput { return v.TerminationHookEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o DeploymentGroupOutput) TriggerConfigurations() DeploymentGroupTriggerConfigArrayOutput {

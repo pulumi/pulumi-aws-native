@@ -47,7 +47,9 @@ export class Cluster extends pulumi.CustomResource {
     public readonly bootstrapActions!: pulumi.Output<outputs.emr.ClusterBootstrapActionConfig[] | undefined>;
     public readonly configurations!: pulumi.Output<outputs.emr.ClusterConfiguration[] | undefined>;
     public readonly customAmiId!: pulumi.Output<string | undefined>;
+    public readonly ebsRootVolumeIops!: pulumi.Output<number | undefined>;
     public readonly ebsRootVolumeSize!: pulumi.Output<number | undefined>;
+    public readonly ebsRootVolumeThroughput!: pulumi.Output<number | undefined>;
     public readonly instances!: pulumi.Output<outputs.emr.ClusterJobFlowInstancesConfig>;
     public readonly jobFlowRole!: pulumi.Output<string>;
     public readonly kerberosAttributes!: pulumi.Output<outputs.emr.ClusterKerberosAttributes | undefined>;
@@ -57,6 +59,7 @@ export class Cluster extends pulumi.CustomResource {
     public /*out*/ readonly masterPublicDns!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly osReleaseLabel!: pulumi.Output<string | undefined>;
+    public readonly placementGroupConfigs!: pulumi.Output<outputs.emr.ClusterPlacementGroupConfig[] | undefined>;
     public readonly releaseLabel!: pulumi.Output<string | undefined>;
     public readonly scaleDownBehavior!: pulumi.Output<string | undefined>;
     public readonly securityConfiguration!: pulumi.Output<string | undefined>;
@@ -95,7 +98,9 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["bootstrapActions"] = args ? args.bootstrapActions : undefined;
             resourceInputs["configurations"] = args ? args.configurations : undefined;
             resourceInputs["customAmiId"] = args ? args.customAmiId : undefined;
+            resourceInputs["ebsRootVolumeIops"] = args ? args.ebsRootVolumeIops : undefined;
             resourceInputs["ebsRootVolumeSize"] = args ? args.ebsRootVolumeSize : undefined;
+            resourceInputs["ebsRootVolumeThroughput"] = args ? args.ebsRootVolumeThroughput : undefined;
             resourceInputs["instances"] = args ? args.instances : undefined;
             resourceInputs["jobFlowRole"] = args ? args.jobFlowRole : undefined;
             resourceInputs["kerberosAttributes"] = args ? args.kerberosAttributes : undefined;
@@ -104,6 +109,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["managedScalingPolicy"] = args ? args.managedScalingPolicy : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["osReleaseLabel"] = args ? args.osReleaseLabel : undefined;
+            resourceInputs["placementGroupConfigs"] = args ? args.placementGroupConfigs : undefined;
             resourceInputs["releaseLabel"] = args ? args.releaseLabel : undefined;
             resourceInputs["scaleDownBehavior"] = args ? args.scaleDownBehavior : undefined;
             resourceInputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
@@ -121,7 +127,9 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["bootstrapActions"] = undefined /*out*/;
             resourceInputs["configurations"] = undefined /*out*/;
             resourceInputs["customAmiId"] = undefined /*out*/;
+            resourceInputs["ebsRootVolumeIops"] = undefined /*out*/;
             resourceInputs["ebsRootVolumeSize"] = undefined /*out*/;
+            resourceInputs["ebsRootVolumeThroughput"] = undefined /*out*/;
             resourceInputs["instances"] = undefined /*out*/;
             resourceInputs["jobFlowRole"] = undefined /*out*/;
             resourceInputs["kerberosAttributes"] = undefined /*out*/;
@@ -131,6 +139,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["masterPublicDns"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["osReleaseLabel"] = undefined /*out*/;
+            resourceInputs["placementGroupConfigs"] = undefined /*out*/;
             resourceInputs["releaseLabel"] = undefined /*out*/;
             resourceInputs["scaleDownBehavior"] = undefined /*out*/;
             resourceInputs["securityConfiguration"] = undefined /*out*/;
@@ -141,7 +150,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["visibleToAllUsers"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["additionalInfo", "applications[*]", "autoScalingRole", "bootstrapActions[*]", "configurations[*]", "customAmiId", "ebsRootVolumeSize", "jobFlowRole", "kerberosAttributes", "logEncryptionKmsKeyId", "logUri", "name", "osReleaseLabel", "releaseLabel", "scaleDownBehavior", "securityConfiguration", "serviceRole", "steps[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["additionalInfo", "applications[*]", "autoScalingRole", "bootstrapActions[*]", "configurations[*]", "customAmiId", "ebsRootVolumeIops", "ebsRootVolumeSize", "ebsRootVolumeThroughput", "jobFlowRole", "kerberosAttributes", "logEncryptionKmsKeyId", "logUri", "name", "osReleaseLabel", "placementGroupConfigs[*]", "releaseLabel", "scaleDownBehavior", "securityConfiguration", "serviceRole", "steps[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -158,7 +167,9 @@ export interface ClusterArgs {
     bootstrapActions?: pulumi.Input<pulumi.Input<inputs.emr.ClusterBootstrapActionConfigArgs>[]>;
     configurations?: pulumi.Input<pulumi.Input<inputs.emr.ClusterConfigurationArgs>[]>;
     customAmiId?: pulumi.Input<string>;
+    ebsRootVolumeIops?: pulumi.Input<number>;
     ebsRootVolumeSize?: pulumi.Input<number>;
+    ebsRootVolumeThroughput?: pulumi.Input<number>;
     instances: pulumi.Input<inputs.emr.ClusterJobFlowInstancesConfigArgs>;
     jobFlowRole: pulumi.Input<string>;
     kerberosAttributes?: pulumi.Input<inputs.emr.ClusterKerberosAttributesArgs>;
@@ -167,6 +178,7 @@ export interface ClusterArgs {
     managedScalingPolicy?: pulumi.Input<inputs.emr.ClusterManagedScalingPolicyArgs>;
     name?: pulumi.Input<string>;
     osReleaseLabel?: pulumi.Input<string>;
+    placementGroupConfigs?: pulumi.Input<pulumi.Input<inputs.emr.ClusterPlacementGroupConfigArgs>[]>;
     releaseLabel?: pulumi.Input<string>;
     scaleDownBehavior?: pulumi.Input<string>;
     securityConfiguration?: pulumi.Input<string>;

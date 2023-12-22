@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.S3.Inputs
         [Input("logFilePrefix")]
         public Input<string>? LogFilePrefix { get; set; }
 
+        [Input("targetObjectKeyFormat")]
+        public Input<Inputs.BucketTargetObjectKeyFormatArgs>? TargetObjectKeyFormat { get; set; }
+
         public BucketLoggingConfigurationArgs()
         {
         }

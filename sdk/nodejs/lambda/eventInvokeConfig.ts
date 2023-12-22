@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Lambda::EventInvokeConfig
+ * The AWS::Lambda::EventInvokeConfig resource configures options for asynchronous invocation on a version or an alias.
  */
 export class EventInvokeConfig extends pulumi.CustomResource {
     /**
@@ -38,9 +38,21 @@ export class EventInvokeConfig extends pulumi.CustomResource {
     }
 
     public readonly destinationConfig!: pulumi.Output<outputs.lambda.EventInvokeConfigDestinationConfig | undefined>;
+    /**
+     * The name of the Lambda function.
+     */
     public readonly functionName!: pulumi.Output<string>;
+    /**
+     * The maximum age of a request that Lambda sends to a function for processing.
+     */
     public readonly maximumEventAgeInSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * The maximum number of times to retry when the function returns an error.
+     */
     public readonly maximumRetryAttempts!: pulumi.Output<number | undefined>;
+    /**
+     * The identifier of a version or alias.
+     */
     public readonly qualifier!: pulumi.Output<string>;
 
     /**
@@ -84,8 +96,20 @@ export class EventInvokeConfig extends pulumi.CustomResource {
  */
 export interface EventInvokeConfigArgs {
     destinationConfig?: pulumi.Input<inputs.lambda.EventInvokeConfigDestinationConfigArgs>;
+    /**
+     * The name of the Lambda function.
+     */
     functionName: pulumi.Input<string>;
+    /**
+     * The maximum age of a request that Lambda sends to a function for processing.
+     */
     maximumEventAgeInSeconds?: pulumi.Input<number>;
+    /**
+     * The maximum number of times to retry when the function returns an error.
+     */
     maximumRetryAttempts?: pulumi.Input<number>;
+    /**
+     * The identifier of a version or alias.
+     */
     qualifier: pulumi.Input<string>;
 }

@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::EventSchemas::Discoverer
- *
- * @deprecated Discoverer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Discoverer extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Discoverer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Discoverer {
-        pulumi.log.warn("Discoverer is deprecated: Discoverer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Discoverer(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,11 +37,33 @@ export class Discoverer extends pulumi.CustomResource {
         return obj['__pulumiType'] === Discoverer.__pulumiType;
     }
 
+    /**
+     * Defines whether event schemas from other accounts are discovered. Default is True.
+     */
     public readonly crossAccount!: pulumi.Output<boolean | undefined>;
+    /**
+     * A description for the discoverer.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the discoverer.
+     */
     public /*out*/ readonly discovererArn!: pulumi.Output<string>;
+    /**
+     * The Id of the discoverer.
+     */
     public /*out*/ readonly discovererId!: pulumi.Output<string>;
+    /**
+     * The ARN of the event bus.
+     */
     public readonly sourceArn!: pulumi.Output<string>;
+    /**
+     * Defines the current state of the discoverer.
+     */
+    public /*out*/ readonly state!: pulumi.Output<string>;
+    /**
+     * Tags associated with the resource.
+     */
     public readonly tags!: pulumi.Output<outputs.eventschemas.DiscovererTagsEntry[] | undefined>;
 
     /**
@@ -54,9 +73,7 @@ export class Discoverer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Discoverer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: DiscovererArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Discoverer is deprecated: Discoverer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -69,12 +86,14 @@ export class Discoverer extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["discovererArn"] = undefined /*out*/;
             resourceInputs["discovererId"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
         } else {
             resourceInputs["crossAccount"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["discovererArn"] = undefined /*out*/;
             resourceInputs["discovererId"] = undefined /*out*/;
             resourceInputs["sourceArn"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -88,8 +107,20 @@ export class Discoverer extends pulumi.CustomResource {
  * The set of arguments for constructing a Discoverer resource.
  */
 export interface DiscovererArgs {
+    /**
+     * Defines whether event schemas from other accounts are discovered. Default is True.
+     */
     crossAccount?: pulumi.Input<boolean>;
+    /**
+     * A description for the discoverer.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The ARN of the event bus.
+     */
     sourceArn: pulumi.Input<string>;
+    /**
+     * Tags associated with the resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.eventschemas.DiscovererTagsEntryArgs>[]>;
 }

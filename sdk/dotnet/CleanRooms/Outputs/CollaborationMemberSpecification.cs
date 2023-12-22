@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
         public readonly string AccountId;
         public readonly string DisplayName;
         public readonly ImmutableArray<Pulumi.AwsNative.CleanRooms.CollaborationMemberAbility> MemberAbilities;
+        public readonly Outputs.CollaborationPaymentConfiguration? PaymentConfiguration;
 
         [OutputConstructor]
         private CollaborationMemberSpecification(
@@ -23,11 +24,14 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
 
             string displayName,
 
-            ImmutableArray<Pulumi.AwsNative.CleanRooms.CollaborationMemberAbility> memberAbilities)
+            ImmutableArray<Pulumi.AwsNative.CleanRooms.CollaborationMemberAbility> memberAbilities,
+
+            Outputs.CollaborationPaymentConfiguration? paymentConfiguration)
         {
             AccountId = accountId;
             DisplayName = displayName;
             MemberAbilities = memberAbilities;
+            PaymentConfiguration = paymentConfiguration;
         }
     }
 }

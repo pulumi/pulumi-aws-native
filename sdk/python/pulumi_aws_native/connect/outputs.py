@@ -40,6 +40,7 @@ __all__ = [
     'InstanceStorageConfigKinesisStreamConfig',
     'InstanceStorageConfigKinesisVideoStreamConfig',
     'InstanceStorageConfigS3Config',
+    'InstanceTag',
     'PhoneNumberTag',
     'PromptTag',
     'QueueOutboundCallerConfig',
@@ -56,12 +57,17 @@ __all__ = [
     'RoutingProfileTag',
     'RuleActions',
     'RuleAssignContactCategoryAction',
+    'RuleCreateCaseAction',
+    'RuleEndAssociatedTasksAction',
     'RuleEventBridgeAction',
+    'RuleField',
+    'RuleFieldValue',
     'RuleNotificationRecipientType',
     'RuleSendNotificationAction',
     'RuleTag',
     'RuleTaskAction',
     'RuleTriggerEventSource',
+    'RuleUpdateCaseAction',
     'SecurityProfileTag',
     'TaskTemplateDefaultFieldValue',
     'TaskTemplateField',
@@ -1399,10 +1405,10 @@ class InstanceStorageConfigKinesisVideoStreamConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "retentionPeriodHours":
-            suggest = "retention_period_hours"
-        elif key == "encryptionConfig":
+        if key == "encryptionConfig":
             suggest = "encryption_config"
+        elif key == "retentionPeriodHours":
+            suggest = "retention_period_hours"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in InstanceStorageConfigKinesisVideoStreamConfig. Access the value via the '{suggest}' property getter instead.")
@@ -1416,13 +1422,17 @@ class InstanceStorageConfigKinesisVideoStreamConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 encryption_config: 'outputs.InstanceStorageConfigEncryptionConfig',
                  prefix: str,
-                 retention_period_hours: float,
-                 encryption_config: Optional['outputs.InstanceStorageConfigEncryptionConfig'] = None):
+                 retention_period_hours: float):
+        pulumi.set(__self__, "encryption_config", encryption_config)
         pulumi.set(__self__, "prefix", prefix)
         pulumi.set(__self__, "retention_period_hours", retention_period_hours)
-        if encryption_config is not None:
-            pulumi.set(__self__, "encryption_config", encryption_config)
+
+    @property
+    @pulumi.getter(name="encryptionConfig")
+    def encryption_config(self) -> 'outputs.InstanceStorageConfigEncryptionConfig':
+        return pulumi.get(self, "encryption_config")
 
     @property
     @pulumi.getter
@@ -1433,11 +1443,6 @@ class InstanceStorageConfigKinesisVideoStreamConfig(dict):
     @pulumi.getter(name="retentionPeriodHours")
     def retention_period_hours(self) -> float:
         return pulumi.get(self, "retention_period_hours")
-
-    @property
-    @pulumi.getter(name="encryptionConfig")
-    def encryption_config(self) -> Optional['outputs.InstanceStorageConfigEncryptionConfig']:
-        return pulumi.get(self, "encryption_config")
 
 
 @pulumi.output_type
@@ -1486,6 +1491,39 @@ class InstanceStorageConfigS3Config(dict):
     @pulumi.getter(name="encryptionConfig")
     def encryption_config(self) -> Optional['outputs.InstanceStorageConfigEncryptionConfig']:
         return pulumi.get(self, "encryption_config")
+
+
+@pulumi.output_type
+class InstanceTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -2075,12 +2113,18 @@ class RuleActions(dict):
         suggest = None
         if key == "assignContactCategoryActions":
             suggest = "assign_contact_category_actions"
+        elif key == "createCaseActions":
+            suggest = "create_case_actions"
+        elif key == "endAssociatedTaskActions":
+            suggest = "end_associated_task_actions"
         elif key == "eventBridgeActions":
             suggest = "event_bridge_actions"
         elif key == "sendNotificationActions":
             suggest = "send_notification_actions"
         elif key == "taskActions":
             suggest = "task_actions"
+        elif key == "updateCaseActions":
+            suggest = "update_case_actions"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuleActions. Access the value via the '{suggest}' property getter instead.")
@@ -2095,25 +2139,44 @@ class RuleActions(dict):
 
     def __init__(__self__, *,
                  assign_contact_category_actions: Optional[Sequence['outputs.RuleAssignContactCategoryAction']] = None,
+                 create_case_actions: Optional[Sequence['outputs.RuleCreateCaseAction']] = None,
+                 end_associated_task_actions: Optional[Sequence['outputs.RuleEndAssociatedTasksAction']] = None,
                  event_bridge_actions: Optional[Sequence['outputs.RuleEventBridgeAction']] = None,
                  send_notification_actions: Optional[Sequence['outputs.RuleSendNotificationAction']] = None,
-                 task_actions: Optional[Sequence['outputs.RuleTaskAction']] = None):
+                 task_actions: Optional[Sequence['outputs.RuleTaskAction']] = None,
+                 update_case_actions: Optional[Sequence['outputs.RuleUpdateCaseAction']] = None):
         """
         The list of actions that will be executed when a rule is triggered.
         """
         if assign_contact_category_actions is not None:
             pulumi.set(__self__, "assign_contact_category_actions", assign_contact_category_actions)
+        if create_case_actions is not None:
+            pulumi.set(__self__, "create_case_actions", create_case_actions)
+        if end_associated_task_actions is not None:
+            pulumi.set(__self__, "end_associated_task_actions", end_associated_task_actions)
         if event_bridge_actions is not None:
             pulumi.set(__self__, "event_bridge_actions", event_bridge_actions)
         if send_notification_actions is not None:
             pulumi.set(__self__, "send_notification_actions", send_notification_actions)
         if task_actions is not None:
             pulumi.set(__self__, "task_actions", task_actions)
+        if update_case_actions is not None:
+            pulumi.set(__self__, "update_case_actions", update_case_actions)
 
     @property
     @pulumi.getter(name="assignContactCategoryActions")
     def assign_contact_category_actions(self) -> Optional[Sequence['outputs.RuleAssignContactCategoryAction']]:
         return pulumi.get(self, "assign_contact_category_actions")
+
+    @property
+    @pulumi.getter(name="createCaseActions")
+    def create_case_actions(self) -> Optional[Sequence['outputs.RuleCreateCaseAction']]:
+        return pulumi.get(self, "create_case_actions")
+
+    @property
+    @pulumi.getter(name="endAssociatedTaskActions")
+    def end_associated_task_actions(self) -> Optional[Sequence['outputs.RuleEndAssociatedTasksAction']]:
+        return pulumi.get(self, "end_associated_task_actions")
 
     @property
     @pulumi.getter(name="eventBridgeActions")
@@ -2130,6 +2193,11 @@ class RuleActions(dict):
     def task_actions(self) -> Optional[Sequence['outputs.RuleTaskAction']]:
         return pulumi.get(self, "task_actions")
 
+    @property
+    @pulumi.getter(name="updateCaseActions")
+    def update_case_actions(self) -> Optional[Sequence['outputs.RuleUpdateCaseAction']]:
+        return pulumi.get(self, "update_case_actions")
+
 
 @pulumi.output_type
 class RuleAssignContactCategoryAction(dict):
@@ -2139,6 +2207,64 @@ class RuleAssignContactCategoryAction(dict):
     def __init__(__self__):
         """
         The definition for assigning contact category action.
+        """
+        pass
+
+
+@pulumi.output_type
+class RuleCreateCaseAction(dict):
+    """
+    The definition for create case action.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "templateId":
+            suggest = "template_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleCreateCaseAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleCreateCaseAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleCreateCaseAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fields: Sequence['outputs.RuleField'],
+                 template_id: str):
+        """
+        The definition for create case action.
+        :param str template_id: The Id of template.
+        """
+        pulumi.set(__self__, "fields", fields)
+        pulumi.set(__self__, "template_id", template_id)
+
+    @property
+    @pulumi.getter
+    def fields(self) -> Sequence['outputs.RuleField']:
+        return pulumi.get(self, "fields")
+
+    @property
+    @pulumi.getter(name="templateId")
+    def template_id(self) -> str:
+        """
+        The Id of template.
+        """
+        return pulumi.get(self, "template_id")
+
+
+@pulumi.output_type
+class RuleEndAssociatedTasksAction(dict):
+    """
+    The definition for ending associated task action.
+    """
+    def __init__(__self__):
+        """
+        The definition for ending associated task action.
         """
         pass
 
@@ -2163,6 +2289,101 @@ class RuleEventBridgeAction(dict):
         The name of the event bridge action.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class RuleField(dict):
+    """
+    The field of the case.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 value: 'outputs.RuleFieldValue'):
+        """
+        The field of the case.
+        :param str id: The Id of the field
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The Id of the field
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def value(self) -> 'outputs.RuleFieldValue':
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RuleFieldValue(dict):
+    """
+    The value of the field.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "booleanValue":
+            suggest = "boolean_value"
+        elif key == "doubleValue":
+            suggest = "double_value"
+        elif key == "emptyValue":
+            suggest = "empty_value"
+        elif key == "stringValue":
+            suggest = "string_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleFieldValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleFieldValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleFieldValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 boolean_value: Optional[bool] = None,
+                 double_value: Optional[float] = None,
+                 empty_value: Optional[Any] = None,
+                 string_value: Optional[str] = None):
+        """
+        The value of the field.
+        """
+        if boolean_value is not None:
+            pulumi.set(__self__, "boolean_value", boolean_value)
+        if double_value is not None:
+            pulumi.set(__self__, "double_value", double_value)
+        if empty_value is not None:
+            pulumi.set(__self__, "empty_value", empty_value)
+        if string_value is not None:
+            pulumi.set(__self__, "string_value", string_value)
+
+    @property
+    @pulumi.getter(name="booleanValue")
+    def boolean_value(self) -> Optional[bool]:
+        return pulumi.get(self, "boolean_value")
+
+    @property
+    @pulumi.getter(name="doubleValue")
+    def double_value(self) -> Optional[float]:
+        return pulumi.get(self, "double_value")
+
+    @property
+    @pulumi.getter(name="emptyValue")
+    def empty_value(self) -> Optional[Any]:
+        return pulumi.get(self, "empty_value")
+
+    @property
+    @pulumi.getter(name="stringValue")
+    def string_value(self) -> Optional[str]:
+        return pulumi.get(self, "string_value")
 
 
 @pulumi.output_type
@@ -2459,6 +2680,24 @@ class RuleTriggerEventSource(dict):
         The Amazon Resource Name (ARN) for the AppIntegration association.
         """
         return pulumi.get(self, "integration_association_arn")
+
+
+@pulumi.output_type
+class RuleUpdateCaseAction(dict):
+    """
+    The definition for update case action.
+    """
+    def __init__(__self__, *,
+                 fields: Sequence['outputs.RuleField']):
+        """
+        The definition for update case action.
+        """
+        pulumi.set(__self__, "fields", fields)
+
+    @property
+    @pulumi.getter
+    def fields(self) -> Sequence['outputs.RuleField']:
+        return pulumi.get(self, "fields")
 
 
 @pulumi.output_type

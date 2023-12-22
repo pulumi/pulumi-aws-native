@@ -583,7 +583,7 @@ func (o AnalyzerTagArrayOutput) Index(i pulumi.IntInput) AnalyzerTagOutput {
 
 // The Configuration for Unused Access Analyzer
 type AnalyzerUnusedAccessConfiguration struct {
-	// The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that haven't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+	// The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
 	UnusedAccessAge *int `pulumi:"unusedAccessAge"`
 }
 
@@ -600,7 +600,7 @@ type AnalyzerUnusedAccessConfigurationInput interface {
 
 // The Configuration for Unused Access Analyzer
 type AnalyzerUnusedAccessConfigurationArgs struct {
-	// The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that haven't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+	// The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
 	UnusedAccessAge pulumi.IntPtrInput `pulumi:"unusedAccessAge"`
 }
 
@@ -700,7 +700,7 @@ func (o AnalyzerUnusedAccessConfigurationOutput) ToOutput(ctx context.Context) p
 	}
 }
 
-// The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that haven't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+// The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
 func (o AnalyzerUnusedAccessConfigurationOutput) UnusedAccessAge() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AnalyzerUnusedAccessConfiguration) *int { return v.UnusedAccessAge }).(pulumi.IntPtrOutput)
 }
@@ -735,7 +735,7 @@ func (o AnalyzerUnusedAccessConfigurationPtrOutput) Elem() AnalyzerUnusedAccessC
 	}).(AnalyzerUnusedAccessConfigurationOutput)
 }
 
-// The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that haven't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+// The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
 func (o AnalyzerUnusedAccessConfigurationPtrOutput) UnusedAccessAge() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AnalyzerUnusedAccessConfiguration) *int {
 		if v == nil {

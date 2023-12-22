@@ -15,6 +15,19 @@ export const getExperimentTemplate: typeof import("./getExperimentTemplate").get
 export const getExperimentTemplateOutput: typeof import("./getExperimentTemplate").getExperimentTemplateOutput = null as any;
 utilities.lazyLoad(exports, ["getExperimentTemplate","getExperimentTemplateOutput"], () => require("./getExperimentTemplate"));
 
+export { GetTargetAccountConfigurationArgs, GetTargetAccountConfigurationResult, GetTargetAccountConfigurationOutputArgs } from "./getTargetAccountConfiguration";
+export const getTargetAccountConfiguration: typeof import("./getTargetAccountConfiguration").getTargetAccountConfiguration = null as any;
+export const getTargetAccountConfigurationOutput: typeof import("./getTargetAccountConfiguration").getTargetAccountConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getTargetAccountConfiguration","getTargetAccountConfigurationOutput"], () => require("./getTargetAccountConfiguration"));
+
+export { TargetAccountConfigurationArgs } from "./targetAccountConfiguration";
+export type TargetAccountConfiguration = import("./targetAccountConfiguration").TargetAccountConfiguration;
+export const TargetAccountConfiguration: typeof import("./targetAccountConfiguration").TargetAccountConfiguration = null as any;
+utilities.lazyLoad(exports, ["TargetAccountConfiguration"], () => require("./targetAccountConfiguration"));
+
+
+// Export enums:
+export * from "../types/enums/fis";
 
 const _module = {
     version: utilities.getVersion(),
@@ -22,6 +35,8 @@ const _module = {
         switch (type) {
             case "aws-native:fis:ExperimentTemplate":
                 return new ExperimentTemplate(name, <any>undefined, { urn })
+            case "aws-native:fis:TargetAccountConfiguration":
+                return new TargetAccountConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

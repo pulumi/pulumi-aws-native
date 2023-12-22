@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Outputs
 {
 
+    /// <summary>
+    /// A destination for events after they have been sent to a function for processing.
+    /// </summary>
     [OutputType]
     public sealed class EventInvokeConfigDestinationConfig
     {

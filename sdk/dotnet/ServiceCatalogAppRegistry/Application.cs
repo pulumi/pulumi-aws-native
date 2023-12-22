@@ -15,6 +15,24 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
     [AwsNativeResourceType("aws-native:servicecatalogappregistry:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the application. 
+        /// </summary>
+        [Output("applicationName")]
+        public Output<string> ApplicationName { get; private set; } = null!;
+
+        /// <summary>
+        /// The key of the AWS application tag, which is awsApplication. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value.
+        /// </summary>
+        [Output("applicationTagKey")]
+        public Output<string> ApplicationTagKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The value of the AWS application tag, which is the identifier of an associated resource. Applications created before 11/13/2023 or applications without the AWS application tag resource group return no value. 
+        /// </summary>
+        [Output("applicationTagValue")]
+        public Output<string> ApplicationTagValue { get; private set; } = null!;
+
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 

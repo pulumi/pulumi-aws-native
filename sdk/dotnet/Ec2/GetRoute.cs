@@ -78,6 +78,10 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? CidrBlock;
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the core network.
+        /// </summary>
+        public readonly string? CoreNetworkArn;
+        /// <summary>
         /// The ID of the egress-only internet gateway.
         /// </summary>
         public readonly string? EgressOnlyInternetGatewayId;
@@ -120,6 +124,8 @@ namespace Pulumi.AwsNative.Ec2
 
             string? cidrBlock,
 
+            string? coreNetworkArn,
+
             string? egressOnlyInternetGatewayId,
 
             string? gatewayId,
@@ -140,6 +146,7 @@ namespace Pulumi.AwsNative.Ec2
         {
             CarrierGatewayId = carrierGatewayId;
             CidrBlock = cidrBlock;
+            CoreNetworkArn = coreNetworkArn;
             EgressOnlyInternetGatewayId = egressOnlyInternetGatewayId;
             GatewayId = gatewayId;
             InstanceId = instanceId;

@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const CapacityProviderAutoScalingGroupProviderManagedDraining = {
+    Disabled: "DISABLED",
+    Enabled: "ENABLED",
+} as const;
+
+export type CapacityProviderAutoScalingGroupProviderManagedDraining = (typeof CapacityProviderAutoScalingGroupProviderManagedDraining)[keyof typeof CapacityProviderAutoScalingGroupProviderManagedDraining];
+
 export const CapacityProviderAutoScalingGroupProviderManagedTerminationProtection = {
     Disabled: "DISABLED",
     Enabled: "ENABLED",
@@ -50,6 +57,13 @@ export const ServiceDeploymentControllerType = {
 } as const;
 
 export type ServiceDeploymentControllerType = (typeof ServiceDeploymentControllerType)[keyof typeof ServiceDeploymentControllerType];
+
+export const ServiceEbsTagSpecificationPropagateTags = {
+    Service: "SERVICE",
+    TaskDefinition: "TASK_DEFINITION",
+} as const;
+
+export type ServiceEbsTagSpecificationPropagateTags = (typeof ServiceEbsTagSpecificationPropagateTags)[keyof typeof ServiceEbsTagSpecificationPropagateTags];
 
 export const ServiceLaunchType = {
     Ec2: "EC2",

@@ -8,7 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Logs::DeliverySource.
+ *  A delivery source is an AWS resource that sends logs to an AWS destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
+ *
+ * Only some AWS services support being configured as a delivery source. These services are listed as Supported [V2 Permissions] in the table at [Enabling logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html).
  */
 export class DeliverySource extends pulumi.CustomResource {
     /**
@@ -38,7 +40,7 @@ export class DeliverySource extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the Aqueduct Source.
+     * The Amazon Resource Name (ARN) that uniquely identifies this delivery source.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -54,15 +56,15 @@ export class DeliverySource extends pulumi.CustomResource {
      */
     public readonly resourceArn!: pulumi.Output<string | undefined>;
     /**
-     * List of ARN of the resource that will be sending the logs
+     * This array contains the ARN of the AWS resource that sends logs and is represented by this delivery source. Currently, only one ARN can be in the array.
      */
     public /*out*/ readonly resourceArns!: pulumi.Output<string[]>;
     /**
-     * The service generating the log
+     * The AWS service that is sending logs.
      */
     public /*out*/ readonly service!: pulumi.Output<string>;
     /**
-     * An array of key-value pairs to apply to this resource.
+     * The tags that have been assigned to this delivery source.
      */
     public readonly tags!: pulumi.Output<outputs.logs.DeliverySourceTag[] | undefined>;
 
@@ -117,7 +119,7 @@ export interface DeliverySourceArgs {
      */
     resourceArn?: pulumi.Input<string>;
     /**
-     * An array of key-value pairs to apply to this resource.
+     * The tags that have been assigned to this delivery source.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.logs.DeliverySourceTagArgs>[]>;
 }

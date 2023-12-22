@@ -28,13 +28,14 @@ type LookupExperimentTemplateArgs struct {
 }
 
 type LookupExperimentTemplateResult struct {
-	Actions          *ExperimentTemplateActionMap        `pulumi:"actions"`
-	Description      *string                             `pulumi:"description"`
-	Id               *string                             `pulumi:"id"`
-	LogConfiguration *ExperimentTemplateLogConfiguration `pulumi:"logConfiguration"`
-	RoleArn          *string                             `pulumi:"roleArn"`
-	StopConditions   []ExperimentTemplateStopCondition   `pulumi:"stopConditions"`
-	Targets          *ExperimentTemplateTargetMap        `pulumi:"targets"`
+	Actions           *ExperimentTemplateActionMap         `pulumi:"actions"`
+	Description       *string                              `pulumi:"description"`
+	ExperimentOptions *ExperimentTemplateExperimentOptions `pulumi:"experimentOptions"`
+	Id                *string                              `pulumi:"id"`
+	LogConfiguration  *ExperimentTemplateLogConfiguration  `pulumi:"logConfiguration"`
+	RoleArn           *string                              `pulumi:"roleArn"`
+	StopConditions    []ExperimentTemplateStopCondition    `pulumi:"stopConditions"`
+	Targets           *ExperimentTemplateTargetMap         `pulumi:"targets"`
 }
 
 func LookupExperimentTemplateOutput(ctx *pulumi.Context, args LookupExperimentTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupExperimentTemplateResultOutput {
@@ -84,6 +85,12 @@ func (o LookupExperimentTemplateResultOutput) Actions() ExperimentTemplateAction
 
 func (o LookupExperimentTemplateResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExperimentTemplateResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupExperimentTemplateResultOutput) ExperimentOptions() ExperimentTemplateExperimentOptionsPtrOutput {
+	return o.ApplyT(func(v LookupExperimentTemplateResult) *ExperimentTemplateExperimentOptions {
+		return v.ExperimentOptions
+	}).(ExperimentTemplateExperimentOptionsPtrOutput)
 }
 
 func (o LookupExperimentTemplateResultOutput) Id() pulumi.StringPtrOutput {

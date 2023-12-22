@@ -35,6 +35,7 @@ type LookupSubscriptionResult struct {
 	RawMessageDelivery  *bool       `pulumi:"rawMessageDelivery"`
 	RedrivePolicy       interface{} `pulumi:"redrivePolicy"`
 	Region              *string     `pulumi:"region"`
+	ReplayPolicy        interface{} `pulumi:"replayPolicy"`
 	SubscriptionRoleArn *string     `pulumi:"subscriptionRoleArn"`
 }
 
@@ -105,6 +106,10 @@ func (o LookupSubscriptionResultOutput) RedrivePolicy() pulumi.AnyOutput {
 
 func (o LookupSubscriptionResultOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSubscriptionResult) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupSubscriptionResultOutput) ReplayPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupSubscriptionResult) interface{} { return v.ReplayPolicy }).(pulumi.AnyOutput)
 }
 
 func (o LookupSubscriptionResultOutput) SubscriptionRoleArn() pulumi.StringPtrOutput {

@@ -38,8 +38,6 @@ type LookupReplicationConfigResult struct {
 	ReplicationSettings interface{} `pulumi:"replicationSettings"`
 	// The type of AWS DMS Serverless replication to provision using this replication configuration
 	ReplicationType *ReplicationConfigReplicationType `pulumi:"replicationType"`
-	// A unique value or name that you get set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource
-	ResourceIdentifier *string `pulumi:"resourceIdentifier"`
 	// The Amazon Resource Name (ARN) of the source endpoint for this AWS DMS Serverless replication configuration
 	SourceEndpointArn *string `pulumi:"sourceEndpointArn"`
 	// JSON settings for specifying supplemental data
@@ -116,11 +114,6 @@ func (o LookupReplicationConfigResultOutput) ReplicationSettings() pulumi.AnyOut
 // The type of AWS DMS Serverless replication to provision using this replication configuration
 func (o LookupReplicationConfigResultOutput) ReplicationType() ReplicationConfigReplicationTypePtrOutput {
 	return o.ApplyT(func(v LookupReplicationConfigResult) *ReplicationConfigReplicationType { return v.ReplicationType }).(ReplicationConfigReplicationTypePtrOutput)
-}
-
-// A unique value or name that you get set for a given resource that can be used to construct an Amazon Resource Name (ARN) for that resource
-func (o LookupReplicationConfigResultOutput) ResourceIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupReplicationConfigResult) *string { return v.ResourceIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the source endpoint for this AWS DMS Serverless replication configuration

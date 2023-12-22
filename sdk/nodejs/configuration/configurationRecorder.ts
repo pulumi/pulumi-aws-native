@@ -42,6 +42,7 @@ export class ConfigurationRecorder extends pulumi.CustomResource {
 
     public readonly name!: pulumi.Output<string | undefined>;
     public readonly recordingGroup!: pulumi.Output<outputs.configuration.ConfigurationRecorderRecordingGroup | undefined>;
+    public readonly recordingMode!: pulumi.Output<outputs.configuration.ConfigurationRecorderRecordingMode | undefined>;
     public readonly roleArn!: pulumi.Output<string>;
 
     /**
@@ -62,10 +63,12 @@ export class ConfigurationRecorder extends pulumi.CustomResource {
             }
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["recordingGroup"] = args ? args.recordingGroup : undefined;
+            resourceInputs["recordingMode"] = args ? args.recordingMode : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["recordingGroup"] = undefined /*out*/;
+            resourceInputs["recordingMode"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -81,5 +84,6 @@ export class ConfigurationRecorder extends pulumi.CustomResource {
 export interface ConfigurationRecorderArgs {
     name?: pulumi.Input<string>;
     recordingGroup?: pulumi.Input<inputs.configuration.ConfigurationRecorderRecordingGroupArgs>;
+    recordingMode?: pulumi.Input<inputs.configuration.ConfigurationRecorderRecordingModeArgs>;
     roleArn: pulumi.Input<string>;
 }

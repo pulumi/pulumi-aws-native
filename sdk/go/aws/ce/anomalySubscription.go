@@ -14,8 +14,6 @@ import (
 )
 
 // AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. Create subscription to be notified
-//
-// Deprecated: AnomalySubscription is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type AnomalySubscription struct {
 	pulumi.CustomResourceState
 

@@ -14,19 +14,29 @@ import (
 )
 
 // Resource Type definition for AWS::EventSchemas::Schema
-//
-// Deprecated: Schema is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Schema struct {
 	pulumi.CustomResourceState
 
-	Content       pulumi.StringOutput        `pulumi:"content"`
-	Description   pulumi.StringPtrOutput     `pulumi:"description"`
-	RegistryName  pulumi.StringOutput        `pulumi:"registryName"`
-	SchemaArn     pulumi.StringOutput        `pulumi:"schemaArn"`
-	SchemaName    pulumi.StringPtrOutput     `pulumi:"schemaName"`
-	SchemaVersion pulumi.StringOutput        `pulumi:"schemaVersion"`
-	Tags          SchemaTagsEntryArrayOutput `pulumi:"tags"`
-	Type          pulumi.StringOutput        `pulumi:"type"`
+	// The source of the schema definition.
+	Content pulumi.StringOutput `pulumi:"content"`
+	// A description of the schema.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The last modified time of the schema.
+	LastModified pulumi.StringOutput `pulumi:"lastModified"`
+	// The name of the schema registry.
+	RegistryName pulumi.StringOutput `pulumi:"registryName"`
+	// The ARN of the schema.
+	SchemaArn pulumi.StringOutput `pulumi:"schemaArn"`
+	// The name of the schema.
+	SchemaName pulumi.StringPtrOutput `pulumi:"schemaName"`
+	// The version number of the schema.
+	SchemaVersion pulumi.StringOutput `pulumi:"schemaVersion"`
+	// Tags associated with the resource.
+	Tags SchemaTagsEntryArrayOutput `pulumi:"tags"`
+	// The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
+	Type pulumi.StringOutput `pulumi:"type"`
+	// The date the schema version was created.
+	VersionCreatedDate pulumi.StringOutput `pulumi:"versionCreatedDate"`
 }
 
 // NewSchema registers a new resource with the given unique name, arguments, and options.
@@ -83,22 +93,34 @@ func (SchemaState) ElementType() reflect.Type {
 }
 
 type schemaArgs struct {
-	Content      string            `pulumi:"content"`
-	Description  *string           `pulumi:"description"`
-	RegistryName string            `pulumi:"registryName"`
-	SchemaName   *string           `pulumi:"schemaName"`
-	Tags         []SchemaTagsEntry `pulumi:"tags"`
-	Type         string            `pulumi:"type"`
+	// The source of the schema definition.
+	Content string `pulumi:"content"`
+	// A description of the schema.
+	Description *string `pulumi:"description"`
+	// The name of the schema registry.
+	RegistryName string `pulumi:"registryName"`
+	// The name of the schema.
+	SchemaName *string `pulumi:"schemaName"`
+	// Tags associated with the resource.
+	Tags []SchemaTagsEntry `pulumi:"tags"`
+	// The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
+	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a Schema resource.
 type SchemaArgs struct {
-	Content      pulumi.StringInput
-	Description  pulumi.StringPtrInput
+	// The source of the schema definition.
+	Content pulumi.StringInput
+	// A description of the schema.
+	Description pulumi.StringPtrInput
+	// The name of the schema registry.
 	RegistryName pulumi.StringInput
-	SchemaName   pulumi.StringPtrInput
-	Tags         SchemaTagsEntryArrayInput
-	Type         pulumi.StringInput
+	// The name of the schema.
+	SchemaName pulumi.StringPtrInput
+	// Tags associated with the resource.
+	Tags SchemaTagsEntryArrayInput
+	// The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
+	Type pulumi.StringInput
 }
 
 func (SchemaArgs) ElementType() reflect.Type {
@@ -150,36 +172,54 @@ func (o SchemaOutput) ToOutput(ctx context.Context) pulumix.Output[*Schema] {
 	}
 }
 
+// The source of the schema definition.
 func (o SchemaOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
 }
 
+// A description of the schema.
 func (o SchemaOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The last modified time of the schema.
+func (o SchemaOutput) LastModified() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.LastModified }).(pulumi.StringOutput)
+}
+
+// The name of the schema registry.
 func (o SchemaOutput) RegistryName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.RegistryName }).(pulumi.StringOutput)
 }
 
+// The ARN of the schema.
 func (o SchemaOutput) SchemaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.SchemaArn }).(pulumi.StringOutput)
 }
 
+// The name of the schema.
 func (o SchemaOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringPtrOutput { return v.SchemaName }).(pulumi.StringPtrOutput)
 }
 
+// The version number of the schema.
 func (o SchemaOutput) SchemaVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.SchemaVersion }).(pulumi.StringOutput)
 }
 
+// Tags associated with the resource.
 func (o SchemaOutput) Tags() SchemaTagsEntryArrayOutput {
 	return o.ApplyT(func(v *Schema) SchemaTagsEntryArrayOutput { return v.Tags }).(SchemaTagsEntryArrayOutput)
 }
 
+// The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
 func (o SchemaOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The date the schema version was created.
+func (o SchemaOutput) VersionCreatedDate() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.VersionCreatedDate }).(pulumi.StringOutput)
 }
 
 func init() {

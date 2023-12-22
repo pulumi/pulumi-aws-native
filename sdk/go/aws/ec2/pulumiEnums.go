@@ -7118,6 +7118,189 @@ func (in *prefixListAddressFamilyPtr) ToOutput(ctx context.Context) pulumix.Outp
 	}
 }
 
+// The state of EBS Snapshot Block Public Access.
+type SnapshotBlockPublicAccessStateEnum string
+
+const (
+	SnapshotBlockPublicAccessStateEnumBlockAllSharing = SnapshotBlockPublicAccessStateEnum("block-all-sharing")
+	SnapshotBlockPublicAccessStateEnumBlockNewSharing = SnapshotBlockPublicAccessStateEnum("block-new-sharing")
+)
+
+func (SnapshotBlockPublicAccessStateEnum) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotBlockPublicAccessStateEnum)(nil)).Elem()
+}
+
+func (e SnapshotBlockPublicAccessStateEnum) ToSnapshotBlockPublicAccessStateEnumOutput() SnapshotBlockPublicAccessStateEnumOutput {
+	return pulumi.ToOutput(e).(SnapshotBlockPublicAccessStateEnumOutput)
+}
+
+func (e SnapshotBlockPublicAccessStateEnum) ToSnapshotBlockPublicAccessStateEnumOutputWithContext(ctx context.Context) SnapshotBlockPublicAccessStateEnumOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SnapshotBlockPublicAccessStateEnumOutput)
+}
+
+func (e SnapshotBlockPublicAccessStateEnum) ToSnapshotBlockPublicAccessStateEnumPtrOutput() SnapshotBlockPublicAccessStateEnumPtrOutput {
+	return e.ToSnapshotBlockPublicAccessStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (e SnapshotBlockPublicAccessStateEnum) ToSnapshotBlockPublicAccessStateEnumPtrOutputWithContext(ctx context.Context) SnapshotBlockPublicAccessStateEnumPtrOutput {
+	return SnapshotBlockPublicAccessStateEnum(e).ToSnapshotBlockPublicAccessStateEnumOutputWithContext(ctx).ToSnapshotBlockPublicAccessStateEnumPtrOutputWithContext(ctx)
+}
+
+func (e SnapshotBlockPublicAccessStateEnum) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SnapshotBlockPublicAccessStateEnum) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SnapshotBlockPublicAccessStateEnum) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SnapshotBlockPublicAccessStateEnum) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SnapshotBlockPublicAccessStateEnumOutput struct{ *pulumi.OutputState }
+
+func (SnapshotBlockPublicAccessStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotBlockPublicAccessStateEnum)(nil)).Elem()
+}
+
+func (o SnapshotBlockPublicAccessStateEnumOutput) ToSnapshotBlockPublicAccessStateEnumOutput() SnapshotBlockPublicAccessStateEnumOutput {
+	return o
+}
+
+func (o SnapshotBlockPublicAccessStateEnumOutput) ToSnapshotBlockPublicAccessStateEnumOutputWithContext(ctx context.Context) SnapshotBlockPublicAccessStateEnumOutput {
+	return o
+}
+
+func (o SnapshotBlockPublicAccessStateEnumOutput) ToSnapshotBlockPublicAccessStateEnumPtrOutput() SnapshotBlockPublicAccessStateEnumPtrOutput {
+	return o.ToSnapshotBlockPublicAccessStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotBlockPublicAccessStateEnumOutput) ToSnapshotBlockPublicAccessStateEnumPtrOutputWithContext(ctx context.Context) SnapshotBlockPublicAccessStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotBlockPublicAccessStateEnum) *SnapshotBlockPublicAccessStateEnum {
+		return &v
+	}).(SnapshotBlockPublicAccessStateEnumPtrOutput)
+}
+
+func (o SnapshotBlockPublicAccessStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[SnapshotBlockPublicAccessStateEnum] {
+	return pulumix.Output[SnapshotBlockPublicAccessStateEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o SnapshotBlockPublicAccessStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SnapshotBlockPublicAccessStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotBlockPublicAccessStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapshotBlockPublicAccessStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotBlockPublicAccessStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotBlockPublicAccessStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SnapshotBlockPublicAccessStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotBlockPublicAccessStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotBlockPublicAccessStateEnum)(nil)).Elem()
+}
+
+func (o SnapshotBlockPublicAccessStateEnumPtrOutput) ToSnapshotBlockPublicAccessStateEnumPtrOutput() SnapshotBlockPublicAccessStateEnumPtrOutput {
+	return o
+}
+
+func (o SnapshotBlockPublicAccessStateEnumPtrOutput) ToSnapshotBlockPublicAccessStateEnumPtrOutputWithContext(ctx context.Context) SnapshotBlockPublicAccessStateEnumPtrOutput {
+	return o
+}
+
+func (o SnapshotBlockPublicAccessStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SnapshotBlockPublicAccessStateEnum] {
+	return pulumix.Output[*SnapshotBlockPublicAccessStateEnum]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o SnapshotBlockPublicAccessStateEnumPtrOutput) Elem() SnapshotBlockPublicAccessStateEnumOutput {
+	return o.ApplyT(func(v *SnapshotBlockPublicAccessStateEnum) SnapshotBlockPublicAccessStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotBlockPublicAccessStateEnum
+		return ret
+	}).(SnapshotBlockPublicAccessStateEnumOutput)
+}
+
+func (o SnapshotBlockPublicAccessStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotBlockPublicAccessStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapshotBlockPublicAccessStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SnapshotBlockPublicAccessStateEnumInput is an input type that accepts SnapshotBlockPublicAccessStateEnumArgs and SnapshotBlockPublicAccessStateEnumOutput values.
+// You can construct a concrete instance of `SnapshotBlockPublicAccessStateEnumInput` via:
+//
+//	SnapshotBlockPublicAccessStateEnumArgs{...}
+type SnapshotBlockPublicAccessStateEnumInput interface {
+	pulumi.Input
+
+	ToSnapshotBlockPublicAccessStateEnumOutput() SnapshotBlockPublicAccessStateEnumOutput
+	ToSnapshotBlockPublicAccessStateEnumOutputWithContext(context.Context) SnapshotBlockPublicAccessStateEnumOutput
+}
+
+var snapshotBlockPublicAccessStateEnumPtrType = reflect.TypeOf((**SnapshotBlockPublicAccessStateEnum)(nil)).Elem()
+
+type SnapshotBlockPublicAccessStateEnumPtrInput interface {
+	pulumi.Input
+
+	ToSnapshotBlockPublicAccessStateEnumPtrOutput() SnapshotBlockPublicAccessStateEnumPtrOutput
+	ToSnapshotBlockPublicAccessStateEnumPtrOutputWithContext(context.Context) SnapshotBlockPublicAccessStateEnumPtrOutput
+}
+
+type snapshotBlockPublicAccessStateEnumPtr string
+
+func SnapshotBlockPublicAccessStateEnumPtr(v string) SnapshotBlockPublicAccessStateEnumPtrInput {
+	return (*snapshotBlockPublicAccessStateEnumPtr)(&v)
+}
+
+func (*snapshotBlockPublicAccessStateEnumPtr) ElementType() reflect.Type {
+	return snapshotBlockPublicAccessStateEnumPtrType
+}
+
+func (in *snapshotBlockPublicAccessStateEnumPtr) ToSnapshotBlockPublicAccessStateEnumPtrOutput() SnapshotBlockPublicAccessStateEnumPtrOutput {
+	return pulumi.ToOutput(in).(SnapshotBlockPublicAccessStateEnumPtrOutput)
+}
+
+func (in *snapshotBlockPublicAccessStateEnumPtr) ToSnapshotBlockPublicAccessStateEnumPtrOutputWithContext(ctx context.Context) SnapshotBlockPublicAccessStateEnumPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SnapshotBlockPublicAccessStateEnumPtrOutput)
+}
+
+func (in *snapshotBlockPublicAccessStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*SnapshotBlockPublicAccessStateEnum] {
+	return pulumix.Output[*SnapshotBlockPublicAccessStateEnum]{
+		OutputState: in.ToSnapshotBlockPublicAccessStateEnumPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SpotFleetEbsBlockDeviceVolumeType string
 
 const (
@@ -11067,6 +11250,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInsightsPathProtocolPtrInput)(nil)).Elem(), NetworkInsightsPathProtocol("tcp"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListAddressFamilyInput)(nil)).Elem(), PrefixListAddressFamily("IPv4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListAddressFamilyPtrInput)(nil)).Elem(), PrefixListAddressFamily("IPv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotBlockPublicAccessStateEnumInput)(nil)).Elem(), SnapshotBlockPublicAccessStateEnum("block-all-sharing"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotBlockPublicAccessStateEnumPtrInput)(nil)).Elem(), SnapshotBlockPublicAccessStateEnum("block-all-sharing"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetEbsBlockDeviceVolumeTypeInput)(nil)).Elem(), SpotFleetEbsBlockDeviceVolumeType("gp2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetEbsBlockDeviceVolumeTypePtrInput)(nil)).Elem(), SpotFleetEbsBlockDeviceVolumeType("gp2"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemInput)(nil)).Elem(), SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem("amazon-web-services"))
@@ -11196,6 +11381,8 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInsightsPathProtocolPtrOutput{})
 	pulumi.RegisterOutputType(PrefixListAddressFamilyOutput{})
 	pulumi.RegisterOutputType(PrefixListAddressFamilyPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotBlockPublicAccessStateEnumOutput{})
+	pulumi.RegisterOutputType(SnapshotBlockPublicAccessStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetEbsBlockDeviceVolumeTypeOutput{})
 	pulumi.RegisterOutputType(SpotFleetEbsBlockDeviceVolumeTypePtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItemOutput{})

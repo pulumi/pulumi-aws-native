@@ -23,6 +23,10 @@ class EventInvokeConfigArgs:
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a EventInvokeConfig resource.
+        :param pulumi.Input[str] function_name: The name of the Lambda function.
+        :param pulumi.Input[str] qualifier: The identifier of a version or alias.
+        :param pulumi.Input[int] maximum_event_age_in_seconds: The maximum age of a request that Lambda sends to a function for processing.
+        :param pulumi.Input[int] maximum_retry_attempts: The maximum number of times to retry when the function returns an error.
         """
         pulumi.set(__self__, "function_name", function_name)
         pulumi.set(__self__, "qualifier", qualifier)
@@ -36,6 +40,9 @@ class EventInvokeConfigArgs:
     @property
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Input[str]:
+        """
+        The name of the Lambda function.
+        """
         return pulumi.get(self, "function_name")
 
     @function_name.setter
@@ -45,6 +52,9 @@ class EventInvokeConfigArgs:
     @property
     @pulumi.getter
     def qualifier(self) -> pulumi.Input[str]:
+        """
+        The identifier of a version or alias.
+        """
         return pulumi.get(self, "qualifier")
 
     @qualifier.setter
@@ -63,6 +73,9 @@ class EventInvokeConfigArgs:
     @property
     @pulumi.getter(name="maximumEventAgeInSeconds")
     def maximum_event_age_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum age of a request that Lambda sends to a function for processing.
+        """
         return pulumi.get(self, "maximum_event_age_in_seconds")
 
     @maximum_event_age_in_seconds.setter
@@ -72,6 +85,9 @@ class EventInvokeConfigArgs:
     @property
     @pulumi.getter(name="maximumRetryAttempts")
     def maximum_retry_attempts(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of times to retry when the function returns an error.
+        """
         return pulumi.get(self, "maximum_retry_attempts")
 
     @maximum_retry_attempts.setter
@@ -91,10 +107,14 @@ class EventInvokeConfig(pulumi.CustomResource):
                  qualifier: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::Lambda::EventInvokeConfig
+        The AWS::Lambda::EventInvokeConfig resource configures options for asynchronous invocation on a version or an alias.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] function_name: The name of the Lambda function.
+        :param pulumi.Input[int] maximum_event_age_in_seconds: The maximum age of a request that Lambda sends to a function for processing.
+        :param pulumi.Input[int] maximum_retry_attempts: The maximum number of times to retry when the function returns an error.
+        :param pulumi.Input[str] qualifier: The identifier of a version or alias.
         """
         ...
     @overload
@@ -103,7 +123,7 @@ class EventInvokeConfig(pulumi.CustomResource):
                  args: EventInvokeConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::Lambda::EventInvokeConfig
+        The AWS::Lambda::EventInvokeConfig resource configures options for asynchronous invocation on a version or an alias.
 
         :param str resource_name: The name of the resource.
         :param EventInvokeConfigArgs args: The arguments to use to populate this resource's properties.
@@ -182,20 +202,32 @@ class EventInvokeConfig(pulumi.CustomResource):
     @property
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Output[str]:
+        """
+        The name of the Lambda function.
+        """
         return pulumi.get(self, "function_name")
 
     @property
     @pulumi.getter(name="maximumEventAgeInSeconds")
     def maximum_event_age_in_seconds(self) -> pulumi.Output[Optional[int]]:
+        """
+        The maximum age of a request that Lambda sends to a function for processing.
+        """
         return pulumi.get(self, "maximum_event_age_in_seconds")
 
     @property
     @pulumi.getter(name="maximumRetryAttempts")
     def maximum_retry_attempts(self) -> pulumi.Output[Optional[int]]:
+        """
+        The maximum number of times to retry when the function returns an error.
+        """
         return pulumi.get(self, "maximum_retry_attempts")
 
     @property
     @pulumi.getter
     def qualifier(self) -> pulumi.Output[str]:
+        """
+        The identifier of a version or alias.
+        """
         return pulumi.get(self, "qualifier")
 

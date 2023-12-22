@@ -15,6 +15,15 @@ namespace Pulumi.AwsNative.Dms.Inputs
         [Input("currentLsn")]
         public Input<string>? CurrentLsn { get; set; }
 
+        [Input("keepCsvFiles")]
+        public Input<bool>? KeepCsvFiles { get; set; }
+
+        [Input("loadTimeout")]
+        public Input<int>? LoadTimeout { get; set; }
+
+        [Input("maxFileSize")]
+        public Input<int>? MaxFileSize { get; set; }
+
         [Input("maxKBytesPerRead")]
         public Input<int>? MaxKBytesPerRead { get; set; }
 
@@ -26,6 +35,9 @@ namespace Pulumi.AwsNative.Dms.Inputs
 
         [Input("setDataCaptureChanges")]
         public Input<bool>? SetDataCaptureChanges { get; set; }
+
+        [Input("writeBufferSize")]
+        public Input<int>? WriteBufferSize { get; set; }
 
         public EndpointIbmDb2SettingsArgs()
         {

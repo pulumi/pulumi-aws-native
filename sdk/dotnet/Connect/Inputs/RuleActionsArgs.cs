@@ -23,6 +23,22 @@ namespace Pulumi.AwsNative.Connect.Inputs
             set => _assignContactCategoryActions = value;
         }
 
+        [Input("createCaseActions")]
+        private InputList<Inputs.RuleCreateCaseActionArgs>? _createCaseActions;
+        public InputList<Inputs.RuleCreateCaseActionArgs> CreateCaseActions
+        {
+            get => _createCaseActions ?? (_createCaseActions = new InputList<Inputs.RuleCreateCaseActionArgs>());
+            set => _createCaseActions = value;
+        }
+
+        [Input("endAssociatedTaskActions")]
+        private InputList<Inputs.RuleEndAssociatedTasksActionArgs>? _endAssociatedTaskActions;
+        public InputList<Inputs.RuleEndAssociatedTasksActionArgs> EndAssociatedTaskActions
+        {
+            get => _endAssociatedTaskActions ?? (_endAssociatedTaskActions = new InputList<Inputs.RuleEndAssociatedTasksActionArgs>());
+            set => _endAssociatedTaskActions = value;
+        }
+
         [Input("eventBridgeActions")]
         private InputList<Inputs.RuleEventBridgeActionArgs>? _eventBridgeActions;
         public InputList<Inputs.RuleEventBridgeActionArgs> EventBridgeActions
@@ -45,6 +61,14 @@ namespace Pulumi.AwsNative.Connect.Inputs
         {
             get => _taskActions ?? (_taskActions = new InputList<Inputs.RuleTaskActionArgs>());
             set => _taskActions = value;
+        }
+
+        [Input("updateCaseActions")]
+        private InputList<Inputs.RuleUpdateCaseActionArgs>? _updateCaseActions;
+        public InputList<Inputs.RuleUpdateCaseActionArgs> UpdateCaseActions
+        {
+            get => _updateCaseActions ?? (_updateCaseActions = new InputList<Inputs.RuleUpdateCaseActionArgs>());
+            set => _updateCaseActions = value;
         }
 
         public RuleActionsArgs()

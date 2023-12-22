@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Lambda
     public static class GetEventInvokeConfig
     {
         /// <summary>
-        /// Resource Type definition for AWS::Lambda::EventInvokeConfig
+        /// The AWS::Lambda::EventInvokeConfig resource configures options for asynchronous invocation on a version or an alias.
         /// </summary>
         public static Task<GetEventInvokeConfigResult> InvokeAsync(GetEventInvokeConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventInvokeConfigResult>("aws-native:lambda:getEventInvokeConfig", args ?? new GetEventInvokeConfigArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::Lambda::EventInvokeConfig
+        /// The AWS::Lambda::EventInvokeConfig resource configures options for asynchronous invocation on a version or an alias.
         /// </summary>
         public static Output<GetEventInvokeConfigResult> Invoke(GetEventInvokeConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventInvokeConfigResult>("aws-native:lambda:getEventInvokeConfig", args ?? new GetEventInvokeConfigInvokeArgs(), options.WithDefaults());
@@ -27,8 +27,17 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class GetEventInvokeConfigArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the Lambda function.
+        /// </summary>
+        [Input("functionName", required: true)]
+        public string FunctionName { get; set; } = null!;
+
+        /// <summary>
+        /// The identifier of a version or alias.
+        /// </summary>
+        [Input("qualifier", required: true)]
+        public string Qualifier { get; set; } = null!;
 
         public GetEventInvokeConfigArgs()
         {
@@ -38,8 +47,17 @@ namespace Pulumi.AwsNative.Lambda
 
     public sealed class GetEventInvokeConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the Lambda function.
+        /// </summary>
+        [Input("functionName", required: true)]
+        public Input<string> FunctionName { get; set; } = null!;
+
+        /// <summary>
+        /// The identifier of a version or alias.
+        /// </summary>
+        [Input("qualifier", required: true)]
+        public Input<string> Qualifier { get; set; } = null!;
 
         public GetEventInvokeConfigInvokeArgs()
         {
@@ -52,22 +70,24 @@ namespace Pulumi.AwsNative.Lambda
     public sealed class GetEventInvokeConfigResult
     {
         public readonly Outputs.EventInvokeConfigDestinationConfig? DestinationConfig;
-        public readonly string? Id;
+        /// <summary>
+        /// The maximum age of a request that Lambda sends to a function for processing.
+        /// </summary>
         public readonly int? MaximumEventAgeInSeconds;
+        /// <summary>
+        /// The maximum number of times to retry when the function returns an error.
+        /// </summary>
         public readonly int? MaximumRetryAttempts;
 
         [OutputConstructor]
         private GetEventInvokeConfigResult(
             Outputs.EventInvokeConfigDestinationConfig? destinationConfig,
 
-            string? id,
-
             int? maximumEventAgeInSeconds,
 
             int? maximumRetryAttempts)
         {
             DestinationConfig = destinationConfig;
-            Id = id;
             MaximumEventAgeInSeconds = maximumEventAgeInSeconds;
             MaximumRetryAttempts = maximumRetryAttempts;
         }

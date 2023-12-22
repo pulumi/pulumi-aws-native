@@ -6,8 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::EC2::SecurityGroupEgress
- *
- * @deprecated SecurityGroupEgress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class SecurityGroupEgress extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class SecurityGroupEgress extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SecurityGroupEgress {
-        pulumi.log.warn("SecurityGroupEgress is deprecated: SecurityGroupEgress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new SecurityGroupEgress(name, undefined as any, { ...opts, id: id });
     }
 
@@ -37,14 +34,41 @@ export class SecurityGroupEgress extends pulumi.CustomResource {
         return obj['__pulumiType'] === SecurityGroupEgress.__pulumiType;
     }
 
+    /**
+     * The IPv4 ranges
+     */
     public readonly cidrIp!: pulumi.Output<string | undefined>;
+    /**
+     * [VPC only] The IPv6 ranges
+     */
     public readonly cidrIpv6!: pulumi.Output<string | undefined>;
+    /**
+     * Resource Type definition for an egress (outbound) security group rule.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * [EC2-VPC only] The ID of a prefix list.
+     */
     public readonly destinationPrefixListId!: pulumi.Output<string | undefined>;
+    /**
+     * You must specify a destination security group (DestinationPrefixListId or DestinationSecurityGroupId) or a CIDR range (CidrIp or CidrIpv6).
+     */
     public readonly destinationSecurityGroupId!: pulumi.Output<string | undefined>;
+    /**
+     * The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+     */
     public readonly fromPort!: pulumi.Output<number | undefined>;
+    /**
+     * The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
+     */
     public readonly groupId!: pulumi.Output<string>;
+    /**
+     * [VPC only] Use -1 to specify all protocols. When authorizing security group rules, specifying -1 or a protocol number other than tcp, udp, icmp, or icmpv6 allows traffic on all ports, regardless of any port range you specify. For tcp, udp, and icmp, you must specify a port range. For icmpv6, the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
+     */
     public readonly ipProtocol!: pulumi.Output<string>;
+    /**
+     * The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of -1 indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+     */
     public readonly toPort!: pulumi.Output<number | undefined>;
 
     /**
@@ -54,9 +78,7 @@ export class SecurityGroupEgress extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated SecurityGroupEgress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args: SecurityGroupEgressArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SecurityGroupEgress is deprecated: SecurityGroupEgress is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -97,13 +119,40 @@ export class SecurityGroupEgress extends pulumi.CustomResource {
  * The set of arguments for constructing a SecurityGroupEgress resource.
  */
 export interface SecurityGroupEgressArgs {
+    /**
+     * The IPv4 ranges
+     */
     cidrIp?: pulumi.Input<string>;
+    /**
+     * [VPC only] The IPv6 ranges
+     */
     cidrIpv6?: pulumi.Input<string>;
+    /**
+     * Resource Type definition for an egress (outbound) security group rule.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * [EC2-VPC only] The ID of a prefix list.
+     */
     destinationPrefixListId?: pulumi.Input<string>;
+    /**
+     * You must specify a destination security group (DestinationPrefixListId or DestinationSecurityGroupId) or a CIDR range (CidrIp or CidrIpv6).
+     */
     destinationSecurityGroupId?: pulumi.Input<string>;
+    /**
+     * The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+     */
     fromPort?: pulumi.Input<number>;
+    /**
+     * The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
+     */
     groupId: pulumi.Input<string>;
+    /**
+     * [VPC only] Use -1 to specify all protocols. When authorizing security group rules, specifying -1 or a protocol number other than tcp, udp, icmp, or icmpv6 allows traffic on all ports, regardless of any port range you specify. For tcp, udp, and icmp, you must specify a port range. For icmpv6, the port range is optional; if you omit the port range, traffic for all types and codes is allowed.
+     */
     ipProtocol: pulumi.Input<string>;
+    /**
+     * The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of -1 indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes.
+     */
     toPort?: pulumi.Input<number>;
 }

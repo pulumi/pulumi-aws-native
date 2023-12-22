@@ -12,33 +12,68 @@ namespace Pulumi.AwsNative.EventSchemas
     /// <summary>
     /// Resource Type definition for AWS::EventSchemas::Schema
     /// </summary>
-    [Obsolete(@"Schema is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:eventschemas:Schema")]
     public partial class Schema : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The source of the schema definition.
+        /// </summary>
         [Output("content")]
         public Output<string> Content { get; private set; } = null!;
 
+        /// <summary>
+        /// A description of the schema.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The last modified time of the schema.
+        /// </summary>
+        [Output("lastModified")]
+        public Output<string> LastModified { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the schema registry.
+        /// </summary>
         [Output("registryName")]
         public Output<string> RegistryName { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the schema.
+        /// </summary>
         [Output("schemaArn")]
         public Output<string> SchemaArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the schema.
+        /// </summary>
         [Output("schemaName")]
         public Output<string?> SchemaName { get; private set; } = null!;
 
+        /// <summary>
+        /// The version number of the schema.
+        /// </summary>
         [Output("schemaVersion")]
         public Output<string> SchemaVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// Tags associated with the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.SchemaTagsEntry>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
+        /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The date the schema version was created.
+        /// </summary>
+        [Output("versionCreatedDate")]
+        public Output<string> VersionCreatedDate { get; private set; } = null!;
 
 
         /// <summary>
@@ -90,26 +125,45 @@ namespace Pulumi.AwsNative.EventSchemas
 
     public sealed class SchemaArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The source of the schema definition.
+        /// </summary>
         [Input("content", required: true)]
         public Input<string> Content { get; set; } = null!;
 
+        /// <summary>
+        /// A description of the schema.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the schema registry.
+        /// </summary>
         [Input("registryName", required: true)]
         public Input<string> RegistryName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the schema.
+        /// </summary>
         [Input("schemaName")]
         public Input<string>? SchemaName { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.SchemaTagsEntryArgs>? _tags;
+
+        /// <summary>
+        /// Tags associated with the resource.
+        /// </summary>
         public InputList<Inputs.SchemaTagsEntryArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.SchemaTagsEntryArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

@@ -24,17 +24,27 @@ func LookupSchema(ctx *pulumi.Context, args *LookupSchemaArgs, opts ...pulumi.In
 }
 
 type LookupSchemaArgs struct {
-	Id string `pulumi:"id"`
+	// The ARN of the schema.
+	SchemaArn string `pulumi:"schemaArn"`
 }
 
 type LookupSchemaResult struct {
-	Content       *string           `pulumi:"content"`
-	Description   *string           `pulumi:"description"`
-	Id            *string           `pulumi:"id"`
-	SchemaArn     *string           `pulumi:"schemaArn"`
-	SchemaVersion *string           `pulumi:"schemaVersion"`
-	Tags          []SchemaTagsEntry `pulumi:"tags"`
-	Type          *string           `pulumi:"type"`
+	// The source of the schema definition.
+	Content *string `pulumi:"content"`
+	// A description of the schema.
+	Description *string `pulumi:"description"`
+	// The last modified time of the schema.
+	LastModified *string `pulumi:"lastModified"`
+	// The ARN of the schema.
+	SchemaArn *string `pulumi:"schemaArn"`
+	// The version number of the schema.
+	SchemaVersion *string `pulumi:"schemaVersion"`
+	// Tags associated with the resource.
+	Tags []SchemaTagsEntry `pulumi:"tags"`
+	// The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
+	Type *string `pulumi:"type"`
+	// The date the schema version was created.
+	VersionCreatedDate *string `pulumi:"versionCreatedDate"`
 }
 
 func LookupSchemaOutput(ctx *pulumi.Context, args LookupSchemaOutputArgs, opts ...pulumi.InvokeOption) LookupSchemaResultOutput {
@@ -51,7 +61,8 @@ func LookupSchemaOutput(ctx *pulumi.Context, args LookupSchemaOutputArgs, opts .
 }
 
 type LookupSchemaOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The ARN of the schema.
+	SchemaArn pulumi.StringInput `pulumi:"schemaArn"`
 }
 
 func (LookupSchemaOutputArgs) ElementType() reflect.Type {
@@ -78,32 +89,44 @@ func (o LookupSchemaResultOutput) ToOutput(ctx context.Context) pulumix.Output[L
 	}
 }
 
+// The source of the schema definition.
 func (o LookupSchemaResultOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSchemaResult) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
+// A description of the schema.
 func (o LookupSchemaResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSchemaResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupSchemaResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSchemaResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+// The last modified time of the schema.
+func (o LookupSchemaResultOutput) LastModified() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSchemaResult) *string { return v.LastModified }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the schema.
 func (o LookupSchemaResultOutput) SchemaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSchemaResult) *string { return v.SchemaArn }).(pulumi.StringPtrOutput)
 }
 
+// The version number of the schema.
 func (o LookupSchemaResultOutput) SchemaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSchemaResult) *string { return v.SchemaVersion }).(pulumi.StringPtrOutput)
 }
 
+// Tags associated with the resource.
 func (o LookupSchemaResultOutput) Tags() SchemaTagsEntryArrayOutput {
 	return o.ApplyT(func(v LookupSchemaResult) []SchemaTagsEntry { return v.Tags }).(SchemaTagsEntryArrayOutput)
 }
 
+// The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
 func (o LookupSchemaResultOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSchemaResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The date the schema version was created.
+func (o LookupSchemaResultOutput) VersionCreatedDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupSchemaResult) *string { return v.VersionCreatedDate }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDeploymentGroupResult:
-    def __init__(__self__, alarm_configuration=None, auto_rollback_configuration=None, auto_scaling_groups=None, blue_green_deployment_configuration=None, deployment=None, deployment_config_name=None, deployment_style=None, ec2_tag_filters=None, ec2_tag_set=None, ecs_services=None, id=None, load_balancer_info=None, on_premises_instance_tag_filters=None, on_premises_tag_set=None, outdated_instances_strategy=None, service_role_arn=None, tags=None, trigger_configurations=None):
+    def __init__(__self__, alarm_configuration=None, auto_rollback_configuration=None, auto_scaling_groups=None, blue_green_deployment_configuration=None, deployment=None, deployment_config_name=None, deployment_style=None, ec2_tag_filters=None, ec2_tag_set=None, ecs_services=None, id=None, load_balancer_info=None, on_premises_instance_tag_filters=None, on_premises_tag_set=None, outdated_instances_strategy=None, service_role_arn=None, tags=None, termination_hook_enabled=None, trigger_configurations=None):
         if alarm_configuration and not isinstance(alarm_configuration, dict):
             raise TypeError("Expected argument 'alarm_configuration' to be a dict")
         pulumi.set(__self__, "alarm_configuration", alarm_configuration)
@@ -71,6 +71,9 @@ class GetDeploymentGroupResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if termination_hook_enabled and not isinstance(termination_hook_enabled, bool):
+            raise TypeError("Expected argument 'termination_hook_enabled' to be a bool")
+        pulumi.set(__self__, "termination_hook_enabled", termination_hook_enabled)
         if trigger_configurations and not isinstance(trigger_configurations, list):
             raise TypeError("Expected argument 'trigger_configurations' to be a list")
         pulumi.set(__self__, "trigger_configurations", trigger_configurations)
@@ -161,6 +164,11 @@ class GetDeploymentGroupResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="terminationHookEnabled")
+    def termination_hook_enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "termination_hook_enabled")
+
+    @property
     @pulumi.getter(name="triggerConfigurations")
     def trigger_configurations(self) -> Optional[Sequence['outputs.DeploymentGroupTriggerConfig']]:
         return pulumi.get(self, "trigger_configurations")
@@ -189,6 +197,7 @@ class AwaitableGetDeploymentGroupResult(GetDeploymentGroupResult):
             outdated_instances_strategy=self.outdated_instances_strategy,
             service_role_arn=self.service_role_arn,
             tags=self.tags,
+            termination_hook_enabled=self.termination_hook_enabled,
             trigger_configurations=self.trigger_configurations)
 
 
@@ -220,6 +229,7 @@ def get_deployment_group(id: Optional[str] = None,
         outdated_instances_strategy=pulumi.get(__ret__, 'outdated_instances_strategy'),
         service_role_arn=pulumi.get(__ret__, 'service_role_arn'),
         tags=pulumi.get(__ret__, 'tags'),
+        termination_hook_enabled=pulumi.get(__ret__, 'termination_hook_enabled'),
         trigger_configurations=pulumi.get(__ret__, 'trigger_configurations'))
 
 

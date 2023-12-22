@@ -19,6 +19,8 @@ import (
 type CustomLineItem struct {
 	pulumi.CustomResourceState
 
+	// The account which this custom line item will be charged to
+	AccountId pulumi.StringPtrOutput `pulumi:"accountId"`
 	// ARN
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Number of source values associated to this custom line item
@@ -49,6 +51,7 @@ func NewCustomLineItem(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'BillingGroupArn'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"accountId",
 		"billingGroupArn",
 		"billingPeriodRange.exclusiveEndBillingPeriod",
 		"billingPeriodRange.inclusiveStartBillingPeriod",
@@ -88,6 +91,8 @@ func (CustomLineItemState) ElementType() reflect.Type {
 }
 
 type customLineItemArgs struct {
+	// The account which this custom line item will be charged to
+	AccountId *string `pulumi:"accountId"`
 	// Billing Group ARN
 	BillingGroupArn             string                            `pulumi:"billingGroupArn"`
 	BillingPeriodRange          *CustomLineItemBillingPeriodRange `pulumi:"billingPeriodRange"`
@@ -99,6 +104,8 @@ type customLineItemArgs struct {
 
 // The set of arguments for constructing a CustomLineItem resource.
 type CustomLineItemArgs struct {
+	// The account which this custom line item will be charged to
+	AccountId pulumi.StringPtrInput
 	// Billing Group ARN
 	BillingGroupArn             pulumi.StringInput
 	BillingPeriodRange          CustomLineItemBillingPeriodRangePtrInput
@@ -155,6 +162,11 @@ func (o CustomLineItemOutput) ToOutput(ctx context.Context) pulumix.Output[*Cust
 	return pulumix.Output[*CustomLineItem]{
 		OutputState: o.OutputState,
 	}
+}
+
+// The account which this custom line item will be charged to
+func (o CustomLineItemOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomLineItem) pulumi.StringPtrOutput { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // ARN

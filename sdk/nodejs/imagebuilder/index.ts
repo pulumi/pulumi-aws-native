@@ -60,6 +60,11 @@ export const getLifecyclePolicy: typeof import("./getLifecyclePolicy").getLifecy
 export const getLifecyclePolicyOutput: typeof import("./getLifecyclePolicy").getLifecyclePolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getLifecyclePolicy","getLifecyclePolicyOutput"], () => require("./getLifecyclePolicy"));
 
+export { GetWorkflowArgs, GetWorkflowResult, GetWorkflowOutputArgs } from "./getWorkflow";
+export const getWorkflow: typeof import("./getWorkflow").getWorkflow = null as any;
+export const getWorkflowOutput: typeof import("./getWorkflow").getWorkflowOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkflow","getWorkflowOutput"], () => require("./getWorkflow"));
+
 export { ImageArgs } from "./image";
 export type Image = import("./image").Image;
 export const Image: typeof import("./image").Image = null as any;
@@ -85,6 +90,11 @@ export type LifecyclePolicy = import("./lifecyclePolicy").LifecyclePolicy;
 export const LifecyclePolicy: typeof import("./lifecyclePolicy").LifecyclePolicy = null as any;
 utilities.lazyLoad(exports, ["LifecyclePolicy"], () => require("./lifecyclePolicy"));
 
+export { WorkflowArgs } from "./workflow";
+export type Workflow = import("./workflow").Workflow;
+export const Workflow: typeof import("./workflow").Workflow = null as any;
+utilities.lazyLoad(exports, ["Workflow"], () => require("./workflow"));
+
 
 // Export enums:
 export * from "../types/enums/imagebuilder";
@@ -109,6 +119,8 @@ const _module = {
                 return new InfrastructureConfiguration(name, <any>undefined, { urn })
             case "aws-native:imagebuilder:LifecyclePolicy":
                 return new LifecyclePolicy(name, <any>undefined, { urn })
+            case "aws-native:imagebuilder:Workflow":
+                return new Workflow(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

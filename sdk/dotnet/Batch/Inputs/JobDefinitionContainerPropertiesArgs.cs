@@ -29,13 +29,13 @@ namespace Pulumi.AwsNative.Batch.Inputs
         }
 
         [Input("ephemeralStorage")]
-        public Input<Inputs.JobDefinitionEphemeralStorageArgs>? EphemeralStorage { get; set; }
+        public Input<Inputs.JobDefinitionContainerPropertiesEphemeralStoragePropertiesArgs>? EphemeralStorage { get; set; }
 
         [Input("executionRoleArn")]
         public Input<string>? ExecutionRoleArn { get; set; }
 
         [Input("fargatePlatformConfiguration")]
-        public Input<Inputs.JobDefinitionFargatePlatformConfigurationArgs>? FargatePlatformConfiguration { get; set; }
+        public Input<Inputs.JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs>? FargatePlatformConfiguration { get; set; }
 
         [Input("image", required: true)]
         public Input<string> Image { get; set; } = null!;
@@ -47,24 +47,24 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public Input<string>? JobRoleArn { get; set; }
 
         [Input("linuxParameters")]
-        public Input<Inputs.JobDefinitionLinuxParametersArgs>? LinuxParameters { get; set; }
+        public Input<Inputs.JobDefinitionContainerPropertiesLinuxParametersPropertiesArgs>? LinuxParameters { get; set; }
 
         [Input("logConfiguration")]
-        public Input<Inputs.JobDefinitionLogConfigurationArgs>? LogConfiguration { get; set; }
+        public Input<Inputs.JobDefinitionContainerPropertiesLogConfigurationPropertiesArgs>? LogConfiguration { get; set; }
 
         [Input("memory")]
         public Input<int>? Memory { get; set; }
 
         [Input("mountPoints")]
-        private InputList<Inputs.JobDefinitionMountPointsArgs>? _mountPoints;
-        public InputList<Inputs.JobDefinitionMountPointsArgs> MountPoints
+        private InputList<Inputs.JobDefinitionMountPointArgs>? _mountPoints;
+        public InputList<Inputs.JobDefinitionMountPointArgs> MountPoints
         {
-            get => _mountPoints ?? (_mountPoints = new InputList<Inputs.JobDefinitionMountPointsArgs>());
+            get => _mountPoints ?? (_mountPoints = new InputList<Inputs.JobDefinitionMountPointArgs>());
             set => _mountPoints = value;
         }
 
         [Input("networkConfiguration")]
-        public Input<Inputs.JobDefinitionNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
+        public Input<Inputs.JobDefinitionContainerPropertiesNetworkConfigurationPropertiesArgs>? NetworkConfiguration { get; set; }
 
         [Input("privileged")]
         public Input<bool>? Privileged { get; set; }
@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
         }
 
         [Input("runtimePlatform")]
-        public Input<Inputs.JobDefinitionRuntimePlatformArgs>? RuntimePlatform { get; set; }
+        public Input<Inputs.JobDefinitionContainerPropertiesRuntimePlatformPropertiesArgs>? RuntimePlatform { get; set; }
 
         [Input("secrets")]
         private InputList<Inputs.JobDefinitionSecretArgs>? _secrets;
@@ -106,10 +106,10 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public Input<int>? Vcpus { get; set; }
 
         [Input("volumes")]
-        private InputList<Inputs.JobDefinitionVolumesArgs>? _volumes;
-        public InputList<Inputs.JobDefinitionVolumesArgs> Volumes
+        private InputList<Inputs.JobDefinitionVolumeArgs>? _volumes;
+        public InputList<Inputs.JobDefinitionVolumeArgs> Volumes
         {
-            get => _volumes ?? (_volumes = new InputList<Inputs.JobDefinitionVolumesArgs>());
+            get => _volumes ?? (_volumes = new InputList<Inputs.JobDefinitionVolumeArgs>());
             set => _volumes = value;
         }
 

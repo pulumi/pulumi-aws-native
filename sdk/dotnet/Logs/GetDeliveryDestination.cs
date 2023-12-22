@@ -12,13 +12,17 @@ namespace Pulumi.AwsNative.Logs
     public static class GetDeliveryDestination
     {
         /// <summary>
-        /// Resource Type definition for AWS::Logs::DeliveryDestination
+        /// This structure contains information about one delivery destination in your account.
+        /// 
+        /// A delivery destination is an AWS resource that represents an AWS service that logs can be sent to CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.
         /// </summary>
         public static Task<GetDeliveryDestinationResult> InvokeAsync(GetDeliveryDestinationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeliveryDestinationResult>("aws-native:logs:getDeliveryDestination", args ?? new GetDeliveryDestinationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::Logs::DeliveryDestination
+        /// This structure contains information about one delivery destination in your account.
+        /// 
+        /// A delivery destination is an AWS resource that represents an AWS service that logs can be sent to CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.
         /// </summary>
         public static Output<GetDeliveryDestinationResult> Invoke(GetDeliveryDestinationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeliveryDestinationResult>("aws-native:logs:getDeliveryDestination", args ?? new GetDeliveryDestinationInvokeArgs(), options.WithDefaults());
@@ -28,7 +32,7 @@ namespace Pulumi.AwsNative.Logs
     public sealed class GetDeliveryDestinationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique name of the Delivery Destination.
+        /// The name of this delivery destination.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -42,7 +46,7 @@ namespace Pulumi.AwsNative.Logs
     public sealed class GetDeliveryDestinationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The unique name of the Delivery Destination.
+        /// The name of this delivery destination.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -58,7 +62,7 @@ namespace Pulumi.AwsNative.Logs
     public sealed class GetDeliveryDestinationResult
     {
         /// <summary>
-        /// The value of the Arn property for this object.
+        /// The Amazon Resource Name (ARN) that uniquely identifies this delivery destination.
         /// </summary>
         public readonly string? Arn;
         /// <summary>
@@ -70,11 +74,11 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         public readonly object? DeliveryDestinationPolicy;
         /// <summary>
-        /// The value of the DeliveryDestinationType property for this object.
+        /// Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
         /// </summary>
         public readonly string? DeliveryDestinationType;
         /// <summary>
-        /// An array of key-value pairs to apply to this resource.
+        /// The tags that have been assigned to this delivery destination.
         /// </summary>
         public readonly ImmutableArray<Outputs.DeliveryDestinationTag> Tags;
 

@@ -41,6 +41,8 @@ type LookupInstanceResult struct {
 	InstanceStatus *InstanceStatus `pulumi:"instanceStatus"`
 	// Service linked role created as part of instance creation.
 	ServiceRole *string `pulumi:"serviceRole"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []InstanceTag `pulumi:"tags"`
 }
 
 func LookupInstanceOutput(ctx *pulumi.Context, args LookupInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceResultOutput {
@@ -113,6 +115,11 @@ func (o LookupInstanceResultOutput) InstanceStatus() InstanceStatusPtrOutput {
 // Service linked role created as part of instance creation.
 func (o LookupInstanceResultOutput) ServiceRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *string { return v.ServiceRole }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupInstanceResultOutput) Tags() InstanceTagArrayOutput {
+	return o.ApplyT(func(v LookupInstanceResult) []InstanceTag { return v.Tags }).(InstanceTagArrayOutput)
 }
 
 func init() {

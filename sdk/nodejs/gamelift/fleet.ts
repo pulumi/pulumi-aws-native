@@ -42,6 +42,10 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly anywhereConfiguration!: pulumi.Output<outputs.gamelift.FleetAnywhereConfiguration | undefined>;
     /**
+     * ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+     */
+    public readonly applyCapacity!: pulumi.Output<enums.gamelift.FleetApplyCapacity | undefined>;
+    /**
      * A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
      */
     public readonly buildId!: pulumi.Output<string | undefined>;
@@ -159,6 +163,7 @@ export class Fleet extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["anywhereConfiguration"] = args ? args.anywhereConfiguration : undefined;
+            resourceInputs["applyCapacity"] = args ? args.applyCapacity : undefined;
             resourceInputs["buildId"] = args ? args.buildId : undefined;
             resourceInputs["certificateConfiguration"] = args ? args.certificateConfiguration : undefined;
             resourceInputs["computeType"] = args ? args.computeType : undefined;
@@ -187,6 +192,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["fleetId"] = undefined /*out*/;
         } else {
             resourceInputs["anywhereConfiguration"] = undefined /*out*/;
+            resourceInputs["applyCapacity"] = undefined /*out*/;
             resourceInputs["buildId"] = undefined /*out*/;
             resourceInputs["certificateConfiguration"] = undefined /*out*/;
             resourceInputs["computeType"] = undefined /*out*/;
@@ -215,7 +221,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["serverLaunchPath"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["buildId", "certificateConfiguration", "computeType", "ec2InstanceType", "fleetType", "instanceRoleArn", "instanceRoleCredentialsProvider", "logPaths[*]", "peerVpcAwsAccountId", "peerVpcId", "scriptId", "serverLaunchParameters", "serverLaunchPath"] };
+        const replaceOnChanges = { replaceOnChanges: ["applyCapacity", "buildId", "certificateConfiguration", "computeType", "ec2InstanceType", "fleetType", "instanceRoleArn", "instanceRoleCredentialsProvider", "logPaths[*]", "peerVpcAwsAccountId", "peerVpcId", "scriptId", "serverLaunchParameters", "serverLaunchPath"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Fleet.__pulumiType, name, resourceInputs, opts);
     }
@@ -229,6 +235,10 @@ export interface FleetArgs {
      * Configuration for Anywhere fleet.
      */
     anywhereConfiguration?: pulumi.Input<inputs.gamelift.FleetAnywhereConfigurationArgs>;
+    /**
+     * ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+     */
+    applyCapacity?: pulumi.Input<enums.gamelift.FleetApplyCapacity>;
     /**
      * A unique identifier for a build to be deployed on the new fleet. If you are deploying the fleet with a custom game build, you must specify this property. The build must have been successfully uploaded to Amazon GameLift and be in a READY status. This fleet setting cannot be changed once the fleet is created.
      */

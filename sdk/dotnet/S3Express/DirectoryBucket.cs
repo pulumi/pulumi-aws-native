@@ -22,13 +22,13 @@ namespace Pulumi.AwsNative.S3Express
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, dots (.), and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az2--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+        /// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
         /// </summary>
         [Output("bucketName")]
         public Output<string?> BucketName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of Avilability Zone that's used for redundancy for the bucket.
+        /// Specifies the number of Availability Zone that's used for redundancy for the bucket.
         /// </summary>
         [Output("dataRedundancy")]
         public Output<Pulumi.AwsNative.S3Express.DirectoryBucketDataRedundancy> DataRedundancy { get; private set; } = null!;
@@ -91,13 +91,13 @@ namespace Pulumi.AwsNative.S3Express
     public sealed class DirectoryBucketArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, dots (.), and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az2--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+        /// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
         /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
         /// <summary>
-        /// Specifies the number of Avilability Zone that's used for redundancy for the bucket.
+        /// Specifies the number of Availability Zone that's used for redundancy for the bucket.
         /// </summary>
         [Input("dataRedundancy", required: true)]
         public Input<Pulumi.AwsNative.S3Express.DirectoryBucketDataRedundancy> DataRedundancy { get; set; } = null!;

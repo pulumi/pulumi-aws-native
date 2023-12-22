@@ -53,6 +53,10 @@ export class DeploymentConfig extends pulumi.CustomResource {
      * The configuration that specifies how the deployment traffic is routed.
      */
     public readonly trafficRoutingConfig!: pulumi.Output<outputs.codedeploy.DeploymentConfigTrafficRoutingConfig | undefined>;
+    /**
+     * The zonal deployment config that specifies how the zonal deployment behaves
+     */
+    public readonly zonalConfig!: pulumi.Output<outputs.codedeploy.DeploymentConfigZonalConfig | undefined>;
 
     /**
      * Create a DeploymentConfig resource with the given unique name, arguments, and options.
@@ -69,14 +73,16 @@ export class DeploymentConfig extends pulumi.CustomResource {
             resourceInputs["deploymentConfigName"] = args ? args.deploymentConfigName : undefined;
             resourceInputs["minimumHealthyHosts"] = args ? args.minimumHealthyHosts : undefined;
             resourceInputs["trafficRoutingConfig"] = args ? args.trafficRoutingConfig : undefined;
+            resourceInputs["zonalConfig"] = args ? args.zonalConfig : undefined;
         } else {
             resourceInputs["computePlatform"] = undefined /*out*/;
             resourceInputs["deploymentConfigName"] = undefined /*out*/;
             resourceInputs["minimumHealthyHosts"] = undefined /*out*/;
             resourceInputs["trafficRoutingConfig"] = undefined /*out*/;
+            resourceInputs["zonalConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["computePlatform", "deploymentConfigName", "minimumHealthyHosts", "trafficRoutingConfig"] };
+        const replaceOnChanges = { replaceOnChanges: ["computePlatform", "deploymentConfigName", "minimumHealthyHosts", "trafficRoutingConfig", "zonalConfig"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DeploymentConfig.__pulumiType, name, resourceInputs, opts);
     }
@@ -102,4 +108,8 @@ export interface DeploymentConfigArgs {
      * The configuration that specifies how the deployment traffic is routed.
      */
     trafficRoutingConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigTrafficRoutingConfigArgs>;
+    /**
+     * The zonal deployment config that specifies how the zonal deployment behaves
+     */
+    zonalConfig?: pulumi.Input<inputs.codedeploy.DeploymentConfigZonalConfigArgs>;
 }

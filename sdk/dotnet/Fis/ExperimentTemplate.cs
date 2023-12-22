@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Fis
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
+        [Output("experimentOptions")]
+        public Output<Outputs.ExperimentTemplateExperimentOptions?> ExperimentOptions { get; private set; } = null!;
+
         [Output("logConfiguration")]
         public Output<Outputs.ExperimentTemplateLogConfiguration?> LogConfiguration { get; private set; } = null!;
 
@@ -90,6 +93,9 @@ namespace Pulumi.AwsNative.Fis
 
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
+
+        [Input("experimentOptions")]
+        public Input<Inputs.ExperimentTemplateExperimentOptionsArgs>? ExperimentOptions { get; set; }
 
         [Input("logConfiguration")]
         public Input<Inputs.ExperimentTemplateLogConfigurationArgs>? LogConfiguration { get; set; }

@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("securityConfig")]
         public Input<Inputs.FeatureGroupOnlineStoreSecurityConfigArgs>? SecurityConfig { get; set; }
 
+        [Input("storageType")]
+        public Input<Pulumi.AwsNative.SageMaker.FeatureGroupStorageType>? StorageType { get; set; }
+
         public OnlineStoreConfigPropertiesArgs()
         {
         }

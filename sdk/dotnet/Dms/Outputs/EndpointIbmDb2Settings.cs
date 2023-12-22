@@ -14,14 +14,24 @@ namespace Pulumi.AwsNative.Dms.Outputs
     public sealed class EndpointIbmDb2Settings
     {
         public readonly string? CurrentLsn;
+        public readonly bool? KeepCsvFiles;
+        public readonly int? LoadTimeout;
+        public readonly int? MaxFileSize;
         public readonly int? MaxKBytesPerRead;
         public readonly string? SecretsManagerAccessRoleArn;
         public readonly string? SecretsManagerSecretId;
         public readonly bool? SetDataCaptureChanges;
+        public readonly int? WriteBufferSize;
 
         [OutputConstructor]
         private EndpointIbmDb2Settings(
             string? currentLsn,
+
+            bool? keepCsvFiles,
+
+            int? loadTimeout,
+
+            int? maxFileSize,
 
             int? maxKBytesPerRead,
 
@@ -29,13 +39,19 @@ namespace Pulumi.AwsNative.Dms.Outputs
 
             string? secretsManagerSecretId,
 
-            bool? setDataCaptureChanges)
+            bool? setDataCaptureChanges,
+
+            int? writeBufferSize)
         {
             CurrentLsn = currentLsn;
+            KeepCsvFiles = keepCsvFiles;
+            LoadTimeout = loadTimeout;
+            MaxFileSize = maxFileSize;
             MaxKBytesPerRead = maxKBytesPerRead;
             SecretsManagerAccessRoleArn = secretsManagerAccessRoleArn;
             SecretsManagerSecretId = secretsManagerSecretId;
             SetDataCaptureChanges = setDataCaptureChanges;
+            WriteBufferSize = writeBufferSize;
         }
     }
 }

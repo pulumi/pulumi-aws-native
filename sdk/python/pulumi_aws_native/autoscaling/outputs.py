@@ -161,7 +161,11 @@ class AutoScalingGroupInstanceRequirements(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "acceleratorCount":
+        if key == "memoryMiB":
+            suggest = "memory_mi_b"
+        elif key == "vCpuCount":
+            suggest = "v_cpu_count"
+        elif key == "acceleratorCount":
             suggest = "accelerator_count"
         elif key == "acceleratorManufacturers":
             suggest = "accelerator_manufacturers"
@@ -191,8 +195,6 @@ class AutoScalingGroupInstanceRequirements(dict):
             suggest = "local_storage_types"
         elif key == "memoryGiBPerVCpu":
             suggest = "memory_gi_b_per_v_cpu"
-        elif key == "memoryMiB":
-            suggest = "memory_mi_b"
         elif key == "networkBandwidthGbps":
             suggest = "network_bandwidth_gbps"
         elif key == "networkInterfaceCount":
@@ -205,8 +207,6 @@ class AutoScalingGroupInstanceRequirements(dict):
             suggest = "spot_max_price_percentage_over_lowest_price"
         elif key == "totalLocalStorageGb":
             suggest = "total_local_storage_gb"
-        elif key == "vCpuCount":
-            suggest = "v_cpu_count"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AutoScalingGroupInstanceRequirements. Access the value via the '{suggest}' property getter instead.")
@@ -220,6 +220,8 @@ class AutoScalingGroupInstanceRequirements(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 memory_mi_b: 'outputs.AutoScalingGroupMemoryMiBRequest',
+                 v_cpu_count: 'outputs.AutoScalingGroupVCpuCountRequest',
                  accelerator_count: Optional['outputs.AutoScalingGroupAcceleratorCountRequest'] = None,
                  accelerator_manufacturers: Optional[Sequence[str]] = None,
                  accelerator_names: Optional[Sequence[str]] = None,
@@ -235,14 +237,14 @@ class AutoScalingGroupInstanceRequirements(dict):
                  local_storage: Optional[str] = None,
                  local_storage_types: Optional[Sequence[str]] = None,
                  memory_gi_b_per_v_cpu: Optional['outputs.AutoScalingGroupMemoryGiBPerVCpuRequest'] = None,
-                 memory_mi_b: Optional['outputs.AutoScalingGroupMemoryMiBRequest'] = None,
                  network_bandwidth_gbps: Optional['outputs.AutoScalingGroupNetworkBandwidthGbpsRequest'] = None,
                  network_interface_count: Optional['outputs.AutoScalingGroupNetworkInterfaceCountRequest'] = None,
                  on_demand_max_price_percentage_over_lowest_price: Optional[int] = None,
                  require_hibernate_support: Optional[bool] = None,
                  spot_max_price_percentage_over_lowest_price: Optional[int] = None,
-                 total_local_storage_gb: Optional['outputs.AutoScalingGroupTotalLocalStorageGbRequest'] = None,
-                 v_cpu_count: Optional['outputs.AutoScalingGroupVCpuCountRequest'] = None):
+                 total_local_storage_gb: Optional['outputs.AutoScalingGroupTotalLocalStorageGbRequest'] = None):
+        pulumi.set(__self__, "memory_mi_b", memory_mi_b)
+        pulumi.set(__self__, "v_cpu_count", v_cpu_count)
         if accelerator_count is not None:
             pulumi.set(__self__, "accelerator_count", accelerator_count)
         if accelerator_manufacturers is not None:
@@ -273,8 +275,6 @@ class AutoScalingGroupInstanceRequirements(dict):
             pulumi.set(__self__, "local_storage_types", local_storage_types)
         if memory_gi_b_per_v_cpu is not None:
             pulumi.set(__self__, "memory_gi_b_per_v_cpu", memory_gi_b_per_v_cpu)
-        if memory_mi_b is not None:
-            pulumi.set(__self__, "memory_mi_b", memory_mi_b)
         if network_bandwidth_gbps is not None:
             pulumi.set(__self__, "network_bandwidth_gbps", network_bandwidth_gbps)
         if network_interface_count is not None:
@@ -287,8 +287,16 @@ class AutoScalingGroupInstanceRequirements(dict):
             pulumi.set(__self__, "spot_max_price_percentage_over_lowest_price", spot_max_price_percentage_over_lowest_price)
         if total_local_storage_gb is not None:
             pulumi.set(__self__, "total_local_storage_gb", total_local_storage_gb)
-        if v_cpu_count is not None:
-            pulumi.set(__self__, "v_cpu_count", v_cpu_count)
+
+    @property
+    @pulumi.getter(name="memoryMiB")
+    def memory_mi_b(self) -> 'outputs.AutoScalingGroupMemoryMiBRequest':
+        return pulumi.get(self, "memory_mi_b")
+
+    @property
+    @pulumi.getter(name="vCpuCount")
+    def v_cpu_count(self) -> 'outputs.AutoScalingGroupVCpuCountRequest':
+        return pulumi.get(self, "v_cpu_count")
 
     @property
     @pulumi.getter(name="acceleratorCount")
@@ -366,11 +374,6 @@ class AutoScalingGroupInstanceRequirements(dict):
         return pulumi.get(self, "memory_gi_b_per_v_cpu")
 
     @property
-    @pulumi.getter(name="memoryMiB")
-    def memory_mi_b(self) -> Optional['outputs.AutoScalingGroupMemoryMiBRequest']:
-        return pulumi.get(self, "memory_mi_b")
-
-    @property
     @pulumi.getter(name="networkBandwidthGbps")
     def network_bandwidth_gbps(self) -> Optional['outputs.AutoScalingGroupNetworkBandwidthGbpsRequest']:
         return pulumi.get(self, "network_bandwidth_gbps")
@@ -399,11 +402,6 @@ class AutoScalingGroupInstanceRequirements(dict):
     @pulumi.getter(name="totalLocalStorageGb")
     def total_local_storage_gb(self) -> Optional['outputs.AutoScalingGroupTotalLocalStorageGbRequest']:
         return pulumi.get(self, "total_local_storage_gb")
-
-    @property
-    @pulumi.getter(name="vCpuCount")
-    def v_cpu_count(self) -> Optional['outputs.AutoScalingGroupVCpuCountRequest']:
-        return pulumi.get(self, "v_cpu_count")
 
 
 @pulumi.output_type

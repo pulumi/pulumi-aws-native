@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'StudioAuthMode',
+    'StudioIdcUserAssignment',
     'StudioSessionMappingIdentityType',
 ]
 
@@ -16,6 +17,14 @@ class StudioAuthMode(str, Enum):
     """
     SSO = "SSO"
     IAM = "IAM"
+
+
+class StudioIdcUserAssignment(str, Enum):
+    """
+    Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL. If the value is set to REQUIRED, users must be explicitly assigned to the Studio application to access the Studio.
+    """
+    REQUIRED = "REQUIRED"
+    OPTIONAL = "OPTIONAL"
 
 
 class StudioSessionMappingIdentityType(str, Enum):

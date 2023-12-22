@@ -63,6 +63,12 @@ namespace Pulumi.AwsNative.Connect
         [Output("serviceRole")]
         public Output<string> ServiceRole { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.InstanceTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Instance resource with the given unique name, arguments, and options.
@@ -137,6 +143,18 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         [Input("instanceAlias")]
         public Input<string>? InstanceAlias { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.InstanceTagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public InputList<Inputs.InstanceTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.InstanceTagArgs>());
+            set => _tags = value;
+        }
 
         public InstanceArgs()
         {

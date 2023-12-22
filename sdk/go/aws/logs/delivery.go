@@ -13,21 +13,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::Logs::Delivery.
+// This structure contains information about one delivery in your account.
+//
+// A delivery is a connection between a logical delivery source and a logical delivery destination.
+//
+// For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).
 type Delivery struct {
 	pulumi.CustomResourceState
 
-	// The value of the Arn property for this object.
+	// The Amazon Resource Name (ARN) that uniquely identifies this delivery.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The value of the DeliveryDestinationArn property for this object.
+	// The ARN of the delivery destination that is associated with this delivery.
 	DeliveryDestinationArn pulumi.StringOutput `pulumi:"deliveryDestinationArn"`
-	// The value of the DeliveryDestinationType property for this object.
+	// Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
 	DeliveryDestinationType pulumi.StringOutput `pulumi:"deliveryDestinationType"`
-	// The value of the Id property for this object.
+	// The unique ID that identifies this delivery in your account.
 	DeliveryId pulumi.StringOutput `pulumi:"deliveryId"`
-	// The value of the DeliverySourceName property for this object.
+	// The name of the delivery source that is associated with this delivery.
 	DeliverySourceName pulumi.StringOutput `pulumi:"deliverySourceName"`
-	// The value of the Tags property for this object.
+	// The tags that have been assigned to this delivery.
 	Tags DeliveryTagArrayOutput `pulumi:"tags"`
 }
 
@@ -82,21 +86,21 @@ func (DeliveryState) ElementType() reflect.Type {
 }
 
 type deliveryArgs struct {
-	// The value of the DeliveryDestinationArn property for this object.
+	// The ARN of the delivery destination that is associated with this delivery.
 	DeliveryDestinationArn string `pulumi:"deliveryDestinationArn"`
-	// The value of the DeliverySourceName property for this object.
+	// The name of the delivery source that is associated with this delivery.
 	DeliverySourceName string `pulumi:"deliverySourceName"`
-	// The value of the Tags property for this object.
+	// The tags that have been assigned to this delivery.
 	Tags []DeliveryTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Delivery resource.
 type DeliveryArgs struct {
-	// The value of the DeliveryDestinationArn property for this object.
+	// The ARN of the delivery destination that is associated with this delivery.
 	DeliveryDestinationArn pulumi.StringInput
-	// The value of the DeliverySourceName property for this object.
+	// The name of the delivery source that is associated with this delivery.
 	DeliverySourceName pulumi.StringInput
-	// The value of the Tags property for this object.
+	// The tags that have been assigned to this delivery.
 	Tags DeliveryTagArrayInput
 }
 
@@ -149,32 +153,32 @@ func (o DeliveryOutput) ToOutput(ctx context.Context) pulumix.Output[*Delivery] 
 	}
 }
 
-// The value of the Arn property for this object.
+// The Amazon Resource Name (ARN) that uniquely identifies this delivery.
 func (o DeliveryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Delivery) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The value of the DeliveryDestinationArn property for this object.
+// The ARN of the delivery destination that is associated with this delivery.
 func (o DeliveryOutput) DeliveryDestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Delivery) pulumi.StringOutput { return v.DeliveryDestinationArn }).(pulumi.StringOutput)
 }
 
-// The value of the DeliveryDestinationType property for this object.
+// Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
 func (o DeliveryOutput) DeliveryDestinationType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Delivery) pulumi.StringOutput { return v.DeliveryDestinationType }).(pulumi.StringOutput)
 }
 
-// The value of the Id property for this object.
+// The unique ID that identifies this delivery in your account.
 func (o DeliveryOutput) DeliveryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Delivery) pulumi.StringOutput { return v.DeliveryId }).(pulumi.StringOutput)
 }
 
-// The value of the DeliverySourceName property for this object.
+// The name of the delivery source that is associated with this delivery.
 func (o DeliveryOutput) DeliverySourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Delivery) pulumi.StringOutput { return v.DeliverySourceName }).(pulumi.StringOutput)
 }
 
-// The value of the Tags property for this object.
+// The tags that have been assigned to this delivery.
 func (o DeliveryOutput) Tags() DeliveryTagArrayOutput {
 	return o.ApplyT(func(v *Delivery) DeliveryTagArrayOutput { return v.Tags }).(DeliveryTagArrayOutput)
 }

@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::EventSchemas::Registry
- *
- * @deprecated Registry is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class Registry extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Registry extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Registry {
-        pulumi.log.warn("Registry is deprecated: Registry is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new Registry(name, undefined as any, { ...opts, id: id });
     }
 
@@ -40,9 +37,21 @@ export class Registry extends pulumi.CustomResource {
         return obj['__pulumiType'] === Registry.__pulumiType;
     }
 
+    /**
+     * A description of the registry to be created.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the registry.
+     */
     public /*out*/ readonly registryArn!: pulumi.Output<string>;
+    /**
+     * The name of the schema registry.
+     */
     public readonly registryName!: pulumi.Output<string | undefined>;
+    /**
+     * Tags associated with the resource.
+     */
     public readonly tags!: pulumi.Output<outputs.eventschemas.RegistryTagsEntry[] | undefined>;
 
     /**
@@ -52,9 +61,7 @@ export class Registry extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Registry is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: RegistryArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Registry is deprecated: Registry is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -79,7 +86,16 @@ export class Registry extends pulumi.CustomResource {
  * The set of arguments for constructing a Registry resource.
  */
 export interface RegistryArgs {
+    /**
+     * A description of the registry to be created.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the schema registry.
+     */
     registryName?: pulumi.Input<string>;
+    /**
+     * Tags associated with the resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.eventschemas.RegistryTagsEntryArgs>[]>;
 }

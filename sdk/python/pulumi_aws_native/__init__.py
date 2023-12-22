@@ -67,6 +67,8 @@ if typing.TYPE_CHECKING:
     autoscaling = __autoscaling
     import pulumi_aws_native.autoscalingplans as __autoscalingplans
     autoscalingplans = __autoscalingplans
+    import pulumi_aws_native.b2bi as __b2bi
+    b2bi = __b2bi
     import pulumi_aws_native.backup as __backup
     backup = __backup
     import pulumi_aws_native.backupgateway as __backupgateway
@@ -505,6 +507,7 @@ else:
     auditmanager = _utilities.lazy_import('pulumi_aws_native.auditmanager')
     autoscaling = _utilities.lazy_import('pulumi_aws_native.autoscaling')
     autoscalingplans = _utilities.lazy_import('pulumi_aws_native.autoscalingplans')
+    b2bi = _utilities.lazy_import('pulumi_aws_native.b2bi')
     backup = _utilities.lazy_import('pulumi_aws_native.backup')
     backupgateway = _utilities.lazy_import('pulumi_aws_native.backupgateway')
     batch = _utilities.lazy_import('pulumi_aws_native.batch')
@@ -993,6 +996,17 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "b2bi",
+  "fqn": "pulumi_aws_native.b2bi",
+  "classes": {
+   "aws-native:b2bi:Capability": "Capability",
+   "aws-native:b2bi:Partnership": "Partnership",
+   "aws-native:b2bi:Profile": "Profile",
+   "aws-native:b2bi:Transformer": "Transformer"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "backup",
   "fqn": "pulumi_aws_native.backup",
   "classes": {
@@ -1135,6 +1149,7 @@ _utilities.register(
    "aws-native:cloudfront:Distribution": "Distribution",
    "aws-native:cloudfront:Function": "Function",
    "aws-native:cloudfront:KeyGroup": "KeyGroup",
+   "aws-native:cloudfront:KeyValueStore": "KeyValueStore",
    "aws-native:cloudfront:MonitoringSubscription": "MonitoringSubscription",
    "aws-native:cloudfront:OriginAccessControl": "OriginAccessControl",
    "aws-native:cloudfront:OriginRequestPolicy": "OriginRequestPolicy",
@@ -1478,8 +1493,11 @@ _utilities.register(
   "fqn": "pulumi_aws_native.dms",
   "classes": {
    "aws-native:dms:Certificate": "Certificate",
+   "aws-native:dms:DataProvider": "DataProvider",
    "aws-native:dms:Endpoint": "Endpoint",
    "aws-native:dms:EventSubscription": "EventSubscription",
+   "aws-native:dms:InstanceProfile": "InstanceProfile",
+   "aws-native:dms:MigrationProject": "MigrationProject",
    "aws-native:dms:ReplicationConfig": "ReplicationConfig",
    "aws-native:dms:ReplicationInstance": "ReplicationInstance",
    "aws-native:dms:ReplicationSubnetGroup": "ReplicationSubnetGroup",
@@ -1570,6 +1588,7 @@ _utilities.register(
    "aws-native:ec2:SecurityGroup": "SecurityGroup",
    "aws-native:ec2:SecurityGroupEgress": "SecurityGroupEgress",
    "aws-native:ec2:SecurityGroupIngress": "SecurityGroupIngress",
+   "aws-native:ec2:SnapshotBlockPublicAccess": "SnapshotBlockPublicAccess",
    "aws-native:ec2:SpotFleet": "SpotFleet",
    "aws-native:ec2:Subnet": "Subnet",
    "aws-native:ec2:SubnetCidrBlock": "SubnetCidrBlock",
@@ -1654,6 +1673,7 @@ _utilities.register(
   "mod": "eks",
   "fqn": "pulumi_aws_native.eks",
   "classes": {
+   "aws-native:eks:AccessEntry": "AccessEntry",
    "aws-native:eks:Addon": "Addon",
    "aws-native:eks:Cluster": "Cluster",
    "aws-native:eks:FargateProfile": "FargateProfile",
@@ -1811,7 +1831,8 @@ _utilities.register(
   "mod": "fis",
   "fqn": "pulumi_aws_native.fis",
   "classes": {
-   "aws-native:fis:ExperimentTemplate": "ExperimentTemplate"
+   "aws-native:fis:ExperimentTemplate": "ExperimentTemplate",
+   "aws-native:fis:TargetAccountConfiguration": "TargetAccountConfiguration"
   }
  },
  {
@@ -2033,7 +2054,8 @@ _utilities.register(
    "aws-native:imagebuilder:ImagePipeline": "ImagePipeline",
    "aws-native:imagebuilder:ImageRecipe": "ImageRecipe",
    "aws-native:imagebuilder:InfrastructureConfiguration": "InfrastructureConfiguration",
-   "aws-native:imagebuilder:LifecyclePolicy": "LifecyclePolicy"
+   "aws-native:imagebuilder:LifecyclePolicy": "LifecyclePolicy",
+   "aws-native:imagebuilder:Workflow": "Workflow"
   }
  },
  {
@@ -2080,6 +2102,7 @@ _utilities.register(
    "aws-native:iot:BillingGroup": "BillingGroup",
    "aws-native:iot:CaCertificate": "CaCertificate",
    "aws-native:iot:Certificate": "Certificate",
+   "aws-native:iot:CertificateProvider": "CertificateProvider",
    "aws-native:iot:CustomMetric": "CustomMetric",
    "aws-native:iot:Dimension": "Dimension",
    "aws-native:iot:DomainConfiguration": "DomainConfiguration",

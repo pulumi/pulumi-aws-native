@@ -87,6 +87,9 @@ namespace Pulumi.AwsNative.Ecs
         [Output("taskDefinition")]
         public Output<string?> TaskDefinition { get; private set; } = null!;
 
+        [Output("volumeConfigurations")]
+        public Output<ImmutableArray<Outputs.ServiceVolumeConfiguration>> VolumeConfigurations { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Service resource with the given unique name, arguments, and options.
@@ -236,6 +239,14 @@ namespace Pulumi.AwsNative.Ecs
 
         [Input("taskDefinition")]
         public Input<string>? TaskDefinition { get; set; }
+
+        [Input("volumeConfigurations")]
+        private InputList<Inputs.ServiceVolumeConfigurationArgs>? _volumeConfigurations;
+        public InputList<Inputs.ServiceVolumeConfigurationArgs> VolumeConfigurations
+        {
+            get => _volumeConfigurations ?? (_volumeConfigurations = new InputList<Inputs.ServiceVolumeConfigurationArgs>());
+            set => _volumeConfigurations = value;
+        }
 
         public ServiceArgs()
         {

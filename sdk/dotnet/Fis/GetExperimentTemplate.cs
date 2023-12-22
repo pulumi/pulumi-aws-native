@@ -53,6 +53,7 @@ namespace Pulumi.AwsNative.Fis
     {
         public readonly Outputs.ExperimentTemplateActionMap? Actions;
         public readonly string? Description;
+        public readonly Outputs.ExperimentTemplateExperimentOptions? ExperimentOptions;
         public readonly string? Id;
         public readonly Outputs.ExperimentTemplateLogConfiguration? LogConfiguration;
         public readonly string? RoleArn;
@@ -64,6 +65,8 @@ namespace Pulumi.AwsNative.Fis
             Outputs.ExperimentTemplateActionMap? actions,
 
             string? description,
+
+            Outputs.ExperimentTemplateExperimentOptions? experimentOptions,
 
             string? id,
 
@@ -77,6 +80,7 @@ namespace Pulumi.AwsNative.Fis
         {
             Actions = actions;
             Description = description;
+            ExperimentOptions = experimentOptions;
             Id = id;
             LogConfiguration = logConfiguration;
             RoleArn = roleArn;

@@ -2708,6 +2708,7 @@ type IntegrationAssociationIntegrationType string
 const (
 	IntegrationAssociationIntegrationTypeLexBot         = IntegrationAssociationIntegrationType("LEX_BOT")
 	IntegrationAssociationIntegrationTypeLambdaFunction = IntegrationAssociationIntegrationType("LAMBDA_FUNCTION")
+	IntegrationAssociationIntegrationTypeApplication    = IntegrationAssociationIntegrationType("APPLICATION")
 )
 
 func (IntegrationAssociationIntegrationType) ElementType() reflect.Type {
@@ -4465,6 +4466,8 @@ const (
 	RuleTriggerEventSourceEventSourceNameOnZendeskTicketStatusUpdate     = RuleTriggerEventSourceEventSourceName("OnZendeskTicketStatusUpdate")
 	RuleTriggerEventSourceEventSourceNameOnSalesforceCaseCreate          = RuleTriggerEventSourceEventSourceName("OnSalesforceCaseCreate")
 	RuleTriggerEventSourceEventSourceNameOnMetricDataUpdate              = RuleTriggerEventSourceEventSourceName("OnMetricDataUpdate")
+	RuleTriggerEventSourceEventSourceNameOnCaseCreate                    = RuleTriggerEventSourceEventSourceName("OnCaseCreate")
+	RuleTriggerEventSourceEventSourceNameOnCasesUpdate                   = RuleTriggerEventSourceEventSourceName("OnCasesUpdate")
 )
 
 func (RuleTriggerEventSourceEventSourceName) ElementType() reflect.Type {

@@ -14,17 +14,23 @@ import (
 )
 
 // Resource Type definition for AWS::EventSchemas::Discoverer
-//
-// Deprecated: Discoverer is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Discoverer struct {
 	pulumi.CustomResourceState
 
-	CrossAccount  pulumi.BoolPtrOutput           `pulumi:"crossAccount"`
-	Description   pulumi.StringPtrOutput         `pulumi:"description"`
-	DiscovererArn pulumi.StringOutput            `pulumi:"discovererArn"`
-	DiscovererId  pulumi.StringOutput            `pulumi:"discovererId"`
-	SourceArn     pulumi.StringOutput            `pulumi:"sourceArn"`
-	Tags          DiscovererTagsEntryArrayOutput `pulumi:"tags"`
+	// Defines whether event schemas from other accounts are discovered. Default is True.
+	CrossAccount pulumi.BoolPtrOutput `pulumi:"crossAccount"`
+	// A description for the discoverer.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The ARN of the discoverer.
+	DiscovererArn pulumi.StringOutput `pulumi:"discovererArn"`
+	// The Id of the discoverer.
+	DiscovererId pulumi.StringOutput `pulumi:"discovererId"`
+	// The ARN of the event bus.
+	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
+	// Defines the current state of the discoverer.
+	State pulumi.StringOutput `pulumi:"state"`
+	// Tags associated with the resource.
+	Tags DiscovererTagsEntryArrayOutput `pulumi:"tags"`
 }
 
 // NewDiscoverer registers a new resource with the given unique name, arguments, and options.
@@ -74,18 +80,26 @@ func (DiscovererState) ElementType() reflect.Type {
 }
 
 type discovererArgs struct {
-	CrossAccount *bool                 `pulumi:"crossAccount"`
-	Description  *string               `pulumi:"description"`
-	SourceArn    string                `pulumi:"sourceArn"`
-	Tags         []DiscovererTagsEntry `pulumi:"tags"`
+	// Defines whether event schemas from other accounts are discovered. Default is True.
+	CrossAccount *bool `pulumi:"crossAccount"`
+	// A description for the discoverer.
+	Description *string `pulumi:"description"`
+	// The ARN of the event bus.
+	SourceArn string `pulumi:"sourceArn"`
+	// Tags associated with the resource.
+	Tags []DiscovererTagsEntry `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Discoverer resource.
 type DiscovererArgs struct {
+	// Defines whether event schemas from other accounts are discovered. Default is True.
 	CrossAccount pulumi.BoolPtrInput
-	Description  pulumi.StringPtrInput
-	SourceArn    pulumi.StringInput
-	Tags         DiscovererTagsEntryArrayInput
+	// A description for the discoverer.
+	Description pulumi.StringPtrInput
+	// The ARN of the event bus.
+	SourceArn pulumi.StringInput
+	// Tags associated with the resource.
+	Tags DiscovererTagsEntryArrayInput
 }
 
 func (DiscovererArgs) ElementType() reflect.Type {
@@ -137,26 +151,37 @@ func (o DiscovererOutput) ToOutput(ctx context.Context) pulumix.Output[*Discover
 	}
 }
 
+// Defines whether event schemas from other accounts are discovered. Default is True.
 func (o DiscovererOutput) CrossAccount() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Discoverer) pulumi.BoolPtrOutput { return v.CrossAccount }).(pulumi.BoolPtrOutput)
 }
 
+// A description for the discoverer.
 func (o DiscovererOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Discoverer) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the discoverer.
 func (o DiscovererOutput) DiscovererArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Discoverer) pulumi.StringOutput { return v.DiscovererArn }).(pulumi.StringOutput)
 }
 
+// The Id of the discoverer.
 func (o DiscovererOutput) DiscovererId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Discoverer) pulumi.StringOutput { return v.DiscovererId }).(pulumi.StringOutput)
 }
 
+// The ARN of the event bus.
 func (o DiscovererOutput) SourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Discoverer) pulumi.StringOutput { return v.SourceArn }).(pulumi.StringOutput)
 }
 
+// Defines the current state of the discoverer.
+func (o DiscovererOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *Discoverer) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Tags associated with the resource.
 func (o DiscovererOutput) Tags() DiscovererTagsEntryArrayOutput {
 	return o.ApplyT(func(v *Discoverer) DiscovererTagsEntryArrayOutput { return v.Tags }).(DiscovererTagsEntryArrayOutput)
 }

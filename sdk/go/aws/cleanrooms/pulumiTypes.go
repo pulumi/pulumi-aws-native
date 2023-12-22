@@ -599,9 +599,10 @@ func (o CollaborationDataEncryptionMetadataPtrOutput) PreserveNulls() pulumi.Boo
 }
 
 type CollaborationMemberSpecification struct {
-	AccountId       string                       `pulumi:"accountId"`
-	DisplayName     string                       `pulumi:"displayName"`
-	MemberAbilities []CollaborationMemberAbility `pulumi:"memberAbilities"`
+	AccountId            string                             `pulumi:"accountId"`
+	DisplayName          string                             `pulumi:"displayName"`
+	MemberAbilities      []CollaborationMemberAbility       `pulumi:"memberAbilities"`
+	PaymentConfiguration *CollaborationPaymentConfiguration `pulumi:"paymentConfiguration"`
 }
 
 // CollaborationMemberSpecificationInput is an input type that accepts CollaborationMemberSpecificationArgs and CollaborationMemberSpecificationOutput values.
@@ -616,9 +617,10 @@ type CollaborationMemberSpecificationInput interface {
 }
 
 type CollaborationMemberSpecificationArgs struct {
-	AccountId       pulumi.StringInput                   `pulumi:"accountId"`
-	DisplayName     pulumi.StringInput                   `pulumi:"displayName"`
-	MemberAbilities CollaborationMemberAbilityArrayInput `pulumi:"memberAbilities"`
+	AccountId            pulumi.StringInput                        `pulumi:"accountId"`
+	DisplayName          pulumi.StringInput                        `pulumi:"displayName"`
+	MemberAbilities      CollaborationMemberAbilityArrayInput      `pulumi:"memberAbilities"`
+	PaymentConfiguration CollaborationPaymentConfigurationPtrInput `pulumi:"paymentConfiguration"`
 }
 
 func (CollaborationMemberSpecificationArgs) ElementType() reflect.Type {
@@ -702,6 +704,12 @@ func (o CollaborationMemberSpecificationOutput) MemberAbilities() CollaborationM
 	return o.ApplyT(func(v CollaborationMemberSpecification) []CollaborationMemberAbility { return v.MemberAbilities }).(CollaborationMemberAbilityArrayOutput)
 }
 
+func (o CollaborationMemberSpecificationOutput) PaymentConfiguration() CollaborationPaymentConfigurationPtrOutput {
+	return o.ApplyT(func(v CollaborationMemberSpecification) *CollaborationPaymentConfiguration {
+		return v.PaymentConfiguration
+	}).(CollaborationPaymentConfigurationPtrOutput)
+}
+
 type CollaborationMemberSpecificationArrayOutput struct{ *pulumi.OutputState }
 
 func (CollaborationMemberSpecificationArrayOutput) ElementType() reflect.Type {
@@ -726,6 +734,322 @@ func (o CollaborationMemberSpecificationArrayOutput) Index(i pulumi.IntInput) Co
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CollaborationMemberSpecification {
 		return vs[0].([]CollaborationMemberSpecification)[vs[1].(int)]
 	}).(CollaborationMemberSpecificationOutput)
+}
+
+type CollaborationPaymentConfiguration struct {
+	QueryCompute CollaborationQueryComputePaymentConfig `pulumi:"queryCompute"`
+}
+
+// CollaborationPaymentConfigurationInput is an input type that accepts CollaborationPaymentConfigurationArgs and CollaborationPaymentConfigurationOutput values.
+// You can construct a concrete instance of `CollaborationPaymentConfigurationInput` via:
+//
+//	CollaborationPaymentConfigurationArgs{...}
+type CollaborationPaymentConfigurationInput interface {
+	pulumi.Input
+
+	ToCollaborationPaymentConfigurationOutput() CollaborationPaymentConfigurationOutput
+	ToCollaborationPaymentConfigurationOutputWithContext(context.Context) CollaborationPaymentConfigurationOutput
+}
+
+type CollaborationPaymentConfigurationArgs struct {
+	QueryCompute CollaborationQueryComputePaymentConfigInput `pulumi:"queryCompute"`
+}
+
+func (CollaborationPaymentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationPaymentConfiguration)(nil)).Elem()
+}
+
+func (i CollaborationPaymentConfigurationArgs) ToCollaborationPaymentConfigurationOutput() CollaborationPaymentConfigurationOutput {
+	return i.ToCollaborationPaymentConfigurationOutputWithContext(context.Background())
+}
+
+func (i CollaborationPaymentConfigurationArgs) ToCollaborationPaymentConfigurationOutputWithContext(ctx context.Context) CollaborationPaymentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationPaymentConfigurationOutput)
+}
+
+func (i CollaborationPaymentConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[CollaborationPaymentConfiguration] {
+	return pulumix.Output[CollaborationPaymentConfiguration]{
+		OutputState: i.ToCollaborationPaymentConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i CollaborationPaymentConfigurationArgs) ToCollaborationPaymentConfigurationPtrOutput() CollaborationPaymentConfigurationPtrOutput {
+	return i.ToCollaborationPaymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CollaborationPaymentConfigurationArgs) ToCollaborationPaymentConfigurationPtrOutputWithContext(ctx context.Context) CollaborationPaymentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationPaymentConfigurationOutput).ToCollaborationPaymentConfigurationPtrOutputWithContext(ctx)
+}
+
+// CollaborationPaymentConfigurationPtrInput is an input type that accepts CollaborationPaymentConfigurationArgs, CollaborationPaymentConfigurationPtr and CollaborationPaymentConfigurationPtrOutput values.
+// You can construct a concrete instance of `CollaborationPaymentConfigurationPtrInput` via:
+//
+//	        CollaborationPaymentConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CollaborationPaymentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCollaborationPaymentConfigurationPtrOutput() CollaborationPaymentConfigurationPtrOutput
+	ToCollaborationPaymentConfigurationPtrOutputWithContext(context.Context) CollaborationPaymentConfigurationPtrOutput
+}
+
+type collaborationPaymentConfigurationPtrType CollaborationPaymentConfigurationArgs
+
+func CollaborationPaymentConfigurationPtr(v *CollaborationPaymentConfigurationArgs) CollaborationPaymentConfigurationPtrInput {
+	return (*collaborationPaymentConfigurationPtrType)(v)
+}
+
+func (*collaborationPaymentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollaborationPaymentConfiguration)(nil)).Elem()
+}
+
+func (i *collaborationPaymentConfigurationPtrType) ToCollaborationPaymentConfigurationPtrOutput() CollaborationPaymentConfigurationPtrOutput {
+	return i.ToCollaborationPaymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *collaborationPaymentConfigurationPtrType) ToCollaborationPaymentConfigurationPtrOutputWithContext(ctx context.Context) CollaborationPaymentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationPaymentConfigurationPtrOutput)
+}
+
+func (i *collaborationPaymentConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*CollaborationPaymentConfiguration] {
+	return pulumix.Output[*CollaborationPaymentConfiguration]{
+		OutputState: i.ToCollaborationPaymentConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type CollaborationPaymentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CollaborationPaymentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationPaymentConfiguration)(nil)).Elem()
+}
+
+func (o CollaborationPaymentConfigurationOutput) ToCollaborationPaymentConfigurationOutput() CollaborationPaymentConfigurationOutput {
+	return o
+}
+
+func (o CollaborationPaymentConfigurationOutput) ToCollaborationPaymentConfigurationOutputWithContext(ctx context.Context) CollaborationPaymentConfigurationOutput {
+	return o
+}
+
+func (o CollaborationPaymentConfigurationOutput) ToCollaborationPaymentConfigurationPtrOutput() CollaborationPaymentConfigurationPtrOutput {
+	return o.ToCollaborationPaymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CollaborationPaymentConfigurationOutput) ToCollaborationPaymentConfigurationPtrOutputWithContext(ctx context.Context) CollaborationPaymentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollaborationPaymentConfiguration) *CollaborationPaymentConfiguration {
+		return &v
+	}).(CollaborationPaymentConfigurationPtrOutput)
+}
+
+func (o CollaborationPaymentConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[CollaborationPaymentConfiguration] {
+	return pulumix.Output[CollaborationPaymentConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CollaborationPaymentConfigurationOutput) QueryCompute() CollaborationQueryComputePaymentConfigOutput {
+	return o.ApplyT(func(v CollaborationPaymentConfiguration) CollaborationQueryComputePaymentConfig {
+		return v.QueryCompute
+	}).(CollaborationQueryComputePaymentConfigOutput)
+}
+
+type CollaborationPaymentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CollaborationPaymentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollaborationPaymentConfiguration)(nil)).Elem()
+}
+
+func (o CollaborationPaymentConfigurationPtrOutput) ToCollaborationPaymentConfigurationPtrOutput() CollaborationPaymentConfigurationPtrOutput {
+	return o
+}
+
+func (o CollaborationPaymentConfigurationPtrOutput) ToCollaborationPaymentConfigurationPtrOutputWithContext(ctx context.Context) CollaborationPaymentConfigurationPtrOutput {
+	return o
+}
+
+func (o CollaborationPaymentConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CollaborationPaymentConfiguration] {
+	return pulumix.Output[*CollaborationPaymentConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CollaborationPaymentConfigurationPtrOutput) Elem() CollaborationPaymentConfigurationOutput {
+	return o.ApplyT(func(v *CollaborationPaymentConfiguration) CollaborationPaymentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CollaborationPaymentConfiguration
+		return ret
+	}).(CollaborationPaymentConfigurationOutput)
+}
+
+func (o CollaborationPaymentConfigurationPtrOutput) QueryCompute() CollaborationQueryComputePaymentConfigPtrOutput {
+	return o.ApplyT(func(v *CollaborationPaymentConfiguration) *CollaborationQueryComputePaymentConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.QueryCompute
+	}).(CollaborationQueryComputePaymentConfigPtrOutput)
+}
+
+type CollaborationQueryComputePaymentConfig struct {
+	IsResponsible bool `pulumi:"isResponsible"`
+}
+
+// CollaborationQueryComputePaymentConfigInput is an input type that accepts CollaborationQueryComputePaymentConfigArgs and CollaborationQueryComputePaymentConfigOutput values.
+// You can construct a concrete instance of `CollaborationQueryComputePaymentConfigInput` via:
+//
+//	CollaborationQueryComputePaymentConfigArgs{...}
+type CollaborationQueryComputePaymentConfigInput interface {
+	pulumi.Input
+
+	ToCollaborationQueryComputePaymentConfigOutput() CollaborationQueryComputePaymentConfigOutput
+	ToCollaborationQueryComputePaymentConfigOutputWithContext(context.Context) CollaborationQueryComputePaymentConfigOutput
+}
+
+type CollaborationQueryComputePaymentConfigArgs struct {
+	IsResponsible pulumi.BoolInput `pulumi:"isResponsible"`
+}
+
+func (CollaborationQueryComputePaymentConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationQueryComputePaymentConfig)(nil)).Elem()
+}
+
+func (i CollaborationQueryComputePaymentConfigArgs) ToCollaborationQueryComputePaymentConfigOutput() CollaborationQueryComputePaymentConfigOutput {
+	return i.ToCollaborationQueryComputePaymentConfigOutputWithContext(context.Background())
+}
+
+func (i CollaborationQueryComputePaymentConfigArgs) ToCollaborationQueryComputePaymentConfigOutputWithContext(ctx context.Context) CollaborationQueryComputePaymentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationQueryComputePaymentConfigOutput)
+}
+
+func (i CollaborationQueryComputePaymentConfigArgs) ToOutput(ctx context.Context) pulumix.Output[CollaborationQueryComputePaymentConfig] {
+	return pulumix.Output[CollaborationQueryComputePaymentConfig]{
+		OutputState: i.ToCollaborationQueryComputePaymentConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i CollaborationQueryComputePaymentConfigArgs) ToCollaborationQueryComputePaymentConfigPtrOutput() CollaborationQueryComputePaymentConfigPtrOutput {
+	return i.ToCollaborationQueryComputePaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CollaborationQueryComputePaymentConfigArgs) ToCollaborationQueryComputePaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationQueryComputePaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationQueryComputePaymentConfigOutput).ToCollaborationQueryComputePaymentConfigPtrOutputWithContext(ctx)
+}
+
+// CollaborationQueryComputePaymentConfigPtrInput is an input type that accepts CollaborationQueryComputePaymentConfigArgs, CollaborationQueryComputePaymentConfigPtr and CollaborationQueryComputePaymentConfigPtrOutput values.
+// You can construct a concrete instance of `CollaborationQueryComputePaymentConfigPtrInput` via:
+//
+//	        CollaborationQueryComputePaymentConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CollaborationQueryComputePaymentConfigPtrInput interface {
+	pulumi.Input
+
+	ToCollaborationQueryComputePaymentConfigPtrOutput() CollaborationQueryComputePaymentConfigPtrOutput
+	ToCollaborationQueryComputePaymentConfigPtrOutputWithContext(context.Context) CollaborationQueryComputePaymentConfigPtrOutput
+}
+
+type collaborationQueryComputePaymentConfigPtrType CollaborationQueryComputePaymentConfigArgs
+
+func CollaborationQueryComputePaymentConfigPtr(v *CollaborationQueryComputePaymentConfigArgs) CollaborationQueryComputePaymentConfigPtrInput {
+	return (*collaborationQueryComputePaymentConfigPtrType)(v)
+}
+
+func (*collaborationQueryComputePaymentConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollaborationQueryComputePaymentConfig)(nil)).Elem()
+}
+
+func (i *collaborationQueryComputePaymentConfigPtrType) ToCollaborationQueryComputePaymentConfigPtrOutput() CollaborationQueryComputePaymentConfigPtrOutput {
+	return i.ToCollaborationQueryComputePaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *collaborationQueryComputePaymentConfigPtrType) ToCollaborationQueryComputePaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationQueryComputePaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationQueryComputePaymentConfigPtrOutput)
+}
+
+func (i *collaborationQueryComputePaymentConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*CollaborationQueryComputePaymentConfig] {
+	return pulumix.Output[*CollaborationQueryComputePaymentConfig]{
+		OutputState: i.ToCollaborationQueryComputePaymentConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type CollaborationQueryComputePaymentConfigOutput struct{ *pulumi.OutputState }
+
+func (CollaborationQueryComputePaymentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationQueryComputePaymentConfig)(nil)).Elem()
+}
+
+func (o CollaborationQueryComputePaymentConfigOutput) ToCollaborationQueryComputePaymentConfigOutput() CollaborationQueryComputePaymentConfigOutput {
+	return o
+}
+
+func (o CollaborationQueryComputePaymentConfigOutput) ToCollaborationQueryComputePaymentConfigOutputWithContext(ctx context.Context) CollaborationQueryComputePaymentConfigOutput {
+	return o
+}
+
+func (o CollaborationQueryComputePaymentConfigOutput) ToCollaborationQueryComputePaymentConfigPtrOutput() CollaborationQueryComputePaymentConfigPtrOutput {
+	return o.ToCollaborationQueryComputePaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CollaborationQueryComputePaymentConfigOutput) ToCollaborationQueryComputePaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationQueryComputePaymentConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollaborationQueryComputePaymentConfig) *CollaborationQueryComputePaymentConfig {
+		return &v
+	}).(CollaborationQueryComputePaymentConfigPtrOutput)
+}
+
+func (o CollaborationQueryComputePaymentConfigOutput) ToOutput(ctx context.Context) pulumix.Output[CollaborationQueryComputePaymentConfig] {
+	return pulumix.Output[CollaborationQueryComputePaymentConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CollaborationQueryComputePaymentConfigOutput) IsResponsible() pulumi.BoolOutput {
+	return o.ApplyT(func(v CollaborationQueryComputePaymentConfig) bool { return v.IsResponsible }).(pulumi.BoolOutput)
+}
+
+type CollaborationQueryComputePaymentConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CollaborationQueryComputePaymentConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollaborationQueryComputePaymentConfig)(nil)).Elem()
+}
+
+func (o CollaborationQueryComputePaymentConfigPtrOutput) ToCollaborationQueryComputePaymentConfigPtrOutput() CollaborationQueryComputePaymentConfigPtrOutput {
+	return o
+}
+
+func (o CollaborationQueryComputePaymentConfigPtrOutput) ToCollaborationQueryComputePaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationQueryComputePaymentConfigPtrOutput {
+	return o
+}
+
+func (o CollaborationQueryComputePaymentConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CollaborationQueryComputePaymentConfig] {
+	return pulumix.Output[*CollaborationQueryComputePaymentConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CollaborationQueryComputePaymentConfigPtrOutput) Elem() CollaborationQueryComputePaymentConfigOutput {
+	return o.ApplyT(func(v *CollaborationQueryComputePaymentConfig) CollaborationQueryComputePaymentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CollaborationQueryComputePaymentConfig
+		return ret
+	}).(CollaborationQueryComputePaymentConfigOutput)
+}
+
+func (o CollaborationQueryComputePaymentConfigPtrOutput) IsResponsible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CollaborationQueryComputePaymentConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsResponsible
+	}).(pulumi.BoolPtrOutput)
 }
 
 type CollaborationTag struct {
@@ -1457,6 +1781,163 @@ func (o ConfiguredTableTagArrayOutput) Index(i pulumi.IntInput) ConfiguredTableT
 	}).(ConfiguredTableTagOutput)
 }
 
+type MembershipPaymentConfiguration struct {
+	QueryCompute MembershipQueryComputePaymentConfig `pulumi:"queryCompute"`
+}
+
+// MembershipPaymentConfigurationInput is an input type that accepts MembershipPaymentConfigurationArgs and MembershipPaymentConfigurationOutput values.
+// You can construct a concrete instance of `MembershipPaymentConfigurationInput` via:
+//
+//	MembershipPaymentConfigurationArgs{...}
+type MembershipPaymentConfigurationInput interface {
+	pulumi.Input
+
+	ToMembershipPaymentConfigurationOutput() MembershipPaymentConfigurationOutput
+	ToMembershipPaymentConfigurationOutputWithContext(context.Context) MembershipPaymentConfigurationOutput
+}
+
+type MembershipPaymentConfigurationArgs struct {
+	QueryCompute MembershipQueryComputePaymentConfigInput `pulumi:"queryCompute"`
+}
+
+func (MembershipPaymentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipPaymentConfiguration)(nil)).Elem()
+}
+
+func (i MembershipPaymentConfigurationArgs) ToMembershipPaymentConfigurationOutput() MembershipPaymentConfigurationOutput {
+	return i.ToMembershipPaymentConfigurationOutputWithContext(context.Background())
+}
+
+func (i MembershipPaymentConfigurationArgs) ToMembershipPaymentConfigurationOutputWithContext(ctx context.Context) MembershipPaymentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipPaymentConfigurationOutput)
+}
+
+func (i MembershipPaymentConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[MembershipPaymentConfiguration] {
+	return pulumix.Output[MembershipPaymentConfiguration]{
+		OutputState: i.ToMembershipPaymentConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i MembershipPaymentConfigurationArgs) ToMembershipPaymentConfigurationPtrOutput() MembershipPaymentConfigurationPtrOutput {
+	return i.ToMembershipPaymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MembershipPaymentConfigurationArgs) ToMembershipPaymentConfigurationPtrOutputWithContext(ctx context.Context) MembershipPaymentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipPaymentConfigurationOutput).ToMembershipPaymentConfigurationPtrOutputWithContext(ctx)
+}
+
+// MembershipPaymentConfigurationPtrInput is an input type that accepts MembershipPaymentConfigurationArgs, MembershipPaymentConfigurationPtr and MembershipPaymentConfigurationPtrOutput values.
+// You can construct a concrete instance of `MembershipPaymentConfigurationPtrInput` via:
+//
+//	        MembershipPaymentConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MembershipPaymentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMembershipPaymentConfigurationPtrOutput() MembershipPaymentConfigurationPtrOutput
+	ToMembershipPaymentConfigurationPtrOutputWithContext(context.Context) MembershipPaymentConfigurationPtrOutput
+}
+
+type membershipPaymentConfigurationPtrType MembershipPaymentConfigurationArgs
+
+func MembershipPaymentConfigurationPtr(v *MembershipPaymentConfigurationArgs) MembershipPaymentConfigurationPtrInput {
+	return (*membershipPaymentConfigurationPtrType)(v)
+}
+
+func (*membershipPaymentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipPaymentConfiguration)(nil)).Elem()
+}
+
+func (i *membershipPaymentConfigurationPtrType) ToMembershipPaymentConfigurationPtrOutput() MembershipPaymentConfigurationPtrOutput {
+	return i.ToMembershipPaymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *membershipPaymentConfigurationPtrType) ToMembershipPaymentConfigurationPtrOutputWithContext(ctx context.Context) MembershipPaymentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipPaymentConfigurationPtrOutput)
+}
+
+func (i *membershipPaymentConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*MembershipPaymentConfiguration] {
+	return pulumix.Output[*MembershipPaymentConfiguration]{
+		OutputState: i.ToMembershipPaymentConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type MembershipPaymentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MembershipPaymentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipPaymentConfiguration)(nil)).Elem()
+}
+
+func (o MembershipPaymentConfigurationOutput) ToMembershipPaymentConfigurationOutput() MembershipPaymentConfigurationOutput {
+	return o
+}
+
+func (o MembershipPaymentConfigurationOutput) ToMembershipPaymentConfigurationOutputWithContext(ctx context.Context) MembershipPaymentConfigurationOutput {
+	return o
+}
+
+func (o MembershipPaymentConfigurationOutput) ToMembershipPaymentConfigurationPtrOutput() MembershipPaymentConfigurationPtrOutput {
+	return o.ToMembershipPaymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipPaymentConfigurationOutput) ToMembershipPaymentConfigurationPtrOutputWithContext(ctx context.Context) MembershipPaymentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MembershipPaymentConfiguration) *MembershipPaymentConfiguration {
+		return &v
+	}).(MembershipPaymentConfigurationPtrOutput)
+}
+
+func (o MembershipPaymentConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[MembershipPaymentConfiguration] {
+	return pulumix.Output[MembershipPaymentConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o MembershipPaymentConfigurationOutput) QueryCompute() MembershipQueryComputePaymentConfigOutput {
+	return o.ApplyT(func(v MembershipPaymentConfiguration) MembershipQueryComputePaymentConfig { return v.QueryCompute }).(MembershipQueryComputePaymentConfigOutput)
+}
+
+type MembershipPaymentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MembershipPaymentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipPaymentConfiguration)(nil)).Elem()
+}
+
+func (o MembershipPaymentConfigurationPtrOutput) ToMembershipPaymentConfigurationPtrOutput() MembershipPaymentConfigurationPtrOutput {
+	return o
+}
+
+func (o MembershipPaymentConfigurationPtrOutput) ToMembershipPaymentConfigurationPtrOutputWithContext(ctx context.Context) MembershipPaymentConfigurationPtrOutput {
+	return o
+}
+
+func (o MembershipPaymentConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MembershipPaymentConfiguration] {
+	return pulumix.Output[*MembershipPaymentConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o MembershipPaymentConfigurationPtrOutput) Elem() MembershipPaymentConfigurationOutput {
+	return o.ApplyT(func(v *MembershipPaymentConfiguration) MembershipPaymentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MembershipPaymentConfiguration
+		return ret
+	}).(MembershipPaymentConfigurationOutput)
+}
+
+func (o MembershipPaymentConfigurationPtrOutput) QueryCompute() MembershipQueryComputePaymentConfigPtrOutput {
+	return o.ApplyT(func(v *MembershipPaymentConfiguration) *MembershipQueryComputePaymentConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.QueryCompute
+	}).(MembershipQueryComputePaymentConfigPtrOutput)
+}
+
 type MembershipProtectedQueryOutputConfiguration struct {
 	S3 MembershipProtectedQueryS3OutputConfiguration `pulumi:"s3"`
 }
@@ -1977,6 +2458,163 @@ func (o MembershipProtectedQueryS3OutputConfigurationPtrOutput) ResultFormat() M
 	}).(MembershipResultFormatPtrOutput)
 }
 
+type MembershipQueryComputePaymentConfig struct {
+	IsResponsible bool `pulumi:"isResponsible"`
+}
+
+// MembershipQueryComputePaymentConfigInput is an input type that accepts MembershipQueryComputePaymentConfigArgs and MembershipQueryComputePaymentConfigOutput values.
+// You can construct a concrete instance of `MembershipQueryComputePaymentConfigInput` via:
+//
+//	MembershipQueryComputePaymentConfigArgs{...}
+type MembershipQueryComputePaymentConfigInput interface {
+	pulumi.Input
+
+	ToMembershipQueryComputePaymentConfigOutput() MembershipQueryComputePaymentConfigOutput
+	ToMembershipQueryComputePaymentConfigOutputWithContext(context.Context) MembershipQueryComputePaymentConfigOutput
+}
+
+type MembershipQueryComputePaymentConfigArgs struct {
+	IsResponsible pulumi.BoolInput `pulumi:"isResponsible"`
+}
+
+func (MembershipQueryComputePaymentConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipQueryComputePaymentConfig)(nil)).Elem()
+}
+
+func (i MembershipQueryComputePaymentConfigArgs) ToMembershipQueryComputePaymentConfigOutput() MembershipQueryComputePaymentConfigOutput {
+	return i.ToMembershipQueryComputePaymentConfigOutputWithContext(context.Background())
+}
+
+func (i MembershipQueryComputePaymentConfigArgs) ToMembershipQueryComputePaymentConfigOutputWithContext(ctx context.Context) MembershipQueryComputePaymentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipQueryComputePaymentConfigOutput)
+}
+
+func (i MembershipQueryComputePaymentConfigArgs) ToOutput(ctx context.Context) pulumix.Output[MembershipQueryComputePaymentConfig] {
+	return pulumix.Output[MembershipQueryComputePaymentConfig]{
+		OutputState: i.ToMembershipQueryComputePaymentConfigOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i MembershipQueryComputePaymentConfigArgs) ToMembershipQueryComputePaymentConfigPtrOutput() MembershipQueryComputePaymentConfigPtrOutput {
+	return i.ToMembershipQueryComputePaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MembershipQueryComputePaymentConfigArgs) ToMembershipQueryComputePaymentConfigPtrOutputWithContext(ctx context.Context) MembershipQueryComputePaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipQueryComputePaymentConfigOutput).ToMembershipQueryComputePaymentConfigPtrOutputWithContext(ctx)
+}
+
+// MembershipQueryComputePaymentConfigPtrInput is an input type that accepts MembershipQueryComputePaymentConfigArgs, MembershipQueryComputePaymentConfigPtr and MembershipQueryComputePaymentConfigPtrOutput values.
+// You can construct a concrete instance of `MembershipQueryComputePaymentConfigPtrInput` via:
+//
+//	        MembershipQueryComputePaymentConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type MembershipQueryComputePaymentConfigPtrInput interface {
+	pulumi.Input
+
+	ToMembershipQueryComputePaymentConfigPtrOutput() MembershipQueryComputePaymentConfigPtrOutput
+	ToMembershipQueryComputePaymentConfigPtrOutputWithContext(context.Context) MembershipQueryComputePaymentConfigPtrOutput
+}
+
+type membershipQueryComputePaymentConfigPtrType MembershipQueryComputePaymentConfigArgs
+
+func MembershipQueryComputePaymentConfigPtr(v *MembershipQueryComputePaymentConfigArgs) MembershipQueryComputePaymentConfigPtrInput {
+	return (*membershipQueryComputePaymentConfigPtrType)(v)
+}
+
+func (*membershipQueryComputePaymentConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipQueryComputePaymentConfig)(nil)).Elem()
+}
+
+func (i *membershipQueryComputePaymentConfigPtrType) ToMembershipQueryComputePaymentConfigPtrOutput() MembershipQueryComputePaymentConfigPtrOutput {
+	return i.ToMembershipQueryComputePaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *membershipQueryComputePaymentConfigPtrType) ToMembershipQueryComputePaymentConfigPtrOutputWithContext(ctx context.Context) MembershipQueryComputePaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipQueryComputePaymentConfigPtrOutput)
+}
+
+func (i *membershipQueryComputePaymentConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*MembershipQueryComputePaymentConfig] {
+	return pulumix.Output[*MembershipQueryComputePaymentConfig]{
+		OutputState: i.ToMembershipQueryComputePaymentConfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type MembershipQueryComputePaymentConfigOutput struct{ *pulumi.OutputState }
+
+func (MembershipQueryComputePaymentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipQueryComputePaymentConfig)(nil)).Elem()
+}
+
+func (o MembershipQueryComputePaymentConfigOutput) ToMembershipQueryComputePaymentConfigOutput() MembershipQueryComputePaymentConfigOutput {
+	return o
+}
+
+func (o MembershipQueryComputePaymentConfigOutput) ToMembershipQueryComputePaymentConfigOutputWithContext(ctx context.Context) MembershipQueryComputePaymentConfigOutput {
+	return o
+}
+
+func (o MembershipQueryComputePaymentConfigOutput) ToMembershipQueryComputePaymentConfigPtrOutput() MembershipQueryComputePaymentConfigPtrOutput {
+	return o.ToMembershipQueryComputePaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipQueryComputePaymentConfigOutput) ToMembershipQueryComputePaymentConfigPtrOutputWithContext(ctx context.Context) MembershipQueryComputePaymentConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MembershipQueryComputePaymentConfig) *MembershipQueryComputePaymentConfig {
+		return &v
+	}).(MembershipQueryComputePaymentConfigPtrOutput)
+}
+
+func (o MembershipQueryComputePaymentConfigOutput) ToOutput(ctx context.Context) pulumix.Output[MembershipQueryComputePaymentConfig] {
+	return pulumix.Output[MembershipQueryComputePaymentConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o MembershipQueryComputePaymentConfigOutput) IsResponsible() pulumi.BoolOutput {
+	return o.ApplyT(func(v MembershipQueryComputePaymentConfig) bool { return v.IsResponsible }).(pulumi.BoolOutput)
+}
+
+type MembershipQueryComputePaymentConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MembershipQueryComputePaymentConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipQueryComputePaymentConfig)(nil)).Elem()
+}
+
+func (o MembershipQueryComputePaymentConfigPtrOutput) ToMembershipQueryComputePaymentConfigPtrOutput() MembershipQueryComputePaymentConfigPtrOutput {
+	return o
+}
+
+func (o MembershipQueryComputePaymentConfigPtrOutput) ToMembershipQueryComputePaymentConfigPtrOutputWithContext(ctx context.Context) MembershipQueryComputePaymentConfigPtrOutput {
+	return o
+}
+
+func (o MembershipQueryComputePaymentConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MembershipQueryComputePaymentConfig] {
+	return pulumix.Output[*MembershipQueryComputePaymentConfig]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o MembershipQueryComputePaymentConfigPtrOutput) Elem() MembershipQueryComputePaymentConfigOutput {
+	return o.ApplyT(func(v *MembershipQueryComputePaymentConfig) MembershipQueryComputePaymentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MembershipQueryComputePaymentConfig
+		return ret
+	}).(MembershipQueryComputePaymentConfigOutput)
+}
+
+func (o MembershipQueryComputePaymentConfigPtrOutput) IsResponsible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MembershipQueryComputePaymentConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsResponsible
+	}).(pulumi.BoolPtrOutput)
+}
+
 type MembershipTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -2111,6 +2749,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationDataEncryptionMetadataPtrInput)(nil)).Elem(), CollaborationDataEncryptionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberSpecificationInput)(nil)).Elem(), CollaborationMemberSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberSpecificationArrayInput)(nil)).Elem(), CollaborationMemberSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationPaymentConfigurationInput)(nil)).Elem(), CollaborationPaymentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationPaymentConfigurationPtrInput)(nil)).Elem(), CollaborationPaymentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationQueryComputePaymentConfigInput)(nil)).Elem(), CollaborationQueryComputePaymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationQueryComputePaymentConfigPtrInput)(nil)).Elem(), CollaborationQueryComputePaymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationTagInput)(nil)).Elem(), CollaborationTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationTagArrayInput)(nil)).Elem(), CollaborationTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRuleInput)(nil)).Elem(), ConfiguredTableAnalysisRuleArgs{})
@@ -2122,12 +2764,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTableReferenceInput)(nil)).Elem(), ConfiguredTableTableReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTagInput)(nil)).Elem(), ConfiguredTableTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTagArrayInput)(nil)).Elem(), ConfiguredTableTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipPaymentConfigurationInput)(nil)).Elem(), MembershipPaymentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipPaymentConfigurationPtrInput)(nil)).Elem(), MembershipPaymentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedQueryOutputConfigurationInput)(nil)).Elem(), MembershipProtectedQueryOutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedQueryOutputConfigurationPtrInput)(nil)).Elem(), MembershipProtectedQueryOutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedQueryResultConfigurationInput)(nil)).Elem(), MembershipProtectedQueryResultConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedQueryResultConfigurationPtrInput)(nil)).Elem(), MembershipProtectedQueryResultConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedQueryS3OutputConfigurationInput)(nil)).Elem(), MembershipProtectedQueryS3OutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedQueryS3OutputConfigurationPtrInput)(nil)).Elem(), MembershipProtectedQueryS3OutputConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipQueryComputePaymentConfigInput)(nil)).Elem(), MembershipQueryComputePaymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipQueryComputePaymentConfigPtrInput)(nil)).Elem(), MembershipQueryComputePaymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipTagInput)(nil)).Elem(), MembershipTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipTagArrayInput)(nil)).Elem(), MembershipTagArray{})
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisParameterOutput{})
@@ -2141,6 +2787,10 @@ func init() {
 	pulumi.RegisterOutputType(CollaborationDataEncryptionMetadataPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberSpecificationOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(CollaborationPaymentConfigurationOutput{})
+	pulumi.RegisterOutputType(CollaborationPaymentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CollaborationQueryComputePaymentConfigOutput{})
+	pulumi.RegisterOutputType(CollaborationQueryComputePaymentConfigPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationTagOutput{})
 	pulumi.RegisterOutputType(CollaborationTagArrayOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRuleOutput{})
@@ -2152,12 +2802,16 @@ func init() {
 	pulumi.RegisterOutputType(ConfiguredTableTableReferenceOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableTagOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableTagArrayOutput{})
+	pulumi.RegisterOutputType(MembershipPaymentConfigurationOutput{})
+	pulumi.RegisterOutputType(MembershipPaymentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MembershipProtectedQueryOutputConfigurationOutput{})
 	pulumi.RegisterOutputType(MembershipProtectedQueryOutputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MembershipProtectedQueryResultConfigurationOutput{})
 	pulumi.RegisterOutputType(MembershipProtectedQueryResultConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MembershipProtectedQueryS3OutputConfigurationOutput{})
 	pulumi.RegisterOutputType(MembershipProtectedQueryS3OutputConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MembershipQueryComputePaymentConfigOutput{})
+	pulumi.RegisterOutputType(MembershipQueryComputePaymentConfigPtrOutput{})
 	pulumi.RegisterOutputType(MembershipTagOutput{})
 	pulumi.RegisterOutputType(MembershipTagArrayOutput{})
 }

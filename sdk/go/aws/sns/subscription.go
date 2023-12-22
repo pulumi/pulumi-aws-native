@@ -27,6 +27,7 @@ type Subscription struct {
 	RawMessageDelivery  pulumi.BoolPtrOutput   `pulumi:"rawMessageDelivery"`
 	RedrivePolicy       pulumi.AnyOutput       `pulumi:"redrivePolicy"`
 	Region              pulumi.StringPtrOutput `pulumi:"region"`
+	ReplayPolicy        pulumi.AnyOutput       `pulumi:"replayPolicy"`
 	SubscriptionRoleArn pulumi.StringPtrOutput `pulumi:"subscriptionRoleArn"`
 	TopicArn            pulumi.StringOutput    `pulumi:"topicArn"`
 }
@@ -91,6 +92,7 @@ type subscriptionArgs struct {
 	RawMessageDelivery  *bool       `pulumi:"rawMessageDelivery"`
 	RedrivePolicy       interface{} `pulumi:"redrivePolicy"`
 	Region              *string     `pulumi:"region"`
+	ReplayPolicy        interface{} `pulumi:"replayPolicy"`
 	SubscriptionRoleArn *string     `pulumi:"subscriptionRoleArn"`
 	TopicArn            string      `pulumi:"topicArn"`
 }
@@ -105,6 +107,7 @@ type SubscriptionArgs struct {
 	RawMessageDelivery  pulumi.BoolPtrInput
 	RedrivePolicy       pulumi.Input
 	Region              pulumi.StringPtrInput
+	ReplayPolicy        pulumi.Input
 	SubscriptionRoleArn pulumi.StringPtrInput
 	TopicArn            pulumi.StringInput
 }
@@ -188,6 +191,10 @@ func (o SubscriptionOutput) RedrivePolicy() pulumi.AnyOutput {
 
 func (o SubscriptionOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Subscription) pulumi.StringPtrOutput { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+func (o SubscriptionOutput) ReplayPolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Subscription) pulumi.AnyOutput { return v.ReplayPolicy }).(pulumi.AnyOutput)
 }
 
 func (o SubscriptionOutput) SubscriptionRoleArn() pulumi.StringPtrOutput {

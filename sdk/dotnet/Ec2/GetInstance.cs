@@ -27,8 +27,8 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetInstanceArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("instanceId", required: true)]
+        public string InstanceId { get; set; } = null!;
 
         public GetInstanceArgs()
         {
@@ -38,8 +38,8 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class GetInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("instanceId", required: true)]
+        public Input<string> InstanceId { get; set; } = null!;
 
         public GetInstanceInvokeArgs()
         {
@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.Ec2
         public readonly bool? EbsOptimized;
         public readonly string? HostId;
         public readonly string? IamInstanceProfile;
-        public readonly string? Id;
+        public readonly string? InstanceId;
         public readonly string? InstanceInitiatedShutdownBehavior;
         public readonly string? InstanceType;
         public readonly string? KernelId;
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.Ec2
 
             string? iamInstanceProfile,
 
-            string? id,
+            string? instanceId,
 
             string? instanceInitiatedShutdownBehavior,
 
@@ -143,7 +143,7 @@ namespace Pulumi.AwsNative.Ec2
             EbsOptimized = ebsOptimized;
             HostId = hostId;
             IamInstanceProfile = iamInstanceProfile;
-            Id = id;
+            InstanceId = instanceId;
             InstanceInitiatedShutdownBehavior = instanceInitiatedShutdownBehavior;
             InstanceType = instanceType;
             KernelId = kernelId;

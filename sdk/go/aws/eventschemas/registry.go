@@ -13,15 +13,17 @@ import (
 )
 
 // Resource Type definition for AWS::EventSchemas::Registry
-//
-// Deprecated: Registry is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
 type Registry struct {
 	pulumi.CustomResourceState
 
-	Description  pulumi.StringPtrOutput       `pulumi:"description"`
-	RegistryArn  pulumi.StringOutput          `pulumi:"registryArn"`
-	RegistryName pulumi.StringPtrOutput       `pulumi:"registryName"`
-	Tags         RegistryTagsEntryArrayOutput `pulumi:"tags"`
+	// A description of the registry to be created.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The ARN of the registry.
+	RegistryArn pulumi.StringOutput `pulumi:"registryArn"`
+	// The name of the schema registry.
+	RegistryName pulumi.StringPtrOutput `pulumi:"registryName"`
+	// Tags associated with the resource.
+	Tags RegistryTagsEntryArrayOutput `pulumi:"tags"`
 }
 
 // NewRegistry registers a new resource with the given unique name, arguments, and options.
@@ -68,16 +70,22 @@ func (RegistryState) ElementType() reflect.Type {
 }
 
 type registryArgs struct {
-	Description  *string             `pulumi:"description"`
-	RegistryName *string             `pulumi:"registryName"`
-	Tags         []RegistryTagsEntry `pulumi:"tags"`
+	// A description of the registry to be created.
+	Description *string `pulumi:"description"`
+	// The name of the schema registry.
+	RegistryName *string `pulumi:"registryName"`
+	// Tags associated with the resource.
+	Tags []RegistryTagsEntry `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Registry resource.
 type RegistryArgs struct {
-	Description  pulumi.StringPtrInput
+	// A description of the registry to be created.
+	Description pulumi.StringPtrInput
+	// The name of the schema registry.
 	RegistryName pulumi.StringPtrInput
-	Tags         RegistryTagsEntryArrayInput
+	// Tags associated with the resource.
+	Tags RegistryTagsEntryArrayInput
 }
 
 func (RegistryArgs) ElementType() reflect.Type {
@@ -129,18 +137,22 @@ func (o RegistryOutput) ToOutput(ctx context.Context) pulumix.Output[*Registry] 
 	}
 }
 
+// A description of the registry to be created.
 func (o RegistryOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the registry.
 func (o RegistryOutput) RegistryArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.RegistryArn }).(pulumi.StringOutput)
 }
 
+// The name of the schema registry.
 func (o RegistryOutput) RegistryName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringPtrOutput { return v.RegistryName }).(pulumi.StringPtrOutput)
 }
 
+// Tags associated with the resource.
 func (o RegistryOutput) Tags() RegistryTagsEntryArrayOutput {
 	return o.ApplyT(func(v *Registry) RegistryTagsEntryArrayOutput { return v.Tags }).(RegistryTagsEntryArrayOutput)
 }

@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AwsNative.Eks
 {
     /// <summary>
+    /// The type of the access scope.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccessEntryAccessScopeType : IEquatable<AccessEntryAccessScopeType>
+    {
+        private readonly string _value;
+
+        private AccessEntryAccessScopeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessEntryAccessScopeType Namespace { get; } = new AccessEntryAccessScopeType("namespace");
+        public static AccessEntryAccessScopeType Cluster { get; } = new AccessEntryAccessScopeType("cluster");
+
+        public static bool operator ==(AccessEntryAccessScopeType left, AccessEntryAccessScopeType right) => left.Equals(right);
+        public static bool operator !=(AccessEntryAccessScopeType left, AccessEntryAccessScopeType right) => !left.Equals(right);
+
+        public static explicit operator string(AccessEntryAccessScopeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessEntryAccessScopeType other && Equals(other);
+        public bool Equals(AccessEntryAccessScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Resolve parameter value conflicts
     /// </summary>
     [EnumType]
@@ -32,6 +63,38 @@ namespace Pulumi.AwsNative.Eks
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AddonResolveConflicts other && Equals(other);
         public bool Equals(AddonResolveConflicts other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specify the authentication mode that should be used to create your cluster.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClusterAccessConfigAuthenticationMode : IEquatable<ClusterAccessConfigAuthenticationMode>
+    {
+        private readonly string _value;
+
+        private ClusterAccessConfigAuthenticationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClusterAccessConfigAuthenticationMode ConfigMap { get; } = new ClusterAccessConfigAuthenticationMode("CONFIG_MAP");
+        public static ClusterAccessConfigAuthenticationMode ApiAndConfigMap { get; } = new ClusterAccessConfigAuthenticationMode("API_AND_CONFIG_MAP");
+        public static ClusterAccessConfigAuthenticationMode Api { get; } = new ClusterAccessConfigAuthenticationMode("API");
+
+        public static bool operator ==(ClusterAccessConfigAuthenticationMode left, ClusterAccessConfigAuthenticationMode right) => left.Equals(right);
+        public static bool operator !=(ClusterAccessConfigAuthenticationMode left, ClusterAccessConfigAuthenticationMode right) => !left.Equals(right);
+
+        public static explicit operator string(ClusterAccessConfigAuthenticationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClusterAccessConfigAuthenticationMode other && Equals(other);
+        public bool Equals(ClusterAccessConfigAuthenticationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

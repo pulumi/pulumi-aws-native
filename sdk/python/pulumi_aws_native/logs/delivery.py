@@ -21,9 +21,9 @@ class DeliveryArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryTagArgs']]]] = None):
         """
         The set of arguments for constructing a Delivery resource.
-        :param pulumi.Input[str] delivery_destination_arn: The value of the DeliveryDestinationArn property for this object.
-        :param pulumi.Input[str] delivery_source_name: The value of the DeliverySourceName property for this object.
-        :param pulumi.Input[Sequence[pulumi.Input['DeliveryTagArgs']]] tags: The value of the Tags property for this object.
+        :param pulumi.Input[str] delivery_destination_arn: The ARN of the delivery destination that is associated with this delivery.
+        :param pulumi.Input[str] delivery_source_name: The name of the delivery source that is associated with this delivery.
+        :param pulumi.Input[Sequence[pulumi.Input['DeliveryTagArgs']]] tags: The tags that have been assigned to this delivery.
         """
         pulumi.set(__self__, "delivery_destination_arn", delivery_destination_arn)
         pulumi.set(__self__, "delivery_source_name", delivery_source_name)
@@ -34,7 +34,7 @@ class DeliveryArgs:
     @pulumi.getter(name="deliveryDestinationArn")
     def delivery_destination_arn(self) -> pulumi.Input[str]:
         """
-        The value of the DeliveryDestinationArn property for this object.
+        The ARN of the delivery destination that is associated with this delivery.
         """
         return pulumi.get(self, "delivery_destination_arn")
 
@@ -46,7 +46,7 @@ class DeliveryArgs:
     @pulumi.getter(name="deliverySourceName")
     def delivery_source_name(self) -> pulumi.Input[str]:
         """
-        The value of the DeliverySourceName property for this object.
+        The name of the delivery source that is associated with this delivery.
         """
         return pulumi.get(self, "delivery_source_name")
 
@@ -58,7 +58,7 @@ class DeliveryArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryTagArgs']]]]:
         """
-        The value of the Tags property for this object.
+        The tags that have been assigned to this delivery.
         """
         return pulumi.get(self, "tags")
 
@@ -77,13 +77,17 @@ class Delivery(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryTagArgs']]]]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::Logs::Delivery.
+        This structure contains information about one delivery in your account.
+
+        A delivery is a connection between a logical delivery source and a logical delivery destination.
+
+        For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] delivery_destination_arn: The value of the DeliveryDestinationArn property for this object.
-        :param pulumi.Input[str] delivery_source_name: The value of the DeliverySourceName property for this object.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryTagArgs']]]] tags: The value of the Tags property for this object.
+        :param pulumi.Input[str] delivery_destination_arn: The ARN of the delivery destination that is associated with this delivery.
+        :param pulumi.Input[str] delivery_source_name: The name of the delivery source that is associated with this delivery.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DeliveryTagArgs']]]] tags: The tags that have been assigned to this delivery.
         """
         ...
     @overload
@@ -92,7 +96,11 @@ class Delivery(pulumi.CustomResource):
                  args: DeliveryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::Logs::Delivery.
+        This structure contains information about one delivery in your account.
+
+        A delivery is a connection between a logical delivery source and a logical delivery destination.
+
+        For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).
 
         :param str resource_name: The name of the resource.
         :param DeliveryArgs args: The arguments to use to populate this resource's properties.
@@ -167,7 +175,7 @@ class Delivery(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The value of the Arn property for this object.
+        The Amazon Resource Name (ARN) that uniquely identifies this delivery.
         """
         return pulumi.get(self, "arn")
 
@@ -175,7 +183,7 @@ class Delivery(pulumi.CustomResource):
     @pulumi.getter(name="deliveryDestinationArn")
     def delivery_destination_arn(self) -> pulumi.Output[str]:
         """
-        The value of the DeliveryDestinationArn property for this object.
+        The ARN of the delivery destination that is associated with this delivery.
         """
         return pulumi.get(self, "delivery_destination_arn")
 
@@ -183,7 +191,7 @@ class Delivery(pulumi.CustomResource):
     @pulumi.getter(name="deliveryDestinationType")
     def delivery_destination_type(self) -> pulumi.Output[str]:
         """
-        The value of the DeliveryDestinationType property for this object.
+        Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
         """
         return pulumi.get(self, "delivery_destination_type")
 
@@ -191,7 +199,7 @@ class Delivery(pulumi.CustomResource):
     @pulumi.getter(name="deliveryId")
     def delivery_id(self) -> pulumi.Output[str]:
         """
-        The value of the Id property for this object.
+        The unique ID that identifies this delivery in your account.
         """
         return pulumi.get(self, "delivery_id")
 
@@ -199,7 +207,7 @@ class Delivery(pulumi.CustomResource):
     @pulumi.getter(name="deliverySourceName")
     def delivery_source_name(self) -> pulumi.Output[str]:
         """
-        The value of the DeliverySourceName property for this object.
+        The name of the delivery source that is associated with this delivery.
         """
         return pulumi.get(self, "delivery_source_name")
 
@@ -207,7 +215,7 @@ class Delivery(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.DeliveryTag']]]:
         """
-        The value of the Tags property for this object.
+        The tags that have been assigned to this delivery.
         """
         return pulumi.get(self, "tags")
 

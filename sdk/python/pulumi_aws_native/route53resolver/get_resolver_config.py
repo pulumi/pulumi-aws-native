@@ -66,16 +66,16 @@ class AwaitableGetResolverConfigResult(GetResolverConfigResult):
             owner_id=self.owner_id)
 
 
-def get_resolver_config(id: Optional[str] = None,
+def get_resolver_config(resource_id: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResolverConfigResult:
     """
     Resource schema for AWS::Route53Resolver::ResolverConfig.
 
 
-    :param str id: Id
+    :param str resource_id: ResourceId
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['resourceId'] = resource_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:route53resolver:getResolverConfig', __args__, opts=opts, typ=GetResolverConfigResult).value
 
@@ -86,12 +86,12 @@ def get_resolver_config(id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_resolver_config)
-def get_resolver_config_output(id: Optional[pulumi.Input[str]] = None,
+def get_resolver_config_output(resource_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverConfigResult]:
     """
     Resource schema for AWS::Route53Resolver::ResolverConfig.
 
 
-    :param str id: Id
+    :param str resource_id: ResourceId
     """
     ...

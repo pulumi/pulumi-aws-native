@@ -25,6 +25,16 @@ export const BuildOperatingSystem = {
  */
 export type BuildOperatingSystem = (typeof BuildOperatingSystem)[keyof typeof BuildOperatingSystem];
 
+export const FleetApplyCapacity = {
+    OnUpdate: "ON_UPDATE",
+    OnCreateAndUpdate: "ON_CREATE_AND_UPDATE",
+} as const;
+
+/**
+ * ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
+ */
+export type FleetApplyCapacity = (typeof FleetApplyCapacity)[keyof typeof FleetApplyCapacity];
+
 export const FleetCertificateConfigurationCertificateType = {
     Disabled: "DISABLED",
     Generated: "GENERATED",

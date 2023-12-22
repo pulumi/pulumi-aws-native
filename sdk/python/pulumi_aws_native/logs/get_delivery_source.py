@@ -40,7 +40,7 @@ class GetDeliverySourceResult:
     @pulumi.getter
     def arn(self) -> Optional[str]:
         """
-        The ARN of the Aqueduct Source.
+        The Amazon Resource Name (ARN) that uniquely identifies this delivery source.
         """
         return pulumi.get(self, "arn")
 
@@ -56,7 +56,7 @@ class GetDeliverySourceResult:
     @pulumi.getter(name="resourceArns")
     def resource_arns(self) -> Optional[Sequence[str]]:
         """
-        List of ARN of the resource that will be sending the logs
+        This array contains the ARN of the AWS resource that sends logs and is represented by this delivery source. Currently, only one ARN can be in the array.
         """
         return pulumi.get(self, "resource_arns")
 
@@ -64,7 +64,7 @@ class GetDeliverySourceResult:
     @pulumi.getter
     def service(self) -> Optional[str]:
         """
-        The service generating the log
+        The AWS service that is sending logs.
         """
         return pulumi.get(self, "service")
 
@@ -72,7 +72,7 @@ class GetDeliverySourceResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.DeliverySourceTag']]:
         """
-        An array of key-value pairs to apply to this resource.
+        The tags that have been assigned to this delivery source.
         """
         return pulumi.get(self, "tags")
 
@@ -93,7 +93,9 @@ class AwaitableGetDeliverySourceResult(GetDeliverySourceResult):
 def get_delivery_source(name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeliverySourceResult:
     """
-    Resource Type definition for AWS::Logs::DeliverySource.
+     A delivery source is an AWS resource that sends logs to an AWS destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
+
+    Only some AWS services support being configured as a delivery source. These services are listed as Supported [V2 Permissions] in the table at [Enabling logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html).
 
 
     :param str name: The unique name of the Log source.
@@ -115,7 +117,9 @@ def get_delivery_source(name: Optional[str] = None,
 def get_delivery_source_output(name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeliverySourceResult]:
     """
-    Resource Type definition for AWS::Logs::DeliverySource.
+     A delivery source is an AWS resource that sends logs to an AWS destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
+
+    Only some AWS services support being configured as a delivery source. These services are listed as Supported [V2 Permissions] in the table at [Enabling logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html).
 
 
     :param str name: The unique name of the Log source.

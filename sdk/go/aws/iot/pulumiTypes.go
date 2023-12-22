@@ -1794,6 +1794,139 @@ func (o CaCertificateTagArrayOutput) Index(i pulumi.IntInput) CaCertificateTagOu
 }
 
 // A key-value pair to associate with a resource.
+type CertificateProviderTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// CertificateProviderTagInput is an input type that accepts CertificateProviderTagArgs and CertificateProviderTagOutput values.
+// You can construct a concrete instance of `CertificateProviderTagInput` via:
+//
+//	CertificateProviderTagArgs{...}
+type CertificateProviderTagInput interface {
+	pulumi.Input
+
+	ToCertificateProviderTagOutput() CertificateProviderTagOutput
+	ToCertificateProviderTagOutputWithContext(context.Context) CertificateProviderTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type CertificateProviderTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (CertificateProviderTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateProviderTag)(nil)).Elem()
+}
+
+func (i CertificateProviderTagArgs) ToCertificateProviderTagOutput() CertificateProviderTagOutput {
+	return i.ToCertificateProviderTagOutputWithContext(context.Background())
+}
+
+func (i CertificateProviderTagArgs) ToCertificateProviderTagOutputWithContext(ctx context.Context) CertificateProviderTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateProviderTagOutput)
+}
+
+func (i CertificateProviderTagArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateProviderTag] {
+	return pulumix.Output[CertificateProviderTag]{
+		OutputState: i.ToCertificateProviderTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// CertificateProviderTagArrayInput is an input type that accepts CertificateProviderTagArray and CertificateProviderTagArrayOutput values.
+// You can construct a concrete instance of `CertificateProviderTagArrayInput` via:
+//
+//	CertificateProviderTagArray{ CertificateProviderTagArgs{...} }
+type CertificateProviderTagArrayInput interface {
+	pulumi.Input
+
+	ToCertificateProviderTagArrayOutput() CertificateProviderTagArrayOutput
+	ToCertificateProviderTagArrayOutputWithContext(context.Context) CertificateProviderTagArrayOutput
+}
+
+type CertificateProviderTagArray []CertificateProviderTagInput
+
+func (CertificateProviderTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateProviderTag)(nil)).Elem()
+}
+
+func (i CertificateProviderTagArray) ToCertificateProviderTagArrayOutput() CertificateProviderTagArrayOutput {
+	return i.ToCertificateProviderTagArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateProviderTagArray) ToCertificateProviderTagArrayOutputWithContext(ctx context.Context) CertificateProviderTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateProviderTagArrayOutput)
+}
+
+func (i CertificateProviderTagArray) ToOutput(ctx context.Context) pulumix.Output[[]CertificateProviderTag] {
+	return pulumix.Output[[]CertificateProviderTag]{
+		OutputState: i.ToCertificateProviderTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// A key-value pair to associate with a resource.
+type CertificateProviderTagOutput struct{ *pulumi.OutputState }
+
+func (CertificateProviderTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateProviderTag)(nil)).Elem()
+}
+
+func (o CertificateProviderTagOutput) ToCertificateProviderTagOutput() CertificateProviderTagOutput {
+	return o
+}
+
+func (o CertificateProviderTagOutput) ToCertificateProviderTagOutputWithContext(ctx context.Context) CertificateProviderTagOutput {
+	return o
+}
+
+func (o CertificateProviderTagOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateProviderTag] {
+	return pulumix.Output[CertificateProviderTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o CertificateProviderTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateProviderTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o CertificateProviderTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateProviderTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type CertificateProviderTagArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateProviderTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateProviderTag)(nil)).Elem()
+}
+
+func (o CertificateProviderTagArrayOutput) ToCertificateProviderTagArrayOutput() CertificateProviderTagArrayOutput {
+	return o
+}
+
+func (o CertificateProviderTagArrayOutput) ToCertificateProviderTagArrayOutputWithContext(ctx context.Context) CertificateProviderTagArrayOutput {
+	return o
+}
+
+func (o CertificateProviderTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertificateProviderTag] {
+	return pulumix.Output[[]CertificateProviderTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o CertificateProviderTagArrayOutput) Index(i pulumi.IntInput) CertificateProviderTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateProviderTag {
+		return vs[0].([]CertificateProviderTag)[vs[1].(int)]
+	}).(CertificateProviderTagOutput)
+}
+
+// A key-value pair to associate with a resource.
 type CustomMetricTag struct {
 	// The tag's key.
 	Key string `pulumi:"key"`
@@ -17161,6 +17294,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CaCertificateRegistrationConfigPtrInput)(nil)).Elem(), CaCertificateRegistrationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CaCertificateTagInput)(nil)).Elem(), CaCertificateTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CaCertificateTagArrayInput)(nil)).Elem(), CaCertificateTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateProviderTagInput)(nil)).Elem(), CertificateProviderTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateProviderTagArrayInput)(nil)).Elem(), CertificateProviderTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomMetricTagInput)(nil)).Elem(), CustomMetricTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomMetricTagArrayInput)(nil)).Elem(), CustomMetricTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DimensionTagInput)(nil)).Elem(), DimensionTagArgs{})
@@ -17356,6 +17491,8 @@ func init() {
 	pulumi.RegisterOutputType(CaCertificateRegistrationConfigPtrOutput{})
 	pulumi.RegisterOutputType(CaCertificateTagOutput{})
 	pulumi.RegisterOutputType(CaCertificateTagArrayOutput{})
+	pulumi.RegisterOutputType(CertificateProviderTagOutput{})
+	pulumi.RegisterOutputType(CertificateProviderTagArrayOutput{})
 	pulumi.RegisterOutputType(CustomMetricTagOutput{})
 	pulumi.RegisterOutputType(CustomMetricTagArrayOutput{})
 	pulumi.RegisterOutputType(DimensionTagOutput{})

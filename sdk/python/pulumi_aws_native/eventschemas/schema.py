@@ -24,6 +24,12 @@ class SchemaArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagsEntryArgs']]]] = None):
         """
         The set of arguments for constructing a Schema resource.
+        :param pulumi.Input[str] content: The source of the schema definition.
+        :param pulumi.Input[str] registry_name: The name of the schema registry.
+        :param pulumi.Input[str] type: The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
+        :param pulumi.Input[str] description: A description of the schema.
+        :param pulumi.Input[str] schema_name: The name of the schema.
+        :param pulumi.Input[Sequence[pulumi.Input['SchemaTagsEntryArgs']]] tags: Tags associated with the resource.
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "registry_name", registry_name)
@@ -38,6 +44,9 @@ class SchemaArgs:
     @property
     @pulumi.getter
     def content(self) -> pulumi.Input[str]:
+        """
+        The source of the schema definition.
+        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -47,6 +56,9 @@ class SchemaArgs:
     @property
     @pulumi.getter(name="registryName")
     def registry_name(self) -> pulumi.Input[str]:
+        """
+        The name of the schema registry.
+        """
         return pulumi.get(self, "registry_name")
 
     @registry_name.setter
@@ -56,6 +68,9 @@ class SchemaArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
+        """
+        The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -65,6 +80,9 @@ class SchemaArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the schema.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -74,6 +92,9 @@ class SchemaArgs:
     @property
     @pulumi.getter(name="schemaName")
     def schema_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the schema.
+        """
         return pulumi.get(self, "schema_name")
 
     @schema_name.setter
@@ -83,6 +104,9 @@ class SchemaArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SchemaTagsEntryArgs']]]]:
+        """
+        Tags associated with the resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -90,12 +114,7 @@ class SchemaArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Schema is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class Schema(pulumi.CustomResource):
-    warnings.warn("""Schema is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -112,6 +131,12 @@ class Schema(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] content: The source of the schema definition.
+        :param pulumi.Input[str] description: A description of the schema.
+        :param pulumi.Input[str] registry_name: The name of the schema registry.
+        :param pulumi.Input[str] schema_name: The name of the schema.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaTagsEntryArgs']]]] tags: Tags associated with the resource.
+        :param pulumi.Input[str] type: The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
         """
         ...
     @overload
@@ -144,7 +169,6 @@ class Schema(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SchemaTagsEntryArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Schema is deprecated: Schema is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -165,8 +189,10 @@ class Schema(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["last_modified"] = None
             __props__.__dict__["schema_arn"] = None
             __props__.__dict__["schema_version"] = None
+            __props__.__dict__["version_created_date"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["registry_name", "schema_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Schema, __self__).__init__(
@@ -193,51 +219,93 @@ class Schema(pulumi.CustomResource):
 
         __props__.__dict__["content"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["last_modified"] = None
         __props__.__dict__["registry_name"] = None
         __props__.__dict__["schema_arn"] = None
         __props__.__dict__["schema_name"] = None
         __props__.__dict__["schema_version"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["version_created_date"] = None
         return Schema(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
     def content(self) -> pulumi.Output[str]:
+        """
+        The source of the schema definition.
+        """
         return pulumi.get(self, "content")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        A description of the schema.
+        """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="lastModified")
+    def last_modified(self) -> pulumi.Output[str]:
+        """
+        The last modified time of the schema.
+        """
+        return pulumi.get(self, "last_modified")
 
     @property
     @pulumi.getter(name="registryName")
     def registry_name(self) -> pulumi.Output[str]:
+        """
+        The name of the schema registry.
+        """
         return pulumi.get(self, "registry_name")
 
     @property
     @pulumi.getter(name="schemaArn")
     def schema_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the schema.
+        """
         return pulumi.get(self, "schema_arn")
 
     @property
     @pulumi.getter(name="schemaName")
     def schema_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the schema.
+        """
         return pulumi.get(self, "schema_name")
 
     @property
     @pulumi.getter(name="schemaVersion")
     def schema_version(self) -> pulumi.Output[str]:
+        """
+        The version number of the schema.
+        """
         return pulumi.get(self, "schema_version")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.SchemaTagsEntry']]]:
+        """
+        Tags associated with the resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
+        """
+        The type of schema. Valid types include OpenApi3 and JSONSchemaDraft4.
+        """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="versionCreatedDate")
+    def version_created_date(self) -> pulumi.Output[str]:
+        """
+        The date the schema version was created.
+        """
+        return pulumi.get(self, "version_created_date")
 

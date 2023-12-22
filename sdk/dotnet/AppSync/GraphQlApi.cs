@@ -34,6 +34,9 @@ namespace Pulumi.AwsNative.AppSync
         [Output("graphQlDns")]
         public Output<string> GraphQlDns { get; private set; } = null!;
 
+        [Output("graphQlEndpointArn")]
+        public Output<string> GraphQlEndpointArn { get; private set; } = null!;
+
         [Output("graphQlUrl")]
         public Output<string> GraphQlUrl { get; private set; } = null!;
 

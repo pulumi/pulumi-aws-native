@@ -194,6 +194,189 @@ func (in *studioAuthModePtr) ToOutput(ctx context.Context) pulumix.Output[*Studi
 	}
 }
 
+// Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL. If the value is set to REQUIRED, users must be explicitly assigned to the Studio application to access the Studio.
+type StudioIdcUserAssignment string
+
+const (
+	StudioIdcUserAssignmentRequired = StudioIdcUserAssignment("REQUIRED")
+	StudioIdcUserAssignmentOptional = StudioIdcUserAssignment("OPTIONAL")
+)
+
+func (StudioIdcUserAssignment) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioIdcUserAssignment)(nil)).Elem()
+}
+
+func (e StudioIdcUserAssignment) ToStudioIdcUserAssignmentOutput() StudioIdcUserAssignmentOutput {
+	return pulumi.ToOutput(e).(StudioIdcUserAssignmentOutput)
+}
+
+func (e StudioIdcUserAssignment) ToStudioIdcUserAssignmentOutputWithContext(ctx context.Context) StudioIdcUserAssignmentOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(StudioIdcUserAssignmentOutput)
+}
+
+func (e StudioIdcUserAssignment) ToStudioIdcUserAssignmentPtrOutput() StudioIdcUserAssignmentPtrOutput {
+	return e.ToStudioIdcUserAssignmentPtrOutputWithContext(context.Background())
+}
+
+func (e StudioIdcUserAssignment) ToStudioIdcUserAssignmentPtrOutputWithContext(ctx context.Context) StudioIdcUserAssignmentPtrOutput {
+	return StudioIdcUserAssignment(e).ToStudioIdcUserAssignmentOutputWithContext(ctx).ToStudioIdcUserAssignmentPtrOutputWithContext(ctx)
+}
+
+func (e StudioIdcUserAssignment) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StudioIdcUserAssignment) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e StudioIdcUserAssignment) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e StudioIdcUserAssignment) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type StudioIdcUserAssignmentOutput struct{ *pulumi.OutputState }
+
+func (StudioIdcUserAssignmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioIdcUserAssignment)(nil)).Elem()
+}
+
+func (o StudioIdcUserAssignmentOutput) ToStudioIdcUserAssignmentOutput() StudioIdcUserAssignmentOutput {
+	return o
+}
+
+func (o StudioIdcUserAssignmentOutput) ToStudioIdcUserAssignmentOutputWithContext(ctx context.Context) StudioIdcUserAssignmentOutput {
+	return o
+}
+
+func (o StudioIdcUserAssignmentOutput) ToStudioIdcUserAssignmentPtrOutput() StudioIdcUserAssignmentPtrOutput {
+	return o.ToStudioIdcUserAssignmentPtrOutputWithContext(context.Background())
+}
+
+func (o StudioIdcUserAssignmentOutput) ToStudioIdcUserAssignmentPtrOutputWithContext(ctx context.Context) StudioIdcUserAssignmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StudioIdcUserAssignment) *StudioIdcUserAssignment {
+		return &v
+	}).(StudioIdcUserAssignmentPtrOutput)
+}
+
+func (o StudioIdcUserAssignmentOutput) ToOutput(ctx context.Context) pulumix.Output[StudioIdcUserAssignment] {
+	return pulumix.Output[StudioIdcUserAssignment]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o StudioIdcUserAssignmentOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o StudioIdcUserAssignmentOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StudioIdcUserAssignment) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o StudioIdcUserAssignmentOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StudioIdcUserAssignmentOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e StudioIdcUserAssignment) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type StudioIdcUserAssignmentPtrOutput struct{ *pulumi.OutputState }
+
+func (StudioIdcUserAssignmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioIdcUserAssignment)(nil)).Elem()
+}
+
+func (o StudioIdcUserAssignmentPtrOutput) ToStudioIdcUserAssignmentPtrOutput() StudioIdcUserAssignmentPtrOutput {
+	return o
+}
+
+func (o StudioIdcUserAssignmentPtrOutput) ToStudioIdcUserAssignmentPtrOutputWithContext(ctx context.Context) StudioIdcUserAssignmentPtrOutput {
+	return o
+}
+
+func (o StudioIdcUserAssignmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StudioIdcUserAssignment] {
+	return pulumix.Output[*StudioIdcUserAssignment]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o StudioIdcUserAssignmentPtrOutput) Elem() StudioIdcUserAssignmentOutput {
+	return o.ApplyT(func(v *StudioIdcUserAssignment) StudioIdcUserAssignment {
+		if v != nil {
+			return *v
+		}
+		var ret StudioIdcUserAssignment
+		return ret
+	}).(StudioIdcUserAssignmentOutput)
+}
+
+func (o StudioIdcUserAssignmentPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o StudioIdcUserAssignmentPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *StudioIdcUserAssignment) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// StudioIdcUserAssignmentInput is an input type that accepts StudioIdcUserAssignmentArgs and StudioIdcUserAssignmentOutput values.
+// You can construct a concrete instance of `StudioIdcUserAssignmentInput` via:
+//
+//	StudioIdcUserAssignmentArgs{...}
+type StudioIdcUserAssignmentInput interface {
+	pulumi.Input
+
+	ToStudioIdcUserAssignmentOutput() StudioIdcUserAssignmentOutput
+	ToStudioIdcUserAssignmentOutputWithContext(context.Context) StudioIdcUserAssignmentOutput
+}
+
+var studioIdcUserAssignmentPtrType = reflect.TypeOf((**StudioIdcUserAssignment)(nil)).Elem()
+
+type StudioIdcUserAssignmentPtrInput interface {
+	pulumi.Input
+
+	ToStudioIdcUserAssignmentPtrOutput() StudioIdcUserAssignmentPtrOutput
+	ToStudioIdcUserAssignmentPtrOutputWithContext(context.Context) StudioIdcUserAssignmentPtrOutput
+}
+
+type studioIdcUserAssignmentPtr string
+
+func StudioIdcUserAssignmentPtr(v string) StudioIdcUserAssignmentPtrInput {
+	return (*studioIdcUserAssignmentPtr)(&v)
+}
+
+func (*studioIdcUserAssignmentPtr) ElementType() reflect.Type {
+	return studioIdcUserAssignmentPtrType
+}
+
+func (in *studioIdcUserAssignmentPtr) ToStudioIdcUserAssignmentPtrOutput() StudioIdcUserAssignmentPtrOutput {
+	return pulumi.ToOutput(in).(StudioIdcUserAssignmentPtrOutput)
+}
+
+func (in *studioIdcUserAssignmentPtr) ToStudioIdcUserAssignmentPtrOutputWithContext(ctx context.Context) StudioIdcUserAssignmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(StudioIdcUserAssignmentPtrOutput)
+}
+
+func (in *studioIdcUserAssignmentPtr) ToOutput(ctx context.Context) pulumix.Output[*StudioIdcUserAssignment] {
+	return pulumix.Output[*StudioIdcUserAssignment]{
+		OutputState: in.ToStudioIdcUserAssignmentPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // Specifies whether the identity to map to the Studio is a user or a group.
 type StudioSessionMappingIdentityType string
 
@@ -380,10 +563,14 @@ func (in *studioSessionMappingIdentityTypePtr) ToOutput(ctx context.Context) pul
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioAuthModeInput)(nil)).Elem(), StudioAuthMode("SSO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioAuthModePtrInput)(nil)).Elem(), StudioAuthMode("SSO"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioIdcUserAssignmentInput)(nil)).Elem(), StudioIdcUserAssignment("REQUIRED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioIdcUserAssignmentPtrInput)(nil)).Elem(), StudioIdcUserAssignment("REQUIRED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioSessionMappingIdentityTypeInput)(nil)).Elem(), StudioSessionMappingIdentityType("USER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioSessionMappingIdentityTypePtrInput)(nil)).Elem(), StudioSessionMappingIdentityType("USER"))
 	pulumi.RegisterOutputType(StudioAuthModeOutput{})
 	pulumi.RegisterOutputType(StudioAuthModePtrOutput{})
+	pulumi.RegisterOutputType(StudioIdcUserAssignmentOutput{})
+	pulumi.RegisterOutputType(StudioIdcUserAssignmentPtrOutput{})
 	pulumi.RegisterOutputType(StudioSessionMappingIdentityTypeOutput{})
 	pulumi.RegisterOutputType(StudioSessionMappingIdentityTypePtrOutput{})
 }

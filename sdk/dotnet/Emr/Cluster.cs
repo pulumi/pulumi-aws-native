@@ -37,8 +37,14 @@ namespace Pulumi.AwsNative.Emr
         [Output("customAmiId")]
         public Output<string?> CustomAmiId { get; private set; } = null!;
 
+        [Output("ebsRootVolumeIops")]
+        public Output<int?> EbsRootVolumeIops { get; private set; } = null!;
+
         [Output("ebsRootVolumeSize")]
         public Output<int?> EbsRootVolumeSize { get; private set; } = null!;
+
+        [Output("ebsRootVolumeThroughput")]
+        public Output<int?> EbsRootVolumeThroughput { get; private set; } = null!;
 
         [Output("instances")]
         public Output<Outputs.ClusterJobFlowInstancesConfig> Instances { get; private set; } = null!;
@@ -66,6 +72,9 @@ namespace Pulumi.AwsNative.Emr
 
         [Output("osReleaseLabel")]
         public Output<string?> OsReleaseLabel { get; private set; } = null!;
+
+        [Output("placementGroupConfigs")]
+        public Output<ImmutableArray<Outputs.ClusterPlacementGroupConfig>> PlacementGroupConfigs { get; private set; } = null!;
 
         [Output("releaseLabel")]
         public Output<string?> ReleaseLabel { get; private set; } = null!;
@@ -122,13 +131,16 @@ namespace Pulumi.AwsNative.Emr
                     "bootstrapActions[*]",
                     "configurations[*]",
                     "customAmiId",
+                    "ebsRootVolumeIops",
                     "ebsRootVolumeSize",
+                    "ebsRootVolumeThroughput",
                     "jobFlowRole",
                     "kerberosAttributes",
                     "logEncryptionKmsKeyId",
                     "logUri",
                     "name",
                     "osReleaseLabel",
+                    "placementGroupConfigs[*]",
                     "releaseLabel",
                     "scaleDownBehavior",
                     "securityConfiguration",
@@ -193,8 +205,14 @@ namespace Pulumi.AwsNative.Emr
         [Input("customAmiId")]
         public Input<string>? CustomAmiId { get; set; }
 
+        [Input("ebsRootVolumeIops")]
+        public Input<int>? EbsRootVolumeIops { get; set; }
+
         [Input("ebsRootVolumeSize")]
         public Input<int>? EbsRootVolumeSize { get; set; }
+
+        [Input("ebsRootVolumeThroughput")]
+        public Input<int>? EbsRootVolumeThroughput { get; set; }
 
         [Input("instances", required: true)]
         public Input<Inputs.ClusterJobFlowInstancesConfigArgs> Instances { get; set; } = null!;
@@ -219,6 +237,14 @@ namespace Pulumi.AwsNative.Emr
 
         [Input("osReleaseLabel")]
         public Input<string>? OsReleaseLabel { get; set; }
+
+        [Input("placementGroupConfigs")]
+        private InputList<Inputs.ClusterPlacementGroupConfigArgs>? _placementGroupConfigs;
+        public InputList<Inputs.ClusterPlacementGroupConfigArgs> PlacementGroupConfigs
+        {
+            get => _placementGroupConfigs ?? (_placementGroupConfigs = new InputList<Inputs.ClusterPlacementGroupConfigArgs>());
+            set => _placementGroupConfigs = value;
+        }
 
         [Input("releaseLabel")]
         public Input<string>? ReleaseLabel { get; set; }

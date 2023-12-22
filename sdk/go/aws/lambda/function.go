@@ -50,8 +50,6 @@ type Function struct {
 	MemorySize pulumi.IntPtrOutput `pulumi:"memorySize"`
 	// PackageType.
 	PackageType FunctionPackageTypePtrOutput `pulumi:"packageType"`
-	// The resource policy of your function
-	Policy pulumi.AnyOutput `pulumi:"policy"`
 	// The number of simultaneous executions to reserve for the function.
 	ReservedConcurrentExecutions pulumi.IntPtrOutput `pulumi:"reservedConcurrentExecutions"`
 	// The Amazon Resource Name (ARN) of the function's execution role.
@@ -155,8 +153,6 @@ type functionArgs struct {
 	MemorySize *int `pulumi:"memorySize"`
 	// PackageType.
 	PackageType *FunctionPackageType `pulumi:"packageType"`
-	// The resource policy of your function
-	Policy interface{} `pulumi:"policy"`
 	// The number of simultaneous executions to reserve for the function.
 	ReservedConcurrentExecutions *int `pulumi:"reservedConcurrentExecutions"`
 	// The Amazon Resource Name (ARN) of the function's execution role.
@@ -210,8 +206,6 @@ type FunctionArgs struct {
 	MemorySize pulumi.IntPtrInput
 	// PackageType.
 	PackageType FunctionPackageTypePtrInput
-	// The resource policy of your function
-	Policy pulumi.Input
 	// The number of simultaneous executions to reserve for the function.
 	ReservedConcurrentExecutions pulumi.IntPtrInput
 	// The Amazon Resource Name (ARN) of the function's execution role.
@@ -363,11 +357,6 @@ func (o FunctionOutput) MemorySize() pulumi.IntPtrOutput {
 // PackageType.
 func (o FunctionOutput) PackageType() FunctionPackageTypePtrOutput {
 	return o.ApplyT(func(v *Function) FunctionPackageTypePtrOutput { return v.PackageType }).(FunctionPackageTypePtrOutput)
-}
-
-// The resource policy of your function
-func (o FunctionOutput) Policy() pulumi.AnyOutput {
-	return o.ApplyT(func(v *Function) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
 }
 
 // The number of simultaneous executions to reserve for the function.

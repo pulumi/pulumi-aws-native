@@ -57,6 +57,7 @@ namespace Pulumi.AwsNative.AppSync
         public readonly string? Arn;
         public readonly string? AuthenticationType;
         public readonly string? GraphQlDns;
+        public readonly string? GraphQlEndpointArn;
         public readonly string? GraphQlUrl;
         public readonly string? Id;
         public readonly Outputs.GraphQlApiLambdaAuthorizerConfig? LambdaAuthorizerConfig;
@@ -85,6 +86,8 @@ namespace Pulumi.AwsNative.AppSync
             string? authenticationType,
 
             string? graphQlDns,
+
+            string? graphQlEndpointArn,
 
             string? graphQlUrl,
 
@@ -120,6 +123,7 @@ namespace Pulumi.AwsNative.AppSync
             Arn = arn;
             AuthenticationType = authenticationType;
             GraphQlDns = graphQlDns;
+            GraphQlEndpointArn = graphQlEndpointArn;
             GraphQlUrl = graphQlUrl;
             Id = id;
             LambdaAuthorizerConfig = lambdaAuthorizerConfig;

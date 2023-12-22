@@ -97,8 +97,8 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         [Input("memoryGiBPerVCpu")]
         public Input<Inputs.AutoScalingGroupMemoryGiBPerVCpuRequestArgs>? MemoryGiBPerVCpu { get; set; }
 
-        [Input("memoryMiB")]
-        public Input<Inputs.AutoScalingGroupMemoryMiBRequestArgs>? MemoryMiB { get; set; }
+        [Input("memoryMiB", required: true)]
+        public Input<Inputs.AutoScalingGroupMemoryMiBRequestArgs> MemoryMiB { get; set; } = null!;
 
         [Input("networkBandwidthGbps")]
         public Input<Inputs.AutoScalingGroupNetworkBandwidthGbpsRequestArgs>? NetworkBandwidthGbps { get; set; }
@@ -118,8 +118,8 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         [Input("totalLocalStorageGb")]
         public Input<Inputs.AutoScalingGroupTotalLocalStorageGbRequestArgs>? TotalLocalStorageGb { get; set; }
 
-        [Input("vCpuCount")]
-        public Input<Inputs.AutoScalingGroupVCpuCountRequestArgs>? VCpuCount { get; set; }
+        [Input("vCpuCount", required: true)]
+        public Input<Inputs.AutoScalingGroupVCpuCountRequestArgs> VCpuCount { get; set; } = null!;
 
         public AutoScalingGroupInstanceRequirementsArgs()
         {

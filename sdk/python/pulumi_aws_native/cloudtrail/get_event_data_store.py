@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEventDataStoreResult:
-    def __init__(__self__, advanced_event_selectors=None, billing_mode=None, created_timestamp=None, event_data_store_arn=None, ingestion_enabled=None, insight_selectors=None, insights_destination=None, kms_key_id=None, multi_region_enabled=None, name=None, organization_enabled=None, retention_period=None, status=None, tags=None, termination_protection_enabled=None, updated_timestamp=None):
+    def __init__(__self__, advanced_event_selectors=None, billing_mode=None, created_timestamp=None, event_data_store_arn=None, federation_enabled=None, federation_role_arn=None, ingestion_enabled=None, insight_selectors=None, insights_destination=None, kms_key_id=None, multi_region_enabled=None, name=None, organization_enabled=None, retention_period=None, status=None, tags=None, termination_protection_enabled=None, updated_timestamp=None):
         if advanced_event_selectors and not isinstance(advanced_event_selectors, list):
             raise TypeError("Expected argument 'advanced_event_selectors' to be a list")
         pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
@@ -32,6 +32,12 @@ class GetEventDataStoreResult:
         if event_data_store_arn and not isinstance(event_data_store_arn, str):
             raise TypeError("Expected argument 'event_data_store_arn' to be a str")
         pulumi.set(__self__, "event_data_store_arn", event_data_store_arn)
+        if federation_enabled and not isinstance(federation_enabled, bool):
+            raise TypeError("Expected argument 'federation_enabled' to be a bool")
+        pulumi.set(__self__, "federation_enabled", federation_enabled)
+        if federation_role_arn and not isinstance(federation_role_arn, str):
+            raise TypeError("Expected argument 'federation_role_arn' to be a str")
+        pulumi.set(__self__, "federation_role_arn", federation_role_arn)
         if ingestion_enabled and not isinstance(ingestion_enabled, bool):
             raise TypeError("Expected argument 'ingestion_enabled' to be a bool")
         pulumi.set(__self__, "ingestion_enabled", ingestion_enabled)
@@ -100,6 +106,22 @@ class GetEventDataStoreResult:
         The ARN of the event data store.
         """
         return pulumi.get(self, "event_data_store_arn")
+
+    @property
+    @pulumi.getter(name="federationEnabled")
+    def federation_enabled(self) -> Optional[bool]:
+        """
+        Indicates whether federation is enabled on an event data store.
+        """
+        return pulumi.get(self, "federation_enabled")
+
+    @property
+    @pulumi.getter(name="federationRoleArn")
+    def federation_role_arn(self) -> Optional[str]:
+        """
+        The ARN of the role used for event data store federation.
+        """
+        return pulumi.get(self, "federation_role_arn")
 
     @property
     @pulumi.getter(name="ingestionEnabled")
@@ -205,6 +227,8 @@ class AwaitableGetEventDataStoreResult(GetEventDataStoreResult):
             billing_mode=self.billing_mode,
             created_timestamp=self.created_timestamp,
             event_data_store_arn=self.event_data_store_arn,
+            federation_enabled=self.federation_enabled,
+            federation_role_arn=self.federation_role_arn,
             ingestion_enabled=self.ingestion_enabled,
             insight_selectors=self.insight_selectors,
             insights_destination=self.insights_destination,
@@ -237,6 +261,8 @@ def get_event_data_store(event_data_store_arn: Optional[str] = None,
         billing_mode=pulumi.get(__ret__, 'billing_mode'),
         created_timestamp=pulumi.get(__ret__, 'created_timestamp'),
         event_data_store_arn=pulumi.get(__ret__, 'event_data_store_arn'),
+        federation_enabled=pulumi.get(__ret__, 'federation_enabled'),
+        federation_role_arn=pulumi.get(__ret__, 'federation_role_arn'),
         ingestion_enabled=pulumi.get(__ret__, 'ingestion_enabled'),
         insight_selectors=pulumi.get(__ret__, 'insight_selectors'),
         insights_destination=pulumi.get(__ret__, 'insights_destination'),

@@ -60,11 +60,13 @@ namespace Pulumi.AwsNative.OpenSearchService
         public readonly string? DomainArn;
         public readonly string? DomainEndpoint;
         public readonly Outputs.DomainEndpointOptions? DomainEndpointOptions;
+        public readonly string? DomainEndpointV2;
         public readonly object? DomainEndpoints;
         public readonly Outputs.DomainEbsOptions? EbsOptions;
         public readonly Outputs.DomainEncryptionAtRestOptions? EncryptionAtRestOptions;
         public readonly string? EngineVersion;
         public readonly string? Id;
+        public readonly string? IpAddressType;
         public readonly object? LogPublishingOptions;
         public readonly Outputs.DomainNodeToNodeEncryptionOptions? NodeToNodeEncryptionOptions;
         public readonly Outputs.DomainOffPeakWindowOptions? OffPeakWindowOptions;
@@ -97,6 +99,8 @@ namespace Pulumi.AwsNative.OpenSearchService
 
             Outputs.DomainEndpointOptions? domainEndpointOptions,
 
+            string? domainEndpointV2,
+
             object? domainEndpoints,
 
             Outputs.DomainEbsOptions? ebsOptions,
@@ -106,6 +110,8 @@ namespace Pulumi.AwsNative.OpenSearchService
             string? engineVersion,
 
             string? id,
+
+            string? ipAddressType,
 
             object? logPublishingOptions,
 
@@ -132,11 +138,13 @@ namespace Pulumi.AwsNative.OpenSearchService
             DomainArn = domainArn;
             DomainEndpoint = domainEndpoint;
             DomainEndpointOptions = domainEndpointOptions;
+            DomainEndpointV2 = domainEndpointV2;
             DomainEndpoints = domainEndpoints;
             EbsOptions = ebsOptions;
             EncryptionAtRestOptions = encryptionAtRestOptions;
             EngineVersion = engineVersion;
             Id = id;
+            IpAddressType = ipAddressType;
             LogPublishingOptions = logPublishingOptions;
             NodeToNodeEncryptionOptions = nodeToNodeEncryptionOptions;
             OffPeakWindowOptions = offPeakWindowOptions;

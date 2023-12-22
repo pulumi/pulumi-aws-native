@@ -12,19 +12,30 @@ namespace Pulumi.AwsNative.EventSchemas
     /// <summary>
     /// Resource Type definition for AWS::EventSchemas::Registry
     /// </summary>
-    [Obsolete(@"Registry is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")]
     [AwsNativeResourceType("aws-native:eventschemas:Registry")]
     public partial class Registry : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A description of the registry to be created.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the registry.
+        /// </summary>
         [Output("registryArn")]
         public Output<string> RegistryArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the schema registry.
+        /// </summary>
         [Output("registryName")]
         public Output<string?> RegistryName { get; private set; } = null!;
 
+        /// <summary>
+        /// Tags associated with the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Outputs.RegistryTagsEntry>> Tags { get; private set; } = null!;
 
@@ -77,14 +88,24 @@ namespace Pulumi.AwsNative.EventSchemas
 
     public sealed class RegistryArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description of the registry to be created.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the schema registry.
+        /// </summary>
         [Input("registryName")]
         public Input<string>? RegistryName { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.RegistryTagsEntryArgs>? _tags;
+
+        /// <summary>
+        /// Tags associated with the resource.
+        /// </summary>
         public InputList<Inputs.RegistryTagsEntryArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Inputs.RegistryTagsEntryArgs>());

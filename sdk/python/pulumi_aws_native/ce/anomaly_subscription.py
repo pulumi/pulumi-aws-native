@@ -130,12 +130,7 @@ class AnomalySubscriptionArgs:
         pulumi.set(self, "threshold_expression", value)
 
 
-warnings.warn("""AnomalySubscription is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
-
 class AnomalySubscription(pulumi.CustomResource):
-    warnings.warn("""AnomalySubscription is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -193,7 +188,6 @@ class AnomalySubscription(pulumi.CustomResource):
                  threshold: Optional[pulumi.Input[float]] = None,
                  threshold_expression: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""AnomalySubscription is deprecated: AnomalySubscription is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

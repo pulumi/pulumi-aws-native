@@ -16,10 +16,18 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class UserProfileUserSettings
     {
+        public readonly Outputs.UserProfileCodeEditorAppSettings? CodeEditorAppSettings;
+        public readonly ImmutableArray<Outputs.UserProfileCustomFileSystemConfig> CustomFileSystemConfigs;
+        public readonly Outputs.UserProfileCustomPosixUserConfig? CustomPosixUserConfig;
+        /// <summary>
+        /// Defines which Amazon SageMaker application users are directed to by default.
+        /// </summary>
+        public readonly string? DefaultLandingUri;
         /// <summary>
         /// The user profile Amazon Resource Name (ARN).
         /// </summary>
         public readonly string? ExecutionRole;
+        public readonly Outputs.UserProfileJupyterLabAppSettings? JupyterLabAppSettings;
         /// <summary>
         /// The Jupyter server's app settings.
         /// </summary>
@@ -37,10 +45,25 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// The sharing settings.
         /// </summary>
         public readonly Outputs.UserProfileSharingSettings? SharingSettings;
+        public readonly Outputs.UserProfileDefaultSpaceStorageSettings? SpaceStorageSettings;
+        /// <summary>
+        /// Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
+        /// </summary>
+        public readonly Pulumi.AwsNative.SageMaker.UserProfileUserSettingsStudioWebPortal? StudioWebPortal;
 
         [OutputConstructor]
         private UserProfileUserSettings(
+            Outputs.UserProfileCodeEditorAppSettings? codeEditorAppSettings,
+
+            ImmutableArray<Outputs.UserProfileCustomFileSystemConfig> customFileSystemConfigs,
+
+            Outputs.UserProfileCustomPosixUserConfig? customPosixUserConfig,
+
+            string? defaultLandingUri,
+
             string? executionRole,
+
+            Outputs.UserProfileJupyterLabAppSettings? jupyterLabAppSettings,
 
             Outputs.UserProfileJupyterServerAppSettings? jupyterServerAppSettings,
 
@@ -50,14 +73,25 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             ImmutableArray<string> securityGroups,
 
-            Outputs.UserProfileSharingSettings? sharingSettings)
+            Outputs.UserProfileSharingSettings? sharingSettings,
+
+            Outputs.UserProfileDefaultSpaceStorageSettings? spaceStorageSettings,
+
+            Pulumi.AwsNative.SageMaker.UserProfileUserSettingsStudioWebPortal? studioWebPortal)
         {
+            CodeEditorAppSettings = codeEditorAppSettings;
+            CustomFileSystemConfigs = customFileSystemConfigs;
+            CustomPosixUserConfig = customPosixUserConfig;
+            DefaultLandingUri = defaultLandingUri;
             ExecutionRole = executionRole;
+            JupyterLabAppSettings = jupyterLabAppSettings;
             JupyterServerAppSettings = jupyterServerAppSettings;
             KernelGatewayAppSettings = kernelGatewayAppSettings;
             RStudioServerProAppSettings = rStudioServerProAppSettings;
             SecurityGroups = securityGroups;
             SharingSettings = sharingSettings;
+            SpaceStorageSettings = spaceStorageSettings;
+            StudioWebPortal = studioWebPortal;
         }
     }
 }

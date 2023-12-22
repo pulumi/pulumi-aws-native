@@ -70,28 +70,13 @@ namespace Pulumi.AwsNative.IdentityStore
     public sealed class GetGroupMembershipResult
     {
         /// <summary>
-        /// The unique identifier for a group in the identity store.
-        /// </summary>
-        public readonly string? GroupId;
-        /// <summary>
-        /// An object containing the identifier of a group member.
-        /// </summary>
-        public readonly Outputs.GroupMembershipMemberId? MemberId;
-        /// <summary>
         /// The identifier for a GroupMembership in the identity store.
         /// </summary>
         public readonly string? MembershipId;
 
         [OutputConstructor]
-        private GetGroupMembershipResult(
-            string? groupId,
-
-            Outputs.GroupMembershipMemberId? memberId,
-
-            string? membershipId)
+        private GetGroupMembershipResult(string? membershipId)
         {
-            GroupId = groupId;
-            MemberId = memberId;
             MembershipId = membershipId;
         }
     }

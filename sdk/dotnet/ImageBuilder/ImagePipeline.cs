@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Output<bool?> EnhancedImageMetadataEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// The execution role name/ARN for the image build, if provided
+        /// </summary>
+        [Output("executionRole")]
+        public Output<string?> ExecutionRole { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
         /// </summary>
         [Output("imageRecipeArn")]
@@ -92,6 +98,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         [Output("tags")]
         public Output<object?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Workflows to define the image build process
+        /// </summary>
+        [Output("workflows")]
+        public Output<ImmutableArray<Outputs.ImagePipelineWorkflowConfiguration>> Workflows { get; private set; } = null!;
 
 
         /// <summary>
@@ -167,6 +179,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Input<bool>? EnhancedImageMetadataEnabled { get; set; }
 
         /// <summary>
+        /// The execution role name/ARN for the image build, if provided
+        /// </summary>
+        [Input("executionRole")]
+        public Input<string>? ExecutionRole { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the image recipe that defines how images are configured, tested, and assessed.
         /// </summary>
         [Input("imageRecipeArn")]
@@ -213,6 +231,18 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         [Input("tags")]
         public Input<object>? Tags { get; set; }
+
+        [Input("workflows")]
+        private InputList<Inputs.ImagePipelineWorkflowConfigurationArgs>? _workflows;
+
+        /// <summary>
+        /// Workflows to define the image build process
+        /// </summary>
+        public InputList<Inputs.ImagePipelineWorkflowConfigurationArgs> Workflows
+        {
+            get => _workflows ?? (_workflows = new InputList<Inputs.ImagePipelineWorkflowConfigurationArgs>());
+            set => _workflows = value;
+        }
 
         public ImagePipelineArgs()
         {

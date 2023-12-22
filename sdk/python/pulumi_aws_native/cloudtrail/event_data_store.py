@@ -18,6 +18,8 @@ class EventDataStoreArgs:
     def __init__(__self__, *,
                  advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]]] = None,
                  billing_mode: Optional[pulumi.Input[str]] = None,
+                 federation_enabled: Optional[pulumi.Input[bool]] = None,
+                 federation_role_arn: Optional[pulumi.Input[str]] = None,
                  ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  insight_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreInsightSelectorArgs']]]] = None,
                  insights_destination: Optional[pulumi.Input[str]] = None,
@@ -32,6 +34,8 @@ class EventDataStoreArgs:
         The set of arguments for constructing a EventDataStore resource.
         :param pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorArgs']]] advanced_event_selectors: The advanced event selectors that were used to select events for the data store.
         :param pulumi.Input[str] billing_mode: The mode that the event data store will use to charge for event storage.
+        :param pulumi.Input[bool] federation_enabled: Indicates whether federation is enabled on an event data store.
+        :param pulumi.Input[str] federation_role_arn: The ARN of the role used for event data store federation.
         :param pulumi.Input[bool] ingestion_enabled: Indicates whether the event data store is ingesting events.
         :param pulumi.Input[Sequence[pulumi.Input['EventDataStoreInsightSelectorArgs']]] insight_selectors: Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
         :param pulumi.Input[str] insights_destination: Specifies the ARN of the event data store that will collect Insights events. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store
@@ -46,6 +50,10 @@ class EventDataStoreArgs:
             pulumi.set(__self__, "advanced_event_selectors", advanced_event_selectors)
         if billing_mode is not None:
             pulumi.set(__self__, "billing_mode", billing_mode)
+        if federation_enabled is not None:
+            pulumi.set(__self__, "federation_enabled", federation_enabled)
+        if federation_role_arn is not None:
+            pulumi.set(__self__, "federation_role_arn", federation_role_arn)
         if ingestion_enabled is not None:
             pulumi.set(__self__, "ingestion_enabled", ingestion_enabled)
         if insight_selectors is not None:
@@ -90,6 +98,30 @@ class EventDataStoreArgs:
     @billing_mode.setter
     def billing_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "billing_mode", value)
+
+    @property
+    @pulumi.getter(name="federationEnabled")
+    def federation_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether federation is enabled on an event data store.
+        """
+        return pulumi.get(self, "federation_enabled")
+
+    @federation_enabled.setter
+    def federation_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "federation_enabled", value)
+
+    @property
+    @pulumi.getter(name="federationRoleArn")
+    def federation_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the role used for event data store federation.
+        """
+        return pulumi.get(self, "federation_role_arn")
+
+    @federation_role_arn.setter
+    def federation_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "federation_role_arn", value)
 
     @property
     @pulumi.getter(name="ingestionEnabled")
@@ -216,6 +248,8 @@ class EventDataStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDataStoreAdvancedEventSelectorArgs']]]]] = None,
                  billing_mode: Optional[pulumi.Input[str]] = None,
+                 federation_enabled: Optional[pulumi.Input[bool]] = None,
+                 federation_role_arn: Optional[pulumi.Input[str]] = None,
                  ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  insight_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDataStoreInsightSelectorArgs']]]]] = None,
                  insights_destination: Optional[pulumi.Input[str]] = None,
@@ -234,6 +268,8 @@ class EventDataStore(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDataStoreAdvancedEventSelectorArgs']]]] advanced_event_selectors: The advanced event selectors that were used to select events for the data store.
         :param pulumi.Input[str] billing_mode: The mode that the event data store will use to charge for event storage.
+        :param pulumi.Input[bool] federation_enabled: Indicates whether federation is enabled on an event data store.
+        :param pulumi.Input[str] federation_role_arn: The ARN of the role used for event data store federation.
         :param pulumi.Input[bool] ingestion_enabled: Indicates whether the event data store is ingesting events.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDataStoreInsightSelectorArgs']]]] insight_selectors: Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
         :param pulumi.Input[str] insights_destination: Specifies the ARN of the event data store that will collect Insights events. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store
@@ -270,6 +306,8 @@ class EventDataStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  advanced_event_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDataStoreAdvancedEventSelectorArgs']]]]] = None,
                  billing_mode: Optional[pulumi.Input[str]] = None,
+                 federation_enabled: Optional[pulumi.Input[bool]] = None,
+                 federation_role_arn: Optional[pulumi.Input[str]] = None,
                  ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  insight_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventDataStoreInsightSelectorArgs']]]]] = None,
                  insights_destination: Optional[pulumi.Input[str]] = None,
@@ -291,6 +329,8 @@ class EventDataStore(pulumi.CustomResource):
 
             __props__.__dict__["advanced_event_selectors"] = advanced_event_selectors
             __props__.__dict__["billing_mode"] = billing_mode
+            __props__.__dict__["federation_enabled"] = federation_enabled
+            __props__.__dict__["federation_role_arn"] = federation_role_arn
             __props__.__dict__["ingestion_enabled"] = ingestion_enabled
             __props__.__dict__["insight_selectors"] = insight_selectors
             __props__.__dict__["insights_destination"] = insights_destination
@@ -331,6 +371,8 @@ class EventDataStore(pulumi.CustomResource):
         __props__.__dict__["billing_mode"] = None
         __props__.__dict__["created_timestamp"] = None
         __props__.__dict__["event_data_store_arn"] = None
+        __props__.__dict__["federation_enabled"] = None
+        __props__.__dict__["federation_role_arn"] = None
         __props__.__dict__["ingestion_enabled"] = None
         __props__.__dict__["insight_selectors"] = None
         __props__.__dict__["insights_destination"] = None
@@ -376,6 +418,22 @@ class EventDataStore(pulumi.CustomResource):
         The ARN of the event data store.
         """
         return pulumi.get(self, "event_data_store_arn")
+
+    @property
+    @pulumi.getter(name="federationEnabled")
+    def federation_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether federation is enabled on an event data store.
+        """
+        return pulumi.get(self, "federation_enabled")
+
+    @property
+    @pulumi.getter(name="federationRoleArn")
+    def federation_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the role used for event data store federation.
+        """
+        return pulumi.get(self, "federation_role_arn")
 
     @property
     @pulumi.getter(name="ingestionEnabled")

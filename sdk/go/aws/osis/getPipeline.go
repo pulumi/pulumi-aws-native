@@ -29,6 +29,8 @@ type LookupPipelineArgs struct {
 }
 
 type LookupPipelineResult struct {
+	BufferOptions           *PipelineBufferOptions           `pulumi:"bufferOptions"`
+	EncryptionAtRestOptions *PipelineEncryptionAtRestOptions `pulumi:"encryptionAtRestOptions"`
 	// A list of endpoints that can be used for ingesting data into a pipeline
 	IngestEndpointUrls   []string                      `pulumi:"ingestEndpointUrls"`
 	LogPublishingOptions *PipelineLogPublishingOptions `pulumi:"logPublishingOptions"`
@@ -86,6 +88,14 @@ func (o LookupPipelineResultOutput) ToOutput(ctx context.Context) pulumix.Output
 	return pulumix.Output[LookupPipelineResult]{
 		OutputState: o.OutputState,
 	}
+}
+
+func (o LookupPipelineResultOutput) BufferOptions() PipelineBufferOptionsPtrOutput {
+	return o.ApplyT(func(v LookupPipelineResult) *PipelineBufferOptions { return v.BufferOptions }).(PipelineBufferOptionsPtrOutput)
+}
+
+func (o LookupPipelineResultOutput) EncryptionAtRestOptions() PipelineEncryptionAtRestOptionsPtrOutput {
+	return o.ApplyT(func(v LookupPipelineResult) *PipelineEncryptionAtRestOptions { return v.EncryptionAtRestOptions }).(PipelineEncryptionAtRestOptionsPtrOutput)
 }
 
 // A list of endpoints that can be used for ingesting data into a pipeline

@@ -14,12 +14,12 @@ export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions):
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:ec2:getInstance", {
-        "id": args.id,
+        "instanceId": args.instanceId,
     }, opts);
 }
 
 export interface GetInstanceArgs {
-    id: string;
+    instanceId: string;
 }
 
 export interface GetInstanceResult {
@@ -31,7 +31,7 @@ export interface GetInstanceResult {
     readonly ebsOptimized?: boolean;
     readonly hostId?: string;
     readonly iamInstanceProfile?: string;
-    readonly id?: string;
+    readonly instanceId?: string;
     readonly instanceInitiatedShutdownBehavior?: string;
     readonly instanceType?: string;
     readonly kernelId?: string;
@@ -59,5 +59,5 @@ export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.Inv
 }
 
 export interface GetInstanceOutputArgs {
-    id: pulumi.Input<string>;
+    instanceId: pulumi.Input<string>;
 }

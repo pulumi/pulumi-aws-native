@@ -54,9 +54,21 @@ export class Studio extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The AWS KMS key identifier (ARN) used to encrypt AWS EMR Studio workspace and notebook files when backed up to AWS S3.
+     */
+    public readonly encryptionKeyArn!: pulumi.Output<string | undefined>;
+    /**
      * The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by VpcId.
      */
     public readonly engineSecurityGroupId!: pulumi.Output<string>;
+    /**
+     * The ARN of the IAM Identity Center instance to create the Studio application.
+     */
+    public readonly idcInstanceArn!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL. If the value is set to REQUIRED, users must be explicitly assigned to the Studio application to access the Studio.
+     */
+    public readonly idcUserAssignment!: pulumi.Output<enums.emr.StudioIdcUserAssignment | undefined>;
     /**
      * Your identity provider's authentication endpoint. Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.
      */
@@ -85,6 +97,10 @@ export class Studio extends pulumi.CustomResource {
      * A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
      */
     public readonly tags!: pulumi.Output<outputs.emr.StudioTag[] | undefined>;
+    /**
+     * A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.
+     */
+    public readonly trustedIdentityPropagationEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The unique Studio access URL.
      */
@@ -137,13 +153,17 @@ export class Studio extends pulumi.CustomResource {
             resourceInputs["authMode"] = args ? args.authMode : undefined;
             resourceInputs["defaultS3Location"] = args ? args.defaultS3Location : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["encryptionKeyArn"] = args ? args.encryptionKeyArn : undefined;
             resourceInputs["engineSecurityGroupId"] = args ? args.engineSecurityGroupId : undefined;
+            resourceInputs["idcInstanceArn"] = args ? args.idcInstanceArn : undefined;
+            resourceInputs["idcUserAssignment"] = args ? args.idcUserAssignment : undefined;
             resourceInputs["idpAuthUrl"] = args ? args.idpAuthUrl : undefined;
             resourceInputs["idpRelayStateParameterName"] = args ? args.idpRelayStateParameterName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trustedIdentityPropagationEnabled"] = args ? args.trustedIdentityPropagationEnabled : undefined;
             resourceInputs["userRole"] = args ? args.userRole : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["workspaceSecurityGroupId"] = args ? args.workspaceSecurityGroupId : undefined;
@@ -155,7 +175,10 @@ export class Studio extends pulumi.CustomResource {
             resourceInputs["authMode"] = undefined /*out*/;
             resourceInputs["defaultS3Location"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["encryptionKeyArn"] = undefined /*out*/;
             resourceInputs["engineSecurityGroupId"] = undefined /*out*/;
+            resourceInputs["idcInstanceArn"] = undefined /*out*/;
+            resourceInputs["idcUserAssignment"] = undefined /*out*/;
             resourceInputs["idpAuthUrl"] = undefined /*out*/;
             resourceInputs["idpRelayStateParameterName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -163,13 +186,14 @@ export class Studio extends pulumi.CustomResource {
             resourceInputs["studioId"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["trustedIdentityPropagationEnabled"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
             resourceInputs["userRole"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
             resourceInputs["workspaceSecurityGroupId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["authMode", "engineSecurityGroupId", "serviceRole", "userRole", "vpcId", "workspaceSecurityGroupId"] };
+        const replaceOnChanges = { replaceOnChanges: ["authMode", "encryptionKeyArn", "engineSecurityGroupId", "idcInstanceArn", "idcUserAssignment", "serviceRole", "trustedIdentityPropagationEnabled", "userRole", "vpcId", "workspaceSecurityGroupId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Studio.__pulumiType, name, resourceInputs, opts);
     }
@@ -192,9 +216,21 @@ export interface StudioArgs {
      */
     description?: pulumi.Input<string>;
     /**
+     * The AWS KMS key identifier (ARN) used to encrypt AWS EMR Studio workspace and notebook files when backed up to AWS S3.
+     */
+    encryptionKeyArn?: pulumi.Input<string>;
+    /**
      * The ID of the Amazon EMR Studio Engine security group. The Engine security group allows inbound network traffic from the Workspace security group, and it must be in the same VPC specified by VpcId.
      */
     engineSecurityGroupId: pulumi.Input<string>;
+    /**
+     * The ARN of the IAM Identity Center instance to create the Studio application.
+     */
+    idcInstanceArn?: pulumi.Input<string>;
+    /**
+     * Specifies whether IAM Identity Center user assignment is REQUIRED or OPTIONAL. If the value is set to REQUIRED, users must be explicitly assigned to the Studio application to access the Studio.
+     */
+    idcUserAssignment?: pulumi.Input<enums.emr.StudioIdcUserAssignment>;
     /**
      * Your identity provider's authentication endpoint. Amazon EMR Studio redirects federated users to this endpoint for authentication when logging in to a Studio with the Studio URL.
      */
@@ -219,6 +255,10 @@ export interface StudioArgs {
      * A list of tags to associate with the Studio. Tags are user-defined key-value pairs that consist of a required key string with a maximum of 128 characters, and an optional value string with a maximum of 256 characters.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.emr.StudioTagArgs>[]>;
+    /**
+     * A Boolean indicating whether to enable Trusted identity propagation for the Studio. The default value is false.
+     */
+    trustedIdentityPropagationEnabled?: pulumi.Input<boolean>;
     /**
      * The IAM user role that will be assumed by users and groups logged in to a Studio. The permissions attached to this IAM role can be scoped down for each user or group using session policies.
      */

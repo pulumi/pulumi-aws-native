@@ -7,6 +7,6 @@ export const DirectoryBucketDataRedundancy = {
 } as const;
 
 /**
- * Specifies the number of Avilability Zone that's used for redundancy for the bucket.
+ * Specifies the number of Availability Zone that's used for redundancy for the bucket.
  */
 export type DirectoryBucketDataRedundancy = (typeof DirectoryBucketDataRedundancy)[keyof typeof DirectoryBucketDataRedundancy];

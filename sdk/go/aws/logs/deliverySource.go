@@ -12,11 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// Resource Type definition for AWS::Logs::DeliverySource.
+//	A delivery source is an AWS resource that sends logs to an AWS destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
+//
+// Only some AWS services support being configured as a delivery source. These services are listed as Supported [V2 Permissions] in the table at [Enabling logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html).
 type DeliverySource struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Aqueduct Source.
+	// The Amazon Resource Name (ARN) that uniquely identifies this delivery source.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The type of logs being delivered. Only mandatory when the resourceArn could match more than one. In such a case, the error message will contain all the possible options.
 	LogType pulumi.StringPtrOutput `pulumi:"logType"`
@@ -24,11 +26,11 @@ type DeliverySource struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN of the resource that will be sending the logs.
 	ResourceArn pulumi.StringPtrOutput `pulumi:"resourceArn"`
-	// List of ARN of the resource that will be sending the logs
+	// This array contains the ARN of the AWS resource that sends logs and is represented by this delivery source. Currently, only one ARN can be in the array.
 	ResourceArns pulumi.StringArrayOutput `pulumi:"resourceArns"`
-	// The service generating the log
+	// The AWS service that is sending logs.
 	Service pulumi.StringOutput `pulumi:"service"`
-	// An array of key-value pairs to apply to this resource.
+	// The tags that have been assigned to this delivery source.
 	Tags DeliverySourceTagArrayOutput `pulumi:"tags"`
 }
 
@@ -82,7 +84,7 @@ type deliverySourceArgs struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the resource that will be sending the logs.
 	ResourceArn *string `pulumi:"resourceArn"`
-	// An array of key-value pairs to apply to this resource.
+	// The tags that have been assigned to this delivery source.
 	Tags []DeliverySourceTag `pulumi:"tags"`
 }
 
@@ -94,7 +96,7 @@ type DeliverySourceArgs struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the resource that will be sending the logs.
 	ResourceArn pulumi.StringPtrInput
-	// An array of key-value pairs to apply to this resource.
+	// The tags that have been assigned to this delivery source.
 	Tags DeliverySourceTagArrayInput
 }
 
@@ -147,7 +149,7 @@ func (o DeliverySourceOutput) ToOutput(ctx context.Context) pulumix.Output[*Deli
 	}
 }
 
-// The ARN of the Aqueduct Source.
+// The Amazon Resource Name (ARN) that uniquely identifies this delivery source.
 func (o DeliverySourceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeliverySource) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -167,17 +169,17 @@ func (o DeliverySourceOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliverySource) pulumi.StringPtrOutput { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
-// List of ARN of the resource that will be sending the logs
+// This array contains the ARN of the AWS resource that sends logs and is represented by this delivery source. Currently, only one ARN can be in the array.
 func (o DeliverySourceOutput) ResourceArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DeliverySource) pulumi.StringArrayOutput { return v.ResourceArns }).(pulumi.StringArrayOutput)
 }
 
-// The service generating the log
+// The AWS service that is sending logs.
 func (o DeliverySourceOutput) Service() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeliverySource) pulumi.StringOutput { return v.Service }).(pulumi.StringOutput)
 }
 
-// An array of key-value pairs to apply to this resource.
+// The tags that have been assigned to this delivery source.
 func (o DeliverySourceOutput) Tags() DeliverySourceTagArrayOutput {
 	return o.ApplyT(func(v *DeliverySource) DeliverySourceTagArrayOutput { return v.Tags }).(DeliverySourceTagArrayOutput)
 }

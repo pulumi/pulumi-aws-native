@@ -8,7 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Logs::DeliveryDestination
+ * This structure contains information about one delivery destination in your account.
+ *
+ * A delivery destination is an AWS resource that represents an AWS service that logs can be sent to CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.
  */
 export function getDeliveryDestination(args: GetDeliveryDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetDeliveryDestinationResult> {
 
@@ -20,14 +22,14 @@ export function getDeliveryDestination(args: GetDeliveryDestinationArgs, opts?: 
 
 export interface GetDeliveryDestinationArgs {
     /**
-     * The unique name of the Delivery Destination.
+     * The name of this delivery destination.
      */
     name: string;
 }
 
 export interface GetDeliveryDestinationResult {
     /**
-     * The value of the Arn property for this object.
+     * The Amazon Resource Name (ARN) that uniquely identifies this delivery destination.
      */
     readonly arn?: string;
     /**
@@ -39,16 +41,18 @@ export interface GetDeliveryDestinationResult {
      */
     readonly deliveryDestinationPolicy?: any;
     /**
-     * The value of the DeliveryDestinationType property for this object.
+     * Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
      */
     readonly deliveryDestinationType?: string;
     /**
-     * An array of key-value pairs to apply to this resource.
+     * The tags that have been assigned to this delivery destination.
      */
     readonly tags?: outputs.logs.DeliveryDestinationTag[];
 }
 /**
- * Resource Type definition for AWS::Logs::DeliveryDestination
+ * This structure contains information about one delivery destination in your account.
+ *
+ * A delivery destination is an AWS resource that represents an AWS service that logs can be sent to CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.
  */
 export function getDeliveryDestinationOutput(args: GetDeliveryDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeliveryDestinationResult> {
     return pulumi.output(args).apply((a: any) => getDeliveryDestination(a, opts))
@@ -56,7 +60,7 @@ export function getDeliveryDestinationOutput(args: GetDeliveryDestinationOutputA
 
 export interface GetDeliveryDestinationOutputArgs {
     /**
-     * The unique name of the Delivery Destination.
+     * The name of this delivery destination.
      */
     name: pulumi.Input<string>;
 }

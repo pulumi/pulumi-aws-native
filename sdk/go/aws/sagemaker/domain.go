@@ -40,6 +40,8 @@ type Domain struct {
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
 	SecurityGroupIdForDomainBoundary pulumi.StringOutput `pulumi:"securityGroupIdForDomainBoundary"`
+	// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after October 1, 2023.
+	SingleSignOnApplicationArn pulumi.StringOutput `pulumi:"singleSignOnApplicationArn"`
 	// The SSO managed application instance ID.
 	SingleSignOnManagedApplicationInstanceId pulumi.StringOutput `pulumi:"singleSignOnManagedApplicationInstanceId"`
 	// The VPC subnets that Studio uses for communication.
@@ -72,12 +74,10 @@ func NewDomain(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"appNetworkAccessType",
 		"authMode",
 		"domainName",
 		"domainSettings.rStudioServerProDomainSettings.defaultResourceSpec",
 		"kmsKeyId",
-		"subnetIds[*]",
 		"tags[*]",
 		"vpcId",
 	})
@@ -269,6 +269,11 @@ func (o DomainOutput) KmsKeyId() pulumi.StringPtrOutput {
 // The ID of the security group that authorizes traffic between the RSessionGateway apps and the RStudioServerPro app.
 func (o DomainOutput) SecurityGroupIdForDomainBoundary() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.SecurityGroupIdForDomainBoundary }).(pulumi.StringOutput)
+}
+
+// The ARN of the application managed by SageMaker in IAM Identity Center. This value is only returned for domains created after October 1, 2023.
+func (o DomainOutput) SingleSignOnApplicationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.SingleSignOnApplicationArn }).(pulumi.StringOutput)
 }
 
 // The SSO managed application instance ID.
