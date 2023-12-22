@@ -802,7 +802,7 @@
         },
         "Type" : {
           "type" : "string",
-          "enum" : [ "RecordDeAggregation", "Lambda", "MetadataExtraction", "AppendDelimiterToRecord" ]
+          "enum" : [ "RecordDeAggregation", "Decompression", "Lambda", "MetadataExtraction", "AppendDelimiterToRecord" ]
         }
       },
       "required" : [ "Type" ]

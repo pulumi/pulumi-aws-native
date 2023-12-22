@@ -10,6 +10,13 @@
         "$ref" : "#/definitions/StepConfig"
       }
     },
+    "PlacementGroupConfigs" : {
+      "type" : "array",
+      "uniqueItems" : true,
+      "items" : {
+        "$ref" : "#/definitions/PlacementGroupConfig"
+      }
+    },
     "StepConcurrencyLevel" : {
       "type" : "integer"
     },
@@ -83,11 +90,17 @@
     "CustomAmiId" : {
       "type" : "string"
     },
+    "EbsRootVolumeIops" : {
+      "type" : "integer"
+    },
     "Instances" : {
       "$ref" : "#/definitions/JobFlowInstancesConfig"
     },
     "ScaleDownBehavior" : {
       "type" : "string"
+    },
+    "EbsRootVolumeThroughput" : {
+      "type" : "integer"
     },
     "JobFlowRole" : {
       "type" : "string"
@@ -291,6 +304,19 @@
         }
       },
       "required" : [ "ScalingAdjustment" ]
+    },
+    "PlacementGroupConfig" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "InstanceRole" : {
+          "type" : "string"
+        },
+        "PlacementStrategy" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "InstanceRole" ]
     },
     "OnDemandProvisioningSpecification" : {
       "type" : "object",
@@ -729,7 +755,7 @@
     }
   },
   "required" : [ "Instances", "ServiceRole", "JobFlowRole", "Name" ],
-  "createOnlyProperties" : [ "/properties/Steps", "/properties/EbsRootVolumeSize", "/properties/SecurityConfiguration", "/properties/ScaleDownBehavior", "/properties/Configurations", "/properties/ReleaseLabel", "/properties/BootstrapActions", "/properties/KerberosAttributes", "/properties/ServiceRole", "/properties/LogEncryptionKmsKeyId", "/properties/Name", "/properties/JobFlowRole", "/properties/AdditionalInfo", "/properties/LogUri", "/properties/CustomAmiId", "/properties/OSReleaseLabel", "/properties/AutoScalingRole", "/properties/Applications" ],
+  "createOnlyProperties" : [ "/properties/Steps", "/properties/EbsRootVolumeSize", "/properties/SecurityConfiguration", "/properties/ScaleDownBehavior", "/properties/Configurations", "/properties/ReleaseLabel", "/properties/BootstrapActions", "/properties/EbsRootVolumeIops", "/properties/KerberosAttributes", "/properties/ServiceRole", "/properties/LogEncryptionKmsKeyId", "/properties/Name", "/properties/EbsRootVolumeThroughput", "/properties/JobFlowRole", "/properties/AdditionalInfo", "/properties/LogUri", "/properties/CustomAmiId", "/properties/PlacementGroupConfigs", "/properties/OSReleaseLabel", "/properties/AutoScalingRole", "/properties/Applications" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/MasterPublicDNS" ]
 }
