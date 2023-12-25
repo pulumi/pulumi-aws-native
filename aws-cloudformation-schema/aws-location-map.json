@@ -10,14 +10,55 @@
           "maxLength" : 100,
           "minLength" : 1,
           "pattern" : "^[-._\\w]+$"
+        },
+        "PoliticalView" : {
+          "type" : "string",
+          "maxLength" : 3,
+          "minLength" : 3,
+          "pattern" : "^[A-Z]{3}$"
         }
       },
-      "additionalProperties" : false,
-      "required" : [ "Style" ]
+      "required" : [ "Style" ],
+      "additionalProperties" : false
     },
     "PricingPlan" : {
       "type" : "string",
       "enum" : [ "RequestBasedUsage" ]
+    },
+    "TagMap" : {
+      "type" : "object",
+      "maxProperties" : 50,
+      "patternProperties" : {
+        "^[a-zA-Z+-=._:/]+$" : {
+          "type" : "string",
+          "maxLength" : 256,
+          "minLength" : 0,
+          "pattern" : "^[A-Za-z0-9 _=@:.+-/]*$"
+        }
+      },
+      "additionalProperties" : false
+    },
+    "Tag" : {
+      "description" : "A key-value pair to associate with a resource.",
+      "type" : "object",
+      "properties" : {
+        "Key" : {
+          "type" : "string",
+          "description" : "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
+          "minLength" : 1,
+          "maxLength" : 128,
+          "pattern" : "\\A(?!aws:)[a-zA-Z0-9+\\-=\\._\\:\\/@]+$"
+        },
+        "Value" : {
+          "type" : "string",
+          "description" : "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.",
+          "minLength" : 0,
+          "maxLength" : 256,
+          "pattern" : "\\A[a-zA-Z0-9+\\-=\\._\\:\\/@]+$"
+        }
+      },
+      "required" : [ "Key", "Value" ],
+      "additionalProperties" : false
     },
     "iso8601UTC" : {
       "description" : "The datetime value in ISO 8601 format. The timezone is always UTC. (YYYY-MM-DDThh:mm:ss.sssZ)",
@@ -32,9 +73,6 @@
     "CreateTime" : {
       "$ref" : "#/definitions/iso8601UTC"
     },
-    "DataSource" : {
-      "type" : "string"
-    },
     "Description" : {
       "type" : "string",
       "maxLength" : 1000,
@@ -43,12 +81,7 @@
     "MapArn" : {
       "type" : "string",
       "maxLength" : 1600,
-      "pattern" : "^arn(:[a-z0-9]+([.-][a-z0-9]+)*){2}(:([a-z0-9]+([.-][a-z0-9]+)*)?){2}:([^/].*)?$"
-    },
-    "Arn" : {
-      "type" : "string",
-      "maxLength" : 1600,
-      "pattern" : "^arn(:[a-z0-9]+([.-][a-z0-9]+)*){2}(:([a-z0-9]+([.-][a-z0-9]+)*)?){2}:([^/].*)?$"
+      "pattern" : "^arn(:[a-z0-9]+([.-][a-z0-9]+)*):geo(:([a-z0-9]+([.-][a-z0-9]+)*))(:[0-9]+):((\\*)|([-a-z]+[/][*-._\\w]+))$"
     },
     "MapName" : {
       "type" : "string",
@@ -59,27 +92,53 @@
     "PricingPlan" : {
       "$ref" : "#/definitions/PricingPlan"
     },
+    "Tags" : {
+      "description" : "An array of key-value pairs to apply to this resource.",
+      "type" : "array",
+      "uniqueItems" : true,
+      "insertionOrder" : false,
+      "minItems" : 0,
+      "maxItems" : 200,
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      }
+    },
     "UpdateTime" : {
       "$ref" : "#/definitions/iso8601UTC"
+    },
+    "Arn" : {
+      "type" : "string",
+      "maxLength" : 1600,
+      "pattern" : "^arn(:[a-z0-9]+([.-][a-z0-9]+)*){2}(:([a-z0-9]+([.-][a-z0-9]+)*)?){2}:([^/].*)?$"
     }
   },
-  "readOnlyProperties" : [ "/properties/CreateTime", "/properties/DataSource", "/properties/MapArn", "/properties/Arn", "/properties/UpdateTime" ],
-  "createOnlyProperties" : [ "/properties/MapName", "/properties/Configuration", "/properties/Description", "/properties/PricingPlan" ],
-  "required" : [ "MapName", "Configuration" ],
+  "required" : [ "Configuration", "MapName" ],
+  "readOnlyProperties" : [ "/properties/CreateTime", "/properties/Arn", "/properties/MapArn", "/properties/UpdateTime" ],
+  "createOnlyProperties" : [ "/properties/Configuration", "/properties/MapName" ],
   "primaryIdentifier" : [ "/properties/MapName" ],
-  "additionalProperties" : false,
   "handlers" : {
     "create" : {
-      "permissions" : [ "geo:CreateMap" ]
+      "permissions" : [ "geo:CreateMap", "geo:DescribeMap", "geo:TagResource", "geo:UntagResource" ]
     },
     "read" : {
       "permissions" : [ "geo:DescribeMap" ]
     },
+    "update" : {
+      "permissions" : [ "geo:CreateMap", "geo:DescribeMap", "geo:TagResource", "geo:UntagResource", "geo:UpdateMap" ]
+    },
     "delete" : {
-      "permissions" : [ "geo:DeleteMap" ]
+      "permissions" : [ "geo:DeleteMap", "geo:DescribeMap" ]
     },
     "list" : {
       "permissions" : [ "geo:ListMaps" ]
     }
-  }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags"
+  },
+  "additionalProperties" : false
 }

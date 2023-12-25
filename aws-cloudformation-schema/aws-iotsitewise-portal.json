@@ -94,16 +94,16 @@
   "writeOnlyProperties" : [ "/properties/Tags" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iotsitewise:CreatePortal", "iotsitewise:TagResource", "iam:PassRole", "sso:CreateManagedApplicationInstance", "sso:DescribeRegisteredRegions" ]
+      "permissions" : [ "iotsitewise:CreatePortal", "iotsitewise:DescribePortal", "iotsitewise:ListTagsForResource", "iotsitewise:TagResource", "iam:PassRole", "sso:CreateManagedApplicationInstance", "sso:DescribeRegisteredRegions" ]
     },
     "read" : {
-      "permissions" : [ "iotsitewise:DescribePortal" ]
+      "permissions" : [ "iotsitewise:DescribePortal", "iotsitewise:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "iotsitewise:ListTagsForResource", "iotsitewise:TagResource", "iotsitewise:UpdatePortal", "iotsitewise:UntagResource", "iam:PassRole", "sso:GetManagedApplicationInstance", "sso:UpdateApplicationInstanceDisplayData" ]
+      "permissions" : [ "iotsitewise:DescribePortal", "iotsitewise:ListTagsForResource", "iotsitewise:TagResource", "iotsitewise:UpdatePortal", "iotsitewise:UntagResource", "iam:PassRole", "sso:GetManagedApplicationInstance", "sso:UpdateApplicationInstanceDisplayData" ]
     },
     "delete" : {
-      "permissions" : [ "iotsitewise:DeletePortal", "sso:DeleteManagedApplicationInstance" ]
+      "permissions" : [ "iotsitewise:DescribePortal", "iotsitewise:DeletePortal", "sso:DeleteManagedApplicationInstance" ]
     },
     "list" : {
       "permissions" : [ "iotsitewise:ListPortals" ]
