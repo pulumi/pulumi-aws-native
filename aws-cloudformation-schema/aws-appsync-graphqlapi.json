@@ -3,8 +3,14 @@
   "description" : "Resource Type definition for AWS::AppSync::GraphQLApi",
   "additionalProperties" : false,
   "properties" : {
+    "QueryDepthLimit" : {
+      "type" : "integer"
+    },
     "OpenIDConnectConfig" : {
       "$ref" : "#/definitions/OpenIDConnectConfig"
+    },
+    "IntrospectionConfig" : {
+      "type" : "string"
     },
     "MergedApiExecutionRoleArn" : {
       "type" : "string"
@@ -14,6 +20,9 @@
     },
     "OwnerContact" : {
       "type" : "string"
+    },
+    "ResolverCountLimit" : {
+      "type" : "integer"
     },
     "Name" : {
       "type" : "string"

@@ -6,6 +6,9 @@
     "CloneUrlHttp" : {
       "type" : "string"
     },
+    "KmsKeyId" : {
+      "type" : "string"
+    },
     "CloneUrlSsh" : {
       "type" : "string"
     },
