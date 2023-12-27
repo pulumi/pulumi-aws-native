@@ -310,7 +310,7 @@
   "primaryIdentifier" : [ "/properties/AssetModelId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iotsitewise:CreateAssetModel", "iotsitewise:DescribeAssetModel" ]
+      "permissions" : [ "iotsitewise:CreateAssetModel", "iotsitewise:ListTagsForResource", "iotsitewise:TagResource", "iotsitewise:DescribeAssetModel" ]
     },
     "read" : {
       "permissions" : [ "iotsitewise:DescribeAssetModel", "iotsitewise:ListTagsForResource" ]

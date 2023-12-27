@@ -20,16 +20,16 @@
   "primaryIdentifier" : [ "/properties/TrackerName", "/properties/ConsumerArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "geo:AssociateTrackerConsumer" ]
+      "permissions" : [ "geo:AssociateTrackerConsumer", "geo:ListTrackerConsumers", "kms:*" ]
     },
     "delete" : {
-      "permissions" : [ "geo:DisassociateTrackerConsumer" ]
+      "permissions" : [ "geo:DisassociateTrackerConsumer", "geo:ListTrackerConsumers", "kms:*" ]
     },
     "list" : {
-      "permissions" : [ "geo:ListTrackerConsumers" ]
+      "permissions" : [ "geo:ListTrackerConsumers", "kms:*" ]
     },
     "read" : {
-      "permissions" : [ "geo:ListTrackerConsumers" ]
+      "permissions" : [ "geo:ListTrackerConsumers", "kms:*" ]
     }
   }
 }
