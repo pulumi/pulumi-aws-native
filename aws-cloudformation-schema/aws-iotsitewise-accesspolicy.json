@@ -126,7 +126,7 @@
       "permissions" : [ "iotsitewise:DescribeAccessPolicy", "iotsitewise:UpdateAccessPolicy" ]
     },
     "delete" : {
-      "permissions" : [ "iotsitewise:DeleteAccessPolicy" ]
+      "permissions" : [ "iotsitewise:DescribeAccessPolicy", "iotsitewise:DeleteAccessPolicy" ]
     },
     "list" : {
       "permissions" : [ "iotsitewise:ListAccessPolicies" ]

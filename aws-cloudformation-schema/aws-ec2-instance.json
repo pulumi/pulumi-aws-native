@@ -53,14 +53,14 @@
     },
     "ElasticGpuSpecifications" : {
       "type" : "array",
-      "uniqueItems" : false,
+      "uniqueItems" : true,
       "items" : {
         "$ref" : "#/definitions/ElasticGpuSpecification"
       }
     },
     "ElasticInferenceAccelerators" : {
       "type" : "array",
-      "uniqueItems" : false,
+      "uniqueItems" : true,
       "items" : {
         "$ref" : "#/definitions/ElasticInferenceAccelerator"
       }
@@ -115,13 +115,10 @@
     },
     "LicenseSpecifications" : {
       "type" : "array",
-      "uniqueItems" : false,
+      "uniqueItems" : true,
       "items" : {
         "$ref" : "#/definitions/LicenseSpecification"
       }
-    },
-    "InstanceId" : {
-      "type" : "string"
     },
     "PublicIp" : {
       "type" : "string"
@@ -179,6 +176,9 @@
     "Affinity" : {
       "type" : "string"
     },
+    "Id" : {
+      "type" : "string"
+    },
     "CreditSpecification" : {
       "$ref" : "#/definitions/CreditSpecification"
     }
@@ -230,6 +230,10 @@
           "type" : "integer"
         }
       }
+    },
+    "NoDevice" : {
+      "type" : "object",
+      "additionalProperties" : false
     },
     "InstanceIpv6Address" : {
       "type" : "object",
@@ -438,7 +442,7 @@
       "additionalProperties" : false,
       "properties" : {
         "NoDevice" : {
-          "type" : "object"
+          "$ref" : "#/definitions/NoDevice"
         },
         "VirtualName" : {
           "type" : "string"
@@ -475,7 +479,7 @@
       }
     }
   },
-  "createOnlyProperties" : [ "/properties/Ipv6Addresses", "/properties/ElasticGpuSpecifications", "/properties/PlacementGroupName", "/properties/HostResourceGroupArn", "/properties/ImageId", "/properties/CpuOptions", "/properties/PrivateIpAddress", "/properties/ElasticInferenceAccelerators", "/properties/EnclaveOptions", "/properties/HibernationOptions", "/properties/LicenseSpecifications", "/properties/KeyName", "/properties/NetworkInterfaces", "/properties/SubnetId", "/properties/AvailabilityZone", "/properties/LaunchTemplate", "/properties/SecurityGroups", "/properties/Ipv6AddressCount" ],
-  "primaryIdentifier" : [ "/properties/InstanceId" ],
-  "readOnlyProperties" : [ "/properties/InstanceId", "/properties/PublicIp", "/properties/PublicDnsName", "/properties/PrivateDnsName", "/properties/PrivateIp" ]
+  "createOnlyProperties" : [ "/properties/ElasticGpuSpecifications", "/properties/Ipv6Addresses", "/properties/PlacementGroupName", "/properties/HostResourceGroupArn", "/properties/ImageId", "/properties/CpuOptions", "/properties/PrivateIpAddress", "/properties/ElasticInferenceAccelerators", "/properties/EnclaveOptions", "/properties/HibernationOptions", "/properties/KeyName", "/properties/LicenseSpecifications", "/properties/NetworkInterfaces", "/properties/AvailabilityZone", "/properties/SubnetId", "/properties/LaunchTemplate", "/properties/SecurityGroups", "/properties/Ipv6AddressCount" ],
+  "primaryIdentifier" : [ "/properties/Id" ],
+  "readOnlyProperties" : [ "/properties/PublicIp", "/properties/Id", "/properties/PublicDnsName", "/properties/PrivateDnsName", "/properties/PrivateIp" ]
 }

@@ -1,0 +1,35 @@
+{
+  "typeName" : "AMZN::SDC::Deployment",
+  "description" : "Resource Type definition for AMZN::SDC::Deployment",
+  "additionalProperties" : false,
+  "properties" : {
+    "ConfigName" : {
+      "type" : "string"
+    },
+    "S3Bucket" : {
+      "type" : "string"
+    },
+    "TargetRegionOverride" : {
+      "type" : "string"
+    },
+    "S3Key" : {
+      "type" : "string"
+    },
+    "Stage" : {
+      "type" : "string"
+    },
+    "PipelineId" : {
+      "type" : "string"
+    },
+    "Dimension" : {
+      "type" : "string"
+    },
+    "Id" : {
+      "type" : "string"
+    }
+  },
+  "required" : [ "ConfigName", "S3Bucket", "S3Key", "Stage", "Dimension" ],
+  "createOnlyProperties" : [ "/properties/S3Key" ],
+  "primaryIdentifier" : [ "/properties/Id" ],
+  "readOnlyProperties" : [ "/properties/Id" ]
+}
