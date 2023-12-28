@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This structure contains information about one delivery destination in your account.
@@ -79,12 +78,6 @@ func (o LookupDeliveryDestinationResultOutput) ToLookupDeliveryDestinationResult
 
 func (o LookupDeliveryDestinationResultOutput) ToLookupDeliveryDestinationResultOutputWithContext(ctx context.Context) LookupDeliveryDestinationResultOutput {
 	return o
-}
-
-func (o LookupDeliveryDestinationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDeliveryDestinationResult] {
-	return pulumix.Output[LookupDeliveryDestinationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) that uniquely identifies this delivery destination.

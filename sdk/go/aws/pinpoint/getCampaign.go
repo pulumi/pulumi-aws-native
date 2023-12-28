@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::Campaign
@@ -82,12 +81,6 @@ func (o LookupCampaignResultOutput) ToLookupCampaignResultOutput() LookupCampaig
 
 func (o LookupCampaignResultOutput) ToLookupCampaignResultOutputWithContext(ctx context.Context) LookupCampaignResultOutput {
 	return o
-}
-
-func (o LookupCampaignResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCampaignResult] {
-	return pulumix.Output[LookupCampaignResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupCampaignResultOutput) AdditionalTreatments() CampaignWriteTreatmentResourceArrayOutput {

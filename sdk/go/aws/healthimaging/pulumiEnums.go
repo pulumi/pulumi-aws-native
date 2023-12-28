@@ -46,12 +46,6 @@ func (o DatastoreStatusOutput) ToDatastoreStatusPtrOutputWithContext(ctx context
 	}).(DatastoreStatusPtrOutput)
 }
 
-func (o DatastoreStatusOutput) ToOutput(ctx context.Context) pulumix.Output[DatastoreStatus] {
-	return pulumix.Output[DatastoreStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatastoreStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -85,12 +79,6 @@ func (o DatastoreStatusPtrOutput) ToDatastoreStatusPtrOutput() DatastoreStatusPt
 
 func (o DatastoreStatusPtrOutput) ToDatastoreStatusPtrOutputWithContext(ctx context.Context) DatastoreStatusPtrOutput {
 	return o
-}
-
-func (o DatastoreStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatastoreStatus] {
-	return pulumix.Output[*DatastoreStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatastoreStatusPtrOutput) Elem() DatastoreStatusOutput {

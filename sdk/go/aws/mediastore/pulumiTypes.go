@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i ContainerCorsRuleArgs) ToContainerCorsRuleOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerCorsRuleOutput)
 }
 
-func (i ContainerCorsRuleArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerCorsRule] {
-	return pulumix.Output[ContainerCorsRule]{
-		OutputState: i.ToContainerCorsRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContainerCorsRuleArrayInput is an input type that accepts ContainerCorsRuleArray and ContainerCorsRuleArrayOutput values.
 // You can construct a concrete instance of `ContainerCorsRuleArrayInput` via:
 //
@@ -84,12 +77,6 @@ func (i ContainerCorsRuleArray) ToContainerCorsRuleArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerCorsRuleArrayOutput)
 }
 
-func (i ContainerCorsRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]ContainerCorsRule] {
-	return pulumix.Output[[]ContainerCorsRule]{
-		OutputState: i.ToContainerCorsRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContainerCorsRuleOutput struct{ *pulumi.OutputState }
 
 func (ContainerCorsRuleOutput) ElementType() reflect.Type {
@@ -102,12 +89,6 @@ func (o ContainerCorsRuleOutput) ToContainerCorsRuleOutput() ContainerCorsRuleOu
 
 func (o ContainerCorsRuleOutput) ToContainerCorsRuleOutputWithContext(ctx context.Context) ContainerCorsRuleOutput {
 	return o
-}
-
-func (o ContainerCorsRuleOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerCorsRule] {
-	return pulumix.Output[ContainerCorsRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerCorsRuleOutput) AllowedHeaders() pulumi.StringArrayOutput {
@@ -142,12 +123,6 @@ func (o ContainerCorsRuleArrayOutput) ToContainerCorsRuleArrayOutput() Container
 
 func (o ContainerCorsRuleArrayOutput) ToContainerCorsRuleArrayOutputWithContext(ctx context.Context) ContainerCorsRuleArrayOutput {
 	return o
-}
-
-func (o ContainerCorsRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContainerCorsRule] {
-	return pulumix.Output[[]ContainerCorsRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerCorsRuleArrayOutput) Index(i pulumi.IntInput) ContainerCorsRuleOutput {
@@ -187,12 +162,6 @@ func (i ContainerMetricPolicyArgs) ToContainerMetricPolicyOutput() ContainerMetr
 
 func (i ContainerMetricPolicyArgs) ToContainerMetricPolicyOutputWithContext(ctx context.Context) ContainerMetricPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerMetricPolicyOutput)
-}
-
-func (i ContainerMetricPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerMetricPolicy] {
-	return pulumix.Output[ContainerMetricPolicy]{
-		OutputState: i.ToContainerMetricPolicyOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ContainerMetricPolicyArgs) ToContainerMetricPolicyPtrOutput() ContainerMetricPolicyPtrOutput {
@@ -236,12 +205,6 @@ func (i *containerMetricPolicyPtrType) ToContainerMetricPolicyPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerMetricPolicyPtrOutput)
 }
 
-func (i *containerMetricPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ContainerMetricPolicy] {
-	return pulumix.Output[*ContainerMetricPolicy]{
-		OutputState: i.ToContainerMetricPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContainerMetricPolicyOutput struct{ *pulumi.OutputState }
 
 func (ContainerMetricPolicyOutput) ElementType() reflect.Type {
@@ -266,12 +229,6 @@ func (o ContainerMetricPolicyOutput) ToContainerMetricPolicyPtrOutputWithContext
 	}).(ContainerMetricPolicyPtrOutput)
 }
 
-func (o ContainerMetricPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerMetricPolicy] {
-	return pulumix.Output[ContainerMetricPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ContainerMetricPolicyOutput) ContainerLevelMetrics() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerMetricPolicy) string { return v.ContainerLevelMetrics }).(pulumi.StringOutput)
 }
@@ -292,12 +249,6 @@ func (o ContainerMetricPolicyPtrOutput) ToContainerMetricPolicyPtrOutput() Conta
 
 func (o ContainerMetricPolicyPtrOutput) ToContainerMetricPolicyPtrOutputWithContext(ctx context.Context) ContainerMetricPolicyPtrOutput {
 	return o
-}
-
-func (o ContainerMetricPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ContainerMetricPolicy] {
-	return pulumix.Output[*ContainerMetricPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerMetricPolicyPtrOutput) Elem() ContainerMetricPolicyOutput {
@@ -361,12 +312,6 @@ func (i ContainerMetricPolicyRuleArgs) ToContainerMetricPolicyRuleOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerMetricPolicyRuleOutput)
 }
 
-func (i ContainerMetricPolicyRuleArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerMetricPolicyRule] {
-	return pulumix.Output[ContainerMetricPolicyRule]{
-		OutputState: i.ToContainerMetricPolicyRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContainerMetricPolicyRuleArrayInput is an input type that accepts ContainerMetricPolicyRuleArray and ContainerMetricPolicyRuleArrayOutput values.
 // You can construct a concrete instance of `ContainerMetricPolicyRuleArrayInput` via:
 //
@@ -392,12 +337,6 @@ func (i ContainerMetricPolicyRuleArray) ToContainerMetricPolicyRuleArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerMetricPolicyRuleArrayOutput)
 }
 
-func (i ContainerMetricPolicyRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]ContainerMetricPolicyRule] {
-	return pulumix.Output[[]ContainerMetricPolicyRule]{
-		OutputState: i.ToContainerMetricPolicyRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContainerMetricPolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (ContainerMetricPolicyRuleOutput) ElementType() reflect.Type {
@@ -410,12 +349,6 @@ func (o ContainerMetricPolicyRuleOutput) ToContainerMetricPolicyRuleOutput() Con
 
 func (o ContainerMetricPolicyRuleOutput) ToContainerMetricPolicyRuleOutputWithContext(ctx context.Context) ContainerMetricPolicyRuleOutput {
 	return o
-}
-
-func (o ContainerMetricPolicyRuleOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerMetricPolicyRule] {
-	return pulumix.Output[ContainerMetricPolicyRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerMetricPolicyRuleOutput) ObjectGroup() pulumi.StringOutput {
@@ -438,12 +371,6 @@ func (o ContainerMetricPolicyRuleArrayOutput) ToContainerMetricPolicyRuleArrayOu
 
 func (o ContainerMetricPolicyRuleArrayOutput) ToContainerMetricPolicyRuleArrayOutputWithContext(ctx context.Context) ContainerMetricPolicyRuleArrayOutput {
 	return o
-}
-
-func (o ContainerMetricPolicyRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContainerMetricPolicyRule] {
-	return pulumix.Output[[]ContainerMetricPolicyRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerMetricPolicyRuleArrayOutput) Index(i pulumi.IntInput) ContainerMetricPolicyRuleOutput {
@@ -485,12 +412,6 @@ func (i ContainerTagArgs) ToContainerTagOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerTagOutput)
 }
 
-func (i ContainerTagArgs) ToOutput(ctx context.Context) pulumix.Output[ContainerTag] {
-	return pulumix.Output[ContainerTag]{
-		OutputState: i.ToContainerTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContainerTagArrayInput is an input type that accepts ContainerTagArray and ContainerTagArrayOutput values.
 // You can construct a concrete instance of `ContainerTagArrayInput` via:
 //
@@ -516,12 +437,6 @@ func (i ContainerTagArray) ToContainerTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ContainerTagArrayOutput)
 }
 
-func (i ContainerTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ContainerTag] {
-	return pulumix.Output[[]ContainerTag]{
-		OutputState: i.ToContainerTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContainerTagOutput struct{ *pulumi.OutputState }
 
 func (ContainerTagOutput) ElementType() reflect.Type {
@@ -534,12 +449,6 @@ func (o ContainerTagOutput) ToContainerTagOutput() ContainerTagOutput {
 
 func (o ContainerTagOutput) ToContainerTagOutputWithContext(ctx context.Context) ContainerTagOutput {
 	return o
-}
-
-func (o ContainerTagOutput) ToOutput(ctx context.Context) pulumix.Output[ContainerTag] {
-	return pulumix.Output[ContainerTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerTagOutput) Key() pulumi.StringOutput {
@@ -562,12 +471,6 @@ func (o ContainerTagArrayOutput) ToContainerTagArrayOutput() ContainerTagArrayOu
 
 func (o ContainerTagArrayOutput) ToContainerTagArrayOutputWithContext(ctx context.Context) ContainerTagArrayOutput {
 	return o
-}
-
-func (o ContainerTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContainerTag] {
-	return pulumix.Output[[]ContainerTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContainerTagArrayOutput) Index(i pulumi.IntInput) ContainerTagOutput {

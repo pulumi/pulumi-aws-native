@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i CertificateApiPassthroughArgs) ToCertificateApiPassthroughOutput() Certi
 
 func (i CertificateApiPassthroughArgs) ToCertificateApiPassthroughOutputWithContext(ctx context.Context) CertificateApiPassthroughOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateApiPassthroughOutput)
-}
-
-func (i CertificateApiPassthroughArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateApiPassthrough] {
-	return pulumix.Output[CertificateApiPassthrough]{
-		OutputState: i.ToCertificateApiPassthroughOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i CertificateApiPassthroughArgs) ToCertificateApiPassthroughPtrOutput() CertificateApiPassthroughPtrOutput {
@@ -96,12 +89,6 @@ func (i *certificateApiPassthroughPtrType) ToCertificateApiPassthroughPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateApiPassthroughPtrOutput)
 }
 
-func (i *certificateApiPassthroughPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateApiPassthrough] {
-	return pulumix.Output[*CertificateApiPassthrough]{
-		OutputState: i.ToCertificateApiPassthroughPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Structure that specifies fields to be overridden in a certificate at the time of issuance. These requires an API Passthrough template be used or they will be ignored.
 type CertificateApiPassthroughOutput struct{ *pulumi.OutputState }
 
@@ -127,12 +114,6 @@ func (o CertificateApiPassthroughOutput) ToCertificateApiPassthroughPtrOutputWit
 	}).(CertificateApiPassthroughPtrOutput)
 }
 
-func (o CertificateApiPassthroughOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateApiPassthrough] {
-	return pulumix.Output[CertificateApiPassthrough]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertificateApiPassthroughOutput) Extensions() CertificateExtensionsPtrOutput {
 	return o.ApplyT(func(v CertificateApiPassthrough) *CertificateExtensions { return v.Extensions }).(CertificateExtensionsPtrOutput)
 }
@@ -153,12 +134,6 @@ func (o CertificateApiPassthroughPtrOutput) ToCertificateApiPassthroughPtrOutput
 
 func (o CertificateApiPassthroughPtrOutput) ToCertificateApiPassthroughPtrOutputWithContext(ctx context.Context) CertificateApiPassthroughPtrOutput {
 	return o
-}
-
-func (o CertificateApiPassthroughPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateApiPassthrough] {
-	return pulumix.Output[*CertificateApiPassthrough]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateApiPassthroughPtrOutput) Elem() CertificateApiPassthroughOutput {
@@ -224,12 +199,6 @@ func (i CertificateAuthorityAccessDescriptionArgs) ToCertificateAuthorityAccessD
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityAccessDescriptionOutput)
 }
 
-func (i CertificateAuthorityAccessDescriptionArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityAccessDescription] {
-	return pulumix.Output[CertificateAuthorityAccessDescription]{
-		OutputState: i.ToCertificateAuthorityAccessDescriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificateAuthorityAccessDescriptionArrayInput is an input type that accepts CertificateAuthorityAccessDescriptionArray and CertificateAuthorityAccessDescriptionArrayOutput values.
 // You can construct a concrete instance of `CertificateAuthorityAccessDescriptionArrayInput` via:
 //
@@ -255,12 +224,6 @@ func (i CertificateAuthorityAccessDescriptionArray) ToCertificateAuthorityAccess
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityAccessDescriptionArrayOutput)
 }
 
-func (i CertificateAuthorityAccessDescriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]CertificateAuthorityAccessDescription] {
-	return pulumix.Output[[]CertificateAuthorityAccessDescription]{
-		OutputState: i.ToCertificateAuthorityAccessDescriptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Structure that contains X.509 AccessDescription information.
 type CertificateAuthorityAccessDescriptionOutput struct{ *pulumi.OutputState }
 
@@ -274,12 +237,6 @@ func (o CertificateAuthorityAccessDescriptionOutput) ToCertificateAuthorityAcces
 
 func (o CertificateAuthorityAccessDescriptionOutput) ToCertificateAuthorityAccessDescriptionOutputWithContext(ctx context.Context) CertificateAuthorityAccessDescriptionOutput {
 	return o
-}
-
-func (o CertificateAuthorityAccessDescriptionOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityAccessDescription] {
-	return pulumix.Output[CertificateAuthorityAccessDescription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityAccessDescriptionOutput) AccessLocation() CertificateAuthorityGeneralNameOutput {
@@ -302,12 +259,6 @@ func (o CertificateAuthorityAccessDescriptionArrayOutput) ToCertificateAuthority
 
 func (o CertificateAuthorityAccessDescriptionArrayOutput) ToCertificateAuthorityAccessDescriptionArrayOutputWithContext(ctx context.Context) CertificateAuthorityAccessDescriptionArrayOutput {
 	return o
-}
-
-func (o CertificateAuthorityAccessDescriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertificateAuthorityAccessDescription] {
-	return pulumix.Output[[]CertificateAuthorityAccessDescription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityAccessDescriptionArrayOutput) Index(i pulumi.IntInput) CertificateAuthorityAccessDescriptionOutput {
@@ -351,12 +302,6 @@ func (i CertificateAuthorityAccessMethodArgs) ToCertificateAuthorityAccessMethod
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityAccessMethodOutput)
 }
 
-func (i CertificateAuthorityAccessMethodArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityAccessMethod] {
-	return pulumix.Output[CertificateAuthorityAccessMethod]{
-		OutputState: i.ToCertificateAuthorityAccessMethodOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Structure that contains X.509 AccessMethod information. Assign one and ONLY one field.
 type CertificateAuthorityAccessMethodOutput struct{ *pulumi.OutputState }
 
@@ -370,12 +315,6 @@ func (o CertificateAuthorityAccessMethodOutput) ToCertificateAuthorityAccessMeth
 
 func (o CertificateAuthorityAccessMethodOutput) ToCertificateAuthorityAccessMethodOutputWithContext(ctx context.Context) CertificateAuthorityAccessMethodOutput {
 	return o
-}
-
-func (o CertificateAuthorityAccessMethodOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityAccessMethod] {
-	return pulumix.Output[CertificateAuthorityAccessMethod]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityAccessMethodOutput) AccessMethodType() pulumi.StringPtrOutput {
@@ -427,12 +366,6 @@ func (i CertificateAuthorityCrlConfigurationArgs) ToCertificateAuthorityCrlConfi
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCrlConfigurationOutput)
 }
 
-func (i CertificateAuthorityCrlConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityCrlConfiguration] {
-	return pulumix.Output[CertificateAuthorityCrlConfiguration]{
-		OutputState: i.ToCertificateAuthorityCrlConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateAuthorityCrlConfigurationArgs) ToCertificateAuthorityCrlConfigurationPtrOutput() CertificateAuthorityCrlConfigurationPtrOutput {
 	return i.ToCertificateAuthorityCrlConfigurationPtrOutputWithContext(context.Background())
 }
@@ -474,12 +407,6 @@ func (i *certificateAuthorityCrlConfigurationPtrType) ToCertificateAuthorityCrlC
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCrlConfigurationPtrOutput)
 }
 
-func (i *certificateAuthorityCrlConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityCrlConfiguration] {
-	return pulumix.Output[*CertificateAuthorityCrlConfiguration]{
-		OutputState: i.ToCertificateAuthorityCrlConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.
 type CertificateAuthorityCrlConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -503,12 +430,6 @@ func (o CertificateAuthorityCrlConfigurationOutput) ToCertificateAuthorityCrlCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateAuthorityCrlConfiguration) *CertificateAuthorityCrlConfiguration {
 		return &v
 	}).(CertificateAuthorityCrlConfigurationPtrOutput)
-}
-
-func (o CertificateAuthorityCrlConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityCrlConfiguration] {
-	return pulumix.Output[CertificateAuthorityCrlConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityCrlConfigurationOutput) CustomCname() pulumi.StringPtrOutput {
@@ -543,12 +464,6 @@ func (o CertificateAuthorityCrlConfigurationPtrOutput) ToCertificateAuthorityCrl
 
 func (o CertificateAuthorityCrlConfigurationPtrOutput) ToCertificateAuthorityCrlConfigurationPtrOutputWithContext(ctx context.Context) CertificateAuthorityCrlConfigurationPtrOutput {
 	return o
-}
-
-func (o CertificateAuthorityCrlConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityCrlConfiguration] {
-	return pulumix.Output[*CertificateAuthorityCrlConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityCrlConfigurationPtrOutput) Elem() CertificateAuthorityCrlConfigurationOutput {
@@ -641,12 +556,6 @@ func (i CertificateAuthorityCsrExtensionsArgs) ToCertificateAuthorityCsrExtensio
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCsrExtensionsOutput)
 }
 
-func (i CertificateAuthorityCsrExtensionsArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityCsrExtensions] {
-	return pulumix.Output[CertificateAuthorityCsrExtensions]{
-		OutputState: i.ToCertificateAuthorityCsrExtensionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateAuthorityCsrExtensionsArgs) ToCertificateAuthorityCsrExtensionsPtrOutput() CertificateAuthorityCsrExtensionsPtrOutput {
 	return i.ToCertificateAuthorityCsrExtensionsPtrOutputWithContext(context.Background())
 }
@@ -688,12 +597,6 @@ func (i *certificateAuthorityCsrExtensionsPtrType) ToCertificateAuthorityCsrExte
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCsrExtensionsPtrOutput)
 }
 
-func (i *certificateAuthorityCsrExtensionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityCsrExtensions] {
-	return pulumix.Output[*CertificateAuthorityCsrExtensions]{
-		OutputState: i.ToCertificateAuthorityCsrExtensionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Structure that contains CSR pass though extensions information.
 type CertificateAuthorityCsrExtensionsOutput struct{ *pulumi.OutputState }
 
@@ -719,12 +622,6 @@ func (o CertificateAuthorityCsrExtensionsOutput) ToCertificateAuthorityCsrExtens
 	}).(CertificateAuthorityCsrExtensionsPtrOutput)
 }
 
-func (o CertificateAuthorityCsrExtensionsOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityCsrExtensions] {
-	return pulumix.Output[CertificateAuthorityCsrExtensions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertificateAuthorityCsrExtensionsOutput) KeyUsage() CertificateAuthorityKeyUsagePtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityCsrExtensions) *CertificateAuthorityKeyUsage { return v.KeyUsage }).(CertificateAuthorityKeyUsagePtrOutput)
 }
@@ -747,12 +644,6 @@ func (o CertificateAuthorityCsrExtensionsPtrOutput) ToCertificateAuthorityCsrExt
 
 func (o CertificateAuthorityCsrExtensionsPtrOutput) ToCertificateAuthorityCsrExtensionsPtrOutputWithContext(ctx context.Context) CertificateAuthorityCsrExtensionsPtrOutput {
 	return o
-}
-
-func (o CertificateAuthorityCsrExtensionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityCsrExtensions] {
-	return pulumix.Output[*CertificateAuthorityCsrExtensions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityCsrExtensionsPtrOutput) Elem() CertificateAuthorityCsrExtensionsOutput {
@@ -818,12 +709,6 @@ func (i CertificateAuthorityCustomAttributeArgs) ToCertificateAuthorityCustomAtt
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCustomAttributeOutput)
 }
 
-func (i CertificateAuthorityCustomAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityCustomAttribute] {
-	return pulumix.Output[CertificateAuthorityCustomAttribute]{
-		OutputState: i.ToCertificateAuthorityCustomAttributeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificateAuthorityCustomAttributeArrayInput is an input type that accepts CertificateAuthorityCustomAttributeArray and CertificateAuthorityCustomAttributeArrayOutput values.
 // You can construct a concrete instance of `CertificateAuthorityCustomAttributeArrayInput` via:
 //
@@ -849,12 +734,6 @@ func (i CertificateAuthorityCustomAttributeArray) ToCertificateAuthorityCustomAt
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityCustomAttributeArrayOutput)
 }
 
-func (i CertificateAuthorityCustomAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]CertificateAuthorityCustomAttribute] {
-	return pulumix.Output[[]CertificateAuthorityCustomAttribute]{
-		OutputState: i.ToCertificateAuthorityCustomAttributeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Structure that contains X.500 attribute type and value.
 type CertificateAuthorityCustomAttributeOutput struct{ *pulumi.OutputState }
 
@@ -868,12 +747,6 @@ func (o CertificateAuthorityCustomAttributeOutput) ToCertificateAuthorityCustomA
 
 func (o CertificateAuthorityCustomAttributeOutput) ToCertificateAuthorityCustomAttributeOutputWithContext(ctx context.Context) CertificateAuthorityCustomAttributeOutput {
 	return o
-}
-
-func (o CertificateAuthorityCustomAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityCustomAttribute] {
-	return pulumix.Output[CertificateAuthorityCustomAttribute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityCustomAttributeOutput) ObjectIdentifier() pulumi.StringOutput {
@@ -896,12 +769,6 @@ func (o CertificateAuthorityCustomAttributeArrayOutput) ToCertificateAuthorityCu
 
 func (o CertificateAuthorityCustomAttributeArrayOutput) ToCertificateAuthorityCustomAttributeArrayOutputWithContext(ctx context.Context) CertificateAuthorityCustomAttributeArrayOutput {
 	return o
-}
-
-func (o CertificateAuthorityCustomAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertificateAuthorityCustomAttribute] {
-	return pulumix.Output[[]CertificateAuthorityCustomAttribute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityCustomAttributeArrayOutput) Index(i pulumi.IntInput) CertificateAuthorityCustomAttributeOutput {
@@ -945,12 +812,6 @@ func (i CertificateAuthorityEdiPartyNameArgs) ToCertificateAuthorityEdiPartyName
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityEdiPartyNameOutput)
 }
 
-func (i CertificateAuthorityEdiPartyNameArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityEdiPartyName] {
-	return pulumix.Output[CertificateAuthorityEdiPartyName]{
-		OutputState: i.ToCertificateAuthorityEdiPartyNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateAuthorityEdiPartyNameArgs) ToCertificateAuthorityEdiPartyNamePtrOutput() CertificateAuthorityEdiPartyNamePtrOutput {
 	return i.ToCertificateAuthorityEdiPartyNamePtrOutputWithContext(context.Background())
 }
@@ -992,12 +853,6 @@ func (i *certificateAuthorityEdiPartyNamePtrType) ToCertificateAuthorityEdiParty
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityEdiPartyNamePtrOutput)
 }
 
-func (i *certificateAuthorityEdiPartyNamePtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityEdiPartyName] {
-	return pulumix.Output[*CertificateAuthorityEdiPartyName]{
-		OutputState: i.ToCertificateAuthorityEdiPartyNamePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Structure that contains X.509 EdiPartyName information.
 type CertificateAuthorityEdiPartyNameOutput struct{ *pulumi.OutputState }
 
@@ -1023,12 +878,6 @@ func (o CertificateAuthorityEdiPartyNameOutput) ToCertificateAuthorityEdiPartyNa
 	}).(CertificateAuthorityEdiPartyNamePtrOutput)
 }
 
-func (o CertificateAuthorityEdiPartyNameOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityEdiPartyName] {
-	return pulumix.Output[CertificateAuthorityEdiPartyName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertificateAuthorityEdiPartyNameOutput) NameAssigner() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateAuthorityEdiPartyName) string { return v.NameAssigner }).(pulumi.StringOutput)
 }
@@ -1049,12 +898,6 @@ func (o CertificateAuthorityEdiPartyNamePtrOutput) ToCertificateAuthorityEdiPart
 
 func (o CertificateAuthorityEdiPartyNamePtrOutput) ToCertificateAuthorityEdiPartyNamePtrOutputWithContext(ctx context.Context) CertificateAuthorityEdiPartyNamePtrOutput {
 	return o
-}
-
-func (o CertificateAuthorityEdiPartyNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityEdiPartyName] {
-	return pulumix.Output[*CertificateAuthorityEdiPartyName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityEdiPartyNamePtrOutput) Elem() CertificateAuthorityEdiPartyNameOutput {
@@ -1132,12 +975,6 @@ func (i CertificateAuthorityGeneralNameArgs) ToCertificateAuthorityGeneralNameOu
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityGeneralNameOutput)
 }
 
-func (i CertificateAuthorityGeneralNameArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityGeneralName] {
-	return pulumix.Output[CertificateAuthorityGeneralName]{
-		OutputState: i.ToCertificateAuthorityGeneralNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Structure that contains X.509 GeneralName information. Assign one and ONLY one field.
 type CertificateAuthorityGeneralNameOutput struct{ *pulumi.OutputState }
 
@@ -1151,12 +988,6 @@ func (o CertificateAuthorityGeneralNameOutput) ToCertificateAuthorityGeneralName
 
 func (o CertificateAuthorityGeneralNameOutput) ToCertificateAuthorityGeneralNameOutputWithContext(ctx context.Context) CertificateAuthorityGeneralNameOutput {
 	return o
-}
-
-func (o CertificateAuthorityGeneralNameOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityGeneralName] {
-	return pulumix.Output[CertificateAuthorityGeneralName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityGeneralNameOutput) DirectoryName() CertificateAuthoritySubjectPtrOutput {
@@ -1240,12 +1071,6 @@ func (i CertificateAuthorityKeyUsageArgs) ToCertificateAuthorityKeyUsageOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityKeyUsageOutput)
 }
 
-func (i CertificateAuthorityKeyUsageArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityKeyUsage] {
-	return pulumix.Output[CertificateAuthorityKeyUsage]{
-		OutputState: i.ToCertificateAuthorityKeyUsageOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateAuthorityKeyUsageArgs) ToCertificateAuthorityKeyUsagePtrOutput() CertificateAuthorityKeyUsagePtrOutput {
 	return i.ToCertificateAuthorityKeyUsagePtrOutputWithContext(context.Background())
 }
@@ -1287,12 +1112,6 @@ func (i *certificateAuthorityKeyUsagePtrType) ToCertificateAuthorityKeyUsagePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityKeyUsagePtrOutput)
 }
 
-func (i *certificateAuthorityKeyUsagePtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityKeyUsage] {
-	return pulumix.Output[*CertificateAuthorityKeyUsage]{
-		OutputState: i.ToCertificateAuthorityKeyUsagePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Structure that contains X.509 KeyUsage information.
 type CertificateAuthorityKeyUsageOutput struct{ *pulumi.OutputState }
 
@@ -1316,12 +1135,6 @@ func (o CertificateAuthorityKeyUsageOutput) ToCertificateAuthorityKeyUsagePtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateAuthorityKeyUsage) *CertificateAuthorityKeyUsage {
 		return &v
 	}).(CertificateAuthorityKeyUsagePtrOutput)
-}
-
-func (o CertificateAuthorityKeyUsageOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityKeyUsage] {
-	return pulumix.Output[CertificateAuthorityKeyUsage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityKeyUsageOutput) CrlSign() pulumi.BoolPtrOutput {
@@ -1372,12 +1185,6 @@ func (o CertificateAuthorityKeyUsagePtrOutput) ToCertificateAuthorityKeyUsagePtr
 
 func (o CertificateAuthorityKeyUsagePtrOutput) ToCertificateAuthorityKeyUsagePtrOutputWithContext(ctx context.Context) CertificateAuthorityKeyUsagePtrOutput {
 	return o
-}
-
-func (o CertificateAuthorityKeyUsagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityKeyUsage] {
-	return pulumix.Output[*CertificateAuthorityKeyUsage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityKeyUsagePtrOutput) Elem() CertificateAuthorityKeyUsageOutput {
@@ -1506,12 +1313,6 @@ func (i CertificateAuthorityOcspConfigurationArgs) ToCertificateAuthorityOcspCon
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityOcspConfigurationOutput)
 }
 
-func (i CertificateAuthorityOcspConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityOcspConfiguration] {
-	return pulumix.Output[CertificateAuthorityOcspConfiguration]{
-		OutputState: i.ToCertificateAuthorityOcspConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateAuthorityOcspConfigurationArgs) ToCertificateAuthorityOcspConfigurationPtrOutput() CertificateAuthorityOcspConfigurationPtrOutput {
 	return i.ToCertificateAuthorityOcspConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1553,12 +1354,6 @@ func (i *certificateAuthorityOcspConfigurationPtrType) ToCertificateAuthorityOcs
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityOcspConfigurationPtrOutput)
 }
 
-func (i *certificateAuthorityOcspConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityOcspConfiguration] {
-	return pulumix.Output[*CertificateAuthorityOcspConfiguration]{
-		OutputState: i.ToCertificateAuthorityOcspConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Helps to configure online certificate status protocol (OCSP) responder for your certificate authority
 type CertificateAuthorityOcspConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1584,12 +1379,6 @@ func (o CertificateAuthorityOcspConfigurationOutput) ToCertificateAuthorityOcspC
 	}).(CertificateAuthorityOcspConfigurationPtrOutput)
 }
 
-func (o CertificateAuthorityOcspConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityOcspConfiguration] {
-	return pulumix.Output[CertificateAuthorityOcspConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertificateAuthorityOcspConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityOcspConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1610,12 +1399,6 @@ func (o CertificateAuthorityOcspConfigurationPtrOutput) ToCertificateAuthorityOc
 
 func (o CertificateAuthorityOcspConfigurationPtrOutput) ToCertificateAuthorityOcspConfigurationPtrOutputWithContext(ctx context.Context) CertificateAuthorityOcspConfigurationPtrOutput {
 	return o
-}
-
-func (o CertificateAuthorityOcspConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityOcspConfiguration] {
-	return pulumix.Output[*CertificateAuthorityOcspConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityOcspConfigurationPtrOutput) Elem() CertificateAuthorityOcspConfigurationOutput {
@@ -1681,12 +1464,6 @@ func (i CertificateAuthorityOtherNameArgs) ToCertificateAuthorityOtherNameOutput
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityOtherNameOutput)
 }
 
-func (i CertificateAuthorityOtherNameArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityOtherName] {
-	return pulumix.Output[CertificateAuthorityOtherName]{
-		OutputState: i.ToCertificateAuthorityOtherNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateAuthorityOtherNameArgs) ToCertificateAuthorityOtherNamePtrOutput() CertificateAuthorityOtherNamePtrOutput {
 	return i.ToCertificateAuthorityOtherNamePtrOutputWithContext(context.Background())
 }
@@ -1728,12 +1505,6 @@ func (i *certificateAuthorityOtherNamePtrType) ToCertificateAuthorityOtherNamePt
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityOtherNamePtrOutput)
 }
 
-func (i *certificateAuthorityOtherNamePtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityOtherName] {
-	return pulumix.Output[*CertificateAuthorityOtherName]{
-		OutputState: i.ToCertificateAuthorityOtherNamePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Structure that contains X.509 OtherName information.
 type CertificateAuthorityOtherNameOutput struct{ *pulumi.OutputState }
 
@@ -1759,12 +1530,6 @@ func (o CertificateAuthorityOtherNameOutput) ToCertificateAuthorityOtherNamePtrO
 	}).(CertificateAuthorityOtherNamePtrOutput)
 }
 
-func (o CertificateAuthorityOtherNameOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityOtherName] {
-	return pulumix.Output[CertificateAuthorityOtherName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertificateAuthorityOtherNameOutput) TypeId() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateAuthorityOtherName) string { return v.TypeId }).(pulumi.StringOutput)
 }
@@ -1785,12 +1550,6 @@ func (o CertificateAuthorityOtherNamePtrOutput) ToCertificateAuthorityOtherNameP
 
 func (o CertificateAuthorityOtherNamePtrOutput) ToCertificateAuthorityOtherNamePtrOutputWithContext(ctx context.Context) CertificateAuthorityOtherNamePtrOutput {
 	return o
-}
-
-func (o CertificateAuthorityOtherNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityOtherName] {
-	return pulumix.Output[*CertificateAuthorityOtherName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityOtherNamePtrOutput) Elem() CertificateAuthorityOtherNameOutput {
@@ -1856,12 +1615,6 @@ func (i CertificateAuthorityRevocationConfigurationArgs) ToCertificateAuthorityR
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityRevocationConfigurationOutput)
 }
 
-func (i CertificateAuthorityRevocationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityRevocationConfiguration] {
-	return pulumix.Output[CertificateAuthorityRevocationConfiguration]{
-		OutputState: i.ToCertificateAuthorityRevocationConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateAuthorityRevocationConfigurationArgs) ToCertificateAuthorityRevocationConfigurationPtrOutput() CertificateAuthorityRevocationConfigurationPtrOutput {
 	return i.ToCertificateAuthorityRevocationConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1903,12 +1656,6 @@ func (i *certificateAuthorityRevocationConfigurationPtrType) ToCertificateAuthor
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityRevocationConfigurationPtrOutput)
 }
 
-func (i *certificateAuthorityRevocationConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityRevocationConfiguration] {
-	return pulumix.Output[*CertificateAuthorityRevocationConfiguration]{
-		OutputState: i.ToCertificateAuthorityRevocationConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Certificate Authority revocation information.
 type CertificateAuthorityRevocationConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1932,12 +1679,6 @@ func (o CertificateAuthorityRevocationConfigurationOutput) ToCertificateAuthorit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateAuthorityRevocationConfiguration) *CertificateAuthorityRevocationConfiguration {
 		return &v
 	}).(CertificateAuthorityRevocationConfigurationPtrOutput)
-}
-
-func (o CertificateAuthorityRevocationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityRevocationConfiguration] {
-	return pulumix.Output[CertificateAuthorityRevocationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityRevocationConfigurationOutput) CrlConfiguration() CertificateAuthorityCrlConfigurationPtrOutput {
@@ -1964,12 +1705,6 @@ func (o CertificateAuthorityRevocationConfigurationPtrOutput) ToCertificateAutho
 
 func (o CertificateAuthorityRevocationConfigurationPtrOutput) ToCertificateAuthorityRevocationConfigurationPtrOutputWithContext(ctx context.Context) CertificateAuthorityRevocationConfigurationPtrOutput {
 	return o
-}
-
-func (o CertificateAuthorityRevocationConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityRevocationConfiguration] {
-	return pulumix.Output[*CertificateAuthorityRevocationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityRevocationConfigurationPtrOutput) Elem() CertificateAuthorityRevocationConfigurationOutput {
@@ -2061,12 +1796,6 @@ func (i CertificateAuthoritySubjectArgs) ToCertificateAuthoritySubjectOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthoritySubjectOutput)
 }
 
-func (i CertificateAuthoritySubjectArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthoritySubject] {
-	return pulumix.Output[CertificateAuthoritySubject]{
-		OutputState: i.ToCertificateAuthoritySubjectOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateAuthoritySubjectArgs) ToCertificateAuthoritySubjectPtrOutput() CertificateAuthoritySubjectPtrOutput {
 	return i.ToCertificateAuthoritySubjectPtrOutputWithContext(context.Background())
 }
@@ -2108,12 +1837,6 @@ func (i *certificateAuthoritySubjectPtrType) ToCertificateAuthoritySubjectPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthoritySubjectPtrOutput)
 }
 
-func (i *certificateAuthoritySubjectPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthoritySubject] {
-	return pulumix.Output[*CertificateAuthoritySubject]{
-		OutputState: i.ToCertificateAuthoritySubjectPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Structure that contains X.500 distinguished name information for your CA.
 type CertificateAuthoritySubjectOutput struct{ *pulumi.OutputState }
 
@@ -2137,12 +1860,6 @@ func (o CertificateAuthoritySubjectOutput) ToCertificateAuthoritySubjectPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateAuthoritySubject) *CertificateAuthoritySubject {
 		return &v
 	}).(CertificateAuthoritySubjectPtrOutput)
-}
-
-func (o CertificateAuthoritySubjectOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthoritySubject] {
-	return pulumix.Output[CertificateAuthoritySubject]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthoritySubjectOutput) CommonName() pulumi.StringPtrOutput {
@@ -2217,12 +1934,6 @@ func (o CertificateAuthoritySubjectPtrOutput) ToCertificateAuthoritySubjectPtrOu
 
 func (o CertificateAuthoritySubjectPtrOutput) ToCertificateAuthoritySubjectPtrOutputWithContext(ctx context.Context) CertificateAuthoritySubjectPtrOutput {
 	return o
-}
-
-func (o CertificateAuthoritySubjectPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthoritySubject] {
-	return pulumix.Output[*CertificateAuthoritySubject]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthoritySubjectPtrOutput) Elem() CertificateAuthoritySubjectOutput {
@@ -2403,12 +2114,6 @@ func (i CertificateAuthorityTagArgs) ToCertificateAuthorityTagOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityTagOutput)
 }
 
-func (i CertificateAuthorityTagArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityTag] {
-	return pulumix.Output[CertificateAuthorityTag]{
-		OutputState: i.ToCertificateAuthorityTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificateAuthorityTagArrayInput is an input type that accepts CertificateAuthorityTagArray and CertificateAuthorityTagArrayOutput values.
 // You can construct a concrete instance of `CertificateAuthorityTagArrayInput` via:
 //
@@ -2434,12 +2139,6 @@ func (i CertificateAuthorityTagArray) ToCertificateAuthorityTagArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityTagArrayOutput)
 }
 
-func (i CertificateAuthorityTagArray) ToOutput(ctx context.Context) pulumix.Output[[]CertificateAuthorityTag] {
-	return pulumix.Output[[]CertificateAuthorityTag]{
-		OutputState: i.ToCertificateAuthorityTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateAuthorityTagOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityTagOutput) ElementType() reflect.Type {
@@ -2452,12 +2151,6 @@ func (o CertificateAuthorityTagOutput) ToCertificateAuthorityTagOutput() Certifi
 
 func (o CertificateAuthorityTagOutput) ToCertificateAuthorityTagOutputWithContext(ctx context.Context) CertificateAuthorityTagOutput {
 	return o
-}
-
-func (o CertificateAuthorityTagOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateAuthorityTag] {
-	return pulumix.Output[CertificateAuthorityTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityTagOutput) Key() pulumi.StringPtrOutput {
@@ -2480,12 +2173,6 @@ func (o CertificateAuthorityTagArrayOutput) ToCertificateAuthorityTagArrayOutput
 
 func (o CertificateAuthorityTagArrayOutput) ToCertificateAuthorityTagArrayOutputWithContext(ctx context.Context) CertificateAuthorityTagArrayOutput {
 	return o
-}
-
-func (o CertificateAuthorityTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertificateAuthorityTag] {
-	return pulumix.Output[[]CertificateAuthorityTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateAuthorityTagArrayOutput) Index(i pulumi.IntInput) CertificateAuthorityTagOutput {
@@ -2529,12 +2216,6 @@ func (i CertificateCustomAttributeArgs) ToCertificateCustomAttributeOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCustomAttributeOutput)
 }
 
-func (i CertificateCustomAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateCustomAttribute] {
-	return pulumix.Output[CertificateCustomAttribute]{
-		OutputState: i.ToCertificateCustomAttributeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificateCustomAttributeArrayInput is an input type that accepts CertificateCustomAttributeArray and CertificateCustomAttributeArrayOutput values.
 // You can construct a concrete instance of `CertificateCustomAttributeArrayInput` via:
 //
@@ -2560,12 +2241,6 @@ func (i CertificateCustomAttributeArray) ToCertificateCustomAttributeArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCustomAttributeArrayOutput)
 }
 
-func (i CertificateCustomAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]CertificateCustomAttribute] {
-	return pulumix.Output[[]CertificateCustomAttribute]{
-		OutputState: i.ToCertificateCustomAttributeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Structure that contains X.500 attribute type and value.
 type CertificateCustomAttributeOutput struct{ *pulumi.OutputState }
 
@@ -2579,12 +2254,6 @@ func (o CertificateCustomAttributeOutput) ToCertificateCustomAttributeOutput() C
 
 func (o CertificateCustomAttributeOutput) ToCertificateCustomAttributeOutputWithContext(ctx context.Context) CertificateCustomAttributeOutput {
 	return o
-}
-
-func (o CertificateCustomAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateCustomAttribute] {
-	return pulumix.Output[CertificateCustomAttribute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateCustomAttributeOutput) ObjectIdentifier() pulumi.StringOutput {
@@ -2607,12 +2276,6 @@ func (o CertificateCustomAttributeArrayOutput) ToCertificateCustomAttributeArray
 
 func (o CertificateCustomAttributeArrayOutput) ToCertificateCustomAttributeArrayOutputWithContext(ctx context.Context) CertificateCustomAttributeArrayOutput {
 	return o
-}
-
-func (o CertificateCustomAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertificateCustomAttribute] {
-	return pulumix.Output[[]CertificateCustomAttribute]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateCustomAttributeArrayOutput) Index(i pulumi.IntInput) CertificateCustomAttributeOutput {
@@ -2658,12 +2321,6 @@ func (i CertificateCustomExtensionArgs) ToCertificateCustomExtensionOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCustomExtensionOutput)
 }
 
-func (i CertificateCustomExtensionArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateCustomExtension] {
-	return pulumix.Output[CertificateCustomExtension]{
-		OutputState: i.ToCertificateCustomExtensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificateCustomExtensionArrayInput is an input type that accepts CertificateCustomExtensionArray and CertificateCustomExtensionArrayOutput values.
 // You can construct a concrete instance of `CertificateCustomExtensionArrayInput` via:
 //
@@ -2689,12 +2346,6 @@ func (i CertificateCustomExtensionArray) ToCertificateCustomExtensionArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateCustomExtensionArrayOutput)
 }
 
-func (i CertificateCustomExtensionArray) ToOutput(ctx context.Context) pulumix.Output[[]CertificateCustomExtension] {
-	return pulumix.Output[[]CertificateCustomExtension]{
-		OutputState: i.ToCertificateCustomExtensionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Structure that contains X.509 extension information for a certificate.
 type CertificateCustomExtensionOutput struct{ *pulumi.OutputState }
 
@@ -2708,12 +2359,6 @@ func (o CertificateCustomExtensionOutput) ToCertificateCustomExtensionOutput() C
 
 func (o CertificateCustomExtensionOutput) ToCertificateCustomExtensionOutputWithContext(ctx context.Context) CertificateCustomExtensionOutput {
 	return o
-}
-
-func (o CertificateCustomExtensionOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateCustomExtension] {
-	return pulumix.Output[CertificateCustomExtension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateCustomExtensionOutput) Critical() pulumi.BoolPtrOutput {
@@ -2740,12 +2385,6 @@ func (o CertificateCustomExtensionArrayOutput) ToCertificateCustomExtensionArray
 
 func (o CertificateCustomExtensionArrayOutput) ToCertificateCustomExtensionArrayOutputWithContext(ctx context.Context) CertificateCustomExtensionArrayOutput {
 	return o
-}
-
-func (o CertificateCustomExtensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertificateCustomExtension] {
-	return pulumix.Output[[]CertificateCustomExtension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateCustomExtensionArrayOutput) Index(i pulumi.IntInput) CertificateCustomExtensionOutput {
@@ -2789,12 +2428,6 @@ func (i CertificateEdiPartyNameArgs) ToCertificateEdiPartyNameOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateEdiPartyNameOutput)
 }
 
-func (i CertificateEdiPartyNameArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateEdiPartyName] {
-	return pulumix.Output[CertificateEdiPartyName]{
-		OutputState: i.ToCertificateEdiPartyNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateEdiPartyNameArgs) ToCertificateEdiPartyNamePtrOutput() CertificateEdiPartyNamePtrOutput {
 	return i.ToCertificateEdiPartyNamePtrOutputWithContext(context.Background())
 }
@@ -2836,12 +2469,6 @@ func (i *certificateEdiPartyNamePtrType) ToCertificateEdiPartyNamePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateEdiPartyNamePtrOutput)
 }
 
-func (i *certificateEdiPartyNamePtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateEdiPartyName] {
-	return pulumix.Output[*CertificateEdiPartyName]{
-		OutputState: i.ToCertificateEdiPartyNamePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Structure that contains X.509 EdiPartyName information.
 type CertificateEdiPartyNameOutput struct{ *pulumi.OutputState }
 
@@ -2867,12 +2494,6 @@ func (o CertificateEdiPartyNameOutput) ToCertificateEdiPartyNamePtrOutputWithCon
 	}).(CertificateEdiPartyNamePtrOutput)
 }
 
-func (o CertificateEdiPartyNameOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateEdiPartyName] {
-	return pulumix.Output[CertificateEdiPartyName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertificateEdiPartyNameOutput) NameAssigner() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateEdiPartyName) string { return v.NameAssigner }).(pulumi.StringOutput)
 }
@@ -2893,12 +2514,6 @@ func (o CertificateEdiPartyNamePtrOutput) ToCertificateEdiPartyNamePtrOutput() C
 
 func (o CertificateEdiPartyNamePtrOutput) ToCertificateEdiPartyNamePtrOutputWithContext(ctx context.Context) CertificateEdiPartyNamePtrOutput {
 	return o
-}
-
-func (o CertificateEdiPartyNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateEdiPartyName] {
-	return pulumix.Output[*CertificateEdiPartyName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateEdiPartyNamePtrOutput) Elem() CertificateEdiPartyNameOutput {
@@ -2964,12 +2579,6 @@ func (i CertificateExtendedKeyUsageArgs) ToCertificateExtendedKeyUsageOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateExtendedKeyUsageOutput)
 }
 
-func (i CertificateExtendedKeyUsageArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateExtendedKeyUsage] {
-	return pulumix.Output[CertificateExtendedKeyUsage]{
-		OutputState: i.ToCertificateExtendedKeyUsageOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificateExtendedKeyUsageArrayInput is an input type that accepts CertificateExtendedKeyUsageArray and CertificateExtendedKeyUsageArrayOutput values.
 // You can construct a concrete instance of `CertificateExtendedKeyUsageArrayInput` via:
 //
@@ -2995,12 +2604,6 @@ func (i CertificateExtendedKeyUsageArray) ToCertificateExtendedKeyUsageArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateExtendedKeyUsageArrayOutput)
 }
 
-func (i CertificateExtendedKeyUsageArray) ToOutput(ctx context.Context) pulumix.Output[[]CertificateExtendedKeyUsage] {
-	return pulumix.Output[[]CertificateExtendedKeyUsage]{
-		OutputState: i.ToCertificateExtendedKeyUsageArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Structure that contains X.509 ExtendedKeyUsage information.
 type CertificateExtendedKeyUsageOutput struct{ *pulumi.OutputState }
 
@@ -3014,12 +2617,6 @@ func (o CertificateExtendedKeyUsageOutput) ToCertificateExtendedKeyUsageOutput()
 
 func (o CertificateExtendedKeyUsageOutput) ToCertificateExtendedKeyUsageOutputWithContext(ctx context.Context) CertificateExtendedKeyUsageOutput {
 	return o
-}
-
-func (o CertificateExtendedKeyUsageOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateExtendedKeyUsage] {
-	return pulumix.Output[CertificateExtendedKeyUsage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateExtendedKeyUsageOutput) ExtendedKeyUsageObjectIdentifier() pulumi.StringPtrOutput {
@@ -3042,12 +2639,6 @@ func (o CertificateExtendedKeyUsageArrayOutput) ToCertificateExtendedKeyUsageArr
 
 func (o CertificateExtendedKeyUsageArrayOutput) ToCertificateExtendedKeyUsageArrayOutputWithContext(ctx context.Context) CertificateExtendedKeyUsageArrayOutput {
 	return o
-}
-
-func (o CertificateExtendedKeyUsageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertificateExtendedKeyUsage] {
-	return pulumix.Output[[]CertificateExtendedKeyUsage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateExtendedKeyUsageArrayOutput) Index(i pulumi.IntInput) CertificateExtendedKeyUsageOutput {
@@ -3097,12 +2688,6 @@ func (i CertificateExtensionsArgs) ToCertificateExtensionsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateExtensionsOutput)
 }
 
-func (i CertificateExtensionsArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateExtensions] {
-	return pulumix.Output[CertificateExtensions]{
-		OutputState: i.ToCertificateExtensionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateExtensionsArgs) ToCertificateExtensionsPtrOutput() CertificateExtensionsPtrOutput {
 	return i.ToCertificateExtensionsPtrOutputWithContext(context.Background())
 }
@@ -3144,12 +2729,6 @@ func (i *certificateExtensionsPtrType) ToCertificateExtensionsPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateExtensionsPtrOutput)
 }
 
-func (i *certificateExtensionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateExtensions] {
-	return pulumix.Output[*CertificateExtensions]{
-		OutputState: i.ToCertificateExtensionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Structure that contains X.500 extensions for a Certificate.
 type CertificateExtensionsOutput struct{ *pulumi.OutputState }
 
@@ -3173,12 +2752,6 @@ func (o CertificateExtensionsOutput) ToCertificateExtensionsPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateExtensions) *CertificateExtensions {
 		return &v
 	}).(CertificateExtensionsPtrOutput)
-}
-
-func (o CertificateExtensionsOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateExtensions] {
-	return pulumix.Output[CertificateExtensions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateExtensionsOutput) CertificatePolicies() CertificatePolicyInformationArrayOutput {
@@ -3213,12 +2786,6 @@ func (o CertificateExtensionsPtrOutput) ToCertificateExtensionsPtrOutput() Certi
 
 func (o CertificateExtensionsPtrOutput) ToCertificateExtensionsPtrOutputWithContext(ctx context.Context) CertificateExtensionsPtrOutput {
 	return o
-}
-
-func (o CertificateExtensionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateExtensions] {
-	return pulumix.Output[*CertificateExtensions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateExtensionsPtrOutput) Elem() CertificateExtensionsOutput {
@@ -3323,12 +2890,6 @@ func (i CertificateGeneralNameArgs) ToCertificateGeneralNameOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateGeneralNameOutput)
 }
 
-func (i CertificateGeneralNameArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateGeneralName] {
-	return pulumix.Output[CertificateGeneralName]{
-		OutputState: i.ToCertificateGeneralNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificateGeneralNameArrayInput is an input type that accepts CertificateGeneralNameArray and CertificateGeneralNameArrayOutput values.
 // You can construct a concrete instance of `CertificateGeneralNameArrayInput` via:
 //
@@ -3354,12 +2915,6 @@ func (i CertificateGeneralNameArray) ToCertificateGeneralNameArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateGeneralNameArrayOutput)
 }
 
-func (i CertificateGeneralNameArray) ToOutput(ctx context.Context) pulumix.Output[[]CertificateGeneralName] {
-	return pulumix.Output[[]CertificateGeneralName]{
-		OutputState: i.ToCertificateGeneralNameArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Structure that contains X.509 GeneralName information. Assign one and ONLY one field.
 type CertificateGeneralNameOutput struct{ *pulumi.OutputState }
 
@@ -3373,12 +2928,6 @@ func (o CertificateGeneralNameOutput) ToCertificateGeneralNameOutput() Certifica
 
 func (o CertificateGeneralNameOutput) ToCertificateGeneralNameOutputWithContext(ctx context.Context) CertificateGeneralNameOutput {
 	return o
-}
-
-func (o CertificateGeneralNameOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateGeneralName] {
-	return pulumix.Output[CertificateGeneralName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateGeneralNameOutput) DirectoryName() CertificateSubjectPtrOutput {
@@ -3425,12 +2974,6 @@ func (o CertificateGeneralNameArrayOutput) ToCertificateGeneralNameArrayOutput()
 
 func (o CertificateGeneralNameArrayOutput) ToCertificateGeneralNameArrayOutputWithContext(ctx context.Context) CertificateGeneralNameArrayOutput {
 	return o
-}
-
-func (o CertificateGeneralNameArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertificateGeneralName] {
-	return pulumix.Output[[]CertificateGeneralName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateGeneralNameArrayOutput) Index(i pulumi.IntInput) CertificateGeneralNameOutput {
@@ -3488,12 +3031,6 @@ func (i CertificateKeyUsageArgs) ToCertificateKeyUsageOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateKeyUsageOutput)
 }
 
-func (i CertificateKeyUsageArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateKeyUsage] {
-	return pulumix.Output[CertificateKeyUsage]{
-		OutputState: i.ToCertificateKeyUsageOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateKeyUsageArgs) ToCertificateKeyUsagePtrOutput() CertificateKeyUsagePtrOutput {
 	return i.ToCertificateKeyUsagePtrOutputWithContext(context.Background())
 }
@@ -3535,12 +3072,6 @@ func (i *certificateKeyUsagePtrType) ToCertificateKeyUsagePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateKeyUsagePtrOutput)
 }
 
-func (i *certificateKeyUsagePtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateKeyUsage] {
-	return pulumix.Output[*CertificateKeyUsage]{
-		OutputState: i.ToCertificateKeyUsagePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Structure that contains X.509 KeyUsage information.
 type CertificateKeyUsageOutput struct{ *pulumi.OutputState }
 
@@ -3564,12 +3095,6 @@ func (o CertificateKeyUsageOutput) ToCertificateKeyUsagePtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateKeyUsage) *CertificateKeyUsage {
 		return &v
 	}).(CertificateKeyUsagePtrOutput)
-}
-
-func (o CertificateKeyUsageOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateKeyUsage] {
-	return pulumix.Output[CertificateKeyUsage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateKeyUsageOutput) CrlSign() pulumi.BoolPtrOutput {
@@ -3620,12 +3145,6 @@ func (o CertificateKeyUsagePtrOutput) ToCertificateKeyUsagePtrOutput() Certifica
 
 func (o CertificateKeyUsagePtrOutput) ToCertificateKeyUsagePtrOutputWithContext(ctx context.Context) CertificateKeyUsagePtrOutput {
 	return o
-}
-
-func (o CertificateKeyUsagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateKeyUsage] {
-	return pulumix.Output[*CertificateKeyUsage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateKeyUsagePtrOutput) Elem() CertificateKeyUsageOutput {
@@ -3754,12 +3273,6 @@ func (i CertificateOtherNameArgs) ToCertificateOtherNameOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOtherNameOutput)
 }
 
-func (i CertificateOtherNameArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateOtherName] {
-	return pulumix.Output[CertificateOtherName]{
-		OutputState: i.ToCertificateOtherNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateOtherNameArgs) ToCertificateOtherNamePtrOutput() CertificateOtherNamePtrOutput {
 	return i.ToCertificateOtherNamePtrOutputWithContext(context.Background())
 }
@@ -3801,12 +3314,6 @@ func (i *certificateOtherNamePtrType) ToCertificateOtherNamePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateOtherNamePtrOutput)
 }
 
-func (i *certificateOtherNamePtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateOtherName] {
-	return pulumix.Output[*CertificateOtherName]{
-		OutputState: i.ToCertificateOtherNamePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Structure that contains X.509 OtherName information.
 type CertificateOtherNameOutput struct{ *pulumi.OutputState }
 
@@ -3832,12 +3339,6 @@ func (o CertificateOtherNameOutput) ToCertificateOtherNamePtrOutputWithContext(c
 	}).(CertificateOtherNamePtrOutput)
 }
 
-func (o CertificateOtherNameOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateOtherName] {
-	return pulumix.Output[CertificateOtherName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertificateOtherNameOutput) TypeId() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateOtherName) string { return v.TypeId }).(pulumi.StringOutput)
 }
@@ -3858,12 +3359,6 @@ func (o CertificateOtherNamePtrOutput) ToCertificateOtherNamePtrOutput() Certifi
 
 func (o CertificateOtherNamePtrOutput) ToCertificateOtherNamePtrOutputWithContext(ctx context.Context) CertificateOtherNamePtrOutput {
 	return o
-}
-
-func (o CertificateOtherNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateOtherName] {
-	return pulumix.Output[*CertificateOtherName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateOtherNamePtrOutput) Elem() CertificateOtherNameOutput {
@@ -3929,12 +3424,6 @@ func (i CertificatePolicyInformationArgs) ToCertificatePolicyInformationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(CertificatePolicyInformationOutput)
 }
 
-func (i CertificatePolicyInformationArgs) ToOutput(ctx context.Context) pulumix.Output[CertificatePolicyInformation] {
-	return pulumix.Output[CertificatePolicyInformation]{
-		OutputState: i.ToCertificatePolicyInformationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificatePolicyInformationArrayInput is an input type that accepts CertificatePolicyInformationArray and CertificatePolicyInformationArrayOutput values.
 // You can construct a concrete instance of `CertificatePolicyInformationArrayInput` via:
 //
@@ -3960,12 +3449,6 @@ func (i CertificatePolicyInformationArray) ToCertificatePolicyInformationArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(CertificatePolicyInformationArrayOutput)
 }
 
-func (i CertificatePolicyInformationArray) ToOutput(ctx context.Context) pulumix.Output[[]CertificatePolicyInformation] {
-	return pulumix.Output[[]CertificatePolicyInformation]{
-		OutputState: i.ToCertificatePolicyInformationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Structure that contains X.509 Policy information.
 type CertificatePolicyInformationOutput struct{ *pulumi.OutputState }
 
@@ -3979,12 +3462,6 @@ func (o CertificatePolicyInformationOutput) ToCertificatePolicyInformationOutput
 
 func (o CertificatePolicyInformationOutput) ToCertificatePolicyInformationOutputWithContext(ctx context.Context) CertificatePolicyInformationOutput {
 	return o
-}
-
-func (o CertificatePolicyInformationOutput) ToOutput(ctx context.Context) pulumix.Output[CertificatePolicyInformation] {
-	return pulumix.Output[CertificatePolicyInformation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificatePolicyInformationOutput) CertPolicyId() pulumi.StringOutput {
@@ -4007,12 +3484,6 @@ func (o CertificatePolicyInformationArrayOutput) ToCertificatePolicyInformationA
 
 func (o CertificatePolicyInformationArrayOutput) ToCertificatePolicyInformationArrayOutputWithContext(ctx context.Context) CertificatePolicyInformationArrayOutput {
 	return o
-}
-
-func (o CertificatePolicyInformationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertificatePolicyInformation] {
-	return pulumix.Output[[]CertificatePolicyInformation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificatePolicyInformationArrayOutput) Index(i pulumi.IntInput) CertificatePolicyInformationOutput {
@@ -4056,12 +3527,6 @@ func (i CertificatePolicyQualifierInfoArgs) ToCertificatePolicyQualifierInfoOutp
 	return pulumi.ToOutputWithContext(ctx, i).(CertificatePolicyQualifierInfoOutput)
 }
 
-func (i CertificatePolicyQualifierInfoArgs) ToOutput(ctx context.Context) pulumix.Output[CertificatePolicyQualifierInfo] {
-	return pulumix.Output[CertificatePolicyQualifierInfo]{
-		OutputState: i.ToCertificatePolicyQualifierInfoOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificatePolicyQualifierInfoArrayInput is an input type that accepts CertificatePolicyQualifierInfoArray and CertificatePolicyQualifierInfoArrayOutput values.
 // You can construct a concrete instance of `CertificatePolicyQualifierInfoArrayInput` via:
 //
@@ -4087,12 +3552,6 @@ func (i CertificatePolicyQualifierInfoArray) ToCertificatePolicyQualifierInfoArr
 	return pulumi.ToOutputWithContext(ctx, i).(CertificatePolicyQualifierInfoArrayOutput)
 }
 
-func (i CertificatePolicyQualifierInfoArray) ToOutput(ctx context.Context) pulumix.Output[[]CertificatePolicyQualifierInfo] {
-	return pulumix.Output[[]CertificatePolicyQualifierInfo]{
-		OutputState: i.ToCertificatePolicyQualifierInfoArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Structure that contains X.509 Policy qualifier information.
 type CertificatePolicyQualifierInfoOutput struct{ *pulumi.OutputState }
 
@@ -4106,12 +3565,6 @@ func (o CertificatePolicyQualifierInfoOutput) ToCertificatePolicyQualifierInfoOu
 
 func (o CertificatePolicyQualifierInfoOutput) ToCertificatePolicyQualifierInfoOutputWithContext(ctx context.Context) CertificatePolicyQualifierInfoOutput {
 	return o
-}
-
-func (o CertificatePolicyQualifierInfoOutput) ToOutput(ctx context.Context) pulumix.Output[CertificatePolicyQualifierInfo] {
-	return pulumix.Output[CertificatePolicyQualifierInfo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificatePolicyQualifierInfoOutput) PolicyQualifierId() pulumi.StringOutput {
@@ -4134,12 +3587,6 @@ func (o CertificatePolicyQualifierInfoArrayOutput) ToCertificatePolicyQualifierI
 
 func (o CertificatePolicyQualifierInfoArrayOutput) ToCertificatePolicyQualifierInfoArrayOutputWithContext(ctx context.Context) CertificatePolicyQualifierInfoArrayOutput {
 	return o
-}
-
-func (o CertificatePolicyQualifierInfoArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CertificatePolicyQualifierInfo] {
-	return pulumix.Output[[]CertificatePolicyQualifierInfo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificatePolicyQualifierInfoArrayOutput) Index(i pulumi.IntInput) CertificatePolicyQualifierInfoOutput {
@@ -4181,12 +3628,6 @@ func (i CertificateQualifierArgs) ToCertificateQualifierOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateQualifierOutput)
 }
 
-func (i CertificateQualifierArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateQualifier] {
-	return pulumix.Output[CertificateQualifier]{
-		OutputState: i.ToCertificateQualifierOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Structure that contains a X.509 policy qualifier.
 type CertificateQualifierOutput struct{ *pulumi.OutputState }
 
@@ -4200,12 +3641,6 @@ func (o CertificateQualifierOutput) ToCertificateQualifierOutput() CertificateQu
 
 func (o CertificateQualifierOutput) ToCertificateQualifierOutputWithContext(ctx context.Context) CertificateQualifierOutput {
 	return o
-}
-
-func (o CertificateQualifierOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateQualifier] {
-	return pulumix.Output[CertificateQualifier]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateQualifierOutput) CpsUri() pulumi.StringOutput {
@@ -4273,12 +3708,6 @@ func (i CertificateSubjectArgs) ToCertificateSubjectOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateSubjectOutput)
 }
 
-func (i CertificateSubjectArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateSubject] {
-	return pulumix.Output[CertificateSubject]{
-		OutputState: i.ToCertificateSubjectOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateSubjectArgs) ToCertificateSubjectPtrOutput() CertificateSubjectPtrOutput {
 	return i.ToCertificateSubjectPtrOutputWithContext(context.Background())
 }
@@ -4320,12 +3749,6 @@ func (i *certificateSubjectPtrType) ToCertificateSubjectPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateSubjectPtrOutput)
 }
 
-func (i *certificateSubjectPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateSubject] {
-	return pulumix.Output[*CertificateSubject]{
-		OutputState: i.ToCertificateSubjectPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Structure that contains X.500 distinguished name information.
 type CertificateSubjectOutput struct{ *pulumi.OutputState }
 
@@ -4349,12 +3772,6 @@ func (o CertificateSubjectOutput) ToCertificateSubjectPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateSubject) *CertificateSubject {
 		return &v
 	}).(CertificateSubjectPtrOutput)
-}
-
-func (o CertificateSubjectOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateSubject] {
-	return pulumix.Output[CertificateSubject]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateSubjectOutput) CommonName() pulumi.StringPtrOutput {
@@ -4429,12 +3846,6 @@ func (o CertificateSubjectPtrOutput) ToCertificateSubjectPtrOutput() Certificate
 
 func (o CertificateSubjectPtrOutput) ToCertificateSubjectPtrOutputWithContext(ctx context.Context) CertificateSubjectPtrOutput {
 	return o
-}
-
-func (o CertificateSubjectPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateSubject] {
-	return pulumix.Output[*CertificateSubject]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateSubjectPtrOutput) Elem() CertificateSubjectOutput {
@@ -4617,12 +4028,6 @@ func (i CertificateValidityArgs) ToCertificateValidityOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateValidityOutput)
 }
 
-func (i CertificateValidityArgs) ToOutput(ctx context.Context) pulumix.Output[CertificateValidity] {
-	return pulumix.Output[CertificateValidity]{
-		OutputState: i.ToCertificateValidityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CertificateValidityArgs) ToCertificateValidityPtrOutput() CertificateValidityPtrOutput {
 	return i.ToCertificateValidityPtrOutputWithContext(context.Background())
 }
@@ -4664,12 +4069,6 @@ func (i *certificateValidityPtrType) ToCertificateValidityPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateValidityPtrOutput)
 }
 
-func (i *certificateValidityPtrType) ToOutput(ctx context.Context) pulumix.Output[*CertificateValidity] {
-	return pulumix.Output[*CertificateValidity]{
-		OutputState: i.ToCertificateValidityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Validity for a certificate.
 type CertificateValidityOutput struct{ *pulumi.OutputState }
 
@@ -4695,12 +4094,6 @@ func (o CertificateValidityOutput) ToCertificateValidityPtrOutputWithContext(ctx
 	}).(CertificateValidityPtrOutput)
 }
 
-func (o CertificateValidityOutput) ToOutput(ctx context.Context) pulumix.Output[CertificateValidity] {
-	return pulumix.Output[CertificateValidity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertificateValidityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateValidity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -4721,12 +4114,6 @@ func (o CertificateValidityPtrOutput) ToCertificateValidityPtrOutput() Certifica
 
 func (o CertificateValidityPtrOutput) ToCertificateValidityPtrOutputWithContext(ctx context.Context) CertificateValidityPtrOutput {
 	return o
-}
-
-func (o CertificateValidityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateValidity] {
-	return pulumix.Output[*CertificateValidity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateValidityPtrOutput) Elem() CertificateValidityOutput {

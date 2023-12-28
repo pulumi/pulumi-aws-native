@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource type definition for AWS::Events::EventBus
@@ -117,12 +116,6 @@ func (i *EventBus) ToEventBusOutputWithContext(ctx context.Context) EventBusOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EventBusOutput)
 }
 
-func (i *EventBus) ToOutput(ctx context.Context) pulumix.Output[*EventBus] {
-	return pulumix.Output[*EventBus]{
-		OutputState: i.ToEventBusOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventBusOutput struct{ *pulumi.OutputState }
 
 func (EventBusOutput) ElementType() reflect.Type {
@@ -135,12 +128,6 @@ func (o EventBusOutput) ToEventBusOutput() EventBusOutput {
 
 func (o EventBusOutput) ToEventBusOutputWithContext(ctx context.Context) EventBusOutput {
 	return o
-}
-
-func (o EventBusOutput) ToOutput(ctx context.Context) pulumix.Output[*EventBus] {
-	return pulumix.Output[*EventBus]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) for the event bus.

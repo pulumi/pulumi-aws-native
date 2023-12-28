@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::DMS::ReplicationTask
@@ -151,12 +150,6 @@ func (i *ReplicationTask) ToReplicationTaskOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationTaskOutput)
 }
 
-func (i *ReplicationTask) ToOutput(ctx context.Context) pulumix.Output[*ReplicationTask] {
-	return pulumix.Output[*ReplicationTask]{
-		OutputState: i.ToReplicationTaskOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationTaskOutput struct{ *pulumi.OutputState }
 
 func (ReplicationTaskOutput) ElementType() reflect.Type {
@@ -169,12 +162,6 @@ func (o ReplicationTaskOutput) ToReplicationTaskOutput() ReplicationTaskOutput {
 
 func (o ReplicationTaskOutput) ToReplicationTaskOutputWithContext(ctx context.Context) ReplicationTaskOutput {
 	return o
-}
-
-func (o ReplicationTaskOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationTask] {
-	return pulumix.Output[*ReplicationTask]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationTaskOutput) CdcStartPosition() pulumi.StringPtrOutput {

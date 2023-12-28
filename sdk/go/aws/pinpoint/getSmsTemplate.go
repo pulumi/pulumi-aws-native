@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::SmsTemplate
@@ -69,12 +68,6 @@ func (o LookupSmsTemplateResultOutput) ToLookupSmsTemplateResultOutput() LookupS
 
 func (o LookupSmsTemplateResultOutput) ToLookupSmsTemplateResultOutputWithContext(ctx context.Context) LookupSmsTemplateResultOutput {
 	return o
-}
-
-func (o LookupSmsTemplateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSmsTemplateResult] {
-	return pulumix.Output[LookupSmsTemplateResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupSmsTemplateResultOutput) Arn() pulumi.StringPtrOutput {

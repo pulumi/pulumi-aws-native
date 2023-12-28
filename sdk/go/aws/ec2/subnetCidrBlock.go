@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::EC2::SubnetCidrBlock resource creates association between subnet and IPv6 CIDR
@@ -111,12 +110,6 @@ func (i *SubnetCidrBlock) ToSubnetCidrBlockOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetCidrBlockOutput)
 }
 
-func (i *SubnetCidrBlock) ToOutput(ctx context.Context) pulumix.Output[*SubnetCidrBlock] {
-	return pulumix.Output[*SubnetCidrBlock]{
-		OutputState: i.ToSubnetCidrBlockOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SubnetCidrBlockOutput struct{ *pulumi.OutputState }
 
 func (SubnetCidrBlockOutput) ElementType() reflect.Type {
@@ -129,12 +122,6 @@ func (o SubnetCidrBlockOutput) ToSubnetCidrBlockOutput() SubnetCidrBlockOutput {
 
 func (o SubnetCidrBlockOutput) ToSubnetCidrBlockOutputWithContext(ctx context.Context) SubnetCidrBlockOutput {
 	return o
-}
-
-func (o SubnetCidrBlockOutput) ToOutput(ctx context.Context) pulumix.Output[*SubnetCidrBlock] {
-	return pulumix.Output[*SubnetCidrBlock]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a /64 prefix length

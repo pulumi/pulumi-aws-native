@@ -49,12 +49,6 @@ func (o AllowListStatusOutput) ToAllowListStatusPtrOutputWithContext(ctx context
 	}).(AllowListStatusPtrOutput)
 }
 
-func (o AllowListStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AllowListStatus] {
-	return pulumix.Output[AllowListStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AllowListStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -88,12 +82,6 @@ func (o AllowListStatusPtrOutput) ToAllowListStatusPtrOutput() AllowListStatusPt
 
 func (o AllowListStatusPtrOutput) ToAllowListStatusPtrOutputWithContext(ctx context.Context) AllowListStatusPtrOutput {
 	return o
-}
-
-func (o AllowListStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AllowListStatus] {
-	return pulumix.Output[*AllowListStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AllowListStatusPtrOutput) Elem() AllowListStatusOutput {
@@ -187,12 +175,6 @@ func (o FindingsFilterFindingFilterActionOutput) ToFindingsFilterFindingFilterAc
 	}).(FindingsFilterFindingFilterActionPtrOutput)
 }
 
-func (o FindingsFilterFindingFilterActionOutput) ToOutput(ctx context.Context) pulumix.Output[FindingsFilterFindingFilterAction] {
-	return pulumix.Output[FindingsFilterFindingFilterAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FindingsFilterFindingFilterActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -228,12 +210,6 @@ func (o FindingsFilterFindingFilterActionPtrOutput) ToFindingsFilterFindingFilte
 	return o
 }
 
-func (o FindingsFilterFindingFilterActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FindingsFilterFindingFilterAction] {
-	return pulumix.Output[*FindingsFilterFindingFilterAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FindingsFilterFindingFilterActionPtrOutput) Elem() FindingsFilterFindingFilterActionOutput {
 	return o.ApplyT(func(v *FindingsFilterFindingFilterAction) FindingsFilterFindingFilterAction {
 		if v != nil {
@@ -258,10 +234,11 @@ func (o FindingsFilterFindingFilterActionPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// FindingsFilterFindingFilterActionInput is an input type that accepts FindingsFilterFindingFilterActionArgs and FindingsFilterFindingFilterActionOutput values.
-// You can construct a concrete instance of `FindingsFilterFindingFilterActionInput` via:
+// FindingsFilterFindingFilterActionInput is an input type that accepts values of the FindingsFilterFindingFilterAction enum
+// A concrete instance of `FindingsFilterFindingFilterActionInput` can be one of the following:
 //
-//	FindingsFilterFindingFilterActionArgs{...}
+//	FindingsFilterFindingFilterActionArchive
+//	FindingsFilterFindingFilterActionNoop
 type FindingsFilterFindingFilterActionInput interface {
 	pulumi.Input
 
@@ -371,12 +348,6 @@ func (o SessionFindingPublishingFrequencyOutput) ToSessionFindingPublishingFrequ
 	}).(SessionFindingPublishingFrequencyPtrOutput)
 }
 
-func (o SessionFindingPublishingFrequencyOutput) ToOutput(ctx context.Context) pulumix.Output[SessionFindingPublishingFrequency] {
-	return pulumix.Output[SessionFindingPublishingFrequency]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SessionFindingPublishingFrequencyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -412,12 +383,6 @@ func (o SessionFindingPublishingFrequencyPtrOutput) ToSessionFindingPublishingFr
 	return o
 }
 
-func (o SessionFindingPublishingFrequencyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SessionFindingPublishingFrequency] {
-	return pulumix.Output[*SessionFindingPublishingFrequency]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SessionFindingPublishingFrequencyPtrOutput) Elem() SessionFindingPublishingFrequencyOutput {
 	return o.ApplyT(func(v *SessionFindingPublishingFrequency) SessionFindingPublishingFrequency {
 		if v != nil {
@@ -442,10 +407,12 @@ func (o SessionFindingPublishingFrequencyPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// SessionFindingPublishingFrequencyInput is an input type that accepts SessionFindingPublishingFrequencyArgs and SessionFindingPublishingFrequencyOutput values.
-// You can construct a concrete instance of `SessionFindingPublishingFrequencyInput` via:
+// SessionFindingPublishingFrequencyInput is an input type that accepts values of the SessionFindingPublishingFrequency enum
+// A concrete instance of `SessionFindingPublishingFrequencyInput` can be one of the following:
 //
-//	SessionFindingPublishingFrequencyArgs{...}
+//	SessionFindingPublishingFrequencyFifteenMinutes
+//	SessionFindingPublishingFrequencyOneHour
+//	SessionFindingPublishingFrequencySixHours
 type SessionFindingPublishingFrequencyInput interface {
 	pulumi.Input
 
@@ -554,12 +521,6 @@ func (o SessionStatusOutput) ToSessionStatusPtrOutputWithContext(ctx context.Con
 	}).(SessionStatusPtrOutput)
 }
 
-func (o SessionStatusOutput) ToOutput(ctx context.Context) pulumix.Output[SessionStatus] {
-	return pulumix.Output[SessionStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SessionStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -595,12 +556,6 @@ func (o SessionStatusPtrOutput) ToSessionStatusPtrOutputWithContext(ctx context.
 	return o
 }
 
-func (o SessionStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SessionStatus] {
-	return pulumix.Output[*SessionStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SessionStatusPtrOutput) Elem() SessionStatusOutput {
 	return o.ApplyT(func(v *SessionStatus) SessionStatus {
 		if v != nil {
@@ -625,10 +580,11 @@ func (o SessionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// SessionStatusInput is an input type that accepts SessionStatusArgs and SessionStatusOutput values.
-// You can construct a concrete instance of `SessionStatusInput` via:
+// SessionStatusInput is an input type that accepts values of the SessionStatus enum
+// A concrete instance of `SessionStatusInput` can be one of the following:
 //
-//	SessionStatusArgs{...}
+//	SessionStatusEnabled
+//	SessionStatusPaused
 type SessionStatusInput interface {
 	pulumi.Input
 

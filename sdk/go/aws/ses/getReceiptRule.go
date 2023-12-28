@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SES::ReceiptRule
@@ -66,12 +65,6 @@ func (o LookupReceiptRuleResultOutput) ToLookupReceiptRuleResultOutput() LookupR
 
 func (o LookupReceiptRuleResultOutput) ToLookupReceiptRuleResultOutputWithContext(ctx context.Context) LookupReceiptRuleResultOutput {
 	return o
-}
-
-func (o LookupReceiptRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupReceiptRuleResult] {
-	return pulumix.Output[LookupReceiptRuleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupReceiptRuleResultOutput) After() pulumi.StringPtrOutput {

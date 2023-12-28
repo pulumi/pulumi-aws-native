@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::EC2::NetworkInsightsAccessScopeAnalysis
@@ -109,12 +108,6 @@ func (i *NetworkInsightsAccessScopeAnalysis) ToNetworkInsightsAccessScopeAnalysi
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkInsightsAccessScopeAnalysisOutput)
 }
 
-func (i *NetworkInsightsAccessScopeAnalysis) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsAccessScopeAnalysis] {
-	return pulumix.Output[*NetworkInsightsAccessScopeAnalysis]{
-		OutputState: i.ToNetworkInsightsAccessScopeAnalysisOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkInsightsAccessScopeAnalysisOutput struct{ *pulumi.OutputState }
 
 func (NetworkInsightsAccessScopeAnalysisOutput) ElementType() reflect.Type {
@@ -127,12 +120,6 @@ func (o NetworkInsightsAccessScopeAnalysisOutput) ToNetworkInsightsAccessScopeAn
 
 func (o NetworkInsightsAccessScopeAnalysisOutput) ToNetworkInsightsAccessScopeAnalysisOutputWithContext(ctx context.Context) NetworkInsightsAccessScopeAnalysisOutput {
 	return o
-}
-
-func (o NetworkInsightsAccessScopeAnalysisOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkInsightsAccessScopeAnalysis] {
-	return pulumix.Output[*NetworkInsightsAccessScopeAnalysis]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkInsightsAccessScopeAnalysisOutput) AnalyzedEniCount() pulumi.IntOutput {

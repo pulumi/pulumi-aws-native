@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An OpenSearch Ingestion Service Data Prepper pipeline running Data Prepper.
@@ -82,12 +81,6 @@ func (o LookupPipelineResultOutput) ToLookupPipelineResultOutput() LookupPipelin
 
 func (o LookupPipelineResultOutput) ToLookupPipelineResultOutputWithContext(ctx context.Context) LookupPipelineResultOutput {
 	return o
-}
-
-func (o LookupPipelineResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPipelineResult] {
-	return pulumix.Output[LookupPipelineResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupPipelineResultOutput) BufferOptions() PipelineBufferOptionsPtrOutput {

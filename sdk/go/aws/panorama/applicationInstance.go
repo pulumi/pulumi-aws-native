@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for ApplicationInstance CloudFormation Resource
@@ -136,12 +135,6 @@ func (i *ApplicationInstance) ToApplicationInstanceOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInstanceOutput)
 }
 
-func (i *ApplicationInstance) ToOutput(ctx context.Context) pulumix.Output[*ApplicationInstance] {
-	return pulumix.Output[*ApplicationInstance]{
-		OutputState: i.ToApplicationInstanceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApplicationInstanceOutput struct{ *pulumi.OutputState }
 
 func (ApplicationInstanceOutput) ElementType() reflect.Type {
@@ -154,12 +147,6 @@ func (o ApplicationInstanceOutput) ToApplicationInstanceOutput() ApplicationInst
 
 func (o ApplicationInstanceOutput) ToApplicationInstanceOutputWithContext(ctx context.Context) ApplicationInstanceOutput {
 	return o
-}
-
-func (o ApplicationInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationInstance] {
-	return pulumix.Output[*ApplicationInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationInstanceOutput) ApplicationInstanceId() pulumi.StringOutput {

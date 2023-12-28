@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CodeDeploy::DeploymentGroup
@@ -161,12 +160,6 @@ func (i *DeploymentGroup) ToDeploymentGroupOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupOutput)
 }
 
-func (i *DeploymentGroup) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroup] {
-	return pulumix.Output[*DeploymentGroup]{
-		OutputState: i.ToDeploymentGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeploymentGroupOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupOutput) ElementType() reflect.Type {
@@ -179,12 +172,6 @@ func (o DeploymentGroupOutput) ToDeploymentGroupOutput() DeploymentGroupOutput {
 
 func (o DeploymentGroupOutput) ToDeploymentGroupOutputWithContext(ctx context.Context) DeploymentGroupOutput {
 	return o
-}
-
-func (o DeploymentGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentGroup] {
-	return pulumix.Output[*DeploymentGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeploymentGroupOutput) AlarmConfiguration() DeploymentGroupAlarmConfigurationPtrOutput {

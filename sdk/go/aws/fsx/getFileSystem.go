@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::FSx::FileSystem
@@ -75,12 +74,6 @@ func (o LookupFileSystemResultOutput) ToLookupFileSystemResultOutput() LookupFil
 
 func (o LookupFileSystemResultOutput) ToLookupFileSystemResultOutputWithContext(ctx context.Context) LookupFileSystemResultOutput {
 	return o
-}
-
-func (o LookupFileSystemResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFileSystemResult] {
-	return pulumix.Output[LookupFileSystemResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupFileSystemResultOutput) DnsName() pulumi.StringPtrOutput {

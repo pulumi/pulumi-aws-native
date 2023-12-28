@@ -81,12 +81,6 @@ func (o AssociationComplianceSeverityOutput) ToAssociationComplianceSeverityPtrO
 	}).(AssociationComplianceSeverityPtrOutput)
 }
 
-func (o AssociationComplianceSeverityOutput) ToOutput(ctx context.Context) pulumix.Output[AssociationComplianceSeverity] {
-	return pulumix.Output[AssociationComplianceSeverity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssociationComplianceSeverityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -122,12 +116,6 @@ func (o AssociationComplianceSeverityPtrOutput) ToAssociationComplianceSeverityP
 	return o
 }
 
-func (o AssociationComplianceSeverityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssociationComplianceSeverity] {
-	return pulumix.Output[*AssociationComplianceSeverity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssociationComplianceSeverityPtrOutput) Elem() AssociationComplianceSeverityOutput {
 	return o.ApplyT(func(v *AssociationComplianceSeverity) AssociationComplianceSeverity {
 		if v != nil {
@@ -152,10 +140,14 @@ func (o AssociationComplianceSeverityPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// AssociationComplianceSeverityInput is an input type that accepts AssociationComplianceSeverityArgs and AssociationComplianceSeverityOutput values.
-// You can construct a concrete instance of `AssociationComplianceSeverityInput` via:
+// AssociationComplianceSeverityInput is an input type that accepts values of the AssociationComplianceSeverity enum
+// A concrete instance of `AssociationComplianceSeverityInput` can be one of the following:
 //
-//	AssociationComplianceSeverityArgs{...}
+//	AssociationComplianceSeverityCritical
+//	AssociationComplianceSeverityHigh
+//	AssociationComplianceSeverityMedium
+//	AssociationComplianceSeverityLow
+//	AssociationComplianceSeverityUnspecified
 type AssociationComplianceSeverityInput interface {
 	pulumi.Input
 
@@ -263,12 +255,6 @@ func (o AssociationSyncComplianceOutput) ToAssociationSyncCompliancePtrOutputWit
 	}).(AssociationSyncCompliancePtrOutput)
 }
 
-func (o AssociationSyncComplianceOutput) ToOutput(ctx context.Context) pulumix.Output[AssociationSyncCompliance] {
-	return pulumix.Output[AssociationSyncCompliance]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssociationSyncComplianceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -304,12 +290,6 @@ func (o AssociationSyncCompliancePtrOutput) ToAssociationSyncCompliancePtrOutput
 	return o
 }
 
-func (o AssociationSyncCompliancePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssociationSyncCompliance] {
-	return pulumix.Output[*AssociationSyncCompliance]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssociationSyncCompliancePtrOutput) Elem() AssociationSyncComplianceOutput {
 	return o.ApplyT(func(v *AssociationSyncCompliance) AssociationSyncCompliance {
 		if v != nil {
@@ -334,10 +314,11 @@ func (o AssociationSyncCompliancePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// AssociationSyncComplianceInput is an input type that accepts AssociationSyncComplianceArgs and AssociationSyncComplianceOutput values.
-// You can construct a concrete instance of `AssociationSyncComplianceInput` via:
+// AssociationSyncComplianceInput is an input type that accepts values of the AssociationSyncCompliance enum
+// A concrete instance of `AssociationSyncComplianceInput` can be one of the following:
 //
-//	AssociationSyncComplianceArgs{...}
+//	AssociationSyncComplianceAuto
+//	AssociationSyncComplianceManual
 type AssociationSyncComplianceInput interface {
 	pulumi.Input
 
@@ -447,12 +428,6 @@ func (o DocumentAttachmentsSourceKeyOutput) ToDocumentAttachmentsSourceKeyPtrOut
 	}).(DocumentAttachmentsSourceKeyPtrOutput)
 }
 
-func (o DocumentAttachmentsSourceKeyOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentAttachmentsSourceKey] {
-	return pulumix.Output[DocumentAttachmentsSourceKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentAttachmentsSourceKeyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -488,12 +463,6 @@ func (o DocumentAttachmentsSourceKeyPtrOutput) ToDocumentAttachmentsSourceKeyPtr
 	return o
 }
 
-func (o DocumentAttachmentsSourceKeyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentAttachmentsSourceKey] {
-	return pulumix.Output[*DocumentAttachmentsSourceKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentAttachmentsSourceKeyPtrOutput) Elem() DocumentAttachmentsSourceKeyOutput {
 	return o.ApplyT(func(v *DocumentAttachmentsSourceKey) DocumentAttachmentsSourceKey {
 		if v != nil {
@@ -518,10 +487,12 @@ func (o DocumentAttachmentsSourceKeyPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// DocumentAttachmentsSourceKeyInput is an input type that accepts DocumentAttachmentsSourceKeyArgs and DocumentAttachmentsSourceKeyOutput values.
-// You can construct a concrete instance of `DocumentAttachmentsSourceKeyInput` via:
+// DocumentAttachmentsSourceKeyInput is an input type that accepts values of the DocumentAttachmentsSourceKey enum
+// A concrete instance of `DocumentAttachmentsSourceKeyInput` can be one of the following:
 //
-//	DocumentAttachmentsSourceKeyArgs{...}
+//	DocumentAttachmentsSourceKeySourceUrl
+//	DocumentAttachmentsSourceKeyS3FileUrl
+//	DocumentAttachmentsSourceKeyAttachmentReference
 type DocumentAttachmentsSourceKeyInput interface {
 	pulumi.Input
 
@@ -631,12 +602,6 @@ func (o DocumentFormatOutput) ToDocumentFormatPtrOutputWithContext(ctx context.C
 	}).(DocumentFormatPtrOutput)
 }
 
-func (o DocumentFormatOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentFormat] {
-	return pulumix.Output[DocumentFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -672,12 +637,6 @@ func (o DocumentFormatPtrOutput) ToDocumentFormatPtrOutputWithContext(ctx contex
 	return o
 }
 
-func (o DocumentFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentFormat] {
-	return pulumix.Output[*DocumentFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentFormatPtrOutput) Elem() DocumentFormatOutput {
 	return o.ApplyT(func(v *DocumentFormat) DocumentFormat {
 		if v != nil {
@@ -702,10 +661,12 @@ func (o DocumentFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// DocumentFormatInput is an input type that accepts DocumentFormatArgs and DocumentFormatOutput values.
-// You can construct a concrete instance of `DocumentFormatInput` via:
+// DocumentFormatInput is an input type that accepts values of the DocumentFormat enum
+// A concrete instance of `DocumentFormatInput` can be one of the following:
 //
-//	DocumentFormatArgs{...}
+//	DocumentFormatYaml
+//	DocumentFormatJson
+//	DocumentFormatText
 type DocumentFormatInput interface {
 	pulumi.Input
 
@@ -825,12 +786,6 @@ func (o DocumentTypeOutput) ToDocumentTypePtrOutputWithContext(ctx context.Conte
 	}).(DocumentTypePtrOutput)
 }
 
-func (o DocumentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentType] {
-	return pulumix.Output[DocumentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -866,12 +821,6 @@ func (o DocumentTypePtrOutput) ToDocumentTypePtrOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o DocumentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentType] {
-	return pulumix.Output[*DocumentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentTypePtrOutput) Elem() DocumentTypeOutput {
 	return o.ApplyT(func(v *DocumentType) DocumentType {
 		if v != nil {
@@ -896,10 +845,22 @@ func (o DocumentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// DocumentTypeInput is an input type that accepts DocumentTypeArgs and DocumentTypeOutput values.
-// You can construct a concrete instance of `DocumentTypeInput` via:
+// DocumentTypeInput is an input type that accepts values of the DocumentType enum
+// A concrete instance of `DocumentTypeInput` can be one of the following:
 //
-//	DocumentTypeArgs{...}
+//	DocumentTypeApplicationConfiguration
+//	DocumentTypeApplicationConfigurationSchema
+//	DocumentTypeAutomation
+//	DocumentTypeAutomationChangeTemplate
+//	DocumentTypeChangeCalendar
+//	DocumentTypeCloudFormation
+//	DocumentTypeCommand
+//	DocumentTypeDeploymentStrategy
+//	DocumentTypePackage
+//	DocumentTypePolicy
+//	DocumentTypeProblemAnalysis
+//	DocumentTypeProblemAnalysisTemplate
+//	DocumentTypeSession
 type DocumentTypeInput interface {
 	pulumi.Input
 
@@ -1008,12 +969,6 @@ func (o DocumentUpdateMethodOutput) ToDocumentUpdateMethodPtrOutputWithContext(c
 	}).(DocumentUpdateMethodPtrOutput)
 }
 
-func (o DocumentUpdateMethodOutput) ToOutput(ctx context.Context) pulumix.Output[DocumentUpdateMethod] {
-	return pulumix.Output[DocumentUpdateMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentUpdateMethodOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1049,12 +1004,6 @@ func (o DocumentUpdateMethodPtrOutput) ToDocumentUpdateMethodPtrOutputWithContex
 	return o
 }
 
-func (o DocumentUpdateMethodPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DocumentUpdateMethod] {
-	return pulumix.Output[*DocumentUpdateMethod]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DocumentUpdateMethodPtrOutput) Elem() DocumentUpdateMethodOutput {
 	return o.ApplyT(func(v *DocumentUpdateMethod) DocumentUpdateMethod {
 		if v != nil {
@@ -1079,10 +1028,11 @@ func (o DocumentUpdateMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// DocumentUpdateMethodInput is an input type that accepts DocumentUpdateMethodArgs and DocumentUpdateMethodOutput values.
-// You can construct a concrete instance of `DocumentUpdateMethodInput` via:
+// DocumentUpdateMethodInput is an input type that accepts values of the DocumentUpdateMethod enum
+// A concrete instance of `DocumentUpdateMethodInput` can be one of the following:
 //
-//	DocumentUpdateMethodArgs{...}
+//	DocumentUpdateMethodReplace
+//	DocumentUpdateMethodNewVersion
 type DocumentUpdateMethodInput interface {
 	pulumi.Input
 
@@ -1191,12 +1141,6 @@ func (o ParameterDataTypeOutput) ToParameterDataTypePtrOutputWithContext(ctx con
 	}).(ParameterDataTypePtrOutput)
 }
 
-func (o ParameterDataTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ParameterDataType] {
-	return pulumix.Output[ParameterDataType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ParameterDataTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1232,12 +1176,6 @@ func (o ParameterDataTypePtrOutput) ToParameterDataTypePtrOutputWithContext(ctx 
 	return o
 }
 
-func (o ParameterDataTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ParameterDataType] {
-	return pulumix.Output[*ParameterDataType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ParameterDataTypePtrOutput) Elem() ParameterDataTypeOutput {
 	return o.ApplyT(func(v *ParameterDataType) ParameterDataType {
 		if v != nil {
@@ -1262,10 +1200,11 @@ func (o ParameterDataTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// ParameterDataTypeInput is an input type that accepts ParameterDataTypeArgs and ParameterDataTypeOutput values.
-// You can construct a concrete instance of `ParameterDataTypeInput` via:
+// ParameterDataTypeInput is an input type that accepts values of the ParameterDataType enum
+// A concrete instance of `ParameterDataTypeInput` can be one of the following:
 //
-//	ParameterDataTypeArgs{...}
+//	ParameterDataTypeText
+//	ParameterDataTypeAwsec2image
 type ParameterDataTypeInput interface {
 	pulumi.Input
 
@@ -1375,12 +1314,6 @@ func (o ParameterTierOutput) ToParameterTierPtrOutputWithContext(ctx context.Con
 	}).(ParameterTierPtrOutput)
 }
 
-func (o ParameterTierOutput) ToOutput(ctx context.Context) pulumix.Output[ParameterTier] {
-	return pulumix.Output[ParameterTier]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ParameterTierOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1416,12 +1349,6 @@ func (o ParameterTierPtrOutput) ToParameterTierPtrOutputWithContext(ctx context.
 	return o
 }
 
-func (o ParameterTierPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ParameterTier] {
-	return pulumix.Output[*ParameterTier]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ParameterTierPtrOutput) Elem() ParameterTierOutput {
 	return o.ApplyT(func(v *ParameterTier) ParameterTier {
 		if v != nil {
@@ -1446,10 +1373,12 @@ func (o ParameterTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// ParameterTierInput is an input type that accepts ParameterTierArgs and ParameterTierOutput values.
-// You can construct a concrete instance of `ParameterTierInput` via:
+// ParameterTierInput is an input type that accepts values of the ParameterTier enum
+// A concrete instance of `ParameterTierInput` can be one of the following:
 //
-//	ParameterTierArgs{...}
+//	ParameterTierStandard
+//	ParameterTierAdvanced
+//	ParameterTierIntelligentTiering
 type ParameterTierInput interface {
 	pulumi.Input
 
@@ -1559,12 +1488,6 @@ func (o ParameterTypeOutput) ToParameterTypePtrOutputWithContext(ctx context.Con
 	}).(ParameterTypePtrOutput)
 }
 
-func (o ParameterTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ParameterType] {
-	return pulumix.Output[ParameterType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ParameterTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1600,12 +1523,6 @@ func (o ParameterTypePtrOutput) ToParameterTypePtrOutputWithContext(ctx context.
 	return o
 }
 
-func (o ParameterTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ParameterType] {
-	return pulumix.Output[*ParameterType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ParameterTypePtrOutput) Elem() ParameterTypeOutput {
 	return o.ApplyT(func(v *ParameterType) ParameterType {
 		if v != nil {
@@ -1630,10 +1547,12 @@ func (o ParameterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// ParameterTypeInput is an input type that accepts ParameterTypeArgs and ParameterTypeOutput values.
-// You can construct a concrete instance of `ParameterTypeInput` via:
+// ParameterTypeInput is an input type that accepts values of the ParameterType enum
+// A concrete instance of `ParameterTypeInput` can be one of the following:
 //
-//	ParameterTypeArgs{...}
+//	ParameterTypeString
+//	ParameterTypeStringList
+//	ParameterTypeSecureString
 type ParameterTypeInput interface {
 	pulumi.Input
 

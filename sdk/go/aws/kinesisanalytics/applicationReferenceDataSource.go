@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::KinesisAnalytics::ApplicationReferenceDataSource
@@ -106,12 +105,6 @@ func (i *ApplicationReferenceDataSource) ToApplicationReferenceDataSourceOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationReferenceDataSourceOutput)
 }
 
-func (i *ApplicationReferenceDataSource) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSource] {
-	return pulumix.Output[*ApplicationReferenceDataSource]{
-		OutputState: i.ToApplicationReferenceDataSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApplicationReferenceDataSourceOutput struct{ *pulumi.OutputState }
 
 func (ApplicationReferenceDataSourceOutput) ElementType() reflect.Type {
@@ -124,12 +117,6 @@ func (o ApplicationReferenceDataSourceOutput) ToApplicationReferenceDataSourceOu
 
 func (o ApplicationReferenceDataSourceOutput) ToApplicationReferenceDataSourceOutputWithContext(ctx context.Context) ApplicationReferenceDataSourceOutput {
 	return o
-}
-
-func (o ApplicationReferenceDataSourceOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationReferenceDataSource] {
-	return pulumix.Output[*ApplicationReferenceDataSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationReferenceDataSourceOutput) ApplicationName() pulumi.StringOutput {

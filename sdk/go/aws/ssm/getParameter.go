@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SSM::Parameter
@@ -71,12 +70,6 @@ func (o LookupParameterResultOutput) ToLookupParameterResultOutput() LookupParam
 
 func (o LookupParameterResultOutput) ToLookupParameterResultOutputWithContext(ctx context.Context) LookupParameterResultOutput {
 	return o
-}
-
-func (o LookupParameterResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupParameterResult] {
-	return pulumix.Output[LookupParameterResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The corresponding DataType of the parameter.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -69,12 +68,6 @@ func (i WorkspaceAssertionAttributesArgs) ToWorkspaceAssertionAttributesOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAssertionAttributesOutput)
 }
 
-func (i WorkspaceAssertionAttributesArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceAssertionAttributes] {
-	return pulumix.Output[WorkspaceAssertionAttributes]{
-		OutputState: i.ToWorkspaceAssertionAttributesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkspaceAssertionAttributesArgs) ToWorkspaceAssertionAttributesPtrOutput() WorkspaceAssertionAttributesPtrOutput {
 	return i.ToWorkspaceAssertionAttributesPtrOutputWithContext(context.Background())
 }
@@ -116,12 +109,6 @@ func (i *workspaceAssertionAttributesPtrType) ToWorkspaceAssertionAttributesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAssertionAttributesPtrOutput)
 }
 
-func (i *workspaceAssertionAttributesPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceAssertionAttributes] {
-	return pulumix.Output[*WorkspaceAssertionAttributes]{
-		OutputState: i.ToWorkspaceAssertionAttributesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Maps Grafana friendly names to the IdPs SAML attributes.
 type WorkspaceAssertionAttributesOutput struct{ *pulumi.OutputState }
 
@@ -145,12 +132,6 @@ func (o WorkspaceAssertionAttributesOutput) ToWorkspaceAssertionAttributesPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceAssertionAttributes) *WorkspaceAssertionAttributes {
 		return &v
 	}).(WorkspaceAssertionAttributesPtrOutput)
-}
-
-func (o WorkspaceAssertionAttributesOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceAssertionAttributes] {
-	return pulumix.Output[WorkspaceAssertionAttributes]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the attribute within the SAML assert to use as the users email in Grafana.
@@ -195,12 +176,6 @@ func (o WorkspaceAssertionAttributesPtrOutput) ToWorkspaceAssertionAttributesPtr
 
 func (o WorkspaceAssertionAttributesPtrOutput) ToWorkspaceAssertionAttributesPtrOutputWithContext(ctx context.Context) WorkspaceAssertionAttributesPtrOutput {
 	return o
-}
-
-func (o WorkspaceAssertionAttributesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceAssertionAttributes] {
-	return pulumix.Output[*WorkspaceAssertionAttributes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceAssertionAttributesPtrOutput) Elem() WorkspaceAssertionAttributesOutput {
@@ -312,12 +287,6 @@ func (i WorkspaceIdpMetadataArgs) ToWorkspaceIdpMetadataOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceIdpMetadataOutput)
 }
 
-func (i WorkspaceIdpMetadataArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceIdpMetadata] {
-	return pulumix.Output[WorkspaceIdpMetadata]{
-		OutputState: i.ToWorkspaceIdpMetadataOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkspaceIdpMetadataArgs) ToWorkspaceIdpMetadataPtrOutput() WorkspaceIdpMetadataPtrOutput {
 	return i.ToWorkspaceIdpMetadataPtrOutputWithContext(context.Background())
 }
@@ -359,12 +328,6 @@ func (i *workspaceIdpMetadataPtrType) ToWorkspaceIdpMetadataPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceIdpMetadataPtrOutput)
 }
 
-func (i *workspaceIdpMetadataPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceIdpMetadata] {
-	return pulumix.Output[*WorkspaceIdpMetadata]{
-		OutputState: i.ToWorkspaceIdpMetadataPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IdP Metadata used to configure SAML authentication in Grafana.
 type WorkspaceIdpMetadataOutput struct{ *pulumi.OutputState }
 
@@ -390,12 +353,6 @@ func (o WorkspaceIdpMetadataOutput) ToWorkspaceIdpMetadataPtrOutputWithContext(c
 	}).(WorkspaceIdpMetadataPtrOutput)
 }
 
-func (o WorkspaceIdpMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceIdpMetadata] {
-	return pulumix.Output[WorkspaceIdpMetadata]{
-		OutputState: o.OutputState,
-	}
-}
-
 // URL that vends the IdPs metadata.
 func (o WorkspaceIdpMetadataOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceIdpMetadata) *string { return v.Url }).(pulumi.StringPtrOutput)
@@ -418,12 +375,6 @@ func (o WorkspaceIdpMetadataPtrOutput) ToWorkspaceIdpMetadataPtrOutput() Workspa
 
 func (o WorkspaceIdpMetadataPtrOutput) ToWorkspaceIdpMetadataPtrOutputWithContext(ctx context.Context) WorkspaceIdpMetadataPtrOutput {
 	return o
-}
-
-func (o WorkspaceIdpMetadataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceIdpMetadata] {
-	return pulumix.Output[*WorkspaceIdpMetadata]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceIdpMetadataPtrOutput) Elem() WorkspaceIdpMetadataOutput {
@@ -495,12 +446,6 @@ func (i WorkspaceNetworkAccessControlArgs) ToWorkspaceNetworkAccessControlOutput
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceNetworkAccessControlOutput)
 }
 
-func (i WorkspaceNetworkAccessControlArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceNetworkAccessControl] {
-	return pulumix.Output[WorkspaceNetworkAccessControl]{
-		OutputState: i.ToWorkspaceNetworkAccessControlOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkspaceNetworkAccessControlArgs) ToWorkspaceNetworkAccessControlPtrOutput() WorkspaceNetworkAccessControlPtrOutput {
 	return i.ToWorkspaceNetworkAccessControlPtrOutputWithContext(context.Background())
 }
@@ -542,12 +487,6 @@ func (i *workspaceNetworkAccessControlPtrType) ToWorkspaceNetworkAccessControlPt
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceNetworkAccessControlPtrOutput)
 }
 
-func (i *workspaceNetworkAccessControlPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceNetworkAccessControl] {
-	return pulumix.Output[*WorkspaceNetworkAccessControl]{
-		OutputState: i.ToWorkspaceNetworkAccessControlPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The configuration settings for Network Access Control.
 type WorkspaceNetworkAccessControlOutput struct{ *pulumi.OutputState }
 
@@ -573,12 +512,6 @@ func (o WorkspaceNetworkAccessControlOutput) ToWorkspaceNetworkAccessControlPtrO
 	}).(WorkspaceNetworkAccessControlPtrOutput)
 }
 
-func (o WorkspaceNetworkAccessControlOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceNetworkAccessControl] {
-	return pulumix.Output[WorkspaceNetworkAccessControl]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The list of prefix list IDs. A prefix list is a list of CIDR ranges of IP addresses. The IP addresses specified are allowed to access your workspace. If the list is not included in the configuration then no IP addresses will be allowed to access the workspace.
 func (o WorkspaceNetworkAccessControlOutput) PrefixListIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkspaceNetworkAccessControl) []string { return v.PrefixListIds }).(pulumi.StringArrayOutput)
@@ -601,12 +534,6 @@ func (o WorkspaceNetworkAccessControlPtrOutput) ToWorkspaceNetworkAccessControlP
 
 func (o WorkspaceNetworkAccessControlPtrOutput) ToWorkspaceNetworkAccessControlPtrOutputWithContext(ctx context.Context) WorkspaceNetworkAccessControlPtrOutput {
 	return o
-}
-
-func (o WorkspaceNetworkAccessControlPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceNetworkAccessControl] {
-	return pulumix.Output[*WorkspaceNetworkAccessControl]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceNetworkAccessControlPtrOutput) Elem() WorkspaceNetworkAccessControlOutput {
@@ -678,12 +605,6 @@ func (i WorkspaceRoleValuesArgs) ToWorkspaceRoleValuesOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceRoleValuesOutput)
 }
 
-func (i WorkspaceRoleValuesArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceRoleValues] {
-	return pulumix.Output[WorkspaceRoleValues]{
-		OutputState: i.ToWorkspaceRoleValuesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkspaceRoleValuesArgs) ToWorkspaceRoleValuesPtrOutput() WorkspaceRoleValuesPtrOutput {
 	return i.ToWorkspaceRoleValuesPtrOutputWithContext(context.Background())
 }
@@ -725,12 +646,6 @@ func (i *workspaceRoleValuesPtrType) ToWorkspaceRoleValuesPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceRoleValuesPtrOutput)
 }
 
-func (i *workspaceRoleValuesPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceRoleValues] {
-	return pulumix.Output[*WorkspaceRoleValues]{
-		OutputState: i.ToWorkspaceRoleValuesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Maps SAML roles to the Grafana Editor and Admin roles.
 type WorkspaceRoleValuesOutput struct{ *pulumi.OutputState }
 
@@ -756,12 +671,6 @@ func (o WorkspaceRoleValuesOutput) ToWorkspaceRoleValuesPtrOutputWithContext(ctx
 	}).(WorkspaceRoleValuesPtrOutput)
 }
 
-func (o WorkspaceRoleValuesOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceRoleValues] {
-	return pulumix.Output[WorkspaceRoleValues]{
-		OutputState: o.OutputState,
-	}
-}
-
 // List of SAML roles which will be mapped into the Grafana Admin role.
 func (o WorkspaceRoleValuesOutput) Admin() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkspaceRoleValues) []string { return v.Admin }).(pulumi.StringArrayOutput)
@@ -784,12 +693,6 @@ func (o WorkspaceRoleValuesPtrOutput) ToWorkspaceRoleValuesPtrOutput() Workspace
 
 func (o WorkspaceRoleValuesPtrOutput) ToWorkspaceRoleValuesPtrOutputWithContext(ctx context.Context) WorkspaceRoleValuesPtrOutput {
 	return o
-}
-
-func (o WorkspaceRoleValuesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceRoleValues] {
-	return pulumix.Output[*WorkspaceRoleValues]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceRoleValuesPtrOutput) Elem() WorkspaceRoleValuesOutput {
@@ -867,12 +770,6 @@ func (i WorkspaceSamlConfigurationArgs) ToWorkspaceSamlConfigurationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSamlConfigurationOutput)
 }
 
-func (i WorkspaceSamlConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceSamlConfiguration] {
-	return pulumix.Output[WorkspaceSamlConfiguration]{
-		OutputState: i.ToWorkspaceSamlConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkspaceSamlConfigurationArgs) ToWorkspaceSamlConfigurationPtrOutput() WorkspaceSamlConfigurationPtrOutput {
 	return i.ToWorkspaceSamlConfigurationPtrOutputWithContext(context.Background())
 }
@@ -914,12 +811,6 @@ func (i *workspaceSamlConfigurationPtrType) ToWorkspaceSamlConfigurationPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSamlConfigurationPtrOutput)
 }
 
-func (i *workspaceSamlConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceSamlConfiguration] {
-	return pulumix.Output[*WorkspaceSamlConfiguration]{
-		OutputState: i.ToWorkspaceSamlConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SAML configuration data associated with an AMG workspace.
 type WorkspaceSamlConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -943,12 +834,6 @@ func (o WorkspaceSamlConfigurationOutput) ToWorkspaceSamlConfigurationPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceSamlConfiguration) *WorkspaceSamlConfiguration {
 		return &v
 	}).(WorkspaceSamlConfigurationPtrOutput)
-}
-
-func (o WorkspaceSamlConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceSamlConfiguration] {
-	return pulumix.Output[WorkspaceSamlConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of SAML organizations allowed to access Grafana.
@@ -985,12 +870,6 @@ func (o WorkspaceSamlConfigurationPtrOutput) ToWorkspaceSamlConfigurationPtrOutp
 
 func (o WorkspaceSamlConfigurationPtrOutput) ToWorkspaceSamlConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceSamlConfigurationPtrOutput {
 	return o
-}
-
-func (o WorkspaceSamlConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceSamlConfiguration] {
-	return pulumix.Output[*WorkspaceSamlConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceSamlConfigurationPtrOutput) Elem() WorkspaceSamlConfigurationOutput {
@@ -1089,12 +968,6 @@ func (i WorkspaceVpcConfigurationArgs) ToWorkspaceVpcConfigurationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceVpcConfigurationOutput)
 }
 
-func (i WorkspaceVpcConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceVpcConfiguration] {
-	return pulumix.Output[WorkspaceVpcConfiguration]{
-		OutputState: i.ToWorkspaceVpcConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkspaceVpcConfigurationArgs) ToWorkspaceVpcConfigurationPtrOutput() WorkspaceVpcConfigurationPtrOutput {
 	return i.ToWorkspaceVpcConfigurationPtrOutputWithContext(context.Background())
 }
@@ -1136,12 +1009,6 @@ func (i *workspaceVpcConfigurationPtrType) ToWorkspaceVpcConfigurationPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceVpcConfigurationPtrOutput)
 }
 
-func (i *workspaceVpcConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceVpcConfiguration] {
-	return pulumix.Output[*WorkspaceVpcConfiguration]{
-		OutputState: i.ToWorkspaceVpcConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
 type WorkspaceVpcConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1167,12 +1034,6 @@ func (o WorkspaceVpcConfigurationOutput) ToWorkspaceVpcConfigurationPtrOutputWit
 	}).(WorkspaceVpcConfigurationPtrOutput)
 }
 
-func (o WorkspaceVpcConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceVpcConfiguration] {
-	return pulumix.Output[WorkspaceVpcConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
 func (o WorkspaceVpcConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v WorkspaceVpcConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
@@ -1195,12 +1056,6 @@ func (o WorkspaceVpcConfigurationPtrOutput) ToWorkspaceVpcConfigurationPtrOutput
 
 func (o WorkspaceVpcConfigurationPtrOutput) ToWorkspaceVpcConfigurationPtrOutputWithContext(ctx context.Context) WorkspaceVpcConfigurationPtrOutput {
 	return o
-}
-
-func (o WorkspaceVpcConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceVpcConfiguration] {
-	return pulumix.Output[*WorkspaceVpcConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceVpcConfigurationPtrOutput) Elem() WorkspaceVpcConfigurationOutput {

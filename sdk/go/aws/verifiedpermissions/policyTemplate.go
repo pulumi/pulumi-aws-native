@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::VerifiedPermissions::PolicyTemplate Resource Type
@@ -105,12 +104,6 @@ func (i *PolicyTemplate) ToPolicyTemplateOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyTemplateOutput)
 }
 
-func (i *PolicyTemplate) ToOutput(ctx context.Context) pulumix.Output[*PolicyTemplate] {
-	return pulumix.Output[*PolicyTemplate]{
-		OutputState: i.ToPolicyTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicyTemplateOutput struct{ *pulumi.OutputState }
 
 func (PolicyTemplateOutput) ElementType() reflect.Type {
@@ -123,12 +116,6 @@ func (o PolicyTemplateOutput) ToPolicyTemplateOutput() PolicyTemplateOutput {
 
 func (o PolicyTemplateOutput) ToPolicyTemplateOutputWithContext(ctx context.Context) PolicyTemplateOutput {
 	return o
-}
-
-func (o PolicyTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyTemplate] {
-	return pulumix.Output[*PolicyTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicyTemplateOutput) Description() pulumi.StringPtrOutput {

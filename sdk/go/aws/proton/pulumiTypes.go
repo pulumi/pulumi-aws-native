@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i EnvironmentAccountConnectionTagArgs) ToEnvironmentAccountConnectionTagOu
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentAccountConnectionTagOutput)
 }
 
-func (i EnvironmentAccountConnectionTagArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentAccountConnectionTag] {
-	return pulumix.Output[EnvironmentAccountConnectionTag]{
-		OutputState: i.ToEnvironmentAccountConnectionTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EnvironmentAccountConnectionTagArrayInput is an input type that accepts EnvironmentAccountConnectionTagArray and EnvironmentAccountConnectionTagArrayOutput values.
 // You can construct a concrete instance of `EnvironmentAccountConnectionTagArrayInput` via:
 //
@@ -84,12 +77,6 @@ func (i EnvironmentAccountConnectionTagArray) ToEnvironmentAccountConnectionTagA
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentAccountConnectionTagArrayOutput)
 }
 
-func (i EnvironmentAccountConnectionTagArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentAccountConnectionTag] {
-	return pulumix.Output[[]EnvironmentAccountConnectionTag]{
-		OutputState: i.ToEnvironmentAccountConnectionTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>A description of a resource tag.</p>
 type EnvironmentAccountConnectionTagOutput struct{ *pulumi.OutputState }
 
@@ -103,12 +90,6 @@ func (o EnvironmentAccountConnectionTagOutput) ToEnvironmentAccountConnectionTag
 
 func (o EnvironmentAccountConnectionTagOutput) ToEnvironmentAccountConnectionTagOutputWithContext(ctx context.Context) EnvironmentAccountConnectionTagOutput {
 	return o
-}
-
-func (o EnvironmentAccountConnectionTagOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentAccountConnectionTag] {
-	return pulumix.Output[EnvironmentAccountConnectionTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>The key of the resource tag.</p>
@@ -133,12 +114,6 @@ func (o EnvironmentAccountConnectionTagArrayOutput) ToEnvironmentAccountConnecti
 
 func (o EnvironmentAccountConnectionTagArrayOutput) ToEnvironmentAccountConnectionTagArrayOutputWithContext(ctx context.Context) EnvironmentAccountConnectionTagArrayOutput {
 	return o
-}
-
-func (o EnvironmentAccountConnectionTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentAccountConnectionTag] {
-	return pulumix.Output[[]EnvironmentAccountConnectionTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentAccountConnectionTagArrayOutput) Index(i pulumi.IntInput) EnvironmentAccountConnectionTagOutput {
@@ -186,12 +161,6 @@ func (i EnvironmentTemplateTagArgs) ToEnvironmentTemplateTagOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTemplateTagOutput)
 }
 
-func (i EnvironmentTemplateTagArgs) ToOutput(ctx context.Context) pulumix.Output[EnvironmentTemplateTag] {
-	return pulumix.Output[EnvironmentTemplateTag]{
-		OutputState: i.ToEnvironmentTemplateTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EnvironmentTemplateTagArrayInput is an input type that accepts EnvironmentTemplateTagArray and EnvironmentTemplateTagArrayOutput values.
 // You can construct a concrete instance of `EnvironmentTemplateTagArrayInput` via:
 //
@@ -217,12 +186,6 @@ func (i EnvironmentTemplateTagArray) ToEnvironmentTemplateTagArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTemplateTagArrayOutput)
 }
 
-func (i EnvironmentTemplateTagArray) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentTemplateTag] {
-	return pulumix.Output[[]EnvironmentTemplateTag]{
-		OutputState: i.ToEnvironmentTemplateTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>A description of a resource tag.</p>
 type EnvironmentTemplateTagOutput struct{ *pulumi.OutputState }
 
@@ -236,12 +199,6 @@ func (o EnvironmentTemplateTagOutput) ToEnvironmentTemplateTagOutput() Environme
 
 func (o EnvironmentTemplateTagOutput) ToEnvironmentTemplateTagOutputWithContext(ctx context.Context) EnvironmentTemplateTagOutput {
 	return o
-}
-
-func (o EnvironmentTemplateTagOutput) ToOutput(ctx context.Context) pulumix.Output[EnvironmentTemplateTag] {
-	return pulumix.Output[EnvironmentTemplateTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>The key of the resource tag.</p>
@@ -266,12 +223,6 @@ func (o EnvironmentTemplateTagArrayOutput) ToEnvironmentTemplateTagArrayOutput()
 
 func (o EnvironmentTemplateTagArrayOutput) ToEnvironmentTemplateTagArrayOutputWithContext(ctx context.Context) EnvironmentTemplateTagArrayOutput {
 	return o
-}
-
-func (o EnvironmentTemplateTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EnvironmentTemplateTag] {
-	return pulumix.Output[[]EnvironmentTemplateTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentTemplateTagArrayOutput) Index(i pulumi.IntInput) EnvironmentTemplateTagOutput {
@@ -319,12 +270,6 @@ func (i ServiceTemplateTagArgs) ToServiceTemplateTagOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTemplateTagOutput)
 }
 
-func (i ServiceTemplateTagArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceTemplateTag] {
-	return pulumix.Output[ServiceTemplateTag]{
-		OutputState: i.ToServiceTemplateTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceTemplateTagArrayInput is an input type that accepts ServiceTemplateTagArray and ServiceTemplateTagArrayOutput values.
 // You can construct a concrete instance of `ServiceTemplateTagArrayInput` via:
 //
@@ -350,12 +295,6 @@ func (i ServiceTemplateTagArray) ToServiceTemplateTagArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceTemplateTagArrayOutput)
 }
 
-func (i ServiceTemplateTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ServiceTemplateTag] {
-	return pulumix.Output[[]ServiceTemplateTag]{
-		OutputState: i.ToServiceTemplateTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // <p>A description of a resource tag.</p>
 type ServiceTemplateTagOutput struct{ *pulumi.OutputState }
 
@@ -369,12 +308,6 @@ func (o ServiceTemplateTagOutput) ToServiceTemplateTagOutput() ServiceTemplateTa
 
 func (o ServiceTemplateTagOutput) ToServiceTemplateTagOutputWithContext(ctx context.Context) ServiceTemplateTagOutput {
 	return o
-}
-
-func (o ServiceTemplateTagOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceTemplateTag] {
-	return pulumix.Output[ServiceTemplateTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>The key of the resource tag.</p>
@@ -399,12 +332,6 @@ func (o ServiceTemplateTagArrayOutput) ToServiceTemplateTagArrayOutput() Service
 
 func (o ServiceTemplateTagArrayOutput) ToServiceTemplateTagArrayOutputWithContext(ctx context.Context) ServiceTemplateTagArrayOutput {
 	return o
-}
-
-func (o ServiceTemplateTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServiceTemplateTag] {
-	return pulumix.Output[[]ServiceTemplateTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceTemplateTagArrayOutput) Index(i pulumi.IntInput) ServiceTemplateTagOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema for AWS::ServiceCatalogAppRegistry::ResourceAssociation
@@ -71,12 +70,6 @@ func (o LookupResourceAssociationResultOutput) ToLookupResourceAssociationResult
 
 func (o LookupResourceAssociationResultOutput) ToLookupResourceAssociationResultOutputWithContext(ctx context.Context) LookupResourceAssociationResultOutput {
 	return o
-}
-
-func (o LookupResourceAssociationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResourceAssociationResult] {
-	return pulumix.Output[LookupResourceAssociationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupResourceAssociationResultOutput) ApplicationArn() pulumi.StringPtrOutput {

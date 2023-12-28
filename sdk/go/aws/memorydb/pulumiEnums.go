@@ -78,12 +78,6 @@ func (o ClusterDataTieringStatusOutput) ToClusterDataTieringStatusPtrOutputWithC
 	}).(ClusterDataTieringStatusPtrOutput)
 }
 
-func (o ClusterDataTieringStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterDataTieringStatus] {
-	return pulumix.Output[ClusterDataTieringStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterDataTieringStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o ClusterDataTieringStatusPtrOutput) ToClusterDataTieringStatusPtrOutputWi
 	return o
 }
 
-func (o ClusterDataTieringStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterDataTieringStatus] {
-	return pulumix.Output[*ClusterDataTieringStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterDataTieringStatusPtrOutput) Elem() ClusterDataTieringStatusOutput {
 	return o.ApplyT(func(v *ClusterDataTieringStatus) ClusterDataTieringStatus {
 		if v != nil {
@@ -149,10 +137,11 @@ func (o ClusterDataTieringStatusPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// ClusterDataTieringStatusInput is an input type that accepts ClusterDataTieringStatusArgs and ClusterDataTieringStatusOutput values.
-// You can construct a concrete instance of `ClusterDataTieringStatusInput` via:
+// ClusterDataTieringStatusInput is an input type that accepts values of the ClusterDataTieringStatus enum
+// A concrete instance of `ClusterDataTieringStatusInput` can be one of the following:
 //
-//	ClusterDataTieringStatusArgs{...}
+//	ClusterDataTieringStatusTrue
+//	ClusterDataTieringStatusFalse
 type ClusterDataTieringStatusInput interface {
 	pulumi.Input
 
@@ -261,12 +250,6 @@ func (o UserAuthenticationModePropertiesTypeOutput) ToUserAuthenticationModeProp
 	}).(UserAuthenticationModePropertiesTypePtrOutput)
 }
 
-func (o UserAuthenticationModePropertiesTypeOutput) ToOutput(ctx context.Context) pulumix.Output[UserAuthenticationModePropertiesType] {
-	return pulumix.Output[UserAuthenticationModePropertiesType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserAuthenticationModePropertiesTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -302,12 +285,6 @@ func (o UserAuthenticationModePropertiesTypePtrOutput) ToUserAuthenticationModeP
 	return o
 }
 
-func (o UserAuthenticationModePropertiesTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*UserAuthenticationModePropertiesType] {
-	return pulumix.Output[*UserAuthenticationModePropertiesType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserAuthenticationModePropertiesTypePtrOutput) Elem() UserAuthenticationModePropertiesTypeOutput {
 	return o.ApplyT(func(v *UserAuthenticationModePropertiesType) UserAuthenticationModePropertiesType {
 		if v != nil {
@@ -332,10 +309,11 @@ func (o UserAuthenticationModePropertiesTypePtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// UserAuthenticationModePropertiesTypeInput is an input type that accepts UserAuthenticationModePropertiesTypeArgs and UserAuthenticationModePropertiesTypeOutput values.
-// You can construct a concrete instance of `UserAuthenticationModePropertiesTypeInput` via:
+// UserAuthenticationModePropertiesTypeInput is an input type that accepts values of the UserAuthenticationModePropertiesType enum
+// A concrete instance of `UserAuthenticationModePropertiesTypeInput` can be one of the following:
 //
-//	UserAuthenticationModePropertiesTypeArgs{...}
+//	UserAuthenticationModePropertiesTypePassword
+//	UserAuthenticationModePropertiesTypeIam
 type UserAuthenticationModePropertiesTypeInput interface {
 	pulumi.Input
 

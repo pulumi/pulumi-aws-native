@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::NatGateway
@@ -126,12 +125,6 @@ func (i *NatGateway) ToNatGatewayOutputWithContext(ctx context.Context) NatGatew
 	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayOutput)
 }
 
-func (i *NatGateway) ToOutput(ctx context.Context) pulumix.Output[*NatGateway] {
-	return pulumix.Output[*NatGateway]{
-		OutputState: i.ToNatGatewayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NatGatewayOutput struct{ *pulumi.OutputState }
 
 func (NatGatewayOutput) ElementType() reflect.Type {
@@ -144,12 +137,6 @@ func (o NatGatewayOutput) ToNatGatewayOutput() NatGatewayOutput {
 
 func (o NatGatewayOutput) ToNatGatewayOutputWithContext(ctx context.Context) NatGatewayOutput {
 	return o
-}
-
-func (o NatGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*NatGateway] {
-	return pulumix.Output[*NatGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NatGatewayOutput) AllocationId() pulumi.StringPtrOutput {

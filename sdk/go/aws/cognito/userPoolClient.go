@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Cognito::UserPoolClient
@@ -165,12 +164,6 @@ func (i *UserPoolClient) ToUserPoolClientOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolClientOutput)
 }
 
-func (i *UserPoolClient) ToOutput(ctx context.Context) pulumix.Output[*UserPoolClient] {
-	return pulumix.Output[*UserPoolClient]{
-		OutputState: i.ToUserPoolClientOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserPoolClientOutput struct{ *pulumi.OutputState }
 
 func (UserPoolClientOutput) ElementType() reflect.Type {
@@ -183,12 +176,6 @@ func (o UserPoolClientOutput) ToUserPoolClientOutput() UserPoolClientOutput {
 
 func (o UserPoolClientOutput) ToUserPoolClientOutputWithContext(ctx context.Context) UserPoolClientOutput {
 	return o
-}
-
-func (o UserPoolClientOutput) ToOutput(ctx context.Context) pulumix.Output[*UserPoolClient] {
-	return pulumix.Output[*UserPoolClient]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserPoolClientOutput) AccessTokenValidity() pulumi.IntPtrOutput {

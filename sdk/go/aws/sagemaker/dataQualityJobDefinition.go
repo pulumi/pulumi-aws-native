@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::DataQualityJobDefinition
@@ -160,12 +159,6 @@ func (i *DataQualityJobDefinition) ToDataQualityJobDefinitionOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DataQualityJobDefinitionOutput)
 }
 
-func (i *DataQualityJobDefinition) ToOutput(ctx context.Context) pulumix.Output[*DataQualityJobDefinition] {
-	return pulumix.Output[*DataQualityJobDefinition]{
-		OutputState: i.ToDataQualityJobDefinitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataQualityJobDefinitionOutput struct{ *pulumi.OutputState }
 
 func (DataQualityJobDefinitionOutput) ElementType() reflect.Type {
@@ -178,12 +171,6 @@ func (o DataQualityJobDefinitionOutput) ToDataQualityJobDefinitionOutput() DataQ
 
 func (o DataQualityJobDefinitionOutput) ToDataQualityJobDefinitionOutputWithContext(ctx context.Context) DataQualityJobDefinitionOutput {
 	return o
-}
-
-func (o DataQualityJobDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*DataQualityJobDefinition] {
-	return pulumix.Output[*DataQualityJobDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The time at which the job definition was created.

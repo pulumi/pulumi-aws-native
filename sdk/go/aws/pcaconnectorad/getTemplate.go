@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Represents a template that defines certificate configurations, both for issuance and client handling
@@ -64,12 +63,6 @@ func (o LookupTemplateResultOutput) ToLookupTemplateResultOutput() LookupTemplat
 
 func (o LookupTemplateResultOutput) ToLookupTemplateResultOutputWithContext(ctx context.Context) LookupTemplateResultOutput {
 	return o
-}
-
-func (o LookupTemplateResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTemplateResult] {
-	return pulumix.Output[LookupTemplateResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupTemplateResultOutput) TemplateArn() pulumi.StringPtrOutput {

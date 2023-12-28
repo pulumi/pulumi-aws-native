@@ -79,12 +79,6 @@ func (o AccessEntryAccessScopeTypeOutput) ToAccessEntryAccessScopeTypePtrOutputW
 	}).(AccessEntryAccessScopeTypePtrOutput)
 }
 
-func (o AccessEntryAccessScopeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AccessEntryAccessScopeType] {
-	return pulumix.Output[AccessEntryAccessScopeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccessEntryAccessScopeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +114,6 @@ func (o AccessEntryAccessScopeTypePtrOutput) ToAccessEntryAccessScopeTypePtrOutp
 	return o
 }
 
-func (o AccessEntryAccessScopeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessEntryAccessScopeType] {
-	return pulumix.Output[*AccessEntryAccessScopeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccessEntryAccessScopeTypePtrOutput) Elem() AccessEntryAccessScopeTypeOutput {
 	return o.ApplyT(func(v *AccessEntryAccessScopeType) AccessEntryAccessScopeType {
 		if v != nil {
@@ -150,10 +138,11 @@ func (o AccessEntryAccessScopeTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// AccessEntryAccessScopeTypeInput is an input type that accepts AccessEntryAccessScopeTypeArgs and AccessEntryAccessScopeTypeOutput values.
-// You can construct a concrete instance of `AccessEntryAccessScopeTypeInput` via:
+// AccessEntryAccessScopeTypeInput is an input type that accepts values of the AccessEntryAccessScopeType enum
+// A concrete instance of `AccessEntryAccessScopeTypeInput` can be one of the following:
 //
-//	AccessEntryAccessScopeTypeArgs{...}
+//	AccessEntryAccessScopeTypeNamespace
+//	AccessEntryAccessScopeTypeCluster
 type AccessEntryAccessScopeTypeInput interface {
 	pulumi.Input
 
@@ -263,12 +252,6 @@ func (o AddonResolveConflictsOutput) ToAddonResolveConflictsPtrOutputWithContext
 	}).(AddonResolveConflictsPtrOutput)
 }
 
-func (o AddonResolveConflictsOutput) ToOutput(ctx context.Context) pulumix.Output[AddonResolveConflicts] {
-	return pulumix.Output[AddonResolveConflicts]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AddonResolveConflictsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -304,12 +287,6 @@ func (o AddonResolveConflictsPtrOutput) ToAddonResolveConflictsPtrOutputWithCont
 	return o
 }
 
-func (o AddonResolveConflictsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AddonResolveConflicts] {
-	return pulumix.Output[*AddonResolveConflicts]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AddonResolveConflictsPtrOutput) Elem() AddonResolveConflictsOutput {
 	return o.ApplyT(func(v *AddonResolveConflicts) AddonResolveConflicts {
 		if v != nil {
@@ -334,10 +311,12 @@ func (o AddonResolveConflictsPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AddonResolveConflictsInput is an input type that accepts AddonResolveConflictsArgs and AddonResolveConflictsOutput values.
-// You can construct a concrete instance of `AddonResolveConflictsInput` via:
+// AddonResolveConflictsInput is an input type that accepts values of the AddonResolveConflicts enum
+// A concrete instance of `AddonResolveConflictsInput` can be one of the following:
 //
-//	AddonResolveConflictsArgs{...}
+//	AddonResolveConflictsNone
+//	AddonResolveConflictsOverwrite
+//	AddonResolveConflictsPreserve
 type AddonResolveConflictsInput interface {
 	pulumi.Input
 
@@ -447,12 +426,6 @@ func (o ClusterAccessConfigAuthenticationModeOutput) ToClusterAccessConfigAuthen
 	}).(ClusterAccessConfigAuthenticationModePtrOutput)
 }
 
-func (o ClusterAccessConfigAuthenticationModeOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterAccessConfigAuthenticationMode] {
-	return pulumix.Output[ClusterAccessConfigAuthenticationMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterAccessConfigAuthenticationModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -488,12 +461,6 @@ func (o ClusterAccessConfigAuthenticationModePtrOutput) ToClusterAccessConfigAut
 	return o
 }
 
-func (o ClusterAccessConfigAuthenticationModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterAccessConfigAuthenticationMode] {
-	return pulumix.Output[*ClusterAccessConfigAuthenticationMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterAccessConfigAuthenticationModePtrOutput) Elem() ClusterAccessConfigAuthenticationModeOutput {
 	return o.ApplyT(func(v *ClusterAccessConfigAuthenticationMode) ClusterAccessConfigAuthenticationMode {
 		if v != nil {
@@ -518,10 +485,12 @@ func (o ClusterAccessConfigAuthenticationModePtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// ClusterAccessConfigAuthenticationModeInput is an input type that accepts ClusterAccessConfigAuthenticationModeArgs and ClusterAccessConfigAuthenticationModeOutput values.
-// You can construct a concrete instance of `ClusterAccessConfigAuthenticationModeInput` via:
+// ClusterAccessConfigAuthenticationModeInput is an input type that accepts values of the ClusterAccessConfigAuthenticationMode enum
+// A concrete instance of `ClusterAccessConfigAuthenticationModeInput` can be one of the following:
 //
-//	ClusterAccessConfigAuthenticationModeArgs{...}
+//	ClusterAccessConfigAuthenticationModeConfigMap
+//	ClusterAccessConfigAuthenticationModeApiAndConfigMap
+//	ClusterAccessConfigAuthenticationModeApi
 type ClusterAccessConfigAuthenticationModeInput interface {
 	pulumi.Input
 
@@ -630,12 +599,6 @@ func (o ClusterKubernetesNetworkConfigIpFamilyOutput) ToClusterKubernetesNetwork
 	}).(ClusterKubernetesNetworkConfigIpFamilyPtrOutput)
 }
 
-func (o ClusterKubernetesNetworkConfigIpFamilyOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterKubernetesNetworkConfigIpFamily] {
-	return pulumix.Output[ClusterKubernetesNetworkConfigIpFamily]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterKubernetesNetworkConfigIpFamilyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -671,12 +634,6 @@ func (o ClusterKubernetesNetworkConfigIpFamilyPtrOutput) ToClusterKubernetesNetw
 	return o
 }
 
-func (o ClusterKubernetesNetworkConfigIpFamilyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterKubernetesNetworkConfigIpFamily] {
-	return pulumix.Output[*ClusterKubernetesNetworkConfigIpFamily]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterKubernetesNetworkConfigIpFamilyPtrOutput) Elem() ClusterKubernetesNetworkConfigIpFamilyOutput {
 	return o.ApplyT(func(v *ClusterKubernetesNetworkConfigIpFamily) ClusterKubernetesNetworkConfigIpFamily {
 		if v != nil {
@@ -701,10 +658,11 @@ func (o ClusterKubernetesNetworkConfigIpFamilyPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// ClusterKubernetesNetworkConfigIpFamilyInput is an input type that accepts ClusterKubernetesNetworkConfigIpFamilyArgs and ClusterKubernetesNetworkConfigIpFamilyOutput values.
-// You can construct a concrete instance of `ClusterKubernetesNetworkConfigIpFamilyInput` via:
+// ClusterKubernetesNetworkConfigIpFamilyInput is an input type that accepts values of the ClusterKubernetesNetworkConfigIpFamily enum
+// A concrete instance of `ClusterKubernetesNetworkConfigIpFamilyInput` can be one of the following:
 //
-//	ClusterKubernetesNetworkConfigIpFamilyArgs{...}
+//	ClusterKubernetesNetworkConfigIpFamilyIpv4
+//	ClusterKubernetesNetworkConfigIpFamilyIpv6
 type ClusterKubernetesNetworkConfigIpFamilyInput interface {
 	pulumi.Input
 
@@ -816,12 +774,6 @@ func (o ClusterLoggingTypeConfigTypeOutput) ToClusterLoggingTypeConfigTypePtrOut
 	}).(ClusterLoggingTypeConfigTypePtrOutput)
 }
 
-func (o ClusterLoggingTypeConfigTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ClusterLoggingTypeConfigType] {
-	return pulumix.Output[ClusterLoggingTypeConfigType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterLoggingTypeConfigTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -857,12 +809,6 @@ func (o ClusterLoggingTypeConfigTypePtrOutput) ToClusterLoggingTypeConfigTypePtr
 	return o
 }
 
-func (o ClusterLoggingTypeConfigTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterLoggingTypeConfigType] {
-	return pulumix.Output[*ClusterLoggingTypeConfigType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterLoggingTypeConfigTypePtrOutput) Elem() ClusterLoggingTypeConfigTypeOutput {
 	return o.ApplyT(func(v *ClusterLoggingTypeConfigType) ClusterLoggingTypeConfigType {
 		if v != nil {
@@ -887,10 +833,14 @@ func (o ClusterLoggingTypeConfigTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// ClusterLoggingTypeConfigTypeInput is an input type that accepts ClusterLoggingTypeConfigTypeArgs and ClusterLoggingTypeConfigTypeOutput values.
-// You can construct a concrete instance of `ClusterLoggingTypeConfigTypeInput` via:
+// ClusterLoggingTypeConfigTypeInput is an input type that accepts values of the ClusterLoggingTypeConfigType enum
+// A concrete instance of `ClusterLoggingTypeConfigTypeInput` can be one of the following:
 //
-//	ClusterLoggingTypeConfigTypeArgs{...}
+//	ClusterLoggingTypeConfigTypeApi
+//	ClusterLoggingTypeConfigTypeAudit
+//	ClusterLoggingTypeConfigTypeAuthenticator
+//	ClusterLoggingTypeConfigTypeControllerManager
+//	ClusterLoggingTypeConfigTypeScheduler
 type ClusterLoggingTypeConfigTypeInput interface {
 	pulumi.Input
 
@@ -998,12 +948,6 @@ func (o IdentityProviderConfigTypeOutput) ToIdentityProviderConfigTypePtrOutputW
 	}).(IdentityProviderConfigTypePtrOutput)
 }
 
-func (o IdentityProviderConfigTypeOutput) ToOutput(ctx context.Context) pulumix.Output[IdentityProviderConfigType] {
-	return pulumix.Output[IdentityProviderConfigType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IdentityProviderConfigTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1039,12 +983,6 @@ func (o IdentityProviderConfigTypePtrOutput) ToIdentityProviderConfigTypePtrOutp
 	return o
 }
 
-func (o IdentityProviderConfigTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderConfigType] {
-	return pulumix.Output[*IdentityProviderConfigType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IdentityProviderConfigTypePtrOutput) Elem() IdentityProviderConfigTypeOutput {
 	return o.ApplyT(func(v *IdentityProviderConfigType) IdentityProviderConfigType {
 		if v != nil {
@@ -1069,10 +1007,10 @@ func (o IdentityProviderConfigTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// IdentityProviderConfigTypeInput is an input type that accepts IdentityProviderConfigTypeArgs and IdentityProviderConfigTypeOutput values.
-// You can construct a concrete instance of `IdentityProviderConfigTypeInput` via:
+// IdentityProviderConfigTypeInput is an input type that accepts values of the IdentityProviderConfigType enum
+// A concrete instance of `IdentityProviderConfigTypeInput` can be one of the following:
 //
-//	IdentityProviderConfigTypeArgs{...}
+//	IdentityProviderConfigTypeOidc
 type IdentityProviderConfigTypeInput interface {
 	pulumi.Input
 

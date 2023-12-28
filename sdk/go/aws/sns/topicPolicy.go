@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for AWS::SNS::TopicPolicy
@@ -106,12 +105,6 @@ func (i *TopicPolicy) ToTopicPolicyOutputWithContext(ctx context.Context) TopicP
 	return pulumi.ToOutputWithContext(ctx, i).(TopicPolicyOutput)
 }
 
-func (i *TopicPolicy) ToOutput(ctx context.Context) pulumix.Output[*TopicPolicy] {
-	return pulumix.Output[*TopicPolicy]{
-		OutputState: i.ToTopicPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicPolicyOutput struct{ *pulumi.OutputState }
 
 func (TopicPolicyOutput) ElementType() reflect.Type {
@@ -124,12 +117,6 @@ func (o TopicPolicyOutput) ToTopicPolicyOutput() TopicPolicyOutput {
 
 func (o TopicPolicyOutput) ToTopicPolicyOutputWithContext(ctx context.Context) TopicPolicyOutput {
 	return o
-}
-
-func (o TopicPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicPolicy] {
-	return pulumix.Output[*TopicPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A policy document that contains permissions to add to the specified SNS topics.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Cassandra::Keyspace
@@ -104,12 +103,6 @@ func (i *Keyspace) ToKeyspaceOutputWithContext(ctx context.Context) KeyspaceOutp
 	return pulumi.ToOutputWithContext(ctx, i).(KeyspaceOutput)
 }
 
-func (i *Keyspace) ToOutput(ctx context.Context) pulumix.Output[*Keyspace] {
-	return pulumix.Output[*Keyspace]{
-		OutputState: i.ToKeyspaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KeyspaceOutput struct{ *pulumi.OutputState }
 
 func (KeyspaceOutput) ElementType() reflect.Type {
@@ -122,12 +115,6 @@ func (o KeyspaceOutput) ToKeyspaceOutput() KeyspaceOutput {
 
 func (o KeyspaceOutput) ToKeyspaceOutputWithContext(ctx context.Context) KeyspaceOutput {
 	return o
-}
-
-func (o KeyspaceOutput) ToOutput(ctx context.Context) pulumix.Output[*Keyspace] {
-	return pulumix.Output[*Keyspace]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name for Cassandra keyspace

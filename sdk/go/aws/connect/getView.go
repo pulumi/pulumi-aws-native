@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::View
@@ -83,12 +82,6 @@ func (o LookupViewResultOutput) ToLookupViewResultOutput() LookupViewResultOutpu
 
 func (o LookupViewResultOutput) ToLookupViewResultOutputWithContext(ctx context.Context) LookupViewResultOutput {
 	return o
-}
-
-func (o LookupViewResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupViewResult] {
-	return pulumix.Output[LookupViewResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The actions of the view in an array.

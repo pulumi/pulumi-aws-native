@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::WorkSpacesWeb::TrustStore Resource Type
@@ -67,12 +66,6 @@ func (o LookupTrustStoreResultOutput) ToLookupTrustStoreResultOutput() LookupTru
 
 func (o LookupTrustStoreResultOutput) ToLookupTrustStoreResultOutputWithContext(ctx context.Context) LookupTrustStoreResultOutput {
 	return o
-}
-
-func (o LookupTrustStoreResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTrustStoreResult] {
-	return pulumix.Output[LookupTrustStoreResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupTrustStoreResultOutput) AssociatedPortalArns() pulumi.StringArrayOutput {

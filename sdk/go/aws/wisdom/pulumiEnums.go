@@ -77,12 +77,6 @@ func (o AssistantAssociationAssociationTypeOutput) ToAssistantAssociationAssocia
 	}).(AssistantAssociationAssociationTypePtrOutput)
 }
 
-func (o AssistantAssociationAssociationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AssistantAssociationAssociationType] {
-	return pulumix.Output[AssistantAssociationAssociationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssistantAssociationAssociationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -118,12 +112,6 @@ func (o AssistantAssociationAssociationTypePtrOutput) ToAssistantAssociationAsso
 	return o
 }
 
-func (o AssistantAssociationAssociationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssistantAssociationAssociationType] {
-	return pulumix.Output[*AssistantAssociationAssociationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssistantAssociationAssociationTypePtrOutput) Elem() AssistantAssociationAssociationTypeOutput {
 	return o.ApplyT(func(v *AssistantAssociationAssociationType) AssistantAssociationAssociationType {
 		if v != nil {
@@ -148,10 +136,10 @@ func (o AssistantAssociationAssociationTypePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// AssistantAssociationAssociationTypeInput is an input type that accepts AssistantAssociationAssociationTypeArgs and AssistantAssociationAssociationTypeOutput values.
-// You can construct a concrete instance of `AssistantAssociationAssociationTypeInput` via:
+// AssistantAssociationAssociationTypeInput is an input type that accepts values of the AssistantAssociationAssociationType enum
+// A concrete instance of `AssistantAssociationAssociationTypeInput` can be one of the following:
 //
-//	AssistantAssociationAssociationTypeArgs{...}
+//	AssistantAssociationAssociationTypeKnowledgeBase
 type AssistantAssociationAssociationTypeInput interface {
 	pulumi.Input
 
@@ -258,12 +246,6 @@ func (o AssistantTypeOutput) ToAssistantTypePtrOutputWithContext(ctx context.Con
 	}).(AssistantTypePtrOutput)
 }
 
-func (o AssistantTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AssistantType] {
-	return pulumix.Output[AssistantType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssistantTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -299,12 +281,6 @@ func (o AssistantTypePtrOutput) ToAssistantTypePtrOutputWithContext(ctx context.
 	return o
 }
 
-func (o AssistantTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssistantType] {
-	return pulumix.Output[*AssistantType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssistantTypePtrOutput) Elem() AssistantTypeOutput {
 	return o.ApplyT(func(v *AssistantType) AssistantType {
 		if v != nil {
@@ -329,10 +305,10 @@ func (o AssistantTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AssistantTypeInput is an input type that accepts AssistantTypeArgs and AssistantTypeOutput values.
-// You can construct a concrete instance of `AssistantTypeInput` via:
+// AssistantTypeInput is an input type that accepts values of the AssistantType enum
+// A concrete instance of `AssistantTypeInput` can be one of the following:
 //
-//	AssistantTypeArgs{...}
+//	AssistantTypeAgent
 type AssistantTypeInput interface {
 	pulumi.Input
 
@@ -440,12 +416,6 @@ func (o KnowledgeBaseTypeOutput) ToKnowledgeBaseTypePtrOutputWithContext(ctx con
 	}).(KnowledgeBaseTypePtrOutput)
 }
 
-func (o KnowledgeBaseTypeOutput) ToOutput(ctx context.Context) pulumix.Output[KnowledgeBaseType] {
-	return pulumix.Output[KnowledgeBaseType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KnowledgeBaseTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -481,12 +451,6 @@ func (o KnowledgeBaseTypePtrOutput) ToKnowledgeBaseTypePtrOutputWithContext(ctx 
 	return o
 }
 
-func (o KnowledgeBaseTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KnowledgeBaseType] {
-	return pulumix.Output[*KnowledgeBaseType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KnowledgeBaseTypePtrOutput) Elem() KnowledgeBaseTypeOutput {
 	return o.ApplyT(func(v *KnowledgeBaseType) KnowledgeBaseType {
 		if v != nil {
@@ -511,10 +475,11 @@ func (o KnowledgeBaseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// KnowledgeBaseTypeInput is an input type that accepts KnowledgeBaseTypeArgs and KnowledgeBaseTypeOutput values.
-// You can construct a concrete instance of `KnowledgeBaseTypeInput` via:
+// KnowledgeBaseTypeInput is an input type that accepts values of the KnowledgeBaseType enum
+// A concrete instance of `KnowledgeBaseTypeInput` can be one of the following:
 //
-//	KnowledgeBaseTypeArgs{...}
+//	KnowledgeBaseTypeExternal
+//	KnowledgeBaseTypeCustom
 type KnowledgeBaseTypeInput interface {
 	pulumi.Input
 

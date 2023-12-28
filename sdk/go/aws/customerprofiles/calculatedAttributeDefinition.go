@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A calculated attribute definition for Customer Profiles
@@ -133,12 +132,6 @@ func (i *CalculatedAttributeDefinition) ToCalculatedAttributeDefinitionOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(CalculatedAttributeDefinitionOutput)
 }
 
-func (i *CalculatedAttributeDefinition) ToOutput(ctx context.Context) pulumix.Output[*CalculatedAttributeDefinition] {
-	return pulumix.Output[*CalculatedAttributeDefinition]{
-		OutputState: i.ToCalculatedAttributeDefinitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CalculatedAttributeDefinitionOutput struct{ *pulumi.OutputState }
 
 func (CalculatedAttributeDefinitionOutput) ElementType() reflect.Type {
@@ -151,12 +144,6 @@ func (o CalculatedAttributeDefinitionOutput) ToCalculatedAttributeDefinitionOutp
 
 func (o CalculatedAttributeDefinitionOutput) ToCalculatedAttributeDefinitionOutputWithContext(ctx context.Context) CalculatedAttributeDefinitionOutput {
 	return o
-}
-
-func (o CalculatedAttributeDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*CalculatedAttributeDefinition] {
-	return pulumix.Output[*CalculatedAttributeDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CalculatedAttributeDefinitionOutput) AttributeDetails() CalculatedAttributeDefinitionAttributeDetailsOutput {

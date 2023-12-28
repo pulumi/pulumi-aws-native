@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::ClientVpnAuthorizationRule
@@ -64,12 +63,6 @@ func (o LookupClientVpnAuthorizationRuleResultOutput) ToLookupClientVpnAuthoriza
 
 func (o LookupClientVpnAuthorizationRuleResultOutput) ToLookupClientVpnAuthorizationRuleResultOutputWithContext(ctx context.Context) LookupClientVpnAuthorizationRuleResultOutput {
 	return o
-}
-
-func (o LookupClientVpnAuthorizationRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupClientVpnAuthorizationRuleResult] {
-	return pulumix.Output[LookupClientVpnAuthorizationRuleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupClientVpnAuthorizationRuleResultOutput) Id() pulumi.StringPtrOutput {

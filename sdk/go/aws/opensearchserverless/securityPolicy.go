@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Amazon OpenSearchServerless security policy resource
@@ -120,12 +119,6 @@ func (i *SecurityPolicy) ToSecurityPolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityPolicyOutput)
 }
 
-func (i *SecurityPolicy) ToOutput(ctx context.Context) pulumix.Output[*SecurityPolicy] {
-	return pulumix.Output[*SecurityPolicy]{
-		OutputState: i.ToSecurityPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SecurityPolicyOutput struct{ *pulumi.OutputState }
 
 func (SecurityPolicyOutput) ElementType() reflect.Type {
@@ -138,12 +131,6 @@ func (o SecurityPolicyOutput) ToSecurityPolicyOutput() SecurityPolicyOutput {
 
 func (o SecurityPolicyOutput) ToSecurityPolicyOutputWithContext(ctx context.Context) SecurityPolicyOutput {
 	return o
-}
-
-func (o SecurityPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*SecurityPolicy] {
-	return pulumix.Output[*SecurityPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the policy

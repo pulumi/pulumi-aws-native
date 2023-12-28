@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Backup::BackupVault
@@ -111,12 +110,6 @@ func (i *BackupVault) ToBackupVaultOutputWithContext(ctx context.Context) Backup
 	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultOutput)
 }
 
-func (i *BackupVault) ToOutput(ctx context.Context) pulumix.Output[*BackupVault] {
-	return pulumix.Output[*BackupVault]{
-		OutputState: i.ToBackupVaultOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BackupVaultOutput struct{ *pulumi.OutputState }
 
 func (BackupVaultOutput) ElementType() reflect.Type {
@@ -129,12 +122,6 @@ func (o BackupVaultOutput) ToBackupVaultOutput() BackupVaultOutput {
 
 func (o BackupVaultOutput) ToBackupVaultOutputWithContext(ctx context.Context) BackupVaultOutput {
 	return o
-}
-
-func (o BackupVaultOutput) ToOutput(ctx context.Context) pulumix.Output[*BackupVault] {
-	return pulumix.Output[*BackupVault]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BackupVaultOutput) AccessPolicy() pulumi.AnyOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGateway::Stage“ resource creates a stage for a deployment.
@@ -180,12 +179,6 @@ func (i *Stage) ToStageOutputWithContext(ctx context.Context) StageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StageOutput)
 }
 
-func (i *Stage) ToOutput(ctx context.Context) pulumix.Output[*Stage] {
-	return pulumix.Output[*Stage]{
-		OutputState: i.ToStageOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StageOutput struct{ *pulumi.OutputState }
 
 func (StageOutput) ElementType() reflect.Type {
@@ -198,12 +191,6 @@ func (o StageOutput) ToStageOutput() StageOutput {
 
 func (o StageOutput) ToStageOutputWithContext(ctx context.Context) StageOutput {
 	return o
-}
-
-func (o StageOutput) ToOutput(ctx context.Context) pulumix.Output[*Stage] {
-	return pulumix.Output[*Stage]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Access log settings, including the access log format and access log destination ARN.

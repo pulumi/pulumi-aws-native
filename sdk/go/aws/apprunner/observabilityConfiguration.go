@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::AppRunner::ObservabilityConfiguration resource  is an AWS App Runner resource type that specifies an App Runner observability configuration
@@ -117,12 +116,6 @@ func (i *ObservabilityConfiguration) ToObservabilityConfigurationOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityConfigurationOutput)
 }
 
-func (i *ObservabilityConfiguration) ToOutput(ctx context.Context) pulumix.Output[*ObservabilityConfiguration] {
-	return pulumix.Output[*ObservabilityConfiguration]{
-		OutputState: i.ToObservabilityConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ObservabilityConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ObservabilityConfigurationOutput) ElementType() reflect.Type {
@@ -135,12 +128,6 @@ func (o ObservabilityConfigurationOutput) ToObservabilityConfigurationOutput() O
 
 func (o ObservabilityConfigurationOutput) ToObservabilityConfigurationOutputWithContext(ctx context.Context) ObservabilityConfigurationOutput {
 	return o
-}
-
-func (o ObservabilityConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*ObservabilityConfiguration] {
-	return pulumix.Output[*ObservabilityConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // It's set to true for the configuration with the highest Revision among all configurations that share the same Name. It's set to false otherwise.

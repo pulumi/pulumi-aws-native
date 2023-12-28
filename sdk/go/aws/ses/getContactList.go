@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::SES::ContactList.
@@ -71,12 +70,6 @@ func (o LookupContactListResultOutput) ToLookupContactListResultOutput() LookupC
 
 func (o LookupContactListResultOutput) ToLookupContactListResultOutputWithContext(ctx context.Context) LookupContactListResultOutput {
 	return o
-}
-
-func (o LookupContactListResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupContactListResult] {
-	return pulumix.Output[LookupContactListResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the contact list.

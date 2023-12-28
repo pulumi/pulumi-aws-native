@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Inspector::AssessmentTarget
@@ -65,12 +64,6 @@ func (o LookupAssessmentTargetResultOutput) ToLookupAssessmentTargetResultOutput
 
 func (o LookupAssessmentTargetResultOutput) ToLookupAssessmentTargetResultOutputWithContext(ctx context.Context) LookupAssessmentTargetResultOutput {
 	return o
-}
-
-func (o LookupAssessmentTargetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAssessmentTargetResult] {
-	return pulumix.Output[LookupAssessmentTargetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupAssessmentTargetResultOutput) Arn() pulumi.StringPtrOutput {

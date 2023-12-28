@@ -80,12 +80,6 @@ func (o RobotApplicationRobotSoftwareSuiteNameOutput) ToRobotApplicationRobotSof
 	}).(RobotApplicationRobotSoftwareSuiteNamePtrOutput)
 }
 
-func (o RobotApplicationRobotSoftwareSuiteNameOutput) ToOutput(ctx context.Context) pulumix.Output[RobotApplicationRobotSoftwareSuiteName] {
-	return pulumix.Output[RobotApplicationRobotSoftwareSuiteName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RobotApplicationRobotSoftwareSuiteNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -121,12 +115,6 @@ func (o RobotApplicationRobotSoftwareSuiteNamePtrOutput) ToRobotApplicationRobot
 	return o
 }
 
-func (o RobotApplicationRobotSoftwareSuiteNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RobotApplicationRobotSoftwareSuiteName] {
-	return pulumix.Output[*RobotApplicationRobotSoftwareSuiteName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RobotApplicationRobotSoftwareSuiteNamePtrOutput) Elem() RobotApplicationRobotSoftwareSuiteNameOutput {
 	return o.ApplyT(func(v *RobotApplicationRobotSoftwareSuiteName) RobotApplicationRobotSoftwareSuiteName {
 		if v != nil {
@@ -151,10 +139,12 @@ func (o RobotApplicationRobotSoftwareSuiteNamePtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// RobotApplicationRobotSoftwareSuiteNameInput is an input type that accepts RobotApplicationRobotSoftwareSuiteNameArgs and RobotApplicationRobotSoftwareSuiteNameOutput values.
-// You can construct a concrete instance of `RobotApplicationRobotSoftwareSuiteNameInput` via:
+// RobotApplicationRobotSoftwareSuiteNameInput is an input type that accepts values of the RobotApplicationRobotSoftwareSuiteName enum
+// A concrete instance of `RobotApplicationRobotSoftwareSuiteNameInput` can be one of the following:
 //
-//	RobotApplicationRobotSoftwareSuiteNameArgs{...}
+//	RobotApplicationRobotSoftwareSuiteNameRos
+//	RobotApplicationRobotSoftwareSuiteNameRos2
+//	RobotApplicationRobotSoftwareSuiteNameGeneral
 type RobotApplicationRobotSoftwareSuiteNameInput interface {
 	pulumi.Input
 
@@ -264,12 +254,6 @@ func (o RobotApplicationRobotSoftwareSuiteVersionOutput) ToRobotApplicationRobot
 	}).(RobotApplicationRobotSoftwareSuiteVersionPtrOutput)
 }
 
-func (o RobotApplicationRobotSoftwareSuiteVersionOutput) ToOutput(ctx context.Context) pulumix.Output[RobotApplicationRobotSoftwareSuiteVersion] {
-	return pulumix.Output[RobotApplicationRobotSoftwareSuiteVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RobotApplicationRobotSoftwareSuiteVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -305,12 +289,6 @@ func (o RobotApplicationRobotSoftwareSuiteVersionPtrOutput) ToRobotApplicationRo
 	return o
 }
 
-func (o RobotApplicationRobotSoftwareSuiteVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RobotApplicationRobotSoftwareSuiteVersion] {
-	return pulumix.Output[*RobotApplicationRobotSoftwareSuiteVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RobotApplicationRobotSoftwareSuiteVersionPtrOutput) Elem() RobotApplicationRobotSoftwareSuiteVersionOutput {
 	return o.ApplyT(func(v *RobotApplicationRobotSoftwareSuiteVersion) RobotApplicationRobotSoftwareSuiteVersion {
 		if v != nil {
@@ -335,10 +313,12 @@ func (o RobotApplicationRobotSoftwareSuiteVersionPtrOutput) ToStringPtrOutputWit
 	}).(pulumi.StringPtrOutput)
 }
 
-// RobotApplicationRobotSoftwareSuiteVersionInput is an input type that accepts RobotApplicationRobotSoftwareSuiteVersionArgs and RobotApplicationRobotSoftwareSuiteVersionOutput values.
-// You can construct a concrete instance of `RobotApplicationRobotSoftwareSuiteVersionInput` via:
+// RobotApplicationRobotSoftwareSuiteVersionInput is an input type that accepts values of the RobotApplicationRobotSoftwareSuiteVersion enum
+// A concrete instance of `RobotApplicationRobotSoftwareSuiteVersionInput` can be one of the following:
 //
-//	RobotApplicationRobotSoftwareSuiteVersionArgs{...}
+//	RobotApplicationRobotSoftwareSuiteVersionKinetic
+//	RobotApplicationRobotSoftwareSuiteVersionMelodic
+//	RobotApplicationRobotSoftwareSuiteVersionDashing
 type RobotApplicationRobotSoftwareSuiteVersionInput interface {
 	pulumi.Input
 
@@ -448,12 +428,6 @@ func (o RobotApplicationSourceConfigArchitectureOutput) ToRobotApplicationSource
 	}).(RobotApplicationSourceConfigArchitecturePtrOutput)
 }
 
-func (o RobotApplicationSourceConfigArchitectureOutput) ToOutput(ctx context.Context) pulumix.Output[RobotApplicationSourceConfigArchitecture] {
-	return pulumix.Output[RobotApplicationSourceConfigArchitecture]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RobotApplicationSourceConfigArchitectureOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -489,12 +463,6 @@ func (o RobotApplicationSourceConfigArchitecturePtrOutput) ToRobotApplicationSou
 	return o
 }
 
-func (o RobotApplicationSourceConfigArchitecturePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RobotApplicationSourceConfigArchitecture] {
-	return pulumix.Output[*RobotApplicationSourceConfigArchitecture]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RobotApplicationSourceConfigArchitecturePtrOutput) Elem() RobotApplicationSourceConfigArchitectureOutput {
 	return o.ApplyT(func(v *RobotApplicationSourceConfigArchitecture) RobotApplicationSourceConfigArchitecture {
 		if v != nil {
@@ -519,10 +487,12 @@ func (o RobotApplicationSourceConfigArchitecturePtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// RobotApplicationSourceConfigArchitectureInput is an input type that accepts RobotApplicationSourceConfigArchitectureArgs and RobotApplicationSourceConfigArchitectureOutput values.
-// You can construct a concrete instance of `RobotApplicationSourceConfigArchitectureInput` via:
+// RobotApplicationSourceConfigArchitectureInput is an input type that accepts values of the RobotApplicationSourceConfigArchitecture enum
+// A concrete instance of `RobotApplicationSourceConfigArchitectureInput` can be one of the following:
 //
-//	RobotApplicationSourceConfigArchitectureArgs{...}
+//	RobotApplicationSourceConfigArchitectureX8664
+//	RobotApplicationSourceConfigArchitectureArm64
+//	RobotApplicationSourceConfigArchitectureArmhf
 type RobotApplicationSourceConfigArchitectureInput interface {
 	pulumi.Input
 
@@ -632,12 +602,6 @@ func (o RobotArchitectureOutput) ToRobotArchitecturePtrOutputWithContext(ctx con
 	}).(RobotArchitecturePtrOutput)
 }
 
-func (o RobotArchitectureOutput) ToOutput(ctx context.Context) pulumix.Output[RobotArchitecture] {
-	return pulumix.Output[RobotArchitecture]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RobotArchitectureOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -673,12 +637,6 @@ func (o RobotArchitecturePtrOutput) ToRobotArchitecturePtrOutputWithContext(ctx 
 	return o
 }
 
-func (o RobotArchitecturePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RobotArchitecture] {
-	return pulumix.Output[*RobotArchitecture]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RobotArchitecturePtrOutput) Elem() RobotArchitectureOutput {
 	return o.ApplyT(func(v *RobotArchitecture) RobotArchitecture {
 		if v != nil {
@@ -703,10 +661,12 @@ func (o RobotArchitecturePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// RobotArchitectureInput is an input type that accepts RobotArchitectureArgs and RobotArchitectureOutput values.
-// You can construct a concrete instance of `RobotArchitectureInput` via:
+// RobotArchitectureInput is an input type that accepts values of the RobotArchitecture enum
+// A concrete instance of `RobotArchitectureInput` can be one of the following:
 //
-//	RobotArchitectureArgs{...}
+//	RobotArchitectureX8664
+//	RobotArchitectureArm64
+//	RobotArchitectureArmhf
 type RobotArchitectureInput interface {
 	pulumi.Input
 
@@ -814,12 +774,6 @@ func (o SimulationApplicationRenderingEngineNameOutput) ToSimulationApplicationR
 	}).(SimulationApplicationRenderingEngineNamePtrOutput)
 }
 
-func (o SimulationApplicationRenderingEngineNameOutput) ToOutput(ctx context.Context) pulumix.Output[SimulationApplicationRenderingEngineName] {
-	return pulumix.Output[SimulationApplicationRenderingEngineName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SimulationApplicationRenderingEngineNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -855,12 +809,6 @@ func (o SimulationApplicationRenderingEngineNamePtrOutput) ToSimulationApplicati
 	return o
 }
 
-func (o SimulationApplicationRenderingEngineNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SimulationApplicationRenderingEngineName] {
-	return pulumix.Output[*SimulationApplicationRenderingEngineName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SimulationApplicationRenderingEngineNamePtrOutput) Elem() SimulationApplicationRenderingEngineNameOutput {
 	return o.ApplyT(func(v *SimulationApplicationRenderingEngineName) SimulationApplicationRenderingEngineName {
 		if v != nil {
@@ -885,10 +833,10 @@ func (o SimulationApplicationRenderingEngineNamePtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// SimulationApplicationRenderingEngineNameInput is an input type that accepts SimulationApplicationRenderingEngineNameArgs and SimulationApplicationRenderingEngineNameOutput values.
-// You can construct a concrete instance of `SimulationApplicationRenderingEngineNameInput` via:
+// SimulationApplicationRenderingEngineNameInput is an input type that accepts values of the SimulationApplicationRenderingEngineName enum
+// A concrete instance of `SimulationApplicationRenderingEngineNameInput` can be one of the following:
 //
-//	SimulationApplicationRenderingEngineNameArgs{...}
+//	SimulationApplicationRenderingEngineNameOgre
 type SimulationApplicationRenderingEngineNameInput interface {
 	pulumi.Input
 
@@ -998,12 +946,6 @@ func (o SimulationApplicationRobotSoftwareSuiteNameOutput) ToSimulationApplicati
 	}).(SimulationApplicationRobotSoftwareSuiteNamePtrOutput)
 }
 
-func (o SimulationApplicationRobotSoftwareSuiteNameOutput) ToOutput(ctx context.Context) pulumix.Output[SimulationApplicationRobotSoftwareSuiteName] {
-	return pulumix.Output[SimulationApplicationRobotSoftwareSuiteName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SimulationApplicationRobotSoftwareSuiteNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1039,12 +981,6 @@ func (o SimulationApplicationRobotSoftwareSuiteNamePtrOutput) ToSimulationApplic
 	return o
 }
 
-func (o SimulationApplicationRobotSoftwareSuiteNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SimulationApplicationRobotSoftwareSuiteName] {
-	return pulumix.Output[*SimulationApplicationRobotSoftwareSuiteName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SimulationApplicationRobotSoftwareSuiteNamePtrOutput) Elem() SimulationApplicationRobotSoftwareSuiteNameOutput {
 	return o.ApplyT(func(v *SimulationApplicationRobotSoftwareSuiteName) SimulationApplicationRobotSoftwareSuiteName {
 		if v != nil {
@@ -1069,10 +1005,12 @@ func (o SimulationApplicationRobotSoftwareSuiteNamePtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// SimulationApplicationRobotSoftwareSuiteNameInput is an input type that accepts SimulationApplicationRobotSoftwareSuiteNameArgs and SimulationApplicationRobotSoftwareSuiteNameOutput values.
-// You can construct a concrete instance of `SimulationApplicationRobotSoftwareSuiteNameInput` via:
+// SimulationApplicationRobotSoftwareSuiteNameInput is an input type that accepts values of the SimulationApplicationRobotSoftwareSuiteName enum
+// A concrete instance of `SimulationApplicationRobotSoftwareSuiteNameInput` can be one of the following:
 //
-//	SimulationApplicationRobotSoftwareSuiteNameArgs{...}
+//	SimulationApplicationRobotSoftwareSuiteNameRos
+//	SimulationApplicationRobotSoftwareSuiteNameRos2
+//	SimulationApplicationRobotSoftwareSuiteNameGeneral
 type SimulationApplicationRobotSoftwareSuiteNameInput interface {
 	pulumi.Input
 
@@ -1183,12 +1121,6 @@ func (o SimulationApplicationRobotSoftwareSuiteVersionOutput) ToSimulationApplic
 	}).(SimulationApplicationRobotSoftwareSuiteVersionPtrOutput)
 }
 
-func (o SimulationApplicationRobotSoftwareSuiteVersionOutput) ToOutput(ctx context.Context) pulumix.Output[SimulationApplicationRobotSoftwareSuiteVersion] {
-	return pulumix.Output[SimulationApplicationRobotSoftwareSuiteVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SimulationApplicationRobotSoftwareSuiteVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1224,12 +1156,6 @@ func (o SimulationApplicationRobotSoftwareSuiteVersionPtrOutput) ToSimulationApp
 	return o
 }
 
-func (o SimulationApplicationRobotSoftwareSuiteVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SimulationApplicationRobotSoftwareSuiteVersion] {
-	return pulumix.Output[*SimulationApplicationRobotSoftwareSuiteVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SimulationApplicationRobotSoftwareSuiteVersionPtrOutput) Elem() SimulationApplicationRobotSoftwareSuiteVersionOutput {
 	return o.ApplyT(func(v *SimulationApplicationRobotSoftwareSuiteVersion) SimulationApplicationRobotSoftwareSuiteVersion {
 		if v != nil {
@@ -1254,10 +1180,13 @@ func (o SimulationApplicationRobotSoftwareSuiteVersionPtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// SimulationApplicationRobotSoftwareSuiteVersionInput is an input type that accepts SimulationApplicationRobotSoftwareSuiteVersionArgs and SimulationApplicationRobotSoftwareSuiteVersionOutput values.
-// You can construct a concrete instance of `SimulationApplicationRobotSoftwareSuiteVersionInput` via:
+// SimulationApplicationRobotSoftwareSuiteVersionInput is an input type that accepts values of the SimulationApplicationRobotSoftwareSuiteVersion enum
+// A concrete instance of `SimulationApplicationRobotSoftwareSuiteVersionInput` can be one of the following:
 //
-//	SimulationApplicationRobotSoftwareSuiteVersionArgs{...}
+//	SimulationApplicationRobotSoftwareSuiteVersionKinetic
+//	SimulationApplicationRobotSoftwareSuiteVersionMelodic
+//	SimulationApplicationRobotSoftwareSuiteVersionDashing
+//	SimulationApplicationRobotSoftwareSuiteVersionFoxy
 type SimulationApplicationRobotSoftwareSuiteVersionInput interface {
 	pulumi.Input
 
@@ -1367,12 +1296,6 @@ func (o SimulationApplicationSimulationSoftwareSuiteNameOutput) ToSimulationAppl
 	}).(SimulationApplicationSimulationSoftwareSuiteNamePtrOutput)
 }
 
-func (o SimulationApplicationSimulationSoftwareSuiteNameOutput) ToOutput(ctx context.Context) pulumix.Output[SimulationApplicationSimulationSoftwareSuiteName] {
-	return pulumix.Output[SimulationApplicationSimulationSoftwareSuiteName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SimulationApplicationSimulationSoftwareSuiteNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1408,12 +1331,6 @@ func (o SimulationApplicationSimulationSoftwareSuiteNamePtrOutput) ToSimulationA
 	return o
 }
 
-func (o SimulationApplicationSimulationSoftwareSuiteNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SimulationApplicationSimulationSoftwareSuiteName] {
-	return pulumix.Output[*SimulationApplicationSimulationSoftwareSuiteName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SimulationApplicationSimulationSoftwareSuiteNamePtrOutput) Elem() SimulationApplicationSimulationSoftwareSuiteNameOutput {
 	return o.ApplyT(func(v *SimulationApplicationSimulationSoftwareSuiteName) SimulationApplicationSimulationSoftwareSuiteName {
 		if v != nil {
@@ -1438,10 +1355,12 @@ func (o SimulationApplicationSimulationSoftwareSuiteNamePtrOutput) ToStringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// SimulationApplicationSimulationSoftwareSuiteNameInput is an input type that accepts SimulationApplicationSimulationSoftwareSuiteNameArgs and SimulationApplicationSimulationSoftwareSuiteNameOutput values.
-// You can construct a concrete instance of `SimulationApplicationSimulationSoftwareSuiteNameInput` via:
+// SimulationApplicationSimulationSoftwareSuiteNameInput is an input type that accepts values of the SimulationApplicationSimulationSoftwareSuiteName enum
+// A concrete instance of `SimulationApplicationSimulationSoftwareSuiteNameInput` can be one of the following:
 //
-//	SimulationApplicationSimulationSoftwareSuiteNameArgs{...}
+//	SimulationApplicationSimulationSoftwareSuiteNameGazebo
+//	SimulationApplicationSimulationSoftwareSuiteNameRosbagPlay
+//	SimulationApplicationSimulationSoftwareSuiteNameSimulationRuntime
 type SimulationApplicationSimulationSoftwareSuiteNameInput interface {
 	pulumi.Input
 
@@ -1555,12 +1474,6 @@ func (o SimulationApplicationSimulationSoftwareSuiteVersionOutput) ToSimulationA
 	}).(SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput)
 }
 
-func (o SimulationApplicationSimulationSoftwareSuiteVersionOutput) ToOutput(ctx context.Context) pulumix.Output[SimulationApplicationSimulationSoftwareSuiteVersion] {
-	return pulumix.Output[SimulationApplicationSimulationSoftwareSuiteVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SimulationApplicationSimulationSoftwareSuiteVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1596,12 +1509,6 @@ func (o SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput) ToSimulati
 	return o
 }
 
-func (o SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SimulationApplicationSimulationSoftwareSuiteVersion] {
-	return pulumix.Output[*SimulationApplicationSimulationSoftwareSuiteVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput) Elem() SimulationApplicationSimulationSoftwareSuiteVersionOutput {
 	return o.ApplyT(func(v *SimulationApplicationSimulationSoftwareSuiteVersion) SimulationApplicationSimulationSoftwareSuiteVersion {
 		if v != nil {
@@ -1626,10 +1533,16 @@ func (o SimulationApplicationSimulationSoftwareSuiteVersionPtrOutput) ToStringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// SimulationApplicationSimulationSoftwareSuiteVersionInput is an input type that accepts SimulationApplicationSimulationSoftwareSuiteVersionArgs and SimulationApplicationSimulationSoftwareSuiteVersionOutput values.
-// You can construct a concrete instance of `SimulationApplicationSimulationSoftwareSuiteVersionInput` via:
+// SimulationApplicationSimulationSoftwareSuiteVersionInput is an input type that accepts values of the SimulationApplicationSimulationSoftwareSuiteVersion enum
+// A concrete instance of `SimulationApplicationSimulationSoftwareSuiteVersionInput` can be one of the following:
 //
-//	SimulationApplicationSimulationSoftwareSuiteVersionArgs{...}
+//	SimulationApplicationSimulationSoftwareSuiteVersionSeven
+//	SimulationApplicationSimulationSoftwareSuiteVersionNine
+//	SimulationApplicationSimulationSoftwareSuiteVersion_11
+//	SimulationApplicationSimulationSoftwareSuiteVersionKinetic
+//	SimulationApplicationSimulationSoftwareSuiteVersionMelodic
+//	SimulationApplicationSimulationSoftwareSuiteVersionDashing
+//	SimulationApplicationSimulationSoftwareSuiteVersionFoxy
 type SimulationApplicationSimulationSoftwareSuiteVersionInput interface {
 	pulumi.Input
 
@@ -1739,12 +1652,6 @@ func (o SimulationApplicationSourceConfigArchitectureOutput) ToSimulationApplica
 	}).(SimulationApplicationSourceConfigArchitecturePtrOutput)
 }
 
-func (o SimulationApplicationSourceConfigArchitectureOutput) ToOutput(ctx context.Context) pulumix.Output[SimulationApplicationSourceConfigArchitecture] {
-	return pulumix.Output[SimulationApplicationSourceConfigArchitecture]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SimulationApplicationSourceConfigArchitectureOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1780,12 +1687,6 @@ func (o SimulationApplicationSourceConfigArchitecturePtrOutput) ToSimulationAppl
 	return o
 }
 
-func (o SimulationApplicationSourceConfigArchitecturePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SimulationApplicationSourceConfigArchitecture] {
-	return pulumix.Output[*SimulationApplicationSourceConfigArchitecture]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SimulationApplicationSourceConfigArchitecturePtrOutput) Elem() SimulationApplicationSourceConfigArchitectureOutput {
 	return o.ApplyT(func(v *SimulationApplicationSourceConfigArchitecture) SimulationApplicationSourceConfigArchitecture {
 		if v != nil {
@@ -1810,10 +1711,12 @@ func (o SimulationApplicationSourceConfigArchitecturePtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// SimulationApplicationSourceConfigArchitectureInput is an input type that accepts SimulationApplicationSourceConfigArchitectureArgs and SimulationApplicationSourceConfigArchitectureOutput values.
-// You can construct a concrete instance of `SimulationApplicationSourceConfigArchitectureInput` via:
+// SimulationApplicationSourceConfigArchitectureInput is an input type that accepts values of the SimulationApplicationSourceConfigArchitecture enum
+// A concrete instance of `SimulationApplicationSourceConfigArchitectureInput` can be one of the following:
 //
-//	SimulationApplicationSourceConfigArchitectureArgs{...}
+//	SimulationApplicationSourceConfigArchitectureX8664
+//	SimulationApplicationSourceConfigArchitectureArm64
+//	SimulationApplicationSourceConfigArchitectureArmhf
 type SimulationApplicationSourceConfigArchitectureInput interface {
 	pulumi.Input
 

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i AuthenticationModePropertiesArgs) ToAuthenticationModePropertiesOutput()
 
 func (i AuthenticationModePropertiesArgs) ToAuthenticationModePropertiesOutputWithContext(ctx context.Context) AuthenticationModePropertiesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationModePropertiesOutput)
-}
-
-func (i AuthenticationModePropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[AuthenticationModeProperties] {
-	return pulumix.Output[AuthenticationModeProperties]{
-		OutputState: i.ToAuthenticationModePropertiesOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i AuthenticationModePropertiesArgs) ToAuthenticationModePropertiesPtrOutput() AuthenticationModePropertiesPtrOutput {
@@ -98,12 +91,6 @@ func (i *authenticationModePropertiesPtrType) ToAuthenticationModePropertiesPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(AuthenticationModePropertiesPtrOutput)
 }
 
-func (i *authenticationModePropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*AuthenticationModeProperties] {
-	return pulumix.Output[*AuthenticationModeProperties]{
-		OutputState: i.ToAuthenticationModePropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AuthenticationModePropertiesOutput struct{ *pulumi.OutputState }
 
 func (AuthenticationModePropertiesOutput) ElementType() reflect.Type {
@@ -128,12 +115,6 @@ func (o AuthenticationModePropertiesOutput) ToAuthenticationModePropertiesPtrOut
 	}).(AuthenticationModePropertiesPtrOutput)
 }
 
-func (o AuthenticationModePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[AuthenticationModeProperties] {
-	return pulumix.Output[AuthenticationModeProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Passwords used for this user account. You can create up to two passwords for each user.
 func (o AuthenticationModePropertiesOutput) Passwords() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AuthenticationModeProperties) []string { return v.Passwords }).(pulumi.StringArrayOutput)
@@ -156,12 +137,6 @@ func (o AuthenticationModePropertiesPtrOutput) ToAuthenticationModePropertiesPtr
 
 func (o AuthenticationModePropertiesPtrOutput) ToAuthenticationModePropertiesPtrOutputWithContext(ctx context.Context) AuthenticationModePropertiesPtrOutput {
 	return o
-}
-
-func (o AuthenticationModePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AuthenticationModeProperties] {
-	return pulumix.Output[*AuthenticationModeProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AuthenticationModePropertiesPtrOutput) Elem() AuthenticationModePropertiesOutput {
@@ -225,12 +200,6 @@ func (i CacheClusterCloudWatchLogsDestinationDetailsArgs) ToCacheClusterCloudWat
 	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterCloudWatchLogsDestinationDetailsOutput)
 }
 
-func (i CacheClusterCloudWatchLogsDestinationDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[CacheClusterCloudWatchLogsDestinationDetails] {
-	return pulumix.Output[CacheClusterCloudWatchLogsDestinationDetails]{
-		OutputState: i.ToCacheClusterCloudWatchLogsDestinationDetailsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CacheClusterCloudWatchLogsDestinationDetailsArgs) ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutput() CacheClusterCloudWatchLogsDestinationDetailsPtrOutput {
 	return i.ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutputWithContext(context.Background())
 }
@@ -272,12 +241,6 @@ func (i *cacheClusterCloudWatchLogsDestinationDetailsPtrType) ToCacheClusterClou
 	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterCloudWatchLogsDestinationDetailsPtrOutput)
 }
 
-func (i *cacheClusterCloudWatchLogsDestinationDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*CacheClusterCloudWatchLogsDestinationDetails] {
-	return pulumix.Output[*CacheClusterCloudWatchLogsDestinationDetails]{
-		OutputState: i.ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CacheClusterCloudWatchLogsDestinationDetailsOutput struct{ *pulumi.OutputState }
 
 func (CacheClusterCloudWatchLogsDestinationDetailsOutput) ElementType() reflect.Type {
@@ -302,12 +265,6 @@ func (o CacheClusterCloudWatchLogsDestinationDetailsOutput) ToCacheClusterCloudW
 	}).(CacheClusterCloudWatchLogsDestinationDetailsPtrOutput)
 }
 
-func (o CacheClusterCloudWatchLogsDestinationDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[CacheClusterCloudWatchLogsDestinationDetails] {
-	return pulumix.Output[CacheClusterCloudWatchLogsDestinationDetails]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CacheClusterCloudWatchLogsDestinationDetailsOutput) LogGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheClusterCloudWatchLogsDestinationDetails) string { return v.LogGroup }).(pulumi.StringOutput)
 }
@@ -324,12 +281,6 @@ func (o CacheClusterCloudWatchLogsDestinationDetailsPtrOutput) ToCacheClusterClo
 
 func (o CacheClusterCloudWatchLogsDestinationDetailsPtrOutput) ToCacheClusterCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx context.Context) CacheClusterCloudWatchLogsDestinationDetailsPtrOutput {
 	return o
-}
-
-func (o CacheClusterCloudWatchLogsDestinationDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CacheClusterCloudWatchLogsDestinationDetails] {
-	return pulumix.Output[*CacheClusterCloudWatchLogsDestinationDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CacheClusterCloudWatchLogsDestinationDetailsPtrOutput) Elem() CacheClusterCloudWatchLogsDestinationDetailsOutput {
@@ -384,12 +335,6 @@ func (i CacheClusterDestinationDetailsArgs) ToCacheClusterDestinationDetailsOutp
 	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterDestinationDetailsOutput)
 }
 
-func (i CacheClusterDestinationDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[CacheClusterDestinationDetails] {
-	return pulumix.Output[CacheClusterDestinationDetails]{
-		OutputState: i.ToCacheClusterDestinationDetailsOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CacheClusterDestinationDetailsOutput struct{ *pulumi.OutputState }
 
 func (CacheClusterDestinationDetailsOutput) ElementType() reflect.Type {
@@ -402,12 +347,6 @@ func (o CacheClusterDestinationDetailsOutput) ToCacheClusterDestinationDetailsOu
 
 func (o CacheClusterDestinationDetailsOutput) ToCacheClusterDestinationDetailsOutputWithContext(ctx context.Context) CacheClusterDestinationDetailsOutput {
 	return o
-}
-
-func (o CacheClusterDestinationDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[CacheClusterDestinationDetails] {
-	return pulumix.Output[CacheClusterDestinationDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CacheClusterDestinationDetailsOutput) CloudWatchLogsDetails() CacheClusterCloudWatchLogsDestinationDetailsPtrOutput {
@@ -453,12 +392,6 @@ func (i CacheClusterKinesisFirehoseDestinationDetailsArgs) ToCacheClusterKinesis
 	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterKinesisFirehoseDestinationDetailsOutput)
 }
 
-func (i CacheClusterKinesisFirehoseDestinationDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[CacheClusterKinesisFirehoseDestinationDetails] {
-	return pulumix.Output[CacheClusterKinesisFirehoseDestinationDetails]{
-		OutputState: i.ToCacheClusterKinesisFirehoseDestinationDetailsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CacheClusterKinesisFirehoseDestinationDetailsArgs) ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutput() CacheClusterKinesisFirehoseDestinationDetailsPtrOutput {
 	return i.ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutputWithContext(context.Background())
 }
@@ -500,12 +433,6 @@ func (i *cacheClusterKinesisFirehoseDestinationDetailsPtrType) ToCacheClusterKin
 	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterKinesisFirehoseDestinationDetailsPtrOutput)
 }
 
-func (i *cacheClusterKinesisFirehoseDestinationDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*CacheClusterKinesisFirehoseDestinationDetails] {
-	return pulumix.Output[*CacheClusterKinesisFirehoseDestinationDetails]{
-		OutputState: i.ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CacheClusterKinesisFirehoseDestinationDetailsOutput struct{ *pulumi.OutputState }
 
 func (CacheClusterKinesisFirehoseDestinationDetailsOutput) ElementType() reflect.Type {
@@ -530,12 +457,6 @@ func (o CacheClusterKinesisFirehoseDestinationDetailsOutput) ToCacheClusterKines
 	}).(CacheClusterKinesisFirehoseDestinationDetailsPtrOutput)
 }
 
-func (o CacheClusterKinesisFirehoseDestinationDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[CacheClusterKinesisFirehoseDestinationDetails] {
-	return pulumix.Output[CacheClusterKinesisFirehoseDestinationDetails]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CacheClusterKinesisFirehoseDestinationDetailsOutput) DeliveryStream() pulumi.StringOutput {
 	return o.ApplyT(func(v CacheClusterKinesisFirehoseDestinationDetails) string { return v.DeliveryStream }).(pulumi.StringOutput)
 }
@@ -552,12 +473,6 @@ func (o CacheClusterKinesisFirehoseDestinationDetailsPtrOutput) ToCacheClusterKi
 
 func (o CacheClusterKinesisFirehoseDestinationDetailsPtrOutput) ToCacheClusterKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx context.Context) CacheClusterKinesisFirehoseDestinationDetailsPtrOutput {
 	return o
-}
-
-func (o CacheClusterKinesisFirehoseDestinationDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CacheClusterKinesisFirehoseDestinationDetails] {
-	return pulumix.Output[*CacheClusterKinesisFirehoseDestinationDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CacheClusterKinesisFirehoseDestinationDetailsPtrOutput) Elem() CacheClusterKinesisFirehoseDestinationDetailsOutput {
@@ -616,12 +531,6 @@ func (i CacheClusterLogDeliveryConfigurationRequestArgs) ToCacheClusterLogDelive
 	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterLogDeliveryConfigurationRequestOutput)
 }
 
-func (i CacheClusterLogDeliveryConfigurationRequestArgs) ToOutput(ctx context.Context) pulumix.Output[CacheClusterLogDeliveryConfigurationRequest] {
-	return pulumix.Output[CacheClusterLogDeliveryConfigurationRequest]{
-		OutputState: i.ToCacheClusterLogDeliveryConfigurationRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CacheClusterLogDeliveryConfigurationRequestArrayInput is an input type that accepts CacheClusterLogDeliveryConfigurationRequestArray and CacheClusterLogDeliveryConfigurationRequestArrayOutput values.
 // You can construct a concrete instance of `CacheClusterLogDeliveryConfigurationRequestArrayInput` via:
 //
@@ -647,12 +556,6 @@ func (i CacheClusterLogDeliveryConfigurationRequestArray) ToCacheClusterLogDeliv
 	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterLogDeliveryConfigurationRequestArrayOutput)
 }
 
-func (i CacheClusterLogDeliveryConfigurationRequestArray) ToOutput(ctx context.Context) pulumix.Output[[]CacheClusterLogDeliveryConfigurationRequest] {
-	return pulumix.Output[[]CacheClusterLogDeliveryConfigurationRequest]{
-		OutputState: i.ToCacheClusterLogDeliveryConfigurationRequestArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CacheClusterLogDeliveryConfigurationRequestOutput struct{ *pulumi.OutputState }
 
 func (CacheClusterLogDeliveryConfigurationRequestOutput) ElementType() reflect.Type {
@@ -665,12 +568,6 @@ func (o CacheClusterLogDeliveryConfigurationRequestOutput) ToCacheClusterLogDeli
 
 func (o CacheClusterLogDeliveryConfigurationRequestOutput) ToCacheClusterLogDeliveryConfigurationRequestOutputWithContext(ctx context.Context) CacheClusterLogDeliveryConfigurationRequestOutput {
 	return o
-}
-
-func (o CacheClusterLogDeliveryConfigurationRequestOutput) ToOutput(ctx context.Context) pulumix.Output[CacheClusterLogDeliveryConfigurationRequest] {
-	return pulumix.Output[CacheClusterLogDeliveryConfigurationRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CacheClusterLogDeliveryConfigurationRequestOutput) DestinationDetails() CacheClusterDestinationDetailsOutput {
@@ -703,12 +600,6 @@ func (o CacheClusterLogDeliveryConfigurationRequestArrayOutput) ToCacheClusterLo
 
 func (o CacheClusterLogDeliveryConfigurationRequestArrayOutput) ToCacheClusterLogDeliveryConfigurationRequestArrayOutputWithContext(ctx context.Context) CacheClusterLogDeliveryConfigurationRequestArrayOutput {
 	return o
-}
-
-func (o CacheClusterLogDeliveryConfigurationRequestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CacheClusterLogDeliveryConfigurationRequest] {
-	return pulumix.Output[[]CacheClusterLogDeliveryConfigurationRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CacheClusterLogDeliveryConfigurationRequestArrayOutput) Index(i pulumi.IntInput) CacheClusterLogDeliveryConfigurationRequestOutput {
@@ -750,12 +641,6 @@ func (i CacheClusterTagArgs) ToCacheClusterTagOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterTagOutput)
 }
 
-func (i CacheClusterTagArgs) ToOutput(ctx context.Context) pulumix.Output[CacheClusterTag] {
-	return pulumix.Output[CacheClusterTag]{
-		OutputState: i.ToCacheClusterTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CacheClusterTagArrayInput is an input type that accepts CacheClusterTagArray and CacheClusterTagArrayOutput values.
 // You can construct a concrete instance of `CacheClusterTagArrayInput` via:
 //
@@ -781,12 +666,6 @@ func (i CacheClusterTagArray) ToCacheClusterTagArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CacheClusterTagArrayOutput)
 }
 
-func (i CacheClusterTagArray) ToOutput(ctx context.Context) pulumix.Output[[]CacheClusterTag] {
-	return pulumix.Output[[]CacheClusterTag]{
-		OutputState: i.ToCacheClusterTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CacheClusterTagOutput struct{ *pulumi.OutputState }
 
 func (CacheClusterTagOutput) ElementType() reflect.Type {
@@ -799,12 +678,6 @@ func (o CacheClusterTagOutput) ToCacheClusterTagOutput() CacheClusterTagOutput {
 
 func (o CacheClusterTagOutput) ToCacheClusterTagOutputWithContext(ctx context.Context) CacheClusterTagOutput {
 	return o
-}
-
-func (o CacheClusterTagOutput) ToOutput(ctx context.Context) pulumix.Output[CacheClusterTag] {
-	return pulumix.Output[CacheClusterTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CacheClusterTagOutput) Key() pulumi.StringOutput {
@@ -827,12 +700,6 @@ func (o CacheClusterTagArrayOutput) ToCacheClusterTagArrayOutput() CacheClusterT
 
 func (o CacheClusterTagArrayOutput) ToCacheClusterTagArrayOutputWithContext(ctx context.Context) CacheClusterTagArrayOutput {
 	return o
-}
-
-func (o CacheClusterTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CacheClusterTag] {
-	return pulumix.Output[[]CacheClusterTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CacheClusterTagArrayOutput) Index(i pulumi.IntInput) CacheClusterTagOutput {
@@ -882,12 +749,6 @@ func (i GlobalReplicationGroupMemberArgs) ToGlobalReplicationGroupMemberOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupMemberOutput)
 }
 
-func (i GlobalReplicationGroupMemberArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalReplicationGroupMember] {
-	return pulumix.Output[GlobalReplicationGroupMember]{
-		OutputState: i.ToGlobalReplicationGroupMemberOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GlobalReplicationGroupMemberArrayInput is an input type that accepts GlobalReplicationGroupMemberArray and GlobalReplicationGroupMemberArrayOutput values.
 // You can construct a concrete instance of `GlobalReplicationGroupMemberArrayInput` via:
 //
@@ -913,12 +774,6 @@ func (i GlobalReplicationGroupMemberArray) ToGlobalReplicationGroupMemberArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupMemberArrayOutput)
 }
 
-func (i GlobalReplicationGroupMemberArray) ToOutput(ctx context.Context) pulumix.Output[[]GlobalReplicationGroupMember] {
-	return pulumix.Output[[]GlobalReplicationGroupMember]{
-		OutputState: i.ToGlobalReplicationGroupMemberArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalReplicationGroupMemberOutput struct{ *pulumi.OutputState }
 
 func (GlobalReplicationGroupMemberOutput) ElementType() reflect.Type {
@@ -931,12 +786,6 @@ func (o GlobalReplicationGroupMemberOutput) ToGlobalReplicationGroupMemberOutput
 
 func (o GlobalReplicationGroupMemberOutput) ToGlobalReplicationGroupMemberOutputWithContext(ctx context.Context) GlobalReplicationGroupMemberOutput {
 	return o
-}
-
-func (o GlobalReplicationGroupMemberOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalReplicationGroupMember] {
-	return pulumix.Output[GlobalReplicationGroupMember]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Regionally unique identifier for the member i.e. ReplicationGroupId.
@@ -966,12 +815,6 @@ func (o GlobalReplicationGroupMemberArrayOutput) ToGlobalReplicationGroupMemberA
 
 func (o GlobalReplicationGroupMemberArrayOutput) ToGlobalReplicationGroupMemberArrayOutputWithContext(ctx context.Context) GlobalReplicationGroupMemberArrayOutput {
 	return o
-}
-
-func (o GlobalReplicationGroupMemberArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GlobalReplicationGroupMember] {
-	return pulumix.Output[[]GlobalReplicationGroupMember]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalReplicationGroupMemberArrayOutput) Index(i pulumi.IntInput) GlobalReplicationGroupMemberOutput {
@@ -1021,12 +864,6 @@ func (i GlobalReplicationGroupRegionalConfigurationArgs) ToGlobalReplicationGrou
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupRegionalConfigurationOutput)
 }
 
-func (i GlobalReplicationGroupRegionalConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalReplicationGroupRegionalConfiguration] {
-	return pulumix.Output[GlobalReplicationGroupRegionalConfiguration]{
-		OutputState: i.ToGlobalReplicationGroupRegionalConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GlobalReplicationGroupRegionalConfigurationArrayInput is an input type that accepts GlobalReplicationGroupRegionalConfigurationArray and GlobalReplicationGroupRegionalConfigurationArrayOutput values.
 // You can construct a concrete instance of `GlobalReplicationGroupRegionalConfigurationArrayInput` via:
 //
@@ -1052,12 +889,6 @@ func (i GlobalReplicationGroupRegionalConfigurationArray) ToGlobalReplicationGro
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupRegionalConfigurationArrayOutput)
 }
 
-func (i GlobalReplicationGroupRegionalConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GlobalReplicationGroupRegionalConfiguration] {
-	return pulumix.Output[[]GlobalReplicationGroupRegionalConfiguration]{
-		OutputState: i.ToGlobalReplicationGroupRegionalConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalReplicationGroupRegionalConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GlobalReplicationGroupRegionalConfigurationOutput) ElementType() reflect.Type {
@@ -1070,12 +901,6 @@ func (o GlobalReplicationGroupRegionalConfigurationOutput) ToGlobalReplicationGr
 
 func (o GlobalReplicationGroupRegionalConfigurationOutput) ToGlobalReplicationGroupRegionalConfigurationOutputWithContext(ctx context.Context) GlobalReplicationGroupRegionalConfigurationOutput {
 	return o
-}
-
-func (o GlobalReplicationGroupRegionalConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalReplicationGroupRegionalConfiguration] {
-	return pulumix.Output[GlobalReplicationGroupRegionalConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The replication group id of the Global Datastore member.
@@ -1107,12 +932,6 @@ func (o GlobalReplicationGroupRegionalConfigurationArrayOutput) ToGlobalReplicat
 
 func (o GlobalReplicationGroupRegionalConfigurationArrayOutput) ToGlobalReplicationGroupRegionalConfigurationArrayOutputWithContext(ctx context.Context) GlobalReplicationGroupRegionalConfigurationArrayOutput {
 	return o
-}
-
-func (o GlobalReplicationGroupRegionalConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GlobalReplicationGroupRegionalConfiguration] {
-	return pulumix.Output[[]GlobalReplicationGroupRegionalConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalReplicationGroupRegionalConfigurationArrayOutput) Index(i pulumi.IntInput) GlobalReplicationGroupRegionalConfigurationOutput {
@@ -1158,12 +977,6 @@ func (i GlobalReplicationGroupReshardingConfigurationArgs) ToGlobalReplicationGr
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupReshardingConfigurationOutput)
 }
 
-func (i GlobalReplicationGroupReshardingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GlobalReplicationGroupReshardingConfiguration] {
-	return pulumix.Output[GlobalReplicationGroupReshardingConfiguration]{
-		OutputState: i.ToGlobalReplicationGroupReshardingConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GlobalReplicationGroupReshardingConfigurationArrayInput is an input type that accepts GlobalReplicationGroupReshardingConfigurationArray and GlobalReplicationGroupReshardingConfigurationArrayOutput values.
 // You can construct a concrete instance of `GlobalReplicationGroupReshardingConfigurationArrayInput` via:
 //
@@ -1189,12 +1002,6 @@ func (i GlobalReplicationGroupReshardingConfigurationArray) ToGlobalReplicationG
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalReplicationGroupReshardingConfigurationArrayOutput)
 }
 
-func (i GlobalReplicationGroupReshardingConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GlobalReplicationGroupReshardingConfiguration] {
-	return pulumix.Output[[]GlobalReplicationGroupReshardingConfiguration]{
-		OutputState: i.ToGlobalReplicationGroupReshardingConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalReplicationGroupReshardingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GlobalReplicationGroupReshardingConfigurationOutput) ElementType() reflect.Type {
@@ -1207,12 +1014,6 @@ func (o GlobalReplicationGroupReshardingConfigurationOutput) ToGlobalReplication
 
 func (o GlobalReplicationGroupReshardingConfigurationOutput) ToGlobalReplicationGroupReshardingConfigurationOutputWithContext(ctx context.Context) GlobalReplicationGroupReshardingConfigurationOutput {
 	return o
-}
-
-func (o GlobalReplicationGroupReshardingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GlobalReplicationGroupReshardingConfiguration] {
-	return pulumix.Output[GlobalReplicationGroupReshardingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Unique identifier for the Node Group. This is either auto-generated by ElastiCache (4-digit id) or a user supplied id.
@@ -1237,12 +1038,6 @@ func (o GlobalReplicationGroupReshardingConfigurationArrayOutput) ToGlobalReplic
 
 func (o GlobalReplicationGroupReshardingConfigurationArrayOutput) ToGlobalReplicationGroupReshardingConfigurationArrayOutputWithContext(ctx context.Context) GlobalReplicationGroupReshardingConfigurationArrayOutput {
 	return o
-}
-
-func (o GlobalReplicationGroupReshardingConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GlobalReplicationGroupReshardingConfiguration] {
-	return pulumix.Output[[]GlobalReplicationGroupReshardingConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalReplicationGroupReshardingConfigurationArrayOutput) Index(i pulumi.IntInput) GlobalReplicationGroupReshardingConfigurationOutput {
@@ -1284,12 +1079,6 @@ func (i ParameterGroupTagArgs) ToParameterGroupTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupTagOutput)
 }
 
-func (i ParameterGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[ParameterGroupTag] {
-	return pulumix.Output[ParameterGroupTag]{
-		OutputState: i.ToParameterGroupTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ParameterGroupTagArrayInput is an input type that accepts ParameterGroupTagArray and ParameterGroupTagArrayOutput values.
 // You can construct a concrete instance of `ParameterGroupTagArrayInput` via:
 //
@@ -1315,12 +1104,6 @@ func (i ParameterGroupTagArray) ToParameterGroupTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ParameterGroupTagArrayOutput)
 }
 
-func (i ParameterGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ParameterGroupTag] {
-	return pulumix.Output[[]ParameterGroupTag]{
-		OutputState: i.ToParameterGroupTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ParameterGroupTagOutput struct{ *pulumi.OutputState }
 
 func (ParameterGroupTagOutput) ElementType() reflect.Type {
@@ -1333,12 +1116,6 @@ func (o ParameterGroupTagOutput) ToParameterGroupTagOutput() ParameterGroupTagOu
 
 func (o ParameterGroupTagOutput) ToParameterGroupTagOutputWithContext(ctx context.Context) ParameterGroupTagOutput {
 	return o
-}
-
-func (o ParameterGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[ParameterGroupTag] {
-	return pulumix.Output[ParameterGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ParameterGroupTagOutput) Key() pulumi.StringOutput {
@@ -1361,12 +1138,6 @@ func (o ParameterGroupTagArrayOutput) ToParameterGroupTagArrayOutput() Parameter
 
 func (o ParameterGroupTagArrayOutput) ToParameterGroupTagArrayOutputWithContext(ctx context.Context) ParameterGroupTagArrayOutput {
 	return o
-}
-
-func (o ParameterGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ParameterGroupTag] {
-	return pulumix.Output[[]ParameterGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ParameterGroupTagArrayOutput) Index(i pulumi.IntInput) ParameterGroupTagOutput {
@@ -1404,12 +1175,6 @@ func (i ReplicationGroupCloudWatchLogsDestinationDetailsArgs) ToReplicationGroup
 
 func (i ReplicationGroupCloudWatchLogsDestinationDetailsArgs) ToReplicationGroupCloudWatchLogsDestinationDetailsOutputWithContext(ctx context.Context) ReplicationGroupCloudWatchLogsDestinationDetailsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupCloudWatchLogsDestinationDetailsOutput)
-}
-
-func (i ReplicationGroupCloudWatchLogsDestinationDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationGroupCloudWatchLogsDestinationDetails] {
-	return pulumix.Output[ReplicationGroupCloudWatchLogsDestinationDetails]{
-		OutputState: i.ToReplicationGroupCloudWatchLogsDestinationDetailsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ReplicationGroupCloudWatchLogsDestinationDetailsArgs) ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput() ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput {
@@ -1453,12 +1218,6 @@ func (i *replicationGroupCloudWatchLogsDestinationDetailsPtrType) ToReplicationG
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput)
 }
 
-func (i *replicationGroupCloudWatchLogsDestinationDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ReplicationGroupCloudWatchLogsDestinationDetails] {
-	return pulumix.Output[*ReplicationGroupCloudWatchLogsDestinationDetails]{
-		OutputState: i.ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationGroupCloudWatchLogsDestinationDetailsOutput struct{ *pulumi.OutputState }
 
 func (ReplicationGroupCloudWatchLogsDestinationDetailsOutput) ElementType() reflect.Type {
@@ -1483,12 +1242,6 @@ func (o ReplicationGroupCloudWatchLogsDestinationDetailsOutput) ToReplicationGro
 	}).(ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput)
 }
 
-func (o ReplicationGroupCloudWatchLogsDestinationDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationGroupCloudWatchLogsDestinationDetails] {
-	return pulumix.Output[ReplicationGroupCloudWatchLogsDestinationDetails]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicationGroupCloudWatchLogsDestinationDetailsOutput) LogGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationGroupCloudWatchLogsDestinationDetails) string { return v.LogGroup }).(pulumi.StringOutput)
 }
@@ -1505,12 +1258,6 @@ func (o ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput) ToReplication
 
 func (o ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput) ToReplicationGroupCloudWatchLogsDestinationDetailsPtrOutputWithContext(ctx context.Context) ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput {
 	return o
-}
-
-func (o ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationGroupCloudWatchLogsDestinationDetails] {
-	return pulumix.Output[*ReplicationGroupCloudWatchLogsDestinationDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput) Elem() ReplicationGroupCloudWatchLogsDestinationDetailsOutput {
@@ -1565,12 +1312,6 @@ func (i ReplicationGroupDestinationDetailsArgs) ToReplicationGroupDestinationDet
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupDestinationDetailsOutput)
 }
 
-func (i ReplicationGroupDestinationDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationGroupDestinationDetails] {
-	return pulumix.Output[ReplicationGroupDestinationDetails]{
-		OutputState: i.ToReplicationGroupDestinationDetailsOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationGroupDestinationDetailsOutput struct{ *pulumi.OutputState }
 
 func (ReplicationGroupDestinationDetailsOutput) ElementType() reflect.Type {
@@ -1583,12 +1324,6 @@ func (o ReplicationGroupDestinationDetailsOutput) ToReplicationGroupDestinationD
 
 func (o ReplicationGroupDestinationDetailsOutput) ToReplicationGroupDestinationDetailsOutputWithContext(ctx context.Context) ReplicationGroupDestinationDetailsOutput {
 	return o
-}
-
-func (o ReplicationGroupDestinationDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationGroupDestinationDetails] {
-	return pulumix.Output[ReplicationGroupDestinationDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationGroupDestinationDetailsOutput) CloudWatchLogsDetails() ReplicationGroupCloudWatchLogsDestinationDetailsPtrOutput {
@@ -1634,12 +1369,6 @@ func (i ReplicationGroupKinesisFirehoseDestinationDetailsArgs) ToReplicationGrou
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupKinesisFirehoseDestinationDetailsOutput)
 }
 
-func (i ReplicationGroupKinesisFirehoseDestinationDetailsArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationGroupKinesisFirehoseDestinationDetails] {
-	return pulumix.Output[ReplicationGroupKinesisFirehoseDestinationDetails]{
-		OutputState: i.ToReplicationGroupKinesisFirehoseDestinationDetailsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ReplicationGroupKinesisFirehoseDestinationDetailsArgs) ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput() ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput {
 	return i.ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutputWithContext(context.Background())
 }
@@ -1681,12 +1410,6 @@ func (i *replicationGroupKinesisFirehoseDestinationDetailsPtrType) ToReplication
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput)
 }
 
-func (i *replicationGroupKinesisFirehoseDestinationDetailsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ReplicationGroupKinesisFirehoseDestinationDetails] {
-	return pulumix.Output[*ReplicationGroupKinesisFirehoseDestinationDetails]{
-		OutputState: i.ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationGroupKinesisFirehoseDestinationDetailsOutput struct{ *pulumi.OutputState }
 
 func (ReplicationGroupKinesisFirehoseDestinationDetailsOutput) ElementType() reflect.Type {
@@ -1711,12 +1434,6 @@ func (o ReplicationGroupKinesisFirehoseDestinationDetailsOutput) ToReplicationGr
 	}).(ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput)
 }
 
-func (o ReplicationGroupKinesisFirehoseDestinationDetailsOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationGroupKinesisFirehoseDestinationDetails] {
-	return pulumix.Output[ReplicationGroupKinesisFirehoseDestinationDetails]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicationGroupKinesisFirehoseDestinationDetailsOutput) DeliveryStream() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationGroupKinesisFirehoseDestinationDetails) string { return v.DeliveryStream }).(pulumi.StringOutput)
 }
@@ -1733,12 +1450,6 @@ func (o ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput) ToReplicatio
 
 func (o ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput) ToReplicationGroupKinesisFirehoseDestinationDetailsPtrOutputWithContext(ctx context.Context) ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput {
 	return o
-}
-
-func (o ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationGroupKinesisFirehoseDestinationDetails] {
-	return pulumix.Output[*ReplicationGroupKinesisFirehoseDestinationDetails]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationGroupKinesisFirehoseDestinationDetailsPtrOutput) Elem() ReplicationGroupKinesisFirehoseDestinationDetailsOutput {
@@ -1797,12 +1508,6 @@ func (i ReplicationGroupLogDeliveryConfigurationRequestArgs) ToReplicationGroupL
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupLogDeliveryConfigurationRequestOutput)
 }
 
-func (i ReplicationGroupLogDeliveryConfigurationRequestArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationGroupLogDeliveryConfigurationRequest] {
-	return pulumix.Output[ReplicationGroupLogDeliveryConfigurationRequest]{
-		OutputState: i.ToReplicationGroupLogDeliveryConfigurationRequestOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationGroupLogDeliveryConfigurationRequestArrayInput is an input type that accepts ReplicationGroupLogDeliveryConfigurationRequestArray and ReplicationGroupLogDeliveryConfigurationRequestArrayOutput values.
 // You can construct a concrete instance of `ReplicationGroupLogDeliveryConfigurationRequestArrayInput` via:
 //
@@ -1828,12 +1533,6 @@ func (i ReplicationGroupLogDeliveryConfigurationRequestArray) ToReplicationGroup
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupLogDeliveryConfigurationRequestArrayOutput)
 }
 
-func (i ReplicationGroupLogDeliveryConfigurationRequestArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationGroupLogDeliveryConfigurationRequest] {
-	return pulumix.Output[[]ReplicationGroupLogDeliveryConfigurationRequest]{
-		OutputState: i.ToReplicationGroupLogDeliveryConfigurationRequestArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationGroupLogDeliveryConfigurationRequestOutput struct{ *pulumi.OutputState }
 
 func (ReplicationGroupLogDeliveryConfigurationRequestOutput) ElementType() reflect.Type {
@@ -1846,12 +1545,6 @@ func (o ReplicationGroupLogDeliveryConfigurationRequestOutput) ToReplicationGrou
 
 func (o ReplicationGroupLogDeliveryConfigurationRequestOutput) ToReplicationGroupLogDeliveryConfigurationRequestOutputWithContext(ctx context.Context) ReplicationGroupLogDeliveryConfigurationRequestOutput {
 	return o
-}
-
-func (o ReplicationGroupLogDeliveryConfigurationRequestOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationGroupLogDeliveryConfigurationRequest] {
-	return pulumix.Output[ReplicationGroupLogDeliveryConfigurationRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationGroupLogDeliveryConfigurationRequestOutput) DestinationDetails() ReplicationGroupDestinationDetailsOutput {
@@ -1884,12 +1577,6 @@ func (o ReplicationGroupLogDeliveryConfigurationRequestArrayOutput) ToReplicatio
 
 func (o ReplicationGroupLogDeliveryConfigurationRequestArrayOutput) ToReplicationGroupLogDeliveryConfigurationRequestArrayOutputWithContext(ctx context.Context) ReplicationGroupLogDeliveryConfigurationRequestArrayOutput {
 	return o
-}
-
-func (o ReplicationGroupLogDeliveryConfigurationRequestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationGroupLogDeliveryConfigurationRequest] {
-	return pulumix.Output[[]ReplicationGroupLogDeliveryConfigurationRequest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationGroupLogDeliveryConfigurationRequestArrayOutput) Index(i pulumi.IntInput) ReplicationGroupLogDeliveryConfigurationRequestOutput {
@@ -1937,12 +1624,6 @@ func (i ReplicationGroupNodeGroupConfigurationArgs) ToReplicationGroupNodeGroupC
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupNodeGroupConfigurationOutput)
 }
 
-func (i ReplicationGroupNodeGroupConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationGroupNodeGroupConfiguration] {
-	return pulumix.Output[ReplicationGroupNodeGroupConfiguration]{
-		OutputState: i.ToReplicationGroupNodeGroupConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationGroupNodeGroupConfigurationArrayInput is an input type that accepts ReplicationGroupNodeGroupConfigurationArray and ReplicationGroupNodeGroupConfigurationArrayOutput values.
 // You can construct a concrete instance of `ReplicationGroupNodeGroupConfigurationArrayInput` via:
 //
@@ -1968,12 +1649,6 @@ func (i ReplicationGroupNodeGroupConfigurationArray) ToReplicationGroupNodeGroup
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupNodeGroupConfigurationArrayOutput)
 }
 
-func (i ReplicationGroupNodeGroupConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationGroupNodeGroupConfiguration] {
-	return pulumix.Output[[]ReplicationGroupNodeGroupConfiguration]{
-		OutputState: i.ToReplicationGroupNodeGroupConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationGroupNodeGroupConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ReplicationGroupNodeGroupConfigurationOutput) ElementType() reflect.Type {
@@ -1986,12 +1661,6 @@ func (o ReplicationGroupNodeGroupConfigurationOutput) ToReplicationGroupNodeGrou
 
 func (o ReplicationGroupNodeGroupConfigurationOutput) ToReplicationGroupNodeGroupConfigurationOutputWithContext(ctx context.Context) ReplicationGroupNodeGroupConfigurationOutput {
 	return o
-}
-
-func (o ReplicationGroupNodeGroupConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationGroupNodeGroupConfiguration] {
-	return pulumix.Output[ReplicationGroupNodeGroupConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationGroupNodeGroupConfigurationOutput) NodeGroupId() pulumi.StringPtrOutput {
@@ -2026,12 +1695,6 @@ func (o ReplicationGroupNodeGroupConfigurationArrayOutput) ToReplicationGroupNod
 
 func (o ReplicationGroupNodeGroupConfigurationArrayOutput) ToReplicationGroupNodeGroupConfigurationArrayOutputWithContext(ctx context.Context) ReplicationGroupNodeGroupConfigurationArrayOutput {
 	return o
-}
-
-func (o ReplicationGroupNodeGroupConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationGroupNodeGroupConfiguration] {
-	return pulumix.Output[[]ReplicationGroupNodeGroupConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationGroupNodeGroupConfigurationArrayOutput) Index(i pulumi.IntInput) ReplicationGroupNodeGroupConfigurationOutput {
@@ -2073,12 +1736,6 @@ func (i ReplicationGroupTagArgs) ToReplicationGroupTagOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupTagOutput)
 }
 
-func (i ReplicationGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationGroupTag] {
-	return pulumix.Output[ReplicationGroupTag]{
-		OutputState: i.ToReplicationGroupTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationGroupTagArrayInput is an input type that accepts ReplicationGroupTagArray and ReplicationGroupTagArrayOutput values.
 // You can construct a concrete instance of `ReplicationGroupTagArrayInput` via:
 //
@@ -2104,12 +1761,6 @@ func (i ReplicationGroupTagArray) ToReplicationGroupTagArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupTagArrayOutput)
 }
 
-func (i ReplicationGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationGroupTag] {
-	return pulumix.Output[[]ReplicationGroupTag]{
-		OutputState: i.ToReplicationGroupTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationGroupTagOutput struct{ *pulumi.OutputState }
 
 func (ReplicationGroupTagOutput) ElementType() reflect.Type {
@@ -2122,12 +1773,6 @@ func (o ReplicationGroupTagOutput) ToReplicationGroupTagOutput() ReplicationGrou
 
 func (o ReplicationGroupTagOutput) ToReplicationGroupTagOutputWithContext(ctx context.Context) ReplicationGroupTagOutput {
 	return o
-}
-
-func (o ReplicationGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationGroupTag] {
-	return pulumix.Output[ReplicationGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationGroupTagOutput) Key() pulumi.StringOutput {
@@ -2150,12 +1795,6 @@ func (o ReplicationGroupTagArrayOutput) ToReplicationGroupTagArrayOutput() Repli
 
 func (o ReplicationGroupTagArrayOutput) ToReplicationGroupTagArrayOutputWithContext(ctx context.Context) ReplicationGroupTagArrayOutput {
 	return o
-}
-
-func (o ReplicationGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationGroupTag] {
-	return pulumix.Output[[]ReplicationGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationGroupTagArrayOutput) Index(i pulumi.IntInput) ReplicationGroupTagOutput {
@@ -2197,12 +1836,6 @@ func (i SecurityGroupTagArgs) ToSecurityGroupTagOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupTagOutput)
 }
 
-func (i SecurityGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[SecurityGroupTag] {
-	return pulumix.Output[SecurityGroupTag]{
-		OutputState: i.ToSecurityGroupTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SecurityGroupTagArrayInput is an input type that accepts SecurityGroupTagArray and SecurityGroupTagArrayOutput values.
 // You can construct a concrete instance of `SecurityGroupTagArrayInput` via:
 //
@@ -2228,12 +1861,6 @@ func (i SecurityGroupTagArray) ToSecurityGroupTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupTagArrayOutput)
 }
 
-func (i SecurityGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]SecurityGroupTag] {
-	return pulumix.Output[[]SecurityGroupTag]{
-		OutputState: i.ToSecurityGroupTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SecurityGroupTagOutput struct{ *pulumi.OutputState }
 
 func (SecurityGroupTagOutput) ElementType() reflect.Type {
@@ -2246,12 +1873,6 @@ func (o SecurityGroupTagOutput) ToSecurityGroupTagOutput() SecurityGroupTagOutpu
 
 func (o SecurityGroupTagOutput) ToSecurityGroupTagOutputWithContext(ctx context.Context) SecurityGroupTagOutput {
 	return o
-}
-
-func (o SecurityGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[SecurityGroupTag] {
-	return pulumix.Output[SecurityGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SecurityGroupTagOutput) Key() pulumi.StringOutput {
@@ -2274,12 +1895,6 @@ func (o SecurityGroupTagArrayOutput) ToSecurityGroupTagArrayOutput() SecurityGro
 
 func (o SecurityGroupTagArrayOutput) ToSecurityGroupTagArrayOutputWithContext(ctx context.Context) SecurityGroupTagArrayOutput {
 	return o
-}
-
-func (o SecurityGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SecurityGroupTag] {
-	return pulumix.Output[[]SecurityGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SecurityGroupTagArrayOutput) Index(i pulumi.IntInput) SecurityGroupTagOutput {
@@ -2323,12 +1938,6 @@ func (i ServerlessCacheCacheUsageLimitsArgs) ToServerlessCacheCacheUsageLimitsOu
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheCacheUsageLimitsOutput)
 }
 
-func (i ServerlessCacheCacheUsageLimitsArgs) ToOutput(ctx context.Context) pulumix.Output[ServerlessCacheCacheUsageLimits] {
-	return pulumix.Output[ServerlessCacheCacheUsageLimits]{
-		OutputState: i.ToServerlessCacheCacheUsageLimitsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServerlessCacheCacheUsageLimitsArgs) ToServerlessCacheCacheUsageLimitsPtrOutput() ServerlessCacheCacheUsageLimitsPtrOutput {
 	return i.ToServerlessCacheCacheUsageLimitsPtrOutputWithContext(context.Background())
 }
@@ -2370,12 +1979,6 @@ func (i *serverlessCacheCacheUsageLimitsPtrType) ToServerlessCacheCacheUsageLimi
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheCacheUsageLimitsPtrOutput)
 }
 
-func (i *serverlessCacheCacheUsageLimitsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerlessCacheCacheUsageLimits] {
-	return pulumix.Output[*ServerlessCacheCacheUsageLimits]{
-		OutputState: i.ToServerlessCacheCacheUsageLimitsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The cache capacity limit of the Serverless Cache.
 type ServerlessCacheCacheUsageLimitsOutput struct{ *pulumi.OutputState }
 
@@ -2401,12 +2004,6 @@ func (o ServerlessCacheCacheUsageLimitsOutput) ToServerlessCacheCacheUsageLimits
 	}).(ServerlessCacheCacheUsageLimitsPtrOutput)
 }
 
-func (o ServerlessCacheCacheUsageLimitsOutput) ToOutput(ctx context.Context) pulumix.Output[ServerlessCacheCacheUsageLimits] {
-	return pulumix.Output[ServerlessCacheCacheUsageLimits]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServerlessCacheCacheUsageLimitsOutput) DataStorage() ServerlessCacheDataStoragePtrOutput {
 	return o.ApplyT(func(v ServerlessCacheCacheUsageLimits) *ServerlessCacheDataStorage { return v.DataStorage }).(ServerlessCacheDataStoragePtrOutput)
 }
@@ -2427,12 +2024,6 @@ func (o ServerlessCacheCacheUsageLimitsPtrOutput) ToServerlessCacheCacheUsageLim
 
 func (o ServerlessCacheCacheUsageLimitsPtrOutput) ToServerlessCacheCacheUsageLimitsPtrOutputWithContext(ctx context.Context) ServerlessCacheCacheUsageLimitsPtrOutput {
 	return o
-}
-
-func (o ServerlessCacheCacheUsageLimitsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerlessCacheCacheUsageLimits] {
-	return pulumix.Output[*ServerlessCacheCacheUsageLimits]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerlessCacheCacheUsageLimitsPtrOutput) Elem() ServerlessCacheCacheUsageLimitsOutput {
@@ -2502,12 +2093,6 @@ func (i ServerlessCacheDataStorageArgs) ToServerlessCacheDataStorageOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheDataStorageOutput)
 }
 
-func (i ServerlessCacheDataStorageArgs) ToOutput(ctx context.Context) pulumix.Output[ServerlessCacheDataStorage] {
-	return pulumix.Output[ServerlessCacheDataStorage]{
-		OutputState: i.ToServerlessCacheDataStorageOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServerlessCacheDataStorageArgs) ToServerlessCacheDataStoragePtrOutput() ServerlessCacheDataStoragePtrOutput {
 	return i.ToServerlessCacheDataStoragePtrOutputWithContext(context.Background())
 }
@@ -2549,12 +2134,6 @@ func (i *serverlessCacheDataStoragePtrType) ToServerlessCacheDataStoragePtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheDataStoragePtrOutput)
 }
 
-func (i *serverlessCacheDataStoragePtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerlessCacheDataStorage] {
-	return pulumix.Output[*ServerlessCacheDataStorage]{
-		OutputState: i.ToServerlessCacheDataStoragePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The cached data capacity of the Serverless Cache.
 type ServerlessCacheDataStorageOutput struct{ *pulumi.OutputState }
 
@@ -2580,12 +2159,6 @@ func (o ServerlessCacheDataStorageOutput) ToServerlessCacheDataStoragePtrOutputW
 	}).(ServerlessCacheDataStoragePtrOutput)
 }
 
-func (o ServerlessCacheDataStorageOutput) ToOutput(ctx context.Context) pulumix.Output[ServerlessCacheDataStorage] {
-	return pulumix.Output[ServerlessCacheDataStorage]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The maximum cached data capacity of the Serverless Cache.
 func (o ServerlessCacheDataStorageOutput) Maximum() pulumi.IntOutput {
 	return o.ApplyT(func(v ServerlessCacheDataStorage) int { return v.Maximum }).(pulumi.IntOutput)
@@ -2608,12 +2181,6 @@ func (o ServerlessCacheDataStoragePtrOutput) ToServerlessCacheDataStoragePtrOutp
 
 func (o ServerlessCacheDataStoragePtrOutput) ToServerlessCacheDataStoragePtrOutputWithContext(ctx context.Context) ServerlessCacheDataStoragePtrOutput {
 	return o
-}
-
-func (o ServerlessCacheDataStoragePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerlessCacheDataStorage] {
-	return pulumix.Output[*ServerlessCacheDataStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerlessCacheDataStoragePtrOutput) Elem() ServerlessCacheDataStorageOutput {
@@ -2681,12 +2248,6 @@ func (i ServerlessCacheEcpuPerSecondArgs) ToServerlessCacheEcpuPerSecondOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheEcpuPerSecondOutput)
 }
 
-func (i ServerlessCacheEcpuPerSecondArgs) ToOutput(ctx context.Context) pulumix.Output[ServerlessCacheEcpuPerSecond] {
-	return pulumix.Output[ServerlessCacheEcpuPerSecond]{
-		OutputState: i.ToServerlessCacheEcpuPerSecondOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServerlessCacheEcpuPerSecondArgs) ToServerlessCacheEcpuPerSecondPtrOutput() ServerlessCacheEcpuPerSecondPtrOutput {
 	return i.ToServerlessCacheEcpuPerSecondPtrOutputWithContext(context.Background())
 }
@@ -2728,12 +2289,6 @@ func (i *serverlessCacheEcpuPerSecondPtrType) ToServerlessCacheEcpuPerSecondPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheEcpuPerSecondPtrOutput)
 }
 
-func (i *serverlessCacheEcpuPerSecondPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerlessCacheEcpuPerSecond] {
-	return pulumix.Output[*ServerlessCacheEcpuPerSecond]{
-		OutputState: i.ToServerlessCacheEcpuPerSecondPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The ECPU per second of the Serverless Cache.
 type ServerlessCacheEcpuPerSecondOutput struct{ *pulumi.OutputState }
 
@@ -2759,12 +2314,6 @@ func (o ServerlessCacheEcpuPerSecondOutput) ToServerlessCacheEcpuPerSecondPtrOut
 	}).(ServerlessCacheEcpuPerSecondPtrOutput)
 }
 
-func (o ServerlessCacheEcpuPerSecondOutput) ToOutput(ctx context.Context) pulumix.Output[ServerlessCacheEcpuPerSecond] {
-	return pulumix.Output[ServerlessCacheEcpuPerSecond]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The maximum ECPU per second of the Serverless Cache.
 func (o ServerlessCacheEcpuPerSecondOutput) Maximum() pulumi.IntOutput {
 	return o.ApplyT(func(v ServerlessCacheEcpuPerSecond) int { return v.Maximum }).(pulumi.IntOutput)
@@ -2782,12 +2331,6 @@ func (o ServerlessCacheEcpuPerSecondPtrOutput) ToServerlessCacheEcpuPerSecondPtr
 
 func (o ServerlessCacheEcpuPerSecondPtrOutput) ToServerlessCacheEcpuPerSecondPtrOutputWithContext(ctx context.Context) ServerlessCacheEcpuPerSecondPtrOutput {
 	return o
-}
-
-func (o ServerlessCacheEcpuPerSecondPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerlessCacheEcpuPerSecond] {
-	return pulumix.Output[*ServerlessCacheEcpuPerSecond]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerlessCacheEcpuPerSecondPtrOutput) Elem() ServerlessCacheEcpuPerSecondOutput {
@@ -2849,12 +2392,6 @@ func (i ServerlessCacheEndpointArgs) ToServerlessCacheEndpointOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheEndpointOutput)
 }
 
-func (i ServerlessCacheEndpointArgs) ToOutput(ctx context.Context) pulumix.Output[ServerlessCacheEndpoint] {
-	return pulumix.Output[ServerlessCacheEndpoint]{
-		OutputState: i.ToServerlessCacheEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServerlessCacheEndpointArgs) ToServerlessCacheEndpointPtrOutput() ServerlessCacheEndpointPtrOutput {
 	return i.ToServerlessCacheEndpointPtrOutputWithContext(context.Background())
 }
@@ -2896,12 +2433,6 @@ func (i *serverlessCacheEndpointPtrType) ToServerlessCacheEndpointPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheEndpointPtrOutput)
 }
 
-func (i *serverlessCacheEndpointPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServerlessCacheEndpoint] {
-	return pulumix.Output[*ServerlessCacheEndpoint]{
-		OutputState: i.ToServerlessCacheEndpointPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The address and the port.
 type ServerlessCacheEndpointOutput struct{ *pulumi.OutputState }
 
@@ -2927,12 +2458,6 @@ func (o ServerlessCacheEndpointOutput) ToServerlessCacheEndpointPtrOutputWithCon
 	}).(ServerlessCacheEndpointPtrOutput)
 }
 
-func (o ServerlessCacheEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[ServerlessCacheEndpoint] {
-	return pulumix.Output[ServerlessCacheEndpoint]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Endpoint address.
 func (o ServerlessCacheEndpointOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerlessCacheEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
@@ -2955,12 +2480,6 @@ func (o ServerlessCacheEndpointPtrOutput) ToServerlessCacheEndpointPtrOutput() S
 
 func (o ServerlessCacheEndpointPtrOutput) ToServerlessCacheEndpointPtrOutputWithContext(ctx context.Context) ServerlessCacheEndpointPtrOutput {
 	return o
-}
-
-func (o ServerlessCacheEndpointPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerlessCacheEndpoint] {
-	return pulumix.Output[*ServerlessCacheEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerlessCacheEndpointPtrOutput) Elem() ServerlessCacheEndpointOutput {
@@ -3032,12 +2551,6 @@ func (i ServerlessCacheTagArgs) ToServerlessCacheTagOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheTagOutput)
 }
 
-func (i ServerlessCacheTagArgs) ToOutput(ctx context.Context) pulumix.Output[ServerlessCacheTag] {
-	return pulumix.Output[ServerlessCacheTag]{
-		OutputState: i.ToServerlessCacheTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServerlessCacheTagArrayInput is an input type that accepts ServerlessCacheTagArray and ServerlessCacheTagArrayOutput values.
 // You can construct a concrete instance of `ServerlessCacheTagArrayInput` via:
 //
@@ -3063,12 +2576,6 @@ func (i ServerlessCacheTagArray) ToServerlessCacheTagArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCacheTagArrayOutput)
 }
 
-func (i ServerlessCacheTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ServerlessCacheTag] {
-	return pulumix.Output[[]ServerlessCacheTag]{
-		OutputState: i.ToServerlessCacheTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with Serverless Cache.
 type ServerlessCacheTagOutput struct{ *pulumi.OutputState }
 
@@ -3082,12 +2589,6 @@ func (o ServerlessCacheTagOutput) ToServerlessCacheTagOutput() ServerlessCacheTa
 
 func (o ServerlessCacheTagOutput) ToServerlessCacheTagOutputWithContext(ctx context.Context) ServerlessCacheTagOutput {
 	return o
-}
-
-func (o ServerlessCacheTagOutput) ToOutput(ctx context.Context) pulumix.Output[ServerlessCacheTag] {
-	return pulumix.Output[ServerlessCacheTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -3112,12 +2613,6 @@ func (o ServerlessCacheTagArrayOutput) ToServerlessCacheTagArrayOutput() Serverl
 
 func (o ServerlessCacheTagArrayOutput) ToServerlessCacheTagArrayOutputWithContext(ctx context.Context) ServerlessCacheTagArrayOutput {
 	return o
-}
-
-func (o ServerlessCacheTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServerlessCacheTag] {
-	return pulumix.Output[[]ServerlessCacheTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerlessCacheTagArrayOutput) Index(i pulumi.IntInput) ServerlessCacheTagOutput {
@@ -3161,12 +2656,6 @@ func (i SubnetGroupTagArgs) ToSubnetGroupTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetGroupTagOutput)
 }
 
-func (i SubnetGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[SubnetGroupTag] {
-	return pulumix.Output[SubnetGroupTag]{
-		OutputState: i.ToSubnetGroupTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SubnetGroupTagArrayInput is an input type that accepts SubnetGroupTagArray and SubnetGroupTagArrayOutput values.
 // You can construct a concrete instance of `SubnetGroupTagArrayInput` via:
 //
@@ -3192,12 +2681,6 @@ func (i SubnetGroupTagArray) ToSubnetGroupTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetGroupTagArrayOutput)
 }
 
-func (i SubnetGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]SubnetGroupTag] {
-	return pulumix.Output[[]SubnetGroupTag]{
-		OutputState: i.ToSubnetGroupTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted.
 type SubnetGroupTagOutput struct{ *pulumi.OutputState }
 
@@ -3211,12 +2694,6 @@ func (o SubnetGroupTagOutput) ToSubnetGroupTagOutput() SubnetGroupTagOutput {
 
 func (o SubnetGroupTagOutput) ToSubnetGroupTagOutputWithContext(ctx context.Context) SubnetGroupTagOutput {
 	return o
-}
-
-func (o SubnetGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[SubnetGroupTag] {
-	return pulumix.Output[SubnetGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SubnetGroupTagOutput) Key() pulumi.StringOutput {
@@ -3239,12 +2716,6 @@ func (o SubnetGroupTagArrayOutput) ToSubnetGroupTagArrayOutput() SubnetGroupTagA
 
 func (o SubnetGroupTagArrayOutput) ToSubnetGroupTagArrayOutputWithContext(ctx context.Context) SubnetGroupTagArrayOutput {
 	return o
-}
-
-func (o SubnetGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SubnetGroupTag] {
-	return pulumix.Output[[]SubnetGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SubnetGroupTagArrayOutput) Index(i pulumi.IntInput) SubnetGroupTagOutput {
@@ -3292,12 +2763,6 @@ func (i UserGroupTagArgs) ToUserGroupTagOutputWithContext(ctx context.Context) U
 	return pulumi.ToOutputWithContext(ctx, i).(UserGroupTagOutput)
 }
 
-func (i UserGroupTagArgs) ToOutput(ctx context.Context) pulumix.Output[UserGroupTag] {
-	return pulumix.Output[UserGroupTag]{
-		OutputState: i.ToUserGroupTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserGroupTagArrayInput is an input type that accepts UserGroupTagArray and UserGroupTagArrayOutput values.
 // You can construct a concrete instance of `UserGroupTagArrayInput` via:
 //
@@ -3323,12 +2788,6 @@ func (i UserGroupTagArray) ToUserGroupTagArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(UserGroupTagArrayOutput)
 }
 
-func (i UserGroupTagArray) ToOutput(ctx context.Context) pulumix.Output[[]UserGroupTag] {
-	return pulumix.Output[[]UserGroupTag]{
-		OutputState: i.ToUserGroupTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type UserGroupTagOutput struct{ *pulumi.OutputState }
 
@@ -3342,12 +2801,6 @@ func (o UserGroupTagOutput) ToUserGroupTagOutput() UserGroupTagOutput {
 
 func (o UserGroupTagOutput) ToUserGroupTagOutputWithContext(ctx context.Context) UserGroupTagOutput {
 	return o
-}
-
-func (o UserGroupTagOutput) ToOutput(ctx context.Context) pulumix.Output[UserGroupTag] {
-	return pulumix.Output[UserGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -3372,12 +2825,6 @@ func (o UserGroupTagArrayOutput) ToUserGroupTagArrayOutput() UserGroupTagArrayOu
 
 func (o UserGroupTagArrayOutput) ToUserGroupTagArrayOutputWithContext(ctx context.Context) UserGroupTagArrayOutput {
 	return o
-}
-
-func (o UserGroupTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UserGroupTag] {
-	return pulumix.Output[[]UserGroupTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserGroupTagArrayOutput) Index(i pulumi.IntInput) UserGroupTagOutput {
@@ -3425,12 +2872,6 @@ func (i UserTagArgs) ToUserTagOutputWithContext(ctx context.Context) UserTagOutp
 	return pulumi.ToOutputWithContext(ctx, i).(UserTagOutput)
 }
 
-func (i UserTagArgs) ToOutput(ctx context.Context) pulumix.Output[UserTag] {
-	return pulumix.Output[UserTag]{
-		OutputState: i.ToUserTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserTagArrayInput is an input type that accepts UserTagArray and UserTagArrayOutput values.
 // You can construct a concrete instance of `UserTagArrayInput` via:
 //
@@ -3456,12 +2897,6 @@ func (i UserTagArray) ToUserTagArrayOutputWithContext(ctx context.Context) UserT
 	return pulumi.ToOutputWithContext(ctx, i).(UserTagArrayOutput)
 }
 
-func (i UserTagArray) ToOutput(ctx context.Context) pulumix.Output[[]UserTag] {
-	return pulumix.Output[[]UserTag]{
-		OutputState: i.ToUserTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type UserTagOutput struct{ *pulumi.OutputState }
 
@@ -3475,12 +2910,6 @@ func (o UserTagOutput) ToUserTagOutput() UserTagOutput {
 
 func (o UserTagOutput) ToUserTagOutputWithContext(ctx context.Context) UserTagOutput {
 	return o
-}
-
-func (o UserTagOutput) ToOutput(ctx context.Context) pulumix.Output[UserTag] {
-	return pulumix.Output[UserTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with 'aws:'. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -3505,12 +2934,6 @@ func (o UserTagArrayOutput) ToUserTagArrayOutput() UserTagArrayOutput {
 
 func (o UserTagArrayOutput) ToUserTagArrayOutputWithContext(ctx context.Context) UserTagArrayOutput {
 	return o
-}
-
-func (o UserTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UserTag] {
-	return pulumix.Output[[]UserTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserTagArrayOutput) Index(i pulumi.IntInput) UserTagOutput {
