@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetRouteCalculatorResult',
@@ -18,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRouteCalculatorResult:
-    def __init__(__self__, arn=None, calculator_arn=None, create_time=None, update_time=None):
+    def __init__(__self__, arn=None, calculator_arn=None, create_time=None, description=None, pricing_plan=None, tags=None, update_time=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -28,6 +30,15 @@ class GetRouteCalculatorResult:
         if create_time and not isinstance(create_time, str):
             raise TypeError("Expected argument 'create_time' to be a str")
         pulumi.set(__self__, "create_time", create_time)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if pricing_plan and not isinstance(pricing_plan, str):
+            raise TypeError("Expected argument 'pricing_plan' to be a str")
+        pulumi.set(__self__, "pricing_plan", pricing_plan)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if update_time and not isinstance(update_time, str):
             raise TypeError("Expected argument 'update_time' to be a str")
         pulumi.set(__self__, "update_time", update_time)
@@ -48,6 +59,24 @@ class GetRouteCalculatorResult:
         return pulumi.get(self, "create_time")
 
     @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="pricingPlan")
+    def pricing_plan(self) -> Optional['RouteCalculatorPricingPlan']:
+        return pulumi.get(self, "pricing_plan")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.RouteCalculatorTag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> Optional[str]:
         return pulumi.get(self, "update_time")
@@ -62,6 +91,9 @@ class AwaitableGetRouteCalculatorResult(GetRouteCalculatorResult):
             arn=self.arn,
             calculator_arn=self.calculator_arn,
             create_time=self.create_time,
+            description=self.description,
+            pricing_plan=self.pricing_plan,
+            tags=self.tags,
             update_time=self.update_time)
 
 
@@ -79,6 +111,9 @@ def get_route_calculator(calculator_name: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         calculator_arn=pulumi.get(__ret__, 'calculator_arn'),
         create_time=pulumi.get(__ret__, 'create_time'),
+        description=pulumi.get(__ret__, 'description'),
+        pricing_plan=pulumi.get(__ret__, 'pricing_plan'),
+        tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
 
 

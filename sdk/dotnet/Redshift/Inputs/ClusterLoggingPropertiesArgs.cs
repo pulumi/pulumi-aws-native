@@ -12,8 +12,8 @@ namespace Pulumi.AwsNative.Redshift.Inputs
 
     public sealed class ClusterLoggingPropertiesArgs : global::Pulumi.ResourceArgs
     {
-        [Input("bucketName", required: true)]
-        public Input<string> BucketName { get; set; } = null!;
+        [Input("bucketName")]
+        public Input<string>? BucketName { get; set; }
 
         [Input("s3KeyPrefix")]
         public Input<string>? S3KeyPrefix { get; set; }

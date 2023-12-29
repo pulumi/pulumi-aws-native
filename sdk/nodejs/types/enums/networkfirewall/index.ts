@@ -118,3 +118,19 @@ export const RuleGroupTypeEnum = {
 } as const;
 
 export type RuleGroupTypeEnum = (typeof RuleGroupTypeEnum)[keyof typeof RuleGroupTypeEnum];
+
+export const TlsInspectionConfigurationRevokedStatusAction = {
+    Pass: "PASS",
+    Drop: "DROP",
+    Reject: "REJECT",
+} as const;
+
+export type TlsInspectionConfigurationRevokedStatusAction = (typeof TlsInspectionConfigurationRevokedStatusAction)[keyof typeof TlsInspectionConfigurationRevokedStatusAction];
+
+export const TlsInspectionConfigurationUnknownStatusAction = {
+    Pass: "PASS",
+    Drop: "DROP",
+    Reject: "REJECT",
+} as const;
+
+export type TlsInspectionConfigurationUnknownStatusAction = (typeof TlsInspectionConfigurationUnknownStatusAction)[keyof typeof TlsInspectionConfigurationUnknownStatusAction];

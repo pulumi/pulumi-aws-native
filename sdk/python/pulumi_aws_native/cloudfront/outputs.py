@@ -52,6 +52,7 @@ __all__ = [
     'DistributionTag',
     'DistributionViewerCertificate',
     'FunctionConfig',
+    'FunctionKeyValueStoreAssociation',
     'FunctionMetadata',
     'KeyGroupConfig',
     'KeyValueStoreImportSource',
@@ -2265,11 +2266,31 @@ class DistributionViewerCertificate(dict):
 
 @pulumi.output_type
 class FunctionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyValueStoreAssociations":
+            suggest = "key_value_store_associations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionConfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  comment: str,
-                 runtime: str):
+                 runtime: str,
+                 key_value_store_associations: Optional[Sequence['outputs.FunctionKeyValueStoreAssociation']] = None):
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "runtime", runtime)
+        if key_value_store_associations is not None:
+            pulumi.set(__self__, "key_value_store_associations", key_value_store_associations)
 
     @property
     @pulumi.getter
@@ -2280,6 +2301,40 @@ class FunctionConfig(dict):
     @pulumi.getter
     def runtime(self) -> str:
         return pulumi.get(self, "runtime")
+
+    @property
+    @pulumi.getter(name="keyValueStoreAssociations")
+    def key_value_store_associations(self) -> Optional[Sequence['outputs.FunctionKeyValueStoreAssociation']]:
+        return pulumi.get(self, "key_value_store_associations")
+
+
+@pulumi.output_type
+class FunctionKeyValueStoreAssociation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyValueStoreArn":
+            suggest = "key_value_store_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionKeyValueStoreAssociation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionKeyValueStoreAssociation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionKeyValueStoreAssociation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_value_store_arn: str):
+        pulumi.set(__self__, "key_value_store_arn", key_value_store_arn)
+
+    @property
+    @pulumi.getter(name="keyValueStoreArn")
+    def key_value_store_arn(self) -> str:
+        return pulumi.get(self, "key_value_store_arn")
 
 
 @pulumi.output_type

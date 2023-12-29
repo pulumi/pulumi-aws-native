@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<Inputs.InstanceEbsArgs>? Ebs { get; set; }
 
         [Input("noDevice")]
-        public Input<object>? NoDevice { get; set; }
+        public Input<Inputs.InstanceNoDeviceArgs>? NoDevice { get; set; }
 
         [Input("virtualName")]
         public Input<string>? VirtualName { get; set; }

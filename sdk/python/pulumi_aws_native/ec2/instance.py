@@ -672,7 +672,6 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["tenancy"] = tenancy
             __props__.__dict__["user_data"] = user_data
             __props__.__dict__["volumes"] = volumes
-            __props__.__dict__["instance_id"] = None
             __props__.__dict__["private_dns_name"] = None
             __props__.__dict__["private_ip"] = None
             __props__.__dict__["public_dns_name"] = None
@@ -717,7 +716,6 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["host_resource_group_arn"] = None
         __props__.__dict__["iam_instance_profile"] = None
         __props__.__dict__["image_id"] = None
-        __props__.__dict__["instance_id"] = None
         __props__.__dict__["instance_initiated_shutdown_behavior"] = None
         __props__.__dict__["instance_type"] = None
         __props__.__dict__["ipv6_address_count"] = None
@@ -827,11 +825,6 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="imageId")
     def image_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "image_id")
-
-    @property
-    @pulumi.getter(name="instanceId")
-    def instance_id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "instance_id")
 
     @property
     @pulumi.getter(name="instanceInitiatedShutdownBehavior")

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Connect
         /// The phone number country code.
         /// </summary>
         [Output("countryCode")]
-        public Output<string> CountryCode { get; private set; } = null!;
+        public Output<string?> CountryCode { get; private set; } = null!;
 
         /// <summary>
         /// The description of the phone number.
@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.Connect
         public Output<string?> Prefix { get; private set; } = null!;
 
         /// <summary>
+        /// The source phone number arn.
+        /// </summary>
+        [Output("sourcePhoneNumberArn")]
+        public Output<string?> SourcePhoneNumberArn { get; private set; } = null!;
+
+        /// <summary>
         /// One or more tags.
         /// </summary>
         [Output("tags")]
@@ -61,7 +67,7 @@ namespace Pulumi.AwsNative.Connect
         /// The phone number type
         /// </summary>
         [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -90,6 +96,7 @@ namespace Pulumi.AwsNative.Connect
                 {
                     "countryCode",
                     "prefix",
+                    "sourcePhoneNumberArn",
                     "type",
                 },
             };
@@ -117,8 +124,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The phone number country code.
         /// </summary>
-        [Input("countryCode", required: true)]
-        public Input<string> CountryCode { get; set; } = null!;
+        [Input("countryCode")]
+        public Input<string>? CountryCode { get; set; }
 
         /// <summary>
         /// The description of the phone number.
@@ -131,6 +138,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
+
+        /// <summary>
+        /// The source phone number arn.
+        /// </summary>
+        [Input("sourcePhoneNumberArn")]
+        public Input<string>? SourcePhoneNumberArn { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.PhoneNumberTagArgs>? _tags;
@@ -153,8 +166,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The phone number type
         /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public PhoneNumberArgs()
         {

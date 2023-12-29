@@ -45,6 +45,8 @@ type LookupClusterResult struct {
 	AvailabilityZoneRelocation *bool `pulumi:"availabilityZoneRelocation"`
 	// The availability zone relocation status of the cluster
 	AvailabilityZoneRelocationStatus *string `pulumi:"availabilityZoneRelocationStatus"`
+	// The Amazon Resource Name (ARN) of the cluster namespace.
+	ClusterNamespaceArn *string `pulumi:"clusterNamespaceArn"`
 	// The name of the parameter group to be associated with this cluster.
 	ClusterParameterGroupName *string `pulumi:"clusterParameterGroupName"`
 	// A list of security groups to be associated with this cluster.
@@ -53,10 +55,6 @@ type LookupClusterResult struct {
 	ClusterType *string `pulumi:"clusterType"`
 	// The version of the Amazon Redshift engine software that you want to deploy on the cluster.The version selected runs on all the nodes in the cluster.
 	ClusterVersion *string `pulumi:"clusterVersion"`
-	// A boolean indicating whether to enable the deferred maintenance window.
-	DeferMaintenance *bool `pulumi:"deferMaintenance"`
-	// An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
-	DeferMaintenanceDuration *int `pulumi:"deferMaintenanceDuration"`
 	// A timestamp indicating end time for the deferred maintenance window. If you specify an end time, you can't specify a duration.
 	DeferMaintenanceEndTime *string `pulumi:"deferMaintenanceEndTime"`
 	// A unique identifier for the deferred maintenance window.
@@ -82,7 +80,6 @@ type LookupClusterResult struct {
 	HsmConfigurationIdentifier *string `pulumi:"hsmConfigurationIdentifier"`
 	// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request
 	IamRoles []string `pulumi:"iamRoles"`
-	Id       *string  `pulumi:"id"`
 	// The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
 	KmsKeyId          *string                   `pulumi:"kmsKeyId"`
 	LoggingProperties *ClusterLoggingProperties `pulumi:"loggingProperties"`
@@ -92,8 +89,14 @@ type LookupClusterResult struct {
 	//
 	// The value must be either -1 or an integer between 1 and 3,653.
 	ManualSnapshotRetentionPeriod *int `pulumi:"manualSnapshotRetentionPeriod"`
+	// The Amazon Resource Name (ARN) for the cluster's admin user credentials secret.
+	MasterPasswordSecretArn *string `pulumi:"masterPasswordSecretArn"`
+	// The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin user credentials secret.
+	MasterPasswordSecretKmsKeyId *string `pulumi:"masterPasswordSecretKmsKeyId"`
 	// A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
 	MultiAz *bool `pulumi:"multiAz"`
+	// The namespace resource policy document that will be attached to a Redshift cluster.
+	NamespaceResourcePolicy interface{} `pulumi:"namespaceResourcePolicy"`
 	// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
 	NodeType *string `pulumi:"nodeType"`
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
@@ -202,6 +205,11 @@ func (o LookupClusterResultOutput) AvailabilityZoneRelocationStatus() pulumi.Str
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.AvailabilityZoneRelocationStatus }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the cluster namespace.
+func (o LookupClusterResultOutput) ClusterNamespaceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.ClusterNamespaceArn }).(pulumi.StringPtrOutput)
+}
+
 // The name of the parameter group to be associated with this cluster.
 func (o LookupClusterResultOutput) ClusterParameterGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.ClusterParameterGroupName }).(pulumi.StringPtrOutput)
@@ -220,16 +228,6 @@ func (o LookupClusterResultOutput) ClusterType() pulumi.StringPtrOutput {
 // The version of the Amazon Redshift engine software that you want to deploy on the cluster.The version selected runs on all the nodes in the cluster.
 func (o LookupClusterResultOutput) ClusterVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.ClusterVersion }).(pulumi.StringPtrOutput)
-}
-
-// A boolean indicating whether to enable the deferred maintenance window.
-func (o LookupClusterResultOutput) DeferMaintenance() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupClusterResult) *bool { return v.DeferMaintenance }).(pulumi.BoolPtrOutput)
-}
-
-// An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
-func (o LookupClusterResultOutput) DeferMaintenanceDuration() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v LookupClusterResult) *int { return v.DeferMaintenanceDuration }).(pulumi.IntPtrOutput)
 }
 
 // A timestamp indicating end time for the deferred maintenance window. If you specify an end time, you can't specify a duration.
@@ -290,10 +288,6 @@ func (o LookupClusterResultOutput) IamRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.IamRoles }).(pulumi.StringArrayOutput)
 }
 
-func (o LookupClusterResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupClusterResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
 // The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
 func (o LookupClusterResultOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
@@ -315,9 +309,24 @@ func (o LookupClusterResultOutput) ManualSnapshotRetentionPeriod() pulumi.IntPtr
 	return o.ApplyT(func(v LookupClusterResult) *int { return v.ManualSnapshotRetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for the cluster's admin user credentials secret.
+func (o LookupClusterResultOutput) MasterPasswordSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.MasterPasswordSecretArn }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin user credentials secret.
+func (o LookupClusterResultOutput) MasterPasswordSecretKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.MasterPasswordSecretKmsKeyId }).(pulumi.StringPtrOutput)
+}
+
 // A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
 func (o LookupClusterResultOutput) MultiAz() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *bool { return v.MultiAz }).(pulumi.BoolPtrOutput)
+}
+
+// The namespace resource policy document that will be attached to a Redshift cluster.
+func (o LookupClusterResultOutput) NamespaceResourcePolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupClusterResult) interface{} { return v.NamespaceResourcePolicy }).(pulumi.AnyOutput)
 }
 
 // The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge

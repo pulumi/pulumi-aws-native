@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         public readonly ImmutableArray<string> StatelessDefaultActions;
         public readonly ImmutableArray<string> StatelessFragmentDefaultActions;
         public readonly ImmutableArray<Outputs.FirewallPolicyStatelessRuleGroupReference> StatelessRuleGroupReferences;
+        public readonly string? TlsInspectionConfigurationArn;
 
         [OutputConstructor]
         private FirewallPolicy(
@@ -38,7 +39,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 
             ImmutableArray<string> statelessFragmentDefaultActions,
 
-            ImmutableArray<Outputs.FirewallPolicyStatelessRuleGroupReference> statelessRuleGroupReferences)
+            ImmutableArray<Outputs.FirewallPolicyStatelessRuleGroupReference> statelessRuleGroupReferences,
+
+            string? tlsInspectionConfigurationArn)
         {
             PolicyVariables = policyVariables;
             StatefulDefaultActions = statefulDefaultActions;
@@ -48,6 +51,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
             StatelessDefaultActions = statelessDefaultActions;
             StatelessFragmentDefaultActions = statelessFragmentDefaultActions;
             StatelessRuleGroupReferences = statelessRuleGroupReferences;
+            TlsInspectionConfigurationArn = tlsInspectionConfigurationArn;
         }
     }
 }

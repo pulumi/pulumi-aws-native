@@ -78,6 +78,10 @@ export class User extends pulumi.CustomResource {
      */
     public /*out*/ readonly userArn!: pulumi.Output<string>;
     /**
+     * One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
+     */
+    public readonly userProficiencies!: pulumi.Output<outputs.connect.UserProficiency[] | undefined>;
+    /**
      * The user name for the account.
      */
     public readonly username!: pulumi.Output<string>;
@@ -117,6 +121,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["routingProfileArn"] = args ? args.routingProfileArn : undefined;
             resourceInputs["securityProfileArns"] = args ? args.securityProfileArns : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userProficiencies"] = args ? args.userProficiencies : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
             resourceInputs["userArn"] = undefined /*out*/;
         } else {
@@ -130,6 +135,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["securityProfileArns"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["userArn"] = undefined /*out*/;
+            resourceInputs["userProficiencies"] = undefined /*out*/;
             resourceInputs["username"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -177,6 +183,10 @@ export interface UserArgs {
      * One or more tags.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.connect.UserTagArgs>[]>;
+    /**
+     * One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
+     */
+    userProficiencies?: pulumi.Input<pulumi.Input<inputs.connect.UserProficiencyArgs>[]>;
     /**
      * The user name for the account.
      */

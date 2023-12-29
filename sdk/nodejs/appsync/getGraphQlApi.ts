@@ -32,14 +32,17 @@ export interface GetGraphQlApiResult {
     readonly graphQlEndpointArn?: string;
     readonly graphQlUrl?: string;
     readonly id?: string;
+    readonly introspectionConfig?: string;
     readonly lambdaAuthorizerConfig?: outputs.appsync.GraphQlApiLambdaAuthorizerConfig;
     readonly logConfig?: outputs.appsync.GraphQlApiLogConfig;
     readonly mergedApiExecutionRoleArn?: string;
     readonly name?: string;
     readonly openIdConnectConfig?: outputs.appsync.GraphQlApiOpenIdConnectConfig;
     readonly ownerContact?: string;
+    readonly queryDepthLimit?: number;
     readonly realtimeDns?: string;
     readonly realtimeUrl?: string;
+    readonly resolverCountLimit?: number;
     readonly tags?: outputs.appsync.GraphQlApiTag[];
     readonly userPoolConfig?: outputs.appsync.GraphQlApiUserPoolConfig;
     readonly visibility?: string;

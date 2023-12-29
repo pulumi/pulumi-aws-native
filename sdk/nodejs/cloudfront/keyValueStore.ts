@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::CloudFront::KeyValueStore
- *
- * @deprecated KeyValueStore is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.
  */
 export class KeyValueStore extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class KeyValueStore extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): KeyValueStore {
-        pulumi.log.warn("KeyValueStore is deprecated: KeyValueStore is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         return new KeyValueStore(name, undefined as any, { ...opts, id: id });
     }
 
@@ -53,9 +50,7 @@ export class KeyValueStore extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated KeyValueStore is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible. */
     constructor(name: string, args?: KeyValueStoreArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("KeyValueStore is deprecated: KeyValueStore is not yet supported by AWS Native, so its creation will currently fail. Please use the classic AWS provider, if possible.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

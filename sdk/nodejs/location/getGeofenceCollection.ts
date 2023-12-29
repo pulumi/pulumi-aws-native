@@ -26,8 +26,13 @@ export interface GetGeofenceCollectionResult {
     readonly arn?: string;
     readonly collectionArn?: string;
     readonly createTime?: string;
+    readonly description?: string;
     readonly pricingPlan?: enums.location.GeofenceCollectionPricingPlan;
     readonly pricingPlanDataSource?: string;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    readonly tags?: outputs.location.GeofenceCollectionTag[];
     readonly updateTime?: string;
 }
 /**

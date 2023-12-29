@@ -20,6 +20,11 @@ export type Crawler = import("./crawler").Crawler;
 export const Crawler: typeof import("./crawler").Crawler = null as any;
 utilities.lazyLoad(exports, ["Crawler"], () => require("./crawler"));
 
+export { CustomEntityTypeArgs } from "./customEntityType";
+export type CustomEntityType = import("./customEntityType").CustomEntityType;
+export const CustomEntityType: typeof import("./customEntityType").CustomEntityType = null as any;
+utilities.lazyLoad(exports, ["CustomEntityType"], () => require("./customEntityType"));
+
 export { DataCatalogEncryptionSettingsArgs } from "./dataCatalogEncryptionSettings";
 export type DataCatalogEncryptionSettings = import("./dataCatalogEncryptionSettings").DataCatalogEncryptionSettings;
 export const DataCatalogEncryptionSettings: typeof import("./dataCatalogEncryptionSettings").DataCatalogEncryptionSettings = null as any;
@@ -54,6 +59,11 @@ export { GetCrawlerArgs, GetCrawlerResult, GetCrawlerOutputArgs } from "./getCra
 export const getCrawler: typeof import("./getCrawler").getCrawler = null as any;
 export const getCrawlerOutput: typeof import("./getCrawler").getCrawlerOutput = null as any;
 utilities.lazyLoad(exports, ["getCrawler","getCrawlerOutput"], () => require("./getCrawler"));
+
+export { GetCustomEntityTypeArgs, GetCustomEntityTypeResult, GetCustomEntityTypeOutputArgs } from "./getCustomEntityType";
+export const getCustomEntityType: typeof import("./getCustomEntityType").getCustomEntityType = null as any;
+export const getCustomEntityTypeOutput: typeof import("./getCustomEntityType").getCustomEntityTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomEntityType","getCustomEntityTypeOutput"], () => require("./getCustomEntityType"));
 
 export { GetDataCatalogEncryptionSettingsArgs, GetDataCatalogEncryptionSettingsResult, GetDataCatalogEncryptionSettingsOutputArgs } from "./getDataCatalogEncryptionSettings";
 export const getDataCatalogEncryptionSettings: typeof import("./getDataCatalogEncryptionSettings").getDataCatalogEncryptionSettings = null as any;
@@ -194,6 +204,8 @@ const _module = {
                 return new Connection(name, <any>undefined, { urn })
             case "aws-native:glue:Crawler":
                 return new Crawler(name, <any>undefined, { urn })
+            case "aws-native:glue:CustomEntityType":
+                return new CustomEntityType(name, <any>undefined, { urn })
             case "aws-native:glue:DataCatalogEncryptionSettings":
                 return new DataCatalogEncryptionSettings(name, <any>undefined, { urn })
             case "aws-native:glue:DataQualityRuleset":

@@ -53,7 +53,14 @@ namespace Pulumi.AwsNative.Location
     {
         public readonly string? Arn;
         public readonly string? CreateTime;
+        public readonly Outputs.PlaceIndexDataSourceConfiguration? DataSourceConfiguration;
+        public readonly string? Description;
         public readonly string? IndexArn;
+        public readonly Pulumi.AwsNative.Location.PlaceIndexPricingPlan? PricingPlan;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PlaceIndexTag> Tags;
         public readonly string? UpdateTime;
 
         [OutputConstructor]
@@ -62,13 +69,25 @@ namespace Pulumi.AwsNative.Location
 
             string? createTime,
 
+            Outputs.PlaceIndexDataSourceConfiguration? dataSourceConfiguration,
+
+            string? description,
+
             string? indexArn,
+
+            Pulumi.AwsNative.Location.PlaceIndexPricingPlan? pricingPlan,
+
+            ImmutableArray<Outputs.PlaceIndexTag> tags,
 
             string? updateTime)
         {
             Arn = arn;
             CreateTime = createTime;
+            DataSourceConfiguration = dataSourceConfiguration;
+            Description = description;
             IndexArn = indexArn;
+            PricingPlan = pricingPlan;
+            Tags = tags;
             UpdateTime = updateTime;
         }
     }

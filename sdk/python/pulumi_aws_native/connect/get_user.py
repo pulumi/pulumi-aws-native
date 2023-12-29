@@ -20,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserResult:
-    def __init__(__self__, directory_user_id=None, hierarchy_group_arn=None, identity_info=None, instance_arn=None, phone_config=None, routing_profile_arn=None, security_profile_arns=None, tags=None, user_arn=None, username=None):
+    def __init__(__self__, directory_user_id=None, hierarchy_group_arn=None, identity_info=None, instance_arn=None, phone_config=None, routing_profile_arn=None, security_profile_arns=None, tags=None, user_arn=None, user_proficiencies=None, username=None):
         if directory_user_id and not isinstance(directory_user_id, str):
             raise TypeError("Expected argument 'directory_user_id' to be a str")
         pulumi.set(__self__, "directory_user_id", directory_user_id)
@@ -48,6 +48,9 @@ class GetUserResult:
         if user_arn and not isinstance(user_arn, str):
             raise TypeError("Expected argument 'user_arn' to be a str")
         pulumi.set(__self__, "user_arn", user_arn)
+        if user_proficiencies and not isinstance(user_proficiencies, list):
+            raise TypeError("Expected argument 'user_proficiencies' to be a list")
+        pulumi.set(__self__, "user_proficiencies", user_proficiencies)
         if username and not isinstance(username, str):
             raise TypeError("Expected argument 'username' to be a str")
         pulumi.set(__self__, "username", username)
@@ -125,6 +128,14 @@ class GetUserResult:
         return pulumi.get(self, "user_arn")
 
     @property
+    @pulumi.getter(name="userProficiencies")
+    def user_proficiencies(self) -> Optional[Sequence['outputs.UserProficiency']]:
+        """
+        One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
+        """
+        return pulumi.get(self, "user_proficiencies")
+
+    @property
     @pulumi.getter
     def username(self) -> Optional[str]:
         """
@@ -148,6 +159,7 @@ class AwaitableGetUserResult(GetUserResult):
             security_profile_arns=self.security_profile_arns,
             tags=self.tags,
             user_arn=self.user_arn,
+            user_proficiencies=self.user_proficiencies,
             username=self.username)
 
 
@@ -174,6 +186,7 @@ def get_user(user_arn: Optional[str] = None,
         security_profile_arns=pulumi.get(__ret__, 'security_profile_arns'),
         tags=pulumi.get(__ret__, 'tags'),
         user_arn=pulumi.get(__ret__, 'user_arn'),
+        user_proficiencies=pulumi.get(__ret__, 'user_proficiencies'),
         username=pulumi.get(__ret__, 'username'))
 
 

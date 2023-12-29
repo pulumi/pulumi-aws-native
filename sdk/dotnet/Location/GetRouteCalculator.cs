@@ -54,6 +54,12 @@ namespace Pulumi.AwsNative.Location
         public readonly string? Arn;
         public readonly string? CalculatorArn;
         public readonly string? CreateTime;
+        public readonly string? Description;
+        public readonly Pulumi.AwsNative.Location.RouteCalculatorPricingPlan? PricingPlan;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RouteCalculatorTag> Tags;
         public readonly string? UpdateTime;
 
         [OutputConstructor]
@@ -64,11 +70,20 @@ namespace Pulumi.AwsNative.Location
 
             string? createTime,
 
+            string? description,
+
+            Pulumi.AwsNative.Location.RouteCalculatorPricingPlan? pricingPlan,
+
+            ImmutableArray<Outputs.RouteCalculatorTag> tags,
+
             string? updateTime)
         {
             Arn = arn;
             CalculatorArn = calculatorArn;
             CreateTime = createTime;
+            Description = description;
+            PricingPlan = pricingPlan;
+            Tags = tags;
             UpdateTime = updateTime;
         }
     }

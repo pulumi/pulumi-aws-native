@@ -74,6 +74,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly clusterIdentifier!: pulumi.Output<string | undefined>;
     /**
+     * The Amazon Resource Name (ARN) of the cluster namespace.
+     */
+    public /*out*/ readonly clusterNamespaceArn!: pulumi.Output<string>;
+    /**
      * The name of the parameter group to be associated with this cluster.
      */
     public readonly clusterParameterGroupName!: pulumi.Output<string | undefined>;
@@ -160,15 +164,27 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly maintenanceTrackName!: pulumi.Output<string | undefined>;
     /**
+     * A boolean indicating if the redshift cluster's admin user credentials is managed by Redshift or not. You can't use MasterUserPassword if ManageMasterPassword is true. If ManageMasterPassword is false or not set, Amazon Redshift uses MasterUserPassword for the admin user account's password.
+     */
+    public readonly manageMasterPassword!: pulumi.Output<boolean | undefined>;
+    /**
      * The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
      *
      * The value must be either -1 or an integer between 1 and 3,653.
      */
     public readonly manualSnapshotRetentionPeriod!: pulumi.Output<number | undefined>;
     /**
-     * The password associated with the master user account for the cluster that is being created. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
+     * The Amazon Resource Name (ARN) for the cluster's admin user credentials secret.
      */
-    public readonly masterUserPassword!: pulumi.Output<string>;
+    public /*out*/ readonly masterPasswordSecretArn!: pulumi.Output<string>;
+    /**
+     * The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin user credentials secret.
+     */
+    public readonly masterPasswordSecretKmsKeyId!: pulumi.Output<string | undefined>;
+    /**
+     * The password associated with the master user account for the cluster that is being created. You can't use MasterUserPassword if ManageMasterPassword is true. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
+     */
+    public readonly masterUserPassword!: pulumi.Output<string | undefined>;
     /**
      * The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.
      */
@@ -177,6 +193,10 @@ export class Cluster extends pulumi.CustomResource {
      * A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
      */
     public readonly multiAz!: pulumi.Output<boolean | undefined>;
+    /**
+     * The namespace resource policy document that will be attached to a Redshift cluster.
+     */
+    public readonly namespaceResourcePolicy!: pulumi.Output<any | undefined>;
     /**
      * The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
      */
@@ -260,9 +280,6 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.dbName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dbName'");
             }
-            if ((!args || args.masterUserPassword === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'masterUserPassword'");
-            }
             if ((!args || args.masterUsername === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'masterUsername'");
             }
@@ -298,10 +315,13 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["loggingProperties"] = args ? args.loggingProperties : undefined;
             resourceInputs["maintenanceTrackName"] = args ? args.maintenanceTrackName : undefined;
+            resourceInputs["manageMasterPassword"] = args ? args.manageMasterPassword : undefined;
             resourceInputs["manualSnapshotRetentionPeriod"] = args ? args.manualSnapshotRetentionPeriod : undefined;
+            resourceInputs["masterPasswordSecretKmsKeyId"] = args ? args.masterPasswordSecretKmsKeyId : undefined;
             resourceInputs["masterUserPassword"] = args ? args.masterUserPassword : undefined;
             resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
             resourceInputs["multiAz"] = args ? args.multiAz : undefined;
+            resourceInputs["namespaceResourcePolicy"] = args ? args.namespaceResourcePolicy : undefined;
             resourceInputs["nodeType"] = args ? args.nodeType : undefined;
             resourceInputs["numberOfNodes"] = args ? args.numberOfNodes : undefined;
             resourceInputs["ownerAccount"] = args ? args.ownerAccount : undefined;
@@ -318,7 +338,9 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
+            resourceInputs["clusterNamespaceArn"] = undefined /*out*/;
             resourceInputs["deferMaintenanceIdentifier"] = undefined /*out*/;
+            resourceInputs["masterPasswordSecretArn"] = undefined /*out*/;
         } else {
             resourceInputs["allowVersionUpgrade"] = undefined /*out*/;
             resourceInputs["aquaConfigurationStatus"] = undefined /*out*/;
@@ -328,6 +350,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["availabilityZoneRelocationStatus"] = undefined /*out*/;
             resourceInputs["classic"] = undefined /*out*/;
             resourceInputs["clusterIdentifier"] = undefined /*out*/;
+            resourceInputs["clusterNamespaceArn"] = undefined /*out*/;
             resourceInputs["clusterParameterGroupName"] = undefined /*out*/;
             resourceInputs["clusterSecurityGroups"] = undefined /*out*/;
             resourceInputs["clusterSubnetGroupName"] = undefined /*out*/;
@@ -350,10 +373,14 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["loggingProperties"] = undefined /*out*/;
             resourceInputs["maintenanceTrackName"] = undefined /*out*/;
+            resourceInputs["manageMasterPassword"] = undefined /*out*/;
             resourceInputs["manualSnapshotRetentionPeriod"] = undefined /*out*/;
+            resourceInputs["masterPasswordSecretArn"] = undefined /*out*/;
+            resourceInputs["masterPasswordSecretKmsKeyId"] = undefined /*out*/;
             resourceInputs["masterUserPassword"] = undefined /*out*/;
             resourceInputs["masterUsername"] = undefined /*out*/;
             resourceInputs["multiAz"] = undefined /*out*/;
+            resourceInputs["namespaceResourcePolicy"] = undefined /*out*/;
             resourceInputs["nodeType"] = undefined /*out*/;
             resourceInputs["numberOfNodes"] = undefined /*out*/;
             resourceInputs["ownerAccount"] = undefined /*out*/;
@@ -501,15 +528,23 @@ export interface ClusterArgs {
      */
     maintenanceTrackName?: pulumi.Input<string>;
     /**
+     * A boolean indicating if the redshift cluster's admin user credentials is managed by Redshift or not. You can't use MasterUserPassword if ManageMasterPassword is true. If ManageMasterPassword is false or not set, Amazon Redshift uses MasterUserPassword for the admin user account's password.
+     */
+    manageMasterPassword?: pulumi.Input<boolean>;
+    /**
      * The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
      *
      * The value must be either -1 or an integer between 1 and 3,653.
      */
     manualSnapshotRetentionPeriod?: pulumi.Input<number>;
     /**
-     * The password associated with the master user account for the cluster that is being created. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
+     * The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin user credentials secret.
      */
-    masterUserPassword: pulumi.Input<string>;
+    masterPasswordSecretKmsKeyId?: pulumi.Input<string>;
+    /**
+     * The password associated with the master user account for the cluster that is being created. You can't use MasterUserPassword if ManageMasterPassword is true. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
+     */
+    masterUserPassword?: pulumi.Input<string>;
     /**
      * The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.
      */
@@ -518,6 +553,10 @@ export interface ClusterArgs {
      * A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
      */
     multiAz?: pulumi.Input<boolean>;
+    /**
+     * The namespace resource policy document that will be attached to a Redshift cluster.
+     */
+    namespaceResourcePolicy?: any;
     /**
      * The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
      */

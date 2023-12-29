@@ -7159,7 +7159,12 @@ export namespace cloudfront {
 
     export interface FunctionConfigArgs {
         comment: pulumi.Input<string>;
+        keyValueStoreAssociations?: pulumi.Input<pulumi.Input<inputs.cloudfront.FunctionKeyValueStoreAssociationArgs>[]>;
         runtime: pulumi.Input<string>;
+    }
+
+    export interface FunctionKeyValueStoreAssociationArgs {
+        keyValueStoreArn: pulumi.Input<string>;
     }
 
     export interface FunctionMetadataArgs {
@@ -9826,6 +9831,15 @@ export namespace connect {
     }
 
     /**
+     * Proficiency of a user.
+     */
+    export interface UserProficiencyArgs {
+        attributeName: pulumi.Input<string>;
+        attributeValue: pulumi.Input<string>;
+        level: pulumi.Input<number>;
+    }
+
+    /**
      * A key-value pair to associate with a resource.
      */
     export interface UserTagArgs {
@@ -9837,6 +9851,13 @@ export namespace connect {
          * The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
         value: pulumi.Input<string>;
+    }
+
+    /**
+     * The values of a predefined attribute.
+     */
+    export interface ValuesPropertiesArgs {
+        stringList?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     /**
@@ -12910,7 +12931,7 @@ export namespace ec2 {
     export interface InstanceBlockDeviceMappingArgs {
         deviceName: pulumi.Input<string>;
         ebs?: pulumi.Input<inputs.ec2.InstanceEbsArgs>;
-        noDevice?: any;
+        noDevice?: pulumi.Input<inputs.ec2.InstanceNoDeviceArgs>;
         virtualName?: pulumi.Input<string>;
     }
 
@@ -12986,6 +13007,9 @@ export namespace ec2 {
         privateIpAddresses?: pulumi.Input<pulumi.Input<inputs.ec2.InstancePrivateIpAddressSpecificationArgs>[]>;
         secondaryPrivateIpAddressCount?: pulumi.Input<number>;
         subnetId?: pulumi.Input<string>;
+    }
+
+    export interface InstanceNoDeviceArgs {
     }
 
     export interface InstancePrivateDnsNameOptionsArgs {
@@ -17068,6 +17092,29 @@ export namespace emrserverless {
         idleTimeoutMinutes?: pulumi.Input<number>;
     }
 
+    export interface ApplicationCloudWatchLoggingConfigurationArgs {
+        /**
+         * If set to false, CloudWatch logging will be turned off. Defaults to false.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * KMS key ARN to encrypt the logs stored in given CloudWatch log-group.
+         */
+        encryptionKeyArn?: pulumi.Input<string>;
+        /**
+         * Log-group name to produce log-streams on CloudWatch. If undefined, logs will be produced in a default log-group /aws/emr-serverless
+         */
+        logGroupName?: pulumi.Input<string>;
+        /**
+         * Log-stream name prefix by which log-stream names will start in the CloudWatch Log-group.
+         */
+        logStreamNamePrefix?: pulumi.Input<string>;
+        /**
+         * The specific log-streams which need to be uploaded to CloudWatch.
+         */
+        logTypeMap?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationLogTypeMapKeyValuePairArgs>[]>;
+    }
+
     /**
      * Configuration for a JobRun.
      */
@@ -17106,6 +17153,11 @@ export namespace emrserverless {
         value: pulumi.Input<inputs.emrserverless.ApplicationInitialCapacityConfigArgs>;
     }
 
+    export interface ApplicationLogTypeMapKeyValuePairArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface ApplicationManagedPersistenceMonitoringConfigurationArgs {
         /**
          * If set to false, managed logging will be turned off. Defaults to true.
@@ -17136,6 +17188,10 @@ export namespace emrserverless {
      * Monitoring configuration for batch and interactive JobRun.
      */
     export interface ApplicationMonitoringConfigurationArgs {
+        /**
+         * CloudWatch logging configurations for a JobRun.
+         */
+        cloudWatchLoggingConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationCloudWatchLoggingConfigurationArgs>;
         /**
          * Managed log persistence configurations for a JobRun.
          */
@@ -17430,6 +17486,10 @@ export namespace events {
         value: pulumi.Input<string>;
     }
 
+    export interface RuleAppSyncParametersArgs {
+        graphQlOperation: pulumi.Input<string>;
+    }
+
     export interface RuleAwsVpcConfigurationArgs {
         assignPublicIp?: pulumi.Input<string>;
         securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
@@ -17550,6 +17610,7 @@ export namespace events {
     }
 
     export interface RuleTargetArgs {
+        appSyncParameters?: pulumi.Input<inputs.events.RuleAppSyncParametersArgs>;
         arn: pulumi.Input<string>;
         batchParameters?: pulumi.Input<inputs.events.RuleBatchParametersArgs>;
         deadLetterConfig?: pulumi.Input<inputs.events.RuleDeadLetterConfigArgs>;
@@ -19005,6 +19066,10 @@ export namespace globalaccelerator {
      * The configuration for a given endpoint
      */
     export interface EndpointGroupEndpointConfigurationArgs {
+        /**
+         * Attachment ARN that provides access control to the cross account endpoint. Not required for resources hosted in the same account as the endpoint group.
+         */
+        attachmentArn?: pulumi.Input<string>;
         /**
          * true if client ip should be preserved
          */
@@ -26197,7 +26262,13 @@ export namespace kinesisfirehose {
         parquetSerDe?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamParquetSerDeArgs>;
     }
 
+    export interface DeliveryStreamSplunkBufferingHintsArgs {
+        intervalInSeconds?: pulumi.Input<number>;
+        sizeInMbs?: pulumi.Input<number>;
+    }
+
     export interface DeliveryStreamSplunkDestinationConfigurationArgs {
+        bufferingHints?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamSplunkBufferingHintsArgs>;
         cloudWatchLoggingOptions?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptionsArgs>;
         hecAcknowledgmentTimeoutInSeconds?: pulumi.Input<number>;
         hecEndpoint: pulumi.Input<string>;
@@ -28784,12 +28855,103 @@ export namespace lightsail {
 }
 
 export namespace location {
+    export interface ApiKeyRestrictionsArgs {
+        allowActions: pulumi.Input<pulumi.Input<string>[]>;
+        allowReferers?: pulumi.Input<pulumi.Input<string>[]>;
+        allowResources: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ApiKeyTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface GeofenceCollectionTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
     export interface MapConfigurationArgs {
+        politicalView?: pulumi.Input<string>;
         style: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface MapTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
     }
 
     export interface PlaceIndexDataSourceConfigurationArgs {
         intendedUse?: pulumi.Input<enums.location.PlaceIndexIntendedUse>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface PlaceIndexTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface RouteCalculatorTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface TrackerTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: pulumi.Input<string>;
     }
 }
 
@@ -32811,6 +32973,32 @@ export namespace neptune {
     }
 }
 
+export namespace neptunegraph {
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface GraphTagArgs {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    /**
+     * The vector search configuration.
+     */
+    export interface GraphVectorSearchConfigurationArgs {
+        /**
+         * The vector search dimension
+         */
+        vectorSearchDimension: pulumi.Input<number>;
+    }
+}
+
 export namespace networkfirewall {
     export interface FirewallPolicyArgs {
         policyVariables?: pulumi.Input<inputs.networkfirewall.FirewallPolicyPolicyVariablesPropertiesArgs>;
@@ -32821,6 +33009,7 @@ export namespace networkfirewall {
         statelessDefaultActions: pulumi.Input<pulumi.Input<string>[]>;
         statelessFragmentDefaultActions: pulumi.Input<pulumi.Input<string>[]>;
         statelessRuleGroupReferences?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallPolicyStatelessRuleGroupReferenceArgs>[]>;
+        tlsInspectionConfigurationArn?: pulumi.Input<string>;
     }
 
     export interface FirewallPolicyActionDefinitionArgs {
@@ -33012,6 +33201,48 @@ export namespace networkfirewall {
     export interface RuleGroupTcpFlagFieldArgs {
         flags: pulumi.Input<pulumi.Input<enums.networkfirewall.RuleGroupTcpFlag>[]>;
         masks?: pulumi.Input<pulumi.Input<enums.networkfirewall.RuleGroupTcpFlag>[]>;
+    }
+
+    export interface TlsInspectionConfigurationAddressArgs {
+        addressDefinition: pulumi.Input<string>;
+    }
+
+    export interface TlsInspectionConfigurationPortRangeArgs {
+        fromPort: pulumi.Input<number>;
+        toPort: pulumi.Input<number>;
+    }
+
+    export interface TlsInspectionConfigurationServerCertificateArgs {
+        resourceArn?: pulumi.Input<string>;
+    }
+
+    export interface TlsInspectionConfigurationServerCertificateConfigurationArgs {
+        certificateAuthorityArn?: pulumi.Input<string>;
+        checkCertificateRevocationStatus?: pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs>;
+        scopes?: pulumi.Input<pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationServerCertificateScopeArgs>[]>;
+        serverCertificates?: pulumi.Input<pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationServerCertificateArgs>[]>;
+    }
+
+    export interface TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs {
+        revokedStatusAction?: pulumi.Input<enums.networkfirewall.TlsInspectionConfigurationRevokedStatusAction>;
+        unknownStatusAction?: pulumi.Input<enums.networkfirewall.TlsInspectionConfigurationUnknownStatusAction>;
+    }
+
+    export interface TlsInspectionConfigurationServerCertificateScopeArgs {
+        destinationPorts?: pulumi.Input<pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationPortRangeArgs>[]>;
+        destinations?: pulumi.Input<pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationAddressArgs>[]>;
+        protocols?: pulumi.Input<pulumi.Input<number>[]>;
+        sourcePorts?: pulumi.Input<pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationPortRangeArgs>[]>;
+        sources?: pulumi.Input<pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationAddressArgs>[]>;
+    }
+
+    export interface TlsInspectionConfigurationTagArgs {
+        key: pulumi.Input<string>;
+        value: pulumi.Input<string>;
+    }
+
+    export interface TlsInspectionConfigurationTlsInspectionConfigurationArgs {
+        serverCertificateConfigurations?: pulumi.Input<pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationServerCertificateConfigurationArgs>[]>;
     }
 }
 
@@ -46137,7 +46368,7 @@ export namespace redshift {
     }
 
     export interface ClusterLoggingPropertiesArgs {
-        bucketName: pulumi.Input<string>;
+        bucketName?: pulumi.Input<string>;
         s3KeyPrefix?: pulumi.Input<string>;
     }
 

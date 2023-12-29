@@ -149,6 +149,8 @@ func (o AcceleratorTagArrayOutput) Index(i pulumi.IntInput) AcceleratorTagOutput
 
 // The configuration for a given endpoint
 type EndpointGroupEndpointConfiguration struct {
+	// Attachment ARN that provides access control to the cross account endpoint. Not required for resources hosted in the same account as the endpoint group.
+	AttachmentArn *string `pulumi:"attachmentArn"`
 	// true if client ip should be preserved
 	ClientIpPreservationEnabled *bool `pulumi:"clientIpPreservationEnabled"`
 	// Id of the endpoint. For Network/Application Load Balancer this value is the ARN.  For EIP, this value is the allocation ID.  For EC2 instances, this is the EC2 instance ID
@@ -170,6 +172,8 @@ type EndpointGroupEndpointConfigurationInput interface {
 
 // The configuration for a given endpoint
 type EndpointGroupEndpointConfigurationArgs struct {
+	// Attachment ARN that provides access control to the cross account endpoint. Not required for resources hosted in the same account as the endpoint group.
+	AttachmentArn pulumi.StringPtrInput `pulumi:"attachmentArn"`
 	// true if client ip should be preserved
 	ClientIpPreservationEnabled pulumi.BoolPtrInput `pulumi:"clientIpPreservationEnabled"`
 	// Id of the endpoint. For Network/Application Load Balancer this value is the ARN.  For EIP, this value is the allocation ID.  For EC2 instances, this is the EC2 instance ID
@@ -246,6 +250,11 @@ func (o EndpointGroupEndpointConfigurationOutput) ToOutput(ctx context.Context) 
 	return pulumix.Output[EndpointGroupEndpointConfiguration]{
 		OutputState: o.OutputState,
 	}
+}
+
+// Attachment ARN that provides access control to the cross account endpoint. Not required for resources hosted in the same account as the endpoint group.
+func (o EndpointGroupEndpointConfigurationOutput) AttachmentArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointGroupEndpointConfiguration) *string { return v.AttachmentArn }).(pulumi.StringPtrOutput)
 }
 
 // true if client ip should be preserved

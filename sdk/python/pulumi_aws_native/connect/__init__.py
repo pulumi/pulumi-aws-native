@@ -18,6 +18,7 @@ from .get_instance import *
 from .get_instance_storage_config import *
 from .get_integration_association import *
 from .get_phone_number import *
+from .get_predefined_attribute import *
 from .get_prompt import *
 from .get_queue import *
 from .get_quick_connect import *
@@ -36,6 +37,7 @@ from .instance import *
 from .instance_storage_config import *
 from .integration_association import *
 from .phone_number import *
+from .predefined_attribute import *
 from .prompt import *
 from .queue import *
 from .quick_connect import *

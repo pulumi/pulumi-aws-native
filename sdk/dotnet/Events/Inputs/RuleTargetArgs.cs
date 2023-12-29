@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Events.Inputs
 
     public sealed class RuleTargetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("appSyncParameters")]
+        public Input<Inputs.RuleAppSyncParametersArgs>? AppSyncParameters { get; set; }
+
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 

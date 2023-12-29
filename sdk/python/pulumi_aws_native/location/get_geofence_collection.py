@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
@@ -19,7 +20,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGeofenceCollectionResult:
-    def __init__(__self__, arn=None, collection_arn=None, create_time=None, pricing_plan=None, pricing_plan_data_source=None, update_time=None):
+    def __init__(__self__, arn=None, collection_arn=None, create_time=None, description=None, pricing_plan=None, pricing_plan_data_source=None, tags=None, update_time=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -29,12 +30,18 @@ class GetGeofenceCollectionResult:
         if create_time and not isinstance(create_time, str):
             raise TypeError("Expected argument 'create_time' to be a str")
         pulumi.set(__self__, "create_time", create_time)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
         if pricing_plan and not isinstance(pricing_plan, str):
             raise TypeError("Expected argument 'pricing_plan' to be a str")
         pulumi.set(__self__, "pricing_plan", pricing_plan)
         if pricing_plan_data_source and not isinstance(pricing_plan_data_source, str):
             raise TypeError("Expected argument 'pricing_plan_data_source' to be a str")
         pulumi.set(__self__, "pricing_plan_data_source", pricing_plan_data_source)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if update_time and not isinstance(update_time, str):
             raise TypeError("Expected argument 'update_time' to be a str")
         pulumi.set(__self__, "update_time", update_time)
@@ -55,6 +62,11 @@ class GetGeofenceCollectionResult:
         return pulumi.get(self, "create_time")
 
     @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> Optional['GeofenceCollectionPricingPlan']:
         return pulumi.get(self, "pricing_plan")
@@ -63,6 +75,14 @@ class GetGeofenceCollectionResult:
     @pulumi.getter(name="pricingPlanDataSource")
     def pricing_plan_data_source(self) -> Optional[str]:
         return pulumi.get(self, "pricing_plan_data_source")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.GeofenceCollectionTag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updateTime")
@@ -79,8 +99,10 @@ class AwaitableGetGeofenceCollectionResult(GetGeofenceCollectionResult):
             arn=self.arn,
             collection_arn=self.collection_arn,
             create_time=self.create_time,
+            description=self.description,
             pricing_plan=self.pricing_plan,
             pricing_plan_data_source=self.pricing_plan_data_source,
+            tags=self.tags,
             update_time=self.update_time)
 
 
@@ -98,8 +120,10 @@ def get_geofence_collection(collection_name: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         collection_arn=pulumi.get(__ret__, 'collection_arn'),
         create_time=pulumi.get(__ret__, 'create_time'),
+        description=pulumi.get(__ret__, 'description'),
         pricing_plan=pulumi.get(__ret__, 'pricing_plan'),
         pricing_plan_data_source=pulumi.get(__ret__, 'pricing_plan_data_source'),
+        tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
 
 

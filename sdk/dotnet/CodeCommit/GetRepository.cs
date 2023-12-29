@@ -56,6 +56,7 @@ namespace Pulumi.AwsNative.CodeCommit
         public readonly string? CloneUrlSsh;
         public readonly Outputs.RepositoryCode? Code;
         public readonly string? Id;
+        public readonly string? KmsKeyId;
         public readonly string? Name;
         public readonly string? RepositoryDescription;
         public readonly string? RepositoryName;
@@ -74,6 +75,8 @@ namespace Pulumi.AwsNative.CodeCommit
 
             string? id,
 
+            string? kmsKeyId,
+
             string? name,
 
             string? repositoryDescription,
@@ -89,6 +92,7 @@ namespace Pulumi.AwsNative.CodeCommit
             CloneUrlSsh = cloneUrlSsh;
             Code = code;
             Id = id;
+            KmsKeyId = kmsKeyId;
             Name = name;
             RepositoryDescription = repositoryDescription;
             RepositoryName = repositoryName;

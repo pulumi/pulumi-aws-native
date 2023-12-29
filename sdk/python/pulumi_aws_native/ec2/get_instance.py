@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetInstanceResult:
-    def __init__(__self__, additional_info=None, affinity=None, block_device_mappings=None, credit_specification=None, disable_api_termination=None, ebs_optimized=None, host_id=None, iam_instance_profile=None, instance_id=None, instance_initiated_shutdown_behavior=None, instance_type=None, kernel_id=None, monitoring=None, private_dns_name=None, private_dns_name_options=None, private_ip=None, propagate_tags_to_volume_on_creation=None, public_dns_name=None, public_ip=None, ramdisk_id=None, security_group_ids=None, source_dest_check=None, ssm_associations=None, tags=None, tenancy=None, user_data=None, volumes=None):
+    def __init__(__self__, additional_info=None, affinity=None, block_device_mappings=None, credit_specification=None, disable_api_termination=None, ebs_optimized=None, host_id=None, iam_instance_profile=None, id=None, instance_initiated_shutdown_behavior=None, instance_type=None, kernel_id=None, monitoring=None, private_dns_name=None, private_dns_name_options=None, private_ip=None, propagate_tags_to_volume_on_creation=None, public_dns_name=None, public_ip=None, ramdisk_id=None, security_group_ids=None, source_dest_check=None, ssm_associations=None, tags=None, tenancy=None, user_data=None, volumes=None):
         if additional_info and not isinstance(additional_info, str):
             raise TypeError("Expected argument 'additional_info' to be a str")
         pulumi.set(__self__, "additional_info", additional_info)
@@ -44,9 +44,9 @@ class GetInstanceResult:
         if iam_instance_profile and not isinstance(iam_instance_profile, str):
             raise TypeError("Expected argument 'iam_instance_profile' to be a str")
         pulumi.set(__self__, "iam_instance_profile", iam_instance_profile)
-        if instance_id and not isinstance(instance_id, str):
-            raise TypeError("Expected argument 'instance_id' to be a str")
-        pulumi.set(__self__, "instance_id", instance_id)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if instance_initiated_shutdown_behavior and not isinstance(instance_initiated_shutdown_behavior, str):
             raise TypeError("Expected argument 'instance_initiated_shutdown_behavior' to be a str")
         pulumi.set(__self__, "instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
@@ -143,9 +143,9 @@ class GetInstanceResult:
         return pulumi.get(self, "iam_instance_profile")
 
     @property
-    @pulumi.getter(name="instanceId")
-    def instance_id(self) -> Optional[str]:
-        return pulumi.get(self, "instance_id")
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="instanceInitiatedShutdownBehavior")
@@ -252,7 +252,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             ebs_optimized=self.ebs_optimized,
             host_id=self.host_id,
             iam_instance_profile=self.iam_instance_profile,
-            instance_id=self.instance_id,
+            id=self.id,
             instance_initiated_shutdown_behavior=self.instance_initiated_shutdown_behavior,
             instance_type=self.instance_type,
             kernel_id=self.kernel_id,
@@ -273,13 +273,13 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             volumes=self.volumes)
 
 
-def get_instance(instance_id: Optional[str] = None,
+def get_instance(id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceResult:
     """
     Resource Type definition for AWS::EC2::Instance
     """
     __args__ = dict()
-    __args__['instanceId'] = instance_id
+    __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getInstance', __args__, opts=opts, typ=GetInstanceResult).value
 
@@ -292,7 +292,7 @@ def get_instance(instance_id: Optional[str] = None,
         ebs_optimized=pulumi.get(__ret__, 'ebs_optimized'),
         host_id=pulumi.get(__ret__, 'host_id'),
         iam_instance_profile=pulumi.get(__ret__, 'iam_instance_profile'),
-        instance_id=pulumi.get(__ret__, 'instance_id'),
+        id=pulumi.get(__ret__, 'id'),
         instance_initiated_shutdown_behavior=pulumi.get(__ret__, 'instance_initiated_shutdown_behavior'),
         instance_type=pulumi.get(__ret__, 'instance_type'),
         kernel_id=pulumi.get(__ret__, 'kernel_id'),
@@ -314,7 +314,7 @@ def get_instance(instance_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_instance)
-def get_instance_output(instance_id: Optional[pulumi.Input[str]] = None,
+def get_instance_output(id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Resource Type definition for AWS::EC2::Instance

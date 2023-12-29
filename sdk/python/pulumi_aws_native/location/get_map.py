@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetMapResult',
@@ -18,19 +20,25 @@ __all__ = [
 
 @pulumi.output_type
 class GetMapResult:
-    def __init__(__self__, arn=None, create_time=None, data_source=None, map_arn=None, update_time=None):
+    def __init__(__self__, arn=None, create_time=None, description=None, map_arn=None, pricing_plan=None, tags=None, update_time=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if create_time and not isinstance(create_time, str):
             raise TypeError("Expected argument 'create_time' to be a str")
         pulumi.set(__self__, "create_time", create_time)
-        if data_source and not isinstance(data_source, str):
-            raise TypeError("Expected argument 'data_source' to be a str")
-        pulumi.set(__self__, "data_source", data_source)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
         if map_arn and not isinstance(map_arn, str):
             raise TypeError("Expected argument 'map_arn' to be a str")
         pulumi.set(__self__, "map_arn", map_arn)
+        if pricing_plan and not isinstance(pricing_plan, str):
+            raise TypeError("Expected argument 'pricing_plan' to be a str")
+        pulumi.set(__self__, "pricing_plan", pricing_plan)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if update_time and not isinstance(update_time, str):
             raise TypeError("Expected argument 'update_time' to be a str")
         pulumi.set(__self__, "update_time", update_time)
@@ -46,14 +54,27 @@ class GetMapResult:
         return pulumi.get(self, "create_time")
 
     @property
-    @pulumi.getter(name="dataSource")
-    def data_source(self) -> Optional[str]:
-        return pulumi.get(self, "data_source")
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="mapArn")
     def map_arn(self) -> Optional[str]:
         return pulumi.get(self, "map_arn")
+
+    @property
+    @pulumi.getter(name="pricingPlan")
+    def pricing_plan(self) -> Optional['MapPricingPlan']:
+        return pulumi.get(self, "pricing_plan")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.MapTag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updateTime")
@@ -69,8 +90,10 @@ class AwaitableGetMapResult(GetMapResult):
         return GetMapResult(
             arn=self.arn,
             create_time=self.create_time,
-            data_source=self.data_source,
+            description=self.description,
             map_arn=self.map_arn,
+            pricing_plan=self.pricing_plan,
+            tags=self.tags,
             update_time=self.update_time)
 
 
@@ -87,8 +110,10 @@ def get_map(map_name: Optional[str] = None,
     return AwaitableGetMapResult(
         arn=pulumi.get(__ret__, 'arn'),
         create_time=pulumi.get(__ret__, 'create_time'),
-        data_source=pulumi.get(__ret__, 'data_source'),
+        description=pulumi.get(__ret__, 'description'),
         map_arn=pulumi.get(__ret__, 'map_arn'),
+        pricing_plan=pulumi.get(__ret__, 'pricing_plan'),
+        tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
 
 

@@ -37,9 +37,11 @@ export class GcmChannel extends pulumi.CustomResource {
         return obj['__pulumiType'] === GcmChannel.__pulumiType;
     }
 
-    public readonly apiKey!: pulumi.Output<string>;
+    public readonly apiKey!: pulumi.Output<string | undefined>;
     public readonly applicationId!: pulumi.Output<string>;
+    public readonly defaultAuthenticationMethod!: pulumi.Output<string | undefined>;
     public readonly enabled!: pulumi.Output<boolean | undefined>;
+    public readonly serviceJson!: pulumi.Output<string | undefined>;
 
     /**
      * Create a GcmChannel resource with the given unique name, arguments, and options.
@@ -54,19 +56,20 @@ export class GcmChannel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiKey === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'apiKey'");
-            }
             if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
             resourceInputs["apiKey"] = args ? args.apiKey : undefined;
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["defaultAuthenticationMethod"] = args ? args.defaultAuthenticationMethod : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["serviceJson"] = args ? args.serviceJson : undefined;
         } else {
             resourceInputs["apiKey"] = undefined /*out*/;
             resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["defaultAuthenticationMethod"] = undefined /*out*/;
             resourceInputs["enabled"] = undefined /*out*/;
+            resourceInputs["serviceJson"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["applicationId"] };
@@ -79,7 +82,9 @@ export class GcmChannel extends pulumi.CustomResource {
  * The set of arguments for constructing a GcmChannel resource.
  */
 export interface GcmChannelArgs {
-    apiKey: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string>;
     applicationId: pulumi.Input<string>;
+    defaultAuthenticationMethod?: pulumi.Input<string>;
     enabled?: pulumi.Input<boolean>;
+    serviceJson?: pulumi.Input<string>;
 }

@@ -60,6 +60,8 @@ class EndpointGroupEndpointConfiguration(dict):
         suggest = None
         if key == "endpointId":
             suggest = "endpoint_id"
+        elif key == "attachmentArn":
+            suggest = "attachment_arn"
         elif key == "clientIpPreservationEnabled":
             suggest = "client_ip_preservation_enabled"
 
@@ -76,15 +78,19 @@ class EndpointGroupEndpointConfiguration(dict):
 
     def __init__(__self__, *,
                  endpoint_id: str,
+                 attachment_arn: Optional[str] = None,
                  client_ip_preservation_enabled: Optional[bool] = None,
                  weight: Optional[int] = None):
         """
         The configuration for a given endpoint
         :param str endpoint_id: Id of the endpoint. For Network/Application Load Balancer this value is the ARN.  For EIP, this value is the allocation ID.  For EC2 instances, this is the EC2 instance ID
+        :param str attachment_arn: Attachment ARN that provides access control to the cross account endpoint. Not required for resources hosted in the same account as the endpoint group.
         :param bool client_ip_preservation_enabled: true if client ip should be preserved
         :param int weight: The weight for the endpoint.
         """
         pulumi.set(__self__, "endpoint_id", endpoint_id)
+        if attachment_arn is not None:
+            pulumi.set(__self__, "attachment_arn", attachment_arn)
         if client_ip_preservation_enabled is not None:
             pulumi.set(__self__, "client_ip_preservation_enabled", client_ip_preservation_enabled)
         if weight is not None:
@@ -97,6 +103,14 @@ class EndpointGroupEndpointConfiguration(dict):
         Id of the endpoint. For Network/Application Load Balancer this value is the ARN.  For EIP, this value is the allocation ID.  For EC2 instances, this is the EC2 instance ID
         """
         return pulumi.get(self, "endpoint_id")
+
+    @property
+    @pulumi.getter(name="attachmentArn")
+    def attachment_arn(self) -> Optional[str]:
+        """
+        Attachment ARN that provides access control to the cross account endpoint. Not required for resources hosted in the same account as the endpoint group.
+        """
+        return pulumi.get(self, "attachment_arn")
 
     @property
     @pulumi.getter(name="clientIpPreservationEnabled")

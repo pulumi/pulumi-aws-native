@@ -21,8 +21,10 @@ export interface GetGcmChannelArgs {
 
 export interface GetGcmChannelResult {
     readonly apiKey?: string;
+    readonly defaultAuthenticationMethod?: string;
     readonly enabled?: boolean;
     readonly id?: string;
+    readonly serviceJson?: string;
 }
 /**
  * Resource Type definition for AWS::Pinpoint::GCMChannel

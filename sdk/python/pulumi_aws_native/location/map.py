@@ -20,9 +20,11 @@ class MapArgs:
                  configuration: pulumi.Input['MapConfigurationArgs'],
                  description: Optional[pulumi.Input[str]] = None,
                  map_name: Optional[pulumi.Input[str]] = None,
-                 pricing_plan: Optional[pulumi.Input['MapPricingPlan']] = None):
+                 pricing_plan: Optional[pulumi.Input['MapPricingPlan']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['MapTagArgs']]]] = None):
         """
         The set of arguments for constructing a Map resource.
+        :param pulumi.Input[Sequence[pulumi.Input['MapTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "configuration", configuration)
         if description is not None:
@@ -31,6 +33,8 @@ class MapArgs:
             pulumi.set(__self__, "map_name", map_name)
         if pricing_plan is not None:
             pulumi.set(__self__, "pricing_plan", pricing_plan)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -68,6 +72,18 @@ class MapArgs:
     def pricing_plan(self, value: Optional[pulumi.Input['MapPricingPlan']]):
         pulumi.set(self, "pricing_plan", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MapTagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MapTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class Map(pulumi.CustomResource):
     @overload
@@ -78,12 +94,14 @@ class Map(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  map_name: Optional[pulumi.Input[str]] = None,
                  pricing_plan: Optional[pulumi.Input['MapPricingPlan']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MapTagArgs']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Location::Map Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MapTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -113,6 +131,7 @@ class Map(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  map_name: Optional[pulumi.Input[str]] = None,
                  pricing_plan: Optional[pulumi.Input['MapPricingPlan']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MapTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -128,12 +147,12 @@ class Map(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["map_name"] = map_name
             __props__.__dict__["pricing_plan"] = pricing_plan
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["create_time"] = None
-            __props__.__dict__["data_source"] = None
             __props__.__dict__["map_arn"] = None
             __props__.__dict__["update_time"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["configuration", "description", "map_name", "pricing_plan"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["configuration", "map_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Map, __self__).__init__(
             'aws-native:location:Map',
@@ -160,11 +179,11 @@ class Map(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["configuration"] = None
         __props__.__dict__["create_time"] = None
-        __props__.__dict__["data_source"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["map_arn"] = None
         __props__.__dict__["map_name"] = None
         __props__.__dict__["pricing_plan"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["update_time"] = None
         return Map(resource_name, opts=opts, __props__=__props__)
 
@@ -182,11 +201,6 @@ class Map(pulumi.CustomResource):
     @pulumi.getter(name="createTime")
     def create_time(self) -> pulumi.Output[str]:
         return pulumi.get(self, "create_time")
-
-    @property
-    @pulumi.getter(name="dataSource")
-    def data_source(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "data_source")
 
     @property
     @pulumi.getter
@@ -207,6 +221,14 @@ class Map(pulumi.CustomResource):
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> pulumi.Output[Optional['MapPricingPlan']]:
         return pulumi.get(self, "pricing_plan")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.MapTag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updateTime")

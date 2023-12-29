@@ -28,6 +28,7 @@ export interface GetRepositoryResult {
     readonly cloneUrlSsh?: string;
     readonly code?: outputs.codecommit.RepositoryCode;
     readonly id?: string;
+    readonly kmsKeyId?: string;
     readonly name?: string;
     readonly repositoryDescription?: string;
     readonly repositoryName?: string;

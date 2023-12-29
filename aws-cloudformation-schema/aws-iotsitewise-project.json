@@ -69,7 +69,7 @@
   "primaryIdentifier" : [ "/properties/ProjectId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iotsitewise:CreateProject", "iotsitewise:BatchAssociateProjectAssets" ]
+      "permissions" : [ "iotsitewise:CreateProject", "iotsitewise:DescribeProject", "iotsitewise:ListProjectAssets", "iotsitewise:ListTagsForResource", "iotsitewise:TagResource", "iotsitewise:BatchAssociateProjectAssets" ]
     },
     "read" : {
       "permissions" : [ "iotsitewise:DescribeProject", "iotsitewise:ListTagsForResource", "iotsitewise:ListProjectAssets" ]
@@ -78,7 +78,7 @@
       "permissions" : [ "iotsitewise:DescribeProject", "iotsitewise:UpdateProject", "iotsitewise:BatchAssociateProjectAssets", "iotsitewise:BatchDisAssociateProjectAssets", "iotsitewise:ListProjectAssets", "iotsitewise:TagResource", "iotsitewise:UntagResource", "iotsitewise:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "iotsitewise:DeleteProject" ]
+      "permissions" : [ "iotsitewise:DescribeProject", "iotsitewise:DeleteProject" ]
     },
     "list" : {
       "permissions" : [ "iotsitewise:ListProjects" ]

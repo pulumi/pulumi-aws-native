@@ -50,13 +50,7 @@ export class DomainName extends pulumi.CustomResource {
      * The mutual TLS authentication configuration for a custom domain name.
      */
     public readonly mutualTlsAuthentication!: pulumi.Output<outputs.apigatewayv2.DomainNameMutualTlsAuthentication | undefined>;
-    /**
-     * The domain name associated with the regional endpoint for this custom domain name.
-     */
     public /*out*/ readonly regionalDomainName!: pulumi.Output<string>;
-    /**
-     * The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
-     */
     public /*out*/ readonly regionalHostedZoneId!: pulumi.Output<string>;
     /**
      * The collection of tags associated with a domain name.

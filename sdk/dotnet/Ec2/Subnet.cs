@@ -30,14 +30,38 @@ namespace Pulumi.AwsNative.Ec2
         [Output("enableDns64")]
         public Output<bool?> EnableDns64 { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of an IPv4 IPAM pool you want to use for allocating this subnet's CIDR
+        /// </summary>
+        [Output("ipv4IpamPoolId")]
+        public Output<string?> Ipv4IpamPoolId { get; private set; } = null!;
+
+        /// <summary>
+        /// The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+        /// </summary>
+        [Output("ipv4NetmaskLength")]
+        public Output<int?> Ipv4NetmaskLength { get; private set; } = null!;
+
         [Output("ipv6CidrBlock")]
         public Output<string?> Ipv6CidrBlock { get; private set; } = null!;
 
         [Output("ipv6CidrBlocks")]
         public Output<ImmutableArray<string>> Ipv6CidrBlocks { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of an IPv6 IPAM pool you want to use for allocating this subnet's CIDR
+        /// </summary>
+        [Output("ipv6IpamPoolId")]
+        public Output<string?> Ipv6IpamPoolId { get; private set; } = null!;
+
         [Output("ipv6Native")]
         public Output<bool?> Ipv6Native { get; private set; } = null!;
+
+        /// <summary>
+        /// The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+        /// </summary>
+        [Output("ipv6NetmaskLength")]
+        public Output<int?> Ipv6NetmaskLength { get; private set; } = null!;
 
         [Output("mapPublicIpOnLaunch")]
         public Output<bool?> MapPublicIpOnLaunch { get; private set; } = null!;
@@ -88,7 +112,11 @@ namespace Pulumi.AwsNative.Ec2
                     "availabilityZone",
                     "availabilityZoneId",
                     "cidrBlock",
+                    "ipv4IpamPoolId",
+                    "ipv4NetmaskLength",
+                    "ipv6IpamPoolId",
                     "ipv6Native",
+                    "ipv6NetmaskLength",
                     "outpostArn",
                     "vpcId",
                 },
@@ -129,6 +157,18 @@ namespace Pulumi.AwsNative.Ec2
         [Input("enableDns64")]
         public Input<bool>? EnableDns64 { get; set; }
 
+        /// <summary>
+        /// The ID of an IPv4 IPAM pool you want to use for allocating this subnet's CIDR
+        /// </summary>
+        [Input("ipv4IpamPoolId")]
+        public Input<string>? Ipv4IpamPoolId { get; set; }
+
+        /// <summary>
+        /// The netmask length of the IPv4 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+        /// </summary>
+        [Input("ipv4NetmaskLength")]
+        public Input<int>? Ipv4NetmaskLength { get; set; }
+
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
 
@@ -140,8 +180,20 @@ namespace Pulumi.AwsNative.Ec2
             set => _ipv6CidrBlocks = value;
         }
 
+        /// <summary>
+        /// The ID of an IPv6 IPAM pool you want to use for allocating this subnet's CIDR
+        /// </summary>
+        [Input("ipv6IpamPoolId")]
+        public Input<string>? Ipv6IpamPoolId { get; set; }
+
         [Input("ipv6Native")]
         public Input<bool>? Ipv6Native { get; set; }
+
+        /// <summary>
+        /// The netmask length of the IPv6 CIDR you want to allocate to this subnet from an Amazon VPC IP Address Manager (IPAM) pool
+        /// </summary>
+        [Input("ipv6NetmaskLength")]
+        public Input<int>? Ipv6NetmaskLength { get; set; }
 
         [Input("mapPublicIpOnLaunch")]
         public Input<bool>? MapPublicIpOnLaunch { get; set; }

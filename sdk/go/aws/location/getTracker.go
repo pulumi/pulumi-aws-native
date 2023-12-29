@@ -28,12 +28,18 @@ type LookupTrackerArgs struct {
 }
 
 type LookupTrackerResult struct {
-	Arn                   *string             `pulumi:"arn"`
-	CreateTime            *string             `pulumi:"createTime"`
-	PricingPlan           *TrackerPricingPlan `pulumi:"pricingPlan"`
-	PricingPlanDataSource *string             `pulumi:"pricingPlanDataSource"`
-	TrackerArn            *string             `pulumi:"trackerArn"`
-	UpdateTime            *string             `pulumi:"updateTime"`
+	Arn                           *string                   `pulumi:"arn"`
+	CreateTime                    *string                   `pulumi:"createTime"`
+	Description                   *string                   `pulumi:"description"`
+	EventBridgeEnabled            *bool                     `pulumi:"eventBridgeEnabled"`
+	KmsKeyEnableGeospatialQueries *bool                     `pulumi:"kmsKeyEnableGeospatialQueries"`
+	PositionFiltering             *TrackerPositionFiltering `pulumi:"positionFiltering"`
+	PricingPlan                   *TrackerPricingPlan       `pulumi:"pricingPlan"`
+	PricingPlanDataSource         *string                   `pulumi:"pricingPlanDataSource"`
+	// An array of key-value pairs to apply to this resource.
+	Tags       []TrackerTag `pulumi:"tags"`
+	TrackerArn *string      `pulumi:"trackerArn"`
+	UpdateTime *string      `pulumi:"updateTime"`
 }
 
 func LookupTrackerOutput(ctx *pulumi.Context, args LookupTrackerOutputArgs, opts ...pulumi.InvokeOption) LookupTrackerResultOutput {
@@ -85,12 +91,33 @@ func (o LookupTrackerResultOutput) CreateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrackerResult) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupTrackerResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupTrackerResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupTrackerResultOutput) EventBridgeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupTrackerResult) *bool { return v.EventBridgeEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupTrackerResultOutput) KmsKeyEnableGeospatialQueries() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupTrackerResult) *bool { return v.KmsKeyEnableGeospatialQueries }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupTrackerResultOutput) PositionFiltering() TrackerPositionFilteringPtrOutput {
+	return o.ApplyT(func(v LookupTrackerResult) *TrackerPositionFiltering { return v.PositionFiltering }).(TrackerPositionFilteringPtrOutput)
+}
+
 func (o LookupTrackerResultOutput) PricingPlan() TrackerPricingPlanPtrOutput {
 	return o.ApplyT(func(v LookupTrackerResult) *TrackerPricingPlan { return v.PricingPlan }).(TrackerPricingPlanPtrOutput)
 }
 
 func (o LookupTrackerResultOutput) PricingPlanDataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrackerResult) *string { return v.PricingPlanDataSource }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupTrackerResultOutput) Tags() TrackerTagArrayOutput {
+	return o.ApplyT(func(v LookupTrackerResult) []TrackerTag { return v.Tags }).(TrackerTagArrayOutput)
 }
 
 func (o LookupTrackerResultOutput) TrackerArn() pulumi.StringPtrOutput {

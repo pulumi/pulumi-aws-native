@@ -59,15 +59,19 @@ class AcceleratorTagArgs:
 class EndpointGroupEndpointConfigurationArgs:
     def __init__(__self__, *,
                  endpoint_id: pulumi.Input[str],
+                 attachment_arn: Optional[pulumi.Input[str]] = None,
                  client_ip_preservation_enabled: Optional[pulumi.Input[bool]] = None,
                  weight: Optional[pulumi.Input[int]] = None):
         """
         The configuration for a given endpoint
         :param pulumi.Input[str] endpoint_id: Id of the endpoint. For Network/Application Load Balancer this value is the ARN.  For EIP, this value is the allocation ID.  For EC2 instances, this is the EC2 instance ID
+        :param pulumi.Input[str] attachment_arn: Attachment ARN that provides access control to the cross account endpoint. Not required for resources hosted in the same account as the endpoint group.
         :param pulumi.Input[bool] client_ip_preservation_enabled: true if client ip should be preserved
         :param pulumi.Input[int] weight: The weight for the endpoint.
         """
         pulumi.set(__self__, "endpoint_id", endpoint_id)
+        if attachment_arn is not None:
+            pulumi.set(__self__, "attachment_arn", attachment_arn)
         if client_ip_preservation_enabled is not None:
             pulumi.set(__self__, "client_ip_preservation_enabled", client_ip_preservation_enabled)
         if weight is not None:
@@ -84,6 +88,18 @@ class EndpointGroupEndpointConfigurationArgs:
     @endpoint_id.setter
     def endpoint_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "endpoint_id", value)
+
+    @property
+    @pulumi.getter(name="attachmentArn")
+    def attachment_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Attachment ARN that provides access control to the cross account endpoint. Not required for resources hosted in the same account as the endpoint group.
+        """
+        return pulumi.get(self, "attachment_arn")
+
+    @attachment_arn.setter
+    def attachment_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "attachment_arn", value)
 
     @property
     @pulumi.getter(name="clientIpPreservationEnabled")

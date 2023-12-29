@@ -2129,6 +2129,163 @@ func (o EventBusTagArrayOutput) Index(i pulumi.IntInput) EventBusTagOutput {
 	}).(EventBusTagOutput)
 }
 
+type RuleAppSyncParameters struct {
+	GraphQlOperation string `pulumi:"graphQlOperation"`
+}
+
+// RuleAppSyncParametersInput is an input type that accepts RuleAppSyncParametersArgs and RuleAppSyncParametersOutput values.
+// You can construct a concrete instance of `RuleAppSyncParametersInput` via:
+//
+//	RuleAppSyncParametersArgs{...}
+type RuleAppSyncParametersInput interface {
+	pulumi.Input
+
+	ToRuleAppSyncParametersOutput() RuleAppSyncParametersOutput
+	ToRuleAppSyncParametersOutputWithContext(context.Context) RuleAppSyncParametersOutput
+}
+
+type RuleAppSyncParametersArgs struct {
+	GraphQlOperation pulumi.StringInput `pulumi:"graphQlOperation"`
+}
+
+func (RuleAppSyncParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleAppSyncParameters)(nil)).Elem()
+}
+
+func (i RuleAppSyncParametersArgs) ToRuleAppSyncParametersOutput() RuleAppSyncParametersOutput {
+	return i.ToRuleAppSyncParametersOutputWithContext(context.Background())
+}
+
+func (i RuleAppSyncParametersArgs) ToRuleAppSyncParametersOutputWithContext(ctx context.Context) RuleAppSyncParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleAppSyncParametersOutput)
+}
+
+func (i RuleAppSyncParametersArgs) ToOutput(ctx context.Context) pulumix.Output[RuleAppSyncParameters] {
+	return pulumix.Output[RuleAppSyncParameters]{
+		OutputState: i.ToRuleAppSyncParametersOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i RuleAppSyncParametersArgs) ToRuleAppSyncParametersPtrOutput() RuleAppSyncParametersPtrOutput {
+	return i.ToRuleAppSyncParametersPtrOutputWithContext(context.Background())
+}
+
+func (i RuleAppSyncParametersArgs) ToRuleAppSyncParametersPtrOutputWithContext(ctx context.Context) RuleAppSyncParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleAppSyncParametersOutput).ToRuleAppSyncParametersPtrOutputWithContext(ctx)
+}
+
+// RuleAppSyncParametersPtrInput is an input type that accepts RuleAppSyncParametersArgs, RuleAppSyncParametersPtr and RuleAppSyncParametersPtrOutput values.
+// You can construct a concrete instance of `RuleAppSyncParametersPtrInput` via:
+//
+//	        RuleAppSyncParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuleAppSyncParametersPtrInput interface {
+	pulumi.Input
+
+	ToRuleAppSyncParametersPtrOutput() RuleAppSyncParametersPtrOutput
+	ToRuleAppSyncParametersPtrOutputWithContext(context.Context) RuleAppSyncParametersPtrOutput
+}
+
+type ruleAppSyncParametersPtrType RuleAppSyncParametersArgs
+
+func RuleAppSyncParametersPtr(v *RuleAppSyncParametersArgs) RuleAppSyncParametersPtrInput {
+	return (*ruleAppSyncParametersPtrType)(v)
+}
+
+func (*ruleAppSyncParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleAppSyncParameters)(nil)).Elem()
+}
+
+func (i *ruleAppSyncParametersPtrType) ToRuleAppSyncParametersPtrOutput() RuleAppSyncParametersPtrOutput {
+	return i.ToRuleAppSyncParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleAppSyncParametersPtrType) ToRuleAppSyncParametersPtrOutputWithContext(ctx context.Context) RuleAppSyncParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleAppSyncParametersPtrOutput)
+}
+
+func (i *ruleAppSyncParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*RuleAppSyncParameters] {
+	return pulumix.Output[*RuleAppSyncParameters]{
+		OutputState: i.ToRuleAppSyncParametersPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type RuleAppSyncParametersOutput struct{ *pulumi.OutputState }
+
+func (RuleAppSyncParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleAppSyncParameters)(nil)).Elem()
+}
+
+func (o RuleAppSyncParametersOutput) ToRuleAppSyncParametersOutput() RuleAppSyncParametersOutput {
+	return o
+}
+
+func (o RuleAppSyncParametersOutput) ToRuleAppSyncParametersOutputWithContext(ctx context.Context) RuleAppSyncParametersOutput {
+	return o
+}
+
+func (o RuleAppSyncParametersOutput) ToRuleAppSyncParametersPtrOutput() RuleAppSyncParametersPtrOutput {
+	return o.ToRuleAppSyncParametersPtrOutputWithContext(context.Background())
+}
+
+func (o RuleAppSyncParametersOutput) ToRuleAppSyncParametersPtrOutputWithContext(ctx context.Context) RuleAppSyncParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleAppSyncParameters) *RuleAppSyncParameters {
+		return &v
+	}).(RuleAppSyncParametersPtrOutput)
+}
+
+func (o RuleAppSyncParametersOutput) ToOutput(ctx context.Context) pulumix.Output[RuleAppSyncParameters] {
+	return pulumix.Output[RuleAppSyncParameters]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RuleAppSyncParametersOutput) GraphQlOperation() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleAppSyncParameters) string { return v.GraphQlOperation }).(pulumi.StringOutput)
+}
+
+type RuleAppSyncParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleAppSyncParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleAppSyncParameters)(nil)).Elem()
+}
+
+func (o RuleAppSyncParametersPtrOutput) ToRuleAppSyncParametersPtrOutput() RuleAppSyncParametersPtrOutput {
+	return o
+}
+
+func (o RuleAppSyncParametersPtrOutput) ToRuleAppSyncParametersPtrOutputWithContext(ctx context.Context) RuleAppSyncParametersPtrOutput {
+	return o
+}
+
+func (o RuleAppSyncParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RuleAppSyncParameters] {
+	return pulumix.Output[*RuleAppSyncParameters]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o RuleAppSyncParametersPtrOutput) Elem() RuleAppSyncParametersOutput {
+	return o.ApplyT(func(v *RuleAppSyncParameters) RuleAppSyncParameters {
+		if v != nil {
+			return *v
+		}
+		var ret RuleAppSyncParameters
+		return ret
+	}).(RuleAppSyncParametersOutput)
+}
+
+func (o RuleAppSyncParametersPtrOutput) GraphQlOperation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleAppSyncParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.GraphQlOperation
+	}).(pulumi.StringPtrOutput)
+}
+
 type RuleAwsVpcConfiguration struct {
 	AssignPublicIp *string  `pulumi:"assignPublicIp"`
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -5657,6 +5814,7 @@ func (o RuleTagArrayOutput) Index(i pulumi.IntInput) RuleTagOutput {
 }
 
 type RuleTarget struct {
+	AppSyncParameters           *RuleAppSyncParameters           `pulumi:"appSyncParameters"`
 	Arn                         string                           `pulumi:"arn"`
 	BatchParameters             *RuleBatchParameters             `pulumi:"batchParameters"`
 	DeadLetterConfig            *RuleDeadLetterConfig            `pulumi:"deadLetterConfig"`
@@ -5687,6 +5845,7 @@ type RuleTargetInput interface {
 }
 
 type RuleTargetArgs struct {
+	AppSyncParameters           RuleAppSyncParametersPtrInput           `pulumi:"appSyncParameters"`
 	Arn                         pulumi.StringInput                      `pulumi:"arn"`
 	BatchParameters             RuleBatchParametersPtrInput             `pulumi:"batchParameters"`
 	DeadLetterConfig            RuleDeadLetterConfigPtrInput            `pulumi:"deadLetterConfig"`
@@ -5772,6 +5931,10 @@ func (o RuleTargetOutput) ToOutput(ctx context.Context) pulumix.Output[RuleTarge
 	return pulumix.Output[RuleTarget]{
 		OutputState: o.OutputState,
 	}
+}
+
+func (o RuleTargetOutput) AppSyncParameters() RuleAppSyncParametersPtrOutput {
+	return o.ApplyT(func(v RuleTarget) *RuleAppSyncParameters { return v.AppSyncParameters }).(RuleAppSyncParametersPtrOutput)
 }
 
 func (o RuleTargetOutput) Arn() pulumi.StringOutput {
@@ -5890,6 +6053,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventBusPolicyConditionPtrInput)(nil)).Elem(), EventBusPolicyConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventBusTagInput)(nil)).Elem(), EventBusTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventBusTagArrayInput)(nil)).Elem(), EventBusTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleAppSyncParametersInput)(nil)).Elem(), RuleAppSyncParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleAppSyncParametersPtrInput)(nil)).Elem(), RuleAppSyncParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleAwsVpcConfigurationInput)(nil)).Elem(), RuleAwsVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleAwsVpcConfigurationPtrInput)(nil)).Elem(), RuleAwsVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleBatchArrayPropertiesInput)(nil)).Elem(), RuleBatchArrayPropertiesArgs{})
@@ -5963,6 +6128,8 @@ func init() {
 	pulumi.RegisterOutputType(EventBusPolicyConditionPtrOutput{})
 	pulumi.RegisterOutputType(EventBusTagOutput{})
 	pulumi.RegisterOutputType(EventBusTagArrayOutput{})
+	pulumi.RegisterOutputType(RuleAppSyncParametersOutput{})
+	pulumi.RegisterOutputType(RuleAppSyncParametersPtrOutput{})
 	pulumi.RegisterOutputType(RuleAwsVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(RuleAwsVpcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuleBatchArrayPropertiesOutput{})

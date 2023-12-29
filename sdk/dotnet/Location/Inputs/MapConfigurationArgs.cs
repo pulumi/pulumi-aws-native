@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Location.Inputs
 
     public sealed class MapConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("politicalView")]
+        public Input<string>? PoliticalView { get; set; }
+
         [Input("style", required: true)]
         public Input<string> Style { get; set; } = null!;
 

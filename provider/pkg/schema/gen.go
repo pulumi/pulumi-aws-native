@@ -924,7 +924,11 @@ func (ctx *context) propertySpec(propName, resourceTypeName string, spec *jssche
 		TypeSpec:    *typeSpec,
 		Description: spec.Description,
 	}
-	if resourceTypeName == propName {
+
+	// If the property name is the same as the resource type name, we need to rename the property's C# name
+	// to avoid 'member names cannot be the same as their enclosing type'. We normalize the property and resource
+	// type names to lowercase to avoid case sensitivity issues.
+	if strings.ToLower(resourceTypeName) == strings.ToLower(propName) {
 		propertySpec.Language = map[string]pschema.RawMessage{
 			"csharp": rawMessage(dotnetgen.CSharpPropertyInfo{
 				Name: propName + "Value",

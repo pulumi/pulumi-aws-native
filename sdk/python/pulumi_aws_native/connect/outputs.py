@@ -80,7 +80,9 @@ __all__ = [
     'UserHierarchyGroupTag',
     'UserIdentityInfo',
     'UserPhoneConfig',
+    'UserProficiency',
     'UserTag',
+    'ValuesProperties',
     'ViewTag',
 ]
 
@@ -3154,6 +3156,57 @@ class UserPhoneConfig(dict):
 
 
 @pulumi.output_type
+class UserProficiency(dict):
+    """
+    Proficiency of a user.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeName":
+            suggest = "attribute_name"
+        elif key == "attributeValue":
+            suggest = "attribute_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserProficiency. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserProficiency.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserProficiency.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute_name: str,
+                 attribute_value: str,
+                 level: float):
+        """
+        Proficiency of a user.
+        """
+        pulumi.set(__self__, "attribute_name", attribute_name)
+        pulumi.set(__self__, "attribute_value", attribute_value)
+        pulumi.set(__self__, "level", level)
+
+    @property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> str:
+        return pulumi.get(self, "attribute_name")
+
+    @property
+    @pulumi.getter(name="attributeValue")
+    def attribute_value(self) -> str:
+        return pulumi.get(self, "attribute_value")
+
+    @property
+    @pulumi.getter
+    def level(self) -> float:
+        return pulumi.get(self, "level")
+
+
+@pulumi.output_type
 class UserTag(dict):
     """
     A key-value pair to associate with a resource.
@@ -3184,6 +3237,42 @@ class UserTag(dict):
         The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ValuesProperties(dict):
+    """
+    The values of a predefined attribute.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stringList":
+            suggest = "string_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ValuesProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ValuesProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ValuesProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 string_list: Optional[Sequence[str]] = None):
+        """
+        The values of a predefined attribute.
+        """
+        if string_list is not None:
+            pulumi.set(__self__, "string_list", string_list)
+
+    @property
+    @pulumi.getter(name="stringList")
+    def string_list(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "string_list")
 
 
 @pulumi.output_type

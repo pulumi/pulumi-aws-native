@@ -44,6 +44,7 @@ export class Repository extends pulumi.CustomResource {
     public /*out*/ readonly cloneUrlHttp!: pulumi.Output<string>;
     public /*out*/ readonly cloneUrlSsh!: pulumi.Output<string>;
     public readonly code!: pulumi.Output<outputs.codecommit.RepositoryCode | undefined>;
+    public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     public /*out*/ readonly name!: pulumi.Output<string>;
     public readonly repositoryDescription!: pulumi.Output<string | undefined>;
     public readonly repositoryName!: pulumi.Output<string>;
@@ -64,6 +65,7 @@ export class Repository extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["code"] = args ? args.code : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["repositoryDescription"] = args ? args.repositoryDescription : undefined;
             resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -77,6 +79,7 @@ export class Repository extends pulumi.CustomResource {
             resourceInputs["cloneUrlHttp"] = undefined /*out*/;
             resourceInputs["cloneUrlSsh"] = undefined /*out*/;
             resourceInputs["code"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["repositoryDescription"] = undefined /*out*/;
             resourceInputs["repositoryName"] = undefined /*out*/;
@@ -93,6 +96,7 @@ export class Repository extends pulumi.CustomResource {
  */
 export interface RepositoryArgs {
     code?: pulumi.Input<inputs.codecommit.RepositoryCodeArgs>;
+    kmsKeyId?: pulumi.Input<string>;
     repositoryDescription?: pulumi.Input<string>;
     repositoryName?: pulumi.Input<string>;
     tags?: pulumi.Input<pulumi.Input<inputs.codecommit.RepositoryTagArgs>[]>;

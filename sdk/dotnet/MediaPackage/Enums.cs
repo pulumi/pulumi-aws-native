@@ -120,6 +120,7 @@ namespace Pulumi.AwsNative.MediaPackage
 
         public static OriginEndpointDashPackageManifestLayout Full { get; } = new OriginEndpointDashPackageManifestLayout("FULL");
         public static OriginEndpointDashPackageManifestLayout Compact { get; } = new OriginEndpointDashPackageManifestLayout("COMPACT");
+        public static OriginEndpointDashPackageManifestLayout DrmTopLevelCompact { get; } = new OriginEndpointDashPackageManifestLayout("DRM_TOP_LEVEL_COMPACT");
 
         public static bool operator ==(OriginEndpointDashPackageManifestLayout left, OriginEndpointDashPackageManifestLayout right) => left.Equals(right);
         public static bool operator !=(OriginEndpointDashPackageManifestLayout left, OriginEndpointDashPackageManifestLayout right) => !left.Equals(right);

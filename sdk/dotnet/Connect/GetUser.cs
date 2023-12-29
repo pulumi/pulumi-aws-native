@@ -94,6 +94,10 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public readonly string? UserArn;
         /// <summary>
+        /// One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.UserProficiency> UserProficiencies;
+        /// <summary>
         /// The user name for the account.
         /// </summary>
         public readonly string? Username;
@@ -118,6 +122,8 @@ namespace Pulumi.AwsNative.Connect
 
             string? userArn,
 
+            ImmutableArray<Outputs.UserProficiency> userProficiencies,
+
             string? username)
         {
             DirectoryUserId = directoryUserId;
@@ -129,6 +135,7 @@ namespace Pulumi.AwsNative.Connect
             SecurityProfileArns = securityProfileArns;
             Tags = tags;
             UserArn = userArn;
+            UserProficiencies = userProficiencies;
             Username = username;
         }
     }

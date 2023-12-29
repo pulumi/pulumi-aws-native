@@ -6531,8 +6531,9 @@ func (o DistributionViewerCertificatePtrOutput) SslSupportMethod() pulumi.String
 }
 
 type FunctionConfig struct {
-	Comment string `pulumi:"comment"`
-	Runtime string `pulumi:"runtime"`
+	Comment                   string                             `pulumi:"comment"`
+	KeyValueStoreAssociations []FunctionKeyValueStoreAssociation `pulumi:"keyValueStoreAssociations"`
+	Runtime                   string                             `pulumi:"runtime"`
 }
 
 // FunctionConfigInput is an input type that accepts FunctionConfigArgs and FunctionConfigOutput values.
@@ -6547,8 +6548,9 @@ type FunctionConfigInput interface {
 }
 
 type FunctionConfigArgs struct {
-	Comment pulumi.StringInput `pulumi:"comment"`
-	Runtime pulumi.StringInput `pulumi:"runtime"`
+	Comment                   pulumi.StringInput                         `pulumi:"comment"`
+	KeyValueStoreAssociations FunctionKeyValueStoreAssociationArrayInput `pulumi:"keyValueStoreAssociations"`
+	Runtime                   pulumi.StringInput                         `pulumi:"runtime"`
 }
 
 func (FunctionConfigArgs) ElementType() reflect.Type {
@@ -6591,6 +6593,10 @@ func (o FunctionConfigOutput) ToOutput(ctx context.Context) pulumix.Output[Funct
 
 func (o FunctionConfigOutput) Comment() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionConfig) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o FunctionConfigOutput) KeyValueStoreAssociations() FunctionKeyValueStoreAssociationArrayOutput {
+	return o.ApplyT(func(v FunctionConfig) []FunctionKeyValueStoreAssociation { return v.KeyValueStoreAssociations }).(FunctionKeyValueStoreAssociationArrayOutput)
 }
 
 func (o FunctionConfigOutput) Runtime() pulumi.StringOutput {
@@ -6636,6 +6642,15 @@ func (o FunctionConfigPtrOutput) Comment() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o FunctionConfigPtrOutput) KeyValueStoreAssociations() FunctionKeyValueStoreAssociationArrayOutput {
+	return o.ApplyT(func(v *FunctionConfig) []FunctionKeyValueStoreAssociation {
+		if v == nil {
+			return nil
+		}
+		return v.KeyValueStoreAssociations
+	}).(FunctionKeyValueStoreAssociationArrayOutput)
+}
+
 func (o FunctionConfigPtrOutput) Runtime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionConfig) *string {
 		if v == nil {
@@ -6643,6 +6658,124 @@ func (o FunctionConfigPtrOutput) Runtime() pulumi.StringPtrOutput {
 		}
 		return &v.Runtime
 	}).(pulumi.StringPtrOutput)
+}
+
+type FunctionKeyValueStoreAssociation struct {
+	KeyValueStoreArn string `pulumi:"keyValueStoreArn"`
+}
+
+// FunctionKeyValueStoreAssociationInput is an input type that accepts FunctionKeyValueStoreAssociationArgs and FunctionKeyValueStoreAssociationOutput values.
+// You can construct a concrete instance of `FunctionKeyValueStoreAssociationInput` via:
+//
+//	FunctionKeyValueStoreAssociationArgs{...}
+type FunctionKeyValueStoreAssociationInput interface {
+	pulumi.Input
+
+	ToFunctionKeyValueStoreAssociationOutput() FunctionKeyValueStoreAssociationOutput
+	ToFunctionKeyValueStoreAssociationOutputWithContext(context.Context) FunctionKeyValueStoreAssociationOutput
+}
+
+type FunctionKeyValueStoreAssociationArgs struct {
+	KeyValueStoreArn pulumi.StringInput `pulumi:"keyValueStoreArn"`
+}
+
+func (FunctionKeyValueStoreAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionKeyValueStoreAssociation)(nil)).Elem()
+}
+
+func (i FunctionKeyValueStoreAssociationArgs) ToFunctionKeyValueStoreAssociationOutput() FunctionKeyValueStoreAssociationOutput {
+	return i.ToFunctionKeyValueStoreAssociationOutputWithContext(context.Background())
+}
+
+func (i FunctionKeyValueStoreAssociationArgs) ToFunctionKeyValueStoreAssociationOutputWithContext(ctx context.Context) FunctionKeyValueStoreAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionKeyValueStoreAssociationOutput)
+}
+
+func (i FunctionKeyValueStoreAssociationArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionKeyValueStoreAssociation] {
+	return pulumix.Output[FunctionKeyValueStoreAssociation]{
+		OutputState: i.ToFunctionKeyValueStoreAssociationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// FunctionKeyValueStoreAssociationArrayInput is an input type that accepts FunctionKeyValueStoreAssociationArray and FunctionKeyValueStoreAssociationArrayOutput values.
+// You can construct a concrete instance of `FunctionKeyValueStoreAssociationArrayInput` via:
+//
+//	FunctionKeyValueStoreAssociationArray{ FunctionKeyValueStoreAssociationArgs{...} }
+type FunctionKeyValueStoreAssociationArrayInput interface {
+	pulumi.Input
+
+	ToFunctionKeyValueStoreAssociationArrayOutput() FunctionKeyValueStoreAssociationArrayOutput
+	ToFunctionKeyValueStoreAssociationArrayOutputWithContext(context.Context) FunctionKeyValueStoreAssociationArrayOutput
+}
+
+type FunctionKeyValueStoreAssociationArray []FunctionKeyValueStoreAssociationInput
+
+func (FunctionKeyValueStoreAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionKeyValueStoreAssociation)(nil)).Elem()
+}
+
+func (i FunctionKeyValueStoreAssociationArray) ToFunctionKeyValueStoreAssociationArrayOutput() FunctionKeyValueStoreAssociationArrayOutput {
+	return i.ToFunctionKeyValueStoreAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i FunctionKeyValueStoreAssociationArray) ToFunctionKeyValueStoreAssociationArrayOutputWithContext(ctx context.Context) FunctionKeyValueStoreAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionKeyValueStoreAssociationArrayOutput)
+}
+
+func (i FunctionKeyValueStoreAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]FunctionKeyValueStoreAssociation] {
+	return pulumix.Output[[]FunctionKeyValueStoreAssociation]{
+		OutputState: i.ToFunctionKeyValueStoreAssociationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type FunctionKeyValueStoreAssociationOutput struct{ *pulumi.OutputState }
+
+func (FunctionKeyValueStoreAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionKeyValueStoreAssociation)(nil)).Elem()
+}
+
+func (o FunctionKeyValueStoreAssociationOutput) ToFunctionKeyValueStoreAssociationOutput() FunctionKeyValueStoreAssociationOutput {
+	return o
+}
+
+func (o FunctionKeyValueStoreAssociationOutput) ToFunctionKeyValueStoreAssociationOutputWithContext(ctx context.Context) FunctionKeyValueStoreAssociationOutput {
+	return o
+}
+
+func (o FunctionKeyValueStoreAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionKeyValueStoreAssociation] {
+	return pulumix.Output[FunctionKeyValueStoreAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FunctionKeyValueStoreAssociationOutput) KeyValueStoreArn() pulumi.StringOutput {
+	return o.ApplyT(func(v FunctionKeyValueStoreAssociation) string { return v.KeyValueStoreArn }).(pulumi.StringOutput)
+}
+
+type FunctionKeyValueStoreAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (FunctionKeyValueStoreAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FunctionKeyValueStoreAssociation)(nil)).Elem()
+}
+
+func (o FunctionKeyValueStoreAssociationArrayOutput) ToFunctionKeyValueStoreAssociationArrayOutput() FunctionKeyValueStoreAssociationArrayOutput {
+	return o
+}
+
+func (o FunctionKeyValueStoreAssociationArrayOutput) ToFunctionKeyValueStoreAssociationArrayOutputWithContext(ctx context.Context) FunctionKeyValueStoreAssociationArrayOutput {
+	return o
+}
+
+func (o FunctionKeyValueStoreAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FunctionKeyValueStoreAssociation] {
+	return pulumix.Output[[]FunctionKeyValueStoreAssociation]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o FunctionKeyValueStoreAssociationArrayOutput) Index(i pulumi.IntInput) FunctionKeyValueStoreAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FunctionKeyValueStoreAssociation {
+		return vs[0].([]FunctionKeyValueStoreAssociation)[vs[1].(int)]
+	}).(FunctionKeyValueStoreAssociationOutput)
 }
 
 type FunctionMetadata struct {
@@ -12301,6 +12434,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerCertificateInput)(nil)).Elem(), DistributionViewerCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerCertificatePtrInput)(nil)).Elem(), DistributionViewerCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionConfigInput)(nil)).Elem(), FunctionConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionKeyValueStoreAssociationInput)(nil)).Elem(), FunctionKeyValueStoreAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionKeyValueStoreAssociationArrayInput)(nil)).Elem(), FunctionKeyValueStoreAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionMetadataInput)(nil)).Elem(), FunctionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionMetadataPtrInput)(nil)).Elem(), FunctionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyGroupConfigInput)(nil)).Elem(), KeyGroupConfigArgs{})
@@ -12437,6 +12572,8 @@ func init() {
 	pulumi.RegisterOutputType(DistributionViewerCertificatePtrOutput{})
 	pulumi.RegisterOutputType(FunctionConfigOutput{})
 	pulumi.RegisterOutputType(FunctionConfigPtrOutput{})
+	pulumi.RegisterOutputType(FunctionKeyValueStoreAssociationOutput{})
+	pulumi.RegisterOutputType(FunctionKeyValueStoreAssociationArrayOutput{})
 	pulumi.RegisterOutputType(FunctionMetadataOutput{})
 	pulumi.RegisterOutputType(FunctionMetadataPtrOutput{})
 	pulumi.RegisterOutputType(KeyGroupConfigOutput{})

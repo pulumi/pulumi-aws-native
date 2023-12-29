@@ -44,6 +44,10 @@ export class RouteCalculator extends pulumi.CustomResource {
     public readonly dataSource!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly pricingPlan!: pulumi.Output<enums.location.RouteCalculatorPricingPlan | undefined>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.location.RouteCalculatorTag[] | undefined>;
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
@@ -67,6 +71,7 @@ export class RouteCalculator extends pulumi.CustomResource {
             resourceInputs["dataSource"] = args ? args.dataSource : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["pricingPlan"] = args ? args.pricingPlan : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["calculatorArn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
@@ -79,10 +84,11 @@ export class RouteCalculator extends pulumi.CustomResource {
             resourceInputs["dataSource"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["pricingPlan"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["calculatorName", "dataSource", "description", "pricingPlan"] };
+        const replaceOnChanges = { replaceOnChanges: ["calculatorName", "dataSource"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(RouteCalculator.__pulumiType, name, resourceInputs, opts);
     }
@@ -96,4 +102,8 @@ export interface RouteCalculatorArgs {
     dataSource: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     pricingPlan?: pulumi.Input<enums.location.RouteCalculatorPricingPlan>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.location.RouteCalculatorTagArgs>[]>;
 }

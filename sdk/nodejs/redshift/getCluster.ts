@@ -55,6 +55,10 @@ export interface GetClusterResult {
      */
     readonly availabilityZoneRelocationStatus?: string;
     /**
+     * The Amazon Resource Name (ARN) of the cluster namespace.
+     */
+    readonly clusterNamespaceArn?: string;
+    /**
      * The name of the parameter group to be associated with this cluster.
      */
     readonly clusterParameterGroupName?: string;
@@ -70,14 +74,6 @@ export interface GetClusterResult {
      * The version of the Amazon Redshift engine software that you want to deploy on the cluster.The version selected runs on all the nodes in the cluster.
      */
     readonly clusterVersion?: string;
-    /**
-     * A boolean indicating whether to enable the deferred maintenance window.
-     */
-    readonly deferMaintenance?: boolean;
-    /**
-     * An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
-     */
-    readonly deferMaintenanceDuration?: number;
     /**
      * A timestamp indicating end time for the deferred maintenance window. If you specify an end time, you can't specify a duration.
      */
@@ -123,7 +119,6 @@ export interface GetClusterResult {
      * A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request
      */
     readonly iamRoles?: string[];
-    readonly id?: string;
     /**
      * The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
      */
@@ -140,9 +135,21 @@ export interface GetClusterResult {
      */
     readonly manualSnapshotRetentionPeriod?: number;
     /**
+     * The Amazon Resource Name (ARN) for the cluster's admin user credentials secret.
+     */
+    readonly masterPasswordSecretArn?: string;
+    /**
+     * The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin user credentials secret.
+     */
+    readonly masterPasswordSecretKmsKeyId?: string;
+    /**
      * A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
      */
     readonly multiAz?: boolean;
+    /**
+     * The namespace resource policy document that will be attached to a Redshift cluster.
+     */
+    readonly namespaceResourcePolicy?: any;
     /**
      * The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
      */

@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetPlaceIndexResult',
@@ -18,16 +20,28 @@ __all__ = [
 
 @pulumi.output_type
 class GetPlaceIndexResult:
-    def __init__(__self__, arn=None, create_time=None, index_arn=None, update_time=None):
+    def __init__(__self__, arn=None, create_time=None, data_source_configuration=None, description=None, index_arn=None, pricing_plan=None, tags=None, update_time=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if create_time and not isinstance(create_time, str):
             raise TypeError("Expected argument 'create_time' to be a str")
         pulumi.set(__self__, "create_time", create_time)
+        if data_source_configuration and not isinstance(data_source_configuration, dict):
+            raise TypeError("Expected argument 'data_source_configuration' to be a dict")
+        pulumi.set(__self__, "data_source_configuration", data_source_configuration)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
         if index_arn and not isinstance(index_arn, str):
             raise TypeError("Expected argument 'index_arn' to be a str")
         pulumi.set(__self__, "index_arn", index_arn)
+        if pricing_plan and not isinstance(pricing_plan, str):
+            raise TypeError("Expected argument 'pricing_plan' to be a str")
+        pulumi.set(__self__, "pricing_plan", pricing_plan)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if update_time and not isinstance(update_time, str):
             raise TypeError("Expected argument 'update_time' to be a str")
         pulumi.set(__self__, "update_time", update_time)
@@ -43,9 +57,32 @@ class GetPlaceIndexResult:
         return pulumi.get(self, "create_time")
 
     @property
+    @pulumi.getter(name="dataSourceConfiguration")
+    def data_source_configuration(self) -> Optional['outputs.PlaceIndexDataSourceConfiguration']:
+        return pulumi.get(self, "data_source_configuration")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
     @pulumi.getter(name="indexArn")
     def index_arn(self) -> Optional[str]:
         return pulumi.get(self, "index_arn")
+
+    @property
+    @pulumi.getter(name="pricingPlan")
+    def pricing_plan(self) -> Optional['PlaceIndexPricingPlan']:
+        return pulumi.get(self, "pricing_plan")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.PlaceIndexTag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updateTime")
@@ -61,7 +98,11 @@ class AwaitableGetPlaceIndexResult(GetPlaceIndexResult):
         return GetPlaceIndexResult(
             arn=self.arn,
             create_time=self.create_time,
+            data_source_configuration=self.data_source_configuration,
+            description=self.description,
             index_arn=self.index_arn,
+            pricing_plan=self.pricing_plan,
+            tags=self.tags,
             update_time=self.update_time)
 
 
@@ -78,7 +119,11 @@ def get_place_index(index_name: Optional[str] = None,
     return AwaitableGetPlaceIndexResult(
         arn=pulumi.get(__ret__, 'arn'),
         create_time=pulumi.get(__ret__, 'create_time'),
+        data_source_configuration=pulumi.get(__ret__, 'data_source_configuration'),
+        description=pulumi.get(__ret__, 'description'),
         index_arn=pulumi.get(__ret__, 'index_arn'),
+        pricing_plan=pulumi.get(__ret__, 'pricing_plan'),
+        tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
 
 

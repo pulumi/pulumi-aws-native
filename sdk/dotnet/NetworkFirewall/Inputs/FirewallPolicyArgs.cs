@@ -66,6 +66,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
             set => _statelessRuleGroupReferences = value;
         }
 
+        [Input("tlsInspectionConfigurationArn")]
+        public Input<string>? TlsInspectionConfigurationArn { get; set; }
+
         public FirewallPolicyArgs()
         {
         }

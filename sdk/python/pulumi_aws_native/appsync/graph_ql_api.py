@@ -19,12 +19,15 @@ class GraphQlApiArgs:
                  authentication_type: pulumi.Input[str],
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQlApiAdditionalAuthenticationProviderArgs']]]] = None,
                  api_type: Optional[pulumi.Input[str]] = None,
+                 introspection_config: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input['GraphQlApiLambdaAuthorizerConfigArgs']] = None,
                  log_config: Optional[pulumi.Input['GraphQlApiLogConfigArgs']] = None,
                  merged_api_execution_role_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_id_connect_config: Optional[pulumi.Input['GraphQlApiOpenIdConnectConfigArgs']] = None,
                  owner_contact: Optional[pulumi.Input[str]] = None,
+                 query_depth_limit: Optional[pulumi.Input[int]] = None,
+                 resolver_count_limit: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQlApiTagArgs']]]] = None,
                  user_pool_config: Optional[pulumi.Input['GraphQlApiUserPoolConfigArgs']] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
@@ -37,6 +40,8 @@ class GraphQlApiArgs:
             pulumi.set(__self__, "additional_authentication_providers", additional_authentication_providers)
         if api_type is not None:
             pulumi.set(__self__, "api_type", api_type)
+        if introspection_config is not None:
+            pulumi.set(__self__, "introspection_config", introspection_config)
         if lambda_authorizer_config is not None:
             pulumi.set(__self__, "lambda_authorizer_config", lambda_authorizer_config)
         if log_config is not None:
@@ -49,6 +54,10 @@ class GraphQlApiArgs:
             pulumi.set(__self__, "open_id_connect_config", open_id_connect_config)
         if owner_contact is not None:
             pulumi.set(__self__, "owner_contact", owner_contact)
+        if query_depth_limit is not None:
+            pulumi.set(__self__, "query_depth_limit", query_depth_limit)
+        if resolver_count_limit is not None:
+            pulumi.set(__self__, "resolver_count_limit", resolver_count_limit)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if user_pool_config is not None:
@@ -84,6 +93,15 @@ class GraphQlApiArgs:
     @api_type.setter
     def api_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "api_type", value)
+
+    @property
+    @pulumi.getter(name="introspectionConfig")
+    def introspection_config(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "introspection_config")
+
+    @introspection_config.setter
+    def introspection_config(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "introspection_config", value)
 
     @property
     @pulumi.getter(name="lambdaAuthorizerConfig")
@@ -140,6 +158,24 @@ class GraphQlApiArgs:
         pulumi.set(self, "owner_contact", value)
 
     @property
+    @pulumi.getter(name="queryDepthLimit")
+    def query_depth_limit(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "query_depth_limit")
+
+    @query_depth_limit.setter
+    def query_depth_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "query_depth_limit", value)
+
+    @property
+    @pulumi.getter(name="resolverCountLimit")
+    def resolver_count_limit(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "resolver_count_limit")
+
+    @resolver_count_limit.setter
+    def resolver_count_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "resolver_count_limit", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GraphQlApiTagArgs']]]]:
         return pulumi.get(self, "tags")
@@ -189,12 +225,15 @@ class GraphQlApi(pulumi.CustomResource):
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQlApiAdditionalAuthenticationProviderArgs']]]]] = None,
                  api_type: Optional[pulumi.Input[str]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
+                 introspection_config: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiLambdaAuthorizerConfigArgs']]] = None,
                  log_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiLogConfigArgs']]] = None,
                  merged_api_execution_role_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_id_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiOpenIdConnectConfigArgs']]] = None,
                  owner_contact: Optional[pulumi.Input[str]] = None,
+                 query_depth_limit: Optional[pulumi.Input[int]] = None,
+                 resolver_count_limit: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQlApiTagArgs']]]]] = None,
                  user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiUserPoolConfigArgs']]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
@@ -233,12 +272,15 @@ class GraphQlApi(pulumi.CustomResource):
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQlApiAdditionalAuthenticationProviderArgs']]]]] = None,
                  api_type: Optional[pulumi.Input[str]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
+                 introspection_config: Optional[pulumi.Input[str]] = None,
                  lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiLambdaAuthorizerConfigArgs']]] = None,
                  log_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiLogConfigArgs']]] = None,
                  merged_api_execution_role_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_id_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiOpenIdConnectConfigArgs']]] = None,
                  owner_contact: Optional[pulumi.Input[str]] = None,
+                 query_depth_limit: Optional[pulumi.Input[int]] = None,
+                 resolver_count_limit: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQlApiTagArgs']]]]] = None,
                  user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQlApiUserPoolConfigArgs']]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
@@ -258,12 +300,15 @@ class GraphQlApi(pulumi.CustomResource):
             if authentication_type is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_type'")
             __props__.__dict__["authentication_type"] = authentication_type
+            __props__.__dict__["introspection_config"] = introspection_config
             __props__.__dict__["lambda_authorizer_config"] = lambda_authorizer_config
             __props__.__dict__["log_config"] = log_config
             __props__.__dict__["merged_api_execution_role_arn"] = merged_api_execution_role_arn
             __props__.__dict__["name"] = name
             __props__.__dict__["open_id_connect_config"] = open_id_connect_config
             __props__.__dict__["owner_contact"] = owner_contact
+            __props__.__dict__["query_depth_limit"] = query_depth_limit
+            __props__.__dict__["resolver_count_limit"] = resolver_count_limit
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_pool_config"] = user_pool_config
             __props__.__dict__["visibility"] = visibility
@@ -305,14 +350,17 @@ class GraphQlApi(pulumi.CustomResource):
         __props__.__dict__["graph_ql_dns"] = None
         __props__.__dict__["graph_ql_endpoint_arn"] = None
         __props__.__dict__["graph_ql_url"] = None
+        __props__.__dict__["introspection_config"] = None
         __props__.__dict__["lambda_authorizer_config"] = None
         __props__.__dict__["log_config"] = None
         __props__.__dict__["merged_api_execution_role_arn"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["open_id_connect_config"] = None
         __props__.__dict__["owner_contact"] = None
+        __props__.__dict__["query_depth_limit"] = None
         __props__.__dict__["realtime_dns"] = None
         __props__.__dict__["realtime_url"] = None
+        __props__.__dict__["resolver_count_limit"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["user_pool_config"] = None
         __props__.__dict__["visibility"] = None
@@ -360,6 +408,11 @@ class GraphQlApi(pulumi.CustomResource):
         return pulumi.get(self, "graph_ql_url")
 
     @property
+    @pulumi.getter(name="introspectionConfig")
+    def introspection_config(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "introspection_config")
+
+    @property
     @pulumi.getter(name="lambdaAuthorizerConfig")
     def lambda_authorizer_config(self) -> pulumi.Output[Optional['outputs.GraphQlApiLambdaAuthorizerConfig']]:
         return pulumi.get(self, "lambda_authorizer_config")
@@ -390,6 +443,11 @@ class GraphQlApi(pulumi.CustomResource):
         return pulumi.get(self, "owner_contact")
 
     @property
+    @pulumi.getter(name="queryDepthLimit")
+    def query_depth_limit(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "query_depth_limit")
+
+    @property
     @pulumi.getter(name="realtimeDns")
     def realtime_dns(self) -> pulumi.Output[str]:
         return pulumi.get(self, "realtime_dns")
@@ -398,6 +456,11 @@ class GraphQlApi(pulumi.CustomResource):
     @pulumi.getter(name="realtimeUrl")
     def realtime_url(self) -> pulumi.Output[str]:
         return pulumi.get(self, "realtime_url")
+
+    @property
+    @pulumi.getter(name="resolverCountLimit")
+    def resolver_count_limit(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "resolver_count_limit")
 
     @property
     @pulumi.getter

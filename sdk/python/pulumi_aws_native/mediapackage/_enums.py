@@ -72,6 +72,7 @@ class OriginEndpointDashPackageManifestLayout(str, Enum):
     """
     FULL = "FULL"
     COMPACT = "COMPACT"
+    DRM_TOP_LEVEL_COMPACT = "DRM_TOP_LEVEL_COMPACT"
 
 
 class OriginEndpointDashPackagePeriodTriggersItem(str, Enum):

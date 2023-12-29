@@ -35,13 +35,7 @@ export interface GetDomainNameResult {
      * The mutual TLS authentication configuration for a custom domain name.
      */
     readonly mutualTlsAuthentication?: outputs.apigatewayv2.DomainNameMutualTlsAuthentication;
-    /**
-     * The domain name associated with the regional endpoint for this custom domain name.
-     */
     readonly regionalDomainName?: string;
-    /**
-     * The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
-     */
     readonly regionalHostedZoneId?: string;
     /**
      * The collection of tags associated with a domain name.

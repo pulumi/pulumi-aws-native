@@ -54,8 +54,13 @@ namespace Pulumi.AwsNative.Location
         public readonly string? Arn;
         public readonly string? CollectionArn;
         public readonly string? CreateTime;
+        public readonly string? Description;
         public readonly Pulumi.AwsNative.Location.GeofenceCollectionPricingPlan? PricingPlan;
         public readonly string? PricingPlanDataSource;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GeofenceCollectionTag> Tags;
         public readonly string? UpdateTime;
 
         [OutputConstructor]
@@ -66,17 +71,23 @@ namespace Pulumi.AwsNative.Location
 
             string? createTime,
 
+            string? description,
+
             Pulumi.AwsNative.Location.GeofenceCollectionPricingPlan? pricingPlan,
 
             string? pricingPlanDataSource,
+
+            ImmutableArray<Outputs.GeofenceCollectionTag> tags,
 
             string? updateTime)
         {
             Arn = arn;
             CollectionArn = collectionArn;
             CreateTime = createTime;
+            Description = description;
             PricingPlan = pricingPlan;
             PricingPlanDataSource = pricingPlanDataSource;
+            Tags = tags;
             UpdateTime = updateTime;
         }
     }

@@ -17,6 +17,7 @@ __all__ = ['RepositoryArgs', 'Repository']
 class RepositoryArgs:
     def __init__(__self__, *,
                  code: Optional[pulumi.Input['RepositoryCodeArgs']] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  repository_description: Optional[pulumi.Input[str]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryTagArgs']]]] = None,
@@ -26,6 +27,8 @@ class RepositoryArgs:
         """
         if code is not None:
             pulumi.set(__self__, "code", code)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
         if repository_description is not None:
             pulumi.set(__self__, "repository_description", repository_description)
         if repository_name is not None:
@@ -43,6 +46,15 @@ class RepositoryArgs:
     @code.setter
     def code(self, value: Optional[pulumi.Input['RepositoryCodeArgs']]):
         pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
 
     @property
     @pulumi.getter(name="repositoryDescription")
@@ -92,6 +104,7 @@ class Repository(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  code: Optional[pulumi.Input[pulumi.InputType['RepositoryCodeArgs']]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  repository_description: Optional[pulumi.Input[str]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryTagArgs']]]]] = None,
@@ -128,6 +141,7 @@ class Repository(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  code: Optional[pulumi.Input[pulumi.InputType['RepositoryCodeArgs']]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
                  repository_description: Optional[pulumi.Input[str]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryTagArgs']]]]] = None,
@@ -143,6 +157,7 @@ class Repository(pulumi.CustomResource):
             __props__ = RepositoryArgs.__new__(RepositoryArgs)
 
             __props__.__dict__["code"] = code
+            __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["repository_description"] = repository_description
             __props__.__dict__["repository_name"] = repository_name
             __props__.__dict__["tags"] = tags
@@ -177,6 +192,7 @@ class Repository(pulumi.CustomResource):
         __props__.__dict__["clone_url_http"] = None
         __props__.__dict__["clone_url_ssh"] = None
         __props__.__dict__["code"] = None
+        __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["repository_description"] = None
         __props__.__dict__["repository_name"] = None
@@ -203,6 +219,11 @@ class Repository(pulumi.CustomResource):
     @pulumi.getter
     def code(self) -> pulumi.Output[Optional['outputs.RepositoryCode']]:
         return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "kms_key_id")
 
     @property
     @pulumi.getter

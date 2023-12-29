@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGraphQlApiResult:
-    def __init__(__self__, additional_authentication_providers=None, api_id=None, api_type=None, arn=None, authentication_type=None, graph_ql_dns=None, graph_ql_endpoint_arn=None, graph_ql_url=None, id=None, lambda_authorizer_config=None, log_config=None, merged_api_execution_role_arn=None, name=None, open_id_connect_config=None, owner_contact=None, realtime_dns=None, realtime_url=None, tags=None, user_pool_config=None, visibility=None, xray_enabled=None):
+    def __init__(__self__, additional_authentication_providers=None, api_id=None, api_type=None, arn=None, authentication_type=None, graph_ql_dns=None, graph_ql_endpoint_arn=None, graph_ql_url=None, id=None, introspection_config=None, lambda_authorizer_config=None, log_config=None, merged_api_execution_role_arn=None, name=None, open_id_connect_config=None, owner_contact=None, query_depth_limit=None, realtime_dns=None, realtime_url=None, resolver_count_limit=None, tags=None, user_pool_config=None, visibility=None, xray_enabled=None):
         if additional_authentication_providers and not isinstance(additional_authentication_providers, list):
             raise TypeError("Expected argument 'additional_authentication_providers' to be a list")
         pulumi.set(__self__, "additional_authentication_providers", additional_authentication_providers)
@@ -47,6 +47,9 @@ class GetGraphQlApiResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if introspection_config and not isinstance(introspection_config, str):
+            raise TypeError("Expected argument 'introspection_config' to be a str")
+        pulumi.set(__self__, "introspection_config", introspection_config)
         if lambda_authorizer_config and not isinstance(lambda_authorizer_config, dict):
             raise TypeError("Expected argument 'lambda_authorizer_config' to be a dict")
         pulumi.set(__self__, "lambda_authorizer_config", lambda_authorizer_config)
@@ -65,12 +68,18 @@ class GetGraphQlApiResult:
         if owner_contact and not isinstance(owner_contact, str):
             raise TypeError("Expected argument 'owner_contact' to be a str")
         pulumi.set(__self__, "owner_contact", owner_contact)
+        if query_depth_limit and not isinstance(query_depth_limit, int):
+            raise TypeError("Expected argument 'query_depth_limit' to be a int")
+        pulumi.set(__self__, "query_depth_limit", query_depth_limit)
         if realtime_dns and not isinstance(realtime_dns, str):
             raise TypeError("Expected argument 'realtime_dns' to be a str")
         pulumi.set(__self__, "realtime_dns", realtime_dns)
         if realtime_url and not isinstance(realtime_url, str):
             raise TypeError("Expected argument 'realtime_url' to be a str")
         pulumi.set(__self__, "realtime_url", realtime_url)
+        if resolver_count_limit and not isinstance(resolver_count_limit, int):
+            raise TypeError("Expected argument 'resolver_count_limit' to be a int")
+        pulumi.set(__self__, "resolver_count_limit", resolver_count_limit)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -130,6 +139,11 @@ class GetGraphQlApiResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="introspectionConfig")
+    def introspection_config(self) -> Optional[str]:
+        return pulumi.get(self, "introspection_config")
+
+    @property
     @pulumi.getter(name="lambdaAuthorizerConfig")
     def lambda_authorizer_config(self) -> Optional['outputs.GraphQlApiLambdaAuthorizerConfig']:
         return pulumi.get(self, "lambda_authorizer_config")
@@ -160,6 +174,11 @@ class GetGraphQlApiResult:
         return pulumi.get(self, "owner_contact")
 
     @property
+    @pulumi.getter(name="queryDepthLimit")
+    def query_depth_limit(self) -> Optional[int]:
+        return pulumi.get(self, "query_depth_limit")
+
+    @property
     @pulumi.getter(name="realtimeDns")
     def realtime_dns(self) -> Optional[str]:
         return pulumi.get(self, "realtime_dns")
@@ -168,6 +187,11 @@ class GetGraphQlApiResult:
     @pulumi.getter(name="realtimeUrl")
     def realtime_url(self) -> Optional[str]:
         return pulumi.get(self, "realtime_url")
+
+    @property
+    @pulumi.getter(name="resolverCountLimit")
+    def resolver_count_limit(self) -> Optional[int]:
+        return pulumi.get(self, "resolver_count_limit")
 
     @property
     @pulumi.getter
@@ -205,14 +229,17 @@ class AwaitableGetGraphQlApiResult(GetGraphQlApiResult):
             graph_ql_endpoint_arn=self.graph_ql_endpoint_arn,
             graph_ql_url=self.graph_ql_url,
             id=self.id,
+            introspection_config=self.introspection_config,
             lambda_authorizer_config=self.lambda_authorizer_config,
             log_config=self.log_config,
             merged_api_execution_role_arn=self.merged_api_execution_role_arn,
             name=self.name,
             open_id_connect_config=self.open_id_connect_config,
             owner_contact=self.owner_contact,
+            query_depth_limit=self.query_depth_limit,
             realtime_dns=self.realtime_dns,
             realtime_url=self.realtime_url,
+            resolver_count_limit=self.resolver_count_limit,
             tags=self.tags,
             user_pool_config=self.user_pool_config,
             visibility=self.visibility,
@@ -239,14 +266,17 @@ def get_graph_ql_api(id: Optional[str] = None,
         graph_ql_endpoint_arn=pulumi.get(__ret__, 'graph_ql_endpoint_arn'),
         graph_ql_url=pulumi.get(__ret__, 'graph_ql_url'),
         id=pulumi.get(__ret__, 'id'),
+        introspection_config=pulumi.get(__ret__, 'introspection_config'),
         lambda_authorizer_config=pulumi.get(__ret__, 'lambda_authorizer_config'),
         log_config=pulumi.get(__ret__, 'log_config'),
         merged_api_execution_role_arn=pulumi.get(__ret__, 'merged_api_execution_role_arn'),
         name=pulumi.get(__ret__, 'name'),
         open_id_connect_config=pulumi.get(__ret__, 'open_id_connect_config'),
         owner_contact=pulumi.get(__ret__, 'owner_contact'),
+        query_depth_limit=pulumi.get(__ret__, 'query_depth_limit'),
         realtime_dns=pulumi.get(__ret__, 'realtime_dns'),
         realtime_url=pulumi.get(__ret__, 'realtime_url'),
+        resolver_count_limit=pulumi.get(__ret__, 'resolver_count_limit'),
         tags=pulumi.get(__ret__, 'tags'),
         user_pool_config=pulumi.get(__ret__, 'user_pool_config'),
         visibility=pulumi.get(__ret__, 'visibility'),

@@ -26,6 +26,7 @@ __all__ = [
     'EndpointSecondaryArgs',
     'EventBusPolicyConditionArgs',
     'EventBusTagArgs',
+    'RuleAppSyncParametersArgs',
     'RuleAwsVpcConfigurationArgs',
     'RuleBatchArrayPropertiesArgs',
     'RuleBatchParametersArgs',
@@ -487,6 +488,22 @@ class EventBusTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class RuleAppSyncParametersArgs:
+    def __init__(__self__, *,
+                 graph_ql_operation: pulumi.Input[str]):
+        pulumi.set(__self__, "graph_ql_operation", graph_ql_operation)
+
+    @property
+    @pulumi.getter(name="graphQlOperation")
+    def graph_ql_operation(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "graph_ql_operation")
+
+    @graph_ql_operation.setter
+    def graph_ql_operation(self, value: pulumi.Input[str]):
+        pulumi.set(self, "graph_ql_operation", value)
 
 
 @pulumi.input_type
@@ -1257,6 +1274,7 @@ class RuleTargetArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
                  id: pulumi.Input[str],
+                 app_sync_parameters: Optional[pulumi.Input['RuleAppSyncParametersArgs']] = None,
                  batch_parameters: Optional[pulumi.Input['RuleBatchParametersArgs']] = None,
                  dead_letter_config: Optional[pulumi.Input['RuleDeadLetterConfigArgs']] = None,
                  ecs_parameters: Optional[pulumi.Input['RuleEcsParametersArgs']] = None,
@@ -1273,6 +1291,8 @@ class RuleTargetArgs:
                  sqs_parameters: Optional[pulumi.Input['RuleSqsParametersArgs']] = None):
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
+        if app_sync_parameters is not None:
+            pulumi.set(__self__, "app_sync_parameters", app_sync_parameters)
         if batch_parameters is not None:
             pulumi.set(__self__, "batch_parameters", batch_parameters)
         if dead_letter_config is not None:
@@ -1319,6 +1339,15 @@ class RuleTargetArgs:
     @id.setter
     def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="appSyncParameters")
+    def app_sync_parameters(self) -> Optional[pulumi.Input['RuleAppSyncParametersArgs']]:
+        return pulumi.get(self, "app_sync_parameters")
+
+    @app_sync_parameters.setter
+    def app_sync_parameters(self, value: Optional[pulumi.Input['RuleAppSyncParametersArgs']]):
+        pulumi.set(self, "app_sync_parameters", value)
 
     @property
     @pulumi.getter(name="batchParameters")

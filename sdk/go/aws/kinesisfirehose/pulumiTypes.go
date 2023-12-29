@@ -8394,7 +8394,180 @@ func (o DeliveryStreamSerializerPtrOutput) ParquetSerDe() DeliveryStreamParquetS
 	}).(DeliveryStreamParquetSerDePtrOutput)
 }
 
+type DeliveryStreamSplunkBufferingHints struct {
+	IntervalInSeconds *int `pulumi:"intervalInSeconds"`
+	SizeInMbs         *int `pulumi:"sizeInMbs"`
+}
+
+// DeliveryStreamSplunkBufferingHintsInput is an input type that accepts DeliveryStreamSplunkBufferingHintsArgs and DeliveryStreamSplunkBufferingHintsOutput values.
+// You can construct a concrete instance of `DeliveryStreamSplunkBufferingHintsInput` via:
+//
+//	DeliveryStreamSplunkBufferingHintsArgs{...}
+type DeliveryStreamSplunkBufferingHintsInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamSplunkBufferingHintsOutput() DeliveryStreamSplunkBufferingHintsOutput
+	ToDeliveryStreamSplunkBufferingHintsOutputWithContext(context.Context) DeliveryStreamSplunkBufferingHintsOutput
+}
+
+type DeliveryStreamSplunkBufferingHintsArgs struct {
+	IntervalInSeconds pulumi.IntPtrInput `pulumi:"intervalInSeconds"`
+	SizeInMbs         pulumi.IntPtrInput `pulumi:"sizeInMbs"`
+}
+
+func (DeliveryStreamSplunkBufferingHintsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamSplunkBufferingHints)(nil)).Elem()
+}
+
+func (i DeliveryStreamSplunkBufferingHintsArgs) ToDeliveryStreamSplunkBufferingHintsOutput() DeliveryStreamSplunkBufferingHintsOutput {
+	return i.ToDeliveryStreamSplunkBufferingHintsOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamSplunkBufferingHintsArgs) ToDeliveryStreamSplunkBufferingHintsOutputWithContext(ctx context.Context) DeliveryStreamSplunkBufferingHintsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSplunkBufferingHintsOutput)
+}
+
+func (i DeliveryStreamSplunkBufferingHintsArgs) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSplunkBufferingHints] {
+	return pulumix.Output[DeliveryStreamSplunkBufferingHints]{
+		OutputState: i.ToDeliveryStreamSplunkBufferingHintsOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i DeliveryStreamSplunkBufferingHintsArgs) ToDeliveryStreamSplunkBufferingHintsPtrOutput() DeliveryStreamSplunkBufferingHintsPtrOutput {
+	return i.ToDeliveryStreamSplunkBufferingHintsPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamSplunkBufferingHintsArgs) ToDeliveryStreamSplunkBufferingHintsPtrOutputWithContext(ctx context.Context) DeliveryStreamSplunkBufferingHintsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSplunkBufferingHintsOutput).ToDeliveryStreamSplunkBufferingHintsPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamSplunkBufferingHintsPtrInput is an input type that accepts DeliveryStreamSplunkBufferingHintsArgs, DeliveryStreamSplunkBufferingHintsPtr and DeliveryStreamSplunkBufferingHintsPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamSplunkBufferingHintsPtrInput` via:
+//
+//	        DeliveryStreamSplunkBufferingHintsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamSplunkBufferingHintsPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamSplunkBufferingHintsPtrOutput() DeliveryStreamSplunkBufferingHintsPtrOutput
+	ToDeliveryStreamSplunkBufferingHintsPtrOutputWithContext(context.Context) DeliveryStreamSplunkBufferingHintsPtrOutput
+}
+
+type deliveryStreamSplunkBufferingHintsPtrType DeliveryStreamSplunkBufferingHintsArgs
+
+func DeliveryStreamSplunkBufferingHintsPtr(v *DeliveryStreamSplunkBufferingHintsArgs) DeliveryStreamSplunkBufferingHintsPtrInput {
+	return (*deliveryStreamSplunkBufferingHintsPtrType)(v)
+}
+
+func (*deliveryStreamSplunkBufferingHintsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamSplunkBufferingHints)(nil)).Elem()
+}
+
+func (i *deliveryStreamSplunkBufferingHintsPtrType) ToDeliveryStreamSplunkBufferingHintsPtrOutput() DeliveryStreamSplunkBufferingHintsPtrOutput {
+	return i.ToDeliveryStreamSplunkBufferingHintsPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamSplunkBufferingHintsPtrType) ToDeliveryStreamSplunkBufferingHintsPtrOutputWithContext(ctx context.Context) DeliveryStreamSplunkBufferingHintsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamSplunkBufferingHintsPtrOutput)
+}
+
+func (i *deliveryStreamSplunkBufferingHintsPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSplunkBufferingHints] {
+	return pulumix.Output[*DeliveryStreamSplunkBufferingHints]{
+		OutputState: i.ToDeliveryStreamSplunkBufferingHintsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type DeliveryStreamSplunkBufferingHintsOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamSplunkBufferingHintsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamSplunkBufferingHints)(nil)).Elem()
+}
+
+func (o DeliveryStreamSplunkBufferingHintsOutput) ToDeliveryStreamSplunkBufferingHintsOutput() DeliveryStreamSplunkBufferingHintsOutput {
+	return o
+}
+
+func (o DeliveryStreamSplunkBufferingHintsOutput) ToDeliveryStreamSplunkBufferingHintsOutputWithContext(ctx context.Context) DeliveryStreamSplunkBufferingHintsOutput {
+	return o
+}
+
+func (o DeliveryStreamSplunkBufferingHintsOutput) ToDeliveryStreamSplunkBufferingHintsPtrOutput() DeliveryStreamSplunkBufferingHintsPtrOutput {
+	return o.ToDeliveryStreamSplunkBufferingHintsPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamSplunkBufferingHintsOutput) ToDeliveryStreamSplunkBufferingHintsPtrOutputWithContext(ctx context.Context) DeliveryStreamSplunkBufferingHintsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamSplunkBufferingHints) *DeliveryStreamSplunkBufferingHints {
+		return &v
+	}).(DeliveryStreamSplunkBufferingHintsPtrOutput)
+}
+
+func (o DeliveryStreamSplunkBufferingHintsOutput) ToOutput(ctx context.Context) pulumix.Output[DeliveryStreamSplunkBufferingHints] {
+	return pulumix.Output[DeliveryStreamSplunkBufferingHints]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeliveryStreamSplunkBufferingHintsOutput) IntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSplunkBufferingHints) *int { return v.IntervalInSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o DeliveryStreamSplunkBufferingHintsOutput) SizeInMbs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSplunkBufferingHints) *int { return v.SizeInMbs }).(pulumi.IntPtrOutput)
+}
+
+type DeliveryStreamSplunkBufferingHintsPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamSplunkBufferingHintsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamSplunkBufferingHints)(nil)).Elem()
+}
+
+func (o DeliveryStreamSplunkBufferingHintsPtrOutput) ToDeliveryStreamSplunkBufferingHintsPtrOutput() DeliveryStreamSplunkBufferingHintsPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamSplunkBufferingHintsPtrOutput) ToDeliveryStreamSplunkBufferingHintsPtrOutputWithContext(ctx context.Context) DeliveryStreamSplunkBufferingHintsPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamSplunkBufferingHintsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeliveryStreamSplunkBufferingHints] {
+	return pulumix.Output[*DeliveryStreamSplunkBufferingHints]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o DeliveryStreamSplunkBufferingHintsPtrOutput) Elem() DeliveryStreamSplunkBufferingHintsOutput {
+	return o.ApplyT(func(v *DeliveryStreamSplunkBufferingHints) DeliveryStreamSplunkBufferingHints {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamSplunkBufferingHints
+		return ret
+	}).(DeliveryStreamSplunkBufferingHintsOutput)
+}
+
+func (o DeliveryStreamSplunkBufferingHintsPtrOutput) IntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSplunkBufferingHints) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IntervalInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DeliveryStreamSplunkBufferingHintsPtrOutput) SizeInMbs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSplunkBufferingHints) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SizeInMbs
+	}).(pulumi.IntPtrOutput)
+}
+
 type DeliveryStreamSplunkDestinationConfiguration struct {
+	BufferingHints                    *DeliveryStreamSplunkBufferingHints                         `pulumi:"bufferingHints"`
 	CloudWatchLoggingOptions          *DeliveryStreamCloudWatchLoggingOptions                     `pulumi:"cloudWatchLoggingOptions"`
 	HecAcknowledgmentTimeoutInSeconds *int                                                        `pulumi:"hecAcknowledgmentTimeoutInSeconds"`
 	HecEndpoint                       string                                                      `pulumi:"hecEndpoint"`
@@ -8418,6 +8591,7 @@ type DeliveryStreamSplunkDestinationConfigurationInput interface {
 }
 
 type DeliveryStreamSplunkDestinationConfigurationArgs struct {
+	BufferingHints                    DeliveryStreamSplunkBufferingHintsPtrInput                       `pulumi:"bufferingHints"`
 	CloudWatchLoggingOptions          DeliveryStreamCloudWatchLoggingOptionsPtrInput                   `pulumi:"cloudWatchLoggingOptions"`
 	HecAcknowledgmentTimeoutInSeconds pulumi.IntPtrInput                                               `pulumi:"hecAcknowledgmentTimeoutInSeconds"`
 	HecEndpoint                       pulumi.StringInput                                               `pulumi:"hecEndpoint"`
@@ -8524,6 +8698,12 @@ func (o DeliveryStreamSplunkDestinationConfigurationOutput) ToOutput(ctx context
 	}
 }
 
+func (o DeliveryStreamSplunkDestinationConfigurationOutput) BufferingHints() DeliveryStreamSplunkBufferingHintsPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamSplunkDestinationConfiguration) *DeliveryStreamSplunkBufferingHints {
+		return v.BufferingHints
+	}).(DeliveryStreamSplunkBufferingHintsPtrOutput)
+}
+
 func (o DeliveryStreamSplunkDestinationConfigurationOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSplunkDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		return v.CloudWatchLoggingOptions
@@ -8598,6 +8778,15 @@ func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) Elem() DeliverySt
 		var ret DeliveryStreamSplunkDestinationConfiguration
 		return ret
 	}).(DeliveryStreamSplunkDestinationConfigurationOutput)
+}
+
+func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) BufferingHints() DeliveryStreamSplunkBufferingHintsPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamSplunkDestinationConfiguration) *DeliveryStreamSplunkBufferingHints {
+		if v == nil {
+			return nil
+		}
+		return v.BufferingHints
+	}).(DeliveryStreamSplunkBufferingHintsPtrOutput)
 }
 
 func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
@@ -9234,6 +9423,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSchemaConfigurationPtrInput)(nil)).Elem(), DeliveryStreamSchemaConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSerializerInput)(nil)).Elem(), DeliveryStreamSerializerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSerializerPtrInput)(nil)).Elem(), DeliveryStreamSerializerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSplunkBufferingHintsInput)(nil)).Elem(), DeliveryStreamSplunkBufferingHintsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSplunkBufferingHintsPtrInput)(nil)).Elem(), DeliveryStreamSplunkBufferingHintsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSplunkDestinationConfigurationInput)(nil)).Elem(), DeliveryStreamSplunkDestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSplunkDestinationConfigurationPtrInput)(nil)).Elem(), DeliveryStreamSplunkDestinationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSplunkRetryOptionsInput)(nil)).Elem(), DeliveryStreamSplunkRetryOptionsArgs{})
@@ -9326,6 +9517,8 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamSchemaConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSerializerOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSerializerPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamSplunkBufferingHintsOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamSplunkBufferingHintsPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSplunkDestinationConfigurationOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSplunkDestinationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamSplunkRetryOptionsOutput{})

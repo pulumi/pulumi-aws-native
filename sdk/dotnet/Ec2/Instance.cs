@@ -64,9 +64,6 @@ namespace Pulumi.AwsNative.Ec2
         [Output("imageId")]
         public Output<string?> ImageId { get; private set; } = null!;
 
-        [Output("instanceId")]
-        public Output<string> InstanceId { get; private set; } = null!;
-
         [Output("instanceInitiatedShutdownBehavior")]
         public Output<string?> InstanceInitiatedShutdownBehavior { get; private set; } = null!;
 

@@ -28,10 +28,15 @@ type LookupPlaceIndexArgs struct {
 }
 
 type LookupPlaceIndexResult struct {
-	Arn        *string `pulumi:"arn"`
-	CreateTime *string `pulumi:"createTime"`
-	IndexArn   *string `pulumi:"indexArn"`
-	UpdateTime *string `pulumi:"updateTime"`
+	Arn                     *string                            `pulumi:"arn"`
+	CreateTime              *string                            `pulumi:"createTime"`
+	DataSourceConfiguration *PlaceIndexDataSourceConfiguration `pulumi:"dataSourceConfiguration"`
+	Description             *string                            `pulumi:"description"`
+	IndexArn                *string                            `pulumi:"indexArn"`
+	PricingPlan             *PlaceIndexPricingPlan             `pulumi:"pricingPlan"`
+	// An array of key-value pairs to apply to this resource.
+	Tags       []PlaceIndexTag `pulumi:"tags"`
+	UpdateTime *string         `pulumi:"updateTime"`
 }
 
 func LookupPlaceIndexOutput(ctx *pulumi.Context, args LookupPlaceIndexOutputArgs, opts ...pulumi.InvokeOption) LookupPlaceIndexResultOutput {
@@ -83,8 +88,25 @@ func (o LookupPlaceIndexResultOutput) CreateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPlaceIndexResult) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupPlaceIndexResultOutput) DataSourceConfiguration() PlaceIndexDataSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupPlaceIndexResult) *PlaceIndexDataSourceConfiguration { return v.DataSourceConfiguration }).(PlaceIndexDataSourceConfigurationPtrOutput)
+}
+
+func (o LookupPlaceIndexResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPlaceIndexResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupPlaceIndexResultOutput) IndexArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPlaceIndexResult) *string { return v.IndexArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupPlaceIndexResultOutput) PricingPlan() PlaceIndexPricingPlanPtrOutput {
+	return o.ApplyT(func(v LookupPlaceIndexResult) *PlaceIndexPricingPlan { return v.PricingPlan }).(PlaceIndexPricingPlanPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupPlaceIndexResultOutput) Tags() PlaceIndexTagArrayOutput {
+	return o.ApplyT(func(v LookupPlaceIndexResult) []PlaceIndexTag { return v.Tags }).(PlaceIndexTagArrayOutput)
 }
 
 func (o LookupPlaceIndexResultOutput) UpdateTime() pulumi.StringPtrOutput {

@@ -37,6 +37,8 @@ type User struct {
 	Tags UserTagArrayOutput `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) for the user.
 	UserArn pulumi.StringOutput `pulumi:"userArn"`
+	// One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
+	UserProficiencies UserProficiencyArrayOutput `pulumi:"userProficiencies"`
 	// The user name for the account.
 	Username pulumi.StringOutput `pulumi:"username"`
 }
@@ -114,6 +116,8 @@ type userArgs struct {
 	SecurityProfileArns []string `pulumi:"securityProfileArns"`
 	// One or more tags.
 	Tags []UserTag `pulumi:"tags"`
+	// One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
+	UserProficiencies []UserProficiency `pulumi:"userProficiencies"`
 	// The user name for the account.
 	Username string `pulumi:"username"`
 }
@@ -138,6 +142,8 @@ type UserArgs struct {
 	SecurityProfileArns pulumi.StringArrayInput
 	// One or more tags.
 	Tags UserTagArrayInput
+	// One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
+	UserProficiencies UserProficiencyArrayInput
 	// The user name for the account.
 	Username pulumi.StringInput
 }
@@ -239,6 +245,11 @@ func (o UserOutput) Tags() UserTagArrayOutput {
 // The Amazon Resource Name (ARN) for the user.
 func (o UserOutput) UserArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UserArn }).(pulumi.StringOutput)
+}
+
+// One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
+func (o UserOutput) UserProficiencies() UserProficiencyArrayOutput {
+	return o.ApplyT(func(v *User) UserProficiencyArrayOutput { return v.UserProficiencies }).(UserProficiencyArrayOutput)
 }
 
 // The user name for the account.

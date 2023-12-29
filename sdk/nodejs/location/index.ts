@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ApiKeyArgs } from "./apiKey";
+export type ApiKey = import("./apiKey").ApiKey;
+export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
+utilities.lazyLoad(exports, ["ApiKey"], () => require("./apiKey"));
+
 export { GeofenceCollectionArgs } from "./geofenceCollection";
 export type GeofenceCollection = import("./geofenceCollection").GeofenceCollection;
 export const GeofenceCollection: typeof import("./geofenceCollection").GeofenceCollection = null as any;
 utilities.lazyLoad(exports, ["GeofenceCollection"], () => require("./geofenceCollection"));
+
+export { GetApiKeyArgs, GetApiKeyResult, GetApiKeyOutputArgs } from "./getApiKey";
+export const getApiKey: typeof import("./getApiKey").getApiKey = null as any;
+export const getApiKeyOutput: typeof import("./getApiKey").getApiKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getApiKey","getApiKeyOutput"], () => require("./getApiKey"));
 
 export { GetGeofenceCollectionArgs, GetGeofenceCollectionResult, GetGeofenceCollectionOutputArgs } from "./getGeofenceCollection";
 export const getGeofenceCollection: typeof import("./getGeofenceCollection").getGeofenceCollection = null as any;
@@ -68,6 +78,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:location:ApiKey":
+                return new ApiKey(name, <any>undefined, { urn })
             case "aws-native:location:GeofenceCollection":
                 return new GeofenceCollection(name, <any>undefined, { urn })
             case "aws-native:location:Map":

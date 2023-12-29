@@ -16,42 +16,36 @@ __all__ = ['PhoneNumberArgs', 'PhoneNumber']
 @pulumi.input_type
 class PhoneNumberArgs:
     def __init__(__self__, *,
-                 country_code: pulumi.Input[str],
                  target_arn: pulumi.Input[str],
-                 type: pulumi.Input[str],
+                 country_code: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberTagArgs']]]] = None):
+                 source_phone_number_arn: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberTagArgs']]]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PhoneNumber resource.
-        :param pulumi.Input[str] country_code: The phone number country code.
         :param pulumi.Input[str] target_arn: The ARN of the target the phone number is claimed to.
-        :param pulumi.Input[str] type: The phone number type
+        :param pulumi.Input[str] country_code: The phone number country code.
         :param pulumi.Input[str] description: The description of the phone number.
         :param pulumi.Input[str] prefix: The phone number prefix.
+        :param pulumi.Input[str] source_phone_number_arn: The source phone number arn.
         :param pulumi.Input[Sequence[pulumi.Input['PhoneNumberTagArgs']]] tags: One or more tags.
+        :param pulumi.Input[str] type: The phone number type
         """
-        pulumi.set(__self__, "country_code", country_code)
         pulumi.set(__self__, "target_arn", target_arn)
-        pulumi.set(__self__, "type", type)
+        if country_code is not None:
+            pulumi.set(__self__, "country_code", country_code)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
+        if source_phone_number_arn is not None:
+            pulumi.set(__self__, "source_phone_number_arn", source_phone_number_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="countryCode")
-    def country_code(self) -> pulumi.Input[str]:
-        """
-        The phone number country code.
-        """
-        return pulumi.get(self, "country_code")
-
-    @country_code.setter
-    def country_code(self, value: pulumi.Input[str]):
-        pulumi.set(self, "country_code", value)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="targetArn")
@@ -66,16 +60,16 @@ class PhoneNumberArgs:
         pulumi.set(self, "target_arn", value)
 
     @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> Optional[pulumi.Input[str]]:
         """
-        The phone number type
+        The phone number country code.
         """
-        return pulumi.get(self, "type")
+        return pulumi.get(self, "country_code")
 
-    @type.setter
-    def type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "type", value)
+    @country_code.setter
+    def country_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "country_code", value)
 
     @property
     @pulumi.getter
@@ -102,6 +96,18 @@ class PhoneNumberArgs:
         pulumi.set(self, "prefix", value)
 
     @property
+    @pulumi.getter(name="sourcePhoneNumberArn")
+    def source_phone_number_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The source phone number arn.
+        """
+        return pulumi.get(self, "source_phone_number_arn")
+
+    @source_phone_number_arn.setter
+    def source_phone_number_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_phone_number_arn", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberTagArgs']]]]:
         """
@@ -113,6 +119,18 @@ class PhoneNumberArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The phone number type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
 
 class PhoneNumber(pulumi.CustomResource):
     @overload
@@ -122,6 +140,7 @@ class PhoneNumber(pulumi.CustomResource):
                  country_code: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
+                 source_phone_number_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhoneNumberTagArgs']]]]] = None,
                  target_arn: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -134,6 +153,7 @@ class PhoneNumber(pulumi.CustomResource):
         :param pulumi.Input[str] country_code: The phone number country code.
         :param pulumi.Input[str] description: The description of the phone number.
         :param pulumi.Input[str] prefix: The phone number prefix.
+        :param pulumi.Input[str] source_phone_number_arn: The source phone number arn.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhoneNumberTagArgs']]]] tags: One or more tags.
         :param pulumi.Input[str] target_arn: The ARN of the target the phone number is claimed to.
         :param pulumi.Input[str] type: The phone number type
@@ -165,6 +185,7 @@ class PhoneNumber(pulumi.CustomResource):
                  country_code: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
+                 source_phone_number_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhoneNumberTagArgs']]]]] = None,
                  target_arn: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -177,21 +198,18 @@ class PhoneNumber(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PhoneNumberArgs.__new__(PhoneNumberArgs)
 
-            if country_code is None and not opts.urn:
-                raise TypeError("Missing required property 'country_code'")
             __props__.__dict__["country_code"] = country_code
             __props__.__dict__["description"] = description
             __props__.__dict__["prefix"] = prefix
+            __props__.__dict__["source_phone_number_arn"] = source_phone_number_arn
             __props__.__dict__["tags"] = tags
             if target_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'target_arn'")
             __props__.__dict__["target_arn"] = target_arn
-            if type is None and not opts.urn:
-                raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["address"] = None
             __props__.__dict__["phone_number_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["country_code", "prefix", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["country_code", "prefix", "source_phone_number_arn", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PhoneNumber, __self__).__init__(
             'aws-native:connect:PhoneNumber',
@@ -220,6 +238,7 @@ class PhoneNumber(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["phone_number_arn"] = None
         __props__.__dict__["prefix"] = None
+        __props__.__dict__["source_phone_number_arn"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["target_arn"] = None
         __props__.__dict__["type"] = None
@@ -235,7 +254,7 @@ class PhoneNumber(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="countryCode")
-    def country_code(self) -> pulumi.Output[str]:
+    def country_code(self) -> pulumi.Output[Optional[str]]:
         """
         The phone number country code.
         """
@@ -266,6 +285,14 @@ class PhoneNumber(pulumi.CustomResource):
         return pulumi.get(self, "prefix")
 
     @property
+    @pulumi.getter(name="sourcePhoneNumberArn")
+    def source_phone_number_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The source phone number arn.
+        """
+        return pulumi.get(self, "source_phone_number_arn")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['outputs.PhoneNumberTag']]]:
         """
@@ -283,7 +310,7 @@ class PhoneNumber(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         The phone number type
         """

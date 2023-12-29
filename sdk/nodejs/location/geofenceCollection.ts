@@ -45,6 +45,10 @@ export class GeofenceCollection extends pulumi.CustomResource {
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     public readonly pricingPlan!: pulumi.Output<enums.location.GeofenceCollectionPricingPlan | undefined>;
     public readonly pricingPlanDataSource!: pulumi.Output<string | undefined>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.location.GeofenceCollectionTag[] | undefined>;
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
@@ -66,6 +70,7 @@ export class GeofenceCollection extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["pricingPlan"] = args ? args.pricingPlan : undefined;
             resourceInputs["pricingPlanDataSource"] = args ? args.pricingPlanDataSource : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["collectionArn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
@@ -79,10 +84,11 @@ export class GeofenceCollection extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["pricingPlan"] = undefined /*out*/;
             resourceInputs["pricingPlanDataSource"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["collectionName", "description", "kmsKeyId"] };
+        const replaceOnChanges = { replaceOnChanges: ["collectionName", "kmsKeyId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(GeofenceCollection.__pulumiType, name, resourceInputs, opts);
     }
@@ -97,4 +103,8 @@ export interface GeofenceCollectionArgs {
     kmsKeyId?: pulumi.Input<string>;
     pricingPlan?: pulumi.Input<enums.location.GeofenceCollectionPricingPlan>;
     pricingPlanDataSource?: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.location.GeofenceCollectionTagArgs>[]>;
 }

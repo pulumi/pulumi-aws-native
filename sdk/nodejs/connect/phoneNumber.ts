@@ -44,7 +44,7 @@ export class PhoneNumber extends pulumi.CustomResource {
     /**
      * The phone number country code.
      */
-    public readonly countryCode!: pulumi.Output<string>;
+    public readonly countryCode!: pulumi.Output<string | undefined>;
     /**
      * The description of the phone number.
      */
@@ -58,6 +58,10 @@ export class PhoneNumber extends pulumi.CustomResource {
      */
     public readonly prefix!: pulumi.Output<string | undefined>;
     /**
+     * The source phone number arn.
+     */
+    public readonly sourcePhoneNumberArn!: pulumi.Output<string | undefined>;
+    /**
      * One or more tags.
      */
     public readonly tags!: pulumi.Output<outputs.connect.PhoneNumberTag[] | undefined>;
@@ -68,7 +72,7 @@ export class PhoneNumber extends pulumi.CustomResource {
     /**
      * The phone number type
      */
-    public readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a PhoneNumber resource with the given unique name, arguments, and options.
@@ -81,18 +85,13 @@ export class PhoneNumber extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.countryCode === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'countryCode'");
-            }
             if ((!args || args.targetArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetArn'");
-            }
-            if ((!args || args.type === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'type'");
             }
             resourceInputs["countryCode"] = args ? args.countryCode : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["prefix"] = args ? args.prefix : undefined;
+            resourceInputs["sourcePhoneNumberArn"] = args ? args.sourcePhoneNumberArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetArn"] = args ? args.targetArn : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -104,12 +103,13 @@ export class PhoneNumber extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["phoneNumberArn"] = undefined /*out*/;
             resourceInputs["prefix"] = undefined /*out*/;
+            resourceInputs["sourcePhoneNumberArn"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["targetArn"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["countryCode", "prefix", "type"] };
+        const replaceOnChanges = { replaceOnChanges: ["countryCode", "prefix", "sourcePhoneNumberArn", "type"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PhoneNumber.__pulumiType, name, resourceInputs, opts);
     }
@@ -122,7 +122,7 @@ export interface PhoneNumberArgs {
     /**
      * The phone number country code.
      */
-    countryCode: pulumi.Input<string>;
+    countryCode?: pulumi.Input<string>;
     /**
      * The description of the phone number.
      */
@@ -131,6 +131,10 @@ export interface PhoneNumberArgs {
      * The phone number prefix.
      */
     prefix?: pulumi.Input<string>;
+    /**
+     * The source phone number arn.
+     */
+    sourcePhoneNumberArn?: pulumi.Input<string>;
     /**
      * One or more tags.
      */
@@ -142,5 +146,5 @@ export interface PhoneNumberArgs {
     /**
      * The phone number type
      */
-    type: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }

@@ -8,7 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['GeofenceCollectionArgs', 'GeofenceCollection']
 
@@ -19,9 +21,11 @@ class GeofenceCollectionArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  pricing_plan: Optional[pulumi.Input['GeofenceCollectionPricingPlan']] = None,
-                 pricing_plan_data_source: Optional[pulumi.Input[str]] = None):
+                 pricing_plan_data_source: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['GeofenceCollectionTagArgs']]]] = None):
         """
         The set of arguments for constructing a GeofenceCollection resource.
+        :param pulumi.Input[Sequence[pulumi.Input['GeofenceCollectionTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "collection_name", collection_name)
         if description is not None:
@@ -32,6 +36,8 @@ class GeofenceCollectionArgs:
             pulumi.set(__self__, "pricing_plan", pricing_plan)
         if pricing_plan_data_source is not None:
             pulumi.set(__self__, "pricing_plan_data_source", pricing_plan_data_source)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="collectionName")
@@ -78,6 +84,18 @@ class GeofenceCollectionArgs:
     def pricing_plan_data_source(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "pricing_plan_data_source", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GeofenceCollectionTagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GeofenceCollectionTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class GeofenceCollection(pulumi.CustomResource):
     @overload
@@ -89,12 +107,14 @@ class GeofenceCollection(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  pricing_plan: Optional[pulumi.Input['GeofenceCollectionPricingPlan']] = None,
                  pricing_plan_data_source: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GeofenceCollectionTagArgs']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Location::GeofenceCollection Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GeofenceCollectionTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -125,6 +145,7 @@ class GeofenceCollection(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  pricing_plan: Optional[pulumi.Input['GeofenceCollectionPricingPlan']] = None,
                  pricing_plan_data_source: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GeofenceCollectionTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -141,11 +162,12 @@ class GeofenceCollection(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["pricing_plan"] = pricing_plan
             __props__.__dict__["pricing_plan_data_source"] = pricing_plan_data_source
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["collection_arn"] = None
             __props__.__dict__["create_time"] = None
             __props__.__dict__["update_time"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["collection_name", "description", "kms_key_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["collection_name", "kms_key_id"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(GeofenceCollection, __self__).__init__(
             'aws-native:location:GeofenceCollection',
@@ -177,6 +199,7 @@ class GeofenceCollection(pulumi.CustomResource):
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["pricing_plan"] = None
         __props__.__dict__["pricing_plan_data_source"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["update_time"] = None
         return GeofenceCollection(resource_name, opts=opts, __props__=__props__)
 
@@ -219,6 +242,14 @@ class GeofenceCollection(pulumi.CustomResource):
     @pulumi.getter(name="pricingPlanDataSource")
     def pricing_plan_data_source(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "pricing_plan_data_source")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.GeofenceCollectionTag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updateTime")

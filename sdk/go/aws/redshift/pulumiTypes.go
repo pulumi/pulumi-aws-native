@@ -187,7 +187,7 @@ func (o ClusterEndpointPtrOutput) Port() pulumi.StringPtrOutput {
 }
 
 type ClusterLoggingProperties struct {
-	BucketName  string  `pulumi:"bucketName"`
+	BucketName  *string `pulumi:"bucketName"`
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
 }
 
@@ -203,7 +203,7 @@ type ClusterLoggingPropertiesInput interface {
 }
 
 type ClusterLoggingPropertiesArgs struct {
-	BucketName  pulumi.StringInput    `pulumi:"bucketName"`
+	BucketName  pulumi.StringPtrInput `pulumi:"bucketName"`
 	S3KeyPrefix pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
 }
 
@@ -302,8 +302,8 @@ func (o ClusterLoggingPropertiesOutput) ToOutput(ctx context.Context) pulumix.Ou
 	}
 }
 
-func (o ClusterLoggingPropertiesOutput) BucketName() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterLoggingProperties) string { return v.BucketName }).(pulumi.StringOutput)
+func (o ClusterLoggingPropertiesOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLoggingProperties) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
 func (o ClusterLoggingPropertiesOutput) S3KeyPrefix() pulumi.StringPtrOutput {
@@ -345,7 +345,7 @@ func (o ClusterLoggingPropertiesPtrOutput) BucketName() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.BucketName
+		return v.BucketName
 	}).(pulumi.StringPtrOutput)
 }
 

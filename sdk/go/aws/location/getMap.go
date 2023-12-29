@@ -28,11 +28,14 @@ type LookupMapArgs struct {
 }
 
 type LookupMapResult struct {
-	Arn        *string `pulumi:"arn"`
-	CreateTime *string `pulumi:"createTime"`
-	DataSource *string `pulumi:"dataSource"`
-	MapArn     *string `pulumi:"mapArn"`
-	UpdateTime *string `pulumi:"updateTime"`
+	Arn         *string         `pulumi:"arn"`
+	CreateTime  *string         `pulumi:"createTime"`
+	Description *string         `pulumi:"description"`
+	MapArn      *string         `pulumi:"mapArn"`
+	PricingPlan *MapPricingPlan `pulumi:"pricingPlan"`
+	// An array of key-value pairs to apply to this resource.
+	Tags       []MapTag `pulumi:"tags"`
+	UpdateTime *string  `pulumi:"updateTime"`
 }
 
 func LookupMapOutput(ctx *pulumi.Context, args LookupMapOutputArgs, opts ...pulumi.InvokeOption) LookupMapResultOutput {
@@ -84,12 +87,21 @@ func (o LookupMapResultOutput) CreateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMapResult) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
-func (o LookupMapResultOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupMapResult) *string { return v.DataSource }).(pulumi.StringPtrOutput)
+func (o LookupMapResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupMapResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupMapResultOutput) MapArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMapResult) *string { return v.MapArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupMapResultOutput) PricingPlan() MapPricingPlanPtrOutput {
+	return o.ApplyT(func(v LookupMapResult) *MapPricingPlan { return v.PricingPlan }).(MapPricingPlanPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupMapResultOutput) Tags() MapTagArrayOutput {
+	return o.ApplyT(func(v LookupMapResult) []MapTag { return v.Tags }).(MapTagArrayOutput)
 }
 
 func (o LookupMapResultOutput) UpdateTime() pulumi.StringPtrOutput {

@@ -23,6 +23,7 @@ type FirewallPolicyType struct {
 	StatelessDefaultActions         []string                                    `pulumi:"statelessDefaultActions"`
 	StatelessFragmentDefaultActions []string                                    `pulumi:"statelessFragmentDefaultActions"`
 	StatelessRuleGroupReferences    []FirewallPolicyStatelessRuleGroupReference `pulumi:"statelessRuleGroupReferences"`
+	TlsInspectionConfigurationArn   *string                                     `pulumi:"tlsInspectionConfigurationArn"`
 }
 
 // FirewallPolicyTypeInput is an input type that accepts FirewallPolicyTypeArgs and FirewallPolicyTypeOutput values.
@@ -45,6 +46,7 @@ type FirewallPolicyTypeArgs struct {
 	StatelessDefaultActions         pulumi.StringArrayInput                             `pulumi:"statelessDefaultActions"`
 	StatelessFragmentDefaultActions pulumi.StringArrayInput                             `pulumi:"statelessFragmentDefaultActions"`
 	StatelessRuleGroupReferences    FirewallPolicyStatelessRuleGroupReferenceArrayInput `pulumi:"statelessRuleGroupReferences"`
+	TlsInspectionConfigurationArn   pulumi.StringPtrInput                               `pulumi:"tlsInspectionConfigurationArn"`
 }
 
 func (FirewallPolicyTypeArgs) ElementType() reflect.Type {
@@ -119,6 +121,10 @@ func (o FirewallPolicyTypeOutput) StatelessRuleGroupReferences() FirewallPolicyS
 	return o.ApplyT(func(v FirewallPolicyType) []FirewallPolicyStatelessRuleGroupReference {
 		return v.StatelessRuleGroupReferences
 	}).(FirewallPolicyStatelessRuleGroupReferenceArrayOutput)
+}
+
+func (o FirewallPolicyTypeOutput) TlsInspectionConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallPolicyType) *string { return v.TlsInspectionConfigurationArn }).(pulumi.StringPtrOutput)
 }
 
 type FirewallPolicyTypePtrOutput struct{ *pulumi.OutputState }
@@ -221,6 +227,15 @@ func (o FirewallPolicyTypePtrOutput) StatelessRuleGroupReferences() FirewallPoli
 		}
 		return v.StatelessRuleGroupReferences
 	}).(FirewallPolicyStatelessRuleGroupReferenceArrayOutput)
+}
+
+func (o FirewallPolicyTypePtrOutput) TlsInspectionConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicyType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TlsInspectionConfigurationArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type FirewallPolicyActionDefinition struct {
@@ -5016,6 +5031,1062 @@ func (o RuleGroupTcpFlagFieldArrayOutput) Index(i pulumi.IntInput) RuleGroupTcpF
 	}).(RuleGroupTcpFlagFieldOutput)
 }
 
+type TlsInspectionConfigurationAddress struct {
+	AddressDefinition string `pulumi:"addressDefinition"`
+}
+
+// TlsInspectionConfigurationAddressInput is an input type that accepts TlsInspectionConfigurationAddressArgs and TlsInspectionConfigurationAddressOutput values.
+// You can construct a concrete instance of `TlsInspectionConfigurationAddressInput` via:
+//
+//	TlsInspectionConfigurationAddressArgs{...}
+type TlsInspectionConfigurationAddressInput interface {
+	pulumi.Input
+
+	ToTlsInspectionConfigurationAddressOutput() TlsInspectionConfigurationAddressOutput
+	ToTlsInspectionConfigurationAddressOutputWithContext(context.Context) TlsInspectionConfigurationAddressOutput
+}
+
+type TlsInspectionConfigurationAddressArgs struct {
+	AddressDefinition pulumi.StringInput `pulumi:"addressDefinition"`
+}
+
+func (TlsInspectionConfigurationAddressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TlsInspectionConfigurationAddress)(nil)).Elem()
+}
+
+func (i TlsInspectionConfigurationAddressArgs) ToTlsInspectionConfigurationAddressOutput() TlsInspectionConfigurationAddressOutput {
+	return i.ToTlsInspectionConfigurationAddressOutputWithContext(context.Background())
+}
+
+func (i TlsInspectionConfigurationAddressArgs) ToTlsInspectionConfigurationAddressOutputWithContext(ctx context.Context) TlsInspectionConfigurationAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationAddressOutput)
+}
+
+func (i TlsInspectionConfigurationAddressArgs) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationAddress] {
+	return pulumix.Output[TlsInspectionConfigurationAddress]{
+		OutputState: i.ToTlsInspectionConfigurationAddressOutputWithContext(ctx).OutputState,
+	}
+}
+
+// TlsInspectionConfigurationAddressArrayInput is an input type that accepts TlsInspectionConfigurationAddressArray and TlsInspectionConfigurationAddressArrayOutput values.
+// You can construct a concrete instance of `TlsInspectionConfigurationAddressArrayInput` via:
+//
+//	TlsInspectionConfigurationAddressArray{ TlsInspectionConfigurationAddressArgs{...} }
+type TlsInspectionConfigurationAddressArrayInput interface {
+	pulumi.Input
+
+	ToTlsInspectionConfigurationAddressArrayOutput() TlsInspectionConfigurationAddressArrayOutput
+	ToTlsInspectionConfigurationAddressArrayOutputWithContext(context.Context) TlsInspectionConfigurationAddressArrayOutput
+}
+
+type TlsInspectionConfigurationAddressArray []TlsInspectionConfigurationAddressInput
+
+func (TlsInspectionConfigurationAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TlsInspectionConfigurationAddress)(nil)).Elem()
+}
+
+func (i TlsInspectionConfigurationAddressArray) ToTlsInspectionConfigurationAddressArrayOutput() TlsInspectionConfigurationAddressArrayOutput {
+	return i.ToTlsInspectionConfigurationAddressArrayOutputWithContext(context.Background())
+}
+
+func (i TlsInspectionConfigurationAddressArray) ToTlsInspectionConfigurationAddressArrayOutputWithContext(ctx context.Context) TlsInspectionConfigurationAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationAddressArrayOutput)
+}
+
+func (i TlsInspectionConfigurationAddressArray) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationAddress] {
+	return pulumix.Output[[]TlsInspectionConfigurationAddress]{
+		OutputState: i.ToTlsInspectionConfigurationAddressArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TlsInspectionConfigurationAddressOutput struct{ *pulumi.OutputState }
+
+func (TlsInspectionConfigurationAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TlsInspectionConfigurationAddress)(nil)).Elem()
+}
+
+func (o TlsInspectionConfigurationAddressOutput) ToTlsInspectionConfigurationAddressOutput() TlsInspectionConfigurationAddressOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationAddressOutput) ToTlsInspectionConfigurationAddressOutputWithContext(ctx context.Context) TlsInspectionConfigurationAddressOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationAddressOutput) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationAddress] {
+	return pulumix.Output[TlsInspectionConfigurationAddress]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TlsInspectionConfigurationAddressOutput) AddressDefinition() pulumi.StringOutput {
+	return o.ApplyT(func(v TlsInspectionConfigurationAddress) string { return v.AddressDefinition }).(pulumi.StringOutput)
+}
+
+type TlsInspectionConfigurationAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (TlsInspectionConfigurationAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TlsInspectionConfigurationAddress)(nil)).Elem()
+}
+
+func (o TlsInspectionConfigurationAddressArrayOutput) ToTlsInspectionConfigurationAddressArrayOutput() TlsInspectionConfigurationAddressArrayOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationAddressArrayOutput) ToTlsInspectionConfigurationAddressArrayOutputWithContext(ctx context.Context) TlsInspectionConfigurationAddressArrayOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationAddressArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationAddress] {
+	return pulumix.Output[[]TlsInspectionConfigurationAddress]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TlsInspectionConfigurationAddressArrayOutput) Index(i pulumi.IntInput) TlsInspectionConfigurationAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TlsInspectionConfigurationAddress {
+		return vs[0].([]TlsInspectionConfigurationAddress)[vs[1].(int)]
+	}).(TlsInspectionConfigurationAddressOutput)
+}
+
+type TlsInspectionConfigurationPortRange struct {
+	FromPort int `pulumi:"fromPort"`
+	ToPort   int `pulumi:"toPort"`
+}
+
+// TlsInspectionConfigurationPortRangeInput is an input type that accepts TlsInspectionConfigurationPortRangeArgs and TlsInspectionConfigurationPortRangeOutput values.
+// You can construct a concrete instance of `TlsInspectionConfigurationPortRangeInput` via:
+//
+//	TlsInspectionConfigurationPortRangeArgs{...}
+type TlsInspectionConfigurationPortRangeInput interface {
+	pulumi.Input
+
+	ToTlsInspectionConfigurationPortRangeOutput() TlsInspectionConfigurationPortRangeOutput
+	ToTlsInspectionConfigurationPortRangeOutputWithContext(context.Context) TlsInspectionConfigurationPortRangeOutput
+}
+
+type TlsInspectionConfigurationPortRangeArgs struct {
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	ToPort   pulumi.IntInput `pulumi:"toPort"`
+}
+
+func (TlsInspectionConfigurationPortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TlsInspectionConfigurationPortRange)(nil)).Elem()
+}
+
+func (i TlsInspectionConfigurationPortRangeArgs) ToTlsInspectionConfigurationPortRangeOutput() TlsInspectionConfigurationPortRangeOutput {
+	return i.ToTlsInspectionConfigurationPortRangeOutputWithContext(context.Background())
+}
+
+func (i TlsInspectionConfigurationPortRangeArgs) ToTlsInspectionConfigurationPortRangeOutputWithContext(ctx context.Context) TlsInspectionConfigurationPortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationPortRangeOutput)
+}
+
+func (i TlsInspectionConfigurationPortRangeArgs) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationPortRange] {
+	return pulumix.Output[TlsInspectionConfigurationPortRange]{
+		OutputState: i.ToTlsInspectionConfigurationPortRangeOutputWithContext(ctx).OutputState,
+	}
+}
+
+// TlsInspectionConfigurationPortRangeArrayInput is an input type that accepts TlsInspectionConfigurationPortRangeArray and TlsInspectionConfigurationPortRangeArrayOutput values.
+// You can construct a concrete instance of `TlsInspectionConfigurationPortRangeArrayInput` via:
+//
+//	TlsInspectionConfigurationPortRangeArray{ TlsInspectionConfigurationPortRangeArgs{...} }
+type TlsInspectionConfigurationPortRangeArrayInput interface {
+	pulumi.Input
+
+	ToTlsInspectionConfigurationPortRangeArrayOutput() TlsInspectionConfigurationPortRangeArrayOutput
+	ToTlsInspectionConfigurationPortRangeArrayOutputWithContext(context.Context) TlsInspectionConfigurationPortRangeArrayOutput
+}
+
+type TlsInspectionConfigurationPortRangeArray []TlsInspectionConfigurationPortRangeInput
+
+func (TlsInspectionConfigurationPortRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TlsInspectionConfigurationPortRange)(nil)).Elem()
+}
+
+func (i TlsInspectionConfigurationPortRangeArray) ToTlsInspectionConfigurationPortRangeArrayOutput() TlsInspectionConfigurationPortRangeArrayOutput {
+	return i.ToTlsInspectionConfigurationPortRangeArrayOutputWithContext(context.Background())
+}
+
+func (i TlsInspectionConfigurationPortRangeArray) ToTlsInspectionConfigurationPortRangeArrayOutputWithContext(ctx context.Context) TlsInspectionConfigurationPortRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationPortRangeArrayOutput)
+}
+
+func (i TlsInspectionConfigurationPortRangeArray) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationPortRange] {
+	return pulumix.Output[[]TlsInspectionConfigurationPortRange]{
+		OutputState: i.ToTlsInspectionConfigurationPortRangeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TlsInspectionConfigurationPortRangeOutput struct{ *pulumi.OutputState }
+
+func (TlsInspectionConfigurationPortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TlsInspectionConfigurationPortRange)(nil)).Elem()
+}
+
+func (o TlsInspectionConfigurationPortRangeOutput) ToTlsInspectionConfigurationPortRangeOutput() TlsInspectionConfigurationPortRangeOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationPortRangeOutput) ToTlsInspectionConfigurationPortRangeOutputWithContext(ctx context.Context) TlsInspectionConfigurationPortRangeOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationPortRangeOutput) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationPortRange] {
+	return pulumix.Output[TlsInspectionConfigurationPortRange]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TlsInspectionConfigurationPortRangeOutput) FromPort() pulumi.IntOutput {
+	return o.ApplyT(func(v TlsInspectionConfigurationPortRange) int { return v.FromPort }).(pulumi.IntOutput)
+}
+
+func (o TlsInspectionConfigurationPortRangeOutput) ToPort() pulumi.IntOutput {
+	return o.ApplyT(func(v TlsInspectionConfigurationPortRange) int { return v.ToPort }).(pulumi.IntOutput)
+}
+
+type TlsInspectionConfigurationPortRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (TlsInspectionConfigurationPortRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TlsInspectionConfigurationPortRange)(nil)).Elem()
+}
+
+func (o TlsInspectionConfigurationPortRangeArrayOutput) ToTlsInspectionConfigurationPortRangeArrayOutput() TlsInspectionConfigurationPortRangeArrayOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationPortRangeArrayOutput) ToTlsInspectionConfigurationPortRangeArrayOutputWithContext(ctx context.Context) TlsInspectionConfigurationPortRangeArrayOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationPortRangeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationPortRange] {
+	return pulumix.Output[[]TlsInspectionConfigurationPortRange]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TlsInspectionConfigurationPortRangeArrayOutput) Index(i pulumi.IntInput) TlsInspectionConfigurationPortRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TlsInspectionConfigurationPortRange {
+		return vs[0].([]TlsInspectionConfigurationPortRange)[vs[1].(int)]
+	}).(TlsInspectionConfigurationPortRangeOutput)
+}
+
+type TlsInspectionConfigurationServerCertificate struct {
+	ResourceArn *string `pulumi:"resourceArn"`
+}
+
+// TlsInspectionConfigurationServerCertificateInput is an input type that accepts TlsInspectionConfigurationServerCertificateArgs and TlsInspectionConfigurationServerCertificateOutput values.
+// You can construct a concrete instance of `TlsInspectionConfigurationServerCertificateInput` via:
+//
+//	TlsInspectionConfigurationServerCertificateArgs{...}
+type TlsInspectionConfigurationServerCertificateInput interface {
+	pulumi.Input
+
+	ToTlsInspectionConfigurationServerCertificateOutput() TlsInspectionConfigurationServerCertificateOutput
+	ToTlsInspectionConfigurationServerCertificateOutputWithContext(context.Context) TlsInspectionConfigurationServerCertificateOutput
+}
+
+type TlsInspectionConfigurationServerCertificateArgs struct {
+	ResourceArn pulumi.StringPtrInput `pulumi:"resourceArn"`
+}
+
+func (TlsInspectionConfigurationServerCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TlsInspectionConfigurationServerCertificate)(nil)).Elem()
+}
+
+func (i TlsInspectionConfigurationServerCertificateArgs) ToTlsInspectionConfigurationServerCertificateOutput() TlsInspectionConfigurationServerCertificateOutput {
+	return i.ToTlsInspectionConfigurationServerCertificateOutputWithContext(context.Background())
+}
+
+func (i TlsInspectionConfigurationServerCertificateArgs) ToTlsInspectionConfigurationServerCertificateOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationServerCertificateOutput)
+}
+
+func (i TlsInspectionConfigurationServerCertificateArgs) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationServerCertificate] {
+	return pulumix.Output[TlsInspectionConfigurationServerCertificate]{
+		OutputState: i.ToTlsInspectionConfigurationServerCertificateOutputWithContext(ctx).OutputState,
+	}
+}
+
+// TlsInspectionConfigurationServerCertificateArrayInput is an input type that accepts TlsInspectionConfigurationServerCertificateArray and TlsInspectionConfigurationServerCertificateArrayOutput values.
+// You can construct a concrete instance of `TlsInspectionConfigurationServerCertificateArrayInput` via:
+//
+//	TlsInspectionConfigurationServerCertificateArray{ TlsInspectionConfigurationServerCertificateArgs{...} }
+type TlsInspectionConfigurationServerCertificateArrayInput interface {
+	pulumi.Input
+
+	ToTlsInspectionConfigurationServerCertificateArrayOutput() TlsInspectionConfigurationServerCertificateArrayOutput
+	ToTlsInspectionConfigurationServerCertificateArrayOutputWithContext(context.Context) TlsInspectionConfigurationServerCertificateArrayOutput
+}
+
+type TlsInspectionConfigurationServerCertificateArray []TlsInspectionConfigurationServerCertificateInput
+
+func (TlsInspectionConfigurationServerCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TlsInspectionConfigurationServerCertificate)(nil)).Elem()
+}
+
+func (i TlsInspectionConfigurationServerCertificateArray) ToTlsInspectionConfigurationServerCertificateArrayOutput() TlsInspectionConfigurationServerCertificateArrayOutput {
+	return i.ToTlsInspectionConfigurationServerCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i TlsInspectionConfigurationServerCertificateArray) ToTlsInspectionConfigurationServerCertificateArrayOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationServerCertificateArrayOutput)
+}
+
+func (i TlsInspectionConfigurationServerCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationServerCertificate] {
+	return pulumix.Output[[]TlsInspectionConfigurationServerCertificate]{
+		OutputState: i.ToTlsInspectionConfigurationServerCertificateArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TlsInspectionConfigurationServerCertificateOutput struct{ *pulumi.OutputState }
+
+func (TlsInspectionConfigurationServerCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TlsInspectionConfigurationServerCertificate)(nil)).Elem()
+}
+
+func (o TlsInspectionConfigurationServerCertificateOutput) ToTlsInspectionConfigurationServerCertificateOutput() TlsInspectionConfigurationServerCertificateOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationServerCertificateOutput) ToTlsInspectionConfigurationServerCertificateOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationServerCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationServerCertificate] {
+	return pulumix.Output[TlsInspectionConfigurationServerCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TlsInspectionConfigurationServerCertificateOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificate) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
+}
+
+type TlsInspectionConfigurationServerCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (TlsInspectionConfigurationServerCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TlsInspectionConfigurationServerCertificate)(nil)).Elem()
+}
+
+func (o TlsInspectionConfigurationServerCertificateArrayOutput) ToTlsInspectionConfigurationServerCertificateArrayOutput() TlsInspectionConfigurationServerCertificateArrayOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationServerCertificateArrayOutput) ToTlsInspectionConfigurationServerCertificateArrayOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateArrayOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationServerCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationServerCertificate] {
+	return pulumix.Output[[]TlsInspectionConfigurationServerCertificate]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TlsInspectionConfigurationServerCertificateArrayOutput) Index(i pulumi.IntInput) TlsInspectionConfigurationServerCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TlsInspectionConfigurationServerCertificate {
+		return vs[0].([]TlsInspectionConfigurationServerCertificate)[vs[1].(int)]
+	}).(TlsInspectionConfigurationServerCertificateOutput)
+}
+
+type TlsInspectionConfigurationServerCertificateConfiguration struct {
+	CertificateAuthorityArn          *string                                                                                             `pulumi:"certificateAuthorityArn"`
+	CheckCertificateRevocationStatus *TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties `pulumi:"checkCertificateRevocationStatus"`
+	Scopes                           []TlsInspectionConfigurationServerCertificateScope                                                  `pulumi:"scopes"`
+	ServerCertificates               []TlsInspectionConfigurationServerCertificate                                                       `pulumi:"serverCertificates"`
+}
+
+// TlsInspectionConfigurationServerCertificateConfigurationInput is an input type that accepts TlsInspectionConfigurationServerCertificateConfigurationArgs and TlsInspectionConfigurationServerCertificateConfigurationOutput values.
+// You can construct a concrete instance of `TlsInspectionConfigurationServerCertificateConfigurationInput` via:
+//
+//	TlsInspectionConfigurationServerCertificateConfigurationArgs{...}
+type TlsInspectionConfigurationServerCertificateConfigurationInput interface {
+	pulumi.Input
+
+	ToTlsInspectionConfigurationServerCertificateConfigurationOutput() TlsInspectionConfigurationServerCertificateConfigurationOutput
+	ToTlsInspectionConfigurationServerCertificateConfigurationOutputWithContext(context.Context) TlsInspectionConfigurationServerCertificateConfigurationOutput
+}
+
+type TlsInspectionConfigurationServerCertificateConfigurationArgs struct {
+	CertificateAuthorityArn          pulumi.StringPtrInput                                                                                      `pulumi:"certificateAuthorityArn"`
+	CheckCertificateRevocationStatus TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrInput `pulumi:"checkCertificateRevocationStatus"`
+	Scopes                           TlsInspectionConfigurationServerCertificateScopeArrayInput                                                 `pulumi:"scopes"`
+	ServerCertificates               TlsInspectionConfigurationServerCertificateArrayInput                                                      `pulumi:"serverCertificates"`
+}
+
+func (TlsInspectionConfigurationServerCertificateConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TlsInspectionConfigurationServerCertificateConfiguration)(nil)).Elem()
+}
+
+func (i TlsInspectionConfigurationServerCertificateConfigurationArgs) ToTlsInspectionConfigurationServerCertificateConfigurationOutput() TlsInspectionConfigurationServerCertificateConfigurationOutput {
+	return i.ToTlsInspectionConfigurationServerCertificateConfigurationOutputWithContext(context.Background())
+}
+
+func (i TlsInspectionConfigurationServerCertificateConfigurationArgs) ToTlsInspectionConfigurationServerCertificateConfigurationOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationServerCertificateConfigurationOutput)
+}
+
+func (i TlsInspectionConfigurationServerCertificateConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationServerCertificateConfiguration] {
+	return pulumix.Output[TlsInspectionConfigurationServerCertificateConfiguration]{
+		OutputState: i.ToTlsInspectionConfigurationServerCertificateConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+// TlsInspectionConfigurationServerCertificateConfigurationArrayInput is an input type that accepts TlsInspectionConfigurationServerCertificateConfigurationArray and TlsInspectionConfigurationServerCertificateConfigurationArrayOutput values.
+// You can construct a concrete instance of `TlsInspectionConfigurationServerCertificateConfigurationArrayInput` via:
+//
+//	TlsInspectionConfigurationServerCertificateConfigurationArray{ TlsInspectionConfigurationServerCertificateConfigurationArgs{...} }
+type TlsInspectionConfigurationServerCertificateConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToTlsInspectionConfigurationServerCertificateConfigurationArrayOutput() TlsInspectionConfigurationServerCertificateConfigurationArrayOutput
+	ToTlsInspectionConfigurationServerCertificateConfigurationArrayOutputWithContext(context.Context) TlsInspectionConfigurationServerCertificateConfigurationArrayOutput
+}
+
+type TlsInspectionConfigurationServerCertificateConfigurationArray []TlsInspectionConfigurationServerCertificateConfigurationInput
+
+func (TlsInspectionConfigurationServerCertificateConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TlsInspectionConfigurationServerCertificateConfiguration)(nil)).Elem()
+}
+
+func (i TlsInspectionConfigurationServerCertificateConfigurationArray) ToTlsInspectionConfigurationServerCertificateConfigurationArrayOutput() TlsInspectionConfigurationServerCertificateConfigurationArrayOutput {
+	return i.ToTlsInspectionConfigurationServerCertificateConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i TlsInspectionConfigurationServerCertificateConfigurationArray) ToTlsInspectionConfigurationServerCertificateConfigurationArrayOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationServerCertificateConfigurationArrayOutput)
+}
+
+func (i TlsInspectionConfigurationServerCertificateConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationServerCertificateConfiguration] {
+	return pulumix.Output[[]TlsInspectionConfigurationServerCertificateConfiguration]{
+		OutputState: i.ToTlsInspectionConfigurationServerCertificateConfigurationArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TlsInspectionConfigurationServerCertificateConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TlsInspectionConfigurationServerCertificateConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TlsInspectionConfigurationServerCertificateConfiguration)(nil)).Elem()
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationOutput) ToTlsInspectionConfigurationServerCertificateConfigurationOutput() TlsInspectionConfigurationServerCertificateConfigurationOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationOutput) ToTlsInspectionConfigurationServerCertificateConfigurationOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateConfigurationOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationServerCertificateConfiguration] {
+	return pulumix.Output[TlsInspectionConfigurationServerCertificateConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationOutput) CertificateAuthorityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificateConfiguration) *string {
+		return v.CertificateAuthorityArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationOutput) CheckCertificateRevocationStatus() TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput {
+	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificateConfiguration) *TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties {
+		return v.CheckCertificateRevocationStatus
+	}).(TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput)
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationOutput) Scopes() TlsInspectionConfigurationServerCertificateScopeArrayOutput {
+	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificateConfiguration) []TlsInspectionConfigurationServerCertificateScope {
+		return v.Scopes
+	}).(TlsInspectionConfigurationServerCertificateScopeArrayOutput)
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationOutput) ServerCertificates() TlsInspectionConfigurationServerCertificateArrayOutput {
+	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificateConfiguration) []TlsInspectionConfigurationServerCertificate {
+		return v.ServerCertificates
+	}).(TlsInspectionConfigurationServerCertificateArrayOutput)
+}
+
+type TlsInspectionConfigurationServerCertificateConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (TlsInspectionConfigurationServerCertificateConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TlsInspectionConfigurationServerCertificateConfiguration)(nil)).Elem()
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationArrayOutput) ToTlsInspectionConfigurationServerCertificateConfigurationArrayOutput() TlsInspectionConfigurationServerCertificateConfigurationArrayOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationArrayOutput) ToTlsInspectionConfigurationServerCertificateConfigurationArrayOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateConfigurationArrayOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationServerCertificateConfiguration] {
+	return pulumix.Output[[]TlsInspectionConfigurationServerCertificateConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationArrayOutput) Index(i pulumi.IntInput) TlsInspectionConfigurationServerCertificateConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TlsInspectionConfigurationServerCertificateConfiguration {
+		return vs[0].([]TlsInspectionConfigurationServerCertificateConfiguration)[vs[1].(int)]
+	}).(TlsInspectionConfigurationServerCertificateConfigurationOutput)
+}
+
+type TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties struct {
+	RevokedStatusAction *TlsInspectionConfigurationRevokedStatusAction `pulumi:"revokedStatusAction"`
+	UnknownStatusAction *TlsInspectionConfigurationUnknownStatusAction `pulumi:"unknownStatusAction"`
+}
+
+// TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesInput is an input type that accepts TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs and TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput values.
+// You can construct a concrete instance of `TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesInput` via:
+//
+//	TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs{...}
+type TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesInput interface {
+	pulumi.Input
+
+	ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput() TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput
+	ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutputWithContext(context.Context) TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput
+}
+
+type TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs struct {
+	RevokedStatusAction TlsInspectionConfigurationRevokedStatusActionPtrInput `pulumi:"revokedStatusAction"`
+	UnknownStatusAction TlsInspectionConfigurationUnknownStatusActionPtrInput `pulumi:"unknownStatusAction"`
+}
+
+func (TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties)(nil)).Elem()
+}
+
+func (i TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs) ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput() TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput {
+	return i.ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutputWithContext(context.Background())
+}
+
+func (i TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs) ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput)
+}
+
+func (i TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties] {
+	return pulumix.Output[TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties]{
+		OutputState: i.ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs) ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput() TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput {
+	return i.ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs) ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput).ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutputWithContext(ctx)
+}
+
+// TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrInput is an input type that accepts TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs, TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtr and TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput values.
+// You can construct a concrete instance of `TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrInput` via:
+//
+//	        TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput() TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput
+	ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutputWithContext(context.Context) TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput
+}
+
+type tlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrType TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs
+
+func TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtr(v *TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs) TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrInput {
+	return (*tlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrType)(v)
+}
+
+func (*tlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties)(nil)).Elem()
+}
+
+func (i *tlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrType) ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput() TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput {
+	return i.ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *tlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrType) ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput)
+}
+
+func (i *tlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties] {
+	return pulumix.Output[*TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties]{
+		OutputState: i.ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput struct{ *pulumi.OutputState }
+
+func (TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties)(nil)).Elem()
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput) ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput() TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput) ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput) ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput() TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput {
+	return o.ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput) ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties) *TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties {
+		return &v
+	}).(TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput)
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties] {
+	return pulumix.Output[TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput) RevokedStatusAction() TlsInspectionConfigurationRevokedStatusActionPtrOutput {
+	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties) *TlsInspectionConfigurationRevokedStatusAction {
+		return v.RevokedStatusAction
+	}).(TlsInspectionConfigurationRevokedStatusActionPtrOutput)
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput) UnknownStatusAction() TlsInspectionConfigurationUnknownStatusActionPtrOutput {
+	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties) *TlsInspectionConfigurationUnknownStatusAction {
+		return v.UnknownStatusAction
+	}).(TlsInspectionConfigurationUnknownStatusActionPtrOutput)
+}
+
+type TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties)(nil)).Elem()
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput) ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput() TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput) ToTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties] {
+	return pulumix.Output[*TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput) Elem() TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput {
+	return o.ApplyT(func(v *TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties) TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties {
+		if v != nil {
+			return *v
+		}
+		var ret TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties
+		return ret
+	}).(TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput)
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput) RevokedStatusAction() TlsInspectionConfigurationRevokedStatusActionPtrOutput {
+	return o.ApplyT(func(v *TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties) *TlsInspectionConfigurationRevokedStatusAction {
+		if v == nil {
+			return nil
+		}
+		return v.RevokedStatusAction
+	}).(TlsInspectionConfigurationRevokedStatusActionPtrOutput)
+}
+
+func (o TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput) UnknownStatusAction() TlsInspectionConfigurationUnknownStatusActionPtrOutput {
+	return o.ApplyT(func(v *TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties) *TlsInspectionConfigurationUnknownStatusAction {
+		if v == nil {
+			return nil
+		}
+		return v.UnknownStatusAction
+	}).(TlsInspectionConfigurationUnknownStatusActionPtrOutput)
+}
+
+type TlsInspectionConfigurationServerCertificateScope struct {
+	DestinationPorts []TlsInspectionConfigurationPortRange `pulumi:"destinationPorts"`
+	Destinations     []TlsInspectionConfigurationAddress   `pulumi:"destinations"`
+	Protocols        []int                                 `pulumi:"protocols"`
+	SourcePorts      []TlsInspectionConfigurationPortRange `pulumi:"sourcePorts"`
+	Sources          []TlsInspectionConfigurationAddress   `pulumi:"sources"`
+}
+
+// TlsInspectionConfigurationServerCertificateScopeInput is an input type that accepts TlsInspectionConfigurationServerCertificateScopeArgs and TlsInspectionConfigurationServerCertificateScopeOutput values.
+// You can construct a concrete instance of `TlsInspectionConfigurationServerCertificateScopeInput` via:
+//
+//	TlsInspectionConfigurationServerCertificateScopeArgs{...}
+type TlsInspectionConfigurationServerCertificateScopeInput interface {
+	pulumi.Input
+
+	ToTlsInspectionConfigurationServerCertificateScopeOutput() TlsInspectionConfigurationServerCertificateScopeOutput
+	ToTlsInspectionConfigurationServerCertificateScopeOutputWithContext(context.Context) TlsInspectionConfigurationServerCertificateScopeOutput
+}
+
+type TlsInspectionConfigurationServerCertificateScopeArgs struct {
+	DestinationPorts TlsInspectionConfigurationPortRangeArrayInput `pulumi:"destinationPorts"`
+	Destinations     TlsInspectionConfigurationAddressArrayInput   `pulumi:"destinations"`
+	Protocols        pulumi.IntArrayInput                          `pulumi:"protocols"`
+	SourcePorts      TlsInspectionConfigurationPortRangeArrayInput `pulumi:"sourcePorts"`
+	Sources          TlsInspectionConfigurationAddressArrayInput   `pulumi:"sources"`
+}
+
+func (TlsInspectionConfigurationServerCertificateScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TlsInspectionConfigurationServerCertificateScope)(nil)).Elem()
+}
+
+func (i TlsInspectionConfigurationServerCertificateScopeArgs) ToTlsInspectionConfigurationServerCertificateScopeOutput() TlsInspectionConfigurationServerCertificateScopeOutput {
+	return i.ToTlsInspectionConfigurationServerCertificateScopeOutputWithContext(context.Background())
+}
+
+func (i TlsInspectionConfigurationServerCertificateScopeArgs) ToTlsInspectionConfigurationServerCertificateScopeOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationServerCertificateScopeOutput)
+}
+
+func (i TlsInspectionConfigurationServerCertificateScopeArgs) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationServerCertificateScope] {
+	return pulumix.Output[TlsInspectionConfigurationServerCertificateScope]{
+		OutputState: i.ToTlsInspectionConfigurationServerCertificateScopeOutputWithContext(ctx).OutputState,
+	}
+}
+
+// TlsInspectionConfigurationServerCertificateScopeArrayInput is an input type that accepts TlsInspectionConfigurationServerCertificateScopeArray and TlsInspectionConfigurationServerCertificateScopeArrayOutput values.
+// You can construct a concrete instance of `TlsInspectionConfigurationServerCertificateScopeArrayInput` via:
+//
+//	TlsInspectionConfigurationServerCertificateScopeArray{ TlsInspectionConfigurationServerCertificateScopeArgs{...} }
+type TlsInspectionConfigurationServerCertificateScopeArrayInput interface {
+	pulumi.Input
+
+	ToTlsInspectionConfigurationServerCertificateScopeArrayOutput() TlsInspectionConfigurationServerCertificateScopeArrayOutput
+	ToTlsInspectionConfigurationServerCertificateScopeArrayOutputWithContext(context.Context) TlsInspectionConfigurationServerCertificateScopeArrayOutput
+}
+
+type TlsInspectionConfigurationServerCertificateScopeArray []TlsInspectionConfigurationServerCertificateScopeInput
+
+func (TlsInspectionConfigurationServerCertificateScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TlsInspectionConfigurationServerCertificateScope)(nil)).Elem()
+}
+
+func (i TlsInspectionConfigurationServerCertificateScopeArray) ToTlsInspectionConfigurationServerCertificateScopeArrayOutput() TlsInspectionConfigurationServerCertificateScopeArrayOutput {
+	return i.ToTlsInspectionConfigurationServerCertificateScopeArrayOutputWithContext(context.Background())
+}
+
+func (i TlsInspectionConfigurationServerCertificateScopeArray) ToTlsInspectionConfigurationServerCertificateScopeArrayOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationServerCertificateScopeArrayOutput)
+}
+
+func (i TlsInspectionConfigurationServerCertificateScopeArray) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationServerCertificateScope] {
+	return pulumix.Output[[]TlsInspectionConfigurationServerCertificateScope]{
+		OutputState: i.ToTlsInspectionConfigurationServerCertificateScopeArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TlsInspectionConfigurationServerCertificateScopeOutput struct{ *pulumi.OutputState }
+
+func (TlsInspectionConfigurationServerCertificateScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TlsInspectionConfigurationServerCertificateScope)(nil)).Elem()
+}
+
+func (o TlsInspectionConfigurationServerCertificateScopeOutput) ToTlsInspectionConfigurationServerCertificateScopeOutput() TlsInspectionConfigurationServerCertificateScopeOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationServerCertificateScopeOutput) ToTlsInspectionConfigurationServerCertificateScopeOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateScopeOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationServerCertificateScopeOutput) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationServerCertificateScope] {
+	return pulumix.Output[TlsInspectionConfigurationServerCertificateScope]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TlsInspectionConfigurationServerCertificateScopeOutput) DestinationPorts() TlsInspectionConfigurationPortRangeArrayOutput {
+	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificateScope) []TlsInspectionConfigurationPortRange {
+		return v.DestinationPorts
+	}).(TlsInspectionConfigurationPortRangeArrayOutput)
+}
+
+func (o TlsInspectionConfigurationServerCertificateScopeOutput) Destinations() TlsInspectionConfigurationAddressArrayOutput {
+	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificateScope) []TlsInspectionConfigurationAddress {
+		return v.Destinations
+	}).(TlsInspectionConfigurationAddressArrayOutput)
+}
+
+func (o TlsInspectionConfigurationServerCertificateScopeOutput) Protocols() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificateScope) []int { return v.Protocols }).(pulumi.IntArrayOutput)
+}
+
+func (o TlsInspectionConfigurationServerCertificateScopeOutput) SourcePorts() TlsInspectionConfigurationPortRangeArrayOutput {
+	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificateScope) []TlsInspectionConfigurationPortRange {
+		return v.SourcePorts
+	}).(TlsInspectionConfigurationPortRangeArrayOutput)
+}
+
+func (o TlsInspectionConfigurationServerCertificateScopeOutput) Sources() TlsInspectionConfigurationAddressArrayOutput {
+	return o.ApplyT(func(v TlsInspectionConfigurationServerCertificateScope) []TlsInspectionConfigurationAddress {
+		return v.Sources
+	}).(TlsInspectionConfigurationAddressArrayOutput)
+}
+
+type TlsInspectionConfigurationServerCertificateScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (TlsInspectionConfigurationServerCertificateScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TlsInspectionConfigurationServerCertificateScope)(nil)).Elem()
+}
+
+func (o TlsInspectionConfigurationServerCertificateScopeArrayOutput) ToTlsInspectionConfigurationServerCertificateScopeArrayOutput() TlsInspectionConfigurationServerCertificateScopeArrayOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationServerCertificateScopeArrayOutput) ToTlsInspectionConfigurationServerCertificateScopeArrayOutputWithContext(ctx context.Context) TlsInspectionConfigurationServerCertificateScopeArrayOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationServerCertificateScopeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationServerCertificateScope] {
+	return pulumix.Output[[]TlsInspectionConfigurationServerCertificateScope]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TlsInspectionConfigurationServerCertificateScopeArrayOutput) Index(i pulumi.IntInput) TlsInspectionConfigurationServerCertificateScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TlsInspectionConfigurationServerCertificateScope {
+		return vs[0].([]TlsInspectionConfigurationServerCertificateScope)[vs[1].(int)]
+	}).(TlsInspectionConfigurationServerCertificateScopeOutput)
+}
+
+type TlsInspectionConfigurationTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// TlsInspectionConfigurationTagInput is an input type that accepts TlsInspectionConfigurationTagArgs and TlsInspectionConfigurationTagOutput values.
+// You can construct a concrete instance of `TlsInspectionConfigurationTagInput` via:
+//
+//	TlsInspectionConfigurationTagArgs{...}
+type TlsInspectionConfigurationTagInput interface {
+	pulumi.Input
+
+	ToTlsInspectionConfigurationTagOutput() TlsInspectionConfigurationTagOutput
+	ToTlsInspectionConfigurationTagOutputWithContext(context.Context) TlsInspectionConfigurationTagOutput
+}
+
+type TlsInspectionConfigurationTagArgs struct {
+	Key   pulumi.StringInput `pulumi:"key"`
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TlsInspectionConfigurationTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TlsInspectionConfigurationTag)(nil)).Elem()
+}
+
+func (i TlsInspectionConfigurationTagArgs) ToTlsInspectionConfigurationTagOutput() TlsInspectionConfigurationTagOutput {
+	return i.ToTlsInspectionConfigurationTagOutputWithContext(context.Background())
+}
+
+func (i TlsInspectionConfigurationTagArgs) ToTlsInspectionConfigurationTagOutputWithContext(ctx context.Context) TlsInspectionConfigurationTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationTagOutput)
+}
+
+func (i TlsInspectionConfigurationTagArgs) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationTag] {
+	return pulumix.Output[TlsInspectionConfigurationTag]{
+		OutputState: i.ToTlsInspectionConfigurationTagOutputWithContext(ctx).OutputState,
+	}
+}
+
+// TlsInspectionConfigurationTagArrayInput is an input type that accepts TlsInspectionConfigurationTagArray and TlsInspectionConfigurationTagArrayOutput values.
+// You can construct a concrete instance of `TlsInspectionConfigurationTagArrayInput` via:
+//
+//	TlsInspectionConfigurationTagArray{ TlsInspectionConfigurationTagArgs{...} }
+type TlsInspectionConfigurationTagArrayInput interface {
+	pulumi.Input
+
+	ToTlsInspectionConfigurationTagArrayOutput() TlsInspectionConfigurationTagArrayOutput
+	ToTlsInspectionConfigurationTagArrayOutputWithContext(context.Context) TlsInspectionConfigurationTagArrayOutput
+}
+
+type TlsInspectionConfigurationTagArray []TlsInspectionConfigurationTagInput
+
+func (TlsInspectionConfigurationTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TlsInspectionConfigurationTag)(nil)).Elem()
+}
+
+func (i TlsInspectionConfigurationTagArray) ToTlsInspectionConfigurationTagArrayOutput() TlsInspectionConfigurationTagArrayOutput {
+	return i.ToTlsInspectionConfigurationTagArrayOutputWithContext(context.Background())
+}
+
+func (i TlsInspectionConfigurationTagArray) ToTlsInspectionConfigurationTagArrayOutputWithContext(ctx context.Context) TlsInspectionConfigurationTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationTagArrayOutput)
+}
+
+func (i TlsInspectionConfigurationTagArray) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationTag] {
+	return pulumix.Output[[]TlsInspectionConfigurationTag]{
+		OutputState: i.ToTlsInspectionConfigurationTagArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TlsInspectionConfigurationTagOutput struct{ *pulumi.OutputState }
+
+func (TlsInspectionConfigurationTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TlsInspectionConfigurationTag)(nil)).Elem()
+}
+
+func (o TlsInspectionConfigurationTagOutput) ToTlsInspectionConfigurationTagOutput() TlsInspectionConfigurationTagOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationTagOutput) ToTlsInspectionConfigurationTagOutputWithContext(ctx context.Context) TlsInspectionConfigurationTagOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationTagOutput) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationTag] {
+	return pulumix.Output[TlsInspectionConfigurationTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TlsInspectionConfigurationTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TlsInspectionConfigurationTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o TlsInspectionConfigurationTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TlsInspectionConfigurationTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TlsInspectionConfigurationTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TlsInspectionConfigurationTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TlsInspectionConfigurationTag)(nil)).Elem()
+}
+
+func (o TlsInspectionConfigurationTagArrayOutput) ToTlsInspectionConfigurationTagArrayOutput() TlsInspectionConfigurationTagArrayOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationTagArrayOutput) ToTlsInspectionConfigurationTagArrayOutputWithContext(ctx context.Context) TlsInspectionConfigurationTagArrayOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TlsInspectionConfigurationTag] {
+	return pulumix.Output[[]TlsInspectionConfigurationTag]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TlsInspectionConfigurationTagArrayOutput) Index(i pulumi.IntInput) TlsInspectionConfigurationTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TlsInspectionConfigurationTag {
+		return vs[0].([]TlsInspectionConfigurationTag)[vs[1].(int)]
+	}).(TlsInspectionConfigurationTagOutput)
+}
+
+type TlsInspectionConfigurationTlsInspectionConfiguration struct {
+	ServerCertificateConfigurations []TlsInspectionConfigurationServerCertificateConfiguration `pulumi:"serverCertificateConfigurations"`
+}
+
+// TlsInspectionConfigurationTlsInspectionConfigurationInput is an input type that accepts TlsInspectionConfigurationTlsInspectionConfigurationArgs and TlsInspectionConfigurationTlsInspectionConfigurationOutput values.
+// You can construct a concrete instance of `TlsInspectionConfigurationTlsInspectionConfigurationInput` via:
+//
+//	TlsInspectionConfigurationTlsInspectionConfigurationArgs{...}
+type TlsInspectionConfigurationTlsInspectionConfigurationInput interface {
+	pulumi.Input
+
+	ToTlsInspectionConfigurationTlsInspectionConfigurationOutput() TlsInspectionConfigurationTlsInspectionConfigurationOutput
+	ToTlsInspectionConfigurationTlsInspectionConfigurationOutputWithContext(context.Context) TlsInspectionConfigurationTlsInspectionConfigurationOutput
+}
+
+type TlsInspectionConfigurationTlsInspectionConfigurationArgs struct {
+	ServerCertificateConfigurations TlsInspectionConfigurationServerCertificateConfigurationArrayInput `pulumi:"serverCertificateConfigurations"`
+}
+
+func (TlsInspectionConfigurationTlsInspectionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TlsInspectionConfigurationTlsInspectionConfiguration)(nil)).Elem()
+}
+
+func (i TlsInspectionConfigurationTlsInspectionConfigurationArgs) ToTlsInspectionConfigurationTlsInspectionConfigurationOutput() TlsInspectionConfigurationTlsInspectionConfigurationOutput {
+	return i.ToTlsInspectionConfigurationTlsInspectionConfigurationOutputWithContext(context.Background())
+}
+
+func (i TlsInspectionConfigurationTlsInspectionConfigurationArgs) ToTlsInspectionConfigurationTlsInspectionConfigurationOutputWithContext(ctx context.Context) TlsInspectionConfigurationTlsInspectionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TlsInspectionConfigurationTlsInspectionConfigurationOutput)
+}
+
+func (i TlsInspectionConfigurationTlsInspectionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationTlsInspectionConfiguration] {
+	return pulumix.Output[TlsInspectionConfigurationTlsInspectionConfiguration]{
+		OutputState: i.ToTlsInspectionConfigurationTlsInspectionConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TlsInspectionConfigurationTlsInspectionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TlsInspectionConfigurationTlsInspectionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TlsInspectionConfigurationTlsInspectionConfiguration)(nil)).Elem()
+}
+
+func (o TlsInspectionConfigurationTlsInspectionConfigurationOutput) ToTlsInspectionConfigurationTlsInspectionConfigurationOutput() TlsInspectionConfigurationTlsInspectionConfigurationOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationTlsInspectionConfigurationOutput) ToTlsInspectionConfigurationTlsInspectionConfigurationOutputWithContext(ctx context.Context) TlsInspectionConfigurationTlsInspectionConfigurationOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationTlsInspectionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationTlsInspectionConfiguration] {
+	return pulumix.Output[TlsInspectionConfigurationTlsInspectionConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TlsInspectionConfigurationTlsInspectionConfigurationOutput) ServerCertificateConfigurations() TlsInspectionConfigurationServerCertificateConfigurationArrayOutput {
+	return o.ApplyT(func(v TlsInspectionConfigurationTlsInspectionConfiguration) []TlsInspectionConfigurationServerCertificateConfiguration {
+		return v.ServerCertificateConfigurations
+	}).(TlsInspectionConfigurationServerCertificateConfigurationArrayOutput)
+}
+
+type TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TlsInspectionConfigurationTlsInspectionConfiguration)(nil)).Elem()
+}
+
+func (o TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput) ToTlsInspectionConfigurationTlsInspectionConfigurationPtrOutput() TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput) ToTlsInspectionConfigurationTlsInspectionConfigurationPtrOutputWithContext(ctx context.Context) TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TlsInspectionConfigurationTlsInspectionConfiguration] {
+	return pulumix.Output[*TlsInspectionConfigurationTlsInspectionConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput) Elem() TlsInspectionConfigurationTlsInspectionConfigurationOutput {
+	return o.ApplyT(func(v *TlsInspectionConfigurationTlsInspectionConfiguration) TlsInspectionConfigurationTlsInspectionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TlsInspectionConfigurationTlsInspectionConfiguration
+		return ret
+	}).(TlsInspectionConfigurationTlsInspectionConfigurationOutput)
+}
+
+func (o TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput) ServerCertificateConfigurations() TlsInspectionConfigurationServerCertificateConfigurationArrayOutput {
+	return o.ApplyT(func(v *TlsInspectionConfigurationTlsInspectionConfiguration) []TlsInspectionConfigurationServerCertificateConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ServerCertificateConfigurations
+	}).(TlsInspectionConfigurationServerCertificateConfigurationArrayOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyTypeInput)(nil)).Elem(), FirewallPolicyTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyActionDefinitionInput)(nil)).Elem(), FirewallPolicyActionDefinitionArgs{})
@@ -5084,6 +6155,21 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTagArrayInput)(nil)).Elem(), RuleGroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTcpFlagFieldInput)(nil)).Elem(), RuleGroupTcpFlagFieldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTcpFlagFieldArrayInput)(nil)).Elem(), RuleGroupTcpFlagFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationAddressInput)(nil)).Elem(), TlsInspectionConfigurationAddressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationAddressArrayInput)(nil)).Elem(), TlsInspectionConfigurationAddressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationPortRangeInput)(nil)).Elem(), TlsInspectionConfigurationPortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationPortRangeArrayInput)(nil)).Elem(), TlsInspectionConfigurationPortRangeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationServerCertificateInput)(nil)).Elem(), TlsInspectionConfigurationServerCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationServerCertificateArrayInput)(nil)).Elem(), TlsInspectionConfigurationServerCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationServerCertificateConfigurationInput)(nil)).Elem(), TlsInspectionConfigurationServerCertificateConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationServerCertificateConfigurationArrayInput)(nil)).Elem(), TlsInspectionConfigurationServerCertificateConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesInput)(nil)).Elem(), TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrInput)(nil)).Elem(), TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationServerCertificateScopeInput)(nil)).Elem(), TlsInspectionConfigurationServerCertificateScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationServerCertificateScopeArrayInput)(nil)).Elem(), TlsInspectionConfigurationServerCertificateScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationTagInput)(nil)).Elem(), TlsInspectionConfigurationTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationTagArrayInput)(nil)).Elem(), TlsInspectionConfigurationTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationTlsInspectionConfigurationInput)(nil)).Elem(), TlsInspectionConfigurationTlsInspectionConfigurationArgs{})
 	pulumi.RegisterOutputType(FirewallPolicyTypeOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyTypePtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyActionDefinitionOutput{})
@@ -5153,4 +6239,20 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupTagArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupTcpFlagFieldOutput{})
 	pulumi.RegisterOutputType(RuleGroupTcpFlagFieldArrayOutput{})
+	pulumi.RegisterOutputType(TlsInspectionConfigurationAddressOutput{})
+	pulumi.RegisterOutputType(TlsInspectionConfigurationAddressArrayOutput{})
+	pulumi.RegisterOutputType(TlsInspectionConfigurationPortRangeOutput{})
+	pulumi.RegisterOutputType(TlsInspectionConfigurationPortRangeArrayOutput{})
+	pulumi.RegisterOutputType(TlsInspectionConfigurationServerCertificateOutput{})
+	pulumi.RegisterOutputType(TlsInspectionConfigurationServerCertificateArrayOutput{})
+	pulumi.RegisterOutputType(TlsInspectionConfigurationServerCertificateConfigurationOutput{})
+	pulumi.RegisterOutputType(TlsInspectionConfigurationServerCertificateConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesOutput{})
+	pulumi.RegisterOutputType(TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TlsInspectionConfigurationServerCertificateScopeOutput{})
+	pulumi.RegisterOutputType(TlsInspectionConfigurationServerCertificateScopeArrayOutput{})
+	pulumi.RegisterOutputType(TlsInspectionConfigurationTagOutput{})
+	pulumi.RegisterOutputType(TlsInspectionConfigurationTagArrayOutput{})
+	pulumi.RegisterOutputType(TlsInspectionConfigurationTlsInspectionConfigurationOutput{})
+	pulumi.RegisterOutputType(TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput{})
 }

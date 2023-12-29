@@ -86,6 +86,10 @@ namespace Pulumi.AwsNative.Redshift
         /// </summary>
         public readonly string? AvailabilityZoneRelocationStatus;
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the cluster namespace.
+        /// </summary>
+        public readonly string? ClusterNamespaceArn;
+        /// <summary>
         /// The name of the parameter group to be associated with this cluster.
         /// </summary>
         public readonly string? ClusterParameterGroupName;
@@ -101,14 +105,6 @@ namespace Pulumi.AwsNative.Redshift
         /// The version of the Amazon Redshift engine software that you want to deploy on the cluster.The version selected runs on all the nodes in the cluster.
         /// </summary>
         public readonly string? ClusterVersion;
-        /// <summary>
-        /// A boolean indicating whether to enable the deferred maintenance window.
-        /// </summary>
-        public readonly bool? DeferMaintenance;
-        /// <summary>
-        /// An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
-        /// </summary>
-        public readonly int? DeferMaintenanceDuration;
         /// <summary>
         /// A timestamp indicating end time for the deferred maintenance window. If you specify an end time, you can't specify a duration.
         /// </summary>
@@ -154,7 +150,6 @@ namespace Pulumi.AwsNative.Redshift
         /// A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request
         /// </summary>
         public readonly ImmutableArray<string> IamRoles;
-        public readonly string? Id;
         /// <summary>
         /// The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
         /// </summary>
@@ -171,9 +166,21 @@ namespace Pulumi.AwsNative.Redshift
         /// </summary>
         public readonly int? ManualSnapshotRetentionPeriod;
         /// <summary>
+        /// The Amazon Resource Name (ARN) for the cluster's admin user credentials secret.
+        /// </summary>
+        public readonly string? MasterPasswordSecretArn;
+        /// <summary>
+        /// The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin user credentials secret.
+        /// </summary>
+        public readonly string? MasterPasswordSecretKmsKeyId;
+        /// <summary>
         /// A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
         /// </summary>
         public readonly bool? MultiAz;
+        /// <summary>
+        /// The namespace resource policy document that will be attached to a Redshift cluster.
+        /// </summary>
+        public readonly object? NamespaceResourcePolicy;
         /// <summary>
         /// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
         /// </summary>
@@ -245,6 +252,8 @@ namespace Pulumi.AwsNative.Redshift
 
             string? availabilityZoneRelocationStatus,
 
+            string? clusterNamespaceArn,
+
             string? clusterParameterGroupName,
 
             ImmutableArray<string> clusterSecurityGroups,
@@ -252,10 +261,6 @@ namespace Pulumi.AwsNative.Redshift
             string? clusterType,
 
             string? clusterVersion,
-
-            bool? deferMaintenance,
-
-            int? deferMaintenanceDuration,
 
             string? deferMaintenanceEndTime,
 
@@ -279,8 +284,6 @@ namespace Pulumi.AwsNative.Redshift
 
             ImmutableArray<string> iamRoles,
 
-            string? id,
-
             string? kmsKeyId,
 
             Outputs.ClusterLoggingProperties? loggingProperties,
@@ -289,7 +292,13 @@ namespace Pulumi.AwsNative.Redshift
 
             int? manualSnapshotRetentionPeriod,
 
+            string? masterPasswordSecretArn,
+
+            string? masterPasswordSecretKmsKeyId,
+
             bool? multiAz,
+
+            object? namespaceResourcePolicy,
 
             string? nodeType,
 
@@ -323,12 +332,11 @@ namespace Pulumi.AwsNative.Redshift
             AvailabilityZone = availabilityZone;
             AvailabilityZoneRelocation = availabilityZoneRelocation;
             AvailabilityZoneRelocationStatus = availabilityZoneRelocationStatus;
+            ClusterNamespaceArn = clusterNamespaceArn;
             ClusterParameterGroupName = clusterParameterGroupName;
             ClusterSecurityGroups = clusterSecurityGroups;
             ClusterType = clusterType;
             ClusterVersion = clusterVersion;
-            DeferMaintenance = deferMaintenance;
-            DeferMaintenanceDuration = deferMaintenanceDuration;
             DeferMaintenanceEndTime = deferMaintenanceEndTime;
             DeferMaintenanceIdentifier = deferMaintenanceIdentifier;
             DeferMaintenanceStartTime = deferMaintenanceStartTime;
@@ -340,12 +348,14 @@ namespace Pulumi.AwsNative.Redshift
             HsmClientCertificateIdentifier = hsmClientCertificateIdentifier;
             HsmConfigurationIdentifier = hsmConfigurationIdentifier;
             IamRoles = iamRoles;
-            Id = id;
             KmsKeyId = kmsKeyId;
             LoggingProperties = loggingProperties;
             MaintenanceTrackName = maintenanceTrackName;
             ManualSnapshotRetentionPeriod = manualSnapshotRetentionPeriod;
+            MasterPasswordSecretArn = masterPasswordSecretArn;
+            MasterPasswordSecretKmsKeyId = masterPasswordSecretKmsKeyId;
             MultiAz = multiAz;
+            NamespaceResourcePolicy = namespaceResourcePolicy;
             NodeType = nodeType;
             NumberOfNodes = numberOfNodes;
             Port = port;

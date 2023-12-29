@@ -63,6 +63,10 @@ export interface GetUserResult {
      */
     readonly userArn?: string;
     /**
+     * One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
+     */
+    readonly userProficiencies?: outputs.connect.UserProficiency[];
+    /**
      * The user name for the account.
      */
     readonly username?: string;

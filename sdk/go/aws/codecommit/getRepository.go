@@ -33,6 +33,7 @@ type LookupRepositoryResult struct {
 	CloneUrlSsh           *string             `pulumi:"cloneUrlSsh"`
 	Code                  *RepositoryCode     `pulumi:"code"`
 	Id                    *string             `pulumi:"id"`
+	KmsKeyId              *string             `pulumi:"kmsKeyId"`
 	Name                  *string             `pulumi:"name"`
 	RepositoryDescription *string             `pulumi:"repositoryDescription"`
 	RepositoryName        *string             `pulumi:"repositoryName"`
@@ -99,6 +100,10 @@ func (o LookupRepositoryResultOutput) Code() RepositoryCodePtrOutput {
 
 func (o LookupRepositoryResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRepositoryResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupRepositoryResultOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRepositoryResult) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupRepositoryResultOutput) Name() pulumi.StringPtrOutput {

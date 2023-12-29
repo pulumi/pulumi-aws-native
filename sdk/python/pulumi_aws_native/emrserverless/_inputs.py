@@ -13,10 +13,12 @@ from ._enums import *
 __all__ = [
     'ApplicationAutoStartConfigurationArgs',
     'ApplicationAutoStopConfigurationArgs',
+    'ApplicationCloudWatchLoggingConfigurationArgs',
     'ApplicationConfigurationObjectArgs',
     'ApplicationImageConfigurationInputArgs',
     'ApplicationInitialCapacityConfigKeyValuePairArgs',
     'ApplicationInitialCapacityConfigArgs',
+    'ApplicationLogTypeMapKeyValuePairArgs',
     'ApplicationManagedPersistenceMonitoringConfigurationArgs',
     'ApplicationMaximumAllowedResourcesArgs',
     'ApplicationMonitoringConfigurationArgs',
@@ -89,6 +91,93 @@ class ApplicationAutoStopConfigurationArgs:
     @idle_timeout_minutes.setter
     def idle_timeout_minutes(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "idle_timeout_minutes", value)
+
+
+@pulumi.input_type
+class ApplicationCloudWatchLoggingConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 encryption_key_arn: Optional[pulumi.Input[str]] = None,
+                 log_group_name: Optional[pulumi.Input[str]] = None,
+                 log_stream_name_prefix: Optional[pulumi.Input[str]] = None,
+                 log_type_map: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationLogTypeMapKeyValuePairArgs']]]] = None):
+        """
+        :param pulumi.Input[bool] enabled: If set to false, CloudWatch logging will be turned off. Defaults to false.
+        :param pulumi.Input[str] encryption_key_arn: KMS key ARN to encrypt the logs stored in given CloudWatch log-group.
+        :param pulumi.Input[str] log_group_name: Log-group name to produce log-streams on CloudWatch. If undefined, logs will be produced in a default log-group /aws/emr-serverless
+        :param pulumi.Input[str] log_stream_name_prefix: Log-stream name prefix by which log-stream names will start in the CloudWatch Log-group.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationLogTypeMapKeyValuePairArgs']]] log_type_map: The specific log-streams which need to be uploaded to CloudWatch.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if encryption_key_arn is not None:
+            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+        if log_stream_name_prefix is not None:
+            pulumi.set(__self__, "log_stream_name_prefix", log_stream_name_prefix)
+        if log_type_map is not None:
+            pulumi.set(__self__, "log_type_map", log_type_map)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to false, CloudWatch logging will be turned off. Defaults to false.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        KMS key ARN to encrypt the logs stored in given CloudWatch log-group.
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+    @encryption_key_arn.setter
+    def encryption_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_key_arn", value)
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Log-group name to produce log-streams on CloudWatch. If undefined, logs will be produced in a default log-group /aws/emr-serverless
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_group_name", value)
+
+    @property
+    @pulumi.getter(name="logStreamNamePrefix")
+    def log_stream_name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Log-stream name prefix by which log-stream names will start in the CloudWatch Log-group.
+        """
+        return pulumi.get(self, "log_stream_name_prefix")
+
+    @log_stream_name_prefix.setter
+    def log_stream_name_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "log_stream_name_prefix", value)
+
+    @property
+    @pulumi.getter(name="logTypeMap")
+    def log_type_map(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationLogTypeMapKeyValuePairArgs']]]]:
+        """
+        The specific log-streams which need to be uploaded to CloudWatch.
+        """
+        return pulumi.get(self, "log_type_map")
+
+    @log_type_map.setter
+    def log_type_map(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationLogTypeMapKeyValuePairArgs']]]]):
+        pulumi.set(self, "log_type_map", value)
 
 
 @pulumi.input_type
@@ -229,6 +318,33 @@ class ApplicationInitialCapacityConfigArgs:
 
 
 @pulumi.input_type
+class ApplicationLogTypeMapKeyValuePairArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class ApplicationManagedPersistenceMonitoringConfigurationArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -323,17 +439,33 @@ class ApplicationMaximumAllowedResourcesArgs:
 @pulumi.input_type
 class ApplicationMonitoringConfigurationArgs:
     def __init__(__self__, *,
+                 cloud_watch_logging_configuration: Optional[pulumi.Input['ApplicationCloudWatchLoggingConfigurationArgs']] = None,
                  managed_persistence_monitoring_configuration: Optional[pulumi.Input['ApplicationManagedPersistenceMonitoringConfigurationArgs']] = None,
                  s3_monitoring_configuration: Optional[pulumi.Input['ApplicationS3MonitoringConfigurationArgs']] = None):
         """
         Monitoring configuration for batch and interactive JobRun.
+        :param pulumi.Input['ApplicationCloudWatchLoggingConfigurationArgs'] cloud_watch_logging_configuration: CloudWatch logging configurations for a JobRun.
         :param pulumi.Input['ApplicationManagedPersistenceMonitoringConfigurationArgs'] managed_persistence_monitoring_configuration: Managed log persistence configurations for a JobRun.
         :param pulumi.Input['ApplicationS3MonitoringConfigurationArgs'] s3_monitoring_configuration: S3 monitoring configurations for a JobRun.
         """
+        if cloud_watch_logging_configuration is not None:
+            pulumi.set(__self__, "cloud_watch_logging_configuration", cloud_watch_logging_configuration)
         if managed_persistence_monitoring_configuration is not None:
             pulumi.set(__self__, "managed_persistence_monitoring_configuration", managed_persistence_monitoring_configuration)
         if s3_monitoring_configuration is not None:
             pulumi.set(__self__, "s3_monitoring_configuration", s3_monitoring_configuration)
+
+    @property
+    @pulumi.getter(name="cloudWatchLoggingConfiguration")
+    def cloud_watch_logging_configuration(self) -> Optional[pulumi.Input['ApplicationCloudWatchLoggingConfigurationArgs']]:
+        """
+        CloudWatch logging configurations for a JobRun.
+        """
+        return pulumi.get(self, "cloud_watch_logging_configuration")
+
+    @cloud_watch_logging_configuration.setter
+    def cloud_watch_logging_configuration(self, value: Optional[pulumi.Input['ApplicationCloudWatchLoggingConfigurationArgs']]):
+        pulumi.set(self, "cloud_watch_logging_configuration", value)
 
     @property
     @pulumi.getter(name="managedPersistenceMonitoringConfiguration")

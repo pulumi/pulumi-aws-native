@@ -49,6 +49,14 @@ __all__ = [
     'RuleGroupStatelessRulesAndCustomActions',
     'RuleGroupTag',
     'RuleGroupTcpFlagField',
+    'TlsInspectionConfigurationAddress',
+    'TlsInspectionConfigurationPortRange',
+    'TlsInspectionConfigurationServerCertificate',
+    'TlsInspectionConfigurationServerCertificateConfiguration',
+    'TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties',
+    'TlsInspectionConfigurationServerCertificateScope',
+    'TlsInspectionConfigurationTag',
+    'TlsInspectionConfigurationTlsInspectionConfiguration',
 ]
 
 @pulumi.output_type
@@ -72,6 +80,8 @@ class FirewallPolicy(dict):
             suggest = "stateless_custom_actions"
         elif key == "statelessRuleGroupReferences":
             suggest = "stateless_rule_group_references"
+        elif key == "tlsInspectionConfigurationArn":
+            suggest = "tls_inspection_configuration_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FirewallPolicy. Access the value via the '{suggest}' property getter instead.")
@@ -92,7 +102,8 @@ class FirewallPolicy(dict):
                  stateful_engine_options: Optional['outputs.FirewallPolicyStatefulEngineOptions'] = None,
                  stateful_rule_group_references: Optional[Sequence['outputs.FirewallPolicyStatefulRuleGroupReference']] = None,
                  stateless_custom_actions: Optional[Sequence['outputs.FirewallPolicyCustomAction']] = None,
-                 stateless_rule_group_references: Optional[Sequence['outputs.FirewallPolicyStatelessRuleGroupReference']] = None):
+                 stateless_rule_group_references: Optional[Sequence['outputs.FirewallPolicyStatelessRuleGroupReference']] = None,
+                 tls_inspection_configuration_arn: Optional[str] = None):
         pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
         pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
         if policy_variables is not None:
@@ -107,6 +118,8 @@ class FirewallPolicy(dict):
             pulumi.set(__self__, "stateless_custom_actions", stateless_custom_actions)
         if stateless_rule_group_references is not None:
             pulumi.set(__self__, "stateless_rule_group_references", stateless_rule_group_references)
+        if tls_inspection_configuration_arn is not None:
+            pulumi.set(__self__, "tls_inspection_configuration_arn", tls_inspection_configuration_arn)
 
     @property
     @pulumi.getter(name="statelessDefaultActions")
@@ -147,6 +160,11 @@ class FirewallPolicy(dict):
     @pulumi.getter(name="statelessRuleGroupReferences")
     def stateless_rule_group_references(self) -> Optional[Sequence['outputs.FirewallPolicyStatelessRuleGroupReference']]:
         return pulumi.get(self, "stateless_rule_group_references")
+
+    @property
+    @pulumi.getter(name="tlsInspectionConfigurationArn")
+    def tls_inspection_configuration_arn(self) -> Optional[str]:
+        return pulumi.get(self, "tls_inspection_configuration_arn")
 
 
 @pulumi.output_type
@@ -1354,5 +1372,313 @@ class RuleGroupTcpFlagField(dict):
     @pulumi.getter
     def masks(self) -> Optional[Sequence['RuleGroupTcpFlag']]:
         return pulumi.get(self, "masks")
+
+
+@pulumi.output_type
+class TlsInspectionConfigurationAddress(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressDefinition":
+            suggest = "address_definition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TlsInspectionConfigurationAddress. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TlsInspectionConfigurationAddress.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TlsInspectionConfigurationAddress.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address_definition: str):
+        pulumi.set(__self__, "address_definition", address_definition)
+
+    @property
+    @pulumi.getter(name="addressDefinition")
+    def address_definition(self) -> str:
+        return pulumi.get(self, "address_definition")
+
+
+@pulumi.output_type
+class TlsInspectionConfigurationPortRange(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TlsInspectionConfigurationPortRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TlsInspectionConfigurationPortRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TlsInspectionConfigurationPortRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_port: int,
+                 to_port: int):
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> int:
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> int:
+        return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
+class TlsInspectionConfigurationServerCertificate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceArn":
+            suggest = "resource_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TlsInspectionConfigurationServerCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TlsInspectionConfigurationServerCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TlsInspectionConfigurationServerCertificate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_arn: Optional[str] = None):
+        if resource_arn is not None:
+            pulumi.set(__self__, "resource_arn", resource_arn)
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> Optional[str]:
+        return pulumi.get(self, "resource_arn")
+
+
+@pulumi.output_type
+class TlsInspectionConfigurationServerCertificateConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateAuthorityArn":
+            suggest = "certificate_authority_arn"
+        elif key == "checkCertificateRevocationStatus":
+            suggest = "check_certificate_revocation_status"
+        elif key == "serverCertificates":
+            suggest = "server_certificates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TlsInspectionConfigurationServerCertificateConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TlsInspectionConfigurationServerCertificateConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TlsInspectionConfigurationServerCertificateConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_authority_arn: Optional[str] = None,
+                 check_certificate_revocation_status: Optional['outputs.TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties'] = None,
+                 scopes: Optional[Sequence['outputs.TlsInspectionConfigurationServerCertificateScope']] = None,
+                 server_certificates: Optional[Sequence['outputs.TlsInspectionConfigurationServerCertificate']] = None):
+        if certificate_authority_arn is not None:
+            pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+        if check_certificate_revocation_status is not None:
+            pulumi.set(__self__, "check_certificate_revocation_status", check_certificate_revocation_status)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+        if server_certificates is not None:
+            pulumi.set(__self__, "server_certificates", server_certificates)
+
+    @property
+    @pulumi.getter(name="certificateAuthorityArn")
+    def certificate_authority_arn(self) -> Optional[str]:
+        return pulumi.get(self, "certificate_authority_arn")
+
+    @property
+    @pulumi.getter(name="checkCertificateRevocationStatus")
+    def check_certificate_revocation_status(self) -> Optional['outputs.TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties']:
+        return pulumi.get(self, "check_certificate_revocation_status")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[Sequence['outputs.TlsInspectionConfigurationServerCertificateScope']]:
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter(name="serverCertificates")
+    def server_certificates(self) -> Optional[Sequence['outputs.TlsInspectionConfigurationServerCertificate']]:
+        return pulumi.get(self, "server_certificates")
+
+
+@pulumi.output_type
+class TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "revokedStatusAction":
+            suggest = "revoked_status_action"
+        elif key == "unknownStatusAction":
+            suggest = "unknown_status_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 revoked_status_action: Optional['TlsInspectionConfigurationRevokedStatusAction'] = None,
+                 unknown_status_action: Optional['TlsInspectionConfigurationUnknownStatusAction'] = None):
+        if revoked_status_action is not None:
+            pulumi.set(__self__, "revoked_status_action", revoked_status_action)
+        if unknown_status_action is not None:
+            pulumi.set(__self__, "unknown_status_action", unknown_status_action)
+
+    @property
+    @pulumi.getter(name="revokedStatusAction")
+    def revoked_status_action(self) -> Optional['TlsInspectionConfigurationRevokedStatusAction']:
+        return pulumi.get(self, "revoked_status_action")
+
+    @property
+    @pulumi.getter(name="unknownStatusAction")
+    def unknown_status_action(self) -> Optional['TlsInspectionConfigurationUnknownStatusAction']:
+        return pulumi.get(self, "unknown_status_action")
+
+
+@pulumi.output_type
+class TlsInspectionConfigurationServerCertificateScope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationPorts":
+            suggest = "destination_ports"
+        elif key == "sourcePorts":
+            suggest = "source_ports"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TlsInspectionConfigurationServerCertificateScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TlsInspectionConfigurationServerCertificateScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TlsInspectionConfigurationServerCertificateScope.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_ports: Optional[Sequence['outputs.TlsInspectionConfigurationPortRange']] = None,
+                 destinations: Optional[Sequence['outputs.TlsInspectionConfigurationAddress']] = None,
+                 protocols: Optional[Sequence[int]] = None,
+                 source_ports: Optional[Sequence['outputs.TlsInspectionConfigurationPortRange']] = None,
+                 sources: Optional[Sequence['outputs.TlsInspectionConfigurationAddress']] = None):
+        if destination_ports is not None:
+            pulumi.set(__self__, "destination_ports", destination_ports)
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if source_ports is not None:
+            pulumi.set(__self__, "source_ports", source_ports)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
+
+    @property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> Optional[Sequence['outputs.TlsInspectionConfigurationPortRange']]:
+        return pulumi.get(self, "destination_ports")
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Optional[Sequence['outputs.TlsInspectionConfigurationAddress']]:
+        return pulumi.get(self, "destinations")
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> Optional[Sequence[int]]:
+        return pulumi.get(self, "protocols")
+
+    @property
+    @pulumi.getter(name="sourcePorts")
+    def source_ports(self) -> Optional[Sequence['outputs.TlsInspectionConfigurationPortRange']]:
+        return pulumi.get(self, "source_ports")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Optional[Sequence['outputs.TlsInspectionConfigurationAddress']]:
+        return pulumi.get(self, "sources")
+
+
+@pulumi.output_type
+class TlsInspectionConfigurationTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TlsInspectionConfigurationTlsInspectionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serverCertificateConfigurations":
+            suggest = "server_certificate_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TlsInspectionConfigurationTlsInspectionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TlsInspectionConfigurationTlsInspectionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TlsInspectionConfigurationTlsInspectionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 server_certificate_configurations: Optional[Sequence['outputs.TlsInspectionConfigurationServerCertificateConfiguration']] = None):
+        if server_certificate_configurations is not None:
+            pulumi.set(__self__, "server_certificate_configurations", server_certificate_configurations)
+
+    @property
+    @pulumi.getter(name="serverCertificateConfigurations")
+    def server_certificate_configurations(self) -> Optional[Sequence['outputs.TlsInspectionConfigurationServerCertificateConfiguration']]:
+        return pulumi.get(self, "server_certificate_configurations")
 
 

@@ -18,6 +18,8 @@ __all__ = [
     'RuleGroupTargetType',
     'RuleGroupTcpFlag',
     'RuleGroupTypeEnum',
+    'TlsInspectionConfigurationRevokedStatusAction',
+    'TlsInspectionConfigurationUnknownStatusAction',
 ]
 
 
@@ -110,3 +112,15 @@ class RuleGroupTcpFlag(str, Enum):
 class RuleGroupTypeEnum(str, Enum):
     STATELESS = "STATELESS"
     STATEFUL = "STATEFUL"
+
+
+class TlsInspectionConfigurationRevokedStatusAction(str, Enum):
+    PASS_ = "PASS"
+    DROP = "DROP"
+    REJECT = "REJECT"
+
+
+class TlsInspectionConfigurationUnknownStatusAction(str, Enum):
+    PASS_ = "PASS"
+    DROP = "DROP"
+    REJECT = "REJECT"

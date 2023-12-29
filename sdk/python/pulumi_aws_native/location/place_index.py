@@ -21,9 +21,11 @@ class PlaceIndexArgs:
                  index_name: pulumi.Input[str],
                  data_source_configuration: Optional[pulumi.Input['PlaceIndexDataSourceConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 pricing_plan: Optional[pulumi.Input['PlaceIndexPricingPlan']] = None):
+                 pricing_plan: Optional[pulumi.Input['PlaceIndexPricingPlan']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['PlaceIndexTagArgs']]]] = None):
         """
         The set of arguments for constructing a PlaceIndex resource.
+        :param pulumi.Input[Sequence[pulumi.Input['PlaceIndexTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "index_name", index_name)
@@ -33,6 +35,8 @@ class PlaceIndexArgs:
             pulumi.set(__self__, "description", description)
         if pricing_plan is not None:
             pulumi.set(__self__, "pricing_plan", pricing_plan)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="dataSource")
@@ -79,6 +83,18 @@ class PlaceIndexArgs:
     def pricing_plan(self, value: Optional[pulumi.Input['PlaceIndexPricingPlan']]):
         pulumi.set(self, "pricing_plan", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlaceIndexTagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlaceIndexTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class PlaceIndex(pulumi.CustomResource):
     @overload
@@ -90,12 +106,14 @@ class PlaceIndex(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  index_name: Optional[pulumi.Input[str]] = None,
                  pricing_plan: Optional[pulumi.Input['PlaceIndexPricingPlan']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlaceIndexTagArgs']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Location::PlaceIndex Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlaceIndexTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -126,6 +144,7 @@ class PlaceIndex(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  index_name: Optional[pulumi.Input[str]] = None,
                  pricing_plan: Optional[pulumi.Input['PlaceIndexPricingPlan']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlaceIndexTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -144,11 +163,12 @@ class PlaceIndex(pulumi.CustomResource):
                 raise TypeError("Missing required property 'index_name'")
             __props__.__dict__["index_name"] = index_name
             __props__.__dict__["pricing_plan"] = pricing_plan
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["create_time"] = None
             __props__.__dict__["index_arn"] = None
             __props__.__dict__["update_time"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["data_source", "data_source_configuration", "description", "index_name", "pricing_plan"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["data_source", "index_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PlaceIndex, __self__).__init__(
             'aws-native:location:PlaceIndex',
@@ -180,6 +200,7 @@ class PlaceIndex(pulumi.CustomResource):
         __props__.__dict__["index_arn"] = None
         __props__.__dict__["index_name"] = None
         __props__.__dict__["pricing_plan"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["update_time"] = None
         return PlaceIndex(resource_name, opts=opts, __props__=__props__)
 
@@ -222,6 +243,14 @@ class PlaceIndex(pulumi.CustomResource):
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> pulumi.Output[Optional['PlaceIndexPricingPlan']]:
         return pulumi.get(self, "pricing_plan")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.PlaceIndexTag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updateTime")

@@ -40,11 +40,14 @@ export class Map extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public readonly configuration!: pulumi.Output<outputs.location.MapConfiguration>;
     public /*out*/ readonly createTime!: pulumi.Output<string>;
-    public /*out*/ readonly dataSource!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly mapArn!: pulumi.Output<string>;
     public readonly mapName!: pulumi.Output<string>;
     public readonly pricingPlan!: pulumi.Output<enums.location.MapPricingPlan | undefined>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.location.MapTag[] | undefined>;
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
@@ -65,24 +68,24 @@ export class Map extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["mapName"] = args ? args.mapName : undefined;
             resourceInputs["pricingPlan"] = args ? args.pricingPlan : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
-            resourceInputs["dataSource"] = undefined /*out*/;
             resourceInputs["mapArn"] = undefined /*out*/;
             resourceInputs["updateTime"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["configuration"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
-            resourceInputs["dataSource"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["mapArn"] = undefined /*out*/;
             resourceInputs["mapName"] = undefined /*out*/;
             resourceInputs["pricingPlan"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["configuration", "description", "mapName", "pricingPlan"] };
+        const replaceOnChanges = { replaceOnChanges: ["configuration", "mapName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Map.__pulumiType, name, resourceInputs, opts);
     }
@@ -96,4 +99,8 @@ export interface MapArgs {
     description?: pulumi.Input<string>;
     mapName?: pulumi.Input<string>;
     pricingPlan?: pulumi.Input<enums.location.MapPricingPlan>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.location.MapTagArgs>[]>;
 }

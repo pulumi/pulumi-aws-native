@@ -18,7 +18,6 @@ class ClusterArgs:
     def __init__(__self__, *,
                  cluster_type: pulumi.Input[str],
                  db_name: pulumi.Input[str],
-                 master_user_password: pulumi.Input[str],
                  master_username: pulumi.Input[str],
                  node_type: pulumi.Input[str],
                  allow_version_upgrade: Optional[pulumi.Input[bool]] = None,
@@ -48,8 +47,12 @@ class ClusterArgs:
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  logging_properties: Optional[pulumi.Input['ClusterLoggingPropertiesArgs']] = None,
                  maintenance_track_name: Optional[pulumi.Input[str]] = None,
+                 manage_master_password: Optional[pulumi.Input[bool]] = None,
                  manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
+                 master_password_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
+                 master_user_password: Optional[pulumi.Input[str]] = None,
                  multi_az: Optional[pulumi.Input[bool]] = None,
+                 namespace_resource_policy: Optional[Any] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
                  owner_account: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -69,7 +72,6 @@ class ClusterArgs:
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[str] cluster_type: The type of the cluster. When cluster type is specified as single-node, the NumberOfNodes parameter is not required and if multi-node, the NumberOfNodes parameter is required
         :param pulumi.Input[str] db_name: The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database.
-        :param pulumi.Input[str] master_user_password: The password associated with the master user account for the cluster that is being created. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
         :param pulumi.Input[str] master_username: The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.
         :param pulumi.Input[str] node_type: The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
         :param pulumi.Input[bool] allow_version_upgrade: Major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default value is True
@@ -105,10 +107,14 @@ class ClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
         :param pulumi.Input[str] maintenance_track_name: The name for the maintenance track that you want to assign for the cluster. This name change is asynchronous. The new track name stays in the PendingModifiedValues for the cluster until the next maintenance window. When the maintenance track changes, the cluster is switched to the latest cluster release available for the maintenance track. At this point, the maintenance track name is applied.
+        :param pulumi.Input[bool] manage_master_password: A boolean indicating if the redshift cluster's admin user credentials is managed by Redshift or not. You can't use MasterUserPassword if ManageMasterPassword is true. If ManageMasterPassword is false or not set, Amazon Redshift uses MasterUserPassword for the admin user account's password.
         :param pulumi.Input[int] manual_snapshot_retention_period: The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
                
                The value must be either -1 or an integer between 1 and 3,653.
+        :param pulumi.Input[str] master_password_secret_kms_key_id: The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin user credentials secret.
+        :param pulumi.Input[str] master_user_password: The password associated with the master user account for the cluster that is being created. You can't use MasterUserPassword if ManageMasterPassword is true. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
         :param pulumi.Input[bool] multi_az: A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
+        :param Any namespace_resource_policy: The namespace resource policy document that will be attached to a Redshift cluster.
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
         :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
@@ -130,7 +136,6 @@ class ClusterArgs:
         """
         pulumi.set(__self__, "cluster_type", cluster_type)
         pulumi.set(__self__, "db_name", db_name)
-        pulumi.set(__self__, "master_user_password", master_user_password)
         pulumi.set(__self__, "master_username", master_username)
         pulumi.set(__self__, "node_type", node_type)
         if allow_version_upgrade is not None:
@@ -187,10 +192,18 @@ class ClusterArgs:
             pulumi.set(__self__, "logging_properties", logging_properties)
         if maintenance_track_name is not None:
             pulumi.set(__self__, "maintenance_track_name", maintenance_track_name)
+        if manage_master_password is not None:
+            pulumi.set(__self__, "manage_master_password", manage_master_password)
         if manual_snapshot_retention_period is not None:
             pulumi.set(__self__, "manual_snapshot_retention_period", manual_snapshot_retention_period)
+        if master_password_secret_kms_key_id is not None:
+            pulumi.set(__self__, "master_password_secret_kms_key_id", master_password_secret_kms_key_id)
+        if master_user_password is not None:
+            pulumi.set(__self__, "master_user_password", master_user_password)
         if multi_az is not None:
             pulumi.set(__self__, "multi_az", multi_az)
+        if namespace_resource_policy is not None:
+            pulumi.set(__self__, "namespace_resource_policy", namespace_resource_policy)
         if number_of_nodes is not None:
             pulumi.set(__self__, "number_of_nodes", number_of_nodes)
         if owner_account is not None:
@@ -245,18 +258,6 @@ class ClusterArgs:
     @db_name.setter
     def db_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "db_name", value)
-
-    @property
-    @pulumi.getter(name="masterUserPassword")
-    def master_user_password(self) -> pulumi.Input[str]:
-        """
-        The password associated with the master user account for the cluster that is being created. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
-        """
-        return pulumi.get(self, "master_user_password")
-
-    @master_user_password.setter
-    def master_user_password(self, value: pulumi.Input[str]):
-        pulumi.set(self, "master_user_password", value)
 
     @property
     @pulumi.getter(name="masterUsername")
@@ -609,6 +610,18 @@ class ClusterArgs:
         pulumi.set(self, "maintenance_track_name", value)
 
     @property
+    @pulumi.getter(name="manageMasterPassword")
+    def manage_master_password(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean indicating if the redshift cluster's admin user credentials is managed by Redshift or not. You can't use MasterUserPassword if ManageMasterPassword is true. If ManageMasterPassword is false or not set, Amazon Redshift uses MasterUserPassword for the admin user account's password.
+        """
+        return pulumi.get(self, "manage_master_password")
+
+    @manage_master_password.setter
+    def manage_master_password(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "manage_master_password", value)
+
+    @property
     @pulumi.getter(name="manualSnapshotRetentionPeriod")
     def manual_snapshot_retention_period(self) -> Optional[pulumi.Input[int]]:
         """
@@ -623,6 +636,30 @@ class ClusterArgs:
         pulumi.set(self, "manual_snapshot_retention_period", value)
 
     @property
+    @pulumi.getter(name="masterPasswordSecretKmsKeyId")
+    def master_password_secret_kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin user credentials secret.
+        """
+        return pulumi.get(self, "master_password_secret_kms_key_id")
+
+    @master_password_secret_kms_key_id.setter
+    def master_password_secret_kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "master_password_secret_kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="masterUserPassword")
+    def master_user_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password associated with the master user account for the cluster that is being created. You can't use MasterUserPassword if ManageMasterPassword is true. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
+        """
+        return pulumi.get(self, "master_user_password")
+
+    @master_user_password.setter
+    def master_user_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "master_user_password", value)
+
+    @property
     @pulumi.getter(name="multiAz")
     def multi_az(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -633,6 +670,18 @@ class ClusterArgs:
     @multi_az.setter
     def multi_az(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "multi_az", value)
+
+    @property
+    @pulumi.getter(name="namespaceResourcePolicy")
+    def namespace_resource_policy(self) -> Optional[Any]:
+        """
+        The namespace resource policy document that will be attached to a Redshift cluster.
+        """
+        return pulumi.get(self, "namespace_resource_policy")
+
+    @namespace_resource_policy.setter
+    def namespace_resource_policy(self, value: Optional[Any]):
+        pulumi.set(self, "namespace_resource_policy", value)
 
     @property
     @pulumi.getter(name="numberOfNodes")
@@ -850,10 +899,13 @@ class Cluster(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  logging_properties: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingPropertiesArgs']]] = None,
                  maintenance_track_name: Optional[pulumi.Input[str]] = None,
+                 manage_master_password: Optional[pulumi.Input[bool]] = None,
                  manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
+                 master_password_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  master_user_password: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  multi_az: Optional[pulumi.Input[bool]] = None,
+                 namespace_resource_policy: Optional[Any] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
                  owner_account: Optional[pulumi.Input[str]] = None,
@@ -911,12 +963,15 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 50 IAM roles in a single request
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
         :param pulumi.Input[str] maintenance_track_name: The name for the maintenance track that you want to assign for the cluster. This name change is asynchronous. The new track name stays in the PendingModifiedValues for the cluster until the next maintenance window. When the maintenance track changes, the cluster is switched to the latest cluster release available for the maintenance track. At this point, the maintenance track name is applied.
+        :param pulumi.Input[bool] manage_master_password: A boolean indicating if the redshift cluster's admin user credentials is managed by Redshift or not. You can't use MasterUserPassword if ManageMasterPassword is true. If ManageMasterPassword is false or not set, Amazon Redshift uses MasterUserPassword for the admin user account's password.
         :param pulumi.Input[int] manual_snapshot_retention_period: The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
                
                The value must be either -1 or an integer between 1 and 3,653.
-        :param pulumi.Input[str] master_user_password: The password associated with the master user account for the cluster that is being created. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
+        :param pulumi.Input[str] master_password_secret_kms_key_id: The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin user credentials secret.
+        :param pulumi.Input[str] master_user_password: The password associated with the master user account for the cluster that is being created. You can't use MasterUserPassword if ManageMasterPassword is true. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
         :param pulumi.Input[str] master_username: The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.
         :param pulumi.Input[bool] multi_az: A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
+        :param Any namespace_resource_policy: The namespace resource policy document that will be attached to a Redshift cluster.
         :param pulumi.Input[str] node_type: The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
         :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings
@@ -990,10 +1045,13 @@ class Cluster(pulumi.CustomResource):
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  logging_properties: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingPropertiesArgs']]] = None,
                  maintenance_track_name: Optional[pulumi.Input[str]] = None,
+                 manage_master_password: Optional[pulumi.Input[bool]] = None,
                  manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
+                 master_password_secret_kms_key_id: Optional[pulumi.Input[str]] = None,
                  master_user_password: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  multi_az: Optional[pulumi.Input[bool]] = None,
+                 namespace_resource_policy: Optional[Any] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
                  owner_account: Optional[pulumi.Input[str]] = None,
@@ -1052,14 +1110,15 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["logging_properties"] = logging_properties
             __props__.__dict__["maintenance_track_name"] = maintenance_track_name
+            __props__.__dict__["manage_master_password"] = manage_master_password
             __props__.__dict__["manual_snapshot_retention_period"] = manual_snapshot_retention_period
-            if master_user_password is None and not opts.urn:
-                raise TypeError("Missing required property 'master_user_password'")
+            __props__.__dict__["master_password_secret_kms_key_id"] = master_password_secret_kms_key_id
             __props__.__dict__["master_user_password"] = master_user_password
             if master_username is None and not opts.urn:
                 raise TypeError("Missing required property 'master_username'")
             __props__.__dict__["master_username"] = master_username
             __props__.__dict__["multi_az"] = multi_az
+            __props__.__dict__["namespace_resource_policy"] = namespace_resource_policy
             if node_type is None and not opts.urn:
                 raise TypeError("Missing required property 'node_type'")
             __props__.__dict__["node_type"] = node_type
@@ -1078,7 +1137,9 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["snapshot_identifier"] = snapshot_identifier
             __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
+            __props__.__dict__["cluster_namespace_arn"] = None
             __props__.__dict__["defer_maintenance_identifier"] = None
+            __props__.__dict__["master_password_secret_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster_identifier", "cluster_subnet_group_name", "db_name", "master_username", "owner_account", "snapshot_cluster_identifier", "snapshot_identifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Cluster, __self__).__init__(
@@ -1111,6 +1172,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["availability_zone_relocation_status"] = None
         __props__.__dict__["classic"] = None
         __props__.__dict__["cluster_identifier"] = None
+        __props__.__dict__["cluster_namespace_arn"] = None
         __props__.__dict__["cluster_parameter_group_name"] = None
         __props__.__dict__["cluster_security_groups"] = None
         __props__.__dict__["cluster_subnet_group_name"] = None
@@ -1133,10 +1195,14 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["logging_properties"] = None
         __props__.__dict__["maintenance_track_name"] = None
+        __props__.__dict__["manage_master_password"] = None
         __props__.__dict__["manual_snapshot_retention_period"] = None
+        __props__.__dict__["master_password_secret_arn"] = None
+        __props__.__dict__["master_password_secret_kms_key_id"] = None
         __props__.__dict__["master_user_password"] = None
         __props__.__dict__["master_username"] = None
         __props__.__dict__["multi_az"] = None
+        __props__.__dict__["namespace_resource_policy"] = None
         __props__.__dict__["node_type"] = None
         __props__.__dict__["number_of_nodes"] = None
         __props__.__dict__["owner_account"] = None
@@ -1222,6 +1288,14 @@ class Cluster(pulumi.CustomResource):
         A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
         """
         return pulumi.get(self, "cluster_identifier")
+
+    @property
+    @pulumi.getter(name="clusterNamespaceArn")
+    def cluster_namespace_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the cluster namespace.
+        """
+        return pulumi.get(self, "cluster_namespace_arn")
 
     @property
     @pulumi.getter(name="clusterParameterGroupName")
@@ -1398,6 +1472,14 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "maintenance_track_name")
 
     @property
+    @pulumi.getter(name="manageMasterPassword")
+    def manage_master_password(self) -> pulumi.Output[Optional[bool]]:
+        """
+        A boolean indicating if the redshift cluster's admin user credentials is managed by Redshift or not. You can't use MasterUserPassword if ManageMasterPassword is true. If ManageMasterPassword is false or not set, Amazon Redshift uses MasterUserPassword for the admin user account's password.
+        """
+        return pulumi.get(self, "manage_master_password")
+
+    @property
     @pulumi.getter(name="manualSnapshotRetentionPeriod")
     def manual_snapshot_retention_period(self) -> pulumi.Output[Optional[int]]:
         """
@@ -1408,10 +1490,26 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "manual_snapshot_retention_period")
 
     @property
-    @pulumi.getter(name="masterUserPassword")
-    def master_user_password(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="masterPasswordSecretArn")
+    def master_password_secret_arn(self) -> pulumi.Output[str]:
         """
-        The password associated with the master user account for the cluster that is being created. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
+        The Amazon Resource Name (ARN) for the cluster's admin user credentials secret.
+        """
+        return pulumi.get(self, "master_password_secret_arn")
+
+    @property
+    @pulumi.getter(name="masterPasswordSecretKmsKeyId")
+    def master_password_secret_kms_key_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin user credentials secret.
+        """
+        return pulumi.get(self, "master_password_secret_kms_key_id")
+
+    @property
+    @pulumi.getter(name="masterUserPassword")
+    def master_user_password(self) -> pulumi.Output[Optional[str]]:
+        """
+        The password associated with the master user account for the cluster that is being created. You can't use MasterUserPassword if ManageMasterPassword is true. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
         """
         return pulumi.get(self, "master_user_password")
 
@@ -1430,6 +1528,14 @@ class Cluster(pulumi.CustomResource):
         A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
         """
         return pulumi.get(self, "multi_az")
+
+    @property
+    @pulumi.getter(name="namespaceResourcePolicy")
+    def namespace_resource_policy(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The namespace resource policy document that will be attached to a Redshift cluster.
+        """
+        return pulumi.get(self, "namespace_resource_policy")
 
     @property
     @pulumi.getter(name="nodeType")

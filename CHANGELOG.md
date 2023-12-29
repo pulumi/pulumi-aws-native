@@ -1,5 +1,35 @@
 ## Unreleased
 
+## 0.92.0 (2023-12-29)
+
+### Breaking Changes
+
+#### Resources
+- "aws-native:connect:PhoneNumber": required:
+    - 🟢 "countryCode" property is no longer Required
+    - 🟢 "type" property is no longer Required
+- 🟡 "aws-native:location:Map": properties: "dataSource" missing output "dataSource"
+- 🟢 "aws-native:redshift:Cluster": required: "masterUserPassword" property is no longer Required
+
+#### Types
+- 🟢 "aws-native:redshift:ClusterLoggingProperties": required: "bucketName" property is no longer Required
+
+### New resources
+- `cloudfront.KeyValueStore`
+- `connect.PredefinedAttribute`
+- `location.ApiKey`
+- `neptunegraph.Graph`
+- `neptunegraph.PrivateGraphEndpoint`
+- `networkfirewall.TlsInspectionConfiguration`
+
+### New functions
+- `cloudfront.getKeyValueStore`
+- `connect.getPredefinedAttribute`
+- `location.getApiKey`
+- `neptunegraph.getGraph`
+- `neptunegraph.getPrivateGraphEndpoint`
+- `networkfirewall.getTlsInspectionConfiguration`
+
 ## 0.91.0 (23-12-22)
 
 Fix: Handle PENDING status (<https://github.com/pulumi/pulumi-aws-native/issues/1219>)

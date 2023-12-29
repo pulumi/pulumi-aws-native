@@ -37,14 +37,17 @@ type LookupGraphQlApiResult struct {
 	GraphQlEndpointArn                *string                                      `pulumi:"graphQlEndpointArn"`
 	GraphQlUrl                        *string                                      `pulumi:"graphQlUrl"`
 	Id                                *string                                      `pulumi:"id"`
+	IntrospectionConfig               *string                                      `pulumi:"introspectionConfig"`
 	LambdaAuthorizerConfig            *GraphQlApiLambdaAuthorizerConfig            `pulumi:"lambdaAuthorizerConfig"`
 	LogConfig                         *GraphQlApiLogConfig                         `pulumi:"logConfig"`
 	MergedApiExecutionRoleArn         *string                                      `pulumi:"mergedApiExecutionRoleArn"`
 	Name                              *string                                      `pulumi:"name"`
 	OpenIdConnectConfig               *GraphQlApiOpenIdConnectConfig               `pulumi:"openIdConnectConfig"`
 	OwnerContact                      *string                                      `pulumi:"ownerContact"`
+	QueryDepthLimit                   *int                                         `pulumi:"queryDepthLimit"`
 	RealtimeDns                       *string                                      `pulumi:"realtimeDns"`
 	RealtimeUrl                       *string                                      `pulumi:"realtimeUrl"`
+	ResolverCountLimit                *int                                         `pulumi:"resolverCountLimit"`
 	Tags                              []GraphQlApiTag                              `pulumi:"tags"`
 	UserPoolConfig                    *GraphQlApiUserPoolConfig                    `pulumi:"userPoolConfig"`
 	Visibility                        *string                                      `pulumi:"visibility"`
@@ -130,6 +133,10 @@ func (o LookupGraphQlApiResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGraphQlApiResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupGraphQlApiResultOutput) IntrospectionConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGraphQlApiResult) *string { return v.IntrospectionConfig }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupGraphQlApiResultOutput) LambdaAuthorizerConfig() GraphQlApiLambdaAuthorizerConfigPtrOutput {
 	return o.ApplyT(func(v LookupGraphQlApiResult) *GraphQlApiLambdaAuthorizerConfig { return v.LambdaAuthorizerConfig }).(GraphQlApiLambdaAuthorizerConfigPtrOutput)
 }
@@ -154,12 +161,20 @@ func (o LookupGraphQlApiResultOutput) OwnerContact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGraphQlApiResult) *string { return v.OwnerContact }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupGraphQlApiResultOutput) QueryDepthLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupGraphQlApiResult) *int { return v.QueryDepthLimit }).(pulumi.IntPtrOutput)
+}
+
 func (o LookupGraphQlApiResultOutput) RealtimeDns() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGraphQlApiResult) *string { return v.RealtimeDns }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupGraphQlApiResultOutput) RealtimeUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGraphQlApiResult) *string { return v.RealtimeUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupGraphQlApiResultOutput) ResolverCountLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupGraphQlApiResult) *int { return v.ResolverCountLimit }).(pulumi.IntPtrOutput)
 }
 
 func (o LookupGraphQlApiResultOutput) Tags() GraphQlApiTagArrayOutput {

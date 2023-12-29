@@ -54,19 +54,20 @@ class ClusterEndpointArgs:
 @pulumi.input_type
 class ClusterLoggingPropertiesArgs:
     def __init__(__self__, *,
-                 bucket_name: pulumi.Input[str],
+                 bucket_name: Optional[pulumi.Input[str]] = None,
                  s3_key_prefix: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "bucket_name", bucket_name)
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
         if s3_key_prefix is not None:
             pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
 
     @property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> pulumi.Input[str]:
+    def bucket_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
-    def bucket_name(self, value: pulumi.Input[str]):
+    def bucket_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "bucket_name", value)
 
     @property

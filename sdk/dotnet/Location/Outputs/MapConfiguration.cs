@@ -13,11 +13,16 @@ namespace Pulumi.AwsNative.Location.Outputs
     [OutputType]
     public sealed class MapConfiguration
     {
+        public readonly string? PoliticalView;
         public readonly string Style;
 
         [OutputConstructor]
-        private MapConfiguration(string style)
+        private MapConfiguration(
+            string? politicalView,
+
+            string style)
         {
+            PoliticalView = politicalView;
             Style = style;
         }
     }

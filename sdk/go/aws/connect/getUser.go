@@ -47,6 +47,8 @@ type LookupUserResult struct {
 	Tags []UserTag `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) for the user.
 	UserArn *string `pulumi:"userArn"`
+	// One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
+	UserProficiencies []UserProficiency `pulumi:"userProficiencies"`
 	// The user name for the account.
 	Username *string `pulumi:"username"`
 }
@@ -136,6 +138,11 @@ func (o LookupUserResultOutput) Tags() UserTagArrayOutput {
 // The Amazon Resource Name (ARN) for the user.
 func (o LookupUserResultOutput) UserArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *string { return v.UserArn }).(pulumi.StringPtrOutput)
+}
+
+// One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
+func (o LookupUserResultOutput) UserProficiencies() UserProficiencyArrayOutput {
+	return o.ApplyT(func(v LookupUserResult) []UserProficiency { return v.UserProficiencies }).(UserProficiencyArrayOutput)
 }
 
 // The user name for the account.

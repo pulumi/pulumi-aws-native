@@ -25,8 +25,16 @@ export interface GetTrackerArgs {
 export interface GetTrackerResult {
     readonly arn?: string;
     readonly createTime?: string;
+    readonly description?: string;
+    readonly eventBridgeEnabled?: boolean;
+    readonly kmsKeyEnableGeospatialQueries?: boolean;
+    readonly positionFiltering?: enums.location.TrackerPositionFiltering;
     readonly pricingPlan?: enums.location.TrackerPricingPlan;
     readonly pricingPlanDataSource?: string;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    readonly tags?: outputs.location.TrackerTag[];
     readonly trackerArn?: string;
     readonly updateTime?: string;
 }

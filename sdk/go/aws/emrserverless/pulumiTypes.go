@@ -361,6 +361,245 @@ func (o ApplicationAutoStopConfigurationPtrOutput) IdleTimeoutMinutes() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
+type ApplicationCloudWatchLoggingConfiguration struct {
+	// If set to false, CloudWatch logging will be turned off. Defaults to false.
+	Enabled *bool `pulumi:"enabled"`
+	// KMS key ARN to encrypt the logs stored in given CloudWatch log-group.
+	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
+	// Log-group name to produce log-streams on CloudWatch. If undefined, logs will be produced in a default log-group /aws/emr-serverless
+	LogGroupName *string `pulumi:"logGroupName"`
+	// Log-stream name prefix by which log-stream names will start in the CloudWatch Log-group.
+	LogStreamNamePrefix *string `pulumi:"logStreamNamePrefix"`
+	// The specific log-streams which need to be uploaded to CloudWatch.
+	LogTypeMap []ApplicationLogTypeMapKeyValuePair `pulumi:"logTypeMap"`
+}
+
+// ApplicationCloudWatchLoggingConfigurationInput is an input type that accepts ApplicationCloudWatchLoggingConfigurationArgs and ApplicationCloudWatchLoggingConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationCloudWatchLoggingConfigurationInput` via:
+//
+//	ApplicationCloudWatchLoggingConfigurationArgs{...}
+type ApplicationCloudWatchLoggingConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationCloudWatchLoggingConfigurationOutput() ApplicationCloudWatchLoggingConfigurationOutput
+	ToApplicationCloudWatchLoggingConfigurationOutputWithContext(context.Context) ApplicationCloudWatchLoggingConfigurationOutput
+}
+
+type ApplicationCloudWatchLoggingConfigurationArgs struct {
+	// If set to false, CloudWatch logging will be turned off. Defaults to false.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// KMS key ARN to encrypt the logs stored in given CloudWatch log-group.
+	EncryptionKeyArn pulumi.StringPtrInput `pulumi:"encryptionKeyArn"`
+	// Log-group name to produce log-streams on CloudWatch. If undefined, logs will be produced in a default log-group /aws/emr-serverless
+	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
+	// Log-stream name prefix by which log-stream names will start in the CloudWatch Log-group.
+	LogStreamNamePrefix pulumi.StringPtrInput `pulumi:"logStreamNamePrefix"`
+	// The specific log-streams which need to be uploaded to CloudWatch.
+	LogTypeMap ApplicationLogTypeMapKeyValuePairArrayInput `pulumi:"logTypeMap"`
+}
+
+func (ApplicationCloudWatchLoggingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationCloudWatchLoggingConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationCloudWatchLoggingConfigurationArgs) ToApplicationCloudWatchLoggingConfigurationOutput() ApplicationCloudWatchLoggingConfigurationOutput {
+	return i.ToApplicationCloudWatchLoggingConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationCloudWatchLoggingConfigurationArgs) ToApplicationCloudWatchLoggingConfigurationOutputWithContext(ctx context.Context) ApplicationCloudWatchLoggingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCloudWatchLoggingConfigurationOutput)
+}
+
+func (i ApplicationCloudWatchLoggingConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationCloudWatchLoggingConfiguration] {
+	return pulumix.Output[ApplicationCloudWatchLoggingConfiguration]{
+		OutputState: i.ToApplicationCloudWatchLoggingConfigurationOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i ApplicationCloudWatchLoggingConfigurationArgs) ToApplicationCloudWatchLoggingConfigurationPtrOutput() ApplicationCloudWatchLoggingConfigurationPtrOutput {
+	return i.ToApplicationCloudWatchLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationCloudWatchLoggingConfigurationArgs) ToApplicationCloudWatchLoggingConfigurationPtrOutputWithContext(ctx context.Context) ApplicationCloudWatchLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCloudWatchLoggingConfigurationOutput).ToApplicationCloudWatchLoggingConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationCloudWatchLoggingConfigurationPtrInput is an input type that accepts ApplicationCloudWatchLoggingConfigurationArgs, ApplicationCloudWatchLoggingConfigurationPtr and ApplicationCloudWatchLoggingConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationCloudWatchLoggingConfigurationPtrInput` via:
+//
+//	        ApplicationCloudWatchLoggingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationCloudWatchLoggingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationCloudWatchLoggingConfigurationPtrOutput() ApplicationCloudWatchLoggingConfigurationPtrOutput
+	ToApplicationCloudWatchLoggingConfigurationPtrOutputWithContext(context.Context) ApplicationCloudWatchLoggingConfigurationPtrOutput
+}
+
+type applicationCloudWatchLoggingConfigurationPtrType ApplicationCloudWatchLoggingConfigurationArgs
+
+func ApplicationCloudWatchLoggingConfigurationPtr(v *ApplicationCloudWatchLoggingConfigurationArgs) ApplicationCloudWatchLoggingConfigurationPtrInput {
+	return (*applicationCloudWatchLoggingConfigurationPtrType)(v)
+}
+
+func (*applicationCloudWatchLoggingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationCloudWatchLoggingConfiguration)(nil)).Elem()
+}
+
+func (i *applicationCloudWatchLoggingConfigurationPtrType) ToApplicationCloudWatchLoggingConfigurationPtrOutput() ApplicationCloudWatchLoggingConfigurationPtrOutput {
+	return i.ToApplicationCloudWatchLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationCloudWatchLoggingConfigurationPtrType) ToApplicationCloudWatchLoggingConfigurationPtrOutputWithContext(ctx context.Context) ApplicationCloudWatchLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationCloudWatchLoggingConfigurationPtrOutput)
+}
+
+func (i *applicationCloudWatchLoggingConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCloudWatchLoggingConfiguration] {
+	return pulumix.Output[*ApplicationCloudWatchLoggingConfiguration]{
+		OutputState: i.ToApplicationCloudWatchLoggingConfigurationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ApplicationCloudWatchLoggingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationCloudWatchLoggingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationCloudWatchLoggingConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationCloudWatchLoggingConfigurationOutput) ToApplicationCloudWatchLoggingConfigurationOutput() ApplicationCloudWatchLoggingConfigurationOutput {
+	return o
+}
+
+func (o ApplicationCloudWatchLoggingConfigurationOutput) ToApplicationCloudWatchLoggingConfigurationOutputWithContext(ctx context.Context) ApplicationCloudWatchLoggingConfigurationOutput {
+	return o
+}
+
+func (o ApplicationCloudWatchLoggingConfigurationOutput) ToApplicationCloudWatchLoggingConfigurationPtrOutput() ApplicationCloudWatchLoggingConfigurationPtrOutput {
+	return o.ToApplicationCloudWatchLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationCloudWatchLoggingConfigurationOutput) ToApplicationCloudWatchLoggingConfigurationPtrOutputWithContext(ctx context.Context) ApplicationCloudWatchLoggingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationCloudWatchLoggingConfiguration) *ApplicationCloudWatchLoggingConfiguration {
+		return &v
+	}).(ApplicationCloudWatchLoggingConfigurationPtrOutput)
+}
+
+func (o ApplicationCloudWatchLoggingConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationCloudWatchLoggingConfiguration] {
+	return pulumix.Output[ApplicationCloudWatchLoggingConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+// If set to false, CloudWatch logging will be turned off. Defaults to false.
+func (o ApplicationCloudWatchLoggingConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationCloudWatchLoggingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// KMS key ARN to encrypt the logs stored in given CloudWatch log-group.
+func (o ApplicationCloudWatchLoggingConfigurationOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationCloudWatchLoggingConfiguration) *string { return v.EncryptionKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// Log-group name to produce log-streams on CloudWatch. If undefined, logs will be produced in a default log-group /aws/emr-serverless
+func (o ApplicationCloudWatchLoggingConfigurationOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationCloudWatchLoggingConfiguration) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
+}
+
+// Log-stream name prefix by which log-stream names will start in the CloudWatch Log-group.
+func (o ApplicationCloudWatchLoggingConfigurationOutput) LogStreamNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationCloudWatchLoggingConfiguration) *string { return v.LogStreamNamePrefix }).(pulumi.StringPtrOutput)
+}
+
+// The specific log-streams which need to be uploaded to CloudWatch.
+func (o ApplicationCloudWatchLoggingConfigurationOutput) LogTypeMap() ApplicationLogTypeMapKeyValuePairArrayOutput {
+	return o.ApplyT(func(v ApplicationCloudWatchLoggingConfiguration) []ApplicationLogTypeMapKeyValuePair {
+		return v.LogTypeMap
+	}).(ApplicationLogTypeMapKeyValuePairArrayOutput)
+}
+
+type ApplicationCloudWatchLoggingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationCloudWatchLoggingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationCloudWatchLoggingConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationCloudWatchLoggingConfigurationPtrOutput) ToApplicationCloudWatchLoggingConfigurationPtrOutput() ApplicationCloudWatchLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationCloudWatchLoggingConfigurationPtrOutput) ToApplicationCloudWatchLoggingConfigurationPtrOutputWithContext(ctx context.Context) ApplicationCloudWatchLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationCloudWatchLoggingConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationCloudWatchLoggingConfiguration] {
+	return pulumix.Output[*ApplicationCloudWatchLoggingConfiguration]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ApplicationCloudWatchLoggingConfigurationPtrOutput) Elem() ApplicationCloudWatchLoggingConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationCloudWatchLoggingConfiguration) ApplicationCloudWatchLoggingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationCloudWatchLoggingConfiguration
+		return ret
+	}).(ApplicationCloudWatchLoggingConfigurationOutput)
+}
+
+// If set to false, CloudWatch logging will be turned off. Defaults to false.
+func (o ApplicationCloudWatchLoggingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationCloudWatchLoggingConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// KMS key ARN to encrypt the logs stored in given CloudWatch log-group.
+func (o ApplicationCloudWatchLoggingConfigurationPtrOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationCloudWatchLoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Log-group name to produce log-streams on CloudWatch. If undefined, logs will be produced in a default log-group /aws/emr-serverless
+func (o ApplicationCloudWatchLoggingConfigurationPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationCloudWatchLoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Log-stream name prefix by which log-stream names will start in the CloudWatch Log-group.
+func (o ApplicationCloudWatchLoggingConfigurationPtrOutput) LogStreamNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationCloudWatchLoggingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreamNamePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The specific log-streams which need to be uploaded to CloudWatch.
+func (o ApplicationCloudWatchLoggingConfigurationPtrOutput) LogTypeMap() ApplicationLogTypeMapKeyValuePairArrayOutput {
+	return o.ApplyT(func(v *ApplicationCloudWatchLoggingConfiguration) []ApplicationLogTypeMapKeyValuePair {
+		if v == nil {
+			return nil
+		}
+		return v.LogTypeMap
+	}).(ApplicationLogTypeMapKeyValuePairArrayOutput)
+}
+
 // Configuration for a JobRun.
 type ApplicationConfigurationObject struct {
 	// String with a maximum length of 1024.
@@ -858,6 +1097,130 @@ func (o ApplicationInitialCapacityConfigKeyValuePairArrayOutput) Index(i pulumi.
 	}).(ApplicationInitialCapacityConfigKeyValuePairOutput)
 }
 
+type ApplicationLogTypeMapKeyValuePair struct {
+	Key   string   `pulumi:"key"`
+	Value []string `pulumi:"value"`
+}
+
+// ApplicationLogTypeMapKeyValuePairInput is an input type that accepts ApplicationLogTypeMapKeyValuePairArgs and ApplicationLogTypeMapKeyValuePairOutput values.
+// You can construct a concrete instance of `ApplicationLogTypeMapKeyValuePairInput` via:
+//
+//	ApplicationLogTypeMapKeyValuePairArgs{...}
+type ApplicationLogTypeMapKeyValuePairInput interface {
+	pulumi.Input
+
+	ToApplicationLogTypeMapKeyValuePairOutput() ApplicationLogTypeMapKeyValuePairOutput
+	ToApplicationLogTypeMapKeyValuePairOutputWithContext(context.Context) ApplicationLogTypeMapKeyValuePairOutput
+}
+
+type ApplicationLogTypeMapKeyValuePairArgs struct {
+	Key   pulumi.StringInput      `pulumi:"key"`
+	Value pulumi.StringArrayInput `pulumi:"value"`
+}
+
+func (ApplicationLogTypeMapKeyValuePairArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationLogTypeMapKeyValuePair)(nil)).Elem()
+}
+
+func (i ApplicationLogTypeMapKeyValuePairArgs) ToApplicationLogTypeMapKeyValuePairOutput() ApplicationLogTypeMapKeyValuePairOutput {
+	return i.ToApplicationLogTypeMapKeyValuePairOutputWithContext(context.Background())
+}
+
+func (i ApplicationLogTypeMapKeyValuePairArgs) ToApplicationLogTypeMapKeyValuePairOutputWithContext(ctx context.Context) ApplicationLogTypeMapKeyValuePairOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLogTypeMapKeyValuePairOutput)
+}
+
+func (i ApplicationLogTypeMapKeyValuePairArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationLogTypeMapKeyValuePair] {
+	return pulumix.Output[ApplicationLogTypeMapKeyValuePair]{
+		OutputState: i.ToApplicationLogTypeMapKeyValuePairOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ApplicationLogTypeMapKeyValuePairArrayInput is an input type that accepts ApplicationLogTypeMapKeyValuePairArray and ApplicationLogTypeMapKeyValuePairArrayOutput values.
+// You can construct a concrete instance of `ApplicationLogTypeMapKeyValuePairArrayInput` via:
+//
+//	ApplicationLogTypeMapKeyValuePairArray{ ApplicationLogTypeMapKeyValuePairArgs{...} }
+type ApplicationLogTypeMapKeyValuePairArrayInput interface {
+	pulumi.Input
+
+	ToApplicationLogTypeMapKeyValuePairArrayOutput() ApplicationLogTypeMapKeyValuePairArrayOutput
+	ToApplicationLogTypeMapKeyValuePairArrayOutputWithContext(context.Context) ApplicationLogTypeMapKeyValuePairArrayOutput
+}
+
+type ApplicationLogTypeMapKeyValuePairArray []ApplicationLogTypeMapKeyValuePairInput
+
+func (ApplicationLogTypeMapKeyValuePairArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationLogTypeMapKeyValuePair)(nil)).Elem()
+}
+
+func (i ApplicationLogTypeMapKeyValuePairArray) ToApplicationLogTypeMapKeyValuePairArrayOutput() ApplicationLogTypeMapKeyValuePairArrayOutput {
+	return i.ToApplicationLogTypeMapKeyValuePairArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationLogTypeMapKeyValuePairArray) ToApplicationLogTypeMapKeyValuePairArrayOutputWithContext(ctx context.Context) ApplicationLogTypeMapKeyValuePairArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationLogTypeMapKeyValuePairArrayOutput)
+}
+
+func (i ApplicationLogTypeMapKeyValuePairArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationLogTypeMapKeyValuePair] {
+	return pulumix.Output[[]ApplicationLogTypeMapKeyValuePair]{
+		OutputState: i.ToApplicationLogTypeMapKeyValuePairArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ApplicationLogTypeMapKeyValuePairOutput struct{ *pulumi.OutputState }
+
+func (ApplicationLogTypeMapKeyValuePairOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationLogTypeMapKeyValuePair)(nil)).Elem()
+}
+
+func (o ApplicationLogTypeMapKeyValuePairOutput) ToApplicationLogTypeMapKeyValuePairOutput() ApplicationLogTypeMapKeyValuePairOutput {
+	return o
+}
+
+func (o ApplicationLogTypeMapKeyValuePairOutput) ToApplicationLogTypeMapKeyValuePairOutputWithContext(ctx context.Context) ApplicationLogTypeMapKeyValuePairOutput {
+	return o
+}
+
+func (o ApplicationLogTypeMapKeyValuePairOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationLogTypeMapKeyValuePair] {
+	return pulumix.Output[ApplicationLogTypeMapKeyValuePair]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ApplicationLogTypeMapKeyValuePairOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationLogTypeMapKeyValuePair) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o ApplicationLogTypeMapKeyValuePairOutput) Value() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationLogTypeMapKeyValuePair) []string { return v.Value }).(pulumi.StringArrayOutput)
+}
+
+type ApplicationLogTypeMapKeyValuePairArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationLogTypeMapKeyValuePairArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationLogTypeMapKeyValuePair)(nil)).Elem()
+}
+
+func (o ApplicationLogTypeMapKeyValuePairArrayOutput) ToApplicationLogTypeMapKeyValuePairArrayOutput() ApplicationLogTypeMapKeyValuePairArrayOutput {
+	return o
+}
+
+func (o ApplicationLogTypeMapKeyValuePairArrayOutput) ToApplicationLogTypeMapKeyValuePairArrayOutputWithContext(ctx context.Context) ApplicationLogTypeMapKeyValuePairArrayOutput {
+	return o
+}
+
+func (o ApplicationLogTypeMapKeyValuePairArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationLogTypeMapKeyValuePair] {
+	return pulumix.Output[[]ApplicationLogTypeMapKeyValuePair]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ApplicationLogTypeMapKeyValuePairArrayOutput) Index(i pulumi.IntInput) ApplicationLogTypeMapKeyValuePairOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationLogTypeMapKeyValuePair {
+		return vs[0].([]ApplicationLogTypeMapKeyValuePair)[vs[1].(int)]
+	}).(ApplicationLogTypeMapKeyValuePairOutput)
+}
+
 type ApplicationManagedPersistenceMonitoringConfiguration struct {
 	// If set to false, managed logging will be turned off. Defaults to true.
 	Enabled *bool `pulumi:"enabled"`
@@ -1239,6 +1602,8 @@ func (o ApplicationMaximumAllowedResourcesPtrOutput) Memory() pulumi.StringPtrOu
 
 // Monitoring configuration for batch and interactive JobRun.
 type ApplicationMonitoringConfiguration struct {
+	// CloudWatch logging configurations for a JobRun.
+	CloudWatchLoggingConfiguration *ApplicationCloudWatchLoggingConfiguration `pulumi:"cloudWatchLoggingConfiguration"`
 	// Managed log persistence configurations for a JobRun.
 	ManagedPersistenceMonitoringConfiguration *ApplicationManagedPersistenceMonitoringConfiguration `pulumi:"managedPersistenceMonitoringConfiguration"`
 	// S3 monitoring configurations for a JobRun.
@@ -1258,6 +1623,8 @@ type ApplicationMonitoringConfigurationInput interface {
 
 // Monitoring configuration for batch and interactive JobRun.
 type ApplicationMonitoringConfigurationArgs struct {
+	// CloudWatch logging configurations for a JobRun.
+	CloudWatchLoggingConfiguration ApplicationCloudWatchLoggingConfigurationPtrInput `pulumi:"cloudWatchLoggingConfiguration"`
 	// Managed log persistence configurations for a JobRun.
 	ManagedPersistenceMonitoringConfiguration ApplicationManagedPersistenceMonitoringConfigurationPtrInput `pulumi:"managedPersistenceMonitoringConfiguration"`
 	// S3 monitoring configurations for a JobRun.
@@ -1360,6 +1727,13 @@ func (o ApplicationMonitoringConfigurationOutput) ToOutput(ctx context.Context) 
 	}
 }
 
+// CloudWatch logging configurations for a JobRun.
+func (o ApplicationMonitoringConfigurationOutput) CloudWatchLoggingConfiguration() ApplicationCloudWatchLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v ApplicationMonitoringConfiguration) *ApplicationCloudWatchLoggingConfiguration {
+		return v.CloudWatchLoggingConfiguration
+	}).(ApplicationCloudWatchLoggingConfigurationPtrOutput)
+}
+
 // Managed log persistence configurations for a JobRun.
 func (o ApplicationMonitoringConfigurationOutput) ManagedPersistenceMonitoringConfiguration() ApplicationManagedPersistenceMonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationMonitoringConfiguration) *ApplicationManagedPersistenceMonitoringConfiguration {
@@ -1402,6 +1776,16 @@ func (o ApplicationMonitoringConfigurationPtrOutput) Elem() ApplicationMonitorin
 		var ret ApplicationMonitoringConfiguration
 		return ret
 	}).(ApplicationMonitoringConfigurationOutput)
+}
+
+// CloudWatch logging configurations for a JobRun.
+func (o ApplicationMonitoringConfigurationPtrOutput) CloudWatchLoggingConfiguration() ApplicationCloudWatchLoggingConfigurationPtrOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfiguration) *ApplicationCloudWatchLoggingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchLoggingConfiguration
+	}).(ApplicationCloudWatchLoggingConfigurationPtrOutput)
 }
 
 // Managed log persistence configurations for a JobRun.
@@ -2142,6 +2526,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAutoStartConfigurationPtrInput)(nil)).Elem(), ApplicationAutoStartConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAutoStopConfigurationInput)(nil)).Elem(), ApplicationAutoStopConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAutoStopConfigurationPtrInput)(nil)).Elem(), ApplicationAutoStopConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCloudWatchLoggingConfigurationInput)(nil)).Elem(), ApplicationCloudWatchLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationCloudWatchLoggingConfigurationPtrInput)(nil)).Elem(), ApplicationCloudWatchLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationConfigurationObjectInput)(nil)).Elem(), ApplicationConfigurationObjectArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationConfigurationObjectArrayInput)(nil)).Elem(), ApplicationConfigurationObjectArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationImageConfigurationInputInput)(nil)).Elem(), ApplicationImageConfigurationInputArgs{})
@@ -2149,6 +2535,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInitialCapacityConfigInput)(nil)).Elem(), ApplicationInitialCapacityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInitialCapacityConfigKeyValuePairInput)(nil)).Elem(), ApplicationInitialCapacityConfigKeyValuePairArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInitialCapacityConfigKeyValuePairArrayInput)(nil)).Elem(), ApplicationInitialCapacityConfigKeyValuePairArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationLogTypeMapKeyValuePairInput)(nil)).Elem(), ApplicationLogTypeMapKeyValuePairArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationLogTypeMapKeyValuePairArrayInput)(nil)).Elem(), ApplicationLogTypeMapKeyValuePairArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationManagedPersistenceMonitoringConfigurationInput)(nil)).Elem(), ApplicationManagedPersistenceMonitoringConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationManagedPersistenceMonitoringConfigurationPtrInput)(nil)).Elem(), ApplicationManagedPersistenceMonitoringConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMaximumAllowedResourcesInput)(nil)).Elem(), ApplicationMaximumAllowedResourcesArgs{})
@@ -2168,6 +2556,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationAutoStartConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationAutoStopConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationAutoStopConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationCloudWatchLoggingConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationCloudWatchLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationConfigurationObjectOutput{})
 	pulumi.RegisterOutputType(ApplicationConfigurationObjectArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationImageConfigurationInputOutput{})
@@ -2175,6 +2565,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationInitialCapacityConfigOutput{})
 	pulumi.RegisterOutputType(ApplicationInitialCapacityConfigKeyValuePairOutput{})
 	pulumi.RegisterOutputType(ApplicationInitialCapacityConfigKeyValuePairArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationLogTypeMapKeyValuePairOutput{})
+	pulumi.RegisterOutputType(ApplicationLogTypeMapKeyValuePairArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationManagedPersistenceMonitoringConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationManagedPersistenceMonitoringConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationMaximumAllowedResourcesOutput{})

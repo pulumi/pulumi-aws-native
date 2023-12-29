@@ -68,6 +68,7 @@ __all__ = [
     'InstanceLaunchTemplateSpecification',
     'InstanceLicenseSpecification',
     'InstanceNetworkInterface',
+    'InstanceNoDevice',
     'InstancePrivateDnsNameOptions',
     'InstancePrivateIpAddressSpecification',
     'InstanceSsmAssociation',
@@ -2081,7 +2082,7 @@ class InstanceBlockDeviceMapping(dict):
     def __init__(__self__, *,
                  device_name: str,
                  ebs: Optional['outputs.InstanceEbs'] = None,
-                 no_device: Optional[Any] = None,
+                 no_device: Optional['outputs.InstanceNoDevice'] = None,
                  virtual_name: Optional[str] = None):
         pulumi.set(__self__, "device_name", device_name)
         if ebs is not None:
@@ -2103,7 +2104,7 @@ class InstanceBlockDeviceMapping(dict):
 
     @property
     @pulumi.getter(name="noDevice")
-    def no_device(self) -> Optional[Any]:
+    def no_device(self) -> Optional['outputs.InstanceNoDevice']:
         return pulumi.get(self, "no_device")
 
     @property
@@ -2601,6 +2602,12 @@ class InstanceNetworkInterface(dict):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[str]:
         return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class InstanceNoDevice(dict):
+    def __init__(__self__):
+        pass
 
 
 @pulumi.output_type

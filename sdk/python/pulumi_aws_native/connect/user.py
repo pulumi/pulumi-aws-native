@@ -26,7 +26,8 @@ class UserArgs:
                  hierarchy_group_arn: Optional[pulumi.Input[str]] = None,
                  identity_info: Optional[pulumi.Input['UserIdentityInfoArgs']] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None):
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]] = None,
+                 user_proficiencies: Optional[pulumi.Input[Sequence[pulumi.Input['UserProficiencyArgs']]]] = None):
         """
         The set of arguments for constructing a User resource.
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
@@ -39,6 +40,7 @@ class UserArgs:
         :param pulumi.Input['UserIdentityInfoArgs'] identity_info: The information about the identity of the user.
         :param pulumi.Input[str] password: The password for the user account. A password is required if you are using Amazon Connect for identity management. Otherwise, it is an error to include a password.
         :param pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input['UserProficiencyArgs']]] user_proficiencies: One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         pulumi.set(__self__, "phone_config", phone_config)
@@ -55,6 +57,8 @@ class UserArgs:
             pulumi.set(__self__, "password", password)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if user_proficiencies is not None:
+            pulumi.set(__self__, "user_proficiencies", user_proficiencies)
 
     @property
     @pulumi.getter(name="instanceArn")
@@ -176,6 +180,18 @@ class UserArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="userProficiencies")
+    def user_proficiencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProficiencyArgs']]]]:
+        """
+        One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
+        """
+        return pulumi.get(self, "user_proficiencies")
+
+    @user_proficiencies.setter
+    def user_proficiencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserProficiencyArgs']]]]):
+        pulumi.set(self, "user_proficiencies", value)
+
 
 class User(pulumi.CustomResource):
     @overload
@@ -191,6 +207,7 @@ class User(pulumi.CustomResource):
                  routing_profile_arn: Optional[pulumi.Input[str]] = None,
                  security_profile_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserTagArgs']]]]] = None,
+                 user_proficiencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserProficiencyArgs']]]]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -207,6 +224,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] routing_profile_arn: The identifier of the routing profile for the user.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_profile_arns: One or more security profile arns for the user
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserTagArgs']]]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserProficiencyArgs']]]] user_proficiencies: One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
         :param pulumi.Input[str] username: The user name for the account.
         """
         ...
@@ -242,6 +260,7 @@ class User(pulumi.CustomResource):
                  routing_profile_arn: Optional[pulumi.Input[str]] = None,
                  security_profile_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserTagArgs']]]]] = None,
+                 user_proficiencies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserProficiencyArgs']]]]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -269,6 +288,7 @@ class User(pulumi.CustomResource):
                 raise TypeError("Missing required property 'security_profile_arns'")
             __props__.__dict__["security_profile_arns"] = security_profile_arns
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["user_proficiencies"] = user_proficiencies
             if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
             __props__.__dict__["username"] = username
@@ -305,6 +325,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["security_profile_arns"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["user_arn"] = None
+        __props__.__dict__["user_proficiencies"] = None
         __props__.__dict__["username"] = None
         return User(resource_name, opts=opts, __props__=__props__)
 
@@ -387,6 +408,14 @@ class User(pulumi.CustomResource):
         The Amazon Resource Name (ARN) for the user.
         """
         return pulumi.get(self, "user_arn")
+
+    @property
+    @pulumi.getter(name="userProficiencies")
+    def user_proficiencies(self) -> pulumi.Output[Optional[Sequence['outputs.UserProficiency']]]:
+        """
+        One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
+        """
+        return pulumi.get(self, "user_proficiencies")
 
     @property
     @pulumi.getter

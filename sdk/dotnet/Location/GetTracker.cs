@@ -53,8 +53,16 @@ namespace Pulumi.AwsNative.Location
     {
         public readonly string? Arn;
         public readonly string? CreateTime;
+        public readonly string? Description;
+        public readonly bool? EventBridgeEnabled;
+        public readonly bool? KmsKeyEnableGeospatialQueries;
+        public readonly Pulumi.AwsNative.Location.TrackerPositionFiltering? PositionFiltering;
         public readonly Pulumi.AwsNative.Location.TrackerPricingPlan? PricingPlan;
         public readonly string? PricingPlanDataSource;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TrackerTag> Tags;
         public readonly string? TrackerArn;
         public readonly string? UpdateTime;
 
@@ -64,9 +72,19 @@ namespace Pulumi.AwsNative.Location
 
             string? createTime,
 
+            string? description,
+
+            bool? eventBridgeEnabled,
+
+            bool? kmsKeyEnableGeospatialQueries,
+
+            Pulumi.AwsNative.Location.TrackerPositionFiltering? positionFiltering,
+
             Pulumi.AwsNative.Location.TrackerPricingPlan? pricingPlan,
 
             string? pricingPlanDataSource,
+
+            ImmutableArray<Outputs.TrackerTag> tags,
 
             string? trackerArn,
 
@@ -74,8 +92,13 @@ namespace Pulumi.AwsNative.Location
         {
             Arn = arn;
             CreateTime = createTime;
+            Description = description;
+            EventBridgeEnabled = eventBridgeEnabled;
+            KmsKeyEnableGeospatialQueries = kmsKeyEnableGeospatialQueries;
+            PositionFiltering = positionFiltering;
             PricingPlan = pricingPlan;
             PricingPlanDataSource = pricingPlanDataSource;
+            Tags = tags;
             TrackerArn = trackerArn;
             UpdateTime = updateTime;
         }

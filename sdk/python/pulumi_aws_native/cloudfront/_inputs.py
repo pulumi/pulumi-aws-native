@@ -51,6 +51,7 @@ __all__ = [
     'DistributionTagArgs',
     'DistributionViewerCertificateArgs',
     'FunctionConfigArgs',
+    'FunctionKeyValueStoreAssociationArgs',
     'FunctionMetadataArgs',
     'KeyGroupConfigArgs',
     'KeyValueStoreImportSourceArgs',
@@ -2198,9 +2199,12 @@ class DistributionViewerCertificateArgs:
 class FunctionConfigArgs:
     def __init__(__self__, *,
                  comment: pulumi.Input[str],
-                 runtime: pulumi.Input[str]):
+                 runtime: pulumi.Input[str],
+                 key_value_store_associations: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionKeyValueStoreAssociationArgs']]]] = None):
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "runtime", runtime)
+        if key_value_store_associations is not None:
+            pulumi.set(__self__, "key_value_store_associations", key_value_store_associations)
 
     @property
     @pulumi.getter
@@ -2219,6 +2223,31 @@ class FunctionConfigArgs:
     @runtime.setter
     def runtime(self, value: pulumi.Input[str]):
         pulumi.set(self, "runtime", value)
+
+    @property
+    @pulumi.getter(name="keyValueStoreAssociations")
+    def key_value_store_associations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionKeyValueStoreAssociationArgs']]]]:
+        return pulumi.get(self, "key_value_store_associations")
+
+    @key_value_store_associations.setter
+    def key_value_store_associations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionKeyValueStoreAssociationArgs']]]]):
+        pulumi.set(self, "key_value_store_associations", value)
+
+
+@pulumi.input_type
+class FunctionKeyValueStoreAssociationArgs:
+    def __init__(__self__, *,
+                 key_value_store_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "key_value_store_arn", key_value_store_arn)
+
+    @property
+    @pulumi.getter(name="keyValueStoreArn")
+    def key_value_store_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key_value_store_arn")
+
+    @key_value_store_arn.setter
+    def key_value_store_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_value_store_arn", value)
 
 
 @pulumi.input_type

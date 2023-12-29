@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:location:ApiKey":
+		r = &ApiKey{}
 	case "aws-native:location:GeofenceCollection":
 		r = &GeofenceCollection{}
 	case "aws-native:location:Map":

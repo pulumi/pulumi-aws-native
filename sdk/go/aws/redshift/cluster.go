@@ -37,6 +37,8 @@ type Cluster struct {
 	Classic pulumi.BoolPtrOutput `pulumi:"classic"`
 	// A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. All alphabetical characters must be lower case, no hypens at the end, no two consecutive hyphens. Cluster name should be unique for all clusters within an AWS account
 	ClusterIdentifier pulumi.StringPtrOutput `pulumi:"clusterIdentifier"`
+	// The Amazon Resource Name (ARN) of the cluster namespace.
+	ClusterNamespaceArn pulumi.StringOutput `pulumi:"clusterNamespaceArn"`
 	// The name of the parameter group to be associated with this cluster.
 	ClusterParameterGroupName pulumi.StringPtrOutput `pulumi:"clusterParameterGroupName"`
 	// A list of security groups to be associated with this cluster.
@@ -83,16 +85,24 @@ type Cluster struct {
 	LoggingProperties ClusterLoggingPropertiesPtrOutput `pulumi:"loggingProperties"`
 	// The name for the maintenance track that you want to assign for the cluster. This name change is asynchronous. The new track name stays in the PendingModifiedValues for the cluster until the next maintenance window. When the maintenance track changes, the cluster is switched to the latest cluster release available for the maintenance track. At this point, the maintenance track name is applied.
 	MaintenanceTrackName pulumi.StringPtrOutput `pulumi:"maintenanceTrackName"`
+	// A boolean indicating if the redshift cluster's admin user credentials is managed by Redshift or not. You can't use MasterUserPassword if ManageMasterPassword is true. If ManageMasterPassword is false or not set, Amazon Redshift uses MasterUserPassword for the admin user account's password.
+	ManageMasterPassword pulumi.BoolPtrOutput `pulumi:"manageMasterPassword"`
 	// The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
 	//
 	// The value must be either -1 or an integer between 1 and 3,653.
 	ManualSnapshotRetentionPeriod pulumi.IntPtrOutput `pulumi:"manualSnapshotRetentionPeriod"`
-	// The password associated with the master user account for the cluster that is being created. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
-	MasterUserPassword pulumi.StringOutput `pulumi:"masterUserPassword"`
+	// The Amazon Resource Name (ARN) for the cluster's admin user credentials secret.
+	MasterPasswordSecretArn pulumi.StringOutput `pulumi:"masterPasswordSecretArn"`
+	// The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin user credentials secret.
+	MasterPasswordSecretKmsKeyId pulumi.StringPtrOutput `pulumi:"masterPasswordSecretKmsKeyId"`
+	// The password associated with the master user account for the cluster that is being created. You can't use MasterUserPassword if ManageMasterPassword is true. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
+	MasterUserPassword pulumi.StringPtrOutput `pulumi:"masterUserPassword"`
 	// The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.
 	MasterUsername pulumi.StringOutput `pulumi:"masterUsername"`
 	// A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
 	MultiAz pulumi.BoolPtrOutput `pulumi:"multiAz"`
+	// The namespace resource policy document that will be attached to a Redshift cluster.
+	NamespaceResourcePolicy pulumi.AnyOutput `pulumi:"namespaceResourcePolicy"`
 	// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
 	NodeType pulumi.StringOutput `pulumi:"nodeType"`
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
@@ -142,9 +152,6 @@ func NewCluster(ctx *pulumi.Context,
 	}
 	if args.DbName == nil {
 		return nil, errors.New("invalid value for required argument 'DbName'")
-	}
-	if args.MasterUserPassword == nil {
-		return nil, errors.New("invalid value for required argument 'MasterUserPassword'")
 	}
 	if args.MasterUsername == nil {
 		return nil, errors.New("invalid value for required argument 'MasterUsername'")
@@ -259,16 +266,22 @@ type clusterArgs struct {
 	LoggingProperties *ClusterLoggingProperties `pulumi:"loggingProperties"`
 	// The name for the maintenance track that you want to assign for the cluster. This name change is asynchronous. The new track name stays in the PendingModifiedValues for the cluster until the next maintenance window. When the maintenance track changes, the cluster is switched to the latest cluster release available for the maintenance track. At this point, the maintenance track name is applied.
 	MaintenanceTrackName *string `pulumi:"maintenanceTrackName"`
+	// A boolean indicating if the redshift cluster's admin user credentials is managed by Redshift or not. You can't use MasterUserPassword if ManageMasterPassword is true. If ManageMasterPassword is false or not set, Amazon Redshift uses MasterUserPassword for the admin user account's password.
+	ManageMasterPassword *bool `pulumi:"manageMasterPassword"`
 	// The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
 	//
 	// The value must be either -1 or an integer between 1 and 3,653.
 	ManualSnapshotRetentionPeriod *int `pulumi:"manualSnapshotRetentionPeriod"`
-	// The password associated with the master user account for the cluster that is being created. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
-	MasterUserPassword string `pulumi:"masterUserPassword"`
+	// The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin user credentials secret.
+	MasterPasswordSecretKmsKeyId *string `pulumi:"masterPasswordSecretKmsKeyId"`
+	// The password associated with the master user account for the cluster that is being created. You can't use MasterUserPassword if ManageMasterPassword is true. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
+	MasterUserPassword *string `pulumi:"masterUserPassword"`
 	// The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.
 	MasterUsername string `pulumi:"masterUsername"`
 	// A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
 	MultiAz *bool `pulumi:"multiAz"`
+	// The namespace resource policy document that will be attached to a Redshift cluster.
+	NamespaceResourcePolicy interface{} `pulumi:"namespaceResourcePolicy"`
 	// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
 	NodeType string `pulumi:"nodeType"`
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
@@ -372,16 +385,22 @@ type ClusterArgs struct {
 	LoggingProperties ClusterLoggingPropertiesPtrInput
 	// The name for the maintenance track that you want to assign for the cluster. This name change is asynchronous. The new track name stays in the PendingModifiedValues for the cluster until the next maintenance window. When the maintenance track changes, the cluster is switched to the latest cluster release available for the maintenance track. At this point, the maintenance track name is applied.
 	MaintenanceTrackName pulumi.StringPtrInput
+	// A boolean indicating if the redshift cluster's admin user credentials is managed by Redshift or not. You can't use MasterUserPassword if ManageMasterPassword is true. If ManageMasterPassword is false or not set, Amazon Redshift uses MasterUserPassword for the admin user account's password.
+	ManageMasterPassword pulumi.BoolPtrInput
 	// The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
 	//
 	// The value must be either -1 or an integer between 1 and 3,653.
 	ManualSnapshotRetentionPeriod pulumi.IntPtrInput
-	// The password associated with the master user account for the cluster that is being created. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
-	MasterUserPassword pulumi.StringInput
+	// The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin user credentials secret.
+	MasterPasswordSecretKmsKeyId pulumi.StringPtrInput
+	// The password associated with the master user account for the cluster that is being created. You can't use MasterUserPassword if ManageMasterPassword is true. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
+	MasterUserPassword pulumi.StringPtrInput
 	// The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.
 	MasterUsername pulumi.StringInput
 	// A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
 	MultiAz pulumi.BoolPtrInput
+	// The namespace resource policy document that will be attached to a Redshift cluster.
+	NamespaceResourcePolicy pulumi.Input
 	// The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge
 	NodeType pulumi.StringInput
 	// The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node.
@@ -512,6 +531,11 @@ func (o ClusterOutput) ClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the cluster namespace.
+func (o ClusterOutput) ClusterNamespaceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterNamespaceArn }).(pulumi.StringOutput)
+}
+
 // The name of the parameter group to be associated with this cluster.
 func (o ClusterOutput) ClusterParameterGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ClusterParameterGroupName }).(pulumi.StringPtrOutput)
@@ -624,6 +648,11 @@ func (o ClusterOutput) MaintenanceTrackName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MaintenanceTrackName }).(pulumi.StringPtrOutput)
 }
 
+// A boolean indicating if the redshift cluster's admin user credentials is managed by Redshift or not. You can't use MasterUserPassword if ManageMasterPassword is true. If ManageMasterPassword is false or not set, Amazon Redshift uses MasterUserPassword for the admin user account's password.
+func (o ClusterOutput) ManageMasterPassword() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.ManageMasterPassword }).(pulumi.BoolPtrOutput)
+}
+
 // The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
 //
 // The value must be either -1 or an integer between 1 and 3,653.
@@ -631,9 +660,19 @@ func (o ClusterOutput) ManualSnapshotRetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.ManualSnapshotRetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
-// The password associated with the master user account for the cluster that is being created. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
-func (o ClusterOutput) MasterUserPassword() pulumi.StringOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MasterUserPassword }).(pulumi.StringOutput)
+// The Amazon Resource Name (ARN) for the cluster's admin user credentials secret.
+func (o ClusterOutput) MasterPasswordSecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MasterPasswordSecretArn }).(pulumi.StringOutput)
+}
+
+// The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin user credentials secret.
+func (o ClusterOutput) MasterPasswordSecretKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MasterPasswordSecretKmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The password associated with the master user account for the cluster that is being created. You can't use MasterUserPassword if ManageMasterPassword is true. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.
+func (o ClusterOutput) MasterUserPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MasterUserPassword }).(pulumi.StringPtrOutput)
 }
 
 // The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.
@@ -644,6 +683,11 @@ func (o ClusterOutput) MasterUsername() pulumi.StringOutput {
 // A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
 func (o ClusterOutput) MultiAz() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.MultiAz }).(pulumi.BoolPtrOutput)
+}
+
+// The namespace resource policy document that will be attached to a Redshift cluster.
+func (o ClusterOutput) NamespaceResourcePolicy() pulumi.AnyOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.AnyOutput { return v.NamespaceResourcePolicy }).(pulumi.AnyOutput)
 }
 
 // The node type to be provisioned for the cluster.Valid Values: ds2.xlarge | ds2.8xlarge | dc1.large | dc1.8xlarge | dc2.large | dc2.8xlarge | ra3.4xlarge | ra3.16xlarge

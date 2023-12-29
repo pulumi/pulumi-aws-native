@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Inputs
     public sealed class EndpointGroupEndpointConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Attachment ARN that provides access control to the cross account endpoint. Not required for resources hosted in the same account as the endpoint group.
+        /// </summary>
+        [Input("attachmentArn")]
+        public Input<string>? AttachmentArn { get; set; }
+
+        /// <summary>
         /// true if client ip should be preserved
         /// </summary>
         [Input("clientIpPreservationEnabled")]

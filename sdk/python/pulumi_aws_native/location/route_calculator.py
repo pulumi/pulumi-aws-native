@@ -8,7 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['RouteCalculatorArgs', 'RouteCalculator']
 
@@ -18,9 +20,11 @@ class RouteCalculatorArgs:
                  calculator_name: pulumi.Input[str],
                  data_source: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 pricing_plan: Optional[pulumi.Input['RouteCalculatorPricingPlan']] = None):
+                 pricing_plan: Optional[pulumi.Input['RouteCalculatorPricingPlan']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['RouteCalculatorTagArgs']]]] = None):
         """
         The set of arguments for constructing a RouteCalculator resource.
+        :param pulumi.Input[Sequence[pulumi.Input['RouteCalculatorTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "calculator_name", calculator_name)
         pulumi.set(__self__, "data_source", data_source)
@@ -28,6 +32,8 @@ class RouteCalculatorArgs:
             pulumi.set(__self__, "description", description)
         if pricing_plan is not None:
             pulumi.set(__self__, "pricing_plan", pricing_plan)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="calculatorName")
@@ -65,6 +71,18 @@ class RouteCalculatorArgs:
     def pricing_plan(self, value: Optional[pulumi.Input['RouteCalculatorPricingPlan']]):
         pulumi.set(self, "pricing_plan", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RouteCalculatorTagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RouteCalculatorTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class RouteCalculator(pulumi.CustomResource):
     @overload
@@ -75,12 +93,14 @@ class RouteCalculator(pulumi.CustomResource):
                  data_source: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  pricing_plan: Optional[pulumi.Input['RouteCalculatorPricingPlan']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteCalculatorTagArgs']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Location::RouteCalculator Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteCalculatorTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -110,6 +130,7 @@ class RouteCalculator(pulumi.CustomResource):
                  data_source: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  pricing_plan: Optional[pulumi.Input['RouteCalculatorPricingPlan']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RouteCalculatorTagArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -127,11 +148,12 @@ class RouteCalculator(pulumi.CustomResource):
             __props__.__dict__["data_source"] = data_source
             __props__.__dict__["description"] = description
             __props__.__dict__["pricing_plan"] = pricing_plan
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["calculator_arn"] = None
             __props__.__dict__["create_time"] = None
             __props__.__dict__["update_time"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["calculator_name", "data_source", "description", "pricing_plan"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["calculator_name", "data_source"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(RouteCalculator, __self__).__init__(
             'aws-native:location:RouteCalculator',
@@ -162,6 +184,7 @@ class RouteCalculator(pulumi.CustomResource):
         __props__.__dict__["data_source"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["pricing_plan"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["update_time"] = None
         return RouteCalculator(resource_name, opts=opts, __props__=__props__)
 
@@ -199,6 +222,14 @@ class RouteCalculator(pulumi.CustomResource):
     @pulumi.getter(name="pricingPlan")
     def pricing_plan(self) -> pulumi.Output[Optional['RouteCalculatorPricingPlan']]:
         return pulumi.get(self, "pricing_plan")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.RouteCalculatorTag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updateTime")

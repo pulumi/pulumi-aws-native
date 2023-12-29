@@ -76,6 +76,12 @@ namespace Pulumi.AwsNative.Connect
         public Output<string> UserArn { get; private set; } = null!;
 
         /// <summary>
+        /// One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
+        /// </summary>
+        [Output("userProficiencies")]
+        public Output<ImmutableArray<Outputs.UserProficiency>> UserProficiencies { get; private set; } = null!;
+
+        /// <summary>
         /// The user name for the account.
         /// </summary>
         [Output("username")]
@@ -190,6 +196,18 @@ namespace Pulumi.AwsNative.Connect
         {
             get => _tags ?? (_tags = new InputList<Inputs.UserTagArgs>());
             set => _tags = value;
+        }
+
+        [Input("userProficiencies")]
+        private InputList<Inputs.UserProficiencyArgs>? _userProficiencies;
+
+        /// <summary>
+        /// One or more predefined attributes assigned to a user, with a level that indicates how skilled they are.
+        /// </summary>
+        public InputList<Inputs.UserProficiencyArgs> UserProficiencies
+        {
+            get => _userProficiencies ?? (_userProficiencies = new InputList<Inputs.UserProficiencyArgs>());
+            set => _userProficiencies = value;
         }
 
         /// <summary>

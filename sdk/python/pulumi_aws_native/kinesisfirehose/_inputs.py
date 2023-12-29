@@ -53,6 +53,7 @@ __all__ = [
     'DeliveryStreamS3DestinationConfigurationArgs',
     'DeliveryStreamSchemaConfigurationArgs',
     'DeliveryStreamSerializerArgs',
+    'DeliveryStreamSplunkBufferingHintsArgs',
     'DeliveryStreamSplunkDestinationConfigurationArgs',
     'DeliveryStreamSplunkRetryOptionsArgs',
     'DeliveryStreamTagArgs',
@@ -2176,12 +2177,42 @@ class DeliveryStreamSerializerArgs:
 
 
 @pulumi.input_type
+class DeliveryStreamSplunkBufferingHintsArgs:
+    def __init__(__self__, *,
+                 interval_in_seconds: Optional[pulumi.Input[int]] = None,
+                 size_in_mbs: Optional[pulumi.Input[int]] = None):
+        if interval_in_seconds is not None:
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+        if size_in_mbs is not None:
+            pulumi.set(__self__, "size_in_mbs", size_in_mbs)
+
+    @property
+    @pulumi.getter(name="intervalInSeconds")
+    def interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "interval_in_seconds")
+
+    @interval_in_seconds.setter
+    def interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="sizeInMbs")
+    def size_in_mbs(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "size_in_mbs")
+
+    @size_in_mbs.setter
+    def size_in_mbs(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "size_in_mbs", value)
+
+
+@pulumi.input_type
 class DeliveryStreamSplunkDestinationConfigurationArgs:
     def __init__(__self__, *,
                  hec_endpoint: pulumi.Input[str],
                  hec_endpoint_type: pulumi.Input['DeliveryStreamSplunkDestinationConfigurationHecEndpointType'],
                  hec_token: pulumi.Input[str],
                  s3_configuration: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs'],
+                 buffering_hints: Optional[pulumi.Input['DeliveryStreamSplunkBufferingHintsArgs']] = None,
                  cloud_watch_logging_options: Optional[pulumi.Input['DeliveryStreamCloudWatchLoggingOptionsArgs']] = None,
                  hec_acknowledgment_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  processing_configuration: Optional[pulumi.Input['DeliveryStreamProcessingConfigurationArgs']] = None,
@@ -2191,6 +2222,8 @@ class DeliveryStreamSplunkDestinationConfigurationArgs:
         pulumi.set(__self__, "hec_endpoint_type", hec_endpoint_type)
         pulumi.set(__self__, "hec_token", hec_token)
         pulumi.set(__self__, "s3_configuration", s3_configuration)
+        if buffering_hints is not None:
+            pulumi.set(__self__, "buffering_hints", buffering_hints)
         if cloud_watch_logging_options is not None:
             pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
         if hec_acknowledgment_timeout_in_seconds is not None:
@@ -2237,6 +2270,15 @@ class DeliveryStreamSplunkDestinationConfigurationArgs:
     @s3_configuration.setter
     def s3_configuration(self, value: pulumi.Input['DeliveryStreamS3DestinationConfigurationArgs']):
         pulumi.set(self, "s3_configuration", value)
+
+    @property
+    @pulumi.getter(name="bufferingHints")
+    def buffering_hints(self) -> Optional[pulumi.Input['DeliveryStreamSplunkBufferingHintsArgs']]:
+        return pulumi.get(self, "buffering_hints")
+
+    @buffering_hints.setter
+    def buffering_hints(self, value: Optional[pulumi.Input['DeliveryStreamSplunkBufferingHintsArgs']]):
+        pulumi.set(self, "buffering_hints", value)
 
     @property
     @pulumi.getter(name="cloudWatchLoggingOptions")

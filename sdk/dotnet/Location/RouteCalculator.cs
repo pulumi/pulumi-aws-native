@@ -36,6 +36,12 @@ namespace Pulumi.AwsNative.Location
         [Output("pricingPlan")]
         public Output<Pulumi.AwsNative.Location.RouteCalculatorPricingPlan?> PricingPlan { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.RouteCalculatorTag>> Tags { get; private set; } = null!;
+
         [Output("updateTime")]
         public Output<string> UpdateTime { get; private set; } = null!;
 
@@ -66,8 +72,6 @@ namespace Pulumi.AwsNative.Location
                 {
                     "calculatorName",
                     "dataSource",
-                    "description",
-                    "pricingPlan",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -102,6 +106,18 @@ namespace Pulumi.AwsNative.Location
 
         [Input("pricingPlan")]
         public Input<Pulumi.AwsNative.Location.RouteCalculatorPricingPlan>? PricingPlan { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.RouteCalculatorTagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public InputList<Inputs.RouteCalculatorTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.RouteCalculatorTagArgs>());
+            set => _tags = value;
+        }
 
         public RouteCalculatorArgs()
         {

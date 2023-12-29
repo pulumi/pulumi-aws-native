@@ -628,8 +628,9 @@ func (o OriginEndpointDashPackageAdTriggersItemArrayOutput) Index(i pulumi.IntIn
 type OriginEndpointDashPackageManifestLayout string
 
 const (
-	OriginEndpointDashPackageManifestLayoutFull    = OriginEndpointDashPackageManifestLayout("FULL")
-	OriginEndpointDashPackageManifestLayoutCompact = OriginEndpointDashPackageManifestLayout("COMPACT")
+	OriginEndpointDashPackageManifestLayoutFull               = OriginEndpointDashPackageManifestLayout("FULL")
+	OriginEndpointDashPackageManifestLayoutCompact            = OriginEndpointDashPackageManifestLayout("COMPACT")
+	OriginEndpointDashPackageManifestLayoutDrmTopLevelCompact = OriginEndpointDashPackageManifestLayout("DRM_TOP_LEVEL_COMPACT")
 )
 
 func (OriginEndpointDashPackageManifestLayout) ElementType() reflect.Type {

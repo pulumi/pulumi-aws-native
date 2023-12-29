@@ -69,15 +69,16 @@ class ClusterLoggingProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 bucket_name: str,
+                 bucket_name: Optional[str] = None,
                  s3_key_prefix: Optional[str] = None):
-        pulumi.set(__self__, "bucket_name", bucket_name)
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
         if s3_key_prefix is not None:
             pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
 
     @property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> str:
+    def bucket_name(self) -> Optional[str]:
         return pulumi.get(self, "bucket_name")
 
     @property

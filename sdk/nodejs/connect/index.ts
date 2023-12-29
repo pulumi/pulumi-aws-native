@@ -65,6 +65,11 @@ export const getPhoneNumber: typeof import("./getPhoneNumber").getPhoneNumber = 
 export const getPhoneNumberOutput: typeof import("./getPhoneNumber").getPhoneNumberOutput = null as any;
 utilities.lazyLoad(exports, ["getPhoneNumber","getPhoneNumberOutput"], () => require("./getPhoneNumber"));
 
+export { GetPredefinedAttributeArgs, GetPredefinedAttributeResult, GetPredefinedAttributeOutputArgs } from "./getPredefinedAttribute";
+export const getPredefinedAttribute: typeof import("./getPredefinedAttribute").getPredefinedAttribute = null as any;
+export const getPredefinedAttributeOutput: typeof import("./getPredefinedAttribute").getPredefinedAttributeOutput = null as any;
+utilities.lazyLoad(exports, ["getPredefinedAttribute","getPredefinedAttributeOutput"], () => require("./getPredefinedAttribute"));
+
 export { GetPromptArgs, GetPromptResult, GetPromptOutputArgs } from "./getPrompt";
 export const getPrompt: typeof import("./getPrompt").getPrompt = null as any;
 export const getPromptOutput: typeof import("./getPrompt").getPromptOutput = null as any;
@@ -154,6 +159,11 @@ export { PhoneNumberArgs } from "./phoneNumber";
 export type PhoneNumber = import("./phoneNumber").PhoneNumber;
 export const PhoneNumber: typeof import("./phoneNumber").PhoneNumber = null as any;
 utilities.lazyLoad(exports, ["PhoneNumber"], () => require("./phoneNumber"));
+
+export { PredefinedAttributeArgs } from "./predefinedAttribute";
+export type PredefinedAttribute = import("./predefinedAttribute").PredefinedAttribute;
+export const PredefinedAttribute: typeof import("./predefinedAttribute").PredefinedAttribute = null as any;
+utilities.lazyLoad(exports, ["PredefinedAttribute"], () => require("./predefinedAttribute"));
 
 export { PromptArgs } from "./prompt";
 export type Prompt = import("./prompt").Prompt;
@@ -246,6 +256,8 @@ const _module = {
                 return new IntegrationAssociation(name, <any>undefined, { urn })
             case "aws-native:connect:PhoneNumber":
                 return new PhoneNumber(name, <any>undefined, { urn })
+            case "aws-native:connect:PredefinedAttribute":
+                return new PredefinedAttribute(name, <any>undefined, { urn })
             case "aws-native:connect:Prompt":
                 return new Prompt(name, <any>undefined, { urn })
             case "aws-native:connect:Queue":

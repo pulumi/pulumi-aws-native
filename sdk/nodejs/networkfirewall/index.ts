@@ -35,6 +35,11 @@ export const getRuleGroup: typeof import("./getRuleGroup").getRuleGroup = null a
 export const getRuleGroupOutput: typeof import("./getRuleGroup").getRuleGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getRuleGroup","getRuleGroupOutput"], () => require("./getRuleGroup"));
 
+export { GetTlsInspectionConfigurationArgs, GetTlsInspectionConfigurationResult, GetTlsInspectionConfigurationOutputArgs } from "./getTlsInspectionConfiguration";
+export const getTlsInspectionConfiguration: typeof import("./getTlsInspectionConfiguration").getTlsInspectionConfiguration = null as any;
+export const getTlsInspectionConfigurationOutput: typeof import("./getTlsInspectionConfiguration").getTlsInspectionConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getTlsInspectionConfiguration","getTlsInspectionConfigurationOutput"], () => require("./getTlsInspectionConfiguration"));
+
 export { LoggingConfigurationArgs } from "./loggingConfiguration";
 export type LoggingConfiguration = import("./loggingConfiguration").LoggingConfiguration;
 export const LoggingConfiguration: typeof import("./loggingConfiguration").LoggingConfiguration = null as any;
@@ -44,6 +49,11 @@ export { RuleGroupArgs } from "./ruleGroup";
 export type RuleGroup = import("./ruleGroup").RuleGroup;
 export const RuleGroup: typeof import("./ruleGroup").RuleGroup = null as any;
 utilities.lazyLoad(exports, ["RuleGroup"], () => require("./ruleGroup"));
+
+export { TlsInspectionConfigurationArgs } from "./tlsInspectionConfiguration";
+export type TlsInspectionConfiguration = import("./tlsInspectionConfiguration").TlsInspectionConfiguration;
+export const TlsInspectionConfiguration: typeof import("./tlsInspectionConfiguration").TlsInspectionConfiguration = null as any;
+utilities.lazyLoad(exports, ["TlsInspectionConfiguration"], () => require("./tlsInspectionConfiguration"));
 
 
 // Export enums:
@@ -61,6 +71,8 @@ const _module = {
                 return new LoggingConfiguration(name, <any>undefined, { urn })
             case "aws-native:networkfirewall:RuleGroup":
                 return new RuleGroup(name, <any>undefined, { urn })
+            case "aws-native:networkfirewall:TlsInspectionConfiguration":
+                return new TlsInspectionConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

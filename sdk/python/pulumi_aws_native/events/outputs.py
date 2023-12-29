@@ -27,6 +27,7 @@ __all__ = [
     'EndpointSecondary',
     'EventBusPolicyCondition',
     'EventBusTag',
+    'RuleAppSyncParameters',
     'RuleAwsVpcConfiguration',
     'RuleBatchArrayProperties',
     'RuleBatchParameters',
@@ -533,6 +534,35 @@ class EventBusTag(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RuleAppSyncParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "graphQlOperation":
+            suggest = "graph_ql_operation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleAppSyncParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleAppSyncParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleAppSyncParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 graph_ql_operation: str):
+        pulumi.set(__self__, "graph_ql_operation", graph_ql_operation)
+
+    @property
+    @pulumi.getter(name="graphQlOperation")
+    def graph_ql_operation(self) -> str:
+        return pulumi.get(self, "graph_ql_operation")
 
 
 @pulumi.output_type
@@ -1346,7 +1376,9 @@ class RuleTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "batchParameters":
+        if key == "appSyncParameters":
+            suggest = "app_sync_parameters"
+        elif key == "batchParameters":
             suggest = "batch_parameters"
         elif key == "deadLetterConfig":
             suggest = "dead_letter_config"
@@ -1387,6 +1419,7 @@ class RuleTarget(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
+                 app_sync_parameters: Optional['outputs.RuleAppSyncParameters'] = None,
                  batch_parameters: Optional['outputs.RuleBatchParameters'] = None,
                  dead_letter_config: Optional['outputs.RuleDeadLetterConfig'] = None,
                  ecs_parameters: Optional['outputs.RuleEcsParameters'] = None,
@@ -1403,6 +1436,8 @@ class RuleTarget(dict):
                  sqs_parameters: Optional['outputs.RuleSqsParameters'] = None):
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
+        if app_sync_parameters is not None:
+            pulumi.set(__self__, "app_sync_parameters", app_sync_parameters)
         if batch_parameters is not None:
             pulumi.set(__self__, "batch_parameters", batch_parameters)
         if dead_letter_config is not None:
@@ -1441,6 +1476,11 @@ class RuleTarget(dict):
     @pulumi.getter
     def id(self) -> str:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="appSyncParameters")
+    def app_sync_parameters(self) -> Optional['outputs.RuleAppSyncParameters']:
+        return pulumi.get(self, "app_sync_parameters")
 
     @property
     @pulumi.getter(name="batchParameters")

@@ -24,9 +24,6 @@ namespace Pulumi.AwsNative.Location
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
 
-        [Output("dataSource")]
-        public Output<string> DataSource { get; private set; } = null!;
-
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -38,6 +35,12 @@ namespace Pulumi.AwsNative.Location
 
         [Output("pricingPlan")]
         public Output<Pulumi.AwsNative.Location.MapPricingPlan?> PricingPlan { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.MapTag>> Tags { get; private set; } = null!;
 
         [Output("updateTime")]
         public Output<string> UpdateTime { get; private set; } = null!;
@@ -68,9 +71,7 @@ namespace Pulumi.AwsNative.Location
                 ReplaceOnChanges =
                 {
                     "configuration",
-                    "description",
                     "mapName",
-                    "pricingPlan",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -105,6 +106,18 @@ namespace Pulumi.AwsNative.Location
 
         [Input("pricingPlan")]
         public Input<Pulumi.AwsNative.Location.MapPricingPlan>? PricingPlan { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.MapTagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public InputList<Inputs.MapTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.MapTagArgs>());
+            set => _tags = value;
+        }
 
         public MapArgs()
         {

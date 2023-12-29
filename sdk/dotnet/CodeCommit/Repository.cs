@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.CodeCommit
         [Output("code")]
         public Output<Outputs.RepositoryCode?> Code { get; private set; } = null!;
 
+        [Output("kmsKeyId")]
+        public Output<string?> KmsKeyId { get; private set; } = null!;
+
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -90,6 +93,9 @@ namespace Pulumi.AwsNative.CodeCommit
     {
         [Input("code")]
         public Input<Inputs.RepositoryCodeArgs>? Code { get; set; }
+
+        [Input("kmsKeyId")]
+        public Input<string>? KmsKeyId { get; set; }
 
         [Input("repositoryDescription")]
         public Input<string>? RepositoryDescription { get; set; }

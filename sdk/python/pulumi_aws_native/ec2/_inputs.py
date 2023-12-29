@@ -67,6 +67,7 @@ __all__ = [
     'InstanceLaunchTemplateSpecificationArgs',
     'InstanceLicenseSpecificationArgs',
     'InstanceNetworkInterfaceArgs',
+    'InstanceNoDeviceArgs',
     'InstancePrivateDnsNameOptionsArgs',
     'InstancePrivateIpAddressSpecificationArgs',
     'InstanceSsmAssociationArgs',
@@ -2069,7 +2070,7 @@ class InstanceBlockDeviceMappingArgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
                  ebs: Optional[pulumi.Input['InstanceEbsArgs']] = None,
-                 no_device: Optional[Any] = None,
+                 no_device: Optional[pulumi.Input['InstanceNoDeviceArgs']] = None,
                  virtual_name: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "device_name", device_name)
         if ebs is not None:
@@ -2099,11 +2100,11 @@ class InstanceBlockDeviceMappingArgs:
 
     @property
     @pulumi.getter(name="noDevice")
-    def no_device(self) -> Optional[Any]:
+    def no_device(self) -> Optional[pulumi.Input['InstanceNoDeviceArgs']]:
         return pulumi.get(self, "no_device")
 
     @no_device.setter
-    def no_device(self, value: Optional[Any]):
+    def no_device(self, value: Optional[pulumi.Input['InstanceNoDeviceArgs']]):
         pulumi.set(self, "no_device", value)
 
     @property
@@ -2589,6 +2590,12 @@ class InstanceNetworkInterfaceArgs:
     @subnet_id.setter
     def subnet_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet_id", value)
+
+
+@pulumi.input_type
+class InstanceNoDeviceArgs:
+    def __init__(__self__):
+        pass
 
 
 @pulumi.input_type

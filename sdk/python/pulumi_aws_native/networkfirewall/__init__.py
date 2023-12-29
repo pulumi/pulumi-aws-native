@@ -12,7 +12,9 @@ from .get_firewall import *
 from .get_firewall_policy import *
 from .get_logging_configuration import *
 from .get_rule_group import *
+from .get_tls_inspection_configuration import *
 from .logging_configuration import *
 from .rule_group import *
+from .tls_inspection_configuration import *
 from ._inputs import *
 from . import outputs

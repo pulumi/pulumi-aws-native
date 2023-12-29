@@ -34,7 +34,6 @@ type Instance struct {
 	HostResourceGroupArn              pulumi.StringPtrOutput                         `pulumi:"hostResourceGroupArn"`
 	IamInstanceProfile                pulumi.StringPtrOutput                         `pulumi:"iamInstanceProfile"`
 	ImageId                           pulumi.StringPtrOutput                         `pulumi:"imageId"`
-	InstanceId                        pulumi.StringOutput                            `pulumi:"instanceId"`
 	InstanceInitiatedShutdownBehavior pulumi.StringPtrOutput                         `pulumi:"instanceInitiatedShutdownBehavior"`
 	InstanceType                      pulumi.StringPtrOutput                         `pulumi:"instanceType"`
 	Ipv6AddressCount                  pulumi.IntPtrOutput                            `pulumi:"ipv6AddressCount"`
@@ -325,10 +324,6 @@ func (o InstanceOutput) IamInstanceProfile() pulumi.StringPtrOutput {
 
 func (o InstanceOutput) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringPtrOutput { return v.ImageId }).(pulumi.StringPtrOutput)
-}
-
-func (o InstanceOutput) InstanceId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
 }
 
 func (o InstanceOutput) InstanceInitiatedShutdownBehavior() pulumi.StringPtrOutput {

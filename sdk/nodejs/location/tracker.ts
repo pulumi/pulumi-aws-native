@@ -40,10 +40,16 @@ export class Tracker extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     public /*out*/ readonly createTime!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
+    public readonly eventBridgeEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly kmsKeyEnableGeospatialQueries!: pulumi.Output<boolean | undefined>;
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     public readonly positionFiltering!: pulumi.Output<enums.location.TrackerPositionFiltering | undefined>;
     public readonly pricingPlan!: pulumi.Output<enums.location.TrackerPricingPlan | undefined>;
     public readonly pricingPlanDataSource!: pulumi.Output<string | undefined>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.location.TrackerTag[] | undefined>;
     public /*out*/ readonly trackerArn!: pulumi.Output<string>;
     public readonly trackerName!: pulumi.Output<string>;
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
@@ -60,10 +66,13 @@ export class Tracker extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["eventBridgeEnabled"] = args ? args.eventBridgeEnabled : undefined;
+            resourceInputs["kmsKeyEnableGeospatialQueries"] = args ? args.kmsKeyEnableGeospatialQueries : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["positionFiltering"] = args ? args.positionFiltering : undefined;
             resourceInputs["pricingPlan"] = args ? args.pricingPlan : undefined;
             resourceInputs["pricingPlanDataSource"] = args ? args.pricingPlanDataSource : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trackerName"] = args ? args.trackerName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
@@ -73,16 +82,19 @@ export class Tracker extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["eventBridgeEnabled"] = undefined /*out*/;
+            resourceInputs["kmsKeyEnableGeospatialQueries"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["positionFiltering"] = undefined /*out*/;
             resourceInputs["pricingPlan"] = undefined /*out*/;
             resourceInputs["pricingPlanDataSource"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["trackerArn"] = undefined /*out*/;
             resourceInputs["trackerName"] = undefined /*out*/;
             resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["description", "kmsKeyId", "positionFiltering", "trackerName"] };
+        const replaceOnChanges = { replaceOnChanges: ["kmsKeyId", "trackerName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Tracker.__pulumiType, name, resourceInputs, opts);
     }
@@ -93,9 +105,15 @@ export class Tracker extends pulumi.CustomResource {
  */
 export interface TrackerArgs {
     description?: pulumi.Input<string>;
+    eventBridgeEnabled?: pulumi.Input<boolean>;
+    kmsKeyEnableGeospatialQueries?: pulumi.Input<boolean>;
     kmsKeyId?: pulumi.Input<string>;
     positionFiltering?: pulumi.Input<enums.location.TrackerPositionFiltering>;
     pricingPlan?: pulumi.Input<enums.location.TrackerPricingPlan>;
     pricingPlanDataSource?: pulumi.Input<string>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.location.TrackerTagArgs>[]>;
     trackerName?: pulumi.Input<string>;
 }

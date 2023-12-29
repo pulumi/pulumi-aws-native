@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamSplunkDestinationConfiguration
     {
+        public readonly Outputs.DeliveryStreamSplunkBufferingHints? BufferingHints;
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
         public readonly int? HecAcknowledgmentTimeoutInSeconds;
         public readonly string HecEndpoint;
@@ -25,6 +26,8 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
         [OutputConstructor]
         private DeliveryStreamSplunkDestinationConfiguration(
+            Outputs.DeliveryStreamSplunkBufferingHints? bufferingHints,
+
             Outputs.DeliveryStreamCloudWatchLoggingOptions? cloudWatchLoggingOptions,
 
             int? hecAcknowledgmentTimeoutInSeconds,
@@ -43,6 +46,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
 
             Outputs.DeliveryStreamS3DestinationConfiguration s3Configuration)
         {
+            BufferingHints = bufferingHints;
             CloudWatchLoggingOptions = cloudWatchLoggingOptions;
             HecAcknowledgmentTimeoutInSeconds = hecAcknowledgmentTimeoutInSeconds;
             HecEndpoint = hecEndpoint;

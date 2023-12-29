@@ -79,7 +79,9 @@ __all__ = [
     'UserHierarchyGroupTagArgs',
     'UserIdentityInfoArgs',
     'UserPhoneConfigArgs',
+    'UserProficiencyArgs',
     'UserTagArgs',
+    'ValuesPropertiesArgs',
     'ViewTagArgs',
 ]
 
@@ -2884,6 +2886,47 @@ class UserPhoneConfigArgs:
 
 
 @pulumi.input_type
+class UserProficiencyArgs:
+    def __init__(__self__, *,
+                 attribute_name: pulumi.Input[str],
+                 attribute_value: pulumi.Input[str],
+                 level: pulumi.Input[float]):
+        """
+        Proficiency of a user.
+        """
+        pulumi.set(__self__, "attribute_name", attribute_name)
+        pulumi.set(__self__, "attribute_value", attribute_value)
+        pulumi.set(__self__, "level", level)
+
+    @property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "attribute_name")
+
+    @attribute_name.setter
+    def attribute_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "attribute_name", value)
+
+    @property
+    @pulumi.getter(name="attributeValue")
+    def attribute_value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "attribute_value")
+
+    @attribute_value.setter
+    def attribute_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "attribute_value", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[float]):
+        pulumi.set(self, "level", value)
+
+
+@pulumi.input_type
 class UserTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
@@ -2919,6 +2962,26 @@ class UserTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ValuesPropertiesArgs:
+    def __init__(__self__, *,
+                 string_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The values of a predefined attribute.
+        """
+        if string_list is not None:
+            pulumi.set(__self__, "string_list", string_list)
+
+    @property
+    @pulumi.getter(name="stringList")
+    def string_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "string_list")
+
+    @string_list.setter
+    def string_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "string_list", value)
 
 
 @pulumi.input_type

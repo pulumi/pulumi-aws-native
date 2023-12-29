@@ -62,7 +62,7 @@
   "additionalIdentifiers" : [ [ "/properties/DashboardArn" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iotsitewise:CreateDashboard", "iotsitewise:DescribeAsset", "iotsitewise:DescribeAssetModel" ]
+      "permissions" : [ "iotsitewise:CreateDashboard", "iotsitewise:DescribeDashboard", "iotsitewise:ListTagsForResource", "iotsitewise:TagResource", "iotsitewise:DescribeAsset", "iotsitewise:DescribeAssetModel" ]
     },
     "read" : {
       "permissions" : [ "iotsitewise:DescribeDashboard", "iotsitewise:ListTagsForResource" ]
@@ -71,7 +71,7 @@
       "permissions" : [ "iotsitewise:DescribeDashboard", "iotsitewise:UpdateDashboard", "iotsitewise:TagResource", "iotsitewise:UntagResource", "iotsitewise:ListTagsForResource", "iotsitewise:DescribeAsset", "iotsitewise:DescribeAssetModel" ]
     },
     "delete" : {
-      "permissions" : [ "iotsitewise:DeleteDashboard" ]
+      "permissions" : [ "iotsitewise:DescribeDashboard", "iotsitewise:DeleteDashboard" ]
     },
     "list" : {
       "permissions" : [ "iotsitewise:ListDashboards" ]

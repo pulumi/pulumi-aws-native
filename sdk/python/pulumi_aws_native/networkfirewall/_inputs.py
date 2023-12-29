@@ -48,6 +48,14 @@ __all__ = [
     'RuleGroupTagArgs',
     'RuleGroupTcpFlagFieldArgs',
     'RuleGroupArgs',
+    'TlsInspectionConfigurationAddressArgs',
+    'TlsInspectionConfigurationPortRangeArgs',
+    'TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs',
+    'TlsInspectionConfigurationServerCertificateConfigurationArgs',
+    'TlsInspectionConfigurationServerCertificateScopeArgs',
+    'TlsInspectionConfigurationServerCertificateArgs',
+    'TlsInspectionConfigurationTagArgs',
+    'TlsInspectionConfigurationTlsInspectionConfigurationArgs',
 ]
 
 @pulumi.input_type
@@ -299,7 +307,8 @@ class FirewallPolicyArgs:
                  stateful_engine_options: Optional[pulumi.Input['FirewallPolicyStatefulEngineOptionsArgs']] = None,
                  stateful_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatefulRuleGroupReferenceArgs']]]] = None,
                  stateless_custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomActionArgs']]]] = None,
-                 stateless_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]]] = None):
+                 stateless_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]]] = None,
+                 tls_inspection_configuration_arn: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
         pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
         if policy_variables is not None:
@@ -314,6 +323,8 @@ class FirewallPolicyArgs:
             pulumi.set(__self__, "stateless_custom_actions", stateless_custom_actions)
         if stateless_rule_group_references is not None:
             pulumi.set(__self__, "stateless_rule_group_references", stateless_rule_group_references)
+        if tls_inspection_configuration_arn is not None:
+            pulumi.set(__self__, "tls_inspection_configuration_arn", tls_inspection_configuration_arn)
 
     @property
     @pulumi.getter(name="statelessDefaultActions")
@@ -386,6 +397,15 @@ class FirewallPolicyArgs:
     @stateless_rule_group_references.setter
     def stateless_rule_group_references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]]]):
         pulumi.set(self, "stateless_rule_group_references", value)
+
+    @property
+    @pulumi.getter(name="tlsInspectionConfigurationArn")
+    def tls_inspection_configuration_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "tls_inspection_configuration_arn")
+
+    @tls_inspection_configuration_arn.setter
+    def tls_inspection_configuration_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tls_inspection_configuration_arn", value)
 
 
 @pulumi.input_type
@@ -1187,5 +1207,256 @@ class RuleGroupArgs:
     @stateful_rule_options.setter
     def stateful_rule_options(self, value: Optional[pulumi.Input['RuleGroupStatefulRuleOptionsArgs']]):
         pulumi.set(self, "stateful_rule_options", value)
+
+
+@pulumi.input_type
+class TlsInspectionConfigurationAddressArgs:
+    def __init__(__self__, *,
+                 address_definition: pulumi.Input[str]):
+        pulumi.set(__self__, "address_definition", address_definition)
+
+    @property
+    @pulumi.getter(name="addressDefinition")
+    def address_definition(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "address_definition")
+
+    @address_definition.setter
+    def address_definition(self, value: pulumi.Input[str]):
+        pulumi.set(self, "address_definition", value)
+
+
+@pulumi.input_type
+class TlsInspectionConfigurationPortRangeArgs:
+    def __init__(__self__, *,
+                 from_port: pulumi.Input[int],
+                 to_port: pulumi.Input[int]):
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "from_port")
+
+    @from_port.setter
+    def from_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "from_port", value)
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "to_port")
+
+    @to_port.setter
+    def to_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "to_port", value)
+
+
+@pulumi.input_type
+class TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs:
+    def __init__(__self__, *,
+                 revoked_status_action: Optional[pulumi.Input['TlsInspectionConfigurationRevokedStatusAction']] = None,
+                 unknown_status_action: Optional[pulumi.Input['TlsInspectionConfigurationUnknownStatusAction']] = None):
+        if revoked_status_action is not None:
+            pulumi.set(__self__, "revoked_status_action", revoked_status_action)
+        if unknown_status_action is not None:
+            pulumi.set(__self__, "unknown_status_action", unknown_status_action)
+
+    @property
+    @pulumi.getter(name="revokedStatusAction")
+    def revoked_status_action(self) -> Optional[pulumi.Input['TlsInspectionConfigurationRevokedStatusAction']]:
+        return pulumi.get(self, "revoked_status_action")
+
+    @revoked_status_action.setter
+    def revoked_status_action(self, value: Optional[pulumi.Input['TlsInspectionConfigurationRevokedStatusAction']]):
+        pulumi.set(self, "revoked_status_action", value)
+
+    @property
+    @pulumi.getter(name="unknownStatusAction")
+    def unknown_status_action(self) -> Optional[pulumi.Input['TlsInspectionConfigurationUnknownStatusAction']]:
+        return pulumi.get(self, "unknown_status_action")
+
+    @unknown_status_action.setter
+    def unknown_status_action(self, value: Optional[pulumi.Input['TlsInspectionConfigurationUnknownStatusAction']]):
+        pulumi.set(self, "unknown_status_action", value)
+
+
+@pulumi.input_type
+class TlsInspectionConfigurationServerCertificateConfigurationArgs:
+    def __init__(__self__, *,
+                 certificate_authority_arn: Optional[pulumi.Input[str]] = None,
+                 check_certificate_revocation_status: Optional[pulumi.Input['TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs']] = None,
+                 scopes: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateScopeArgs']]]] = None,
+                 server_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateArgs']]]] = None):
+        if certificate_authority_arn is not None:
+            pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
+        if check_certificate_revocation_status is not None:
+            pulumi.set(__self__, "check_certificate_revocation_status", check_certificate_revocation_status)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+        if server_certificates is not None:
+            pulumi.set(__self__, "server_certificates", server_certificates)
+
+    @property
+    @pulumi.getter(name="certificateAuthorityArn")
+    def certificate_authority_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "certificate_authority_arn")
+
+    @certificate_authority_arn.setter
+    def certificate_authority_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_authority_arn", value)
+
+    @property
+    @pulumi.getter(name="checkCertificateRevocationStatus")
+    def check_certificate_revocation_status(self) -> Optional[pulumi.Input['TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs']]:
+        return pulumi.get(self, "check_certificate_revocation_status")
+
+    @check_certificate_revocation_status.setter
+    def check_certificate_revocation_status(self, value: Optional[pulumi.Input['TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs']]):
+        pulumi.set(self, "check_certificate_revocation_status", value)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateScopeArgs']]]]:
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateScopeArgs']]]]):
+        pulumi.set(self, "scopes", value)
+
+    @property
+    @pulumi.getter(name="serverCertificates")
+    def server_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateArgs']]]]:
+        return pulumi.get(self, "server_certificates")
+
+    @server_certificates.setter
+    def server_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateArgs']]]]):
+        pulumi.set(self, "server_certificates", value)
+
+
+@pulumi.input_type
+class TlsInspectionConfigurationServerCertificateScopeArgs:
+    def __init__(__self__, *,
+                 destination_ports: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationPortRangeArgs']]]] = None,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationAddressArgs']]]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 source_ports: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationPortRangeArgs']]]] = None,
+                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationAddressArgs']]]] = None):
+        if destination_ports is not None:
+            pulumi.set(__self__, "destination_ports", destination_ports)
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if source_ports is not None:
+            pulumi.set(__self__, "source_ports", source_ports)
+        if sources is not None:
+            pulumi.set(__self__, "sources", sources)
+
+    @property
+    @pulumi.getter(name="destinationPorts")
+    def destination_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationPortRangeArgs']]]]:
+        return pulumi.get(self, "destination_ports")
+
+    @destination_ports.setter
+    def destination_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationPortRangeArgs']]]]):
+        pulumi.set(self, "destination_ports", value)
+
+    @property
+    @pulumi.getter
+    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationAddressArgs']]]]:
+        return pulumi.get(self, "destinations")
+
+    @destinations.setter
+    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationAddressArgs']]]]):
+        pulumi.set(self, "destinations", value)
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        return pulumi.get(self, "protocols")
+
+    @protocols.setter
+    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "protocols", value)
+
+    @property
+    @pulumi.getter(name="sourcePorts")
+    def source_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationPortRangeArgs']]]]:
+        return pulumi.get(self, "source_ports")
+
+    @source_ports.setter
+    def source_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationPortRangeArgs']]]]):
+        pulumi.set(self, "source_ports", value)
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationAddressArgs']]]]:
+        return pulumi.get(self, "sources")
+
+    @sources.setter
+    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationAddressArgs']]]]):
+        pulumi.set(self, "sources", value)
+
+
+@pulumi.input_type
+class TlsInspectionConfigurationServerCertificateArgs:
+    def __init__(__self__, *,
+                 resource_arn: Optional[pulumi.Input[str]] = None):
+        if resource_arn is not None:
+            pulumi.set(__self__, "resource_arn", resource_arn)
+
+    @property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_arn")
+
+    @resource_arn.setter
+    def resource_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_arn", value)
+
+
+@pulumi.input_type
+class TlsInspectionConfigurationTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TlsInspectionConfigurationTlsInspectionConfigurationArgs:
+    def __init__(__self__, *,
+                 server_certificate_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateConfigurationArgs']]]] = None):
+        if server_certificate_configurations is not None:
+            pulumi.set(__self__, "server_certificate_configurations", server_certificate_configurations)
+
+    @property
+    @pulumi.getter(name="serverCertificateConfigurations")
+    def server_certificate_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateConfigurationArgs']]]]:
+        return pulumi.get(self, "server_certificate_configurations")
+
+    @server_certificate_configurations.setter
+    def server_certificate_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateConfigurationArgs']]]]):
+        pulumi.set(self, "server_certificate_configurations", value)
 
 

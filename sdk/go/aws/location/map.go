@@ -20,12 +20,13 @@ type Map struct {
 	Arn           pulumi.StringOutput     `pulumi:"arn"`
 	Configuration MapConfigurationOutput  `pulumi:"configuration"`
 	CreateTime    pulumi.StringOutput     `pulumi:"createTime"`
-	DataSource    pulumi.StringOutput     `pulumi:"dataSource"`
 	Description   pulumi.StringPtrOutput  `pulumi:"description"`
 	MapArn        pulumi.StringOutput     `pulumi:"mapArn"`
 	MapName       pulumi.StringOutput     `pulumi:"mapName"`
 	PricingPlan   MapPricingPlanPtrOutput `pulumi:"pricingPlan"`
-	UpdateTime    pulumi.StringOutput     `pulumi:"updateTime"`
+	// An array of key-value pairs to apply to this resource.
+	Tags       MapTagArrayOutput   `pulumi:"tags"`
+	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
 }
 
 // NewMap registers a new resource with the given unique name, arguments, and options.
@@ -40,9 +41,7 @@ func NewMap(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"configuration",
-		"description",
 		"mapName",
-		"pricingPlan",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -82,6 +81,8 @@ type mapArgs struct {
 	Description   *string          `pulumi:"description"`
 	MapName       *string          `pulumi:"mapName"`
 	PricingPlan   *MapPricingPlan  `pulumi:"pricingPlan"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []MapTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Map resource.
@@ -90,6 +91,8 @@ type MapArgs struct {
 	Description   pulumi.StringPtrInput
 	MapName       pulumi.StringPtrInput
 	PricingPlan   MapPricingPlanPtrInput
+	// An array of key-value pairs to apply to this resource.
+	Tags MapTagArrayInput
 }
 
 func (MapArgs) ElementType() reflect.Type {
@@ -153,10 +156,6 @@ func (o MapOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
 }
 
-func (o MapOutput) DataSource() pulumi.StringOutput {
-	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.DataSource }).(pulumi.StringOutput)
-}
-
 func (o MapOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -171,6 +170,11 @@ func (o MapOutput) MapName() pulumi.StringOutput {
 
 func (o MapOutput) PricingPlan() MapPricingPlanPtrOutput {
 	return o.ApplyT(func(v *Map) MapPricingPlanPtrOutput { return v.PricingPlan }).(MapPricingPlanPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o MapOutput) Tags() MapTagArrayOutput {
+	return o.ApplyT(func(v *Map) MapTagArrayOutput { return v.Tags }).(MapTagArrayOutput)
 }
 
 func (o MapOutput) UpdateTime() pulumi.StringOutput {

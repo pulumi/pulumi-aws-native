@@ -25,7 +25,9 @@ type PlaceIndex struct {
 	IndexArn                pulumi.StringOutput                        `pulumi:"indexArn"`
 	IndexName               pulumi.StringOutput                        `pulumi:"indexName"`
 	PricingPlan             PlaceIndexPricingPlanPtrOutput             `pulumi:"pricingPlan"`
-	UpdateTime              pulumi.StringOutput                        `pulumi:"updateTime"`
+	// An array of key-value pairs to apply to this resource.
+	Tags       PlaceIndexTagArrayOutput `pulumi:"tags"`
+	UpdateTime pulumi.StringOutput      `pulumi:"updateTime"`
 }
 
 // NewPlaceIndex registers a new resource with the given unique name, arguments, and options.
@@ -43,10 +45,7 @@ func NewPlaceIndex(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"dataSource",
-		"dataSourceConfiguration",
-		"description",
 		"indexName",
-		"pricingPlan",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -87,6 +86,8 @@ type placeIndexArgs struct {
 	Description             *string                            `pulumi:"description"`
 	IndexName               string                             `pulumi:"indexName"`
 	PricingPlan             *PlaceIndexPricingPlan             `pulumi:"pricingPlan"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []PlaceIndexTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PlaceIndex resource.
@@ -96,6 +97,8 @@ type PlaceIndexArgs struct {
 	Description             pulumi.StringPtrInput
 	IndexName               pulumi.StringInput
 	PricingPlan             PlaceIndexPricingPlanPtrInput
+	// An array of key-value pairs to apply to this resource.
+	Tags PlaceIndexTagArrayInput
 }
 
 func (PlaceIndexArgs) ElementType() reflect.Type {
@@ -177,6 +180,11 @@ func (o PlaceIndexOutput) IndexName() pulumi.StringOutput {
 
 func (o PlaceIndexOutput) PricingPlan() PlaceIndexPricingPlanPtrOutput {
 	return o.ApplyT(func(v *PlaceIndex) PlaceIndexPricingPlanPtrOutput { return v.PricingPlan }).(PlaceIndexPricingPlanPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o PlaceIndexOutput) Tags() PlaceIndexTagArrayOutput {
+	return o.ApplyT(func(v *PlaceIndex) PlaceIndexTagArrayOutput { return v.Tags }).(PlaceIndexTagArrayOutput)
 }
 
 func (o PlaceIndexOutput) UpdateTime() pulumi.StringOutput {

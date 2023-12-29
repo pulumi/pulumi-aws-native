@@ -60,14 +60,17 @@ namespace Pulumi.AwsNative.AppSync
         public readonly string? GraphQlEndpointArn;
         public readonly string? GraphQlUrl;
         public readonly string? Id;
+        public readonly string? IntrospectionConfig;
         public readonly Outputs.GraphQlApiLambdaAuthorizerConfig? LambdaAuthorizerConfig;
         public readonly Outputs.GraphQlApiLogConfig? LogConfig;
         public readonly string? MergedApiExecutionRoleArn;
         public readonly string? Name;
         public readonly Outputs.GraphQlApiOpenIdConnectConfig? OpenIdConnectConfig;
         public readonly string? OwnerContact;
+        public readonly int? QueryDepthLimit;
         public readonly string? RealtimeDns;
         public readonly string? RealtimeUrl;
+        public readonly int? ResolverCountLimit;
         public readonly ImmutableArray<Outputs.GraphQlApiTag> Tags;
         public readonly Outputs.GraphQlApiUserPoolConfig? UserPoolConfig;
         public readonly string? Visibility;
@@ -93,6 +96,8 @@ namespace Pulumi.AwsNative.AppSync
 
             string? id,
 
+            string? introspectionConfig,
+
             Outputs.GraphQlApiLambdaAuthorizerConfig? lambdaAuthorizerConfig,
 
             Outputs.GraphQlApiLogConfig? logConfig,
@@ -105,9 +110,13 @@ namespace Pulumi.AwsNative.AppSync
 
             string? ownerContact,
 
+            int? queryDepthLimit,
+
             string? realtimeDns,
 
             string? realtimeUrl,
+
+            int? resolverCountLimit,
 
             ImmutableArray<Outputs.GraphQlApiTag> tags,
 
@@ -126,14 +135,17 @@ namespace Pulumi.AwsNative.AppSync
             GraphQlEndpointArn = graphQlEndpointArn;
             GraphQlUrl = graphQlUrl;
             Id = id;
+            IntrospectionConfig = introspectionConfig;
             LambdaAuthorizerConfig = lambdaAuthorizerConfig;
             LogConfig = logConfig;
             MergedApiExecutionRoleArn = mergedApiExecutionRoleArn;
             Name = name;
             OpenIdConnectConfig = openIdConnectConfig;
             OwnerContact = ownerContact;
+            QueryDepthLimit = queryDepthLimit;
             RealtimeDns = realtimeDns;
             RealtimeUrl = realtimeUrl;
+            ResolverCountLimit = resolverCountLimit;
             Tags = tags;
             UserPoolConfig = userPoolConfig;
             Visibility = visibility;

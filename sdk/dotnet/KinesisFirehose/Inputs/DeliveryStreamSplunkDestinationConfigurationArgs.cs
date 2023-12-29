@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
 
     public sealed class DeliveryStreamSplunkDestinationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("bufferingHints")]
+        public Input<Inputs.DeliveryStreamSplunkBufferingHintsArgs>? BufferingHints { get; set; }
+
         [Input("cloudWatchLoggingOptions")]
         public Input<Inputs.DeliveryStreamCloudWatchLoggingOptionsArgs>? CloudWatchLoggingOptions { get; set; }
 

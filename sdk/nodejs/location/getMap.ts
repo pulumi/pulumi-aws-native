@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -22,8 +25,13 @@ export interface GetMapArgs {
 export interface GetMapResult {
     readonly arn?: string;
     readonly createTime?: string;
-    readonly dataSource?: string;
+    readonly description?: string;
     readonly mapArn?: string;
+    readonly pricingPlan?: enums.location.MapPricingPlan;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    readonly tags?: outputs.location.MapTag[];
     readonly updateTime?: string;
 }
 /**

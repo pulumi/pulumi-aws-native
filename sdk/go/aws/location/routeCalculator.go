@@ -24,7 +24,9 @@ type RouteCalculator struct {
 	DataSource     pulumi.StringOutput                 `pulumi:"dataSource"`
 	Description    pulumi.StringPtrOutput              `pulumi:"description"`
 	PricingPlan    RouteCalculatorPricingPlanPtrOutput `pulumi:"pricingPlan"`
-	UpdateTime     pulumi.StringOutput                 `pulumi:"updateTime"`
+	// An array of key-value pairs to apply to this resource.
+	Tags       RouteCalculatorTagArrayOutput `pulumi:"tags"`
+	UpdateTime pulumi.StringOutput           `pulumi:"updateTime"`
 }
 
 // NewRouteCalculator registers a new resource with the given unique name, arguments, and options.
@@ -43,8 +45,6 @@ func NewRouteCalculator(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"calculatorName",
 		"dataSource",
-		"description",
-		"pricingPlan",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -84,6 +84,8 @@ type routeCalculatorArgs struct {
 	DataSource     string                      `pulumi:"dataSource"`
 	Description    *string                     `pulumi:"description"`
 	PricingPlan    *RouteCalculatorPricingPlan `pulumi:"pricingPlan"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []RouteCalculatorTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RouteCalculator resource.
@@ -92,6 +94,8 @@ type RouteCalculatorArgs struct {
 	DataSource     pulumi.StringInput
 	Description    pulumi.StringPtrInput
 	PricingPlan    RouteCalculatorPricingPlanPtrInput
+	// An array of key-value pairs to apply to this resource.
+	Tags RouteCalculatorTagArrayInput
 }
 
 func (RouteCalculatorArgs) ElementType() reflect.Type {
@@ -169,6 +173,11 @@ func (o RouteCalculatorOutput) Description() pulumi.StringPtrOutput {
 
 func (o RouteCalculatorOutput) PricingPlan() RouteCalculatorPricingPlanPtrOutput {
 	return o.ApplyT(func(v *RouteCalculator) RouteCalculatorPricingPlanPtrOutput { return v.PricingPlan }).(RouteCalculatorPricingPlanPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o RouteCalculatorOutput) Tags() RouteCalculatorTagArrayOutput {
+	return o.ApplyT(func(v *RouteCalculator) RouteCalculatorTagArrayOutput { return v.Tags }).(RouteCalculatorTagArrayOutput)
 }
 
 func (o RouteCalculatorOutput) UpdateTime() pulumi.StringOutput {

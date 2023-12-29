@@ -27,14 +27,17 @@ type GraphQlApi struct {
 	GraphQlDns                        pulumi.StringOutput                                   `pulumi:"graphQlDns"`
 	GraphQlEndpointArn                pulumi.StringOutput                                   `pulumi:"graphQlEndpointArn"`
 	GraphQlUrl                        pulumi.StringOutput                                   `pulumi:"graphQlUrl"`
+	IntrospectionConfig               pulumi.StringPtrOutput                                `pulumi:"introspectionConfig"`
 	LambdaAuthorizerConfig            GraphQlApiLambdaAuthorizerConfigPtrOutput             `pulumi:"lambdaAuthorizerConfig"`
 	LogConfig                         GraphQlApiLogConfigPtrOutput                          `pulumi:"logConfig"`
 	MergedApiExecutionRoleArn         pulumi.StringPtrOutput                                `pulumi:"mergedApiExecutionRoleArn"`
 	Name                              pulumi.StringOutput                                   `pulumi:"name"`
 	OpenIdConnectConfig               GraphQlApiOpenIdConnectConfigPtrOutput                `pulumi:"openIdConnectConfig"`
 	OwnerContact                      pulumi.StringPtrOutput                                `pulumi:"ownerContact"`
+	QueryDepthLimit                   pulumi.IntPtrOutput                                   `pulumi:"queryDepthLimit"`
 	RealtimeDns                       pulumi.StringOutput                                   `pulumi:"realtimeDns"`
 	RealtimeUrl                       pulumi.StringOutput                                   `pulumi:"realtimeUrl"`
+	ResolverCountLimit                pulumi.IntPtrOutput                                   `pulumi:"resolverCountLimit"`
 	Tags                              GraphQlApiTagArrayOutput                              `pulumi:"tags"`
 	UserPoolConfig                    GraphQlApiUserPoolConfigPtrOutput                     `pulumi:"userPoolConfig"`
 	Visibility                        pulumi.StringPtrOutput                                `pulumi:"visibility"`
@@ -87,12 +90,15 @@ type graphQlApiArgs struct {
 	AdditionalAuthenticationProviders []GraphQlApiAdditionalAuthenticationProvider `pulumi:"additionalAuthenticationProviders"`
 	ApiType                           *string                                      `pulumi:"apiType"`
 	AuthenticationType                string                                       `pulumi:"authenticationType"`
+	IntrospectionConfig               *string                                      `pulumi:"introspectionConfig"`
 	LambdaAuthorizerConfig            *GraphQlApiLambdaAuthorizerConfig            `pulumi:"lambdaAuthorizerConfig"`
 	LogConfig                         *GraphQlApiLogConfig                         `pulumi:"logConfig"`
 	MergedApiExecutionRoleArn         *string                                      `pulumi:"mergedApiExecutionRoleArn"`
 	Name                              *string                                      `pulumi:"name"`
 	OpenIdConnectConfig               *GraphQlApiOpenIdConnectConfig               `pulumi:"openIdConnectConfig"`
 	OwnerContact                      *string                                      `pulumi:"ownerContact"`
+	QueryDepthLimit                   *int                                         `pulumi:"queryDepthLimit"`
+	ResolverCountLimit                *int                                         `pulumi:"resolverCountLimit"`
 	Tags                              []GraphQlApiTag                              `pulumi:"tags"`
 	UserPoolConfig                    *GraphQlApiUserPoolConfig                    `pulumi:"userPoolConfig"`
 	Visibility                        *string                                      `pulumi:"visibility"`
@@ -104,12 +110,15 @@ type GraphQlApiArgs struct {
 	AdditionalAuthenticationProviders GraphQlApiAdditionalAuthenticationProviderArrayInput
 	ApiType                           pulumi.StringPtrInput
 	AuthenticationType                pulumi.StringInput
+	IntrospectionConfig               pulumi.StringPtrInput
 	LambdaAuthorizerConfig            GraphQlApiLambdaAuthorizerConfigPtrInput
 	LogConfig                         GraphQlApiLogConfigPtrInput
 	MergedApiExecutionRoleArn         pulumi.StringPtrInput
 	Name                              pulumi.StringPtrInput
 	OpenIdConnectConfig               GraphQlApiOpenIdConnectConfigPtrInput
 	OwnerContact                      pulumi.StringPtrInput
+	QueryDepthLimit                   pulumi.IntPtrInput
+	ResolverCountLimit                pulumi.IntPtrInput
 	Tags                              GraphQlApiTagArrayInput
 	UserPoolConfig                    GraphQlApiUserPoolConfigPtrInput
 	Visibility                        pulumi.StringPtrInput
@@ -199,6 +208,10 @@ func (o GraphQlApiOutput) GraphQlUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *GraphQlApi) pulumi.StringOutput { return v.GraphQlUrl }).(pulumi.StringOutput)
 }
 
+func (o GraphQlApiOutput) IntrospectionConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQlApi) pulumi.StringPtrOutput { return v.IntrospectionConfig }).(pulumi.StringPtrOutput)
+}
+
 func (o GraphQlApiOutput) LambdaAuthorizerConfig() GraphQlApiLambdaAuthorizerConfigPtrOutput {
 	return o.ApplyT(func(v *GraphQlApi) GraphQlApiLambdaAuthorizerConfigPtrOutput { return v.LambdaAuthorizerConfig }).(GraphQlApiLambdaAuthorizerConfigPtrOutput)
 }
@@ -223,12 +236,20 @@ func (o GraphQlApiOutput) OwnerContact() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GraphQlApi) pulumi.StringPtrOutput { return v.OwnerContact }).(pulumi.StringPtrOutput)
 }
 
+func (o GraphQlApiOutput) QueryDepthLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GraphQlApi) pulumi.IntPtrOutput { return v.QueryDepthLimit }).(pulumi.IntPtrOutput)
+}
+
 func (o GraphQlApiOutput) RealtimeDns() pulumi.StringOutput {
 	return o.ApplyT(func(v *GraphQlApi) pulumi.StringOutput { return v.RealtimeDns }).(pulumi.StringOutput)
 }
 
 func (o GraphQlApiOutput) RealtimeUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *GraphQlApi) pulumi.StringOutput { return v.RealtimeUrl }).(pulumi.StringOutput)
+}
+
+func (o GraphQlApiOutput) ResolverCountLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GraphQlApi) pulumi.IntPtrOutput { return v.ResolverCountLimit }).(pulumi.IntPtrOutput)
 }
 
 func (o GraphQlApiOutput) Tags() GraphQlApiTagArrayOutput {

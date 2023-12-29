@@ -31,9 +31,12 @@ type LookupGeofenceCollectionResult struct {
 	Arn                   *string                        `pulumi:"arn"`
 	CollectionArn         *string                        `pulumi:"collectionArn"`
 	CreateTime            *string                        `pulumi:"createTime"`
+	Description           *string                        `pulumi:"description"`
 	PricingPlan           *GeofenceCollectionPricingPlan `pulumi:"pricingPlan"`
 	PricingPlanDataSource *string                        `pulumi:"pricingPlanDataSource"`
-	UpdateTime            *string                        `pulumi:"updateTime"`
+	// An array of key-value pairs to apply to this resource.
+	Tags       []GeofenceCollectionTag `pulumi:"tags"`
+	UpdateTime *string                 `pulumi:"updateTime"`
 }
 
 func LookupGeofenceCollectionOutput(ctx *pulumi.Context, args LookupGeofenceCollectionOutputArgs, opts ...pulumi.InvokeOption) LookupGeofenceCollectionResultOutput {
@@ -89,12 +92,21 @@ func (o LookupGeofenceCollectionResultOutput) CreateTime() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupGeofenceCollectionResult) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupGeofenceCollectionResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGeofenceCollectionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupGeofenceCollectionResultOutput) PricingPlan() GeofenceCollectionPricingPlanPtrOutput {
 	return o.ApplyT(func(v LookupGeofenceCollectionResult) *GeofenceCollectionPricingPlan { return v.PricingPlan }).(GeofenceCollectionPricingPlanPtrOutput)
 }
 
 func (o LookupGeofenceCollectionResultOutput) PricingPlanDataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGeofenceCollectionResult) *string { return v.PricingPlanDataSource }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupGeofenceCollectionResultOutput) Tags() GeofenceCollectionTagArrayOutput {
+	return o.ApplyT(func(v LookupGeofenceCollectionResult) []GeofenceCollectionTag { return v.Tags }).(GeofenceCollectionTagArrayOutput)
 }
 
 func (o LookupGeofenceCollectionResultOutput) UpdateTime() pulumi.StringPtrOutput {

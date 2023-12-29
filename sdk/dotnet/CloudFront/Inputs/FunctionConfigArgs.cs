@@ -15,6 +15,14 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("comment", required: true)]
         public Input<string> Comment { get; set; } = null!;
 
+        [Input("keyValueStoreAssociations")]
+        private InputList<Inputs.FunctionKeyValueStoreAssociationArgs>? _keyValueStoreAssociations;
+        public InputList<Inputs.FunctionKeyValueStoreAssociationArgs> KeyValueStoreAssociations
+        {
+            get => _keyValueStoreAssociations ?? (_keyValueStoreAssociations = new InputList<Inputs.FunctionKeyValueStoreAssociationArgs>());
+            set => _keyValueStoreAssociations = value;
+        }
+
         [Input("runtime", required: true)]
         public Input<string> Runtime { get; set; } = null!;
 

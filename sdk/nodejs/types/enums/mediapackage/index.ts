@@ -40,6 +40,7 @@ export type OriginEndpointDashPackageAdTriggersItem = (typeof OriginEndpointDash
 export const OriginEndpointDashPackageManifestLayout = {
     Full: "FULL",
     Compact: "COMPACT",
+    DrmTopLevelCompact: "DRM_TOP_LEVEL_COMPACT",
 } as const;
 
 /**

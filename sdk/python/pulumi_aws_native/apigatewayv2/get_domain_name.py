@@ -55,17 +55,11 @@ class GetDomainNameResult:
     @property
     @pulumi.getter(name="regionalDomainName")
     def regional_domain_name(self) -> Optional[str]:
-        """
-        The domain name associated with the regional endpoint for this custom domain name.
-        """
         return pulumi.get(self, "regional_domain_name")
 
     @property
     @pulumi.getter(name="regionalHostedZoneId")
     def regional_hosted_zone_id(self) -> Optional[str]:
-        """
-        The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint.
-        """
         return pulumi.get(self, "regional_hosted_zone_id")
 
     @property

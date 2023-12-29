@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.EmrServerless.Outputs
     public sealed class ApplicationMonitoringConfiguration
     {
         /// <summary>
+        /// CloudWatch logging configurations for a JobRun.
+        /// </summary>
+        public readonly Outputs.ApplicationCloudWatchLoggingConfiguration? CloudWatchLoggingConfiguration;
+        /// <summary>
         /// Managed log persistence configurations for a JobRun.
         /// </summary>
         public readonly Outputs.ApplicationManagedPersistenceMonitoringConfiguration? ManagedPersistenceMonitoringConfiguration;
@@ -27,10 +31,13 @@ namespace Pulumi.AwsNative.EmrServerless.Outputs
 
         [OutputConstructor]
         private ApplicationMonitoringConfiguration(
+            Outputs.ApplicationCloudWatchLoggingConfiguration? cloudWatchLoggingConfiguration,
+
             Outputs.ApplicationManagedPersistenceMonitoringConfiguration? managedPersistenceMonitoringConfiguration,
 
             Outputs.ApplicationS3MonitoringConfiguration? s3MonitoringConfiguration)
         {
+            CloudWatchLoggingConfiguration = cloudWatchLoggingConfiguration;
             ManagedPersistenceMonitoringConfiguration = managedPersistenceMonitoringConfiguration;
             S3MonitoringConfiguration = s3MonitoringConfiguration;
         }

@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.EmrServerless.Inputs
     public sealed class ApplicationMonitoringConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// CloudWatch logging configurations for a JobRun.
+        /// </summary>
+        [Input("cloudWatchLoggingConfiguration")]
+        public Input<Inputs.ApplicationCloudWatchLoggingConfigurationArgs>? CloudWatchLoggingConfiguration { get; set; }
+
+        /// <summary>
         /// Managed log persistence configurations for a JobRun.
         /// </summary>
         [Input("managedPersistenceMonitoringConfiguration")]

@@ -28,9 +28,11 @@ type LookupGcmChannelArgs struct {
 }
 
 type LookupGcmChannelResult struct {
-	ApiKey  *string `pulumi:"apiKey"`
-	Enabled *bool   `pulumi:"enabled"`
-	Id      *string `pulumi:"id"`
+	ApiKey                      *string `pulumi:"apiKey"`
+	DefaultAuthenticationMethod *string `pulumi:"defaultAuthenticationMethod"`
+	Enabled                     *bool   `pulumi:"enabled"`
+	Id                          *string `pulumi:"id"`
+	ServiceJson                 *string `pulumi:"serviceJson"`
 }
 
 func LookupGcmChannelOutput(ctx *pulumi.Context, args LookupGcmChannelOutputArgs, opts ...pulumi.InvokeOption) LookupGcmChannelResultOutput {
@@ -78,12 +80,20 @@ func (o LookupGcmChannelResultOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGcmChannelResult) *string { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupGcmChannelResultOutput) DefaultAuthenticationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGcmChannelResult) *string { return v.DefaultAuthenticationMethod }).(pulumi.StringPtrOutput)
+}
+
 func (o LookupGcmChannelResultOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupGcmChannelResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o LookupGcmChannelResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGcmChannelResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupGcmChannelResultOutput) ServiceJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGcmChannelResult) *string { return v.ServiceJson }).(pulumi.StringPtrOutput)
 }
 
 func init() {

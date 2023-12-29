@@ -9963,6 +9963,139 @@ func (o UserPhoneConfigPtrOutput) PhoneType() UserPhoneTypePtrOutput {
 	}).(UserPhoneTypePtrOutput)
 }
 
+// Proficiency of a user.
+type UserProficiency struct {
+	AttributeName  string  `pulumi:"attributeName"`
+	AttributeValue string  `pulumi:"attributeValue"`
+	Level          float64 `pulumi:"level"`
+}
+
+// UserProficiencyInput is an input type that accepts UserProficiencyArgs and UserProficiencyOutput values.
+// You can construct a concrete instance of `UserProficiencyInput` via:
+//
+//	UserProficiencyArgs{...}
+type UserProficiencyInput interface {
+	pulumi.Input
+
+	ToUserProficiencyOutput() UserProficiencyOutput
+	ToUserProficiencyOutputWithContext(context.Context) UserProficiencyOutput
+}
+
+// Proficiency of a user.
+type UserProficiencyArgs struct {
+	AttributeName  pulumi.StringInput  `pulumi:"attributeName"`
+	AttributeValue pulumi.StringInput  `pulumi:"attributeValue"`
+	Level          pulumi.Float64Input `pulumi:"level"`
+}
+
+func (UserProficiencyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProficiency)(nil)).Elem()
+}
+
+func (i UserProficiencyArgs) ToUserProficiencyOutput() UserProficiencyOutput {
+	return i.ToUserProficiencyOutputWithContext(context.Background())
+}
+
+func (i UserProficiencyArgs) ToUserProficiencyOutputWithContext(ctx context.Context) UserProficiencyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProficiencyOutput)
+}
+
+func (i UserProficiencyArgs) ToOutput(ctx context.Context) pulumix.Output[UserProficiency] {
+	return pulumix.Output[UserProficiency]{
+		OutputState: i.ToUserProficiencyOutputWithContext(ctx).OutputState,
+	}
+}
+
+// UserProficiencyArrayInput is an input type that accepts UserProficiencyArray and UserProficiencyArrayOutput values.
+// You can construct a concrete instance of `UserProficiencyArrayInput` via:
+//
+//	UserProficiencyArray{ UserProficiencyArgs{...} }
+type UserProficiencyArrayInput interface {
+	pulumi.Input
+
+	ToUserProficiencyArrayOutput() UserProficiencyArrayOutput
+	ToUserProficiencyArrayOutputWithContext(context.Context) UserProficiencyArrayOutput
+}
+
+type UserProficiencyArray []UserProficiencyInput
+
+func (UserProficiencyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProficiency)(nil)).Elem()
+}
+
+func (i UserProficiencyArray) ToUserProficiencyArrayOutput() UserProficiencyArrayOutput {
+	return i.ToUserProficiencyArrayOutputWithContext(context.Background())
+}
+
+func (i UserProficiencyArray) ToUserProficiencyArrayOutputWithContext(ctx context.Context) UserProficiencyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProficiencyArrayOutput)
+}
+
+func (i UserProficiencyArray) ToOutput(ctx context.Context) pulumix.Output[[]UserProficiency] {
+	return pulumix.Output[[]UserProficiency]{
+		OutputState: i.ToUserProficiencyArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+// Proficiency of a user.
+type UserProficiencyOutput struct{ *pulumi.OutputState }
+
+func (UserProficiencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProficiency)(nil)).Elem()
+}
+
+func (o UserProficiencyOutput) ToUserProficiencyOutput() UserProficiencyOutput {
+	return o
+}
+
+func (o UserProficiencyOutput) ToUserProficiencyOutputWithContext(ctx context.Context) UserProficiencyOutput {
+	return o
+}
+
+func (o UserProficiencyOutput) ToOutput(ctx context.Context) pulumix.Output[UserProficiency] {
+	return pulumix.Output[UserProficiency]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o UserProficiencyOutput) AttributeName() pulumi.StringOutput {
+	return o.ApplyT(func(v UserProficiency) string { return v.AttributeName }).(pulumi.StringOutput)
+}
+
+func (o UserProficiencyOutput) AttributeValue() pulumi.StringOutput {
+	return o.ApplyT(func(v UserProficiency) string { return v.AttributeValue }).(pulumi.StringOutput)
+}
+
+func (o UserProficiencyOutput) Level() pulumi.Float64Output {
+	return o.ApplyT(func(v UserProficiency) float64 { return v.Level }).(pulumi.Float64Output)
+}
+
+type UserProficiencyArrayOutput struct{ *pulumi.OutputState }
+
+func (UserProficiencyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProficiency)(nil)).Elem()
+}
+
+func (o UserProficiencyArrayOutput) ToUserProficiencyArrayOutput() UserProficiencyArrayOutput {
+	return o
+}
+
+func (o UserProficiencyArrayOutput) ToUserProficiencyArrayOutputWithContext(ctx context.Context) UserProficiencyArrayOutput {
+	return o
+}
+
+func (o UserProficiencyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]UserProficiency] {
+	return pulumix.Output[[]UserProficiency]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o UserProficiencyArrayOutput) Index(i pulumi.IntInput) UserProficiencyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserProficiency {
+		return vs[0].([]UserProficiency)[vs[1].(int)]
+	}).(UserProficiencyOutput)
+}
+
 // A key-value pair to associate with a resource.
 type UserTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -10094,6 +10227,109 @@ func (o UserTagArrayOutput) Index(i pulumi.IntInput) UserTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserTag {
 		return vs[0].([]UserTag)[vs[1].(int)]
 	}).(UserTagOutput)
+}
+
+// The values of a predefined attribute.
+type ValuesProperties struct {
+	StringList []string `pulumi:"stringList"`
+}
+
+// ValuesPropertiesInput is an input type that accepts ValuesPropertiesArgs and ValuesPropertiesOutput values.
+// You can construct a concrete instance of `ValuesPropertiesInput` via:
+//
+//	ValuesPropertiesArgs{...}
+type ValuesPropertiesInput interface {
+	pulumi.Input
+
+	ToValuesPropertiesOutput() ValuesPropertiesOutput
+	ToValuesPropertiesOutputWithContext(context.Context) ValuesPropertiesOutput
+}
+
+// The values of a predefined attribute.
+type ValuesPropertiesArgs struct {
+	StringList pulumi.StringArrayInput `pulumi:"stringList"`
+}
+
+func (ValuesPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ValuesProperties)(nil)).Elem()
+}
+
+func (i ValuesPropertiesArgs) ToValuesPropertiesOutput() ValuesPropertiesOutput {
+	return i.ToValuesPropertiesOutputWithContext(context.Background())
+}
+
+func (i ValuesPropertiesArgs) ToValuesPropertiesOutputWithContext(ctx context.Context) ValuesPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ValuesPropertiesOutput)
+}
+
+func (i ValuesPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[ValuesProperties] {
+	return pulumix.Output[ValuesProperties]{
+		OutputState: i.ToValuesPropertiesOutputWithContext(ctx).OutputState,
+	}
+}
+
+// The values of a predefined attribute.
+type ValuesPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ValuesPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ValuesProperties)(nil)).Elem()
+}
+
+func (o ValuesPropertiesOutput) ToValuesPropertiesOutput() ValuesPropertiesOutput {
+	return o
+}
+
+func (o ValuesPropertiesOutput) ToValuesPropertiesOutputWithContext(ctx context.Context) ValuesPropertiesOutput {
+	return o
+}
+
+func (o ValuesPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[ValuesProperties] {
+	return pulumix.Output[ValuesProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ValuesPropertiesOutput) StringList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ValuesProperties) []string { return v.StringList }).(pulumi.StringArrayOutput)
+}
+
+type ValuesPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ValuesPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ValuesProperties)(nil)).Elem()
+}
+
+func (o ValuesPropertiesPtrOutput) ToValuesPropertiesPtrOutput() ValuesPropertiesPtrOutput {
+	return o
+}
+
+func (o ValuesPropertiesPtrOutput) ToValuesPropertiesPtrOutputWithContext(ctx context.Context) ValuesPropertiesPtrOutput {
+	return o
+}
+
+func (o ValuesPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ValuesProperties] {
+	return pulumix.Output[*ValuesProperties]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ValuesPropertiesPtrOutput) Elem() ValuesPropertiesOutput {
+	return o.ApplyT(func(v *ValuesProperties) ValuesProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ValuesProperties
+		return ret
+	}).(ValuesPropertiesOutput)
+}
+
+func (o ValuesPropertiesPtrOutput) StringList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ValuesProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StringList
+	}).(pulumi.StringArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -10355,8 +10591,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserIdentityInfoInput)(nil)).Elem(), UserIdentityInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserIdentityInfoPtrInput)(nil)).Elem(), UserIdentityInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPhoneConfigInput)(nil)).Elem(), UserPhoneConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProficiencyInput)(nil)).Elem(), UserProficiencyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProficiencyArrayInput)(nil)).Elem(), UserProficiencyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserTagInput)(nil)).Elem(), UserTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserTagArrayInput)(nil)).Elem(), UserTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ValuesPropertiesInput)(nil)).Elem(), ValuesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewTagInput)(nil)).Elem(), ViewTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ViewTagArrayInput)(nil)).Elem(), ViewTagArray{})
 	pulumi.RegisterOutputType(ConstraintsPropertiesOutput{})
@@ -10488,8 +10727,12 @@ func init() {
 	pulumi.RegisterOutputType(UserIdentityInfoPtrOutput{})
 	pulumi.RegisterOutputType(UserPhoneConfigOutput{})
 	pulumi.RegisterOutputType(UserPhoneConfigPtrOutput{})
+	pulumi.RegisterOutputType(UserProficiencyOutput{})
+	pulumi.RegisterOutputType(UserProficiencyArrayOutput{})
 	pulumi.RegisterOutputType(UserTagOutput{})
 	pulumi.RegisterOutputType(UserTagArrayOutput{})
+	pulumi.RegisterOutputType(ValuesPropertiesOutput{})
+	pulumi.RegisterOutputType(ValuesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ViewTagOutput{})
 	pulumi.RegisterOutputType(ViewTagArrayOutput{})
 }

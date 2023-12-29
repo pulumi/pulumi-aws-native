@@ -40,6 +40,9 @@ namespace Pulumi.AwsNative.AppSync
         [Output("graphQlUrl")]
         public Output<string> GraphQlUrl { get; private set; } = null!;
 
+        [Output("introspectionConfig")]
+        public Output<string?> IntrospectionConfig { get; private set; } = null!;
+
         [Output("lambdaAuthorizerConfig")]
         public Output<Outputs.GraphQlApiLambdaAuthorizerConfig?> LambdaAuthorizerConfig { get; private set; } = null!;
 
@@ -58,11 +61,17 @@ namespace Pulumi.AwsNative.AppSync
         [Output("ownerContact")]
         public Output<string?> OwnerContact { get; private set; } = null!;
 
+        [Output("queryDepthLimit")]
+        public Output<int?> QueryDepthLimit { get; private set; } = null!;
+
         [Output("realtimeDns")]
         public Output<string> RealtimeDns { get; private set; } = null!;
 
         [Output("realtimeUrl")]
         public Output<string> RealtimeUrl { get; private set; } = null!;
+
+        [Output("resolverCountLimit")]
+        public Output<int?> ResolverCountLimit { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Outputs.GraphQlApiTag>> Tags { get; private set; } = null!;
@@ -135,6 +144,9 @@ namespace Pulumi.AwsNative.AppSync
         [Input("authenticationType", required: true)]
         public Input<string> AuthenticationType { get; set; } = null!;
 
+        [Input("introspectionConfig")]
+        public Input<string>? IntrospectionConfig { get; set; }
+
         [Input("lambdaAuthorizerConfig")]
         public Input<Inputs.GraphQlApiLambdaAuthorizerConfigArgs>? LambdaAuthorizerConfig { get; set; }
 
@@ -152,6 +164,12 @@ namespace Pulumi.AwsNative.AppSync
 
         [Input("ownerContact")]
         public Input<string>? OwnerContact { get; set; }
+
+        [Input("queryDepthLimit")]
+        public Input<int>? QueryDepthLimit { get; set; }
+
+        [Input("resolverCountLimit")]
+        public Input<int>? ResolverCountLimit { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.GraphQlApiTagArgs>? _tags;

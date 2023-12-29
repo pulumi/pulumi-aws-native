@@ -18,21 +18,32 @@ __all__ = [
 
 @pulumi.output_type
 class GetGcmChannelResult:
-    def __init__(__self__, api_key=None, enabled=None, id=None):
+    def __init__(__self__, api_key=None, default_authentication_method=None, enabled=None, id=None, service_json=None):
         if api_key and not isinstance(api_key, str):
             raise TypeError("Expected argument 'api_key' to be a str")
         pulumi.set(__self__, "api_key", api_key)
+        if default_authentication_method and not isinstance(default_authentication_method, str):
+            raise TypeError("Expected argument 'default_authentication_method' to be a str")
+        pulumi.set(__self__, "default_authentication_method", default_authentication_method)
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if service_json and not isinstance(service_json, str):
+            raise TypeError("Expected argument 'service_json' to be a str")
+        pulumi.set(__self__, "service_json", service_json)
 
     @property
     @pulumi.getter(name="apiKey")
     def api_key(self) -> Optional[str]:
         return pulumi.get(self, "api_key")
+
+    @property
+    @pulumi.getter(name="defaultAuthenticationMethod")
+    def default_authentication_method(self) -> Optional[str]:
+        return pulumi.get(self, "default_authentication_method")
 
     @property
     @pulumi.getter
@@ -44,6 +55,11 @@ class GetGcmChannelResult:
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter(name="serviceJson")
+    def service_json(self) -> Optional[str]:
+        return pulumi.get(self, "service_json")
+
 
 class AwaitableGetGcmChannelResult(GetGcmChannelResult):
     # pylint: disable=using-constant-test
@@ -52,8 +68,10 @@ class AwaitableGetGcmChannelResult(GetGcmChannelResult):
             yield self
         return GetGcmChannelResult(
             api_key=self.api_key,
+            default_authentication_method=self.default_authentication_method,
             enabled=self.enabled,
-            id=self.id)
+            id=self.id,
+            service_json=self.service_json)
 
 
 def get_gcm_channel(id: Optional[str] = None,
@@ -68,8 +86,10 @@ def get_gcm_channel(id: Optional[str] = None,
 
     return AwaitableGetGcmChannelResult(
         api_key=pulumi.get(__ret__, 'api_key'),
+        default_authentication_method=pulumi.get(__ret__, 'default_authentication_method'),
         enabled=pulumi.get(__ret__, 'enabled'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        service_json=pulumi.get(__ret__, 'service_json'))
 
 
 @_utilities.lift_output_func(get_gcm_channel)

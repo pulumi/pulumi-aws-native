@@ -24,6 +24,12 @@ namespace Pulumi.AwsNative.Location
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("eventBridgeEnabled")]
+        public Output<bool?> EventBridgeEnabled { get; private set; } = null!;
+
+        [Output("kmsKeyEnableGeospatialQueries")]
+        public Output<bool?> KmsKeyEnableGeospatialQueries { get; private set; } = null!;
+
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
@@ -35,6 +41,12 @@ namespace Pulumi.AwsNative.Location
 
         [Output("pricingPlanDataSource")]
         public Output<string?> PricingPlanDataSource { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.TrackerTag>> Tags { get; private set; } = null!;
 
         [Output("trackerArn")]
         public Output<string> TrackerArn { get; private set; } = null!;
@@ -70,9 +82,7 @@ namespace Pulumi.AwsNative.Location
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "description",
                     "kmsKeyId",
-                    "positionFiltering",
                     "trackerName",
                 },
             };
@@ -100,6 +110,12 @@ namespace Pulumi.AwsNative.Location
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("eventBridgeEnabled")]
+        public Input<bool>? EventBridgeEnabled { get; set; }
+
+        [Input("kmsKeyEnableGeospatialQueries")]
+        public Input<bool>? KmsKeyEnableGeospatialQueries { get; set; }
+
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
@@ -111,6 +127,18 @@ namespace Pulumi.AwsNative.Location
 
         [Input("pricingPlanDataSource")]
         public Input<string>? PricingPlanDataSource { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.TrackerTagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public InputList<Inputs.TrackerTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.TrackerTagArgs>());
+            set => _tags = value;
+        }
 
         [Input("trackerName")]
         public Input<string>? TrackerName { get; set; }

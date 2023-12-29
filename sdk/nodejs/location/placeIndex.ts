@@ -45,6 +45,10 @@ export class PlaceIndex extends pulumi.CustomResource {
     public /*out*/ readonly indexArn!: pulumi.Output<string>;
     public readonly indexName!: pulumi.Output<string>;
     public readonly pricingPlan!: pulumi.Output<enums.location.PlaceIndexPricingPlan | undefined>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    public readonly tags!: pulumi.Output<outputs.location.PlaceIndexTag[] | undefined>;
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
@@ -69,6 +73,7 @@ export class PlaceIndex extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["indexName"] = args ? args.indexName : undefined;
             resourceInputs["pricingPlan"] = args ? args.pricingPlan : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["indexArn"] = undefined /*out*/;
@@ -82,10 +87,11 @@ export class PlaceIndex extends pulumi.CustomResource {
             resourceInputs["indexArn"] = undefined /*out*/;
             resourceInputs["indexName"] = undefined /*out*/;
             resourceInputs["pricingPlan"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["dataSource", "dataSourceConfiguration", "description", "indexName", "pricingPlan"] };
+        const replaceOnChanges = { replaceOnChanges: ["dataSource", "indexName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PlaceIndex.__pulumiType, name, resourceInputs, opts);
     }
@@ -100,4 +106,8 @@ export interface PlaceIndexArgs {
     description?: pulumi.Input<string>;
     indexName: pulumi.Input<string>;
     pricingPlan?: pulumi.Input<enums.location.PlaceIndexPricingPlan>;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.location.PlaceIndexTagArgs>[]>;
 }

@@ -14,15 +14,19 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     public sealed class FunctionConfig
     {
         public readonly string Comment;
+        public readonly ImmutableArray<Outputs.FunctionKeyValueStoreAssociation> KeyValueStoreAssociations;
         public readonly string Runtime;
 
         [OutputConstructor]
         private FunctionConfig(
             string comment,
 
+            ImmutableArray<Outputs.FunctionKeyValueStoreAssociation> keyValueStoreAssociations,
+
             string runtime)
         {
             Comment = comment;
+            KeyValueStoreAssociations = keyValueStoreAssociations;
             Runtime = runtime;
         }
     }

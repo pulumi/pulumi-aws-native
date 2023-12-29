@@ -6502,7 +6502,12 @@ export namespace cloudfront {
 
     export interface FunctionConfig {
         comment: string;
+        keyValueStoreAssociations?: outputs.cloudfront.FunctionKeyValueStoreAssociation[];
         runtime: string;
+    }
+
+    export interface FunctionKeyValueStoreAssociation {
+        keyValueStoreArn: string;
     }
 
     export interface FunctionMetadata {
@@ -9889,6 +9894,15 @@ export namespace connect {
     }
 
     /**
+     * Proficiency of a user.
+     */
+    export interface UserProficiency {
+        attributeName: string;
+        attributeValue: string;
+        level: number;
+    }
+
+    /**
      * A key-value pair to associate with a resource.
      */
     export interface UserTag {
@@ -9900,6 +9914,13 @@ export namespace connect {
          * The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
          */
         value: string;
+    }
+
+    /**
+     * The values of a predefined attribute.
+     */
+    export interface ValuesProperties {
+        stringList?: string[];
     }
 
     /**
@@ -13020,7 +13041,7 @@ export namespace ec2 {
     export interface InstanceBlockDeviceMapping {
         deviceName: string;
         ebs?: outputs.ec2.InstanceEbs;
-        noDevice?: any;
+        noDevice?: outputs.ec2.InstanceNoDevice;
         virtualName?: string;
     }
 
@@ -13096,6 +13117,9 @@ export namespace ec2 {
         privateIpAddresses?: outputs.ec2.InstancePrivateIpAddressSpecification[];
         secondaryPrivateIpAddressCount?: number;
         subnetId?: string;
+    }
+
+    export interface InstanceNoDevice {
     }
 
     export interface InstancePrivateDnsNameOptions {
@@ -17366,6 +17390,29 @@ export namespace emrserverless {
         idleTimeoutMinutes?: number;
     }
 
+    export interface ApplicationCloudWatchLoggingConfiguration {
+        /**
+         * If set to false, CloudWatch logging will be turned off. Defaults to false.
+         */
+        enabled?: boolean;
+        /**
+         * KMS key ARN to encrypt the logs stored in given CloudWatch log-group.
+         */
+        encryptionKeyArn?: string;
+        /**
+         * Log-group name to produce log-streams on CloudWatch. If undefined, logs will be produced in a default log-group /aws/emr-serverless
+         */
+        logGroupName?: string;
+        /**
+         * Log-stream name prefix by which log-stream names will start in the CloudWatch Log-group.
+         */
+        logStreamNamePrefix?: string;
+        /**
+         * The specific log-streams which need to be uploaded to CloudWatch.
+         */
+        logTypeMap?: outputs.emrserverless.ApplicationLogTypeMapKeyValuePair[];
+    }
+
     /**
      * Configuration for a JobRun.
      */
@@ -17404,6 +17451,11 @@ export namespace emrserverless {
         value: outputs.emrserverless.ApplicationInitialCapacityConfig;
     }
 
+    export interface ApplicationLogTypeMapKeyValuePair {
+        key: string;
+        value: string[];
+    }
+
     export interface ApplicationManagedPersistenceMonitoringConfiguration {
         /**
          * If set to false, managed logging will be turned off. Defaults to true.
@@ -17434,6 +17486,10 @@ export namespace emrserverless {
      * Monitoring configuration for batch and interactive JobRun.
      */
     export interface ApplicationMonitoringConfiguration {
+        /**
+         * CloudWatch logging configurations for a JobRun.
+         */
+        cloudWatchLoggingConfiguration?: outputs.emrserverless.ApplicationCloudWatchLoggingConfiguration;
         /**
          * Managed log persistence configurations for a JobRun.
          */
@@ -17730,6 +17786,10 @@ export namespace events {
         value: string;
     }
 
+    export interface RuleAppSyncParameters {
+        graphQlOperation: string;
+    }
+
     export interface RuleAwsVpcConfiguration {
         assignPublicIp?: string;
         securityGroups?: string[];
@@ -17850,6 +17910,7 @@ export namespace events {
     }
 
     export interface RuleTarget {
+        appSyncParameters?: outputs.events.RuleAppSyncParameters;
         arn: string;
         batchParameters?: outputs.events.RuleBatchParameters;
         deadLetterConfig?: outputs.events.RuleDeadLetterConfig;
@@ -19315,6 +19376,10 @@ export namespace globalaccelerator {
      * The configuration for a given endpoint
      */
     export interface EndpointGroupEndpointConfiguration {
+        /**
+         * Attachment ARN that provides access control to the cross account endpoint. Not required for resources hosted in the same account as the endpoint group.
+         */
+        attachmentArn?: string;
         /**
          * true if client ip should be preserved
          */
@@ -26586,7 +26651,13 @@ export namespace kinesisfirehose {
         parquetSerDe?: outputs.kinesisfirehose.DeliveryStreamParquetSerDe;
     }
 
+    export interface DeliveryStreamSplunkBufferingHints {
+        intervalInSeconds?: number;
+        sizeInMbs?: number;
+    }
+
     export interface DeliveryStreamSplunkDestinationConfiguration {
+        bufferingHints?: outputs.kinesisfirehose.DeliveryStreamSplunkBufferingHints;
         cloudWatchLoggingOptions?: outputs.kinesisfirehose.DeliveryStreamCloudWatchLoggingOptions;
         hecAcknowledgmentTimeoutInSeconds?: number;
         hecEndpoint: string;
@@ -29195,12 +29266,103 @@ export namespace lightsail {
 }
 
 export namespace location {
+    export interface ApiKeyRestrictions {
+        allowActions: string[];
+        allowReferers?: string[];
+        allowResources: string[];
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface ApiKeyTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface GeofenceCollectionTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
     export interface MapConfiguration {
+        politicalView?: string;
         style: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface MapTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
     }
 
     export interface PlaceIndexDataSourceConfiguration {
         intendedUse?: enums.location.PlaceIndexIntendedUse;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface PlaceIndexTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface RouteCalculatorTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
+    }
+
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface TrackerTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+         */
+        value: string;
     }
 
 }
@@ -33245,6 +33407,33 @@ export namespace neptune {
 
 }
 
+export namespace neptunegraph {
+    /**
+     * A key-value pair to associate with a resource.
+     */
+    export interface GraphTag {
+        /**
+         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        key: string;
+        /**
+         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+         */
+        value?: string;
+    }
+
+    /**
+     * The vector search configuration.
+     */
+    export interface GraphVectorSearchConfiguration {
+        /**
+         * The vector search dimension
+         */
+        vectorSearchDimension: number;
+    }
+
+}
+
 export namespace networkfirewall {
     export interface FirewallPolicy {
         policyVariables?: outputs.networkfirewall.FirewallPolicyPolicyVariablesProperties;
@@ -33255,6 +33444,7 @@ export namespace networkfirewall {
         statelessDefaultActions: string[];
         statelessFragmentDefaultActions: string[];
         statelessRuleGroupReferences?: outputs.networkfirewall.FirewallPolicyStatelessRuleGroupReference[];
+        tlsInspectionConfigurationArn?: string;
     }
 
     export interface FirewallPolicyActionDefinition {
@@ -33446,6 +33636,48 @@ export namespace networkfirewall {
     export interface RuleGroupTcpFlagField {
         flags: enums.networkfirewall.RuleGroupTcpFlag[];
         masks?: enums.networkfirewall.RuleGroupTcpFlag[];
+    }
+
+    export interface TlsInspectionConfigurationAddress {
+        addressDefinition: string;
+    }
+
+    export interface TlsInspectionConfigurationPortRange {
+        fromPort: number;
+        toPort: number;
+    }
+
+    export interface TlsInspectionConfigurationServerCertificate {
+        resourceArn?: string;
+    }
+
+    export interface TlsInspectionConfigurationServerCertificateConfiguration {
+        certificateAuthorityArn?: string;
+        checkCertificateRevocationStatus?: outputs.networkfirewall.TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties;
+        scopes?: outputs.networkfirewall.TlsInspectionConfigurationServerCertificateScope[];
+        serverCertificates?: outputs.networkfirewall.TlsInspectionConfigurationServerCertificate[];
+    }
+
+    export interface TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties {
+        revokedStatusAction?: enums.networkfirewall.TlsInspectionConfigurationRevokedStatusAction;
+        unknownStatusAction?: enums.networkfirewall.TlsInspectionConfigurationUnknownStatusAction;
+    }
+
+    export interface TlsInspectionConfigurationServerCertificateScope {
+        destinationPorts?: outputs.networkfirewall.TlsInspectionConfigurationPortRange[];
+        destinations?: outputs.networkfirewall.TlsInspectionConfigurationAddress[];
+        protocols?: number[];
+        sourcePorts?: outputs.networkfirewall.TlsInspectionConfigurationPortRange[];
+        sources?: outputs.networkfirewall.TlsInspectionConfigurationAddress[];
+    }
+
+    export interface TlsInspectionConfigurationTag {
+        key: string;
+        value: string;
+    }
+
+    export interface TlsInspectionConfigurationTlsInspectionConfiguration {
+        serverCertificateConfigurations?: outputs.networkfirewall.TlsInspectionConfigurationServerCertificateConfiguration[];
     }
 
 }
@@ -46810,7 +47042,7 @@ export namespace redshift {
     }
 
     export interface ClusterLoggingProperties {
-        bucketName: string;
+        bucketName?: string;
         s3KeyPrefix?: string;
     }
 

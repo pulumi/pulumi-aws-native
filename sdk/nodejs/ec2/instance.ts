@@ -56,7 +56,6 @@ export class Instance extends pulumi.CustomResource {
     public readonly hostResourceGroupArn!: pulumi.Output<string | undefined>;
     public readonly iamInstanceProfile!: pulumi.Output<string | undefined>;
     public readonly imageId!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly instanceId!: pulumi.Output<string>;
     public readonly instanceInitiatedShutdownBehavior!: pulumi.Output<string | undefined>;
     public readonly instanceType!: pulumi.Output<string | undefined>;
     public readonly ipv6AddressCount!: pulumi.Output<number | undefined>;
@@ -139,7 +138,6 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["tenancy"] = args ? args.tenancy : undefined;
             resourceInputs["userData"] = args ? args.userData : undefined;
             resourceInputs["volumes"] = args ? args.volumes : undefined;
-            resourceInputs["instanceId"] = undefined /*out*/;
             resourceInputs["privateDnsName"] = undefined /*out*/;
             resourceInputs["privateIp"] = undefined /*out*/;
             resourceInputs["publicDnsName"] = undefined /*out*/;
@@ -161,7 +159,6 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["hostResourceGroupArn"] = undefined /*out*/;
             resourceInputs["iamInstanceProfile"] = undefined /*out*/;
             resourceInputs["imageId"] = undefined /*out*/;
-            resourceInputs["instanceId"] = undefined /*out*/;
             resourceInputs["instanceInitiatedShutdownBehavior"] = undefined /*out*/;
             resourceInputs["instanceType"] = undefined /*out*/;
             resourceInputs["ipv6AddressCount"] = undefined /*out*/;

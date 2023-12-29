@@ -52,20 +52,28 @@ namespace Pulumi.AwsNative.Pinpoint
     public sealed class GetGcmChannelResult
     {
         public readonly string? ApiKey;
+        public readonly string? DefaultAuthenticationMethod;
         public readonly bool? Enabled;
         public readonly string? Id;
+        public readonly string? ServiceJson;
 
         [OutputConstructor]
         private GetGcmChannelResult(
             string? apiKey,
 
+            string? defaultAuthenticationMethod,
+
             bool? enabled,
 
-            string? id)
+            string? id,
+
+            string? serviceJson)
         {
             ApiKey = apiKey;
+            DefaultAuthenticationMethod = defaultAuthenticationMethod;
             Enabled = enabled;
             Id = id;
+            ServiceJson = serviceJson;
         }
     }
 }

@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class RuleTarget
     {
+        public readonly Outputs.RuleAppSyncParameters? AppSyncParameters;
         public readonly string Arn;
         public readonly Outputs.RuleBatchParameters? BatchParameters;
         public readonly Outputs.RuleDeadLetterConfig? DeadLetterConfig;
@@ -32,6 +33,8 @@ namespace Pulumi.AwsNative.Events.Outputs
 
         [OutputConstructor]
         private RuleTarget(
+            Outputs.RuleAppSyncParameters? appSyncParameters,
+
             string arn,
 
             Outputs.RuleBatchParameters? batchParameters,
@@ -64,6 +67,7 @@ namespace Pulumi.AwsNative.Events.Outputs
 
             Outputs.RuleSqsParameters? sqsParameters)
         {
+            AppSyncParameters = appSyncParameters;
             Arn = arn;
             BatchParameters = batchParameters;
             DeadLetterConfig = deadLetterConfig;

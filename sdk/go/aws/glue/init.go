@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Connection{}
 	case "aws-native:glue:Crawler":
 		r = &Crawler{}
+	case "aws-native:glue:CustomEntityType":
+		r = &CustomEntityType{}
 	case "aws-native:glue:DataCatalogEncryptionSettings":
 		r = &DataCatalogEncryptionSettings{}
 	case "aws-native:glue:DataQualityRuleset":

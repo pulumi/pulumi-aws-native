@@ -2517,6 +2517,372 @@ func (in *ruleGroupTypeEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*Ru
 	}
 }
 
+type TlsInspectionConfigurationRevokedStatusAction string
+
+const (
+	TlsInspectionConfigurationRevokedStatusActionPass   = TlsInspectionConfigurationRevokedStatusAction("PASS")
+	TlsInspectionConfigurationRevokedStatusActionDrop   = TlsInspectionConfigurationRevokedStatusAction("DROP")
+	TlsInspectionConfigurationRevokedStatusActionReject = TlsInspectionConfigurationRevokedStatusAction("REJECT")
+)
+
+func (TlsInspectionConfigurationRevokedStatusAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*TlsInspectionConfigurationRevokedStatusAction)(nil)).Elem()
+}
+
+func (e TlsInspectionConfigurationRevokedStatusAction) ToTlsInspectionConfigurationRevokedStatusActionOutput() TlsInspectionConfigurationRevokedStatusActionOutput {
+	return pulumi.ToOutput(e).(TlsInspectionConfigurationRevokedStatusActionOutput)
+}
+
+func (e TlsInspectionConfigurationRevokedStatusAction) ToTlsInspectionConfigurationRevokedStatusActionOutputWithContext(ctx context.Context) TlsInspectionConfigurationRevokedStatusActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TlsInspectionConfigurationRevokedStatusActionOutput)
+}
+
+func (e TlsInspectionConfigurationRevokedStatusAction) ToTlsInspectionConfigurationRevokedStatusActionPtrOutput() TlsInspectionConfigurationRevokedStatusActionPtrOutput {
+	return e.ToTlsInspectionConfigurationRevokedStatusActionPtrOutputWithContext(context.Background())
+}
+
+func (e TlsInspectionConfigurationRevokedStatusAction) ToTlsInspectionConfigurationRevokedStatusActionPtrOutputWithContext(ctx context.Context) TlsInspectionConfigurationRevokedStatusActionPtrOutput {
+	return TlsInspectionConfigurationRevokedStatusAction(e).ToTlsInspectionConfigurationRevokedStatusActionOutputWithContext(ctx).ToTlsInspectionConfigurationRevokedStatusActionPtrOutputWithContext(ctx)
+}
+
+func (e TlsInspectionConfigurationRevokedStatusAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TlsInspectionConfigurationRevokedStatusAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TlsInspectionConfigurationRevokedStatusAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TlsInspectionConfigurationRevokedStatusAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TlsInspectionConfigurationRevokedStatusActionOutput struct{ *pulumi.OutputState }
+
+func (TlsInspectionConfigurationRevokedStatusActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TlsInspectionConfigurationRevokedStatusAction)(nil)).Elem()
+}
+
+func (o TlsInspectionConfigurationRevokedStatusActionOutput) ToTlsInspectionConfigurationRevokedStatusActionOutput() TlsInspectionConfigurationRevokedStatusActionOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationRevokedStatusActionOutput) ToTlsInspectionConfigurationRevokedStatusActionOutputWithContext(ctx context.Context) TlsInspectionConfigurationRevokedStatusActionOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationRevokedStatusActionOutput) ToTlsInspectionConfigurationRevokedStatusActionPtrOutput() TlsInspectionConfigurationRevokedStatusActionPtrOutput {
+	return o.ToTlsInspectionConfigurationRevokedStatusActionPtrOutputWithContext(context.Background())
+}
+
+func (o TlsInspectionConfigurationRevokedStatusActionOutput) ToTlsInspectionConfigurationRevokedStatusActionPtrOutputWithContext(ctx context.Context) TlsInspectionConfigurationRevokedStatusActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TlsInspectionConfigurationRevokedStatusAction) *TlsInspectionConfigurationRevokedStatusAction {
+		return &v
+	}).(TlsInspectionConfigurationRevokedStatusActionPtrOutput)
+}
+
+func (o TlsInspectionConfigurationRevokedStatusActionOutput) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationRevokedStatusAction] {
+	return pulumix.Output[TlsInspectionConfigurationRevokedStatusAction]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TlsInspectionConfigurationRevokedStatusActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TlsInspectionConfigurationRevokedStatusActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TlsInspectionConfigurationRevokedStatusAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TlsInspectionConfigurationRevokedStatusActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TlsInspectionConfigurationRevokedStatusActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TlsInspectionConfigurationRevokedStatusAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TlsInspectionConfigurationRevokedStatusActionPtrOutput struct{ *pulumi.OutputState }
+
+func (TlsInspectionConfigurationRevokedStatusActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TlsInspectionConfigurationRevokedStatusAction)(nil)).Elem()
+}
+
+func (o TlsInspectionConfigurationRevokedStatusActionPtrOutput) ToTlsInspectionConfigurationRevokedStatusActionPtrOutput() TlsInspectionConfigurationRevokedStatusActionPtrOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationRevokedStatusActionPtrOutput) ToTlsInspectionConfigurationRevokedStatusActionPtrOutputWithContext(ctx context.Context) TlsInspectionConfigurationRevokedStatusActionPtrOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationRevokedStatusActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TlsInspectionConfigurationRevokedStatusAction] {
+	return pulumix.Output[*TlsInspectionConfigurationRevokedStatusAction]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TlsInspectionConfigurationRevokedStatusActionPtrOutput) Elem() TlsInspectionConfigurationRevokedStatusActionOutput {
+	return o.ApplyT(func(v *TlsInspectionConfigurationRevokedStatusAction) TlsInspectionConfigurationRevokedStatusAction {
+		if v != nil {
+			return *v
+		}
+		var ret TlsInspectionConfigurationRevokedStatusAction
+		return ret
+	}).(TlsInspectionConfigurationRevokedStatusActionOutput)
+}
+
+func (o TlsInspectionConfigurationRevokedStatusActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TlsInspectionConfigurationRevokedStatusActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TlsInspectionConfigurationRevokedStatusAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TlsInspectionConfigurationRevokedStatusActionInput is an input type that accepts TlsInspectionConfigurationRevokedStatusActionArgs and TlsInspectionConfigurationRevokedStatusActionOutput values.
+// You can construct a concrete instance of `TlsInspectionConfigurationRevokedStatusActionInput` via:
+//
+//	TlsInspectionConfigurationRevokedStatusActionArgs{...}
+type TlsInspectionConfigurationRevokedStatusActionInput interface {
+	pulumi.Input
+
+	ToTlsInspectionConfigurationRevokedStatusActionOutput() TlsInspectionConfigurationRevokedStatusActionOutput
+	ToTlsInspectionConfigurationRevokedStatusActionOutputWithContext(context.Context) TlsInspectionConfigurationRevokedStatusActionOutput
+}
+
+var tlsInspectionConfigurationRevokedStatusActionPtrType = reflect.TypeOf((**TlsInspectionConfigurationRevokedStatusAction)(nil)).Elem()
+
+type TlsInspectionConfigurationRevokedStatusActionPtrInput interface {
+	pulumi.Input
+
+	ToTlsInspectionConfigurationRevokedStatusActionPtrOutput() TlsInspectionConfigurationRevokedStatusActionPtrOutput
+	ToTlsInspectionConfigurationRevokedStatusActionPtrOutputWithContext(context.Context) TlsInspectionConfigurationRevokedStatusActionPtrOutput
+}
+
+type tlsInspectionConfigurationRevokedStatusActionPtr string
+
+func TlsInspectionConfigurationRevokedStatusActionPtr(v string) TlsInspectionConfigurationRevokedStatusActionPtrInput {
+	return (*tlsInspectionConfigurationRevokedStatusActionPtr)(&v)
+}
+
+func (*tlsInspectionConfigurationRevokedStatusActionPtr) ElementType() reflect.Type {
+	return tlsInspectionConfigurationRevokedStatusActionPtrType
+}
+
+func (in *tlsInspectionConfigurationRevokedStatusActionPtr) ToTlsInspectionConfigurationRevokedStatusActionPtrOutput() TlsInspectionConfigurationRevokedStatusActionPtrOutput {
+	return pulumi.ToOutput(in).(TlsInspectionConfigurationRevokedStatusActionPtrOutput)
+}
+
+func (in *tlsInspectionConfigurationRevokedStatusActionPtr) ToTlsInspectionConfigurationRevokedStatusActionPtrOutputWithContext(ctx context.Context) TlsInspectionConfigurationRevokedStatusActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TlsInspectionConfigurationRevokedStatusActionPtrOutput)
+}
+
+func (in *tlsInspectionConfigurationRevokedStatusActionPtr) ToOutput(ctx context.Context) pulumix.Output[*TlsInspectionConfigurationRevokedStatusAction] {
+	return pulumix.Output[*TlsInspectionConfigurationRevokedStatusAction]{
+		OutputState: in.ToTlsInspectionConfigurationRevokedStatusActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type TlsInspectionConfigurationUnknownStatusAction string
+
+const (
+	TlsInspectionConfigurationUnknownStatusActionPass   = TlsInspectionConfigurationUnknownStatusAction("PASS")
+	TlsInspectionConfigurationUnknownStatusActionDrop   = TlsInspectionConfigurationUnknownStatusAction("DROP")
+	TlsInspectionConfigurationUnknownStatusActionReject = TlsInspectionConfigurationUnknownStatusAction("REJECT")
+)
+
+func (TlsInspectionConfigurationUnknownStatusAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*TlsInspectionConfigurationUnknownStatusAction)(nil)).Elem()
+}
+
+func (e TlsInspectionConfigurationUnknownStatusAction) ToTlsInspectionConfigurationUnknownStatusActionOutput() TlsInspectionConfigurationUnknownStatusActionOutput {
+	return pulumi.ToOutput(e).(TlsInspectionConfigurationUnknownStatusActionOutput)
+}
+
+func (e TlsInspectionConfigurationUnknownStatusAction) ToTlsInspectionConfigurationUnknownStatusActionOutputWithContext(ctx context.Context) TlsInspectionConfigurationUnknownStatusActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TlsInspectionConfigurationUnknownStatusActionOutput)
+}
+
+func (e TlsInspectionConfigurationUnknownStatusAction) ToTlsInspectionConfigurationUnknownStatusActionPtrOutput() TlsInspectionConfigurationUnknownStatusActionPtrOutput {
+	return e.ToTlsInspectionConfigurationUnknownStatusActionPtrOutputWithContext(context.Background())
+}
+
+func (e TlsInspectionConfigurationUnknownStatusAction) ToTlsInspectionConfigurationUnknownStatusActionPtrOutputWithContext(ctx context.Context) TlsInspectionConfigurationUnknownStatusActionPtrOutput {
+	return TlsInspectionConfigurationUnknownStatusAction(e).ToTlsInspectionConfigurationUnknownStatusActionOutputWithContext(ctx).ToTlsInspectionConfigurationUnknownStatusActionPtrOutputWithContext(ctx)
+}
+
+func (e TlsInspectionConfigurationUnknownStatusAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TlsInspectionConfigurationUnknownStatusAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TlsInspectionConfigurationUnknownStatusAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TlsInspectionConfigurationUnknownStatusAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TlsInspectionConfigurationUnknownStatusActionOutput struct{ *pulumi.OutputState }
+
+func (TlsInspectionConfigurationUnknownStatusActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TlsInspectionConfigurationUnknownStatusAction)(nil)).Elem()
+}
+
+func (o TlsInspectionConfigurationUnknownStatusActionOutput) ToTlsInspectionConfigurationUnknownStatusActionOutput() TlsInspectionConfigurationUnknownStatusActionOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationUnknownStatusActionOutput) ToTlsInspectionConfigurationUnknownStatusActionOutputWithContext(ctx context.Context) TlsInspectionConfigurationUnknownStatusActionOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationUnknownStatusActionOutput) ToTlsInspectionConfigurationUnknownStatusActionPtrOutput() TlsInspectionConfigurationUnknownStatusActionPtrOutput {
+	return o.ToTlsInspectionConfigurationUnknownStatusActionPtrOutputWithContext(context.Background())
+}
+
+func (o TlsInspectionConfigurationUnknownStatusActionOutput) ToTlsInspectionConfigurationUnknownStatusActionPtrOutputWithContext(ctx context.Context) TlsInspectionConfigurationUnknownStatusActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TlsInspectionConfigurationUnknownStatusAction) *TlsInspectionConfigurationUnknownStatusAction {
+		return &v
+	}).(TlsInspectionConfigurationUnknownStatusActionPtrOutput)
+}
+
+func (o TlsInspectionConfigurationUnknownStatusActionOutput) ToOutput(ctx context.Context) pulumix.Output[TlsInspectionConfigurationUnknownStatusAction] {
+	return pulumix.Output[TlsInspectionConfigurationUnknownStatusAction]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TlsInspectionConfigurationUnknownStatusActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TlsInspectionConfigurationUnknownStatusActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TlsInspectionConfigurationUnknownStatusAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TlsInspectionConfigurationUnknownStatusActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TlsInspectionConfigurationUnknownStatusActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TlsInspectionConfigurationUnknownStatusAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TlsInspectionConfigurationUnknownStatusActionPtrOutput struct{ *pulumi.OutputState }
+
+func (TlsInspectionConfigurationUnknownStatusActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TlsInspectionConfigurationUnknownStatusAction)(nil)).Elem()
+}
+
+func (o TlsInspectionConfigurationUnknownStatusActionPtrOutput) ToTlsInspectionConfigurationUnknownStatusActionPtrOutput() TlsInspectionConfigurationUnknownStatusActionPtrOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationUnknownStatusActionPtrOutput) ToTlsInspectionConfigurationUnknownStatusActionPtrOutputWithContext(ctx context.Context) TlsInspectionConfigurationUnknownStatusActionPtrOutput {
+	return o
+}
+
+func (o TlsInspectionConfigurationUnknownStatusActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TlsInspectionConfigurationUnknownStatusAction] {
+	return pulumix.Output[*TlsInspectionConfigurationUnknownStatusAction]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o TlsInspectionConfigurationUnknownStatusActionPtrOutput) Elem() TlsInspectionConfigurationUnknownStatusActionOutput {
+	return o.ApplyT(func(v *TlsInspectionConfigurationUnknownStatusAction) TlsInspectionConfigurationUnknownStatusAction {
+		if v != nil {
+			return *v
+		}
+		var ret TlsInspectionConfigurationUnknownStatusAction
+		return ret
+	}).(TlsInspectionConfigurationUnknownStatusActionOutput)
+}
+
+func (o TlsInspectionConfigurationUnknownStatusActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TlsInspectionConfigurationUnknownStatusActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TlsInspectionConfigurationUnknownStatusAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TlsInspectionConfigurationUnknownStatusActionInput is an input type that accepts TlsInspectionConfigurationUnknownStatusActionArgs and TlsInspectionConfigurationUnknownStatusActionOutput values.
+// You can construct a concrete instance of `TlsInspectionConfigurationUnknownStatusActionInput` via:
+//
+//	TlsInspectionConfigurationUnknownStatusActionArgs{...}
+type TlsInspectionConfigurationUnknownStatusActionInput interface {
+	pulumi.Input
+
+	ToTlsInspectionConfigurationUnknownStatusActionOutput() TlsInspectionConfigurationUnknownStatusActionOutput
+	ToTlsInspectionConfigurationUnknownStatusActionOutputWithContext(context.Context) TlsInspectionConfigurationUnknownStatusActionOutput
+}
+
+var tlsInspectionConfigurationUnknownStatusActionPtrType = reflect.TypeOf((**TlsInspectionConfigurationUnknownStatusAction)(nil)).Elem()
+
+type TlsInspectionConfigurationUnknownStatusActionPtrInput interface {
+	pulumi.Input
+
+	ToTlsInspectionConfigurationUnknownStatusActionPtrOutput() TlsInspectionConfigurationUnknownStatusActionPtrOutput
+	ToTlsInspectionConfigurationUnknownStatusActionPtrOutputWithContext(context.Context) TlsInspectionConfigurationUnknownStatusActionPtrOutput
+}
+
+type tlsInspectionConfigurationUnknownStatusActionPtr string
+
+func TlsInspectionConfigurationUnknownStatusActionPtr(v string) TlsInspectionConfigurationUnknownStatusActionPtrInput {
+	return (*tlsInspectionConfigurationUnknownStatusActionPtr)(&v)
+}
+
+func (*tlsInspectionConfigurationUnknownStatusActionPtr) ElementType() reflect.Type {
+	return tlsInspectionConfigurationUnknownStatusActionPtrType
+}
+
+func (in *tlsInspectionConfigurationUnknownStatusActionPtr) ToTlsInspectionConfigurationUnknownStatusActionPtrOutput() TlsInspectionConfigurationUnknownStatusActionPtrOutput {
+	return pulumi.ToOutput(in).(TlsInspectionConfigurationUnknownStatusActionPtrOutput)
+}
+
+func (in *tlsInspectionConfigurationUnknownStatusActionPtr) ToTlsInspectionConfigurationUnknownStatusActionPtrOutputWithContext(ctx context.Context) TlsInspectionConfigurationUnknownStatusActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TlsInspectionConfigurationUnknownStatusActionPtrOutput)
+}
+
+func (in *tlsInspectionConfigurationUnknownStatusActionPtr) ToOutput(ctx context.Context) pulumix.Output[*TlsInspectionConfigurationUnknownStatusAction] {
+	return pulumix.Output[*TlsInspectionConfigurationUnknownStatusAction]{
+		OutputState: in.ToTlsInspectionConfigurationUnknownStatusActionPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyOverrideActionInput)(nil)).Elem(), FirewallPolicyOverrideAction("DROP_TO_ALERT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyOverrideActionPtrInput)(nil)).Elem(), FirewallPolicyOverrideAction("DROP_TO_ALERT"))
@@ -2546,6 +2912,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTcpFlagArrayInput)(nil)).Elem(), RuleGroupTcpFlagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTypeEnumInput)(nil)).Elem(), RuleGroupTypeEnum("STATELESS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupTypeEnumPtrInput)(nil)).Elem(), RuleGroupTypeEnum("STATELESS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationRevokedStatusActionInput)(nil)).Elem(), TlsInspectionConfigurationRevokedStatusAction("PASS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationRevokedStatusActionPtrInput)(nil)).Elem(), TlsInspectionConfigurationRevokedStatusAction("PASS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationUnknownStatusActionInput)(nil)).Elem(), TlsInspectionConfigurationUnknownStatusAction("PASS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationUnknownStatusActionPtrInput)(nil)).Elem(), TlsInspectionConfigurationUnknownStatusAction("PASS"))
 	pulumi.RegisterOutputType(FirewallPolicyOverrideActionOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyOverrideActionPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyRuleOrderOutput{})
@@ -2574,4 +2944,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleGroupTcpFlagArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupTypeEnumOutput{})
 	pulumi.RegisterOutputType(RuleGroupTypeEnumPtrOutput{})
+	pulumi.RegisterOutputType(TlsInspectionConfigurationRevokedStatusActionOutput{})
+	pulumi.RegisterOutputType(TlsInspectionConfigurationRevokedStatusActionPtrOutput{})
+	pulumi.RegisterOutputType(TlsInspectionConfigurationUnknownStatusActionOutput{})
+	pulumi.RegisterOutputType(TlsInspectionConfigurationUnknownStatusActionPtrOutput{})
 }

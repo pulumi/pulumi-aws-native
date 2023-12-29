@@ -14,10 +14,12 @@ from ._enums import *
 __all__ = [
     'ApplicationAutoStartConfiguration',
     'ApplicationAutoStopConfiguration',
+    'ApplicationCloudWatchLoggingConfiguration',
     'ApplicationConfigurationObject',
     'ApplicationImageConfigurationInput',
     'ApplicationInitialCapacityConfig',
     'ApplicationInitialCapacityConfigKeyValuePair',
+    'ApplicationLogTypeMapKeyValuePair',
     'ApplicationManagedPersistenceMonitoringConfiguration',
     'ApplicationMaximumAllowedResources',
     'ApplicationMonitoringConfiguration',
@@ -101,6 +103,96 @@ class ApplicationAutoStopConfiguration(dict):
         The amount of time [in minutes] to wait before auto stopping the Application when idle. Defaults to 15 minutes.
         """
         return pulumi.get(self, "idle_timeout_minutes")
+
+
+@pulumi.output_type
+class ApplicationCloudWatchLoggingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionKeyArn":
+            suggest = "encryption_key_arn"
+        elif key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logStreamNamePrefix":
+            suggest = "log_stream_name_prefix"
+        elif key == "logTypeMap":
+            suggest = "log_type_map"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationCloudWatchLoggingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationCloudWatchLoggingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationCloudWatchLoggingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 encryption_key_arn: Optional[str] = None,
+                 log_group_name: Optional[str] = None,
+                 log_stream_name_prefix: Optional[str] = None,
+                 log_type_map: Optional[Sequence['outputs.ApplicationLogTypeMapKeyValuePair']] = None):
+        """
+        :param bool enabled: If set to false, CloudWatch logging will be turned off. Defaults to false.
+        :param str encryption_key_arn: KMS key ARN to encrypt the logs stored in given CloudWatch log-group.
+        :param str log_group_name: Log-group name to produce log-streams on CloudWatch. If undefined, logs will be produced in a default log-group /aws/emr-serverless
+        :param str log_stream_name_prefix: Log-stream name prefix by which log-stream names will start in the CloudWatch Log-group.
+        :param Sequence['ApplicationLogTypeMapKeyValuePair'] log_type_map: The specific log-streams which need to be uploaded to CloudWatch.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if encryption_key_arn is not None:
+            pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+        if log_stream_name_prefix is not None:
+            pulumi.set(__self__, "log_stream_name_prefix", log_stream_name_prefix)
+        if log_type_map is not None:
+            pulumi.set(__self__, "log_type_map", log_type_map)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        If set to false, CloudWatch logging will be turned off. Defaults to false.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="encryptionKeyArn")
+    def encryption_key_arn(self) -> Optional[str]:
+        """
+        KMS key ARN to encrypt the logs stored in given CloudWatch log-group.
+        """
+        return pulumi.get(self, "encryption_key_arn")
+
+    @property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[str]:
+        """
+        Log-group name to produce log-streams on CloudWatch. If undefined, logs will be produced in a default log-group /aws/emr-serverless
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @property
+    @pulumi.getter(name="logStreamNamePrefix")
+    def log_stream_name_prefix(self) -> Optional[str]:
+        """
+        Log-stream name prefix by which log-stream names will start in the CloudWatch Log-group.
+        """
+        return pulumi.get(self, "log_stream_name_prefix")
+
+    @property
+    @pulumi.getter(name="logTypeMap")
+    def log_type_map(self) -> Optional[Sequence['outputs.ApplicationLogTypeMapKeyValuePair']]:
+        """
+        The specific log-streams which need to be uploaded to CloudWatch.
+        """
+        return pulumi.get(self, "log_type_map")
 
 
 @pulumi.output_type
@@ -251,6 +343,25 @@ class ApplicationInitialCapacityConfigKeyValuePair(dict):
 
 
 @pulumi.output_type
+class ApplicationLogTypeMapKeyValuePair(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: Sequence[str]):
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Sequence[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class ApplicationManagedPersistenceMonitoringConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -347,7 +458,9 @@ class ApplicationMonitoringConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "managedPersistenceMonitoringConfiguration":
+        if key == "cloudWatchLoggingConfiguration":
+            suggest = "cloud_watch_logging_configuration"
+        elif key == "managedPersistenceMonitoringConfiguration":
             suggest = "managed_persistence_monitoring_configuration"
         elif key == "s3MonitoringConfiguration":
             suggest = "s3_monitoring_configuration"
@@ -364,17 +477,29 @@ class ApplicationMonitoringConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 cloud_watch_logging_configuration: Optional['outputs.ApplicationCloudWatchLoggingConfiguration'] = None,
                  managed_persistence_monitoring_configuration: Optional['outputs.ApplicationManagedPersistenceMonitoringConfiguration'] = None,
                  s3_monitoring_configuration: Optional['outputs.ApplicationS3MonitoringConfiguration'] = None):
         """
         Monitoring configuration for batch and interactive JobRun.
+        :param 'ApplicationCloudWatchLoggingConfiguration' cloud_watch_logging_configuration: CloudWatch logging configurations for a JobRun.
         :param 'ApplicationManagedPersistenceMonitoringConfiguration' managed_persistence_monitoring_configuration: Managed log persistence configurations for a JobRun.
         :param 'ApplicationS3MonitoringConfiguration' s3_monitoring_configuration: S3 monitoring configurations for a JobRun.
         """
+        if cloud_watch_logging_configuration is not None:
+            pulumi.set(__self__, "cloud_watch_logging_configuration", cloud_watch_logging_configuration)
         if managed_persistence_monitoring_configuration is not None:
             pulumi.set(__self__, "managed_persistence_monitoring_configuration", managed_persistence_monitoring_configuration)
         if s3_monitoring_configuration is not None:
             pulumi.set(__self__, "s3_monitoring_configuration", s3_monitoring_configuration)
+
+    @property
+    @pulumi.getter(name="cloudWatchLoggingConfiguration")
+    def cloud_watch_logging_configuration(self) -> Optional['outputs.ApplicationCloudWatchLoggingConfiguration']:
+        """
+        CloudWatch logging configurations for a JobRun.
+        """
+        return pulumi.get(self, "cloud_watch_logging_configuration")
 
     @property
     @pulumi.getter(name="managedPersistenceMonitoringConfiguration")

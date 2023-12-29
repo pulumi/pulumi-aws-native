@@ -54,6 +54,7 @@ __all__ = [
     'DeliveryStreamS3DestinationConfiguration',
     'DeliveryStreamSchemaConfiguration',
     'DeliveryStreamSerializer',
+    'DeliveryStreamSplunkBufferingHints',
     'DeliveryStreamSplunkDestinationConfiguration',
     'DeliveryStreamSplunkRetryOptions',
     'DeliveryStreamTag',
@@ -2385,6 +2386,46 @@ class DeliveryStreamSerializer(dict):
 
 
 @pulumi.output_type
+class DeliveryStreamSplunkBufferingHints(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intervalInSeconds":
+            suggest = "interval_in_seconds"
+        elif key == "sizeInMbs":
+            suggest = "size_in_mbs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamSplunkBufferingHints. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamSplunkBufferingHints.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamSplunkBufferingHints.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 interval_in_seconds: Optional[int] = None,
+                 size_in_mbs: Optional[int] = None):
+        if interval_in_seconds is not None:
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+        if size_in_mbs is not None:
+            pulumi.set(__self__, "size_in_mbs", size_in_mbs)
+
+    @property
+    @pulumi.getter(name="intervalInSeconds")
+    def interval_in_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "interval_in_seconds")
+
+    @property
+    @pulumi.getter(name="sizeInMbs")
+    def size_in_mbs(self) -> Optional[int]:
+        return pulumi.get(self, "size_in_mbs")
+
+
+@pulumi.output_type
 class DeliveryStreamSplunkDestinationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2397,6 +2438,8 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
             suggest = "hec_token"
         elif key == "s3Configuration":
             suggest = "s3_configuration"
+        elif key == "bufferingHints":
+            suggest = "buffering_hints"
         elif key == "cloudWatchLoggingOptions":
             suggest = "cloud_watch_logging_options"
         elif key == "hecAcknowledgmentTimeoutInSeconds":
@@ -2424,6 +2467,7 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
                  hec_endpoint_type: 'DeliveryStreamSplunkDestinationConfigurationHecEndpointType',
                  hec_token: str,
                  s3_configuration: 'outputs.DeliveryStreamS3DestinationConfiguration',
+                 buffering_hints: Optional['outputs.DeliveryStreamSplunkBufferingHints'] = None,
                  cloud_watch_logging_options: Optional['outputs.DeliveryStreamCloudWatchLoggingOptions'] = None,
                  hec_acknowledgment_timeout_in_seconds: Optional[int] = None,
                  processing_configuration: Optional['outputs.DeliveryStreamProcessingConfiguration'] = None,
@@ -2433,6 +2477,8 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
         pulumi.set(__self__, "hec_endpoint_type", hec_endpoint_type)
         pulumi.set(__self__, "hec_token", hec_token)
         pulumi.set(__self__, "s3_configuration", s3_configuration)
+        if buffering_hints is not None:
+            pulumi.set(__self__, "buffering_hints", buffering_hints)
         if cloud_watch_logging_options is not None:
             pulumi.set(__self__, "cloud_watch_logging_options", cloud_watch_logging_options)
         if hec_acknowledgment_timeout_in_seconds is not None:
@@ -2463,6 +2509,11 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> 'outputs.DeliveryStreamS3DestinationConfiguration':
         return pulumi.get(self, "s3_configuration")
+
+    @property
+    @pulumi.getter(name="bufferingHints")
+    def buffering_hints(self) -> Optional['outputs.DeliveryStreamSplunkBufferingHints']:
+        return pulumi.get(self, "buffering_hints")
 
     @property
     @pulumi.getter(name="cloudWatchLoggingOptions")

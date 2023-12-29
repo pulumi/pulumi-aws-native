@@ -44,7 +44,7 @@
     "Type" : {
       "description" : "The phone number type",
       "type" : "string",
-      "pattern" : "TOLL_FREE|DID|UIFN|SHARED|THIRD_PARTY_DID|THIRD_PARTY_TF"
+      "pattern" : "TOLL_FREE|DID|UIFN|SHARED|THIRD_PARTY_DID|THIRD_PARTY_TF|SHORT_CODE"
     },
     "CountryCode" : {
       "description" : "The phone number country code.",
@@ -70,6 +70,10 @@
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
+    },
+    "SourcePhoneNumberArn" : {
+      "description" : "The source phone number arn.",
+      "type" : "string"
     }
   },
   "tagging" : {
@@ -79,10 +83,10 @@
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags"
   },
-  "required" : [ "TargetArn", "Type", "CountryCode" ],
+  "required" : [ "TargetArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "connect:ClaimPhoneNumber", "connect:SearchAvailablePhoneNumbers", "connect:DescribePhoneNumber", "connect:TagResource" ]
+      "permissions" : [ "connect:ClaimPhoneNumber", "connect:SearchAvailablePhoneNumbers", "connect:DescribePhoneNumber", "connect:TagResource", "connect:ImportPhoneNumber", "sms-voice:DescribePhoneNumbers" ]
     },
     "read" : {
       "permissions" : [ "connect:DescribePhoneNumber" ]
@@ -92,11 +96,22 @@
     },
     "update" : {
       "permissions" : [ "connect:UpdatePhoneNumber", "connect:UpdatePhoneNumberMetadata", "connect:DescribePhoneNumber", "connect:TagResource", "connect:UntagResource" ]
+    },
+    "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "TargetArn" : {
+            "$ref" : "resource-schema.json#/properties/TargetArn"
+          }
+        },
+        "required" : [ "TargetArn" ]
+      },
+      "permissions" : [ "connect:ListPhoneNumbersV2" ]
     }
   },
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/PhoneNumberArn" ],
   "readOnlyProperties" : [ "/properties/PhoneNumberArn", "/properties/Address" ],
   "writeOnlyProperties" : [ "/properties/Prefix" ],
-  "createOnlyProperties" : [ "/properties/Type", "/properties/CountryCode", "/properties/Prefix" ]
+  "createOnlyProperties" : [ "/properties/Type", "/properties/CountryCode", "/properties/Prefix", "/properties/SourcePhoneNumberArn" ]
 }

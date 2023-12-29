@@ -13,12 +13,12 @@ namespace Pulumi.AwsNative.Redshift.Outputs
     [OutputType]
     public sealed class ClusterLoggingProperties
     {
-        public readonly string BucketName;
+        public readonly string? BucketName;
         public readonly string? S3KeyPrefix;
 
         [OutputConstructor]
         private ClusterLoggingProperties(
-            string bucketName,
+            string? bucketName,
 
             string? s3KeyPrefix)
         {

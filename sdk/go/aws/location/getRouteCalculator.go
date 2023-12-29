@@ -28,10 +28,14 @@ type LookupRouteCalculatorArgs struct {
 }
 
 type LookupRouteCalculatorResult struct {
-	Arn           *string `pulumi:"arn"`
-	CalculatorArn *string `pulumi:"calculatorArn"`
-	CreateTime    *string `pulumi:"createTime"`
-	UpdateTime    *string `pulumi:"updateTime"`
+	Arn           *string                     `pulumi:"arn"`
+	CalculatorArn *string                     `pulumi:"calculatorArn"`
+	CreateTime    *string                     `pulumi:"createTime"`
+	Description   *string                     `pulumi:"description"`
+	PricingPlan   *RouteCalculatorPricingPlan `pulumi:"pricingPlan"`
+	// An array of key-value pairs to apply to this resource.
+	Tags       []RouteCalculatorTag `pulumi:"tags"`
+	UpdateTime *string              `pulumi:"updateTime"`
 }
 
 func LookupRouteCalculatorOutput(ctx *pulumi.Context, args LookupRouteCalculatorOutputArgs, opts ...pulumi.InvokeOption) LookupRouteCalculatorResultOutput {
@@ -85,6 +89,19 @@ func (o LookupRouteCalculatorResultOutput) CalculatorArn() pulumi.StringPtrOutpu
 
 func (o LookupRouteCalculatorResultOutput) CreateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouteCalculatorResult) *string { return v.CreateTime }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupRouteCalculatorResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRouteCalculatorResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupRouteCalculatorResultOutput) PricingPlan() RouteCalculatorPricingPlanPtrOutput {
+	return o.ApplyT(func(v LookupRouteCalculatorResult) *RouteCalculatorPricingPlan { return v.PricingPlan }).(RouteCalculatorPricingPlanPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupRouteCalculatorResultOutput) Tags() RouteCalculatorTagArrayOutput {
+	return o.ApplyT(func(v LookupRouteCalculatorResult) []RouteCalculatorTag { return v.Tags }).(RouteCalculatorTagArrayOutput)
 }
 
 func (o LookupRouteCalculatorResultOutput) UpdateTime() pulumi.StringPtrOutput {

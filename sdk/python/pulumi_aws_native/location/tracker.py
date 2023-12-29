@@ -8,7 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['TrackerArgs', 'Tracker']
 
@@ -16,16 +18,24 @@ __all__ = ['TrackerArgs', 'Tracker']
 class TrackerArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
+                 event_bridge_enabled: Optional[pulumi.Input[bool]] = None,
+                 kms_key_enable_geospatial_queries: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  position_filtering: Optional[pulumi.Input['TrackerPositionFiltering']] = None,
                  pricing_plan: Optional[pulumi.Input['TrackerPricingPlan']] = None,
                  pricing_plan_data_source: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TrackerTagArgs']]]] = None,
                  tracker_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Tracker resource.
+        :param pulumi.Input[Sequence[pulumi.Input['TrackerTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if event_bridge_enabled is not None:
+            pulumi.set(__self__, "event_bridge_enabled", event_bridge_enabled)
+        if kms_key_enable_geospatial_queries is not None:
+            pulumi.set(__self__, "kms_key_enable_geospatial_queries", kms_key_enable_geospatial_queries)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if position_filtering is not None:
@@ -34,6 +44,8 @@ class TrackerArgs:
             pulumi.set(__self__, "pricing_plan", pricing_plan)
         if pricing_plan_data_source is not None:
             pulumi.set(__self__, "pricing_plan_data_source", pricing_plan_data_source)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if tracker_name is not None:
             pulumi.set(__self__, "tracker_name", tracker_name)
 
@@ -45,6 +57,24 @@ class TrackerArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="eventBridgeEnabled")
+    def event_bridge_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "event_bridge_enabled")
+
+    @event_bridge_enabled.setter
+    def event_bridge_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "event_bridge_enabled", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyEnableGeospatialQueries")
+    def kms_key_enable_geospatial_queries(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "kms_key_enable_geospatial_queries")
+
+    @kms_key_enable_geospatial_queries.setter
+    def kms_key_enable_geospatial_queries(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "kms_key_enable_geospatial_queries", value)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -83,6 +113,18 @@ class TrackerArgs:
         pulumi.set(self, "pricing_plan_data_source", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrackerTagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrackerTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
     @pulumi.getter(name="trackerName")
     def tracker_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "tracker_name")
@@ -98,10 +140,13 @@ class Tracker(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 event_bridge_enabled: Optional[pulumi.Input[bool]] = None,
+                 kms_key_enable_geospatial_queries: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  position_filtering: Optional[pulumi.Input['TrackerPositionFiltering']] = None,
                  pricing_plan: Optional[pulumi.Input['TrackerPricingPlan']] = None,
                  pricing_plan_data_source: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrackerTagArgs']]]]] = None,
                  tracker_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -109,6 +154,7 @@ class Tracker(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrackerTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -135,10 +181,13 @@ class Tracker(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 event_bridge_enabled: Optional[pulumi.Input[bool]] = None,
+                 kms_key_enable_geospatial_queries: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  position_filtering: Optional[pulumi.Input['TrackerPositionFiltering']] = None,
                  pricing_plan: Optional[pulumi.Input['TrackerPricingPlan']] = None,
                  pricing_plan_data_source: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrackerTagArgs']]]]] = None,
                  tracker_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -150,16 +199,19 @@ class Tracker(pulumi.CustomResource):
             __props__ = TrackerArgs.__new__(TrackerArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["event_bridge_enabled"] = event_bridge_enabled
+            __props__.__dict__["kms_key_enable_geospatial_queries"] = kms_key_enable_geospatial_queries
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["position_filtering"] = position_filtering
             __props__.__dict__["pricing_plan"] = pricing_plan
             __props__.__dict__["pricing_plan_data_source"] = pricing_plan_data_source
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["tracker_name"] = tracker_name
             __props__.__dict__["arn"] = None
             __props__.__dict__["create_time"] = None
             __props__.__dict__["tracker_arn"] = None
             __props__.__dict__["update_time"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "kms_key_id", "position_filtering", "tracker_name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kms_key_id", "tracker_name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Tracker, __self__).__init__(
             'aws-native:location:Tracker',
@@ -186,10 +238,13 @@ class Tracker(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["create_time"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["event_bridge_enabled"] = None
+        __props__.__dict__["kms_key_enable_geospatial_queries"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["position_filtering"] = None
         __props__.__dict__["pricing_plan"] = None
         __props__.__dict__["pricing_plan_data_source"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["tracker_arn"] = None
         __props__.__dict__["tracker_name"] = None
         __props__.__dict__["update_time"] = None
@@ -211,6 +266,16 @@ class Tracker(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="eventBridgeEnabled")
+    def event_bridge_enabled(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "event_bridge_enabled")
+
+    @property
+    @pulumi.getter(name="kmsKeyEnableGeospatialQueries")
+    def kms_key_enable_geospatial_queries(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "kms_key_enable_geospatial_queries")
+
+    @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "kms_key_id")
@@ -229,6 +294,14 @@ class Tracker(pulumi.CustomResource):
     @pulumi.getter(name="pricingPlanDataSource")
     def pricing_plan_data_source(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "pricing_plan_data_source")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['outputs.TrackerTag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="trackerArn")

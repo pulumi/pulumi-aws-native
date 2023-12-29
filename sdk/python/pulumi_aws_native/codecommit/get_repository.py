@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRepositoryResult:
-    def __init__(__self__, arn=None, clone_url_http=None, clone_url_ssh=None, code=None, id=None, name=None, repository_description=None, repository_name=None, tags=None, triggers=None):
+    def __init__(__self__, arn=None, clone_url_http=None, clone_url_ssh=None, code=None, id=None, kms_key_id=None, name=None, repository_description=None, repository_name=None, tags=None, triggers=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -35,6 +35,9 @@ class GetRepositoryResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kms_key_id and not isinstance(kms_key_id, str):
+            raise TypeError("Expected argument 'kms_key_id' to be a str")
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -77,6 +80,11 @@ class GetRepositoryResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        return pulumi.get(self, "kms_key_id")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
@@ -113,6 +121,7 @@ class AwaitableGetRepositoryResult(GetRepositoryResult):
             clone_url_ssh=self.clone_url_ssh,
             code=self.code,
             id=self.id,
+            kms_key_id=self.kms_key_id,
             name=self.name,
             repository_description=self.repository_description,
             repository_name=self.repository_name,
@@ -136,6 +145,7 @@ def get_repository(id: Optional[str] = None,
         clone_url_ssh=pulumi.get(__ret__, 'clone_url_ssh'),
         code=pulumi.get(__ret__, 'code'),
         id=pulumi.get(__ret__, 'id'),
+        kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         name=pulumi.get(__ret__, 'name'),
         repository_description=pulumi.get(__ret__, 'repository_description'),
         repository_name=pulumi.get(__ret__, 'repository_name'),

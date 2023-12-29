@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Outputs
     public sealed class EndpointGroupEndpointConfiguration
     {
         /// <summary>
+        /// Attachment ARN that provides access control to the cross account endpoint. Not required for resources hosted in the same account as the endpoint group.
+        /// </summary>
+        public readonly string? AttachmentArn;
+        /// <summary>
         /// true if client ip should be preserved
         /// </summary>
         public readonly bool? ClientIpPreservationEnabled;
@@ -31,12 +35,15 @@ namespace Pulumi.AwsNative.GlobalAccelerator.Outputs
 
         [OutputConstructor]
         private EndpointGroupEndpointConfiguration(
+            string? attachmentArn,
+
             bool? clientIpPreservationEnabled,
 
             string endpointId,
 
             int? weight)
         {
+            AttachmentArn = attachmentArn;
             ClientIpPreservationEnabled = clientIpPreservationEnabled;
             EndpointId = endpointId;
             Weight = weight;

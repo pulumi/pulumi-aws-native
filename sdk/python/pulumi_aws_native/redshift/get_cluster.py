@@ -19,7 +19,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, allow_version_upgrade=None, aqua_configuration_status=None, automated_snapshot_retention_period=None, availability_zone=None, availability_zone_relocation=None, availability_zone_relocation_status=None, cluster_parameter_group_name=None, cluster_security_groups=None, cluster_type=None, cluster_version=None, defer_maintenance=None, defer_maintenance_duration=None, defer_maintenance_end_time=None, defer_maintenance_identifier=None, defer_maintenance_start_time=None, destination_region=None, elastic_ip=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, hsm_client_certificate_identifier=None, hsm_configuration_identifier=None, iam_roles=None, id=None, kms_key_id=None, logging_properties=None, maintenance_track_name=None, manual_snapshot_retention_period=None, multi_az=None, node_type=None, number_of_nodes=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, resource_action=None, revision_target=None, rotate_encryption_key=None, snapshot_copy_grant_name=None, snapshot_copy_manual=None, snapshot_copy_retention_period=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, allow_version_upgrade=None, aqua_configuration_status=None, automated_snapshot_retention_period=None, availability_zone=None, availability_zone_relocation=None, availability_zone_relocation_status=None, cluster_namespace_arn=None, cluster_parameter_group_name=None, cluster_security_groups=None, cluster_type=None, cluster_version=None, defer_maintenance_end_time=None, defer_maintenance_identifier=None, defer_maintenance_start_time=None, destination_region=None, elastic_ip=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, hsm_client_certificate_identifier=None, hsm_configuration_identifier=None, iam_roles=None, kms_key_id=None, logging_properties=None, maintenance_track_name=None, manual_snapshot_retention_period=None, master_password_secret_arn=None, master_password_secret_kms_key_id=None, multi_az=None, namespace_resource_policy=None, node_type=None, number_of_nodes=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, resource_action=None, revision_target=None, rotate_encryption_key=None, snapshot_copy_grant_name=None, snapshot_copy_manual=None, snapshot_copy_retention_period=None, tags=None, vpc_security_group_ids=None):
         if allow_version_upgrade and not isinstance(allow_version_upgrade, bool):
             raise TypeError("Expected argument 'allow_version_upgrade' to be a bool")
         pulumi.set(__self__, "allow_version_upgrade", allow_version_upgrade)
@@ -38,6 +38,9 @@ class GetClusterResult:
         if availability_zone_relocation_status and not isinstance(availability_zone_relocation_status, str):
             raise TypeError("Expected argument 'availability_zone_relocation_status' to be a str")
         pulumi.set(__self__, "availability_zone_relocation_status", availability_zone_relocation_status)
+        if cluster_namespace_arn and not isinstance(cluster_namespace_arn, str):
+            raise TypeError("Expected argument 'cluster_namespace_arn' to be a str")
+        pulumi.set(__self__, "cluster_namespace_arn", cluster_namespace_arn)
         if cluster_parameter_group_name and not isinstance(cluster_parameter_group_name, str):
             raise TypeError("Expected argument 'cluster_parameter_group_name' to be a str")
         pulumi.set(__self__, "cluster_parameter_group_name", cluster_parameter_group_name)
@@ -50,12 +53,6 @@ class GetClusterResult:
         if cluster_version and not isinstance(cluster_version, str):
             raise TypeError("Expected argument 'cluster_version' to be a str")
         pulumi.set(__self__, "cluster_version", cluster_version)
-        if defer_maintenance and not isinstance(defer_maintenance, bool):
-            raise TypeError("Expected argument 'defer_maintenance' to be a bool")
-        pulumi.set(__self__, "defer_maintenance", defer_maintenance)
-        if defer_maintenance_duration and not isinstance(defer_maintenance_duration, int):
-            raise TypeError("Expected argument 'defer_maintenance_duration' to be a int")
-        pulumi.set(__self__, "defer_maintenance_duration", defer_maintenance_duration)
         if defer_maintenance_end_time and not isinstance(defer_maintenance_end_time, str):
             raise TypeError("Expected argument 'defer_maintenance_end_time' to be a str")
         pulumi.set(__self__, "defer_maintenance_end_time", defer_maintenance_end_time)
@@ -89,9 +86,6 @@ class GetClusterResult:
         if iam_roles and not isinstance(iam_roles, list):
             raise TypeError("Expected argument 'iam_roles' to be a list")
         pulumi.set(__self__, "iam_roles", iam_roles)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
         pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -104,9 +98,18 @@ class GetClusterResult:
         if manual_snapshot_retention_period and not isinstance(manual_snapshot_retention_period, int):
             raise TypeError("Expected argument 'manual_snapshot_retention_period' to be a int")
         pulumi.set(__self__, "manual_snapshot_retention_period", manual_snapshot_retention_period)
+        if master_password_secret_arn and not isinstance(master_password_secret_arn, str):
+            raise TypeError("Expected argument 'master_password_secret_arn' to be a str")
+        pulumi.set(__self__, "master_password_secret_arn", master_password_secret_arn)
+        if master_password_secret_kms_key_id and not isinstance(master_password_secret_kms_key_id, str):
+            raise TypeError("Expected argument 'master_password_secret_kms_key_id' to be a str")
+        pulumi.set(__self__, "master_password_secret_kms_key_id", master_password_secret_kms_key_id)
         if multi_az and not isinstance(multi_az, bool):
             raise TypeError("Expected argument 'multi_az' to be a bool")
         pulumi.set(__self__, "multi_az", multi_az)
+        if namespace_resource_policy and not isinstance(namespace_resource_policy, dict):
+            raise TypeError("Expected argument 'namespace_resource_policy' to be a dict")
+        pulumi.set(__self__, "namespace_resource_policy", namespace_resource_policy)
         if node_type and not isinstance(node_type, str):
             raise TypeError("Expected argument 'node_type' to be a str")
         pulumi.set(__self__, "node_type", node_type)
@@ -200,6 +203,14 @@ class GetClusterResult:
         return pulumi.get(self, "availability_zone_relocation_status")
 
     @property
+    @pulumi.getter(name="clusterNamespaceArn")
+    def cluster_namespace_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the cluster namespace.
+        """
+        return pulumi.get(self, "cluster_namespace_arn")
+
+    @property
     @pulumi.getter(name="clusterParameterGroupName")
     def cluster_parameter_group_name(self) -> Optional[str]:
         """
@@ -230,22 +241,6 @@ class GetClusterResult:
         The version of the Amazon Redshift engine software that you want to deploy on the cluster.The version selected runs on all the nodes in the cluster.
         """
         return pulumi.get(self, "cluster_version")
-
-    @property
-    @pulumi.getter(name="deferMaintenance")
-    def defer_maintenance(self) -> Optional[bool]:
-        """
-        A boolean indicating whether to enable the deferred maintenance window.
-        """
-        return pulumi.get(self, "defer_maintenance")
-
-    @property
-    @pulumi.getter(name="deferMaintenanceDuration")
-    def defer_maintenance_duration(self) -> Optional[int]:
-        """
-        An integer indicating the duration of the maintenance window in days. If you specify a duration, you can't specify an end time. The duration must be 45 days or less.
-        """
-        return pulumi.get(self, "defer_maintenance_duration")
 
     @property
     @pulumi.getter(name="deferMaintenanceEndTime")
@@ -337,11 +332,6 @@ class GetClusterResult:
         return pulumi.get(self, "iam_roles")
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
         """
@@ -373,12 +363,36 @@ class GetClusterResult:
         return pulumi.get(self, "manual_snapshot_retention_period")
 
     @property
+    @pulumi.getter(name="masterPasswordSecretArn")
+    def master_password_secret_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the cluster's admin user credentials secret.
+        """
+        return pulumi.get(self, "master_password_secret_arn")
+
+    @property
+    @pulumi.getter(name="masterPasswordSecretKmsKeyId")
+    def master_password_secret_kms_key_id(self) -> Optional[str]:
+        """
+        The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin user credentials secret.
+        """
+        return pulumi.get(self, "master_password_secret_kms_key_id")
+
+    @property
     @pulumi.getter(name="multiAz")
     def multi_az(self) -> Optional[bool]:
         """
         A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.
         """
         return pulumi.get(self, "multi_az")
+
+    @property
+    @pulumi.getter(name="namespaceResourcePolicy")
+    def namespace_resource_policy(self) -> Optional[Any]:
+        """
+        The namespace resource policy document that will be attached to a Redshift cluster.
+        """
+        return pulumi.get(self, "namespace_resource_policy")
 
     @property
     @pulumi.getter(name="nodeType")
@@ -501,12 +515,11 @@ class AwaitableGetClusterResult(GetClusterResult):
             availability_zone=self.availability_zone,
             availability_zone_relocation=self.availability_zone_relocation,
             availability_zone_relocation_status=self.availability_zone_relocation_status,
+            cluster_namespace_arn=self.cluster_namespace_arn,
             cluster_parameter_group_name=self.cluster_parameter_group_name,
             cluster_security_groups=self.cluster_security_groups,
             cluster_type=self.cluster_type,
             cluster_version=self.cluster_version,
-            defer_maintenance=self.defer_maintenance,
-            defer_maintenance_duration=self.defer_maintenance_duration,
             defer_maintenance_end_time=self.defer_maintenance_end_time,
             defer_maintenance_identifier=self.defer_maintenance_identifier,
             defer_maintenance_start_time=self.defer_maintenance_start_time,
@@ -518,12 +531,14 @@ class AwaitableGetClusterResult(GetClusterResult):
             hsm_client_certificate_identifier=self.hsm_client_certificate_identifier,
             hsm_configuration_identifier=self.hsm_configuration_identifier,
             iam_roles=self.iam_roles,
-            id=self.id,
             kms_key_id=self.kms_key_id,
             logging_properties=self.logging_properties,
             maintenance_track_name=self.maintenance_track_name,
             manual_snapshot_retention_period=self.manual_snapshot_retention_period,
+            master_password_secret_arn=self.master_password_secret_arn,
+            master_password_secret_kms_key_id=self.master_password_secret_kms_key_id,
             multi_az=self.multi_az,
+            namespace_resource_policy=self.namespace_resource_policy,
             node_type=self.node_type,
             number_of_nodes=self.number_of_nodes,
             port=self.port,
@@ -559,12 +574,11 @@ def get_cluster(cluster_identifier: Optional[str] = None,
         availability_zone=pulumi.get(__ret__, 'availability_zone'),
         availability_zone_relocation=pulumi.get(__ret__, 'availability_zone_relocation'),
         availability_zone_relocation_status=pulumi.get(__ret__, 'availability_zone_relocation_status'),
+        cluster_namespace_arn=pulumi.get(__ret__, 'cluster_namespace_arn'),
         cluster_parameter_group_name=pulumi.get(__ret__, 'cluster_parameter_group_name'),
         cluster_security_groups=pulumi.get(__ret__, 'cluster_security_groups'),
         cluster_type=pulumi.get(__ret__, 'cluster_type'),
         cluster_version=pulumi.get(__ret__, 'cluster_version'),
-        defer_maintenance=pulumi.get(__ret__, 'defer_maintenance'),
-        defer_maintenance_duration=pulumi.get(__ret__, 'defer_maintenance_duration'),
         defer_maintenance_end_time=pulumi.get(__ret__, 'defer_maintenance_end_time'),
         defer_maintenance_identifier=pulumi.get(__ret__, 'defer_maintenance_identifier'),
         defer_maintenance_start_time=pulumi.get(__ret__, 'defer_maintenance_start_time'),
@@ -576,12 +590,14 @@ def get_cluster(cluster_identifier: Optional[str] = None,
         hsm_client_certificate_identifier=pulumi.get(__ret__, 'hsm_client_certificate_identifier'),
         hsm_configuration_identifier=pulumi.get(__ret__, 'hsm_configuration_identifier'),
         iam_roles=pulumi.get(__ret__, 'iam_roles'),
-        id=pulumi.get(__ret__, 'id'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         logging_properties=pulumi.get(__ret__, 'logging_properties'),
         maintenance_track_name=pulumi.get(__ret__, 'maintenance_track_name'),
         manual_snapshot_retention_period=pulumi.get(__ret__, 'manual_snapshot_retention_period'),
+        master_password_secret_arn=pulumi.get(__ret__, 'master_password_secret_arn'),
+        master_password_secret_kms_key_id=pulumi.get(__ret__, 'master_password_secret_kms_key_id'),
         multi_az=pulumi.get(__ret__, 'multi_az'),
+        namespace_resource_policy=pulumi.get(__ret__, 'namespace_resource_policy'),
         node_type=pulumi.get(__ret__, 'node_type'),
         number_of_nodes=pulumi.get(__ret__, 'number_of_nodes'),
         port=pulumi.get(__ret__, 'port'),

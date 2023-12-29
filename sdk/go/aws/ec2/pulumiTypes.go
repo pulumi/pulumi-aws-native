@@ -7158,10 +7158,10 @@ func (o InstanceAssociationParameterArrayOutput) Index(i pulumi.IntInput) Instan
 }
 
 type InstanceBlockDeviceMapping struct {
-	DeviceName  string       `pulumi:"deviceName"`
-	Ebs         *InstanceEbs `pulumi:"ebs"`
-	NoDevice    interface{}  `pulumi:"noDevice"`
-	VirtualName *string      `pulumi:"virtualName"`
+	DeviceName  string            `pulumi:"deviceName"`
+	Ebs         *InstanceEbs      `pulumi:"ebs"`
+	NoDevice    *InstanceNoDevice `pulumi:"noDevice"`
+	VirtualName *string           `pulumi:"virtualName"`
 }
 
 // InstanceBlockDeviceMappingInput is an input type that accepts InstanceBlockDeviceMappingArgs and InstanceBlockDeviceMappingOutput values.
@@ -7176,10 +7176,10 @@ type InstanceBlockDeviceMappingInput interface {
 }
 
 type InstanceBlockDeviceMappingArgs struct {
-	DeviceName  pulumi.StringInput    `pulumi:"deviceName"`
-	Ebs         InstanceEbsPtrInput   `pulumi:"ebs"`
-	NoDevice    pulumi.Input          `pulumi:"noDevice"`
-	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
+	DeviceName  pulumi.StringInput       `pulumi:"deviceName"`
+	Ebs         InstanceEbsPtrInput      `pulumi:"ebs"`
+	NoDevice    InstanceNoDevicePtrInput `pulumi:"noDevice"`
+	VirtualName pulumi.StringPtrInput    `pulumi:"virtualName"`
 }
 
 func (InstanceBlockDeviceMappingArgs) ElementType() reflect.Type {
@@ -7259,8 +7259,8 @@ func (o InstanceBlockDeviceMappingOutput) Ebs() InstanceEbsPtrOutput {
 	return o.ApplyT(func(v InstanceBlockDeviceMapping) *InstanceEbs { return v.Ebs }).(InstanceEbsPtrOutput)
 }
 
-func (o InstanceBlockDeviceMappingOutput) NoDevice() pulumi.AnyOutput {
-	return o.ApplyT(func(v InstanceBlockDeviceMapping) interface{} { return v.NoDevice }).(pulumi.AnyOutput)
+func (o InstanceBlockDeviceMappingOutput) NoDevice() InstanceNoDevicePtrOutput {
+	return o.ApplyT(func(v InstanceBlockDeviceMapping) *InstanceNoDevice { return v.NoDevice }).(InstanceNoDevicePtrOutput)
 }
 
 func (o InstanceBlockDeviceMappingOutput) VirtualName() pulumi.StringPtrOutput {
@@ -9163,6 +9163,148 @@ func (o InstanceNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) InstanceNe
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceNetworkInterface {
 		return vs[0].([]InstanceNetworkInterface)[vs[1].(int)]
 	}).(InstanceNetworkInterfaceOutput)
+}
+
+type InstanceNoDevice struct {
+}
+
+// InstanceNoDeviceInput is an input type that accepts InstanceNoDeviceArgs and InstanceNoDeviceOutput values.
+// You can construct a concrete instance of `InstanceNoDeviceInput` via:
+//
+//	InstanceNoDeviceArgs{...}
+type InstanceNoDeviceInput interface {
+	pulumi.Input
+
+	ToInstanceNoDeviceOutput() InstanceNoDeviceOutput
+	ToInstanceNoDeviceOutputWithContext(context.Context) InstanceNoDeviceOutput
+}
+
+type InstanceNoDeviceArgs struct {
+}
+
+func (InstanceNoDeviceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceNoDevice)(nil)).Elem()
+}
+
+func (i InstanceNoDeviceArgs) ToInstanceNoDeviceOutput() InstanceNoDeviceOutput {
+	return i.ToInstanceNoDeviceOutputWithContext(context.Background())
+}
+
+func (i InstanceNoDeviceArgs) ToInstanceNoDeviceOutputWithContext(ctx context.Context) InstanceNoDeviceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceNoDeviceOutput)
+}
+
+func (i InstanceNoDeviceArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceNoDevice] {
+	return pulumix.Output[InstanceNoDevice]{
+		OutputState: i.ToInstanceNoDeviceOutputWithContext(ctx).OutputState,
+	}
+}
+
+func (i InstanceNoDeviceArgs) ToInstanceNoDevicePtrOutput() InstanceNoDevicePtrOutput {
+	return i.ToInstanceNoDevicePtrOutputWithContext(context.Background())
+}
+
+func (i InstanceNoDeviceArgs) ToInstanceNoDevicePtrOutputWithContext(ctx context.Context) InstanceNoDevicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceNoDeviceOutput).ToInstanceNoDevicePtrOutputWithContext(ctx)
+}
+
+// InstanceNoDevicePtrInput is an input type that accepts InstanceNoDeviceArgs, InstanceNoDevicePtr and InstanceNoDevicePtrOutput values.
+// You can construct a concrete instance of `InstanceNoDevicePtrInput` via:
+//
+//	        InstanceNoDeviceArgs{...}
+//
+//	or:
+//
+//	        nil
+type InstanceNoDevicePtrInput interface {
+	pulumi.Input
+
+	ToInstanceNoDevicePtrOutput() InstanceNoDevicePtrOutput
+	ToInstanceNoDevicePtrOutputWithContext(context.Context) InstanceNoDevicePtrOutput
+}
+
+type instanceNoDevicePtrType InstanceNoDeviceArgs
+
+func InstanceNoDevicePtr(v *InstanceNoDeviceArgs) InstanceNoDevicePtrInput {
+	return (*instanceNoDevicePtrType)(v)
+}
+
+func (*instanceNoDevicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceNoDevice)(nil)).Elem()
+}
+
+func (i *instanceNoDevicePtrType) ToInstanceNoDevicePtrOutput() InstanceNoDevicePtrOutput {
+	return i.ToInstanceNoDevicePtrOutputWithContext(context.Background())
+}
+
+func (i *instanceNoDevicePtrType) ToInstanceNoDevicePtrOutputWithContext(ctx context.Context) InstanceNoDevicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceNoDevicePtrOutput)
+}
+
+func (i *instanceNoDevicePtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceNoDevice] {
+	return pulumix.Output[*InstanceNoDevice]{
+		OutputState: i.ToInstanceNoDevicePtrOutputWithContext(ctx).OutputState,
+	}
+}
+
+type InstanceNoDeviceOutput struct{ *pulumi.OutputState }
+
+func (InstanceNoDeviceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceNoDevice)(nil)).Elem()
+}
+
+func (o InstanceNoDeviceOutput) ToInstanceNoDeviceOutput() InstanceNoDeviceOutput {
+	return o
+}
+
+func (o InstanceNoDeviceOutput) ToInstanceNoDeviceOutputWithContext(ctx context.Context) InstanceNoDeviceOutput {
+	return o
+}
+
+func (o InstanceNoDeviceOutput) ToInstanceNoDevicePtrOutput() InstanceNoDevicePtrOutput {
+	return o.ToInstanceNoDevicePtrOutputWithContext(context.Background())
+}
+
+func (o InstanceNoDeviceOutput) ToInstanceNoDevicePtrOutputWithContext(ctx context.Context) InstanceNoDevicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceNoDevice) *InstanceNoDevice {
+		return &v
+	}).(InstanceNoDevicePtrOutput)
+}
+
+func (o InstanceNoDeviceOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceNoDevice] {
+	return pulumix.Output[InstanceNoDevice]{
+		OutputState: o.OutputState,
+	}
+}
+
+type InstanceNoDevicePtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceNoDevicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceNoDevice)(nil)).Elem()
+}
+
+func (o InstanceNoDevicePtrOutput) ToInstanceNoDevicePtrOutput() InstanceNoDevicePtrOutput {
+	return o
+}
+
+func (o InstanceNoDevicePtrOutput) ToInstanceNoDevicePtrOutputWithContext(ctx context.Context) InstanceNoDevicePtrOutput {
+	return o
+}
+
+func (o InstanceNoDevicePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceNoDevice] {
+	return pulumix.Output[*InstanceNoDevice]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o InstanceNoDevicePtrOutput) Elem() InstanceNoDeviceOutput {
+	return o.ApplyT(func(v *InstanceNoDevice) InstanceNoDevice {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceNoDevice
+		return ret
+	}).(InstanceNoDeviceOutput)
 }
 
 type InstancePrivateDnsNameOptions struct {
@@ -36867,6 +37009,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLicenseSpecificationArrayInput)(nil)).Elem(), InstanceLicenseSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceNetworkInterfaceInput)(nil)).Elem(), InstanceNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceNetworkInterfaceArrayInput)(nil)).Elem(), InstanceNetworkInterfaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceNoDeviceInput)(nil)).Elem(), InstanceNoDeviceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceNoDevicePtrInput)(nil)).Elem(), InstanceNoDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePrivateDnsNameOptionsInput)(nil)).Elem(), InstancePrivateDnsNameOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePrivateDnsNameOptionsPtrInput)(nil)).Elem(), InstancePrivateDnsNameOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePrivateIpAddressSpecificationInput)(nil)).Elem(), InstancePrivateIpAddressSpecificationArgs{})
@@ -37288,6 +37432,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceLicenseSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(InstanceNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(InstanceNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(InstanceNoDeviceOutput{})
+	pulumi.RegisterOutputType(InstanceNoDevicePtrOutput{})
 	pulumi.RegisterOutputType(InstancePrivateDnsNameOptionsOutput{})
 	pulumi.RegisterOutputType(InstancePrivateDnsNameOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstancePrivateIpAddressSpecificationOutput{})

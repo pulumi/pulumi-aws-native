@@ -221,6 +221,7 @@ import * as memorydb from "./memorydb";
 import * as msk from "./msk";
 import * as mwaa from "./mwaa";
 import * as neptune from "./neptune";
+import * as neptunegraph from "./neptunegraph";
 import * as networkfirewall from "./networkfirewall";
 import * as networkmanager from "./networkmanager";
 import * as nimblestudio from "./nimblestudio";
@@ -264,6 +265,7 @@ import * as s3outposts from "./s3outposts";
 import * as sagemaker from "./sagemaker";
 import * as scheduler from "./scheduler";
 import * as sdb from "./sdb";
+import * as sdc from "./sdc";
 import * as secretsmanager from "./secretsmanager";
 import * as securityhub from "./securityhub";
 import * as servicecatalog from "./servicecatalog";
@@ -455,6 +457,7 @@ export {
     msk,
     mwaa,
     neptune,
+    neptunegraph,
     networkfirewall,
     networkmanager,
     nimblestudio,
@@ -498,6 +501,7 @@ export {
     sagemaker,
     scheduler,
     sdb,
+    sdc,
     secretsmanager,
     securityhub,
     servicecatalog,

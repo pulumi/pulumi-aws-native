@@ -22,6 +22,7 @@ type Repository struct {
 	CloneUrlHttp          pulumi.StringOutput          `pulumi:"cloneUrlHttp"`
 	CloneUrlSsh           pulumi.StringOutput          `pulumi:"cloneUrlSsh"`
 	Code                  RepositoryCodePtrOutput      `pulumi:"code"`
+	KmsKeyId              pulumi.StringPtrOutput       `pulumi:"kmsKeyId"`
 	Name                  pulumi.StringOutput          `pulumi:"name"`
 	RepositoryDescription pulumi.StringPtrOutput       `pulumi:"repositoryDescription"`
 	RepositoryName        pulumi.StringOutput          `pulumi:"repositoryName"`
@@ -70,6 +71,7 @@ func (RepositoryState) ElementType() reflect.Type {
 
 type repositoryArgs struct {
 	Code                  *RepositoryCode     `pulumi:"code"`
+	KmsKeyId              *string             `pulumi:"kmsKeyId"`
 	RepositoryDescription *string             `pulumi:"repositoryDescription"`
 	RepositoryName        *string             `pulumi:"repositoryName"`
 	Tags                  []RepositoryTag     `pulumi:"tags"`
@@ -79,6 +81,7 @@ type repositoryArgs struct {
 // The set of arguments for constructing a Repository resource.
 type RepositoryArgs struct {
 	Code                  RepositoryCodePtrInput
+	KmsKeyId              pulumi.StringPtrInput
 	RepositoryDescription pulumi.StringPtrInput
 	RepositoryName        pulumi.StringPtrInput
 	Tags                  RepositoryTagArrayInput
@@ -148,6 +151,10 @@ func (o RepositoryOutput) CloneUrlSsh() pulumi.StringOutput {
 
 func (o RepositoryOutput) Code() RepositoryCodePtrOutput {
 	return o.ApplyT(func(v *Repository) RepositoryCodePtrOutput { return v.Code }).(RepositoryCodePtrOutput)
+}
+
+func (o RepositoryOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 func (o RepositoryOutput) Name() pulumi.StringOutput {

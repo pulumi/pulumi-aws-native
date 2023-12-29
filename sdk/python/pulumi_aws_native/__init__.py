@@ -333,6 +333,8 @@ if typing.TYPE_CHECKING:
     mwaa = __mwaa
     import pulumi_aws_native.neptune as __neptune
     neptune = __neptune
+    import pulumi_aws_native.neptunegraph as __neptunegraph
+    neptunegraph = __neptunegraph
     import pulumi_aws_native.networkfirewall as __networkfirewall
     networkfirewall = __networkfirewall
     import pulumi_aws_native.networkmanager as __networkmanager
@@ -419,6 +421,8 @@ if typing.TYPE_CHECKING:
     scheduler = __scheduler
     import pulumi_aws_native.sdb as __sdb
     sdb = __sdb
+    import pulumi_aws_native.sdc as __sdc
+    sdc = __sdc
     import pulumi_aws_native.secretsmanager as __secretsmanager
     secretsmanager = __secretsmanager
     import pulumi_aws_native.securityhub as __securityhub
@@ -640,6 +644,7 @@ else:
     msk = _utilities.lazy_import('pulumi_aws_native.msk')
     mwaa = _utilities.lazy_import('pulumi_aws_native.mwaa')
     neptune = _utilities.lazy_import('pulumi_aws_native.neptune')
+    neptunegraph = _utilities.lazy_import('pulumi_aws_native.neptunegraph')
     networkfirewall = _utilities.lazy_import('pulumi_aws_native.networkfirewall')
     networkmanager = _utilities.lazy_import('pulumi_aws_native.networkmanager')
     nimblestudio = _utilities.lazy_import('pulumi_aws_native.nimblestudio')
@@ -683,6 +688,7 @@ else:
     sagemaker = _utilities.lazy_import('pulumi_aws_native.sagemaker')
     scheduler = _utilities.lazy_import('pulumi_aws_native.scheduler')
     sdb = _utilities.lazy_import('pulumi_aws_native.sdb')
+    sdc = _utilities.lazy_import('pulumi_aws_native.sdc')
     secretsmanager = _utilities.lazy_import('pulumi_aws_native.secretsmanager')
     securityhub = _utilities.lazy_import('pulumi_aws_native.securityhub')
     servicecatalog = _utilities.lazy_import('pulumi_aws_native.servicecatalog')
@@ -1333,6 +1339,7 @@ _utilities.register(
    "aws-native:connect:InstanceStorageConfig": "InstanceStorageConfig",
    "aws-native:connect:IntegrationAssociation": "IntegrationAssociation",
    "aws-native:connect:PhoneNumber": "PhoneNumber",
+   "aws-native:connect:PredefinedAttribute": "PredefinedAttribute",
    "aws-native:connect:Prompt": "Prompt",
    "aws-native:connect:Queue": "Queue",
    "aws-native:connect:QuickConnect": "QuickConnect",
@@ -1512,7 +1519,8 @@ _utilities.register(
    "aws-native:docdb:DbCluster": "DbCluster",
    "aws-native:docdb:DbClusterParameterGroup": "DbClusterParameterGroup",
    "aws-native:docdb:DbInstance": "DbInstance",
-   "aws-native:docdb:DbSubnetGroup": "DbSubnetGroup"
+   "aws-native:docdb:DbSubnetGroup": "DbSubnetGroup",
+   "aws-native:docdb:EventSubscription": "EventSubscription"
   }
  },
  {
@@ -1914,6 +1922,7 @@ _utilities.register(
    "aws-native:glue:Classifier": "Classifier",
    "aws-native:glue:Connection": "Connection",
    "aws-native:glue:Crawler": "Crawler",
+   "aws-native:glue:CustomEntityType": "CustomEntityType",
    "aws-native:glue:DataCatalogEncryptionSettings": "DataCatalogEncryptionSettings",
    "aws-native:glue:DataQualityRuleset": "DataQualityRuleset",
    "aws-native:glue:Database": "Database",
@@ -2416,6 +2425,7 @@ _utilities.register(
   "mod": "location",
   "fqn": "pulumi_aws_native.location",
   "classes": {
+   "aws-native:location:ApiKey": "ApiKey",
    "aws-native:location:GeofenceCollection": "GeofenceCollection",
    "aws-native:location:Map": "Map",
    "aws-native:location:PlaceIndex": "PlaceIndex",
@@ -2629,13 +2639,23 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "neptunegraph",
+  "fqn": "pulumi_aws_native.neptunegraph",
+  "classes": {
+   "aws-native:neptunegraph:Graph": "Graph",
+   "aws-native:neptunegraph:PrivateGraphEndpoint": "PrivateGraphEndpoint"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "networkfirewall",
   "fqn": "pulumi_aws_native.networkfirewall",
   "classes": {
    "aws-native:networkfirewall:Firewall": "Firewall",
    "aws-native:networkfirewall:FirewallPolicy": "FirewallPolicy",
    "aws-native:networkfirewall:LoggingConfiguration": "LoggingConfiguration",
-   "aws-native:networkfirewall:RuleGroup": "RuleGroup"
+   "aws-native:networkfirewall:RuleGroup": "RuleGroup",
+   "aws-native:networkfirewall:TlsInspectionConfiguration": "TlsInspectionConfiguration"
   }
  },
  {
@@ -3153,6 +3173,14 @@ _utilities.register(
   "fqn": "pulumi_aws_native.sdb",
   "classes": {
    "aws-native:sdb:Domain": "Domain"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "sdc",
+  "fqn": "pulumi_aws_native.sdc",
+  "classes": {
+   "aws-native:sdc:Deployment": "Deployment"
   }
  },
  {

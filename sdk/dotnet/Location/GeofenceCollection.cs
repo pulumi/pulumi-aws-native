@@ -39,6 +39,12 @@ namespace Pulumi.AwsNative.Location
         [Output("pricingPlanDataSource")]
         public Output<string?> PricingPlanDataSource { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.GeofenceCollectionTag>> Tags { get; private set; } = null!;
+
         [Output("updateTime")]
         public Output<string> UpdateTime { get; private set; } = null!;
 
@@ -68,7 +74,6 @@ namespace Pulumi.AwsNative.Location
                 ReplaceOnChanges =
                 {
                     "collectionName",
-                    "description",
                     "kmsKeyId",
                 },
             };
@@ -107,6 +112,18 @@ namespace Pulumi.AwsNative.Location
 
         [Input("pricingPlanDataSource")]
         public Input<string>? PricingPlanDataSource { get; set; }
+
+        [Input("tags")]
+        private InputList<Inputs.GeofenceCollectionTagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public InputList<Inputs.GeofenceCollectionTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.GeofenceCollectionTagArgs>());
+            set => _tags = value;
+        }
 
         public GeofenceCollectionArgs()
         {

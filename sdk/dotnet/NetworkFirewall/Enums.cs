@@ -396,4 +396,62 @@ namespace Pulumi.AwsNative.NetworkFirewall
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct TlsInspectionConfigurationRevokedStatusAction : IEquatable<TlsInspectionConfigurationRevokedStatusAction>
+    {
+        private readonly string _value;
+
+        private TlsInspectionConfigurationRevokedStatusAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TlsInspectionConfigurationRevokedStatusAction Pass { get; } = new TlsInspectionConfigurationRevokedStatusAction("PASS");
+        public static TlsInspectionConfigurationRevokedStatusAction Drop { get; } = new TlsInspectionConfigurationRevokedStatusAction("DROP");
+        public static TlsInspectionConfigurationRevokedStatusAction Reject { get; } = new TlsInspectionConfigurationRevokedStatusAction("REJECT");
+
+        public static bool operator ==(TlsInspectionConfigurationRevokedStatusAction left, TlsInspectionConfigurationRevokedStatusAction right) => left.Equals(right);
+        public static bool operator !=(TlsInspectionConfigurationRevokedStatusAction left, TlsInspectionConfigurationRevokedStatusAction right) => !left.Equals(right);
+
+        public static explicit operator string(TlsInspectionConfigurationRevokedStatusAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TlsInspectionConfigurationRevokedStatusAction other && Equals(other);
+        public bool Equals(TlsInspectionConfigurationRevokedStatusAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TlsInspectionConfigurationUnknownStatusAction : IEquatable<TlsInspectionConfigurationUnknownStatusAction>
+    {
+        private readonly string _value;
+
+        private TlsInspectionConfigurationUnknownStatusAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TlsInspectionConfigurationUnknownStatusAction Pass { get; } = new TlsInspectionConfigurationUnknownStatusAction("PASS");
+        public static TlsInspectionConfigurationUnknownStatusAction Drop { get; } = new TlsInspectionConfigurationUnknownStatusAction("DROP");
+        public static TlsInspectionConfigurationUnknownStatusAction Reject { get; } = new TlsInspectionConfigurationUnknownStatusAction("REJECT");
+
+        public static bool operator ==(TlsInspectionConfigurationUnknownStatusAction left, TlsInspectionConfigurationUnknownStatusAction right) => left.Equals(right);
+        public static bool operator !=(TlsInspectionConfigurationUnknownStatusAction left, TlsInspectionConfigurationUnknownStatusAction right) => !left.Equals(right);
+
+        public static explicit operator string(TlsInspectionConfigurationUnknownStatusAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TlsInspectionConfigurationUnknownStatusAction other && Equals(other);
+        public bool Equals(TlsInspectionConfigurationUnknownStatusAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

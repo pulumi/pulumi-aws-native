@@ -15,7 +15,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     {
         public readonly string DeviceName;
         public readonly Outputs.InstanceEbs? Ebs;
-        public readonly object? NoDevice;
+        public readonly Outputs.InstanceNoDevice? NoDevice;
         public readonly string? VirtualName;
 
         [OutputConstructor]
@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             Outputs.InstanceEbs? ebs,
 
-            object? noDevice,
+            Outputs.InstanceNoDevice? noDevice,
 
             string? virtualName)
         {

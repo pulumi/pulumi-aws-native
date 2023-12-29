@@ -20,19 +20,21 @@ type PhoneNumber struct {
 	// The phone number e164 address.
 	Address pulumi.StringOutput `pulumi:"address"`
 	// The phone number country code.
-	CountryCode pulumi.StringOutput `pulumi:"countryCode"`
+	CountryCode pulumi.StringPtrOutput `pulumi:"countryCode"`
 	// The description of the phone number.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The phone number ARN
 	PhoneNumberArn pulumi.StringOutput `pulumi:"phoneNumberArn"`
 	// The phone number prefix.
 	Prefix pulumi.StringPtrOutput `pulumi:"prefix"`
+	// The source phone number arn.
+	SourcePhoneNumberArn pulumi.StringPtrOutput `pulumi:"sourcePhoneNumberArn"`
 	// One or more tags.
 	Tags PhoneNumberTagArrayOutput `pulumi:"tags"`
 	// The ARN of the target the phone number is claimed to.
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
 	// The phone number type
-	Type pulumi.StringOutput `pulumi:"type"`
+	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewPhoneNumber registers a new resource with the given unique name, arguments, and options.
@@ -42,18 +44,13 @@ func NewPhoneNumber(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.CountryCode == nil {
-		return nil, errors.New("invalid value for required argument 'CountryCode'")
-	}
 	if args.TargetArn == nil {
 		return nil, errors.New("invalid value for required argument 'TargetArn'")
-	}
-	if args.Type == nil {
-		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"countryCode",
 		"prefix",
+		"sourcePhoneNumberArn",
 		"type",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -91,33 +88,37 @@ func (PhoneNumberState) ElementType() reflect.Type {
 
 type phoneNumberArgs struct {
 	// The phone number country code.
-	CountryCode string `pulumi:"countryCode"`
+	CountryCode *string `pulumi:"countryCode"`
 	// The description of the phone number.
 	Description *string `pulumi:"description"`
 	// The phone number prefix.
 	Prefix *string `pulumi:"prefix"`
+	// The source phone number arn.
+	SourcePhoneNumberArn *string `pulumi:"sourcePhoneNumberArn"`
 	// One or more tags.
 	Tags []PhoneNumberTag `pulumi:"tags"`
 	// The ARN of the target the phone number is claimed to.
 	TargetArn string `pulumi:"targetArn"`
 	// The phone number type
-	Type string `pulumi:"type"`
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a PhoneNumber resource.
 type PhoneNumberArgs struct {
 	// The phone number country code.
-	CountryCode pulumi.StringInput
+	CountryCode pulumi.StringPtrInput
 	// The description of the phone number.
 	Description pulumi.StringPtrInput
 	// The phone number prefix.
 	Prefix pulumi.StringPtrInput
+	// The source phone number arn.
+	SourcePhoneNumberArn pulumi.StringPtrInput
 	// One or more tags.
 	Tags PhoneNumberTagArrayInput
 	// The ARN of the target the phone number is claimed to.
 	TargetArn pulumi.StringInput
 	// The phone number type
-	Type pulumi.StringInput
+	Type pulumi.StringPtrInput
 }
 
 func (PhoneNumberArgs) ElementType() reflect.Type {
@@ -175,8 +176,8 @@ func (o PhoneNumberOutput) Address() pulumi.StringOutput {
 }
 
 // The phone number country code.
-func (o PhoneNumberOutput) CountryCode() pulumi.StringOutput {
-	return o.ApplyT(func(v *PhoneNumber) pulumi.StringOutput { return v.CountryCode }).(pulumi.StringOutput)
+func (o PhoneNumberOutput) CountryCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PhoneNumber) pulumi.StringPtrOutput { return v.CountryCode }).(pulumi.StringPtrOutput)
 }
 
 // The description of the phone number.
@@ -194,6 +195,11 @@ func (o PhoneNumberOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PhoneNumber) pulumi.StringPtrOutput { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
+// The source phone number arn.
+func (o PhoneNumberOutput) SourcePhoneNumberArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PhoneNumber) pulumi.StringPtrOutput { return v.SourcePhoneNumberArn }).(pulumi.StringPtrOutput)
+}
+
 // One or more tags.
 func (o PhoneNumberOutput) Tags() PhoneNumberTagArrayOutput {
 	return o.ApplyT(func(v *PhoneNumber) PhoneNumberTagArrayOutput { return v.Tags }).(PhoneNumberTagArrayOutput)
@@ -205,8 +211,8 @@ func (o PhoneNumberOutput) TargetArn() pulumi.StringOutput {
 }
 
 // The phone number type
-func (o PhoneNumberOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *PhoneNumber) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+func (o PhoneNumberOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PhoneNumber) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 func init() {

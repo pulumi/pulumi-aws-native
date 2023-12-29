@@ -17,13 +17,19 @@ namespace Pulumi.AwsNative.Pinpoint
     public partial class GcmChannel : global::Pulumi.CustomResource
     {
         [Output("apiKey")]
-        public Output<string> ApiKey { get; private set; } = null!;
+        public Output<string?> ApiKey { get; private set; } = null!;
 
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
+        [Output("defaultAuthenticationMethod")]
+        public Output<string?> DefaultAuthenticationMethod { get; private set; } = null!;
+
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
+
+        [Output("serviceJson")]
+        public Output<string?> ServiceJson { get; private set; } = null!;
 
 
         /// <summary>
@@ -74,14 +80,20 @@ namespace Pulumi.AwsNative.Pinpoint
 
     public sealed class GcmChannelArgs : global::Pulumi.ResourceArgs
     {
-        [Input("apiKey", required: true)]
-        public Input<string> ApiKey { get; set; } = null!;
+        [Input("apiKey")]
+        public Input<string>? ApiKey { get; set; }
 
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        [Input("defaultAuthenticationMethod")]
+        public Input<string>? DefaultAuthenticationMethod { get; set; }
+
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        [Input("serviceJson")]
+        public Input<string>? ServiceJson { get; set; }
 
         public GcmChannelArgs()
         {
