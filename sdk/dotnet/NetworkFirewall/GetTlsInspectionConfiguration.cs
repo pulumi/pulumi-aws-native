@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
     {
         public readonly string? Description;
         public readonly ImmutableArray<Outputs.TlsInspectionConfigurationTag> Tags;
-        public readonly Outputs.TlsInspectionConfigurationTlsInspectionConfiguration? TlsInspectionConfiguration;
+        public readonly Outputs.TlsInspectionConfigurationTlsInspectionConfiguration? TLSInspectionConfigurationValue;
         public readonly string? TlsInspectionConfigurationArn;
         public readonly string? TlsInspectionConfigurationId;
 
@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.NetworkFirewall
         {
             Description = description;
             Tags = tags;
-            TlsInspectionConfiguration = tlsInspectionConfiguration;
+            TLSInspectionConfigurationValue = tlsInspectionConfiguration;
             TlsInspectionConfigurationArn = tlsInspectionConfigurationArn;
             TlsInspectionConfigurationId = tlsInspectionConfigurationId;
         }
