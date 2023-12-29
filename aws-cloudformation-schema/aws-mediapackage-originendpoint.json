@@ -152,7 +152,7 @@
         "ManifestLayout" : {
           "description" : "Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.",
           "type" : "string",
-          "enum" : [ "FULL", "COMPACT" ]
+          "enum" : [ "FULL", "COMPACT", "DRM_TOP_LEVEL_COMPACT" ]
         },
         "SegmentTemplateFormat" : {
           "description" : "Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.",

@@ -181,6 +181,16 @@
       },
       "required" : [ "Database" ]
     },
+    "AppSyncParameters" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "GraphQLOperation" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "GraphQLOperation" ]
+    },
     "Target" : {
       "additionalProperties" : false,
       "type" : "object",
@@ -208,6 +218,9 @@
         },
         "RedshiftDataParameters" : {
           "$ref" : "#/definitions/RedshiftDataParameters"
+        },
+        "AppSyncParameters" : {
+          "$ref" : "#/definitions/AppSyncParameters"
         },
         "Input" : {
           "type" : "string"

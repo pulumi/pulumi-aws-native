@@ -33,8 +33,7 @@
         "S3KeyPrefix" : {
           "type" : "string"
         }
-      },
-      "required" : [ "BucketName" ]
+      }
     },
     "Endpoint" : {
       "type" : "object",
@@ -55,13 +54,17 @@
       "type" : "string",
       "maxLength" : 63
     },
+    "ClusterNamespaceArn" : {
+      "description" : "The Amazon Resource Name (ARN) of the cluster namespace.",
+      "type" : "string"
+    },
     "MasterUsername" : {
       "description" : "The user name associated with the master user account for the cluster that is being created. The user name can't be PUBLIC and first character must be a letter.",
       "type" : "string",
       "maxLength" : 128
     },
     "MasterUserPassword" : {
-      "description" : "The password associated with the master user account for the cluster that is being created. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.",
+      "description" : "The password associated with the master user account for the cluster that is being created. You can't use MasterUserPassword if ManageMasterPassword is true. Password must be between 8 and 64 characters in length, should have at least one uppercase letter.Must contain at least one lowercase letter.Must contain one number.Can be any printable ASCII character.",
       "type" : "string",
       "maxLength" : 64
     },
@@ -183,9 +186,6 @@
       "description" : "The name of the snapshot from which to create the new cluster. This parameter isn't case sensitive.",
       "type" : "string"
     },
-    "Id" : {
-      "type" : "string"
-    },
     "OwnerAccount" : {
       "type" : "string"
     },
@@ -274,27 +274,43 @@
     "MultiAZ" : {
       "description" : "A boolean indicating if the redshift cluster is multi-az or not. If you don't provide this parameter or set the value to false, the redshift cluster will be single-az.",
       "type" : "boolean"
+    },
+    "NamespaceResourcePolicy" : {
+      "description" : "The namespace resource policy document that will be attached to a Redshift cluster.",
+      "type" : "object"
+    },
+    "ManageMasterPassword" : {
+      "description" : "A boolean indicating if the redshift cluster's admin user credentials is managed by Redshift or not. You can't use MasterUserPassword if ManageMasterPassword is true. If ManageMasterPassword is false or not set, Amazon Redshift uses MasterUserPassword for the admin user account's password.",
+      "type" : "boolean"
+    },
+    "MasterPasswordSecretKmsKeyId" : {
+      "description" : "The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin user credentials secret.",
+      "type" : "string"
+    },
+    "MasterPasswordSecretArn" : {
+      "description" : "The Amazon Resource Name (ARN) for the cluster's admin user credentials secret.",
+      "type" : "string"
     }
   },
   "additionalProperties" : false,
-  "required" : [ "MasterUserPassword", "NodeType", "MasterUsername", "DBName", "ClusterType" ],
+  "required" : [ "NodeType", "MasterUsername", "DBName", "ClusterType" ],
   "primaryIdentifier" : [ "/properties/ClusterIdentifier" ],
-  "readOnlyProperties" : [ "/properties/Id", "/properties/DeferMaintenanceIdentifier", "/properties/Endpoint/Port", "/properties/Endpoint/Address" ],
+  "readOnlyProperties" : [ "/properties/DeferMaintenanceIdentifier", "/properties/Endpoint/Port", "/properties/Endpoint/Address", "/properties/ClusterNamespaceArn", "/properties/MasterPasswordSecretArn" ],
   "createOnlyProperties" : [ "/properties/ClusterIdentifier", "/properties/OwnerAccount", "/properties/SnapshotIdentifier", "/properties/DBName", "/properties/SnapshotClusterIdentifier", "/properties/ClusterSubnetGroupName", "/properties/MasterUsername" ],
-  "writeOnlyProperties" : [ "/properties/MasterUserPassword", "/properties/Classic", "/properties/SnapshotIdentifier" ],
+  "writeOnlyProperties" : [ "/properties/MasterUserPassword", "/properties/Classic", "/properties/SnapshotIdentifier", "/properties/DeferMaintenance", "/properties/DeferMaintenanceDuration", "/properties/ManageMasterPassword" ],
   "tagging" : {
     "taggable" : true
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "redshift:DescribeClusters", "redshift:CreateCluster", "redshift:RestoreFromClusterSnapshot", "redshift:EnableLogging", "redshift:DescribeTags" ],
+      "permissions" : [ "iam:PassRole", "iam:CreateServiceLinkedRole", "redshift:DescribeClusters", "redshift:CreateCluster", "redshift:RestoreFromClusterSnapshot", "redshift:EnableLogging", "redshift:DescribeLoggingStatus", "redshift:CreateTags", "redshift:DescribeTags", "redshift:GetResourcePolicy", "redshift:PutResourcePolicy", "redshift:ModifyClusterMaintenance", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeNetworkInterfaces", "ec2:DescribeAddresses", "ec2:AssociateAddress", "ec2:CreateNetworkInterface", "ec2:ModifyNetworkInterfaceAttribute", "ec2:CreateVpcEndpoint", "ec2:DescribeVpcEndpoints", "ec2:ModifyVpcEndpoint", "ec2:AllocateAddress", "ec2:CreateSecurityGroup", "ec2:DescribeVpcAttribute", "ec2:DescribeSecurityGroups", "ec2:DescribeInternetGateways", "ec2:DescribeSecurityGroupRules", "ec2:DescribeAvailabilityZones", "ec2:DescribeNetworkAcls", "ec2:DescribeRouteTables", "cloudwatch:PutMetricData" ],
       "timeoutInMinutes" : 2160
     },
     "read" : {
-      "permissions" : [ "redshift:DescribeClusters", "redshift:DescribeLoggingStatus", "redshift:DescribeSnapshotCopyGrant", "redshift:DescribeClusterDbRevisions", "redshift:DescribeTags" ]
+      "permissions" : [ "redshift:DescribeClusters", "redshift:DescribeLoggingStatus", "redshift:DescribeSnapshotCopyGrant", "redshift:DescribeClusterDbRevisions", "redshift:DescribeTags", "redshift:GetResourcePolicy" ]
     },
     "update" : {
-      "permissions" : [ "redshift:DescribeClusters", "redshift:ModifyCluster", "redshift:ModifyClusterIamRoles", "redshift:EnableLogging", "redshift:CreateTags", "redshift:DeleteTags", "redshift:DescribeTags", "redshift:DisableLogging", "redshift:RebootCluster", "redshift:EnableSnapshotCopy", "redshift:DisableSnapshotCopy", "redshift:ModifySnapshotCopyRetentionPeriod", "redshift:ModifyAquaConfiguration", "redshift:ResizeCluster", "redshift:ModifyClusterMaintenance", "redshift:DescribeClusterDbRevisions", "redshift:ModifyClusterDbRevisions", "redshift:PauseCluster", "redshift:ResumeCluster", "redshift:RotateEncryptionKey", "redshift:FailoverPrimaryCompute" ],
+      "permissions" : [ "iam:PassRole", "redshift:DescribeClusters", "redshift:ModifyCluster", "redshift:ModifyClusterIamRoles", "redshift:EnableLogging", "redshift:CreateTags", "redshift:DeleteTags", "redshift:DescribeTags", "redshift:DisableLogging", "redshift:DescribeLoggingStatus", "redshift:RebootCluster", "redshift:EnableSnapshotCopy", "redshift:DisableSnapshotCopy", "redshift:ModifySnapshotCopyRetentionPeriod", "redshift:ModifyAquaConfiguration", "redshift:ResizeCluster", "redshift:ModifyClusterMaintenance", "redshift:DescribeClusterDbRevisions", "redshift:ModifyClusterDbRevisions", "redshift:PauseCluster", "redshift:ResumeCluster", "redshift:RotateEncryptionKey", "redshift:FailoverPrimaryCompute", "redshift:PutResourcePolicy", "redshift:GetResourcePolicy", "redshift:DeleteResourcePolicy", "cloudwatch:PutMetricData" ],
       "timeoutInMinutes" : 2160
     },
     "delete" : {

@@ -130,6 +130,7 @@ AWS::CloudFront::ContinuousDeploymentPolicy
 AWS::CloudFront::Distribution
 AWS::CloudFront::Function
 AWS::CloudFront::KeyGroup
+AWS::CloudFront::KeyValueStore
 AWS::CloudFront::MonitoringSubscription
 AWS::CloudFront::OriginAccessControl
 AWS::CloudFront::OriginRequestPolicy
@@ -179,6 +180,7 @@ AWS::Connect::Instance
 AWS::Connect::InstanceStorageConfig
 AWS::Connect::IntegrationAssociation
 AWS::Connect::PhoneNumber
+AWS::Connect::PredefinedAttribute
 AWS::Connect::Prompt
 AWS::Connect::Queue
 AWS::Connect::QuickConnect
@@ -554,6 +556,7 @@ AWS::Lightsail::Instance
 AWS::Lightsail::LoadBalancer
 AWS::Lightsail::LoadBalancerTlsCertificate
 AWS::Lightsail::StaticIp
+AWS::Location::APIKey
 AWS::Location::GeofenceCollection
 AWS::Location::Map
 AWS::Location::PlaceIndex
@@ -622,10 +625,13 @@ AWS::MemoryDB::ParameterGroup
 AWS::MemoryDB::SubnetGroup
 AWS::MemoryDB::User
 AWS::Neptune::DBCluster
+AWS::NeptuneGraph::Graph
+AWS::NeptuneGraph::PrivateGraphEndpoint
 AWS::NetworkFirewall::Firewall
 AWS::NetworkFirewall::FirewallPolicy
 AWS::NetworkFirewall::LoggingConfiguration
 AWS::NetworkFirewall::RuleGroup
+AWS::NetworkFirewall::TLSInspectionConfiguration
 AWS::NetworkManager::ConnectAttachment
 AWS::NetworkManager::ConnectPeer
 AWS::NetworkManager::CoreNetwork

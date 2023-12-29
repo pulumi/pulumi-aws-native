@@ -43,6 +43,10 @@
         "ManagedPersistenceMonitoringConfiguration" : {
           "description" : "Managed log persistence configurations for a JobRun.",
           "$ref" : "#/definitions/ManagedPersistenceMonitoringConfiguration"
+        },
+        "CloudWatchLoggingConfiguration" : {
+          "description" : "CloudWatch logging configurations for a JobRun.",
+          "$ref" : "#/definitions/CloudWatchLoggingConfiguration"
         }
       }
     },
@@ -70,6 +74,61 @@
           "description" : "KMS key ARN to encrypt the logs stored in managed persistence",
           "$ref" : "#/definitions/EncryptionKeyArn"
         }
+      }
+    },
+    "CloudWatchLoggingConfiguration" : {
+      "additionalProperties" : false,
+      "properties" : {
+        "Enabled" : {
+          "description" : "If set to false, CloudWatch logging will be turned off. Defaults to false.",
+          "type" : "boolean",
+          "default" : false
+        },
+        "LogGroupName" : {
+          "description" : "Log-group name to produce log-streams on CloudWatch. If undefined, logs will be produced in a default log-group /aws/emr-serverless",
+          "$ref" : "#/definitions/LogGroupName"
+        },
+        "LogStreamNamePrefix" : {
+          "description" : "Log-stream name prefix by which log-stream names will start in the CloudWatch Log-group.",
+          "$ref" : "#/definitions/LogStreamNamePrefix"
+        },
+        "EncryptionKeyArn" : {
+          "description" : "KMS key ARN to encrypt the logs stored in given CloudWatch log-group.",
+          "$ref" : "#/definitions/EncryptionKeyArn"
+        },
+        "LogTypeMap" : {
+          "description" : "The specific log-streams which need to be uploaded to CloudWatch.",
+          "type" : "array",
+          "uniqueItems" : true,
+          "insertionOrder" : false,
+          "items" : {
+            "$ref" : "#/definitions/LogTypeMapKeyValuePair"
+          }
+        }
+      }
+    },
+    "LogTypeMapKeyValuePair" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Key" : {
+          "$ref" : "#/definitions/WorkerTypeString"
+        },
+        "Value" : {
+          "$ref" : "#/definitions/LogTypeList"
+        }
+      },
+      "required" : [ "Key", "Value" ]
+    },
+    "LogTypeList" : {
+      "description" : "List of Applicable values: [STDOUT, STDERR, HIVE_LOG, TEZ_AM, SYSTEM_LOGS]",
+      "type" : "array",
+      "insertionOrder" : false,
+      "uniqueItems" : true,
+      "minItems" : 1,
+      "maxItems" : 5,
+      "items" : {
+        "$ref" : "#/definitions/LogTypeString"
       }
     },
     "InitialCapacityConfigMap" : {
@@ -242,6 +301,30 @@
       "maxLength" : 1024,
       "minLength" : 1,
       "pattern" : ".*\\S.*"
+    },
+    "LogGroupName" : {
+      "type" : "string",
+      "maxLength" : 512,
+      "minLength" : 1,
+      "pattern" : "^[\\.\\-_/#A-Za-z0-9]+$"
+    },
+    "LogStreamNamePrefix" : {
+      "type" : "string",
+      "maxLength" : 512,
+      "minLength" : 1,
+      "pattern" : "^[^:*]*$"
+    },
+    "LogTypeString" : {
+      "type" : "string",
+      "maxLength" : 50,
+      "minLength" : 1,
+      "pattern" : "^[a-zA-Z]+[-_]*[a-zA-Z]+$"
+    },
+    "WorkerTypeString" : {
+      "type" : "string",
+      "maxLength" : 50,
+      "minLength" : 1,
+      "pattern" : "^[a-zA-Z]+[-_]*[a-zA-Z]+$"
     },
     "Tag" : {
       "description" : "A key-value pair to associate with a resource.",

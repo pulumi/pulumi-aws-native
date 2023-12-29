@@ -9,6 +9,13 @@
         },
         "Runtime" : {
           "type" : "string"
+        },
+        "KeyValueStoreAssociations" : {
+          "items" : {
+            "$ref" : "#/definitions/KeyValueStoreAssociation"
+          },
+          "type" : "array",
+          "uniqueItems" : true
         }
       },
       "required" : [ "Comment", "Runtime" ],
@@ -21,6 +28,16 @@
           "type" : "string"
         }
       },
+      "type" : "object"
+    },
+    "KeyValueStoreAssociation" : {
+      "additionalProperties" : false,
+      "properties" : {
+        "KeyValueStoreARN" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "KeyValueStoreARN" ],
       "type" : "object"
     }
   },
