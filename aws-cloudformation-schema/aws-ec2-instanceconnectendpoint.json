@@ -36,7 +36,7 @@
       "type" : "string"
     },
     "PreserveClientIp" : {
-      "description" : "If true, the address of the loki client is preserved when connecting to the end resource",
+      "description" : "If true, the address of the local client is preserved when connecting to the end resource",
       "type" : "boolean"
     },
     "Tags" : {

@@ -19,7 +19,7 @@ type InstanceConnectEndpoint struct {
 
 	// The client token of the instance connect endpoint.
 	ClientToken pulumi.StringPtrOutput `pulumi:"clientToken"`
-	// If true, the address of the loki client is preserved when connecting to the end resource
+	// If true, the address of the local client is preserved when connecting to the end resource
 	PreserveClientIp pulumi.BoolPtrOutput `pulumi:"preserveClientIp"`
 	// The security group IDs of the instance connect endpoint.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
@@ -81,7 +81,7 @@ func (InstanceConnectEndpointState) ElementType() reflect.Type {
 type instanceConnectEndpointArgs struct {
 	// The client token of the instance connect endpoint.
 	ClientToken *string `pulumi:"clientToken"`
-	// If true, the address of the loki client is preserved when connecting to the end resource
+	// If true, the address of the local client is preserved when connecting to the end resource
 	PreserveClientIp *bool `pulumi:"preserveClientIp"`
 	// The security group IDs of the instance connect endpoint.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -95,7 +95,7 @@ type instanceConnectEndpointArgs struct {
 type InstanceConnectEndpointArgs struct {
 	// The client token of the instance connect endpoint.
 	ClientToken pulumi.StringPtrInput
-	// If true, the address of the loki client is preserved when connecting to the end resource
+	// If true, the address of the local client is preserved when connecting to the end resource
 	PreserveClientIp pulumi.BoolPtrInput
 	// The security group IDs of the instance connect endpoint.
 	SecurityGroupIds pulumi.StringArrayInput
@@ -159,7 +159,7 @@ func (o InstanceConnectEndpointOutput) ClientToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringPtrOutput { return v.ClientToken }).(pulumi.StringPtrOutput)
 }
 
-// If true, the address of the loki client is preserved when connecting to the end resource
+// If true, the address of the local client is preserved when connecting to the end resource
 func (o InstanceConnectEndpointOutput) PreserveClientIp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.BoolPtrOutput { return v.PreserveClientIp }).(pulumi.BoolPtrOutput)
 }

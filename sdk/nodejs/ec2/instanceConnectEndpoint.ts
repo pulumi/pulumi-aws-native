@@ -42,7 +42,7 @@ export class InstanceConnectEndpoint extends pulumi.CustomResource {
      */
     public readonly clientToken!: pulumi.Output<string | undefined>;
     /**
-     * If true, the address of the loki client is preserved when connecting to the end resource
+     * If true, the address of the local client is preserved when connecting to the end resource
      */
     public readonly preserveClientIp!: pulumi.Output<boolean | undefined>;
     /**
@@ -100,7 +100,7 @@ export interface InstanceConnectEndpointArgs {
      */
     clientToken?: pulumi.Input<string>;
     /**
-     * If true, the address of the loki client is preserved when connecting to the end resource
+     * If true, the address of the local client is preserved when connecting to the end resource
      */
     preserveClientIp?: pulumi.Input<boolean>;
     /**
