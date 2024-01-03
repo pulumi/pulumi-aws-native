@@ -800,6 +800,7 @@ AWS::SQS::QueueInlinePolicy
 AWS::SSM::Association
 AWS::SSM::Document
 AWS::SSM::Parameter
+AWS::SSM::PatchBaseline
 AWS::SSM::ResourceDataSync
 AWS::SSM::ResourcePolicy
 AWS::SSMContacts::Contact
