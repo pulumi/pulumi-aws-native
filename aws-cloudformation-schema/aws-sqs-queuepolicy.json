@@ -6,7 +6,7 @@
   "properties" : {
     "Id" : {
       "type" : "string",
-      "description" : "The provider-assigned unique ID for this managed resource."
+      "description" : ""
     },
     "PolicyDocument" : {
       "type" : [ "object", "string" ],
