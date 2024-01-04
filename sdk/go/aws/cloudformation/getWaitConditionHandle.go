@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudFormation::WaitConditionHandle
@@ -64,12 +63,6 @@ func (o LookupWaitConditionHandleResultOutput) ToLookupWaitConditionHandleResult
 
 func (o LookupWaitConditionHandleResultOutput) ToLookupWaitConditionHandleResultOutputWithContext(ctx context.Context) LookupWaitConditionHandleResultOutput {
 	return o
-}
-
-func (o LookupWaitConditionHandleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupWaitConditionHandleResult] {
-	return pulumix.Output[LookupWaitConditionHandleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupWaitConditionHandleResultOutput) Id() pulumi.StringPtrOutput {

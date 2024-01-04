@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CloudWatch::AnomalyDetector
@@ -65,12 +64,6 @@ func (o LookupAnomalyDetectorResultOutput) ToLookupAnomalyDetectorResultOutput()
 
 func (o LookupAnomalyDetectorResultOutput) ToLookupAnomalyDetectorResultOutputWithContext(ctx context.Context) LookupAnomalyDetectorResultOutput {
 	return o
-}
-
-func (o LookupAnomalyDetectorResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAnomalyDetectorResult] {
-	return pulumix.Output[LookupAnomalyDetectorResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupAnomalyDetectorResultOutput) Configuration() AnomalyDetectorConfigurationPtrOutput {

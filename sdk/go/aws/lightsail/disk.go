@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Lightsail::Disk
@@ -147,12 +146,6 @@ func (i *Disk) ToDiskOutputWithContext(ctx context.Context) DiskOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiskOutput)
 }
 
-func (i *Disk) ToOutput(ctx context.Context) pulumix.Output[*Disk] {
-	return pulumix.Output[*Disk]{
-		OutputState: i.ToDiskOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DiskOutput struct{ *pulumi.OutputState }
 
 func (DiskOutput) ElementType() reflect.Type {
@@ -165,12 +158,6 @@ func (o DiskOutput) ToDiskOutput() DiskOutput {
 
 func (o DiskOutput) ToDiskOutputWithContext(ctx context.Context) DiskOutput {
 	return o
-}
-
-func (o DiskOutput) ToOutput(ctx context.Context) pulumix.Output[*Disk] {
-	return pulumix.Output[*Disk]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An array of objects representing the add-ons to enable for the new instance.

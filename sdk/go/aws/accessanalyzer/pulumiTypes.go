@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -51,12 +50,6 @@ func (i AnalyzerArchiveRuleArgs) ToAnalyzerArchiveRuleOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerArchiveRuleOutput)
 }
 
-func (i AnalyzerArchiveRuleArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyzerArchiveRule] {
-	return pulumix.Output[AnalyzerArchiveRule]{
-		OutputState: i.ToAnalyzerArchiveRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AnalyzerArchiveRuleArrayInput is an input type that accepts AnalyzerArchiveRuleArray and AnalyzerArchiveRuleArrayOutput values.
 // You can construct a concrete instance of `AnalyzerArchiveRuleArrayInput` via:
 //
@@ -82,12 +75,6 @@ func (i AnalyzerArchiveRuleArray) ToAnalyzerArchiveRuleArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerArchiveRuleArrayOutput)
 }
 
-func (i AnalyzerArchiveRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]AnalyzerArchiveRule] {
-	return pulumix.Output[[]AnalyzerArchiveRule]{
-		OutputState: i.ToAnalyzerArchiveRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
 type AnalyzerArchiveRuleOutput struct{ *pulumi.OutputState }
 
@@ -101,12 +88,6 @@ func (o AnalyzerArchiveRuleOutput) ToAnalyzerArchiveRuleOutput() AnalyzerArchive
 
 func (o AnalyzerArchiveRuleOutput) ToAnalyzerArchiveRuleOutputWithContext(ctx context.Context) AnalyzerArchiveRuleOutput {
 	return o
-}
-
-func (o AnalyzerArchiveRuleOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyzerArchiveRule] {
-	return pulumix.Output[AnalyzerArchiveRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalyzerArchiveRuleOutput) Filter() AnalyzerFilterArrayOutput {
@@ -130,12 +111,6 @@ func (o AnalyzerArchiveRuleArrayOutput) ToAnalyzerArchiveRuleArrayOutput() Analy
 
 func (o AnalyzerArchiveRuleArrayOutput) ToAnalyzerArchiveRuleArrayOutputWithContext(ctx context.Context) AnalyzerArchiveRuleArrayOutput {
 	return o
-}
-
-func (o AnalyzerArchiveRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AnalyzerArchiveRule] {
-	return pulumix.Output[[]AnalyzerArchiveRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalyzerArchiveRuleArrayOutput) Index(i pulumi.IntInput) AnalyzerArchiveRuleOutput {
@@ -175,12 +150,6 @@ func (i AnalyzerConfigurationPropertiesArgs) ToAnalyzerConfigurationPropertiesOu
 
 func (i AnalyzerConfigurationPropertiesArgs) ToAnalyzerConfigurationPropertiesOutputWithContext(ctx context.Context) AnalyzerConfigurationPropertiesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerConfigurationPropertiesOutput)
-}
-
-func (i AnalyzerConfigurationPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyzerConfigurationProperties] {
-	return pulumix.Output[AnalyzerConfigurationProperties]{
-		OutputState: i.ToAnalyzerConfigurationPropertiesOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i AnalyzerConfigurationPropertiesArgs) ToAnalyzerConfigurationPropertiesPtrOutput() AnalyzerConfigurationPropertiesPtrOutput {
@@ -224,12 +193,6 @@ func (i *analyzerConfigurationPropertiesPtrType) ToAnalyzerConfigurationProperti
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerConfigurationPropertiesPtrOutput)
 }
 
-func (i *analyzerConfigurationPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyzerConfigurationProperties] {
-	return pulumix.Output[*AnalyzerConfigurationProperties]{
-		OutputState: i.ToAnalyzerConfigurationPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The configuration for the analyzer
 type AnalyzerConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -255,12 +218,6 @@ func (o AnalyzerConfigurationPropertiesOutput) ToAnalyzerConfigurationProperties
 	}).(AnalyzerConfigurationPropertiesPtrOutput)
 }
 
-func (o AnalyzerConfigurationPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyzerConfigurationProperties] {
-	return pulumix.Output[AnalyzerConfigurationProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalyzerConfigurationPropertiesOutput) UnusedAccessConfiguration() AnalyzerUnusedAccessConfigurationPtrOutput {
 	return o.ApplyT(func(v AnalyzerConfigurationProperties) *AnalyzerUnusedAccessConfiguration {
 		return v.UnusedAccessConfiguration
@@ -279,12 +236,6 @@ func (o AnalyzerConfigurationPropertiesPtrOutput) ToAnalyzerConfigurationPropert
 
 func (o AnalyzerConfigurationPropertiesPtrOutput) ToAnalyzerConfigurationPropertiesPtrOutputWithContext(ctx context.Context) AnalyzerConfigurationPropertiesPtrOutput {
 	return o
-}
-
-func (o AnalyzerConfigurationPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyzerConfigurationProperties] {
-	return pulumix.Output[*AnalyzerConfigurationProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalyzerConfigurationPropertiesPtrOutput) Elem() AnalyzerConfigurationPropertiesOutput {
@@ -345,12 +296,6 @@ func (i AnalyzerFilterArgs) ToAnalyzerFilterOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerFilterOutput)
 }
 
-func (i AnalyzerFilterArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyzerFilter] {
-	return pulumix.Output[AnalyzerFilter]{
-		OutputState: i.ToAnalyzerFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AnalyzerFilterArrayInput is an input type that accepts AnalyzerFilterArray and AnalyzerFilterArrayOutput values.
 // You can construct a concrete instance of `AnalyzerFilterArrayInput` via:
 //
@@ -376,12 +321,6 @@ func (i AnalyzerFilterArray) ToAnalyzerFilterArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerFilterArrayOutput)
 }
 
-func (i AnalyzerFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]AnalyzerFilter] {
-	return pulumix.Output[[]AnalyzerFilter]{
-		OutputState: i.ToAnalyzerFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnalyzerFilterOutput struct{ *pulumi.OutputState }
 
 func (AnalyzerFilterOutput) ElementType() reflect.Type {
@@ -394,12 +333,6 @@ func (o AnalyzerFilterOutput) ToAnalyzerFilterOutput() AnalyzerFilterOutput {
 
 func (o AnalyzerFilterOutput) ToAnalyzerFilterOutputWithContext(ctx context.Context) AnalyzerFilterOutput {
 	return o
-}
-
-func (o AnalyzerFilterOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyzerFilter] {
-	return pulumix.Output[AnalyzerFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalyzerFilterOutput) Contains() pulumi.StringArrayOutput {
@@ -434,12 +367,6 @@ func (o AnalyzerFilterArrayOutput) ToAnalyzerFilterArrayOutput() AnalyzerFilterA
 
 func (o AnalyzerFilterArrayOutput) ToAnalyzerFilterArrayOutputWithContext(ctx context.Context) AnalyzerFilterArrayOutput {
 	return o
-}
-
-func (o AnalyzerFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AnalyzerFilter] {
-	return pulumix.Output[[]AnalyzerFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalyzerFilterArrayOutput) Index(i pulumi.IntInput) AnalyzerFilterOutput {
@@ -487,12 +414,6 @@ func (i AnalyzerTagArgs) ToAnalyzerTagOutputWithContext(ctx context.Context) Ana
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerTagOutput)
 }
 
-func (i AnalyzerTagArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyzerTag] {
-	return pulumix.Output[AnalyzerTag]{
-		OutputState: i.ToAnalyzerTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AnalyzerTagArrayInput is an input type that accepts AnalyzerTagArray and AnalyzerTagArrayOutput values.
 // You can construct a concrete instance of `AnalyzerTagArrayInput` via:
 //
@@ -518,12 +439,6 @@ func (i AnalyzerTagArray) ToAnalyzerTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerTagArrayOutput)
 }
 
-func (i AnalyzerTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AnalyzerTag] {
-	return pulumix.Output[[]AnalyzerTag]{
-		OutputState: i.ToAnalyzerTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type AnalyzerTagOutput struct{ *pulumi.OutputState }
 
@@ -537,12 +452,6 @@ func (o AnalyzerTagOutput) ToAnalyzerTagOutput() AnalyzerTagOutput {
 
 func (o AnalyzerTagOutput) ToAnalyzerTagOutputWithContext(ctx context.Context) AnalyzerTagOutput {
 	return o
-}
-
-func (o AnalyzerTagOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyzerTag] {
-	return pulumix.Output[AnalyzerTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -567,12 +476,6 @@ func (o AnalyzerTagArrayOutput) ToAnalyzerTagArrayOutput() AnalyzerTagArrayOutpu
 
 func (o AnalyzerTagArrayOutput) ToAnalyzerTagArrayOutputWithContext(ctx context.Context) AnalyzerTagArrayOutput {
 	return o
-}
-
-func (o AnalyzerTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AnalyzerTag] {
-	return pulumix.Output[[]AnalyzerTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalyzerTagArrayOutput) Index(i pulumi.IntInput) AnalyzerTagOutput {
@@ -616,12 +519,6 @@ func (i AnalyzerUnusedAccessConfigurationArgs) ToAnalyzerUnusedAccessConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerUnusedAccessConfigurationOutput)
 }
 
-func (i AnalyzerUnusedAccessConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyzerUnusedAccessConfiguration] {
-	return pulumix.Output[AnalyzerUnusedAccessConfiguration]{
-		OutputState: i.ToAnalyzerUnusedAccessConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AnalyzerUnusedAccessConfigurationArgs) ToAnalyzerUnusedAccessConfigurationPtrOutput() AnalyzerUnusedAccessConfigurationPtrOutput {
 	return i.ToAnalyzerUnusedAccessConfigurationPtrOutputWithContext(context.Background())
 }
@@ -663,12 +560,6 @@ func (i *analyzerUnusedAccessConfigurationPtrType) ToAnalyzerUnusedAccessConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerUnusedAccessConfigurationPtrOutput)
 }
 
-func (i *analyzerUnusedAccessConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyzerUnusedAccessConfiguration] {
-	return pulumix.Output[*AnalyzerUnusedAccessConfiguration]{
-		OutputState: i.ToAnalyzerUnusedAccessConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The Configuration for Unused Access Analyzer
 type AnalyzerUnusedAccessConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -694,12 +585,6 @@ func (o AnalyzerUnusedAccessConfigurationOutput) ToAnalyzerUnusedAccessConfigura
 	}).(AnalyzerUnusedAccessConfigurationPtrOutput)
 }
 
-func (o AnalyzerUnusedAccessConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyzerUnusedAccessConfiguration] {
-	return pulumix.Output[AnalyzerUnusedAccessConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
 func (o AnalyzerUnusedAccessConfigurationOutput) UnusedAccessAge() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AnalyzerUnusedAccessConfiguration) *int { return v.UnusedAccessAge }).(pulumi.IntPtrOutput)
@@ -717,12 +602,6 @@ func (o AnalyzerUnusedAccessConfigurationPtrOutput) ToAnalyzerUnusedAccessConfig
 
 func (o AnalyzerUnusedAccessConfigurationPtrOutput) ToAnalyzerUnusedAccessConfigurationPtrOutputWithContext(ctx context.Context) AnalyzerUnusedAccessConfigurationPtrOutput {
 	return o
-}
-
-func (o AnalyzerUnusedAccessConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyzerUnusedAccessConfiguration] {
-	return pulumix.Output[*AnalyzerUnusedAccessConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalyzerUnusedAccessConfigurationPtrOutput) Elem() AnalyzerUnusedAccessConfigurationOutput {

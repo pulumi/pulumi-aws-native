@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption
@@ -65,12 +64,6 @@ func (o LookupApplicationCloudWatchLoggingOptionResultOutput) ToLookupApplicatio
 
 func (o LookupApplicationCloudWatchLoggingOptionResultOutput) ToLookupApplicationCloudWatchLoggingOptionResultOutputWithContext(ctx context.Context) LookupApplicationCloudWatchLoggingOptionResultOutput {
 	return o
-}
-
-func (o LookupApplicationCloudWatchLoggingOptionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupApplicationCloudWatchLoggingOptionResult] {
-	return pulumix.Output[LookupApplicationCloudWatchLoggingOptionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupApplicationCloudWatchLoggingOptionResultOutput) CloudWatchLoggingOption() ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionPtrOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::CodeStarNotifications::NotificationRule
@@ -71,12 +70,6 @@ func (o LookupNotificationRuleResultOutput) ToLookupNotificationRuleResultOutput
 
 func (o LookupNotificationRuleResultOutput) ToLookupNotificationRuleResultOutputWithContext(ctx context.Context) LookupNotificationRuleResultOutput {
 	return o
-}
-
-func (o LookupNotificationRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNotificationRuleResult] {
-	return pulumix.Output[LookupNotificationRuleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupNotificationRuleResultOutput) Arn() pulumi.StringPtrOutput {

@@ -45,12 +45,6 @@ func (o FhirDatastoreDatastoreStatusOutput) ToFhirDatastoreDatastoreStatusPtrOut
 	}).(FhirDatastoreDatastoreStatusPtrOutput)
 }
 
-func (o FhirDatastoreDatastoreStatusOutput) ToOutput(ctx context.Context) pulumix.Output[FhirDatastoreDatastoreStatus] {
-	return pulumix.Output[FhirDatastoreDatastoreStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FhirDatastoreDatastoreStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -84,12 +78,6 @@ func (o FhirDatastoreDatastoreStatusPtrOutput) ToFhirDatastoreDatastoreStatusPtr
 
 func (o FhirDatastoreDatastoreStatusPtrOutput) ToFhirDatastoreDatastoreStatusPtrOutputWithContext(ctx context.Context) FhirDatastoreDatastoreStatusPtrOutput {
 	return o
-}
-
-func (o FhirDatastoreDatastoreStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FhirDatastoreDatastoreStatus] {
-	return pulumix.Output[*FhirDatastoreDatastoreStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FhirDatastoreDatastoreStatusPtrOutput) Elem() FhirDatastoreDatastoreStatusOutput {
@@ -183,12 +171,6 @@ func (o FhirDatastoreDatastoreTypeVersionOutput) ToFhirDatastoreDatastoreTypeVer
 	}).(FhirDatastoreDatastoreTypeVersionPtrOutput)
 }
 
-func (o FhirDatastoreDatastoreTypeVersionOutput) ToOutput(ctx context.Context) pulumix.Output[FhirDatastoreDatastoreTypeVersion] {
-	return pulumix.Output[FhirDatastoreDatastoreTypeVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FhirDatastoreDatastoreTypeVersionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -224,12 +206,6 @@ func (o FhirDatastoreDatastoreTypeVersionPtrOutput) ToFhirDatastoreDatastoreType
 	return o
 }
 
-func (o FhirDatastoreDatastoreTypeVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FhirDatastoreDatastoreTypeVersion] {
-	return pulumix.Output[*FhirDatastoreDatastoreTypeVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FhirDatastoreDatastoreTypeVersionPtrOutput) Elem() FhirDatastoreDatastoreTypeVersionOutput {
 	return o.ApplyT(func(v *FhirDatastoreDatastoreTypeVersion) FhirDatastoreDatastoreTypeVersion {
 		if v != nil {
@@ -254,10 +230,10 @@ func (o FhirDatastoreDatastoreTypeVersionPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// FhirDatastoreDatastoreTypeVersionInput is an input type that accepts FhirDatastoreDatastoreTypeVersionArgs and FhirDatastoreDatastoreTypeVersionOutput values.
-// You can construct a concrete instance of `FhirDatastoreDatastoreTypeVersionInput` via:
+// FhirDatastoreDatastoreTypeVersionInput is an input type that accepts values of the FhirDatastoreDatastoreTypeVersion enum
+// A concrete instance of `FhirDatastoreDatastoreTypeVersionInput` can be one of the following:
 //
-//	FhirDatastoreDatastoreTypeVersionArgs{...}
+//	FhirDatastoreDatastoreTypeVersionR4
 type FhirDatastoreDatastoreTypeVersionInput interface {
 	pulumi.Input
 
@@ -366,12 +342,6 @@ func (o FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput) T
 	}).(FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput)
 }
 
-func (o FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy] {
-	return pulumix.Output[FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -407,12 +377,6 @@ func (o FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput
 	return o
 }
 
-func (o FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy] {
-	return pulumix.Output[*FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput) Elem() FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput {
 	return o.ApplyT(func(v *FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy) FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy {
 		if v != nil {
@@ -437,10 +401,11 @@ func (o FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyInput is an input type that accepts FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyArgs and FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyOutput values.
-// You can construct a concrete instance of `FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyInput` via:
+// FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyInput is an input type that accepts values of the FhirDatastoreIdentityProviderConfigurationAuthorizationStrategy enum
+// A concrete instance of `FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyInput` can be one of the following:
 //
-//	FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyArgs{...}
+//	FhirDatastoreIdentityProviderConfigurationAuthorizationStrategySmartOnFhirV1
+//	FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyAwsAuth
 type FhirDatastoreIdentityProviderConfigurationAuthorizationStrategyInput interface {
 	pulumi.Input
 
@@ -549,12 +514,6 @@ func (o FhirDatastoreKmsEncryptionConfigCmkTypeOutput) ToFhirDatastoreKmsEncrypt
 	}).(FhirDatastoreKmsEncryptionConfigCmkTypePtrOutput)
 }
 
-func (o FhirDatastoreKmsEncryptionConfigCmkTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FhirDatastoreKmsEncryptionConfigCmkType] {
-	return pulumix.Output[FhirDatastoreKmsEncryptionConfigCmkType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FhirDatastoreKmsEncryptionConfigCmkTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -590,12 +549,6 @@ func (o FhirDatastoreKmsEncryptionConfigCmkTypePtrOutput) ToFhirDatastoreKmsEncr
 	return o
 }
 
-func (o FhirDatastoreKmsEncryptionConfigCmkTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FhirDatastoreKmsEncryptionConfigCmkType] {
-	return pulumix.Output[*FhirDatastoreKmsEncryptionConfigCmkType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FhirDatastoreKmsEncryptionConfigCmkTypePtrOutput) Elem() FhirDatastoreKmsEncryptionConfigCmkTypeOutput {
 	return o.ApplyT(func(v *FhirDatastoreKmsEncryptionConfigCmkType) FhirDatastoreKmsEncryptionConfigCmkType {
 		if v != nil {
@@ -620,10 +573,11 @@ func (o FhirDatastoreKmsEncryptionConfigCmkTypePtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// FhirDatastoreKmsEncryptionConfigCmkTypeInput is an input type that accepts FhirDatastoreKmsEncryptionConfigCmkTypeArgs and FhirDatastoreKmsEncryptionConfigCmkTypeOutput values.
-// You can construct a concrete instance of `FhirDatastoreKmsEncryptionConfigCmkTypeInput` via:
+// FhirDatastoreKmsEncryptionConfigCmkTypeInput is an input type that accepts values of the FhirDatastoreKmsEncryptionConfigCmkType enum
+// A concrete instance of `FhirDatastoreKmsEncryptionConfigCmkTypeInput` can be one of the following:
 //
-//	FhirDatastoreKmsEncryptionConfigCmkTypeArgs{...}
+//	FhirDatastoreKmsEncryptionConfigCmkTypeCustomerManagedKmsKey
+//	FhirDatastoreKmsEncryptionConfigCmkTypeAwsOwnedKmsKey
 type FhirDatastoreKmsEncryptionConfigCmkTypeInput interface {
 	pulumi.Input
 
@@ -731,12 +685,6 @@ func (o FhirDatastorePreloadDataConfigPreloadDataTypeOutput) ToFhirDatastorePrel
 	}).(FhirDatastorePreloadDataConfigPreloadDataTypePtrOutput)
 }
 
-func (o FhirDatastorePreloadDataConfigPreloadDataTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FhirDatastorePreloadDataConfigPreloadDataType] {
-	return pulumix.Output[FhirDatastorePreloadDataConfigPreloadDataType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FhirDatastorePreloadDataConfigPreloadDataTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -772,12 +720,6 @@ func (o FhirDatastorePreloadDataConfigPreloadDataTypePtrOutput) ToFhirDatastoreP
 	return o
 }
 
-func (o FhirDatastorePreloadDataConfigPreloadDataTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FhirDatastorePreloadDataConfigPreloadDataType] {
-	return pulumix.Output[*FhirDatastorePreloadDataConfigPreloadDataType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FhirDatastorePreloadDataConfigPreloadDataTypePtrOutput) Elem() FhirDatastorePreloadDataConfigPreloadDataTypeOutput {
 	return o.ApplyT(func(v *FhirDatastorePreloadDataConfigPreloadDataType) FhirDatastorePreloadDataConfigPreloadDataType {
 		if v != nil {
@@ -802,10 +744,10 @@ func (o FhirDatastorePreloadDataConfigPreloadDataTypePtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// FhirDatastorePreloadDataConfigPreloadDataTypeInput is an input type that accepts FhirDatastorePreloadDataConfigPreloadDataTypeArgs and FhirDatastorePreloadDataConfigPreloadDataTypeOutput values.
-// You can construct a concrete instance of `FhirDatastorePreloadDataConfigPreloadDataTypeInput` via:
+// FhirDatastorePreloadDataConfigPreloadDataTypeInput is an input type that accepts values of the FhirDatastorePreloadDataConfigPreloadDataType enum
+// A concrete instance of `FhirDatastorePreloadDataConfigPreloadDataTypeInput` can be one of the following:
 //
-//	FhirDatastorePreloadDataConfigPreloadDataTypeArgs{...}
+//	FhirDatastorePreloadDataConfigPreloadDataTypeSynthea
 type FhirDatastorePreloadDataConfigPreloadDataTypeInput interface {
 	pulumi.Input
 

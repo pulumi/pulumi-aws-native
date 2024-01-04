@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::InstanceConnectEndpoint
@@ -128,12 +127,6 @@ func (i *InstanceConnectEndpoint) ToInstanceConnectEndpointOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceConnectEndpointOutput)
 }
 
-func (i *InstanceConnectEndpoint) ToOutput(ctx context.Context) pulumix.Output[*InstanceConnectEndpoint] {
-	return pulumix.Output[*InstanceConnectEndpoint]{
-		OutputState: i.ToInstanceConnectEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceConnectEndpointOutput struct{ *pulumi.OutputState }
 
 func (InstanceConnectEndpointOutput) ElementType() reflect.Type {
@@ -146,12 +139,6 @@ func (o InstanceConnectEndpointOutput) ToInstanceConnectEndpointOutput() Instanc
 
 func (o InstanceConnectEndpointOutput) ToInstanceConnectEndpointOutputWithContext(ctx context.Context) InstanceConnectEndpointOutput {
 	return o
-}
-
-func (o InstanceConnectEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceConnectEndpoint] {
-	return pulumix.Output[*InstanceConnectEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The client token of the instance connect endpoint.

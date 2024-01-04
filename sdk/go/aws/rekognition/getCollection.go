@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::Rekognition::Collection type creates an Amazon Rekognition Collection. A collection is a logical grouping of information about detected faces which can later be referenced for searches on the group
@@ -66,12 +65,6 @@ func (o LookupCollectionResultOutput) ToLookupCollectionResultOutput() LookupCol
 
 func (o LookupCollectionResultOutput) ToLookupCollectionResultOutputWithContext(ctx context.Context) LookupCollectionResultOutput {
 	return o
-}
-
-func (o LookupCollectionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCollectionResult] {
-	return pulumix.Output[LookupCollectionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupCollectionResultOutput) Arn() pulumi.StringPtrOutput {

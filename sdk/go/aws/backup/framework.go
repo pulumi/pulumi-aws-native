@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Contains detailed information about a framework. Frameworks contain controls, which evaluate and report on your backup events and resources. Frameworks generate daily compliance results.
@@ -135,12 +134,6 @@ func (i *Framework) ToFrameworkOutputWithContext(ctx context.Context) FrameworkO
 	return pulumi.ToOutputWithContext(ctx, i).(FrameworkOutput)
 }
 
-func (i *Framework) ToOutput(ctx context.Context) pulumix.Output[*Framework] {
-	return pulumix.Output[*Framework]{
-		OutputState: i.ToFrameworkOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FrameworkOutput struct{ *pulumi.OutputState }
 
 func (FrameworkOutput) ElementType() reflect.Type {
@@ -153,12 +146,6 @@ func (o FrameworkOutput) ToFrameworkOutput() FrameworkOutput {
 
 func (o FrameworkOutput) ToFrameworkOutputWithContext(ctx context.Context) FrameworkOutput {
 	return o
-}
-
-func (o FrameworkOutput) ToOutput(ctx context.Context) pulumix.Output[*Framework] {
-	return pulumix.Output[*Framework]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The date and time that a framework is created, in ISO 8601 representation. The value of CreationTime is accurate to milliseconds. For example, 2020-07-10T15:00:00.000-08:00 represents the 10th of July 2020 at 3:00 PM 8 hours behind UTC.

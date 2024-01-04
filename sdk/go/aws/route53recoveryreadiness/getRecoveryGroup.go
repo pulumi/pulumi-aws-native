@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
@@ -71,12 +70,6 @@ func (o LookupRecoveryGroupResultOutput) ToLookupRecoveryGroupResultOutput() Loo
 
 func (o LookupRecoveryGroupResultOutput) ToLookupRecoveryGroupResultOutputWithContext(ctx context.Context) LookupRecoveryGroupResultOutput {
 	return o
-}
-
-func (o LookupRecoveryGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRecoveryGroupResult] {
-	return pulumix.Output[LookupRecoveryGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of the cell Amazon Resource Names (ARNs) in the recovery group.

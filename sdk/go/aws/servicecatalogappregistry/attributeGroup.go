@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroup.
@@ -110,12 +109,6 @@ func (i *AttributeGroup) ToAttributeGroupOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(AttributeGroupOutput)
 }
 
-func (i *AttributeGroup) ToOutput(ctx context.Context) pulumix.Output[*AttributeGroup] {
-	return pulumix.Output[*AttributeGroup]{
-		OutputState: i.ToAttributeGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AttributeGroupOutput struct{ *pulumi.OutputState }
 
 func (AttributeGroupOutput) ElementType() reflect.Type {
@@ -128,12 +121,6 @@ func (o AttributeGroupOutput) ToAttributeGroupOutput() AttributeGroupOutput {
 
 func (o AttributeGroupOutput) ToAttributeGroupOutputWithContext(ctx context.Context) AttributeGroupOutput {
 	return o
-}
-
-func (o AttributeGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*AttributeGroup] {
-	return pulumix.Output[*AttributeGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AttributeGroupOutput) Arn() pulumi.StringOutput {

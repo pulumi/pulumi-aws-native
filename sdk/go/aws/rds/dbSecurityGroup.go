@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::RDS::DBSecurityGroup
@@ -113,12 +112,6 @@ func (i *DbSecurityGroup) ToDbSecurityGroupOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(DbSecurityGroupOutput)
 }
 
-func (i *DbSecurityGroup) ToOutput(ctx context.Context) pulumix.Output[*DbSecurityGroup] {
-	return pulumix.Output[*DbSecurityGroup]{
-		OutputState: i.ToDbSecurityGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DbSecurityGroupOutput struct{ *pulumi.OutputState }
 
 func (DbSecurityGroupOutput) ElementType() reflect.Type {
@@ -131,12 +124,6 @@ func (o DbSecurityGroupOutput) ToDbSecurityGroupOutput() DbSecurityGroupOutput {
 
 func (o DbSecurityGroupOutput) ToDbSecurityGroupOutputWithContext(ctx context.Context) DbSecurityGroupOutput {
 	return o
-}
-
-func (o DbSecurityGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*DbSecurityGroup] {
-	return pulumix.Output[*DbSecurityGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DbSecurityGroupOutput) DbSecurityGroupIngress() DbSecurityGroupIngressTypeArrayOutput {

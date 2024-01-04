@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::RoboMaker::Fleet resource creates an AWS RoboMaker fleet. Fleets contain robots and can receive deployments.
@@ -65,12 +64,6 @@ func (o LookupFleetResultOutput) ToLookupFleetResultOutput() LookupFleetResultOu
 
 func (o LookupFleetResultOutput) ToLookupFleetResultOutputWithContext(ctx context.Context) LookupFleetResultOutput {
 	return o
-}
-
-func (o LookupFleetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFleetResult] {
-	return pulumix.Output[LookupFleetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupFleetResultOutput) Arn() pulumi.StringPtrOutput {

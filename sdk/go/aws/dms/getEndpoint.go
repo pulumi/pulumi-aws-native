@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::DMS::Endpoint
@@ -94,12 +93,6 @@ func (o LookupEndpointResultOutput) ToLookupEndpointResultOutput() LookupEndpoin
 
 func (o LookupEndpointResultOutput) ToLookupEndpointResultOutputWithContext(ctx context.Context) LookupEndpointResultOutput {
 	return o
-}
-
-func (o LookupEndpointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEndpointResult] {
-	return pulumix.Output[LookupEndpointResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupEndpointResultOutput) CertificateArn() pulumi.StringPtrOutput {

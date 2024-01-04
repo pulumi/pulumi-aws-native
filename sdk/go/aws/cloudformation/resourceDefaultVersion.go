@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The default version of a resource that has been registered in the CloudFormation Registry.
@@ -113,12 +112,6 @@ func (i *ResourceDefaultVersion) ToResourceDefaultVersionOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefaultVersionOutput)
 }
 
-func (i *ResourceDefaultVersion) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefaultVersion] {
-	return pulumix.Output[*ResourceDefaultVersion]{
-		OutputState: i.ToResourceDefaultVersionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceDefaultVersionOutput struct{ *pulumi.OutputState }
 
 func (ResourceDefaultVersionOutput) ElementType() reflect.Type {
@@ -131,12 +124,6 @@ func (o ResourceDefaultVersionOutput) ToResourceDefaultVersionOutput() ResourceD
 
 func (o ResourceDefaultVersionOutput) ToResourceDefaultVersionOutputWithContext(ctx context.Context) ResourceDefaultVersionOutput {
 	return o
-}
-
-func (o ResourceDefaultVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefaultVersion] {
-	return pulumix.Output[*ResourceDefaultVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the type. This is used to uniquely identify a ResourceDefaultVersion

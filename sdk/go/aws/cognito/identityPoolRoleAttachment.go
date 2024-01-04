@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Cognito::IdentityPoolRoleAttachment
@@ -106,12 +105,6 @@ func (i *IdentityPoolRoleAttachment) ToIdentityPoolRoleAttachmentOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolRoleAttachmentOutput)
 }
 
-func (i *IdentityPoolRoleAttachment) ToOutput(ctx context.Context) pulumix.Output[*IdentityPoolRoleAttachment] {
-	return pulumix.Output[*IdentityPoolRoleAttachment]{
-		OutputState: i.ToIdentityPoolRoleAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IdentityPoolRoleAttachmentOutput struct{ *pulumi.OutputState }
 
 func (IdentityPoolRoleAttachmentOutput) ElementType() reflect.Type {
@@ -124,12 +117,6 @@ func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentOutput() I
 
 func (o IdentityPoolRoleAttachmentOutput) ToIdentityPoolRoleAttachmentOutputWithContext(ctx context.Context) IdentityPoolRoleAttachmentOutput {
 	return o
-}
-
-func (o IdentityPoolRoleAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityPoolRoleAttachment] {
-	return pulumix.Output[*IdentityPoolRoleAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdentityPoolRoleAttachmentOutput) IdentityPoolId() pulumi.StringOutput {

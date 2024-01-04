@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::S3::AccessGrantsLocation resource is an Amazon S3 resource type hosted in an access grants instance which can be the target of S3 access grants.
@@ -73,12 +72,6 @@ func (o LookupAccessGrantsLocationResultOutput) ToLookupAccessGrantsLocationResu
 
 func (o LookupAccessGrantsLocationResultOutput) ToLookupAccessGrantsLocationResultOutputWithContext(ctx context.Context) LookupAccessGrantsLocationResultOutput {
 	return o
-}
-
-func (o LookupAccessGrantsLocationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAccessGrantsLocationResult] {
-	return pulumix.Output[LookupAccessGrantsLocationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the specified Access Grants location.

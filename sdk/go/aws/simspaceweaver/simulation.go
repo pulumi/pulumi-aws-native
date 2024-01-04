@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS::SimSpaceWeaver::Simulation resource creates an AWS Simulation.
@@ -125,12 +124,6 @@ func (i *Simulation) ToSimulationOutputWithContext(ctx context.Context) Simulati
 	return pulumi.ToOutputWithContext(ctx, i).(SimulationOutput)
 }
 
-func (i *Simulation) ToOutput(ctx context.Context) pulumix.Output[*Simulation] {
-	return pulumix.Output[*Simulation]{
-		OutputState: i.ToSimulationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SimulationOutput struct{ *pulumi.OutputState }
 
 func (SimulationOutput) ElementType() reflect.Type {
@@ -143,12 +136,6 @@ func (o SimulationOutput) ToSimulationOutput() SimulationOutput {
 
 func (o SimulationOutput) ToSimulationOutputWithContext(ctx context.Context) SimulationOutput {
 	return o
-}
-
-func (o SimulationOutput) ToOutput(ctx context.Context) pulumix.Output[*Simulation] {
-	return pulumix.Output[*Simulation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Json object with all simulation details

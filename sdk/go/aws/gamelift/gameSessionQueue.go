@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::GameLift::GameSessionQueue resource creates an Amazon GameLift (GameLift) game session queue.
@@ -147,12 +146,6 @@ func (i *GameSessionQueue) ToGameSessionQueueOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueueOutput)
 }
 
-func (i *GameSessionQueue) ToOutput(ctx context.Context) pulumix.Output[*GameSessionQueue] {
-	return pulumix.Output[*GameSessionQueue]{
-		OutputState: i.ToGameSessionQueueOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GameSessionQueueOutput struct{ *pulumi.OutputState }
 
 func (GameSessionQueueOutput) ElementType() reflect.Type {
@@ -165,12 +158,6 @@ func (o GameSessionQueueOutput) ToGameSessionQueueOutput() GameSessionQueueOutpu
 
 func (o GameSessionQueueOutput) ToGameSessionQueueOutputWithContext(ctx context.Context) GameSessionQueueOutput {
 	return o
-}
-
-func (o GameSessionQueueOutput) ToOutput(ctx context.Context) pulumix.Output[*GameSessionQueue] {
-	return pulumix.Output[*GameSessionQueue]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift game session queue resource and uniquely identifies it.

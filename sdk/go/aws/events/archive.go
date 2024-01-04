@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Events::Archive
@@ -112,12 +111,6 @@ func (i *Archive) ToArchiveOutputWithContext(ctx context.Context) ArchiveOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ArchiveOutput)
 }
 
-func (i *Archive) ToOutput(ctx context.Context) pulumix.Output[*Archive] {
-	return pulumix.Output[*Archive]{
-		OutputState: i.ToArchiveOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ArchiveOutput struct{ *pulumi.OutputState }
 
 func (ArchiveOutput) ElementType() reflect.Type {
@@ -130,12 +123,6 @@ func (o ArchiveOutput) ToArchiveOutput() ArchiveOutput {
 
 func (o ArchiveOutput) ToArchiveOutputWithContext(ctx context.Context) ArchiveOutput {
 	return o
-}
-
-func (o ArchiveOutput) ToOutput(ctx context.Context) pulumix.Output[*Archive] {
-	return pulumix.Output[*Archive]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ArchiveOutput) ArchiveName() pulumi.StringPtrOutput {

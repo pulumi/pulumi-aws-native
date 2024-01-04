@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for SQS QueueInlinePolicy
@@ -67,12 +66,6 @@ func (o LookupQueueInlinePolicyResultOutput) ToLookupQueueInlinePolicyResultOutp
 
 func (o LookupQueueInlinePolicyResultOutput) ToLookupQueueInlinePolicyResultOutputWithContext(ctx context.Context) LookupQueueInlinePolicyResultOutput {
 	return o
-}
-
-func (o LookupQueueInlinePolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupQueueInlinePolicyResult] {
-	return pulumix.Output[LookupQueueInlinePolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A policy document that contains permissions to add to the specified SQS queue

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataSync::LocationAzureBlob.
@@ -147,12 +146,6 @@ func (i *LocationAzureBlob) ToLocationAzureBlobOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobOutput)
 }
 
-func (i *LocationAzureBlob) ToOutput(ctx context.Context) pulumix.Output[*LocationAzureBlob] {
-	return pulumix.Output[*LocationAzureBlob]{
-		OutputState: i.ToLocationAzureBlobOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocationAzureBlobOutput struct{ *pulumi.OutputState }
 
 func (LocationAzureBlobOutput) ElementType() reflect.Type {
@@ -165,12 +158,6 @@ func (o LocationAzureBlobOutput) ToLocationAzureBlobOutput() LocationAzureBlobOu
 
 func (o LocationAzureBlobOutput) ToLocationAzureBlobOutputWithContext(ctx context.Context) LocationAzureBlobOutput {
 	return o
-}
-
-func (o LocationAzureBlobOutput) ToOutput(ctx context.Context) pulumix.Output[*LocationAzureBlob] {
-	return pulumix.Output[*LocationAzureBlob]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Names (ARNs) of agents to use for an Azure Blob Location.

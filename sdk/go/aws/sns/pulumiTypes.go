@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -59,12 +58,6 @@ func (i TopicLoggingConfigArgs) ToTopicLoggingConfigOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(TopicLoggingConfigOutput)
 }
 
-func (i TopicLoggingConfigArgs) ToOutput(ctx context.Context) pulumix.Output[TopicLoggingConfig] {
-	return pulumix.Output[TopicLoggingConfig]{
-		OutputState: i.ToTopicLoggingConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TopicLoggingConfigArrayInput is an input type that accepts TopicLoggingConfigArray and TopicLoggingConfigArrayOutput values.
 // You can construct a concrete instance of `TopicLoggingConfigArrayInput` via:
 //
@@ -90,12 +83,6 @@ func (i TopicLoggingConfigArray) ToTopicLoggingConfigArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(TopicLoggingConfigArrayOutput)
 }
 
-func (i TopicLoggingConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]TopicLoggingConfig] {
-	return pulumix.Output[[]TopicLoggingConfig]{
-		OutputState: i.ToTopicLoggingConfigArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicLoggingConfigOutput struct{ *pulumi.OutputState }
 
 func (TopicLoggingConfigOutput) ElementType() reflect.Type {
@@ -108,12 +95,6 @@ func (o TopicLoggingConfigOutput) ToTopicLoggingConfigOutput() TopicLoggingConfi
 
 func (o TopicLoggingConfigOutput) ToTopicLoggingConfigOutputWithContext(ctx context.Context) TopicLoggingConfigOutput {
 	return o
-}
-
-func (o TopicLoggingConfigOutput) ToOutput(ctx context.Context) pulumix.Output[TopicLoggingConfig] {
-	return pulumix.Output[TopicLoggingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The IAM role ARN to be used when logging failed message deliveries in Amazon CloudWatch
@@ -148,12 +129,6 @@ func (o TopicLoggingConfigArrayOutput) ToTopicLoggingConfigArrayOutput() TopicLo
 
 func (o TopicLoggingConfigArrayOutput) ToTopicLoggingConfigArrayOutputWithContext(ctx context.Context) TopicLoggingConfigArrayOutput {
 	return o
-}
-
-func (o TopicLoggingConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TopicLoggingConfig] {
-	return pulumix.Output[[]TopicLoggingConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicLoggingConfigArrayOutput) Index(i pulumi.IntInput) TopicLoggingConfigOutput {
@@ -195,12 +170,6 @@ func (i TopicSubscriptionArgs) ToTopicSubscriptionOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TopicSubscriptionOutput)
 }
 
-func (i TopicSubscriptionArgs) ToOutput(ctx context.Context) pulumix.Output[TopicSubscription] {
-	return pulumix.Output[TopicSubscription]{
-		OutputState: i.ToTopicSubscriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TopicSubscriptionArrayInput is an input type that accepts TopicSubscriptionArray and TopicSubscriptionArrayOutput values.
 // You can construct a concrete instance of `TopicSubscriptionArrayInput` via:
 //
@@ -226,12 +195,6 @@ func (i TopicSubscriptionArray) ToTopicSubscriptionArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TopicSubscriptionArrayOutput)
 }
 
-func (i TopicSubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]TopicSubscription] {
-	return pulumix.Output[[]TopicSubscription]{
-		OutputState: i.ToTopicSubscriptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (TopicSubscriptionOutput) ElementType() reflect.Type {
@@ -244,12 +207,6 @@ func (o TopicSubscriptionOutput) ToTopicSubscriptionOutput() TopicSubscriptionOu
 
 func (o TopicSubscriptionOutput) ToTopicSubscriptionOutputWithContext(ctx context.Context) TopicSubscriptionOutput {
 	return o
-}
-
-func (o TopicSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[TopicSubscription] {
-	return pulumix.Output[TopicSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicSubscriptionOutput) Endpoint() pulumi.StringOutput {
@@ -272,12 +229,6 @@ func (o TopicSubscriptionArrayOutput) ToTopicSubscriptionArrayOutput() TopicSubs
 
 func (o TopicSubscriptionArrayOutput) ToTopicSubscriptionArrayOutputWithContext(ctx context.Context) TopicSubscriptionArrayOutput {
 	return o
-}
-
-func (o TopicSubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TopicSubscription] {
-	return pulumix.Output[[]TopicSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicSubscriptionArrayOutput) Index(i pulumi.IntInput) TopicSubscriptionOutput {
@@ -323,12 +274,6 @@ func (i TopicTagArgs) ToTopicTagOutputWithContext(ctx context.Context) TopicTagO
 	return pulumi.ToOutputWithContext(ctx, i).(TopicTagOutput)
 }
 
-func (i TopicTagArgs) ToOutput(ctx context.Context) pulumix.Output[TopicTag] {
-	return pulumix.Output[TopicTag]{
-		OutputState: i.ToTopicTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TopicTagArrayInput is an input type that accepts TopicTagArray and TopicTagArrayOutput values.
 // You can construct a concrete instance of `TopicTagArrayInput` via:
 //
@@ -354,12 +299,6 @@ func (i TopicTagArray) ToTopicTagArrayOutputWithContext(ctx context.Context) Top
 	return pulumi.ToOutputWithContext(ctx, i).(TopicTagArrayOutput)
 }
 
-func (i TopicTagArray) ToOutput(ctx context.Context) pulumix.Output[[]TopicTag] {
-	return pulumix.Output[[]TopicTag]{
-		OutputState: i.ToTopicTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicTagOutput struct{ *pulumi.OutputState }
 
 func (TopicTagOutput) ElementType() reflect.Type {
@@ -372,12 +311,6 @@ func (o TopicTagOutput) ToTopicTagOutput() TopicTagOutput {
 
 func (o TopicTagOutput) ToTopicTagOutputWithContext(ctx context.Context) TopicTagOutput {
 	return o
-}
-
-func (o TopicTagOutput) ToOutput(ctx context.Context) pulumix.Output[TopicTag] {
-	return pulumix.Output[TopicTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, `_`, `.`, `/`, `=`, `+`, and `-`.
@@ -402,12 +335,6 @@ func (o TopicTagArrayOutput) ToTopicTagArrayOutput() TopicTagArrayOutput {
 
 func (o TopicTagArrayOutput) ToTopicTagArrayOutputWithContext(ctx context.Context) TopicTagArrayOutput {
 	return o
-}
-
-func (o TopicTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TopicTag] {
-	return pulumix.Output[[]TopicTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicTagArrayOutput) Index(i pulumi.IntInput) TopicTagOutput {

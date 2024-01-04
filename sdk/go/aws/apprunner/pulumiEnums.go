@@ -78,12 +78,6 @@ func (o ObservabilityConfigurationTraceConfigurationVendorOutput) ToObservabilit
 	}).(ObservabilityConfigurationTraceConfigurationVendorPtrOutput)
 }
 
-func (o ObservabilityConfigurationTraceConfigurationVendorOutput) ToOutput(ctx context.Context) pulumix.Output[ObservabilityConfigurationTraceConfigurationVendor] {
-	return pulumix.Output[ObservabilityConfigurationTraceConfigurationVendor]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ObservabilityConfigurationTraceConfigurationVendorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o ObservabilityConfigurationTraceConfigurationVendorPtrOutput) ToObservabi
 	return o
 }
 
-func (o ObservabilityConfigurationTraceConfigurationVendorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ObservabilityConfigurationTraceConfigurationVendor] {
-	return pulumix.Output[*ObservabilityConfigurationTraceConfigurationVendor]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ObservabilityConfigurationTraceConfigurationVendorPtrOutput) Elem() ObservabilityConfigurationTraceConfigurationVendorOutput {
 	return o.ApplyT(func(v *ObservabilityConfigurationTraceConfigurationVendor) ObservabilityConfigurationTraceConfigurationVendor {
 		if v != nil {
@@ -149,10 +137,10 @@ func (o ObservabilityConfigurationTraceConfigurationVendorPtrOutput) ToStringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// ObservabilityConfigurationTraceConfigurationVendorInput is an input type that accepts ObservabilityConfigurationTraceConfigurationVendorArgs and ObservabilityConfigurationTraceConfigurationVendorOutput values.
-// You can construct a concrete instance of `ObservabilityConfigurationTraceConfigurationVendorInput` via:
+// ObservabilityConfigurationTraceConfigurationVendorInput is an input type that accepts values of the ObservabilityConfigurationTraceConfigurationVendor enum
+// A concrete instance of `ObservabilityConfigurationTraceConfigurationVendorInput` can be one of the following:
 //
-//	ObservabilityConfigurationTraceConfigurationVendorArgs{...}
+//	ObservabilityConfigurationTraceConfigurationVendorAwsxray
 type ObservabilityConfigurationTraceConfigurationVendorInput interface {
 	pulumi.Input
 
@@ -261,12 +249,6 @@ func (o ServiceCodeConfigurationConfigurationSourceOutput) ToServiceCodeConfigur
 	}).(ServiceCodeConfigurationConfigurationSourcePtrOutput)
 }
 
-func (o ServiceCodeConfigurationConfigurationSourceOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceCodeConfigurationConfigurationSource] {
-	return pulumix.Output[ServiceCodeConfigurationConfigurationSource]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceCodeConfigurationConfigurationSourceOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -302,12 +284,6 @@ func (o ServiceCodeConfigurationConfigurationSourcePtrOutput) ToServiceCodeConfi
 	return o
 }
 
-func (o ServiceCodeConfigurationConfigurationSourcePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceCodeConfigurationConfigurationSource] {
-	return pulumix.Output[*ServiceCodeConfigurationConfigurationSource]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceCodeConfigurationConfigurationSourcePtrOutput) Elem() ServiceCodeConfigurationConfigurationSourceOutput {
 	return o.ApplyT(func(v *ServiceCodeConfigurationConfigurationSource) ServiceCodeConfigurationConfigurationSource {
 		if v != nil {
@@ -332,10 +308,11 @@ func (o ServiceCodeConfigurationConfigurationSourcePtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceCodeConfigurationConfigurationSourceInput is an input type that accepts ServiceCodeConfigurationConfigurationSourceArgs and ServiceCodeConfigurationConfigurationSourceOutput values.
-// You can construct a concrete instance of `ServiceCodeConfigurationConfigurationSourceInput` via:
+// ServiceCodeConfigurationConfigurationSourceInput is an input type that accepts values of the ServiceCodeConfigurationConfigurationSource enum
+// A concrete instance of `ServiceCodeConfigurationConfigurationSourceInput` can be one of the following:
 //
-//	ServiceCodeConfigurationConfigurationSourceArgs{...}
+//	ServiceCodeConfigurationConfigurationSourceRepository
+//	ServiceCodeConfigurationConfigurationSourceApi
 type ServiceCodeConfigurationConfigurationSourceInput interface {
 	pulumi.Input
 
@@ -452,12 +429,6 @@ func (o ServiceCodeConfigurationValuesRuntimeOutput) ToServiceCodeConfigurationV
 	}).(ServiceCodeConfigurationValuesRuntimePtrOutput)
 }
 
-func (o ServiceCodeConfigurationValuesRuntimeOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceCodeConfigurationValuesRuntime] {
-	return pulumix.Output[ServiceCodeConfigurationValuesRuntime]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceCodeConfigurationValuesRuntimeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -493,12 +464,6 @@ func (o ServiceCodeConfigurationValuesRuntimePtrOutput) ToServiceCodeConfigurati
 	return o
 }
 
-func (o ServiceCodeConfigurationValuesRuntimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceCodeConfigurationValuesRuntime] {
-	return pulumix.Output[*ServiceCodeConfigurationValuesRuntime]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceCodeConfigurationValuesRuntimePtrOutput) Elem() ServiceCodeConfigurationValuesRuntimeOutput {
 	return o.ApplyT(func(v *ServiceCodeConfigurationValuesRuntime) ServiceCodeConfigurationValuesRuntime {
 		if v != nil {
@@ -523,10 +488,19 @@ func (o ServiceCodeConfigurationValuesRuntimePtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceCodeConfigurationValuesRuntimeInput is an input type that accepts ServiceCodeConfigurationValuesRuntimeArgs and ServiceCodeConfigurationValuesRuntimeOutput values.
-// You can construct a concrete instance of `ServiceCodeConfigurationValuesRuntimeInput` via:
+// ServiceCodeConfigurationValuesRuntimeInput is an input type that accepts values of the ServiceCodeConfigurationValuesRuntime enum
+// A concrete instance of `ServiceCodeConfigurationValuesRuntimeInput` can be one of the following:
 //
-//	ServiceCodeConfigurationValuesRuntimeArgs{...}
+//	ServiceCodeConfigurationValuesRuntimePython3
+//	ServiceCodeConfigurationValuesRuntimeNodejs12
+//	ServiceCodeConfigurationValuesRuntimeNodejs14
+//	ServiceCodeConfigurationValuesRuntimeCorretto8
+//	ServiceCodeConfigurationValuesRuntimeCorretto11
+//	ServiceCodeConfigurationValuesRuntimeNodejs16
+//	ServiceCodeConfigurationValuesRuntimeGo1
+//	ServiceCodeConfigurationValuesRuntimeDotnet6
+//	ServiceCodeConfigurationValuesRuntimePhp81
+//	ServiceCodeConfigurationValuesRuntimeRuby31
 type ServiceCodeConfigurationValuesRuntimeInput interface {
 	pulumi.Input
 
@@ -635,12 +609,6 @@ func (o ServiceEgressConfigurationEgressTypeOutput) ToServiceEgressConfiguration
 	}).(ServiceEgressConfigurationEgressTypePtrOutput)
 }
 
-func (o ServiceEgressConfigurationEgressTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceEgressConfigurationEgressType] {
-	return pulumix.Output[ServiceEgressConfigurationEgressType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceEgressConfigurationEgressTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -676,12 +644,6 @@ func (o ServiceEgressConfigurationEgressTypePtrOutput) ToServiceEgressConfigurat
 	return o
 }
 
-func (o ServiceEgressConfigurationEgressTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceEgressConfigurationEgressType] {
-	return pulumix.Output[*ServiceEgressConfigurationEgressType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceEgressConfigurationEgressTypePtrOutput) Elem() ServiceEgressConfigurationEgressTypeOutput {
 	return o.ApplyT(func(v *ServiceEgressConfigurationEgressType) ServiceEgressConfigurationEgressType {
 		if v != nil {
@@ -706,10 +668,11 @@ func (o ServiceEgressConfigurationEgressTypePtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceEgressConfigurationEgressTypeInput is an input type that accepts ServiceEgressConfigurationEgressTypeArgs and ServiceEgressConfigurationEgressTypeOutput values.
-// You can construct a concrete instance of `ServiceEgressConfigurationEgressTypeInput` via:
+// ServiceEgressConfigurationEgressTypeInput is an input type that accepts values of the ServiceEgressConfigurationEgressType enum
+// A concrete instance of `ServiceEgressConfigurationEgressTypeInput` can be one of the following:
 //
-//	ServiceEgressConfigurationEgressTypeArgs{...}
+//	ServiceEgressConfigurationEgressTypeDefault
+//	ServiceEgressConfigurationEgressTypeVpc
 type ServiceEgressConfigurationEgressTypeInput interface {
 	pulumi.Input
 
@@ -818,12 +781,6 @@ func (o ServiceHealthCheckConfigurationProtocolOutput) ToServiceHealthCheckConfi
 	}).(ServiceHealthCheckConfigurationProtocolPtrOutput)
 }
 
-func (o ServiceHealthCheckConfigurationProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceHealthCheckConfigurationProtocol] {
-	return pulumix.Output[ServiceHealthCheckConfigurationProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceHealthCheckConfigurationProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -859,12 +816,6 @@ func (o ServiceHealthCheckConfigurationProtocolPtrOutput) ToServiceHealthCheckCo
 	return o
 }
 
-func (o ServiceHealthCheckConfigurationProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceHealthCheckConfigurationProtocol] {
-	return pulumix.Output[*ServiceHealthCheckConfigurationProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceHealthCheckConfigurationProtocolPtrOutput) Elem() ServiceHealthCheckConfigurationProtocolOutput {
 	return o.ApplyT(func(v *ServiceHealthCheckConfigurationProtocol) ServiceHealthCheckConfigurationProtocol {
 		if v != nil {
@@ -889,10 +840,11 @@ func (o ServiceHealthCheckConfigurationProtocolPtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceHealthCheckConfigurationProtocolInput is an input type that accepts ServiceHealthCheckConfigurationProtocolArgs and ServiceHealthCheckConfigurationProtocolOutput values.
-// You can construct a concrete instance of `ServiceHealthCheckConfigurationProtocolInput` via:
+// ServiceHealthCheckConfigurationProtocolInput is an input type that accepts values of the ServiceHealthCheckConfigurationProtocol enum
+// A concrete instance of `ServiceHealthCheckConfigurationProtocolInput` can be one of the following:
 //
-//	ServiceHealthCheckConfigurationProtocolArgs{...}
+//	ServiceHealthCheckConfigurationProtocolTcp
+//	ServiceHealthCheckConfigurationProtocolHttp
 type ServiceHealthCheckConfigurationProtocolInput interface {
 	pulumi.Input
 
@@ -1001,12 +953,6 @@ func (o ServiceImageRepositoryImageRepositoryTypeOutput) ToServiceImageRepositor
 	}).(ServiceImageRepositoryImageRepositoryTypePtrOutput)
 }
 
-func (o ServiceImageRepositoryImageRepositoryTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceImageRepositoryImageRepositoryType] {
-	return pulumix.Output[ServiceImageRepositoryImageRepositoryType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceImageRepositoryImageRepositoryTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1042,12 +988,6 @@ func (o ServiceImageRepositoryImageRepositoryTypePtrOutput) ToServiceImageReposi
 	return o
 }
 
-func (o ServiceImageRepositoryImageRepositoryTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceImageRepositoryImageRepositoryType] {
-	return pulumix.Output[*ServiceImageRepositoryImageRepositoryType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceImageRepositoryImageRepositoryTypePtrOutput) Elem() ServiceImageRepositoryImageRepositoryTypeOutput {
 	return o.ApplyT(func(v *ServiceImageRepositoryImageRepositoryType) ServiceImageRepositoryImageRepositoryType {
 		if v != nil {
@@ -1072,10 +1012,11 @@ func (o ServiceImageRepositoryImageRepositoryTypePtrOutput) ToStringPtrOutputWit
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceImageRepositoryImageRepositoryTypeInput is an input type that accepts ServiceImageRepositoryImageRepositoryTypeArgs and ServiceImageRepositoryImageRepositoryTypeOutput values.
-// You can construct a concrete instance of `ServiceImageRepositoryImageRepositoryTypeInput` via:
+// ServiceImageRepositoryImageRepositoryTypeInput is an input type that accepts values of the ServiceImageRepositoryImageRepositoryType enum
+// A concrete instance of `ServiceImageRepositoryImageRepositoryTypeInput` can be one of the following:
 //
-//	ServiceImageRepositoryImageRepositoryTypeArgs{...}
+//	ServiceImageRepositoryImageRepositoryTypeEcr
+//	ServiceImageRepositoryImageRepositoryTypeEcrPublic
 type ServiceImageRepositoryImageRepositoryTypeInput interface {
 	pulumi.Input
 
@@ -1184,12 +1125,6 @@ func (o ServiceNetworkConfigurationIpAddressTypeOutput) ToServiceNetworkConfigur
 	}).(ServiceNetworkConfigurationIpAddressTypePtrOutput)
 }
 
-func (o ServiceNetworkConfigurationIpAddressTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceNetworkConfigurationIpAddressType] {
-	return pulumix.Output[ServiceNetworkConfigurationIpAddressType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceNetworkConfigurationIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1225,12 +1160,6 @@ func (o ServiceNetworkConfigurationIpAddressTypePtrOutput) ToServiceNetworkConfi
 	return o
 }
 
-func (o ServiceNetworkConfigurationIpAddressTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkConfigurationIpAddressType] {
-	return pulumix.Output[*ServiceNetworkConfigurationIpAddressType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceNetworkConfigurationIpAddressTypePtrOutput) Elem() ServiceNetworkConfigurationIpAddressTypeOutput {
 	return o.ApplyT(func(v *ServiceNetworkConfigurationIpAddressType) ServiceNetworkConfigurationIpAddressType {
 		if v != nil {
@@ -1255,10 +1184,11 @@ func (o ServiceNetworkConfigurationIpAddressTypePtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceNetworkConfigurationIpAddressTypeInput is an input type that accepts ServiceNetworkConfigurationIpAddressTypeArgs and ServiceNetworkConfigurationIpAddressTypeOutput values.
-// You can construct a concrete instance of `ServiceNetworkConfigurationIpAddressTypeInput` via:
+// ServiceNetworkConfigurationIpAddressTypeInput is an input type that accepts values of the ServiceNetworkConfigurationIpAddressType enum
+// A concrete instance of `ServiceNetworkConfigurationIpAddressTypeInput` can be one of the following:
 //
-//	ServiceNetworkConfigurationIpAddressTypeArgs{...}
+//	ServiceNetworkConfigurationIpAddressTypeIpv4
+//	ServiceNetworkConfigurationIpAddressTypeDualStack
 type ServiceNetworkConfigurationIpAddressTypeInput interface {
 	pulumi.Input
 
@@ -1366,12 +1296,6 @@ func (o ServiceSourceCodeVersionTypeOutput) ToServiceSourceCodeVersionTypePtrOut
 	}).(ServiceSourceCodeVersionTypePtrOutput)
 }
 
-func (o ServiceSourceCodeVersionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceSourceCodeVersionType] {
-	return pulumix.Output[ServiceSourceCodeVersionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceSourceCodeVersionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1407,12 +1331,6 @@ func (o ServiceSourceCodeVersionTypePtrOutput) ToServiceSourceCodeVersionTypePtr
 	return o
 }
 
-func (o ServiceSourceCodeVersionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceSourceCodeVersionType] {
-	return pulumix.Output[*ServiceSourceCodeVersionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceSourceCodeVersionTypePtrOutput) Elem() ServiceSourceCodeVersionTypeOutput {
 	return o.ApplyT(func(v *ServiceSourceCodeVersionType) ServiceSourceCodeVersionType {
 		if v != nil {
@@ -1437,10 +1355,10 @@ func (o ServiceSourceCodeVersionTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceSourceCodeVersionTypeInput is an input type that accepts ServiceSourceCodeVersionTypeArgs and ServiceSourceCodeVersionTypeOutput values.
-// You can construct a concrete instance of `ServiceSourceCodeVersionTypeInput` via:
+// ServiceSourceCodeVersionTypeInput is an input type that accepts values of the ServiceSourceCodeVersionType enum
+// A concrete instance of `ServiceSourceCodeVersionTypeInput` can be one of the following:
 //
-//	ServiceSourceCodeVersionTypeArgs{...}
+//	ServiceSourceCodeVersionTypeBranch
 type ServiceSourceCodeVersionTypeInput interface {
 	pulumi.Input
 
@@ -1519,12 +1437,6 @@ func (o VpcIngressConnectionStatusOutput) ToVpcIngressConnectionStatusPtrOutputW
 	}).(VpcIngressConnectionStatusPtrOutput)
 }
 
-func (o VpcIngressConnectionStatusOutput) ToOutput(ctx context.Context) pulumix.Output[VpcIngressConnectionStatus] {
-	return pulumix.Output[VpcIngressConnectionStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpcIngressConnectionStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1558,12 +1470,6 @@ func (o VpcIngressConnectionStatusPtrOutput) ToVpcIngressConnectionStatusPtrOutp
 
 func (o VpcIngressConnectionStatusPtrOutput) ToVpcIngressConnectionStatusPtrOutputWithContext(ctx context.Context) VpcIngressConnectionStatusPtrOutput {
 	return o
-}
-
-func (o VpcIngressConnectionStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VpcIngressConnectionStatus] {
-	return pulumix.Output[*VpcIngressConnectionStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpcIngressConnectionStatusPtrOutput) Elem() VpcIngressConnectionStatusOutput {

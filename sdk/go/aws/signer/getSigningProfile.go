@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A signing profile is a signing template that can be used to carry out a pre-defined signing job.
@@ -75,12 +74,6 @@ func (o LookupSigningProfileResultOutput) ToLookupSigningProfileResultOutput() L
 
 func (o LookupSigningProfileResultOutput) ToLookupSigningProfileResultOutputWithContext(ctx context.Context) LookupSigningProfileResultOutput {
 	return o
-}
-
-func (o LookupSigningProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSigningProfileResult] {
-	return pulumix.Output[LookupSigningProfileResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the specified signing profile.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DataSync::LocationHDFS.
@@ -88,12 +87,6 @@ func (o LookupLocationHdfsResultOutput) ToLookupLocationHdfsResultOutput() Looku
 
 func (o LookupLocationHdfsResultOutput) ToLookupLocationHdfsResultOutputWithContext(ctx context.Context) LookupLocationHdfsResultOutput {
 	return o
-}
-
-func (o LookupLocationHdfsResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLocationHdfsResult] {
-	return pulumix.Output[LookupLocationHdfsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN(s) of the agent(s) to use for an HDFS location.

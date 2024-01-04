@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A special resource that enables deploying CloudFormation Extensions (third-party resources). An extension has to be pre-registered in your AWS account in order to use this resource.
@@ -104,12 +103,6 @@ func (i *ExtensionResource) ToExtensionResourceOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ExtensionResourceOutput)
 }
 
-func (i *ExtensionResource) ToOutput(ctx context.Context) pulumix.Output[*ExtensionResource] {
-	return pulumix.Output[*ExtensionResource]{
-		OutputState: i.ToExtensionResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ExtensionResourceOutput struct{ *pulumi.OutputState }
 
 func (ExtensionResourceOutput) ElementType() reflect.Type {
@@ -122,12 +115,6 @@ func (o ExtensionResourceOutput) ToExtensionResourceOutput() ExtensionResourceOu
 
 func (o ExtensionResourceOutput) ToExtensionResourceOutputWithContext(ctx context.Context) ExtensionResourceOutput {
 	return o
-}
-
-func (o ExtensionResourceOutput) ToOutput(ctx context.Context) pulumix.Output[*ExtensionResource] {
-	return pulumix.Output[*ExtensionResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Dictionary of the extension resource attributes.

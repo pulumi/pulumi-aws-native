@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
@@ -75,12 +74,6 @@ func (o LookupCostCategoryResultOutput) ToLookupCostCategoryResultOutput() Looku
 
 func (o LookupCostCategoryResultOutput) ToLookupCostCategoryResultOutputWithContext(ctx context.Context) LookupCostCategoryResultOutput {
 	return o
-}
-
-func (o LookupCostCategoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCostCategoryResult] {
-	return pulumix.Output[LookupCostCategoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Cost category ARN

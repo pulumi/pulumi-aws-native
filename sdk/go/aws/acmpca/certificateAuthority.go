@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Private certificate authority.
@@ -165,12 +164,6 @@ func (i *CertificateAuthority) ToCertificateAuthorityOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityOutput)
 }
 
-func (i *CertificateAuthority) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthority] {
-	return pulumix.Output[*CertificateAuthority]{
-		OutputState: i.ToCertificateAuthorityOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateAuthorityOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityOutput) ElementType() reflect.Type {
@@ -183,12 +176,6 @@ func (o CertificateAuthorityOutput) ToCertificateAuthorityOutput() CertificateAu
 
 func (o CertificateAuthorityOutput) ToCertificateAuthorityOutputWithContext(ctx context.Context) CertificateAuthorityOutput {
 	return o
-}
-
-func (o CertificateAuthorityOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthority] {
-	return pulumix.Output[*CertificateAuthority]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the certificate authority.

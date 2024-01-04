@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::SageMaker::DeviceFleet
@@ -73,12 +72,6 @@ func (o LookupDeviceFleetResultOutput) ToLookupDeviceFleetResultOutput() LookupD
 
 func (o LookupDeviceFleetResultOutput) ToLookupDeviceFleetResultOutputWithContext(ctx context.Context) LookupDeviceFleetResultOutput {
 	return o
-}
-
-func (o LookupDeviceFleetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDeviceFleetResult] {
-	return pulumix.Output[LookupDeviceFleetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Description for the edge device fleet

@@ -78,12 +78,6 @@ func (o SignalingChannelTypeOutput) ToSignalingChannelTypePtrOutputWithContext(c
 	}).(SignalingChannelTypePtrOutput)
 }
 
-func (o SignalingChannelTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SignalingChannelType] {
-	return pulumix.Output[SignalingChannelType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SignalingChannelTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o SignalingChannelTypePtrOutput) ToSignalingChannelTypePtrOutputWithContex
 	return o
 }
 
-func (o SignalingChannelTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SignalingChannelType] {
-	return pulumix.Output[*SignalingChannelType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SignalingChannelTypePtrOutput) Elem() SignalingChannelTypeOutput {
 	return o.ApplyT(func(v *SignalingChannelType) SignalingChannelType {
 		if v != nil {
@@ -149,10 +137,10 @@ func (o SignalingChannelTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// SignalingChannelTypeInput is an input type that accepts SignalingChannelTypeArgs and SignalingChannelTypeOutput values.
-// You can construct a concrete instance of `SignalingChannelTypeInput` via:
+// SignalingChannelTypeInput is an input type that accepts values of the SignalingChannelType enum
+// A concrete instance of `SignalingChannelTypeInput` can be one of the following:
 //
-//	SignalingChannelTypeArgs{...}
+//	SignalingChannelTypeSingleMaster
 type SignalingChannelTypeInput interface {
 	pulumi.Input
 

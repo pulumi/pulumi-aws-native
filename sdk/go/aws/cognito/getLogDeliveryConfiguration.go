@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Cognito::LogDeliveryConfiguration
@@ -65,12 +64,6 @@ func (o LookupLogDeliveryConfigurationResultOutput) ToLookupLogDeliveryConfigura
 
 func (o LookupLogDeliveryConfigurationResultOutput) ToLookupLogDeliveryConfigurationResultOutputWithContext(ctx context.Context) LookupLogDeliveryConfigurationResultOutput {
 	return o
-}
-
-func (o LookupLogDeliveryConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupLogDeliveryConfigurationResult] {
-	return pulumix.Output[LookupLogDeliveryConfigurationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupLogDeliveryConfigurationResultOutput) Id() pulumi.StringPtrOutput {

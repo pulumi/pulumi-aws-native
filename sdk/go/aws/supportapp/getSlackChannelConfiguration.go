@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An AWS Support App resource that creates, updates, lists and deletes Slack channel configurations.
@@ -81,12 +80,6 @@ func (o LookupSlackChannelConfigurationResultOutput) ToLookupSlackChannelConfigu
 
 func (o LookupSlackChannelConfigurationResultOutput) ToLookupSlackChannelConfigurationResultOutputWithContext(ctx context.Context) LookupSlackChannelConfigurationResultOutput {
 	return o
-}
-
-func (o LookupSlackChannelConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSlackChannelConfigurationResult] {
-	return pulumix.Output[LookupSlackChannelConfigurationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The channel name in Slack.

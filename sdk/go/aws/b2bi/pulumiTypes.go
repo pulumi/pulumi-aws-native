@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i CapabilityConfigurationPropertiesArgs) ToCapabilityConfigurationProperti
 	return pulumi.ToOutputWithContext(ctx, i).(CapabilityConfigurationPropertiesOutput)
 }
 
-func (i CapabilityConfigurationPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[CapabilityConfigurationProperties] {
-	return pulumix.Output[CapabilityConfigurationProperties]{
-		OutputState: i.ToCapabilityConfigurationPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CapabilityConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (CapabilityConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -67,12 +60,6 @@ func (o CapabilityConfigurationPropertiesOutput) ToCapabilityConfigurationProper
 
 func (o CapabilityConfigurationPropertiesOutput) ToCapabilityConfigurationPropertiesOutputWithContext(ctx context.Context) CapabilityConfigurationPropertiesOutput {
 	return o
-}
-
-func (o CapabilityConfigurationPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[CapabilityConfigurationProperties] {
-	return pulumix.Output[CapabilityConfigurationProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CapabilityConfigurationPropertiesOutput) Edi() CapabilityEdiConfigurationOutput {
@@ -91,12 +78,6 @@ func (o CapabilityConfigurationPropertiesPtrOutput) ToCapabilityConfigurationPro
 
 func (o CapabilityConfigurationPropertiesPtrOutput) ToCapabilityConfigurationPropertiesPtrOutputWithContext(ctx context.Context) CapabilityConfigurationPropertiesPtrOutput {
 	return o
-}
-
-func (o CapabilityConfigurationPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CapabilityConfigurationProperties] {
-	return pulumix.Output[*CapabilityConfigurationProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CapabilityConfigurationPropertiesPtrOutput) Elem() CapabilityConfigurationPropertiesOutput {
@@ -155,12 +136,6 @@ func (i CapabilityEdiConfigurationArgs) ToCapabilityEdiConfigurationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(CapabilityEdiConfigurationOutput)
 }
 
-func (i CapabilityEdiConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[CapabilityEdiConfiguration] {
-	return pulumix.Output[CapabilityEdiConfiguration]{
-		OutputState: i.ToCapabilityEdiConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CapabilityEdiConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CapabilityEdiConfigurationOutput) ElementType() reflect.Type {
@@ -173,12 +148,6 @@ func (o CapabilityEdiConfigurationOutput) ToCapabilityEdiConfigurationOutput() C
 
 func (o CapabilityEdiConfigurationOutput) ToCapabilityEdiConfigurationOutputWithContext(ctx context.Context) CapabilityEdiConfigurationOutput {
 	return o
-}
-
-func (o CapabilityEdiConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[CapabilityEdiConfiguration] {
-	return pulumix.Output[CapabilityEdiConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CapabilityEdiConfigurationOutput) InputLocation() CapabilityS3LocationOutput {
@@ -209,12 +178,6 @@ func (o CapabilityEdiConfigurationPtrOutput) ToCapabilityEdiConfigurationPtrOutp
 
 func (o CapabilityEdiConfigurationPtrOutput) ToCapabilityEdiConfigurationPtrOutputWithContext(ctx context.Context) CapabilityEdiConfigurationPtrOutput {
 	return o
-}
-
-func (o CapabilityEdiConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CapabilityEdiConfiguration] {
-	return pulumix.Output[*CapabilityEdiConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CapabilityEdiConfigurationPtrOutput) Elem() CapabilityEdiConfigurationOutput {
@@ -298,12 +261,6 @@ func (i CapabilityEdiTypePropertiesArgs) ToCapabilityEdiTypePropertiesOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CapabilityEdiTypePropertiesOutput)
 }
 
-func (i CapabilityEdiTypePropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[CapabilityEdiTypeProperties] {
-	return pulumix.Output[CapabilityEdiTypeProperties]{
-		OutputState: i.ToCapabilityEdiTypePropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CapabilityEdiTypePropertiesOutput struct{ *pulumi.OutputState }
 
 func (CapabilityEdiTypePropertiesOutput) ElementType() reflect.Type {
@@ -316,12 +273,6 @@ func (o CapabilityEdiTypePropertiesOutput) ToCapabilityEdiTypePropertiesOutput()
 
 func (o CapabilityEdiTypePropertiesOutput) ToCapabilityEdiTypePropertiesOutputWithContext(ctx context.Context) CapabilityEdiTypePropertiesOutput {
 	return o
-}
-
-func (o CapabilityEdiTypePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[CapabilityEdiTypeProperties] {
-	return pulumix.Output[CapabilityEdiTypeProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CapabilityEdiTypePropertiesOutput) X12Details() CapabilityX12DetailsOutput {
@@ -340,12 +291,6 @@ func (o CapabilityEdiTypePropertiesPtrOutput) ToCapabilityEdiTypePropertiesPtrOu
 
 func (o CapabilityEdiTypePropertiesPtrOutput) ToCapabilityEdiTypePropertiesPtrOutputWithContext(ctx context.Context) CapabilityEdiTypePropertiesPtrOutput {
 	return o
-}
-
-func (o CapabilityEdiTypePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CapabilityEdiTypeProperties] {
-	return pulumix.Output[*CapabilityEdiTypeProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CapabilityEdiTypePropertiesPtrOutput) Elem() CapabilityEdiTypePropertiesOutput {
@@ -400,12 +345,6 @@ func (i CapabilityS3LocationArgs) ToCapabilityS3LocationOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CapabilityS3LocationOutput)
 }
 
-func (i CapabilityS3LocationArgs) ToOutput(ctx context.Context) pulumix.Output[CapabilityS3Location] {
-	return pulumix.Output[CapabilityS3Location]{
-		OutputState: i.ToCapabilityS3LocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CapabilityS3LocationArrayInput is an input type that accepts CapabilityS3LocationArray and CapabilityS3LocationArrayOutput values.
 // You can construct a concrete instance of `CapabilityS3LocationArrayInput` via:
 //
@@ -431,12 +370,6 @@ func (i CapabilityS3LocationArray) ToCapabilityS3LocationArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(CapabilityS3LocationArrayOutput)
 }
 
-func (i CapabilityS3LocationArray) ToOutput(ctx context.Context) pulumix.Output[[]CapabilityS3Location] {
-	return pulumix.Output[[]CapabilityS3Location]{
-		OutputState: i.ToCapabilityS3LocationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CapabilityS3LocationOutput struct{ *pulumi.OutputState }
 
 func (CapabilityS3LocationOutput) ElementType() reflect.Type {
@@ -449,12 +382,6 @@ func (o CapabilityS3LocationOutput) ToCapabilityS3LocationOutput() CapabilityS3L
 
 func (o CapabilityS3LocationOutput) ToCapabilityS3LocationOutputWithContext(ctx context.Context) CapabilityS3LocationOutput {
 	return o
-}
-
-func (o CapabilityS3LocationOutput) ToOutput(ctx context.Context) pulumix.Output[CapabilityS3Location] {
-	return pulumix.Output[CapabilityS3Location]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CapabilityS3LocationOutput) BucketName() pulumi.StringPtrOutput {
@@ -477,12 +404,6 @@ func (o CapabilityS3LocationPtrOutput) ToCapabilityS3LocationPtrOutput() Capabil
 
 func (o CapabilityS3LocationPtrOutput) ToCapabilityS3LocationPtrOutputWithContext(ctx context.Context) CapabilityS3LocationPtrOutput {
 	return o
-}
-
-func (o CapabilityS3LocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CapabilityS3Location] {
-	return pulumix.Output[*CapabilityS3Location]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CapabilityS3LocationPtrOutput) Elem() CapabilityS3LocationOutput {
@@ -527,12 +448,6 @@ func (o CapabilityS3LocationArrayOutput) ToCapabilityS3LocationArrayOutputWithCo
 	return o
 }
 
-func (o CapabilityS3LocationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CapabilityS3Location] {
-	return pulumix.Output[[]CapabilityS3Location]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CapabilityS3LocationArrayOutput) Index(i pulumi.IntInput) CapabilityS3LocationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CapabilityS3Location {
 		return vs[0].([]CapabilityS3Location)[vs[1].(int)]
@@ -572,12 +487,6 @@ func (i CapabilityTagArgs) ToCapabilityTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(CapabilityTagOutput)
 }
 
-func (i CapabilityTagArgs) ToOutput(ctx context.Context) pulumix.Output[CapabilityTag] {
-	return pulumix.Output[CapabilityTag]{
-		OutputState: i.ToCapabilityTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CapabilityTagArrayInput is an input type that accepts CapabilityTagArray and CapabilityTagArrayOutput values.
 // You can construct a concrete instance of `CapabilityTagArrayInput` via:
 //
@@ -603,12 +512,6 @@ func (i CapabilityTagArray) ToCapabilityTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(CapabilityTagArrayOutput)
 }
 
-func (i CapabilityTagArray) ToOutput(ctx context.Context) pulumix.Output[[]CapabilityTag] {
-	return pulumix.Output[[]CapabilityTag]{
-		OutputState: i.ToCapabilityTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CapabilityTagOutput struct{ *pulumi.OutputState }
 
 func (CapabilityTagOutput) ElementType() reflect.Type {
@@ -621,12 +524,6 @@ func (o CapabilityTagOutput) ToCapabilityTagOutput() CapabilityTagOutput {
 
 func (o CapabilityTagOutput) ToCapabilityTagOutputWithContext(ctx context.Context) CapabilityTagOutput {
 	return o
-}
-
-func (o CapabilityTagOutput) ToOutput(ctx context.Context) pulumix.Output[CapabilityTag] {
-	return pulumix.Output[CapabilityTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CapabilityTagOutput) Key() pulumi.StringOutput {
@@ -649,12 +546,6 @@ func (o CapabilityTagArrayOutput) ToCapabilityTagArrayOutput() CapabilityTagArra
 
 func (o CapabilityTagArrayOutput) ToCapabilityTagArrayOutputWithContext(ctx context.Context) CapabilityTagArrayOutput {
 	return o
-}
-
-func (o CapabilityTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CapabilityTag] {
-	return pulumix.Output[[]CapabilityTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CapabilityTagArrayOutput) Index(i pulumi.IntInput) CapabilityTagOutput {
@@ -696,12 +587,6 @@ func (i CapabilityX12DetailsArgs) ToCapabilityX12DetailsOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CapabilityX12DetailsOutput)
 }
 
-func (i CapabilityX12DetailsArgs) ToOutput(ctx context.Context) pulumix.Output[CapabilityX12Details] {
-	return pulumix.Output[CapabilityX12Details]{
-		OutputState: i.ToCapabilityX12DetailsOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CapabilityX12DetailsOutput struct{ *pulumi.OutputState }
 
 func (CapabilityX12DetailsOutput) ElementType() reflect.Type {
@@ -714,12 +599,6 @@ func (o CapabilityX12DetailsOutput) ToCapabilityX12DetailsOutput() CapabilityX12
 
 func (o CapabilityX12DetailsOutput) ToCapabilityX12DetailsOutputWithContext(ctx context.Context) CapabilityX12DetailsOutput {
 	return o
-}
-
-func (o CapabilityX12DetailsOutput) ToOutput(ctx context.Context) pulumix.Output[CapabilityX12Details] {
-	return pulumix.Output[CapabilityX12Details]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CapabilityX12DetailsOutput) TransactionSet() CapabilityX12TransactionSetPtrOutput {
@@ -742,12 +621,6 @@ func (o CapabilityX12DetailsPtrOutput) ToCapabilityX12DetailsPtrOutput() Capabil
 
 func (o CapabilityX12DetailsPtrOutput) ToCapabilityX12DetailsPtrOutputWithContext(ctx context.Context) CapabilityX12DetailsPtrOutput {
 	return o
-}
-
-func (o CapabilityX12DetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CapabilityX12Details] {
-	return pulumix.Output[*CapabilityX12Details]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CapabilityX12DetailsPtrOutput) Elem() CapabilityX12DetailsOutput {
@@ -811,12 +684,6 @@ func (i PartnershipTagArgs) ToPartnershipTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(PartnershipTagOutput)
 }
 
-func (i PartnershipTagArgs) ToOutput(ctx context.Context) pulumix.Output[PartnershipTag] {
-	return pulumix.Output[PartnershipTag]{
-		OutputState: i.ToPartnershipTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PartnershipTagArrayInput is an input type that accepts PartnershipTagArray and PartnershipTagArrayOutput values.
 // You can construct a concrete instance of `PartnershipTagArrayInput` via:
 //
@@ -842,12 +709,6 @@ func (i PartnershipTagArray) ToPartnershipTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(PartnershipTagArrayOutput)
 }
 
-func (i PartnershipTagArray) ToOutput(ctx context.Context) pulumix.Output[[]PartnershipTag] {
-	return pulumix.Output[[]PartnershipTag]{
-		OutputState: i.ToPartnershipTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PartnershipTagOutput struct{ *pulumi.OutputState }
 
 func (PartnershipTagOutput) ElementType() reflect.Type {
@@ -860,12 +721,6 @@ func (o PartnershipTagOutput) ToPartnershipTagOutput() PartnershipTagOutput {
 
 func (o PartnershipTagOutput) ToPartnershipTagOutputWithContext(ctx context.Context) PartnershipTagOutput {
 	return o
-}
-
-func (o PartnershipTagOutput) ToOutput(ctx context.Context) pulumix.Output[PartnershipTag] {
-	return pulumix.Output[PartnershipTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PartnershipTagOutput) Key() pulumi.StringOutput {
@@ -888,12 +743,6 @@ func (o PartnershipTagArrayOutput) ToPartnershipTagArrayOutput() PartnershipTagA
 
 func (o PartnershipTagArrayOutput) ToPartnershipTagArrayOutputWithContext(ctx context.Context) PartnershipTagArrayOutput {
 	return o
-}
-
-func (o PartnershipTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PartnershipTag] {
-	return pulumix.Output[[]PartnershipTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PartnershipTagArrayOutput) Index(i pulumi.IntInput) PartnershipTagOutput {
@@ -935,12 +784,6 @@ func (i ProfileTagArgs) ToProfileTagOutputWithContext(ctx context.Context) Profi
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileTagOutput)
 }
 
-func (i ProfileTagArgs) ToOutput(ctx context.Context) pulumix.Output[ProfileTag] {
-	return pulumix.Output[ProfileTag]{
-		OutputState: i.ToProfileTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProfileTagArrayInput is an input type that accepts ProfileTagArray and ProfileTagArrayOutput values.
 // You can construct a concrete instance of `ProfileTagArrayInput` via:
 //
@@ -966,12 +809,6 @@ func (i ProfileTagArray) ToProfileTagArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileTagArrayOutput)
 }
 
-func (i ProfileTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ProfileTag] {
-	return pulumix.Output[[]ProfileTag]{
-		OutputState: i.ToProfileTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProfileTagOutput struct{ *pulumi.OutputState }
 
 func (ProfileTagOutput) ElementType() reflect.Type {
@@ -984,12 +821,6 @@ func (o ProfileTagOutput) ToProfileTagOutput() ProfileTagOutput {
 
 func (o ProfileTagOutput) ToProfileTagOutputWithContext(ctx context.Context) ProfileTagOutput {
 	return o
-}
-
-func (o ProfileTagOutput) ToOutput(ctx context.Context) pulumix.Output[ProfileTag] {
-	return pulumix.Output[ProfileTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProfileTagOutput) Key() pulumi.StringOutput {
@@ -1012,12 +843,6 @@ func (o ProfileTagArrayOutput) ToProfileTagArrayOutput() ProfileTagArrayOutput {
 
 func (o ProfileTagArrayOutput) ToProfileTagArrayOutputWithContext(ctx context.Context) ProfileTagArrayOutput {
 	return o
-}
-
-func (o ProfileTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProfileTag] {
-	return pulumix.Output[[]ProfileTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProfileTagArrayOutput) Index(i pulumi.IntInput) ProfileTagOutput {
@@ -1061,12 +886,6 @@ func (i TransformerEdiTypePropertiesArgs) ToTransformerEdiTypePropertiesOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(TransformerEdiTypePropertiesOutput)
 }
 
-func (i TransformerEdiTypePropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[TransformerEdiTypeProperties] {
-	return pulumix.Output[TransformerEdiTypeProperties]{
-		OutputState: i.ToTransformerEdiTypePropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformerEdiTypePropertiesOutput struct{ *pulumi.OutputState }
 
 func (TransformerEdiTypePropertiesOutput) ElementType() reflect.Type {
@@ -1079,12 +898,6 @@ func (o TransformerEdiTypePropertiesOutput) ToTransformerEdiTypePropertiesOutput
 
 func (o TransformerEdiTypePropertiesOutput) ToTransformerEdiTypePropertiesOutputWithContext(ctx context.Context) TransformerEdiTypePropertiesOutput {
 	return o
-}
-
-func (o TransformerEdiTypePropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[TransformerEdiTypeProperties] {
-	return pulumix.Output[TransformerEdiTypeProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformerEdiTypePropertiesOutput) X12Details() TransformerX12DetailsOutput {
@@ -1103,12 +916,6 @@ func (o TransformerEdiTypePropertiesPtrOutput) ToTransformerEdiTypePropertiesPtr
 
 func (o TransformerEdiTypePropertiesPtrOutput) ToTransformerEdiTypePropertiesPtrOutputWithContext(ctx context.Context) TransformerEdiTypePropertiesPtrOutput {
 	return o
-}
-
-func (o TransformerEdiTypePropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformerEdiTypeProperties] {
-	return pulumix.Output[*TransformerEdiTypeProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformerEdiTypePropertiesPtrOutput) Elem() TransformerEdiTypePropertiesOutput {
@@ -1163,12 +970,6 @@ func (i TransformerTagArgs) ToTransformerTagOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TransformerTagOutput)
 }
 
-func (i TransformerTagArgs) ToOutput(ctx context.Context) pulumix.Output[TransformerTag] {
-	return pulumix.Output[TransformerTag]{
-		OutputState: i.ToTransformerTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TransformerTagArrayInput is an input type that accepts TransformerTagArray and TransformerTagArrayOutput values.
 // You can construct a concrete instance of `TransformerTagArrayInput` via:
 //
@@ -1194,12 +995,6 @@ func (i TransformerTagArray) ToTransformerTagArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TransformerTagArrayOutput)
 }
 
-func (i TransformerTagArray) ToOutput(ctx context.Context) pulumix.Output[[]TransformerTag] {
-	return pulumix.Output[[]TransformerTag]{
-		OutputState: i.ToTransformerTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformerTagOutput struct{ *pulumi.OutputState }
 
 func (TransformerTagOutput) ElementType() reflect.Type {
@@ -1212,12 +1007,6 @@ func (o TransformerTagOutput) ToTransformerTagOutput() TransformerTagOutput {
 
 func (o TransformerTagOutput) ToTransformerTagOutputWithContext(ctx context.Context) TransformerTagOutput {
 	return o
-}
-
-func (o TransformerTagOutput) ToOutput(ctx context.Context) pulumix.Output[TransformerTag] {
-	return pulumix.Output[TransformerTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformerTagOutput) Key() pulumi.StringOutput {
@@ -1240,12 +1029,6 @@ func (o TransformerTagArrayOutput) ToTransformerTagArrayOutput() TransformerTagA
 
 func (o TransformerTagArrayOutput) ToTransformerTagArrayOutputWithContext(ctx context.Context) TransformerTagArrayOutput {
 	return o
-}
-
-func (o TransformerTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TransformerTag] {
-	return pulumix.Output[[]TransformerTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformerTagArrayOutput) Index(i pulumi.IntInput) TransformerTagOutput {
@@ -1287,12 +1070,6 @@ func (i TransformerX12DetailsArgs) ToTransformerX12DetailsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(TransformerX12DetailsOutput)
 }
 
-func (i TransformerX12DetailsArgs) ToOutput(ctx context.Context) pulumix.Output[TransformerX12Details] {
-	return pulumix.Output[TransformerX12Details]{
-		OutputState: i.ToTransformerX12DetailsOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TransformerX12DetailsOutput struct{ *pulumi.OutputState }
 
 func (TransformerX12DetailsOutput) ElementType() reflect.Type {
@@ -1305,12 +1082,6 @@ func (o TransformerX12DetailsOutput) ToTransformerX12DetailsOutput() Transformer
 
 func (o TransformerX12DetailsOutput) ToTransformerX12DetailsOutputWithContext(ctx context.Context) TransformerX12DetailsOutput {
 	return o
-}
-
-func (o TransformerX12DetailsOutput) ToOutput(ctx context.Context) pulumix.Output[TransformerX12Details] {
-	return pulumix.Output[TransformerX12Details]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformerX12DetailsOutput) TransactionSet() TransformerX12TransactionSetPtrOutput {
@@ -1333,12 +1104,6 @@ func (o TransformerX12DetailsPtrOutput) ToTransformerX12DetailsPtrOutput() Trans
 
 func (o TransformerX12DetailsPtrOutput) ToTransformerX12DetailsPtrOutputWithContext(ctx context.Context) TransformerX12DetailsPtrOutput {
 	return o
-}
-
-func (o TransformerX12DetailsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TransformerX12Details] {
-	return pulumix.Output[*TransformerX12Details]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TransformerX12DetailsPtrOutput) Elem() TransformerX12DetailsOutput {

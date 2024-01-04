@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Schema for IAM Role Policy
@@ -117,12 +116,6 @@ func (i *RolePolicy) ToRolePolicyOutputWithContext(ctx context.Context) RolePoli
 	return pulumi.ToOutputWithContext(ctx, i).(RolePolicyOutput)
 }
 
-func (i *RolePolicy) ToOutput(ctx context.Context) pulumix.Output[*RolePolicy] {
-	return pulumix.Output[*RolePolicy]{
-		OutputState: i.ToRolePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RolePolicyOutput struct{ *pulumi.OutputState }
 
 func (RolePolicyOutput) ElementType() reflect.Type {
@@ -135,12 +128,6 @@ func (o RolePolicyOutput) ToRolePolicyOutput() RolePolicyOutput {
 
 func (o RolePolicyOutput) ToRolePolicyOutputWithContext(ctx context.Context) RolePolicyOutput {
 	return o
-}
-
-func (o RolePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*RolePolicy] {
-	return pulumix.Output[*RolePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The policy document.

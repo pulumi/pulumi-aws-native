@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGateway::BasePathMapping“ resource creates a base path that clients who call your API must use in the invocation URL.
@@ -120,12 +119,6 @@ func (i *BasePathMapping) ToBasePathMappingOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(BasePathMappingOutput)
 }
 
-func (i *BasePathMapping) ToOutput(ctx context.Context) pulumix.Output[*BasePathMapping] {
-	return pulumix.Output[*BasePathMapping]{
-		OutputState: i.ToBasePathMappingOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BasePathMappingOutput struct{ *pulumi.OutputState }
 
 func (BasePathMappingOutput) ElementType() reflect.Type {
@@ -138,12 +131,6 @@ func (o BasePathMappingOutput) ToBasePathMappingOutput() BasePathMappingOutput {
 
 func (o BasePathMappingOutput) ToBasePathMappingOutputWithContext(ctx context.Context) BasePathMappingOutput {
 	return o
-}
-
-func (o BasePathMappingOutput) ToOutput(ctx context.Context) pulumix.Output[*BasePathMapping] {
-	return pulumix.Output[*BasePathMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The base path name that callers of the API must provide as part of the URL after the domain name.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::FIS::TargetAccountConfiguration
@@ -114,12 +113,6 @@ func (i *TargetAccountConfiguration) ToTargetAccountConfigurationOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(TargetAccountConfigurationOutput)
 }
 
-func (i *TargetAccountConfiguration) ToOutput(ctx context.Context) pulumix.Output[*TargetAccountConfiguration] {
-	return pulumix.Output[*TargetAccountConfiguration]{
-		OutputState: i.ToTargetAccountConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TargetAccountConfigurationOutput struct{ *pulumi.OutputState }
 
 func (TargetAccountConfigurationOutput) ElementType() reflect.Type {
@@ -132,12 +125,6 @@ func (o TargetAccountConfigurationOutput) ToTargetAccountConfigurationOutput() T
 
 func (o TargetAccountConfigurationOutput) ToTargetAccountConfigurationOutputWithContext(ctx context.Context) TargetAccountConfigurationOutput {
 	return o
-}
-
-func (o TargetAccountConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*TargetAccountConfiguration] {
-	return pulumix.Output[*TargetAccountConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TargetAccountConfigurationOutput) AccountId() pulumi.StringOutput {

@@ -78,12 +78,6 @@ func (o ReplicationConfigurationFilterTypeOutput) ToReplicationConfigurationFilt
 	}).(ReplicationConfigurationFilterTypePtrOutput)
 }
 
-func (o ReplicationConfigurationFilterTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationConfigurationFilterType] {
-	return pulumix.Output[ReplicationConfigurationFilterType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicationConfigurationFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o ReplicationConfigurationFilterTypePtrOutput) ToReplicationConfigurationF
 	return o
 }
 
-func (o ReplicationConfigurationFilterTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationConfigurationFilterType] {
-	return pulumix.Output[*ReplicationConfigurationFilterType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicationConfigurationFilterTypePtrOutput) Elem() ReplicationConfigurationFilterTypeOutput {
 	return o.ApplyT(func(v *ReplicationConfigurationFilterType) ReplicationConfigurationFilterType {
 		if v != nil {
@@ -149,10 +137,10 @@ func (o ReplicationConfigurationFilterTypePtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// ReplicationConfigurationFilterTypeInput is an input type that accepts ReplicationConfigurationFilterTypeArgs and ReplicationConfigurationFilterTypeOutput values.
-// You can construct a concrete instance of `ReplicationConfigurationFilterTypeInput` via:
+// ReplicationConfigurationFilterTypeInput is an input type that accepts values of the ReplicationConfigurationFilterType enum
+// A concrete instance of `ReplicationConfigurationFilterTypeInput` can be one of the following:
 //
-//	ReplicationConfigurationFilterTypeArgs{...}
+//	ReplicationConfigurationFilterTypePrefixMatch
 type ReplicationConfigurationFilterTypeInput interface {
 	pulumi.Input
 
@@ -261,12 +249,6 @@ func (o RepositoryEncryptionTypeOutput) ToRepositoryEncryptionTypePtrOutputWithC
 	}).(RepositoryEncryptionTypePtrOutput)
 }
 
-func (o RepositoryEncryptionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryEncryptionType] {
-	return pulumix.Output[RepositoryEncryptionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RepositoryEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -302,12 +284,6 @@ func (o RepositoryEncryptionTypePtrOutput) ToRepositoryEncryptionTypePtrOutputWi
 	return o
 }
 
-func (o RepositoryEncryptionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryEncryptionType] {
-	return pulumix.Output[*RepositoryEncryptionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RepositoryEncryptionTypePtrOutput) Elem() RepositoryEncryptionTypeOutput {
 	return o.ApplyT(func(v *RepositoryEncryptionType) RepositoryEncryptionType {
 		if v != nil {
@@ -332,10 +308,11 @@ func (o RepositoryEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// RepositoryEncryptionTypeInput is an input type that accepts RepositoryEncryptionTypeArgs and RepositoryEncryptionTypeOutput values.
-// You can construct a concrete instance of `RepositoryEncryptionTypeInput` via:
+// RepositoryEncryptionTypeInput is an input type that accepts values of the RepositoryEncryptionType enum
+// A concrete instance of `RepositoryEncryptionTypeInput` can be one of the following:
 //
-//	RepositoryEncryptionTypeArgs{...}
+//	RepositoryEncryptionTypeAes256
+//	RepositoryEncryptionTypeKms
 type RepositoryEncryptionTypeInput interface {
 	pulumi.Input
 
@@ -444,12 +421,6 @@ func (o RepositoryImageTagMutabilityOutput) ToRepositoryImageTagMutabilityPtrOut
 	}).(RepositoryImageTagMutabilityPtrOutput)
 }
 
-func (o RepositoryImageTagMutabilityOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryImageTagMutability] {
-	return pulumix.Output[RepositoryImageTagMutability]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RepositoryImageTagMutabilityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -485,12 +456,6 @@ func (o RepositoryImageTagMutabilityPtrOutput) ToRepositoryImageTagMutabilityPtr
 	return o
 }
 
-func (o RepositoryImageTagMutabilityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryImageTagMutability] {
-	return pulumix.Output[*RepositoryImageTagMutability]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RepositoryImageTagMutabilityPtrOutput) Elem() RepositoryImageTagMutabilityOutput {
 	return o.ApplyT(func(v *RepositoryImageTagMutability) RepositoryImageTagMutability {
 		if v != nil {
@@ -515,10 +480,11 @@ func (o RepositoryImageTagMutabilityPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// RepositoryImageTagMutabilityInput is an input type that accepts RepositoryImageTagMutabilityArgs and RepositoryImageTagMutabilityOutput values.
-// You can construct a concrete instance of `RepositoryImageTagMutabilityInput` via:
+// RepositoryImageTagMutabilityInput is an input type that accepts values of the RepositoryImageTagMutability enum
+// A concrete instance of `RepositoryImageTagMutabilityInput` can be one of the following:
 //
-//	RepositoryImageTagMutabilityArgs{...}
+//	RepositoryImageTagMutabilityMutable
+//	RepositoryImageTagMutabilityImmutable
 type RepositoryImageTagMutabilityInput interface {
 	pulumi.Input
 

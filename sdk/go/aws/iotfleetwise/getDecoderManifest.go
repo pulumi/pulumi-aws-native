@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::IoTFleetWise::DecoderManifest Resource Type
@@ -71,12 +70,6 @@ func (o LookupDecoderManifestResultOutput) ToLookupDecoderManifestResultOutput()
 
 func (o LookupDecoderManifestResultOutput) ToLookupDecoderManifestResultOutputWithContext(ctx context.Context) LookupDecoderManifestResultOutput {
 	return o
-}
-
-func (o LookupDecoderManifestResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDecoderManifestResult] {
-	return pulumix.Output[LookupDecoderManifestResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupDecoderManifestResultOutput) Arn() pulumi.StringPtrOutput {

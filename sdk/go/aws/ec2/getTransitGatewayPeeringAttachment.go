@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::EC2::TransitGatewayPeeringAttachment type
@@ -75,12 +74,6 @@ func (o LookupTransitGatewayPeeringAttachmentResultOutput) ToLookupTransitGatewa
 
 func (o LookupTransitGatewayPeeringAttachmentResultOutput) ToLookupTransitGatewayPeeringAttachmentResultOutputWithContext(ctx context.Context) LookupTransitGatewayPeeringAttachmentResultOutput {
 	return o
-}
-
-func (o LookupTransitGatewayPeeringAttachmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTransitGatewayPeeringAttachmentResult] {
-	return pulumix.Output[LookupTransitGatewayPeeringAttachmentResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The time the transit gateway peering attachment was created.

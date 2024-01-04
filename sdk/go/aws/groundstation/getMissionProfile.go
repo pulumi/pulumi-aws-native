@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS Ground Station Mission Profile resource type for CloudFormation.
@@ -83,12 +82,6 @@ func (o LookupMissionProfileResultOutput) ToLookupMissionProfileResultOutput() L
 
 func (o LookupMissionProfileResultOutput) ToLookupMissionProfileResultOutputWithContext(ctx context.Context) LookupMissionProfileResultOutput {
 	return o
-}
-
-func (o LookupMissionProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMissionProfileResult] {
-	return pulumix.Output[LookupMissionProfileResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupMissionProfileResultOutput) Arn() pulumi.StringPtrOutput {

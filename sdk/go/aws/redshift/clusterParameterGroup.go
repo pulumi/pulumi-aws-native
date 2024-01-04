@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Redshift::ClusterParameterGroup
@@ -130,12 +129,6 @@ func (i *ClusterParameterGroup) ToClusterParameterGroupOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterParameterGroupOutput)
 }
 
-func (i *ClusterParameterGroup) ToOutput(ctx context.Context) pulumix.Output[*ClusterParameterGroup] {
-	return pulumix.Output[*ClusterParameterGroup]{
-		OutputState: i.ToClusterParameterGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterParameterGroupOutput struct{ *pulumi.OutputState }
 
 func (ClusterParameterGroupOutput) ElementType() reflect.Type {
@@ -148,12 +141,6 @@ func (o ClusterParameterGroupOutput) ToClusterParameterGroupOutput() ClusterPara
 
 func (o ClusterParameterGroupOutput) ToClusterParameterGroupOutputWithContext(ctx context.Context) ClusterParameterGroupOutput {
 	return o
-}
-
-func (o ClusterParameterGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterParameterGroup] {
-	return pulumix.Output[*ClusterParameterGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description of the parameter group.

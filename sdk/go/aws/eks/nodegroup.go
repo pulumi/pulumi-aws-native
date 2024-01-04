@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::EKS::Nodegroup
@@ -218,12 +217,6 @@ func (i *Nodegroup) ToNodegroupOutputWithContext(ctx context.Context) NodegroupO
 	return pulumi.ToOutputWithContext(ctx, i).(NodegroupOutput)
 }
 
-func (i *Nodegroup) ToOutput(ctx context.Context) pulumix.Output[*Nodegroup] {
-	return pulumix.Output[*Nodegroup]{
-		OutputState: i.ToNodegroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NodegroupOutput struct{ *pulumi.OutputState }
 
 func (NodegroupOutput) ElementType() reflect.Type {
@@ -236,12 +229,6 @@ func (o NodegroupOutput) ToNodegroupOutput() NodegroupOutput {
 
 func (o NodegroupOutput) ToNodegroupOutputWithContext(ctx context.Context) NodegroupOutput {
 	return o
-}
-
-func (o NodegroupOutput) ToOutput(ctx context.Context) pulumix.Output[*Nodegroup] {
-	return pulumix.Output[*Nodegroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The AMI type for your node group.

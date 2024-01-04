@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::MediaTailor::VodSource Resource Type
@@ -71,12 +70,6 @@ func (o LookupVodSourceResultOutput) ToLookupVodSourceResultOutput() LookupVodSo
 
 func (o LookupVodSourceResultOutput) ToLookupVodSourceResultOutputWithContext(ctx context.Context) LookupVodSourceResultOutput {
 	return o
-}
-
-func (o LookupVodSourceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVodSourceResult] {
-	return pulumix.Output[LookupVodSourceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>The ARN of the VOD source.</p>

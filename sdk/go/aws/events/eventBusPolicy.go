@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Events::EventBusPolicy
@@ -116,12 +115,6 @@ func (i *EventBusPolicy) ToEventBusPolicyOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(EventBusPolicyOutput)
 }
 
-func (i *EventBusPolicy) ToOutput(ctx context.Context) pulumix.Output[*EventBusPolicy] {
-	return pulumix.Output[*EventBusPolicy]{
-		OutputState: i.ToEventBusPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventBusPolicyOutput struct{ *pulumi.OutputState }
 
 func (EventBusPolicyOutput) ElementType() reflect.Type {
@@ -134,12 +127,6 @@ func (o EventBusPolicyOutput) ToEventBusPolicyOutput() EventBusPolicyOutput {
 
 func (o EventBusPolicyOutput) ToEventBusPolicyOutputWithContext(ctx context.Context) EventBusPolicyOutput {
 	return o
-}
-
-func (o EventBusPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*EventBusPolicy] {
-	return pulumix.Output[*EventBusPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventBusPolicyOutput) Action() pulumi.StringPtrOutput {

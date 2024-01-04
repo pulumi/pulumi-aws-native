@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The “AWS::ApiGatewayV2::Model“ resource updates data model for a WebSocket API. For more information, see [Model Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide*.
@@ -76,12 +75,6 @@ func (o LookupModelResultOutput) ToLookupModelResultOutput() LookupModelResultOu
 
 func (o LookupModelResultOutput) ToLookupModelResultOutputWithContext(ctx context.Context) LookupModelResultOutput {
 	return o
-}
-
-func (o LookupModelResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupModelResult] {
-	return pulumix.Output[LookupModelResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The content-type for the model, for example, "application/json".

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -33,12 +32,6 @@ func (o ThemeErrorOutput) ToThemeErrorOutputWithContext(ctx context.Context) The
 	return o
 }
 
-func (o ThemeErrorOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeError] {
-	return pulumix.Output[ThemeError]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ThemeErrorOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeError) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
@@ -59,12 +52,6 @@ func (o ThemeErrorArrayOutput) ToThemeErrorArrayOutput() ThemeErrorArrayOutput {
 
 func (o ThemeErrorArrayOutput) ToThemeErrorArrayOutputWithContext(ctx context.Context) ThemeErrorArrayOutput {
 	return o
-}
-
-func (o ThemeErrorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ThemeError] {
-	return pulumix.Output[[]ThemeError]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeErrorArrayOutput) Index(i pulumi.IntInput) ThemeErrorOutput {
@@ -104,12 +91,6 @@ func (i ThemeFontArgs) ToThemeFontOutputWithContext(ctx context.Context) ThemeFo
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeFontOutput)
 }
 
-func (i ThemeFontArgs) ToOutput(ctx context.Context) pulumix.Output[ThemeFont] {
-	return pulumix.Output[ThemeFont]{
-		OutputState: i.ToThemeFontOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ThemeFontArrayInput is an input type that accepts ThemeFontArray and ThemeFontArrayOutput values.
 // You can construct a concrete instance of `ThemeFontArrayInput` via:
 //
@@ -135,12 +116,6 @@ func (i ThemeFontArray) ToThemeFontArrayOutputWithContext(ctx context.Context) T
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeFontArrayOutput)
 }
 
-func (i ThemeFontArray) ToOutput(ctx context.Context) pulumix.Output[[]ThemeFont] {
-	return pulumix.Output[[]ThemeFont]{
-		OutputState: i.ToThemeFontArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThemeFontOutput struct{ *pulumi.OutputState }
 
 func (ThemeFontOutput) ElementType() reflect.Type {
@@ -153,12 +128,6 @@ func (o ThemeFontOutput) ToThemeFontOutput() ThemeFontOutput {
 
 func (o ThemeFontOutput) ToThemeFontOutputWithContext(ctx context.Context) ThemeFontOutput {
 	return o
-}
-
-func (o ThemeFontOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeFont] {
-	return pulumix.Output[ThemeFont]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeFontOutput) FontFamily() pulumi.StringPtrOutput {
@@ -177,12 +146,6 @@ func (o ThemeFontArrayOutput) ToThemeFontArrayOutput() ThemeFontArrayOutput {
 
 func (o ThemeFontArrayOutput) ToThemeFontArrayOutputWithContext(ctx context.Context) ThemeFontArrayOutput {
 	return o
-}
-
-func (o ThemeFontArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ThemeFont] {
-	return pulumix.Output[[]ThemeFont]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeFontArrayOutput) Index(i pulumi.IntInput) ThemeFontOutput {
@@ -220,12 +183,6 @@ func (i ThemeGutterStyleArgs) ToThemeGutterStyleOutput() ThemeGutterStyleOutput 
 
 func (i ThemeGutterStyleArgs) ToThemeGutterStyleOutputWithContext(ctx context.Context) ThemeGutterStyleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeGutterStyleOutput)
-}
-
-func (i ThemeGutterStyleArgs) ToOutput(ctx context.Context) pulumix.Output[ThemeGutterStyle] {
-	return pulumix.Output[ThemeGutterStyle]{
-		OutputState: i.ToThemeGutterStyleOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ThemeGutterStyleArgs) ToThemeGutterStylePtrOutput() ThemeGutterStylePtrOutput {
@@ -269,12 +226,6 @@ func (i *themeGutterStylePtrType) ToThemeGutterStylePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeGutterStylePtrOutput)
 }
 
-func (i *themeGutterStylePtrType) ToOutput(ctx context.Context) pulumix.Output[*ThemeGutterStyle] {
-	return pulumix.Output[*ThemeGutterStyle]{
-		OutputState: i.ToThemeGutterStylePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThemeGutterStyleOutput struct{ *pulumi.OutputState }
 
 func (ThemeGutterStyleOutput) ElementType() reflect.Type {
@@ -299,12 +250,6 @@ func (o ThemeGutterStyleOutput) ToThemeGutterStylePtrOutputWithContext(ctx conte
 	}).(ThemeGutterStylePtrOutput)
 }
 
-func (o ThemeGutterStyleOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeGutterStyle] {
-	return pulumix.Output[ThemeGutterStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ThemeGutterStyleOutput) Show() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ThemeGutterStyle) *bool { return v.Show }).(pulumi.BoolPtrOutput)
 }
@@ -321,12 +266,6 @@ func (o ThemeGutterStylePtrOutput) ToThemeGutterStylePtrOutput() ThemeGutterStyl
 
 func (o ThemeGutterStylePtrOutput) ToThemeGutterStylePtrOutputWithContext(ctx context.Context) ThemeGutterStylePtrOutput {
 	return o
-}
-
-func (o ThemeGutterStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeGutterStyle] {
-	return pulumix.Output[*ThemeGutterStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeGutterStylePtrOutput) Elem() ThemeGutterStyleOutput {
@@ -379,12 +318,6 @@ func (i ThemeMarginStyleArgs) ToThemeMarginStyleOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeMarginStyleOutput)
 }
 
-func (i ThemeMarginStyleArgs) ToOutput(ctx context.Context) pulumix.Output[ThemeMarginStyle] {
-	return pulumix.Output[ThemeMarginStyle]{
-		OutputState: i.ToThemeMarginStyleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ThemeMarginStyleArgs) ToThemeMarginStylePtrOutput() ThemeMarginStylePtrOutput {
 	return i.ToThemeMarginStylePtrOutputWithContext(context.Background())
 }
@@ -426,12 +359,6 @@ func (i *themeMarginStylePtrType) ToThemeMarginStylePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeMarginStylePtrOutput)
 }
 
-func (i *themeMarginStylePtrType) ToOutput(ctx context.Context) pulumix.Output[*ThemeMarginStyle] {
-	return pulumix.Output[*ThemeMarginStyle]{
-		OutputState: i.ToThemeMarginStylePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThemeMarginStyleOutput struct{ *pulumi.OutputState }
 
 func (ThemeMarginStyleOutput) ElementType() reflect.Type {
@@ -456,12 +383,6 @@ func (o ThemeMarginStyleOutput) ToThemeMarginStylePtrOutputWithContext(ctx conte
 	}).(ThemeMarginStylePtrOutput)
 }
 
-func (o ThemeMarginStyleOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeMarginStyle] {
-	return pulumix.Output[ThemeMarginStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ThemeMarginStyleOutput) Show() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ThemeMarginStyle) *bool { return v.Show }).(pulumi.BoolPtrOutput)
 }
@@ -478,12 +399,6 @@ func (o ThemeMarginStylePtrOutput) ToThemeMarginStylePtrOutput() ThemeMarginStyl
 
 func (o ThemeMarginStylePtrOutput) ToThemeMarginStylePtrOutputWithContext(ctx context.Context) ThemeMarginStylePtrOutput {
 	return o
-}
-
-func (o ThemeMarginStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeMarginStyle] {
-	return pulumix.Output[*ThemeMarginStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeMarginStylePtrOutput) Elem() ThemeMarginStyleOutput {
@@ -540,12 +455,6 @@ func (i ThemeResourcePermissionArgs) ToThemeResourcePermissionOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeResourcePermissionOutput)
 }
 
-func (i ThemeResourcePermissionArgs) ToOutput(ctx context.Context) pulumix.Output[ThemeResourcePermission] {
-	return pulumix.Output[ThemeResourcePermission]{
-		OutputState: i.ToThemeResourcePermissionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ThemeResourcePermissionArrayInput is an input type that accepts ThemeResourcePermissionArray and ThemeResourcePermissionArrayOutput values.
 // You can construct a concrete instance of `ThemeResourcePermissionArrayInput` via:
 //
@@ -571,12 +480,6 @@ func (i ThemeResourcePermissionArray) ToThemeResourcePermissionArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeResourcePermissionArrayOutput)
 }
 
-func (i ThemeResourcePermissionArray) ToOutput(ctx context.Context) pulumix.Output[[]ThemeResourcePermission] {
-	return pulumix.Output[[]ThemeResourcePermission]{
-		OutputState: i.ToThemeResourcePermissionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThemeResourcePermissionOutput struct{ *pulumi.OutputState }
 
 func (ThemeResourcePermissionOutput) ElementType() reflect.Type {
@@ -589,12 +492,6 @@ func (o ThemeResourcePermissionOutput) ToThemeResourcePermissionOutput() ThemeRe
 
 func (o ThemeResourcePermissionOutput) ToThemeResourcePermissionOutputWithContext(ctx context.Context) ThemeResourcePermissionOutput {
 	return o
-}
-
-func (o ThemeResourcePermissionOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeResourcePermission] {
-	return pulumix.Output[ThemeResourcePermission]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeResourcePermissionOutput) Actions() pulumi.StringArrayOutput {
@@ -621,12 +518,6 @@ func (o ThemeResourcePermissionArrayOutput) ToThemeResourcePermissionArrayOutput
 
 func (o ThemeResourcePermissionArrayOutput) ToThemeResourcePermissionArrayOutputWithContext(ctx context.Context) ThemeResourcePermissionArrayOutput {
 	return o
-}
-
-func (o ThemeResourcePermissionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ThemeResourcePermission] {
-	return pulumix.Output[[]ThemeResourcePermission]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeResourcePermissionArrayOutput) Index(i pulumi.IntInput) ThemeResourcePermissionOutput {
@@ -666,12 +557,6 @@ func (i ThemeSheetStyleArgs) ToThemeSheetStyleOutput() ThemeSheetStyleOutput {
 
 func (i ThemeSheetStyleArgs) ToThemeSheetStyleOutputWithContext(ctx context.Context) ThemeSheetStyleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeSheetStyleOutput)
-}
-
-func (i ThemeSheetStyleArgs) ToOutput(ctx context.Context) pulumix.Output[ThemeSheetStyle] {
-	return pulumix.Output[ThemeSheetStyle]{
-		OutputState: i.ToThemeSheetStyleOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ThemeSheetStyleArgs) ToThemeSheetStylePtrOutput() ThemeSheetStylePtrOutput {
@@ -715,12 +600,6 @@ func (i *themeSheetStylePtrType) ToThemeSheetStylePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeSheetStylePtrOutput)
 }
 
-func (i *themeSheetStylePtrType) ToOutput(ctx context.Context) pulumix.Output[*ThemeSheetStyle] {
-	return pulumix.Output[*ThemeSheetStyle]{
-		OutputState: i.ToThemeSheetStylePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThemeSheetStyleOutput struct{ *pulumi.OutputState }
 
 func (ThemeSheetStyleOutput) ElementType() reflect.Type {
@@ -745,12 +624,6 @@ func (o ThemeSheetStyleOutput) ToThemeSheetStylePtrOutputWithContext(ctx context
 	}).(ThemeSheetStylePtrOutput)
 }
 
-func (o ThemeSheetStyleOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeSheetStyle] {
-	return pulumix.Output[ThemeSheetStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ThemeSheetStyleOutput) Tile() ThemeTileStylePtrOutput {
 	return o.ApplyT(func(v ThemeSheetStyle) *ThemeTileStyle { return v.Tile }).(ThemeTileStylePtrOutput)
 }
@@ -771,12 +644,6 @@ func (o ThemeSheetStylePtrOutput) ToThemeSheetStylePtrOutput() ThemeSheetStylePt
 
 func (o ThemeSheetStylePtrOutput) ToThemeSheetStylePtrOutputWithContext(ctx context.Context) ThemeSheetStylePtrOutput {
 	return o
-}
-
-func (o ThemeSheetStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeSheetStyle] {
-	return pulumix.Output[*ThemeSheetStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeSheetStylePtrOutput) Elem() ThemeSheetStyleOutput {
@@ -840,12 +707,6 @@ func (i ThemeTagArgs) ToThemeTagOutputWithContext(ctx context.Context) ThemeTagO
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeTagOutput)
 }
 
-func (i ThemeTagArgs) ToOutput(ctx context.Context) pulumix.Output[ThemeTag] {
-	return pulumix.Output[ThemeTag]{
-		OutputState: i.ToThemeTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ThemeTagArrayInput is an input type that accepts ThemeTagArray and ThemeTagArrayOutput values.
 // You can construct a concrete instance of `ThemeTagArrayInput` via:
 //
@@ -871,12 +732,6 @@ func (i ThemeTagArray) ToThemeTagArrayOutputWithContext(ctx context.Context) The
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeTagArrayOutput)
 }
 
-func (i ThemeTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ThemeTag] {
-	return pulumix.Output[[]ThemeTag]{
-		OutputState: i.ToThemeTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThemeTagOutput struct{ *pulumi.OutputState }
 
 func (ThemeTagOutput) ElementType() reflect.Type {
@@ -889,12 +744,6 @@ func (o ThemeTagOutput) ToThemeTagOutput() ThemeTagOutput {
 
 func (o ThemeTagOutput) ToThemeTagOutputWithContext(ctx context.Context) ThemeTagOutput {
 	return o
-}
-
-func (o ThemeTagOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeTag] {
-	return pulumix.Output[ThemeTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeTagOutput) Key() pulumi.StringOutput {
@@ -917,12 +766,6 @@ func (o ThemeTagArrayOutput) ToThemeTagArrayOutput() ThemeTagArrayOutput {
 
 func (o ThemeTagArrayOutput) ToThemeTagArrayOutputWithContext(ctx context.Context) ThemeTagArrayOutput {
 	return o
-}
-
-func (o ThemeTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ThemeTag] {
-	return pulumix.Output[[]ThemeTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeTagArrayOutput) Index(i pulumi.IntInput) ThemeTagOutput {
@@ -962,12 +805,6 @@ func (i ThemeTileLayoutStyleArgs) ToThemeTileLayoutStyleOutput() ThemeTileLayout
 
 func (i ThemeTileLayoutStyleArgs) ToThemeTileLayoutStyleOutputWithContext(ctx context.Context) ThemeTileLayoutStyleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeTileLayoutStyleOutput)
-}
-
-func (i ThemeTileLayoutStyleArgs) ToOutput(ctx context.Context) pulumix.Output[ThemeTileLayoutStyle] {
-	return pulumix.Output[ThemeTileLayoutStyle]{
-		OutputState: i.ToThemeTileLayoutStyleOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ThemeTileLayoutStyleArgs) ToThemeTileLayoutStylePtrOutput() ThemeTileLayoutStylePtrOutput {
@@ -1011,12 +848,6 @@ func (i *themeTileLayoutStylePtrType) ToThemeTileLayoutStylePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeTileLayoutStylePtrOutput)
 }
 
-func (i *themeTileLayoutStylePtrType) ToOutput(ctx context.Context) pulumix.Output[*ThemeTileLayoutStyle] {
-	return pulumix.Output[*ThemeTileLayoutStyle]{
-		OutputState: i.ToThemeTileLayoutStylePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThemeTileLayoutStyleOutput struct{ *pulumi.OutputState }
 
 func (ThemeTileLayoutStyleOutput) ElementType() reflect.Type {
@@ -1041,12 +872,6 @@ func (o ThemeTileLayoutStyleOutput) ToThemeTileLayoutStylePtrOutputWithContext(c
 	}).(ThemeTileLayoutStylePtrOutput)
 }
 
-func (o ThemeTileLayoutStyleOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeTileLayoutStyle] {
-	return pulumix.Output[ThemeTileLayoutStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ThemeTileLayoutStyleOutput) Gutter() ThemeGutterStylePtrOutput {
 	return o.ApplyT(func(v ThemeTileLayoutStyle) *ThemeGutterStyle { return v.Gutter }).(ThemeGutterStylePtrOutput)
 }
@@ -1067,12 +892,6 @@ func (o ThemeTileLayoutStylePtrOutput) ToThemeTileLayoutStylePtrOutput() ThemeTi
 
 func (o ThemeTileLayoutStylePtrOutput) ToThemeTileLayoutStylePtrOutputWithContext(ctx context.Context) ThemeTileLayoutStylePtrOutput {
 	return o
-}
-
-func (o ThemeTileLayoutStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeTileLayoutStyle] {
-	return pulumix.Output[*ThemeTileLayoutStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeTileLayoutStylePtrOutput) Elem() ThemeTileLayoutStyleOutput {
@@ -1134,12 +953,6 @@ func (i ThemeTileStyleArgs) ToThemeTileStyleOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeTileStyleOutput)
 }
 
-func (i ThemeTileStyleArgs) ToOutput(ctx context.Context) pulumix.Output[ThemeTileStyle] {
-	return pulumix.Output[ThemeTileStyle]{
-		OutputState: i.ToThemeTileStyleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ThemeTileStyleArgs) ToThemeTileStylePtrOutput() ThemeTileStylePtrOutput {
 	return i.ToThemeTileStylePtrOutputWithContext(context.Background())
 }
@@ -1181,12 +994,6 @@ func (i *themeTileStylePtrType) ToThemeTileStylePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeTileStylePtrOutput)
 }
 
-func (i *themeTileStylePtrType) ToOutput(ctx context.Context) pulumix.Output[*ThemeTileStyle] {
-	return pulumix.Output[*ThemeTileStyle]{
-		OutputState: i.ToThemeTileStylePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThemeTileStyleOutput struct{ *pulumi.OutputState }
 
 func (ThemeTileStyleOutput) ElementType() reflect.Type {
@@ -1211,12 +1018,6 @@ func (o ThemeTileStyleOutput) ToThemeTileStylePtrOutputWithContext(ctx context.C
 	}).(ThemeTileStylePtrOutput)
 }
 
-func (o ThemeTileStyleOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeTileStyle] {
-	return pulumix.Output[ThemeTileStyle]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ThemeTileStyleOutput) Border() ThemeBorderStylePtrOutput {
 	return o.ApplyT(func(v ThemeTileStyle) *ThemeBorderStyle { return v.Border }).(ThemeBorderStylePtrOutput)
 }
@@ -1233,12 +1034,6 @@ func (o ThemeTileStylePtrOutput) ToThemeTileStylePtrOutput() ThemeTileStylePtrOu
 
 func (o ThemeTileStylePtrOutput) ToThemeTileStylePtrOutputWithContext(ctx context.Context) ThemeTileStylePtrOutput {
 	return o
-}
-
-func (o ThemeTileStylePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeTileStyle] {
-	return pulumix.Output[*ThemeTileStyle]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeTileStylePtrOutput) Elem() ThemeTileStyleOutput {
@@ -1291,12 +1086,6 @@ func (i ThemeTypographyArgs) ToThemeTypographyOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeTypographyOutput)
 }
 
-func (i ThemeTypographyArgs) ToOutput(ctx context.Context) pulumix.Output[ThemeTypography] {
-	return pulumix.Output[ThemeTypography]{
-		OutputState: i.ToThemeTypographyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ThemeTypographyArgs) ToThemeTypographyPtrOutput() ThemeTypographyPtrOutput {
 	return i.ToThemeTypographyPtrOutputWithContext(context.Background())
 }
@@ -1338,12 +1127,6 @@ func (i *themeTypographyPtrType) ToThemeTypographyPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeTypographyPtrOutput)
 }
 
-func (i *themeTypographyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ThemeTypography] {
-	return pulumix.Output[*ThemeTypography]{
-		OutputState: i.ToThemeTypographyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThemeTypographyOutput struct{ *pulumi.OutputState }
 
 func (ThemeTypographyOutput) ElementType() reflect.Type {
@@ -1368,12 +1151,6 @@ func (o ThemeTypographyOutput) ToThemeTypographyPtrOutputWithContext(ctx context
 	}).(ThemeTypographyPtrOutput)
 }
 
-func (o ThemeTypographyOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeTypography] {
-	return pulumix.Output[ThemeTypography]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ThemeTypographyOutput) FontFamilies() ThemeFontArrayOutput {
 	return o.ApplyT(func(v ThemeTypography) []ThemeFont { return v.FontFamilies }).(ThemeFontArrayOutput)
 }
@@ -1390,12 +1167,6 @@ func (o ThemeTypographyPtrOutput) ToThemeTypographyPtrOutput() ThemeTypographyPt
 
 func (o ThemeTypographyPtrOutput) ToThemeTypographyPtrOutputWithContext(ctx context.Context) ThemeTypographyPtrOutput {
 	return o
-}
-
-func (o ThemeTypographyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeTypography] {
-	return pulumix.Output[*ThemeTypography]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeTypographyPtrOutput) Elem() ThemeTypographyOutput {
@@ -1478,12 +1249,6 @@ func (i ThemeUiColorPaletteArgs) ToThemeUiColorPaletteOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeUiColorPaletteOutput)
 }
 
-func (i ThemeUiColorPaletteArgs) ToOutput(ctx context.Context) pulumix.Output[ThemeUiColorPalette] {
-	return pulumix.Output[ThemeUiColorPalette]{
-		OutputState: i.ToThemeUiColorPaletteOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ThemeUiColorPaletteArgs) ToThemeUiColorPalettePtrOutput() ThemeUiColorPalettePtrOutput {
 	return i.ToThemeUiColorPalettePtrOutputWithContext(context.Background())
 }
@@ -1525,12 +1290,6 @@ func (i *themeUiColorPalettePtrType) ToThemeUiColorPalettePtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ThemeUiColorPalettePtrOutput)
 }
 
-func (i *themeUiColorPalettePtrType) ToOutput(ctx context.Context) pulumix.Output[*ThemeUiColorPalette] {
-	return pulumix.Output[*ThemeUiColorPalette]{
-		OutputState: i.ToThemeUiColorPalettePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ThemeUiColorPaletteOutput struct{ *pulumi.OutputState }
 
 func (ThemeUiColorPaletteOutput) ElementType() reflect.Type {
@@ -1553,12 +1312,6 @@ func (o ThemeUiColorPaletteOutput) ToThemeUiColorPalettePtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThemeUiColorPalette) *ThemeUiColorPalette {
 		return &v
 	}).(ThemeUiColorPalettePtrOutput)
-}
-
-func (o ThemeUiColorPaletteOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeUiColorPalette] {
-	return pulumix.Output[ThemeUiColorPalette]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeUiColorPaletteOutput) Accent() pulumi.StringPtrOutput {
@@ -1637,12 +1390,6 @@ func (o ThemeUiColorPalettePtrOutput) ToThemeUiColorPalettePtrOutput() ThemeUiCo
 
 func (o ThemeUiColorPalettePtrOutput) ToThemeUiColorPalettePtrOutputWithContext(ctx context.Context) ThemeUiColorPalettePtrOutput {
 	return o
-}
-
-func (o ThemeUiColorPalettePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeUiColorPalette] {
-	return pulumix.Output[*ThemeUiColorPalette]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeUiColorPalettePtrOutput) Elem() ThemeUiColorPaletteOutput {
@@ -1824,12 +1571,6 @@ func (o ThemeVersionOutput) ToThemeVersionOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o ThemeVersionOutput) ToOutput(ctx context.Context) pulumix.Output[ThemeVersion] {
-	return pulumix.Output[ThemeVersion]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ThemeVersionOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThemeVersion) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -1874,12 +1615,6 @@ func (o ThemeVersionPtrOutput) ToThemeVersionPtrOutput() ThemeVersionPtrOutput {
 
 func (o ThemeVersionPtrOutput) ToThemeVersionPtrOutputWithContext(ctx context.Context) ThemeVersionPtrOutput {
 	return o
-}
-
-func (o ThemeVersionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ThemeVersion] {
-	return pulumix.Output[*ThemeVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ThemeVersionPtrOutput) Elem() ThemeVersionOutput {
@@ -1993,12 +1728,6 @@ func (i TopicAggregationFunctionParametersArgs) ToTopicAggregationFunctionParame
 	return pulumi.ToOutputWithContext(ctx, i).(TopicAggregationFunctionParametersOutput)
 }
 
-func (i TopicAggregationFunctionParametersArgs) ToOutput(ctx context.Context) pulumix.Output[TopicAggregationFunctionParameters] {
-	return pulumix.Output[TopicAggregationFunctionParameters]{
-		OutputState: i.ToTopicAggregationFunctionParametersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TopicAggregationFunctionParametersArgs) ToTopicAggregationFunctionParametersPtrOutput() TopicAggregationFunctionParametersPtrOutput {
 	return i.ToTopicAggregationFunctionParametersPtrOutputWithContext(context.Background())
 }
@@ -2040,12 +1769,6 @@ func (i *topicAggregationFunctionParametersPtrType) ToTopicAggregationFunctionPa
 	return pulumi.ToOutputWithContext(ctx, i).(TopicAggregationFunctionParametersPtrOutput)
 }
 
-func (i *topicAggregationFunctionParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicAggregationFunctionParameters] {
-	return pulumix.Output[*TopicAggregationFunctionParameters]{
-		OutputState: i.ToTopicAggregationFunctionParametersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicAggregationFunctionParametersOutput struct{ *pulumi.OutputState }
 
 func (TopicAggregationFunctionParametersOutput) ElementType() reflect.Type {
@@ -2070,12 +1793,6 @@ func (o TopicAggregationFunctionParametersOutput) ToTopicAggregationFunctionPara
 	}).(TopicAggregationFunctionParametersPtrOutput)
 }
 
-func (o TopicAggregationFunctionParametersOutput) ToOutput(ctx context.Context) pulumix.Output[TopicAggregationFunctionParameters] {
-	return pulumix.Output[TopicAggregationFunctionParameters]{
-		OutputState: o.OutputState,
-	}
-}
-
 type TopicAggregationFunctionParametersPtrOutput struct{ *pulumi.OutputState }
 
 func (TopicAggregationFunctionParametersPtrOutput) ElementType() reflect.Type {
@@ -2088,12 +1805,6 @@ func (o TopicAggregationFunctionParametersPtrOutput) ToTopicAggregationFunctionP
 
 func (o TopicAggregationFunctionParametersPtrOutput) ToTopicAggregationFunctionParametersPtrOutputWithContext(ctx context.Context) TopicAggregationFunctionParametersPtrOutput {
 	return o
-}
-
-func (o TopicAggregationFunctionParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicAggregationFunctionParameters] {
-	return pulumix.Output[*TopicAggregationFunctionParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicAggregationFunctionParametersPtrOutput) Elem() TopicAggregationFunctionParametersOutput {
@@ -2167,12 +1878,6 @@ func (i TopicCalculatedFieldArgs) ToTopicCalculatedFieldOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TopicCalculatedFieldOutput)
 }
 
-func (i TopicCalculatedFieldArgs) ToOutput(ctx context.Context) pulumix.Output[TopicCalculatedField] {
-	return pulumix.Output[TopicCalculatedField]{
-		OutputState: i.ToTopicCalculatedFieldOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TopicCalculatedFieldArrayInput is an input type that accepts TopicCalculatedFieldArray and TopicCalculatedFieldArrayOutput values.
 // You can construct a concrete instance of `TopicCalculatedFieldArrayInput` via:
 //
@@ -2198,12 +1903,6 @@ func (i TopicCalculatedFieldArray) ToTopicCalculatedFieldArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TopicCalculatedFieldArrayOutput)
 }
 
-func (i TopicCalculatedFieldArray) ToOutput(ctx context.Context) pulumix.Output[[]TopicCalculatedField] {
-	return pulumix.Output[[]TopicCalculatedField]{
-		OutputState: i.ToTopicCalculatedFieldArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicCalculatedFieldOutput struct{ *pulumi.OutputState }
 
 func (TopicCalculatedFieldOutput) ElementType() reflect.Type {
@@ -2216,12 +1915,6 @@ func (o TopicCalculatedFieldOutput) ToTopicCalculatedFieldOutput() TopicCalculat
 
 func (o TopicCalculatedFieldOutput) ToTopicCalculatedFieldOutputWithContext(ctx context.Context) TopicCalculatedFieldOutput {
 	return o
-}
-
-func (o TopicCalculatedFieldOutput) ToOutput(ctx context.Context) pulumix.Output[TopicCalculatedField] {
-	return pulumix.Output[TopicCalculatedField]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicCalculatedFieldOutput) Aggregation() TopicDefaultAggregationPtrOutput {
@@ -2302,12 +1995,6 @@ func (o TopicCalculatedFieldArrayOutput) ToTopicCalculatedFieldArrayOutputWithCo
 	return o
 }
 
-func (o TopicCalculatedFieldArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TopicCalculatedField] {
-	return pulumix.Output[[]TopicCalculatedField]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicCalculatedFieldArrayOutput) Index(i pulumi.IntInput) TopicCalculatedFieldOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicCalculatedField {
 		return vs[0].([]TopicCalculatedField)[vs[1].(int)]
@@ -2351,12 +2038,6 @@ func (i TopicCategoryFilterArgs) ToTopicCategoryFilterOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TopicCategoryFilterOutput)
 }
 
-func (i TopicCategoryFilterArgs) ToOutput(ctx context.Context) pulumix.Output[TopicCategoryFilter] {
-	return pulumix.Output[TopicCategoryFilter]{
-		OutputState: i.ToTopicCategoryFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TopicCategoryFilterArgs) ToTopicCategoryFilterPtrOutput() TopicCategoryFilterPtrOutput {
 	return i.ToTopicCategoryFilterPtrOutputWithContext(context.Background())
 }
@@ -2398,12 +2079,6 @@ func (i *topicCategoryFilterPtrType) ToTopicCategoryFilterPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(TopicCategoryFilterPtrOutput)
 }
 
-func (i *topicCategoryFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicCategoryFilter] {
-	return pulumix.Output[*TopicCategoryFilter]{
-		OutputState: i.ToTopicCategoryFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicCategoryFilterOutput struct{ *pulumi.OutputState }
 
 func (TopicCategoryFilterOutput) ElementType() reflect.Type {
@@ -2426,12 +2101,6 @@ func (o TopicCategoryFilterOutput) ToTopicCategoryFilterPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicCategoryFilter) *TopicCategoryFilter {
 		return &v
 	}).(TopicCategoryFilterPtrOutput)
-}
-
-func (o TopicCategoryFilterOutput) ToOutput(ctx context.Context) pulumix.Output[TopicCategoryFilter] {
-	return pulumix.Output[TopicCategoryFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicCategoryFilterOutput) CategoryFilterFunction() TopicCategoryFilterFunctionPtrOutput {
@@ -2462,12 +2131,6 @@ func (o TopicCategoryFilterPtrOutput) ToTopicCategoryFilterPtrOutput() TopicCate
 
 func (o TopicCategoryFilterPtrOutput) ToTopicCategoryFilterPtrOutputWithContext(ctx context.Context) TopicCategoryFilterPtrOutput {
 	return o
-}
-
-func (o TopicCategoryFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicCategoryFilter] {
-	return pulumix.Output[*TopicCategoryFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicCategoryFilterPtrOutput) Elem() TopicCategoryFilterOutput {
@@ -2551,12 +2214,6 @@ func (i TopicCategoryFilterConstantArgs) ToTopicCategoryFilterConstantOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TopicCategoryFilterConstantOutput)
 }
 
-func (i TopicCategoryFilterConstantArgs) ToOutput(ctx context.Context) pulumix.Output[TopicCategoryFilterConstant] {
-	return pulumix.Output[TopicCategoryFilterConstant]{
-		OutputState: i.ToTopicCategoryFilterConstantOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TopicCategoryFilterConstantArgs) ToTopicCategoryFilterConstantPtrOutput() TopicCategoryFilterConstantPtrOutput {
 	return i.ToTopicCategoryFilterConstantPtrOutputWithContext(context.Background())
 }
@@ -2598,12 +2255,6 @@ func (i *topicCategoryFilterConstantPtrType) ToTopicCategoryFilterConstantPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(TopicCategoryFilterConstantPtrOutput)
 }
 
-func (i *topicCategoryFilterConstantPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicCategoryFilterConstant] {
-	return pulumix.Output[*TopicCategoryFilterConstant]{
-		OutputState: i.ToTopicCategoryFilterConstantPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicCategoryFilterConstantOutput struct{ *pulumi.OutputState }
 
 func (TopicCategoryFilterConstantOutput) ElementType() reflect.Type {
@@ -2626,12 +2277,6 @@ func (o TopicCategoryFilterConstantOutput) ToTopicCategoryFilterConstantPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicCategoryFilterConstant) *TopicCategoryFilterConstant {
 		return &v
 	}).(TopicCategoryFilterConstantPtrOutput)
-}
-
-func (o TopicCategoryFilterConstantOutput) ToOutput(ctx context.Context) pulumix.Output[TopicCategoryFilterConstant] {
-	return pulumix.Output[TopicCategoryFilterConstant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicCategoryFilterConstantOutput) CollectiveConstant() TopicCollectiveConstantPtrOutput {
@@ -2658,12 +2303,6 @@ func (o TopicCategoryFilterConstantPtrOutput) ToTopicCategoryFilterConstantPtrOu
 
 func (o TopicCategoryFilterConstantPtrOutput) ToTopicCategoryFilterConstantPtrOutputWithContext(ctx context.Context) TopicCategoryFilterConstantPtrOutput {
 	return o
-}
-
-func (o TopicCategoryFilterConstantPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicCategoryFilterConstant] {
-	return pulumix.Output[*TopicCategoryFilterConstant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicCategoryFilterConstantPtrOutput) Elem() TopicCategoryFilterConstantOutput {
@@ -2736,12 +2375,6 @@ func (i TopicCellValueSynonymArgs) ToTopicCellValueSynonymOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(TopicCellValueSynonymOutput)
 }
 
-func (i TopicCellValueSynonymArgs) ToOutput(ctx context.Context) pulumix.Output[TopicCellValueSynonym] {
-	return pulumix.Output[TopicCellValueSynonym]{
-		OutputState: i.ToTopicCellValueSynonymOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TopicCellValueSynonymArrayInput is an input type that accepts TopicCellValueSynonymArray and TopicCellValueSynonymArrayOutput values.
 // You can construct a concrete instance of `TopicCellValueSynonymArrayInput` via:
 //
@@ -2767,12 +2400,6 @@ func (i TopicCellValueSynonymArray) ToTopicCellValueSynonymArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TopicCellValueSynonymArrayOutput)
 }
 
-func (i TopicCellValueSynonymArray) ToOutput(ctx context.Context) pulumix.Output[[]TopicCellValueSynonym] {
-	return pulumix.Output[[]TopicCellValueSynonym]{
-		OutputState: i.ToTopicCellValueSynonymArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicCellValueSynonymOutput struct{ *pulumi.OutputState }
 
 func (TopicCellValueSynonymOutput) ElementType() reflect.Type {
@@ -2785,12 +2412,6 @@ func (o TopicCellValueSynonymOutput) ToTopicCellValueSynonymOutput() TopicCellVa
 
 func (o TopicCellValueSynonymOutput) ToTopicCellValueSynonymOutputWithContext(ctx context.Context) TopicCellValueSynonymOutput {
 	return o
-}
-
-func (o TopicCellValueSynonymOutput) ToOutput(ctx context.Context) pulumix.Output[TopicCellValueSynonym] {
-	return pulumix.Output[TopicCellValueSynonym]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicCellValueSynonymOutput) CellValue() pulumi.StringPtrOutput {
@@ -2813,12 +2434,6 @@ func (o TopicCellValueSynonymArrayOutput) ToTopicCellValueSynonymArrayOutput() T
 
 func (o TopicCellValueSynonymArrayOutput) ToTopicCellValueSynonymArrayOutputWithContext(ctx context.Context) TopicCellValueSynonymArrayOutput {
 	return o
-}
-
-func (o TopicCellValueSynonymArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TopicCellValueSynonym] {
-	return pulumix.Output[[]TopicCellValueSynonym]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicCellValueSynonymArrayOutput) Index(i pulumi.IntInput) TopicCellValueSynonymOutput {
@@ -2856,12 +2471,6 @@ func (i TopicCollectiveConstantArgs) ToTopicCollectiveConstantOutput() TopicColl
 
 func (i TopicCollectiveConstantArgs) ToTopicCollectiveConstantOutputWithContext(ctx context.Context) TopicCollectiveConstantOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicCollectiveConstantOutput)
-}
-
-func (i TopicCollectiveConstantArgs) ToOutput(ctx context.Context) pulumix.Output[TopicCollectiveConstant] {
-	return pulumix.Output[TopicCollectiveConstant]{
-		OutputState: i.ToTopicCollectiveConstantOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i TopicCollectiveConstantArgs) ToTopicCollectiveConstantPtrOutput() TopicCollectiveConstantPtrOutput {
@@ -2905,12 +2514,6 @@ func (i *topicCollectiveConstantPtrType) ToTopicCollectiveConstantPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(TopicCollectiveConstantPtrOutput)
 }
 
-func (i *topicCollectiveConstantPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicCollectiveConstant] {
-	return pulumix.Output[*TopicCollectiveConstant]{
-		OutputState: i.ToTopicCollectiveConstantPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicCollectiveConstantOutput struct{ *pulumi.OutputState }
 
 func (TopicCollectiveConstantOutput) ElementType() reflect.Type {
@@ -2935,12 +2538,6 @@ func (o TopicCollectiveConstantOutput) ToTopicCollectiveConstantPtrOutputWithCon
 	}).(TopicCollectiveConstantPtrOutput)
 }
 
-func (o TopicCollectiveConstantOutput) ToOutput(ctx context.Context) pulumix.Output[TopicCollectiveConstant] {
-	return pulumix.Output[TopicCollectiveConstant]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicCollectiveConstantOutput) ValueList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TopicCollectiveConstant) []string { return v.ValueList }).(pulumi.StringArrayOutput)
 }
@@ -2957,12 +2554,6 @@ func (o TopicCollectiveConstantPtrOutput) ToTopicCollectiveConstantPtrOutput() T
 
 func (o TopicCollectiveConstantPtrOutput) ToTopicCollectiveConstantPtrOutputWithContext(ctx context.Context) TopicCollectiveConstantPtrOutput {
 	return o
-}
-
-func (o TopicCollectiveConstantPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicCollectiveConstant] {
-	return pulumix.Output[*TopicCollectiveConstant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicCollectiveConstantPtrOutput) Elem() TopicCollectiveConstantOutput {
@@ -3045,12 +2636,6 @@ func (i TopicColumnArgs) ToTopicColumnOutputWithContext(ctx context.Context) Top
 	return pulumi.ToOutputWithContext(ctx, i).(TopicColumnOutput)
 }
 
-func (i TopicColumnArgs) ToOutput(ctx context.Context) pulumix.Output[TopicColumn] {
-	return pulumix.Output[TopicColumn]{
-		OutputState: i.ToTopicColumnOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TopicColumnArrayInput is an input type that accepts TopicColumnArray and TopicColumnArrayOutput values.
 // You can construct a concrete instance of `TopicColumnArrayInput` via:
 //
@@ -3076,12 +2661,6 @@ func (i TopicColumnArray) ToTopicColumnArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TopicColumnArrayOutput)
 }
 
-func (i TopicColumnArray) ToOutput(ctx context.Context) pulumix.Output[[]TopicColumn] {
-	return pulumix.Output[[]TopicColumn]{
-		OutputState: i.ToTopicColumnArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicColumnOutput struct{ *pulumi.OutputState }
 
 func (TopicColumnOutput) ElementType() reflect.Type {
@@ -3094,12 +2673,6 @@ func (o TopicColumnOutput) ToTopicColumnOutput() TopicColumnOutput {
 
 func (o TopicColumnOutput) ToTopicColumnOutputWithContext(ctx context.Context) TopicColumnOutput {
 	return o
-}
-
-func (o TopicColumnOutput) ToOutput(ctx context.Context) pulumix.Output[TopicColumn] {
-	return pulumix.Output[TopicColumn]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicColumnOutput) Aggregation() TopicDefaultAggregationPtrOutput {
@@ -3180,12 +2753,6 @@ func (o TopicColumnArrayOutput) ToTopicColumnArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o TopicColumnArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TopicColumn] {
-	return pulumix.Output[[]TopicColumn]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicColumnArrayOutput) Index(i pulumi.IntInput) TopicColumnOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicColumn {
 		return vs[0].([]TopicColumn)[vs[1].(int)]
@@ -3225,12 +2792,6 @@ func (i TopicComparativeOrderArgs) ToTopicComparativeOrderOutput() TopicComparat
 
 func (i TopicComparativeOrderArgs) ToTopicComparativeOrderOutputWithContext(ctx context.Context) TopicComparativeOrderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicComparativeOrderOutput)
-}
-
-func (i TopicComparativeOrderArgs) ToOutput(ctx context.Context) pulumix.Output[TopicComparativeOrder] {
-	return pulumix.Output[TopicComparativeOrder]{
-		OutputState: i.ToTopicComparativeOrderOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i TopicComparativeOrderArgs) ToTopicComparativeOrderPtrOutput() TopicComparativeOrderPtrOutput {
@@ -3274,12 +2835,6 @@ func (i *topicComparativeOrderPtrType) ToTopicComparativeOrderPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(TopicComparativeOrderPtrOutput)
 }
 
-func (i *topicComparativeOrderPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicComparativeOrder] {
-	return pulumix.Output[*TopicComparativeOrder]{
-		OutputState: i.ToTopicComparativeOrderPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicComparativeOrderOutput struct{ *pulumi.OutputState }
 
 func (TopicComparativeOrderOutput) ElementType() reflect.Type {
@@ -3302,12 +2857,6 @@ func (o TopicComparativeOrderOutput) ToTopicComparativeOrderPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicComparativeOrder) *TopicComparativeOrder {
 		return &v
 	}).(TopicComparativeOrderPtrOutput)
-}
-
-func (o TopicComparativeOrderOutput) ToOutput(ctx context.Context) pulumix.Output[TopicComparativeOrder] {
-	return pulumix.Output[TopicComparativeOrder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicComparativeOrderOutput) SpecifedOrder() pulumi.StringArrayOutput {
@@ -3336,12 +2885,6 @@ func (o TopicComparativeOrderPtrOutput) ToTopicComparativeOrderPtrOutput() Topic
 
 func (o TopicComparativeOrderPtrOutput) ToTopicComparativeOrderPtrOutputWithContext(ctx context.Context) TopicComparativeOrderPtrOutput {
 	return o
-}
-
-func (o TopicComparativeOrderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicComparativeOrder] {
-	return pulumix.Output[*TopicComparativeOrder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicComparativeOrderPtrOutput) Elem() TopicComparativeOrderOutput {
@@ -3414,12 +2957,6 @@ func (i TopicDataAggregationArgs) ToTopicDataAggregationOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TopicDataAggregationOutput)
 }
 
-func (i TopicDataAggregationArgs) ToOutput(ctx context.Context) pulumix.Output[TopicDataAggregation] {
-	return pulumix.Output[TopicDataAggregation]{
-		OutputState: i.ToTopicDataAggregationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TopicDataAggregationArgs) ToTopicDataAggregationPtrOutput() TopicDataAggregationPtrOutput {
 	return i.ToTopicDataAggregationPtrOutputWithContext(context.Background())
 }
@@ -3461,12 +2998,6 @@ func (i *topicDataAggregationPtrType) ToTopicDataAggregationPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(TopicDataAggregationPtrOutput)
 }
 
-func (i *topicDataAggregationPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicDataAggregation] {
-	return pulumix.Output[*TopicDataAggregation]{
-		OutputState: i.ToTopicDataAggregationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicDataAggregationOutput struct{ *pulumi.OutputState }
 
 func (TopicDataAggregationOutput) ElementType() reflect.Type {
@@ -3491,12 +3022,6 @@ func (o TopicDataAggregationOutput) ToTopicDataAggregationPtrOutputWithContext(c
 	}).(TopicDataAggregationPtrOutput)
 }
 
-func (o TopicDataAggregationOutput) ToOutput(ctx context.Context) pulumix.Output[TopicDataAggregation] {
-	return pulumix.Output[TopicDataAggregation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicDataAggregationOutput) DatasetRowDateGranularity() TopicTimeGranularityPtrOutput {
 	return o.ApplyT(func(v TopicDataAggregation) *TopicTimeGranularity { return v.DatasetRowDateGranularity }).(TopicTimeGranularityPtrOutput)
 }
@@ -3517,12 +3042,6 @@ func (o TopicDataAggregationPtrOutput) ToTopicDataAggregationPtrOutput() TopicDa
 
 func (o TopicDataAggregationPtrOutput) ToTopicDataAggregationPtrOutputWithContext(ctx context.Context) TopicDataAggregationPtrOutput {
 	return o
-}
-
-func (o TopicDataAggregationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicDataAggregation] {
-	return pulumix.Output[*TopicDataAggregation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicDataAggregationPtrOutput) Elem() TopicDataAggregationOutput {
@@ -3598,12 +3117,6 @@ func (i TopicDatasetMetadataArgs) ToTopicDatasetMetadataOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TopicDatasetMetadataOutput)
 }
 
-func (i TopicDatasetMetadataArgs) ToOutput(ctx context.Context) pulumix.Output[TopicDatasetMetadata] {
-	return pulumix.Output[TopicDatasetMetadata]{
-		OutputState: i.ToTopicDatasetMetadataOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TopicDatasetMetadataArrayInput is an input type that accepts TopicDatasetMetadataArray and TopicDatasetMetadataArrayOutput values.
 // You can construct a concrete instance of `TopicDatasetMetadataArrayInput` via:
 //
@@ -3629,12 +3142,6 @@ func (i TopicDatasetMetadataArray) ToTopicDatasetMetadataArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TopicDatasetMetadataArrayOutput)
 }
 
-func (i TopicDatasetMetadataArray) ToOutput(ctx context.Context) pulumix.Output[[]TopicDatasetMetadata] {
-	return pulumix.Output[[]TopicDatasetMetadata]{
-		OutputState: i.ToTopicDatasetMetadataArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicDatasetMetadataOutput struct{ *pulumi.OutputState }
 
 func (TopicDatasetMetadataOutput) ElementType() reflect.Type {
@@ -3647,12 +3154,6 @@ func (o TopicDatasetMetadataOutput) ToTopicDatasetMetadataOutput() TopicDatasetM
 
 func (o TopicDatasetMetadataOutput) ToTopicDatasetMetadataOutputWithContext(ctx context.Context) TopicDatasetMetadataOutput {
 	return o
-}
-
-func (o TopicDatasetMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[TopicDatasetMetadata] {
-	return pulumix.Output[TopicDatasetMetadata]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicDatasetMetadataOutput) CalculatedFields() TopicCalculatedFieldArrayOutput {
@@ -3701,12 +3202,6 @@ func (o TopicDatasetMetadataArrayOutput) ToTopicDatasetMetadataArrayOutputWithCo
 	return o
 }
 
-func (o TopicDatasetMetadataArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TopicDatasetMetadata] {
-	return pulumix.Output[[]TopicDatasetMetadata]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicDatasetMetadataArrayOutput) Index(i pulumi.IntInput) TopicDatasetMetadataOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicDatasetMetadata {
 		return vs[0].([]TopicDatasetMetadata)[vs[1].(int)]
@@ -3744,12 +3239,6 @@ func (i TopicDateRangeFilterArgs) ToTopicDateRangeFilterOutput() TopicDateRangeF
 
 func (i TopicDateRangeFilterArgs) ToTopicDateRangeFilterOutputWithContext(ctx context.Context) TopicDateRangeFilterOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicDateRangeFilterOutput)
-}
-
-func (i TopicDateRangeFilterArgs) ToOutput(ctx context.Context) pulumix.Output[TopicDateRangeFilter] {
-	return pulumix.Output[TopicDateRangeFilter]{
-		OutputState: i.ToTopicDateRangeFilterOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i TopicDateRangeFilterArgs) ToTopicDateRangeFilterPtrOutput() TopicDateRangeFilterPtrOutput {
@@ -3793,12 +3282,6 @@ func (i *topicDateRangeFilterPtrType) ToTopicDateRangeFilterPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(TopicDateRangeFilterPtrOutput)
 }
 
-func (i *topicDateRangeFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicDateRangeFilter] {
-	return pulumix.Output[*TopicDateRangeFilter]{
-		OutputState: i.ToTopicDateRangeFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicDateRangeFilterOutput struct{ *pulumi.OutputState }
 
 func (TopicDateRangeFilterOutput) ElementType() reflect.Type {
@@ -3823,12 +3306,6 @@ func (o TopicDateRangeFilterOutput) ToTopicDateRangeFilterPtrOutputWithContext(c
 	}).(TopicDateRangeFilterPtrOutput)
 }
 
-func (o TopicDateRangeFilterOutput) ToOutput(ctx context.Context) pulumix.Output[TopicDateRangeFilter] {
-	return pulumix.Output[TopicDateRangeFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicDateRangeFilterOutput) Constant() TopicRangeFilterConstantPtrOutput {
 	return o.ApplyT(func(v TopicDateRangeFilter) *TopicRangeFilterConstant { return v.Constant }).(TopicRangeFilterConstantPtrOutput)
 }
@@ -3849,12 +3326,6 @@ func (o TopicDateRangeFilterPtrOutput) ToTopicDateRangeFilterPtrOutput() TopicDa
 
 func (o TopicDateRangeFilterPtrOutput) ToTopicDateRangeFilterPtrOutputWithContext(ctx context.Context) TopicDateRangeFilterPtrOutput {
 	return o
-}
-
-func (o TopicDateRangeFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicDateRangeFilter] {
-	return pulumix.Output[*TopicDateRangeFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicDateRangeFilterPtrOutput) Elem() TopicDateRangeFilterOutput {
@@ -3918,12 +3389,6 @@ func (i TopicDefaultFormattingArgs) ToTopicDefaultFormattingOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TopicDefaultFormattingOutput)
 }
 
-func (i TopicDefaultFormattingArgs) ToOutput(ctx context.Context) pulumix.Output[TopicDefaultFormatting] {
-	return pulumix.Output[TopicDefaultFormatting]{
-		OutputState: i.ToTopicDefaultFormattingOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TopicDefaultFormattingArgs) ToTopicDefaultFormattingPtrOutput() TopicDefaultFormattingPtrOutput {
 	return i.ToTopicDefaultFormattingPtrOutputWithContext(context.Background())
 }
@@ -3965,12 +3430,6 @@ func (i *topicDefaultFormattingPtrType) ToTopicDefaultFormattingPtrOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(TopicDefaultFormattingPtrOutput)
 }
 
-func (i *topicDefaultFormattingPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicDefaultFormatting] {
-	return pulumix.Output[*TopicDefaultFormatting]{
-		OutputState: i.ToTopicDefaultFormattingPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicDefaultFormattingOutput struct{ *pulumi.OutputState }
 
 func (TopicDefaultFormattingOutput) ElementType() reflect.Type {
@@ -3995,12 +3454,6 @@ func (o TopicDefaultFormattingOutput) ToTopicDefaultFormattingPtrOutputWithConte
 	}).(TopicDefaultFormattingPtrOutput)
 }
 
-func (o TopicDefaultFormattingOutput) ToOutput(ctx context.Context) pulumix.Output[TopicDefaultFormatting] {
-	return pulumix.Output[TopicDefaultFormatting]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicDefaultFormattingOutput) DisplayFormat() TopicDisplayFormatPtrOutput {
 	return o.ApplyT(func(v TopicDefaultFormatting) *TopicDisplayFormat { return v.DisplayFormat }).(TopicDisplayFormatPtrOutput)
 }
@@ -4021,12 +3474,6 @@ func (o TopicDefaultFormattingPtrOutput) ToTopicDefaultFormattingPtrOutput() Top
 
 func (o TopicDefaultFormattingPtrOutput) ToTopicDefaultFormattingPtrOutputWithContext(ctx context.Context) TopicDefaultFormattingPtrOutput {
 	return o
-}
-
-func (o TopicDefaultFormattingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicDefaultFormatting] {
-	return pulumix.Output[*TopicDefaultFormatting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicDefaultFormattingPtrOutput) Elem() TopicDefaultFormattingOutput {
@@ -4110,12 +3557,6 @@ func (i TopicDisplayFormatOptionsArgs) ToTopicDisplayFormatOptionsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(TopicDisplayFormatOptionsOutput)
 }
 
-func (i TopicDisplayFormatOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[TopicDisplayFormatOptions] {
-	return pulumix.Output[TopicDisplayFormatOptions]{
-		OutputState: i.ToTopicDisplayFormatOptionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TopicDisplayFormatOptionsArgs) ToTopicDisplayFormatOptionsPtrOutput() TopicDisplayFormatOptionsPtrOutput {
 	return i.ToTopicDisplayFormatOptionsPtrOutputWithContext(context.Background())
 }
@@ -4157,12 +3598,6 @@ func (i *topicDisplayFormatOptionsPtrType) ToTopicDisplayFormatOptionsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(TopicDisplayFormatOptionsPtrOutput)
 }
 
-func (i *topicDisplayFormatOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicDisplayFormatOptions] {
-	return pulumix.Output[*TopicDisplayFormatOptions]{
-		OutputState: i.ToTopicDisplayFormatOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicDisplayFormatOptionsOutput struct{ *pulumi.OutputState }
 
 func (TopicDisplayFormatOptionsOutput) ElementType() reflect.Type {
@@ -4185,12 +3620,6 @@ func (o TopicDisplayFormatOptionsOutput) ToTopicDisplayFormatOptionsPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicDisplayFormatOptions) *TopicDisplayFormatOptions {
 		return &v
 	}).(TopicDisplayFormatOptionsPtrOutput)
-}
-
-func (o TopicDisplayFormatOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[TopicDisplayFormatOptions] {
-	return pulumix.Output[TopicDisplayFormatOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicDisplayFormatOptionsOutput) BlankCellFormat() pulumi.StringPtrOutput {
@@ -4253,12 +3682,6 @@ func (o TopicDisplayFormatOptionsPtrOutput) ToTopicDisplayFormatOptionsPtrOutput
 
 func (o TopicDisplayFormatOptionsPtrOutput) ToTopicDisplayFormatOptionsPtrOutputWithContext(ctx context.Context) TopicDisplayFormatOptionsPtrOutput {
 	return o
-}
-
-func (o TopicDisplayFormatOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicDisplayFormatOptions] {
-	return pulumix.Output[*TopicDisplayFormatOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicDisplayFormatOptionsPtrOutput) Elem() TopicDisplayFormatOptionsOutput {
@@ -4430,12 +3853,6 @@ func (i TopicFilterArgs) ToTopicFilterOutputWithContext(ctx context.Context) Top
 	return pulumi.ToOutputWithContext(ctx, i).(TopicFilterOutput)
 }
 
-func (i TopicFilterArgs) ToOutput(ctx context.Context) pulumix.Output[TopicFilter] {
-	return pulumix.Output[TopicFilter]{
-		OutputState: i.ToTopicFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TopicFilterArrayInput is an input type that accepts TopicFilterArray and TopicFilterArrayOutput values.
 // You can construct a concrete instance of `TopicFilterArrayInput` via:
 //
@@ -4461,12 +3878,6 @@ func (i TopicFilterArray) ToTopicFilterArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TopicFilterArrayOutput)
 }
 
-func (i TopicFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]TopicFilter] {
-	return pulumix.Output[[]TopicFilter]{
-		OutputState: i.ToTopicFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicFilterOutput struct{ *pulumi.OutputState }
 
 func (TopicFilterOutput) ElementType() reflect.Type {
@@ -4479,12 +3890,6 @@ func (o TopicFilterOutput) ToTopicFilterOutput() TopicFilterOutput {
 
 func (o TopicFilterOutput) ToTopicFilterOutputWithContext(ctx context.Context) TopicFilterOutput {
 	return o
-}
-
-func (o TopicFilterOutput) ToOutput(ctx context.Context) pulumix.Output[TopicFilter] {
-	return pulumix.Output[TopicFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicFilterOutput) CategoryFilter() TopicCategoryFilterPtrOutput {
@@ -4545,12 +3950,6 @@ func (o TopicFilterArrayOutput) ToTopicFilterArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o TopicFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TopicFilter] {
-	return pulumix.Output[[]TopicFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicFilterArrayOutput) Index(i pulumi.IntInput) TopicFilterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicFilter {
 		return vs[0].([]TopicFilter)[vs[1].(int)]
@@ -4596,12 +3995,6 @@ func (i TopicNamedEntityArgs) ToTopicNamedEntityOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(TopicNamedEntityOutput)
 }
 
-func (i TopicNamedEntityArgs) ToOutput(ctx context.Context) pulumix.Output[TopicNamedEntity] {
-	return pulumix.Output[TopicNamedEntity]{
-		OutputState: i.ToTopicNamedEntityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TopicNamedEntityArrayInput is an input type that accepts TopicNamedEntityArray and TopicNamedEntityArrayOutput values.
 // You can construct a concrete instance of `TopicNamedEntityArrayInput` via:
 //
@@ -4627,12 +4020,6 @@ func (i TopicNamedEntityArray) ToTopicNamedEntityArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TopicNamedEntityArrayOutput)
 }
 
-func (i TopicNamedEntityArray) ToOutput(ctx context.Context) pulumix.Output[[]TopicNamedEntity] {
-	return pulumix.Output[[]TopicNamedEntity]{
-		OutputState: i.ToTopicNamedEntityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicNamedEntityOutput struct{ *pulumi.OutputState }
 
 func (TopicNamedEntityOutput) ElementType() reflect.Type {
@@ -4645,12 +4032,6 @@ func (o TopicNamedEntityOutput) ToTopicNamedEntityOutput() TopicNamedEntityOutpu
 
 func (o TopicNamedEntityOutput) ToTopicNamedEntityOutputWithContext(ctx context.Context) TopicNamedEntityOutput {
 	return o
-}
-
-func (o TopicNamedEntityOutput) ToOutput(ctx context.Context) pulumix.Output[TopicNamedEntity] {
-	return pulumix.Output[TopicNamedEntity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicNamedEntityOutput) Definition() TopicNamedEntityDefinitionArrayOutput {
@@ -4685,12 +4066,6 @@ func (o TopicNamedEntityArrayOutput) ToTopicNamedEntityArrayOutput() TopicNamedE
 
 func (o TopicNamedEntityArrayOutput) ToTopicNamedEntityArrayOutputWithContext(ctx context.Context) TopicNamedEntityArrayOutput {
 	return o
-}
-
-func (o TopicNamedEntityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TopicNamedEntity] {
-	return pulumix.Output[[]TopicNamedEntity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicNamedEntityArrayOutput) Index(i pulumi.IntInput) TopicNamedEntityOutput {
@@ -4738,12 +4113,6 @@ func (i TopicNamedEntityDefinitionArgs) ToTopicNamedEntityDefinitionOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(TopicNamedEntityDefinitionOutput)
 }
 
-func (i TopicNamedEntityDefinitionArgs) ToOutput(ctx context.Context) pulumix.Output[TopicNamedEntityDefinition] {
-	return pulumix.Output[TopicNamedEntityDefinition]{
-		OutputState: i.ToTopicNamedEntityDefinitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TopicNamedEntityDefinitionArrayInput is an input type that accepts TopicNamedEntityDefinitionArray and TopicNamedEntityDefinitionArrayOutput values.
 // You can construct a concrete instance of `TopicNamedEntityDefinitionArrayInput` via:
 //
@@ -4769,12 +4138,6 @@ func (i TopicNamedEntityDefinitionArray) ToTopicNamedEntityDefinitionArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(TopicNamedEntityDefinitionArrayOutput)
 }
 
-func (i TopicNamedEntityDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]TopicNamedEntityDefinition] {
-	return pulumix.Output[[]TopicNamedEntityDefinition]{
-		OutputState: i.ToTopicNamedEntityDefinitionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicNamedEntityDefinitionOutput struct{ *pulumi.OutputState }
 
 func (TopicNamedEntityDefinitionOutput) ElementType() reflect.Type {
@@ -4787,12 +4150,6 @@ func (o TopicNamedEntityDefinitionOutput) ToTopicNamedEntityDefinitionOutput() T
 
 func (o TopicNamedEntityDefinitionOutput) ToTopicNamedEntityDefinitionOutputWithContext(ctx context.Context) TopicNamedEntityDefinitionOutput {
 	return o
-}
-
-func (o TopicNamedEntityDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[TopicNamedEntityDefinition] {
-	return pulumix.Output[TopicNamedEntityDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicNamedEntityDefinitionOutput) FieldName() pulumi.StringPtrOutput {
@@ -4827,12 +4184,6 @@ func (o TopicNamedEntityDefinitionArrayOutput) ToTopicNamedEntityDefinitionArray
 
 func (o TopicNamedEntityDefinitionArrayOutput) ToTopicNamedEntityDefinitionArrayOutputWithContext(ctx context.Context) TopicNamedEntityDefinitionArrayOutput {
 	return o
-}
-
-func (o TopicNamedEntityDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TopicNamedEntityDefinition] {
-	return pulumix.Output[[]TopicNamedEntityDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicNamedEntityDefinitionArrayOutput) Index(i pulumi.IntInput) TopicNamedEntityDefinitionOutput {
@@ -4872,12 +4223,6 @@ func (i TopicNamedEntityDefinitionMetricArgs) ToTopicNamedEntityDefinitionMetric
 
 func (i TopicNamedEntityDefinitionMetricArgs) ToTopicNamedEntityDefinitionMetricOutputWithContext(ctx context.Context) TopicNamedEntityDefinitionMetricOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TopicNamedEntityDefinitionMetricOutput)
-}
-
-func (i TopicNamedEntityDefinitionMetricArgs) ToOutput(ctx context.Context) pulumix.Output[TopicNamedEntityDefinitionMetric] {
-	return pulumix.Output[TopicNamedEntityDefinitionMetric]{
-		OutputState: i.ToTopicNamedEntityDefinitionMetricOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i TopicNamedEntityDefinitionMetricArgs) ToTopicNamedEntityDefinitionMetricPtrOutput() TopicNamedEntityDefinitionMetricPtrOutput {
@@ -4921,12 +4266,6 @@ func (i *topicNamedEntityDefinitionMetricPtrType) ToTopicNamedEntityDefinitionMe
 	return pulumi.ToOutputWithContext(ctx, i).(TopicNamedEntityDefinitionMetricPtrOutput)
 }
 
-func (i *topicNamedEntityDefinitionMetricPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicNamedEntityDefinitionMetric] {
-	return pulumix.Output[*TopicNamedEntityDefinitionMetric]{
-		OutputState: i.ToTopicNamedEntityDefinitionMetricPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicNamedEntityDefinitionMetricOutput struct{ *pulumi.OutputState }
 
 func (TopicNamedEntityDefinitionMetricOutput) ElementType() reflect.Type {
@@ -4951,12 +4290,6 @@ func (o TopicNamedEntityDefinitionMetricOutput) ToTopicNamedEntityDefinitionMetr
 	}).(TopicNamedEntityDefinitionMetricPtrOutput)
 }
 
-func (o TopicNamedEntityDefinitionMetricOutput) ToOutput(ctx context.Context) pulumix.Output[TopicNamedEntityDefinitionMetric] {
-	return pulumix.Output[TopicNamedEntityDefinitionMetric]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicNamedEntityDefinitionMetricOutput) Aggregation() TopicNamedEntityAggTypePtrOutput {
 	return o.ApplyT(func(v TopicNamedEntityDefinitionMetric) *TopicNamedEntityAggType { return v.Aggregation }).(TopicNamedEntityAggTypePtrOutput)
 }
@@ -4979,12 +4312,6 @@ func (o TopicNamedEntityDefinitionMetricPtrOutput) ToTopicNamedEntityDefinitionM
 
 func (o TopicNamedEntityDefinitionMetricPtrOutput) ToTopicNamedEntityDefinitionMetricPtrOutputWithContext(ctx context.Context) TopicNamedEntityDefinitionMetricPtrOutput {
 	return o
-}
-
-func (o TopicNamedEntityDefinitionMetricPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicNamedEntityDefinitionMetric] {
-	return pulumix.Output[*TopicNamedEntityDefinitionMetric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicNamedEntityDefinitionMetricPtrOutput) Elem() TopicNamedEntityDefinitionMetricOutput {
@@ -5048,12 +4375,6 @@ func (i TopicNegativeFormatArgs) ToTopicNegativeFormatOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TopicNegativeFormatOutput)
 }
 
-func (i TopicNegativeFormatArgs) ToOutput(ctx context.Context) pulumix.Output[TopicNegativeFormat] {
-	return pulumix.Output[TopicNegativeFormat]{
-		OutputState: i.ToTopicNegativeFormatOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TopicNegativeFormatArgs) ToTopicNegativeFormatPtrOutput() TopicNegativeFormatPtrOutput {
 	return i.ToTopicNegativeFormatPtrOutputWithContext(context.Background())
 }
@@ -5095,12 +4416,6 @@ func (i *topicNegativeFormatPtrType) ToTopicNegativeFormatPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(TopicNegativeFormatPtrOutput)
 }
 
-func (i *topicNegativeFormatPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicNegativeFormat] {
-	return pulumix.Output[*TopicNegativeFormat]{
-		OutputState: i.ToTopicNegativeFormatPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicNegativeFormatOutput struct{ *pulumi.OutputState }
 
 func (TopicNegativeFormatOutput) ElementType() reflect.Type {
@@ -5125,12 +4440,6 @@ func (o TopicNegativeFormatOutput) ToTopicNegativeFormatPtrOutputWithContext(ctx
 	}).(TopicNegativeFormatPtrOutput)
 }
 
-func (o TopicNegativeFormatOutput) ToOutput(ctx context.Context) pulumix.Output[TopicNegativeFormat] {
-	return pulumix.Output[TopicNegativeFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicNegativeFormatOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicNegativeFormat) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
@@ -5151,12 +4460,6 @@ func (o TopicNegativeFormatPtrOutput) ToTopicNegativeFormatPtrOutput() TopicNega
 
 func (o TopicNegativeFormatPtrOutput) ToTopicNegativeFormatPtrOutputWithContext(ctx context.Context) TopicNegativeFormatPtrOutput {
 	return o
-}
-
-func (o TopicNegativeFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicNegativeFormat] {
-	return pulumix.Output[*TopicNegativeFormat]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicNegativeFormatPtrOutput) Elem() TopicNegativeFormatOutput {
@@ -5220,12 +4523,6 @@ func (i TopicNumericEqualityFilterArgs) ToTopicNumericEqualityFilterOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(TopicNumericEqualityFilterOutput)
 }
 
-func (i TopicNumericEqualityFilterArgs) ToOutput(ctx context.Context) pulumix.Output[TopicNumericEqualityFilter] {
-	return pulumix.Output[TopicNumericEqualityFilter]{
-		OutputState: i.ToTopicNumericEqualityFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TopicNumericEqualityFilterArgs) ToTopicNumericEqualityFilterPtrOutput() TopicNumericEqualityFilterPtrOutput {
 	return i.ToTopicNumericEqualityFilterPtrOutputWithContext(context.Background())
 }
@@ -5267,12 +4564,6 @@ func (i *topicNumericEqualityFilterPtrType) ToTopicNumericEqualityFilterPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(TopicNumericEqualityFilterPtrOutput)
 }
 
-func (i *topicNumericEqualityFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicNumericEqualityFilter] {
-	return pulumix.Output[*TopicNumericEqualityFilter]{
-		OutputState: i.ToTopicNumericEqualityFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicNumericEqualityFilterOutput struct{ *pulumi.OutputState }
 
 func (TopicNumericEqualityFilterOutput) ElementType() reflect.Type {
@@ -5297,12 +4588,6 @@ func (o TopicNumericEqualityFilterOutput) ToTopicNumericEqualityFilterPtrOutputW
 	}).(TopicNumericEqualityFilterPtrOutput)
 }
 
-func (o TopicNumericEqualityFilterOutput) ToOutput(ctx context.Context) pulumix.Output[TopicNumericEqualityFilter] {
-	return pulumix.Output[TopicNumericEqualityFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicNumericEqualityFilterOutput) Aggregation() TopicNamedFilterAggTypePtrOutput {
 	return o.ApplyT(func(v TopicNumericEqualityFilter) *TopicNamedFilterAggType { return v.Aggregation }).(TopicNamedFilterAggTypePtrOutput)
 }
@@ -5323,12 +4608,6 @@ func (o TopicNumericEqualityFilterPtrOutput) ToTopicNumericEqualityFilterPtrOutp
 
 func (o TopicNumericEqualityFilterPtrOutput) ToTopicNumericEqualityFilterPtrOutputWithContext(ctx context.Context) TopicNumericEqualityFilterPtrOutput {
 	return o
-}
-
-func (o TopicNumericEqualityFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicNumericEqualityFilter] {
-	return pulumix.Output[*TopicNumericEqualityFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicNumericEqualityFilterPtrOutput) Elem() TopicNumericEqualityFilterOutput {
@@ -5394,12 +4673,6 @@ func (i TopicNumericRangeFilterArgs) ToTopicNumericRangeFilterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TopicNumericRangeFilterOutput)
 }
 
-func (i TopicNumericRangeFilterArgs) ToOutput(ctx context.Context) pulumix.Output[TopicNumericRangeFilter] {
-	return pulumix.Output[TopicNumericRangeFilter]{
-		OutputState: i.ToTopicNumericRangeFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TopicNumericRangeFilterArgs) ToTopicNumericRangeFilterPtrOutput() TopicNumericRangeFilterPtrOutput {
 	return i.ToTopicNumericRangeFilterPtrOutputWithContext(context.Background())
 }
@@ -5441,12 +4714,6 @@ func (i *topicNumericRangeFilterPtrType) ToTopicNumericRangeFilterPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(TopicNumericRangeFilterPtrOutput)
 }
 
-func (i *topicNumericRangeFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicNumericRangeFilter] {
-	return pulumix.Output[*TopicNumericRangeFilter]{
-		OutputState: i.ToTopicNumericRangeFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicNumericRangeFilterOutput struct{ *pulumi.OutputState }
 
 func (TopicNumericRangeFilterOutput) ElementType() reflect.Type {
@@ -5469,12 +4736,6 @@ func (o TopicNumericRangeFilterOutput) ToTopicNumericRangeFilterPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicNumericRangeFilter) *TopicNumericRangeFilter {
 		return &v
 	}).(TopicNumericRangeFilterPtrOutput)
-}
-
-func (o TopicNumericRangeFilterOutput) ToOutput(ctx context.Context) pulumix.Output[TopicNumericRangeFilter] {
-	return pulumix.Output[TopicNumericRangeFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicNumericRangeFilterOutput) Aggregation() TopicNamedFilterAggTypePtrOutput {
@@ -5501,12 +4762,6 @@ func (o TopicNumericRangeFilterPtrOutput) ToTopicNumericRangeFilterPtrOutput() T
 
 func (o TopicNumericRangeFilterPtrOutput) ToTopicNumericRangeFilterPtrOutputWithContext(ctx context.Context) TopicNumericRangeFilterPtrOutput {
 	return o
-}
-
-func (o TopicNumericRangeFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicNumericRangeFilter] {
-	return pulumix.Output[*TopicNumericRangeFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicNumericRangeFilterPtrOutput) Elem() TopicNumericRangeFilterOutput {
@@ -5579,12 +4834,6 @@ func (i TopicRangeConstantArgs) ToTopicRangeConstantOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRangeConstantOutput)
 }
 
-func (i TopicRangeConstantArgs) ToOutput(ctx context.Context) pulumix.Output[TopicRangeConstant] {
-	return pulumix.Output[TopicRangeConstant]{
-		OutputState: i.ToTopicRangeConstantOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TopicRangeConstantArgs) ToTopicRangeConstantPtrOutput() TopicRangeConstantPtrOutput {
 	return i.ToTopicRangeConstantPtrOutputWithContext(context.Background())
 }
@@ -5626,12 +4875,6 @@ func (i *topicRangeConstantPtrType) ToTopicRangeConstantPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRangeConstantPtrOutput)
 }
 
-func (i *topicRangeConstantPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicRangeConstant] {
-	return pulumix.Output[*TopicRangeConstant]{
-		OutputState: i.ToTopicRangeConstantPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicRangeConstantOutput struct{ *pulumi.OutputState }
 
 func (TopicRangeConstantOutput) ElementType() reflect.Type {
@@ -5656,12 +4899,6 @@ func (o TopicRangeConstantOutput) ToTopicRangeConstantPtrOutputWithContext(ctx c
 	}).(TopicRangeConstantPtrOutput)
 }
 
-func (o TopicRangeConstantOutput) ToOutput(ctx context.Context) pulumix.Output[TopicRangeConstant] {
-	return pulumix.Output[TopicRangeConstant]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicRangeConstantOutput) Maximum() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRangeConstant) *string { return v.Maximum }).(pulumi.StringPtrOutput)
 }
@@ -5682,12 +4919,6 @@ func (o TopicRangeConstantPtrOutput) ToTopicRangeConstantPtrOutput() TopicRangeC
 
 func (o TopicRangeConstantPtrOutput) ToTopicRangeConstantPtrOutputWithContext(ctx context.Context) TopicRangeConstantPtrOutput {
 	return o
-}
-
-func (o TopicRangeConstantPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicRangeConstant] {
-	return pulumix.Output[*TopicRangeConstant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicRangeConstantPtrOutput) Elem() TopicRangeConstantOutput {
@@ -5751,12 +4982,6 @@ func (i TopicRangeFilterConstantArgs) ToTopicRangeFilterConstantOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRangeFilterConstantOutput)
 }
 
-func (i TopicRangeFilterConstantArgs) ToOutput(ctx context.Context) pulumix.Output[TopicRangeFilterConstant] {
-	return pulumix.Output[TopicRangeFilterConstant]{
-		OutputState: i.ToTopicRangeFilterConstantOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TopicRangeFilterConstantArgs) ToTopicRangeFilterConstantPtrOutput() TopicRangeFilterConstantPtrOutput {
 	return i.ToTopicRangeFilterConstantPtrOutputWithContext(context.Background())
 }
@@ -5798,12 +5023,6 @@ func (i *topicRangeFilterConstantPtrType) ToTopicRangeFilterConstantPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRangeFilterConstantPtrOutput)
 }
 
-func (i *topicRangeFilterConstantPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicRangeFilterConstant] {
-	return pulumix.Output[*TopicRangeFilterConstant]{
-		OutputState: i.ToTopicRangeFilterConstantPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicRangeFilterConstantOutput struct{ *pulumi.OutputState }
 
 func (TopicRangeFilterConstantOutput) ElementType() reflect.Type {
@@ -5828,12 +5047,6 @@ func (o TopicRangeFilterConstantOutput) ToTopicRangeFilterConstantPtrOutputWithC
 	}).(TopicRangeFilterConstantPtrOutput)
 }
 
-func (o TopicRangeFilterConstantOutput) ToOutput(ctx context.Context) pulumix.Output[TopicRangeFilterConstant] {
-	return pulumix.Output[TopicRangeFilterConstant]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicRangeFilterConstantOutput) ConstantType() TopicConstantTypePtrOutput {
 	return o.ApplyT(func(v TopicRangeFilterConstant) *TopicConstantType { return v.ConstantType }).(TopicConstantTypePtrOutput)
 }
@@ -5854,12 +5067,6 @@ func (o TopicRangeFilterConstantPtrOutput) ToTopicRangeFilterConstantPtrOutput()
 
 func (o TopicRangeFilterConstantPtrOutput) ToTopicRangeFilterConstantPtrOutputWithContext(ctx context.Context) TopicRangeFilterConstantPtrOutput {
 	return o
-}
-
-func (o TopicRangeFilterConstantPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicRangeFilterConstant] {
-	return pulumix.Output[*TopicRangeFilterConstant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicRangeFilterConstantPtrOutput) Elem() TopicRangeFilterConstantOutput {
@@ -5925,12 +5132,6 @@ func (i TopicRelativeDateFilterArgs) ToTopicRelativeDateFilterOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRelativeDateFilterOutput)
 }
 
-func (i TopicRelativeDateFilterArgs) ToOutput(ctx context.Context) pulumix.Output[TopicRelativeDateFilter] {
-	return pulumix.Output[TopicRelativeDateFilter]{
-		OutputState: i.ToTopicRelativeDateFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TopicRelativeDateFilterArgs) ToTopicRelativeDateFilterPtrOutput() TopicRelativeDateFilterPtrOutput {
 	return i.ToTopicRelativeDateFilterPtrOutputWithContext(context.Background())
 }
@@ -5972,12 +5173,6 @@ func (i *topicRelativeDateFilterPtrType) ToTopicRelativeDateFilterPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(TopicRelativeDateFilterPtrOutput)
 }
 
-func (i *topicRelativeDateFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicRelativeDateFilter] {
-	return pulumix.Output[*TopicRelativeDateFilter]{
-		OutputState: i.ToTopicRelativeDateFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicRelativeDateFilterOutput struct{ *pulumi.OutputState }
 
 func (TopicRelativeDateFilterOutput) ElementType() reflect.Type {
@@ -6000,12 +5195,6 @@ func (o TopicRelativeDateFilterOutput) ToTopicRelativeDateFilterPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRelativeDateFilter) *TopicRelativeDateFilter {
 		return &v
 	}).(TopicRelativeDateFilterPtrOutput)
-}
-
-func (o TopicRelativeDateFilterOutput) ToOutput(ctx context.Context) pulumix.Output[TopicRelativeDateFilter] {
-	return pulumix.Output[TopicRelativeDateFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicRelativeDateFilterOutput) Constant() TopicSingularFilterConstantPtrOutput {
@@ -6032,12 +5221,6 @@ func (o TopicRelativeDateFilterPtrOutput) ToTopicRelativeDateFilterPtrOutput() T
 
 func (o TopicRelativeDateFilterPtrOutput) ToTopicRelativeDateFilterPtrOutputWithContext(ctx context.Context) TopicRelativeDateFilterPtrOutput {
 	return o
-}
-
-func (o TopicRelativeDateFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicRelativeDateFilter] {
-	return pulumix.Output[*TopicRelativeDateFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicRelativeDateFilterPtrOutput) Elem() TopicRelativeDateFilterOutput {
@@ -6112,12 +5295,6 @@ func (i TopicSemanticEntityTypeArgs) ToTopicSemanticEntityTypeOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(TopicSemanticEntityTypeOutput)
 }
 
-func (i TopicSemanticEntityTypeArgs) ToOutput(ctx context.Context) pulumix.Output[TopicSemanticEntityType] {
-	return pulumix.Output[TopicSemanticEntityType]{
-		OutputState: i.ToTopicSemanticEntityTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TopicSemanticEntityTypeArgs) ToTopicSemanticEntityTypePtrOutput() TopicSemanticEntityTypePtrOutput {
 	return i.ToTopicSemanticEntityTypePtrOutputWithContext(context.Background())
 }
@@ -6159,12 +5336,6 @@ func (i *topicSemanticEntityTypePtrType) ToTopicSemanticEntityTypePtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(TopicSemanticEntityTypePtrOutput)
 }
 
-func (i *topicSemanticEntityTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicSemanticEntityType] {
-	return pulumix.Output[*TopicSemanticEntityType]{
-		OutputState: i.ToTopicSemanticEntityTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicSemanticEntityTypeOutput struct{ *pulumi.OutputState }
 
 func (TopicSemanticEntityTypeOutput) ElementType() reflect.Type {
@@ -6187,12 +5358,6 @@ func (o TopicSemanticEntityTypeOutput) ToTopicSemanticEntityTypePtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicSemanticEntityType) *TopicSemanticEntityType {
 		return &v
 	}).(TopicSemanticEntityTypePtrOutput)
-}
-
-func (o TopicSemanticEntityTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TopicSemanticEntityType] {
-	return pulumix.Output[TopicSemanticEntityType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicSemanticEntityTypeOutput) SubTypeName() pulumi.StringPtrOutput {
@@ -6219,12 +5384,6 @@ func (o TopicSemanticEntityTypePtrOutput) ToTopicSemanticEntityTypePtrOutput() T
 
 func (o TopicSemanticEntityTypePtrOutput) ToTopicSemanticEntityTypePtrOutputWithContext(ctx context.Context) TopicSemanticEntityTypePtrOutput {
 	return o
-}
-
-func (o TopicSemanticEntityTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicSemanticEntityType] {
-	return pulumix.Output[*TopicSemanticEntityType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicSemanticEntityTypePtrOutput) Elem() TopicSemanticEntityTypeOutput {
@@ -6307,12 +5466,6 @@ func (i TopicSemanticTypeArgs) ToTopicSemanticTypeOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TopicSemanticTypeOutput)
 }
 
-func (i TopicSemanticTypeArgs) ToOutput(ctx context.Context) pulumix.Output[TopicSemanticType] {
-	return pulumix.Output[TopicSemanticType]{
-		OutputState: i.ToTopicSemanticTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TopicSemanticTypeArgs) ToTopicSemanticTypePtrOutput() TopicSemanticTypePtrOutput {
 	return i.ToTopicSemanticTypePtrOutputWithContext(context.Background())
 }
@@ -6354,12 +5507,6 @@ func (i *topicSemanticTypePtrType) ToTopicSemanticTypePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(TopicSemanticTypePtrOutput)
 }
 
-func (i *topicSemanticTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicSemanticType] {
-	return pulumix.Output[*TopicSemanticType]{
-		OutputState: i.ToTopicSemanticTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicSemanticTypeOutput struct{ *pulumi.OutputState }
 
 func (TopicSemanticTypeOutput) ElementType() reflect.Type {
@@ -6382,12 +5529,6 @@ func (o TopicSemanticTypeOutput) ToTopicSemanticTypePtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicSemanticType) *TopicSemanticType {
 		return &v
 	}).(TopicSemanticTypePtrOutput)
-}
-
-func (o TopicSemanticTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TopicSemanticType] {
-	return pulumix.Output[TopicSemanticType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicSemanticTypeOutput) FalseyCellValue() pulumi.StringPtrOutput {
@@ -6430,12 +5571,6 @@ func (o TopicSemanticTypePtrOutput) ToTopicSemanticTypePtrOutput() TopicSemantic
 
 func (o TopicSemanticTypePtrOutput) ToTopicSemanticTypePtrOutputWithContext(ctx context.Context) TopicSemanticTypePtrOutput {
 	return o
-}
-
-func (o TopicSemanticTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicSemanticType] {
-	return pulumix.Output[*TopicSemanticType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicSemanticTypePtrOutput) Elem() TopicSemanticTypeOutput {
@@ -6544,12 +5679,6 @@ func (i TopicSingularFilterConstantArgs) ToTopicSingularFilterConstantOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(TopicSingularFilterConstantOutput)
 }
 
-func (i TopicSingularFilterConstantArgs) ToOutput(ctx context.Context) pulumix.Output[TopicSingularFilterConstant] {
-	return pulumix.Output[TopicSingularFilterConstant]{
-		OutputState: i.ToTopicSingularFilterConstantOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TopicSingularFilterConstantArgs) ToTopicSingularFilterConstantPtrOutput() TopicSingularFilterConstantPtrOutput {
 	return i.ToTopicSingularFilterConstantPtrOutputWithContext(context.Background())
 }
@@ -6591,12 +5720,6 @@ func (i *topicSingularFilterConstantPtrType) ToTopicSingularFilterConstantPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(TopicSingularFilterConstantPtrOutput)
 }
 
-func (i *topicSingularFilterConstantPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicSingularFilterConstant] {
-	return pulumix.Output[*TopicSingularFilterConstant]{
-		OutputState: i.ToTopicSingularFilterConstantPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicSingularFilterConstantOutput struct{ *pulumi.OutputState }
 
 func (TopicSingularFilterConstantOutput) ElementType() reflect.Type {
@@ -6621,12 +5744,6 @@ func (o TopicSingularFilterConstantOutput) ToTopicSingularFilterConstantPtrOutpu
 	}).(TopicSingularFilterConstantPtrOutput)
 }
 
-func (o TopicSingularFilterConstantOutput) ToOutput(ctx context.Context) pulumix.Output[TopicSingularFilterConstant] {
-	return pulumix.Output[TopicSingularFilterConstant]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TopicSingularFilterConstantOutput) ConstantType() TopicConstantTypePtrOutput {
 	return o.ApplyT(func(v TopicSingularFilterConstant) *TopicConstantType { return v.ConstantType }).(TopicConstantTypePtrOutput)
 }
@@ -6647,12 +5764,6 @@ func (o TopicSingularFilterConstantPtrOutput) ToTopicSingularFilterConstantPtrOu
 
 func (o TopicSingularFilterConstantPtrOutput) ToTopicSingularFilterConstantPtrOutputWithContext(ctx context.Context) TopicSingularFilterConstantPtrOutput {
 	return o
-}
-
-func (o TopicSingularFilterConstantPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicSingularFilterConstant] {
-	return pulumix.Output[*TopicSingularFilterConstant]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicSingularFilterConstantPtrOutput) Elem() TopicSingularFilterConstantOutput {
@@ -6712,12 +5823,6 @@ func (i TopicTypeParametersArgs) ToTopicTypeParametersOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TopicTypeParametersOutput)
 }
 
-func (i TopicTypeParametersArgs) ToOutput(ctx context.Context) pulumix.Output[TopicTypeParameters] {
-	return pulumix.Output[TopicTypeParameters]{
-		OutputState: i.ToTopicTypeParametersOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i TopicTypeParametersArgs) ToTopicTypeParametersPtrOutput() TopicTypeParametersPtrOutput {
 	return i.ToTopicTypeParametersPtrOutputWithContext(context.Background())
 }
@@ -6759,12 +5864,6 @@ func (i *topicTypeParametersPtrType) ToTopicTypeParametersPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(TopicTypeParametersPtrOutput)
 }
 
-func (i *topicTypeParametersPtrType) ToOutput(ctx context.Context) pulumix.Output[*TopicTypeParameters] {
-	return pulumix.Output[*TopicTypeParameters]{
-		OutputState: i.ToTopicTypeParametersPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TopicTypeParametersOutput struct{ *pulumi.OutputState }
 
 func (TopicTypeParametersOutput) ElementType() reflect.Type {
@@ -6789,12 +5888,6 @@ func (o TopicTypeParametersOutput) ToTopicTypeParametersPtrOutputWithContext(ctx
 	}).(TopicTypeParametersPtrOutput)
 }
 
-func (o TopicTypeParametersOutput) ToOutput(ctx context.Context) pulumix.Output[TopicTypeParameters] {
-	return pulumix.Output[TopicTypeParameters]{
-		OutputState: o.OutputState,
-	}
-}
-
 type TopicTypeParametersPtrOutput struct{ *pulumi.OutputState }
 
 func (TopicTypeParametersPtrOutput) ElementType() reflect.Type {
@@ -6807,12 +5900,6 @@ func (o TopicTypeParametersPtrOutput) ToTopicTypeParametersPtrOutput() TopicType
 
 func (o TopicTypeParametersPtrOutput) ToTopicTypeParametersPtrOutputWithContext(ctx context.Context) TopicTypeParametersPtrOutput {
 	return o
-}
-
-func (o TopicTypeParametersPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TopicTypeParameters] {
-	return pulumix.Output[*TopicTypeParameters]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TopicTypeParametersPtrOutput) Elem() TopicTypeParametersOutput {
@@ -6847,12 +5934,6 @@ func (o VpcConnectionNetworkInterfaceOutput) ToVpcConnectionNetworkInterfaceOutp
 	return o
 }
 
-func (o VpcConnectionNetworkInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[VpcConnectionNetworkInterface] {
-	return pulumix.Output[VpcConnectionNetworkInterface]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpcConnectionNetworkInterfaceOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpcConnectionNetworkInterface) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
@@ -6885,12 +5966,6 @@ func (o VpcConnectionNetworkInterfaceArrayOutput) ToVpcConnectionNetworkInterfac
 
 func (o VpcConnectionNetworkInterfaceArrayOutput) ToVpcConnectionNetworkInterfaceArrayOutputWithContext(ctx context.Context) VpcConnectionNetworkInterfaceArrayOutput {
 	return o
-}
-
-func (o VpcConnectionNetworkInterfaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VpcConnectionNetworkInterface] {
-	return pulumix.Output[[]VpcConnectionNetworkInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpcConnectionNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) VpcConnectionNetworkInterfaceOutput {
@@ -6932,12 +6007,6 @@ func (i VpcConnectionTagArgs) ToVpcConnectionTagOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(VpcConnectionTagOutput)
 }
 
-func (i VpcConnectionTagArgs) ToOutput(ctx context.Context) pulumix.Output[VpcConnectionTag] {
-	return pulumix.Output[VpcConnectionTag]{
-		OutputState: i.ToVpcConnectionTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VpcConnectionTagArrayInput is an input type that accepts VpcConnectionTagArray and VpcConnectionTagArrayOutput values.
 // You can construct a concrete instance of `VpcConnectionTagArrayInput` via:
 //
@@ -6963,12 +6032,6 @@ func (i VpcConnectionTagArray) ToVpcConnectionTagArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VpcConnectionTagArrayOutput)
 }
 
-func (i VpcConnectionTagArray) ToOutput(ctx context.Context) pulumix.Output[[]VpcConnectionTag] {
-	return pulumix.Output[[]VpcConnectionTag]{
-		OutputState: i.ToVpcConnectionTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VpcConnectionTagOutput struct{ *pulumi.OutputState }
 
 func (VpcConnectionTagOutput) ElementType() reflect.Type {
@@ -6981,12 +6044,6 @@ func (o VpcConnectionTagOutput) ToVpcConnectionTagOutput() VpcConnectionTagOutpu
 
 func (o VpcConnectionTagOutput) ToVpcConnectionTagOutputWithContext(ctx context.Context) VpcConnectionTagOutput {
 	return o
-}
-
-func (o VpcConnectionTagOutput) ToOutput(ctx context.Context) pulumix.Output[VpcConnectionTag] {
-	return pulumix.Output[VpcConnectionTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpcConnectionTagOutput) Key() pulumi.StringOutput {
@@ -7009,12 +6066,6 @@ func (o VpcConnectionTagArrayOutput) ToVpcConnectionTagArrayOutput() VpcConnecti
 
 func (o VpcConnectionTagArrayOutput) ToVpcConnectionTagArrayOutputWithContext(ctx context.Context) VpcConnectionTagArrayOutput {
 	return o
-}
-
-func (o VpcConnectionTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VpcConnectionTag] {
-	return pulumix.Output[[]VpcConnectionTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpcConnectionTagArrayOutput) Index(i pulumi.IntInput) VpcConnectionTagOutput {

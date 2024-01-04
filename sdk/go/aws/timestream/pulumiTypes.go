@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i DatabaseTagArgs) ToDatabaseTagOutputWithContext(ctx context.Context) Dat
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseTagOutput)
 }
 
-func (i DatabaseTagArgs) ToOutput(ctx context.Context) pulumix.Output[DatabaseTag] {
-	return pulumix.Output[DatabaseTag]{
-		OutputState: i.ToDatabaseTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DatabaseTagArrayInput is an input type that accepts DatabaseTagArray and DatabaseTagArrayOutput values.
 // You can construct a concrete instance of `DatabaseTagArrayInput` via:
 //
@@ -80,12 +73,6 @@ func (i DatabaseTagArray) ToDatabaseTagArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseTagArrayOutput)
 }
 
-func (i DatabaseTagArray) ToOutput(ctx context.Context) pulumix.Output[[]DatabaseTag] {
-	return pulumix.Output[[]DatabaseTag]{
-		OutputState: i.ToDatabaseTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
 type DatabaseTagOutput struct{ *pulumi.OutputState }
 
@@ -99,12 +86,6 @@ func (o DatabaseTagOutput) ToDatabaseTagOutput() DatabaseTagOutput {
 
 func (o DatabaseTagOutput) ToDatabaseTagOutputWithContext(ctx context.Context) DatabaseTagOutput {
 	return o
-}
-
-func (o DatabaseTagOutput) ToOutput(ctx context.Context) pulumix.Output[DatabaseTag] {
-	return pulumix.Output[DatabaseTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatabaseTagOutput) Key() pulumi.StringPtrOutput {
@@ -127,12 +108,6 @@ func (o DatabaseTagArrayOutput) ToDatabaseTagArrayOutput() DatabaseTagArrayOutpu
 
 func (o DatabaseTagArrayOutput) ToDatabaseTagArrayOutputWithContext(ctx context.Context) DatabaseTagArrayOutput {
 	return o
-}
-
-func (o DatabaseTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DatabaseTag] {
-	return pulumix.Output[[]DatabaseTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatabaseTagArrayOutput) Index(i pulumi.IntInput) DatabaseTagOutput {
@@ -180,12 +155,6 @@ func (i MagneticStoreWritePropertiesPropertiesArgs) ToMagneticStoreWriteProperti
 	return pulumi.ToOutputWithContext(ctx, i).(MagneticStoreWritePropertiesPropertiesOutput)
 }
 
-func (i MagneticStoreWritePropertiesPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[MagneticStoreWritePropertiesProperties] {
-	return pulumix.Output[MagneticStoreWritePropertiesProperties]{
-		OutputState: i.ToMagneticStoreWritePropertiesPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MagneticStoreWritePropertiesPropertiesArgs) ToMagneticStoreWritePropertiesPropertiesPtrOutput() MagneticStoreWritePropertiesPropertiesPtrOutput {
 	return i.ToMagneticStoreWritePropertiesPropertiesPtrOutputWithContext(context.Background())
 }
@@ -227,12 +196,6 @@ func (i *magneticStoreWritePropertiesPropertiesPtrType) ToMagneticStoreWriteProp
 	return pulumi.ToOutputWithContext(ctx, i).(MagneticStoreWritePropertiesPropertiesPtrOutput)
 }
 
-func (i *magneticStoreWritePropertiesPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*MagneticStoreWritePropertiesProperties] {
-	return pulumix.Output[*MagneticStoreWritePropertiesProperties]{
-		OutputState: i.ToMagneticStoreWritePropertiesPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The properties that determine whether magnetic store writes are enabled.
 type MagneticStoreWritePropertiesPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -256,12 +219,6 @@ func (o MagneticStoreWritePropertiesPropertiesOutput) ToMagneticStoreWriteProper
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MagneticStoreWritePropertiesProperties) *MagneticStoreWritePropertiesProperties {
 		return &v
 	}).(MagneticStoreWritePropertiesPropertiesPtrOutput)
-}
-
-func (o MagneticStoreWritePropertiesPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[MagneticStoreWritePropertiesProperties] {
-	return pulumix.Output[MagneticStoreWritePropertiesProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Boolean flag indicating whether magnetic store writes are enabled.
@@ -288,12 +245,6 @@ func (o MagneticStoreWritePropertiesPropertiesPtrOutput) ToMagneticStoreWritePro
 
 func (o MagneticStoreWritePropertiesPropertiesPtrOutput) ToMagneticStoreWritePropertiesPropertiesPtrOutputWithContext(ctx context.Context) MagneticStoreWritePropertiesPropertiesPtrOutput {
 	return o
-}
-
-func (o MagneticStoreWritePropertiesPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MagneticStoreWritePropertiesProperties] {
-	return pulumix.Output[*MagneticStoreWritePropertiesProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MagneticStoreWritePropertiesPropertiesPtrOutput) Elem() MagneticStoreWritePropertiesPropertiesOutput {
@@ -361,12 +312,6 @@ func (i MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationP
 	return pulumi.ToOutputWithContext(ctx, i).(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput)
 }
 
-func (i MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties] {
-	return pulumix.Output[MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties]{
-		OutputState: i.ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesArgs) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput {
 	return i.ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutputWithContext(context.Background())
 }
@@ -408,12 +353,6 @@ func (i *magneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocation
 	return pulumi.ToOutputWithContext(ctx, i).(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput)
 }
 
-func (i *magneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties] {
-	return pulumix.Output[*MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties]{
-		OutputState: i.ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Location to store information about records that were asynchronously rejected during magnetic store writes.
 type MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -439,12 +378,6 @@ func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationP
 	}).(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput)
 }
 
-func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties] {
-	return pulumix.Output[MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 // S3 configuration for location to store rejections from magnetic store writes
 func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput) S3Configuration() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties) *MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties {
@@ -464,12 +397,6 @@ func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationP
 
 func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutputWithContext(ctx context.Context) MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput {
 	return o
-}
-
-func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties] {
-	return pulumix.Output[*MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesPtrOutput) Elem() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesOutput {
@@ -539,12 +466,6 @@ func (i MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationP
 	return pulumi.ToOutputWithContext(ctx, i).(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput)
 }
 
-func (i MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties] {
-	return pulumix.Output[MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties]{
-		OutputState: i.ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesArgs) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput {
 	return i.ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutputWithContext(context.Background())
 }
@@ -586,12 +507,6 @@ func (i *magneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocation
 	return pulumi.ToOutputWithContext(ctx, i).(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput)
 }
 
-func (i *magneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties] {
-	return pulumix.Output[*MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties]{
-		OutputState: i.ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // S3 configuration for location to store rejections from magnetic store writes
 type MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -615,12 +530,6 @@ func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationP
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties) *MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties {
 		return &v
 	}).(MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput)
-}
-
-func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties] {
-	return pulumix.Output[MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The bucket name used to store the data.
@@ -663,12 +572,6 @@ func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationP
 
 func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput) ToMagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutputWithContext(ctx context.Context) MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput {
 	return o
-}
-
-func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties] {
-	return pulumix.Output[*MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesPtrOutput) Elem() MagneticStoreWritePropertiesPropertiesMagneticStoreRejectedDataLocationPropertiesS3ConfigurationPropertiesOutput {
@@ -760,12 +663,6 @@ func (i RetentionPropertiesPropertiesArgs) ToRetentionPropertiesPropertiesOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RetentionPropertiesPropertiesOutput)
 }
 
-func (i RetentionPropertiesPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[RetentionPropertiesProperties] {
-	return pulumix.Output[RetentionPropertiesProperties]{
-		OutputState: i.ToRetentionPropertiesPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RetentionPropertiesPropertiesArgs) ToRetentionPropertiesPropertiesPtrOutput() RetentionPropertiesPropertiesPtrOutput {
 	return i.ToRetentionPropertiesPropertiesPtrOutputWithContext(context.Background())
 }
@@ -807,12 +704,6 @@ func (i *retentionPropertiesPropertiesPtrType) ToRetentionPropertiesPropertiesPt
 	return pulumi.ToOutputWithContext(ctx, i).(RetentionPropertiesPropertiesPtrOutput)
 }
 
-func (i *retentionPropertiesPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*RetentionPropertiesProperties] {
-	return pulumix.Output[*RetentionPropertiesProperties]{
-		OutputState: i.ToRetentionPropertiesPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The retention duration of the memory store and the magnetic store.
 type RetentionPropertiesPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -838,12 +729,6 @@ func (o RetentionPropertiesPropertiesOutput) ToRetentionPropertiesPropertiesPtrO
 	}).(RetentionPropertiesPropertiesPtrOutput)
 }
 
-func (o RetentionPropertiesPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[RetentionPropertiesProperties] {
-	return pulumix.Output[RetentionPropertiesProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The duration for which data must be stored in the magnetic store.
 func (o RetentionPropertiesPropertiesOutput) MagneticStoreRetentionPeriodInDays() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RetentionPropertiesProperties) *string { return v.MagneticStoreRetentionPeriodInDays }).(pulumi.StringPtrOutput)
@@ -866,12 +751,6 @@ func (o RetentionPropertiesPropertiesPtrOutput) ToRetentionPropertiesPropertiesP
 
 func (o RetentionPropertiesPropertiesPtrOutput) ToRetentionPropertiesPropertiesPtrOutputWithContext(ctx context.Context) RetentionPropertiesPropertiesPtrOutput {
 	return o
-}
-
-func (o RetentionPropertiesPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RetentionPropertiesProperties] {
-	return pulumix.Output[*RetentionPropertiesProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RetentionPropertiesPropertiesPtrOutput) Elem() RetentionPropertiesPropertiesOutput {
@@ -939,12 +818,6 @@ func (i ScheduledQueryDimensionMappingArgs) ToScheduledQueryDimensionMappingOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryDimensionMappingOutput)
 }
 
-func (i ScheduledQueryDimensionMappingArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryDimensionMapping] {
-	return pulumix.Output[ScheduledQueryDimensionMapping]{
-		OutputState: i.ToScheduledQueryDimensionMappingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScheduledQueryDimensionMappingArrayInput is an input type that accepts ScheduledQueryDimensionMappingArray and ScheduledQueryDimensionMappingArrayOutput values.
 // You can construct a concrete instance of `ScheduledQueryDimensionMappingArrayInput` via:
 //
@@ -970,12 +843,6 @@ func (i ScheduledQueryDimensionMappingArray) ToScheduledQueryDimensionMappingArr
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryDimensionMappingArrayOutput)
 }
 
-func (i ScheduledQueryDimensionMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]ScheduledQueryDimensionMapping] {
-	return pulumix.Output[[]ScheduledQueryDimensionMapping]{
-		OutputState: i.ToScheduledQueryDimensionMappingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // This type is used to map column(s) from the query result to a dimension in the destination table.
 type ScheduledQueryDimensionMappingOutput struct{ *pulumi.OutputState }
 
@@ -989,12 +856,6 @@ func (o ScheduledQueryDimensionMappingOutput) ToScheduledQueryDimensionMappingOu
 
 func (o ScheduledQueryDimensionMappingOutput) ToScheduledQueryDimensionMappingOutputWithContext(ctx context.Context) ScheduledQueryDimensionMappingOutput {
 	return o
-}
-
-func (o ScheduledQueryDimensionMappingOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryDimensionMapping] {
-	return pulumix.Output[ScheduledQueryDimensionMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryDimensionMappingOutput) DimensionValueType() ScheduledQueryDimensionValueTypeOutput {
@@ -1017,12 +878,6 @@ func (o ScheduledQueryDimensionMappingArrayOutput) ToScheduledQueryDimensionMapp
 
 func (o ScheduledQueryDimensionMappingArrayOutput) ToScheduledQueryDimensionMappingArrayOutputWithContext(ctx context.Context) ScheduledQueryDimensionMappingArrayOutput {
 	return o
-}
-
-func (o ScheduledQueryDimensionMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScheduledQueryDimensionMapping] {
-	return pulumix.Output[[]ScheduledQueryDimensionMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryDimensionMappingArrayOutput) Index(i pulumi.IntInput) ScheduledQueryDimensionMappingOutput {
@@ -1064,12 +919,6 @@ func (i ScheduledQueryErrorReportConfigurationArgs) ToScheduledQueryErrorReportC
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryErrorReportConfigurationOutput)
 }
 
-func (i ScheduledQueryErrorReportConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryErrorReportConfiguration] {
-	return pulumix.Output[ScheduledQueryErrorReportConfiguration]{
-		OutputState: i.ToScheduledQueryErrorReportConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
 type ScheduledQueryErrorReportConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1083,12 +932,6 @@ func (o ScheduledQueryErrorReportConfigurationOutput) ToScheduledQueryErrorRepor
 
 func (o ScheduledQueryErrorReportConfigurationOutput) ToScheduledQueryErrorReportConfigurationOutputWithContext(ctx context.Context) ScheduledQueryErrorReportConfigurationOutput {
 	return o
-}
-
-func (o ScheduledQueryErrorReportConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryErrorReportConfiguration] {
-	return pulumix.Output[ScheduledQueryErrorReportConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryErrorReportConfigurationOutput) S3Configuration() ScheduledQueryS3ConfigurationOutput {
@@ -1136,12 +979,6 @@ func (i ScheduledQueryMixedMeasureMappingArgs) ToScheduledQueryMixedMeasureMappi
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryMixedMeasureMappingOutput)
 }
 
-func (i ScheduledQueryMixedMeasureMappingArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryMixedMeasureMapping] {
-	return pulumix.Output[ScheduledQueryMixedMeasureMapping]{
-		OutputState: i.ToScheduledQueryMixedMeasureMappingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScheduledQueryMixedMeasureMappingArrayInput is an input type that accepts ScheduledQueryMixedMeasureMappingArray and ScheduledQueryMixedMeasureMappingArrayOutput values.
 // You can construct a concrete instance of `ScheduledQueryMixedMeasureMappingArrayInput` via:
 //
@@ -1167,12 +1004,6 @@ func (i ScheduledQueryMixedMeasureMappingArray) ToScheduledQueryMixedMeasureMapp
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryMixedMeasureMappingArrayOutput)
 }
 
-func (i ScheduledQueryMixedMeasureMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]ScheduledQueryMixedMeasureMapping] {
-	return pulumix.Output[[]ScheduledQueryMixedMeasureMapping]{
-		OutputState: i.ToScheduledQueryMixedMeasureMappingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MixedMeasureMappings are mappings that can be used to ingest data into a mixture of narrow and multi measures in the derived table.
 type ScheduledQueryMixedMeasureMappingOutput struct{ *pulumi.OutputState }
 
@@ -1186,12 +1017,6 @@ func (o ScheduledQueryMixedMeasureMappingOutput) ToScheduledQueryMixedMeasureMap
 
 func (o ScheduledQueryMixedMeasureMappingOutput) ToScheduledQueryMixedMeasureMappingOutputWithContext(ctx context.Context) ScheduledQueryMixedMeasureMappingOutput {
 	return o
-}
-
-func (o ScheduledQueryMixedMeasureMappingOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryMixedMeasureMapping] {
-	return pulumix.Output[ScheduledQueryMixedMeasureMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryMixedMeasureMappingOutput) MeasureName() pulumi.StringPtrOutput {
@@ -1230,12 +1055,6 @@ func (o ScheduledQueryMixedMeasureMappingArrayOutput) ToScheduledQueryMixedMeasu
 
 func (o ScheduledQueryMixedMeasureMappingArrayOutput) ToScheduledQueryMixedMeasureMappingArrayOutputWithContext(ctx context.Context) ScheduledQueryMixedMeasureMappingArrayOutput {
 	return o
-}
-
-func (o ScheduledQueryMixedMeasureMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScheduledQueryMixedMeasureMapping] {
-	return pulumix.Output[[]ScheduledQueryMixedMeasureMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryMixedMeasureMappingArrayOutput) Index(i pulumi.IntInput) ScheduledQueryMixedMeasureMappingOutput {
@@ -1281,12 +1100,6 @@ func (i ScheduledQueryMultiMeasureAttributeMappingArgs) ToScheduledQueryMultiMea
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryMultiMeasureAttributeMappingOutput)
 }
 
-func (i ScheduledQueryMultiMeasureAttributeMappingArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryMultiMeasureAttributeMapping] {
-	return pulumix.Output[ScheduledQueryMultiMeasureAttributeMapping]{
-		OutputState: i.ToScheduledQueryMultiMeasureAttributeMappingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScheduledQueryMultiMeasureAttributeMappingArrayInput is an input type that accepts ScheduledQueryMultiMeasureAttributeMappingArray and ScheduledQueryMultiMeasureAttributeMappingArrayOutput values.
 // You can construct a concrete instance of `ScheduledQueryMultiMeasureAttributeMappingArrayInput` via:
 //
@@ -1312,12 +1125,6 @@ func (i ScheduledQueryMultiMeasureAttributeMappingArray) ToScheduledQueryMultiMe
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryMultiMeasureAttributeMappingArrayOutput)
 }
 
-func (i ScheduledQueryMultiMeasureAttributeMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]ScheduledQueryMultiMeasureAttributeMapping] {
-	return pulumix.Output[[]ScheduledQueryMultiMeasureAttributeMapping]{
-		OutputState: i.ToScheduledQueryMultiMeasureAttributeMappingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An attribute mapping to be used for mapping query results to ingest data for multi-measure attributes.
 type ScheduledQueryMultiMeasureAttributeMappingOutput struct{ *pulumi.OutputState }
 
@@ -1331,12 +1138,6 @@ func (o ScheduledQueryMultiMeasureAttributeMappingOutput) ToScheduledQueryMultiM
 
 func (o ScheduledQueryMultiMeasureAttributeMappingOutput) ToScheduledQueryMultiMeasureAttributeMappingOutputWithContext(ctx context.Context) ScheduledQueryMultiMeasureAttributeMappingOutput {
 	return o
-}
-
-func (o ScheduledQueryMultiMeasureAttributeMappingOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryMultiMeasureAttributeMapping] {
-	return pulumix.Output[ScheduledQueryMultiMeasureAttributeMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryMultiMeasureAttributeMappingOutput) MeasureValueType() ScheduledQueryMultiMeasureAttributeMappingMeasureValueTypeOutput {
@@ -1365,12 +1166,6 @@ func (o ScheduledQueryMultiMeasureAttributeMappingArrayOutput) ToScheduledQueryM
 
 func (o ScheduledQueryMultiMeasureAttributeMappingArrayOutput) ToScheduledQueryMultiMeasureAttributeMappingArrayOutputWithContext(ctx context.Context) ScheduledQueryMultiMeasureAttributeMappingArrayOutput {
 	return o
-}
-
-func (o ScheduledQueryMultiMeasureAttributeMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScheduledQueryMultiMeasureAttributeMapping] {
-	return pulumix.Output[[]ScheduledQueryMultiMeasureAttributeMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryMultiMeasureAttributeMappingArrayOutput) Index(i pulumi.IntInput) ScheduledQueryMultiMeasureAttributeMappingOutput {
@@ -1414,12 +1209,6 @@ func (i ScheduledQueryMultiMeasureMappingsArgs) ToScheduledQueryMultiMeasureMapp
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryMultiMeasureMappingsOutput)
 }
 
-func (i ScheduledQueryMultiMeasureMappingsArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryMultiMeasureMappings] {
-	return pulumix.Output[ScheduledQueryMultiMeasureMappings]{
-		OutputState: i.ToScheduledQueryMultiMeasureMappingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScheduledQueryMultiMeasureMappingsArgs) ToScheduledQueryMultiMeasureMappingsPtrOutput() ScheduledQueryMultiMeasureMappingsPtrOutput {
 	return i.ToScheduledQueryMultiMeasureMappingsPtrOutputWithContext(context.Background())
 }
@@ -1461,12 +1250,6 @@ func (i *scheduledQueryMultiMeasureMappingsPtrType) ToScheduledQueryMultiMeasure
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryMultiMeasureMappingsPtrOutput)
 }
 
-func (i *scheduledQueryMultiMeasureMappingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryMultiMeasureMappings] {
-	return pulumix.Output[*ScheduledQueryMultiMeasureMappings]{
-		OutputState: i.ToScheduledQueryMultiMeasureMappingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
 type ScheduledQueryMultiMeasureMappingsOutput struct{ *pulumi.OutputState }
 
@@ -1492,12 +1275,6 @@ func (o ScheduledQueryMultiMeasureMappingsOutput) ToScheduledQueryMultiMeasureMa
 	}).(ScheduledQueryMultiMeasureMappingsPtrOutput)
 }
 
-func (o ScheduledQueryMultiMeasureMappingsOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryMultiMeasureMappings] {
-	return pulumix.Output[ScheduledQueryMultiMeasureMappings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduledQueryMultiMeasureMappingsOutput) MultiMeasureAttributeMappings() ScheduledQueryMultiMeasureAttributeMappingArrayOutput {
 	return o.ApplyT(func(v ScheduledQueryMultiMeasureMappings) []ScheduledQueryMultiMeasureAttributeMapping {
 		return v.MultiMeasureAttributeMappings
@@ -1520,12 +1297,6 @@ func (o ScheduledQueryMultiMeasureMappingsPtrOutput) ToScheduledQueryMultiMeasur
 
 func (o ScheduledQueryMultiMeasureMappingsPtrOutput) ToScheduledQueryMultiMeasureMappingsPtrOutputWithContext(ctx context.Context) ScheduledQueryMultiMeasureMappingsPtrOutput {
 	return o
-}
-
-func (o ScheduledQueryMultiMeasureMappingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryMultiMeasureMappings] {
-	return pulumix.Output[*ScheduledQueryMultiMeasureMappings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryMultiMeasureMappingsPtrOutput) Elem() ScheduledQueryMultiMeasureMappingsOutput {
@@ -1589,12 +1360,6 @@ func (i ScheduledQueryNotificationConfigurationArgs) ToScheduledQueryNotificatio
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryNotificationConfigurationOutput)
 }
 
-func (i ScheduledQueryNotificationConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryNotificationConfiguration] {
-	return pulumix.Output[ScheduledQueryNotificationConfiguration]{
-		OutputState: i.ToScheduledQueryNotificationConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
 type ScheduledQueryNotificationConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1608,12 +1373,6 @@ func (o ScheduledQueryNotificationConfigurationOutput) ToScheduledQueryNotificat
 
 func (o ScheduledQueryNotificationConfigurationOutput) ToScheduledQueryNotificationConfigurationOutputWithContext(ctx context.Context) ScheduledQueryNotificationConfigurationOutput {
 	return o
-}
-
-func (o ScheduledQueryNotificationConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryNotificationConfiguration] {
-	return pulumix.Output[ScheduledQueryNotificationConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryNotificationConfigurationOutput) SnsConfiguration() ScheduledQuerySnsConfigurationOutput {
@@ -1659,12 +1418,6 @@ func (i ScheduledQueryS3ConfigurationArgs) ToScheduledQueryS3ConfigurationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryS3ConfigurationOutput)
 }
 
-func (i ScheduledQueryS3ConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryS3Configuration] {
-	return pulumix.Output[ScheduledQueryS3Configuration]{
-		OutputState: i.ToScheduledQueryS3ConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Details on S3 location for error reports that result from running a query.
 type ScheduledQueryS3ConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1678,12 +1431,6 @@ func (o ScheduledQueryS3ConfigurationOutput) ToScheduledQueryS3ConfigurationOutp
 
 func (o ScheduledQueryS3ConfigurationOutput) ToScheduledQueryS3ConfigurationOutputWithContext(ctx context.Context) ScheduledQueryS3ConfigurationOutput {
 	return o
-}
-
-func (o ScheduledQueryS3ConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryS3Configuration] {
-	return pulumix.Output[ScheduledQueryS3Configuration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryS3ConfigurationOutput) BucketName() pulumi.StringOutput {
@@ -1731,12 +1478,6 @@ func (i ScheduledQueryScheduleConfigurationArgs) ToScheduledQueryScheduleConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryScheduleConfigurationOutput)
 }
 
-func (i ScheduledQueryScheduleConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryScheduleConfiguration] {
-	return pulumix.Output[ScheduledQueryScheduleConfiguration]{
-		OutputState: i.ToScheduledQueryScheduleConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Configuration for when the scheduled query is executed.
 type ScheduledQueryScheduleConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1750,12 +1491,6 @@ func (o ScheduledQueryScheduleConfigurationOutput) ToScheduledQueryScheduleConfi
 
 func (o ScheduledQueryScheduleConfigurationOutput) ToScheduledQueryScheduleConfigurationOutputWithContext(ctx context.Context) ScheduledQueryScheduleConfigurationOutput {
 	return o
-}
-
-func (o ScheduledQueryScheduleConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryScheduleConfiguration] {
-	return pulumix.Output[ScheduledQueryScheduleConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryScheduleConfigurationOutput) ScheduleExpression() pulumi.StringOutput {
@@ -1795,12 +1530,6 @@ func (i ScheduledQuerySnsConfigurationArgs) ToScheduledQuerySnsConfigurationOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQuerySnsConfigurationOutput)
 }
 
-func (i ScheduledQuerySnsConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduledQuerySnsConfiguration] {
-	return pulumix.Output[ScheduledQuerySnsConfiguration]{
-		OutputState: i.ToScheduledQuerySnsConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SNS configuration for notification upon scheduled query execution.
 type ScheduledQuerySnsConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -1814,12 +1543,6 @@ func (o ScheduledQuerySnsConfigurationOutput) ToScheduledQuerySnsConfigurationOu
 
 func (o ScheduledQuerySnsConfigurationOutput) ToScheduledQuerySnsConfigurationOutputWithContext(ctx context.Context) ScheduledQuerySnsConfigurationOutput {
 	return o
-}
-
-func (o ScheduledQuerySnsConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQuerySnsConfiguration] {
-	return pulumix.Output[ScheduledQuerySnsConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQuerySnsConfigurationOutput) TopicArn() pulumi.StringOutput {
@@ -1861,12 +1584,6 @@ func (i ScheduledQueryTagArgs) ToScheduledQueryTagOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryTagOutput)
 }
 
-func (i ScheduledQueryTagArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryTag] {
-	return pulumix.Output[ScheduledQueryTag]{
-		OutputState: i.ToScheduledQueryTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScheduledQueryTagArrayInput is an input type that accepts ScheduledQueryTagArray and ScheduledQueryTagArrayOutput values.
 // You can construct a concrete instance of `ScheduledQueryTagArrayInput` via:
 //
@@ -1892,12 +1609,6 @@ func (i ScheduledQueryTagArray) ToScheduledQueryTagArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryTagArrayOutput)
 }
 
-func (i ScheduledQueryTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ScheduledQueryTag] {
-	return pulumix.Output[[]ScheduledQueryTag]{
-		OutputState: i.ToScheduledQueryTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to label the scheduled query.
 type ScheduledQueryTagOutput struct{ *pulumi.OutputState }
 
@@ -1911,12 +1622,6 @@ func (o ScheduledQueryTagOutput) ToScheduledQueryTagOutput() ScheduledQueryTagOu
 
 func (o ScheduledQueryTagOutput) ToScheduledQueryTagOutputWithContext(ctx context.Context) ScheduledQueryTagOutput {
 	return o
-}
-
-func (o ScheduledQueryTagOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryTag] {
-	return pulumix.Output[ScheduledQueryTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryTagOutput) Key() pulumi.StringOutput {
@@ -1939,12 +1644,6 @@ func (o ScheduledQueryTagArrayOutput) ToScheduledQueryTagArrayOutput() Scheduled
 
 func (o ScheduledQueryTagArrayOutput) ToScheduledQueryTagArrayOutputWithContext(ctx context.Context) ScheduledQueryTagArrayOutput {
 	return o
-}
-
-func (o ScheduledQueryTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScheduledQueryTag] {
-	return pulumix.Output[[]ScheduledQueryTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryTagArrayOutput) Index(i pulumi.IntInput) ScheduledQueryTagOutput {
@@ -1984,12 +1683,6 @@ func (i ScheduledQueryTargetConfigurationArgs) ToScheduledQueryTargetConfigurati
 
 func (i ScheduledQueryTargetConfigurationArgs) ToScheduledQueryTargetConfigurationOutputWithContext(ctx context.Context) ScheduledQueryTargetConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryTargetConfigurationOutput)
-}
-
-func (i ScheduledQueryTargetConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryTargetConfiguration] {
-	return pulumix.Output[ScheduledQueryTargetConfiguration]{
-		OutputState: i.ToScheduledQueryTargetConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ScheduledQueryTargetConfigurationArgs) ToScheduledQueryTargetConfigurationPtrOutput() ScheduledQueryTargetConfigurationPtrOutput {
@@ -2033,12 +1726,6 @@ func (i *scheduledQueryTargetConfigurationPtrType) ToScheduledQueryTargetConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryTargetConfigurationPtrOutput)
 }
 
-func (i *scheduledQueryTargetConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryTargetConfiguration] {
-	return pulumix.Output[*ScheduledQueryTargetConfiguration]{
-		OutputState: i.ToScheduledQueryTargetConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Configuration of target store where scheduled query results are written to.
 type ScheduledQueryTargetConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -2064,12 +1751,6 @@ func (o ScheduledQueryTargetConfigurationOutput) ToScheduledQueryTargetConfigura
 	}).(ScheduledQueryTargetConfigurationPtrOutput)
 }
 
-func (o ScheduledQueryTargetConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryTargetConfiguration] {
-	return pulumix.Output[ScheduledQueryTargetConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduledQueryTargetConfigurationOutput) TimestreamConfiguration() ScheduledQueryTimestreamConfigurationOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfiguration) ScheduledQueryTimestreamConfiguration {
 		return v.TimestreamConfiguration
@@ -2088,12 +1769,6 @@ func (o ScheduledQueryTargetConfigurationPtrOutput) ToScheduledQueryTargetConfig
 
 func (o ScheduledQueryTargetConfigurationPtrOutput) ToScheduledQueryTargetConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryTargetConfigurationPtrOutput {
 	return o
-}
-
-func (o ScheduledQueryTargetConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryTargetConfiguration] {
-	return pulumix.Output[*ScheduledQueryTargetConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryTargetConfigurationPtrOutput) Elem() ScheduledQueryTargetConfigurationOutput {
@@ -2160,12 +1835,6 @@ func (i ScheduledQueryTimestreamConfigurationArgs) ToScheduledQueryTimestreamCon
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryTimestreamConfigurationOutput)
 }
 
-func (i ScheduledQueryTimestreamConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryTimestreamConfiguration] {
-	return pulumix.Output[ScheduledQueryTimestreamConfiguration]{
-		OutputState: i.ToScheduledQueryTimestreamConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ScheduledQueryTimestreamConfigurationArgs) ToScheduledQueryTimestreamConfigurationPtrOutput() ScheduledQueryTimestreamConfigurationPtrOutput {
 	return i.ToScheduledQueryTimestreamConfigurationPtrOutputWithContext(context.Background())
 }
@@ -2207,12 +1876,6 @@ func (i *scheduledQueryTimestreamConfigurationPtrType) ToScheduledQueryTimestrea
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryTimestreamConfigurationPtrOutput)
 }
 
-func (i *scheduledQueryTimestreamConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryTimestreamConfiguration] {
-	return pulumix.Output[*ScheduledQueryTimestreamConfiguration]{
-		OutputState: i.ToScheduledQueryTimestreamConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Configuration needed to write data into the Timestream database and table.
 type ScheduledQueryTimestreamConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -2236,12 +1899,6 @@ func (o ScheduledQueryTimestreamConfigurationOutput) ToScheduledQueryTimestreamC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryTimestreamConfiguration) *ScheduledQueryTimestreamConfiguration {
 		return &v
 	}).(ScheduledQueryTimestreamConfigurationPtrOutput)
-}
-
-func (o ScheduledQueryTimestreamConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduledQueryTimestreamConfiguration] {
-	return pulumix.Output[ScheduledQueryTimestreamConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryTimestreamConfigurationOutput) DatabaseName() pulumi.StringOutput {
@@ -2290,12 +1947,6 @@ func (o ScheduledQueryTimestreamConfigurationPtrOutput) ToScheduledQueryTimestre
 
 func (o ScheduledQueryTimestreamConfigurationPtrOutput) ToScheduledQueryTimestreamConfigurationPtrOutputWithContext(ctx context.Context) ScheduledQueryTimestreamConfigurationPtrOutput {
 	return o
-}
-
-func (o ScheduledQueryTimestreamConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryTimestreamConfiguration] {
-	return pulumix.Output[*ScheduledQueryTimestreamConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryTimestreamConfigurationPtrOutput) Elem() ScheduledQueryTimestreamConfigurationOutput {
@@ -2404,12 +2055,6 @@ func (i SchemaPropertiesArgs) ToSchemaPropertiesOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaPropertiesOutput)
 }
 
-func (i SchemaPropertiesArgs) ToOutput(ctx context.Context) pulumix.Output[SchemaProperties] {
-	return pulumix.Output[SchemaProperties]{
-		OutputState: i.ToSchemaPropertiesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SchemaPropertiesArgs) ToSchemaPropertiesPtrOutput() SchemaPropertiesPtrOutput {
 	return i.ToSchemaPropertiesPtrOutputWithContext(context.Background())
 }
@@ -2451,12 +2096,6 @@ func (i *schemaPropertiesPtrType) ToSchemaPropertiesPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaPropertiesPtrOutput)
 }
 
-func (i *schemaPropertiesPtrType) ToOutput(ctx context.Context) pulumix.Output[*SchemaProperties] {
-	return pulumix.Output[*SchemaProperties]{
-		OutputState: i.ToSchemaPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A Schema specifies the expected data model of the table.
 type SchemaPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -2482,12 +2121,6 @@ func (o SchemaPropertiesOutput) ToSchemaPropertiesPtrOutputWithContext(ctx conte
 	}).(SchemaPropertiesPtrOutput)
 }
 
-func (o SchemaPropertiesOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaProperties] {
-	return pulumix.Output[SchemaProperties]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchemaPropertiesOutput) CompositePartitionKey() TablePartitionKeyArrayOutput {
 	return o.ApplyT(func(v SchemaProperties) []TablePartitionKey { return v.CompositePartitionKey }).(TablePartitionKeyArrayOutput)
 }
@@ -2504,12 +2137,6 @@ func (o SchemaPropertiesPtrOutput) ToSchemaPropertiesPtrOutput() SchemaPropertie
 
 func (o SchemaPropertiesPtrOutput) ToSchemaPropertiesPtrOutputWithContext(ctx context.Context) SchemaPropertiesPtrOutput {
 	return o
-}
-
-func (o SchemaPropertiesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaProperties] {
-	return pulumix.Output[*SchemaProperties]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SchemaPropertiesPtrOutput) Elem() SchemaPropertiesOutput {
@@ -2568,12 +2195,6 @@ func (i TablePartitionKeyArgs) ToTablePartitionKeyOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TablePartitionKeyOutput)
 }
 
-func (i TablePartitionKeyArgs) ToOutput(ctx context.Context) pulumix.Output[TablePartitionKey] {
-	return pulumix.Output[TablePartitionKey]{
-		OutputState: i.ToTablePartitionKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TablePartitionKeyArrayInput is an input type that accepts TablePartitionKeyArray and TablePartitionKeyArrayOutput values.
 // You can construct a concrete instance of `TablePartitionKeyArrayInput` via:
 //
@@ -2599,12 +2220,6 @@ func (i TablePartitionKeyArray) ToTablePartitionKeyArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(TablePartitionKeyArrayOutput)
 }
 
-func (i TablePartitionKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]TablePartitionKey] {
-	return pulumix.Output[[]TablePartitionKey]{
-		OutputState: i.ToTablePartitionKeyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // An attribute used in partitioning data in a table. There are two types of partition keys: dimension keys and measure keys. A dimension key partitions data on a dimension name, while a measure key partitions data on the measure name.
 type TablePartitionKeyOutput struct{ *pulumi.OutputState }
 
@@ -2618,12 +2233,6 @@ func (o TablePartitionKeyOutput) ToTablePartitionKeyOutput() TablePartitionKeyOu
 
 func (o TablePartitionKeyOutput) ToTablePartitionKeyOutputWithContext(ctx context.Context) TablePartitionKeyOutput {
 	return o
-}
-
-func (o TablePartitionKeyOutput) ToOutput(ctx context.Context) pulumix.Output[TablePartitionKey] {
-	return pulumix.Output[TablePartitionKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TablePartitionKeyOutput) EnforcementInRecord() TablePartitionKeyEnforcementLevelPtrOutput {
@@ -2650,12 +2259,6 @@ func (o TablePartitionKeyArrayOutput) ToTablePartitionKeyArrayOutput() TablePart
 
 func (o TablePartitionKeyArrayOutput) ToTablePartitionKeyArrayOutputWithContext(ctx context.Context) TablePartitionKeyArrayOutput {
 	return o
-}
-
-func (o TablePartitionKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TablePartitionKey] {
-	return pulumix.Output[[]TablePartitionKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TablePartitionKeyArrayOutput) Index(i pulumi.IntInput) TablePartitionKeyOutput {
@@ -2699,12 +2302,6 @@ func (i TableTagArgs) ToTableTagOutputWithContext(ctx context.Context) TableTagO
 	return pulumi.ToOutputWithContext(ctx, i).(TableTagOutput)
 }
 
-func (i TableTagArgs) ToOutput(ctx context.Context) pulumix.Output[TableTag] {
-	return pulumix.Output[TableTag]{
-		OutputState: i.ToTableTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TableTagArrayInput is an input type that accepts TableTagArray and TableTagArrayOutput values.
 // You can construct a concrete instance of `TableTagArrayInput` via:
 //
@@ -2730,12 +2327,6 @@ func (i TableTagArray) ToTableTagArrayOutputWithContext(ctx context.Context) Tab
 	return pulumi.ToOutputWithContext(ctx, i).(TableTagArrayOutput)
 }
 
-func (i TableTagArray) ToOutput(ctx context.Context) pulumix.Output[[]TableTag] {
-	return pulumix.Output[[]TableTag]{
-		OutputState: i.ToTableTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // You can use the Resource Tags property to apply tags to resources, which can help you identify and categorize those resources.
 type TableTagOutput struct{ *pulumi.OutputState }
 
@@ -2749,12 +2340,6 @@ func (o TableTagOutput) ToTableTagOutput() TableTagOutput {
 
 func (o TableTagOutput) ToTableTagOutputWithContext(ctx context.Context) TableTagOutput {
 	return o
-}
-
-func (o TableTagOutput) ToOutput(ctx context.Context) pulumix.Output[TableTag] {
-	return pulumix.Output[TableTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableTagOutput) Key() pulumi.StringPtrOutput {
@@ -2777,12 +2362,6 @@ func (o TableTagArrayOutput) ToTableTagArrayOutput() TableTagArrayOutput {
 
 func (o TableTagArrayOutput) ToTableTagArrayOutputWithContext(ctx context.Context) TableTagArrayOutput {
 	return o
-}
-
-func (o TableTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TableTag] {
-	return pulumix.Output[[]TableTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TableTagArrayOutput) Index(i pulumi.IntInput) TableTagOutput {

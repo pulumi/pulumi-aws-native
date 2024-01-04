@@ -78,12 +78,6 @@ func (o HookTypeConfigConfigurationAliasOutput) ToHookTypeConfigConfigurationAli
 	}).(HookTypeConfigConfigurationAliasPtrOutput)
 }
 
-func (o HookTypeConfigConfigurationAliasOutput) ToOutput(ctx context.Context) pulumix.Output[HookTypeConfigConfigurationAlias] {
-	return pulumix.Output[HookTypeConfigConfigurationAlias]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o HookTypeConfigConfigurationAliasOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o HookTypeConfigConfigurationAliasPtrOutput) ToHookTypeConfigConfiguration
 	return o
 }
 
-func (o HookTypeConfigConfigurationAliasPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HookTypeConfigConfigurationAlias] {
-	return pulumix.Output[*HookTypeConfigConfigurationAlias]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o HookTypeConfigConfigurationAliasPtrOutput) Elem() HookTypeConfigConfigurationAliasOutput {
 	return o.ApplyT(func(v *HookTypeConfigConfigurationAlias) HookTypeConfigConfigurationAlias {
 		if v != nil {
@@ -149,10 +137,10 @@ func (o HookTypeConfigConfigurationAliasPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// HookTypeConfigConfigurationAliasInput is an input type that accepts HookTypeConfigConfigurationAliasArgs and HookTypeConfigConfigurationAliasOutput values.
-// You can construct a concrete instance of `HookTypeConfigConfigurationAliasInput` via:
+// HookTypeConfigConfigurationAliasInput is an input type that accepts values of the HookTypeConfigConfigurationAlias enum
+// A concrete instance of `HookTypeConfigConfigurationAliasInput` can be one of the following:
 //
-//	HookTypeConfigConfigurationAliasArgs{...}
+//	HookTypeConfigConfigurationAliasDefault
 type HookTypeConfigConfigurationAliasInput interface {
 	pulumi.Input
 
@@ -231,12 +219,6 @@ func (o HookVersionVisibilityOutput) ToHookVersionVisibilityPtrOutputWithContext
 	}).(HookVersionVisibilityPtrOutput)
 }
 
-func (o HookVersionVisibilityOutput) ToOutput(ctx context.Context) pulumix.Output[HookVersionVisibility] {
-	return pulumix.Output[HookVersionVisibility]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o HookVersionVisibilityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -270,12 +252,6 @@ func (o HookVersionVisibilityPtrOutput) ToHookVersionVisibilityPtrOutput() HookV
 
 func (o HookVersionVisibilityPtrOutput) ToHookVersionVisibilityPtrOutputWithContext(ctx context.Context) HookVersionVisibilityPtrOutput {
 	return o
-}
-
-func (o HookVersionVisibilityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HookVersionVisibility] {
-	return pulumix.Output[*HookVersionVisibility]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HookVersionVisibilityPtrOutput) Elem() HookVersionVisibilityOutput {
@@ -337,12 +313,6 @@ func (o ModuleVersionVisibilityOutput) ToModuleVersionVisibilityPtrOutputWithCon
 	}).(ModuleVersionVisibilityPtrOutput)
 }
 
-func (o ModuleVersionVisibilityOutput) ToOutput(ctx context.Context) pulumix.Output[ModuleVersionVisibility] {
-	return pulumix.Output[ModuleVersionVisibility]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ModuleVersionVisibilityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -376,12 +346,6 @@ func (o ModuleVersionVisibilityPtrOutput) ToModuleVersionVisibilityPtrOutput() M
 
 func (o ModuleVersionVisibilityPtrOutput) ToModuleVersionVisibilityPtrOutputWithContext(ctx context.Context) ModuleVersionVisibilityPtrOutput {
 	return o
-}
-
-func (o ModuleVersionVisibilityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ModuleVersionVisibility] {
-	return pulumix.Output[*ModuleVersionVisibility]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ModuleVersionVisibilityPtrOutput) Elem() ModuleVersionVisibilityOutput {
@@ -477,12 +441,6 @@ func (o PublicTypeVersionTypeOutput) ToPublicTypeVersionTypePtrOutputWithContext
 	}).(PublicTypeVersionTypePtrOutput)
 }
 
-func (o PublicTypeVersionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PublicTypeVersionType] {
-	return pulumix.Output[PublicTypeVersionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PublicTypeVersionTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -518,12 +476,6 @@ func (o PublicTypeVersionTypePtrOutput) ToPublicTypeVersionTypePtrOutputWithCont
 	return o
 }
 
-func (o PublicTypeVersionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PublicTypeVersionType] {
-	return pulumix.Output[*PublicTypeVersionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PublicTypeVersionTypePtrOutput) Elem() PublicTypeVersionTypeOutput {
 	return o.ApplyT(func(v *PublicTypeVersionType) PublicTypeVersionType {
 		if v != nil {
@@ -548,10 +500,12 @@ func (o PublicTypeVersionTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// PublicTypeVersionTypeInput is an input type that accepts PublicTypeVersionTypeArgs and PublicTypeVersionTypeOutput values.
-// You can construct a concrete instance of `PublicTypeVersionTypeInput` via:
+// PublicTypeVersionTypeInput is an input type that accepts values of the PublicTypeVersionType enum
+// A concrete instance of `PublicTypeVersionTypeInput` can be one of the following:
 //
-//	PublicTypeVersionTypeArgs{...}
+//	PublicTypeVersionTypeResource
+//	PublicTypeVersionTypeModule
+//	PublicTypeVersionTypeHook
 type PublicTypeVersionTypeInput interface {
 	pulumi.Input
 
@@ -625,12 +579,6 @@ func (o PublisherIdentityProviderOutput) ToPublisherIdentityProviderPtrOutputWit
 	}).(PublisherIdentityProviderPtrOutput)
 }
 
-func (o PublisherIdentityProviderOutput) ToOutput(ctx context.Context) pulumix.Output[PublisherIdentityProvider] {
-	return pulumix.Output[PublisherIdentityProvider]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PublisherIdentityProviderOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -664,12 +612,6 @@ func (o PublisherIdentityProviderPtrOutput) ToPublisherIdentityProviderPtrOutput
 
 func (o PublisherIdentityProviderPtrOutput) ToPublisherIdentityProviderPtrOutputWithContext(ctx context.Context) PublisherIdentityProviderPtrOutput {
 	return o
-}
-
-func (o PublisherIdentityProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PublisherIdentityProvider] {
-	return pulumix.Output[*PublisherIdentityProvider]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PublisherIdentityProviderPtrOutput) Elem() PublisherIdentityProviderOutput {
@@ -728,12 +670,6 @@ func (o PublisherStatusOutput) ToPublisherStatusPtrOutputWithContext(ctx context
 	}).(PublisherStatusPtrOutput)
 }
 
-func (o PublisherStatusOutput) ToOutput(ctx context.Context) pulumix.Output[PublisherStatus] {
-	return pulumix.Output[PublisherStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PublisherStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -767,12 +703,6 @@ func (o PublisherStatusPtrOutput) ToPublisherStatusPtrOutput() PublisherStatusPt
 
 func (o PublisherStatusPtrOutput) ToPublisherStatusPtrOutputWithContext(ctx context.Context) PublisherStatusPtrOutput {
 	return o
-}
-
-func (o PublisherStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PublisherStatus] {
-	return pulumix.Output[*PublisherStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PublisherStatusPtrOutput) Elem() PublisherStatusOutput {
@@ -832,12 +762,6 @@ func (o ResourceVersionProvisioningTypeOutput) ToResourceVersionProvisioningType
 	}).(ResourceVersionProvisioningTypePtrOutput)
 }
 
-func (o ResourceVersionProvisioningTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceVersionProvisioningType] {
-	return pulumix.Output[ResourceVersionProvisioningType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceVersionProvisioningTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -871,12 +795,6 @@ func (o ResourceVersionProvisioningTypePtrOutput) ToResourceVersionProvisioningT
 
 func (o ResourceVersionProvisioningTypePtrOutput) ToResourceVersionProvisioningTypePtrOutputWithContext(ctx context.Context) ResourceVersionProvisioningTypePtrOutput {
 	return o
-}
-
-func (o ResourceVersionProvisioningTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceVersionProvisioningType] {
-	return pulumix.Output[*ResourceVersionProvisioningType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceVersionProvisioningTypePtrOutput) Elem() ResourceVersionProvisioningTypeOutput {
@@ -941,12 +859,6 @@ func (o ResourceVersionVisibilityOutput) ToResourceVersionVisibilityPtrOutputWit
 	}).(ResourceVersionVisibilityPtrOutput)
 }
 
-func (o ResourceVersionVisibilityOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceVersionVisibility] {
-	return pulumix.Output[ResourceVersionVisibility]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceVersionVisibilityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -980,12 +892,6 @@ func (o ResourceVersionVisibilityPtrOutput) ToResourceVersionVisibilityPtrOutput
 
 func (o ResourceVersionVisibilityPtrOutput) ToResourceVersionVisibilityPtrOutputWithContext(ctx context.Context) ResourceVersionVisibilityPtrOutput {
 	return o
-}
-
-func (o ResourceVersionVisibilityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceVersionVisibility] {
-	return pulumix.Output[*ResourceVersionVisibility]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceVersionVisibilityPtrOutput) Elem() ResourceVersionVisibilityOutput {
@@ -1080,12 +986,6 @@ func (o StackCapabilitiesItemOutput) ToStackCapabilitiesItemPtrOutputWithContext
 	}).(StackCapabilitiesItemPtrOutput)
 }
 
-func (o StackCapabilitiesItemOutput) ToOutput(ctx context.Context) pulumix.Output[StackCapabilitiesItem] {
-	return pulumix.Output[StackCapabilitiesItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StackCapabilitiesItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1121,12 +1021,6 @@ func (o StackCapabilitiesItemPtrOutput) ToStackCapabilitiesItemPtrOutputWithCont
 	return o
 }
 
-func (o StackCapabilitiesItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StackCapabilitiesItem] {
-	return pulumix.Output[*StackCapabilitiesItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StackCapabilitiesItemPtrOutput) Elem() StackCapabilitiesItemOutput {
 	return o.ApplyT(func(v *StackCapabilitiesItem) StackCapabilitiesItem {
 		if v != nil {
@@ -1151,10 +1045,12 @@ func (o StackCapabilitiesItemPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// StackCapabilitiesItemInput is an input type that accepts StackCapabilitiesItemArgs and StackCapabilitiesItemOutput values.
-// You can construct a concrete instance of `StackCapabilitiesItemInput` via:
+// StackCapabilitiesItemInput is an input type that accepts values of the StackCapabilitiesItem enum
+// A concrete instance of `StackCapabilitiesItemInput` can be one of the following:
 //
-//	StackCapabilitiesItemArgs{...}
+//	StackCapabilitiesItemCapabilityIam
+//	StackCapabilitiesItemCapabilityNamedIam
+//	StackCapabilitiesItemCapabilityAutoExpand
 type StackCapabilitiesItemInput interface {
 	pulumi.Input
 
@@ -1220,12 +1116,6 @@ func (i StackCapabilitiesItemArray) ToStackCapabilitiesItemArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(StackCapabilitiesItemArrayOutput)
 }
 
-func (i StackCapabilitiesItemArray) ToOutput(ctx context.Context) pulumix.Output[[]StackCapabilitiesItem] {
-	return pulumix.Output[[]StackCapabilitiesItem]{
-		OutputState: i.ToStackCapabilitiesItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StackCapabilitiesItemArrayOutput struct{ *pulumi.OutputState }
 
 func (StackCapabilitiesItemArrayOutput) ElementType() reflect.Type {
@@ -1238,12 +1128,6 @@ func (o StackCapabilitiesItemArrayOutput) ToStackCapabilitiesItemArrayOutput() S
 
 func (o StackCapabilitiesItemArrayOutput) ToStackCapabilitiesItemArrayOutputWithContext(ctx context.Context) StackCapabilitiesItemArrayOutput {
 	return o
-}
-
-func (o StackCapabilitiesItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StackCapabilitiesItem] {
-	return pulumix.Output[[]StackCapabilitiesItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackCapabilitiesItemArrayOutput) Index(i pulumi.IntInput) StackCapabilitiesItemOutput {
@@ -1320,12 +1204,6 @@ func (o StackSetCallAsOutput) ToStackSetCallAsPtrOutputWithContext(ctx context.C
 	}).(StackSetCallAsPtrOutput)
 }
 
-func (o StackSetCallAsOutput) ToOutput(ctx context.Context) pulumix.Output[StackSetCallAs] {
-	return pulumix.Output[StackSetCallAs]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StackSetCallAsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1361,12 +1239,6 @@ func (o StackSetCallAsPtrOutput) ToStackSetCallAsPtrOutputWithContext(ctx contex
 	return o
 }
 
-func (o StackSetCallAsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StackSetCallAs] {
-	return pulumix.Output[*StackSetCallAs]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StackSetCallAsPtrOutput) Elem() StackSetCallAsOutput {
 	return o.ApplyT(func(v *StackSetCallAs) StackSetCallAs {
 		if v != nil {
@@ -1391,10 +1263,11 @@ func (o StackSetCallAsPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// StackSetCallAsInput is an input type that accepts StackSetCallAsArgs and StackSetCallAsOutput values.
-// You can construct a concrete instance of `StackSetCallAsInput` via:
+// StackSetCallAsInput is an input type that accepts values of the StackSetCallAs enum
+// A concrete instance of `StackSetCallAsInput` can be one of the following:
 //
-//	StackSetCallAsArgs{...}
+//	StackSetCallAsSelf
+//	StackSetCallAsDelegatedAdmin
 type StackSetCallAsInput interface {
 	pulumi.Input
 
@@ -1503,12 +1376,6 @@ func (o StackSetCapabilityOutput) ToStackSetCapabilityPtrOutputWithContext(ctx c
 	}).(StackSetCapabilityPtrOutput)
 }
 
-func (o StackSetCapabilityOutput) ToOutput(ctx context.Context) pulumix.Output[StackSetCapability] {
-	return pulumix.Output[StackSetCapability]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StackSetCapabilityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1544,12 +1411,6 @@ func (o StackSetCapabilityPtrOutput) ToStackSetCapabilityPtrOutputWithContext(ct
 	return o
 }
 
-func (o StackSetCapabilityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StackSetCapability] {
-	return pulumix.Output[*StackSetCapability]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StackSetCapabilityPtrOutput) Elem() StackSetCapabilityOutput {
 	return o.ApplyT(func(v *StackSetCapability) StackSetCapability {
 		if v != nil {
@@ -1574,10 +1435,12 @@ func (o StackSetCapabilityPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// StackSetCapabilityInput is an input type that accepts StackSetCapabilityArgs and StackSetCapabilityOutput values.
-// You can construct a concrete instance of `StackSetCapabilityInput` via:
+// StackSetCapabilityInput is an input type that accepts values of the StackSetCapability enum
+// A concrete instance of `StackSetCapabilityInput` can be one of the following:
 //
-//	StackSetCapabilityArgs{...}
+//	StackSetCapabilityCapabilityIam
+//	StackSetCapabilityCapabilityNamedIam
+//	StackSetCapabilityCapabilityAutoExpand
 type StackSetCapabilityInput interface {
 	pulumi.Input
 
@@ -1643,12 +1506,6 @@ func (i StackSetCapabilityArray) ToStackSetCapabilityArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(StackSetCapabilityArrayOutput)
 }
 
-func (i StackSetCapabilityArray) ToOutput(ctx context.Context) pulumix.Output[[]StackSetCapability] {
-	return pulumix.Output[[]StackSetCapability]{
-		OutputState: i.ToStackSetCapabilityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StackSetCapabilityArrayOutput struct{ *pulumi.OutputState }
 
 func (StackSetCapabilityArrayOutput) ElementType() reflect.Type {
@@ -1661,12 +1518,6 @@ func (o StackSetCapabilityArrayOutput) ToStackSetCapabilityArrayOutput() StackSe
 
 func (o StackSetCapabilityArrayOutput) ToStackSetCapabilityArrayOutputWithContext(ctx context.Context) StackSetCapabilityArrayOutput {
 	return o
-}
-
-func (o StackSetCapabilityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]StackSetCapability] {
-	return pulumix.Output[[]StackSetCapability]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackSetCapabilityArrayOutput) Index(i pulumi.IntInput) StackSetCapabilityOutput {
@@ -1745,12 +1596,6 @@ func (o StackSetDeploymentTargetsAccountFilterTypeOutput) ToStackSetDeploymentTa
 	}).(StackSetDeploymentTargetsAccountFilterTypePtrOutput)
 }
 
-func (o StackSetDeploymentTargetsAccountFilterTypeOutput) ToOutput(ctx context.Context) pulumix.Output[StackSetDeploymentTargetsAccountFilterType] {
-	return pulumix.Output[StackSetDeploymentTargetsAccountFilterType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StackSetDeploymentTargetsAccountFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1786,12 +1631,6 @@ func (o StackSetDeploymentTargetsAccountFilterTypePtrOutput) ToStackSetDeploymen
 	return o
 }
 
-func (o StackSetDeploymentTargetsAccountFilterTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StackSetDeploymentTargetsAccountFilterType] {
-	return pulumix.Output[*StackSetDeploymentTargetsAccountFilterType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StackSetDeploymentTargetsAccountFilterTypePtrOutput) Elem() StackSetDeploymentTargetsAccountFilterTypeOutput {
 	return o.ApplyT(func(v *StackSetDeploymentTargetsAccountFilterType) StackSetDeploymentTargetsAccountFilterType {
 		if v != nil {
@@ -1816,10 +1655,13 @@ func (o StackSetDeploymentTargetsAccountFilterTypePtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// StackSetDeploymentTargetsAccountFilterTypeInput is an input type that accepts StackSetDeploymentTargetsAccountFilterTypeArgs and StackSetDeploymentTargetsAccountFilterTypeOutput values.
-// You can construct a concrete instance of `StackSetDeploymentTargetsAccountFilterTypeInput` via:
+// StackSetDeploymentTargetsAccountFilterTypeInput is an input type that accepts values of the StackSetDeploymentTargetsAccountFilterType enum
+// A concrete instance of `StackSetDeploymentTargetsAccountFilterTypeInput` can be one of the following:
 //
-//	StackSetDeploymentTargetsAccountFilterTypeArgs{...}
+//	StackSetDeploymentTargetsAccountFilterTypeNone
+//	StackSetDeploymentTargetsAccountFilterTypeUnion
+//	StackSetDeploymentTargetsAccountFilterTypeIntersection
+//	StackSetDeploymentTargetsAccountFilterTypeDifference
 type StackSetDeploymentTargetsAccountFilterTypeInput interface {
 	pulumi.Input
 
@@ -1928,12 +1770,6 @@ func (o StackSetPermissionModelOutput) ToStackSetPermissionModelPtrOutputWithCon
 	}).(StackSetPermissionModelPtrOutput)
 }
 
-func (o StackSetPermissionModelOutput) ToOutput(ctx context.Context) pulumix.Output[StackSetPermissionModel] {
-	return pulumix.Output[StackSetPermissionModel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StackSetPermissionModelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1969,12 +1805,6 @@ func (o StackSetPermissionModelPtrOutput) ToStackSetPermissionModelPtrOutputWith
 	return o
 }
 
-func (o StackSetPermissionModelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StackSetPermissionModel] {
-	return pulumix.Output[*StackSetPermissionModel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StackSetPermissionModelPtrOutput) Elem() StackSetPermissionModelOutput {
 	return o.ApplyT(func(v *StackSetPermissionModel) StackSetPermissionModel {
 		if v != nil {
@@ -1999,10 +1829,11 @@ func (o StackSetPermissionModelPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// StackSetPermissionModelInput is an input type that accepts StackSetPermissionModelArgs and StackSetPermissionModelOutput values.
-// You can construct a concrete instance of `StackSetPermissionModelInput` via:
+// StackSetPermissionModelInput is an input type that accepts values of the StackSetPermissionModel enum
+// A concrete instance of `StackSetPermissionModelInput` can be one of the following:
 //
-//	StackSetPermissionModelArgs{...}
+//	StackSetPermissionModelServiceManaged
+//	StackSetPermissionModelSelfManaged
 type StackSetPermissionModelInput interface {
 	pulumi.Input
 
@@ -2111,12 +1942,6 @@ func (o StackSetRegionConcurrencyTypeOutput) ToStackSetRegionConcurrencyTypePtrO
 	}).(StackSetRegionConcurrencyTypePtrOutput)
 }
 
-func (o StackSetRegionConcurrencyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[StackSetRegionConcurrencyType] {
-	return pulumix.Output[StackSetRegionConcurrencyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StackSetRegionConcurrencyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2152,12 +1977,6 @@ func (o StackSetRegionConcurrencyTypePtrOutput) ToStackSetRegionConcurrencyTypeP
 	return o
 }
 
-func (o StackSetRegionConcurrencyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StackSetRegionConcurrencyType] {
-	return pulumix.Output[*StackSetRegionConcurrencyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StackSetRegionConcurrencyTypePtrOutput) Elem() StackSetRegionConcurrencyTypeOutput {
 	return o.ApplyT(func(v *StackSetRegionConcurrencyType) StackSetRegionConcurrencyType {
 		if v != nil {
@@ -2182,10 +2001,11 @@ func (o StackSetRegionConcurrencyTypePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// StackSetRegionConcurrencyTypeInput is an input type that accepts StackSetRegionConcurrencyTypeArgs and StackSetRegionConcurrencyTypeOutput values.
-// You can construct a concrete instance of `StackSetRegionConcurrencyTypeInput` via:
+// StackSetRegionConcurrencyTypeInput is an input type that accepts values of the StackSetRegionConcurrencyType enum
+// A concrete instance of `StackSetRegionConcurrencyTypeInput` can be one of the following:
 //
-//	StackSetRegionConcurrencyTypeArgs{...}
+//	StackSetRegionConcurrencyTypeSequential
+//	StackSetRegionConcurrencyTypeParallel
 type StackSetRegionConcurrencyTypeInput interface {
 	pulumi.Input
 
@@ -2278,12 +2098,6 @@ func (o StackStatusOutput) ToStackStatusPtrOutputWithContext(ctx context.Context
 	}).(StackStatusPtrOutput)
 }
 
-func (o StackStatusOutput) ToOutput(ctx context.Context) pulumix.Output[StackStatus] {
-	return pulumix.Output[StackStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StackStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2317,12 +2131,6 @@ func (o StackStatusPtrOutput) ToStackStatusPtrOutput() StackStatusPtrOutput {
 
 func (o StackStatusPtrOutput) ToStackStatusPtrOutputWithContext(ctx context.Context) StackStatusPtrOutput {
 	return o
-}
-
-func (o StackStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StackStatus] {
-	return pulumix.Output[*StackStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StackStatusPtrOutput) Elem() StackStatusOutput {
@@ -2418,12 +2226,6 @@ func (o TypeActivationTypeOutput) ToTypeActivationTypePtrOutputWithContext(ctx c
 	}).(TypeActivationTypePtrOutput)
 }
 
-func (o TypeActivationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[TypeActivationType] {
-	return pulumix.Output[TypeActivationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TypeActivationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2459,12 +2261,6 @@ func (o TypeActivationTypePtrOutput) ToTypeActivationTypePtrOutputWithContext(ct
 	return o
 }
 
-func (o TypeActivationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TypeActivationType] {
-	return pulumix.Output[*TypeActivationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TypeActivationTypePtrOutput) Elem() TypeActivationTypeOutput {
 	return o.ApplyT(func(v *TypeActivationType) TypeActivationType {
 		if v != nil {
@@ -2489,10 +2285,12 @@ func (o TypeActivationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// TypeActivationTypeInput is an input type that accepts TypeActivationTypeArgs and TypeActivationTypeOutput values.
-// You can construct a concrete instance of `TypeActivationTypeInput` via:
+// TypeActivationTypeInput is an input type that accepts values of the TypeActivationType enum
+// A concrete instance of `TypeActivationTypeInput` can be one of the following:
 //
-//	TypeActivationTypeArgs{...}
+//	TypeActivationTypeResource
+//	TypeActivationTypeModule
+//	TypeActivationTypeHook
 type TypeActivationTypeInput interface {
 	pulumi.Input
 
@@ -2601,12 +2399,6 @@ func (o TypeActivationVersionBumpOutput) ToTypeActivationVersionBumpPtrOutputWit
 	}).(TypeActivationVersionBumpPtrOutput)
 }
 
-func (o TypeActivationVersionBumpOutput) ToOutput(ctx context.Context) pulumix.Output[TypeActivationVersionBump] {
-	return pulumix.Output[TypeActivationVersionBump]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TypeActivationVersionBumpOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2642,12 +2434,6 @@ func (o TypeActivationVersionBumpPtrOutput) ToTypeActivationVersionBumpPtrOutput
 	return o
 }
 
-func (o TypeActivationVersionBumpPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*TypeActivationVersionBump] {
-	return pulumix.Output[*TypeActivationVersionBump]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TypeActivationVersionBumpPtrOutput) Elem() TypeActivationVersionBumpOutput {
 	return o.ApplyT(func(v *TypeActivationVersionBump) TypeActivationVersionBump {
 		if v != nil {
@@ -2672,10 +2458,11 @@ func (o TypeActivationVersionBumpPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// TypeActivationVersionBumpInput is an input type that accepts TypeActivationVersionBumpArgs and TypeActivationVersionBumpOutput values.
-// You can construct a concrete instance of `TypeActivationVersionBumpInput` via:
+// TypeActivationVersionBumpInput is an input type that accepts values of the TypeActivationVersionBump enum
+// A concrete instance of `TypeActivationVersionBumpInput` can be one of the following:
 //
-//	TypeActivationVersionBumpArgs{...}
+//	TypeActivationVersionBumpMajor
+//	TypeActivationVersionBumpMinor
 type TypeActivationVersionBumpInput interface {
 	pulumi.Input
 

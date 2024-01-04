@@ -81,12 +81,6 @@ func (o AccessorNetworkAccessorTypeOutput) ToAccessorNetworkAccessorTypePtrOutpu
 	}).(AccessorNetworkAccessorTypePtrOutput)
 }
 
-func (o AccessorNetworkAccessorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AccessorNetworkAccessorType] {
-	return pulumix.Output[AccessorNetworkAccessorType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccessorNetworkAccessorTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -122,12 +116,6 @@ func (o AccessorNetworkAccessorTypePtrOutput) ToAccessorNetworkAccessorTypePtrOu
 	return o
 }
 
-func (o AccessorNetworkAccessorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessorNetworkAccessorType] {
-	return pulumix.Output[*AccessorNetworkAccessorType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccessorNetworkAccessorTypePtrOutput) Elem() AccessorNetworkAccessorTypeOutput {
 	return o.ApplyT(func(v *AccessorNetworkAccessorType) AccessorNetworkAccessorType {
 		if v != nil {
@@ -152,10 +140,14 @@ func (o AccessorNetworkAccessorTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// AccessorNetworkAccessorTypeInput is an input type that accepts AccessorNetworkAccessorTypeArgs and AccessorNetworkAccessorTypeOutput values.
-// You can construct a concrete instance of `AccessorNetworkAccessorTypeInput` via:
+// AccessorNetworkAccessorTypeInput is an input type that accepts values of the AccessorNetworkAccessorType enum
+// A concrete instance of `AccessorNetworkAccessorTypeInput` can be one of the following:
 //
-//	AccessorNetworkAccessorTypeArgs{...}
+//	AccessorNetworkAccessorTypeEthereumGoerli
+//	AccessorNetworkAccessorTypeEthereumMainnet
+//	AccessorNetworkAccessorTypeEthereumMainnetAndGoerli
+//	AccessorNetworkAccessorTypePolygonMainnet
+//	AccessorNetworkAccessorTypePolygonMumbai
 type AccessorNetworkAccessorTypeInput interface {
 	pulumi.Input
 
@@ -228,12 +220,6 @@ func (o AccessorStatusOutput) ToAccessorStatusPtrOutputWithContext(ctx context.C
 	}).(AccessorStatusPtrOutput)
 }
 
-func (o AccessorStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AccessorStatus] {
-	return pulumix.Output[AccessorStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccessorStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -267,12 +253,6 @@ func (o AccessorStatusPtrOutput) ToAccessorStatusPtrOutput() AccessorStatusPtrOu
 
 func (o AccessorStatusPtrOutput) ToAccessorStatusPtrOutputWithContext(ctx context.Context) AccessorStatusPtrOutput {
 	return o
-}
-
-func (o AccessorStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessorStatus] {
-	return pulumix.Output[*AccessorStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccessorStatusPtrOutput) Elem() AccessorStatusOutput {
@@ -365,12 +345,6 @@ func (o AccessorTypeOutput) ToAccessorTypePtrOutputWithContext(ctx context.Conte
 	}).(AccessorTypePtrOutput)
 }
 
-func (o AccessorTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AccessorType] {
-	return pulumix.Output[AccessorType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccessorTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -406,12 +380,6 @@ func (o AccessorTypePtrOutput) ToAccessorTypePtrOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o AccessorTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessorType] {
-	return pulumix.Output[*AccessorType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccessorTypePtrOutput) Elem() AccessorTypeOutput {
 	return o.ApplyT(func(v *AccessorType) AccessorType {
 		if v != nil {
@@ -436,10 +404,10 @@ func (o AccessorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// AccessorTypeInput is an input type that accepts AccessorTypeArgs and AccessorTypeOutput values.
-// You can construct a concrete instance of `AccessorTypeInput` via:
+// AccessorTypeInput is an input type that accepts values of the AccessorType enum
+// A concrete instance of `AccessorTypeInput` can be one of the following:
 //
-//	AccessorTypeArgs{...}
+//	AccessorTypeBillingToken
 type AccessorTypeInput interface {
 	pulumi.Input
 

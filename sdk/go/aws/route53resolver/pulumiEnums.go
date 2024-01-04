@@ -47,12 +47,6 @@ func (o FirewallDomainListStatusOutput) ToFirewallDomainListStatusPtrOutputWithC
 	}).(FirewallDomainListStatusPtrOutput)
 }
 
-func (o FirewallDomainListStatusOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallDomainListStatus] {
-	return pulumix.Output[FirewallDomainListStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FirewallDomainListStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -86,12 +80,6 @@ func (o FirewallDomainListStatusPtrOutput) ToFirewallDomainListStatusPtrOutput()
 
 func (o FirewallDomainListStatusPtrOutput) ToFirewallDomainListStatusPtrOutputWithContext(ctx context.Context) FirewallDomainListStatusPtrOutput {
 	return o
-}
-
-func (o FirewallDomainListStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallDomainListStatus] {
-	return pulumix.Output[*FirewallDomainListStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FirewallDomainListStatusPtrOutput) Elem() FirewallDomainListStatusOutput {
@@ -186,12 +174,6 @@ func (o FirewallRuleGroupAssociationMutationProtectionOutput) ToFirewallRuleGrou
 	}).(FirewallRuleGroupAssociationMutationProtectionPtrOutput)
 }
 
-func (o FirewallRuleGroupAssociationMutationProtectionOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallRuleGroupAssociationMutationProtection] {
-	return pulumix.Output[FirewallRuleGroupAssociationMutationProtection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FirewallRuleGroupAssociationMutationProtectionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -227,12 +209,6 @@ func (o FirewallRuleGroupAssociationMutationProtectionPtrOutput) ToFirewallRuleG
 	return o
 }
 
-func (o FirewallRuleGroupAssociationMutationProtectionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallRuleGroupAssociationMutationProtection] {
-	return pulumix.Output[*FirewallRuleGroupAssociationMutationProtection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FirewallRuleGroupAssociationMutationProtectionPtrOutput) Elem() FirewallRuleGroupAssociationMutationProtectionOutput {
 	return o.ApplyT(func(v *FirewallRuleGroupAssociationMutationProtection) FirewallRuleGroupAssociationMutationProtection {
 		if v != nil {
@@ -257,10 +233,11 @@ func (o FirewallRuleGroupAssociationMutationProtectionPtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// FirewallRuleGroupAssociationMutationProtectionInput is an input type that accepts FirewallRuleGroupAssociationMutationProtectionArgs and FirewallRuleGroupAssociationMutationProtectionOutput values.
-// You can construct a concrete instance of `FirewallRuleGroupAssociationMutationProtectionInput` via:
+// FirewallRuleGroupAssociationMutationProtectionInput is an input type that accepts values of the FirewallRuleGroupAssociationMutationProtection enum
+// A concrete instance of `FirewallRuleGroupAssociationMutationProtectionInput` can be one of the following:
 //
-//	FirewallRuleGroupAssociationMutationProtectionArgs{...}
+//	FirewallRuleGroupAssociationMutationProtectionEnabled
+//	FirewallRuleGroupAssociationMutationProtectionDisabled
 type FirewallRuleGroupAssociationMutationProtectionInput interface {
 	pulumi.Input
 
@@ -335,12 +312,6 @@ func (o FirewallRuleGroupAssociationStatusOutput) ToFirewallRuleGroupAssociation
 	}).(FirewallRuleGroupAssociationStatusPtrOutput)
 }
 
-func (o FirewallRuleGroupAssociationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallRuleGroupAssociationStatus] {
-	return pulumix.Output[FirewallRuleGroupAssociationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FirewallRuleGroupAssociationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -374,12 +345,6 @@ func (o FirewallRuleGroupAssociationStatusPtrOutput) ToFirewallRuleGroupAssociat
 
 func (o FirewallRuleGroupAssociationStatusPtrOutput) ToFirewallRuleGroupAssociationStatusPtrOutputWithContext(ctx context.Context) FirewallRuleGroupAssociationStatusPtrOutput {
 	return o
-}
-
-func (o FirewallRuleGroupAssociationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallRuleGroupAssociationStatus] {
-	return pulumix.Output[*FirewallRuleGroupAssociationStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FirewallRuleGroupAssociationStatusPtrOutput) Elem() FirewallRuleGroupAssociationStatusOutput {
@@ -475,12 +440,6 @@ func (o FirewallRuleGroupFirewallRuleActionOutput) ToFirewallRuleGroupFirewallRu
 	}).(FirewallRuleGroupFirewallRuleActionPtrOutput)
 }
 
-func (o FirewallRuleGroupFirewallRuleActionOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallRuleGroupFirewallRuleAction] {
-	return pulumix.Output[FirewallRuleGroupFirewallRuleAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FirewallRuleGroupFirewallRuleActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -516,12 +475,6 @@ func (o FirewallRuleGroupFirewallRuleActionPtrOutput) ToFirewallRuleGroupFirewal
 	return o
 }
 
-func (o FirewallRuleGroupFirewallRuleActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallRuleGroupFirewallRuleAction] {
-	return pulumix.Output[*FirewallRuleGroupFirewallRuleAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FirewallRuleGroupFirewallRuleActionPtrOutput) Elem() FirewallRuleGroupFirewallRuleActionOutput {
 	return o.ApplyT(func(v *FirewallRuleGroupFirewallRuleAction) FirewallRuleGroupFirewallRuleAction {
 		if v != nil {
@@ -546,10 +499,12 @@ func (o FirewallRuleGroupFirewallRuleActionPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// FirewallRuleGroupFirewallRuleActionInput is an input type that accepts FirewallRuleGroupFirewallRuleActionArgs and FirewallRuleGroupFirewallRuleActionOutput values.
-// You can construct a concrete instance of `FirewallRuleGroupFirewallRuleActionInput` via:
+// FirewallRuleGroupFirewallRuleActionInput is an input type that accepts values of the FirewallRuleGroupFirewallRuleAction enum
+// A concrete instance of `FirewallRuleGroupFirewallRuleActionInput` can be one of the following:
 //
-//	FirewallRuleGroupFirewallRuleActionArgs{...}
+//	FirewallRuleGroupFirewallRuleActionAllow
+//	FirewallRuleGroupFirewallRuleActionBlock
+//	FirewallRuleGroupFirewallRuleActionAlert
 type FirewallRuleGroupFirewallRuleActionInput interface {
 	pulumi.Input
 
@@ -657,12 +612,6 @@ func (o FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeOutput) ToFirewallRuleG
 	}).(FirewallRuleGroupFirewallRuleBlockOverrideDnsTypePtrOutput)
 }
 
-func (o FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallRuleGroupFirewallRuleBlockOverrideDnsType] {
-	return pulumix.Output[FirewallRuleGroupFirewallRuleBlockOverrideDnsType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -698,12 +647,6 @@ func (o FirewallRuleGroupFirewallRuleBlockOverrideDnsTypePtrOutput) ToFirewallRu
 	return o
 }
 
-func (o FirewallRuleGroupFirewallRuleBlockOverrideDnsTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallRuleGroupFirewallRuleBlockOverrideDnsType] {
-	return pulumix.Output[*FirewallRuleGroupFirewallRuleBlockOverrideDnsType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FirewallRuleGroupFirewallRuleBlockOverrideDnsTypePtrOutput) Elem() FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeOutput {
 	return o.ApplyT(func(v *FirewallRuleGroupFirewallRuleBlockOverrideDnsType) FirewallRuleGroupFirewallRuleBlockOverrideDnsType {
 		if v != nil {
@@ -728,10 +671,10 @@ func (o FirewallRuleGroupFirewallRuleBlockOverrideDnsTypePtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeInput is an input type that accepts FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeArgs and FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeOutput values.
-// You can construct a concrete instance of `FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeInput` via:
+// FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeInput is an input type that accepts values of the FirewallRuleGroupFirewallRuleBlockOverrideDnsType enum
+// A concrete instance of `FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeInput` can be one of the following:
 //
-//	FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeArgs{...}
+//	FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeCname
 type FirewallRuleGroupFirewallRuleBlockOverrideDnsTypeInput interface {
 	pulumi.Input
 
@@ -841,12 +784,6 @@ func (o FirewallRuleGroupFirewallRuleBlockResponseOutput) ToFirewallRuleGroupFir
 	}).(FirewallRuleGroupFirewallRuleBlockResponsePtrOutput)
 }
 
-func (o FirewallRuleGroupFirewallRuleBlockResponseOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallRuleGroupFirewallRuleBlockResponse] {
-	return pulumix.Output[FirewallRuleGroupFirewallRuleBlockResponse]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FirewallRuleGroupFirewallRuleBlockResponseOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -882,12 +819,6 @@ func (o FirewallRuleGroupFirewallRuleBlockResponsePtrOutput) ToFirewallRuleGroup
 	return o
 }
 
-func (o FirewallRuleGroupFirewallRuleBlockResponsePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallRuleGroupFirewallRuleBlockResponse] {
-	return pulumix.Output[*FirewallRuleGroupFirewallRuleBlockResponse]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FirewallRuleGroupFirewallRuleBlockResponsePtrOutput) Elem() FirewallRuleGroupFirewallRuleBlockResponseOutput {
 	return o.ApplyT(func(v *FirewallRuleGroupFirewallRuleBlockResponse) FirewallRuleGroupFirewallRuleBlockResponse {
 		if v != nil {
@@ -912,10 +843,12 @@ func (o FirewallRuleGroupFirewallRuleBlockResponsePtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// FirewallRuleGroupFirewallRuleBlockResponseInput is an input type that accepts FirewallRuleGroupFirewallRuleBlockResponseArgs and FirewallRuleGroupFirewallRuleBlockResponseOutput values.
-// You can construct a concrete instance of `FirewallRuleGroupFirewallRuleBlockResponseInput` via:
+// FirewallRuleGroupFirewallRuleBlockResponseInput is an input type that accepts values of the FirewallRuleGroupFirewallRuleBlockResponse enum
+// A concrete instance of `FirewallRuleGroupFirewallRuleBlockResponseInput` can be one of the following:
 //
-//	FirewallRuleGroupFirewallRuleBlockResponseArgs{...}
+//	FirewallRuleGroupFirewallRuleBlockResponseNodata
+//	FirewallRuleGroupFirewallRuleBlockResponseNxdomain
+//	FirewallRuleGroupFirewallRuleBlockResponseOverride
 type FirewallRuleGroupFirewallRuleBlockResponseInput interface {
 	pulumi.Input
 
@@ -989,12 +922,6 @@ func (o FirewallRuleGroupShareStatusOutput) ToFirewallRuleGroupShareStatusPtrOut
 	}).(FirewallRuleGroupShareStatusPtrOutput)
 }
 
-func (o FirewallRuleGroupShareStatusOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallRuleGroupShareStatus] {
-	return pulumix.Output[FirewallRuleGroupShareStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FirewallRuleGroupShareStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1028,12 +955,6 @@ func (o FirewallRuleGroupShareStatusPtrOutput) ToFirewallRuleGroupShareStatusPtr
 
 func (o FirewallRuleGroupShareStatusPtrOutput) ToFirewallRuleGroupShareStatusPtrOutputWithContext(ctx context.Context) FirewallRuleGroupShareStatusPtrOutput {
 	return o
-}
-
-func (o FirewallRuleGroupShareStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallRuleGroupShareStatus] {
-	return pulumix.Output[*FirewallRuleGroupShareStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FirewallRuleGroupShareStatusPtrOutput) Elem() FirewallRuleGroupShareStatusOutput {
@@ -1094,12 +1015,6 @@ func (o FirewallRuleGroupStatusOutput) ToFirewallRuleGroupStatusPtrOutputWithCon
 	}).(FirewallRuleGroupStatusPtrOutput)
 }
 
-func (o FirewallRuleGroupStatusOutput) ToOutput(ctx context.Context) pulumix.Output[FirewallRuleGroupStatus] {
-	return pulumix.Output[FirewallRuleGroupStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FirewallRuleGroupStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1133,12 +1048,6 @@ func (o FirewallRuleGroupStatusPtrOutput) ToFirewallRuleGroupStatusPtrOutput() F
 
 func (o FirewallRuleGroupStatusPtrOutput) ToFirewallRuleGroupStatusPtrOutputWithContext(ctx context.Context) FirewallRuleGroupStatusPtrOutput {
 	return o
-}
-
-func (o FirewallRuleGroupStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallRuleGroupStatus] {
-	return pulumix.Output[*FirewallRuleGroupStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FirewallRuleGroupStatusPtrOutput) Elem() FirewallRuleGroupStatusOutput {
@@ -1202,12 +1111,6 @@ func (o OutpostResolverStatusOutput) ToOutpostResolverStatusPtrOutputWithContext
 	}).(OutpostResolverStatusPtrOutput)
 }
 
-func (o OutpostResolverStatusOutput) ToOutput(ctx context.Context) pulumix.Output[OutpostResolverStatus] {
-	return pulumix.Output[OutpostResolverStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OutpostResolverStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1241,12 +1144,6 @@ func (o OutpostResolverStatusPtrOutput) ToOutpostResolverStatusPtrOutput() Outpo
 
 func (o OutpostResolverStatusPtrOutput) ToOutpostResolverStatusPtrOutputWithContext(ctx context.Context) OutpostResolverStatusPtrOutput {
 	return o
-}
-
-func (o OutpostResolverStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OutpostResolverStatus] {
-	return pulumix.Output[*OutpostResolverStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OutpostResolverStatusPtrOutput) Elem() OutpostResolverStatusOutput {
@@ -1307,12 +1204,6 @@ func (o ResolverConfigAutodefinedReverseOutput) ToResolverConfigAutodefinedRever
 	}).(ResolverConfigAutodefinedReversePtrOutput)
 }
 
-func (o ResolverConfigAutodefinedReverseOutput) ToOutput(ctx context.Context) pulumix.Output[ResolverConfigAutodefinedReverse] {
-	return pulumix.Output[ResolverConfigAutodefinedReverse]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResolverConfigAutodefinedReverseOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1346,12 +1237,6 @@ func (o ResolverConfigAutodefinedReversePtrOutput) ToResolverConfigAutodefinedRe
 
 func (o ResolverConfigAutodefinedReversePtrOutput) ToResolverConfigAutodefinedReversePtrOutputWithContext(ctx context.Context) ResolverConfigAutodefinedReversePtrOutput {
 	return o
-}
-
-func (o ResolverConfigAutodefinedReversePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverConfigAutodefinedReverse] {
-	return pulumix.Output[*ResolverConfigAutodefinedReverse]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResolverConfigAutodefinedReversePtrOutput) Elem() ResolverConfigAutodefinedReverseOutput {
@@ -1445,12 +1330,6 @@ func (o ResolverConfigAutodefinedReverseFlagOutput) ToResolverConfigAutodefinedR
 	}).(ResolverConfigAutodefinedReverseFlagPtrOutput)
 }
 
-func (o ResolverConfigAutodefinedReverseFlagOutput) ToOutput(ctx context.Context) pulumix.Output[ResolverConfigAutodefinedReverseFlag] {
-	return pulumix.Output[ResolverConfigAutodefinedReverseFlag]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResolverConfigAutodefinedReverseFlagOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1486,12 +1365,6 @@ func (o ResolverConfigAutodefinedReverseFlagPtrOutput) ToResolverConfigAutodefin
 	return o
 }
 
-func (o ResolverConfigAutodefinedReverseFlagPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverConfigAutodefinedReverseFlag] {
-	return pulumix.Output[*ResolverConfigAutodefinedReverseFlag]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResolverConfigAutodefinedReverseFlagPtrOutput) Elem() ResolverConfigAutodefinedReverseFlagOutput {
 	return o.ApplyT(func(v *ResolverConfigAutodefinedReverseFlag) ResolverConfigAutodefinedReverseFlag {
 		if v != nil {
@@ -1516,10 +1389,10 @@ func (o ResolverConfigAutodefinedReverseFlagPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// ResolverConfigAutodefinedReverseFlagInput is an input type that accepts ResolverConfigAutodefinedReverseFlagArgs and ResolverConfigAutodefinedReverseFlagOutput values.
-// You can construct a concrete instance of `ResolverConfigAutodefinedReverseFlagInput` via:
+// ResolverConfigAutodefinedReverseFlagInput is an input type that accepts values of the ResolverConfigAutodefinedReverseFlag enum
+// A concrete instance of `ResolverConfigAutodefinedReverseFlagInput` can be one of the following:
 //
-//	ResolverConfigAutodefinedReverseFlagArgs{...}
+//	ResolverConfigAutodefinedReverseFlagDisable
 type ResolverConfigAutodefinedReverseFlagInput interface {
 	pulumi.Input
 
@@ -1594,12 +1467,6 @@ func (o ResolverDnssecConfigValidationStatusOutput) ToResolverDnssecConfigValida
 	}).(ResolverDnssecConfigValidationStatusPtrOutput)
 }
 
-func (o ResolverDnssecConfigValidationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ResolverDnssecConfigValidationStatus] {
-	return pulumix.Output[ResolverDnssecConfigValidationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResolverDnssecConfigValidationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1633,12 +1500,6 @@ func (o ResolverDnssecConfigValidationStatusPtrOutput) ToResolverDnssecConfigVal
 
 func (o ResolverDnssecConfigValidationStatusPtrOutput) ToResolverDnssecConfigValidationStatusPtrOutputWithContext(ctx context.Context) ResolverDnssecConfigValidationStatusPtrOutput {
 	return o
-}
-
-func (o ResolverDnssecConfigValidationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverDnssecConfigValidationStatus] {
-	return pulumix.Output[*ResolverDnssecConfigValidationStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResolverDnssecConfigValidationStatusPtrOutput) Elem() ResolverDnssecConfigValidationStatusOutput {
@@ -1698,12 +1559,6 @@ func (o ResolverQueryLoggingConfigAssociationErrorOutput) ToResolverQueryLogging
 	}).(ResolverQueryLoggingConfigAssociationErrorPtrOutput)
 }
 
-func (o ResolverQueryLoggingConfigAssociationErrorOutput) ToOutput(ctx context.Context) pulumix.Output[ResolverQueryLoggingConfigAssociationError] {
-	return pulumix.Output[ResolverQueryLoggingConfigAssociationError]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResolverQueryLoggingConfigAssociationErrorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1737,12 +1592,6 @@ func (o ResolverQueryLoggingConfigAssociationErrorPtrOutput) ToResolverQueryLogg
 
 func (o ResolverQueryLoggingConfigAssociationErrorPtrOutput) ToResolverQueryLoggingConfigAssociationErrorPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAssociationErrorPtrOutput {
 	return o
-}
-
-func (o ResolverQueryLoggingConfigAssociationErrorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverQueryLoggingConfigAssociationError] {
-	return pulumix.Output[*ResolverQueryLoggingConfigAssociationError]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResolverQueryLoggingConfigAssociationErrorPtrOutput) Elem() ResolverQueryLoggingConfigAssociationErrorOutput {
@@ -1805,12 +1654,6 @@ func (o ResolverQueryLoggingConfigAssociationStatusOutput) ToResolverQueryLoggin
 	}).(ResolverQueryLoggingConfigAssociationStatusPtrOutput)
 }
 
-func (o ResolverQueryLoggingConfigAssociationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ResolverQueryLoggingConfigAssociationStatus] {
-	return pulumix.Output[ResolverQueryLoggingConfigAssociationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResolverQueryLoggingConfigAssociationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1844,12 +1687,6 @@ func (o ResolverQueryLoggingConfigAssociationStatusPtrOutput) ToResolverQueryLog
 
 func (o ResolverQueryLoggingConfigAssociationStatusPtrOutput) ToResolverQueryLoggingConfigAssociationStatusPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigAssociationStatusPtrOutput {
 	return o
-}
-
-func (o ResolverQueryLoggingConfigAssociationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverQueryLoggingConfigAssociationStatus] {
-	return pulumix.Output[*ResolverQueryLoggingConfigAssociationStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResolverQueryLoggingConfigAssociationStatusPtrOutput) Elem() ResolverQueryLoggingConfigAssociationStatusOutput {
@@ -1909,12 +1746,6 @@ func (o ResolverQueryLoggingConfigShareStatusOutput) ToResolverQueryLoggingConfi
 	}).(ResolverQueryLoggingConfigShareStatusPtrOutput)
 }
 
-func (o ResolverQueryLoggingConfigShareStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ResolverQueryLoggingConfigShareStatus] {
-	return pulumix.Output[ResolverQueryLoggingConfigShareStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResolverQueryLoggingConfigShareStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1948,12 +1779,6 @@ func (o ResolverQueryLoggingConfigShareStatusPtrOutput) ToResolverQueryLoggingCo
 
 func (o ResolverQueryLoggingConfigShareStatusPtrOutput) ToResolverQueryLoggingConfigShareStatusPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigShareStatusPtrOutput {
 	return o
-}
-
-func (o ResolverQueryLoggingConfigShareStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverQueryLoggingConfigShareStatus] {
-	return pulumix.Output[*ResolverQueryLoggingConfigShareStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResolverQueryLoggingConfigShareStatusPtrOutput) Elem() ResolverQueryLoggingConfigShareStatusOutput {
@@ -2014,12 +1839,6 @@ func (o ResolverQueryLoggingConfigStatusOutput) ToResolverQueryLoggingConfigStat
 	}).(ResolverQueryLoggingConfigStatusPtrOutput)
 }
 
-func (o ResolverQueryLoggingConfigStatusOutput) ToOutput(ctx context.Context) pulumix.Output[ResolverQueryLoggingConfigStatus] {
-	return pulumix.Output[ResolverQueryLoggingConfigStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResolverQueryLoggingConfigStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2053,12 +1872,6 @@ func (o ResolverQueryLoggingConfigStatusPtrOutput) ToResolverQueryLoggingConfigS
 
 func (o ResolverQueryLoggingConfigStatusPtrOutput) ToResolverQueryLoggingConfigStatusPtrOutputWithContext(ctx context.Context) ResolverQueryLoggingConfigStatusPtrOutput {
 	return o
-}
-
-func (o ResolverQueryLoggingConfigStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverQueryLoggingConfigStatus] {
-	return pulumix.Output[*ResolverQueryLoggingConfigStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResolverQueryLoggingConfigStatusPtrOutput) Elem() ResolverQueryLoggingConfigStatusOutput {
@@ -2154,12 +1967,6 @@ func (o ResolverRuleRuleTypeOutput) ToResolverRuleRuleTypePtrOutputWithContext(c
 	}).(ResolverRuleRuleTypePtrOutput)
 }
 
-func (o ResolverRuleRuleTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ResolverRuleRuleType] {
-	return pulumix.Output[ResolverRuleRuleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResolverRuleRuleTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2195,12 +2002,6 @@ func (o ResolverRuleRuleTypePtrOutput) ToResolverRuleRuleTypePtrOutputWithContex
 	return o
 }
 
-func (o ResolverRuleRuleTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverRuleRuleType] {
-	return pulumix.Output[*ResolverRuleRuleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResolverRuleRuleTypePtrOutput) Elem() ResolverRuleRuleTypeOutput {
 	return o.ApplyT(func(v *ResolverRuleRuleType) ResolverRuleRuleType {
 		if v != nil {
@@ -2225,10 +2026,12 @@ func (o ResolverRuleRuleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// ResolverRuleRuleTypeInput is an input type that accepts ResolverRuleRuleTypeArgs and ResolverRuleRuleTypeOutput values.
-// You can construct a concrete instance of `ResolverRuleRuleTypeInput` via:
+// ResolverRuleRuleTypeInput is an input type that accepts values of the ResolverRuleRuleType enum
+// A concrete instance of `ResolverRuleRuleTypeInput` can be one of the following:
 //
-//	ResolverRuleRuleTypeArgs{...}
+//	ResolverRuleRuleTypeForward
+//	ResolverRuleRuleTypeSystem
+//	ResolverRuleRuleTypeRecursive
 type ResolverRuleRuleTypeInput interface {
 	pulumi.Input
 
@@ -2337,12 +2140,6 @@ func (o ResolverRuleTargetAddressProtocolOutput) ToResolverRuleTargetAddressProt
 	}).(ResolverRuleTargetAddressProtocolPtrOutput)
 }
 
-func (o ResolverRuleTargetAddressProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[ResolverRuleTargetAddressProtocol] {
-	return pulumix.Output[ResolverRuleTargetAddressProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResolverRuleTargetAddressProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2378,12 +2175,6 @@ func (o ResolverRuleTargetAddressProtocolPtrOutput) ToResolverRuleTargetAddressP
 	return o
 }
 
-func (o ResolverRuleTargetAddressProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverRuleTargetAddressProtocol] {
-	return pulumix.Output[*ResolverRuleTargetAddressProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResolverRuleTargetAddressProtocolPtrOutput) Elem() ResolverRuleTargetAddressProtocolOutput {
 	return o.ApplyT(func(v *ResolverRuleTargetAddressProtocol) ResolverRuleTargetAddressProtocol {
 		if v != nil {
@@ -2408,10 +2199,11 @@ func (o ResolverRuleTargetAddressProtocolPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// ResolverRuleTargetAddressProtocolInput is an input type that accepts ResolverRuleTargetAddressProtocolArgs and ResolverRuleTargetAddressProtocolOutput values.
-// You can construct a concrete instance of `ResolverRuleTargetAddressProtocolInput` via:
+// ResolverRuleTargetAddressProtocolInput is an input type that accepts values of the ResolverRuleTargetAddressProtocol enum
+// A concrete instance of `ResolverRuleTargetAddressProtocolInput` can be one of the following:
 //
-//	ResolverRuleTargetAddressProtocolArgs{...}
+//	ResolverRuleTargetAddressProtocolDo53
+//	ResolverRuleTargetAddressProtocolDoH
 type ResolverRuleTargetAddressProtocolInput interface {
 	pulumi.Input
 

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Describes a local gateway route table virtual interface group association for a local gateway.
@@ -127,12 +126,6 @@ func (i *LocalGatewayRouteTableVirtualInterfaceGroupAssociation) ToLocalGatewayR
 	return pulumi.ToOutputWithContext(ctx, i).(LocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput)
 }
 
-func (i *LocalGatewayRouteTableVirtualInterfaceGroupAssociation) ToOutput(ctx context.Context) pulumix.Output[*LocalGatewayRouteTableVirtualInterfaceGroupAssociation] {
-	return pulumix.Output[*LocalGatewayRouteTableVirtualInterfaceGroupAssociation]{
-		OutputState: i.ToLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput struct{ *pulumi.OutputState }
 
 func (LocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput) ElementType() reflect.Type {
@@ -145,12 +138,6 @@ func (o LocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput) ToLocalGat
 
 func (o LocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput) ToLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutputWithContext(ctx context.Context) LocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput {
 	return o
-}
-
-func (o LocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalGatewayRouteTableVirtualInterfaceGroupAssociation] {
-	return pulumix.Output[*LocalGatewayRouteTableVirtualInterfaceGroupAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the local gateway.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SecretsManager::SecretTargetAttachment
@@ -67,12 +66,6 @@ func (o LookupSecretTargetAttachmentResultOutput) ToLookupSecretTargetAttachment
 
 func (o LookupSecretTargetAttachmentResultOutput) ToLookupSecretTargetAttachmentResultOutputWithContext(ctx context.Context) LookupSecretTargetAttachmentResultOutput {
 	return o
-}
-
-func (o LookupSecretTargetAttachmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSecretTargetAttachmentResult] {
-	return pulumix.Output[LookupSecretTargetAttachmentResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupSecretTargetAttachmentResultOutput) Id() pulumi.StringPtrOutput {

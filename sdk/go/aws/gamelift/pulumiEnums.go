@@ -79,12 +79,6 @@ func (o AliasRoutingStrategyTypeOutput) ToAliasRoutingStrategyTypePtrOutputWithC
 	}).(AliasRoutingStrategyTypePtrOutput)
 }
 
-func (o AliasRoutingStrategyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AliasRoutingStrategyType] {
-	return pulumix.Output[AliasRoutingStrategyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AliasRoutingStrategyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +114,6 @@ func (o AliasRoutingStrategyTypePtrOutput) ToAliasRoutingStrategyTypePtrOutputWi
 	return o
 }
 
-func (o AliasRoutingStrategyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AliasRoutingStrategyType] {
-	return pulumix.Output[*AliasRoutingStrategyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AliasRoutingStrategyTypePtrOutput) Elem() AliasRoutingStrategyTypeOutput {
 	return o.ApplyT(func(v *AliasRoutingStrategyType) AliasRoutingStrategyType {
 		if v != nil {
@@ -150,10 +138,11 @@ func (o AliasRoutingStrategyTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AliasRoutingStrategyTypeInput is an input type that accepts AliasRoutingStrategyTypeArgs and AliasRoutingStrategyTypeOutput values.
-// You can construct a concrete instance of `AliasRoutingStrategyTypeInput` via:
+// AliasRoutingStrategyTypeInput is an input type that accepts values of the AliasRoutingStrategyType enum
+// A concrete instance of `AliasRoutingStrategyTypeInput` can be one of the following:
 //
-//	AliasRoutingStrategyTypeArgs{...}
+//	AliasRoutingStrategyTypeSimple
+//	AliasRoutingStrategyTypeTerminal
 type AliasRoutingStrategyTypeInput interface {
 	pulumi.Input
 
@@ -265,12 +254,6 @@ func (o BuildOperatingSystemOutput) ToBuildOperatingSystemPtrOutputWithContext(c
 	}).(BuildOperatingSystemPtrOutput)
 }
 
-func (o BuildOperatingSystemOutput) ToOutput(ctx context.Context) pulumix.Output[BuildOperatingSystem] {
-	return pulumix.Output[BuildOperatingSystem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BuildOperatingSystemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -306,12 +289,6 @@ func (o BuildOperatingSystemPtrOutput) ToBuildOperatingSystemPtrOutputWithContex
 	return o
 }
 
-func (o BuildOperatingSystemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BuildOperatingSystem] {
-	return pulumix.Output[*BuildOperatingSystem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BuildOperatingSystemPtrOutput) Elem() BuildOperatingSystemOutput {
 	return o.ApplyT(func(v *BuildOperatingSystem) BuildOperatingSystem {
 		if v != nil {
@@ -336,10 +313,14 @@ func (o BuildOperatingSystemPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// BuildOperatingSystemInput is an input type that accepts BuildOperatingSystemArgs and BuildOperatingSystemOutput values.
-// You can construct a concrete instance of `BuildOperatingSystemInput` via:
+// BuildOperatingSystemInput is an input type that accepts values of the BuildOperatingSystem enum
+// A concrete instance of `BuildOperatingSystemInput` can be one of the following:
 //
-//	BuildOperatingSystemArgs{...}
+//	BuildOperatingSystemAmazonLinux
+//	BuildOperatingSystemAmazonLinux2
+//	BuildOperatingSystemAmazonLinux2023
+//	BuildOperatingSystemWindows2012
+//	BuildOperatingSystemWindows2016
 type BuildOperatingSystemInput interface {
 	pulumi.Input
 
@@ -448,12 +429,6 @@ func (o FleetApplyCapacityOutput) ToFleetApplyCapacityPtrOutputWithContext(ctx c
 	}).(FleetApplyCapacityPtrOutput)
 }
 
-func (o FleetApplyCapacityOutput) ToOutput(ctx context.Context) pulumix.Output[FleetApplyCapacity] {
-	return pulumix.Output[FleetApplyCapacity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetApplyCapacityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -489,12 +464,6 @@ func (o FleetApplyCapacityPtrOutput) ToFleetApplyCapacityPtrOutputWithContext(ct
 	return o
 }
 
-func (o FleetApplyCapacityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetApplyCapacity] {
-	return pulumix.Output[*FleetApplyCapacity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetApplyCapacityPtrOutput) Elem() FleetApplyCapacityOutput {
 	return o.ApplyT(func(v *FleetApplyCapacity) FleetApplyCapacity {
 		if v != nil {
@@ -519,10 +488,11 @@ func (o FleetApplyCapacityPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// FleetApplyCapacityInput is an input type that accepts FleetApplyCapacityArgs and FleetApplyCapacityOutput values.
-// You can construct a concrete instance of `FleetApplyCapacityInput` via:
+// FleetApplyCapacityInput is an input type that accepts values of the FleetApplyCapacity enum
+// A concrete instance of `FleetApplyCapacityInput` can be one of the following:
 //
-//	FleetApplyCapacityArgs{...}
+//	FleetApplyCapacityOnUpdate
+//	FleetApplyCapacityOnCreateAndUpdate
 type FleetApplyCapacityInput interface {
 	pulumi.Input
 
@@ -630,12 +600,6 @@ func (o FleetCertificateConfigurationCertificateTypeOutput) ToFleetCertificateCo
 	}).(FleetCertificateConfigurationCertificateTypePtrOutput)
 }
 
-func (o FleetCertificateConfigurationCertificateTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FleetCertificateConfigurationCertificateType] {
-	return pulumix.Output[FleetCertificateConfigurationCertificateType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetCertificateConfigurationCertificateTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -671,12 +635,6 @@ func (o FleetCertificateConfigurationCertificateTypePtrOutput) ToFleetCertificat
 	return o
 }
 
-func (o FleetCertificateConfigurationCertificateTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetCertificateConfigurationCertificateType] {
-	return pulumix.Output[*FleetCertificateConfigurationCertificateType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetCertificateConfigurationCertificateTypePtrOutput) Elem() FleetCertificateConfigurationCertificateTypeOutput {
 	return o.ApplyT(func(v *FleetCertificateConfigurationCertificateType) FleetCertificateConfigurationCertificateType {
 		if v != nil {
@@ -701,10 +659,11 @@ func (o FleetCertificateConfigurationCertificateTypePtrOutput) ToStringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// FleetCertificateConfigurationCertificateTypeInput is an input type that accepts FleetCertificateConfigurationCertificateTypeArgs and FleetCertificateConfigurationCertificateTypeOutput values.
-// You can construct a concrete instance of `FleetCertificateConfigurationCertificateTypeInput` via:
+// FleetCertificateConfigurationCertificateTypeInput is an input type that accepts values of the FleetCertificateConfigurationCertificateType enum
+// A concrete instance of `FleetCertificateConfigurationCertificateTypeInput` can be one of the following:
 //
-//	FleetCertificateConfigurationCertificateTypeArgs{...}
+//	FleetCertificateConfigurationCertificateTypeDisabled
+//	FleetCertificateConfigurationCertificateTypeGenerated
 type FleetCertificateConfigurationCertificateTypeInput interface {
 	pulumi.Input
 
@@ -813,12 +772,6 @@ func (o FleetComputeTypeOutput) ToFleetComputeTypePtrOutputWithContext(ctx conte
 	}).(FleetComputeTypePtrOutput)
 }
 
-func (o FleetComputeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FleetComputeType] {
-	return pulumix.Output[FleetComputeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetComputeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -854,12 +807,6 @@ func (o FleetComputeTypePtrOutput) ToFleetComputeTypePtrOutputWithContext(ctx co
 	return o
 }
 
-func (o FleetComputeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetComputeType] {
-	return pulumix.Output[*FleetComputeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetComputeTypePtrOutput) Elem() FleetComputeTypeOutput {
 	return o.ApplyT(func(v *FleetComputeType) FleetComputeType {
 		if v != nil {
@@ -884,10 +831,11 @@ func (o FleetComputeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// FleetComputeTypeInput is an input type that accepts FleetComputeTypeArgs and FleetComputeTypeOutput values.
-// You can construct a concrete instance of `FleetComputeTypeInput` via:
+// FleetComputeTypeInput is an input type that accepts values of the FleetComputeType enum
+// A concrete instance of `FleetComputeTypeInput` can be one of the following:
 //
-//	FleetComputeTypeArgs{...}
+//	FleetComputeTypeEc2
+//	FleetComputeTypeAnywhere
 type FleetComputeTypeInput interface {
 	pulumi.Input
 
@@ -995,12 +943,6 @@ func (o FleetInstanceRoleCredentialsProviderOutput) ToFleetInstanceRoleCredentia
 	}).(FleetInstanceRoleCredentialsProviderPtrOutput)
 }
 
-func (o FleetInstanceRoleCredentialsProviderOutput) ToOutput(ctx context.Context) pulumix.Output[FleetInstanceRoleCredentialsProvider] {
-	return pulumix.Output[FleetInstanceRoleCredentialsProvider]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetInstanceRoleCredentialsProviderOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1036,12 +978,6 @@ func (o FleetInstanceRoleCredentialsProviderPtrOutput) ToFleetInstanceRoleCreden
 	return o
 }
 
-func (o FleetInstanceRoleCredentialsProviderPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetInstanceRoleCredentialsProvider] {
-	return pulumix.Output[*FleetInstanceRoleCredentialsProvider]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetInstanceRoleCredentialsProviderPtrOutput) Elem() FleetInstanceRoleCredentialsProviderOutput {
 	return o.ApplyT(func(v *FleetInstanceRoleCredentialsProvider) FleetInstanceRoleCredentialsProvider {
 		if v != nil {
@@ -1066,10 +1002,10 @@ func (o FleetInstanceRoleCredentialsProviderPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// FleetInstanceRoleCredentialsProviderInput is an input type that accepts FleetInstanceRoleCredentialsProviderArgs and FleetInstanceRoleCredentialsProviderOutput values.
-// You can construct a concrete instance of `FleetInstanceRoleCredentialsProviderInput` via:
+// FleetInstanceRoleCredentialsProviderInput is an input type that accepts values of the FleetInstanceRoleCredentialsProvider enum
+// A concrete instance of `FleetInstanceRoleCredentialsProviderInput` can be one of the following:
 //
-//	FleetInstanceRoleCredentialsProviderArgs{...}
+//	FleetInstanceRoleCredentialsProviderSharedCredentialFile
 type FleetInstanceRoleCredentialsProviderInput interface {
 	pulumi.Input
 
@@ -1178,12 +1114,6 @@ func (o FleetIpPermissionProtocolOutput) ToFleetIpPermissionProtocolPtrOutputWit
 	}).(FleetIpPermissionProtocolPtrOutput)
 }
 
-func (o FleetIpPermissionProtocolOutput) ToOutput(ctx context.Context) pulumix.Output[FleetIpPermissionProtocol] {
-	return pulumix.Output[FleetIpPermissionProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetIpPermissionProtocolOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1219,12 +1149,6 @@ func (o FleetIpPermissionProtocolPtrOutput) ToFleetIpPermissionProtocolPtrOutput
 	return o
 }
 
-func (o FleetIpPermissionProtocolPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetIpPermissionProtocol] {
-	return pulumix.Output[*FleetIpPermissionProtocol]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetIpPermissionProtocolPtrOutput) Elem() FleetIpPermissionProtocolOutput {
 	return o.ApplyT(func(v *FleetIpPermissionProtocol) FleetIpPermissionProtocol {
 		if v != nil {
@@ -1249,10 +1173,11 @@ func (o FleetIpPermissionProtocolPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// FleetIpPermissionProtocolInput is an input type that accepts FleetIpPermissionProtocolArgs and FleetIpPermissionProtocolOutput values.
-// You can construct a concrete instance of `FleetIpPermissionProtocolInput` via:
+// FleetIpPermissionProtocolInput is an input type that accepts values of the FleetIpPermissionProtocol enum
+// A concrete instance of `FleetIpPermissionProtocolInput` can be one of the following:
 //
-//	FleetIpPermissionProtocolArgs{...}
+//	FleetIpPermissionProtocolTcp
+//	FleetIpPermissionProtocolUdp
 type FleetIpPermissionProtocolInput interface {
 	pulumi.Input
 
@@ -1361,12 +1286,6 @@ func (o FleetNewGameSessionProtectionPolicyOutput) ToFleetNewGameSessionProtecti
 	}).(FleetNewGameSessionProtectionPolicyPtrOutput)
 }
 
-func (o FleetNewGameSessionProtectionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[FleetNewGameSessionProtectionPolicy] {
-	return pulumix.Output[FleetNewGameSessionProtectionPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetNewGameSessionProtectionPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1402,12 +1321,6 @@ func (o FleetNewGameSessionProtectionPolicyPtrOutput) ToFleetNewGameSessionProte
 	return o
 }
 
-func (o FleetNewGameSessionProtectionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetNewGameSessionProtectionPolicy] {
-	return pulumix.Output[*FleetNewGameSessionProtectionPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetNewGameSessionProtectionPolicyPtrOutput) Elem() FleetNewGameSessionProtectionPolicyOutput {
 	return o.ApplyT(func(v *FleetNewGameSessionProtectionPolicy) FleetNewGameSessionProtectionPolicy {
 		if v != nil {
@@ -1432,10 +1345,11 @@ func (o FleetNewGameSessionProtectionPolicyPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// FleetNewGameSessionProtectionPolicyInput is an input type that accepts FleetNewGameSessionProtectionPolicyArgs and FleetNewGameSessionProtectionPolicyOutput values.
-// You can construct a concrete instance of `FleetNewGameSessionProtectionPolicyInput` via:
+// FleetNewGameSessionProtectionPolicyInput is an input type that accepts values of the FleetNewGameSessionProtectionPolicy enum
+// A concrete instance of `FleetNewGameSessionProtectionPolicyInput` can be one of the following:
 //
-//	FleetNewGameSessionProtectionPolicyArgs{...}
+//	FleetNewGameSessionProtectionPolicyFullProtection
+//	FleetNewGameSessionProtectionPolicyNoProtection
 type FleetNewGameSessionProtectionPolicyInput interface {
 	pulumi.Input
 
@@ -1546,12 +1460,6 @@ func (o FleetScalingPolicyComparisonOperatorOutput) ToFleetScalingPolicyComparis
 	}).(FleetScalingPolicyComparisonOperatorPtrOutput)
 }
 
-func (o FleetScalingPolicyComparisonOperatorOutput) ToOutput(ctx context.Context) pulumix.Output[FleetScalingPolicyComparisonOperator] {
-	return pulumix.Output[FleetScalingPolicyComparisonOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetScalingPolicyComparisonOperatorOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1587,12 +1495,6 @@ func (o FleetScalingPolicyComparisonOperatorPtrOutput) ToFleetScalingPolicyCompa
 	return o
 }
 
-func (o FleetScalingPolicyComparisonOperatorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyComparisonOperator] {
-	return pulumix.Output[*FleetScalingPolicyComparisonOperator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetScalingPolicyComparisonOperatorPtrOutput) Elem() FleetScalingPolicyComparisonOperatorOutput {
 	return o.ApplyT(func(v *FleetScalingPolicyComparisonOperator) FleetScalingPolicyComparisonOperator {
 		if v != nil {
@@ -1617,10 +1519,13 @@ func (o FleetScalingPolicyComparisonOperatorPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// FleetScalingPolicyComparisonOperatorInput is an input type that accepts FleetScalingPolicyComparisonOperatorArgs and FleetScalingPolicyComparisonOperatorOutput values.
-// You can construct a concrete instance of `FleetScalingPolicyComparisonOperatorInput` via:
+// FleetScalingPolicyComparisonOperatorInput is an input type that accepts values of the FleetScalingPolicyComparisonOperator enum
+// A concrete instance of `FleetScalingPolicyComparisonOperatorInput` can be one of the following:
 //
-//	FleetScalingPolicyComparisonOperatorArgs{...}
+//	FleetScalingPolicyComparisonOperatorGreaterThanOrEqualToThreshold
+//	FleetScalingPolicyComparisonOperatorGreaterThanThreshold
+//	FleetScalingPolicyComparisonOperatorLessThanThreshold
+//	FleetScalingPolicyComparisonOperatorLessThanOrEqualToThreshold
 type FleetScalingPolicyComparisonOperatorInput interface {
 	pulumi.Input
 
@@ -1739,12 +1644,6 @@ func (o FleetScalingPolicyMetricNameOutput) ToFleetScalingPolicyMetricNamePtrOut
 	}).(FleetScalingPolicyMetricNamePtrOutput)
 }
 
-func (o FleetScalingPolicyMetricNameOutput) ToOutput(ctx context.Context) pulumix.Output[FleetScalingPolicyMetricName] {
-	return pulumix.Output[FleetScalingPolicyMetricName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetScalingPolicyMetricNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1780,12 +1679,6 @@ func (o FleetScalingPolicyMetricNamePtrOutput) ToFleetScalingPolicyMetricNamePtr
 	return o
 }
 
-func (o FleetScalingPolicyMetricNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyMetricName] {
-	return pulumix.Output[*FleetScalingPolicyMetricName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetScalingPolicyMetricNamePtrOutput) Elem() FleetScalingPolicyMetricNameOutput {
 	return o.ApplyT(func(v *FleetScalingPolicyMetricName) FleetScalingPolicyMetricName {
 		if v != nil {
@@ -1810,10 +1703,21 @@ func (o FleetScalingPolicyMetricNamePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// FleetScalingPolicyMetricNameInput is an input type that accepts FleetScalingPolicyMetricNameArgs and FleetScalingPolicyMetricNameOutput values.
-// You can construct a concrete instance of `FleetScalingPolicyMetricNameInput` via:
+// FleetScalingPolicyMetricNameInput is an input type that accepts values of the FleetScalingPolicyMetricName enum
+// A concrete instance of `FleetScalingPolicyMetricNameInput` can be one of the following:
 //
-//	FleetScalingPolicyMetricNameArgs{...}
+//	FleetScalingPolicyMetricNameActivatingGameSessions
+//	FleetScalingPolicyMetricNameActiveGameSessions
+//	FleetScalingPolicyMetricNameActiveInstances
+//	FleetScalingPolicyMetricNameAvailableGameSessions
+//	FleetScalingPolicyMetricNameAvailablePlayerSessions
+//	FleetScalingPolicyMetricNameCurrentPlayerSessions
+//	FleetScalingPolicyMetricNameIdleInstances
+//	FleetScalingPolicyMetricNamePercentAvailableGameSessions
+//	FleetScalingPolicyMetricNamePercentIdleInstances
+//	FleetScalingPolicyMetricNameQueueDepth
+//	FleetScalingPolicyMetricNameWaitTime
+//	FleetScalingPolicyMetricNameConcurrentActivatableGameSessions
 type FleetScalingPolicyMetricNameInput interface {
 	pulumi.Input
 
@@ -1922,12 +1826,6 @@ func (o FleetScalingPolicyPolicyTypeOutput) ToFleetScalingPolicyPolicyTypePtrOut
 	}).(FleetScalingPolicyPolicyTypePtrOutput)
 }
 
-func (o FleetScalingPolicyPolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FleetScalingPolicyPolicyType] {
-	return pulumix.Output[FleetScalingPolicyPolicyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetScalingPolicyPolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1963,12 +1861,6 @@ func (o FleetScalingPolicyPolicyTypePtrOutput) ToFleetScalingPolicyPolicyTypePtr
 	return o
 }
 
-func (o FleetScalingPolicyPolicyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyPolicyType] {
-	return pulumix.Output[*FleetScalingPolicyPolicyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetScalingPolicyPolicyTypePtrOutput) Elem() FleetScalingPolicyPolicyTypeOutput {
 	return o.ApplyT(func(v *FleetScalingPolicyPolicyType) FleetScalingPolicyPolicyType {
 		if v != nil {
@@ -1993,10 +1885,11 @@ func (o FleetScalingPolicyPolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// FleetScalingPolicyPolicyTypeInput is an input type that accepts FleetScalingPolicyPolicyTypeArgs and FleetScalingPolicyPolicyTypeOutput values.
-// You can construct a concrete instance of `FleetScalingPolicyPolicyTypeInput` via:
+// FleetScalingPolicyPolicyTypeInput is an input type that accepts values of the FleetScalingPolicyPolicyType enum
+// A concrete instance of `FleetScalingPolicyPolicyTypeInput` can be one of the following:
 //
-//	FleetScalingPolicyPolicyTypeArgs{...}
+//	FleetScalingPolicyPolicyTypeRuleBased
+//	FleetScalingPolicyPolicyTypeTargetBased
 type FleetScalingPolicyPolicyTypeInput interface {
 	pulumi.Input
 
@@ -2106,12 +1999,6 @@ func (o FleetScalingPolicyScalingAdjustmentTypeOutput) ToFleetScalingPolicyScali
 	}).(FleetScalingPolicyScalingAdjustmentTypePtrOutput)
 }
 
-func (o FleetScalingPolicyScalingAdjustmentTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FleetScalingPolicyScalingAdjustmentType] {
-	return pulumix.Output[FleetScalingPolicyScalingAdjustmentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetScalingPolicyScalingAdjustmentTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2147,12 +2034,6 @@ func (o FleetScalingPolicyScalingAdjustmentTypePtrOutput) ToFleetScalingPolicySc
 	return o
 }
 
-func (o FleetScalingPolicyScalingAdjustmentTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyScalingAdjustmentType] {
-	return pulumix.Output[*FleetScalingPolicyScalingAdjustmentType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetScalingPolicyScalingAdjustmentTypePtrOutput) Elem() FleetScalingPolicyScalingAdjustmentTypeOutput {
 	return o.ApplyT(func(v *FleetScalingPolicyScalingAdjustmentType) FleetScalingPolicyScalingAdjustmentType {
 		if v != nil {
@@ -2177,10 +2058,12 @@ func (o FleetScalingPolicyScalingAdjustmentTypePtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// FleetScalingPolicyScalingAdjustmentTypeInput is an input type that accepts FleetScalingPolicyScalingAdjustmentTypeArgs and FleetScalingPolicyScalingAdjustmentTypeOutput values.
-// You can construct a concrete instance of `FleetScalingPolicyScalingAdjustmentTypeInput` via:
+// FleetScalingPolicyScalingAdjustmentTypeInput is an input type that accepts values of the FleetScalingPolicyScalingAdjustmentType enum
+// A concrete instance of `FleetScalingPolicyScalingAdjustmentTypeInput` can be one of the following:
 //
-//	FleetScalingPolicyScalingAdjustmentTypeArgs{...}
+//	FleetScalingPolicyScalingAdjustmentTypeChangeInCapacity
+//	FleetScalingPolicyScalingAdjustmentTypeExactCapacity
+//	FleetScalingPolicyScalingAdjustmentTypePercentChangeInCapacity
 type FleetScalingPolicyScalingAdjustmentTypeInput interface {
 	pulumi.Input
 
@@ -2294,12 +2177,6 @@ func (o FleetScalingPolicyStatusOutput) ToFleetScalingPolicyStatusPtrOutputWithC
 	}).(FleetScalingPolicyStatusPtrOutput)
 }
 
-func (o FleetScalingPolicyStatusOutput) ToOutput(ctx context.Context) pulumix.Output[FleetScalingPolicyStatus] {
-	return pulumix.Output[FleetScalingPolicyStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetScalingPolicyStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2335,12 +2212,6 @@ func (o FleetScalingPolicyStatusPtrOutput) ToFleetScalingPolicyStatusPtrOutputWi
 	return o
 }
 
-func (o FleetScalingPolicyStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyStatus] {
-	return pulumix.Output[*FleetScalingPolicyStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetScalingPolicyStatusPtrOutput) Elem() FleetScalingPolicyStatusOutput {
 	return o.ApplyT(func(v *FleetScalingPolicyStatus) FleetScalingPolicyStatus {
 		if v != nil {
@@ -2365,10 +2236,16 @@ func (o FleetScalingPolicyStatusPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// FleetScalingPolicyStatusInput is an input type that accepts FleetScalingPolicyStatusArgs and FleetScalingPolicyStatusOutput values.
-// You can construct a concrete instance of `FleetScalingPolicyStatusInput` via:
+// FleetScalingPolicyStatusInput is an input type that accepts values of the FleetScalingPolicyStatus enum
+// A concrete instance of `FleetScalingPolicyStatusInput` can be one of the following:
 //
-//	FleetScalingPolicyStatusArgs{...}
+//	FleetScalingPolicyStatusActive
+//	FleetScalingPolicyStatusUpdateRequested
+//	FleetScalingPolicyStatusUpdating
+//	FleetScalingPolicyStatusDeleteRequested
+//	FleetScalingPolicyStatusDeleting
+//	FleetScalingPolicyStatusDeleted
+//	FleetScalingPolicyStatusError
 type FleetScalingPolicyStatusInput interface {
 	pulumi.Input
 
@@ -2476,12 +2353,6 @@ func (o FleetScalingPolicyUpdateStatusOutput) ToFleetScalingPolicyUpdateStatusPt
 	}).(FleetScalingPolicyUpdateStatusPtrOutput)
 }
 
-func (o FleetScalingPolicyUpdateStatusOutput) ToOutput(ctx context.Context) pulumix.Output[FleetScalingPolicyUpdateStatus] {
-	return pulumix.Output[FleetScalingPolicyUpdateStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetScalingPolicyUpdateStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2517,12 +2388,6 @@ func (o FleetScalingPolicyUpdateStatusPtrOutput) ToFleetScalingPolicyUpdateStatu
 	return o
 }
 
-func (o FleetScalingPolicyUpdateStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetScalingPolicyUpdateStatus] {
-	return pulumix.Output[*FleetScalingPolicyUpdateStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetScalingPolicyUpdateStatusPtrOutput) Elem() FleetScalingPolicyUpdateStatusOutput {
 	return o.ApplyT(func(v *FleetScalingPolicyUpdateStatus) FleetScalingPolicyUpdateStatus {
 		if v != nil {
@@ -2547,10 +2412,10 @@ func (o FleetScalingPolicyUpdateStatusPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// FleetScalingPolicyUpdateStatusInput is an input type that accepts FleetScalingPolicyUpdateStatusArgs and FleetScalingPolicyUpdateStatusOutput values.
-// You can construct a concrete instance of `FleetScalingPolicyUpdateStatusInput` via:
+// FleetScalingPolicyUpdateStatusInput is an input type that accepts values of the FleetScalingPolicyUpdateStatus enum
+// A concrete instance of `FleetScalingPolicyUpdateStatusInput` can be one of the following:
 //
-//	FleetScalingPolicyUpdateStatusArgs{...}
+//	FleetScalingPolicyUpdateStatusPendingUpdate
 type FleetScalingPolicyUpdateStatusInput interface {
 	pulumi.Input
 
@@ -2659,12 +2524,6 @@ func (o FleetTypeOutput) ToFleetTypePtrOutputWithContext(ctx context.Context) Fl
 	}).(FleetTypePtrOutput)
 }
 
-func (o FleetTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FleetType] {
-	return pulumix.Output[FleetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2700,12 +2559,6 @@ func (o FleetTypePtrOutput) ToFleetTypePtrOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o FleetTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FleetType] {
-	return pulumix.Output[*FleetType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FleetTypePtrOutput) Elem() FleetTypeOutput {
 	return o.ApplyT(func(v *FleetType) FleetType {
 		if v != nil {
@@ -2730,10 +2583,11 @@ func (o FleetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// FleetTypeInput is an input type that accepts FleetTypeArgs and FleetTypeOutput values.
-// You can construct a concrete instance of `FleetTypeInput` via:
+// FleetTypeInput is an input type that accepts values of the FleetType enum
+// A concrete instance of `FleetTypeInput` can be one of the following:
 //
-//	FleetTypeArgs{...}
+//	FleetTypeOnDemand
+//	FleetTypeSpot
 type FleetTypeInput interface {
 	pulumi.Input
 
@@ -2843,12 +2697,6 @@ func (o GameServerGroupBalancingStrategyOutput) ToGameServerGroupBalancingStrate
 	}).(GameServerGroupBalancingStrategyPtrOutput)
 }
 
-func (o GameServerGroupBalancingStrategyOutput) ToOutput(ctx context.Context) pulumix.Output[GameServerGroupBalancingStrategy] {
-	return pulumix.Output[GameServerGroupBalancingStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GameServerGroupBalancingStrategyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -2884,12 +2732,6 @@ func (o GameServerGroupBalancingStrategyPtrOutput) ToGameServerGroupBalancingStr
 	return o
 }
 
-func (o GameServerGroupBalancingStrategyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GameServerGroupBalancingStrategy] {
-	return pulumix.Output[*GameServerGroupBalancingStrategy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GameServerGroupBalancingStrategyPtrOutput) Elem() GameServerGroupBalancingStrategyOutput {
 	return o.ApplyT(func(v *GameServerGroupBalancingStrategy) GameServerGroupBalancingStrategy {
 		if v != nil {
@@ -2914,10 +2756,12 @@ func (o GameServerGroupBalancingStrategyPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// GameServerGroupBalancingStrategyInput is an input type that accepts GameServerGroupBalancingStrategyArgs and GameServerGroupBalancingStrategyOutput values.
-// You can construct a concrete instance of `GameServerGroupBalancingStrategyInput` via:
+// GameServerGroupBalancingStrategyInput is an input type that accepts values of the GameServerGroupBalancingStrategy enum
+// A concrete instance of `GameServerGroupBalancingStrategyInput` can be one of the following:
 //
-//	GameServerGroupBalancingStrategyArgs{...}
+//	GameServerGroupBalancingStrategySpotOnly
+//	GameServerGroupBalancingStrategySpotPreferred
+//	GameServerGroupBalancingStrategyOnDemandOnly
 type GameServerGroupBalancingStrategyInput interface {
 	pulumi.Input
 
@@ -3027,12 +2871,6 @@ func (o GameServerGroupDeleteOptionOutput) ToGameServerGroupDeleteOptionPtrOutpu
 	}).(GameServerGroupDeleteOptionPtrOutput)
 }
 
-func (o GameServerGroupDeleteOptionOutput) ToOutput(ctx context.Context) pulumix.Output[GameServerGroupDeleteOption] {
-	return pulumix.Output[GameServerGroupDeleteOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GameServerGroupDeleteOptionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3068,12 +2906,6 @@ func (o GameServerGroupDeleteOptionPtrOutput) ToGameServerGroupDeleteOptionPtrOu
 	return o
 }
 
-func (o GameServerGroupDeleteOptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GameServerGroupDeleteOption] {
-	return pulumix.Output[*GameServerGroupDeleteOption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GameServerGroupDeleteOptionPtrOutput) Elem() GameServerGroupDeleteOptionOutput {
 	return o.ApplyT(func(v *GameServerGroupDeleteOption) GameServerGroupDeleteOption {
 		if v != nil {
@@ -3098,10 +2930,12 @@ func (o GameServerGroupDeleteOptionPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// GameServerGroupDeleteOptionInput is an input type that accepts GameServerGroupDeleteOptionArgs and GameServerGroupDeleteOptionOutput values.
-// You can construct a concrete instance of `GameServerGroupDeleteOptionInput` via:
+// GameServerGroupDeleteOptionInput is an input type that accepts values of the GameServerGroupDeleteOption enum
+// A concrete instance of `GameServerGroupDeleteOptionInput` can be one of the following:
 //
-//	GameServerGroupDeleteOptionArgs{...}
+//	GameServerGroupDeleteOptionSafeDelete
+//	GameServerGroupDeleteOptionForceDelete
+//	GameServerGroupDeleteOptionRetain
 type GameServerGroupDeleteOptionInput interface {
 	pulumi.Input
 
@@ -3210,12 +3044,6 @@ func (o GameServerGroupGameServerProtectionPolicyOutput) ToGameServerGroupGameSe
 	}).(GameServerGroupGameServerProtectionPolicyPtrOutput)
 }
 
-func (o GameServerGroupGameServerProtectionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[GameServerGroupGameServerProtectionPolicy] {
-	return pulumix.Output[GameServerGroupGameServerProtectionPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GameServerGroupGameServerProtectionPolicyOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3251,12 +3079,6 @@ func (o GameServerGroupGameServerProtectionPolicyPtrOutput) ToGameServerGroupGam
 	return o
 }
 
-func (o GameServerGroupGameServerProtectionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GameServerGroupGameServerProtectionPolicy] {
-	return pulumix.Output[*GameServerGroupGameServerProtectionPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GameServerGroupGameServerProtectionPolicyPtrOutput) Elem() GameServerGroupGameServerProtectionPolicyOutput {
 	return o.ApplyT(func(v *GameServerGroupGameServerProtectionPolicy) GameServerGroupGameServerProtectionPolicy {
 		if v != nil {
@@ -3281,10 +3103,11 @@ func (o GameServerGroupGameServerProtectionPolicyPtrOutput) ToStringPtrOutputWit
 	}).(pulumi.StringPtrOutput)
 }
 
-// GameServerGroupGameServerProtectionPolicyInput is an input type that accepts GameServerGroupGameServerProtectionPolicyArgs and GameServerGroupGameServerProtectionPolicyOutput values.
-// You can construct a concrete instance of `GameServerGroupGameServerProtectionPolicyInput` via:
+// GameServerGroupGameServerProtectionPolicyInput is an input type that accepts values of the GameServerGroupGameServerProtectionPolicy enum
+// A concrete instance of `GameServerGroupGameServerProtectionPolicyInput` can be one of the following:
 //
-//	GameServerGroupGameServerProtectionPolicyArgs{...}
+//	GameServerGroupGameServerProtectionPolicyNoProtection
+//	GameServerGroupGameServerProtectionPolicyFullProtection
 type GameServerGroupGameServerProtectionPolicyInput interface {
 	pulumi.Input
 
@@ -3394,12 +3217,6 @@ func (o GameSessionQueuePriorityOrderItemOutput) ToGameSessionQueuePriorityOrder
 	}).(GameSessionQueuePriorityOrderItemPtrOutput)
 }
 
-func (o GameSessionQueuePriorityOrderItemOutput) ToOutput(ctx context.Context) pulumix.Output[GameSessionQueuePriorityOrderItem] {
-	return pulumix.Output[GameSessionQueuePriorityOrderItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GameSessionQueuePriorityOrderItemOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3435,12 +3252,6 @@ func (o GameSessionQueuePriorityOrderItemPtrOutput) ToGameSessionQueuePriorityOr
 	return o
 }
 
-func (o GameSessionQueuePriorityOrderItemPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GameSessionQueuePriorityOrderItem] {
-	return pulumix.Output[*GameSessionQueuePriorityOrderItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GameSessionQueuePriorityOrderItemPtrOutput) Elem() GameSessionQueuePriorityOrderItemOutput {
 	return o.ApplyT(func(v *GameSessionQueuePriorityOrderItem) GameSessionQueuePriorityOrderItem {
 		if v != nil {
@@ -3465,10 +3276,13 @@ func (o GameSessionQueuePriorityOrderItemPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// GameSessionQueuePriorityOrderItemInput is an input type that accepts GameSessionQueuePriorityOrderItemArgs and GameSessionQueuePriorityOrderItemOutput values.
-// You can construct a concrete instance of `GameSessionQueuePriorityOrderItemInput` via:
+// GameSessionQueuePriorityOrderItemInput is an input type that accepts values of the GameSessionQueuePriorityOrderItem enum
+// A concrete instance of `GameSessionQueuePriorityOrderItemInput` can be one of the following:
 //
-//	GameSessionQueuePriorityOrderItemArgs{...}
+//	GameSessionQueuePriorityOrderItemLatency
+//	GameSessionQueuePriorityOrderItemCost
+//	GameSessionQueuePriorityOrderItemDestination
+//	GameSessionQueuePriorityOrderItemLocation
 type GameSessionQueuePriorityOrderItemInput interface {
 	pulumi.Input
 
@@ -3534,12 +3348,6 @@ func (i GameSessionQueuePriorityOrderItemArray) ToGameSessionQueuePriorityOrderI
 	return pulumi.ToOutputWithContext(ctx, i).(GameSessionQueuePriorityOrderItemArrayOutput)
 }
 
-func (i GameSessionQueuePriorityOrderItemArray) ToOutput(ctx context.Context) pulumix.Output[[]GameSessionQueuePriorityOrderItem] {
-	return pulumix.Output[[]GameSessionQueuePriorityOrderItem]{
-		OutputState: i.ToGameSessionQueuePriorityOrderItemArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GameSessionQueuePriorityOrderItemArrayOutput struct{ *pulumi.OutputState }
 
 func (GameSessionQueuePriorityOrderItemArrayOutput) ElementType() reflect.Type {
@@ -3552,12 +3360,6 @@ func (o GameSessionQueuePriorityOrderItemArrayOutput) ToGameSessionQueuePriority
 
 func (o GameSessionQueuePriorityOrderItemArrayOutput) ToGameSessionQueuePriorityOrderItemArrayOutputWithContext(ctx context.Context) GameSessionQueuePriorityOrderItemArrayOutput {
 	return o
-}
-
-func (o GameSessionQueuePriorityOrderItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GameSessionQueuePriorityOrderItem] {
-	return pulumix.Output[[]GameSessionQueuePriorityOrderItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GameSessionQueuePriorityOrderItemArrayOutput) Index(i pulumi.IntInput) GameSessionQueuePriorityOrderItemOutput {
@@ -3634,12 +3436,6 @@ func (o MatchmakingConfigurationBackfillModeOutput) ToMatchmakingConfigurationBa
 	}).(MatchmakingConfigurationBackfillModePtrOutput)
 }
 
-func (o MatchmakingConfigurationBackfillModeOutput) ToOutput(ctx context.Context) pulumix.Output[MatchmakingConfigurationBackfillMode] {
-	return pulumix.Output[MatchmakingConfigurationBackfillMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MatchmakingConfigurationBackfillModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3675,12 +3471,6 @@ func (o MatchmakingConfigurationBackfillModePtrOutput) ToMatchmakingConfiguratio
 	return o
 }
 
-func (o MatchmakingConfigurationBackfillModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MatchmakingConfigurationBackfillMode] {
-	return pulumix.Output[*MatchmakingConfigurationBackfillMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MatchmakingConfigurationBackfillModePtrOutput) Elem() MatchmakingConfigurationBackfillModeOutput {
 	return o.ApplyT(func(v *MatchmakingConfigurationBackfillMode) MatchmakingConfigurationBackfillMode {
 		if v != nil {
@@ -3705,10 +3495,11 @@ func (o MatchmakingConfigurationBackfillModePtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// MatchmakingConfigurationBackfillModeInput is an input type that accepts MatchmakingConfigurationBackfillModeArgs and MatchmakingConfigurationBackfillModeOutput values.
-// You can construct a concrete instance of `MatchmakingConfigurationBackfillModeInput` via:
+// MatchmakingConfigurationBackfillModeInput is an input type that accepts values of the MatchmakingConfigurationBackfillMode enum
+// A concrete instance of `MatchmakingConfigurationBackfillModeInput` can be one of the following:
 //
-//	MatchmakingConfigurationBackfillModeArgs{...}
+//	MatchmakingConfigurationBackfillModeAutomatic
+//	MatchmakingConfigurationBackfillModeManual
 type MatchmakingConfigurationBackfillModeInput interface {
 	pulumi.Input
 
@@ -3817,12 +3608,6 @@ func (o MatchmakingConfigurationFlexMatchModeOutput) ToMatchmakingConfigurationF
 	}).(MatchmakingConfigurationFlexMatchModePtrOutput)
 }
 
-func (o MatchmakingConfigurationFlexMatchModeOutput) ToOutput(ctx context.Context) pulumix.Output[MatchmakingConfigurationFlexMatchMode] {
-	return pulumix.Output[MatchmakingConfigurationFlexMatchMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MatchmakingConfigurationFlexMatchModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -3858,12 +3643,6 @@ func (o MatchmakingConfigurationFlexMatchModePtrOutput) ToMatchmakingConfigurati
 	return o
 }
 
-func (o MatchmakingConfigurationFlexMatchModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MatchmakingConfigurationFlexMatchMode] {
-	return pulumix.Output[*MatchmakingConfigurationFlexMatchMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MatchmakingConfigurationFlexMatchModePtrOutput) Elem() MatchmakingConfigurationFlexMatchModeOutput {
 	return o.ApplyT(func(v *MatchmakingConfigurationFlexMatchMode) MatchmakingConfigurationFlexMatchMode {
 		if v != nil {
@@ -3888,10 +3667,11 @@ func (o MatchmakingConfigurationFlexMatchModePtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// MatchmakingConfigurationFlexMatchModeInput is an input type that accepts MatchmakingConfigurationFlexMatchModeArgs and MatchmakingConfigurationFlexMatchModeOutput values.
-// You can construct a concrete instance of `MatchmakingConfigurationFlexMatchModeInput` via:
+// MatchmakingConfigurationFlexMatchModeInput is an input type that accepts values of the MatchmakingConfigurationFlexMatchMode enum
+// A concrete instance of `MatchmakingConfigurationFlexMatchModeInput` can be one of the following:
 //
-//	MatchmakingConfigurationFlexMatchModeArgs{...}
+//	MatchmakingConfigurationFlexMatchModeStandalone
+//	MatchmakingConfigurationFlexMatchModeWithQueue
 type MatchmakingConfigurationFlexMatchModeInput interface {
 	pulumi.Input
 
