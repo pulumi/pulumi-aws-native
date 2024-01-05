@@ -63,19 +63,19 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "redshift:CreateClusterSubnetGroup", "redshift:CreateTags", "ec2:AllocateAddress", "ec2:AssociateAddress", "ec2:AttachNetworkInterface", "ec2:DescribeAccountAttributes", "ec2:DescribeAddresses", "ec2:DescribeAvailabilityZones", "ec2:DescribeInternetGateways", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs" ]
+      "permissions" : [ "redshift:CreateClusterSubnetGroup", "redshift:CreateTags", "redshift:DescribeClusterSubnetGroups", "redshift:DescribeTags", "ec2:AllocateAddress", "ec2:AssociateAddress", "ec2:AttachNetworkInterface", "ec2:DescribeAccountAttributes", "ec2:DescribeAddresses", "ec2:DescribeAvailabilityZones", "ec2:DescribeInternetGateways", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs" ]
     },
     "read" : {
-      "permissions" : [ "redshift:DescribeClusterSubnetGroups", "ec2:AllocateAddress", "ec2:AssociateAddress", "ec2:AttachNetworkInterface", "ec2:DescribeAccountAttributes", "ec2:DescribeAddresses", "ec2:DescribeAvailabilityZones", "ec2:DescribeInternetGateways", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs" ]
+      "permissions" : [ "redshift:DescribeClusterSubnetGroups", "redshift:DescribeTags", "ec2:AllocateAddress", "ec2:AssociateAddress", "ec2:AttachNetworkInterface", "ec2:DescribeAccountAttributes", "ec2:DescribeAddresses", "ec2:DescribeAvailabilityZones", "ec2:DescribeInternetGateways", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs" ]
     },
     "update" : {
-      "permissions" : [ "redshift:ModifyClusterSubnetGroup", "redshift:DescribeTags", "redshift:CreateTags", "redshift:DeleteTags", "ec2:AllocateAddress", "ec2:AssociateAddress", "ec2:AttachNetworkInterface", "ec2:DescribeAccountAttributes", "ec2:DescribeAddresses", "ec2:DescribeAvailabilityZones", "ec2:DescribeInternetGateways", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs" ]
+      "permissions" : [ "redshift:ModifyClusterSubnetGroup", "redshift:DescribeClusterSubnetGroups", "redshift:DescribeTags", "redshift:CreateTags", "redshift:DeleteTags", "ec2:AllocateAddress", "ec2:AssociateAddress", "ec2:AttachNetworkInterface", "ec2:DescribeAccountAttributes", "ec2:DescribeAddresses", "ec2:DescribeAvailabilityZones", "ec2:DescribeInternetGateways", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs" ]
     },
     "delete" : {
-      "permissions" : [ "redshift:DeleteClusterSubnetGroup", "ec2:AllocateAddress", "ec2:AssociateAddress", "ec2:AttachNetworkInterface", "ec2:DescribeAccountAttributes", "ec2:DescribeAddresses", "ec2:DescribeAvailabilityZones", "ec2:DescribeInternetGateways", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs" ]
+      "permissions" : [ "redshift:DeleteClusterSubnetGroup", "redshift:DescribeClusterSubnetGroups", "redshift:DescribeTags", "ec2:AllocateAddress", "ec2:AssociateAddress", "ec2:AttachNetworkInterface", "ec2:DescribeAccountAttributes", "ec2:DescribeAddresses", "ec2:DescribeAvailabilityZones", "ec2:DescribeInternetGateways", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs" ]
     },
     "list" : {
-      "permissions" : [ "redshift:DescribeClusterSubnetGroups", "ec2:AllocateAddress", "ec2:AssociateAddress", "ec2:AttachNetworkInterface", "ec2:DescribeAccountAttributes", "ec2:DescribeAddresses", "ec2:DescribeAvailabilityZones", "ec2:DescribeInternetGateways", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs" ]
+      "permissions" : [ "redshift:DescribeClusterSubnetGroups", "redshift:DescribeTags", "ec2:AllocateAddress", "ec2:AssociateAddress", "ec2:AttachNetworkInterface", "ec2:DescribeAccountAttributes", "ec2:DescribeAddresses", "ec2:DescribeAvailabilityZones", "ec2:DescribeInternetGateways", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs" ]
     }
   }
 }

@@ -1,4 +1,5 @@
 {
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-quicksight",
   "typeName" : "AWS::QuickSight::Dashboard",
   "description" : "Definition of the AWS::QuickSight::Dashboard Resource Type.",
   "definitions" : {
@@ -7457,9 +7458,6 @@
           "maxLength" : 256,
           "minLength" : 1
         },
-        "Resource" : {
-          "type" : "string"
-        },
         "Actions" : {
           "type" : "array",
           "items" : {
@@ -10233,25 +10231,33 @@
     }
   },
   "required" : [ "AwsAccountId", "DashboardId", "Name" ],
-  "readOnlyProperties" : [ "/properties/DashboardError", "/properties/Arn", "/properties/CreatedTime", "/properties/LastPublishedTime", "/properties/LastUpdatedTime", "/properties/Version" ],
-  "writeOnlyProperties" : [ "/properties/DashboardPublishOptions", "/properties/Definition", "/properties/LinkSharingConfiguration", "/properties/Parameters", "/properties/SourceEntity", "/properties/ThemeArn", "/properties/VersionDescription", "/properties/CreatedTime", "/properties/LastUpdatedTime", "/properties/ValidationStrategy" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedTime", "/properties/LastPublishedTime", "/properties/LastUpdatedTime", "/properties/Version" ],
+  "writeOnlyProperties" : [ "/properties/DashboardPublishOptions", "/properties/Definition", "/properties/LinkSharingConfiguration", "/properties/Parameters", "/properties/SourceEntity", "/properties/ThemeArn", "/properties/VersionDescription", "/properties/ValidationStrategy" ],
   "createOnlyProperties" : [ "/properties/AwsAccountId", "/properties/DashboardId" ],
   "primaryIdentifier" : [ "/properties/AwsAccountId", "/properties/DashboardId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "quicksight:DescribeDashboard", "quicksight:DescribeDashboardPermissions", "quicksight:CreateDashboard", "quicksight:DescribeTemplate", "quicksight:DescribeTheme", "quicksight:PassDataSet", "quicksight:ListTagsForResource" ]
+      "permissions" : [ "quicksight:DescribeDashboard", "quicksight:DescribeDashboardPermissions", "quicksight:CreateDashboard", "quicksight:DescribeTemplate", "quicksight:DescribeTheme", "quicksight:PassDataSet", "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource" ]
     },
     "read" : {
-      "permissions" : [ "quicksight:DescribeDashboard" ]
+      "permissions" : [ "quicksight:DescribeDashboard", "quicksight:DescribeDashboardPermissions", "quicksight:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "quicksight:DescribeDashboard", "quicksight:DescribeDashboardPermissions", "quicksight:UpdateDashboard", "quicksight:UpdateDashboardPermissions", "quicksight:UpdateDashboardPublishedVersion", "quicksight:DescribeTheme", "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource" ]
+      "permissions" : [ "quicksight:DescribeDashboard", "quicksight:DescribeDashboardPermissions", "quicksight:UpdateDashboard", "quicksight:UpdateDashboardPermissions", "quicksight:UpdateDashboardPublishedVersion", "quicksight:DescribeTemplate", "quicksight:DescribeTheme", "quicksight:PassDataSet", "quicksight:TagResource", "quicksight:UntagResource", "quicksight:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "quicksight:DescribeDashboard", "quicksight:DeleteDashboard" ]
     },
     "list" : {
-      "permissions" : [ "quicksight:ListDashboards" ]
+      "permissions" : [ "quicksight:ListDashboards" ],
+      "handlerSchema" : {
+        "properties" : {
+          "AwsAccountId" : {
+            "$ref" : "resource-schema.json#/properties/AwsAccountId"
+          }
+        },
+        "required" : [ "AwsAccountId" ]
+      }
     }
   },
   "additionalProperties" : false
