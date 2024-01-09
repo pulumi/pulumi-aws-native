@@ -128,22 +128,22 @@
   "readOnlyProperties" : [ "/properties/Address", "/properties/EndpointStatus", "/properties/EndpointCreateTime", "/properties/Port", "/properties/VpcSecurityGroups", "/properties/VpcSecurityGroups/*/VpcSecurityGroupId", "/properties/VpcSecurityGroups/*/Status", "/properties/VpcEndpoint", "/properties/VpcEndpoint/VpcEndpointId", "/properties/VpcEndpoint/VpcId", "/properties/VpcEndpoint/NetworkInterfaces/*/NetworkInterfaceId", "/properties/VpcEndpoint/NetworkInterfaces/*/PrivateIpAddress", "/properties/VpcEndpoint/NetworkInterfaces/*/SubnetId", "/properties/VpcEndpoint/NetworkInterfaces/*/AvailabilityZone" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "redshift:CreateEndpointAccess", "ec2:CreateClientVpnEndpoint", "ec2:DescribeVpcAttribute", "ec2:DescribeSecurityGroups", "ec2:DescribeAddresses", "ec2:DescribeInternetGateways", "ec2:DescribeSubnets" ],
+      "permissions" : [ "redshift:CreateEndpointAccess", "redshift:DescribeEndpointAccess", "ec2:CreateClientVpnEndpoint", "ec2:CreateVpcEndpoint", "ec2:DescribeVpcAttribute", "ec2:DescribeSecurityGroups", "ec2:DescribeAddresses", "ec2:DescribeInternetGateways", "ec2:DescribeSubnets" ],
       "timeoutInMinutes" : 60
     },
     "read" : {
-      "permissions" : [ "redshift:DescribeEndpointAccess", "ec2:DescribeClientVpnEndpoints", "ec2:DescribeVpcAttribute", "ec2:DescribeSecurityGroups", "ec2:DescribeAddresses", "ec2:DescribeInternetGateways", "ec2:DescribeSubnets" ]
+      "permissions" : [ "redshift:DescribeEndpointAccess", "ec2:DescribeClientVpnEndpoints", "ec2:DescribeVpcEndpoint", "ec2:DescribeVpcAttribute", "ec2:DescribeSecurityGroups", "ec2:DescribeAddresses", "ec2:DescribeInternetGateways", "ec2:DescribeSubnets" ]
     },
     "update" : {
-      "permissions" : [ "redshift:ModifyEndpointAccess", "ec2:ModifyClientVpnEndpoint", "ec2:DescribeVpcAttribute", "ec2:DescribeSecurityGroups", "ec2:DescribeAddresses", "ec2:DescribeInternetGateways", "ec2:DescribeSubnets" ],
+      "permissions" : [ "redshift:DescribeEndpointAccess", "redshift:ModifyEndpointAccess", "ec2:ModifyClientVpnEndpoint", "ec2:ModifyVpcEndpoint", "ec2:DescribeVpcAttribute", "ec2:DescribeSecurityGroups", "ec2:DescribeAddresses", "ec2:DescribeInternetGateways", "ec2:DescribeSubnets" ],
       "timeoutInMinutes" : 60
     },
     "delete" : {
-      "permissions" : [ "redshift:DeleteEndpointAccess", "ec2:DeleteClientVpnEndpoint", "ec2:DescribeVpcAttribute", "ec2:DescribeSecurityGroups", "ec2:DescribeAddresses", "ec2:DescribeInternetGateways", "ec2:DescribeSubnets" ],
+      "permissions" : [ "redshift:DeleteEndpointAccess", "redshift:DescribeEndpointAccess", "ec2:DeleteClientVpnEndpoint", "ec2:DeleteVpcEndpoint", "ec2:DescribeVpcAttribute", "ec2:DescribeSecurityGroups", "ec2:DescribeAddresses", "ec2:DescribeInternetGateways", "ec2:DescribeSubnets", "ec2:DescribeVpcEndpoint" ],
       "timeoutInMinutes" : 60
     },
     "list" : {
-      "permissions" : [ "redshift:DescribeEndpointAccess", "ec2:DescribeClientVpnEndpoints", "ec2:DescribeVpcAttribute", "ec2:DescribeSecurityGroups", "ec2:DescribeAddresses", "ec2:DescribeInternetGateways", "ec2:DescribeSubnets" ]
+      "permissions" : [ "redshift:DescribeEndpointAccess", "ec2:DescribeClientVpnEndpoints", "ec2:DescribeVpcEndpoints", "ec2:DescribeVpcAttribute", "ec2:DescribeSecurityGroups", "ec2:DescribeAddresses", "ec2:DescribeInternetGateways", "ec2:DescribeSubnets" ]
     }
   }
 }

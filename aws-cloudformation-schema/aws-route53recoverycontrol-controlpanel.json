@@ -76,7 +76,7 @@
       "permissions" : [ "route53-recovery-control-config:UpdateControlPanel", "route53-recovery-control-config:DescribeControlPanel", "route53-recovery-control-config:ListTagsForResource", "route53-recovery-control-config:TagResource", "route53-recovery-control-config:UntagResource" ]
     },
     "delete" : {
-      "permissions" : [ "route53-recovery-control-config:DeleteControlPanel" ]
+      "permissions" : [ "route53-recovery-control-config:DeleteControlPanel", "route53-recovery-control-config:DescribeControlPanel" ]
     },
     "list" : {
       "permissions" : [ "route53-recovery-control-config:ListControlPanels" ]

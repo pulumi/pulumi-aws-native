@@ -77,7 +77,7 @@
   "primaryIdentifier" : [ "/properties/VpcConnectorArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "apprunner:CreateVpcConnector", "apprunner:DescribeVpcConnector", "apprunner:TagResource", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups" ]
+      "permissions" : [ "iam:CreateServiceLinkedRole", "apprunner:CreateVpcConnector", "apprunner:DescribeVpcConnector", "apprunner:TagResource", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups" ]
     },
     "read" : {
       "permissions" : [ "apprunner:DescribeVpcConnector" ]

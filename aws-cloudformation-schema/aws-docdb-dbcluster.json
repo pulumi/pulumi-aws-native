@@ -50,6 +50,9 @@
     "EngineVersion" : {
       "type" : "string"
     },
+    "StorageType" : {
+      "type" : "string"
+    },
     "KmsKeyId" : {
       "type" : "string"
     },
@@ -116,7 +119,7 @@
       "required" : [ "Value", "Key" ]
     }
   },
-  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/SnapshotIdentifier", "/properties/MasterUsername", "/properties/SourceDBClusterIdentifier", "/properties/DBClusterIdentifier", "/properties/AvailabilityZones", "/properties/DBSubnetGroupName", "/properties/EngineVersion", "/properties/StorageEncrypted" ],
+  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/SnapshotIdentifier", "/properties/MasterUsername", "/properties/SourceDBClusterIdentifier", "/properties/DBClusterIdentifier", "/properties/AvailabilityZones", "/properties/DBSubnetGroupName", "/properties/StorageEncrypted" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/ReadEndpoint", "/properties/Id", "/properties/Endpoint", "/properties/ClusterResourceId" ]
 }
