@@ -46,9 +46,17 @@
       "permissions" : [ "route53-recovery-control-config:UpdateRoutingControl", "route53-recovery-control-config:DescribeRoutingControl", "route53-recovery-control-config:DescribeControlPanel" ]
     },
     "delete" : {
-      "permissions" : [ "route53-recovery-control-config:DeleteRoutingControl" ]
+      "permissions" : [ "route53-recovery-control-config:DescribeRoutingControl", "route53-recovery-control-config:DeleteRoutingControl" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "ControlPanelArn" : {
+            "$ref" : "resource-schema.json#/properties/ControlPanelArn"
+          }
+        },
+        "required" : [ "ControlPanelArn" ]
+      },
       "permissions" : [ "route53-recovery-control-config:ListRoutingControls" ]
     }
   }

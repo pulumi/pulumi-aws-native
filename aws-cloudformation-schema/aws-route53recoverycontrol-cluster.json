@@ -81,13 +81,13 @@
   "primaryIdentifier" : [ "/properties/ClusterArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "route53-recovery-control-config:CreateCluster", "route53-recovery-control-config:ListTagsForResource", "route53-recovery-control-config:TagResource" ]
+      "permissions" : [ "route53-recovery-control-config:CreateCluster", "route53-recovery-control-config:DescribeCluster", "route53-recovery-control-config:ListTagsForResource", "route53-recovery-control-config:TagResource" ]
     },
     "read" : {
       "permissions" : [ "route53-recovery-control-config:DescribeCluster", "route53-recovery-control-config:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "route53-recovery-control-config:DeleteCluster" ]
+      "permissions" : [ "route53-recovery-control-config:DescribeCluster", "route53-recovery-control-config:DeleteCluster" ]
     },
     "list" : {
       "permissions" : [ "route53-recovery-control-config:ListClusters" ]
