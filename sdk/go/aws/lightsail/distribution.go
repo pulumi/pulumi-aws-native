@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Lightsail::Distribution
@@ -169,12 +168,6 @@ func (i *Distribution) ToDistributionOutputWithContext(ctx context.Context) Dist
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionOutput)
 }
 
-func (i *Distribution) ToOutput(ctx context.Context) pulumix.Output[*Distribution] {
-	return pulumix.Output[*Distribution]{
-		OutputState: i.ToDistributionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DistributionOutput struct{ *pulumi.OutputState }
 
 func (DistributionOutput) ElementType() reflect.Type {
@@ -187,12 +180,6 @@ func (o DistributionOutput) ToDistributionOutput() DistributionOutput {
 
 func (o DistributionOutput) ToDistributionOutputWithContext(ctx context.Context) DistributionOutput {
 	return o
-}
-
-func (o DistributionOutput) ToOutput(ctx context.Context) pulumix.Output[*Distribution] {
-	return pulumix.Output[*Distribution]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Indicates whether the bundle that is currently applied to your distribution, specified using the distributionName parameter, can be changed to another bundle.

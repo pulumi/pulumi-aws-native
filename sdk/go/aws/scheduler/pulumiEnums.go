@@ -79,12 +79,6 @@ func (o ScheduleAssignPublicIpOutput) ToScheduleAssignPublicIpPtrOutputWithConte
 	}).(ScheduleAssignPublicIpPtrOutput)
 }
 
-func (o ScheduleAssignPublicIpOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleAssignPublicIp] {
-	return pulumix.Output[ScheduleAssignPublicIp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduleAssignPublicIpOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +114,6 @@ func (o ScheduleAssignPublicIpPtrOutput) ToScheduleAssignPublicIpPtrOutputWithCo
 	return o
 }
 
-func (o ScheduleAssignPublicIpPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleAssignPublicIp] {
-	return pulumix.Output[*ScheduleAssignPublicIp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduleAssignPublicIpPtrOutput) Elem() ScheduleAssignPublicIpOutput {
 	return o.ApplyT(func(v *ScheduleAssignPublicIp) ScheduleAssignPublicIp {
 		if v != nil {
@@ -150,10 +138,11 @@ func (o ScheduleAssignPublicIpPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// ScheduleAssignPublicIpInput is an input type that accepts ScheduleAssignPublicIpArgs and ScheduleAssignPublicIpOutput values.
-// You can construct a concrete instance of `ScheduleAssignPublicIpInput` via:
+// ScheduleAssignPublicIpInput is an input type that accepts values of the ScheduleAssignPublicIp enum
+// A concrete instance of `ScheduleAssignPublicIpInput` can be one of the following:
 //
-//	ScheduleAssignPublicIpArgs{...}
+//	ScheduleAssignPublicIpEnabled
+//	ScheduleAssignPublicIpDisabled
 type ScheduleAssignPublicIpInput interface {
 	pulumi.Input
 
@@ -262,12 +251,6 @@ func (o ScheduleFlexibleTimeWindowModeOutput) ToScheduleFlexibleTimeWindowModePt
 	}).(ScheduleFlexibleTimeWindowModePtrOutput)
 }
 
-func (o ScheduleFlexibleTimeWindowModeOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleFlexibleTimeWindowMode] {
-	return pulumix.Output[ScheduleFlexibleTimeWindowMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduleFlexibleTimeWindowModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -303,12 +286,6 @@ func (o ScheduleFlexibleTimeWindowModePtrOutput) ToScheduleFlexibleTimeWindowMod
 	return o
 }
 
-func (o ScheduleFlexibleTimeWindowModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleFlexibleTimeWindowMode] {
-	return pulumix.Output[*ScheduleFlexibleTimeWindowMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduleFlexibleTimeWindowModePtrOutput) Elem() ScheduleFlexibleTimeWindowModeOutput {
 	return o.ApplyT(func(v *ScheduleFlexibleTimeWindowMode) ScheduleFlexibleTimeWindowMode {
 		if v != nil {
@@ -333,10 +310,11 @@ func (o ScheduleFlexibleTimeWindowModePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// ScheduleFlexibleTimeWindowModeInput is an input type that accepts ScheduleFlexibleTimeWindowModeArgs and ScheduleFlexibleTimeWindowModeOutput values.
-// You can construct a concrete instance of `ScheduleFlexibleTimeWindowModeInput` via:
+// ScheduleFlexibleTimeWindowModeInput is an input type that accepts values of the ScheduleFlexibleTimeWindowMode enum
+// A concrete instance of `ScheduleFlexibleTimeWindowModeInput` can be one of the following:
 //
-//	ScheduleFlexibleTimeWindowModeArgs{...}
+//	ScheduleFlexibleTimeWindowModeOff
+//	ScheduleFlexibleTimeWindowModeFlexible
 type ScheduleFlexibleTimeWindowModeInput interface {
 	pulumi.Input
 
@@ -409,12 +387,6 @@ func (o ScheduleGroupStateEnumOutput) ToScheduleGroupStateEnumPtrOutputWithConte
 	}).(ScheduleGroupStateEnumPtrOutput)
 }
 
-func (o ScheduleGroupStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleGroupStateEnum] {
-	return pulumix.Output[ScheduleGroupStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduleGroupStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -448,12 +420,6 @@ func (o ScheduleGroupStateEnumPtrOutput) ToScheduleGroupStateEnumPtrOutput() Sch
 
 func (o ScheduleGroupStateEnumPtrOutput) ToScheduleGroupStateEnumPtrOutputWithContext(ctx context.Context) ScheduleGroupStateEnumPtrOutput {
 	return o
-}
-
-func (o ScheduleGroupStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleGroupStateEnum] {
-	return pulumix.Output[*ScheduleGroupStateEnum]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduleGroupStateEnumPtrOutput) Elem() ScheduleGroupStateEnumOutput {
@@ -549,12 +515,6 @@ func (o ScheduleLaunchTypeOutput) ToScheduleLaunchTypePtrOutputWithContext(ctx c
 	}).(ScheduleLaunchTypePtrOutput)
 }
 
-func (o ScheduleLaunchTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleLaunchType] {
-	return pulumix.Output[ScheduleLaunchType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduleLaunchTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -590,12 +550,6 @@ func (o ScheduleLaunchTypePtrOutput) ToScheduleLaunchTypePtrOutputWithContext(ct
 	return o
 }
 
-func (o ScheduleLaunchTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleLaunchType] {
-	return pulumix.Output[*ScheduleLaunchType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduleLaunchTypePtrOutput) Elem() ScheduleLaunchTypeOutput {
 	return o.ApplyT(func(v *ScheduleLaunchType) ScheduleLaunchType {
 		if v != nil {
@@ -620,10 +574,12 @@ func (o ScheduleLaunchTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// ScheduleLaunchTypeInput is an input type that accepts ScheduleLaunchTypeArgs and ScheduleLaunchTypeOutput values.
-// You can construct a concrete instance of `ScheduleLaunchTypeInput` via:
+// ScheduleLaunchTypeInput is an input type that accepts values of the ScheduleLaunchType enum
+// A concrete instance of `ScheduleLaunchTypeInput` can be one of the following:
 //
-//	ScheduleLaunchTypeArgs{...}
+//	ScheduleLaunchTypeEc2
+//	ScheduleLaunchTypeFargate
+//	ScheduleLaunchTypeExternal
 type ScheduleLaunchTypeInput interface {
 	pulumi.Input
 
@@ -732,12 +688,6 @@ func (o SchedulePlacementConstraintTypeOutput) ToSchedulePlacementConstraintType
 	}).(SchedulePlacementConstraintTypePtrOutput)
 }
 
-func (o SchedulePlacementConstraintTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SchedulePlacementConstraintType] {
-	return pulumix.Output[SchedulePlacementConstraintType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchedulePlacementConstraintTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -773,12 +723,6 @@ func (o SchedulePlacementConstraintTypePtrOutput) ToSchedulePlacementConstraintT
 	return o
 }
 
-func (o SchedulePlacementConstraintTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchedulePlacementConstraintType] {
-	return pulumix.Output[*SchedulePlacementConstraintType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchedulePlacementConstraintTypePtrOutput) Elem() SchedulePlacementConstraintTypeOutput {
 	return o.ApplyT(func(v *SchedulePlacementConstraintType) SchedulePlacementConstraintType {
 		if v != nil {
@@ -803,10 +747,11 @@ func (o SchedulePlacementConstraintTypePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// SchedulePlacementConstraintTypeInput is an input type that accepts SchedulePlacementConstraintTypeArgs and SchedulePlacementConstraintTypeOutput values.
-// You can construct a concrete instance of `SchedulePlacementConstraintTypeInput` via:
+// SchedulePlacementConstraintTypeInput is an input type that accepts values of the SchedulePlacementConstraintType enum
+// A concrete instance of `SchedulePlacementConstraintTypeInput` can be one of the following:
 //
-//	SchedulePlacementConstraintTypeArgs{...}
+//	SchedulePlacementConstraintTypeDistinctInstance
+//	SchedulePlacementConstraintTypeMemberOf
 type SchedulePlacementConstraintTypeInput interface {
 	pulumi.Input
 
@@ -916,12 +861,6 @@ func (o SchedulePlacementStrategyTypeOutput) ToSchedulePlacementStrategyTypePtrO
 	}).(SchedulePlacementStrategyTypePtrOutput)
 }
 
-func (o SchedulePlacementStrategyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SchedulePlacementStrategyType] {
-	return pulumix.Output[SchedulePlacementStrategyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchedulePlacementStrategyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -957,12 +896,6 @@ func (o SchedulePlacementStrategyTypePtrOutput) ToSchedulePlacementStrategyTypeP
 	return o
 }
 
-func (o SchedulePlacementStrategyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchedulePlacementStrategyType] {
-	return pulumix.Output[*SchedulePlacementStrategyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchedulePlacementStrategyTypePtrOutput) Elem() SchedulePlacementStrategyTypeOutput {
 	return o.ApplyT(func(v *SchedulePlacementStrategyType) SchedulePlacementStrategyType {
 		if v != nil {
@@ -987,10 +920,12 @@ func (o SchedulePlacementStrategyTypePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// SchedulePlacementStrategyTypeInput is an input type that accepts SchedulePlacementStrategyTypeArgs and SchedulePlacementStrategyTypeOutput values.
-// You can construct a concrete instance of `SchedulePlacementStrategyTypeInput` via:
+// SchedulePlacementStrategyTypeInput is an input type that accepts values of the SchedulePlacementStrategyType enum
+// A concrete instance of `SchedulePlacementStrategyTypeInput` can be one of the following:
 //
-//	SchedulePlacementStrategyTypeArgs{...}
+//	SchedulePlacementStrategyTypeRandom
+//	SchedulePlacementStrategyTypeSpread
+//	SchedulePlacementStrategyTypeBinpack
 type SchedulePlacementStrategyTypeInput interface {
 	pulumi.Input
 
@@ -1098,12 +1033,6 @@ func (o SchedulePropagateTagsOutput) ToSchedulePropagateTagsPtrOutputWithContext
 	}).(SchedulePropagateTagsPtrOutput)
 }
 
-func (o SchedulePropagateTagsOutput) ToOutput(ctx context.Context) pulumix.Output[SchedulePropagateTags] {
-	return pulumix.Output[SchedulePropagateTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchedulePropagateTagsOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1139,12 +1068,6 @@ func (o SchedulePropagateTagsPtrOutput) ToSchedulePropagateTagsPtrOutputWithCont
 	return o
 }
 
-func (o SchedulePropagateTagsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchedulePropagateTags] {
-	return pulumix.Output[*SchedulePropagateTags]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchedulePropagateTagsPtrOutput) Elem() SchedulePropagateTagsOutput {
 	return o.ApplyT(func(v *SchedulePropagateTags) SchedulePropagateTags {
 		if v != nil {
@@ -1169,10 +1092,10 @@ func (o SchedulePropagateTagsPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// SchedulePropagateTagsInput is an input type that accepts SchedulePropagateTagsArgs and SchedulePropagateTagsOutput values.
-// You can construct a concrete instance of `SchedulePropagateTagsInput` via:
+// SchedulePropagateTagsInput is an input type that accepts values of the SchedulePropagateTags enum
+// A concrete instance of `SchedulePropagateTagsInput` can be one of the following:
 //
-//	SchedulePropagateTagsArgs{...}
+//	SchedulePropagateTagsTaskDefinition
 type SchedulePropagateTagsInput interface {
 	pulumi.Input
 
@@ -1281,12 +1204,6 @@ func (o ScheduleStateEnumOutput) ToScheduleStateEnumPtrOutputWithContext(ctx con
 	}).(ScheduleStateEnumPtrOutput)
 }
 
-func (o ScheduleStateEnumOutput) ToOutput(ctx context.Context) pulumix.Output[ScheduleStateEnum] {
-	return pulumix.Output[ScheduleStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduleStateEnumOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -1322,12 +1239,6 @@ func (o ScheduleStateEnumPtrOutput) ToScheduleStateEnumPtrOutputWithContext(ctx 
 	return o
 }
 
-func (o ScheduleStateEnumPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduleStateEnum] {
-	return pulumix.Output[*ScheduleStateEnum]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduleStateEnumPtrOutput) Elem() ScheduleStateEnumOutput {
 	return o.ApplyT(func(v *ScheduleStateEnum) ScheduleStateEnum {
 		if v != nil {
@@ -1352,10 +1263,11 @@ func (o ScheduleStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// ScheduleStateEnumInput is an input type that accepts ScheduleStateEnumArgs and ScheduleStateEnumOutput values.
-// You can construct a concrete instance of `ScheduleStateEnumInput` via:
+// ScheduleStateEnumInput is an input type that accepts values of the ScheduleStateEnum enum
+// A concrete instance of `ScheduleStateEnumInput` can be one of the following:
 //
-//	ScheduleStateEnumArgs{...}
+//	ScheduleStateEnumEnabled
+//	ScheduleStateEnumDisabled
 type ScheduleStateEnumInput interface {
 	pulumi.Input
 

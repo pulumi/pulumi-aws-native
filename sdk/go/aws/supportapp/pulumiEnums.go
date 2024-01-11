@@ -80,12 +80,6 @@ func (o SlackChannelConfigurationNotifyOnCaseSeverityOutput) ToSlackChannelConfi
 	}).(SlackChannelConfigurationNotifyOnCaseSeverityPtrOutput)
 }
 
-func (o SlackChannelConfigurationNotifyOnCaseSeverityOutput) ToOutput(ctx context.Context) pulumix.Output[SlackChannelConfigurationNotifyOnCaseSeverity] {
-	return pulumix.Output[SlackChannelConfigurationNotifyOnCaseSeverity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SlackChannelConfigurationNotifyOnCaseSeverityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -121,12 +115,6 @@ func (o SlackChannelConfigurationNotifyOnCaseSeverityPtrOutput) ToSlackChannelCo
 	return o
 }
 
-func (o SlackChannelConfigurationNotifyOnCaseSeverityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SlackChannelConfigurationNotifyOnCaseSeverity] {
-	return pulumix.Output[*SlackChannelConfigurationNotifyOnCaseSeverity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SlackChannelConfigurationNotifyOnCaseSeverityPtrOutput) Elem() SlackChannelConfigurationNotifyOnCaseSeverityOutput {
 	return o.ApplyT(func(v *SlackChannelConfigurationNotifyOnCaseSeverity) SlackChannelConfigurationNotifyOnCaseSeverity {
 		if v != nil {
@@ -151,10 +139,12 @@ func (o SlackChannelConfigurationNotifyOnCaseSeverityPtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// SlackChannelConfigurationNotifyOnCaseSeverityInput is an input type that accepts SlackChannelConfigurationNotifyOnCaseSeverityArgs and SlackChannelConfigurationNotifyOnCaseSeverityOutput values.
-// You can construct a concrete instance of `SlackChannelConfigurationNotifyOnCaseSeverityInput` via:
+// SlackChannelConfigurationNotifyOnCaseSeverityInput is an input type that accepts values of the SlackChannelConfigurationNotifyOnCaseSeverity enum
+// A concrete instance of `SlackChannelConfigurationNotifyOnCaseSeverityInput` can be one of the following:
 //
-//	SlackChannelConfigurationNotifyOnCaseSeverityArgs{...}
+//	SlackChannelConfigurationNotifyOnCaseSeverityNone
+//	SlackChannelConfigurationNotifyOnCaseSeverityAll
+//	SlackChannelConfigurationNotifyOnCaseSeverityHigh
 type SlackChannelConfigurationNotifyOnCaseSeverityInput interface {
 	pulumi.Input
 

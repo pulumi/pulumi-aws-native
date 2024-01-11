@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::DMS::MigrationProject
@@ -161,12 +160,6 @@ func (i *MigrationProject) ToMigrationProjectOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(MigrationProjectOutput)
 }
 
-func (i *MigrationProject) ToOutput(ctx context.Context) pulumix.Output[*MigrationProject] {
-	return pulumix.Output[*MigrationProject]{
-		OutputState: i.ToMigrationProjectOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MigrationProjectOutput struct{ *pulumi.OutputState }
 
 func (MigrationProjectOutput) ElementType() reflect.Type {
@@ -179,12 +172,6 @@ func (o MigrationProjectOutput) ToMigrationProjectOutput() MigrationProjectOutpu
 
 func (o MigrationProjectOutput) ToMigrationProjectOutputWithContext(ctx context.Context) MigrationProjectOutput {
 	return o
-}
-
-func (o MigrationProjectOutput) ToOutput(ctx context.Context) pulumix.Output[*MigrationProject] {
-	return pulumix.Output[*MigrationProject]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The optional description of the migration project.

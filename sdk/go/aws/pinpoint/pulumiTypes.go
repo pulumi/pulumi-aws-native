@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i ApplicationSettingsCampaignHookArgs) ToApplicationSettingsCampaignHookOu
 
 func (i ApplicationSettingsCampaignHookArgs) ToApplicationSettingsCampaignHookOutputWithContext(ctx context.Context) ApplicationSettingsCampaignHookOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSettingsCampaignHookOutput)
-}
-
-func (i ApplicationSettingsCampaignHookArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationSettingsCampaignHook] {
-	return pulumix.Output[ApplicationSettingsCampaignHook]{
-		OutputState: i.ToApplicationSettingsCampaignHookOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ApplicationSettingsCampaignHookArgs) ToApplicationSettingsCampaignHookPtrOutput() ApplicationSettingsCampaignHookPtrOutput {
@@ -96,12 +89,6 @@ func (i *applicationSettingsCampaignHookPtrType) ToApplicationSettingsCampaignHo
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSettingsCampaignHookPtrOutput)
 }
 
-func (i *applicationSettingsCampaignHookPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationSettingsCampaignHook] {
-	return pulumix.Output[*ApplicationSettingsCampaignHook]{
-		OutputState: i.ToApplicationSettingsCampaignHookPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApplicationSettingsCampaignHookOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSettingsCampaignHookOutput) ElementType() reflect.Type {
@@ -124,12 +111,6 @@ func (o ApplicationSettingsCampaignHookOutput) ToApplicationSettingsCampaignHook
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSettingsCampaignHook) *ApplicationSettingsCampaignHook {
 		return &v
 	}).(ApplicationSettingsCampaignHookPtrOutput)
-}
-
-func (o ApplicationSettingsCampaignHookOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationSettingsCampaignHook] {
-	return pulumix.Output[ApplicationSettingsCampaignHook]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationSettingsCampaignHookOutput) LambdaFunctionName() pulumi.StringPtrOutput {
@@ -156,12 +137,6 @@ func (o ApplicationSettingsCampaignHookPtrOutput) ToApplicationSettingsCampaignH
 
 func (o ApplicationSettingsCampaignHookPtrOutput) ToApplicationSettingsCampaignHookPtrOutputWithContext(ctx context.Context) ApplicationSettingsCampaignHookPtrOutput {
 	return o
-}
-
-func (o ApplicationSettingsCampaignHookPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationSettingsCampaignHook] {
-	return pulumix.Output[*ApplicationSettingsCampaignHook]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationSettingsCampaignHookPtrOutput) Elem() ApplicationSettingsCampaignHookOutput {
@@ -238,12 +213,6 @@ func (i ApplicationSettingsLimitsArgs) ToApplicationSettingsLimitsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSettingsLimitsOutput)
 }
 
-func (i ApplicationSettingsLimitsArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationSettingsLimits] {
-	return pulumix.Output[ApplicationSettingsLimits]{
-		OutputState: i.ToApplicationSettingsLimitsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ApplicationSettingsLimitsArgs) ToApplicationSettingsLimitsPtrOutput() ApplicationSettingsLimitsPtrOutput {
 	return i.ToApplicationSettingsLimitsPtrOutputWithContext(context.Background())
 }
@@ -285,12 +254,6 @@ func (i *applicationSettingsLimitsPtrType) ToApplicationSettingsLimitsPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSettingsLimitsPtrOutput)
 }
 
-func (i *applicationSettingsLimitsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationSettingsLimits] {
-	return pulumix.Output[*ApplicationSettingsLimits]{
-		OutputState: i.ToApplicationSettingsLimitsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApplicationSettingsLimitsOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSettingsLimitsOutput) ElementType() reflect.Type {
@@ -313,12 +276,6 @@ func (o ApplicationSettingsLimitsOutput) ToApplicationSettingsLimitsPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationSettingsLimits) *ApplicationSettingsLimits {
 		return &v
 	}).(ApplicationSettingsLimitsPtrOutput)
-}
-
-func (o ApplicationSettingsLimitsOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationSettingsLimits] {
-	return pulumix.Output[ApplicationSettingsLimits]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationSettingsLimitsOutput) Daily() pulumi.IntPtrOutput {
@@ -349,12 +306,6 @@ func (o ApplicationSettingsLimitsPtrOutput) ToApplicationSettingsLimitsPtrOutput
 
 func (o ApplicationSettingsLimitsPtrOutput) ToApplicationSettingsLimitsPtrOutputWithContext(ctx context.Context) ApplicationSettingsLimitsPtrOutput {
 	return o
-}
-
-func (o ApplicationSettingsLimitsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationSettingsLimits] {
-	return pulumix.Output[*ApplicationSettingsLimits]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationSettingsLimitsPtrOutput) Elem() ApplicationSettingsLimitsOutput {
@@ -436,12 +387,6 @@ func (i ApplicationSettingsQuietTimeArgs) ToApplicationSettingsQuietTimeOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSettingsQuietTimeOutput)
 }
 
-func (i ApplicationSettingsQuietTimeArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationSettingsQuietTime] {
-	return pulumix.Output[ApplicationSettingsQuietTime]{
-		OutputState: i.ToApplicationSettingsQuietTimeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ApplicationSettingsQuietTimeArgs) ToApplicationSettingsQuietTimePtrOutput() ApplicationSettingsQuietTimePtrOutput {
 	return i.ToApplicationSettingsQuietTimePtrOutputWithContext(context.Background())
 }
@@ -483,12 +428,6 @@ func (i *applicationSettingsQuietTimePtrType) ToApplicationSettingsQuietTimePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationSettingsQuietTimePtrOutput)
 }
 
-func (i *applicationSettingsQuietTimePtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationSettingsQuietTime] {
-	return pulumix.Output[*ApplicationSettingsQuietTime]{
-		OutputState: i.ToApplicationSettingsQuietTimePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApplicationSettingsQuietTimeOutput struct{ *pulumi.OutputState }
 
 func (ApplicationSettingsQuietTimeOutput) ElementType() reflect.Type {
@@ -513,12 +452,6 @@ func (o ApplicationSettingsQuietTimeOutput) ToApplicationSettingsQuietTimePtrOut
 	}).(ApplicationSettingsQuietTimePtrOutput)
 }
 
-func (o ApplicationSettingsQuietTimeOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationSettingsQuietTime] {
-	return pulumix.Output[ApplicationSettingsQuietTime]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApplicationSettingsQuietTimeOutput) End() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationSettingsQuietTime) string { return v.End }).(pulumi.StringOutput)
 }
@@ -539,12 +472,6 @@ func (o ApplicationSettingsQuietTimePtrOutput) ToApplicationSettingsQuietTimePtr
 
 func (o ApplicationSettingsQuietTimePtrOutput) ToApplicationSettingsQuietTimePtrOutputWithContext(ctx context.Context) ApplicationSettingsQuietTimePtrOutput {
 	return o
-}
-
-func (o ApplicationSettingsQuietTimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationSettingsQuietTime] {
-	return pulumix.Output[*ApplicationSettingsQuietTime]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationSettingsQuietTimePtrOutput) Elem() ApplicationSettingsQuietTimeOutput {
@@ -608,12 +535,6 @@ func (i CampaignCustomDeliveryConfigurationArgs) ToCampaignCustomDeliveryConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignCustomDeliveryConfigurationOutput)
 }
 
-func (i CampaignCustomDeliveryConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignCustomDeliveryConfiguration] {
-	return pulumix.Output[CampaignCustomDeliveryConfiguration]{
-		OutputState: i.ToCampaignCustomDeliveryConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignCustomDeliveryConfigurationArgs) ToCampaignCustomDeliveryConfigurationPtrOutput() CampaignCustomDeliveryConfigurationPtrOutput {
 	return i.ToCampaignCustomDeliveryConfigurationPtrOutputWithContext(context.Background())
 }
@@ -655,12 +576,6 @@ func (i *campaignCustomDeliveryConfigurationPtrType) ToCampaignCustomDeliveryCon
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignCustomDeliveryConfigurationPtrOutput)
 }
 
-func (i *campaignCustomDeliveryConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignCustomDeliveryConfiguration] {
-	return pulumix.Output[*CampaignCustomDeliveryConfiguration]{
-		OutputState: i.ToCampaignCustomDeliveryConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignCustomDeliveryConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CampaignCustomDeliveryConfigurationOutput) ElementType() reflect.Type {
@@ -685,12 +600,6 @@ func (o CampaignCustomDeliveryConfigurationOutput) ToCampaignCustomDeliveryConfi
 	}).(CampaignCustomDeliveryConfigurationPtrOutput)
 }
 
-func (o CampaignCustomDeliveryConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignCustomDeliveryConfiguration] {
-	return pulumix.Output[CampaignCustomDeliveryConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CampaignCustomDeliveryConfigurationOutput) DeliveryUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CampaignCustomDeliveryConfiguration) *string { return v.DeliveryUri }).(pulumi.StringPtrOutput)
 }
@@ -711,12 +620,6 @@ func (o CampaignCustomDeliveryConfigurationPtrOutput) ToCampaignCustomDeliveryCo
 
 func (o CampaignCustomDeliveryConfigurationPtrOutput) ToCampaignCustomDeliveryConfigurationPtrOutputWithContext(ctx context.Context) CampaignCustomDeliveryConfigurationPtrOutput {
 	return o
-}
-
-func (o CampaignCustomDeliveryConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignCustomDeliveryConfiguration] {
-	return pulumix.Output[*CampaignCustomDeliveryConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignCustomDeliveryConfigurationPtrOutput) Elem() CampaignCustomDeliveryConfigurationOutput {
@@ -778,12 +681,6 @@ func (i CampaignCustomMessageArgs) ToCampaignCustomMessageOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignCustomMessageOutput)
 }
 
-func (i CampaignCustomMessageArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignCustomMessage] {
-	return pulumix.Output[CampaignCustomMessage]{
-		OutputState: i.ToCampaignCustomMessageOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignCustomMessageArgs) ToCampaignCustomMessagePtrOutput() CampaignCustomMessagePtrOutput {
 	return i.ToCampaignCustomMessagePtrOutputWithContext(context.Background())
 }
@@ -825,12 +722,6 @@ func (i *campaignCustomMessagePtrType) ToCampaignCustomMessagePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignCustomMessagePtrOutput)
 }
 
-func (i *campaignCustomMessagePtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignCustomMessage] {
-	return pulumix.Output[*CampaignCustomMessage]{
-		OutputState: i.ToCampaignCustomMessagePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignCustomMessageOutput struct{ *pulumi.OutputState }
 
 func (CampaignCustomMessageOutput) ElementType() reflect.Type {
@@ -855,12 +746,6 @@ func (o CampaignCustomMessageOutput) ToCampaignCustomMessagePtrOutputWithContext
 	}).(CampaignCustomMessagePtrOutput)
 }
 
-func (o CampaignCustomMessageOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignCustomMessage] {
-	return pulumix.Output[CampaignCustomMessage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CampaignCustomMessageOutput) Data() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CampaignCustomMessage) *string { return v.Data }).(pulumi.StringPtrOutput)
 }
@@ -877,12 +762,6 @@ func (o CampaignCustomMessagePtrOutput) ToCampaignCustomMessagePtrOutput() Campa
 
 func (o CampaignCustomMessagePtrOutput) ToCampaignCustomMessagePtrOutputWithContext(ctx context.Context) CampaignCustomMessagePtrOutput {
 	return o
-}
-
-func (o CampaignCustomMessagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignCustomMessage] {
-	return pulumix.Output[*CampaignCustomMessage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignCustomMessagePtrOutput) Elem() CampaignCustomMessageOutput {
@@ -945,12 +824,6 @@ func (i CampaignDefaultButtonConfigurationArgs) ToCampaignDefaultButtonConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignDefaultButtonConfigurationOutput)
 }
 
-func (i CampaignDefaultButtonConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignDefaultButtonConfiguration] {
-	return pulumix.Output[CampaignDefaultButtonConfiguration]{
-		OutputState: i.ToCampaignDefaultButtonConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignDefaultButtonConfigurationArgs) ToCampaignDefaultButtonConfigurationPtrOutput() CampaignDefaultButtonConfigurationPtrOutput {
 	return i.ToCampaignDefaultButtonConfigurationPtrOutputWithContext(context.Background())
 }
@@ -992,12 +865,6 @@ func (i *campaignDefaultButtonConfigurationPtrType) ToCampaignDefaultButtonConfi
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignDefaultButtonConfigurationPtrOutput)
 }
 
-func (i *campaignDefaultButtonConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignDefaultButtonConfiguration] {
-	return pulumix.Output[*CampaignDefaultButtonConfiguration]{
-		OutputState: i.ToCampaignDefaultButtonConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignDefaultButtonConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CampaignDefaultButtonConfigurationOutput) ElementType() reflect.Type {
@@ -1020,12 +887,6 @@ func (o CampaignDefaultButtonConfigurationOutput) ToCampaignDefaultButtonConfigu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignDefaultButtonConfiguration) *CampaignDefaultButtonConfiguration {
 		return &v
 	}).(CampaignDefaultButtonConfigurationPtrOutput)
-}
-
-func (o CampaignDefaultButtonConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignDefaultButtonConfiguration] {
-	return pulumix.Output[CampaignDefaultButtonConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignDefaultButtonConfigurationOutput) BackgroundColor() pulumi.StringPtrOutput {
@@ -1064,12 +925,6 @@ func (o CampaignDefaultButtonConfigurationPtrOutput) ToCampaignDefaultButtonConf
 
 func (o CampaignDefaultButtonConfigurationPtrOutput) ToCampaignDefaultButtonConfigurationPtrOutputWithContext(ctx context.Context) CampaignDefaultButtonConfigurationPtrOutput {
 	return o
-}
-
-func (o CampaignDefaultButtonConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignDefaultButtonConfiguration] {
-	return pulumix.Output[*CampaignDefaultButtonConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignDefaultButtonConfigurationPtrOutput) Elem() CampaignDefaultButtonConfigurationOutput {
@@ -1173,12 +1028,6 @@ func (i CampaignEmailMessageArgs) ToCampaignEmailMessageOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignEmailMessageOutput)
 }
 
-func (i CampaignEmailMessageArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignEmailMessage] {
-	return pulumix.Output[CampaignEmailMessage]{
-		OutputState: i.ToCampaignEmailMessageOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignEmailMessageArgs) ToCampaignEmailMessagePtrOutput() CampaignEmailMessagePtrOutput {
 	return i.ToCampaignEmailMessagePtrOutputWithContext(context.Background())
 }
@@ -1220,12 +1069,6 @@ func (i *campaignEmailMessagePtrType) ToCampaignEmailMessagePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignEmailMessagePtrOutput)
 }
 
-func (i *campaignEmailMessagePtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignEmailMessage] {
-	return pulumix.Output[*CampaignEmailMessage]{
-		OutputState: i.ToCampaignEmailMessagePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignEmailMessageOutput struct{ *pulumi.OutputState }
 
 func (CampaignEmailMessageOutput) ElementType() reflect.Type {
@@ -1248,12 +1091,6 @@ func (o CampaignEmailMessageOutput) ToCampaignEmailMessagePtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignEmailMessage) *CampaignEmailMessage {
 		return &v
 	}).(CampaignEmailMessagePtrOutput)
-}
-
-func (o CampaignEmailMessageOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignEmailMessage] {
-	return pulumix.Output[CampaignEmailMessage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignEmailMessageOutput) Body() pulumi.StringPtrOutput {
@@ -1284,12 +1121,6 @@ func (o CampaignEmailMessagePtrOutput) ToCampaignEmailMessagePtrOutput() Campaig
 
 func (o CampaignEmailMessagePtrOutput) ToCampaignEmailMessagePtrOutputWithContext(ctx context.Context) CampaignEmailMessagePtrOutput {
 	return o
-}
-
-func (o CampaignEmailMessagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignEmailMessage] {
-	return pulumix.Output[*CampaignEmailMessage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignEmailMessagePtrOutput) Elem() CampaignEmailMessageOutput {
@@ -1373,12 +1204,6 @@ func (i CampaignEventDimensionsArgs) ToCampaignEventDimensionsOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignEventDimensionsOutput)
 }
 
-func (i CampaignEventDimensionsArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignEventDimensions] {
-	return pulumix.Output[CampaignEventDimensions]{
-		OutputState: i.ToCampaignEventDimensionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignEventDimensionsArgs) ToCampaignEventDimensionsPtrOutput() CampaignEventDimensionsPtrOutput {
 	return i.ToCampaignEventDimensionsPtrOutputWithContext(context.Background())
 }
@@ -1420,12 +1245,6 @@ func (i *campaignEventDimensionsPtrType) ToCampaignEventDimensionsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignEventDimensionsPtrOutput)
 }
 
-func (i *campaignEventDimensionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignEventDimensions] {
-	return pulumix.Output[*CampaignEventDimensions]{
-		OutputState: i.ToCampaignEventDimensionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignEventDimensionsOutput struct{ *pulumi.OutputState }
 
 func (CampaignEventDimensionsOutput) ElementType() reflect.Type {
@@ -1448,12 +1267,6 @@ func (o CampaignEventDimensionsOutput) ToCampaignEventDimensionsPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignEventDimensions) *CampaignEventDimensions {
 		return &v
 	}).(CampaignEventDimensionsPtrOutput)
-}
-
-func (o CampaignEventDimensionsOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignEventDimensions] {
-	return pulumix.Output[CampaignEventDimensions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignEventDimensionsOutput) Attributes() pulumi.AnyOutput {
@@ -1480,12 +1293,6 @@ func (o CampaignEventDimensionsPtrOutput) ToCampaignEventDimensionsPtrOutput() C
 
 func (o CampaignEventDimensionsPtrOutput) ToCampaignEventDimensionsPtrOutputWithContext(ctx context.Context) CampaignEventDimensionsPtrOutput {
 	return o
-}
-
-func (o CampaignEventDimensionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignEventDimensions] {
-	return pulumix.Output[*CampaignEventDimensions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignEventDimensionsPtrOutput) Elem() CampaignEventDimensionsOutput {
@@ -1558,12 +1365,6 @@ func (i CampaignEventFilterArgs) ToCampaignEventFilterOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignEventFilterOutput)
 }
 
-func (i CampaignEventFilterArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignEventFilter] {
-	return pulumix.Output[CampaignEventFilter]{
-		OutputState: i.ToCampaignEventFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignEventFilterArgs) ToCampaignEventFilterPtrOutput() CampaignEventFilterPtrOutput {
 	return i.ToCampaignEventFilterPtrOutputWithContext(context.Background())
 }
@@ -1605,12 +1406,6 @@ func (i *campaignEventFilterPtrType) ToCampaignEventFilterPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignEventFilterPtrOutput)
 }
 
-func (i *campaignEventFilterPtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignEventFilter] {
-	return pulumix.Output[*CampaignEventFilter]{
-		OutputState: i.ToCampaignEventFilterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignEventFilterOutput struct{ *pulumi.OutputState }
 
 func (CampaignEventFilterOutput) ElementType() reflect.Type {
@@ -1635,12 +1430,6 @@ func (o CampaignEventFilterOutput) ToCampaignEventFilterPtrOutputWithContext(ctx
 	}).(CampaignEventFilterPtrOutput)
 }
 
-func (o CampaignEventFilterOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignEventFilter] {
-	return pulumix.Output[CampaignEventFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CampaignEventFilterOutput) Dimensions() CampaignEventDimensionsPtrOutput {
 	return o.ApplyT(func(v CampaignEventFilter) *CampaignEventDimensions { return v.Dimensions }).(CampaignEventDimensionsPtrOutput)
 }
@@ -1661,12 +1450,6 @@ func (o CampaignEventFilterPtrOutput) ToCampaignEventFilterPtrOutput() CampaignE
 
 func (o CampaignEventFilterPtrOutput) ToCampaignEventFilterPtrOutputWithContext(ctx context.Context) CampaignEventFilterPtrOutput {
 	return o
-}
-
-func (o CampaignEventFilterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignEventFilter] {
-	return pulumix.Output[*CampaignEventFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignEventFilterPtrOutput) Elem() CampaignEventFilterOutput {
@@ -1732,12 +1515,6 @@ func (i CampaignHookArgs) ToCampaignHookOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignHookOutput)
 }
 
-func (i CampaignHookArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignHook] {
-	return pulumix.Output[CampaignHook]{
-		OutputState: i.ToCampaignHookOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignHookArgs) ToCampaignHookPtrOutput() CampaignHookPtrOutput {
 	return i.ToCampaignHookPtrOutputWithContext(context.Background())
 }
@@ -1779,12 +1556,6 @@ func (i *campaignHookPtrType) ToCampaignHookPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignHookPtrOutput)
 }
 
-func (i *campaignHookPtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignHook] {
-	return pulumix.Output[*CampaignHook]{
-		OutputState: i.ToCampaignHookPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignHookOutput struct{ *pulumi.OutputState }
 
 func (CampaignHookOutput) ElementType() reflect.Type {
@@ -1807,12 +1578,6 @@ func (o CampaignHookOutput) ToCampaignHookPtrOutputWithContext(ctx context.Conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignHook) *CampaignHook {
 		return &v
 	}).(CampaignHookPtrOutput)
-}
-
-func (o CampaignHookOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignHook] {
-	return pulumix.Output[CampaignHook]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignHookOutput) LambdaFunctionName() pulumi.StringPtrOutput {
@@ -1839,12 +1604,6 @@ func (o CampaignHookPtrOutput) ToCampaignHookPtrOutput() CampaignHookPtrOutput {
 
 func (o CampaignHookPtrOutput) ToCampaignHookPtrOutputWithContext(ctx context.Context) CampaignHookPtrOutput {
 	return o
-}
-
-func (o CampaignHookPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignHook] {
-	return pulumix.Output[*CampaignHook]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignHookPtrOutput) Elem() CampaignHookOutput {
@@ -1919,12 +1678,6 @@ func (i CampaignInAppMessageArgs) ToCampaignInAppMessageOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignInAppMessageOutput)
 }
 
-func (i CampaignInAppMessageArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignInAppMessage] {
-	return pulumix.Output[CampaignInAppMessage]{
-		OutputState: i.ToCampaignInAppMessageOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignInAppMessageArgs) ToCampaignInAppMessagePtrOutput() CampaignInAppMessagePtrOutput {
 	return i.ToCampaignInAppMessagePtrOutputWithContext(context.Background())
 }
@@ -1966,12 +1719,6 @@ func (i *campaignInAppMessagePtrType) ToCampaignInAppMessagePtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignInAppMessagePtrOutput)
 }
 
-func (i *campaignInAppMessagePtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignInAppMessage] {
-	return pulumix.Output[*CampaignInAppMessage]{
-		OutputState: i.ToCampaignInAppMessagePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignInAppMessageOutput struct{ *pulumi.OutputState }
 
 func (CampaignInAppMessageOutput) ElementType() reflect.Type {
@@ -1994,12 +1741,6 @@ func (o CampaignInAppMessageOutput) ToCampaignInAppMessagePtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignInAppMessage) *CampaignInAppMessage {
 		return &v
 	}).(CampaignInAppMessagePtrOutput)
-}
-
-func (o CampaignInAppMessageOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignInAppMessage] {
-	return pulumix.Output[CampaignInAppMessage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignInAppMessageOutput) Content() CampaignInAppMessageContentArrayOutput {
@@ -2026,12 +1767,6 @@ func (o CampaignInAppMessagePtrOutput) ToCampaignInAppMessagePtrOutput() Campaig
 
 func (o CampaignInAppMessagePtrOutput) ToCampaignInAppMessagePtrOutputWithContext(ctx context.Context) CampaignInAppMessagePtrOutput {
 	return o
-}
-
-func (o CampaignInAppMessagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignInAppMessage] {
-	return pulumix.Output[*CampaignInAppMessage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignInAppMessagePtrOutput) Elem() CampaignInAppMessageOutput {
@@ -2106,12 +1841,6 @@ func (i CampaignInAppMessageBodyConfigArgs) ToCampaignInAppMessageBodyConfigOutp
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignInAppMessageBodyConfigOutput)
 }
 
-func (i CampaignInAppMessageBodyConfigArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignInAppMessageBodyConfig] {
-	return pulumix.Output[CampaignInAppMessageBodyConfig]{
-		OutputState: i.ToCampaignInAppMessageBodyConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignInAppMessageBodyConfigArgs) ToCampaignInAppMessageBodyConfigPtrOutput() CampaignInAppMessageBodyConfigPtrOutput {
 	return i.ToCampaignInAppMessageBodyConfigPtrOutputWithContext(context.Background())
 }
@@ -2153,12 +1882,6 @@ func (i *campaignInAppMessageBodyConfigPtrType) ToCampaignInAppMessageBodyConfig
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignInAppMessageBodyConfigPtrOutput)
 }
 
-func (i *campaignInAppMessageBodyConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignInAppMessageBodyConfig] {
-	return pulumix.Output[*CampaignInAppMessageBodyConfig]{
-		OutputState: i.ToCampaignInAppMessageBodyConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignInAppMessageBodyConfigOutput struct{ *pulumi.OutputState }
 
 func (CampaignInAppMessageBodyConfigOutput) ElementType() reflect.Type {
@@ -2181,12 +1904,6 @@ func (o CampaignInAppMessageBodyConfigOutput) ToCampaignInAppMessageBodyConfigPt
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignInAppMessageBodyConfig) *CampaignInAppMessageBodyConfig {
 		return &v
 	}).(CampaignInAppMessageBodyConfigPtrOutput)
-}
-
-func (o CampaignInAppMessageBodyConfigOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignInAppMessageBodyConfig] {
-	return pulumix.Output[CampaignInAppMessageBodyConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignInAppMessageBodyConfigOutput) Alignment() pulumi.StringPtrOutput {
@@ -2213,12 +1930,6 @@ func (o CampaignInAppMessageBodyConfigPtrOutput) ToCampaignInAppMessageBodyConfi
 
 func (o CampaignInAppMessageBodyConfigPtrOutput) ToCampaignInAppMessageBodyConfigPtrOutputWithContext(ctx context.Context) CampaignInAppMessageBodyConfigPtrOutput {
 	return o
-}
-
-func (o CampaignInAppMessageBodyConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignInAppMessageBodyConfig] {
-	return pulumix.Output[*CampaignInAppMessageBodyConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignInAppMessageBodyConfigPtrOutput) Elem() CampaignInAppMessageBodyConfigOutput {
@@ -2295,12 +2006,6 @@ func (i CampaignInAppMessageButtonArgs) ToCampaignInAppMessageButtonOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignInAppMessageButtonOutput)
 }
 
-func (i CampaignInAppMessageButtonArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignInAppMessageButton] {
-	return pulumix.Output[CampaignInAppMessageButton]{
-		OutputState: i.ToCampaignInAppMessageButtonOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignInAppMessageButtonArgs) ToCampaignInAppMessageButtonPtrOutput() CampaignInAppMessageButtonPtrOutput {
 	return i.ToCampaignInAppMessageButtonPtrOutputWithContext(context.Background())
 }
@@ -2342,12 +2047,6 @@ func (i *campaignInAppMessageButtonPtrType) ToCampaignInAppMessageButtonPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignInAppMessageButtonPtrOutput)
 }
 
-func (i *campaignInAppMessageButtonPtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignInAppMessageButton] {
-	return pulumix.Output[*CampaignInAppMessageButton]{
-		OutputState: i.ToCampaignInAppMessageButtonPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignInAppMessageButtonOutput struct{ *pulumi.OutputState }
 
 func (CampaignInAppMessageButtonOutput) ElementType() reflect.Type {
@@ -2370,12 +2069,6 @@ func (o CampaignInAppMessageButtonOutput) ToCampaignInAppMessageButtonPtrOutputW
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignInAppMessageButton) *CampaignInAppMessageButton {
 		return &v
 	}).(CampaignInAppMessageButtonPtrOutput)
-}
-
-func (o CampaignInAppMessageButtonOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignInAppMessageButton] {
-	return pulumix.Output[CampaignInAppMessageButton]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignInAppMessageButtonOutput) Android() CampaignOverrideButtonConfigurationPtrOutput {
@@ -2406,12 +2099,6 @@ func (o CampaignInAppMessageButtonPtrOutput) ToCampaignInAppMessageButtonPtrOutp
 
 func (o CampaignInAppMessageButtonPtrOutput) ToCampaignInAppMessageButtonPtrOutputWithContext(ctx context.Context) CampaignInAppMessageButtonPtrOutput {
 	return o
-}
-
-func (o CampaignInAppMessageButtonPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignInAppMessageButton] {
-	return pulumix.Output[*CampaignInAppMessageButton]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignInAppMessageButtonPtrOutput) Elem() CampaignInAppMessageButtonOutput {
@@ -2501,12 +2188,6 @@ func (i CampaignInAppMessageContentArgs) ToCampaignInAppMessageContentOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignInAppMessageContentOutput)
 }
 
-func (i CampaignInAppMessageContentArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignInAppMessageContent] {
-	return pulumix.Output[CampaignInAppMessageContent]{
-		OutputState: i.ToCampaignInAppMessageContentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CampaignInAppMessageContentArrayInput is an input type that accepts CampaignInAppMessageContentArray and CampaignInAppMessageContentArrayOutput values.
 // You can construct a concrete instance of `CampaignInAppMessageContentArrayInput` via:
 //
@@ -2532,12 +2213,6 @@ func (i CampaignInAppMessageContentArray) ToCampaignInAppMessageContentArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignInAppMessageContentArrayOutput)
 }
 
-func (i CampaignInAppMessageContentArray) ToOutput(ctx context.Context) pulumix.Output[[]CampaignInAppMessageContent] {
-	return pulumix.Output[[]CampaignInAppMessageContent]{
-		OutputState: i.ToCampaignInAppMessageContentArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignInAppMessageContentOutput struct{ *pulumi.OutputState }
 
 func (CampaignInAppMessageContentOutput) ElementType() reflect.Type {
@@ -2550,12 +2225,6 @@ func (o CampaignInAppMessageContentOutput) ToCampaignInAppMessageContentOutput()
 
 func (o CampaignInAppMessageContentOutput) ToCampaignInAppMessageContentOutputWithContext(ctx context.Context) CampaignInAppMessageContentOutput {
 	return o
-}
-
-func (o CampaignInAppMessageContentOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignInAppMessageContent] {
-	return pulumix.Output[CampaignInAppMessageContent]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignInAppMessageContentOutput) BackgroundColor() pulumi.StringPtrOutput {
@@ -2594,12 +2263,6 @@ func (o CampaignInAppMessageContentArrayOutput) ToCampaignInAppMessageContentArr
 
 func (o CampaignInAppMessageContentArrayOutput) ToCampaignInAppMessageContentArrayOutputWithContext(ctx context.Context) CampaignInAppMessageContentArrayOutput {
 	return o
-}
-
-func (o CampaignInAppMessageContentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CampaignInAppMessageContent] {
-	return pulumix.Output[[]CampaignInAppMessageContent]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignInAppMessageContentArrayOutput) Index(i pulumi.IntInput) CampaignInAppMessageContentOutput {
@@ -2643,12 +2306,6 @@ func (i CampaignInAppMessageHeaderConfigArgs) ToCampaignInAppMessageHeaderConfig
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignInAppMessageHeaderConfigOutput)
 }
 
-func (i CampaignInAppMessageHeaderConfigArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignInAppMessageHeaderConfig] {
-	return pulumix.Output[CampaignInAppMessageHeaderConfig]{
-		OutputState: i.ToCampaignInAppMessageHeaderConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignInAppMessageHeaderConfigArgs) ToCampaignInAppMessageHeaderConfigPtrOutput() CampaignInAppMessageHeaderConfigPtrOutput {
 	return i.ToCampaignInAppMessageHeaderConfigPtrOutputWithContext(context.Background())
 }
@@ -2690,12 +2347,6 @@ func (i *campaignInAppMessageHeaderConfigPtrType) ToCampaignInAppMessageHeaderCo
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignInAppMessageHeaderConfigPtrOutput)
 }
 
-func (i *campaignInAppMessageHeaderConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignInAppMessageHeaderConfig] {
-	return pulumix.Output[*CampaignInAppMessageHeaderConfig]{
-		OutputState: i.ToCampaignInAppMessageHeaderConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignInAppMessageHeaderConfigOutput struct{ *pulumi.OutputState }
 
 func (CampaignInAppMessageHeaderConfigOutput) ElementType() reflect.Type {
@@ -2718,12 +2369,6 @@ func (o CampaignInAppMessageHeaderConfigOutput) ToCampaignInAppMessageHeaderConf
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignInAppMessageHeaderConfig) *CampaignInAppMessageHeaderConfig {
 		return &v
 	}).(CampaignInAppMessageHeaderConfigPtrOutput)
-}
-
-func (o CampaignInAppMessageHeaderConfigOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignInAppMessageHeaderConfig] {
-	return pulumix.Output[CampaignInAppMessageHeaderConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignInAppMessageHeaderConfigOutput) Alignment() pulumi.StringPtrOutput {
@@ -2750,12 +2395,6 @@ func (o CampaignInAppMessageHeaderConfigPtrOutput) ToCampaignInAppMessageHeaderC
 
 func (o CampaignInAppMessageHeaderConfigPtrOutput) ToCampaignInAppMessageHeaderConfigPtrOutputWithContext(ctx context.Context) CampaignInAppMessageHeaderConfigPtrOutput {
 	return o
-}
-
-func (o CampaignInAppMessageHeaderConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignInAppMessageHeaderConfig] {
-	return pulumix.Output[*CampaignInAppMessageHeaderConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignInAppMessageHeaderConfigPtrOutput) Elem() CampaignInAppMessageHeaderConfigOutput {
@@ -2834,12 +2473,6 @@ func (i CampaignLimitsArgs) ToCampaignLimitsOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignLimitsOutput)
 }
 
-func (i CampaignLimitsArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignLimits] {
-	return pulumix.Output[CampaignLimits]{
-		OutputState: i.ToCampaignLimitsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignLimitsArgs) ToCampaignLimitsPtrOutput() CampaignLimitsPtrOutput {
 	return i.ToCampaignLimitsPtrOutputWithContext(context.Background())
 }
@@ -2881,12 +2514,6 @@ func (i *campaignLimitsPtrType) ToCampaignLimitsPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignLimitsPtrOutput)
 }
 
-func (i *campaignLimitsPtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignLimits] {
-	return pulumix.Output[*CampaignLimits]{
-		OutputState: i.ToCampaignLimitsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignLimitsOutput struct{ *pulumi.OutputState }
 
 func (CampaignLimitsOutput) ElementType() reflect.Type {
@@ -2909,12 +2536,6 @@ func (o CampaignLimitsOutput) ToCampaignLimitsPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignLimits) *CampaignLimits {
 		return &v
 	}).(CampaignLimitsPtrOutput)
-}
-
-func (o CampaignLimitsOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignLimits] {
-	return pulumix.Output[CampaignLimits]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignLimitsOutput) Daily() pulumi.IntPtrOutput {
@@ -2949,12 +2570,6 @@ func (o CampaignLimitsPtrOutput) ToCampaignLimitsPtrOutput() CampaignLimitsPtrOu
 
 func (o CampaignLimitsPtrOutput) ToCampaignLimitsPtrOutputWithContext(ctx context.Context) CampaignLimitsPtrOutput {
 	return o
-}
-
-func (o CampaignLimitsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignLimits] {
-	return pulumix.Output[*CampaignLimits]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignLimitsPtrOutput) Elem() CampaignLimitsOutput {
@@ -3065,12 +2680,6 @@ func (i CampaignMessageArgs) ToCampaignMessageOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignMessageOutput)
 }
 
-func (i CampaignMessageArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignMessage] {
-	return pulumix.Output[CampaignMessage]{
-		OutputState: i.ToCampaignMessageOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignMessageArgs) ToCampaignMessagePtrOutput() CampaignMessagePtrOutput {
 	return i.ToCampaignMessagePtrOutputWithContext(context.Background())
 }
@@ -3112,12 +2721,6 @@ func (i *campaignMessagePtrType) ToCampaignMessagePtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignMessagePtrOutput)
 }
 
-func (i *campaignMessagePtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignMessage] {
-	return pulumix.Output[*CampaignMessage]{
-		OutputState: i.ToCampaignMessagePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignMessageOutput struct{ *pulumi.OutputState }
 
 func (CampaignMessageOutput) ElementType() reflect.Type {
@@ -3140,12 +2743,6 @@ func (o CampaignMessageOutput) ToCampaignMessagePtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignMessage) *CampaignMessage {
 		return &v
 	}).(CampaignMessagePtrOutput)
-}
-
-func (o CampaignMessageOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignMessage] {
-	return pulumix.Output[CampaignMessage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignMessageOutput) Action() pulumi.StringPtrOutput {
@@ -3208,12 +2805,6 @@ func (o CampaignMessagePtrOutput) ToCampaignMessagePtrOutput() CampaignMessagePt
 
 func (o CampaignMessagePtrOutput) ToCampaignMessagePtrOutputWithContext(ctx context.Context) CampaignMessagePtrOutput {
 	return o
-}
-
-func (o CampaignMessagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignMessage] {
-	return pulumix.Output[*CampaignMessage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignMessagePtrOutput) Elem() CampaignMessageOutput {
@@ -3381,12 +2972,6 @@ func (i CampaignMessageConfigurationArgs) ToCampaignMessageConfigurationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignMessageConfigurationOutput)
 }
 
-func (i CampaignMessageConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignMessageConfiguration] {
-	return pulumix.Output[CampaignMessageConfiguration]{
-		OutputState: i.ToCampaignMessageConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignMessageConfigurationArgs) ToCampaignMessageConfigurationPtrOutput() CampaignMessageConfigurationPtrOutput {
 	return i.ToCampaignMessageConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3428,12 +3013,6 @@ func (i *campaignMessageConfigurationPtrType) ToCampaignMessageConfigurationPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignMessageConfigurationPtrOutput)
 }
 
-func (i *campaignMessageConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignMessageConfiguration] {
-	return pulumix.Output[*CampaignMessageConfiguration]{
-		OutputState: i.ToCampaignMessageConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignMessageConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CampaignMessageConfigurationOutput) ElementType() reflect.Type {
@@ -3456,12 +3035,6 @@ func (o CampaignMessageConfigurationOutput) ToCampaignMessageConfigurationPtrOut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignMessageConfiguration) *CampaignMessageConfiguration {
 		return &v
 	}).(CampaignMessageConfigurationPtrOutput)
-}
-
-func (o CampaignMessageConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignMessageConfiguration] {
-	return pulumix.Output[CampaignMessageConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignMessageConfigurationOutput) AdmMessage() CampaignMessagePtrOutput {
@@ -3512,12 +3085,6 @@ func (o CampaignMessageConfigurationPtrOutput) ToCampaignMessageConfigurationPtr
 
 func (o CampaignMessageConfigurationPtrOutput) ToCampaignMessageConfigurationPtrOutputWithContext(ctx context.Context) CampaignMessageConfigurationPtrOutput {
 	return o
-}
-
-func (o CampaignMessageConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignMessageConfiguration] {
-	return pulumix.Output[*CampaignMessageConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignMessageConfigurationPtrOutput) Elem() CampaignMessageConfigurationOutput {
@@ -3644,12 +3211,6 @@ func (i CampaignOverrideButtonConfigurationArgs) ToCampaignOverrideButtonConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignOverrideButtonConfigurationOutput)
 }
 
-func (i CampaignOverrideButtonConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignOverrideButtonConfiguration] {
-	return pulumix.Output[CampaignOverrideButtonConfiguration]{
-		OutputState: i.ToCampaignOverrideButtonConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignOverrideButtonConfigurationArgs) ToCampaignOverrideButtonConfigurationPtrOutput() CampaignOverrideButtonConfigurationPtrOutput {
 	return i.ToCampaignOverrideButtonConfigurationPtrOutputWithContext(context.Background())
 }
@@ -3691,12 +3252,6 @@ func (i *campaignOverrideButtonConfigurationPtrType) ToCampaignOverrideButtonCon
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignOverrideButtonConfigurationPtrOutput)
 }
 
-func (i *campaignOverrideButtonConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignOverrideButtonConfiguration] {
-	return pulumix.Output[*CampaignOverrideButtonConfiguration]{
-		OutputState: i.ToCampaignOverrideButtonConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignOverrideButtonConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CampaignOverrideButtonConfigurationOutput) ElementType() reflect.Type {
@@ -3721,12 +3276,6 @@ func (o CampaignOverrideButtonConfigurationOutput) ToCampaignOverrideButtonConfi
 	}).(CampaignOverrideButtonConfigurationPtrOutput)
 }
 
-func (o CampaignOverrideButtonConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignOverrideButtonConfiguration] {
-	return pulumix.Output[CampaignOverrideButtonConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CampaignOverrideButtonConfigurationOutput) ButtonAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CampaignOverrideButtonConfiguration) *string { return v.ButtonAction }).(pulumi.StringPtrOutput)
 }
@@ -3747,12 +3296,6 @@ func (o CampaignOverrideButtonConfigurationPtrOutput) ToCampaignOverrideButtonCo
 
 func (o CampaignOverrideButtonConfigurationPtrOutput) ToCampaignOverrideButtonConfigurationPtrOutputWithContext(ctx context.Context) CampaignOverrideButtonConfigurationPtrOutput {
 	return o
-}
-
-func (o CampaignOverrideButtonConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignOverrideButtonConfiguration] {
-	return pulumix.Output[*CampaignOverrideButtonConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignOverrideButtonConfigurationPtrOutput) Elem() CampaignOverrideButtonConfigurationOutput {
@@ -3816,12 +3359,6 @@ func (i CampaignQuietTimeArgs) ToCampaignQuietTimeOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignQuietTimeOutput)
 }
 
-func (i CampaignQuietTimeArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignQuietTime] {
-	return pulumix.Output[CampaignQuietTime]{
-		OutputState: i.ToCampaignQuietTimeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignQuietTimeArgs) ToCampaignQuietTimePtrOutput() CampaignQuietTimePtrOutput {
 	return i.ToCampaignQuietTimePtrOutputWithContext(context.Background())
 }
@@ -3863,12 +3400,6 @@ func (i *campaignQuietTimePtrType) ToCampaignQuietTimePtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignQuietTimePtrOutput)
 }
 
-func (i *campaignQuietTimePtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignQuietTime] {
-	return pulumix.Output[*CampaignQuietTime]{
-		OutputState: i.ToCampaignQuietTimePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignQuietTimeOutput struct{ *pulumi.OutputState }
 
 func (CampaignQuietTimeOutput) ElementType() reflect.Type {
@@ -3893,12 +3424,6 @@ func (o CampaignQuietTimeOutput) ToCampaignQuietTimePtrOutputWithContext(ctx con
 	}).(CampaignQuietTimePtrOutput)
 }
 
-func (o CampaignQuietTimeOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignQuietTime] {
-	return pulumix.Output[CampaignQuietTime]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CampaignQuietTimeOutput) End() pulumi.StringOutput {
 	return o.ApplyT(func(v CampaignQuietTime) string { return v.End }).(pulumi.StringOutput)
 }
@@ -3919,12 +3444,6 @@ func (o CampaignQuietTimePtrOutput) ToCampaignQuietTimePtrOutput() CampaignQuiet
 
 func (o CampaignQuietTimePtrOutput) ToCampaignQuietTimePtrOutputWithContext(ctx context.Context) CampaignQuietTimePtrOutput {
 	return o
-}
-
-func (o CampaignQuietTimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignQuietTime] {
-	return pulumix.Output[*CampaignQuietTime]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignQuietTimePtrOutput) Elem() CampaignQuietTimeOutput {
@@ -3998,12 +3517,6 @@ func (i CampaignScheduleArgs) ToCampaignScheduleOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignScheduleOutput)
 }
 
-func (i CampaignScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignSchedule] {
-	return pulumix.Output[CampaignSchedule]{
-		OutputState: i.ToCampaignScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignScheduleArgs) ToCampaignSchedulePtrOutput() CampaignSchedulePtrOutput {
 	return i.ToCampaignSchedulePtrOutputWithContext(context.Background())
 }
@@ -4045,12 +3558,6 @@ func (i *campaignSchedulePtrType) ToCampaignSchedulePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignSchedulePtrOutput)
 }
 
-func (i *campaignSchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignSchedule] {
-	return pulumix.Output[*CampaignSchedule]{
-		OutputState: i.ToCampaignSchedulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignScheduleOutput struct{ *pulumi.OutputState }
 
 func (CampaignScheduleOutput) ElementType() reflect.Type {
@@ -4073,12 +3580,6 @@ func (o CampaignScheduleOutput) ToCampaignSchedulePtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignSchedule) *CampaignSchedule {
 		return &v
 	}).(CampaignSchedulePtrOutput)
-}
-
-func (o CampaignScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignSchedule] {
-	return pulumix.Output[CampaignSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignScheduleOutput) EndTime() pulumi.StringPtrOutput {
@@ -4121,12 +3622,6 @@ func (o CampaignSchedulePtrOutput) ToCampaignSchedulePtrOutput() CampaignSchedul
 
 func (o CampaignSchedulePtrOutput) ToCampaignSchedulePtrOutputWithContext(ctx context.Context) CampaignSchedulePtrOutput {
 	return o
-}
-
-func (o CampaignSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignSchedule] {
-	return pulumix.Output[*CampaignSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignSchedulePtrOutput) Elem() CampaignScheduleOutput {
@@ -4235,12 +3730,6 @@ func (i CampaignSetDimensionArgs) ToCampaignSetDimensionOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignSetDimensionOutput)
 }
 
-func (i CampaignSetDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignSetDimension] {
-	return pulumix.Output[CampaignSetDimension]{
-		OutputState: i.ToCampaignSetDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignSetDimensionArgs) ToCampaignSetDimensionPtrOutput() CampaignSetDimensionPtrOutput {
 	return i.ToCampaignSetDimensionPtrOutputWithContext(context.Background())
 }
@@ -4282,12 +3771,6 @@ func (i *campaignSetDimensionPtrType) ToCampaignSetDimensionPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignSetDimensionPtrOutput)
 }
 
-func (i *campaignSetDimensionPtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignSetDimension] {
-	return pulumix.Output[*CampaignSetDimension]{
-		OutputState: i.ToCampaignSetDimensionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignSetDimensionOutput struct{ *pulumi.OutputState }
 
 func (CampaignSetDimensionOutput) ElementType() reflect.Type {
@@ -4312,12 +3795,6 @@ func (o CampaignSetDimensionOutput) ToCampaignSetDimensionPtrOutputWithContext(c
 	}).(CampaignSetDimensionPtrOutput)
 }
 
-func (o CampaignSetDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignSetDimension] {
-	return pulumix.Output[CampaignSetDimension]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CampaignSetDimensionOutput) DimensionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CampaignSetDimension) *string { return v.DimensionType }).(pulumi.StringPtrOutput)
 }
@@ -4338,12 +3815,6 @@ func (o CampaignSetDimensionPtrOutput) ToCampaignSetDimensionPtrOutput() Campaig
 
 func (o CampaignSetDimensionPtrOutput) ToCampaignSetDimensionPtrOutputWithContext(ctx context.Context) CampaignSetDimensionPtrOutput {
 	return o
-}
-
-func (o CampaignSetDimensionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignSetDimension] {
-	return pulumix.Output[*CampaignSetDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignSetDimensionPtrOutput) Elem() CampaignSetDimensionOutput {
@@ -4415,12 +3886,6 @@ func (i CampaignSmsMessageArgs) ToCampaignSmsMessageOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignSmsMessageOutput)
 }
 
-func (i CampaignSmsMessageArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignSmsMessage] {
-	return pulumix.Output[CampaignSmsMessage]{
-		OutputState: i.ToCampaignSmsMessageOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignSmsMessageArgs) ToCampaignSmsMessagePtrOutput() CampaignSmsMessagePtrOutput {
 	return i.ToCampaignSmsMessagePtrOutputWithContext(context.Background())
 }
@@ -4462,12 +3927,6 @@ func (i *campaignSmsMessagePtrType) ToCampaignSmsMessagePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignSmsMessagePtrOutput)
 }
 
-func (i *campaignSmsMessagePtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignSmsMessage] {
-	return pulumix.Output[*CampaignSmsMessage]{
-		OutputState: i.ToCampaignSmsMessagePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignSmsMessageOutput struct{ *pulumi.OutputState }
 
 func (CampaignSmsMessageOutput) ElementType() reflect.Type {
@@ -4490,12 +3949,6 @@ func (o CampaignSmsMessageOutput) ToCampaignSmsMessagePtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignSmsMessage) *CampaignSmsMessage {
 		return &v
 	}).(CampaignSmsMessagePtrOutput)
-}
-
-func (o CampaignSmsMessageOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignSmsMessage] {
-	return pulumix.Output[CampaignSmsMessage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignSmsMessageOutput) Body() pulumi.StringPtrOutput {
@@ -4534,12 +3987,6 @@ func (o CampaignSmsMessagePtrOutput) ToCampaignSmsMessagePtrOutput() CampaignSms
 
 func (o CampaignSmsMessagePtrOutput) ToCampaignSmsMessagePtrOutputWithContext(ctx context.Context) CampaignSmsMessagePtrOutput {
 	return o
-}
-
-func (o CampaignSmsMessagePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignSmsMessage] {
-	return pulumix.Output[*CampaignSmsMessage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignSmsMessagePtrOutput) Elem() CampaignSmsMessageOutput {
@@ -4639,12 +4086,6 @@ func (i CampaignTemplateArgs) ToCampaignTemplateOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignTemplateOutput)
 }
 
-func (i CampaignTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignTemplate] {
-	return pulumix.Output[CampaignTemplate]{
-		OutputState: i.ToCampaignTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignTemplateArgs) ToCampaignTemplatePtrOutput() CampaignTemplatePtrOutput {
 	return i.ToCampaignTemplatePtrOutputWithContext(context.Background())
 }
@@ -4686,12 +4127,6 @@ func (i *campaignTemplatePtrType) ToCampaignTemplatePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignTemplatePtrOutput)
 }
 
-func (i *campaignTemplatePtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignTemplate] {
-	return pulumix.Output[*CampaignTemplate]{
-		OutputState: i.ToCampaignTemplatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignTemplateOutput struct{ *pulumi.OutputState }
 
 func (CampaignTemplateOutput) ElementType() reflect.Type {
@@ -4716,12 +4151,6 @@ func (o CampaignTemplateOutput) ToCampaignTemplatePtrOutputWithContext(ctx conte
 	}).(CampaignTemplatePtrOutput)
 }
 
-func (o CampaignTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignTemplate] {
-	return pulumix.Output[CampaignTemplate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CampaignTemplateOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CampaignTemplate) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -4742,12 +4171,6 @@ func (o CampaignTemplatePtrOutput) ToCampaignTemplatePtrOutput() CampaignTemplat
 
 func (o CampaignTemplatePtrOutput) ToCampaignTemplatePtrOutputWithContext(ctx context.Context) CampaignTemplatePtrOutput {
 	return o
-}
-
-func (o CampaignTemplatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignTemplate] {
-	return pulumix.Output[*CampaignTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignTemplatePtrOutput) Elem() CampaignTemplateOutput {
@@ -4815,12 +4238,6 @@ func (i CampaignTemplateConfigurationArgs) ToCampaignTemplateConfigurationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignTemplateConfigurationOutput)
 }
 
-func (i CampaignTemplateConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignTemplateConfiguration] {
-	return pulumix.Output[CampaignTemplateConfiguration]{
-		OutputState: i.ToCampaignTemplateConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i CampaignTemplateConfigurationArgs) ToCampaignTemplateConfigurationPtrOutput() CampaignTemplateConfigurationPtrOutput {
 	return i.ToCampaignTemplateConfigurationPtrOutputWithContext(context.Background())
 }
@@ -4862,12 +4279,6 @@ func (i *campaignTemplateConfigurationPtrType) ToCampaignTemplateConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignTemplateConfigurationPtrOutput)
 }
 
-func (i *campaignTemplateConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*CampaignTemplateConfiguration] {
-	return pulumix.Output[*CampaignTemplateConfiguration]{
-		OutputState: i.ToCampaignTemplateConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignTemplateConfigurationOutput struct{ *pulumi.OutputState }
 
 func (CampaignTemplateConfigurationOutput) ElementType() reflect.Type {
@@ -4890,12 +4301,6 @@ func (o CampaignTemplateConfigurationOutput) ToCampaignTemplateConfigurationPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignTemplateConfiguration) *CampaignTemplateConfiguration {
 		return &v
 	}).(CampaignTemplateConfigurationPtrOutput)
-}
-
-func (o CampaignTemplateConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignTemplateConfiguration] {
-	return pulumix.Output[CampaignTemplateConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignTemplateConfigurationOutput) EmailTemplate() CampaignTemplatePtrOutput {
@@ -4926,12 +4331,6 @@ func (o CampaignTemplateConfigurationPtrOutput) ToCampaignTemplateConfigurationP
 
 func (o CampaignTemplateConfigurationPtrOutput) ToCampaignTemplateConfigurationPtrOutputWithContext(ctx context.Context) CampaignTemplateConfigurationPtrOutput {
 	return o
-}
-
-func (o CampaignTemplateConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CampaignTemplateConfiguration] {
-	return pulumix.Output[*CampaignTemplateConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignTemplateConfigurationPtrOutput) Elem() CampaignTemplateConfigurationOutput {
@@ -5023,12 +4422,6 @@ func (i CampaignWriteTreatmentResourceArgs) ToCampaignWriteTreatmentResourceOutp
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignWriteTreatmentResourceOutput)
 }
 
-func (i CampaignWriteTreatmentResourceArgs) ToOutput(ctx context.Context) pulumix.Output[CampaignWriteTreatmentResource] {
-	return pulumix.Output[CampaignWriteTreatmentResource]{
-		OutputState: i.ToCampaignWriteTreatmentResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CampaignWriteTreatmentResourceArrayInput is an input type that accepts CampaignWriteTreatmentResourceArray and CampaignWriteTreatmentResourceArrayOutput values.
 // You can construct a concrete instance of `CampaignWriteTreatmentResourceArrayInput` via:
 //
@@ -5054,12 +4447,6 @@ func (i CampaignWriteTreatmentResourceArray) ToCampaignWriteTreatmentResourceArr
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignWriteTreatmentResourceArrayOutput)
 }
 
-func (i CampaignWriteTreatmentResourceArray) ToOutput(ctx context.Context) pulumix.Output[[]CampaignWriteTreatmentResource] {
-	return pulumix.Output[[]CampaignWriteTreatmentResource]{
-		OutputState: i.ToCampaignWriteTreatmentResourceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CampaignWriteTreatmentResourceOutput struct{ *pulumi.OutputState }
 
 func (CampaignWriteTreatmentResourceOutput) ElementType() reflect.Type {
@@ -5072,12 +4459,6 @@ func (o CampaignWriteTreatmentResourceOutput) ToCampaignWriteTreatmentResourceOu
 
 func (o CampaignWriteTreatmentResourceOutput) ToCampaignWriteTreatmentResourceOutputWithContext(ctx context.Context) CampaignWriteTreatmentResourceOutput {
 	return o
-}
-
-func (o CampaignWriteTreatmentResourceOutput) ToOutput(ctx context.Context) pulumix.Output[CampaignWriteTreatmentResource] {
-	return pulumix.Output[CampaignWriteTreatmentResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CampaignWriteTreatmentResourceOutput) CustomDeliveryConfiguration() CampaignCustomDeliveryConfigurationPtrOutput {
@@ -5124,12 +4505,6 @@ func (o CampaignWriteTreatmentResourceArrayOutput) ToCampaignWriteTreatmentResou
 	return o
 }
 
-func (o CampaignWriteTreatmentResourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CampaignWriteTreatmentResource] {
-	return pulumix.Output[[]CampaignWriteTreatmentResource]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CampaignWriteTreatmentResourceArrayOutput) Index(i pulumi.IntInput) CampaignWriteTreatmentResourceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CampaignWriteTreatmentResource {
 		return vs[0].([]CampaignWriteTreatmentResource)[vs[1].(int)]
@@ -5173,12 +4548,6 @@ func (i GroupsArgs) ToGroupsOutputWithContext(ctx context.Context) GroupsOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(GroupsOutput)
 }
 
-func (i GroupsArgs) ToOutput(ctx context.Context) pulumix.Output[Groups] {
-	return pulumix.Output[Groups]{
-		OutputState: i.ToGroupsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GroupsArrayInput is an input type that accepts GroupsArray and GroupsArrayOutput values.
 // You can construct a concrete instance of `GroupsArrayInput` via:
 //
@@ -5204,12 +4573,6 @@ func (i GroupsArray) ToGroupsArrayOutputWithContext(ctx context.Context) GroupsA
 	return pulumi.ToOutputWithContext(ctx, i).(GroupsArrayOutput)
 }
 
-func (i GroupsArray) ToOutput(ctx context.Context) pulumix.Output[[]Groups] {
-	return pulumix.Output[[]Groups]{
-		OutputState: i.ToGroupsArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GroupsOutput struct{ *pulumi.OutputState }
 
 func (GroupsOutput) ElementType() reflect.Type {
@@ -5222,12 +4585,6 @@ func (o GroupsOutput) ToGroupsOutput() GroupsOutput {
 
 func (o GroupsOutput) ToGroupsOutputWithContext(ctx context.Context) GroupsOutput {
 	return o
-}
-
-func (o GroupsOutput) ToOutput(ctx context.Context) pulumix.Output[Groups] {
-	return pulumix.Output[Groups]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupsOutput) Dimensions() SegmentDimensionsArrayOutput {
@@ -5258,12 +4615,6 @@ func (o GroupsArrayOutput) ToGroupsArrayOutput() GroupsArrayOutput {
 
 func (o GroupsArrayOutput) ToGroupsArrayOutputWithContext(ctx context.Context) GroupsArrayOutput {
 	return o
-}
-
-func (o GroupsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]Groups] {
-	return pulumix.Output[[]Groups]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupsArrayOutput) Index(i pulumi.IntInput) GroupsOutput {
@@ -5307,12 +4658,6 @@ func (i InAppTemplateBodyConfigArgs) ToInAppTemplateBodyConfigOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateBodyConfigOutput)
 }
 
-func (i InAppTemplateBodyConfigArgs) ToOutput(ctx context.Context) pulumix.Output[InAppTemplateBodyConfig] {
-	return pulumix.Output[InAppTemplateBodyConfig]{
-		OutputState: i.ToInAppTemplateBodyConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InAppTemplateBodyConfigArgs) ToInAppTemplateBodyConfigPtrOutput() InAppTemplateBodyConfigPtrOutput {
 	return i.ToInAppTemplateBodyConfigPtrOutputWithContext(context.Background())
 }
@@ -5354,12 +4699,6 @@ func (i *inAppTemplateBodyConfigPtrType) ToInAppTemplateBodyConfigPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateBodyConfigPtrOutput)
 }
 
-func (i *inAppTemplateBodyConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*InAppTemplateBodyConfig] {
-	return pulumix.Output[*InAppTemplateBodyConfig]{
-		OutputState: i.ToInAppTemplateBodyConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InAppTemplateBodyConfigOutput struct{ *pulumi.OutputState }
 
 func (InAppTemplateBodyConfigOutput) ElementType() reflect.Type {
@@ -5382,12 +4721,6 @@ func (o InAppTemplateBodyConfigOutput) ToInAppTemplateBodyConfigPtrOutputWithCon
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InAppTemplateBodyConfig) *InAppTemplateBodyConfig {
 		return &v
 	}).(InAppTemplateBodyConfigPtrOutput)
-}
-
-func (o InAppTemplateBodyConfigOutput) ToOutput(ctx context.Context) pulumix.Output[InAppTemplateBodyConfig] {
-	return pulumix.Output[InAppTemplateBodyConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InAppTemplateBodyConfigOutput) Alignment() InAppTemplateAlignmentPtrOutput {
@@ -5414,12 +4747,6 @@ func (o InAppTemplateBodyConfigPtrOutput) ToInAppTemplateBodyConfigPtrOutput() I
 
 func (o InAppTemplateBodyConfigPtrOutput) ToInAppTemplateBodyConfigPtrOutputWithContext(ctx context.Context) InAppTemplateBodyConfigPtrOutput {
 	return o
-}
-
-func (o InAppTemplateBodyConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InAppTemplateBodyConfig] {
-	return pulumix.Output[*InAppTemplateBodyConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InAppTemplateBodyConfigPtrOutput) Elem() InAppTemplateBodyConfigOutput {
@@ -5496,12 +4823,6 @@ func (i InAppTemplateButtonConfigArgs) ToInAppTemplateButtonConfigOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateButtonConfigOutput)
 }
 
-func (i InAppTemplateButtonConfigArgs) ToOutput(ctx context.Context) pulumix.Output[InAppTemplateButtonConfig] {
-	return pulumix.Output[InAppTemplateButtonConfig]{
-		OutputState: i.ToInAppTemplateButtonConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InAppTemplateButtonConfigArgs) ToInAppTemplateButtonConfigPtrOutput() InAppTemplateButtonConfigPtrOutput {
 	return i.ToInAppTemplateButtonConfigPtrOutputWithContext(context.Background())
 }
@@ -5543,12 +4864,6 @@ func (i *inAppTemplateButtonConfigPtrType) ToInAppTemplateButtonConfigPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateButtonConfigPtrOutput)
 }
 
-func (i *inAppTemplateButtonConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*InAppTemplateButtonConfig] {
-	return pulumix.Output[*InAppTemplateButtonConfig]{
-		OutputState: i.ToInAppTemplateButtonConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InAppTemplateButtonConfigOutput struct{ *pulumi.OutputState }
 
 func (InAppTemplateButtonConfigOutput) ElementType() reflect.Type {
@@ -5571,12 +4886,6 @@ func (o InAppTemplateButtonConfigOutput) ToInAppTemplateButtonConfigPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InAppTemplateButtonConfig) *InAppTemplateButtonConfig {
 		return &v
 	}).(InAppTemplateButtonConfigPtrOutput)
-}
-
-func (o InAppTemplateButtonConfigOutput) ToOutput(ctx context.Context) pulumix.Output[InAppTemplateButtonConfig] {
-	return pulumix.Output[InAppTemplateButtonConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InAppTemplateButtonConfigOutput) Android() InAppTemplateOverrideButtonConfigurationPtrOutput {
@@ -5607,12 +4916,6 @@ func (o InAppTemplateButtonConfigPtrOutput) ToInAppTemplateButtonConfigPtrOutput
 
 func (o InAppTemplateButtonConfigPtrOutput) ToInAppTemplateButtonConfigPtrOutputWithContext(ctx context.Context) InAppTemplateButtonConfigPtrOutput {
 	return o
-}
-
-func (o InAppTemplateButtonConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InAppTemplateButtonConfig] {
-	return pulumix.Output[*InAppTemplateButtonConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InAppTemplateButtonConfigPtrOutput) Elem() InAppTemplateButtonConfigOutput {
@@ -5702,12 +5005,6 @@ func (i InAppTemplateDefaultButtonConfigurationArgs) ToInAppTemplateDefaultButto
 	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateDefaultButtonConfigurationOutput)
 }
 
-func (i InAppTemplateDefaultButtonConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[InAppTemplateDefaultButtonConfiguration] {
-	return pulumix.Output[InAppTemplateDefaultButtonConfiguration]{
-		OutputState: i.ToInAppTemplateDefaultButtonConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InAppTemplateDefaultButtonConfigurationArgs) ToInAppTemplateDefaultButtonConfigurationPtrOutput() InAppTemplateDefaultButtonConfigurationPtrOutput {
 	return i.ToInAppTemplateDefaultButtonConfigurationPtrOutputWithContext(context.Background())
 }
@@ -5749,12 +5046,6 @@ func (i *inAppTemplateDefaultButtonConfigurationPtrType) ToInAppTemplateDefaultB
 	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateDefaultButtonConfigurationPtrOutput)
 }
 
-func (i *inAppTemplateDefaultButtonConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*InAppTemplateDefaultButtonConfiguration] {
-	return pulumix.Output[*InAppTemplateDefaultButtonConfiguration]{
-		OutputState: i.ToInAppTemplateDefaultButtonConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InAppTemplateDefaultButtonConfigurationOutput struct{ *pulumi.OutputState }
 
 func (InAppTemplateDefaultButtonConfigurationOutput) ElementType() reflect.Type {
@@ -5777,12 +5068,6 @@ func (o InAppTemplateDefaultButtonConfigurationOutput) ToInAppTemplateDefaultBut
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InAppTemplateDefaultButtonConfiguration) *InAppTemplateDefaultButtonConfiguration {
 		return &v
 	}).(InAppTemplateDefaultButtonConfigurationPtrOutput)
-}
-
-func (o InAppTemplateDefaultButtonConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[InAppTemplateDefaultButtonConfiguration] {
-	return pulumix.Output[InAppTemplateDefaultButtonConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InAppTemplateDefaultButtonConfigurationOutput) BackgroundColor() pulumi.StringPtrOutput {
@@ -5821,12 +5106,6 @@ func (o InAppTemplateDefaultButtonConfigurationPtrOutput) ToInAppTemplateDefault
 
 func (o InAppTemplateDefaultButtonConfigurationPtrOutput) ToInAppTemplateDefaultButtonConfigurationPtrOutputWithContext(ctx context.Context) InAppTemplateDefaultButtonConfigurationPtrOutput {
 	return o
-}
-
-func (o InAppTemplateDefaultButtonConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InAppTemplateDefaultButtonConfiguration] {
-	return pulumix.Output[*InAppTemplateDefaultButtonConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InAppTemplateDefaultButtonConfigurationPtrOutput) Elem() InAppTemplateDefaultButtonConfigurationOutput {
@@ -5928,12 +5207,6 @@ func (i InAppTemplateHeaderConfigArgs) ToInAppTemplateHeaderConfigOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateHeaderConfigOutput)
 }
 
-func (i InAppTemplateHeaderConfigArgs) ToOutput(ctx context.Context) pulumix.Output[InAppTemplateHeaderConfig] {
-	return pulumix.Output[InAppTemplateHeaderConfig]{
-		OutputState: i.ToInAppTemplateHeaderConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InAppTemplateHeaderConfigArgs) ToInAppTemplateHeaderConfigPtrOutput() InAppTemplateHeaderConfigPtrOutput {
 	return i.ToInAppTemplateHeaderConfigPtrOutputWithContext(context.Background())
 }
@@ -5975,12 +5248,6 @@ func (i *inAppTemplateHeaderConfigPtrType) ToInAppTemplateHeaderConfigPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateHeaderConfigPtrOutput)
 }
 
-func (i *inAppTemplateHeaderConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*InAppTemplateHeaderConfig] {
-	return pulumix.Output[*InAppTemplateHeaderConfig]{
-		OutputState: i.ToInAppTemplateHeaderConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InAppTemplateHeaderConfigOutput struct{ *pulumi.OutputState }
 
 func (InAppTemplateHeaderConfigOutput) ElementType() reflect.Type {
@@ -6003,12 +5270,6 @@ func (o InAppTemplateHeaderConfigOutput) ToInAppTemplateHeaderConfigPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InAppTemplateHeaderConfig) *InAppTemplateHeaderConfig {
 		return &v
 	}).(InAppTemplateHeaderConfigPtrOutput)
-}
-
-func (o InAppTemplateHeaderConfigOutput) ToOutput(ctx context.Context) pulumix.Output[InAppTemplateHeaderConfig] {
-	return pulumix.Output[InAppTemplateHeaderConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InAppTemplateHeaderConfigOutput) Alignment() InAppTemplateAlignmentPtrOutput {
@@ -6035,12 +5296,6 @@ func (o InAppTemplateHeaderConfigPtrOutput) ToInAppTemplateHeaderConfigPtrOutput
 
 func (o InAppTemplateHeaderConfigPtrOutput) ToInAppTemplateHeaderConfigPtrOutputWithContext(ctx context.Context) InAppTemplateHeaderConfigPtrOutput {
 	return o
-}
-
-func (o InAppTemplateHeaderConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InAppTemplateHeaderConfig] {
-	return pulumix.Output[*InAppTemplateHeaderConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InAppTemplateHeaderConfigPtrOutput) Elem() InAppTemplateHeaderConfigOutput {
@@ -6121,12 +5376,6 @@ func (i InAppTemplateInAppMessageContentArgs) ToInAppTemplateInAppMessageContent
 	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateInAppMessageContentOutput)
 }
 
-func (i InAppTemplateInAppMessageContentArgs) ToOutput(ctx context.Context) pulumix.Output[InAppTemplateInAppMessageContent] {
-	return pulumix.Output[InAppTemplateInAppMessageContent]{
-		OutputState: i.ToInAppTemplateInAppMessageContentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InAppTemplateInAppMessageContentArrayInput is an input type that accepts InAppTemplateInAppMessageContentArray and InAppTemplateInAppMessageContentArrayOutput values.
 // You can construct a concrete instance of `InAppTemplateInAppMessageContentArrayInput` via:
 //
@@ -6152,12 +5401,6 @@ func (i InAppTemplateInAppMessageContentArray) ToInAppTemplateInAppMessageConten
 	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateInAppMessageContentArrayOutput)
 }
 
-func (i InAppTemplateInAppMessageContentArray) ToOutput(ctx context.Context) pulumix.Output[[]InAppTemplateInAppMessageContent] {
-	return pulumix.Output[[]InAppTemplateInAppMessageContent]{
-		OutputState: i.ToInAppTemplateInAppMessageContentArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InAppTemplateInAppMessageContentOutput struct{ *pulumi.OutputState }
 
 func (InAppTemplateInAppMessageContentOutput) ElementType() reflect.Type {
@@ -6170,12 +5413,6 @@ func (o InAppTemplateInAppMessageContentOutput) ToInAppTemplateInAppMessageConte
 
 func (o InAppTemplateInAppMessageContentOutput) ToInAppTemplateInAppMessageContentOutputWithContext(ctx context.Context) InAppTemplateInAppMessageContentOutput {
 	return o
-}
-
-func (o InAppTemplateInAppMessageContentOutput) ToOutput(ctx context.Context) pulumix.Output[InAppTemplateInAppMessageContent] {
-	return pulumix.Output[InAppTemplateInAppMessageContent]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InAppTemplateInAppMessageContentOutput) BackgroundColor() pulumi.StringPtrOutput {
@@ -6216,12 +5453,6 @@ func (o InAppTemplateInAppMessageContentArrayOutput) ToInAppTemplateInAppMessage
 	return o
 }
 
-func (o InAppTemplateInAppMessageContentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]InAppTemplateInAppMessageContent] {
-	return pulumix.Output[[]InAppTemplateInAppMessageContent]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InAppTemplateInAppMessageContentArrayOutput) Index(i pulumi.IntInput) InAppTemplateInAppMessageContentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InAppTemplateInAppMessageContent {
 		return vs[0].([]InAppTemplateInAppMessageContent)[vs[1].(int)]
@@ -6259,12 +5490,6 @@ func (i InAppTemplateOverrideButtonConfigurationArgs) ToInAppTemplateOverrideBut
 
 func (i InAppTemplateOverrideButtonConfigurationArgs) ToInAppTemplateOverrideButtonConfigurationOutputWithContext(ctx context.Context) InAppTemplateOverrideButtonConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateOverrideButtonConfigurationOutput)
-}
-
-func (i InAppTemplateOverrideButtonConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[InAppTemplateOverrideButtonConfiguration] {
-	return pulumix.Output[InAppTemplateOverrideButtonConfiguration]{
-		OutputState: i.ToInAppTemplateOverrideButtonConfigurationOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i InAppTemplateOverrideButtonConfigurationArgs) ToInAppTemplateOverrideButtonConfigurationPtrOutput() InAppTemplateOverrideButtonConfigurationPtrOutput {
@@ -6308,12 +5533,6 @@ func (i *inAppTemplateOverrideButtonConfigurationPtrType) ToInAppTemplateOverrid
 	return pulumi.ToOutputWithContext(ctx, i).(InAppTemplateOverrideButtonConfigurationPtrOutput)
 }
 
-func (i *inAppTemplateOverrideButtonConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*InAppTemplateOverrideButtonConfiguration] {
-	return pulumix.Output[*InAppTemplateOverrideButtonConfiguration]{
-		OutputState: i.ToInAppTemplateOverrideButtonConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InAppTemplateOverrideButtonConfigurationOutput struct{ *pulumi.OutputState }
 
 func (InAppTemplateOverrideButtonConfigurationOutput) ElementType() reflect.Type {
@@ -6338,12 +5557,6 @@ func (o InAppTemplateOverrideButtonConfigurationOutput) ToInAppTemplateOverrideB
 	}).(InAppTemplateOverrideButtonConfigurationPtrOutput)
 }
 
-func (o InAppTemplateOverrideButtonConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[InAppTemplateOverrideButtonConfiguration] {
-	return pulumix.Output[InAppTemplateOverrideButtonConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InAppTemplateOverrideButtonConfigurationOutput) ButtonAction() InAppTemplateButtonActionPtrOutput {
 	return o.ApplyT(func(v InAppTemplateOverrideButtonConfiguration) *InAppTemplateButtonAction { return v.ButtonAction }).(InAppTemplateButtonActionPtrOutput)
 }
@@ -6364,12 +5577,6 @@ func (o InAppTemplateOverrideButtonConfigurationPtrOutput) ToInAppTemplateOverri
 
 func (o InAppTemplateOverrideButtonConfigurationPtrOutput) ToInAppTemplateOverrideButtonConfigurationPtrOutputWithContext(ctx context.Context) InAppTemplateOverrideButtonConfigurationPtrOutput {
 	return o
-}
-
-func (o InAppTemplateOverrideButtonConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InAppTemplateOverrideButtonConfiguration] {
-	return pulumix.Output[*InAppTemplateOverrideButtonConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InAppTemplateOverrideButtonConfigurationPtrOutput) Elem() InAppTemplateOverrideButtonConfigurationOutput {
@@ -6445,12 +5652,6 @@ func (i PushTemplateAndroidPushNotificationTemplateArgs) ToPushTemplateAndroidPu
 	return pulumi.ToOutputWithContext(ctx, i).(PushTemplateAndroidPushNotificationTemplateOutput)
 }
 
-func (i PushTemplateAndroidPushNotificationTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[PushTemplateAndroidPushNotificationTemplate] {
-	return pulumix.Output[PushTemplateAndroidPushNotificationTemplate]{
-		OutputState: i.ToPushTemplateAndroidPushNotificationTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PushTemplateAndroidPushNotificationTemplateArgs) ToPushTemplateAndroidPushNotificationTemplatePtrOutput() PushTemplateAndroidPushNotificationTemplatePtrOutput {
 	return i.ToPushTemplateAndroidPushNotificationTemplatePtrOutputWithContext(context.Background())
 }
@@ -6492,12 +5693,6 @@ func (i *pushTemplateAndroidPushNotificationTemplatePtrType) ToPushTemplateAndro
 	return pulumi.ToOutputWithContext(ctx, i).(PushTemplateAndroidPushNotificationTemplatePtrOutput)
 }
 
-func (i *pushTemplateAndroidPushNotificationTemplatePtrType) ToOutput(ctx context.Context) pulumix.Output[*PushTemplateAndroidPushNotificationTemplate] {
-	return pulumix.Output[*PushTemplateAndroidPushNotificationTemplate]{
-		OutputState: i.ToPushTemplateAndroidPushNotificationTemplatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PushTemplateAndroidPushNotificationTemplateOutput struct{ *pulumi.OutputState }
 
 func (PushTemplateAndroidPushNotificationTemplateOutput) ElementType() reflect.Type {
@@ -6520,12 +5715,6 @@ func (o PushTemplateAndroidPushNotificationTemplateOutput) ToPushTemplateAndroid
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PushTemplateAndroidPushNotificationTemplate) *PushTemplateAndroidPushNotificationTemplate {
 		return &v
 	}).(PushTemplateAndroidPushNotificationTemplatePtrOutput)
-}
-
-func (o PushTemplateAndroidPushNotificationTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[PushTemplateAndroidPushNotificationTemplate] {
-	return pulumix.Output[PushTemplateAndroidPushNotificationTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PushTemplateAndroidPushNotificationTemplateOutput) Action() pulumi.StringPtrOutput {
@@ -6572,12 +5761,6 @@ func (o PushTemplateAndroidPushNotificationTemplatePtrOutput) ToPushTemplateAndr
 
 func (o PushTemplateAndroidPushNotificationTemplatePtrOutput) ToPushTemplateAndroidPushNotificationTemplatePtrOutputWithContext(ctx context.Context) PushTemplateAndroidPushNotificationTemplatePtrOutput {
 	return o
-}
-
-func (o PushTemplateAndroidPushNotificationTemplatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PushTemplateAndroidPushNotificationTemplate] {
-	return pulumix.Output[*PushTemplateAndroidPushNotificationTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PushTemplateAndroidPushNotificationTemplatePtrOutput) Elem() PushTemplateAndroidPushNotificationTemplateOutput {
@@ -6703,12 +5886,6 @@ func (i PushTemplateApnsPushNotificationTemplateArgs) ToPushTemplateApnsPushNoti
 	return pulumi.ToOutputWithContext(ctx, i).(PushTemplateApnsPushNotificationTemplateOutput)
 }
 
-func (i PushTemplateApnsPushNotificationTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[PushTemplateApnsPushNotificationTemplate] {
-	return pulumix.Output[PushTemplateApnsPushNotificationTemplate]{
-		OutputState: i.ToPushTemplateApnsPushNotificationTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PushTemplateApnsPushNotificationTemplateArgs) ToPushTemplateApnsPushNotificationTemplatePtrOutput() PushTemplateApnsPushNotificationTemplatePtrOutput {
 	return i.ToPushTemplateApnsPushNotificationTemplatePtrOutputWithContext(context.Background())
 }
@@ -6750,12 +5927,6 @@ func (i *pushTemplateApnsPushNotificationTemplatePtrType) ToPushTemplateApnsPush
 	return pulumi.ToOutputWithContext(ctx, i).(PushTemplateApnsPushNotificationTemplatePtrOutput)
 }
 
-func (i *pushTemplateApnsPushNotificationTemplatePtrType) ToOutput(ctx context.Context) pulumix.Output[*PushTemplateApnsPushNotificationTemplate] {
-	return pulumix.Output[*PushTemplateApnsPushNotificationTemplate]{
-		OutputState: i.ToPushTemplateApnsPushNotificationTemplatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PushTemplateApnsPushNotificationTemplateOutput struct{ *pulumi.OutputState }
 
 func (PushTemplateApnsPushNotificationTemplateOutput) ElementType() reflect.Type {
@@ -6778,12 +5949,6 @@ func (o PushTemplateApnsPushNotificationTemplateOutput) ToPushTemplateApnsPushNo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PushTemplateApnsPushNotificationTemplate) *PushTemplateApnsPushNotificationTemplate {
 		return &v
 	}).(PushTemplateApnsPushNotificationTemplatePtrOutput)
-}
-
-func (o PushTemplateApnsPushNotificationTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[PushTemplateApnsPushNotificationTemplate] {
-	return pulumix.Output[PushTemplateApnsPushNotificationTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PushTemplateApnsPushNotificationTemplateOutput) Action() pulumi.StringPtrOutput {
@@ -6822,12 +5987,6 @@ func (o PushTemplateApnsPushNotificationTemplatePtrOutput) ToPushTemplateApnsPus
 
 func (o PushTemplateApnsPushNotificationTemplatePtrOutput) ToPushTemplateApnsPushNotificationTemplatePtrOutputWithContext(ctx context.Context) PushTemplateApnsPushNotificationTemplatePtrOutput {
 	return o
-}
-
-func (o PushTemplateApnsPushNotificationTemplatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PushTemplateApnsPushNotificationTemplate] {
-	return pulumix.Output[*PushTemplateApnsPushNotificationTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PushTemplateApnsPushNotificationTemplatePtrOutput) Elem() PushTemplateApnsPushNotificationTemplateOutput {
@@ -6933,12 +6092,6 @@ func (i PushTemplateDefaultPushNotificationTemplateArgs) ToPushTemplateDefaultPu
 	return pulumi.ToOutputWithContext(ctx, i).(PushTemplateDefaultPushNotificationTemplateOutput)
 }
 
-func (i PushTemplateDefaultPushNotificationTemplateArgs) ToOutput(ctx context.Context) pulumix.Output[PushTemplateDefaultPushNotificationTemplate] {
-	return pulumix.Output[PushTemplateDefaultPushNotificationTemplate]{
-		OutputState: i.ToPushTemplateDefaultPushNotificationTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PushTemplateDefaultPushNotificationTemplateArgs) ToPushTemplateDefaultPushNotificationTemplatePtrOutput() PushTemplateDefaultPushNotificationTemplatePtrOutput {
 	return i.ToPushTemplateDefaultPushNotificationTemplatePtrOutputWithContext(context.Background())
 }
@@ -6980,12 +6133,6 @@ func (i *pushTemplateDefaultPushNotificationTemplatePtrType) ToPushTemplateDefau
 	return pulumi.ToOutputWithContext(ctx, i).(PushTemplateDefaultPushNotificationTemplatePtrOutput)
 }
 
-func (i *pushTemplateDefaultPushNotificationTemplatePtrType) ToOutput(ctx context.Context) pulumix.Output[*PushTemplateDefaultPushNotificationTemplate] {
-	return pulumix.Output[*PushTemplateDefaultPushNotificationTemplate]{
-		OutputState: i.ToPushTemplateDefaultPushNotificationTemplatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PushTemplateDefaultPushNotificationTemplateOutput struct{ *pulumi.OutputState }
 
 func (PushTemplateDefaultPushNotificationTemplateOutput) ElementType() reflect.Type {
@@ -7008,12 +6155,6 @@ func (o PushTemplateDefaultPushNotificationTemplateOutput) ToPushTemplateDefault
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PushTemplateDefaultPushNotificationTemplate) *PushTemplateDefaultPushNotificationTemplate {
 		return &v
 	}).(PushTemplateDefaultPushNotificationTemplatePtrOutput)
-}
-
-func (o PushTemplateDefaultPushNotificationTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[PushTemplateDefaultPushNotificationTemplate] {
-	return pulumix.Output[PushTemplateDefaultPushNotificationTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PushTemplateDefaultPushNotificationTemplateOutput) Action() pulumi.StringPtrOutput {
@@ -7048,12 +6189,6 @@ func (o PushTemplateDefaultPushNotificationTemplatePtrOutput) ToPushTemplateDefa
 
 func (o PushTemplateDefaultPushNotificationTemplatePtrOutput) ToPushTemplateDefaultPushNotificationTemplatePtrOutputWithContext(ctx context.Context) PushTemplateDefaultPushNotificationTemplatePtrOutput {
 	return o
-}
-
-func (o PushTemplateDefaultPushNotificationTemplatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PushTemplateDefaultPushNotificationTemplate] {
-	return pulumix.Output[*PushTemplateDefaultPushNotificationTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PushTemplateDefaultPushNotificationTemplatePtrOutput) Elem() PushTemplateDefaultPushNotificationTemplateOutput {
@@ -7142,12 +6277,6 @@ func (i SegmentBehaviorArgs) ToSegmentBehaviorOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentBehaviorOutput)
 }
 
-func (i SegmentBehaviorArgs) ToOutput(ctx context.Context) pulumix.Output[SegmentBehavior] {
-	return pulumix.Output[SegmentBehavior]{
-		OutputState: i.ToSegmentBehaviorOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SegmentBehaviorArgs) ToSegmentBehaviorPtrOutput() SegmentBehaviorPtrOutput {
 	return i.ToSegmentBehaviorPtrOutputWithContext(context.Background())
 }
@@ -7189,12 +6318,6 @@ func (i *segmentBehaviorPtrType) ToSegmentBehaviorPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentBehaviorPtrOutput)
 }
 
-func (i *segmentBehaviorPtrType) ToOutput(ctx context.Context) pulumix.Output[*SegmentBehavior] {
-	return pulumix.Output[*SegmentBehavior]{
-		OutputState: i.ToSegmentBehaviorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SegmentBehaviorOutput struct{ *pulumi.OutputState }
 
 func (SegmentBehaviorOutput) ElementType() reflect.Type {
@@ -7219,12 +6342,6 @@ func (o SegmentBehaviorOutput) ToSegmentBehaviorPtrOutputWithContext(ctx context
 	}).(SegmentBehaviorPtrOutput)
 }
 
-func (o SegmentBehaviorOutput) ToOutput(ctx context.Context) pulumix.Output[SegmentBehavior] {
-	return pulumix.Output[SegmentBehavior]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SegmentBehaviorOutput) Recency() SegmentRecencyPtrOutput {
 	return o.ApplyT(func(v SegmentBehavior) *SegmentRecency { return v.Recency }).(SegmentRecencyPtrOutput)
 }
@@ -7241,12 +6358,6 @@ func (o SegmentBehaviorPtrOutput) ToSegmentBehaviorPtrOutput() SegmentBehaviorPt
 
 func (o SegmentBehaviorPtrOutput) ToSegmentBehaviorPtrOutputWithContext(ctx context.Context) SegmentBehaviorPtrOutput {
 	return o
-}
-
-func (o SegmentBehaviorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SegmentBehavior] {
-	return pulumix.Output[*SegmentBehavior]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SegmentBehaviorPtrOutput) Elem() SegmentBehaviorOutput {
@@ -7301,12 +6412,6 @@ func (i SegmentCoordinatesArgs) ToSegmentCoordinatesOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentCoordinatesOutput)
 }
 
-func (i SegmentCoordinatesArgs) ToOutput(ctx context.Context) pulumix.Output[SegmentCoordinates] {
-	return pulumix.Output[SegmentCoordinates]{
-		OutputState: i.ToSegmentCoordinatesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SegmentCoordinatesArgs) ToSegmentCoordinatesPtrOutput() SegmentCoordinatesPtrOutput {
 	return i.ToSegmentCoordinatesPtrOutputWithContext(context.Background())
 }
@@ -7348,12 +6453,6 @@ func (i *segmentCoordinatesPtrType) ToSegmentCoordinatesPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentCoordinatesPtrOutput)
 }
 
-func (i *segmentCoordinatesPtrType) ToOutput(ctx context.Context) pulumix.Output[*SegmentCoordinates] {
-	return pulumix.Output[*SegmentCoordinates]{
-		OutputState: i.ToSegmentCoordinatesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SegmentCoordinatesOutput struct{ *pulumi.OutputState }
 
 func (SegmentCoordinatesOutput) ElementType() reflect.Type {
@@ -7378,12 +6477,6 @@ func (o SegmentCoordinatesOutput) ToSegmentCoordinatesPtrOutputWithContext(ctx c
 	}).(SegmentCoordinatesPtrOutput)
 }
 
-func (o SegmentCoordinatesOutput) ToOutput(ctx context.Context) pulumix.Output[SegmentCoordinates] {
-	return pulumix.Output[SegmentCoordinates]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SegmentCoordinatesOutput) Latitude() pulumi.Float64Output {
 	return o.ApplyT(func(v SegmentCoordinates) float64 { return v.Latitude }).(pulumi.Float64Output)
 }
@@ -7404,12 +6497,6 @@ func (o SegmentCoordinatesPtrOutput) ToSegmentCoordinatesPtrOutput() SegmentCoor
 
 func (o SegmentCoordinatesPtrOutput) ToSegmentCoordinatesPtrOutputWithContext(ctx context.Context) SegmentCoordinatesPtrOutput {
 	return o
-}
-
-func (o SegmentCoordinatesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SegmentCoordinates] {
-	return pulumix.Output[*SegmentCoordinates]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SegmentCoordinatesPtrOutput) Elem() SegmentCoordinatesOutput {
@@ -7481,12 +6568,6 @@ func (i SegmentDemographicArgs) ToSegmentDemographicOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentDemographicOutput)
 }
 
-func (i SegmentDemographicArgs) ToOutput(ctx context.Context) pulumix.Output[SegmentDemographic] {
-	return pulumix.Output[SegmentDemographic]{
-		OutputState: i.ToSegmentDemographicOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SegmentDemographicArgs) ToSegmentDemographicPtrOutput() SegmentDemographicPtrOutput {
 	return i.ToSegmentDemographicPtrOutputWithContext(context.Background())
 }
@@ -7528,12 +6609,6 @@ func (i *segmentDemographicPtrType) ToSegmentDemographicPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentDemographicPtrOutput)
 }
 
-func (i *segmentDemographicPtrType) ToOutput(ctx context.Context) pulumix.Output[*SegmentDemographic] {
-	return pulumix.Output[*SegmentDemographic]{
-		OutputState: i.ToSegmentDemographicPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SegmentDemographicOutput struct{ *pulumi.OutputState }
 
 func (SegmentDemographicOutput) ElementType() reflect.Type {
@@ -7556,12 +6631,6 @@ func (o SegmentDemographicOutput) ToSegmentDemographicPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SegmentDemographic) *SegmentDemographic {
 		return &v
 	}).(SegmentDemographicPtrOutput)
-}
-
-func (o SegmentDemographicOutput) ToOutput(ctx context.Context) pulumix.Output[SegmentDemographic] {
-	return pulumix.Output[SegmentDemographic]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SegmentDemographicOutput) AppVersion() SegmentSetDimensionPtrOutput {
@@ -7600,12 +6669,6 @@ func (o SegmentDemographicPtrOutput) ToSegmentDemographicPtrOutput() SegmentDemo
 
 func (o SegmentDemographicPtrOutput) ToSegmentDemographicPtrOutputWithContext(ctx context.Context) SegmentDemographicPtrOutput {
 	return o
-}
-
-func (o SegmentDemographicPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SegmentDemographic] {
-	return pulumix.Output[*SegmentDemographic]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SegmentDemographicPtrOutput) Elem() SegmentDemographicOutput {
@@ -7713,12 +6776,6 @@ func (i SegmentDimensionsArgs) ToSegmentDimensionsOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentDimensionsOutput)
 }
 
-func (i SegmentDimensionsArgs) ToOutput(ctx context.Context) pulumix.Output[SegmentDimensions] {
-	return pulumix.Output[SegmentDimensions]{
-		OutputState: i.ToSegmentDimensionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SegmentDimensionsArgs) ToSegmentDimensionsPtrOutput() SegmentDimensionsPtrOutput {
 	return i.ToSegmentDimensionsPtrOutputWithContext(context.Background())
 }
@@ -7760,12 +6817,6 @@ func (i *segmentDimensionsPtrType) ToSegmentDimensionsPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentDimensionsPtrOutput)
 }
 
-func (i *segmentDimensionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*SegmentDimensions] {
-	return pulumix.Output[*SegmentDimensions]{
-		OutputState: i.ToSegmentDimensionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SegmentDimensionsArrayInput is an input type that accepts SegmentDimensionsArray and SegmentDimensionsArrayOutput values.
 // You can construct a concrete instance of `SegmentDimensionsArrayInput` via:
 //
@@ -7791,12 +6842,6 @@ func (i SegmentDimensionsArray) ToSegmentDimensionsArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentDimensionsArrayOutput)
 }
 
-func (i SegmentDimensionsArray) ToOutput(ctx context.Context) pulumix.Output[[]SegmentDimensions] {
-	return pulumix.Output[[]SegmentDimensions]{
-		OutputState: i.ToSegmentDimensionsArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SegmentDimensionsOutput struct{ *pulumi.OutputState }
 
 func (SegmentDimensionsOutput) ElementType() reflect.Type {
@@ -7819,12 +6864,6 @@ func (o SegmentDimensionsOutput) ToSegmentDimensionsPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SegmentDimensions) *SegmentDimensions {
 		return &v
 	}).(SegmentDimensionsPtrOutput)
-}
-
-func (o SegmentDimensionsOutput) ToOutput(ctx context.Context) pulumix.Output[SegmentDimensions] {
-	return pulumix.Output[SegmentDimensions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SegmentDimensionsOutput) Attributes() pulumi.AnyOutput {
@@ -7863,12 +6902,6 @@ func (o SegmentDimensionsPtrOutput) ToSegmentDimensionsPtrOutput() SegmentDimens
 
 func (o SegmentDimensionsPtrOutput) ToSegmentDimensionsPtrOutputWithContext(ctx context.Context) SegmentDimensionsPtrOutput {
 	return o
-}
-
-func (o SegmentDimensionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SegmentDimensions] {
-	return pulumix.Output[*SegmentDimensions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SegmentDimensionsPtrOutput) Elem() SegmentDimensionsOutput {
@@ -7949,12 +6982,6 @@ func (o SegmentDimensionsArrayOutput) ToSegmentDimensionsArrayOutputWithContext(
 	return o
 }
 
-func (o SegmentDimensionsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SegmentDimensions] {
-	return pulumix.Output[[]SegmentDimensions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SegmentDimensionsArrayOutput) Index(i pulumi.IntInput) SegmentDimensionsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SegmentDimensions {
 		return vs[0].([]SegmentDimensions)[vs[1].(int)]
@@ -7992,12 +7019,6 @@ func (i SegmentGpsPointArgs) ToSegmentGpsPointOutput() SegmentGpsPointOutput {
 
 func (i SegmentGpsPointArgs) ToSegmentGpsPointOutputWithContext(ctx context.Context) SegmentGpsPointOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentGpsPointOutput)
-}
-
-func (i SegmentGpsPointArgs) ToOutput(ctx context.Context) pulumix.Output[SegmentGpsPoint] {
-	return pulumix.Output[SegmentGpsPoint]{
-		OutputState: i.ToSegmentGpsPointOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i SegmentGpsPointArgs) ToSegmentGpsPointPtrOutput() SegmentGpsPointPtrOutput {
@@ -8041,12 +7062,6 @@ func (i *segmentGpsPointPtrType) ToSegmentGpsPointPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentGpsPointPtrOutput)
 }
 
-func (i *segmentGpsPointPtrType) ToOutput(ctx context.Context) pulumix.Output[*SegmentGpsPoint] {
-	return pulumix.Output[*SegmentGpsPoint]{
-		OutputState: i.ToSegmentGpsPointPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SegmentGpsPointOutput struct{ *pulumi.OutputState }
 
 func (SegmentGpsPointOutput) ElementType() reflect.Type {
@@ -8071,12 +7086,6 @@ func (o SegmentGpsPointOutput) ToSegmentGpsPointPtrOutputWithContext(ctx context
 	}).(SegmentGpsPointPtrOutput)
 }
 
-func (o SegmentGpsPointOutput) ToOutput(ctx context.Context) pulumix.Output[SegmentGpsPoint] {
-	return pulumix.Output[SegmentGpsPoint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SegmentGpsPointOutput) Coordinates() SegmentCoordinatesOutput {
 	return o.ApplyT(func(v SegmentGpsPoint) SegmentCoordinates { return v.Coordinates }).(SegmentCoordinatesOutput)
 }
@@ -8097,12 +7106,6 @@ func (o SegmentGpsPointPtrOutput) ToSegmentGpsPointPtrOutput() SegmentGpsPointPt
 
 func (o SegmentGpsPointPtrOutput) ToSegmentGpsPointPtrOutputWithContext(ctx context.Context) SegmentGpsPointPtrOutput {
 	return o
-}
-
-func (o SegmentGpsPointPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SegmentGpsPoint] {
-	return pulumix.Output[*SegmentGpsPoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SegmentGpsPointPtrOutput) Elem() SegmentGpsPointOutput {
@@ -8166,12 +7169,6 @@ func (i SegmentGroupsArgs) ToSegmentGroupsOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentGroupsOutput)
 }
 
-func (i SegmentGroupsArgs) ToOutput(ctx context.Context) pulumix.Output[SegmentGroups] {
-	return pulumix.Output[SegmentGroups]{
-		OutputState: i.ToSegmentGroupsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SegmentGroupsArgs) ToSegmentGroupsPtrOutput() SegmentGroupsPtrOutput {
 	return i.ToSegmentGroupsPtrOutputWithContext(context.Background())
 }
@@ -8213,12 +7210,6 @@ func (i *segmentGroupsPtrType) ToSegmentGroupsPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentGroupsPtrOutput)
 }
 
-func (i *segmentGroupsPtrType) ToOutput(ctx context.Context) pulumix.Output[*SegmentGroups] {
-	return pulumix.Output[*SegmentGroups]{
-		OutputState: i.ToSegmentGroupsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SegmentGroupsOutput struct{ *pulumi.OutputState }
 
 func (SegmentGroupsOutput) ElementType() reflect.Type {
@@ -8243,12 +7234,6 @@ func (o SegmentGroupsOutput) ToSegmentGroupsPtrOutputWithContext(ctx context.Con
 	}).(SegmentGroupsPtrOutput)
 }
 
-func (o SegmentGroupsOutput) ToOutput(ctx context.Context) pulumix.Output[SegmentGroups] {
-	return pulumix.Output[SegmentGroups]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SegmentGroupsOutput) Groups() GroupsArrayOutput {
 	return o.ApplyT(func(v SegmentGroups) []Groups { return v.Groups }).(GroupsArrayOutput)
 }
@@ -8269,12 +7254,6 @@ func (o SegmentGroupsPtrOutput) ToSegmentGroupsPtrOutput() SegmentGroupsPtrOutpu
 
 func (o SegmentGroupsPtrOutput) ToSegmentGroupsPtrOutputWithContext(ctx context.Context) SegmentGroupsPtrOutput {
 	return o
-}
-
-func (o SegmentGroupsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SegmentGroups] {
-	return pulumix.Output[*SegmentGroups]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SegmentGroupsPtrOutput) Elem() SegmentGroupsOutput {
@@ -8338,12 +7317,6 @@ func (i SegmentLocationArgs) ToSegmentLocationOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentLocationOutput)
 }
 
-func (i SegmentLocationArgs) ToOutput(ctx context.Context) pulumix.Output[SegmentLocation] {
-	return pulumix.Output[SegmentLocation]{
-		OutputState: i.ToSegmentLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SegmentLocationArgs) ToSegmentLocationPtrOutput() SegmentLocationPtrOutput {
 	return i.ToSegmentLocationPtrOutputWithContext(context.Background())
 }
@@ -8385,12 +7358,6 @@ func (i *segmentLocationPtrType) ToSegmentLocationPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentLocationPtrOutput)
 }
 
-func (i *segmentLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*SegmentLocation] {
-	return pulumix.Output[*SegmentLocation]{
-		OutputState: i.ToSegmentLocationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SegmentLocationOutput struct{ *pulumi.OutputState }
 
 func (SegmentLocationOutput) ElementType() reflect.Type {
@@ -8415,12 +7382,6 @@ func (o SegmentLocationOutput) ToSegmentLocationPtrOutputWithContext(ctx context
 	}).(SegmentLocationPtrOutput)
 }
 
-func (o SegmentLocationOutput) ToOutput(ctx context.Context) pulumix.Output[SegmentLocation] {
-	return pulumix.Output[SegmentLocation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SegmentLocationOutput) Country() SegmentSetDimensionPtrOutput {
 	return o.ApplyT(func(v SegmentLocation) *SegmentSetDimension { return v.Country }).(SegmentSetDimensionPtrOutput)
 }
@@ -8441,12 +7402,6 @@ func (o SegmentLocationPtrOutput) ToSegmentLocationPtrOutput() SegmentLocationPt
 
 func (o SegmentLocationPtrOutput) ToSegmentLocationPtrOutputWithContext(ctx context.Context) SegmentLocationPtrOutput {
 	return o
-}
-
-func (o SegmentLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SegmentLocation] {
-	return pulumix.Output[*SegmentLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SegmentLocationPtrOutput) Elem() SegmentLocationOutput {
@@ -8510,12 +7465,6 @@ func (i SegmentRecencyArgs) ToSegmentRecencyOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentRecencyOutput)
 }
 
-func (i SegmentRecencyArgs) ToOutput(ctx context.Context) pulumix.Output[SegmentRecency] {
-	return pulumix.Output[SegmentRecency]{
-		OutputState: i.ToSegmentRecencyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SegmentRecencyArgs) ToSegmentRecencyPtrOutput() SegmentRecencyPtrOutput {
 	return i.ToSegmentRecencyPtrOutputWithContext(context.Background())
 }
@@ -8557,12 +7506,6 @@ func (i *segmentRecencyPtrType) ToSegmentRecencyPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentRecencyPtrOutput)
 }
 
-func (i *segmentRecencyPtrType) ToOutput(ctx context.Context) pulumix.Output[*SegmentRecency] {
-	return pulumix.Output[*SegmentRecency]{
-		OutputState: i.ToSegmentRecencyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SegmentRecencyOutput struct{ *pulumi.OutputState }
 
 func (SegmentRecencyOutput) ElementType() reflect.Type {
@@ -8587,12 +7530,6 @@ func (o SegmentRecencyOutput) ToSegmentRecencyPtrOutputWithContext(ctx context.C
 	}).(SegmentRecencyPtrOutput)
 }
 
-func (o SegmentRecencyOutput) ToOutput(ctx context.Context) pulumix.Output[SegmentRecency] {
-	return pulumix.Output[SegmentRecency]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SegmentRecencyOutput) Duration() pulumi.StringOutput {
 	return o.ApplyT(func(v SegmentRecency) string { return v.Duration }).(pulumi.StringOutput)
 }
@@ -8613,12 +7550,6 @@ func (o SegmentRecencyPtrOutput) ToSegmentRecencyPtrOutput() SegmentRecencyPtrOu
 
 func (o SegmentRecencyPtrOutput) ToSegmentRecencyPtrOutputWithContext(ctx context.Context) SegmentRecencyPtrOutput {
 	return o
-}
-
-func (o SegmentRecencyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SegmentRecency] {
-	return pulumix.Output[*SegmentRecency]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SegmentRecencyPtrOutput) Elem() SegmentRecencyOutput {
@@ -8682,12 +7613,6 @@ func (i SegmentSetDimensionArgs) ToSegmentSetDimensionOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentSetDimensionOutput)
 }
 
-func (i SegmentSetDimensionArgs) ToOutput(ctx context.Context) pulumix.Output[SegmentSetDimension] {
-	return pulumix.Output[SegmentSetDimension]{
-		OutputState: i.ToSegmentSetDimensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SegmentSetDimensionArgs) ToSegmentSetDimensionPtrOutput() SegmentSetDimensionPtrOutput {
 	return i.ToSegmentSetDimensionPtrOutputWithContext(context.Background())
 }
@@ -8729,12 +7654,6 @@ func (i *segmentSetDimensionPtrType) ToSegmentSetDimensionPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentSetDimensionPtrOutput)
 }
 
-func (i *segmentSetDimensionPtrType) ToOutput(ctx context.Context) pulumix.Output[*SegmentSetDimension] {
-	return pulumix.Output[*SegmentSetDimension]{
-		OutputState: i.ToSegmentSetDimensionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SegmentSetDimensionOutput struct{ *pulumi.OutputState }
 
 func (SegmentSetDimensionOutput) ElementType() reflect.Type {
@@ -8759,12 +7678,6 @@ func (o SegmentSetDimensionOutput) ToSegmentSetDimensionPtrOutputWithContext(ctx
 	}).(SegmentSetDimensionPtrOutput)
 }
 
-func (o SegmentSetDimensionOutput) ToOutput(ctx context.Context) pulumix.Output[SegmentSetDimension] {
-	return pulumix.Output[SegmentSetDimension]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SegmentSetDimensionOutput) DimensionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SegmentSetDimension) *string { return v.DimensionType }).(pulumi.StringPtrOutput)
 }
@@ -8785,12 +7698,6 @@ func (o SegmentSetDimensionPtrOutput) ToSegmentSetDimensionPtrOutput() SegmentSe
 
 func (o SegmentSetDimensionPtrOutput) ToSegmentSetDimensionPtrOutputWithContext(ctx context.Context) SegmentSetDimensionPtrOutput {
 	return o
-}
-
-func (o SegmentSetDimensionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SegmentSetDimension] {
-	return pulumix.Output[*SegmentSetDimension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SegmentSetDimensionPtrOutput) Elem() SegmentSetDimensionOutput {
@@ -8854,12 +7761,6 @@ func (i SegmentSourceSegmentsArgs) ToSegmentSourceSegmentsOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentSourceSegmentsOutput)
 }
 
-func (i SegmentSourceSegmentsArgs) ToOutput(ctx context.Context) pulumix.Output[SegmentSourceSegments] {
-	return pulumix.Output[SegmentSourceSegments]{
-		OutputState: i.ToSegmentSourceSegmentsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SegmentSourceSegmentsArrayInput is an input type that accepts SegmentSourceSegmentsArray and SegmentSourceSegmentsArrayOutput values.
 // You can construct a concrete instance of `SegmentSourceSegmentsArrayInput` via:
 //
@@ -8885,12 +7786,6 @@ func (i SegmentSourceSegmentsArray) ToSegmentSourceSegmentsArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SegmentSourceSegmentsArrayOutput)
 }
 
-func (i SegmentSourceSegmentsArray) ToOutput(ctx context.Context) pulumix.Output[[]SegmentSourceSegments] {
-	return pulumix.Output[[]SegmentSourceSegments]{
-		OutputState: i.ToSegmentSourceSegmentsArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SegmentSourceSegmentsOutput struct{ *pulumi.OutputState }
 
 func (SegmentSourceSegmentsOutput) ElementType() reflect.Type {
@@ -8903,12 +7798,6 @@ func (o SegmentSourceSegmentsOutput) ToSegmentSourceSegmentsOutput() SegmentSour
 
 func (o SegmentSourceSegmentsOutput) ToSegmentSourceSegmentsOutputWithContext(ctx context.Context) SegmentSourceSegmentsOutput {
 	return o
-}
-
-func (o SegmentSourceSegmentsOutput) ToOutput(ctx context.Context) pulumix.Output[SegmentSourceSegments] {
-	return pulumix.Output[SegmentSourceSegments]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SegmentSourceSegmentsOutput) Id() pulumi.StringOutput {
@@ -8931,12 +7820,6 @@ func (o SegmentSourceSegmentsArrayOutput) ToSegmentSourceSegmentsArrayOutput() S
 
 func (o SegmentSourceSegmentsArrayOutput) ToSegmentSourceSegmentsArrayOutputWithContext(ctx context.Context) SegmentSourceSegmentsArrayOutput {
 	return o
-}
-
-func (o SegmentSourceSegmentsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SegmentSourceSegments] {
-	return pulumix.Output[[]SegmentSourceSegments]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SegmentSourceSegmentsArrayOutput) Index(i pulumi.IntInput) SegmentSourceSegmentsOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::B2BI::Transformer Resource Type
@@ -74,12 +73,6 @@ func (o LookupTransformerResultOutput) ToLookupTransformerResultOutput() LookupT
 
 func (o LookupTransformerResultOutput) ToLookupTransformerResultOutputWithContext(ctx context.Context) LookupTransformerResultOutput {
 	return o
-}
-
-func (o LookupTransformerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTransformerResult] {
-	return pulumix.Output[LookupTransformerResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupTransformerResultOutput) CreatedAt() pulumi.StringPtrOutput {

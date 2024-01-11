@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::TransitGatewayVpcAttachment
@@ -67,12 +66,6 @@ func (o LookupTransitGatewayVpcAttachmentResultOutput) ToLookupTransitGatewayVpc
 
 func (o LookupTransitGatewayVpcAttachmentResultOutput) ToLookupTransitGatewayVpcAttachmentResultOutputWithContext(ctx context.Context) LookupTransitGatewayVpcAttachmentResultOutput {
 	return o
-}
-
-func (o LookupTransitGatewayVpcAttachmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTransitGatewayVpcAttachmentResult] {
-	return pulumix.Output[LookupTransitGatewayVpcAttachmentResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupTransitGatewayVpcAttachmentResultOutput) Id() pulumi.StringPtrOutput {

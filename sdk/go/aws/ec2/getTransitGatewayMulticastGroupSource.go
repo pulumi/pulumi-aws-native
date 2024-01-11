@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::EC2::TransitGatewayMulticastGroupSource registers and deregisters members and sources (network interfaces) with the transit gateway multicast group
@@ -89,12 +88,6 @@ func (o LookupTransitGatewayMulticastGroupSourceResultOutput) ToLookupTransitGat
 
 func (o LookupTransitGatewayMulticastGroupSourceResultOutput) ToLookupTransitGatewayMulticastGroupSourceResultOutputWithContext(ctx context.Context) LookupTransitGatewayMulticastGroupSourceResultOutput {
 	return o
-}
-
-func (o LookupTransitGatewayMulticastGroupSourceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTransitGatewayMulticastGroupSourceResult] {
-	return pulumix.Output[LookupTransitGatewayMulticastGroupSourceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Indicates that the resource is a transit gateway multicast group member.

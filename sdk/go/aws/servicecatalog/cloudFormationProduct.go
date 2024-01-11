@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::ServiceCatalog::CloudFormationProduct
@@ -135,12 +134,6 @@ func (i *CloudFormationProduct) ToCloudFormationProductOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationProductOutput)
 }
 
-func (i *CloudFormationProduct) ToOutput(ctx context.Context) pulumix.Output[*CloudFormationProduct] {
-	return pulumix.Output[*CloudFormationProduct]{
-		OutputState: i.ToCloudFormationProductOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CloudFormationProductOutput struct{ *pulumi.OutputState }
 
 func (CloudFormationProductOutput) ElementType() reflect.Type {
@@ -153,12 +146,6 @@ func (o CloudFormationProductOutput) ToCloudFormationProductOutput() CloudFormat
 
 func (o CloudFormationProductOutput) ToCloudFormationProductOutputWithContext(ctx context.Context) CloudFormationProductOutput {
 	return o
-}
-
-func (o CloudFormationProductOutput) ToOutput(ctx context.Context) pulumix.Output[*CloudFormationProduct] {
-	return pulumix.Output[*CloudFormationProduct]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CloudFormationProductOutput) AcceptLanguage() pulumi.StringPtrOutput {

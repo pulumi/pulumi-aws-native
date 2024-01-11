@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Greengrass::ResourceDefinitionVersion
@@ -64,12 +63,6 @@ func (o LookupResourceDefinitionVersionResultOutput) ToLookupResourceDefinitionV
 
 func (o LookupResourceDefinitionVersionResultOutput) ToLookupResourceDefinitionVersionResultOutputWithContext(ctx context.Context) LookupResourceDefinitionVersionResultOutput {
 	return o
-}
-
-func (o LookupResourceDefinitionVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResourceDefinitionVersionResult] {
-	return pulumix.Output[LookupResourceDefinitionVersionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupResourceDefinitionVersionResultOutput) Id() pulumi.StringPtrOutput {

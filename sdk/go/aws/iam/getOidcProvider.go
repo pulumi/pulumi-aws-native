@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IAM::OIDCProvider
@@ -70,12 +69,6 @@ func (o LookupOidcProviderResultOutput) ToLookupOidcProviderResultOutput() Looku
 
 func (o LookupOidcProviderResultOutput) ToLookupOidcProviderResultOutputWithContext(ctx context.Context) LookupOidcProviderResultOutput {
 	return o
-}
-
-func (o LookupOidcProviderResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupOidcProviderResult] {
-	return pulumix.Output[LookupOidcProviderResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Amazon Resource Name (ARN) of the OIDC provider

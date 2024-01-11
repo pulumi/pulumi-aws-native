@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::NeptuneGraph::PrivateGraphEndpoint resource creates an Amazon NeptuneGraph PrivateGraphEndpoint.
@@ -131,12 +130,6 @@ func (i *PrivateGraphEndpoint) ToPrivateGraphEndpointOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateGraphEndpointOutput)
 }
 
-func (i *PrivateGraphEndpoint) ToOutput(ctx context.Context) pulumix.Output[*PrivateGraphEndpoint] {
-	return pulumix.Output[*PrivateGraphEndpoint]{
-		OutputState: i.ToPrivateGraphEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrivateGraphEndpointOutput struct{ *pulumi.OutputState }
 
 func (PrivateGraphEndpointOutput) ElementType() reflect.Type {
@@ -149,12 +142,6 @@ func (o PrivateGraphEndpointOutput) ToPrivateGraphEndpointOutput() PrivateGraphE
 
 func (o PrivateGraphEndpointOutput) ToPrivateGraphEndpointOutputWithContext(ctx context.Context) PrivateGraphEndpointOutput {
 	return o
-}
-
-func (o PrivateGraphEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateGraphEndpoint] {
-	return pulumix.Output[*PrivateGraphEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The auto-generated Graph Id assigned by the service.

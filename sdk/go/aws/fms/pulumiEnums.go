@@ -79,12 +79,6 @@ func (o PolicyFirewallDeploymentModelOutput) ToPolicyFirewallDeploymentModelPtrO
 	}).(PolicyFirewallDeploymentModelPtrOutput)
 }
 
-func (o PolicyFirewallDeploymentModelOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyFirewallDeploymentModel] {
-	return pulumix.Output[PolicyFirewallDeploymentModel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PolicyFirewallDeploymentModelOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +114,6 @@ func (o PolicyFirewallDeploymentModelPtrOutput) ToPolicyFirewallDeploymentModelP
 	return o
 }
 
-func (o PolicyFirewallDeploymentModelPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyFirewallDeploymentModel] {
-	return pulumix.Output[*PolicyFirewallDeploymentModel]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PolicyFirewallDeploymentModelPtrOutput) Elem() PolicyFirewallDeploymentModelOutput {
 	return o.ApplyT(func(v *PolicyFirewallDeploymentModel) PolicyFirewallDeploymentModel {
 		if v != nil {
@@ -150,10 +138,11 @@ func (o PolicyFirewallDeploymentModelPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// PolicyFirewallDeploymentModelInput is an input type that accepts PolicyFirewallDeploymentModelArgs and PolicyFirewallDeploymentModelOutput values.
-// You can construct a concrete instance of `PolicyFirewallDeploymentModelInput` via:
+// PolicyFirewallDeploymentModelInput is an input type that accepts values of the PolicyFirewallDeploymentModel enum
+// A concrete instance of `PolicyFirewallDeploymentModelInput` can be one of the following:
 //
-//	PolicyFirewallDeploymentModelArgs{...}
+//	PolicyFirewallDeploymentModelDistributed
+//	PolicyFirewallDeploymentModelCentralized
 type PolicyFirewallDeploymentModelInput interface {
 	pulumi.Input
 
@@ -270,12 +259,6 @@ func (o PolicyTypeOutput) ToPolicyTypePtrOutputWithContext(ctx context.Context) 
 	}).(PolicyTypePtrOutput)
 }
 
-func (o PolicyTypeOutput) ToOutput(ctx context.Context) pulumix.Output[PolicyType] {
-	return pulumix.Output[PolicyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -311,12 +294,6 @@ func (o PolicyTypePtrOutput) ToPolicyTypePtrOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o PolicyTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicyType] {
-	return pulumix.Output[*PolicyType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PolicyTypePtrOutput) Elem() PolicyTypeOutput {
 	return o.ApplyT(func(v *PolicyType) PolicyType {
 		if v != nil {
@@ -341,10 +318,19 @@ func (o PolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// PolicyTypeInput is an input type that accepts PolicyTypeArgs and PolicyTypeOutput values.
-// You can construct a concrete instance of `PolicyTypeInput` via:
+// PolicyTypeInput is an input type that accepts values of the PolicyType enum
+// A concrete instance of `PolicyTypeInput` can be one of the following:
 //
-//	PolicyTypeArgs{...}
+//	PolicyTypeWaf
+//	PolicyTypeWafv2
+//	PolicyTypeShieldAdvanced
+//	PolicyTypeSecurityGroupsCommon
+//	PolicyTypeSecurityGroupsContentAudit
+//	PolicyTypeSecurityGroupsUsageAudit
+//	PolicyTypeNetworkFirewall
+//	PolicyTypeThirdPartyFirewall
+//	PolicyTypeDnsFirewall
+//	PolicyTypeImportNetworkFirewall
 type PolicyTypeInput interface {
 	pulumi.Input
 

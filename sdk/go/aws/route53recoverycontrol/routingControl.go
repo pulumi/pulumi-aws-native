@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // AWS Route53 Recovery Control Routing Control resource schema .
@@ -114,12 +113,6 @@ func (i *RoutingControl) ToRoutingControlOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingControlOutput)
 }
 
-func (i *RoutingControl) ToOutput(ctx context.Context) pulumix.Output[*RoutingControl] {
-	return pulumix.Output[*RoutingControl]{
-		OutputState: i.ToRoutingControlOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RoutingControlOutput struct{ *pulumi.OutputState }
 
 func (RoutingControlOutput) ElementType() reflect.Type {
@@ -132,12 +125,6 @@ func (o RoutingControlOutput) ToRoutingControlOutput() RoutingControlOutput {
 
 func (o RoutingControlOutput) ToRoutingControlOutputWithContext(ctx context.Context) RoutingControlOutput {
 	return o
-}
-
-func (o RoutingControlOutput) ToOutput(ctx context.Context) pulumix.Output[*RoutingControl] {
-	return pulumix.Output[*RoutingControl]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Arn associated with Control Panel

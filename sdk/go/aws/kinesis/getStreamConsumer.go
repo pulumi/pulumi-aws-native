@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Kinesis::StreamConsumer
@@ -67,12 +66,6 @@ func (o LookupStreamConsumerResultOutput) ToLookupStreamConsumerResultOutput() L
 
 func (o LookupStreamConsumerResultOutput) ToLookupStreamConsumerResultOutputWithContext(ctx context.Context) LookupStreamConsumerResultOutput {
 	return o
-}
-
-func (o LookupStreamConsumerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStreamConsumerResult] {
-	return pulumix.Output[LookupStreamConsumerResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupStreamConsumerResultOutput) ConsumerArn() pulumi.StringPtrOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -53,12 +52,6 @@ func (i AnomalyMonitorResourceTagArgs) ToAnomalyMonitorResourceTagOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyMonitorResourceTagOutput)
 }
 
-func (i AnomalyMonitorResourceTagArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalyMonitorResourceTag] {
-	return pulumix.Output[AnomalyMonitorResourceTag]{
-		OutputState: i.ToAnomalyMonitorResourceTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AnomalyMonitorResourceTagArrayInput is an input type that accepts AnomalyMonitorResourceTagArray and AnomalyMonitorResourceTagArrayOutput values.
 // You can construct a concrete instance of `AnomalyMonitorResourceTagArrayInput` via:
 //
@@ -84,12 +77,6 @@ func (i AnomalyMonitorResourceTagArray) ToAnomalyMonitorResourceTagArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalyMonitorResourceTagArrayOutput)
 }
 
-func (i AnomalyMonitorResourceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AnomalyMonitorResourceTag] {
-	return pulumix.Output[[]AnomalyMonitorResourceTag]{
-		OutputState: i.ToAnomalyMonitorResourceTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type AnomalyMonitorResourceTagOutput struct{ *pulumi.OutputState }
 
@@ -103,12 +90,6 @@ func (o AnomalyMonitorResourceTagOutput) ToAnomalyMonitorResourceTagOutput() Ano
 
 func (o AnomalyMonitorResourceTagOutput) ToAnomalyMonitorResourceTagOutputWithContext(ctx context.Context) AnomalyMonitorResourceTagOutput {
 	return o
-}
-
-func (o AnomalyMonitorResourceTagOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalyMonitorResourceTag] {
-	return pulumix.Output[AnomalyMonitorResourceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name for the tag.
@@ -133,12 +114,6 @@ func (o AnomalyMonitorResourceTagArrayOutput) ToAnomalyMonitorResourceTagArrayOu
 
 func (o AnomalyMonitorResourceTagArrayOutput) ToAnomalyMonitorResourceTagArrayOutputWithContext(ctx context.Context) AnomalyMonitorResourceTagArrayOutput {
 	return o
-}
-
-func (o AnomalyMonitorResourceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AnomalyMonitorResourceTag] {
-	return pulumix.Output[[]AnomalyMonitorResourceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalyMonitorResourceTagArrayOutput) Index(i pulumi.IntInput) AnomalyMonitorResourceTagOutput {
@@ -186,12 +161,6 @@ func (i AnomalySubscriptionResourceTagArgs) ToAnomalySubscriptionResourceTagOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionResourceTagOutput)
 }
 
-func (i AnomalySubscriptionResourceTagArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionResourceTag] {
-	return pulumix.Output[AnomalySubscriptionResourceTag]{
-		OutputState: i.ToAnomalySubscriptionResourceTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AnomalySubscriptionResourceTagArrayInput is an input type that accepts AnomalySubscriptionResourceTagArray and AnomalySubscriptionResourceTagArrayOutput values.
 // You can construct a concrete instance of `AnomalySubscriptionResourceTagArrayInput` via:
 //
@@ -217,12 +186,6 @@ func (i AnomalySubscriptionResourceTagArray) ToAnomalySubscriptionResourceTagArr
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionResourceTagArrayOutput)
 }
 
-func (i AnomalySubscriptionResourceTagArray) ToOutput(ctx context.Context) pulumix.Output[[]AnomalySubscriptionResourceTag] {
-	return pulumix.Output[[]AnomalySubscriptionResourceTag]{
-		OutputState: i.ToAnomalySubscriptionResourceTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // A key-value pair to associate with a resource.
 type AnomalySubscriptionResourceTagOutput struct{ *pulumi.OutputState }
 
@@ -236,12 +199,6 @@ func (o AnomalySubscriptionResourceTagOutput) ToAnomalySubscriptionResourceTagOu
 
 func (o AnomalySubscriptionResourceTagOutput) ToAnomalySubscriptionResourceTagOutputWithContext(ctx context.Context) AnomalySubscriptionResourceTagOutput {
 	return o
-}
-
-func (o AnomalySubscriptionResourceTagOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionResourceTag] {
-	return pulumix.Output[AnomalySubscriptionResourceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The key name for the tag.
@@ -266,12 +223,6 @@ func (o AnomalySubscriptionResourceTagArrayOutput) ToAnomalySubscriptionResource
 
 func (o AnomalySubscriptionResourceTagArrayOutput) ToAnomalySubscriptionResourceTagArrayOutputWithContext(ctx context.Context) AnomalySubscriptionResourceTagArrayOutput {
 	return o
-}
-
-func (o AnomalySubscriptionResourceTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AnomalySubscriptionResourceTag] {
-	return pulumix.Output[[]AnomalySubscriptionResourceTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalySubscriptionResourceTagArrayOutput) Index(i pulumi.IntInput) AnomalySubscriptionResourceTagOutput {
@@ -315,12 +266,6 @@ func (i AnomalySubscriptionSubscriberArgs) ToAnomalySubscriptionSubscriberOutput
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionSubscriberOutput)
 }
 
-func (i AnomalySubscriptionSubscriberArgs) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionSubscriber] {
-	return pulumix.Output[AnomalySubscriptionSubscriber]{
-		OutputState: i.ToAnomalySubscriptionSubscriberOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AnomalySubscriptionSubscriberArrayInput is an input type that accepts AnomalySubscriptionSubscriberArray and AnomalySubscriptionSubscriberArrayOutput values.
 // You can construct a concrete instance of `AnomalySubscriptionSubscriberArrayInput` via:
 //
@@ -346,12 +291,6 @@ func (i AnomalySubscriptionSubscriberArray) ToAnomalySubscriptionSubscriberArray
 	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionSubscriberArrayOutput)
 }
 
-func (i AnomalySubscriptionSubscriberArray) ToOutput(ctx context.Context) pulumix.Output[[]AnomalySubscriptionSubscriber] {
-	return pulumix.Output[[]AnomalySubscriptionSubscriber]{
-		OutputState: i.ToAnomalySubscriptionSubscriberArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnomalySubscriptionSubscriberOutput struct{ *pulumi.OutputState }
 
 func (AnomalySubscriptionSubscriberOutput) ElementType() reflect.Type {
@@ -364,12 +303,6 @@ func (o AnomalySubscriptionSubscriberOutput) ToAnomalySubscriptionSubscriberOutp
 
 func (o AnomalySubscriptionSubscriberOutput) ToAnomalySubscriptionSubscriberOutputWithContext(ctx context.Context) AnomalySubscriptionSubscriberOutput {
 	return o
-}
-
-func (o AnomalySubscriptionSubscriberOutput) ToOutput(ctx context.Context) pulumix.Output[AnomalySubscriptionSubscriber] {
-	return pulumix.Output[AnomalySubscriptionSubscriber]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalySubscriptionSubscriberOutput) Address() pulumi.StringOutput {
@@ -396,12 +329,6 @@ func (o AnomalySubscriptionSubscriberArrayOutput) ToAnomalySubscriptionSubscribe
 
 func (o AnomalySubscriptionSubscriberArrayOutput) ToAnomalySubscriptionSubscriberArrayOutputWithContext(ctx context.Context) AnomalySubscriptionSubscriberArrayOutput {
 	return o
-}
-
-func (o AnomalySubscriptionSubscriberArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AnomalySubscriptionSubscriber] {
-	return pulumix.Output[[]AnomalySubscriptionSubscriber]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnomalySubscriptionSubscriberArrayOutput) Index(i pulumi.IntInput) AnomalySubscriptionSubscriberOutput {

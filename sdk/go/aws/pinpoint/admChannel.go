@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Pinpoint::ADMChannel
@@ -115,12 +114,6 @@ func (i *AdmChannel) ToAdmChannelOutputWithContext(ctx context.Context) AdmChann
 	return pulumi.ToOutputWithContext(ctx, i).(AdmChannelOutput)
 }
 
-func (i *AdmChannel) ToOutput(ctx context.Context) pulumix.Output[*AdmChannel] {
-	return pulumix.Output[*AdmChannel]{
-		OutputState: i.ToAdmChannelOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AdmChannelOutput struct{ *pulumi.OutputState }
 
 func (AdmChannelOutput) ElementType() reflect.Type {
@@ -133,12 +126,6 @@ func (o AdmChannelOutput) ToAdmChannelOutput() AdmChannelOutput {
 
 func (o AdmChannelOutput) ToAdmChannelOutputWithContext(ctx context.Context) AdmChannelOutput {
 	return o
-}
-
-func (o AdmChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*AdmChannel] {
-	return pulumix.Output[*AdmChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AdmChannelOutput) ApplicationId() pulumi.StringOutput {

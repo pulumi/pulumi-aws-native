@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type Definition for AWS::KinesisVideo::SignalingChannel
@@ -117,12 +116,6 @@ func (i *SignalingChannel) ToSignalingChannelOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SignalingChannelOutput)
 }
 
-func (i *SignalingChannel) ToOutput(ctx context.Context) pulumix.Output[*SignalingChannel] {
-	return pulumix.Output[*SignalingChannel]{
-		OutputState: i.ToSignalingChannelOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SignalingChannelOutput struct{ *pulumi.OutputState }
 
 func (SignalingChannelOutput) ElementType() reflect.Type {
@@ -135,12 +128,6 @@ func (o SignalingChannelOutput) ToSignalingChannelOutput() SignalingChannelOutpu
 
 func (o SignalingChannelOutput) ToSignalingChannelOutputWithContext(ctx context.Context) SignalingChannelOutput {
 	return o
-}
-
-func (o SignalingChannelOutput) ToOutput(ctx context.Context) pulumix.Output[*SignalingChannel] {
-	return pulumix.Output[*SignalingChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the Kinesis Video Signaling Channel.

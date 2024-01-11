@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An object representing an Amazon EKS AccessEntry.
@@ -144,12 +143,6 @@ func (i *AccessEntry) ToAccessEntryOutputWithContext(ctx context.Context) Access
 	return pulumi.ToOutputWithContext(ctx, i).(AccessEntryOutput)
 }
 
-func (i *AccessEntry) ToOutput(ctx context.Context) pulumix.Output[*AccessEntry] {
-	return pulumix.Output[*AccessEntry]{
-		OutputState: i.ToAccessEntryOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccessEntryOutput struct{ *pulumi.OutputState }
 
 func (AccessEntryOutput) ElementType() reflect.Type {
@@ -162,12 +155,6 @@ func (o AccessEntryOutput) ToAccessEntryOutput() AccessEntryOutput {
 
 func (o AccessEntryOutput) ToAccessEntryOutputWithContext(ctx context.Context) AccessEntryOutput {
 	return o
-}
-
-func (o AccessEntryOutput) ToOutput(ctx context.Context) pulumix.Output[*AccessEntry] {
-	return pulumix.Output[*AccessEntry]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the access entry.

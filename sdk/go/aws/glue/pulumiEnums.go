@@ -85,12 +85,6 @@ func (o SchemaCompatibilityOutput) ToSchemaCompatibilityPtrOutputWithContext(ctx
 	}).(SchemaCompatibilityPtrOutput)
 }
 
-func (o SchemaCompatibilityOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaCompatibility] {
-	return pulumix.Output[SchemaCompatibility]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchemaCompatibilityOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -126,12 +120,6 @@ func (o SchemaCompatibilityPtrOutput) ToSchemaCompatibilityPtrOutputWithContext(
 	return o
 }
 
-func (o SchemaCompatibilityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaCompatibility] {
-	return pulumix.Output[*SchemaCompatibility]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchemaCompatibilityPtrOutput) Elem() SchemaCompatibilityOutput {
 	return o.ApplyT(func(v *SchemaCompatibility) SchemaCompatibility {
 		if v != nil {
@@ -156,10 +144,17 @@ func (o SchemaCompatibilityPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// SchemaCompatibilityInput is an input type that accepts SchemaCompatibilityArgs and SchemaCompatibilityOutput values.
-// You can construct a concrete instance of `SchemaCompatibilityInput` via:
+// SchemaCompatibilityInput is an input type that accepts values of the SchemaCompatibility enum
+// A concrete instance of `SchemaCompatibilityInput` can be one of the following:
 //
-//	SchemaCompatibilityArgs{...}
+//	SchemaCompatibilityNone
+//	SchemaCompatibilityDisabled
+//	SchemaCompatibilityBackward
+//	SchemaCompatibilityBackwardAll
+//	SchemaCompatibilityForward
+//	SchemaCompatibilityForwardAll
+//	SchemaCompatibilityFull
+//	SchemaCompatibilityFullAll
 type SchemaCompatibilityInput interface {
 	pulumi.Input
 
@@ -269,12 +264,6 @@ func (o SchemaDataFormatOutput) ToSchemaDataFormatPtrOutputWithContext(ctx conte
 	}).(SchemaDataFormatPtrOutput)
 }
 
-func (o SchemaDataFormatOutput) ToOutput(ctx context.Context) pulumix.Output[SchemaDataFormat] {
-	return pulumix.Output[SchemaDataFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchemaDataFormatOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -310,12 +299,6 @@ func (o SchemaDataFormatPtrOutput) ToSchemaDataFormatPtrOutputWithContext(ctx co
 	return o
 }
 
-func (o SchemaDataFormatPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SchemaDataFormat] {
-	return pulumix.Output[*SchemaDataFormat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SchemaDataFormatPtrOutput) Elem() SchemaDataFormatOutput {
 	return o.ApplyT(func(v *SchemaDataFormat) SchemaDataFormat {
 		if v != nil {
@@ -340,10 +323,12 @@ func (o SchemaDataFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// SchemaDataFormatInput is an input type that accepts SchemaDataFormatArgs and SchemaDataFormatOutput values.
-// You can construct a concrete instance of `SchemaDataFormatInput` via:
+// SchemaDataFormatInput is an input type that accepts values of the SchemaDataFormat enum
+// A concrete instance of `SchemaDataFormatInput` can be one of the following:
 //
-//	SchemaDataFormatArgs{...}
+//	SchemaDataFormatAvro
+//	SchemaDataFormatJson
+//	SchemaDataFormatProtobuf
 type SchemaDataFormatInput interface {
 	pulumi.Input
 

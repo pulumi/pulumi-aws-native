@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A KendraRanking Rescore execution plan
@@ -72,12 +71,6 @@ func (o LookupExecutionPlanResultOutput) ToLookupExecutionPlanResultOutput() Loo
 
 func (o LookupExecutionPlanResultOutput) ToLookupExecutionPlanResultOutputWithContext(ctx context.Context) LookupExecutionPlanResultOutput {
 	return o
-}
-
-func (o LookupExecutionPlanResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupExecutionPlanResult] {
-	return pulumix.Output[LookupExecutionPlanResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupExecutionPlanResultOutput) Arn() pulumi.StringPtrOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Connect::EvaluationForm
@@ -144,12 +143,6 @@ func (i *EvaluationForm) ToEvaluationFormOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(EvaluationFormOutput)
 }
 
-func (i *EvaluationForm) ToOutput(ctx context.Context) pulumix.Output[*EvaluationForm] {
-	return pulumix.Output[*EvaluationForm]{
-		OutputState: i.ToEvaluationFormOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EvaluationFormOutput struct{ *pulumi.OutputState }
 
 func (EvaluationFormOutput) ElementType() reflect.Type {
@@ -162,12 +155,6 @@ func (o EvaluationFormOutput) ToEvaluationFormOutput() EvaluationFormOutput {
 
 func (o EvaluationFormOutput) ToEvaluationFormOutputWithContext(ctx context.Context) EvaluationFormOutput {
 	return o
-}
-
-func (o EvaluationFormOutput) ToOutput(ctx context.Context) pulumix.Output[*EvaluationForm] {
-	return pulumix.Output[*EvaluationForm]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the evaluation form.

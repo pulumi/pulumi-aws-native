@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Schema of AWS::EC2::IPAMPool Type
@@ -207,12 +206,6 @@ func (i *IpamPool) ToIpamPoolOutputWithContext(ctx context.Context) IpamPoolOutp
 	return pulumi.ToOutputWithContext(ctx, i).(IpamPoolOutput)
 }
 
-func (i *IpamPool) ToOutput(ctx context.Context) pulumix.Output[*IpamPool] {
-	return pulumix.Output[*IpamPool]{
-		OutputState: i.ToIpamPoolOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IpamPoolOutput struct{ *pulumi.OutputState }
 
 func (IpamPoolOutput) ElementType() reflect.Type {
@@ -225,12 +218,6 @@ func (o IpamPoolOutput) ToIpamPoolOutput() IpamPoolOutput {
 
 func (o IpamPoolOutput) ToIpamPoolOutputWithContext(ctx context.Context) IpamPoolOutput {
 	return o
-}
-
-func (o IpamPoolOutput) ToOutput(ctx context.Context) pulumix.Output[*IpamPool] {
-	return pulumix.Output[*IpamPool]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The address family of the address space in this pool. Either IPv4 or IPv6.

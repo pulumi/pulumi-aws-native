@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // An Event Stream resource of Amazon Connect Customer Profiles
@@ -129,12 +128,6 @@ func (i *EventStream) ToEventStreamOutputWithContext(ctx context.Context) EventS
 	return pulumi.ToOutputWithContext(ctx, i).(EventStreamOutput)
 }
 
-func (i *EventStream) ToOutput(ctx context.Context) pulumix.Output[*EventStream] {
-	return pulumix.Output[*EventStream]{
-		OutputState: i.ToEventStreamOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventStreamOutput struct{ *pulumi.OutputState }
 
 func (EventStreamOutput) ElementType() reflect.Type {
@@ -147,12 +140,6 @@ func (o EventStreamOutput) ToEventStreamOutput() EventStreamOutput {
 
 func (o EventStreamOutput) ToEventStreamOutputWithContext(ctx context.Context) EventStreamOutput {
 	return o
-}
-
-func (o EventStreamOutput) ToOutput(ctx context.Context) pulumix.Output[*EventStream] {
-	return pulumix.Output[*EventStream]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The timestamp of when the export was created.

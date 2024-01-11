@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Config::OrganizationConfigRule
@@ -68,12 +67,6 @@ func (o LookupOrganizationConfigRuleResultOutput) ToLookupOrganizationConfigRule
 
 func (o LookupOrganizationConfigRuleResultOutput) ToLookupOrganizationConfigRuleResultOutputWithContext(ctx context.Context) LookupOrganizationConfigRuleResultOutput {
 	return o
-}
-
-func (o LookupOrganizationConfigRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupOrganizationConfigRuleResult] {
-	return pulumix.Output[LookupOrganizationConfigRuleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupOrganizationConfigRuleResultOutput) ExcludedAccounts() pulumi.StringArrayOutput {

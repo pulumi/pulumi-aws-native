@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Represents a studio that contains other Nimble Studio resources
@@ -77,12 +76,6 @@ func (o LookupStudioResultOutput) ToLookupStudioResultOutput() LookupStudioResul
 
 func (o LookupStudioResultOutput) ToLookupStudioResultOutputWithContext(ctx context.Context) LookupStudioResultOutput {
 	return o
-}
-
-func (o LookupStudioResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStudioResult] {
-	return pulumix.Output[LookupStudioResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.</p>

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Cognito::IdentityPoolPrincipalTag
@@ -67,12 +66,6 @@ func (o LookupIdentityPoolPrincipalTagResultOutput) ToLookupIdentityPoolPrincipa
 
 func (o LookupIdentityPoolPrincipalTagResultOutput) ToLookupIdentityPoolPrincipalTagResultOutputWithContext(ctx context.Context) LookupIdentityPoolPrincipalTagResultOutput {
 	return o
-}
-
-func (o LookupIdentityPoolPrincipalTagResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIdentityPoolPrincipalTagResult] {
-	return pulumix.Output[LookupIdentityPoolPrincipalTagResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupIdentityPoolPrincipalTagResultOutput) PrincipalTags() pulumi.AnyOutput {

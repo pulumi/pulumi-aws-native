@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func Cidr(ctx *pulumi.Context, args *CidrArgs, opts ...pulumi.InvokeOption) (*CidrResult, error) {
@@ -67,12 +66,6 @@ func (o CidrResultOutput) ToCidrResultOutput() CidrResultOutput {
 
 func (o CidrResultOutput) ToCidrResultOutputWithContext(ctx context.Context) CidrResultOutput {
 	return o
-}
-
-func (o CidrResultOutput) ToOutput(ctx context.Context) pulumix.Output[CidrResult] {
-	return pulumix.Output[CidrResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CidrResultOutput) Subnets() pulumi.StringArrayOutput {

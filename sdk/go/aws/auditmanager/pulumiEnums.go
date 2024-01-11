@@ -80,12 +80,6 @@ func (o AssessmentDelegationStatusOutput) ToAssessmentDelegationStatusPtrOutputW
 	}).(AssessmentDelegationStatusPtrOutput)
 }
 
-func (o AssessmentDelegationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentDelegationStatus] {
-	return pulumix.Output[AssessmentDelegationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssessmentDelegationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -121,12 +115,6 @@ func (o AssessmentDelegationStatusPtrOutput) ToAssessmentDelegationStatusPtrOutp
 	return o
 }
 
-func (o AssessmentDelegationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentDelegationStatus] {
-	return pulumix.Output[*AssessmentDelegationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssessmentDelegationStatusPtrOutput) Elem() AssessmentDelegationStatusOutput {
 	return o.ApplyT(func(v *AssessmentDelegationStatus) AssessmentDelegationStatus {
 		if v != nil {
@@ -151,10 +139,12 @@ func (o AssessmentDelegationStatusPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// AssessmentDelegationStatusInput is an input type that accepts AssessmentDelegationStatusArgs and AssessmentDelegationStatusOutput values.
-// You can construct a concrete instance of `AssessmentDelegationStatusInput` via:
+// AssessmentDelegationStatusInput is an input type that accepts values of the AssessmentDelegationStatus enum
+// A concrete instance of `AssessmentDelegationStatusInput` can be one of the following:
 //
-//	AssessmentDelegationStatusArgs{...}
+//	AssessmentDelegationStatusInProgress
+//	AssessmentDelegationStatusUnderReview
+//	AssessmentDelegationStatusComplete
 type AssessmentDelegationStatusInput interface {
 	pulumi.Input
 
@@ -262,12 +252,6 @@ func (o AssessmentReportDestinationTypeOutput) ToAssessmentReportDestinationType
 	}).(AssessmentReportDestinationTypePtrOutput)
 }
 
-func (o AssessmentReportDestinationTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentReportDestinationType] {
-	return pulumix.Output[AssessmentReportDestinationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssessmentReportDestinationTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -303,12 +287,6 @@ func (o AssessmentReportDestinationTypePtrOutput) ToAssessmentReportDestinationT
 	return o
 }
 
-func (o AssessmentReportDestinationTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentReportDestinationType] {
-	return pulumix.Output[*AssessmentReportDestinationType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssessmentReportDestinationTypePtrOutput) Elem() AssessmentReportDestinationTypeOutput {
 	return o.ApplyT(func(v *AssessmentReportDestinationType) AssessmentReportDestinationType {
 		if v != nil {
@@ -333,10 +311,10 @@ func (o AssessmentReportDestinationTypePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// AssessmentReportDestinationTypeInput is an input type that accepts AssessmentReportDestinationTypeArgs and AssessmentReportDestinationTypeOutput values.
-// You can construct a concrete instance of `AssessmentReportDestinationTypeInput` via:
+// AssessmentReportDestinationTypeInput is an input type that accepts values of the AssessmentReportDestinationType enum
+// A concrete instance of `AssessmentReportDestinationTypeInput` can be one of the following:
 //
-//	AssessmentReportDestinationTypeArgs{...}
+//	AssessmentReportDestinationTypeS3
 type AssessmentReportDestinationTypeInput interface {
 	pulumi.Input
 
@@ -445,12 +423,6 @@ func (o AssessmentRoleTypeOutput) ToAssessmentRoleTypePtrOutputWithContext(ctx c
 	}).(AssessmentRoleTypePtrOutput)
 }
 
-func (o AssessmentRoleTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentRoleType] {
-	return pulumix.Output[AssessmentRoleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssessmentRoleTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -486,12 +458,6 @@ func (o AssessmentRoleTypePtrOutput) ToAssessmentRoleTypePtrOutputWithContext(ct
 	return o
 }
 
-func (o AssessmentRoleTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentRoleType] {
-	return pulumix.Output[*AssessmentRoleType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssessmentRoleTypePtrOutput) Elem() AssessmentRoleTypeOutput {
 	return o.ApplyT(func(v *AssessmentRoleType) AssessmentRoleType {
 		if v != nil {
@@ -516,10 +482,11 @@ func (o AssessmentRoleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// AssessmentRoleTypeInput is an input type that accepts AssessmentRoleTypeArgs and AssessmentRoleTypeOutput values.
-// You can construct a concrete instance of `AssessmentRoleTypeInput` via:
+// AssessmentRoleTypeInput is an input type that accepts values of the AssessmentRoleType enum
+// A concrete instance of `AssessmentRoleTypeInput` can be one of the following:
 //
-//	AssessmentRoleTypeArgs{...}
+//	AssessmentRoleTypeProcessOwner
+//	AssessmentRoleTypeResourceOwner
 type AssessmentRoleTypeInput interface {
 	pulumi.Input
 
@@ -628,12 +595,6 @@ func (o AssessmentStatusOutput) ToAssessmentStatusPtrOutputWithContext(ctx conte
 	}).(AssessmentStatusPtrOutput)
 }
 
-func (o AssessmentStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentStatus] {
-	return pulumix.Output[AssessmentStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssessmentStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -669,12 +630,6 @@ func (o AssessmentStatusPtrOutput) ToAssessmentStatusPtrOutputWithContext(ctx co
 	return o
 }
 
-func (o AssessmentStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentStatus] {
-	return pulumix.Output[*AssessmentStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssessmentStatusPtrOutput) Elem() AssessmentStatusOutput {
 	return o.ApplyT(func(v *AssessmentStatus) AssessmentStatus {
 		if v != nil {
@@ -699,10 +654,11 @@ func (o AssessmentStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AssessmentStatusInput is an input type that accepts AssessmentStatusArgs and AssessmentStatusOutput values.
-// You can construct a concrete instance of `AssessmentStatusInput` via:
+// AssessmentStatusInput is an input type that accepts values of the AssessmentStatus enum
+// A concrete instance of `AssessmentStatusInput` can be one of the following:
 //
-//	AssessmentStatusArgs{...}
+//	AssessmentStatusActive
+//	AssessmentStatusInactive
 type AssessmentStatusInput interface {
 	pulumi.Input
 

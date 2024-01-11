@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Represents an AWS account that is a part of a collaboration
@@ -120,12 +119,6 @@ func (i *Membership) ToMembershipOutputWithContext(ctx context.Context) Membersh
 	return pulumi.ToOutputWithContext(ctx, i).(MembershipOutput)
 }
 
-func (i *Membership) ToOutput(ctx context.Context) pulumix.Output[*Membership] {
-	return pulumix.Output[*Membership]{
-		OutputState: i.ToMembershipOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MembershipOutput struct{ *pulumi.OutputState }
 
 func (MembershipOutput) ElementType() reflect.Type {
@@ -138,12 +131,6 @@ func (o MembershipOutput) ToMembershipOutput() MembershipOutput {
 
 func (o MembershipOutput) ToMembershipOutputWithContext(ctx context.Context) MembershipOutput {
 	return o
-}
-
-func (o MembershipOutput) ToOutput(ctx context.Context) pulumix.Output[*Membership] {
-	return pulumix.Output[*Membership]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MembershipOutput) Arn() pulumi.StringOutput {

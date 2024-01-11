@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Backup::BackupPlan
@@ -100,12 +99,6 @@ func (i *BackupPlan) ToBackupPlanOutputWithContext(ctx context.Context) BackupPl
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPlanOutput)
 }
 
-func (i *BackupPlan) ToOutput(ctx context.Context) pulumix.Output[*BackupPlan] {
-	return pulumix.Output[*BackupPlan]{
-		OutputState: i.ToBackupPlanOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BackupPlanOutput struct{ *pulumi.OutputState }
 
 func (BackupPlanOutput) ElementType() reflect.Type {
@@ -118,12 +111,6 @@ func (o BackupPlanOutput) ToBackupPlanOutput() BackupPlanOutput {
 
 func (o BackupPlanOutput) ToBackupPlanOutputWithContext(ctx context.Context) BackupPlanOutput {
 	return o
-}
-
-func (o BackupPlanOutput) ToOutput(ctx context.Context) pulumix.Output[*BackupPlan] {
-	return pulumix.Output[*BackupPlan]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BackupPlanOutput) BackupPlan() BackupPlanResourceTypeOutput {

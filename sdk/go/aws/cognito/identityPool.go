@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Cognito::IdentityPool
@@ -125,12 +124,6 @@ func (i *IdentityPool) ToIdentityPoolOutputWithContext(ctx context.Context) Iden
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityPoolOutput)
 }
 
-func (i *IdentityPool) ToOutput(ctx context.Context) pulumix.Output[*IdentityPool] {
-	return pulumix.Output[*IdentityPool]{
-		OutputState: i.ToIdentityPoolOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IdentityPoolOutput struct{ *pulumi.OutputState }
 
 func (IdentityPoolOutput) ElementType() reflect.Type {
@@ -143,12 +136,6 @@ func (o IdentityPoolOutput) ToIdentityPoolOutput() IdentityPoolOutput {
 
 func (o IdentityPoolOutput) ToIdentityPoolOutputWithContext(ctx context.Context) IdentityPoolOutput {
 	return o
-}
-
-func (o IdentityPoolOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityPool] {
-	return pulumix.Output[*IdentityPool]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdentityPoolOutput) AllowClassicFlow() pulumi.BoolPtrOutput {

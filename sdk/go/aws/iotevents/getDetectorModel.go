@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::IoTEvents::DetectorModel resource creates a detector model. You create a *detector model* (a model of your equipment or process) using *states*. For each state, you define conditional (Boolean) logic that evaluates the incoming inputs to detect significant events. When an event is detected, it can change the state or trigger custom-built or predefined actions using other AWS services. You can define additional events that trigger actions when entering or exiting a state and, optionally, when a condition is met. For more information, see [How to Use AWS IoT Events](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *AWS IoT Events Developer Guide*.
@@ -76,12 +75,6 @@ func (o LookupDetectorModelResultOutput) ToLookupDetectorModelResultOutput() Loo
 
 func (o LookupDetectorModelResultOutput) ToLookupDetectorModelResultOutputWithContext(ctx context.Context) LookupDetectorModelResultOutput {
 	return o
-}
-
-func (o LookupDetectorModelResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDetectorModelResult] {
-	return pulumix.Output[LookupDetectorModelResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupDetectorModelResultOutput) DetectorModelDefinition() DetectorModelDefinitionPtrOutput {

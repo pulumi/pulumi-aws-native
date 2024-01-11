@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::IVS::PlaybackKeyPair
@@ -114,12 +113,6 @@ func (i *PlaybackKeyPair) ToPlaybackKeyPairOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(PlaybackKeyPairOutput)
 }
 
-func (i *PlaybackKeyPair) ToOutput(ctx context.Context) pulumix.Output[*PlaybackKeyPair] {
-	return pulumix.Output[*PlaybackKeyPair]{
-		OutputState: i.ToPlaybackKeyPairOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PlaybackKeyPairOutput struct{ *pulumi.OutputState }
 
 func (PlaybackKeyPairOutput) ElementType() reflect.Type {
@@ -132,12 +125,6 @@ func (o PlaybackKeyPairOutput) ToPlaybackKeyPairOutput() PlaybackKeyPairOutput {
 
 func (o PlaybackKeyPairOutput) ToPlaybackKeyPairOutputWithContext(ctx context.Context) PlaybackKeyPairOutput {
 	return o
-}
-
-func (o PlaybackKeyPairOutput) ToOutput(ctx context.Context) pulumix.Output[*PlaybackKeyPair] {
-	return pulumix.Output[*PlaybackKeyPair]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key-pair identifier.

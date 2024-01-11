@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A custom line item is an one time charge that is applied to a specific billing group's bill.
@@ -80,12 +79,6 @@ func (o LookupCustomLineItemResultOutput) ToLookupCustomLineItemResultOutput() L
 
 func (o LookupCustomLineItemResultOutput) ToLookupCustomLineItemResultOutputWithContext(ctx context.Context) LookupCustomLineItemResultOutput {
 	return o
-}
-
-func (o LookupCustomLineItemResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupCustomLineItemResult] {
-	return pulumix.Output[LookupCustomLineItemResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // ARN

@@ -79,12 +79,6 @@ func (o InAppTemplateAlignmentOutput) ToInAppTemplateAlignmentPtrOutputWithConte
 	}).(InAppTemplateAlignmentPtrOutput)
 }
 
-func (o InAppTemplateAlignmentOutput) ToOutput(ctx context.Context) pulumix.Output[InAppTemplateAlignment] {
-	return pulumix.Output[InAppTemplateAlignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InAppTemplateAlignmentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +114,6 @@ func (o InAppTemplateAlignmentPtrOutput) ToInAppTemplateAlignmentPtrOutputWithCo
 	return o
 }
 
-func (o InAppTemplateAlignmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InAppTemplateAlignment] {
-	return pulumix.Output[*InAppTemplateAlignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InAppTemplateAlignmentPtrOutput) Elem() InAppTemplateAlignmentOutput {
 	return o.ApplyT(func(v *InAppTemplateAlignment) InAppTemplateAlignment {
 		if v != nil {
@@ -150,10 +138,12 @@ func (o InAppTemplateAlignmentPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// InAppTemplateAlignmentInput is an input type that accepts InAppTemplateAlignmentArgs and InAppTemplateAlignmentOutput values.
-// You can construct a concrete instance of `InAppTemplateAlignmentInput` via:
+// InAppTemplateAlignmentInput is an input type that accepts values of the InAppTemplateAlignment enum
+// A concrete instance of `InAppTemplateAlignmentInput` can be one of the following:
 //
-//	InAppTemplateAlignmentArgs{...}
+//	InAppTemplateAlignmentLeft
+//	InAppTemplateAlignmentCenter
+//	InAppTemplateAlignmentRight
 type InAppTemplateAlignmentInput interface {
 	pulumi.Input
 
@@ -262,12 +252,6 @@ func (o InAppTemplateButtonActionOutput) ToInAppTemplateButtonActionPtrOutputWit
 	}).(InAppTemplateButtonActionPtrOutput)
 }
 
-func (o InAppTemplateButtonActionOutput) ToOutput(ctx context.Context) pulumix.Output[InAppTemplateButtonAction] {
-	return pulumix.Output[InAppTemplateButtonAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InAppTemplateButtonActionOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -303,12 +287,6 @@ func (o InAppTemplateButtonActionPtrOutput) ToInAppTemplateButtonActionPtrOutput
 	return o
 }
 
-func (o InAppTemplateButtonActionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InAppTemplateButtonAction] {
-	return pulumix.Output[*InAppTemplateButtonAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InAppTemplateButtonActionPtrOutput) Elem() InAppTemplateButtonActionOutput {
 	return o.ApplyT(func(v *InAppTemplateButtonAction) InAppTemplateButtonAction {
 		if v != nil {
@@ -333,10 +311,12 @@ func (o InAppTemplateButtonActionPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// InAppTemplateButtonActionInput is an input type that accepts InAppTemplateButtonActionArgs and InAppTemplateButtonActionOutput values.
-// You can construct a concrete instance of `InAppTemplateButtonActionInput` via:
+// InAppTemplateButtonActionInput is an input type that accepts values of the InAppTemplateButtonAction enum
+// A concrete instance of `InAppTemplateButtonActionInput` can be one of the following:
 //
-//	InAppTemplateButtonActionArgs{...}
+//	InAppTemplateButtonActionLink
+//	InAppTemplateButtonActionDeepLink
+//	InAppTemplateButtonActionClose
 type InAppTemplateButtonActionInput interface {
 	pulumi.Input
 
@@ -448,12 +428,6 @@ func (o InAppTemplateLayoutOutput) ToInAppTemplateLayoutPtrOutputWithContext(ctx
 	}).(InAppTemplateLayoutPtrOutput)
 }
 
-func (o InAppTemplateLayoutOutput) ToOutput(ctx context.Context) pulumix.Output[InAppTemplateLayout] {
-	return pulumix.Output[InAppTemplateLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InAppTemplateLayoutOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -489,12 +463,6 @@ func (o InAppTemplateLayoutPtrOutput) ToInAppTemplateLayoutPtrOutputWithContext(
 	return o
 }
 
-func (o InAppTemplateLayoutPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InAppTemplateLayout] {
-	return pulumix.Output[*InAppTemplateLayout]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InAppTemplateLayoutPtrOutput) Elem() InAppTemplateLayoutOutput {
 	return o.ApplyT(func(v *InAppTemplateLayout) InAppTemplateLayout {
 		if v != nil {
@@ -519,10 +487,15 @@ func (o InAppTemplateLayoutPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// InAppTemplateLayoutInput is an input type that accepts InAppTemplateLayoutArgs and InAppTemplateLayoutOutput values.
-// You can construct a concrete instance of `InAppTemplateLayoutInput` via:
+// InAppTemplateLayoutInput is an input type that accepts values of the InAppTemplateLayout enum
+// A concrete instance of `InAppTemplateLayoutInput` can be one of the following:
 //
-//	InAppTemplateLayoutArgs{...}
+//	InAppTemplateLayoutBottomBanner
+//	InAppTemplateLayoutTopBanner
+//	InAppTemplateLayoutOverlays
+//	InAppTemplateLayoutMobileFeed
+//	InAppTemplateLayoutMiddleBanner
+//	InAppTemplateLayoutCarousel
 type InAppTemplateLayoutInput interface {
 	pulumi.Input
 

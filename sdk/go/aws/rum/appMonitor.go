@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::RUM::AppMonitor
@@ -122,12 +121,6 @@ func (i *AppMonitor) ToAppMonitorOutputWithContext(ctx context.Context) AppMonit
 	return pulumi.ToOutputWithContext(ctx, i).(AppMonitorOutput)
 }
 
-func (i *AppMonitor) ToOutput(ctx context.Context) pulumix.Output[*AppMonitor] {
-	return pulumix.Output[*AppMonitor]{
-		OutputState: i.ToAppMonitorOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AppMonitorOutput struct{ *pulumi.OutputState }
 
 func (AppMonitorOutput) ElementType() reflect.Type {
@@ -140,12 +133,6 @@ func (o AppMonitorOutput) ToAppMonitorOutput() AppMonitorOutput {
 
 func (o AppMonitorOutput) ToAppMonitorOutputWithContext(ctx context.Context) AppMonitorOutput {
 	return o
-}
-
-func (o AppMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[*AppMonitor] {
-	return pulumix.Output[*AppMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AppMonitorOutput) AppMonitorConfiguration() AppMonitorConfigurationPtrOutput {

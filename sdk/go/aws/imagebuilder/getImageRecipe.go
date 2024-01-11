@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::ImageBuilder::ImageRecipe
@@ -69,12 +68,6 @@ func (o LookupImageRecipeResultOutput) ToLookupImageRecipeResultOutput() LookupI
 
 func (o LookupImageRecipeResultOutput) ToLookupImageRecipeResultOutputWithContext(ctx context.Context) LookupImageRecipeResultOutput {
 	return o
-}
-
-func (o LookupImageRecipeResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupImageRecipeResult] {
-	return pulumix.Output[LookupImageRecipeResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specify additional settings and launch scripts for your build instances.

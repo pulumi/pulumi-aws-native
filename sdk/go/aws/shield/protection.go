@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon CloudFront distribution, Amazon Route 53 hosted zone, AWS Global Accelerator standard accelerator, Elastic IP Address, Application Load Balancer, or a Classic Load Balancer. You can protect Amazon EC2 instances and Network Load Balancers by association with protected Amazon EC2 Elastic IP addresses.
@@ -127,12 +126,6 @@ func (i *Protection) ToProtectionOutputWithContext(ctx context.Context) Protecti
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionOutput)
 }
 
-func (i *Protection) ToOutput(ctx context.Context) pulumix.Output[*Protection] {
-	return pulumix.Output[*Protection]{
-		OutputState: i.ToProtectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProtectionOutput struct{ *pulumi.OutputState }
 
 func (ProtectionOutput) ElementType() reflect.Type {
@@ -145,12 +138,6 @@ func (o ProtectionOutput) ToProtectionOutput() ProtectionOutput {
 
 func (o ProtectionOutput) ToProtectionOutputWithContext(ctx context.Context) ProtectionOutput {
 	return o
-}
-
-func (o ProtectionOutput) ToOutput(ctx context.Context) pulumix.Output[*Protection] {
-	return pulumix.Output[*Protection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProtectionOutput) ApplicationLayerAutomaticResponseConfiguration() ProtectionApplicationLayerAutomaticResponseConfigurationPtrOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::Lambda::EventInvokeConfig resource configures options for asynchronous invocation on a version or an alias.
@@ -126,12 +125,6 @@ func (i *EventInvokeConfig) ToEventInvokeConfigOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(EventInvokeConfigOutput)
 }
 
-func (i *EventInvokeConfig) ToOutput(ctx context.Context) pulumix.Output[*EventInvokeConfig] {
-	return pulumix.Output[*EventInvokeConfig]{
-		OutputState: i.ToEventInvokeConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventInvokeConfigOutput struct{ *pulumi.OutputState }
 
 func (EventInvokeConfigOutput) ElementType() reflect.Type {
@@ -144,12 +137,6 @@ func (o EventInvokeConfigOutput) ToEventInvokeConfigOutput() EventInvokeConfigOu
 
 func (o EventInvokeConfigOutput) ToEventInvokeConfigOutputWithContext(ctx context.Context) EventInvokeConfigOutput {
 	return o
-}
-
-func (o EventInvokeConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*EventInvokeConfig] {
-	return pulumix.Output[*EventInvokeConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventInvokeConfigOutput) DestinationConfig() EventInvokeConfigDestinationConfigPtrOutput {

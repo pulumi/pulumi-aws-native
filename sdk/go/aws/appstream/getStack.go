@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::AppStream::Stack
@@ -77,12 +76,6 @@ func (o LookupStackResultOutput) ToLookupStackResultOutput() LookupStackResultOu
 
 func (o LookupStackResultOutput) ToLookupStackResultOutputWithContext(ctx context.Context) LookupStackResultOutput {
 	return o
-}
-
-func (o LookupStackResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupStackResult] {
-	return pulumix.Output[LookupStackResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupStackResultOutput) AccessEndpoints() StackAccessEndpointArrayOutput {

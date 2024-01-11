@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -45,12 +44,6 @@ func (i RepositoryCodeArgs) ToRepositoryCodeOutput() RepositoryCodeOutput {
 
 func (i RepositoryCodeArgs) ToRepositoryCodeOutputWithContext(ctx context.Context) RepositoryCodeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCodeOutput)
-}
-
-func (i RepositoryCodeArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryCode] {
-	return pulumix.Output[RepositoryCode]{
-		OutputState: i.ToRepositoryCodeOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i RepositoryCodeArgs) ToRepositoryCodePtrOutput() RepositoryCodePtrOutput {
@@ -94,12 +87,6 @@ func (i *repositoryCodePtrType) ToRepositoryCodePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryCodePtrOutput)
 }
 
-func (i *repositoryCodePtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryCode] {
-	return pulumix.Output[*RepositoryCode]{
-		OutputState: i.ToRepositoryCodePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryCodeOutput struct{ *pulumi.OutputState }
 
 func (RepositoryCodeOutput) ElementType() reflect.Type {
@@ -124,12 +111,6 @@ func (o RepositoryCodeOutput) ToRepositoryCodePtrOutputWithContext(ctx context.C
 	}).(RepositoryCodePtrOutput)
 }
 
-func (o RepositoryCodeOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryCode] {
-	return pulumix.Output[RepositoryCode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RepositoryCodeOutput) BranchName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RepositoryCode) *string { return v.BranchName }).(pulumi.StringPtrOutput)
 }
@@ -150,12 +131,6 @@ func (o RepositoryCodePtrOutput) ToRepositoryCodePtrOutput() RepositoryCodePtrOu
 
 func (o RepositoryCodePtrOutput) ToRepositoryCodePtrOutputWithContext(ctx context.Context) RepositoryCodePtrOutput {
 	return o
-}
-
-func (o RepositoryCodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryCode] {
-	return pulumix.Output[*RepositoryCode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryCodePtrOutput) Elem() RepositoryCodeOutput {
@@ -221,12 +196,6 @@ func (i RepositoryS3Args) ToRepositoryS3OutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryS3Output)
 }
 
-func (i RepositoryS3Args) ToOutput(ctx context.Context) pulumix.Output[RepositoryS3] {
-	return pulumix.Output[RepositoryS3]{
-		OutputState: i.ToRepositoryS3OutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i RepositoryS3Args) ToRepositoryS3PtrOutput() RepositoryS3PtrOutput {
 	return i.ToRepositoryS3PtrOutputWithContext(context.Background())
 }
@@ -268,12 +237,6 @@ func (i *repositoryS3PtrType) ToRepositoryS3PtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryS3PtrOutput)
 }
 
-func (i *repositoryS3PtrType) ToOutput(ctx context.Context) pulumix.Output[*RepositoryS3] {
-	return pulumix.Output[*RepositoryS3]{
-		OutputState: i.ToRepositoryS3PtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryS3Output struct{ *pulumi.OutputState }
 
 func (RepositoryS3Output) ElementType() reflect.Type {
@@ -296,12 +259,6 @@ func (o RepositoryS3Output) ToRepositoryS3PtrOutputWithContext(ctx context.Conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryS3) *RepositoryS3 {
 		return &v
 	}).(RepositoryS3PtrOutput)
-}
-
-func (o RepositoryS3Output) ToOutput(ctx context.Context) pulumix.Output[RepositoryS3] {
-	return pulumix.Output[RepositoryS3]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryS3Output) Bucket() pulumi.StringOutput {
@@ -328,12 +285,6 @@ func (o RepositoryS3PtrOutput) ToRepositoryS3PtrOutput() RepositoryS3PtrOutput {
 
 func (o RepositoryS3PtrOutput) ToRepositoryS3PtrOutputWithContext(ctx context.Context) RepositoryS3PtrOutput {
 	return o
-}
-
-func (o RepositoryS3PtrOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryS3] {
-	return pulumix.Output[*RepositoryS3]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryS3PtrOutput) Elem() RepositoryS3Output {
@@ -406,12 +357,6 @@ func (i RepositoryTagArgs) ToRepositoryTagOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTagOutput)
 }
 
-func (i RepositoryTagArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryTag] {
-	return pulumix.Output[RepositoryTag]{
-		OutputState: i.ToRepositoryTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryTagArrayInput is an input type that accepts RepositoryTagArray and RepositoryTagArrayOutput values.
 // You can construct a concrete instance of `RepositoryTagArrayInput` via:
 //
@@ -437,12 +382,6 @@ func (i RepositoryTagArray) ToRepositoryTagArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTagArrayOutput)
 }
 
-func (i RepositoryTagArray) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryTag] {
-	return pulumix.Output[[]RepositoryTag]{
-		OutputState: i.ToRepositoryTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryTagOutput struct{ *pulumi.OutputState }
 
 func (RepositoryTagOutput) ElementType() reflect.Type {
@@ -455,12 +394,6 @@ func (o RepositoryTagOutput) ToRepositoryTagOutput() RepositoryTagOutput {
 
 func (o RepositoryTagOutput) ToRepositoryTagOutputWithContext(ctx context.Context) RepositoryTagOutput {
 	return o
-}
-
-func (o RepositoryTagOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryTag] {
-	return pulumix.Output[RepositoryTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryTagOutput) Key() pulumi.StringOutput {
@@ -483,12 +416,6 @@ func (o RepositoryTagArrayOutput) ToRepositoryTagArrayOutput() RepositoryTagArra
 
 func (o RepositoryTagArrayOutput) ToRepositoryTagArrayOutputWithContext(ctx context.Context) RepositoryTagArrayOutput {
 	return o
-}
-
-func (o RepositoryTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryTag] {
-	return pulumix.Output[[]RepositoryTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryTagArrayOutput) Index(i pulumi.IntInput) RepositoryTagOutput {
@@ -536,12 +463,6 @@ func (i RepositoryTriggerArgs) ToRepositoryTriggerOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTriggerOutput)
 }
 
-func (i RepositoryTriggerArgs) ToOutput(ctx context.Context) pulumix.Output[RepositoryTrigger] {
-	return pulumix.Output[RepositoryTrigger]{
-		OutputState: i.ToRepositoryTriggerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryTriggerArrayInput is an input type that accepts RepositoryTriggerArray and RepositoryTriggerArrayOutput values.
 // You can construct a concrete instance of `RepositoryTriggerArrayInput` via:
 //
@@ -567,12 +488,6 @@ func (i RepositoryTriggerArray) ToRepositoryTriggerArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryTriggerArrayOutput)
 }
 
-func (i RepositoryTriggerArray) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryTrigger] {
-	return pulumix.Output[[]RepositoryTrigger]{
-		OutputState: i.ToRepositoryTriggerArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryTriggerOutput struct{ *pulumi.OutputState }
 
 func (RepositoryTriggerOutput) ElementType() reflect.Type {
@@ -585,12 +500,6 @@ func (o RepositoryTriggerOutput) ToRepositoryTriggerOutput() RepositoryTriggerOu
 
 func (o RepositoryTriggerOutput) ToRepositoryTriggerOutputWithContext(ctx context.Context) RepositoryTriggerOutput {
 	return o
-}
-
-func (o RepositoryTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[RepositoryTrigger] {
-	return pulumix.Output[RepositoryTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryTriggerOutput) Branches() pulumi.StringArrayOutput {
@@ -625,12 +534,6 @@ func (o RepositoryTriggerArrayOutput) ToRepositoryTriggerArrayOutput() Repositor
 
 func (o RepositoryTriggerArrayOutput) ToRepositoryTriggerArrayOutputWithContext(ctx context.Context) RepositoryTriggerArrayOutput {
 	return o
-}
-
-func (o RepositoryTriggerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]RepositoryTrigger] {
-	return pulumix.Output[[]RepositoryTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryTriggerArrayOutput) Index(i pulumi.IntInput) RepositoryTriggerOutput {

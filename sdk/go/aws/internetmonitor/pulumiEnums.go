@@ -80,12 +80,6 @@ func (o MonitorConfigStateOutput) ToMonitorConfigStatePtrOutputWithContext(ctx c
 	}).(MonitorConfigStatePtrOutput)
 }
 
-func (o MonitorConfigStateOutput) ToOutput(ctx context.Context) pulumix.Output[MonitorConfigState] {
-	return pulumix.Output[MonitorConfigState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitorConfigStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -121,12 +115,6 @@ func (o MonitorConfigStatePtrOutput) ToMonitorConfigStatePtrOutputWithContext(ct
 	return o
 }
 
-func (o MonitorConfigStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitorConfigState] {
-	return pulumix.Output[*MonitorConfigState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitorConfigStatePtrOutput) Elem() MonitorConfigStateOutput {
 	return o.ApplyT(func(v *MonitorConfigState) MonitorConfigState {
 		if v != nil {
@@ -151,10 +139,13 @@ func (o MonitorConfigStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// MonitorConfigStateInput is an input type that accepts MonitorConfigStateArgs and MonitorConfigStateOutput values.
-// You can construct a concrete instance of `MonitorConfigStateInput` via:
+// MonitorConfigStateInput is an input type that accepts values of the MonitorConfigState enum
+// A concrete instance of `MonitorConfigStateInput` can be one of the following:
 //
-//	MonitorConfigStateArgs{...}
+//	MonitorConfigStatePending
+//	MonitorConfigStateActive
+//	MonitorConfigStateInactive
+//	MonitorConfigStateError
 type MonitorConfigStateInput interface {
 	pulumi.Input
 
@@ -262,12 +253,6 @@ func (o MonitorLocalHealthEventsConfigStatusOutput) ToMonitorLocalHealthEventsCo
 	}).(MonitorLocalHealthEventsConfigStatusPtrOutput)
 }
 
-func (o MonitorLocalHealthEventsConfigStatusOutput) ToOutput(ctx context.Context) pulumix.Output[MonitorLocalHealthEventsConfigStatus] {
-	return pulumix.Output[MonitorLocalHealthEventsConfigStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitorLocalHealthEventsConfigStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -303,12 +288,6 @@ func (o MonitorLocalHealthEventsConfigStatusPtrOutput) ToMonitorLocalHealthEvent
 	return o
 }
 
-func (o MonitorLocalHealthEventsConfigStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitorLocalHealthEventsConfigStatus] {
-	return pulumix.Output[*MonitorLocalHealthEventsConfigStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitorLocalHealthEventsConfigStatusPtrOutput) Elem() MonitorLocalHealthEventsConfigStatusOutput {
 	return o.ApplyT(func(v *MonitorLocalHealthEventsConfigStatus) MonitorLocalHealthEventsConfigStatus {
 		if v != nil {
@@ -333,10 +312,11 @@ func (o MonitorLocalHealthEventsConfigStatusPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// MonitorLocalHealthEventsConfigStatusInput is an input type that accepts MonitorLocalHealthEventsConfigStatusArgs and MonitorLocalHealthEventsConfigStatusOutput values.
-// You can construct a concrete instance of `MonitorLocalHealthEventsConfigStatusInput` via:
+// MonitorLocalHealthEventsConfigStatusInput is an input type that accepts values of the MonitorLocalHealthEventsConfigStatus enum
+// A concrete instance of `MonitorLocalHealthEventsConfigStatusInput` can be one of the following:
 //
-//	MonitorLocalHealthEventsConfigStatusArgs{...}
+//	MonitorLocalHealthEventsConfigStatusEnabled
+//	MonitorLocalHealthEventsConfigStatusDisabled
 type MonitorLocalHealthEventsConfigStatusInput interface {
 	pulumi.Input
 
@@ -412,12 +392,6 @@ func (o MonitorProcessingStatusCodeOutput) ToMonitorProcessingStatusCodePtrOutpu
 	}).(MonitorProcessingStatusCodePtrOutput)
 }
 
-func (o MonitorProcessingStatusCodeOutput) ToOutput(ctx context.Context) pulumix.Output[MonitorProcessingStatusCode] {
-	return pulumix.Output[MonitorProcessingStatusCode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitorProcessingStatusCodeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -451,12 +425,6 @@ func (o MonitorProcessingStatusCodePtrOutput) ToMonitorProcessingStatusCodePtrOu
 
 func (o MonitorProcessingStatusCodePtrOutput) ToMonitorProcessingStatusCodePtrOutputWithContext(ctx context.Context) MonitorProcessingStatusCodePtrOutput {
 	return o
-}
-
-func (o MonitorProcessingStatusCodePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitorProcessingStatusCode] {
-	return pulumix.Output[*MonitorProcessingStatusCode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitorProcessingStatusCodePtrOutput) Elem() MonitorProcessingStatusCodeOutput {
@@ -550,12 +518,6 @@ func (o MonitorS3ConfigLogDeliveryStatusOutput) ToMonitorS3ConfigLogDeliveryStat
 	}).(MonitorS3ConfigLogDeliveryStatusPtrOutput)
 }
 
-func (o MonitorS3ConfigLogDeliveryStatusOutput) ToOutput(ctx context.Context) pulumix.Output[MonitorS3ConfigLogDeliveryStatus] {
-	return pulumix.Output[MonitorS3ConfigLogDeliveryStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitorS3ConfigLogDeliveryStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -591,12 +553,6 @@ func (o MonitorS3ConfigLogDeliveryStatusPtrOutput) ToMonitorS3ConfigLogDeliveryS
 	return o
 }
 
-func (o MonitorS3ConfigLogDeliveryStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitorS3ConfigLogDeliveryStatus] {
-	return pulumix.Output[*MonitorS3ConfigLogDeliveryStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MonitorS3ConfigLogDeliveryStatusPtrOutput) Elem() MonitorS3ConfigLogDeliveryStatusOutput {
 	return o.ApplyT(func(v *MonitorS3ConfigLogDeliveryStatus) MonitorS3ConfigLogDeliveryStatus {
 		if v != nil {
@@ -621,10 +577,11 @@ func (o MonitorS3ConfigLogDeliveryStatusPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// MonitorS3ConfigLogDeliveryStatusInput is an input type that accepts MonitorS3ConfigLogDeliveryStatusArgs and MonitorS3ConfigLogDeliveryStatusOutput values.
-// You can construct a concrete instance of `MonitorS3ConfigLogDeliveryStatusInput` via:
+// MonitorS3ConfigLogDeliveryStatusInput is an input type that accepts values of the MonitorS3ConfigLogDeliveryStatus enum
+// A concrete instance of `MonitorS3ConfigLogDeliveryStatusInput` can be one of the following:
 //
-//	MonitorS3ConfigLogDeliveryStatusArgs{...}
+//	MonitorS3ConfigLogDeliveryStatusEnabled
+//	MonitorS3ConfigLogDeliveryStatusDisabled
 type MonitorS3ConfigLogDeliveryStatusInput interface {
 	pulumi.Input
 

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource type definition for AWS::Events::EventBus
@@ -71,12 +70,6 @@ func (o LookupEventBusResultOutput) ToLookupEventBusResultOutput() LookupEventBu
 
 func (o LookupEventBusResultOutput) ToLookupEventBusResultOutputWithContext(ctx context.Context) LookupEventBusResultOutput {
 	return o
-}
-
-func (o LookupEventBusResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEventBusResult] {
-	return pulumix.Output[LookupEventBusResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) for the event bus.

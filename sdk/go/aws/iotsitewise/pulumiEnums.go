@@ -81,12 +81,6 @@ func (o AssetModelDataTypeOutput) ToAssetModelDataTypePtrOutputWithContext(ctx c
 	}).(AssetModelDataTypePtrOutput)
 }
 
-func (o AssetModelDataTypeOutput) ToOutput(ctx context.Context) pulumix.Output[AssetModelDataType] {
-	return pulumix.Output[AssetModelDataType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssetModelDataTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -122,12 +116,6 @@ func (o AssetModelDataTypePtrOutput) ToAssetModelDataTypePtrOutputWithContext(ct
 	return o
 }
 
-func (o AssetModelDataTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssetModelDataType] {
-	return pulumix.Output[*AssetModelDataType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssetModelDataTypePtrOutput) Elem() AssetModelDataTypeOutput {
 	return o.ApplyT(func(v *AssetModelDataType) AssetModelDataType {
 		if v != nil {
@@ -152,10 +140,14 @@ func (o AssetModelDataTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// AssetModelDataTypeInput is an input type that accepts AssetModelDataTypeArgs and AssetModelDataTypeOutput values.
-// You can construct a concrete instance of `AssetModelDataTypeInput` via:
+// AssetModelDataTypeInput is an input type that accepts values of the AssetModelDataType enum
+// A concrete instance of `AssetModelDataTypeInput` can be one of the following:
 //
-//	AssetModelDataTypeArgs{...}
+//	AssetModelDataTypeString
+//	AssetModelDataTypeInteger
+//	AssetModelDataTypeDouble
+//	AssetModelDataTypeBoolean
+//	AssetModelDataTypeStruct
 type AssetModelDataTypeInput interface {
 	pulumi.Input
 
@@ -262,12 +254,6 @@ func (o AssetModelDataTypeSpecOutput) ToAssetModelDataTypeSpecPtrOutputWithConte
 	}).(AssetModelDataTypeSpecPtrOutput)
 }
 
-func (o AssetModelDataTypeSpecOutput) ToOutput(ctx context.Context) pulumix.Output[AssetModelDataTypeSpec] {
-	return pulumix.Output[AssetModelDataTypeSpec]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssetModelDataTypeSpecOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -303,12 +289,6 @@ func (o AssetModelDataTypeSpecPtrOutput) ToAssetModelDataTypeSpecPtrOutputWithCo
 	return o
 }
 
-func (o AssetModelDataTypeSpecPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssetModelDataTypeSpec] {
-	return pulumix.Output[*AssetModelDataTypeSpec]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssetModelDataTypeSpecPtrOutput) Elem() AssetModelDataTypeSpecOutput {
 	return o.ApplyT(func(v *AssetModelDataTypeSpec) AssetModelDataTypeSpec {
 		if v != nil {
@@ -333,10 +313,10 @@ func (o AssetModelDataTypeSpecPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// AssetModelDataTypeSpecInput is an input type that accepts AssetModelDataTypeSpecArgs and AssetModelDataTypeSpecOutput values.
-// You can construct a concrete instance of `AssetModelDataTypeSpecInput` via:
+// AssetModelDataTypeSpecInput is an input type that accepts values of the AssetModelDataTypeSpec enum
+// A concrete instance of `AssetModelDataTypeSpecInput` can be one of the following:
 //
-//	AssetModelDataTypeSpecArgs{...}
+//	AssetModelDataTypeSpecAwsalarmState
 type AssetModelDataTypeSpecInput interface {
 	pulumi.Input
 
@@ -446,12 +426,6 @@ func (o AssetModelTypeNameOutput) ToAssetModelTypeNamePtrOutputWithContext(ctx c
 	}).(AssetModelTypeNamePtrOutput)
 }
 
-func (o AssetModelTypeNameOutput) ToOutput(ctx context.Context) pulumix.Output[AssetModelTypeName] {
-	return pulumix.Output[AssetModelTypeName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssetModelTypeNameOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -487,12 +461,6 @@ func (o AssetModelTypeNamePtrOutput) ToAssetModelTypeNamePtrOutputWithContext(ct
 	return o
 }
 
-func (o AssetModelTypeNamePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssetModelTypeName] {
-	return pulumix.Output[*AssetModelTypeName]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssetModelTypeNamePtrOutput) Elem() AssetModelTypeNameOutput {
 	return o.ApplyT(func(v *AssetModelTypeName) AssetModelTypeName {
 		if v != nil {
@@ -517,10 +485,13 @@ func (o AssetModelTypeNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// AssetModelTypeNameInput is an input type that accepts AssetModelTypeNameArgs and AssetModelTypeNameOutput values.
-// You can construct a concrete instance of `AssetModelTypeNameInput` via:
+// AssetModelTypeNameInput is an input type that accepts values of the AssetModelTypeName enum
+// A concrete instance of `AssetModelTypeNameInput` can be one of the following:
 //
-//	AssetModelTypeNameArgs{...}
+//	AssetModelTypeNameMeasurement
+//	AssetModelTypeNameAttribute
+//	AssetModelTypeNameTransform
+//	AssetModelTypeNameMetric
 type AssetModelTypeNameInput interface {
 	pulumi.Input
 
@@ -629,12 +600,6 @@ func (o AssetPropertyNotificationStateOutput) ToAssetPropertyNotificationStatePt
 	}).(AssetPropertyNotificationStatePtrOutput)
 }
 
-func (o AssetPropertyNotificationStateOutput) ToOutput(ctx context.Context) pulumix.Output[AssetPropertyNotificationState] {
-	return pulumix.Output[AssetPropertyNotificationState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssetPropertyNotificationStateOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -670,12 +635,6 @@ func (o AssetPropertyNotificationStatePtrOutput) ToAssetPropertyNotificationStat
 	return o
 }
 
-func (o AssetPropertyNotificationStatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssetPropertyNotificationState] {
-	return pulumix.Output[*AssetPropertyNotificationState]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssetPropertyNotificationStatePtrOutput) Elem() AssetPropertyNotificationStateOutput {
 	return o.ApplyT(func(v *AssetPropertyNotificationState) AssetPropertyNotificationState {
 		if v != nil {
@@ -700,10 +659,11 @@ func (o AssetPropertyNotificationStatePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// AssetPropertyNotificationStateInput is an input type that accepts AssetPropertyNotificationStateArgs and AssetPropertyNotificationStateOutput values.
-// You can construct a concrete instance of `AssetPropertyNotificationStateInput` via:
+// AssetPropertyNotificationStateInput is an input type that accepts values of the AssetPropertyNotificationState enum
+// A concrete instance of `AssetPropertyNotificationStateInput` can be one of the following:
 //
-//	AssetPropertyNotificationStateArgs{...}
+//	AssetPropertyNotificationStateEnabled
+//	AssetPropertyNotificationStateDisabled
 type AssetPropertyNotificationStateInput interface {
 	pulumi.Input
 

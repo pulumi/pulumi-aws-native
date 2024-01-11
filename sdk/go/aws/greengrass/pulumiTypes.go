@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i ConnectorDefinitionConnectorArgs) ToConnectorDefinitionConnectorOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorDefinitionConnectorOutput)
 }
 
-func (i ConnectorDefinitionConnectorArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorDefinitionConnector] {
-	return pulumix.Output[ConnectorDefinitionConnector]{
-		OutputState: i.ToConnectorDefinitionConnectorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConnectorDefinitionConnectorArrayInput is an input type that accepts ConnectorDefinitionConnectorArray and ConnectorDefinitionConnectorArrayOutput values.
 // You can construct a concrete instance of `ConnectorDefinitionConnectorArrayInput` via:
 //
@@ -80,12 +73,6 @@ func (i ConnectorDefinitionConnectorArray) ToConnectorDefinitionConnectorArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorDefinitionConnectorArrayOutput)
 }
 
-func (i ConnectorDefinitionConnectorArray) ToOutput(ctx context.Context) pulumix.Output[[]ConnectorDefinitionConnector] {
-	return pulumix.Output[[]ConnectorDefinitionConnector]{
-		OutputState: i.ToConnectorDefinitionConnectorArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorDefinitionConnectorOutput struct{ *pulumi.OutputState }
 
 func (ConnectorDefinitionConnectorOutput) ElementType() reflect.Type {
@@ -98,12 +85,6 @@ func (o ConnectorDefinitionConnectorOutput) ToConnectorDefinitionConnectorOutput
 
 func (o ConnectorDefinitionConnectorOutput) ToConnectorDefinitionConnectorOutputWithContext(ctx context.Context) ConnectorDefinitionConnectorOutput {
 	return o
-}
-
-func (o ConnectorDefinitionConnectorOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorDefinitionConnector] {
-	return pulumix.Output[ConnectorDefinitionConnector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorDefinitionConnectorOutput) ConnectorArn() pulumi.StringOutput {
@@ -130,12 +111,6 @@ func (o ConnectorDefinitionConnectorArrayOutput) ToConnectorDefinitionConnectorA
 
 func (o ConnectorDefinitionConnectorArrayOutput) ToConnectorDefinitionConnectorArrayOutputWithContext(ctx context.Context) ConnectorDefinitionConnectorArrayOutput {
 	return o
-}
-
-func (o ConnectorDefinitionConnectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConnectorDefinitionConnector] {
-	return pulumix.Output[[]ConnectorDefinitionConnector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorDefinitionConnectorArrayOutput) Index(i pulumi.IntInput) ConnectorDefinitionConnectorOutput {
@@ -173,12 +148,6 @@ func (i ConnectorDefinitionVersionTypeArgs) ToConnectorDefinitionVersionTypeOutp
 
 func (i ConnectorDefinitionVersionTypeArgs) ToConnectorDefinitionVersionTypeOutputWithContext(ctx context.Context) ConnectorDefinitionVersionTypeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorDefinitionVersionTypeOutput)
-}
-
-func (i ConnectorDefinitionVersionTypeArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorDefinitionVersionType] {
-	return pulumix.Output[ConnectorDefinitionVersionType]{
-		OutputState: i.ToConnectorDefinitionVersionTypeOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ConnectorDefinitionVersionTypeArgs) ToConnectorDefinitionVersionTypePtrOutput() ConnectorDefinitionVersionTypePtrOutput {
@@ -222,12 +191,6 @@ func (i *connectorDefinitionVersionTypePtrType) ToConnectorDefinitionVersionType
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorDefinitionVersionTypePtrOutput)
 }
 
-func (i *connectorDefinitionVersionTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*ConnectorDefinitionVersionType] {
-	return pulumix.Output[*ConnectorDefinitionVersionType]{
-		OutputState: i.ToConnectorDefinitionVersionTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorDefinitionVersionTypeOutput struct{ *pulumi.OutputState }
 
 func (ConnectorDefinitionVersionTypeOutput) ElementType() reflect.Type {
@@ -252,12 +215,6 @@ func (o ConnectorDefinitionVersionTypeOutput) ToConnectorDefinitionVersionTypePt
 	}).(ConnectorDefinitionVersionTypePtrOutput)
 }
 
-func (o ConnectorDefinitionVersionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorDefinitionVersionType] {
-	return pulumix.Output[ConnectorDefinitionVersionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectorDefinitionVersionTypeOutput) Connectors() ConnectorDefinitionConnectorArrayOutput {
 	return o.ApplyT(func(v ConnectorDefinitionVersionType) []ConnectorDefinitionConnector { return v.Connectors }).(ConnectorDefinitionConnectorArrayOutput)
 }
@@ -274,12 +231,6 @@ func (o ConnectorDefinitionVersionTypePtrOutput) ToConnectorDefinitionVersionTyp
 
 func (o ConnectorDefinitionVersionTypePtrOutput) ToConnectorDefinitionVersionTypePtrOutputWithContext(ctx context.Context) ConnectorDefinitionVersionTypePtrOutput {
 	return o
-}
-
-func (o ConnectorDefinitionVersionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectorDefinitionVersionType] {
-	return pulumix.Output[*ConnectorDefinitionVersionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorDefinitionVersionTypePtrOutput) Elem() ConnectorDefinitionVersionTypeOutput {
@@ -336,12 +287,6 @@ func (i ConnectorDefinitionVersionConnectorArgs) ToConnectorDefinitionVersionCon
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorDefinitionVersionConnectorOutput)
 }
 
-func (i ConnectorDefinitionVersionConnectorArgs) ToOutput(ctx context.Context) pulumix.Output[ConnectorDefinitionVersionConnector] {
-	return pulumix.Output[ConnectorDefinitionVersionConnector]{
-		OutputState: i.ToConnectorDefinitionVersionConnectorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConnectorDefinitionVersionConnectorArrayInput is an input type that accepts ConnectorDefinitionVersionConnectorArray and ConnectorDefinitionVersionConnectorArrayOutput values.
 // You can construct a concrete instance of `ConnectorDefinitionVersionConnectorArrayInput` via:
 //
@@ -367,12 +312,6 @@ func (i ConnectorDefinitionVersionConnectorArray) ToConnectorDefinitionVersionCo
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectorDefinitionVersionConnectorArrayOutput)
 }
 
-func (i ConnectorDefinitionVersionConnectorArray) ToOutput(ctx context.Context) pulumix.Output[[]ConnectorDefinitionVersionConnector] {
-	return pulumix.Output[[]ConnectorDefinitionVersionConnector]{
-		OutputState: i.ToConnectorDefinitionVersionConnectorArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectorDefinitionVersionConnectorOutput struct{ *pulumi.OutputState }
 
 func (ConnectorDefinitionVersionConnectorOutput) ElementType() reflect.Type {
@@ -385,12 +324,6 @@ func (o ConnectorDefinitionVersionConnectorOutput) ToConnectorDefinitionVersionC
 
 func (o ConnectorDefinitionVersionConnectorOutput) ToConnectorDefinitionVersionConnectorOutputWithContext(ctx context.Context) ConnectorDefinitionVersionConnectorOutput {
 	return o
-}
-
-func (o ConnectorDefinitionVersionConnectorOutput) ToOutput(ctx context.Context) pulumix.Output[ConnectorDefinitionVersionConnector] {
-	return pulumix.Output[ConnectorDefinitionVersionConnector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorDefinitionVersionConnectorOutput) ConnectorArn() pulumi.StringOutput {
@@ -417,12 +350,6 @@ func (o ConnectorDefinitionVersionConnectorArrayOutput) ToConnectorDefinitionVer
 
 func (o ConnectorDefinitionVersionConnectorArrayOutput) ToConnectorDefinitionVersionConnectorArrayOutputWithContext(ctx context.Context) ConnectorDefinitionVersionConnectorArrayOutput {
 	return o
-}
-
-func (o ConnectorDefinitionVersionConnectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConnectorDefinitionVersionConnector] {
-	return pulumix.Output[[]ConnectorDefinitionVersionConnector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectorDefinitionVersionConnectorArrayOutput) Index(i pulumi.IntInput) ConnectorDefinitionVersionConnectorOutput {
@@ -468,12 +395,6 @@ func (i CoreDefinitionCoreArgs) ToCoreDefinitionCoreOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CoreDefinitionCoreOutput)
 }
 
-func (i CoreDefinitionCoreArgs) ToOutput(ctx context.Context) pulumix.Output[CoreDefinitionCore] {
-	return pulumix.Output[CoreDefinitionCore]{
-		OutputState: i.ToCoreDefinitionCoreOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CoreDefinitionCoreArrayInput is an input type that accepts CoreDefinitionCoreArray and CoreDefinitionCoreArrayOutput values.
 // You can construct a concrete instance of `CoreDefinitionCoreArrayInput` via:
 //
@@ -499,12 +420,6 @@ func (i CoreDefinitionCoreArray) ToCoreDefinitionCoreArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(CoreDefinitionCoreArrayOutput)
 }
 
-func (i CoreDefinitionCoreArray) ToOutput(ctx context.Context) pulumix.Output[[]CoreDefinitionCore] {
-	return pulumix.Output[[]CoreDefinitionCore]{
-		OutputState: i.ToCoreDefinitionCoreArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CoreDefinitionCoreOutput struct{ *pulumi.OutputState }
 
 func (CoreDefinitionCoreOutput) ElementType() reflect.Type {
@@ -517,12 +432,6 @@ func (o CoreDefinitionCoreOutput) ToCoreDefinitionCoreOutput() CoreDefinitionCor
 
 func (o CoreDefinitionCoreOutput) ToCoreDefinitionCoreOutputWithContext(ctx context.Context) CoreDefinitionCoreOutput {
 	return o
-}
-
-func (o CoreDefinitionCoreOutput) ToOutput(ctx context.Context) pulumix.Output[CoreDefinitionCore] {
-	return pulumix.Output[CoreDefinitionCore]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CoreDefinitionCoreOutput) CertificateArn() pulumi.StringOutput {
@@ -553,12 +462,6 @@ func (o CoreDefinitionCoreArrayOutput) ToCoreDefinitionCoreArrayOutput() CoreDef
 
 func (o CoreDefinitionCoreArrayOutput) ToCoreDefinitionCoreArrayOutputWithContext(ctx context.Context) CoreDefinitionCoreArrayOutput {
 	return o
-}
-
-func (o CoreDefinitionCoreArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CoreDefinitionCore] {
-	return pulumix.Output[[]CoreDefinitionCore]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CoreDefinitionCoreArrayOutput) Index(i pulumi.IntInput) CoreDefinitionCoreOutput {
@@ -596,12 +499,6 @@ func (i CoreDefinitionVersionTypeArgs) ToCoreDefinitionVersionTypeOutput() CoreD
 
 func (i CoreDefinitionVersionTypeArgs) ToCoreDefinitionVersionTypeOutputWithContext(ctx context.Context) CoreDefinitionVersionTypeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CoreDefinitionVersionTypeOutput)
-}
-
-func (i CoreDefinitionVersionTypeArgs) ToOutput(ctx context.Context) pulumix.Output[CoreDefinitionVersionType] {
-	return pulumix.Output[CoreDefinitionVersionType]{
-		OutputState: i.ToCoreDefinitionVersionTypeOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i CoreDefinitionVersionTypeArgs) ToCoreDefinitionVersionTypePtrOutput() CoreDefinitionVersionTypePtrOutput {
@@ -645,12 +542,6 @@ func (i *coreDefinitionVersionTypePtrType) ToCoreDefinitionVersionTypePtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(CoreDefinitionVersionTypePtrOutput)
 }
 
-func (i *coreDefinitionVersionTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*CoreDefinitionVersionType] {
-	return pulumix.Output[*CoreDefinitionVersionType]{
-		OutputState: i.ToCoreDefinitionVersionTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CoreDefinitionVersionTypeOutput struct{ *pulumi.OutputState }
 
 func (CoreDefinitionVersionTypeOutput) ElementType() reflect.Type {
@@ -675,12 +566,6 @@ func (o CoreDefinitionVersionTypeOutput) ToCoreDefinitionVersionTypePtrOutputWit
 	}).(CoreDefinitionVersionTypePtrOutput)
 }
 
-func (o CoreDefinitionVersionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[CoreDefinitionVersionType] {
-	return pulumix.Output[CoreDefinitionVersionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CoreDefinitionVersionTypeOutput) Cores() CoreDefinitionCoreArrayOutput {
 	return o.ApplyT(func(v CoreDefinitionVersionType) []CoreDefinitionCore { return v.Cores }).(CoreDefinitionCoreArrayOutput)
 }
@@ -697,12 +582,6 @@ func (o CoreDefinitionVersionTypePtrOutput) ToCoreDefinitionVersionTypePtrOutput
 
 func (o CoreDefinitionVersionTypePtrOutput) ToCoreDefinitionVersionTypePtrOutputWithContext(ctx context.Context) CoreDefinitionVersionTypePtrOutput {
 	return o
-}
-
-func (o CoreDefinitionVersionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*CoreDefinitionVersionType] {
-	return pulumix.Output[*CoreDefinitionVersionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CoreDefinitionVersionTypePtrOutput) Elem() CoreDefinitionVersionTypeOutput {
@@ -761,12 +640,6 @@ func (i CoreDefinitionVersionCoreArgs) ToCoreDefinitionVersionCoreOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(CoreDefinitionVersionCoreOutput)
 }
 
-func (i CoreDefinitionVersionCoreArgs) ToOutput(ctx context.Context) pulumix.Output[CoreDefinitionVersionCore] {
-	return pulumix.Output[CoreDefinitionVersionCore]{
-		OutputState: i.ToCoreDefinitionVersionCoreOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CoreDefinitionVersionCoreArrayInput is an input type that accepts CoreDefinitionVersionCoreArray and CoreDefinitionVersionCoreArrayOutput values.
 // You can construct a concrete instance of `CoreDefinitionVersionCoreArrayInput` via:
 //
@@ -792,12 +665,6 @@ func (i CoreDefinitionVersionCoreArray) ToCoreDefinitionVersionCoreArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(CoreDefinitionVersionCoreArrayOutput)
 }
 
-func (i CoreDefinitionVersionCoreArray) ToOutput(ctx context.Context) pulumix.Output[[]CoreDefinitionVersionCore] {
-	return pulumix.Output[[]CoreDefinitionVersionCore]{
-		OutputState: i.ToCoreDefinitionVersionCoreArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CoreDefinitionVersionCoreOutput struct{ *pulumi.OutputState }
 
 func (CoreDefinitionVersionCoreOutput) ElementType() reflect.Type {
@@ -810,12 +677,6 @@ func (o CoreDefinitionVersionCoreOutput) ToCoreDefinitionVersionCoreOutput() Cor
 
 func (o CoreDefinitionVersionCoreOutput) ToCoreDefinitionVersionCoreOutputWithContext(ctx context.Context) CoreDefinitionVersionCoreOutput {
 	return o
-}
-
-func (o CoreDefinitionVersionCoreOutput) ToOutput(ctx context.Context) pulumix.Output[CoreDefinitionVersionCore] {
-	return pulumix.Output[CoreDefinitionVersionCore]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CoreDefinitionVersionCoreOutput) CertificateArn() pulumi.StringOutput {
@@ -846,12 +707,6 @@ func (o CoreDefinitionVersionCoreArrayOutput) ToCoreDefinitionVersionCoreArrayOu
 
 func (o CoreDefinitionVersionCoreArrayOutput) ToCoreDefinitionVersionCoreArrayOutputWithContext(ctx context.Context) CoreDefinitionVersionCoreArrayOutput {
 	return o
-}
-
-func (o CoreDefinitionVersionCoreArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CoreDefinitionVersionCore] {
-	return pulumix.Output[[]CoreDefinitionVersionCore]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CoreDefinitionVersionCoreArrayOutput) Index(i pulumi.IntInput) CoreDefinitionVersionCoreOutput {
@@ -897,12 +752,6 @@ func (i DeviceDefinitionDeviceArgs) ToDeviceDefinitionDeviceOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceDefinitionDeviceOutput)
 }
 
-func (i DeviceDefinitionDeviceArgs) ToOutput(ctx context.Context) pulumix.Output[DeviceDefinitionDevice] {
-	return pulumix.Output[DeviceDefinitionDevice]{
-		OutputState: i.ToDeviceDefinitionDeviceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DeviceDefinitionDeviceArrayInput is an input type that accepts DeviceDefinitionDeviceArray and DeviceDefinitionDeviceArrayOutput values.
 // You can construct a concrete instance of `DeviceDefinitionDeviceArrayInput` via:
 //
@@ -928,12 +777,6 @@ func (i DeviceDefinitionDeviceArray) ToDeviceDefinitionDeviceArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceDefinitionDeviceArrayOutput)
 }
 
-func (i DeviceDefinitionDeviceArray) ToOutput(ctx context.Context) pulumix.Output[[]DeviceDefinitionDevice] {
-	return pulumix.Output[[]DeviceDefinitionDevice]{
-		OutputState: i.ToDeviceDefinitionDeviceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeviceDefinitionDeviceOutput struct{ *pulumi.OutputState }
 
 func (DeviceDefinitionDeviceOutput) ElementType() reflect.Type {
@@ -946,12 +789,6 @@ func (o DeviceDefinitionDeviceOutput) ToDeviceDefinitionDeviceOutput() DeviceDef
 
 func (o DeviceDefinitionDeviceOutput) ToDeviceDefinitionDeviceOutputWithContext(ctx context.Context) DeviceDefinitionDeviceOutput {
 	return o
-}
-
-func (o DeviceDefinitionDeviceOutput) ToOutput(ctx context.Context) pulumix.Output[DeviceDefinitionDevice] {
-	return pulumix.Output[DeviceDefinitionDevice]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeviceDefinitionDeviceOutput) CertificateArn() pulumi.StringOutput {
@@ -982,12 +819,6 @@ func (o DeviceDefinitionDeviceArrayOutput) ToDeviceDefinitionDeviceArrayOutput()
 
 func (o DeviceDefinitionDeviceArrayOutput) ToDeviceDefinitionDeviceArrayOutputWithContext(ctx context.Context) DeviceDefinitionDeviceArrayOutput {
 	return o
-}
-
-func (o DeviceDefinitionDeviceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeviceDefinitionDevice] {
-	return pulumix.Output[[]DeviceDefinitionDevice]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeviceDefinitionDeviceArrayOutput) Index(i pulumi.IntInput) DeviceDefinitionDeviceOutput {
@@ -1025,12 +856,6 @@ func (i DeviceDefinitionVersionTypeArgs) ToDeviceDefinitionVersionTypeOutput() D
 
 func (i DeviceDefinitionVersionTypeArgs) ToDeviceDefinitionVersionTypeOutputWithContext(ctx context.Context) DeviceDefinitionVersionTypeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceDefinitionVersionTypeOutput)
-}
-
-func (i DeviceDefinitionVersionTypeArgs) ToOutput(ctx context.Context) pulumix.Output[DeviceDefinitionVersionType] {
-	return pulumix.Output[DeviceDefinitionVersionType]{
-		OutputState: i.ToDeviceDefinitionVersionTypeOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i DeviceDefinitionVersionTypeArgs) ToDeviceDefinitionVersionTypePtrOutput() DeviceDefinitionVersionTypePtrOutput {
@@ -1074,12 +899,6 @@ func (i *deviceDefinitionVersionTypePtrType) ToDeviceDefinitionVersionTypePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceDefinitionVersionTypePtrOutput)
 }
 
-func (i *deviceDefinitionVersionTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*DeviceDefinitionVersionType] {
-	return pulumix.Output[*DeviceDefinitionVersionType]{
-		OutputState: i.ToDeviceDefinitionVersionTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeviceDefinitionVersionTypeOutput struct{ *pulumi.OutputState }
 
 func (DeviceDefinitionVersionTypeOutput) ElementType() reflect.Type {
@@ -1104,12 +923,6 @@ func (o DeviceDefinitionVersionTypeOutput) ToDeviceDefinitionVersionTypePtrOutpu
 	}).(DeviceDefinitionVersionTypePtrOutput)
 }
 
-func (o DeviceDefinitionVersionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DeviceDefinitionVersionType] {
-	return pulumix.Output[DeviceDefinitionVersionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeviceDefinitionVersionTypeOutput) Devices() DeviceDefinitionDeviceArrayOutput {
 	return o.ApplyT(func(v DeviceDefinitionVersionType) []DeviceDefinitionDevice { return v.Devices }).(DeviceDefinitionDeviceArrayOutput)
 }
@@ -1126,12 +939,6 @@ func (o DeviceDefinitionVersionTypePtrOutput) ToDeviceDefinitionVersionTypePtrOu
 
 func (o DeviceDefinitionVersionTypePtrOutput) ToDeviceDefinitionVersionTypePtrOutputWithContext(ctx context.Context) DeviceDefinitionVersionTypePtrOutput {
 	return o
-}
-
-func (o DeviceDefinitionVersionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeviceDefinitionVersionType] {
-	return pulumix.Output[*DeviceDefinitionVersionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeviceDefinitionVersionTypePtrOutput) Elem() DeviceDefinitionVersionTypeOutput {
@@ -1190,12 +997,6 @@ func (i DeviceDefinitionVersionDeviceArgs) ToDeviceDefinitionVersionDeviceOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceDefinitionVersionDeviceOutput)
 }
 
-func (i DeviceDefinitionVersionDeviceArgs) ToOutput(ctx context.Context) pulumix.Output[DeviceDefinitionVersionDevice] {
-	return pulumix.Output[DeviceDefinitionVersionDevice]{
-		OutputState: i.ToDeviceDefinitionVersionDeviceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DeviceDefinitionVersionDeviceArrayInput is an input type that accepts DeviceDefinitionVersionDeviceArray and DeviceDefinitionVersionDeviceArrayOutput values.
 // You can construct a concrete instance of `DeviceDefinitionVersionDeviceArrayInput` via:
 //
@@ -1221,12 +1022,6 @@ func (i DeviceDefinitionVersionDeviceArray) ToDeviceDefinitionVersionDeviceArray
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceDefinitionVersionDeviceArrayOutput)
 }
 
-func (i DeviceDefinitionVersionDeviceArray) ToOutput(ctx context.Context) pulumix.Output[[]DeviceDefinitionVersionDevice] {
-	return pulumix.Output[[]DeviceDefinitionVersionDevice]{
-		OutputState: i.ToDeviceDefinitionVersionDeviceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeviceDefinitionVersionDeviceOutput struct{ *pulumi.OutputState }
 
 func (DeviceDefinitionVersionDeviceOutput) ElementType() reflect.Type {
@@ -1239,12 +1034,6 @@ func (o DeviceDefinitionVersionDeviceOutput) ToDeviceDefinitionVersionDeviceOutp
 
 func (o DeviceDefinitionVersionDeviceOutput) ToDeviceDefinitionVersionDeviceOutputWithContext(ctx context.Context) DeviceDefinitionVersionDeviceOutput {
 	return o
-}
-
-func (o DeviceDefinitionVersionDeviceOutput) ToOutput(ctx context.Context) pulumix.Output[DeviceDefinitionVersionDevice] {
-	return pulumix.Output[DeviceDefinitionVersionDevice]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeviceDefinitionVersionDeviceOutput) CertificateArn() pulumi.StringOutput {
@@ -1275,12 +1064,6 @@ func (o DeviceDefinitionVersionDeviceArrayOutput) ToDeviceDefinitionVersionDevic
 
 func (o DeviceDefinitionVersionDeviceArrayOutput) ToDeviceDefinitionVersionDeviceArrayOutputWithContext(ctx context.Context) DeviceDefinitionVersionDeviceArrayOutput {
 	return o
-}
-
-func (o DeviceDefinitionVersionDeviceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeviceDefinitionVersionDevice] {
-	return pulumix.Output[[]DeviceDefinitionVersionDevice]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeviceDefinitionVersionDeviceArrayOutput) Index(i pulumi.IntInput) DeviceDefinitionVersionDeviceOutput {
@@ -1318,12 +1101,6 @@ func (i FunctionDefinitionDefaultConfigArgs) ToFunctionDefinitionDefaultConfigOu
 
 func (i FunctionDefinitionDefaultConfigArgs) ToFunctionDefinitionDefaultConfigOutputWithContext(ctx context.Context) FunctionDefinitionDefaultConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionDefaultConfigOutput)
-}
-
-func (i FunctionDefinitionDefaultConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionDefaultConfig] {
-	return pulumix.Output[FunctionDefinitionDefaultConfig]{
-		OutputState: i.ToFunctionDefinitionDefaultConfigOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i FunctionDefinitionDefaultConfigArgs) ToFunctionDefinitionDefaultConfigPtrOutput() FunctionDefinitionDefaultConfigPtrOutput {
@@ -1367,12 +1144,6 @@ func (i *functionDefinitionDefaultConfigPtrType) ToFunctionDefinitionDefaultConf
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionDefaultConfigPtrOutput)
 }
 
-func (i *functionDefinitionDefaultConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionDefinitionDefaultConfig] {
-	return pulumix.Output[*FunctionDefinitionDefaultConfig]{
-		OutputState: i.ToFunctionDefinitionDefaultConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionDefinitionDefaultConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionDefinitionDefaultConfigOutput) ElementType() reflect.Type {
@@ -1397,12 +1168,6 @@ func (o FunctionDefinitionDefaultConfigOutput) ToFunctionDefinitionDefaultConfig
 	}).(FunctionDefinitionDefaultConfigPtrOutput)
 }
 
-func (o FunctionDefinitionDefaultConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionDefaultConfig] {
-	return pulumix.Output[FunctionDefinitionDefaultConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionDefinitionDefaultConfigOutput) Execution() FunctionDefinitionExecutionOutput {
 	return o.ApplyT(func(v FunctionDefinitionDefaultConfig) FunctionDefinitionExecution { return v.Execution }).(FunctionDefinitionExecutionOutput)
 }
@@ -1419,12 +1184,6 @@ func (o FunctionDefinitionDefaultConfigPtrOutput) ToFunctionDefinitionDefaultCon
 
 func (o FunctionDefinitionDefaultConfigPtrOutput) ToFunctionDefinitionDefaultConfigPtrOutputWithContext(ctx context.Context) FunctionDefinitionDefaultConfigPtrOutput {
 	return o
-}
-
-func (o FunctionDefinitionDefaultConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionDefinitionDefaultConfig] {
-	return pulumix.Output[*FunctionDefinitionDefaultConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionDefinitionDefaultConfigPtrOutput) Elem() FunctionDefinitionDefaultConfigOutput {
@@ -1483,12 +1242,6 @@ func (i FunctionDefinitionEnvironmentArgs) ToFunctionDefinitionEnvironmentOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionEnvironmentOutput)
 }
 
-func (i FunctionDefinitionEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionEnvironment] {
-	return pulumix.Output[FunctionDefinitionEnvironment]{
-		OutputState: i.ToFunctionDefinitionEnvironmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FunctionDefinitionEnvironmentArgs) ToFunctionDefinitionEnvironmentPtrOutput() FunctionDefinitionEnvironmentPtrOutput {
 	return i.ToFunctionDefinitionEnvironmentPtrOutputWithContext(context.Background())
 }
@@ -1530,12 +1283,6 @@ func (i *functionDefinitionEnvironmentPtrType) ToFunctionDefinitionEnvironmentPt
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionEnvironmentPtrOutput)
 }
 
-func (i *functionDefinitionEnvironmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionDefinitionEnvironment] {
-	return pulumix.Output[*FunctionDefinitionEnvironment]{
-		OutputState: i.ToFunctionDefinitionEnvironmentPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionDefinitionEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (FunctionDefinitionEnvironmentOutput) ElementType() reflect.Type {
@@ -1558,12 +1305,6 @@ func (o FunctionDefinitionEnvironmentOutput) ToFunctionDefinitionEnvironmentPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionDefinitionEnvironment) *FunctionDefinitionEnvironment {
 		return &v
 	}).(FunctionDefinitionEnvironmentPtrOutput)
-}
-
-func (o FunctionDefinitionEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionEnvironment] {
-	return pulumix.Output[FunctionDefinitionEnvironment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionDefinitionEnvironmentOutput) AccessSysfs() pulumi.BoolPtrOutput {
@@ -1596,12 +1337,6 @@ func (o FunctionDefinitionEnvironmentPtrOutput) ToFunctionDefinitionEnvironmentP
 
 func (o FunctionDefinitionEnvironmentPtrOutput) ToFunctionDefinitionEnvironmentPtrOutputWithContext(ctx context.Context) FunctionDefinitionEnvironmentPtrOutput {
 	return o
-}
-
-func (o FunctionDefinitionEnvironmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionDefinitionEnvironment] {
-	return pulumix.Output[*FunctionDefinitionEnvironment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionDefinitionEnvironmentPtrOutput) Elem() FunctionDefinitionEnvironmentOutput {
@@ -1683,12 +1418,6 @@ func (i FunctionDefinitionExecutionArgs) ToFunctionDefinitionExecutionOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionExecutionOutput)
 }
 
-func (i FunctionDefinitionExecutionArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionExecution] {
-	return pulumix.Output[FunctionDefinitionExecution]{
-		OutputState: i.ToFunctionDefinitionExecutionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FunctionDefinitionExecutionArgs) ToFunctionDefinitionExecutionPtrOutput() FunctionDefinitionExecutionPtrOutput {
 	return i.ToFunctionDefinitionExecutionPtrOutputWithContext(context.Background())
 }
@@ -1730,12 +1459,6 @@ func (i *functionDefinitionExecutionPtrType) ToFunctionDefinitionExecutionPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionExecutionPtrOutput)
 }
 
-func (i *functionDefinitionExecutionPtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionDefinitionExecution] {
-	return pulumix.Output[*FunctionDefinitionExecution]{
-		OutputState: i.ToFunctionDefinitionExecutionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionDefinitionExecutionOutput struct{ *pulumi.OutputState }
 
 func (FunctionDefinitionExecutionOutput) ElementType() reflect.Type {
@@ -1760,12 +1483,6 @@ func (o FunctionDefinitionExecutionOutput) ToFunctionDefinitionExecutionPtrOutpu
 	}).(FunctionDefinitionExecutionPtrOutput)
 }
 
-func (o FunctionDefinitionExecutionOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionExecution] {
-	return pulumix.Output[FunctionDefinitionExecution]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionDefinitionExecutionOutput) IsolationMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionDefinitionExecution) *string { return v.IsolationMode }).(pulumi.StringPtrOutput)
 }
@@ -1786,12 +1503,6 @@ func (o FunctionDefinitionExecutionPtrOutput) ToFunctionDefinitionExecutionPtrOu
 
 func (o FunctionDefinitionExecutionPtrOutput) ToFunctionDefinitionExecutionPtrOutputWithContext(ctx context.Context) FunctionDefinitionExecutionPtrOutput {
 	return o
-}
-
-func (o FunctionDefinitionExecutionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionDefinitionExecution] {
-	return pulumix.Output[*FunctionDefinitionExecution]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionDefinitionExecutionPtrOutput) Elem() FunctionDefinitionExecutionOutput {
@@ -1857,12 +1568,6 @@ func (i FunctionDefinitionFunctionArgs) ToFunctionDefinitionFunctionOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionFunctionOutput)
 }
 
-func (i FunctionDefinitionFunctionArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionFunction] {
-	return pulumix.Output[FunctionDefinitionFunction]{
-		OutputState: i.ToFunctionDefinitionFunctionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FunctionDefinitionFunctionArrayInput is an input type that accepts FunctionDefinitionFunctionArray and FunctionDefinitionFunctionArrayOutput values.
 // You can construct a concrete instance of `FunctionDefinitionFunctionArrayInput` via:
 //
@@ -1888,12 +1593,6 @@ func (i FunctionDefinitionFunctionArray) ToFunctionDefinitionFunctionArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionFunctionArrayOutput)
 }
 
-func (i FunctionDefinitionFunctionArray) ToOutput(ctx context.Context) pulumix.Output[[]FunctionDefinitionFunction] {
-	return pulumix.Output[[]FunctionDefinitionFunction]{
-		OutputState: i.ToFunctionDefinitionFunctionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionDefinitionFunctionOutput struct{ *pulumi.OutputState }
 
 func (FunctionDefinitionFunctionOutput) ElementType() reflect.Type {
@@ -1906,12 +1605,6 @@ func (o FunctionDefinitionFunctionOutput) ToFunctionDefinitionFunctionOutput() F
 
 func (o FunctionDefinitionFunctionOutput) ToFunctionDefinitionFunctionOutputWithContext(ctx context.Context) FunctionDefinitionFunctionOutput {
 	return o
-}
-
-func (o FunctionDefinitionFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionFunction] {
-	return pulumix.Output[FunctionDefinitionFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionDefinitionFunctionOutput) FunctionArn() pulumi.StringOutput {
@@ -1940,12 +1633,6 @@ func (o FunctionDefinitionFunctionArrayOutput) ToFunctionDefinitionFunctionArray
 
 func (o FunctionDefinitionFunctionArrayOutput) ToFunctionDefinitionFunctionArrayOutputWithContext(ctx context.Context) FunctionDefinitionFunctionArrayOutput {
 	return o
-}
-
-func (o FunctionDefinitionFunctionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FunctionDefinitionFunction] {
-	return pulumix.Output[[]FunctionDefinitionFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionDefinitionFunctionArrayOutput) Index(i pulumi.IntInput) FunctionDefinitionFunctionOutput {
@@ -1997,12 +1684,6 @@ func (i FunctionDefinitionFunctionConfigurationArgs) ToFunctionDefinitionFunctio
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionFunctionConfigurationOutput)
 }
 
-func (i FunctionDefinitionFunctionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionFunctionConfiguration] {
-	return pulumix.Output[FunctionDefinitionFunctionConfiguration]{
-		OutputState: i.ToFunctionDefinitionFunctionConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionDefinitionFunctionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FunctionDefinitionFunctionConfigurationOutput) ElementType() reflect.Type {
@@ -2015,12 +1696,6 @@ func (o FunctionDefinitionFunctionConfigurationOutput) ToFunctionDefinitionFunct
 
 func (o FunctionDefinitionFunctionConfigurationOutput) ToFunctionDefinitionFunctionConfigurationOutputWithContext(ctx context.Context) FunctionDefinitionFunctionConfigurationOutput {
 	return o
-}
-
-func (o FunctionDefinitionFunctionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionFunctionConfiguration] {
-	return pulumix.Output[FunctionDefinitionFunctionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionDefinitionFunctionConfigurationOutput) EncodingType() pulumi.StringPtrOutput {
@@ -2084,12 +1759,6 @@ func (i FunctionDefinitionResourceAccessPolicyArgs) ToFunctionDefinitionResource
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionResourceAccessPolicyOutput)
 }
 
-func (i FunctionDefinitionResourceAccessPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionResourceAccessPolicy] {
-	return pulumix.Output[FunctionDefinitionResourceAccessPolicy]{
-		OutputState: i.ToFunctionDefinitionResourceAccessPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FunctionDefinitionResourceAccessPolicyArrayInput is an input type that accepts FunctionDefinitionResourceAccessPolicyArray and FunctionDefinitionResourceAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `FunctionDefinitionResourceAccessPolicyArrayInput` via:
 //
@@ -2115,12 +1784,6 @@ func (i FunctionDefinitionResourceAccessPolicyArray) ToFunctionDefinitionResourc
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionResourceAccessPolicyArrayOutput)
 }
 
-func (i FunctionDefinitionResourceAccessPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]FunctionDefinitionResourceAccessPolicy] {
-	return pulumix.Output[[]FunctionDefinitionResourceAccessPolicy]{
-		OutputState: i.ToFunctionDefinitionResourceAccessPolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionDefinitionResourceAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (FunctionDefinitionResourceAccessPolicyOutput) ElementType() reflect.Type {
@@ -2133,12 +1796,6 @@ func (o FunctionDefinitionResourceAccessPolicyOutput) ToFunctionDefinitionResour
 
 func (o FunctionDefinitionResourceAccessPolicyOutput) ToFunctionDefinitionResourceAccessPolicyOutputWithContext(ctx context.Context) FunctionDefinitionResourceAccessPolicyOutput {
 	return o
-}
-
-func (o FunctionDefinitionResourceAccessPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionResourceAccessPolicy] {
-	return pulumix.Output[FunctionDefinitionResourceAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionDefinitionResourceAccessPolicyOutput) Permission() pulumi.StringPtrOutput {
@@ -2161,12 +1818,6 @@ func (o FunctionDefinitionResourceAccessPolicyArrayOutput) ToFunctionDefinitionR
 
 func (o FunctionDefinitionResourceAccessPolicyArrayOutput) ToFunctionDefinitionResourceAccessPolicyArrayOutputWithContext(ctx context.Context) FunctionDefinitionResourceAccessPolicyArrayOutput {
 	return o
-}
-
-func (o FunctionDefinitionResourceAccessPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FunctionDefinitionResourceAccessPolicy] {
-	return pulumix.Output[[]FunctionDefinitionResourceAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionDefinitionResourceAccessPolicyArrayOutput) Index(i pulumi.IntInput) FunctionDefinitionResourceAccessPolicyOutput {
@@ -2206,12 +1857,6 @@ func (i FunctionDefinitionRunAsArgs) ToFunctionDefinitionRunAsOutput() FunctionD
 
 func (i FunctionDefinitionRunAsArgs) ToFunctionDefinitionRunAsOutputWithContext(ctx context.Context) FunctionDefinitionRunAsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionRunAsOutput)
-}
-
-func (i FunctionDefinitionRunAsArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionRunAs] {
-	return pulumix.Output[FunctionDefinitionRunAs]{
-		OutputState: i.ToFunctionDefinitionRunAsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i FunctionDefinitionRunAsArgs) ToFunctionDefinitionRunAsPtrOutput() FunctionDefinitionRunAsPtrOutput {
@@ -2255,12 +1900,6 @@ func (i *functionDefinitionRunAsPtrType) ToFunctionDefinitionRunAsPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionRunAsPtrOutput)
 }
 
-func (i *functionDefinitionRunAsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionDefinitionRunAs] {
-	return pulumix.Output[*FunctionDefinitionRunAs]{
-		OutputState: i.ToFunctionDefinitionRunAsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionDefinitionRunAsOutput struct{ *pulumi.OutputState }
 
 func (FunctionDefinitionRunAsOutput) ElementType() reflect.Type {
@@ -2285,12 +1924,6 @@ func (o FunctionDefinitionRunAsOutput) ToFunctionDefinitionRunAsPtrOutputWithCon
 	}).(FunctionDefinitionRunAsPtrOutput)
 }
 
-func (o FunctionDefinitionRunAsOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionRunAs] {
-	return pulumix.Output[FunctionDefinitionRunAs]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionDefinitionRunAsOutput) Gid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FunctionDefinitionRunAs) *int { return v.Gid }).(pulumi.IntPtrOutput)
 }
@@ -2311,12 +1944,6 @@ func (o FunctionDefinitionRunAsPtrOutput) ToFunctionDefinitionRunAsPtrOutput() F
 
 func (o FunctionDefinitionRunAsPtrOutput) ToFunctionDefinitionRunAsPtrOutputWithContext(ctx context.Context) FunctionDefinitionRunAsPtrOutput {
 	return o
-}
-
-func (o FunctionDefinitionRunAsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionDefinitionRunAs] {
-	return pulumix.Output[*FunctionDefinitionRunAs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionDefinitionRunAsPtrOutput) Elem() FunctionDefinitionRunAsOutput {
@@ -2380,12 +2007,6 @@ func (i FunctionDefinitionVersionTypeArgs) ToFunctionDefinitionVersionTypeOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionVersionTypeOutput)
 }
 
-func (i FunctionDefinitionVersionTypeArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionVersionType] {
-	return pulumix.Output[FunctionDefinitionVersionType]{
-		OutputState: i.ToFunctionDefinitionVersionTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FunctionDefinitionVersionTypeArgs) ToFunctionDefinitionVersionTypePtrOutput() FunctionDefinitionVersionTypePtrOutput {
 	return i.ToFunctionDefinitionVersionTypePtrOutputWithContext(context.Background())
 }
@@ -2427,12 +2048,6 @@ func (i *functionDefinitionVersionTypePtrType) ToFunctionDefinitionVersionTypePt
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionVersionTypePtrOutput)
 }
 
-func (i *functionDefinitionVersionTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionDefinitionVersionType] {
-	return pulumix.Output[*FunctionDefinitionVersionType]{
-		OutputState: i.ToFunctionDefinitionVersionTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionDefinitionVersionTypeOutput struct{ *pulumi.OutputState }
 
 func (FunctionDefinitionVersionTypeOutput) ElementType() reflect.Type {
@@ -2457,12 +2072,6 @@ func (o FunctionDefinitionVersionTypeOutput) ToFunctionDefinitionVersionTypePtrO
 	}).(FunctionDefinitionVersionTypePtrOutput)
 }
 
-func (o FunctionDefinitionVersionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionVersionType] {
-	return pulumix.Output[FunctionDefinitionVersionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionDefinitionVersionTypeOutput) DefaultConfig() FunctionDefinitionDefaultConfigPtrOutput {
 	return o.ApplyT(func(v FunctionDefinitionVersionType) *FunctionDefinitionDefaultConfig { return v.DefaultConfig }).(FunctionDefinitionDefaultConfigPtrOutput)
 }
@@ -2483,12 +2092,6 @@ func (o FunctionDefinitionVersionTypePtrOutput) ToFunctionDefinitionVersionTypeP
 
 func (o FunctionDefinitionVersionTypePtrOutput) ToFunctionDefinitionVersionTypePtrOutputWithContext(ctx context.Context) FunctionDefinitionVersionTypePtrOutput {
 	return o
-}
-
-func (o FunctionDefinitionVersionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionDefinitionVersionType] {
-	return pulumix.Output[*FunctionDefinitionVersionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionDefinitionVersionTypePtrOutput) Elem() FunctionDefinitionVersionTypeOutput {
@@ -2550,12 +2153,6 @@ func (i FunctionDefinitionVersionDefaultConfigArgs) ToFunctionDefinitionVersionD
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionVersionDefaultConfigOutput)
 }
 
-func (i FunctionDefinitionVersionDefaultConfigArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionVersionDefaultConfig] {
-	return pulumix.Output[FunctionDefinitionVersionDefaultConfig]{
-		OutputState: i.ToFunctionDefinitionVersionDefaultConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FunctionDefinitionVersionDefaultConfigArgs) ToFunctionDefinitionVersionDefaultConfigPtrOutput() FunctionDefinitionVersionDefaultConfigPtrOutput {
 	return i.ToFunctionDefinitionVersionDefaultConfigPtrOutputWithContext(context.Background())
 }
@@ -2597,12 +2194,6 @@ func (i *functionDefinitionVersionDefaultConfigPtrType) ToFunctionDefinitionVers
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionVersionDefaultConfigPtrOutput)
 }
 
-func (i *functionDefinitionVersionDefaultConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionDefinitionVersionDefaultConfig] {
-	return pulumix.Output[*FunctionDefinitionVersionDefaultConfig]{
-		OutputState: i.ToFunctionDefinitionVersionDefaultConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionDefinitionVersionDefaultConfigOutput struct{ *pulumi.OutputState }
 
 func (FunctionDefinitionVersionDefaultConfigOutput) ElementType() reflect.Type {
@@ -2627,12 +2218,6 @@ func (o FunctionDefinitionVersionDefaultConfigOutput) ToFunctionDefinitionVersio
 	}).(FunctionDefinitionVersionDefaultConfigPtrOutput)
 }
 
-func (o FunctionDefinitionVersionDefaultConfigOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionVersionDefaultConfig] {
-	return pulumix.Output[FunctionDefinitionVersionDefaultConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionDefinitionVersionDefaultConfigOutput) Execution() FunctionDefinitionVersionExecutionOutput {
 	return o.ApplyT(func(v FunctionDefinitionVersionDefaultConfig) FunctionDefinitionVersionExecution { return v.Execution }).(FunctionDefinitionVersionExecutionOutput)
 }
@@ -2649,12 +2234,6 @@ func (o FunctionDefinitionVersionDefaultConfigPtrOutput) ToFunctionDefinitionVer
 
 func (o FunctionDefinitionVersionDefaultConfigPtrOutput) ToFunctionDefinitionVersionDefaultConfigPtrOutputWithContext(ctx context.Context) FunctionDefinitionVersionDefaultConfigPtrOutput {
 	return o
-}
-
-func (o FunctionDefinitionVersionDefaultConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionDefinitionVersionDefaultConfig] {
-	return pulumix.Output[*FunctionDefinitionVersionDefaultConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionDefinitionVersionDefaultConfigPtrOutput) Elem() FunctionDefinitionVersionDefaultConfigOutput {
@@ -2713,12 +2292,6 @@ func (i FunctionDefinitionVersionEnvironmentArgs) ToFunctionDefinitionVersionEnv
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionVersionEnvironmentOutput)
 }
 
-func (i FunctionDefinitionVersionEnvironmentArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionVersionEnvironment] {
-	return pulumix.Output[FunctionDefinitionVersionEnvironment]{
-		OutputState: i.ToFunctionDefinitionVersionEnvironmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FunctionDefinitionVersionEnvironmentArgs) ToFunctionDefinitionVersionEnvironmentPtrOutput() FunctionDefinitionVersionEnvironmentPtrOutput {
 	return i.ToFunctionDefinitionVersionEnvironmentPtrOutputWithContext(context.Background())
 }
@@ -2760,12 +2333,6 @@ func (i *functionDefinitionVersionEnvironmentPtrType) ToFunctionDefinitionVersio
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionVersionEnvironmentPtrOutput)
 }
 
-func (i *functionDefinitionVersionEnvironmentPtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionDefinitionVersionEnvironment] {
-	return pulumix.Output[*FunctionDefinitionVersionEnvironment]{
-		OutputState: i.ToFunctionDefinitionVersionEnvironmentPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionDefinitionVersionEnvironmentOutput struct{ *pulumi.OutputState }
 
 func (FunctionDefinitionVersionEnvironmentOutput) ElementType() reflect.Type {
@@ -2788,12 +2355,6 @@ func (o FunctionDefinitionVersionEnvironmentOutput) ToFunctionDefinitionVersionE
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionDefinitionVersionEnvironment) *FunctionDefinitionVersionEnvironment {
 		return &v
 	}).(FunctionDefinitionVersionEnvironmentPtrOutput)
-}
-
-func (o FunctionDefinitionVersionEnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionVersionEnvironment] {
-	return pulumix.Output[FunctionDefinitionVersionEnvironment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionDefinitionVersionEnvironmentOutput) AccessSysfs() pulumi.BoolPtrOutput {
@@ -2826,12 +2387,6 @@ func (o FunctionDefinitionVersionEnvironmentPtrOutput) ToFunctionDefinitionVersi
 
 func (o FunctionDefinitionVersionEnvironmentPtrOutput) ToFunctionDefinitionVersionEnvironmentPtrOutputWithContext(ctx context.Context) FunctionDefinitionVersionEnvironmentPtrOutput {
 	return o
-}
-
-func (o FunctionDefinitionVersionEnvironmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionDefinitionVersionEnvironment] {
-	return pulumix.Output[*FunctionDefinitionVersionEnvironment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionDefinitionVersionEnvironmentPtrOutput) Elem() FunctionDefinitionVersionEnvironmentOutput {
@@ -2913,12 +2468,6 @@ func (i FunctionDefinitionVersionExecutionArgs) ToFunctionDefinitionVersionExecu
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionVersionExecutionOutput)
 }
 
-func (i FunctionDefinitionVersionExecutionArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionVersionExecution] {
-	return pulumix.Output[FunctionDefinitionVersionExecution]{
-		OutputState: i.ToFunctionDefinitionVersionExecutionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FunctionDefinitionVersionExecutionArgs) ToFunctionDefinitionVersionExecutionPtrOutput() FunctionDefinitionVersionExecutionPtrOutput {
 	return i.ToFunctionDefinitionVersionExecutionPtrOutputWithContext(context.Background())
 }
@@ -2960,12 +2509,6 @@ func (i *functionDefinitionVersionExecutionPtrType) ToFunctionDefinitionVersionE
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionVersionExecutionPtrOutput)
 }
 
-func (i *functionDefinitionVersionExecutionPtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionDefinitionVersionExecution] {
-	return pulumix.Output[*FunctionDefinitionVersionExecution]{
-		OutputState: i.ToFunctionDefinitionVersionExecutionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionDefinitionVersionExecutionOutput struct{ *pulumi.OutputState }
 
 func (FunctionDefinitionVersionExecutionOutput) ElementType() reflect.Type {
@@ -2990,12 +2533,6 @@ func (o FunctionDefinitionVersionExecutionOutput) ToFunctionDefinitionVersionExe
 	}).(FunctionDefinitionVersionExecutionPtrOutput)
 }
 
-func (o FunctionDefinitionVersionExecutionOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionVersionExecution] {
-	return pulumix.Output[FunctionDefinitionVersionExecution]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionDefinitionVersionExecutionOutput) IsolationMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionDefinitionVersionExecution) *string { return v.IsolationMode }).(pulumi.StringPtrOutput)
 }
@@ -3016,12 +2553,6 @@ func (o FunctionDefinitionVersionExecutionPtrOutput) ToFunctionDefinitionVersion
 
 func (o FunctionDefinitionVersionExecutionPtrOutput) ToFunctionDefinitionVersionExecutionPtrOutputWithContext(ctx context.Context) FunctionDefinitionVersionExecutionPtrOutput {
 	return o
-}
-
-func (o FunctionDefinitionVersionExecutionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionDefinitionVersionExecution] {
-	return pulumix.Output[*FunctionDefinitionVersionExecution]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionDefinitionVersionExecutionPtrOutput) Elem() FunctionDefinitionVersionExecutionOutput {
@@ -3087,12 +2618,6 @@ func (i FunctionDefinitionVersionFunctionArgs) ToFunctionDefinitionVersionFuncti
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionVersionFunctionOutput)
 }
 
-func (i FunctionDefinitionVersionFunctionArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionVersionFunction] {
-	return pulumix.Output[FunctionDefinitionVersionFunction]{
-		OutputState: i.ToFunctionDefinitionVersionFunctionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FunctionDefinitionVersionFunctionArrayInput is an input type that accepts FunctionDefinitionVersionFunctionArray and FunctionDefinitionVersionFunctionArrayOutput values.
 // You can construct a concrete instance of `FunctionDefinitionVersionFunctionArrayInput` via:
 //
@@ -3118,12 +2643,6 @@ func (i FunctionDefinitionVersionFunctionArray) ToFunctionDefinitionVersionFunct
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionVersionFunctionArrayOutput)
 }
 
-func (i FunctionDefinitionVersionFunctionArray) ToOutput(ctx context.Context) pulumix.Output[[]FunctionDefinitionVersionFunction] {
-	return pulumix.Output[[]FunctionDefinitionVersionFunction]{
-		OutputState: i.ToFunctionDefinitionVersionFunctionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionDefinitionVersionFunctionOutput struct{ *pulumi.OutputState }
 
 func (FunctionDefinitionVersionFunctionOutput) ElementType() reflect.Type {
@@ -3136,12 +2655,6 @@ func (o FunctionDefinitionVersionFunctionOutput) ToFunctionDefinitionVersionFunc
 
 func (o FunctionDefinitionVersionFunctionOutput) ToFunctionDefinitionVersionFunctionOutputWithContext(ctx context.Context) FunctionDefinitionVersionFunctionOutput {
 	return o
-}
-
-func (o FunctionDefinitionVersionFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionVersionFunction] {
-	return pulumix.Output[FunctionDefinitionVersionFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionDefinitionVersionFunctionOutput) FunctionArn() pulumi.StringOutput {
@@ -3170,12 +2683,6 @@ func (o FunctionDefinitionVersionFunctionArrayOutput) ToFunctionDefinitionVersio
 
 func (o FunctionDefinitionVersionFunctionArrayOutput) ToFunctionDefinitionVersionFunctionArrayOutputWithContext(ctx context.Context) FunctionDefinitionVersionFunctionArrayOutput {
 	return o
-}
-
-func (o FunctionDefinitionVersionFunctionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FunctionDefinitionVersionFunction] {
-	return pulumix.Output[[]FunctionDefinitionVersionFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionDefinitionVersionFunctionArrayOutput) Index(i pulumi.IntInput) FunctionDefinitionVersionFunctionOutput {
@@ -3227,12 +2734,6 @@ func (i FunctionDefinitionVersionFunctionConfigurationArgs) ToFunctionDefinition
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionVersionFunctionConfigurationOutput)
 }
 
-func (i FunctionDefinitionVersionFunctionConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionVersionFunctionConfiguration] {
-	return pulumix.Output[FunctionDefinitionVersionFunctionConfiguration]{
-		OutputState: i.ToFunctionDefinitionVersionFunctionConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionDefinitionVersionFunctionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FunctionDefinitionVersionFunctionConfigurationOutput) ElementType() reflect.Type {
@@ -3245,12 +2746,6 @@ func (o FunctionDefinitionVersionFunctionConfigurationOutput) ToFunctionDefiniti
 
 func (o FunctionDefinitionVersionFunctionConfigurationOutput) ToFunctionDefinitionVersionFunctionConfigurationOutputWithContext(ctx context.Context) FunctionDefinitionVersionFunctionConfigurationOutput {
 	return o
-}
-
-func (o FunctionDefinitionVersionFunctionConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionVersionFunctionConfiguration] {
-	return pulumix.Output[FunctionDefinitionVersionFunctionConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionDefinitionVersionFunctionConfigurationOutput) EncodingType() pulumi.StringPtrOutput {
@@ -3316,12 +2811,6 @@ func (i FunctionDefinitionVersionResourceAccessPolicyArgs) ToFunctionDefinitionV
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionVersionResourceAccessPolicyOutput)
 }
 
-func (i FunctionDefinitionVersionResourceAccessPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionVersionResourceAccessPolicy] {
-	return pulumix.Output[FunctionDefinitionVersionResourceAccessPolicy]{
-		OutputState: i.ToFunctionDefinitionVersionResourceAccessPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FunctionDefinitionVersionResourceAccessPolicyArrayInput is an input type that accepts FunctionDefinitionVersionResourceAccessPolicyArray and FunctionDefinitionVersionResourceAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `FunctionDefinitionVersionResourceAccessPolicyArrayInput` via:
 //
@@ -3347,12 +2836,6 @@ func (i FunctionDefinitionVersionResourceAccessPolicyArray) ToFunctionDefinition
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionVersionResourceAccessPolicyArrayOutput)
 }
 
-func (i FunctionDefinitionVersionResourceAccessPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]FunctionDefinitionVersionResourceAccessPolicy] {
-	return pulumix.Output[[]FunctionDefinitionVersionResourceAccessPolicy]{
-		OutputState: i.ToFunctionDefinitionVersionResourceAccessPolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionDefinitionVersionResourceAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (FunctionDefinitionVersionResourceAccessPolicyOutput) ElementType() reflect.Type {
@@ -3365,12 +2848,6 @@ func (o FunctionDefinitionVersionResourceAccessPolicyOutput) ToFunctionDefinitio
 
 func (o FunctionDefinitionVersionResourceAccessPolicyOutput) ToFunctionDefinitionVersionResourceAccessPolicyOutputWithContext(ctx context.Context) FunctionDefinitionVersionResourceAccessPolicyOutput {
 	return o
-}
-
-func (o FunctionDefinitionVersionResourceAccessPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionVersionResourceAccessPolicy] {
-	return pulumix.Output[FunctionDefinitionVersionResourceAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionDefinitionVersionResourceAccessPolicyOutput) Permission() pulumi.StringPtrOutput {
@@ -3393,12 +2870,6 @@ func (o FunctionDefinitionVersionResourceAccessPolicyArrayOutput) ToFunctionDefi
 
 func (o FunctionDefinitionVersionResourceAccessPolicyArrayOutput) ToFunctionDefinitionVersionResourceAccessPolicyArrayOutputWithContext(ctx context.Context) FunctionDefinitionVersionResourceAccessPolicyArrayOutput {
 	return o
-}
-
-func (o FunctionDefinitionVersionResourceAccessPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FunctionDefinitionVersionResourceAccessPolicy] {
-	return pulumix.Output[[]FunctionDefinitionVersionResourceAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionDefinitionVersionResourceAccessPolicyArrayOutput) Index(i pulumi.IntInput) FunctionDefinitionVersionResourceAccessPolicyOutput {
@@ -3438,12 +2909,6 @@ func (i FunctionDefinitionVersionRunAsArgs) ToFunctionDefinitionVersionRunAsOutp
 
 func (i FunctionDefinitionVersionRunAsArgs) ToFunctionDefinitionVersionRunAsOutputWithContext(ctx context.Context) FunctionDefinitionVersionRunAsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionVersionRunAsOutput)
-}
-
-func (i FunctionDefinitionVersionRunAsArgs) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionVersionRunAs] {
-	return pulumix.Output[FunctionDefinitionVersionRunAs]{
-		OutputState: i.ToFunctionDefinitionVersionRunAsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i FunctionDefinitionVersionRunAsArgs) ToFunctionDefinitionVersionRunAsPtrOutput() FunctionDefinitionVersionRunAsPtrOutput {
@@ -3487,12 +2952,6 @@ func (i *functionDefinitionVersionRunAsPtrType) ToFunctionDefinitionVersionRunAs
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionDefinitionVersionRunAsPtrOutput)
 }
 
-func (i *functionDefinitionVersionRunAsPtrType) ToOutput(ctx context.Context) pulumix.Output[*FunctionDefinitionVersionRunAs] {
-	return pulumix.Output[*FunctionDefinitionVersionRunAs]{
-		OutputState: i.ToFunctionDefinitionVersionRunAsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionDefinitionVersionRunAsOutput struct{ *pulumi.OutputState }
 
 func (FunctionDefinitionVersionRunAsOutput) ElementType() reflect.Type {
@@ -3517,12 +2976,6 @@ func (o FunctionDefinitionVersionRunAsOutput) ToFunctionDefinitionVersionRunAsPt
 	}).(FunctionDefinitionVersionRunAsPtrOutput)
 }
 
-func (o FunctionDefinitionVersionRunAsOutput) ToOutput(ctx context.Context) pulumix.Output[FunctionDefinitionVersionRunAs] {
-	return pulumix.Output[FunctionDefinitionVersionRunAs]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionDefinitionVersionRunAsOutput) Gid() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FunctionDefinitionVersionRunAs) *int { return v.Gid }).(pulumi.IntPtrOutput)
 }
@@ -3543,12 +2996,6 @@ func (o FunctionDefinitionVersionRunAsPtrOutput) ToFunctionDefinitionVersionRunA
 
 func (o FunctionDefinitionVersionRunAsPtrOutput) ToFunctionDefinitionVersionRunAsPtrOutputWithContext(ctx context.Context) FunctionDefinitionVersionRunAsPtrOutput {
 	return o
-}
-
-func (o FunctionDefinitionVersionRunAsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionDefinitionVersionRunAs] {
-	return pulumix.Output[*FunctionDefinitionVersionRunAs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionDefinitionVersionRunAsPtrOutput) Elem() FunctionDefinitionVersionRunAsOutput {
@@ -3622,12 +3069,6 @@ func (i GroupVersionTypeArgs) ToGroupVersionTypeOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(GroupVersionTypeOutput)
 }
 
-func (i GroupVersionTypeArgs) ToOutput(ctx context.Context) pulumix.Output[GroupVersionType] {
-	return pulumix.Output[GroupVersionType]{
-		OutputState: i.ToGroupVersionTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GroupVersionTypeArgs) ToGroupVersionTypePtrOutput() GroupVersionTypePtrOutput {
 	return i.ToGroupVersionTypePtrOutputWithContext(context.Background())
 }
@@ -3669,12 +3110,6 @@ func (i *groupVersionTypePtrType) ToGroupVersionTypePtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(GroupVersionTypePtrOutput)
 }
 
-func (i *groupVersionTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*GroupVersionType] {
-	return pulumix.Output[*GroupVersionType]{
-		OutputState: i.ToGroupVersionTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GroupVersionTypeOutput struct{ *pulumi.OutputState }
 
 func (GroupVersionTypeOutput) ElementType() reflect.Type {
@@ -3697,12 +3132,6 @@ func (o GroupVersionTypeOutput) ToGroupVersionTypePtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupVersionType) *GroupVersionType {
 		return &v
 	}).(GroupVersionTypePtrOutput)
-}
-
-func (o GroupVersionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[GroupVersionType] {
-	return pulumix.Output[GroupVersionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupVersionTypeOutput) ConnectorDefinitionVersionArn() pulumi.StringPtrOutput {
@@ -3745,12 +3174,6 @@ func (o GroupVersionTypePtrOutput) ToGroupVersionTypePtrOutput() GroupVersionTyp
 
 func (o GroupVersionTypePtrOutput) ToGroupVersionTypePtrOutputWithContext(ctx context.Context) GroupVersionTypePtrOutput {
 	return o
-}
-
-func (o GroupVersionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupVersionType] {
-	return pulumix.Output[*GroupVersionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupVersionTypePtrOutput) Elem() GroupVersionTypeOutput {
@@ -3865,12 +3288,6 @@ func (i LoggerDefinitionLoggerArgs) ToLoggerDefinitionLoggerOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(LoggerDefinitionLoggerOutput)
 }
 
-func (i LoggerDefinitionLoggerArgs) ToOutput(ctx context.Context) pulumix.Output[LoggerDefinitionLogger] {
-	return pulumix.Output[LoggerDefinitionLogger]{
-		OutputState: i.ToLoggerDefinitionLoggerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LoggerDefinitionLoggerArrayInput is an input type that accepts LoggerDefinitionLoggerArray and LoggerDefinitionLoggerArrayOutput values.
 // You can construct a concrete instance of `LoggerDefinitionLoggerArrayInput` via:
 //
@@ -3896,12 +3313,6 @@ func (i LoggerDefinitionLoggerArray) ToLoggerDefinitionLoggerArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LoggerDefinitionLoggerArrayOutput)
 }
 
-func (i LoggerDefinitionLoggerArray) ToOutput(ctx context.Context) pulumix.Output[[]LoggerDefinitionLogger] {
-	return pulumix.Output[[]LoggerDefinitionLogger]{
-		OutputState: i.ToLoggerDefinitionLoggerArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LoggerDefinitionLoggerOutput struct{ *pulumi.OutputState }
 
 func (LoggerDefinitionLoggerOutput) ElementType() reflect.Type {
@@ -3914,12 +3325,6 @@ func (o LoggerDefinitionLoggerOutput) ToLoggerDefinitionLoggerOutput() LoggerDef
 
 func (o LoggerDefinitionLoggerOutput) ToLoggerDefinitionLoggerOutputWithContext(ctx context.Context) LoggerDefinitionLoggerOutput {
 	return o
-}
-
-func (o LoggerDefinitionLoggerOutput) ToOutput(ctx context.Context) pulumix.Output[LoggerDefinitionLogger] {
-	return pulumix.Output[LoggerDefinitionLogger]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoggerDefinitionLoggerOutput) Component() pulumi.StringOutput {
@@ -3954,12 +3359,6 @@ func (o LoggerDefinitionLoggerArrayOutput) ToLoggerDefinitionLoggerArrayOutput()
 
 func (o LoggerDefinitionLoggerArrayOutput) ToLoggerDefinitionLoggerArrayOutputWithContext(ctx context.Context) LoggerDefinitionLoggerArrayOutput {
 	return o
-}
-
-func (o LoggerDefinitionLoggerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LoggerDefinitionLogger] {
-	return pulumix.Output[[]LoggerDefinitionLogger]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoggerDefinitionLoggerArrayOutput) Index(i pulumi.IntInput) LoggerDefinitionLoggerOutput {
@@ -3997,12 +3396,6 @@ func (i LoggerDefinitionVersionTypeArgs) ToLoggerDefinitionVersionTypeOutput() L
 
 func (i LoggerDefinitionVersionTypeArgs) ToLoggerDefinitionVersionTypeOutputWithContext(ctx context.Context) LoggerDefinitionVersionTypeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LoggerDefinitionVersionTypeOutput)
-}
-
-func (i LoggerDefinitionVersionTypeArgs) ToOutput(ctx context.Context) pulumix.Output[LoggerDefinitionVersionType] {
-	return pulumix.Output[LoggerDefinitionVersionType]{
-		OutputState: i.ToLoggerDefinitionVersionTypeOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i LoggerDefinitionVersionTypeArgs) ToLoggerDefinitionVersionTypePtrOutput() LoggerDefinitionVersionTypePtrOutput {
@@ -4046,12 +3439,6 @@ func (i *loggerDefinitionVersionTypePtrType) ToLoggerDefinitionVersionTypePtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(LoggerDefinitionVersionTypePtrOutput)
 }
 
-func (i *loggerDefinitionVersionTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*LoggerDefinitionVersionType] {
-	return pulumix.Output[*LoggerDefinitionVersionType]{
-		OutputState: i.ToLoggerDefinitionVersionTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LoggerDefinitionVersionTypeOutput struct{ *pulumi.OutputState }
 
 func (LoggerDefinitionVersionTypeOutput) ElementType() reflect.Type {
@@ -4076,12 +3463,6 @@ func (o LoggerDefinitionVersionTypeOutput) ToLoggerDefinitionVersionTypePtrOutpu
 	}).(LoggerDefinitionVersionTypePtrOutput)
 }
 
-func (o LoggerDefinitionVersionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[LoggerDefinitionVersionType] {
-	return pulumix.Output[LoggerDefinitionVersionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LoggerDefinitionVersionTypeOutput) Loggers() LoggerDefinitionLoggerArrayOutput {
 	return o.ApplyT(func(v LoggerDefinitionVersionType) []LoggerDefinitionLogger { return v.Loggers }).(LoggerDefinitionLoggerArrayOutput)
 }
@@ -4098,12 +3479,6 @@ func (o LoggerDefinitionVersionTypePtrOutput) ToLoggerDefinitionVersionTypePtrOu
 
 func (o LoggerDefinitionVersionTypePtrOutput) ToLoggerDefinitionVersionTypePtrOutputWithContext(ctx context.Context) LoggerDefinitionVersionTypePtrOutput {
 	return o
-}
-
-func (o LoggerDefinitionVersionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LoggerDefinitionVersionType] {
-	return pulumix.Output[*LoggerDefinitionVersionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoggerDefinitionVersionTypePtrOutput) Elem() LoggerDefinitionVersionTypeOutput {
@@ -4164,12 +3539,6 @@ func (i LoggerDefinitionVersionLoggerArgs) ToLoggerDefinitionVersionLoggerOutput
 	return pulumi.ToOutputWithContext(ctx, i).(LoggerDefinitionVersionLoggerOutput)
 }
 
-func (i LoggerDefinitionVersionLoggerArgs) ToOutput(ctx context.Context) pulumix.Output[LoggerDefinitionVersionLogger] {
-	return pulumix.Output[LoggerDefinitionVersionLogger]{
-		OutputState: i.ToLoggerDefinitionVersionLoggerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LoggerDefinitionVersionLoggerArrayInput is an input type that accepts LoggerDefinitionVersionLoggerArray and LoggerDefinitionVersionLoggerArrayOutput values.
 // You can construct a concrete instance of `LoggerDefinitionVersionLoggerArrayInput` via:
 //
@@ -4195,12 +3564,6 @@ func (i LoggerDefinitionVersionLoggerArray) ToLoggerDefinitionVersionLoggerArray
 	return pulumi.ToOutputWithContext(ctx, i).(LoggerDefinitionVersionLoggerArrayOutput)
 }
 
-func (i LoggerDefinitionVersionLoggerArray) ToOutput(ctx context.Context) pulumix.Output[[]LoggerDefinitionVersionLogger] {
-	return pulumix.Output[[]LoggerDefinitionVersionLogger]{
-		OutputState: i.ToLoggerDefinitionVersionLoggerArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LoggerDefinitionVersionLoggerOutput struct{ *pulumi.OutputState }
 
 func (LoggerDefinitionVersionLoggerOutput) ElementType() reflect.Type {
@@ -4213,12 +3576,6 @@ func (o LoggerDefinitionVersionLoggerOutput) ToLoggerDefinitionVersionLoggerOutp
 
 func (o LoggerDefinitionVersionLoggerOutput) ToLoggerDefinitionVersionLoggerOutputWithContext(ctx context.Context) LoggerDefinitionVersionLoggerOutput {
 	return o
-}
-
-func (o LoggerDefinitionVersionLoggerOutput) ToOutput(ctx context.Context) pulumix.Output[LoggerDefinitionVersionLogger] {
-	return pulumix.Output[LoggerDefinitionVersionLogger]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoggerDefinitionVersionLoggerOutput) Component() pulumi.StringOutput {
@@ -4253,12 +3610,6 @@ func (o LoggerDefinitionVersionLoggerArrayOutput) ToLoggerDefinitionVersionLogge
 
 func (o LoggerDefinitionVersionLoggerArrayOutput) ToLoggerDefinitionVersionLoggerArrayOutputWithContext(ctx context.Context) LoggerDefinitionVersionLoggerArrayOutput {
 	return o
-}
-
-func (o LoggerDefinitionVersionLoggerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LoggerDefinitionVersionLogger] {
-	return pulumix.Output[[]LoggerDefinitionVersionLogger]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LoggerDefinitionVersionLoggerArrayOutput) Index(i pulumi.IntInput) LoggerDefinitionVersionLoggerOutput {
@@ -4298,12 +3649,6 @@ func (i ResourceDefinitionGroupOwnerSettingArgs) ToResourceDefinitionGroupOwnerS
 
 func (i ResourceDefinitionGroupOwnerSettingArgs) ToResourceDefinitionGroupOwnerSettingOutputWithContext(ctx context.Context) ResourceDefinitionGroupOwnerSettingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionGroupOwnerSettingOutput)
-}
-
-func (i ResourceDefinitionGroupOwnerSettingArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionGroupOwnerSetting] {
-	return pulumix.Output[ResourceDefinitionGroupOwnerSetting]{
-		OutputState: i.ToResourceDefinitionGroupOwnerSettingOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ResourceDefinitionGroupOwnerSettingArgs) ToResourceDefinitionGroupOwnerSettingPtrOutput() ResourceDefinitionGroupOwnerSettingPtrOutput {
@@ -4347,12 +3692,6 @@ func (i *resourceDefinitionGroupOwnerSettingPtrType) ToResourceDefinitionGroupOw
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionGroupOwnerSettingPtrOutput)
 }
 
-func (i *resourceDefinitionGroupOwnerSettingPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionGroupOwnerSetting] {
-	return pulumix.Output[*ResourceDefinitionGroupOwnerSetting]{
-		OutputState: i.ToResourceDefinitionGroupOwnerSettingPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceDefinitionGroupOwnerSettingOutput struct{ *pulumi.OutputState }
 
 func (ResourceDefinitionGroupOwnerSettingOutput) ElementType() reflect.Type {
@@ -4377,12 +3716,6 @@ func (o ResourceDefinitionGroupOwnerSettingOutput) ToResourceDefinitionGroupOwne
 	}).(ResourceDefinitionGroupOwnerSettingPtrOutput)
 }
 
-func (o ResourceDefinitionGroupOwnerSettingOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionGroupOwnerSetting] {
-	return pulumix.Output[ResourceDefinitionGroupOwnerSetting]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceDefinitionGroupOwnerSettingOutput) AutoAddGroupOwner() pulumi.BoolOutput {
 	return o.ApplyT(func(v ResourceDefinitionGroupOwnerSetting) bool { return v.AutoAddGroupOwner }).(pulumi.BoolOutput)
 }
@@ -4403,12 +3736,6 @@ func (o ResourceDefinitionGroupOwnerSettingPtrOutput) ToResourceDefinitionGroupO
 
 func (o ResourceDefinitionGroupOwnerSettingPtrOutput) ToResourceDefinitionGroupOwnerSettingPtrOutputWithContext(ctx context.Context) ResourceDefinitionGroupOwnerSettingPtrOutput {
 	return o
-}
-
-func (o ResourceDefinitionGroupOwnerSettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionGroupOwnerSetting] {
-	return pulumix.Output[*ResourceDefinitionGroupOwnerSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionGroupOwnerSettingPtrOutput) Elem() ResourceDefinitionGroupOwnerSettingOutput {
@@ -4472,12 +3799,6 @@ func (i ResourceDefinitionLocalDeviceResourceDataArgs) ToResourceDefinitionLocal
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionLocalDeviceResourceDataOutput)
 }
 
-func (i ResourceDefinitionLocalDeviceResourceDataArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionLocalDeviceResourceData] {
-	return pulumix.Output[ResourceDefinitionLocalDeviceResourceData]{
-		OutputState: i.ToResourceDefinitionLocalDeviceResourceDataOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ResourceDefinitionLocalDeviceResourceDataArgs) ToResourceDefinitionLocalDeviceResourceDataPtrOutput() ResourceDefinitionLocalDeviceResourceDataPtrOutput {
 	return i.ToResourceDefinitionLocalDeviceResourceDataPtrOutputWithContext(context.Background())
 }
@@ -4519,12 +3840,6 @@ func (i *resourceDefinitionLocalDeviceResourceDataPtrType) ToResourceDefinitionL
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionLocalDeviceResourceDataPtrOutput)
 }
 
-func (i *resourceDefinitionLocalDeviceResourceDataPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionLocalDeviceResourceData] {
-	return pulumix.Output[*ResourceDefinitionLocalDeviceResourceData]{
-		OutputState: i.ToResourceDefinitionLocalDeviceResourceDataPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceDefinitionLocalDeviceResourceDataOutput struct{ *pulumi.OutputState }
 
 func (ResourceDefinitionLocalDeviceResourceDataOutput) ElementType() reflect.Type {
@@ -4549,12 +3864,6 @@ func (o ResourceDefinitionLocalDeviceResourceDataOutput) ToResourceDefinitionLoc
 	}).(ResourceDefinitionLocalDeviceResourceDataPtrOutput)
 }
 
-func (o ResourceDefinitionLocalDeviceResourceDataOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionLocalDeviceResourceData] {
-	return pulumix.Output[ResourceDefinitionLocalDeviceResourceData]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceDefinitionLocalDeviceResourceDataOutput) GroupOwnerSetting() ResourceDefinitionGroupOwnerSettingPtrOutput {
 	return o.ApplyT(func(v ResourceDefinitionLocalDeviceResourceData) *ResourceDefinitionGroupOwnerSetting {
 		return v.GroupOwnerSetting
@@ -4577,12 +3886,6 @@ func (o ResourceDefinitionLocalDeviceResourceDataPtrOutput) ToResourceDefinition
 
 func (o ResourceDefinitionLocalDeviceResourceDataPtrOutput) ToResourceDefinitionLocalDeviceResourceDataPtrOutputWithContext(ctx context.Context) ResourceDefinitionLocalDeviceResourceDataPtrOutput {
 	return o
-}
-
-func (o ResourceDefinitionLocalDeviceResourceDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionLocalDeviceResourceData] {
-	return pulumix.Output[*ResourceDefinitionLocalDeviceResourceData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionLocalDeviceResourceDataPtrOutput) Elem() ResourceDefinitionLocalDeviceResourceDataOutput {
@@ -4648,12 +3951,6 @@ func (i ResourceDefinitionLocalVolumeResourceDataArgs) ToResourceDefinitionLocal
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionLocalVolumeResourceDataOutput)
 }
 
-func (i ResourceDefinitionLocalVolumeResourceDataArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionLocalVolumeResourceData] {
-	return pulumix.Output[ResourceDefinitionLocalVolumeResourceData]{
-		OutputState: i.ToResourceDefinitionLocalVolumeResourceDataOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ResourceDefinitionLocalVolumeResourceDataArgs) ToResourceDefinitionLocalVolumeResourceDataPtrOutput() ResourceDefinitionLocalVolumeResourceDataPtrOutput {
 	return i.ToResourceDefinitionLocalVolumeResourceDataPtrOutputWithContext(context.Background())
 }
@@ -4695,12 +3992,6 @@ func (i *resourceDefinitionLocalVolumeResourceDataPtrType) ToResourceDefinitionL
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionLocalVolumeResourceDataPtrOutput)
 }
 
-func (i *resourceDefinitionLocalVolumeResourceDataPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionLocalVolumeResourceData] {
-	return pulumix.Output[*ResourceDefinitionLocalVolumeResourceData]{
-		OutputState: i.ToResourceDefinitionLocalVolumeResourceDataPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceDefinitionLocalVolumeResourceDataOutput struct{ *pulumi.OutputState }
 
 func (ResourceDefinitionLocalVolumeResourceDataOutput) ElementType() reflect.Type {
@@ -4723,12 +4014,6 @@ func (o ResourceDefinitionLocalVolumeResourceDataOutput) ToResourceDefinitionLoc
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceDefinitionLocalVolumeResourceData) *ResourceDefinitionLocalVolumeResourceData {
 		return &v
 	}).(ResourceDefinitionLocalVolumeResourceDataPtrOutput)
-}
-
-func (o ResourceDefinitionLocalVolumeResourceDataOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionLocalVolumeResourceData] {
-	return pulumix.Output[ResourceDefinitionLocalVolumeResourceData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionLocalVolumeResourceDataOutput) DestinationPath() pulumi.StringOutput {
@@ -4757,12 +4042,6 @@ func (o ResourceDefinitionLocalVolumeResourceDataPtrOutput) ToResourceDefinition
 
 func (o ResourceDefinitionLocalVolumeResourceDataPtrOutput) ToResourceDefinitionLocalVolumeResourceDataPtrOutputWithContext(ctx context.Context) ResourceDefinitionLocalVolumeResourceDataPtrOutput {
 	return o
-}
-
-func (o ResourceDefinitionLocalVolumeResourceDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionLocalVolumeResourceData] {
-	return pulumix.Output[*ResourceDefinitionLocalVolumeResourceData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionLocalVolumeResourceDataPtrOutput) Elem() ResourceDefinitionLocalVolumeResourceDataOutput {
@@ -4841,12 +4120,6 @@ func (i ResourceDefinitionResourceDataContainerArgs) ToResourceDefinitionResourc
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionResourceDataContainerOutput)
 }
 
-func (i ResourceDefinitionResourceDataContainerArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionResourceDataContainer] {
-	return pulumix.Output[ResourceDefinitionResourceDataContainer]{
-		OutputState: i.ToResourceDefinitionResourceDataContainerOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceDefinitionResourceDataContainerOutput struct{ *pulumi.OutputState }
 
 func (ResourceDefinitionResourceDataContainerOutput) ElementType() reflect.Type {
@@ -4859,12 +4132,6 @@ func (o ResourceDefinitionResourceDataContainerOutput) ToResourceDefinitionResou
 
 func (o ResourceDefinitionResourceDataContainerOutput) ToResourceDefinitionResourceDataContainerOutputWithContext(ctx context.Context) ResourceDefinitionResourceDataContainerOutput {
 	return o
-}
-
-func (o ResourceDefinitionResourceDataContainerOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionResourceDataContainer] {
-	return pulumix.Output[ResourceDefinitionResourceDataContainer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionResourceDataContainerOutput) LocalDeviceResourceData() ResourceDefinitionLocalDeviceResourceDataPtrOutput {
@@ -4930,12 +4197,6 @@ func (i ResourceDefinitionResourceDownloadOwnerSettingArgs) ToResourceDefinition
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionResourceDownloadOwnerSettingOutput)
 }
 
-func (i ResourceDefinitionResourceDownloadOwnerSettingArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionResourceDownloadOwnerSetting] {
-	return pulumix.Output[ResourceDefinitionResourceDownloadOwnerSetting]{
-		OutputState: i.ToResourceDefinitionResourceDownloadOwnerSettingOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ResourceDefinitionResourceDownloadOwnerSettingArgs) ToResourceDefinitionResourceDownloadOwnerSettingPtrOutput() ResourceDefinitionResourceDownloadOwnerSettingPtrOutput {
 	return i.ToResourceDefinitionResourceDownloadOwnerSettingPtrOutputWithContext(context.Background())
 }
@@ -4977,12 +4238,6 @@ func (i *resourceDefinitionResourceDownloadOwnerSettingPtrType) ToResourceDefini
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionResourceDownloadOwnerSettingPtrOutput)
 }
 
-func (i *resourceDefinitionResourceDownloadOwnerSettingPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionResourceDownloadOwnerSetting] {
-	return pulumix.Output[*ResourceDefinitionResourceDownloadOwnerSetting]{
-		OutputState: i.ToResourceDefinitionResourceDownloadOwnerSettingPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceDefinitionResourceDownloadOwnerSettingOutput struct{ *pulumi.OutputState }
 
 func (ResourceDefinitionResourceDownloadOwnerSettingOutput) ElementType() reflect.Type {
@@ -5007,12 +4262,6 @@ func (o ResourceDefinitionResourceDownloadOwnerSettingOutput) ToResourceDefiniti
 	}).(ResourceDefinitionResourceDownloadOwnerSettingPtrOutput)
 }
 
-func (o ResourceDefinitionResourceDownloadOwnerSettingOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionResourceDownloadOwnerSetting] {
-	return pulumix.Output[ResourceDefinitionResourceDownloadOwnerSetting]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceDefinitionResourceDownloadOwnerSettingOutput) GroupOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceDefinitionResourceDownloadOwnerSetting) string { return v.GroupOwner }).(pulumi.StringOutput)
 }
@@ -5033,12 +4282,6 @@ func (o ResourceDefinitionResourceDownloadOwnerSettingPtrOutput) ToResourceDefin
 
 func (o ResourceDefinitionResourceDownloadOwnerSettingPtrOutput) ToResourceDefinitionResourceDownloadOwnerSettingPtrOutputWithContext(ctx context.Context) ResourceDefinitionResourceDownloadOwnerSettingPtrOutput {
 	return o
-}
-
-func (o ResourceDefinitionResourceDownloadOwnerSettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionResourceDownloadOwnerSetting] {
-	return pulumix.Output[*ResourceDefinitionResourceDownloadOwnerSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionResourceDownloadOwnerSettingPtrOutput) Elem() ResourceDefinitionResourceDownloadOwnerSettingOutput {
@@ -5104,12 +4347,6 @@ func (i ResourceDefinitionResourceInstanceArgs) ToResourceDefinitionResourceInst
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionResourceInstanceOutput)
 }
 
-func (i ResourceDefinitionResourceInstanceArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionResourceInstance] {
-	return pulumix.Output[ResourceDefinitionResourceInstance]{
-		OutputState: i.ToResourceDefinitionResourceInstanceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResourceDefinitionResourceInstanceArrayInput is an input type that accepts ResourceDefinitionResourceInstanceArray and ResourceDefinitionResourceInstanceArrayOutput values.
 // You can construct a concrete instance of `ResourceDefinitionResourceInstanceArrayInput` via:
 //
@@ -5135,12 +4372,6 @@ func (i ResourceDefinitionResourceInstanceArray) ToResourceDefinitionResourceIns
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionResourceInstanceArrayOutput)
 }
 
-func (i ResourceDefinitionResourceInstanceArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourceDefinitionResourceInstance] {
-	return pulumix.Output[[]ResourceDefinitionResourceInstance]{
-		OutputState: i.ToResourceDefinitionResourceInstanceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceDefinitionResourceInstanceOutput struct{ *pulumi.OutputState }
 
 func (ResourceDefinitionResourceInstanceOutput) ElementType() reflect.Type {
@@ -5153,12 +4384,6 @@ func (o ResourceDefinitionResourceInstanceOutput) ToResourceDefinitionResourceIn
 
 func (o ResourceDefinitionResourceInstanceOutput) ToResourceDefinitionResourceInstanceOutputWithContext(ctx context.Context) ResourceDefinitionResourceInstanceOutput {
 	return o
-}
-
-func (o ResourceDefinitionResourceInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionResourceInstance] {
-	return pulumix.Output[ResourceDefinitionResourceInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionResourceInstanceOutput) Id() pulumi.StringOutput {
@@ -5187,12 +4412,6 @@ func (o ResourceDefinitionResourceInstanceArrayOutput) ToResourceDefinitionResou
 
 func (o ResourceDefinitionResourceInstanceArrayOutput) ToResourceDefinitionResourceInstanceArrayOutputWithContext(ctx context.Context) ResourceDefinitionResourceInstanceArrayOutput {
 	return o
-}
-
-func (o ResourceDefinitionResourceInstanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourceDefinitionResourceInstance] {
-	return pulumix.Output[[]ResourceDefinitionResourceInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionResourceInstanceArrayOutput) Index(i pulumi.IntInput) ResourceDefinitionResourceInstanceOutput {
@@ -5236,12 +4455,6 @@ func (i ResourceDefinitionS3MachineLearningModelResourceDataArgs) ToResourceDefi
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionS3MachineLearningModelResourceDataOutput)
 }
 
-func (i ResourceDefinitionS3MachineLearningModelResourceDataArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionS3MachineLearningModelResourceData] {
-	return pulumix.Output[ResourceDefinitionS3MachineLearningModelResourceData]{
-		OutputState: i.ToResourceDefinitionS3MachineLearningModelResourceDataOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ResourceDefinitionS3MachineLearningModelResourceDataArgs) ToResourceDefinitionS3MachineLearningModelResourceDataPtrOutput() ResourceDefinitionS3MachineLearningModelResourceDataPtrOutput {
 	return i.ToResourceDefinitionS3MachineLearningModelResourceDataPtrOutputWithContext(context.Background())
 }
@@ -5283,12 +4496,6 @@ func (i *resourceDefinitionS3MachineLearningModelResourceDataPtrType) ToResource
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionS3MachineLearningModelResourceDataPtrOutput)
 }
 
-func (i *resourceDefinitionS3MachineLearningModelResourceDataPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionS3MachineLearningModelResourceData] {
-	return pulumix.Output[*ResourceDefinitionS3MachineLearningModelResourceData]{
-		OutputState: i.ToResourceDefinitionS3MachineLearningModelResourceDataPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceDefinitionS3MachineLearningModelResourceDataOutput struct{ *pulumi.OutputState }
 
 func (ResourceDefinitionS3MachineLearningModelResourceDataOutput) ElementType() reflect.Type {
@@ -5311,12 +4518,6 @@ func (o ResourceDefinitionS3MachineLearningModelResourceDataOutput) ToResourceDe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceDefinitionS3MachineLearningModelResourceData) *ResourceDefinitionS3MachineLearningModelResourceData {
 		return &v
 	}).(ResourceDefinitionS3MachineLearningModelResourceDataPtrOutput)
-}
-
-func (o ResourceDefinitionS3MachineLearningModelResourceDataOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionS3MachineLearningModelResourceData] {
-	return pulumix.Output[ResourceDefinitionS3MachineLearningModelResourceData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionS3MachineLearningModelResourceDataOutput) DestinationPath() pulumi.StringOutput {
@@ -5345,12 +4546,6 @@ func (o ResourceDefinitionS3MachineLearningModelResourceDataPtrOutput) ToResourc
 
 func (o ResourceDefinitionS3MachineLearningModelResourceDataPtrOutput) ToResourceDefinitionS3MachineLearningModelResourceDataPtrOutputWithContext(ctx context.Context) ResourceDefinitionS3MachineLearningModelResourceDataPtrOutput {
 	return o
-}
-
-func (o ResourceDefinitionS3MachineLearningModelResourceDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionS3MachineLearningModelResourceData] {
-	return pulumix.Output[*ResourceDefinitionS3MachineLearningModelResourceData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionS3MachineLearningModelResourceDataPtrOutput) Elem() ResourceDefinitionS3MachineLearningModelResourceDataOutput {
@@ -5425,12 +4620,6 @@ func (i ResourceDefinitionSageMakerMachineLearningModelResourceDataArgs) ToResou
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionSageMakerMachineLearningModelResourceDataOutput)
 }
 
-func (i ResourceDefinitionSageMakerMachineLearningModelResourceDataArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionSageMakerMachineLearningModelResourceData] {
-	return pulumix.Output[ResourceDefinitionSageMakerMachineLearningModelResourceData]{
-		OutputState: i.ToResourceDefinitionSageMakerMachineLearningModelResourceDataOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ResourceDefinitionSageMakerMachineLearningModelResourceDataArgs) ToResourceDefinitionSageMakerMachineLearningModelResourceDataPtrOutput() ResourceDefinitionSageMakerMachineLearningModelResourceDataPtrOutput {
 	return i.ToResourceDefinitionSageMakerMachineLearningModelResourceDataPtrOutputWithContext(context.Background())
 }
@@ -5472,12 +4661,6 @@ func (i *resourceDefinitionSageMakerMachineLearningModelResourceDataPtrType) ToR
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionSageMakerMachineLearningModelResourceDataPtrOutput)
 }
 
-func (i *resourceDefinitionSageMakerMachineLearningModelResourceDataPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionSageMakerMachineLearningModelResourceData] {
-	return pulumix.Output[*ResourceDefinitionSageMakerMachineLearningModelResourceData]{
-		OutputState: i.ToResourceDefinitionSageMakerMachineLearningModelResourceDataPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceDefinitionSageMakerMachineLearningModelResourceDataOutput struct{ *pulumi.OutputState }
 
 func (ResourceDefinitionSageMakerMachineLearningModelResourceDataOutput) ElementType() reflect.Type {
@@ -5500,12 +4683,6 @@ func (o ResourceDefinitionSageMakerMachineLearningModelResourceDataOutput) ToRes
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceDefinitionSageMakerMachineLearningModelResourceData) *ResourceDefinitionSageMakerMachineLearningModelResourceData {
 		return &v
 	}).(ResourceDefinitionSageMakerMachineLearningModelResourceDataPtrOutput)
-}
-
-func (o ResourceDefinitionSageMakerMachineLearningModelResourceDataOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionSageMakerMachineLearningModelResourceData] {
-	return pulumix.Output[ResourceDefinitionSageMakerMachineLearningModelResourceData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionSageMakerMachineLearningModelResourceDataOutput) DestinationPath() pulumi.StringOutput {
@@ -5534,12 +4711,6 @@ func (o ResourceDefinitionSageMakerMachineLearningModelResourceDataPtrOutput) To
 
 func (o ResourceDefinitionSageMakerMachineLearningModelResourceDataPtrOutput) ToResourceDefinitionSageMakerMachineLearningModelResourceDataPtrOutputWithContext(ctx context.Context) ResourceDefinitionSageMakerMachineLearningModelResourceDataPtrOutput {
 	return o
-}
-
-func (o ResourceDefinitionSageMakerMachineLearningModelResourceDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionSageMakerMachineLearningModelResourceData] {
-	return pulumix.Output[*ResourceDefinitionSageMakerMachineLearningModelResourceData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionSageMakerMachineLearningModelResourceDataPtrOutput) Elem() ResourceDefinitionSageMakerMachineLearningModelResourceDataOutput {
@@ -5612,12 +4783,6 @@ func (i ResourceDefinitionSecretsManagerSecretResourceDataArgs) ToResourceDefini
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionSecretsManagerSecretResourceDataOutput)
 }
 
-func (i ResourceDefinitionSecretsManagerSecretResourceDataArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionSecretsManagerSecretResourceData] {
-	return pulumix.Output[ResourceDefinitionSecretsManagerSecretResourceData]{
-		OutputState: i.ToResourceDefinitionSecretsManagerSecretResourceDataOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ResourceDefinitionSecretsManagerSecretResourceDataArgs) ToResourceDefinitionSecretsManagerSecretResourceDataPtrOutput() ResourceDefinitionSecretsManagerSecretResourceDataPtrOutput {
 	return i.ToResourceDefinitionSecretsManagerSecretResourceDataPtrOutputWithContext(context.Background())
 }
@@ -5659,12 +4824,6 @@ func (i *resourceDefinitionSecretsManagerSecretResourceDataPtrType) ToResourceDe
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionSecretsManagerSecretResourceDataPtrOutput)
 }
 
-func (i *resourceDefinitionSecretsManagerSecretResourceDataPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionSecretsManagerSecretResourceData] {
-	return pulumix.Output[*ResourceDefinitionSecretsManagerSecretResourceData]{
-		OutputState: i.ToResourceDefinitionSecretsManagerSecretResourceDataPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceDefinitionSecretsManagerSecretResourceDataOutput struct{ *pulumi.OutputState }
 
 func (ResourceDefinitionSecretsManagerSecretResourceDataOutput) ElementType() reflect.Type {
@@ -5689,12 +4848,6 @@ func (o ResourceDefinitionSecretsManagerSecretResourceDataOutput) ToResourceDefi
 	}).(ResourceDefinitionSecretsManagerSecretResourceDataPtrOutput)
 }
 
-func (o ResourceDefinitionSecretsManagerSecretResourceDataOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionSecretsManagerSecretResourceData] {
-	return pulumix.Output[ResourceDefinitionSecretsManagerSecretResourceData]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceDefinitionSecretsManagerSecretResourceDataOutput) AdditionalStagingLabelsToDownload() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceDefinitionSecretsManagerSecretResourceData) []string {
 		return v.AdditionalStagingLabelsToDownload
@@ -5717,12 +4870,6 @@ func (o ResourceDefinitionSecretsManagerSecretResourceDataPtrOutput) ToResourceD
 
 func (o ResourceDefinitionSecretsManagerSecretResourceDataPtrOutput) ToResourceDefinitionSecretsManagerSecretResourceDataPtrOutputWithContext(ctx context.Context) ResourceDefinitionSecretsManagerSecretResourceDataPtrOutput {
 	return o
-}
-
-func (o ResourceDefinitionSecretsManagerSecretResourceDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionSecretsManagerSecretResourceData] {
-	return pulumix.Output[*ResourceDefinitionSecretsManagerSecretResourceData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionSecretsManagerSecretResourceDataPtrOutput) Elem() ResourceDefinitionSecretsManagerSecretResourceDataOutput {
@@ -5784,12 +4931,6 @@ func (i ResourceDefinitionVersionTypeArgs) ToResourceDefinitionVersionTypeOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionVersionTypeOutput)
 }
 
-func (i ResourceDefinitionVersionTypeArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionVersionType] {
-	return pulumix.Output[ResourceDefinitionVersionType]{
-		OutputState: i.ToResourceDefinitionVersionTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ResourceDefinitionVersionTypeArgs) ToResourceDefinitionVersionTypePtrOutput() ResourceDefinitionVersionTypePtrOutput {
 	return i.ToResourceDefinitionVersionTypePtrOutputWithContext(context.Background())
 }
@@ -5831,12 +4972,6 @@ func (i *resourceDefinitionVersionTypePtrType) ToResourceDefinitionVersionTypePt
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionVersionTypePtrOutput)
 }
 
-func (i *resourceDefinitionVersionTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionVersionType] {
-	return pulumix.Output[*ResourceDefinitionVersionType]{
-		OutputState: i.ToResourceDefinitionVersionTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceDefinitionVersionTypeOutput struct{ *pulumi.OutputState }
 
 func (ResourceDefinitionVersionTypeOutput) ElementType() reflect.Type {
@@ -5861,12 +4996,6 @@ func (o ResourceDefinitionVersionTypeOutput) ToResourceDefinitionVersionTypePtrO
 	}).(ResourceDefinitionVersionTypePtrOutput)
 }
 
-func (o ResourceDefinitionVersionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionVersionType] {
-	return pulumix.Output[ResourceDefinitionVersionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceDefinitionVersionTypeOutput) Resources() ResourceDefinitionResourceInstanceArrayOutput {
 	return o.ApplyT(func(v ResourceDefinitionVersionType) []ResourceDefinitionResourceInstance { return v.Resources }).(ResourceDefinitionResourceInstanceArrayOutput)
 }
@@ -5883,12 +5012,6 @@ func (o ResourceDefinitionVersionTypePtrOutput) ToResourceDefinitionVersionTypeP
 
 func (o ResourceDefinitionVersionTypePtrOutput) ToResourceDefinitionVersionTypePtrOutputWithContext(ctx context.Context) ResourceDefinitionVersionTypePtrOutput {
 	return o
-}
-
-func (o ResourceDefinitionVersionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionVersionType] {
-	return pulumix.Output[*ResourceDefinitionVersionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionVersionTypePtrOutput) Elem() ResourceDefinitionVersionTypeOutput {
@@ -5943,12 +5066,6 @@ func (i ResourceDefinitionVersionGroupOwnerSettingArgs) ToResourceDefinitionVers
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionVersionGroupOwnerSettingOutput)
 }
 
-func (i ResourceDefinitionVersionGroupOwnerSettingArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionVersionGroupOwnerSetting] {
-	return pulumix.Output[ResourceDefinitionVersionGroupOwnerSetting]{
-		OutputState: i.ToResourceDefinitionVersionGroupOwnerSettingOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ResourceDefinitionVersionGroupOwnerSettingArgs) ToResourceDefinitionVersionGroupOwnerSettingPtrOutput() ResourceDefinitionVersionGroupOwnerSettingPtrOutput {
 	return i.ToResourceDefinitionVersionGroupOwnerSettingPtrOutputWithContext(context.Background())
 }
@@ -5990,12 +5107,6 @@ func (i *resourceDefinitionVersionGroupOwnerSettingPtrType) ToResourceDefinition
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionVersionGroupOwnerSettingPtrOutput)
 }
 
-func (i *resourceDefinitionVersionGroupOwnerSettingPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionVersionGroupOwnerSetting] {
-	return pulumix.Output[*ResourceDefinitionVersionGroupOwnerSetting]{
-		OutputState: i.ToResourceDefinitionVersionGroupOwnerSettingPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceDefinitionVersionGroupOwnerSettingOutput struct{ *pulumi.OutputState }
 
 func (ResourceDefinitionVersionGroupOwnerSettingOutput) ElementType() reflect.Type {
@@ -6020,12 +5131,6 @@ func (o ResourceDefinitionVersionGroupOwnerSettingOutput) ToResourceDefinitionVe
 	}).(ResourceDefinitionVersionGroupOwnerSettingPtrOutput)
 }
 
-func (o ResourceDefinitionVersionGroupOwnerSettingOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionVersionGroupOwnerSetting] {
-	return pulumix.Output[ResourceDefinitionVersionGroupOwnerSetting]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceDefinitionVersionGroupOwnerSettingOutput) AutoAddGroupOwner() pulumi.BoolOutput {
 	return o.ApplyT(func(v ResourceDefinitionVersionGroupOwnerSetting) bool { return v.AutoAddGroupOwner }).(pulumi.BoolOutput)
 }
@@ -6046,12 +5151,6 @@ func (o ResourceDefinitionVersionGroupOwnerSettingPtrOutput) ToResourceDefinitio
 
 func (o ResourceDefinitionVersionGroupOwnerSettingPtrOutput) ToResourceDefinitionVersionGroupOwnerSettingPtrOutputWithContext(ctx context.Context) ResourceDefinitionVersionGroupOwnerSettingPtrOutput {
 	return o
-}
-
-func (o ResourceDefinitionVersionGroupOwnerSettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionVersionGroupOwnerSetting] {
-	return pulumix.Output[*ResourceDefinitionVersionGroupOwnerSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionVersionGroupOwnerSettingPtrOutput) Elem() ResourceDefinitionVersionGroupOwnerSettingOutput {
@@ -6115,12 +5214,6 @@ func (i ResourceDefinitionVersionLocalDeviceResourceDataArgs) ToResourceDefiniti
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionVersionLocalDeviceResourceDataOutput)
 }
 
-func (i ResourceDefinitionVersionLocalDeviceResourceDataArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionVersionLocalDeviceResourceData] {
-	return pulumix.Output[ResourceDefinitionVersionLocalDeviceResourceData]{
-		OutputState: i.ToResourceDefinitionVersionLocalDeviceResourceDataOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ResourceDefinitionVersionLocalDeviceResourceDataArgs) ToResourceDefinitionVersionLocalDeviceResourceDataPtrOutput() ResourceDefinitionVersionLocalDeviceResourceDataPtrOutput {
 	return i.ToResourceDefinitionVersionLocalDeviceResourceDataPtrOutputWithContext(context.Background())
 }
@@ -6162,12 +5255,6 @@ func (i *resourceDefinitionVersionLocalDeviceResourceDataPtrType) ToResourceDefi
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionVersionLocalDeviceResourceDataPtrOutput)
 }
 
-func (i *resourceDefinitionVersionLocalDeviceResourceDataPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionVersionLocalDeviceResourceData] {
-	return pulumix.Output[*ResourceDefinitionVersionLocalDeviceResourceData]{
-		OutputState: i.ToResourceDefinitionVersionLocalDeviceResourceDataPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceDefinitionVersionLocalDeviceResourceDataOutput struct{ *pulumi.OutputState }
 
 func (ResourceDefinitionVersionLocalDeviceResourceDataOutput) ElementType() reflect.Type {
@@ -6192,12 +5279,6 @@ func (o ResourceDefinitionVersionLocalDeviceResourceDataOutput) ToResourceDefini
 	}).(ResourceDefinitionVersionLocalDeviceResourceDataPtrOutput)
 }
 
-func (o ResourceDefinitionVersionLocalDeviceResourceDataOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionVersionLocalDeviceResourceData] {
-	return pulumix.Output[ResourceDefinitionVersionLocalDeviceResourceData]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceDefinitionVersionLocalDeviceResourceDataOutput) GroupOwnerSetting() ResourceDefinitionVersionGroupOwnerSettingPtrOutput {
 	return o.ApplyT(func(v ResourceDefinitionVersionLocalDeviceResourceData) *ResourceDefinitionVersionGroupOwnerSetting {
 		return v.GroupOwnerSetting
@@ -6220,12 +5301,6 @@ func (o ResourceDefinitionVersionLocalDeviceResourceDataPtrOutput) ToResourceDef
 
 func (o ResourceDefinitionVersionLocalDeviceResourceDataPtrOutput) ToResourceDefinitionVersionLocalDeviceResourceDataPtrOutputWithContext(ctx context.Context) ResourceDefinitionVersionLocalDeviceResourceDataPtrOutput {
 	return o
-}
-
-func (o ResourceDefinitionVersionLocalDeviceResourceDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionVersionLocalDeviceResourceData] {
-	return pulumix.Output[*ResourceDefinitionVersionLocalDeviceResourceData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionVersionLocalDeviceResourceDataPtrOutput) Elem() ResourceDefinitionVersionLocalDeviceResourceDataOutput {
@@ -6291,12 +5366,6 @@ func (i ResourceDefinitionVersionLocalVolumeResourceDataArgs) ToResourceDefiniti
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionVersionLocalVolumeResourceDataOutput)
 }
 
-func (i ResourceDefinitionVersionLocalVolumeResourceDataArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionVersionLocalVolumeResourceData] {
-	return pulumix.Output[ResourceDefinitionVersionLocalVolumeResourceData]{
-		OutputState: i.ToResourceDefinitionVersionLocalVolumeResourceDataOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ResourceDefinitionVersionLocalVolumeResourceDataArgs) ToResourceDefinitionVersionLocalVolumeResourceDataPtrOutput() ResourceDefinitionVersionLocalVolumeResourceDataPtrOutput {
 	return i.ToResourceDefinitionVersionLocalVolumeResourceDataPtrOutputWithContext(context.Background())
 }
@@ -6338,12 +5407,6 @@ func (i *resourceDefinitionVersionLocalVolumeResourceDataPtrType) ToResourceDefi
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionVersionLocalVolumeResourceDataPtrOutput)
 }
 
-func (i *resourceDefinitionVersionLocalVolumeResourceDataPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionVersionLocalVolumeResourceData] {
-	return pulumix.Output[*ResourceDefinitionVersionLocalVolumeResourceData]{
-		OutputState: i.ToResourceDefinitionVersionLocalVolumeResourceDataPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceDefinitionVersionLocalVolumeResourceDataOutput struct{ *pulumi.OutputState }
 
 func (ResourceDefinitionVersionLocalVolumeResourceDataOutput) ElementType() reflect.Type {
@@ -6366,12 +5429,6 @@ func (o ResourceDefinitionVersionLocalVolumeResourceDataOutput) ToResourceDefini
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceDefinitionVersionLocalVolumeResourceData) *ResourceDefinitionVersionLocalVolumeResourceData {
 		return &v
 	}).(ResourceDefinitionVersionLocalVolumeResourceDataPtrOutput)
-}
-
-func (o ResourceDefinitionVersionLocalVolumeResourceDataOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionVersionLocalVolumeResourceData] {
-	return pulumix.Output[ResourceDefinitionVersionLocalVolumeResourceData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionVersionLocalVolumeResourceDataOutput) DestinationPath() pulumi.StringOutput {
@@ -6400,12 +5457,6 @@ func (o ResourceDefinitionVersionLocalVolumeResourceDataPtrOutput) ToResourceDef
 
 func (o ResourceDefinitionVersionLocalVolumeResourceDataPtrOutput) ToResourceDefinitionVersionLocalVolumeResourceDataPtrOutputWithContext(ctx context.Context) ResourceDefinitionVersionLocalVolumeResourceDataPtrOutput {
 	return o
-}
-
-func (o ResourceDefinitionVersionLocalVolumeResourceDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionVersionLocalVolumeResourceData] {
-	return pulumix.Output[*ResourceDefinitionVersionLocalVolumeResourceData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionVersionLocalVolumeResourceDataPtrOutput) Elem() ResourceDefinitionVersionLocalVolumeResourceDataOutput {
@@ -6484,12 +5535,6 @@ func (i ResourceDefinitionVersionResourceDataContainerArgs) ToResourceDefinition
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionVersionResourceDataContainerOutput)
 }
 
-func (i ResourceDefinitionVersionResourceDataContainerArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionVersionResourceDataContainer] {
-	return pulumix.Output[ResourceDefinitionVersionResourceDataContainer]{
-		OutputState: i.ToResourceDefinitionVersionResourceDataContainerOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceDefinitionVersionResourceDataContainerOutput struct{ *pulumi.OutputState }
 
 func (ResourceDefinitionVersionResourceDataContainerOutput) ElementType() reflect.Type {
@@ -6502,12 +5547,6 @@ func (o ResourceDefinitionVersionResourceDataContainerOutput) ToResourceDefiniti
 
 func (o ResourceDefinitionVersionResourceDataContainerOutput) ToResourceDefinitionVersionResourceDataContainerOutputWithContext(ctx context.Context) ResourceDefinitionVersionResourceDataContainerOutput {
 	return o
-}
-
-func (o ResourceDefinitionVersionResourceDataContainerOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionVersionResourceDataContainer] {
-	return pulumix.Output[ResourceDefinitionVersionResourceDataContainer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionVersionResourceDataContainerOutput) LocalDeviceResourceData() ResourceDefinitionVersionLocalDeviceResourceDataPtrOutput {
@@ -6573,12 +5612,6 @@ func (i ResourceDefinitionVersionResourceDownloadOwnerSettingArgs) ToResourceDef
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionVersionResourceDownloadOwnerSettingOutput)
 }
 
-func (i ResourceDefinitionVersionResourceDownloadOwnerSettingArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionVersionResourceDownloadOwnerSetting] {
-	return pulumix.Output[ResourceDefinitionVersionResourceDownloadOwnerSetting]{
-		OutputState: i.ToResourceDefinitionVersionResourceDownloadOwnerSettingOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ResourceDefinitionVersionResourceDownloadOwnerSettingArgs) ToResourceDefinitionVersionResourceDownloadOwnerSettingPtrOutput() ResourceDefinitionVersionResourceDownloadOwnerSettingPtrOutput {
 	return i.ToResourceDefinitionVersionResourceDownloadOwnerSettingPtrOutputWithContext(context.Background())
 }
@@ -6620,12 +5653,6 @@ func (i *resourceDefinitionVersionResourceDownloadOwnerSettingPtrType) ToResourc
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionVersionResourceDownloadOwnerSettingPtrOutput)
 }
 
-func (i *resourceDefinitionVersionResourceDownloadOwnerSettingPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionVersionResourceDownloadOwnerSetting] {
-	return pulumix.Output[*ResourceDefinitionVersionResourceDownloadOwnerSetting]{
-		OutputState: i.ToResourceDefinitionVersionResourceDownloadOwnerSettingPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceDefinitionVersionResourceDownloadOwnerSettingOutput struct{ *pulumi.OutputState }
 
 func (ResourceDefinitionVersionResourceDownloadOwnerSettingOutput) ElementType() reflect.Type {
@@ -6650,12 +5677,6 @@ func (o ResourceDefinitionVersionResourceDownloadOwnerSettingOutput) ToResourceD
 	}).(ResourceDefinitionVersionResourceDownloadOwnerSettingPtrOutput)
 }
 
-func (o ResourceDefinitionVersionResourceDownloadOwnerSettingOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionVersionResourceDownloadOwnerSetting] {
-	return pulumix.Output[ResourceDefinitionVersionResourceDownloadOwnerSetting]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceDefinitionVersionResourceDownloadOwnerSettingOutput) GroupOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceDefinitionVersionResourceDownloadOwnerSetting) string { return v.GroupOwner }).(pulumi.StringOutput)
 }
@@ -6676,12 +5697,6 @@ func (o ResourceDefinitionVersionResourceDownloadOwnerSettingPtrOutput) ToResour
 
 func (o ResourceDefinitionVersionResourceDownloadOwnerSettingPtrOutput) ToResourceDefinitionVersionResourceDownloadOwnerSettingPtrOutputWithContext(ctx context.Context) ResourceDefinitionVersionResourceDownloadOwnerSettingPtrOutput {
 	return o
-}
-
-func (o ResourceDefinitionVersionResourceDownloadOwnerSettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionVersionResourceDownloadOwnerSetting] {
-	return pulumix.Output[*ResourceDefinitionVersionResourceDownloadOwnerSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionVersionResourceDownloadOwnerSettingPtrOutput) Elem() ResourceDefinitionVersionResourceDownloadOwnerSettingOutput {
@@ -6747,12 +5762,6 @@ func (i ResourceDefinitionVersionResourceInstanceArgs) ToResourceDefinitionVersi
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionVersionResourceInstanceOutput)
 }
 
-func (i ResourceDefinitionVersionResourceInstanceArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionVersionResourceInstance] {
-	return pulumix.Output[ResourceDefinitionVersionResourceInstance]{
-		OutputState: i.ToResourceDefinitionVersionResourceInstanceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResourceDefinitionVersionResourceInstanceArrayInput is an input type that accepts ResourceDefinitionVersionResourceInstanceArray and ResourceDefinitionVersionResourceInstanceArrayOutput values.
 // You can construct a concrete instance of `ResourceDefinitionVersionResourceInstanceArrayInput` via:
 //
@@ -6778,12 +5787,6 @@ func (i ResourceDefinitionVersionResourceInstanceArray) ToResourceDefinitionVers
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionVersionResourceInstanceArrayOutput)
 }
 
-func (i ResourceDefinitionVersionResourceInstanceArray) ToOutput(ctx context.Context) pulumix.Output[[]ResourceDefinitionVersionResourceInstance] {
-	return pulumix.Output[[]ResourceDefinitionVersionResourceInstance]{
-		OutputState: i.ToResourceDefinitionVersionResourceInstanceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceDefinitionVersionResourceInstanceOutput struct{ *pulumi.OutputState }
 
 func (ResourceDefinitionVersionResourceInstanceOutput) ElementType() reflect.Type {
@@ -6796,12 +5799,6 @@ func (o ResourceDefinitionVersionResourceInstanceOutput) ToResourceDefinitionVer
 
 func (o ResourceDefinitionVersionResourceInstanceOutput) ToResourceDefinitionVersionResourceInstanceOutputWithContext(ctx context.Context) ResourceDefinitionVersionResourceInstanceOutput {
 	return o
-}
-
-func (o ResourceDefinitionVersionResourceInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionVersionResourceInstance] {
-	return pulumix.Output[ResourceDefinitionVersionResourceInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionVersionResourceInstanceOutput) Id() pulumi.StringOutput {
@@ -6830,12 +5827,6 @@ func (o ResourceDefinitionVersionResourceInstanceArrayOutput) ToResourceDefiniti
 
 func (o ResourceDefinitionVersionResourceInstanceArrayOutput) ToResourceDefinitionVersionResourceInstanceArrayOutputWithContext(ctx context.Context) ResourceDefinitionVersionResourceInstanceArrayOutput {
 	return o
-}
-
-func (o ResourceDefinitionVersionResourceInstanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ResourceDefinitionVersionResourceInstance] {
-	return pulumix.Output[[]ResourceDefinitionVersionResourceInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionVersionResourceInstanceArrayOutput) Index(i pulumi.IntInput) ResourceDefinitionVersionResourceInstanceOutput {
@@ -6879,12 +5870,6 @@ func (i ResourceDefinitionVersionS3MachineLearningModelResourceDataArgs) ToResou
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionVersionS3MachineLearningModelResourceDataOutput)
 }
 
-func (i ResourceDefinitionVersionS3MachineLearningModelResourceDataArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionVersionS3MachineLearningModelResourceData] {
-	return pulumix.Output[ResourceDefinitionVersionS3MachineLearningModelResourceData]{
-		OutputState: i.ToResourceDefinitionVersionS3MachineLearningModelResourceDataOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ResourceDefinitionVersionS3MachineLearningModelResourceDataArgs) ToResourceDefinitionVersionS3MachineLearningModelResourceDataPtrOutput() ResourceDefinitionVersionS3MachineLearningModelResourceDataPtrOutput {
 	return i.ToResourceDefinitionVersionS3MachineLearningModelResourceDataPtrOutputWithContext(context.Background())
 }
@@ -6926,12 +5911,6 @@ func (i *resourceDefinitionVersionS3MachineLearningModelResourceDataPtrType) ToR
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionVersionS3MachineLearningModelResourceDataPtrOutput)
 }
 
-func (i *resourceDefinitionVersionS3MachineLearningModelResourceDataPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionVersionS3MachineLearningModelResourceData] {
-	return pulumix.Output[*ResourceDefinitionVersionS3MachineLearningModelResourceData]{
-		OutputState: i.ToResourceDefinitionVersionS3MachineLearningModelResourceDataPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceDefinitionVersionS3MachineLearningModelResourceDataOutput struct{ *pulumi.OutputState }
 
 func (ResourceDefinitionVersionS3MachineLearningModelResourceDataOutput) ElementType() reflect.Type {
@@ -6954,12 +5933,6 @@ func (o ResourceDefinitionVersionS3MachineLearningModelResourceDataOutput) ToRes
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceDefinitionVersionS3MachineLearningModelResourceData) *ResourceDefinitionVersionS3MachineLearningModelResourceData {
 		return &v
 	}).(ResourceDefinitionVersionS3MachineLearningModelResourceDataPtrOutput)
-}
-
-func (o ResourceDefinitionVersionS3MachineLearningModelResourceDataOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionVersionS3MachineLearningModelResourceData] {
-	return pulumix.Output[ResourceDefinitionVersionS3MachineLearningModelResourceData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionVersionS3MachineLearningModelResourceDataOutput) DestinationPath() pulumi.StringOutput {
@@ -6988,12 +5961,6 @@ func (o ResourceDefinitionVersionS3MachineLearningModelResourceDataPtrOutput) To
 
 func (o ResourceDefinitionVersionS3MachineLearningModelResourceDataPtrOutput) ToResourceDefinitionVersionS3MachineLearningModelResourceDataPtrOutputWithContext(ctx context.Context) ResourceDefinitionVersionS3MachineLearningModelResourceDataPtrOutput {
 	return o
-}
-
-func (o ResourceDefinitionVersionS3MachineLearningModelResourceDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionVersionS3MachineLearningModelResourceData] {
-	return pulumix.Output[*ResourceDefinitionVersionS3MachineLearningModelResourceData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionVersionS3MachineLearningModelResourceDataPtrOutput) Elem() ResourceDefinitionVersionS3MachineLearningModelResourceDataOutput {
@@ -7068,12 +6035,6 @@ func (i ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataArgs) 
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataOutput)
 }
 
-func (i ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionVersionSageMakerMachineLearningModelResourceData] {
-	return pulumix.Output[ResourceDefinitionVersionSageMakerMachineLearningModelResourceData]{
-		OutputState: i.ToResourceDefinitionVersionSageMakerMachineLearningModelResourceDataOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataArgs) ToResourceDefinitionVersionSageMakerMachineLearningModelResourceDataPtrOutput() ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataPtrOutput {
 	return i.ToResourceDefinitionVersionSageMakerMachineLearningModelResourceDataPtrOutputWithContext(context.Background())
 }
@@ -7115,12 +6076,6 @@ func (i *resourceDefinitionVersionSageMakerMachineLearningModelResourceDataPtrTy
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataPtrOutput)
 }
 
-func (i *resourceDefinitionVersionSageMakerMachineLearningModelResourceDataPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionVersionSageMakerMachineLearningModelResourceData] {
-	return pulumix.Output[*ResourceDefinitionVersionSageMakerMachineLearningModelResourceData]{
-		OutputState: i.ToResourceDefinitionVersionSageMakerMachineLearningModelResourceDataPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataOutput struct{ *pulumi.OutputState }
 
 func (ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataOutput) ElementType() reflect.Type {
@@ -7143,12 +6098,6 @@ func (o ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataOutput
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceDefinitionVersionSageMakerMachineLearningModelResourceData) *ResourceDefinitionVersionSageMakerMachineLearningModelResourceData {
 		return &v
 	}).(ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataPtrOutput)
-}
-
-func (o ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionVersionSageMakerMachineLearningModelResourceData] {
-	return pulumix.Output[ResourceDefinitionVersionSageMakerMachineLearningModelResourceData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataOutput) DestinationPath() pulumi.StringOutput {
@@ -7181,12 +6130,6 @@ func (o ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataPtrOut
 
 func (o ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataPtrOutput) ToResourceDefinitionVersionSageMakerMachineLearningModelResourceDataPtrOutputWithContext(ctx context.Context) ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataPtrOutput {
 	return o
-}
-
-func (o ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionVersionSageMakerMachineLearningModelResourceData] {
-	return pulumix.Output[*ResourceDefinitionVersionSageMakerMachineLearningModelResourceData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataPtrOutput) Elem() ResourceDefinitionVersionSageMakerMachineLearningModelResourceDataOutput {
@@ -7259,12 +6202,6 @@ func (i ResourceDefinitionVersionSecretsManagerSecretResourceDataArgs) ToResourc
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionVersionSecretsManagerSecretResourceDataOutput)
 }
 
-func (i ResourceDefinitionVersionSecretsManagerSecretResourceDataArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionVersionSecretsManagerSecretResourceData] {
-	return pulumix.Output[ResourceDefinitionVersionSecretsManagerSecretResourceData]{
-		OutputState: i.ToResourceDefinitionVersionSecretsManagerSecretResourceDataOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ResourceDefinitionVersionSecretsManagerSecretResourceDataArgs) ToResourceDefinitionVersionSecretsManagerSecretResourceDataPtrOutput() ResourceDefinitionVersionSecretsManagerSecretResourceDataPtrOutput {
 	return i.ToResourceDefinitionVersionSecretsManagerSecretResourceDataPtrOutputWithContext(context.Background())
 }
@@ -7306,12 +6243,6 @@ func (i *resourceDefinitionVersionSecretsManagerSecretResourceDataPtrType) ToRes
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDefinitionVersionSecretsManagerSecretResourceDataPtrOutput)
 }
 
-func (i *resourceDefinitionVersionSecretsManagerSecretResourceDataPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionVersionSecretsManagerSecretResourceData] {
-	return pulumix.Output[*ResourceDefinitionVersionSecretsManagerSecretResourceData]{
-		OutputState: i.ToResourceDefinitionVersionSecretsManagerSecretResourceDataPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceDefinitionVersionSecretsManagerSecretResourceDataOutput struct{ *pulumi.OutputState }
 
 func (ResourceDefinitionVersionSecretsManagerSecretResourceDataOutput) ElementType() reflect.Type {
@@ -7336,12 +6267,6 @@ func (o ResourceDefinitionVersionSecretsManagerSecretResourceDataOutput) ToResou
 	}).(ResourceDefinitionVersionSecretsManagerSecretResourceDataPtrOutput)
 }
 
-func (o ResourceDefinitionVersionSecretsManagerSecretResourceDataOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceDefinitionVersionSecretsManagerSecretResourceData] {
-	return pulumix.Output[ResourceDefinitionVersionSecretsManagerSecretResourceData]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceDefinitionVersionSecretsManagerSecretResourceDataOutput) AdditionalStagingLabelsToDownload() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceDefinitionVersionSecretsManagerSecretResourceData) []string {
 		return v.AdditionalStagingLabelsToDownload
@@ -7364,12 +6289,6 @@ func (o ResourceDefinitionVersionSecretsManagerSecretResourceDataPtrOutput) ToRe
 
 func (o ResourceDefinitionVersionSecretsManagerSecretResourceDataPtrOutput) ToResourceDefinitionVersionSecretsManagerSecretResourceDataPtrOutputWithContext(ctx context.Context) ResourceDefinitionVersionSecretsManagerSecretResourceDataPtrOutput {
 	return o
-}
-
-func (o ResourceDefinitionVersionSecretsManagerSecretResourceDataPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceDefinitionVersionSecretsManagerSecretResourceData] {
-	return pulumix.Output[*ResourceDefinitionVersionSecretsManagerSecretResourceData]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceDefinitionVersionSecretsManagerSecretResourceDataPtrOutput) Elem() ResourceDefinitionVersionSecretsManagerSecretResourceDataOutput {
@@ -7437,12 +6356,6 @@ func (i SubscriptionDefinitionSubscriptionArgs) ToSubscriptionDefinitionSubscrip
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionDefinitionSubscriptionOutput)
 }
 
-func (i SubscriptionDefinitionSubscriptionArgs) ToOutput(ctx context.Context) pulumix.Output[SubscriptionDefinitionSubscription] {
-	return pulumix.Output[SubscriptionDefinitionSubscription]{
-		OutputState: i.ToSubscriptionDefinitionSubscriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SubscriptionDefinitionSubscriptionArrayInput is an input type that accepts SubscriptionDefinitionSubscriptionArray and SubscriptionDefinitionSubscriptionArrayOutput values.
 // You can construct a concrete instance of `SubscriptionDefinitionSubscriptionArrayInput` via:
 //
@@ -7468,12 +6381,6 @@ func (i SubscriptionDefinitionSubscriptionArray) ToSubscriptionDefinitionSubscri
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionDefinitionSubscriptionArrayOutput)
 }
 
-func (i SubscriptionDefinitionSubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionDefinitionSubscription] {
-	return pulumix.Output[[]SubscriptionDefinitionSubscription]{
-		OutputState: i.ToSubscriptionDefinitionSubscriptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SubscriptionDefinitionSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionDefinitionSubscriptionOutput) ElementType() reflect.Type {
@@ -7486,12 +6393,6 @@ func (o SubscriptionDefinitionSubscriptionOutput) ToSubscriptionDefinitionSubscr
 
 func (o SubscriptionDefinitionSubscriptionOutput) ToSubscriptionDefinitionSubscriptionOutputWithContext(ctx context.Context) SubscriptionDefinitionSubscriptionOutput {
 	return o
-}
-
-func (o SubscriptionDefinitionSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionDefinitionSubscription] {
-	return pulumix.Output[SubscriptionDefinitionSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SubscriptionDefinitionSubscriptionOutput) Id() pulumi.StringOutput {
@@ -7522,12 +6423,6 @@ func (o SubscriptionDefinitionSubscriptionArrayOutput) ToSubscriptionDefinitionS
 
 func (o SubscriptionDefinitionSubscriptionArrayOutput) ToSubscriptionDefinitionSubscriptionArrayOutputWithContext(ctx context.Context) SubscriptionDefinitionSubscriptionArrayOutput {
 	return o
-}
-
-func (o SubscriptionDefinitionSubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionDefinitionSubscription] {
-	return pulumix.Output[[]SubscriptionDefinitionSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SubscriptionDefinitionSubscriptionArrayOutput) Index(i pulumi.IntInput) SubscriptionDefinitionSubscriptionOutput {
@@ -7565,12 +6460,6 @@ func (i SubscriptionDefinitionVersionTypeArgs) ToSubscriptionDefinitionVersionTy
 
 func (i SubscriptionDefinitionVersionTypeArgs) ToSubscriptionDefinitionVersionTypeOutputWithContext(ctx context.Context) SubscriptionDefinitionVersionTypeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionDefinitionVersionTypeOutput)
-}
-
-func (i SubscriptionDefinitionVersionTypeArgs) ToOutput(ctx context.Context) pulumix.Output[SubscriptionDefinitionVersionType] {
-	return pulumix.Output[SubscriptionDefinitionVersionType]{
-		OutputState: i.ToSubscriptionDefinitionVersionTypeOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i SubscriptionDefinitionVersionTypeArgs) ToSubscriptionDefinitionVersionTypePtrOutput() SubscriptionDefinitionVersionTypePtrOutput {
@@ -7614,12 +6503,6 @@ func (i *subscriptionDefinitionVersionTypePtrType) ToSubscriptionDefinitionVersi
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionDefinitionVersionTypePtrOutput)
 }
 
-func (i *subscriptionDefinitionVersionTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionDefinitionVersionType] {
-	return pulumix.Output[*SubscriptionDefinitionVersionType]{
-		OutputState: i.ToSubscriptionDefinitionVersionTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SubscriptionDefinitionVersionTypeOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionDefinitionVersionTypeOutput) ElementType() reflect.Type {
@@ -7644,12 +6527,6 @@ func (o SubscriptionDefinitionVersionTypeOutput) ToSubscriptionDefinitionVersion
 	}).(SubscriptionDefinitionVersionTypePtrOutput)
 }
 
-func (o SubscriptionDefinitionVersionTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionDefinitionVersionType] {
-	return pulumix.Output[SubscriptionDefinitionVersionType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SubscriptionDefinitionVersionTypeOutput) Subscriptions() SubscriptionDefinitionSubscriptionArrayOutput {
 	return o.ApplyT(func(v SubscriptionDefinitionVersionType) []SubscriptionDefinitionSubscription { return v.Subscriptions }).(SubscriptionDefinitionSubscriptionArrayOutput)
 }
@@ -7666,12 +6543,6 @@ func (o SubscriptionDefinitionVersionTypePtrOutput) ToSubscriptionDefinitionVers
 
 func (o SubscriptionDefinitionVersionTypePtrOutput) ToSubscriptionDefinitionVersionTypePtrOutputWithContext(ctx context.Context) SubscriptionDefinitionVersionTypePtrOutput {
 	return o
-}
-
-func (o SubscriptionDefinitionVersionTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionDefinitionVersionType] {
-	return pulumix.Output[*SubscriptionDefinitionVersionType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SubscriptionDefinitionVersionTypePtrOutput) Elem() SubscriptionDefinitionVersionTypeOutput {
@@ -7730,12 +6601,6 @@ func (i SubscriptionDefinitionVersionSubscriptionArgs) ToSubscriptionDefinitionV
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionDefinitionVersionSubscriptionOutput)
 }
 
-func (i SubscriptionDefinitionVersionSubscriptionArgs) ToOutput(ctx context.Context) pulumix.Output[SubscriptionDefinitionVersionSubscription] {
-	return pulumix.Output[SubscriptionDefinitionVersionSubscription]{
-		OutputState: i.ToSubscriptionDefinitionVersionSubscriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SubscriptionDefinitionVersionSubscriptionArrayInput is an input type that accepts SubscriptionDefinitionVersionSubscriptionArray and SubscriptionDefinitionVersionSubscriptionArrayOutput values.
 // You can construct a concrete instance of `SubscriptionDefinitionVersionSubscriptionArrayInput` via:
 //
@@ -7761,12 +6626,6 @@ func (i SubscriptionDefinitionVersionSubscriptionArray) ToSubscriptionDefinition
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionDefinitionVersionSubscriptionArrayOutput)
 }
 
-func (i SubscriptionDefinitionVersionSubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionDefinitionVersionSubscription] {
-	return pulumix.Output[[]SubscriptionDefinitionVersionSubscription]{
-		OutputState: i.ToSubscriptionDefinitionVersionSubscriptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SubscriptionDefinitionVersionSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionDefinitionVersionSubscriptionOutput) ElementType() reflect.Type {
@@ -7779,12 +6638,6 @@ func (o SubscriptionDefinitionVersionSubscriptionOutput) ToSubscriptionDefinitio
 
 func (o SubscriptionDefinitionVersionSubscriptionOutput) ToSubscriptionDefinitionVersionSubscriptionOutputWithContext(ctx context.Context) SubscriptionDefinitionVersionSubscriptionOutput {
 	return o
-}
-
-func (o SubscriptionDefinitionVersionSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionDefinitionVersionSubscription] {
-	return pulumix.Output[SubscriptionDefinitionVersionSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SubscriptionDefinitionVersionSubscriptionOutput) Id() pulumi.StringOutput {
@@ -7815,12 +6668,6 @@ func (o SubscriptionDefinitionVersionSubscriptionArrayOutput) ToSubscriptionDefi
 
 func (o SubscriptionDefinitionVersionSubscriptionArrayOutput) ToSubscriptionDefinitionVersionSubscriptionArrayOutputWithContext(ctx context.Context) SubscriptionDefinitionVersionSubscriptionArrayOutput {
 	return o
-}
-
-func (o SubscriptionDefinitionVersionSubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionDefinitionVersionSubscription] {
-	return pulumix.Output[[]SubscriptionDefinitionVersionSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SubscriptionDefinitionVersionSubscriptionArrayOutput) Index(i pulumi.IntInput) SubscriptionDefinitionVersionSubscriptionOutput {

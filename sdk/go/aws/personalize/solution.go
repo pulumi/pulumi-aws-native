@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource schema for AWS::Personalize::Solution.
@@ -141,12 +140,6 @@ func (i *Solution) ToSolutionOutputWithContext(ctx context.Context) SolutionOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SolutionOutput)
 }
 
-func (i *Solution) ToOutput(ctx context.Context) pulumix.Output[*Solution] {
-	return pulumix.Output[*Solution]{
-		OutputState: i.ToSolutionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SolutionOutput struct{ *pulumi.OutputState }
 
 func (SolutionOutput) ElementType() reflect.Type {
@@ -159,12 +152,6 @@ func (o SolutionOutput) ToSolutionOutput() SolutionOutput {
 
 func (o SolutionOutput) ToSolutionOutputWithContext(ctx context.Context) SolutionOutput {
 	return o
-}
-
-func (o SolutionOutput) ToOutput(ctx context.Context) pulumix.Output[*Solution] {
-	return pulumix.Output[*Solution]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ARN of the dataset group that provides the training data.

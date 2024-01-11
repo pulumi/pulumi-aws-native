@@ -79,12 +79,6 @@ func (o StudioAuthModeOutput) ToStudioAuthModePtrOutputWithContext(ctx context.C
 	}).(StudioAuthModePtrOutput)
 }
 
-func (o StudioAuthModeOutput) ToOutput(ctx context.Context) pulumix.Output[StudioAuthMode] {
-	return pulumix.Output[StudioAuthMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StudioAuthModeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +114,6 @@ func (o StudioAuthModePtrOutput) ToStudioAuthModePtrOutputWithContext(ctx contex
 	return o
 }
 
-func (o StudioAuthModePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StudioAuthMode] {
-	return pulumix.Output[*StudioAuthMode]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StudioAuthModePtrOutput) Elem() StudioAuthModeOutput {
 	return o.ApplyT(func(v *StudioAuthMode) StudioAuthMode {
 		if v != nil {
@@ -150,10 +138,11 @@ func (o StudioAuthModePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// StudioAuthModeInput is an input type that accepts StudioAuthModeArgs and StudioAuthModeOutput values.
-// You can construct a concrete instance of `StudioAuthModeInput` via:
+// StudioAuthModeInput is an input type that accepts values of the StudioAuthMode enum
+// A concrete instance of `StudioAuthModeInput` can be one of the following:
 //
-//	StudioAuthModeArgs{...}
+//	StudioAuthModeSso
+//	StudioAuthModeIam
 type StudioAuthModeInput interface {
 	pulumi.Input
 
@@ -262,12 +251,6 @@ func (o StudioIdcUserAssignmentOutput) ToStudioIdcUserAssignmentPtrOutputWithCon
 	}).(StudioIdcUserAssignmentPtrOutput)
 }
 
-func (o StudioIdcUserAssignmentOutput) ToOutput(ctx context.Context) pulumix.Output[StudioIdcUserAssignment] {
-	return pulumix.Output[StudioIdcUserAssignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StudioIdcUserAssignmentOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -303,12 +286,6 @@ func (o StudioIdcUserAssignmentPtrOutput) ToStudioIdcUserAssignmentPtrOutputWith
 	return o
 }
 
-func (o StudioIdcUserAssignmentPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StudioIdcUserAssignment] {
-	return pulumix.Output[*StudioIdcUserAssignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StudioIdcUserAssignmentPtrOutput) Elem() StudioIdcUserAssignmentOutput {
 	return o.ApplyT(func(v *StudioIdcUserAssignment) StudioIdcUserAssignment {
 		if v != nil {
@@ -333,10 +310,11 @@ func (o StudioIdcUserAssignmentPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// StudioIdcUserAssignmentInput is an input type that accepts StudioIdcUserAssignmentArgs and StudioIdcUserAssignmentOutput values.
-// You can construct a concrete instance of `StudioIdcUserAssignmentInput` via:
+// StudioIdcUserAssignmentInput is an input type that accepts values of the StudioIdcUserAssignment enum
+// A concrete instance of `StudioIdcUserAssignmentInput` can be one of the following:
 //
-//	StudioIdcUserAssignmentArgs{...}
+//	StudioIdcUserAssignmentRequired
+//	StudioIdcUserAssignmentOptional
 type StudioIdcUserAssignmentInput interface {
 	pulumi.Input
 
@@ -445,12 +423,6 @@ func (o StudioSessionMappingIdentityTypeOutput) ToStudioSessionMappingIdentityTy
 	}).(StudioSessionMappingIdentityTypePtrOutput)
 }
 
-func (o StudioSessionMappingIdentityTypeOutput) ToOutput(ctx context.Context) pulumix.Output[StudioSessionMappingIdentityType] {
-	return pulumix.Output[StudioSessionMappingIdentityType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StudioSessionMappingIdentityTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -486,12 +458,6 @@ func (o StudioSessionMappingIdentityTypePtrOutput) ToStudioSessionMappingIdentit
 	return o
 }
 
-func (o StudioSessionMappingIdentityTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*StudioSessionMappingIdentityType] {
-	return pulumix.Output[*StudioSessionMappingIdentityType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StudioSessionMappingIdentityTypePtrOutput) Elem() StudioSessionMappingIdentityTypeOutput {
 	return o.ApplyT(func(v *StudioSessionMappingIdentityType) StudioSessionMappingIdentityType {
 		if v != nil {
@@ -516,10 +482,11 @@ func (o StudioSessionMappingIdentityTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// StudioSessionMappingIdentityTypeInput is an input type that accepts StudioSessionMappingIdentityTypeArgs and StudioSessionMappingIdentityTypeOutput values.
-// You can construct a concrete instance of `StudioSessionMappingIdentityTypeInput` via:
+// StudioSessionMappingIdentityTypeInput is an input type that accepts values of the StudioSessionMappingIdentityType enum
+// A concrete instance of `StudioSessionMappingIdentityTypeInput` can be one of the following:
 //
-//	StudioSessionMappingIdentityTypeArgs{...}
+//	StudioSessionMappingIdentityTypeUser
+//	StudioSessionMappingIdentityTypeGroup
 type StudioSessionMappingIdentityTypeInput interface {
 	pulumi.Input
 

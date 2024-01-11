@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::Batch::JobQueue
@@ -68,12 +67,6 @@ func (o LookupJobQueueResultOutput) ToLookupJobQueueResultOutput() LookupJobQueu
 
 func (o LookupJobQueueResultOutput) ToLookupJobQueueResultOutputWithContext(ctx context.Context) LookupJobQueueResultOutput {
 	return o
-}
-
-func (o LookupJobQueueResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupJobQueueResult] {
-	return pulumix.Output[LookupJobQueueResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupJobQueueResultOutput) ComputeEnvironmentOrder() JobQueueComputeEnvironmentOrderArrayOutput {

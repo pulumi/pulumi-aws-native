@@ -78,12 +78,6 @@ func (o DatasetResourceConfigurationComputeTypeOutput) ToDatasetResourceConfigur
 	}).(DatasetResourceConfigurationComputeTypePtrOutput)
 }
 
-func (o DatasetResourceConfigurationComputeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetResourceConfigurationComputeType] {
-	return pulumix.Output[DatasetResourceConfigurationComputeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetResourceConfigurationComputeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o DatasetResourceConfigurationComputeTypePtrOutput) ToDatasetResourceConfi
 	return o
 }
 
-func (o DatasetResourceConfigurationComputeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetResourceConfigurationComputeType] {
-	return pulumix.Output[*DatasetResourceConfigurationComputeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetResourceConfigurationComputeTypePtrOutput) Elem() DatasetResourceConfigurationComputeTypeOutput {
 	return o.ApplyT(func(v *DatasetResourceConfigurationComputeType) DatasetResourceConfigurationComputeType {
 		if v != nil {
@@ -149,10 +137,11 @@ func (o DatasetResourceConfigurationComputeTypePtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// DatasetResourceConfigurationComputeTypeInput is an input type that accepts DatasetResourceConfigurationComputeTypeArgs and DatasetResourceConfigurationComputeTypeOutput values.
-// You can construct a concrete instance of `DatasetResourceConfigurationComputeTypeInput` via:
+// DatasetResourceConfigurationComputeTypeInput is an input type that accepts values of the DatasetResourceConfigurationComputeType enum
+// A concrete instance of `DatasetResourceConfigurationComputeTypeInput` can be one of the following:
 //
-//	DatasetResourceConfigurationComputeTypeArgs{...}
+//	DatasetResourceConfigurationComputeTypeAcu1
+//	DatasetResourceConfigurationComputeTypeAcu2
 type DatasetResourceConfigurationComputeTypeInput interface {
 	pulumi.Input
 

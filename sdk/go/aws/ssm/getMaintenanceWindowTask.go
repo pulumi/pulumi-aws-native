@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SSM::MaintenanceWindowTask
@@ -76,12 +75,6 @@ func (o LookupMaintenanceWindowTaskResultOutput) ToLookupMaintenanceWindowTaskRe
 
 func (o LookupMaintenanceWindowTaskResultOutput) ToLookupMaintenanceWindowTaskResultOutputWithContext(ctx context.Context) LookupMaintenanceWindowTaskResultOutput {
 	return o
-}
-
-func (o LookupMaintenanceWindowTaskResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMaintenanceWindowTaskResult] {
-	return pulumix.Output[LookupMaintenanceWindowTaskResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupMaintenanceWindowTaskResultOutput) CutoffBehavior() pulumi.StringPtrOutput {

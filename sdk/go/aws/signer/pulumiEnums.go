@@ -78,12 +78,6 @@ func (o SigningProfilePlatformIdOutput) ToSigningProfilePlatformIdPtrOutputWithC
 	}).(SigningProfilePlatformIdPtrOutput)
 }
 
-func (o SigningProfilePlatformIdOutput) ToOutput(ctx context.Context) pulumix.Output[SigningProfilePlatformId] {
-	return pulumix.Output[SigningProfilePlatformId]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SigningProfilePlatformIdOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -119,12 +113,6 @@ func (o SigningProfilePlatformIdPtrOutput) ToSigningProfilePlatformIdPtrOutputWi
 	return o
 }
 
-func (o SigningProfilePlatformIdPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SigningProfilePlatformId] {
-	return pulumix.Output[*SigningProfilePlatformId]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SigningProfilePlatformIdPtrOutput) Elem() SigningProfilePlatformIdOutput {
 	return o.ApplyT(func(v *SigningProfilePlatformId) SigningProfilePlatformId {
 		if v != nil {
@@ -149,10 +137,11 @@ func (o SigningProfilePlatformIdPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// SigningProfilePlatformIdInput is an input type that accepts SigningProfilePlatformIdArgs and SigningProfilePlatformIdOutput values.
-// You can construct a concrete instance of `SigningProfilePlatformIdInput` via:
+// SigningProfilePlatformIdInput is an input type that accepts values of the SigningProfilePlatformId enum
+// A concrete instance of `SigningProfilePlatformIdInput` can be one of the following:
 //
-//	SigningProfilePlatformIdArgs{...}
+//	SigningProfilePlatformIdAwsLambdaSha384ecdsa
+//	SigningProfilePlatformIdNotationOcisha384ecdsa
 type SigningProfilePlatformIdInput interface {
 	pulumi.Input
 
@@ -261,12 +250,6 @@ func (o SigningProfileSignatureValidityPeriodTypeOutput) ToSigningProfileSignatu
 	}).(SigningProfileSignatureValidityPeriodTypePtrOutput)
 }
 
-func (o SigningProfileSignatureValidityPeriodTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SigningProfileSignatureValidityPeriodType] {
-	return pulumix.Output[SigningProfileSignatureValidityPeriodType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SigningProfileSignatureValidityPeriodTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -302,12 +285,6 @@ func (o SigningProfileSignatureValidityPeriodTypePtrOutput) ToSigningProfileSign
 	return o
 }
 
-func (o SigningProfileSignatureValidityPeriodTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SigningProfileSignatureValidityPeriodType] {
-	return pulumix.Output[*SigningProfileSignatureValidityPeriodType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SigningProfileSignatureValidityPeriodTypePtrOutput) Elem() SigningProfileSignatureValidityPeriodTypeOutput {
 	return o.ApplyT(func(v *SigningProfileSignatureValidityPeriodType) SigningProfileSignatureValidityPeriodType {
 		if v != nil {
@@ -332,10 +309,12 @@ func (o SigningProfileSignatureValidityPeriodTypePtrOutput) ToStringPtrOutputWit
 	}).(pulumi.StringPtrOutput)
 }
 
-// SigningProfileSignatureValidityPeriodTypeInput is an input type that accepts SigningProfileSignatureValidityPeriodTypeArgs and SigningProfileSignatureValidityPeriodTypeOutput values.
-// You can construct a concrete instance of `SigningProfileSignatureValidityPeriodTypeInput` via:
+// SigningProfileSignatureValidityPeriodTypeInput is an input type that accepts values of the SigningProfileSignatureValidityPeriodType enum
+// A concrete instance of `SigningProfileSignatureValidityPeriodTypeInput` can be one of the following:
 //
-//	SigningProfileSignatureValidityPeriodTypeArgs{...}
+//	SigningProfileSignatureValidityPeriodTypeDays
+//	SigningProfileSignatureValidityPeriodTypeMonths
+//	SigningProfileSignatureValidityPeriodTypeYears
 type SigningProfileSignatureValidityPeriodTypeInput interface {
 	pulumi.Input
 

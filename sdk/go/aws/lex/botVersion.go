@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
@@ -108,12 +107,6 @@ func (i *BotVersion) ToBotVersionOutputWithContext(ctx context.Context) BotVersi
 	return pulumi.ToOutputWithContext(ctx, i).(BotVersionOutput)
 }
 
-func (i *BotVersion) ToOutput(ctx context.Context) pulumix.Output[*BotVersion] {
-	return pulumix.Output[*BotVersion]{
-		OutputState: i.ToBotVersionOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BotVersionOutput struct{ *pulumi.OutputState }
 
 func (BotVersionOutput) ElementType() reflect.Type {
@@ -126,12 +119,6 @@ func (o BotVersionOutput) ToBotVersionOutput() BotVersionOutput {
 
 func (o BotVersionOutput) ToBotVersionOutputWithContext(ctx context.Context) BotVersionOutput {
 	return o
-}
-
-func (o BotVersionOutput) ToOutput(ctx context.Context) pulumix.Output[*BotVersion] {
-	return pulumix.Output[*BotVersion]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BotVersionOutput) BotId() pulumi.StringOutput {

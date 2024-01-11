@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::SageMaker::Space
@@ -122,12 +121,6 @@ func (i *Space) ToSpaceOutputWithContext(ctx context.Context) SpaceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpaceOutput)
 }
 
-func (i *Space) ToOutput(ctx context.Context) pulumix.Output[*Space] {
-	return pulumix.Output[*Space]{
-		OutputState: i.ToSpaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SpaceOutput struct{ *pulumi.OutputState }
 
 func (SpaceOutput) ElementType() reflect.Type {
@@ -140,12 +133,6 @@ func (o SpaceOutput) ToSpaceOutput() SpaceOutput {
 
 func (o SpaceOutput) ToSpaceOutputWithContext(ctx context.Context) SpaceOutput {
 	return o
-}
-
-func (o SpaceOutput) ToOutput(ctx context.Context) pulumix.Output[*Space] {
-	return pulumix.Output[*Space]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the associated Domain.

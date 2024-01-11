@@ -79,12 +79,6 @@ func (o SourceApiAssociationConfigMergeTypeOutput) ToSourceApiAssociationConfigM
 	}).(SourceApiAssociationConfigMergeTypePtrOutput)
 }
 
-func (o SourceApiAssociationConfigMergeTypeOutput) ToOutput(ctx context.Context) pulumix.Output[SourceApiAssociationConfigMergeType] {
-	return pulumix.Output[SourceApiAssociationConfigMergeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SourceApiAssociationConfigMergeTypeOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -120,12 +114,6 @@ func (o SourceApiAssociationConfigMergeTypePtrOutput) ToSourceApiAssociationConf
 	return o
 }
 
-func (o SourceApiAssociationConfigMergeTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SourceApiAssociationConfigMergeType] {
-	return pulumix.Output[*SourceApiAssociationConfigMergeType]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SourceApiAssociationConfigMergeTypePtrOutput) Elem() SourceApiAssociationConfigMergeTypeOutput {
 	return o.ApplyT(func(v *SourceApiAssociationConfigMergeType) SourceApiAssociationConfigMergeType {
 		if v != nil {
@@ -150,10 +138,11 @@ func (o SourceApiAssociationConfigMergeTypePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// SourceApiAssociationConfigMergeTypeInput is an input type that accepts SourceApiAssociationConfigMergeTypeArgs and SourceApiAssociationConfigMergeTypeOutput values.
-// You can construct a concrete instance of `SourceApiAssociationConfigMergeTypeInput` via:
+// SourceApiAssociationConfigMergeTypeInput is an input type that accepts values of the SourceApiAssociationConfigMergeType enum
+// A concrete instance of `SourceApiAssociationConfigMergeTypeInput` can be one of the following:
 //
-//	SourceApiAssociationConfigMergeTypeArgs{...}
+//	SourceApiAssociationConfigMergeTypeAutoMerge
+//	SourceApiAssociationConfigMergeTypeManualMerge
 type SourceApiAssociationConfigMergeTypeInput interface {
 	pulumi.Input
 
@@ -232,12 +221,6 @@ func (o SourceApiAssociationStatusOutput) ToSourceApiAssociationStatusPtrOutputW
 	}).(SourceApiAssociationStatusPtrOutput)
 }
 
-func (o SourceApiAssociationStatusOutput) ToOutput(ctx context.Context) pulumix.Output[SourceApiAssociationStatus] {
-	return pulumix.Output[SourceApiAssociationStatus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SourceApiAssociationStatusOutput) ToStringOutput() pulumi.StringOutput {
 	return o.ToStringOutputWithContext(context.Background())
 }
@@ -271,12 +254,6 @@ func (o SourceApiAssociationStatusPtrOutput) ToSourceApiAssociationStatusPtrOutp
 
 func (o SourceApiAssociationStatusPtrOutput) ToSourceApiAssociationStatusPtrOutputWithContext(ctx context.Context) SourceApiAssociationStatusPtrOutput {
 	return o
-}
-
-func (o SourceApiAssociationStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SourceApiAssociationStatus] {
-	return pulumix.Output[*SourceApiAssociationStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SourceApiAssociationStatusPtrOutput) Elem() SourceApiAssociationStatusOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The AWS::NetworkManager::GlobalNetwork type specifies a global network of the user's account
@@ -77,12 +76,6 @@ func (o LookupGlobalNetworkResultOutput) ToLookupGlobalNetworkResultOutput() Loo
 
 func (o LookupGlobalNetworkResultOutput) ToLookupGlobalNetworkResultOutputWithContext(ctx context.Context) LookupGlobalNetworkResultOutput {
 	return o
-}
-
-func (o LookupGlobalNetworkResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGlobalNetworkResult] {
-	return pulumix.Output[LookupGlobalNetworkResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the global network.

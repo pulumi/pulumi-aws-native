@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type definition for AWS::EC2::SpotFleet
@@ -65,12 +64,6 @@ func (o LookupSpotFleetResultOutput) ToLookupSpotFleetResultOutput() LookupSpotF
 
 func (o LookupSpotFleetResultOutput) ToLookupSpotFleetResultOutputWithContext(ctx context.Context) LookupSpotFleetResultOutput {
 	return o
-}
-
-func (o LookupSpotFleetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSpotFleetResult] {
-	return pulumix.Output[LookupSpotFleetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupSpotFleetResultOutput) Id() pulumi.StringPtrOutput {

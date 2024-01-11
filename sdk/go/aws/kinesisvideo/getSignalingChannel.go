@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Resource Type Definition for AWS::KinesisVideo::SignalingChannel
@@ -73,12 +72,6 @@ func (o LookupSignalingChannelResultOutput) ToLookupSignalingChannelResultOutput
 
 func (o LookupSignalingChannelResultOutput) ToLookupSignalingChannelResultOutputWithContext(ctx context.Context) LookupSignalingChannelResultOutput {
 	return o
-}
-
-func (o LookupSignalingChannelResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSignalingChannelResult] {
-	return pulumix.Output[LookupSignalingChannelResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Amazon Resource Name (ARN) of the Kinesis Video Signaling Channel.

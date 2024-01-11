@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Definition of AWS::RedshiftServerless::Namespace Resource Type
@@ -159,12 +158,6 @@ func (i *Namespace) ToNamespaceOutputWithContext(ctx context.Context) NamespaceO
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceOutput)
 }
 
-func (i *Namespace) ToOutput(ctx context.Context) pulumix.Output[*Namespace] {
-	return pulumix.Output[*Namespace]{
-		OutputState: i.ToNamespaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NamespaceOutput struct{ *pulumi.OutputState }
 
 func (NamespaceOutput) ElementType() reflect.Type {
@@ -177,12 +170,6 @@ func (o NamespaceOutput) ToNamespaceOutput() NamespaceOutput {
 
 func (o NamespaceOutput) ToNamespaceOutputWithContext(ctx context.Context) NamespaceOutput {
 	return o
-}
-
-func (o NamespaceOutput) ToOutput(ctx context.Context) pulumix.Output[*Namespace] {
-	return pulumix.Output[*Namespace]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The password associated with the admin user for the namespace that is being created. Password must be at least 8 characters in length, should be any printable ASCII character. Must contain at least one lowercase letter, one uppercase letter and one decimal digit.
