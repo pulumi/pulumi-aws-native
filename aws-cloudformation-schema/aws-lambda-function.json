@@ -20,7 +20,7 @@
       "permissions" : [ "lambda:ListFunctions" ]
     },
     "delete" : {
-      "permissions" : [ "lambda:DeleteFunction", "ec2:DescribeNetworkInterfaces" ]
+      "permissions" : [ "lambda:DeleteFunction", "lambda:GetFunction", "ec2:DescribeNetworkInterfaces" ]
     }
   },
   "typeName" : "AWS::Lambda::Function",
