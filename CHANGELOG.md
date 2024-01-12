@@ -1,5 +1,36 @@
 ## Unreleased
 
+## 0.93.0 (2024-01-12)
+
+### Breaking Changes
+
+#### Resources
+- `🟢` "aws-native:ec2:SubnetCidrBlock": required: "ipv6CidrBlock" property is no longer Required
+- `🟢` "aws-native:guardduty:IpSet": required: "name" property is no longer Required
+- `🟢` "aws-native:guardduty:ThreatIntelSet": required: "name" property is no longer Required
+- "aws-native:quicksight:Analysis": required:
+    - `🟢` "errors" property is no longer Required
+    - `🟢` "sheets" property is no longer Required
+- `🟢` "aws-native:verifiedpermissions:Policy": required inputs: "policyStoreId" input has changed to Required
+#### Types
+- `🟢` "aws-native:imagebuilder:LifecyclePolicyRecipeSelection": required: "semanticVersion" property has changed to Required
+- `🟡` "aws-native:quicksight:AnalysisResourcePermission": properties: "resource" missing
+- `🟡` "aws-native:quicksight:DashboardResourcePermission": properties: "resource" missing
+- `🟡` "aws-native:quicksight:TemplateResourcePermission": properties: "resource" missing
+- `🟡` "aws-native:quicksight:ThemeResourcePermission": properties: "resource" missing
+
+#### New resources:
+
+- `ec2.Instance`
+- `ec2.SecurityGroup`
+- `ssm.PatchBaseline`
+
+#### New functions:
+
+- `ec2.getInstance`
+- `ec2.getSecurityGroup`
+- `ssm.getPatchBaseline`
+  
 ## 0.92.0 (2023-12-29)
 
 ### Breaking Changes
